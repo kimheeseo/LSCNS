@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 통합 광섬유 데이터 분석 파이프라인 (One-File Edition)
-작성자: 김희서 연구원
+작성자: ###
 목적: 산재된 스크립트(resin/zero/group/final/type/analyzer)를 하나로 통합하여
      단일 파일에서 일괄 실행/부분 실행이 가능하도록 구성
 
@@ -924,4 +924,5 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

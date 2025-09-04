@@ -1,0 +1,139 @@
+안녕하십니까? 통신연구소 소속 김희서 연구원입니다.
+광섬유 특성 분석을 효율적으로 진행하기 위해 통합 파이프라인을 실행합니다.
+[log] 화면+파일 동시 기록: logs\run_20250904_131011.txt
+=== 파이썬 실행 파일: C:\Users\A00220250058\AppData\Local\anaconda3\python.exe
+=== 작업 디렉터리: C:\Users\A00220250058\Desktop
+=== 실행을 시작합니다.
+
+[1/8] resin 시작 | 레진/접두어 분석 및 폴더 구성 (ab.xlsx) | 2025-09-04 13:10:11
+----------------------------------------------------------------------------------------------------
+[resin] ab.xlsx 레진/접두어 분석 및 폴더 구성
+[resin] 레진 타입: V,W
+[resin] V: 248개
+[resin] W: 899개
+[resin] 조회된 접두어: 20M,AJF,L0E,L0M,S0E,W00,W0J,W0Z,Z0M
+[resin] 20M: draw_no 173개
+[resin] AJF: draw_no 1개
+[resin] L0E: draw_no 428개
+[resin] L0M: draw_no 3개
+[resin] S0E: draw_no 167개
+[resin] W00: draw_no 67개
+[resin] W0J: draw_no 301개
+[resin] W0Z: draw_no 2개
+[resin] Z0M: draw_no 5개
+----------------------------------------------------------------------------------------------------
+[1/8] resin 종료 | 성공 | 소요 2.21s
+
+[2/8] zero 시작 | 0 → 빈칸 정리 (alls.xlsx → alls_cleaned.xlsx) | 2025-09-04 13:10:13
+----------------------------------------------------------------------------------------------------
+[zero] 0 → 빈칸(None) 변환
+[zero] 완료 → C:\Users\A00220250058\Desktop\alls_cleaned.xlsx
+----------------------------------------------------------------------------------------------------
+[2/8] zero 종료 | 성공 | 소요 100.72s
+
+[3/8] group 시작 | 3/4열 기반 그룹 저장 + 평균행 추가 | 2025-09-04 13:11:54
+----------------------------------------------------------------------------------------------------
+[group] 3/4열 기반 그룹 저장 + 평균행 추가
+[group] 20M: 573개 파일 저장
+[group] A0L: 211개 파일 저장
+[group] AJB: 19개 파일 저장
+[group] AJF: 144개 파일 저장
+[group] AJW: 45개 파일 저장
+[group] L0E: 439개 파일 저장
+[group] L0M: 436개 파일 저장
+[group] S0E: 1044개 파일 저장
+[group] S0M: 193개 파일 저장
+[group] W00: 55개 파일 저장
+[group] W0J: 266개 파일 저장
+[group] W0Z: 2개 파일 저장
+[group] Z0L: 35개 파일 저장
+[group] Z0M: 300개 파일 저장
+----------------------------------------------------------------------------------------------------
+[3/8] group 종료 | 성공 | 소요 375.31s
+
+[4/8] collect-avg 시작 | 접두어별 평균행 통합 파일 생성 (<코드>.xlsx) | 2025-09-04 13:18:09
+----------------------------------------------------------------------------------------------------
+[collect-avg] 접두어별 평균행 취합
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\20M\20M.xlsx (총 573행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\A0L\A0L.xlsx (총 211행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\AJB\AJB.xlsx (총 19행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\AJF\AJF.xlsx (총 144행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\AJW\AJW.xlsx (총 45행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\L0E\L0E.xlsx (총 439행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\L0M\L0M.xlsx (총 436행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\S0E\S0E.xlsx (총 1044행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\S0M\S0M.xlsx (총 193행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\W00\W00.xlsx (총 55행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\W0J\W0J.xlsx (총 266행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\W0Z\W0Z.xlsx (총 2행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\Z0L\Z0L.xlsx (총 35행)
+[collect-avg][저장] C:\Users\A00220250058\Desktop\grouped_by_col4\Z0M\Z0M.xlsx (총 300행)
+----------------------------------------------------------------------------------------------------
+[4/8] collect-avg 종료 | 성공 | 소요 98.06s
+
+[5/8] copy-42 시작 | 추가 보정: 4번째 열 → 2번째 열 복사(문자열) | 2025-09-04 13:19:47
+----------------------------------------------------------------------------------------------------
+[copy-42] 접두어 통합파일에서 4번째 열 → 2번째 열(문자열) 복사
+[copy-42][완료] grouped_by_col4\20M\20M.xlsx
+[copy-42][완료] grouped_by_col4\A0L\A0L.xlsx
+[copy-42][완료] grouped_by_col4\AJB\AJB.xlsx
+[copy-42][완료] grouped_by_col4\AJF\AJF.xlsx
+[copy-42][완료] grouped_by_col4\AJW\AJW.xlsx
+[copy-42][완료] grouped_by_col4\L0E\L0E.xlsx
+[copy-42][완료] grouped_by_col4\L0M\L0M.xlsx
+[copy-42][완료] grouped_by_col4\S0E\S0E.xlsx
+[copy-42][완료] grouped_by_col4\S0M\S0M.xlsx
+[copy-42][완료] grouped_by_col4\W00\W00.xlsx
+[copy-42][완료] grouped_by_col4\W0J\W0J.xlsx
+[copy-42][완료] grouped_by_col4\W0Z\W0Z.xlsx
+[copy-42][완료] grouped_by_col4\Z0L\Z0L.xlsx
+[copy-42][완료] grouped_by_col4\Z0M\Z0M.xlsx
+----------------------------------------------------------------------------------------------------
+[5/8] copy-42 종료 | 성공 | 소요 6.51s
+
+[6/8] types 시작 | 타입/제조사 보유 요약 출력 | 2025-09-04 13:19:54
+----------------------------------------------------------------------------------------------------
+[types] 타입/제조사 보유 요약
+[types] 현재 보유 폴더 코드: 20M, A0L, AJB, AJF, AJW, L0E, L0M, S0E, S0M, W00, W0J, W0Z, Z0L, Z0M
+[types] 타입 LWPF(90): SEC=W00, W0J / Sumitomo=20M 보유
+[types] 타입 LWPF(150): SEC=L0E / Sumitomo=L0M 보유
+[types] 타입 LWPF(180): SEC=S0E / Sumitomo=S0M 보유
+[types] 타입 A1(90): Sumitomo=Z0M 보유
+[types] 타입 A1(150): Sumitomo=Z0L 보유
+[types] 타입 A2(90): SEC=AJW, AJF, AJB 보유
+[types] 기타: A0L, W0Z
+----------------------------------------------------------------------------------------------------
+[6/8] types 종료 | 성공 | 소요 0.01s
+
+[7/8] reports 시작 | 하위 폴더별 *_final_result_report.xlsx 생성 | 2025-09-04 13:19:54
+----------------------------------------------------------------------------------------------------
+[reports] 하위 폴더별 *_final_result_report.xlsx 생성
+[report]✅ 저장: grouped_by_col4\20M\20M_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\A0L\A0L_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\AJB\AJB_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\AJF\AJF_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\AJW\AJW_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\L0E\L0E_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\L0M\L0M_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\S0E\S0E_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\S0M\S0M_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\W00\W00_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\W0J\W0J_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\W0Z\W0Z_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\Z0L\Z0L_final_result_report.xlsx
+[report]✅ 저장: grouped_by_col4\Z0M\Z0M_final_result_report.xlsx
+----------------------------------------------------------------------------------------------------
+[7/8] reports 종료 | 성공 | 소요 22.49s
+
+[8/8] collect-total 시작 | 모든 리포트 통합 (total_final_result.xlsx) | 2025-09-04 13:20:16
+----------------------------------------------------------------------------------------------------
+[collect-total] 전체 통합 파일 생성
+[collect-total]📦 저장: grouped_by_col4\total_final_result.xlsx
+[collect-total] 통합모드 엑셀파일 작성완료
+----------------------------------------------------------------------------------------------------
+[8/8] collect-total 종료 | 성공 | 소요 3.94s
+
+=== 실행 요약 ===
+- 총 스텝: 8
+- 성공: 8
+- 실패: 0

@@ -6,9 +6,9 @@ from pathlib import Path
 from datetime import datetime
 import time
 
-print("안녕하십니까? 통신연구소 소속 김희서 연구원입니다.")
+print("안녕하십니까? ###입니다.")
 print("광섬유 특성 분석을 효율적으로 진행하기 위해서 초간단 프리폼 데이터값정리 툴을 만들었습니다.")
-print("문의사항 있을 경우 hkim17@lscns.com으로 연락주시길 바랍니다.")
+print("문의사항 있을 경우 ###으로 연락주시길 바랍니다.")
 print(" ")
 print(" ")
 
@@ -153,3 +153,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

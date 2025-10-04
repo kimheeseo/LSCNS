@@ -103,3 +103,4 @@ def run_auto_analyzer(root_folder):
 
         except Exception as e:
             print(f"⚠️ 오류 발생 ({subfolder}): {e}")
+

@@ -16,7 +16,8 @@
 예: 계산식, 경로, 생성 파일, 로그 문구, 스텝 구성 등 new_main.py만 수정하면 됩니다.
 
 배포 형태별로:
-스크립트 방식(파이썬으로 실행): new_main.py만 교체하면 끝. EXE 방식: exe 안에 new_main이 포함되어 있으므로, 다시 빌드 필요.
+스크립트 방식(파이썬으로 실행): new_main.py만 교체하면 끝.
+- EXE 방식: exe 안에 new_main이 포함되어 있으므로, 다시 빌드 필요.
 
 - 빌드 명령(권장): (exe파일 만들기)
 pyinstaller --clean --onefile --noconsole ^

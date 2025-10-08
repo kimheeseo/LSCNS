@@ -20,6 +20,7 @@
 - EXE 방식: exe 안에 new_main이 포함되어 있으므로, 다시 빌드 필요.
 
 - 빌드 명령(권장): (exe파일 만들기)
+
 pyinstaller --clean --onefile --noconsole ^
   --name FiberAnalyzerRunner ^
   --hidden-import new_main ^

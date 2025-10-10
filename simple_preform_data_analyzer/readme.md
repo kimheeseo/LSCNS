@@ -3,3 +3,6 @@
 2) new_main2.py: 수정 버전(2025.10.04)
 3) new_main3.py: 수정 버전(2025.10.10)
 - print("ab.xlsx파일 - Draw 공정실적 조회 값, alls.xlsx파일 - 측정 실적 조회 값") 추가
+4) app2.py: 수정 버전(2025.10.10)
+- ttk.Label(row_ab, text="ab.xlsx 파일 - Draw 공정 실적 조회 값").pack(side=tk.LEFT) 추가
+- ttk.Label(row_alls, text="alls.xlsx 파일 - 측정 실적 조회 값").pack(side=tk.LEFT) 추가

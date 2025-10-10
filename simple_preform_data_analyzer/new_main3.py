@@ -831,6 +831,7 @@ def run_steps(step_keys: Iterable[str], cfg: Config) -> int:
 
     print("안녕하십니까? 통신연구소 소속 김희서 연구원입니다.")
     print("광섬유 특성 분석을 효율적으로 진행하기 위해 통합 파이프라인을 실행합니다.")
+    print("ab.xlsx파일 - Draw 공정실적 조회 값, alls.xlsx파일 - 측정 실적 조회 값")
     print(f"[log] 화면+파일 동시 기록: {logger.log_path}")
     print(f"=== 파이썬 실행 파일: {sys.executable}")
     print(f"=== 작업 디렉터리: {Path(__file__).resolve().parent}")

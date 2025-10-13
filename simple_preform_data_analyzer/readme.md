@@ -6,3 +6,5 @@
 4) app2.py: 수정 버전(2025.10.10)
 - ttk.Label(row_ab, text="ab.xlsx 파일 - Draw 공정 실적 조회 값").pack(side=tk.LEFT) 추가
 - ttk.Label(row_alls, text="alls.xlsx 파일 - 측정 실적 조회 값").pack(side=tk.LEFT) 추가
+5) new_main4.py: 수정 버전(2025.10.13)
+- cutoff 22m, cladding dia 이상점 출력 내용 추가

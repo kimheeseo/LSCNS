@@ -1,0 +1,50 @@
+clear; clc;
+
+%% 공통: Launch power 축 설정
+P_dBm = -10:1:10;
+P_W   = 1e-3 * 10.^(P_dBm/10);   % [W]
+
+%% 1. G.652.D 피팅 계수
+a_652 = 3.8502e-5;
+b_652 = 1.3064e-2;
+c_652 = 2.3427e3;
+
+SNR_lin_652 = P_W ./ (a_652 + b_652.*P_W + c_652.*P_W.^3);
+SNR_dB_652  = 10*log10(SNR_lin_652);
+
+% G.652.D 타깃 포인트 (사용자가 제시한 값 기준)
+P_ref_652   = [-10 -8 -6 3 10];
+SNR_ref_652 = [  4   6  8 13.8 6];
+
+%% 2. G.654.E 피팅 계수
+a_654 = 2.27165264e-05;
+b_654 = 1.53735850e-02;
+c_654 = 8.23544464e+02;
+
+SNR_lin_654 = P_W ./ (a_654 + b_654.*P_W + c_654.*P_W.^3);
+SNR_dB_654  = 10*log10(SNR_lin_654);
+
+% G.654.E 타깃 포인트
+P_ref_654   = [-10 -8 -6 0 4 10];
+SNR_ref_654 = [  6   8 10 14 15.3 10];
+
+%% 3. 한 그림에 모두 출력
+figure;
+hold on; grid on;
+
+% 곡선
+plot(P_dBm, SNR_dB_652, '-o', 'LineWidth', 2, 'DisplayName', 'G.652.D (fit)');
+plot(P_dBm, SNR_dB_654, '-s', 'LineWidth', 2, 'DisplayName', 'G.654.E (fit)');
+
+% 타깃 포인트
+plot(P_ref_652, SNR_ref_652, 'xr', 'MarkerSize', 10, 'LineWidth', 2, ...
+    'DisplayName', 'G.652.D target');
+plot(P_ref_654, SNR_ref_654, 'xk', 'MarkerSize', 10, 'LineWidth', 2, ...
+    'DisplayName', 'G.654.E target');
+
+xlabel('Launch power per channel [dBm]');
+ylabel('SNR_{tot} [dB]');
+title('G.652.D vs G.654.E - GN형 SNR_{tot} vs Launch Power');
+
+legend('Location', 'best');
+hold off;

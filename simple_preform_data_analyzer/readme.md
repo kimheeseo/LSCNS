@@ -4,3 +4,6 @@
 - pyinstaller --onefile --windowed --name lsexcelpreform app.py
 3. 파일 생성
 - dist/lsexcelpreform.exe
+
+youtube URL(How to start):
+- https://youtu.be/Gsl1WYRC1nI?si=XFRbgvzFufa7gd1c

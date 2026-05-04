@@ -1,10 +1,6 @@
-하나의 폴더로 수정
-1) new_main.py: grouped_by_col4 폴더 내 엑셀 내 중복 값 제거
-2) new_main2.py: 수정 버전(2025.10.04)
-3) new_main3.py: 수정 버전(2025.10.10)
-- print("ab.xlsx파일 - Draw 공정실적 조회 값, alls.xlsx파일 - 측정 실적 조회 값") 추가
-4) app2.py: 수정 버전(2025.10.10)
-- ttk.Label(row_ab, text="ab.xlsx 파일 - Draw 공정 실적 조회 값").pack(side=tk.LEFT) 추가
-- ttk.Label(row_alls, text="alls.xlsx 파일 - 측정 실적 조회 값").pack(side=tk.LEFT) 추가
-5) new_main4.py: 수정 버전(2025.10.13)
-- cutoff 22m, cladding dia 이상점 출력 내용 추가
+1. exe 파일 만드는 방법
+  - pip install openpyxl pyinstaller
+2. app.py가 있는 폴더에서
+  pyinstaller --onefile --windowed --name lsexcelpreform app.py
+3. 파일 생성
+  dist/lsexcelpreform.exe

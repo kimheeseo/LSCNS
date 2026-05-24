@@ -5,7 +5,7 @@
 
 2) Copper_Tube_Diameter_Prediction_Tool
 - Estimation of DA and HA copper tube inner diameters using a power-law regression model based on impact energy
-- 충격에너지(E = 0.5 * m * v²) 기반으로 DA 및 HA 동관 내경을 추정하는 Power-Law 회귀식 적용
+- 충격에너지 기반으로 DA 및 HA 동관 내경을 추정하는 Power-Law 회귀식 적용
 
 3) Impact_Energy_Based_Prediction_Model_for_Copper_Tube_Inner_Diameter
 - 앵커 질량과 충돌 속도로부터 계산된 충격에너지를 기반으로 DA 및 HA 동관 내경을 Power-Law 회귀모델로 추정하는 분석 코드.

@@ -14,3 +14,8 @@
 # 2.OSNR_Link_Budget
 - IIya Lyubomirsky, Inphi Corp.
 - 출처: https://www.ieee802.org/3/cn/public/18_11/lyubomirsky_3cn_01a_1118.pdf
+
+# 3. GSNR_Calculator_for_Subsea_Open_Cables
+- Signal Droop:
+  중계기가 많아질수록 각 증폭기의 출력이 제한되어 있기 때문에, 신호 전력이 점차 줄어들고 신호 품질이 예상보다 빠르게 저하됨.
+  As the number of repeaters increases, the limited output power of each amplifier causes the signal power to gradually decrease, resulting in faster-than-expected signal quality degradation.

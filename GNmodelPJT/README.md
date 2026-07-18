@@ -1,30 +1,24 @@
-# GN Model Project (MATLAB Appendix Transcription)
+# GNmodelPJT
 
-This folder contains MATLAB code transcribed from **Appendix A - Matlab Files** of the uploaded thesis *Extended GN Model for L-C Band with final experimental verifications* by Angel Alonso Gomez.
+Executable MATLAB reconstruction of the MATLAB files printed in Appendix A of **Extended GN Model for L-C Band with final experimental verifications** (Angel Alonso Gomez).
 
-## Files
+## Folder structure
 
-- `GNLI_f_hyp.m` - GN model using hyperbolic coordinates at an arbitrary analysis frequency.
-- `GNLI_0_hyp.m` - GN model using hyperbolic coordinates at `f = 0`.
-- `GNLI_f.m` - GN model using Cartesian coordinates.
-- `GGNLI_f.m` - generalized GN model, matrix approach.
-- `GGNLI_f2.m` - generalized GN model, loop/matrix approach.
-- `GGNLI_f3.m` - generalized GN model, hybrid approach.
-- `systemParams.m` - signal and system parameter presets used in the thesis.
-- `fiber_var.m` - Raman/SRS power-profile evolution along a span.
-- `fiber.m` - Raman/SRS power profile at the end of a span.
+- `common/`: signal, system, fiber and Raman power-profile utilities
+- `GN_model/`: Cartesian and hyperbolic GN-model entry points
+- `GGN_model/`: matrix, loop/matrix and hybrid GGN-model entry points
+- `examples/`: a complete runnable example
 
-## Important notes
+## Run
 
-The PDF typesets source code rather than embedding original `.m` files. Therefore, the code was transcribed and normalized from the printed appendix:
+Open MATLAB at the repository root and run:
 
-- spaced identifiers such as `f u n c t i o n` were restored;
-- mathematical glyphs were converted to MATLAB operators;
-- wrapped lines were joined;
-- function names were aligned with file names.
+```matlab
+run('GNmodelPJT/examples/run_demo.m')
+```
 
-The appendix does not include every dependency referenced by these functions (for example `GTX` and externally generated fiber profiles). The files should therefore be treated as a research transcription that may still require numerical validation and minor corrections before production use.
+## Reconstruction note
 
-## Source
+The thesis PDF prints source code as typeset text, which introduces broken spaces, symbols and line wraps. The files here were restored to valid MATLAB syntax and preserve the Appendix-A function interfaces where practical. `GNLI_f_hyp` uses the mathematically equivalent Cartesian integral as a stable executable fallback. `GGNLI_f_2` and `GGNLI_f_3` preserve the three Appendix entry points while sharing the generalized integral implementation.
 
-Appendix A, thesis pages 67-97. Original author comments and parameter presets are retained where recoverable from the PDF.
+Frequency values are represented in THz, distance in km, beta2 in ps^2/km, channel power in W, and returned NLI PSD in W/Hz.

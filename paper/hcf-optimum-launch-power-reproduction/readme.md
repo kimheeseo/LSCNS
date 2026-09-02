@@ -29,6 +29,13 @@
 | Fig. 2 | [dnanf_fig2_hcf_colab.ipynb](./dnanf_fig2_hcf_colab.ipynb) · [Open in Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/paper/hcf-optimum-launch-power-reproduction/dnanf_fig2_hcf_colab.ipynb) | ASE, closed-form GN 비선형 간섭, IMI 및 트랜시버 잡음을 계산하여 1×200 km C-band HCF의 launch power별 throughput을 재현합니다. |
 | Fig. 3(b) | [dnanf_fig3b_hcf_colab.ipynb](./dnanf_fig3b_hcf_colab.ipynb) · [Open in Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/paper/hcf-optimum-launch-power-reproduction/dnanf_fig3b_hcf_colab.ipynb) | Fig. 2 처리량 모델에 증폭기 PCE와 채널당 24 W 트랜시버 전력을 결합하여 energy per bit와 throughput의 관계 및 최적 운용점을 계산합니다. |
 
+## Validation Notebooks
+
+| Validation | Notebook | 1줄 설명 |
+|---|---|---|
+| Fig. 2 HCF/SMF/G.654 comparison | [fig2_hcf_smf_g654e_validation_colab.ipynb](./fig2_hcf_smf_g654e_validation_colab.ipynb) · [Open in Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/paper/hcf-optimum-launch-power-reproduction/fig2_hcf_smf_g654e_validation_colab.ipynb) | 논문 Fig. 2의 HCF·SMF 벡터 곡선과 본 GN 계산을 정량 비교하고, Corning SMF-28 ULL 및 Lightera TeraWave SCUBA125 입력으로 200 km C-band 시나리오를 계산합니다. |
+| GN simulation/experiment cross-validation | [gn_model_capacity_simulation_experiment_validation_colab.ipynb](./gn_model_capacity_simulation_experiment_validation_colab.ipynb) · [Open in Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/paper/hcf-optimum-launch-power-reproduction/gn_model_capacity_simulation_experiment_validation_colab.ipynb) | 독립 GN 시뮬레이션 곡선 및 Nespola *et al.*의 7종 파이버 PM-16QAM 실험과 비교하여 처리량, 최대 도달거리 및 최적 채널 출력을 검증합니다. |
+
 ## Notes
 
 - 각 노트북은 Google Colab에서 독립적으로 실행할 수 있습니다.

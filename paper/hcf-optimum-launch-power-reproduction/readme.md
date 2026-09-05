@@ -9,6 +9,12 @@
 
 이 디렉터리는 논문의 **Fig. 1, Fig. 2 및 Fig. 3(b)**를 Python/Google Colab으로 재현한 결과를 정리합니다. 그래프 좌표를 단순 입력하는 방식이 아니라, 논문에 제시된 광섬유 및 전송 시스템 파라미터를 기반으로 계산합니다.
 
+## 성능 검증용 논문
+1. GN model: Modeling of the Impact of Nonlinear Propagation Effects in Uncompensated Optical Coherent Transmission Links
+- https://ieeexplore.ieee.org/document/6158564
+
+2. GN model: GN-Model Validation over Seven Fiber Types in Uncompensated PM-16QAM Nyquist-WDM Links
+
 ## 논문 3줄 요약
 
 1. 본 논문은 코히어런트 HCF 전송 시스템에서 최대 처리량 운용점과 최소 비트당 에너지 운용점이 서로 크게 달라질 수 있음을 분석합니다.

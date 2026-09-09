@@ -1,436 +1,945 @@
-"""G.654.E GN report: one main entry point; all launch powers are total DP power.
-Source model: kimheeseo/LSCNS dnanf_fig2_hcf_colab.ipynb (retrieved 2026-09-08).
-Change only USER_INPUTS. Fiber and source-system parameters are immutable.
+"""Reusable GN-model engine and validation CLI.
+
+This file is a reusable version of the attached G.654.E notebook/report code.
+It keeps the same closed-form GN approximation and the same default conditions,
+but removes the notebook-only fixed input block and the image-specific fitting.
+
+Default conventions:
+  - launch power is total dual-polarization channel power
+  - GN coefficient is 8/27
+  - NLI accumulation is incoherent and proportional to span count
+  - ASE bandwidth is the symbol rate, matching the attached code
+  - one loss-compensating EDFA is used per span
+
+The 8/27 coefficient is not silently changed. If another implementation uses
+4/27, 16/27, per-polarization power, or a different ASE bandwidth, pass those
+choices explicitly and record them in the returned metadata.
+
+Typical import:
+
+    from main import (
+        FiberParameters, SystemParameters, GNOptions,
+        simulate_snr_curve, validate_gn_model,
+    )
+
+    fiber = FiberParameters(
+        name="G.654.E",
+        attenuation_db_per_km=0.166,
+        effective_area_um2=125.0,
+        dispersion_ps_nm_km=21.0,
+        n2_m2_w=2.2e-20,
+    )
+    system = SystemParameters(
+        channels=90,
+        symbol_rate_gbd=95.0,
+        spacing_ghz=95.0,
+        span_length_km=80.0,
+        noise_figure_db=5.0,
+        transceiver_snr_db=18.0,
+    )
+    options = GNOptions(nli_coefficient=8/27, finite_effective_length=True)
+
+    result = validate_gn_model(
+        launch_dbm=[-10, -5, 0, 4, 8, 10],
+        spans=30,
+        fiber=fiber,
+        system=system,
+        options=options,
+        reference_snr_db=external_snr_db,
+    )
+    print(result["validation"]["metrics"])
+
+CLI:
+    python main.py --model finite --spans 1,10,30,50 --save-dir gn_results
+    python main.py --reference-csv other_model.csv --spans 30
+
+The reference CSV must contain launch_dbm and snr_db columns. If it contains
+spans, the selected span is used.
 """
 
-# ===================== 이 부분만 수정하세요 =====================
-USER_INPUTS = {
-    "task": "all",                   # all | snr | compare | point
-    "model": "gn_finite",            # gn_finite | legacy | calibrated
-    "spans": list(range(1, 51)),      # 계산할 span 수, 예: [10, 20, 30]
-    "launch_min_dbm": -10.0,
-    "launch_max_dbm": 10.0,
-    "launch_step_db": 0.05,
-    "point_launch_dbm": 4.0,          # 단일 운용점의 채널당 DP 전력
-    "point_spans": 30,
-    "reference_spans_assumed": 30,    # 첨부 그림에 없는 조건: 비교를 위한 가정
-    "bandwidth_policy": "provisional", # provisional: 조건부 계산 | strict: 불일치 시 중지
-    "include_historical_diagnostic": False, # 이전 4.8 THz ×0.5 진단선 추가
-    "save_outputs": True,
-    "show_outputs": True,
-    "output_dir": "G654E_results",
-}
-# ================================================================
+from __future__ import annotations
 
-from dataclasses import dataclass, asdict
-from pathlib import Path
+import argparse
+import csv
 import json
 import platform
-import zipfile
+from dataclasses import asdict, dataclass, replace
+from pathlib import Path
+from typing import Any, Callable, Dict, Iterable, Mapping, Optional, Sequence, Tuple
+
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.optimize import least_squares
-import scipy
 
 try:
-    from IPython import get_ipython
-    from IPython.display import display, Markdown, FileLink, HTML
-    if get_ipython() is not None:
-        get_ipython().run_line_magic("matplotlib", "inline")
-except ImportError:
-    display = Markdown = FileLink = None
+    import pandas as pd
+except ImportError:  # pandas is optional for library use
+    pd = None
+
+
+# ---------------------------------------------------------------------------
+# Input models
+# ---------------------------------------------------------------------------
 
 
 @dataclass(frozen=True)
-class FiberFixed:
+class FiberParameters:
+    """Fiber parameters.
+
+    alpha_power_per_km, beta2_s2_per_km, and gamma_per_w_km are optional direct
+    overrides. When omitted, they are derived from the usual fiber inputs.
+    """
+
+    name: str = "G.654.E"
     wavelength_nm: float = 1550.0
-    attenuation_db_km: float = 0.166
+    attenuation_db_per_km: float = 0.166
     effective_area_um2: float = 125.0
     dispersion_ps_nm_km: float = 21.0
     n2_m2_w: float = 2.2e-20
+    alpha_power_per_km: Optional[float] = None
+    beta2_s2_per_km: Optional[float] = None
+    gamma_per_w_km: Optional[float] = None
 
 
 @dataclass(frozen=True)
-class SystemFixed:
+class SystemParameters:
+    """System and transceiver parameters.
+
+    The attached code uses symbol rate as the ASE noise bandwidth. That
+    behavior is retained by leaving ase_bandwidth_hz as None.
+    """
+
     channels: int = 90
     symbol_rate_gbd: float = 95.0
     spacing_ghz: float = 95.0
     span_length_km: float = 80.0
     noise_figure_db: float = 5.0
     transceiver_snr_db: float = 18.0
-    stated_gain_bandwidth_thz: float = 4.8
+    polarizations: int = 2
+    ase_bandwidth_hz: Optional[float] = None
+    stated_gain_bandwidth_thz: Optional[float] = 4.8
     qam_order_record_only: int = 64
     shannon_gap_db_record_only: float = 3.0
-    polarizations: int = 2
 
 
-FIBER = FiberFixed()
-SYSTEM = SystemFixed()
+@dataclass(frozen=True)
+class GNOptions:
+    """GN-model conventions.
+
+    nli_coefficient=8/27 is the default used in the attached code for total
+    dual-polarization channel power. The code does not infer a different
+    coefficient from polarizations, because that would hide a convention
+    mismatch during validation.
+    """
+
+    nli_coefficient: float = 8.0 / 27.0
+    finite_effective_length: bool = True
+    power_definition: str = "total_dp"
+    nli_channel_count: Optional[float] = None
+    model_name: str = "gn_finite"
+
+
 C0 = 299_792_458.0
 H_PLANCK = 6.626_070_15e-34
 DB_PER_NEPER_POWER = 10.0 / np.log(10.0)
-SOURCE_NOTEBOOK_URL = "https://github.com/kimheeseo/LSCNS/blob/main/paper/hcf-optimum-launch-power-reproduction/dnanf_fig2_hcf_colab.ipynb"
-SOURCE_NOTEBOOK_SHA256 = "d99239f33a9082f6d38f29a9c16596a9284c4bb3ff7818518b3f909e5c21d8c8"
-REFERENCE_IMAGE_SHA256 = "d23fa4e0c7c44246e25754f7be3315d8265243095a4ac7a94506bd0923e4d220"
-
-# 첨부된 파란 곡선을 픽셀 좌표로 읽은 값. 실측 원시 데이터가 아닙니다.
-# x: pixel 88 -> -10 dBm, 653 -> +10 dBm
-# y: pixel 80 -> 16 dB, 331 -> 2 dB; 파란 선의 열별 중앙값을 선형 보간.
-# 격자 0.1 dB는 이미지보다 촘촘하므로 201개 점은 독립 측정 201회가 아닙니다.
-REFERENCE_X_DBM = np.linspace(-10.0, 10.0, 201)
-REFERENCE_Y_DB = np.array([
-    6.043824701195, 6.155378486056, 6.219521912351, 6.335956175299, 6.442629482072, 6.500498007968, 6.683864541833, 6.734760956175,
-    6.824701195219, 6.948107569721, 7.026892430279, 7.135657370518, 7.265338645418, 7.326693227092, 7.441035856574, 7.532370517928,
-    7.605577689243, 7.691334661355, 7.824501992032, 7.894223107570, 7.996015936255, 8.107569721116, 8.167529880478, 8.329282868526,
-    8.380876494024, 8.470119521912, 8.566334661355, 8.645119521912, 8.804780876494, 8.858466135458, 8.937250996016, 9.043924302789,
-    9.111553784861, 9.201494023904, 9.308167330677, 9.362549800797, 9.485258964143, 9.587051792829, 9.669322709163, 9.757868525896,
-    9.836653386454, 9.920318725100, 9.994223107570, 10.086254980080, 10.171314741036, 10.258466135458, 10.363745019920, 10.443924302789,
-    10.505976095618, 10.601494023904, 10.680278884462, 10.761155378486, 10.862948207171, 10.944521912351, 11.007968127490, 11.074203187251,
-    11.180876494024, 11.231772908367, 11.310557768924, 11.408167330677, 11.509960159363, 11.546912350598, 11.625697211155, 11.731673306773,
-    11.777689243028, 11.844621513944, 11.953386454183, 12.011952191235, 12.073306772908, 12.149302788845, 12.228087649402, 12.290836653386,
-    12.357768924303, 12.408665338645, 12.541832669323, 12.594123505976, 12.664541832669, 12.723804780876, 12.812350597610, 12.881374501992,
-    12.904382470120, 12.955278884462, 13.089840637450, 13.127490039841, 13.163745019920, 13.242529880478, 13.321314741036, 13.393824701195,
-    13.423107569721, 13.490039840637, 13.566733067729, 13.629482071713, 13.679681274900, 13.705478087649, 13.784262948207, 13.880478087649,
-    13.908366533865, 13.936952191235, 13.987848605578, 14.047808764940, 14.131474103586, 14.140537848606, 14.187250996016, 14.243027888446,
-    14.298804780876, 14.333665338645, 14.395019920319, 14.438247011952, 14.468924302789, 14.521912350598, 14.549800796813, 14.577689243028,
-    14.644621513944, 14.689243027888, 14.745019920319, 14.745019920319, 14.800796812749, 14.815438247012, 14.828685258964, 14.889342629482,
-    14.940239043825, 14.963247011952, 14.996015936255, 14.996015936255, 15.023904382470, 15.023904382470, 15.050398406375, 15.079681274900,
-    15.079681274900, 15.135458167331, 15.135458167331, 15.137549800797, 15.188446215139, 15.191235059761, 15.191235059761, 15.191235059761,
-    15.191235059761, 15.191235059761, 15.191235059761, 15.191235059761, 15.219123505976, 15.191235059761, 15.191235059761, 15.191235059761,
-    15.141035856574, 15.107569721116, 15.095019920319, 15.079681274900, 15.079681274900, 15.053884462151, 15.030876494024, 15.023904382470,
-    14.996015936255, 14.961852589641, 14.856573705179, 14.828685258964, 14.809163346614, 14.800796812749, 14.745019920319, 14.689243027888,
-    14.689243027888, 14.582569721116, 14.531673306773, 14.466135458167, 14.393625498008, 14.298804780876, 14.244422310757, 14.187250996016,
-    14.075697211155, 14.047808764940, 13.929282868526, 13.876294820717, 13.774501992032, 13.637151394422, 13.570916334661, 13.462151394422,
-    13.367330677291, 13.265537848606, 13.159561752988, 13.089840637450, 12.932270916335, 12.849302788845, 12.724501992032, 12.571115537849,
-    12.424701195219, 12.329183266932, 12.166733067729, 12.067729083665, 11.922709163347, 11.790936254980, 11.684262948207, 11.517629482072,
-    11.364940239044, 11.224800796813, 11.059561752988, 10.903386454183, 10.765338645418, 10.660059760956, 10.458565737052, 10.324003984064,
-    10.171314741036,
-], dtype=float)
-REFERENCE_X_DBM.setflags(write=False)
-REFERENCE_Y_DB.setflags(write=False)
-_ALLOWED_INPUTS = frozenset({"task", "model", "spans", "launch_min_dbm", "launch_max_dbm",
-    "launch_step_db", "point_launch_dbm", "point_spans", "reference_spans_assumed",
-    "bandwidth_policy", "include_historical_diagnostic", "save_outputs", "show_outputs", "output_dir"})
-
-MODEL_NAMES = {
-    "legacy": "Previous GN (infinite effective length)",
-    "gn_finite": "GN with finite effective length",
-    "calibrated": "Reference-calibrated GN (empirical)",
-    "historical_diagnostic": "Historical 4.8 THz x0.5 diagnostic",
-}
-MODEL_COLORS = {"legacy": "#D55E00", "gn_finite": "#6B7280",
-                "calibrated": "#009E73", "historical_diagnostic": "#CC79A7"}
 
 
-def _validate(user_inputs):
-    allowed = _ALLOWED_INPUTS
-    unknown = set(user_inputs) - allowed
-    if unknown:
-        raise ValueError(f"지원하지 않는 입력 또는 고정값 변경: {sorted(unknown)}")
-    cfg = {**USER_INPUTS, **user_inputs}
-    if asdict(FIBER) != asdict(FiberFixed()) or asdict(SYSTEM) != asdict(SystemFixed()):
-        raise ValueError("고정 조건이 변경되었습니다. 원래 G.654.E/시스템 조건을 복구하세요.")
-    if cfg["task"] not in {"all", "snr", "compare", "point"}:
-        raise ValueError("task: all, snr, compare, point 중 하나를 입력하세요.")
-    if cfg["model"] not in {"legacy", "gn_finite", "calibrated"}:
-        raise ValueError("model: legacy, gn_finite, calibrated 중 하나를 입력하세요.")
-    if cfg["bandwidth_policy"] not in {"provisional", "strict"}:
-        raise ValueError("bandwidth_policy: provisional 또는 strict")
-    vals = list(cfg["spans"])
-    for name, value in [("spans", v) for v in vals] + [
-        ("point_spans", cfg["point_spans"]),
-        ("reference_spans_assumed", cfg["reference_spans_assumed"])]:
-        if isinstance(value, bool) or not isinstance(value, (int, np.integer)) or not 1 <= value <= 50:
-            raise ValueError(f"{name}: 원 조건 범위인 1~50의 정수만 입력하세요.")
-    if not vals:
-        raise ValueError("spans를 하나 이상 입력하세요.")
-    cfg["spans"] = sorted(set(int(v) for v in vals))
-    for key in ["launch_min_dbm", "launch_max_dbm", "launch_step_db", "point_launch_dbm"]:
-        if isinstance(cfg[key], bool) or not np.isfinite(cfg[key]):
-            raise ValueError(f"{key}: 유한한 숫자가 필요합니다.")
-    lo, hi, step = [float(cfg[k]) for k in ["launch_min_dbm", "launch_max_dbm", "launch_step_db"]]
-    if hi <= lo or step <= 0 or (hi-lo)/step > 20000:
-        raise ValueError("전력 범위는 min < max, step > 0, 최대 20,001점으로 지정하세요.")
-    if min(lo, cfg["point_launch_dbm"]) < -100 or max(hi, cfg["point_launch_dbm"]) > 40:
-        raise ValueError("이 보고서의 수치 탐색 범위는 -100~+40 dBm/channel입니다.")
-    return cfg
+# ---------------------------------------------------------------------------
+# Unit conversion and physical model
+# ---------------------------------------------------------------------------
 
 
-def derive_parameters():
-    """Unit-safe conversion. Alpha here is POWER attenuation in km^-1."""
-    lam = FIBER.wavelength_nm * 1e-9
-    rate = SYSTEM.symbol_rate_gbd * 1e9
-    alpha = FIBER.attenuation_db_km / DB_PER_NEPER_POWER
-    beta2 = -(lam**2 / (2*np.pi*C0)) * (FIBER.dispersion_ps_nm_km*1e-6) * 1000
-    gamma = 2*np.pi*FIBER.n2_m2_w / (lam*FIBER.effective_area_um2*1e-12) * 1000
-    leff = -np.expm1(-alpha*SYSTEM.span_length_km) / alpha
-    linf = 1/alpha
-    gain = 10**(FIBER.attenuation_db_km*SYSTEM.span_length_km/10)
-    ase = H_PLANCK*(C0/lam)*10**(SYSTEM.noise_figure_db/10)*rate*(gain-1)
-    return {"wavelength_m": lam, "frequency_hz": C0/lam, "rate_hz": rate,
-            "alpha_power_per_km": alpha, "alpha_field_per_km": alpha/2,
-            "beta2_s2_per_km": beta2, "beta2_ps2_per_km": beta2*1e24,
-            "gamma_per_w_km": gamma, "effective_length_km": leff,
-            "asymptotic_length_km": linf,
-            "span_gain_db": FIBER.attenuation_db_km*SYSTEM.span_length_km,
-            "span_gain_linear": gain, "ase_per_span_w": ase,
-            "wdm_occupied_bandwidth_thz": SYSTEM.channels*SYSTEM.spacing_ghz/1000,
-            "channels_that_fit_4p8thz": int(SYSTEM.stated_gain_bandwidth_thz*1000//SYSTEM.spacing_ghz)}
+def _as_float_array(values: Any) -> np.ndarray:
+    array = np.atleast_1d(np.asarray(values, dtype=float))
+    if not np.all(np.isfinite(array)):
+        raise ValueError("입력 배열에 유한하지 않은 값이 있습니다.")
+    return array
 
 
-def gn_eta_per_span(params, finite=True, bandwidth_thz=None):
-    """Equal-channel central-channel GN approximation; eta excludes span count.
-    Power P is total two-polarization channel power. No extra factor 0.5.
-    Finite Leff improves the numerator; this remains a closed-form approximation.
-    bandwidth_thz is used ONLY for the separately labelled historical diagnostic.
+def _validate_fiber(fiber: FiberParameters) -> None:
+    for name, value in {
+        "wavelength_nm": fiber.wavelength_nm,
+        "effective_area_um2": fiber.effective_area_um2,
+        "n2_m2_w": fiber.n2_m2_w,
+    }.items():
+        if value <= 0:
+            raise ValueError(f"{name}은(는) 0보다 커야 합니다.")
+    if fiber.alpha_power_per_km is not None and fiber.alpha_power_per_km <= 0:
+        raise ValueError("alpha_power_per_km은 0보다 커야 합니다.")
+    if fiber.beta2_s2_per_km is not None and fiber.beta2_s2_per_km == 0:
+        raise ValueError("beta2_s2_per_km은 0이 될 수 없습니다.")
+    if fiber.gamma_per_w_km is not None and fiber.gamma_per_w_km <= 0:
+        raise ValueError("gamma_per_w_km은 0보다 커야 합니다.")
+
+
+def _validate_system(system: SystemParameters) -> None:
+    if isinstance(system.channels, bool) or system.channels < 1:
+        raise ValueError("channels는 1 이상의 정수여야 합니다.")
+    for name, value in {
+        "symbol_rate_gbd": system.symbol_rate_gbd,
+        "spacing_ghz": system.spacing_ghz,
+        "span_length_km": system.span_length_km,
+        "noise_figure_db": system.noise_figure_db,
+        "transceiver_snr_db": system.transceiver_snr_db,
+    }.items():
+        if not np.isfinite(value) or value <= 0:
+            raise ValueError(f"{name}은(는) 0보다 큰 유한한 값이어야 합니다.")
+    if system.polarizations not in (1, 2):
+        raise ValueError("polarizations는 1 또는 2로 지정하세요.")
+    if system.ase_bandwidth_hz is not None and system.ase_bandwidth_hz <= 0:
+        raise ValueError("ase_bandwidth_hz는 0보다 커야 합니다.")
+
+
+def _validate_options(options: GNOptions) -> None:
+    if not np.isfinite(options.nli_coefficient) or options.nli_coefficient <= 0:
+        raise ValueError("nli_coefficient는 0보다 큰 유한한 값이어야 합니다.")
+    if options.power_definition not in {"total_dp", "per_polarization", "single_pol"}:
+        raise ValueError(
+            "power_definition은 total_dp, per_polarization, single_pol 중 하나여야 합니다."
+        )
+    if options.nli_channel_count is not None and options.nli_channel_count <= 0:
+        raise ValueError("nli_channel_count는 0보다 커야 합니다.")
+
+
+def derive_parameters(
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+) -> Dict[str, float]:
+    """Convert fiber/system values into GN parameters with explicit units.
+
+    Returned units:
+      alpha_power_per_km: km^-1
+      beta2_s2_per_km: s^2/km
+      gamma_per_w_km: W^-1/km
     """
-    b, r = abs(params["beta2_s2_per_km"]), params["rate_hz"]
-    linf = params["asymptotic_length_km"]
-    leff = params["effective_length_km"] if finite else linf
-    nch = SYSTEM.channels if bandwidth_thz is None else bandwidth_thz*1e12/(SYSTEM.spacing_ghz*1e9)
-    argument = (np.pi**2/2)*b*linf*r**2*nch**(2*r/(SYSTEM.spacing_ghz*1e9))
-    return float((8/27)*params["gamma_per_w_km"]**2*leff**2/(np.pi*b*linf*r**2)*np.arcsinh(argument))
+
+    _validate_fiber(fiber)
+    _validate_system(system)
+
+    wavelength_m = fiber.wavelength_nm * 1e-9
+    rate_hz = system.symbol_rate_gbd * 1e9
+    spacing_hz = system.spacing_ghz * 1e9
+
+    if fiber.alpha_power_per_km is None:
+        alpha_power_per_km = fiber.attenuation_db_per_km / DB_PER_NEPER_POWER
+        span_gain_linear = 10.0 ** (
+            fiber.attenuation_db_per_km * system.span_length_km / 10.0
+        )
+        attenuation_db_per_km = fiber.attenuation_db_per_km
+    else:
+        alpha_power_per_km = float(fiber.alpha_power_per_km)
+        span_gain_linear = np.exp(alpha_power_per_km * system.span_length_km)
+        attenuation_db_per_km = DB_PER_NEPER_POWER * alpha_power_per_km
+
+    if fiber.beta2_s2_per_km is None:
+        # 1 ps/(nm km) = 1e-6 s/m^2.
+        dispersion_si = fiber.dispersion_ps_nm_km * 1e-6
+        beta2_s2_per_km = -(
+            wavelength_m**2 / (2.0 * np.pi * C0)
+        ) * dispersion_si * 1000.0
+    else:
+        beta2_s2_per_km = float(fiber.beta2_s2_per_km)
+
+    if fiber.gamma_per_w_km is None:
+        gamma_per_w_km = (
+            2.0
+            * np.pi
+            * fiber.n2_m2_w
+            / (wavelength_m * fiber.effective_area_um2 * 1e-12)
+            * 1000.0
+        )
+    else:
+        gamma_per_w_km = float(fiber.gamma_per_w_km)
+
+    effective_length_km = (
+        -np.expm1(-alpha_power_per_km * system.span_length_km)
+        / alpha_power_per_km
+    )
+    asymptotic_length_km = 1.0 / alpha_power_per_km
+    noise_figure_linear = 10.0 ** (system.noise_figure_db / 10.0)
+    ase_bandwidth_hz = (
+        rate_hz if system.ase_bandwidth_hz is None else system.ase_bandwidth_hz
+    )
+    ase_per_span_w = (
+        H_PLANCK
+        * (C0 / wavelength_m)
+        * noise_figure_linear
+        * ase_bandwidth_hz
+        * (span_gain_linear - 1.0)
+    )
+    occupied_bandwidth_thz = system.channels * system.spacing_ghz / 1000.0
+    channels_that_fit = (
+        None
+        if system.stated_gain_bandwidth_thz is None
+        else int(system.stated_gain_bandwidth_thz * 1000.0 // system.spacing_ghz)
+    )
+
+    return {
+        "wavelength_m": float(wavelength_m),
+        "frequency_hz": float(C0 / wavelength_m),
+        "rate_hz": float(rate_hz),
+        "spacing_hz": float(spacing_hz),
+        "alpha_power_per_km": float(alpha_power_per_km),
+        "alpha_field_per_km": float(alpha_power_per_km / 2.0),
+        "beta2_s2_per_km": float(beta2_s2_per_km),
+        "beta2_ps2_per_km": float(beta2_s2_per_km * 1e24),
+        "gamma_per_w_km": float(gamma_per_w_km),
+        "effective_length_km": float(effective_length_km),
+        "asymptotic_length_km": float(asymptotic_length_km),
+        "attenuation_db_per_km_used": float(attenuation_db_per_km),
+        "span_gain_db": float(10.0 * np.log10(span_gain_linear)),
+        "span_gain_linear": float(span_gain_linear),
+        "ase_bandwidth_hz": float(ase_bandwidth_hz),
+        "ase_per_span_w": float(ase_per_span_w),
+        "wdm_occupied_bandwidth_thz": float(occupied_bandwidth_thz),
+        "channels_that_fit_stated_bandwidth": channels_that_fit,
+    }
 
 
-def simulate(launch_dbm, spans, eta_per_span, params):
-    launch = np.atleast_1d(np.asarray(launch_dbm, dtype=float))
-    power = 1e-3*10**(launch/10)
-    ase = np.full_like(power, spans*params["ase_per_span_w"])
-    nli = spans*eta_per_span*power**3
-    trx = power/10**(SYSTEM.transceiver_snr_db/10)
-    snr = power/(ase+nli+trx)
-    return pd.DataFrame({"launch_dbm": launch, "spans": spans,
-        "distance_km": spans*SYSTEM.span_length_km, "signal_w": power,
-        "ase_w": ase, "nli_w": nli, "trx_equivalent_noise_w": trx,
-        "snr_linear": snr, "snr_db": 10*np.log10(snr)})
+def gn_eta_per_span(
+    parameters: Mapping[str, float],
+    system: SystemParameters,
+    options: GNOptions = GNOptions(),
+    *,
+    finite: Optional[bool] = None,
+    n_channels: Optional[float] = None,
+) -> float:
+    """Return the per-span NLI coefficient eta in W^-2.
+
+    This is the same central-channel closed-form approximation used in the
+    attached code. n_channels lets a caller validate another channel plan.
+    """
+
+    _validate_system(system)
+    _validate_options(options)
+    finite = options.finite_effective_length if finite is None else finite
+    beta_abs = abs(float(parameters["beta2_s2_per_km"]))
+    if beta_abs == 0:
+        raise ValueError("GN approximation requires nonzero absolute beta2.")
+
+    if n_channels is None:
+        channel_count = (
+            system.channels
+            if options.nli_channel_count is None
+            else options.nli_channel_count
+        )
+    else:
+        channel_count = n_channels
+    if channel_count <= 0:
+        raise ValueError("n_channels는 0보다 커야 합니다.")
+
+    beta_length = float(parameters["asymptotic_length_km"])
+    effective_length = (
+        float(parameters["effective_length_km"]) if finite else beta_length
+    )
+    rate_hz = float(parameters["rate_hz"])
+    spacing_hz = float(parameters["spacing_hz"])
+    argument = (
+        (np.pi**2 / 2.0)
+        * beta_abs
+        * beta_length
+        * rate_hz**2
+        * channel_count ** (2.0 * rate_hz / spacing_hz)
+    )
+    eta = (
+        options.nli_coefficient
+        * float(parameters["gamma_per_w_km"]) ** 2
+        * effective_length**2
+        / (np.pi * beta_abs * beta_length * rate_hz**2)
+        * np.arcsinh(argument)
+    )
+    return float(eta)
 
 
-def optimum(eta, params):
-    # d(ASE/P + eta*P^2 + 1/SNRtrx)/dP = 0; incoherent identical-span case.
-    p = (params["ase_per_span_w"]/(2*eta))**(1/3)
-    return float(10*np.log10(p/1e-3))
+def _validate_spans(spans: int) -> int:
+    if isinstance(spans, bool) or int(spans) != spans or spans < 1:
+        raise ValueError("spans는 1 이상의 정수여야 합니다.")
+    return int(spans)
 
 
-def fit_reference(params, eta_finite, assumed_spans):
-    """Only one empirical k is fitted. Fiber, ASE, TRX and integer Ns stay fixed."""
-    def residual(log_k):
-        return simulate(REFERENCE_X_DBM, assumed_spans, eta_finite*np.exp(log_k[0]), params)["snr_db"].to_numpy()-REFERENCE_Y_DB
-    fit = least_squares(residual, np.log([0.5]), bounds=(np.log([1e-4]), np.log([100.])),
-                        ftol=1e-12, xtol=1e-12, gtol=1e-12)
-    if not fit.success:
-        raise RuntimeError("참조 곡선 보정계수 계산 실패: "+fit.message)
-    return float(np.exp(fit.x[0]))
+def calculate_snr(
+    launch_dbm: Sequence[float] | np.ndarray | float,
+    spans: int,
+    eta_per_span: float,
+    parameters: Mapping[str, float],
+    system: SystemParameters,
+) -> Dict[str, np.ndarray]:
+    """Calculate signal, ASE, NLI, transceiver noise, and end-to-end SNR."""
+
+    _validate_system(system)
+    spans = _validate_spans(spans)
+    launch = _as_float_array(launch_dbm)
+    if not np.isfinite(eta_per_span) or eta_per_span < 0:
+        raise ValueError("eta_per_span은 0 이상인 유한한 값이어야 합니다.")
+
+    signal_w = 1e-3 * 10.0 ** (launch / 10.0)
+    ase_w = np.full_like(signal_w, spans * float(parameters["ase_per_span_w"]))
+    nli_w = spans * eta_per_span * signal_w**3
+    trx_equivalent_noise_w = signal_w / 10.0 ** (system.transceiver_snr_db / 10.0)
+    total_noise_w = ase_w + nli_w + trx_equivalent_noise_w
+    snr_linear = signal_w / total_noise_w
+
+    return {
+        "launch_dbm": launch,
+        "spans": np.full(launch.shape, spans, dtype=int),
+        "distance_km": np.full(launch.shape, spans * system.span_length_km),
+        "signal_w": signal_w,
+        "ase_w": ase_w,
+        "nli_w": nli_w,
+        "trx_equivalent_noise_w": trx_equivalent_noise_w,
+        "total_noise_w": total_noise_w,
+        "snr_linear": snr_linear,
+        "snr_db": 10.0 * np.log10(snr_linear),
+    }
 
 
-def error_metrics(predicted_db):
-    delta = np.asarray(predicted_db)-REFERENCE_Y_DB
-    # dB percentage is not meaningful: percentages are computed in linear SNR.
-    return {"mae_db": float(np.mean(np.abs(delta))),
-            "rmse_db": float(np.sqrt(np.mean(delta**2))),
-            "max_abs_error_db": float(np.max(np.abs(delta))),
-            "linear_snr_mape_pct": float(100*np.mean(np.abs(10**(delta/10)-1)))}
+def records_to_dataframe(columns: Mapping[str, Sequence[Any]]):
+    """Return a DataFrame when pandas is available, otherwise raw arrays."""
+
+    if pd is None:
+        return {key: np.asarray(value) for key, value in columns.items()}
+    return pd.DataFrame(columns)
 
 
-def _show_table(title, frame, enabled):
-    if not enabled:
+def _concat_result_rows(rows: Iterable[Mapping[str, Any]]):
+    rows = list(rows)
+    if not rows:
+        return records_to_dataframe({})
+    if pd is None:
+        return rows
+    return pd.DataFrame(rows)
+
+
+def _result_to_rows(result: Mapping[str, np.ndarray]) -> list[dict[str, Any]]:
+    keys = list(result)
+    size = len(result[keys[0]]) if keys else 0
+    return [
+        {
+            key: (
+                value[index].item()
+                if isinstance(value[index], np.generic)
+                else value[index]
+            )
+            for key, value in result.items()
+        }
+        for index in range(size)
+    ]
+
+
+def model_eta(
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+    options: GNOptions = GNOptions(),
+    *,
+    model: Optional[str] = None,
+) -> Tuple[float, Dict[str, float]]:
+    """Return eta and derived parameters for legacy or finite-length GN."""
+
+    if model is not None:
+        if model not in {"legacy", "finite", "gn_finite"}:
+            raise ValueError("model은 legacy, finite, gn_finite 중 하나여야 합니다.")
+        options = replace(
+            options,
+            finite_effective_length=(model != "legacy"),
+            model_name="legacy" if model == "legacy" else "gn_finite",
+        )
+    parameters = derive_parameters(fiber, system)
+    eta = gn_eta_per_span(parameters, system, options)
+    return eta, parameters
+
+
+def simulate_snr_curve(
+    launch_dbm: Sequence[float] | np.ndarray | float,
+    spans: int,
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+    options: GNOptions = GNOptions(),
+    *,
+    model: Optional[str] = None,
+):
+    """Run the GN model and return one row per launch-power point."""
+
+    eta, _ = model_eta(fiber, system, options, model=model)
+    result = calculate_snr(
+        launch_dbm,
+        spans,
+        eta,
+        derive_parameters(fiber, system),
+        system,
+    )
+    rows = _result_to_rows(result)
+    for row in rows:
+        row["model"] = model if model is not None else options.model_name
+        row["eta_per_span_w_inv2"] = eta
+    return _concat_result_rows(rows)
+
+
+def analytical_optimum_launch_dbm(
+    eta_per_span: float,
+    parameters: Mapping[str, float],
+) -> float:
+    """Return the stationary launch power for ASE + NLI + TRX noise."""
+
+    if eta_per_span <= 0:
+        raise ValueError("eta_per_span은 0보다 커야 합니다.")
+    power_w = (float(parameters["ase_per_span_w"]) / (2.0 * eta_per_span)) ** (
+        1.0 / 3.0
+    )
+    return float(10.0 * np.log10(power_w / 1e-3))
+
+
+def make_launch_grid(
+    launch_min_dbm: float = -10.0,
+    launch_max_dbm: float = 10.0,
+    launch_step_db: float = 0.05,
+) -> np.ndarray:
+    """Create an inclusive launch-power grid."""
+
+    if launch_max_dbm <= launch_min_dbm or launch_step_db <= 0:
+        raise ValueError(
+            "launch_min_dbm < launch_max_dbm, launch_step_db > 0 이어야 합니다."
+        )
+    number = int(np.floor((launch_max_dbm - launch_min_dbm) / launch_step_db))
+    grid = launch_min_dbm + np.arange(number + 1) * launch_step_db
+    if grid[-1] < launch_max_dbm - 1e-10:
+        grid = np.append(grid, launch_max_dbm)
+    return grid
+
+
+# ---------------------------------------------------------------------------
+# Independent validation against another model, measurement, or CSV
+# ---------------------------------------------------------------------------
+
+
+def error_metrics(
+    reference_snr_db: Sequence[float] | np.ndarray,
+    predicted_snr_db: Sequence[float] | np.ndarray,
+) -> Dict[str, float]:
+    """Calculate dB errors and linear-SNR MAPE."""
+
+    reference = _as_float_array(reference_snr_db)
+    predicted = _as_float_array(predicted_snr_db)
+    if reference.shape != predicted.shape:
+        raise ValueError("reference와 predicted의 배열 길이가 다릅니다.")
+    delta_db = predicted - reference
+    return {
+        "n_points": int(delta_db.size),
+        "mae_db": float(np.mean(np.abs(delta_db))),
+        "rmse_db": float(np.sqrt(np.mean(delta_db**2))),
+        "max_abs_error_db": float(np.max(np.abs(delta_db))),
+        "mean_bias_db": float(np.mean(delta_db)),
+        "linear_snr_mape_pct": float(
+            100.0 * np.mean(np.abs(10.0 ** (delta_db / 10.0) - 1.0))
+        ),
+    }
+
+
+def compare_curves(
+    reference_launch_dbm: Sequence[float] | np.ndarray,
+    reference_snr_db: Sequence[float] | np.ndarray,
+    predicted_launch_dbm: Sequence[float] | np.ndarray,
+    predicted_snr_db: Sequence[float] | np.ndarray,
+    *,
+    interpolate: bool = True,
+):
+    """Compare two SNR curves on a common launch-power grid."""
+
+    ref_x = _as_float_array(reference_launch_dbm)
+    ref_y = _as_float_array(reference_snr_db)
+    pred_x = _as_float_array(predicted_launch_dbm)
+    pred_y = _as_float_array(predicted_snr_db)
+    if ref_x.size != ref_y.size or pred_x.size != pred_y.size:
+        raise ValueError("각 curve의 x/y 길이가 일치해야 합니다.")
+
+    order_ref = np.argsort(ref_x)
+    order_pred = np.argsort(pred_x)
+    ref_x, ref_y = ref_x[order_ref], ref_y[order_ref]
+    pred_x, pred_y = pred_x[order_pred], pred_y[order_pred]
+    if interpolate:
+        mask = (ref_x >= pred_x[0]) & (ref_x <= pred_x[-1])
+        x = ref_x[mask]
+        reference = ref_y[mask]
+        predicted = np.interp(x, pred_x, pred_y)
+    else:
+        if ref_x.shape != pred_x.shape or not np.allclose(ref_x, pred_x):
+            raise ValueError(
+                "interpolate=False이면 두 launch-power grid가 같아야 합니다."
+            )
+        x, reference, predicted = ref_x, ref_y, pred_y
+
+    if x.size == 0:
+        raise ValueError("두 curve의 launch-power 범위가 겹치지 않습니다.")
+
+    comparison = records_to_dataframe(
+        {
+            "launch_dbm": x,
+            "reference_snr_db": reference,
+            "predicted_snr_db": predicted,
+            "error_db": predicted - reference,
+            "absolute_error_db": np.abs(predicted - reference),
+        }
+    )
+    return {
+        "comparison": comparison,
+        "metrics": error_metrics(reference, predicted),
+    }
+
+
+def validate_gn_model(
+    launch_dbm: Sequence[float] | np.ndarray,
+    spans: int,
+    *,
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+    options: GNOptions = GNOptions(),
+    model: Optional[str] = None,
+    reference_snr_db: Optional[Sequence[float] | np.ndarray] = None,
+    reference_launch_dbm: Optional[Sequence[float] | np.ndarray] = None,
+) -> Dict[str, Any]:
+    """Run this GN model and optionally compare it with another result.
+
+    reference_snr_db can be the output of another GN/GGN/SSF code or a
+    measured curve. If reference_launch_dbm is omitted, launch_dbm is used.
+    """
+
+    launch = _as_float_array(launch_dbm)
+    curve = simulate_snr_curve(
+        launch,
+        spans,
+        fiber=fiber,
+        system=system,
+        options=options,
+        model=model,
+    )
+    eta, parameters = model_eta(fiber, system, options, model=model)
+    result: Dict[str, Any] = {
+        "curve": curve,
+        "eta_per_span_w_inv2": eta,
+        "parameters": parameters,
+        "fiber": asdict(fiber),
+        "system": asdict(system),
+        "options": asdict(options),
+    }
+
+    if reference_snr_db is not None:
+        ref_x = launch if reference_launch_dbm is None else reference_launch_dbm
+        predicted_x = (
+            curve["launch_dbm"].to_numpy()
+            if pd is not None
+            else np.asarray(curve["launch_dbm"])
+        )
+        predicted_y = (
+            curve["snr_db"].to_numpy()
+            if pd is not None
+            else np.asarray(curve["snr_db"])
+        )
+        result["validation"] = compare_curves(
+            ref_x,
+            reference_snr_db,
+            predicted_x,
+            predicted_y,
+        )
+    return result
+
+
+def validate_against_callable(
+    launch_dbm: Sequence[float] | np.ndarray,
+    spans: int,
+    reference_function: Callable[..., Sequence[float]],
+    *,
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+    options: GNOptions = GNOptions(),
+    model: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Validate against a second Python implementation.
+
+    The reference function is called as:
+        reference_function(launch_dbm, spans, fiber, system)
+
+    Wrap another implementation in an adapter if it needs a different
+    argument signature.
+    """
+
+    launch = _as_float_array(launch_dbm)
+    reference = _as_float_array(reference_function(launch, spans, fiber, system))
+    return validate_gn_model(
+        launch,
+        spans,
+        fiber=fiber,
+        system=system,
+        options=options,
+        model=model,
+        reference_snr_db=reference,
+    )
+
+
+def fit_eta_scale_to_reference(
+    reference_launch_dbm: Sequence[float] | np.ndarray,
+    reference_snr_db: Sequence[float] | np.ndarray,
+    spans: int,
+    *,
+    fiber: FiberParameters = FiberParameters(),
+    system: SystemParameters = SystemParameters(),
+    options: GNOptions = GNOptions(),
+    log10_scale_bounds: Tuple[float, float] = (-4.0, 2.0),
+) -> Dict[str, Any]:
+    """Optional empirical eta fit, separate from independent validation.
+
+    A fitted scale measures agreement with the supplied curve. It is not
+    independent proof of the GN implementation.
+    """
+
+    x = _as_float_array(reference_launch_dbm)
+    y = _as_float_array(reference_snr_db)
+    eta, parameters = model_eta(fiber, system, options)
+    lo, hi = log10_scale_bounds
+    if hi <= lo:
+        raise ValueError("log10_scale_bounds가 올바르지 않습니다.")
+
+    def objective(log_scale: float) -> float:
+        predicted = calculate_snr(
+            x,
+            spans,
+            eta * 10.0**log_scale,
+            parameters,
+            system,
+        )["snr_db"]
+        return error_metrics(y, predicted)["rmse_db"]
+
+    # Coarse scan and golden-section refinement keep scipy optional.
+    scan = np.linspace(lo, hi, 401)
+    values = np.asarray([objective(value) for value in scan])
+    best_index = int(np.argmin(values))
+    left = scan[max(0, best_index - 1)]
+    right = scan[min(len(scan) - 1, best_index + 1)]
+    phi = (1.0 + np.sqrt(5.0)) / 2.0
+    for _ in range(80):
+        c = right - (right - left) / phi
+        d = left + (right - left) / phi
+        if objective(c) < objective(d):
+            right = d
+        else:
+            left = c
+    best_log_scale = (left + right) / 2.0
+    fitted_eta = eta * 10.0**best_log_scale
+    fitted = calculate_snr(x, spans, fitted_eta, parameters, system)["snr_db"]
+    return {
+        "scale": float(10.0**best_log_scale),
+        "base_eta_per_span_w_inv2": float(eta),
+        "fitted_eta_per_span_w_inv2": float(fitted_eta),
+        "comparison": compare_curves(x, y, x, fitted, interpolate=False),
+        "warning": "동일 reference에 대한 경험적 보정이며 독립 검증값이 아닙니다.",
+    }
+
+
+# ---------------------------------------------------------------------------
+# CSV, JSON, and command-line helpers
+# ---------------------------------------------------------------------------
+
+
+def read_reference_csv(
+    path: str | Path,
+    *,
+    spans: Optional[int] = None,
+    launch_column: str = "launch_dbm",
+    snr_column: str = "snr_db",
+    spans_column: str = "spans",
+) -> Tuple[np.ndarray, np.ndarray]:
+    """Read another model's or measurement's curve from CSV."""
+
+    path = Path(path)
+    if pd is not None:
+        frame = pd.read_csv(path)
+        if spans is not None and spans_column in frame.columns:
+            frame = frame.loc[frame[spans_column] == spans]
+        if launch_column not in frame.columns or snr_column not in frame.columns:
+            raise ValueError(f"CSV에는 {launch_column}, {snr_column} 열이 필요합니다.")
+        return (
+            frame[launch_column].to_numpy(dtype=float),
+            frame[snr_column].to_numpy(dtype=float),
+        )
+
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        rows = list(csv.DictReader(handle))
+    if spans is not None and rows and spans_column in rows[0]:
+        rows = [row for row in rows if int(float(row[spans_column])) == spans]
+    return (
+        np.asarray([float(row[launch_column]) for row in rows]),
+        np.asarray([float(row[snr_column]) for row in rows]),
+    )
+
+
+def save_result(
+    result: Mapping[str, Any],
+    directory: str | Path,
+    *,
+    prefix: str = "gn_model",
+) -> Path:
+    """Save curve, validation table, parameters, and metadata."""
+
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    curve = result.get("curve")
+    curve_path = directory / f"{prefix}_curve.csv"
+    if pd is not None and hasattr(curve, "to_csv"):
+        curve.to_csv(curve_path, index=False, encoding="utf-8-sig")
+    else:
+        _write_mapping_csv(curve, curve_path)
+
+    if "validation" in result:
+        comparison = result["validation"]["comparison"]
+        comparison_path = directory / f"{prefix}_validation.csv"
+        if pd is not None and hasattr(comparison, "to_csv"):
+            comparison.to_csv(comparison_path, index=False, encoding="utf-8-sig")
+        else:
+            _write_mapping_csv(comparison, comparison_path)
+        with (directory / f"{prefix}_metrics.json").open("w", encoding="utf-8") as handle:
+            json.dump(result["validation"]["metrics"], handle, indent=2, ensure_ascii=False)
+
+    metadata = {
+        "fiber": result.get("fiber"),
+        "system": result.get("system"),
+        "options": result.get("options"),
+        "parameters": result.get("parameters"),
+        "eta_per_span_w_inv2": result.get("eta_per_span_w_inv2"),
+        "python": platform.python_version(),
+        "numpy": np.__version__,
+    }
+    with (directory / f"{prefix}_metadata.json").open("w", encoding="utf-8") as handle:
+        json.dump(metadata, handle, indent=2, ensure_ascii=False, default=_json_default)
+    return directory
+
+
+def _write_mapping_csv(data: Any, path: Path) -> None:
+    if isinstance(data, Mapping):
+        keys = list(data)
+        rows = zip(*[np.asarray(data[key]).tolist() for key in keys])
+        with path.open("w", newline="", encoding="utf-8-sig") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(keys)
+            writer.writerows(rows)
         return
-    if display is not None:
-        display(Markdown("**"+title+"**"))
-        with pd.option_context("display.max_rows", 60, "display.max_columns", 20):
-            display(HTML(frame.to_html(index=False, float_format=lambda v: f"{v:.7g}")))
-    else:
-        print(title)
-        print(frame.to_string(index=False))
+    if isinstance(data, list):
+        keys = list(data[0]) if data else []
+        with path.open("w", newline="", encoding="utf-8-sig") as handle:
+            writer = csv.DictWriter(handle, fieldnames=keys)
+            writer.writeheader()
+            writer.writerows(data)
+        return
+    raise TypeError("CSV로 저장할 수 없는 결과 형식입니다.")
 
 
-def _plot_snr(curves, cfg, params, eta):
-    fig, ax = plt.subplots(figsize=(11, 6.5), layout="constrained")
-    cmap = plt.get_cmap("viridis")
-    selected = set(cfg["spans"]) if len(cfg["spans"]) <= 8 else {1,10,20,30,40,50,cfg["spans"][0],cfg["spans"][-1]}
-    for ns, frame in curves.groupby("spans"):
-        strong = ns in selected
-        ax.plot(frame.launch_dbm, frame.snr_db, color=cmap((ns-1)/49),
-                lw=2.2 if strong else 0.6, alpha=1 if strong else .20,
-                label=f"{ns} {'span' if ns==1 else 'spans'} / {ns*80:,} km" if strong else None)
-    p_opt = optimum(eta, params)
-    if cfg["launch_min_dbm"] <= p_opt <= cfg["launch_max_dbm"]:
-        ax.axvline(p_opt, color="#374151", ls="--", lw=1.3, label=f"Analytical optimum: {p_opt:+.2f} dBm/ch")
-    ax.axhline(18, color="#94A3B8", ls=":", lw=1)
-    ax.set(xlabel="Launch power per channel, total DP (dBm)", ylabel="End-to-end SNR (dB)",
-           title="G.654.E | "+MODEL_NAMES[cfg["model"]],
-           xlim=(cfg["launch_min_dbm"],cfg["launch_max_dbm"]))
-    ax.grid(color="#E2E8F0", lw=.8)
-    ax.spines[["top","right"]].set_visible(False)
-    ax.legend(loc="lower center", ncol=2, fontsize=8.5, framealpha=.97)
-    fig.get_layout_engine().set(rect=(0,.065,1,.90))
-    fig.text(.5,.025,"90 x 95 GHz = 8.55 THz; supplied 4.8 THz gain bandwidth is insufficient. Conditional model only.",
-             ha="center", fontsize=8.8, color="#92400E")
-    return fig
+def _json_default(value: Any):
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    raise TypeError(f"JSON으로 변환할 수 없는 형식: {type(value)}")
 
 
-def _plot_comparison(comparison, cfg):
-    fig, (ax, err) = plt.subplots(2,1,figsize=(11,8),sharex=True,
-                                 gridspec_kw={"height_ratios":[3,1]},layout="constrained")
-    x = comparison.launch_dbm
-    ax.plot(x, comparison.reference_snr_db, color="#0072B2", lw=2.8, label="Supplied blue curve (digitized)")
-    models = ["legacy","gn_finite","calibrated"]
-    if cfg["include_historical_diagnostic"]:
-        models.append("historical_diagnostic")
-    for model in models:
-        y = comparison[model+"_snr_db"]
-        style = "-" if model=="calibrated" else "--"
-        ax.plot(x,y,lw=2,ls=style,color=MODEL_COLORS[model],label=MODEL_NAMES[model])
-        err.plot(x,y-comparison.reference_snr_db,lw=1.6,ls=style,color=MODEL_COLORS[model])
-    ax.set(title=f"G.654.E comparison | {cfg['reference_spans_assumed']} spans ASSUMED for the reference",
-           ylabel="End-to-end SNR (dB)")
-    ax.legend(loc="lower center",fontsize=8.6)
-    err.axhline(0,color="#374151",lw=.8)
-    err.set(xlabel="Launch power per channel, total DP (dBm)",ylabel="Model - blue\n(dB)",xlim=(-10,10))
-    for a in [ax,err]:
-        a.grid(color="#E2E8F0",lw=.8)
-        a.spines[["top","right"]].set_visible(False)
-    fig.get_layout_engine().set(rect=(0,.085,1,.88))
-    fig.text(.5,.048,"90-channel results assume flat gain across 8.55 THz; the stated 4.8 THz is insufficient.",
-             ha="center",fontsize=9,color="#92400E")
-    fig.text(.5,.020,"Green uses k fitted to this same image; this is reference agreement, not independent validation.",
-             ha="center",fontsize=9,color="#374151")
-    return fig
+def _plot_result(result: Mapping[str, Any], path: Optional[Path] = None) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as exc:
+        raise RuntimeError("그래프에는 matplotlib가 필요합니다.") from exc
 
-
-def main(user_inputs=None):
-    """Return tables, metadata and figures; change USER_INPUTS to select results."""
-    cfg = _validate({} if user_inputs is None else user_inputs)
-    p = derive_parameters()
-    conflict = p["wdm_occupied_bandwidth_thz"] > SYSTEM.stated_gain_bandwidth_thz
-    message = ("입력 정합성: 90채널 × 95 GHz = 8.55 THz이며, 제시된 증폭 대역폭 4.8 THz를 초과합니다. "
-               "원 입력은 변경하지 않았습니다. 계산에는 90채널을 사용하며, 전 대역 평탄 이득을 가정한 조건부 결과입니다.")
-    if conflict and cfg["bandwidth_policy"] == "strict":
-        raise ValueError(message+" strict 정책으로 계산을 중지합니다.")
-    if cfg["show_outputs"]:
-        print(message)
-        print("비교 그림의 span 수는 미표기: reference_spans_assumed는 비교용 가정입니다.")
-        if cfg["model"] == "calibrated":
-            print("calibrated 선택: 동일 그림에서 추정한 k를 사용합니다. 다른 span에의 전이는 미검증입니다.")
-    eta_legacy = gn_eta_per_span(p, finite=False)
-    eta_finite = gn_eta_per_span(p, finite=True)
-    k = fit_reference(p, eta_finite, cfg["reference_spans_assumed"])
-    # 이전 답변의 숫자를 재현하기 위해서만 4.343 반올림을 보존합니다.
-    historical_params = dict(p)
-    historical_a = FIBER.attenuation_db_km/4.343
-    historical_params.update(effective_length_km=-np.expm1(-historical_a*80)/historical_a,
-                             asymptotic_length_km=1/historical_a)
-    eta_4p8_inf = gn_eta_per_span(p, finite=False, bandwidth_thz=4.8)
-    eta_4p8_fin = gn_eta_per_span(historical_params, finite=True, bandwidth_thz=4.8)
-    etas = {"legacy": eta_legacy, "gn_finite": eta_finite, "calibrated": k*eta_finite,
-            "historical_diagnostic": .5*eta_4p8_fin}
-    selected_eta = etas[cfg["model"]]
-    grid = np.arange(cfg["launch_min_dbm"],cfg["launch_max_dbm"]+cfg["launch_step_db"]*1e-7,cfg["launch_step_db"])
-    if grid[-1] < cfg["launch_max_dbm"]-1e-8:
-        grid = np.append(grid,cfg["launch_max_dbm"])
-    curves = pd.concat([simulate(grid,ns,selected_eta,p) for ns in cfg["spans"]],ignore_index=True)
-    curves["model"] = cfg["model"]
-    curves["conditional_bandwidth_conflict"] = conflict
-    p_opt = optimum(selected_eta,p)
-    opt_rows = []
-    for ns, frame in curves.groupby("spans"):
-        opt = simulate([p_opt],int(ns),selected_eta,p).iloc[0]
-        sample = frame.loc[frame.snr_db.idxmax()]
-        opt_rows.append({"spans": int(ns), "distance_km": int(ns)*80,
-            "analytic_optimum_launch_dbm": p_opt, "analytic_max_snr_db": opt.snr_db,
-            "grid_best_launch_dbm": sample.launch_dbm, "grid_best_snr_db": sample.snr_db,
-            "optimum_inside_scan": bool(grid[0]<=p_opt<=grid[-1]), "model": cfg["model"]})
-    optimum_table = pd.DataFrame(opt_rows)
-    point = simulate([cfg["point_launch_dbm"]],cfg["point_spans"],selected_eta,p)
-    point["model"] = cfg["model"]
-    comparison = pd.DataFrame({"launch_dbm":REFERENCE_X_DBM,"reference_snr_db":REFERENCE_Y_DB})
-    metric_rows = []
-    for model, eta in etas.items():
-        pred = simulate(REFERENCE_X_DBM,cfg["reference_spans_assumed"],eta,p).snr_db.to_numpy()
-        comparison[model+"_snr_db"] = pred
-        comparison[model+"_error_db"] = pred-REFERENCE_Y_DB
-        best_p = optimum(eta,p)
-        metric_rows.append({"model":model,"spans_assumed":cfg["reference_spans_assumed"],
-            "eta_per_span_w_inv2":eta, "optimum_launch_dbm":best_p,
-            "maximum_snr_db":float(simulate([best_p],cfg["reference_spans_assumed"],eta,p).snr_db.iloc[0]),
-            **error_metrics(pred)})
-    metrics = pd.DataFrame(metric_rows)
-    stages = pd.DataFrame([
-        ["Previous infinite-length, 90ch",eta_legacy,"provisional 8.55 THz"],
-        ["Finite effective length, 90ch",eta_finite,"main GN baseline; k=1"],
-        ["Calibrated finite GN, 90ch",k*eta_finite,f"empirical k={k:.8f}; Ns assumed"],
-        ["Historical: infinite-length, 4.8 THz",eta_4p8_inf,"incompatible with 90 Nyquist channels"],
-        ["Historical: finite length, 4.8 THz",eta_4p8_fin,"diagnostic only"],
-        ["Historical: finite, 4.8 THz, x0.5",.5*eta_4p8_fin,"0.5 has no verified polarization justification"],
-    ],columns=["stage","eta_per_span_w_inv2","meaning"])
-    metadata = {"report_version":"2026-09-08.1", "fiber_fixed":asdict(FIBER),"system_fixed":asdict(SYSTEM),
-        "user_inputs":cfg,"derived":p,"eta_models_per_span_w_inv2":etas,"empirical_k":k,
-        "bandwidth_conflict":conflict,"reference_spans_known":False,
-        "reference_kind":"user-supplied raster graph; experimental status unknown",
-        "reference_pixel_scale_db":14/251,"reference_uncertainty_note":"about +/-0.1 dB; heuristic, not a confidence interval",
-        "reference_peak_launch_dbm":float(REFERENCE_X_DBM[np.argmax(REFERENCE_Y_DB)]),
-        "reference_peak_snr_db":float(np.max(REFERENCE_Y_DB)),
-        "source_notebook_url":SOURCE_NOTEBOOK_URL,"source_notebook_sha256":SOURCE_NOTEBOOK_SHA256,
-        "reference_image_sha256":REFERENCE_IMAGE_SHA256,
-        "versions":{"python":platform.python_version(),"numpy":np.__version__,"pandas":pd.__version__,"scipy":scipy.__version__},
-        "assumptions":["identical 80 km spans; one loss-compensating amplifier per span",
-                       "constant NF; no saturation; incoherent NLI accumulation; central-channel approximation",
-                       "signal power is total DP power; no additional polarization factor",
-                       "no inter-channel Raman scattering, gain tilt, PMD/PDL or filter penalties",
-                       "64QAM and Shannon gap are recorded but not used in physical SNR",
-                       "span count is not a wet-repeater count; receiver-end amplifier is included"]}
-    tables = {"derived_parameters":pd.DataFrame(p.items(),columns=["parameter","value"]),
-        "fiber_fixed":pd.DataFrame(asdict(FIBER).items(),columns=["parameter","value"]),
-        "system_fixed":pd.DataFrame(asdict(SYSTEM).items(),columns=["parameter","value"]),
-        "snr_curves":curves,"optimum_summary":optimum_table,"operating_point":point,
-        "reference_comparison":comparison,"reference_error_metrics":metrics,"eta_stages":stages}
-    figures = {}
-    plt.rcParams.update({"font.family":"DejaVu Sans","font.size":10,"axes.titlesize":13,"savefig.facecolor":"white"})
-    if cfg["task"] in {"all","snr"}:
-        figures["G654E_snr_vs_launch"] = _plot_snr(curves,cfg,p,selected_eta)
-    if cfg["task"] in {"all","compare"}:
-        figures["G654E_reference_comparison"] = _plot_comparison(comparison,cfg)
-    _show_table("고정 G.654.E 물성",tables["fiber_fixed"],cfg["show_outputs"])
-    _show_table("계산된 주요 파라미터",tables["derived_parameters"],cfg["show_outputs"])
-    if cfg["task"] in {"all","snr"}:
-        excerpt = optimum_table if len(optimum_table)<=10 else optimum_table[optimum_table.spans.isin([1,10,20,30,40,50])]
-        _show_table("최적점 요약 (전체 span 결과는 CSV)",excerpt,cfg["show_outputs"])
-    if cfg["task"] in {"all","compare"}:
-        _show_table("첨부 파란 곡선과의 일치도: 동일 그림 보정 포함",metrics,cfg["show_outputs"])
-        _show_table("η 변화 단계: 과거 진단 조건까지 공개",stages,cfg["show_outputs"])
-    if cfg["task"] in {"all","point"}:
-        _show_table("입력 운용점의 SNR 및 잡음 성분",point,cfg["show_outputs"])
-    out = Path(cfg["output_dir"])
-    saved = []
-    if cfg["save_outputs"]:
-        out.mkdir(parents=True,exist_ok=True)
-        for name,frame in tables.items():
-            path=out/(name+".csv")
-            frame.to_csv(path,index=False,encoding="utf-8-sig")
-            saved.append(path)
-        meta_path=out/"parameters_and_provenance.json"
-        meta_path.write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding="utf-8")
-        saved.append(meta_path)
-        for name,fig in figures.items():
-            path=out/(name+".png")
-            fig.savefig(path,dpi=180)
-            saved.append(path)
-        zip_path=out/"G654E_results.zip"
-        with zipfile.ZipFile(zip_path,"w",zipfile.ZIP_DEFLATED) as z:
-            for path in saved:
-                z.write(path,path.name)
-    if cfg["show_outputs"]:
+    curve = result["curve"]
+    x = curve["launch_dbm"].to_numpy() if pd is not None else curve["launch_dbm"]
+    y = curve["snr_db"].to_numpy() if pd is not None else curve["snr_db"]
+    fig, ax = plt.subplots(figsize=(9, 5.5), layout="constrained")
+    ax.plot(x, y, lw=2.2, label="GN model")
+    if "validation" in result:
+        comparison = result["validation"]["comparison"]
+        cx = (
+            comparison["launch_dbm"].to_numpy()
+            if pd is not None
+            else comparison["launch_dbm"]
+        )
+        ry = (
+            comparison["reference_snr_db"].to_numpy()
+            if pd is not None
+            else comparison["reference_snr_db"]
+        )
+        ax.plot(cx, ry, "o", ms=3, alpha=0.7, label="reference")
+    ax.set_xlabel("Launch power per channel, total DP (dBm)")
+    ax.set_ylabel("End-to-end SNR (dB)")
+    ax.grid(alpha=0.3)
+    ax.legend()
+    if path is None:
         plt.show()
-        if cfg["save_outputs"]:
-            print("CSV/PNG/설정 ZIP:", str(out/"G654E_results.zip"))
-            if display is not None:
-                display(FileLink(str(out/"G654E_results.zip")))
     else:
-        for fig in figures.values():
-            plt.close(fig)
-    return {"config":cfg,"parameters":p,"eta":etas,"empirical_k":k,
-            "tables":tables,"figures":figures,"metadata":metadata}
+        fig.savefig(path, dpi=180)
+        plt.close(fig)
+
+
+def run_cli(argv: Optional[Sequence[str]] = None) -> Dict[str, Any]:
+    parser = argparse.ArgumentParser(
+        description="Reusable GN-model calculation and validation"
+    )
+    parser.add_argument("--model", choices=["legacy", "finite"], default="finite")
+    parser.add_argument("--spans", default="1,10,30,50")
+    parser.add_argument("--launch-min", type=float, default=-10.0)
+    parser.add_argument("--launch-max", type=float, default=10.0)
+    parser.add_argument("--launch-step", type=float, default=0.05)
+    parser.add_argument("--coefficient", type=float, default=8.0 / 27.0)
+    parser.add_argument("--reference-csv", type=str, default=None)
+    parser.add_argument("--save-dir", type=str, default="gn_results")
+    parser.add_argument("--plot", action="store_true")
+    args = parser.parse_args(argv)
+
+    spans_list = [
+        int(value.strip()) for value in args.spans.split(",") if value.strip()
+    ]
+    launch = make_launch_grid(args.launch_min, args.launch_max, args.launch_step)
+    fiber = FiberParameters()
+    system = SystemParameters()
+    options = GNOptions(
+        nli_coefficient=args.coefficient,
+        finite_effective_length=args.model == "finite",
+        model_name="gn_finite" if args.model == "finite" else "legacy",
+    )
+
+    results = {}
+    for spans in spans_list:
+        reference_x = reference_y = None
+        if args.reference_csv is not None:
+            reference_x, reference_y = read_reference_csv(
+                args.reference_csv, spans=spans
+            )
+            run_launch = reference_x
+        else:
+            run_launch = launch
+        result = validate_gn_model(
+            run_launch,
+            spans,
+            fiber=fiber,
+            system=system,
+            options=options,
+            reference_snr_db=reference_y,
+            reference_launch_dbm=reference_x,
+        )
+        results[spans] = result
+        save_result(
+            result,
+            Path(args.save_dir) / f"spans_{spans}",
+            prefix="gn",
+        )
+        if args.plot:
+            _plot_result(
+                result,
+                Path(args.save_dir) / f"spans_{spans}" / "gn_curve.png",
+            )
+        if "validation" in result:
+            print(f"spans={spans}: {result['validation']['metrics']}")
+        else:
+            print(f"spans={spans}: eta={result['eta_per_span_w_inv2']:.6e}")
+    return results
+
+
+def main(argv: Optional[Sequence[str]] = None) -> Dict[str, Any]:
+    """CLI-compatible entry point."""
+
+    return run_cli(argv)
 
 
 if __name__ == "__main__":
-    RESULTS = main(USER_INPUTS)
+    main()

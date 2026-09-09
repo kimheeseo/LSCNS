@@ -1,5 +1,5 @@
 main.py(gn model) 검증 논문 List
-# 1. 폴더 - Carena
+# 1. Carena
 - Carena, Andrea, et al. "Modeling of the impact of nonlinear propagation effects in uncompensated optical coherent transmission links." Journal of Lightwave technology 30.10 (2012): 1524-1539.: Fig 5.
 - https://ieeexplore.ieee.org/document/6158564
 - GN 모델의 해석식과 수치 시뮬레이션 결과를 비교한 검증 논문 (실험 측정 논문 아님)

@@ -1,6 +1,7 @@
 main.py(gn model) 검증 논문 List
 # 1. Carena
 - Carena, Andrea, et al. "Modeling of the impact of nonlinear propagation effects in uncompensated optical coherent transmission links." Journal of Lightwave technology 30.10 (2012): 1524-1539.: Fig 5.
+- GN 모델의 유도 가정과 시스템 설계 정확도를 여러 변조·섬유 조건에서 시뮬레이션으로 검증한 대표 논문
 - https://ieeexplore.ieee.org/document/6158564
 - GN 모델의 해석식과 수치 시뮬레이션 결과를 비교한 검증 논문 (실험 측정 논문 아님)
    - PSCF·SMF·NZDSF 조건에서 최대 전송거리 및 최적 launch power 검증

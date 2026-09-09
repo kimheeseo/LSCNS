@@ -52,6 +52,7 @@ Typical import:
 CLI:
     python main.py --model finite --spans 1,10,30,50 --save-dir gn_results
     python main.py --reference-csv other_model.csv --spans 30
+    python main.py --figure5 --save-dir carena_fig5_results
 
 The reference CSV must contain launch_dbm and snr_db columns. If it contains
 spans, the selected span is used.
@@ -140,6 +141,172 @@ class GNOptions:
 C0 = 299_792_458.0
 H_PLANCK = 6.626_070_15e-34
 DB_PER_NEPER_POWER = 10.0 / np.log(10.0)
+
+
+# ---------------------------------------------------------------------------
+# Carena et al. (JLT 2012) Figure 5 validation data
+# ---------------------------------------------------------------------------
+
+
+# These are digitized/rounded Figure 5 markers, kept here so the validation
+# can be run with main.py alone. They are not a replacement for the paper's
+# raw simulation data. The source conditions are the 32-GBaud, 100-km-span,
+# 9-channel cases documented in the repository's validation notebook.
+FIG5_REQUIRED_OSNR_DB_PER_0P1NM: Dict[str, Dict[float, float]] = {
+    "PM-BPSK": {
+        50.0: 10.95,
+        38.4: 11.12,
+        35.2: 11.38,
+        33.6: 11.77,
+        32.8: 12.05,
+        32.0: 12.40,
+    },
+    "PM-QPSK": {
+        50.0: 13.95,
+        38.4: 14.15,
+        35.2: 14.65,
+        33.6: 15.20,
+        32.8: 15.65,
+        32.0: 16.25,
+    },
+    "PM-8QAM": {
+        50.0: 18.10,
+        38.4: 18.52,
+        35.2: 19.69,
+        33.6: 21.62,
+        32.8: 24.40,
+    },
+    "PM-16QAM": {
+        50.0: 20.65,
+        38.4: 21.85,
+        36.8: 22.35,
+        35.2: 24.54,
+    },
+}
+
+FIG5_REFERENCE_REACH_KM: Dict[
+    str, Dict[str, Dict[float, float]]
+] = {
+    "PSCF": {
+        "PM-BPSK": {
+            50.0: 18_000.0,
+            38.4: 15_800.0,
+            35.2: 14_400.0,
+            33.6: 12_300.0,
+            32.8: 11_700.0,
+            32.0: 11_300.0,
+        },
+        "PM-QPSK": {
+            50.0: 9_000.0,
+            38.4: 7_900.0,
+            35.2: 7_000.0,
+            33.6: 6_000.0,
+            32.8: 5_700.0,
+            32.0: 5_000.0,
+        },
+        "PM-8QAM": {
+            50.0: 3_600.0,
+            38.4: 3_100.0,
+            35.2: 2_300.0,
+            33.6: 1_400.0,
+            32.8: 800.0,
+        },
+        "PM-16QAM": {
+            50.0: 1_600.0,
+            38.4: 1_400.0,
+            36.8: 1_100.0,
+            35.2: 700.0,
+        },
+    },
+    "SMF": {
+        "PM-BPSK": {
+            50.0: 7_800.0,
+            38.4: 7_000.0,
+            35.2: 6_200.0,
+            33.6: 5_800.0,
+            32.8: 5_400.0,
+            32.0: 4_500.0,
+        },
+        "PM-QPSK": {
+            50.0: 4_300.0,
+            38.4: 3_700.0,
+            35.2: 3_300.0,
+            33.6: 2_700.0,
+            32.8: 2_500.0,
+            32.0: 2_300.0,
+        },
+        "PM-8QAM": {
+            50.0: 1_700.0,
+            38.4: 1_400.0,
+            35.2: 1_000.0,
+            33.6: 600.0,
+            32.8: 400.0,
+        },
+        "PM-16QAM": {
+            50.0: 800.0,
+            38.4: 600.0,
+            36.8: 500.0,
+            35.2: 300.0,
+        },
+    },
+    "NZDSF": {
+        "PM-BPSK": {
+            50.0: 5_000.0,
+            38.4: 4_600.0,
+            35.2: 4_300.0,
+            33.6: 4_000.0,
+            32.8: 3_800.0,
+            32.0: 3_500.0,
+        },
+        "PM-QPSK": {
+            50.0: 2_800.0,
+            38.4: 2_300.0,
+            35.2: 2_000.0,
+            33.6: 1_600.0,
+            32.8: 1_600.0,
+            32.0: 1_400.0,
+        },
+        "PM-8QAM": {
+            50.0: 1_000.0,
+            38.4: 900.0,
+            35.2: 600.0,
+            33.6: 400.0,
+            32.8: 300.0,
+        },
+        "PM-16QAM": {
+            50.0: 500.0,
+            38.4: 400.0,
+            36.8: 300.0,
+            35.2: 200.0,
+        },
+    },
+}
+
+FIG5_FIBER_INPUTS: Dict[str, Dict[str, float]] = {
+    "PSCF": {
+        "attenuation_db_per_km": 0.18,
+        "dispersion_ps_nm_km": 20.1,
+        "gamma_per_w_km": 0.9,
+    },
+    "SMF": {
+        "attenuation_db_per_km": 0.22,
+        "dispersion_ps_nm_km": 16.7,
+        "gamma_per_w_km": 1.3,
+    },
+    "NZDSF": {
+        "attenuation_db_per_km": 0.22,
+        "dispersion_ps_nm_km": 3.8,
+        "gamma_per_w_km": 1.5,
+    },
+}
+
+FIG5_BITS_PER_SYMBOL = {
+    "PM-BPSK": 2.0,
+    "PM-QPSK": 4.0,
+    "PM-8QAM": 6.0,
+    "PM-16QAM": 8.0,
+}
+FIG5_REFERENCE_DOI = "10.1109/JLT.2012.2189198"
 
 
 # ---------------------------------------------------------------------------
@@ -361,8 +528,15 @@ def calculate_snr(
     eta_per_span: float,
     parameters: Mapping[str, float],
     system: SystemParameters,
+    *,
+    include_transceiver_noise: bool = True,
 ) -> Dict[str, np.ndarray]:
-    """Calculate signal, ASE, NLI, transceiver noise, and end-to-end SNR."""
+    """Calculate signal, ASE, NLI, transceiver noise, and end-to-end SNR.
+
+    ``include_transceiver_noise=False`` is useful for reproducing paper
+    link-budget curves whose threshold is defined only by ASE and NLI.
+    The default remains the attached G.654.E model behavior.
+    """
 
     _validate_system(system)
     spans = _validate_spans(spans)
@@ -373,7 +547,12 @@ def calculate_snr(
     signal_w = 1e-3 * 10.0 ** (launch / 10.0)
     ase_w = np.full_like(signal_w, spans * float(parameters["ase_per_span_w"]))
     nli_w = spans * eta_per_span * signal_w**3
-    trx_equivalent_noise_w = signal_w / 10.0 ** (system.transceiver_snr_db / 10.0)
+    if include_transceiver_noise:
+        trx_equivalent_noise_w = signal_w / 10.0 ** (
+            system.transceiver_snr_db / 10.0
+        )
+    else:
+        trx_equivalent_noise_w = np.zeros_like(signal_w)
     total_noise_w = ase_w + nli_w + trx_equivalent_noise_w
     snr_linear = signal_w / total_noise_w
 
@@ -502,6 +681,262 @@ def make_launch_grid(
     if grid[-1] < launch_max_dbm - 1e-10:
         grid = np.append(grid, launch_max_dbm)
     return grid
+
+
+def _maximum_reach_from_gn(
+    launch_dbm: Sequence[float] | np.ndarray,
+    *,
+    eta_per_span: float,
+    parameters: Mapping[str, float],
+    system: SystemParameters,
+    required_snr_db: float,
+    max_spans: int,
+    accumulation_exponent: float = 1.0,
+    include_transceiver_noise: bool = False,
+) -> Dict[str, float]:
+    """Find the maximum reachable distance on a launch-power grid.
+
+    The current main.py GN model supplies ``eta_per_span``. This helper
+    applies the selected incoherent accumulation law over all integer span
+    counts and returns the best point on the supplied grid. The Figure 5
+    comparison uses exponent 1.0, i.e. the paper-style N-span accumulation.
+    """
+
+    launch = _as_float_array(launch_dbm)
+    if max_spans < 1:
+        raise ValueError("max_spans는 1 이상의 정수여야 합니다.")
+    if accumulation_exponent <= 0 or not np.isfinite(accumulation_exponent):
+        raise ValueError("accumulation_exponent는 0보다 큰 유한한 값이어야 합니다.")
+    if not np.isfinite(required_snr_db):
+        raise ValueError("required_snr_db는 유한한 값이어야 합니다.")
+
+    signal_w = 1e-3 * 10.0 ** (launch / 10.0)
+    span_counts = np.arange(1, int(max_spans) + 1, dtype=float)
+    ase_w = span_counts * float(parameters["ase_per_span_w"])
+    nli_w = (
+        float(eta_per_span)
+        * span_counts[:, None] ** accumulation_exponent
+        * signal_w[None, :] ** 3
+    )
+    if include_transceiver_noise:
+        trx_w = signal_w[None, :] / 10.0 ** (system.transceiver_snr_db / 10.0)
+    else:
+        trx_w = np.zeros((1, launch.size), dtype=float)
+    snr_db = 10.0 * np.log10(
+        signal_w[None, :] / (ase_w[:, None] + nli_w + trx_w)
+    )
+
+    valid = snr_db >= float(required_snr_db)
+    max_span_at_power = np.max(
+        np.where(valid, span_counts[:, None], 0.0), axis=0
+    )
+    best_span = int(np.max(max_span_at_power))
+    candidate_indices = np.flatnonzero(max_span_at_power == best_span)
+    if candidate_indices.size:
+        best_snr_at_span = snr_db[best_span - 1, candidate_indices]
+        best_index = int(candidate_indices[np.argmax(best_snr_at_span)])
+        best_launch_dbm = float(launch[best_index])
+        best_snr_db = float(snr_db[best_span - 1, best_index])
+    else:
+        best_index = 0
+        best_launch_dbm = float("nan")
+        best_snr_db = float("nan")
+
+    return {
+        "max_spans": float(best_span),
+        "max_reach_km": float(best_span * system.span_length_km),
+        "launch_dbm_at_max_reach": best_launch_dbm,
+        "snr_db_at_max_reach": best_snr_db,
+        "launch_grid_index": float(best_index),
+    }
+
+
+def validate_carena_fig5(
+    *,
+    launch_dbm: Optional[Sequence[float] | np.ndarray] = None,
+    max_spans: int = 300,
+    accumulation_exponent: float = 1.0,
+    nli_coefficient: float = 8.0 / 27.0,
+    finite_effective_length: bool = True,
+    power_definition: str = "total_dp",
+    include_transceiver_noise: bool = False,
+) -> Dict[str, Any]:
+    """Compare main.py with digitized/rounded Carena et al. Figure 5 points.
+
+    The paper evaluates 32-GBaud PM-BPSK/QPSK/8QAM/16QAM over 100-km spans
+    and reports maximum distance against net spectral efficiency. The
+    reference markers embedded in this function are rounded digitizations;
+    the calculation itself uses only the GN engine in this file.
+    """
+
+    launch = (
+        make_launch_grid(-10.0, 8.0, 0.05)
+        if launch_dbm is None
+        else _as_float_array(launch_dbm)
+    )
+    if launch.size < 2:
+        raise ValueError("Figure 5 검증에는 두 개 이상의 launch-power 점이 필요합니다.")
+    if not np.isfinite(nli_coefficient) or nli_coefficient <= 0:
+        raise ValueError("nli_coefficient는 0보다 큰 유한한 값이어야 합니다.")
+
+    rows: list[dict[str, Any]] = []
+    for fiber_name, fiber_input in FIG5_FIBER_INPUTS.items():
+        fiber = FiberParameters(name=fiber_name, **fiber_input)
+        for modulation, spacing_map in FIG5_REQUIRED_OSNR_DB_PER_0P1NM.items():
+            for spacing_ghz, required_osnr_db in spacing_map.items():
+                system = SystemParameters(
+                    channels=9,
+                    symbol_rate_gbd=32.0,
+                    spacing_ghz=float(spacing_ghz),
+                    span_length_km=100.0,
+                    noise_figure_db=5.0,
+                    transceiver_snr_db=18.0,
+                    polarizations=2,
+                    ase_bandwidth_hz=32e9,
+                    stated_gain_bandwidth_thz=None,
+                )
+                options = GNOptions(
+                    nli_coefficient=nli_coefficient,
+                    finite_effective_length=finite_effective_length,
+                    power_definition=power_definition,
+                    model_name=(
+                        "gn_finite" if finite_effective_length else "legacy"
+                    ),
+                )
+                parameters = derive_parameters(fiber, system)
+                eta = gn_eta_per_span(parameters, system, options)
+                required_snr_db = float(
+                    required_osnr_db + 10.0 * np.log10(12.5e9 / 32e9)
+                )
+                reach = _maximum_reach_from_gn(
+                    launch,
+                    eta_per_span=eta,
+                    parameters=parameters,
+                    system=system,
+                    required_snr_db=required_snr_db,
+                    max_spans=max_spans,
+                    accumulation_exponent=accumulation_exponent,
+                    include_transceiver_noise=include_transceiver_noise,
+                )
+                reference_reach_km = float(
+                    FIG5_REFERENCE_REACH_KM[fiber_name][modulation][spacing_ghz]
+                )
+                predicted_reach_km = reach["max_reach_km"]
+                rows.append(
+                    {
+                        "fiber": fiber_name,
+                        "modulation": modulation,
+                        "spacing_ghz": float(spacing_ghz),
+                        "net_spectral_efficiency_bps_hz": float(
+                            FIG5_BITS_PER_SYMBOL[modulation] * 25.0 / spacing_ghz
+                        ),
+                        "required_osnr_db_per_0p1nm": float(required_osnr_db),
+                        "required_snr_db": required_snr_db,
+                        "reference_reach_km": reference_reach_km,
+                        "predicted_reach_km": predicted_reach_km,
+                        "launch_dbm_at_max_reach": reach[
+                            "launch_dbm_at_max_reach"
+                        ],
+                        "snr_db_at_max_reach": reach["snr_db_at_max_reach"],
+                        "eta_per_span_w_inv2": float(eta),
+                    }
+                )
+
+    frame = records_to_dataframe(rows)
+    if pd is not None:
+        frame = frame.sort_values(
+            ["fiber", "modulation", "net_spectral_efficiency_bps_hz"]
+        ).reset_index(drop=True)
+        frame["error_pct"] = (
+            100.0
+            * (frame["predicted_reach_km"] - frame["reference_reach_km"])
+            / frame["reference_reach_km"]
+        )
+        frame["abs_error_pct"] = frame["error_pct"].abs()
+        frame["reach_error_db"] = 10.0 * np.log10(
+            frame["predicted_reach_km"] / frame["reference_reach_km"]
+        )
+        summary_rows = []
+        for fiber_name, group in frame.groupby("fiber", sort=False):
+            summary_rows.append(
+                {
+                    "fiber": fiber_name,
+                    "points": int(len(group)),
+                    "mape_pct": float(group["abs_error_pct"].mean()),
+                    "bias_pct": float(group["error_pct"].mean()),
+                    "reach_rmse_db": float(
+                        np.sqrt(np.mean(group["reach_error_db"] ** 2))
+                    ),
+                }
+            )
+        summary_rows.append(
+            {
+                "fiber": "OVERALL",
+                "points": int(len(frame)),
+                "mape_pct": float(frame["abs_error_pct"].mean()),
+                "bias_pct": float(frame["error_pct"].mean()),
+                "reach_rmse_db": float(
+                    np.sqrt(np.mean(frame["reach_error_db"] ** 2))
+                ),
+            }
+        )
+        summary = pd.DataFrame(summary_rows)
+    else:
+        for row in rows:
+            row["error_pct"] = 100.0 * (
+                row["predicted_reach_km"] - row["reference_reach_km"]
+            ) / row["reference_reach_km"]
+            row["abs_error_pct"] = abs(row["error_pct"])
+            row["reach_error_db"] = 10.0 * np.log10(
+                row["predicted_reach_km"] / row["reference_reach_km"]
+            )
+        summary_rows = []
+        for fiber_name in list(FIG5_FIBER_INPUTS) + ["OVERALL"]:
+            group = rows if fiber_name == "OVERALL" else [
+                row for row in rows if row["fiber"] == fiber_name
+            ]
+            summary_rows.append(
+                {
+                    "fiber": fiber_name,
+                    "points": len(group),
+                    "mape_pct": float(np.mean([row["abs_error_pct"] for row in group])),
+                    "bias_pct": float(np.mean([row["error_pct"] for row in group])),
+                    "reach_rmse_db": float(
+                        np.sqrt(np.mean([row["reach_error_db"] ** 2 for row in group]))
+                    ),
+                }
+            )
+        summary = summary_rows
+
+    metadata = {
+        "paper": "Carena et al., Journal of Lightwave Technology 30(10), 1524-1539 (2012)",
+        "doi": FIG5_REFERENCE_DOI,
+        "figure": 5,
+        "reference_data": "digitized and rounded Figure 5 markers; not raw paper data",
+        "reference_curve": "paper-style maximum reach markers",
+        "launch_grid_dbm": [float(launch[0]), float(launch[-1]), float(launch[1] - launch[0])],
+        "max_spans": int(max_spans),
+        "accumulation_exponent": float(accumulation_exponent),
+        "nli_coefficient": float(nli_coefficient),
+        "finite_effective_length": bool(finite_effective_length),
+        "power_definition": power_definition,
+        "include_transceiver_noise": bool(include_transceiver_noise),
+        "paper_system": {
+            "wavelength_nm": 1550.0,
+            "symbol_rate_gbd": 32.0,
+            "payload_rate_gbd": 25.0,
+            "channels": 9,
+            "span_length_km": 100.0,
+            "noise_figure_db": 5.0,
+            "polarizations": 2,
+        },
+    }
+    return {
+        "results": frame,
+        "summary": summary,
+        "metadata": metadata,
+        "launch_grid_dbm": launch,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -871,6 +1306,121 @@ def _plot_result(result: Mapping[str, Any], path: Optional[Path] = None) -> None
         plt.close(fig)
 
 
+def _plot_carena_fig5(
+    result: Mapping[str, Any], path: Optional[Path] = None
+) -> None:
+    """Plot paper Figure 5 markers against the main.py GN predictions."""
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError as exc:
+        raise RuntimeError("그래프에는 matplotlib가 필요합니다.") from exc
+
+    frame = result["results"]
+    rows = (
+        frame.to_dict("records")
+        if pd is not None and hasattr(frame, "to_dict")
+        else list(frame)
+    )
+    fibers = list(FIG5_FIBER_INPUTS)
+    modulations = list(FIG5_BITS_PER_SYMBOL)
+    colors = {
+        "PM-BPSK": "#1f77b4",
+        "PM-QPSK": "#ff7f0e",
+        "PM-8QAM": "#2ca02c",
+        "PM-16QAM": "#d62728",
+    }
+    fig, axes = plt.subplots(
+        1,
+        len(fibers),
+        figsize=(15, 5.2),
+        sharey=True,
+        layout="constrained",
+    )
+    axes = np.atleast_1d(axes)
+    for ax, fiber_name in zip(axes, fibers):
+        fiber_rows = [row for row in rows if row["fiber"] == fiber_name]
+        for modulation in modulations:
+            values = sorted(
+                [
+                    row
+                    for row in fiber_rows
+                    if row["modulation"] == modulation
+                ],
+                key=lambda row: row["net_spectral_efficiency_bps_hz"],
+            )
+            if not values:
+                continue
+            x = [row["net_spectral_efficiency_bps_hz"] for row in values]
+            reference = [row["reference_reach_km"] for row in values]
+            predicted = [row["predicted_reach_km"] for row in values]
+            color = colors[modulation]
+            ax.plot(
+                x,
+                reference,
+                "o-",
+                color=color,
+                ms=4,
+                lw=1.4,
+                label=f"{modulation} paper",
+            )
+            ax.plot(
+                x,
+                predicted,
+                "x--",
+                color=color,
+                ms=5,
+                lw=1.2,
+                label=f"{modulation} main.py",
+            )
+        ax.set_title(fiber_name)
+        ax.set_xlabel("Net spectral efficiency (bit/s/Hz)")
+        ax.set_yscale("log")
+        ax.grid(alpha=0.25, which="both")
+    axes[0].set_ylabel("Maximum reach (km)")
+    axes[0].legend(fontsize=7, ncol=2, loc="best")
+    fig.suptitle(
+        "Carena et al. Figure 5: digitized paper values vs main.py GN",
+        y=1.02,
+    )
+    if path is None:
+        plt.show()
+    else:
+        fig.savefig(path, dpi=180, bbox_inches="tight")
+        plt.close(fig)
+
+
+def save_carena_fig5_result(
+    result: Mapping[str, Any], directory: str | Path
+) -> Path:
+    """Save the Figure 5 comparison table, summary, metadata, and graph."""
+
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    comparison = result["results"]
+    summary = result["summary"]
+    if pd is not None and hasattr(comparison, "to_csv"):
+        comparison.to_csv(
+            directory / "carena_fig5_comparison.csv",
+            index=False,
+            encoding="utf-8-sig",
+        )
+        summary.to_csv(
+            directory / "carena_fig5_summary.csv",
+            index=False,
+            encoding="utf-8-sig",
+        )
+    else:
+        _write_mapping_csv(comparison, directory / "carena_fig5_comparison.csv")
+        _write_mapping_csv(summary, directory / "carena_fig5_summary.csv")
+    with (directory / "carena_fig5_metadata.json").open(
+        "w", encoding="utf-8"
+    ) as handle:
+        json.dump(result["metadata"], handle, indent=2, ensure_ascii=False)
+    _plot_carena_fig5(result, directory / "carena_fig5_comparison.png")
+    return directory
+
+
 def run_cli(argv: Optional[Sequence[str]] = None) -> Dict[str, Any]:
     parser = argparse.ArgumentParser(
         description="Reusable GN-model calculation and validation"
@@ -884,7 +1434,32 @@ def run_cli(argv: Optional[Sequence[str]] = None) -> Dict[str, Any]:
     parser.add_argument("--reference-csv", type=str, default=None)
     parser.add_argument("--save-dir", type=str, default="gn_results")
     parser.add_argument("--plot", action="store_true")
+    parser.add_argument(
+        "--figure5",
+        action="store_true",
+        help="Carena et al. Figure 5 reference-vs-main.py comparison",
+    )
+    parser.add_argument(
+        "--figure5-max-spans", type=int, default=300
+    )
+    parser.add_argument(
+        "--figure5-accumulation-exponent", type=float, default=1.0
+    )
+    parser.add_argument(
+        "--figure5-coefficient", type=float, default=8.0 / 27.0
+    )
     args = parser.parse_args(argv)
+
+    if args.figure5:
+        figure5 = validate_carena_fig5(
+            max_spans=args.figure5_max_spans,
+            accumulation_exponent=args.figure5_accumulation_exponent,
+            nli_coefficient=args.figure5_coefficient,
+        )
+        save_dir = save_carena_fig5_result(figure5, args.save_dir)
+        print(f"Figure 5 comparison saved to: {save_dir}")
+        print(figure5["summary"].to_string(index=False) if pd is not None else figure5["summary"])
+        return {"figure5": figure5}
 
     spans_list = [
         int(value.strip()) for value in args.spans.split(",") if value.strip()

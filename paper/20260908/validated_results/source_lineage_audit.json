@@ -1,0 +1,13 @@
+{
+  "original_sha256": "6e77c24307a763e753c7e339933a30aefec2ca0fe3e7cc278e4fcbd2ca4aa79a",
+  "retained_sha256": "669ea3d9206d4ae9dab18a07b8e06325878b05b2892e64611820fbbccab7160e",
+  "functions_identical_AST": {
+    "ConcentricLeakyModeModel": true,
+    "matching_matrix": true,
+    "characteristic": true,
+    "solve_fundamental_mode": true,
+    "beta_from_u": true,
+    "beta_loss_db_km": true,
+    "build_models": true
+  }
+}

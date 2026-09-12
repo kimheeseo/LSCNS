@@ -1,0 +1,642 @@
+[
+  {
+    "modulation": "QPSK",
+    "fiber": "PSCF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 63.333333333333336,
+    "nspan_std": 1.5275252316519465,
+    "nspan_values": [
+      62,
+      65,
+      63
+    ],
+    "paper_gn_nspan": 61.66844337173108,
+    "abs_error_mean": 1.664889961602256,
+    "rel_error_pct_mean": 2.6997437758668066
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "PSCF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 63.0,
+    "nspan_std": 1.7320508075688772,
+    "nspan_values": [
+      62,
+      62,
+      65
+    ],
+    "paper_gn_nspan": 62.66498127039077,
+    "abs_error_mean": 0.3350187296092315,
+    "rel_error_pct_mean": 0.5346187341278724
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "PSCF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 66.33333333333333,
+    "nspan_std": 2.5166114784235836,
+    "nspan_values": [
+      66,
+      69,
+      64
+    ],
+    "paper_gn_nspan": 65.33796831443694,
+    "abs_error_mean": 0.9953650188963934,
+    "rel_error_pct_mean": 1.5234098099075108
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "PSCF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 68.66666666666667,
+    "nspan_std": 2.8867513459481287,
+    "nspan_values": [
+      67,
+      72,
+      67
+    ],
+    "paper_gn_nspan": 67.00107450373108,
+    "abs_error_mean": 1.6655921629355959,
+    "rel_error_pct_mean": 2.4859185845487364
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "PSCF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 66.33333333333333,
+    "nspan_std": 2.8867513459481287,
+    "nspan_values": [
+      63,
+      68,
+      68
+    ],
+    "paper_gn_nspan": 68.3342252194874,
+    "abs_error_mean": 2.000891886154065,
+    "rel_error_pct_mean": 2.928096250052244
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "SMF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 26.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      26,
+      26,
+      26
+    ],
+    "paper_gn_nspan": 27.50225328897501,
+    "abs_error_mean": 1.5022532889750089,
+    "rel_error_pct_mean": 5.4622916645787205
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "SMF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 26.333333333333332,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      26,
+      27,
+      26
+    ],
+    "paper_gn_nspan": 28.100696309228212,
+    "abs_error_mean": 1.76736297589488,
+    "rel_error_pct_mean": 6.289392107748168
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "SMF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 28.333333333333332,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      28,
+      29,
+      28
+    ],
+    "paper_gn_nspan": 29.29907712153173,
+    "abs_error_mean": 0.9657437881983988,
+    "rel_error_pct_mean": 3.296157705556804
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "SMF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 29.333333333333332,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      29,
+      30,
+      29
+    ],
+    "paper_gn_nspan": 30.201982894298006,
+    "abs_error_mean": 0.8686495609646734,
+    "rel_error_pct_mean": 2.8761342061705175
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "SMF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 29.333333333333332,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      29,
+      30,
+      29
+    ],
+    "paper_gn_nspan": 30.951913085274715,
+    "abs_error_mean": 1.6185797519413825,
+    "rel_error_pct_mean": 5.229336705237187
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "NZDSF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 11.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      11,
+      11,
+      11
+    ],
+    "paper_gn_nspan": 11.390728179226143,
+    "abs_error_mean": 0.39072817922614256,
+    "rel_error_pct_mean": 3.430230035150287
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "NZDSF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 11.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      11,
+      11,
+      11
+    ],
+    "paper_gn_nspan": 11.655625307536583,
+    "abs_error_mean": 0.6556253075365834,
+    "rel_error_pct_mean": 5.624968976247486
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "NZDSF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 12.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      12,
+      12,
+      12
+    ],
+    "paper_gn_nspan": 12.450990745255229,
+    "abs_error_mean": 0.4509907452552291,
+    "rel_error_pct_mean": 3.6221273831328706
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "NZDSF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 13.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      13,
+      13,
+      13
+    ],
+    "paper_gn_nspan": 13.046359103869287,
+    "abs_error_mean": 0.04635910386928721,
+    "rel_error_pct_mean": 0.35534131400336844
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "NZDSF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 13.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      13,
+      13,
+      13
+    ],
+    "paper_gn_nspan": 13.376819099959782,
+    "abs_error_mean": 0.376819099959782,
+    "rel_error_pct_mean": 2.816955938059407
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "LS",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 7.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      7,
+      7,
+      7
+    ],
+    "paper_gn_nspan": 7.450437609233824,
+    "abs_error_mean": 0.45043760923382425,
+    "rel_error_pct_mean": 6.0457872793346645
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "LS",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 7.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      7,
+      7,
+      7
+    ],
+    "paper_gn_nspan": 7.615641834364456,
+    "abs_error_mean": 0.6156418343644559,
+    "rel_error_pct_mean": 8.083912659685009
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "LS",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.112574301465138,
+    "abs_error_mean": 0.1125743014651377,
+    "rel_error_pct_mean": 1.3876520236592063
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "LS",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.377099872850705,
+    "abs_error_mean": 0.3770998728507049,
+    "rel_error_pct_mean": 4.501556368843658
+  },
+  {
+    "modulation": "QPSK",
+    "fiber": "LS",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.576402461214972,
+    "abs_error_mean": 0.5764024612149719,
+    "rel_error_pct_mean": 6.720795389694388
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "PSCF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 34.333333333333336,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      34,
+      35,
+      34
+    ],
+    "paper_gn_nspan": 35.380666609892316,
+    "abs_error_mean": 1.0473332765589802,
+    "rel_error_pct_mean": 2.9601852562782107
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "PSCF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 34.333333333333336,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      34,
+      35,
+      34
+    ],
+    "paper_gn_nspan": 35.88898982537213,
+    "abs_error_mean": 1.5556564920387927,
+    "rel_error_pct_mean": 4.334634381207921
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "PSCF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 36.333333333333336,
+    "nspan_std": 1.5275252316519465,
+    "nspan_values": [
+      35,
+      38,
+      36
+    ],
+    "paper_gn_nspan": 37.03413785851924,
+    "abs_error_mean": 0.7008045251859016,
+    "rel_error_pct_mean": 1.8923203447132233
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "PSCF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 38.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      38,
+      38,
+      38
+    ],
+    "paper_gn_nspan": 37.669679152701384,
+    "abs_error_mean": 0.33032084729861566,
+    "rel_error_pct_mean": 0.8768878703733998
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "PSCF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 37.0,
+    "nspan_std": 1.0,
+    "nspan_values": [
+      36,
+      37,
+      38
+    ],
+    "paper_gn_nspan": 38.30389175539303,
+    "abs_error_mean": 1.3038917553930318,
+    "rel_error_pct_mean": 3.4040712200202194
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "SMF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 17.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      17,
+      17,
+      17
+    ],
+    "paper_gn_nspan": 16.759577820711193,
+    "abs_error_mean": 0.2404221792888066,
+    "rel_error_pct_mean": 1.4345360119495199
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "SMF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 17.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      17,
+      17,
+      17
+    ],
+    "paper_gn_nspan": 16.982968959325095,
+    "abs_error_mean": 0.017031040674904574,
+    "rel_error_pct_mean": 0.10028305837274161
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "SMF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 18.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      18,
+      18,
+      18
+    ],
+    "paper_gn_nspan": 17.54211404852064,
+    "abs_error_mean": 0.4578859514793585,
+    "rel_error_pct_mean": 2.610209637292678
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "SMF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 18.333333333333332,
+    "nspan_std": 0.5773502691896258,
+    "nspan_values": [
+      18,
+      19,
+      18
+    ],
+    "paper_gn_nspan": 17.877278554826873,
+    "abs_error_mean": 0.45605477850645926,
+    "rel_error_pct_mean": 2.5510302203314064
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "SMF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 19.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      19,
+      19,
+      19
+    ],
+    "paper_gn_nspan": 18.156010429058846,
+    "abs_error_mean": 0.8439895709411545,
+    "rel_error_pct_mean": 4.64854090186213
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "NZDSF",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.329270081820855,
+    "abs_error_mean": 0.32927008182085515,
+    "rel_error_pct_mean": 3.953168508000567
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "NZDSF",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.455812639147759,
+    "abs_error_mean": 0.4558126391477586,
+    "rel_error_pct_mean": 5.390524348156546
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "NZDSF",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 8.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      8,
+      8,
+      8
+    ],
+    "paper_gn_nspan": 8.785141301115804,
+    "abs_error_mean": 0.7851413011158037,
+    "rel_error_pct_mean": 8.937150515906701
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "NZDSF",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 9.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      9,
+      9,
+      9
+    ],
+    "paper_gn_nspan": 9.012709440113792,
+    "abs_error_mean": 0.012709440113791715,
+    "rel_error_pct_mean": 0.14101686288947143
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "NZDSF",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 9.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      9,
+      9,
+      9
+    ],
+    "paper_gn_nspan": 9.189656534576361,
+    "abs_error_mean": 0.18965653457636122,
+    "rel_error_pct_mean": 2.0638043855368564
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "LS",
+    "spacing_GHz": 33.6,
+    "pass": true,
+    "nspan_mean": 5.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      5,
+      5,
+      5
+    ],
+    "paper_gn_nspan": 5.4178946713031575,
+    "abs_error_mean": 0.4178946713031575,
+    "rel_error_pct_mean": 7.71322989198389
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "LS",
+    "spacing_GHz": 35,
+    "pass": true,
+    "nspan_mean": 5.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      5,
+      5,
+      5
+    ],
+    "paper_gn_nspan": 5.56949159029921,
+    "abs_error_mean": 0.5694915902992097,
+    "rel_error_pct_mean": 10.225198854616009
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "LS",
+    "spacing_GHz": 40,
+    "pass": true,
+    "nspan_mean": 5.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      5,
+      5,
+      5
+    ],
+    "paper_gn_nspan": 5.974759225723948,
+    "abs_error_mean": 0.9747592257239477,
+    "rel_error_pct_mean": 16.314619366202802
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "LS",
+    "spacing_GHz": 45,
+    "pass": true,
+    "nspan_mean": 6.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      6,
+      6,
+      6
+    ],
+    "paper_gn_nspan": 6.253463642976202,
+    "abs_error_mean": 0.25346364297620205,
+    "rel_error_pct_mean": 4.053172089053219
+  },
+  {
+    "modulation": "16QAM",
+    "fiber": "LS",
+    "spacing_GHz": 50,
+    "pass": true,
+    "nspan_mean": 6.0,
+    "nspan_std": 0.0,
+    "nspan_values": [
+      6,
+      6,
+      6
+    ],
+    "paper_gn_nspan": 6.430415101403533,
+    "abs_error_mean": 0.4304151014035327,
+    "rel_error_pct_mean": 6.6934263903054765
+  }
+]

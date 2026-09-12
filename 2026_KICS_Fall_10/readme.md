@@ -1,6 +1,8 @@
 # Code
 - gn_integral.py = GN 적분형 범용 코어 모델
-- 1) 분산: β₂만 고려
+- 참고 논문: A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems
+- 특징
+  1) 분산: β₂만 고려
   2) Span: 동일 스팬(손실을 매 Span 끝단에서 정확히 보상하는 lumped EDFA)
   3) Channel: 단일 채널(flat-top PSD 가정)
   4) 간섭 성분: SCI(채널이 하나 뿐이므로, XCI나 MCI 존재하지 않음)

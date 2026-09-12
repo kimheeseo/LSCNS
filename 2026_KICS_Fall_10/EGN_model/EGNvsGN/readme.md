@@ -1,6 +1,9 @@
 # GN/EGN 적분 엔진과 변조 성능 검증
-
 이 폴더는 WDM GN 적분 엔진, 변조/성능 레이어, 수식 검증 노트북, 그리고 첨부 논문 **A Simple and Accurate Closed-Form EGN Model Formula**의 Fig. 1–3 재현 보고서를 함께 제공한다.
+
+- GN 모델: 논문 GN 곡선과 유사하게 추정했습니다.
+- EGN 모델: 일부 SCI 전용 기능은 있지만, 논문과 같은 raised-cosine WDM 조건의 full EGN(SCI/XCI/MCI) 수준은 구현·검증하지 못했습니다.
+- SSFM 결과: 현재 코드에는 SSFM 시뮬레이터가 없어 재현하지 못했습니다.
 
 ## 파일별 특징
 

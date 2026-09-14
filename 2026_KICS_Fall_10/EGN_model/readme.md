@@ -1,8 +1,10 @@
-# EGN_model — EGN Validation and GN/EGN Comparison
+# EGN_model — Full EGN Solver, Validation, and GN/EGN Comparison
 
-이 폴더는 EGN(Enhanced Gaussian Noise) 모델 구현과 검증 자료를 두 개의 하위 폴더로 구분하여 정리한 공간입니다. `EGN_Model_Validation`은 Carena 2014 논문의 SCI/XCI/MCI 결과를 직접 검증하는 데 초점을 두며, `EGNvsGN`은 범용 GN 적분 엔진과 변조 성능 레이어를 논문의 GN/EGN/SIM 곡선과 비교하는 데 초점을 둡니다.
+이 폴더는 Enhanced Gaussian Noise(EGN) 모델의 구현, 문헌 검증, 그리고 GN/EGN 비교 자료를 정리한 연구용 공간입니다.
 
-**Eng:** This directory organizes EGN (Enhanced Gaussian Noise) implementation and validation work into two subdirectories. `EGN_Model_Validation` focuses on direct validation of SCI/XCI/MCI behavior against Carena 2014, while `EGNvsGN` focuses on comparing the general GN-integral engine and modulation-performance layer with published GN/EGN/SIM curves.
+현재 이 폴더에서 **새로운 Full-EGN 계산에 가장 우선적으로 사용할 파일은 [`EGN_adaptive.py`](./EGN_adaptive.py)** 입니다. `EGN_Model_Validation/`은 이전 full-EGN 구현과 Carena (2014) 검증 자료를 보존하고 있으며, `EGNvsGN/`은 범용 GN 적분 엔진의 수학적 검증과 paper-GN 재현을 담당합니다.
+
+**Eng:** This directory contains the Full-EGN research solver, literature-validation material, and GN/EGN comparison studies. For new Full-EGN calculations, the recommended entry point is [`EGN_adaptive.py`](./EGN_adaptive.py). `EGN_Model_Validation/` preserves the earlier full-EGN implementation and Carena-validation artifacts, while `EGNvsGN/` focuses on validation of the general GN integral path.
 
 ---
 
@@ -10,8 +12,10 @@
 
 ```text
 EGN_model/
+├─ EGN_adaptive.py                  # recommended current Full-EGN solver
+│
 ├─ EGN_Model_Validation/
-│  ├─ final_EGN.py
+│  ├─ final_EGN.py                  # earlier/reference Full-EGN implementation
 │  ├─ final_EGN_Carena_Fig1_3_6_8_Validation_Colab.ipynb
 │  ├─ README_final_EGN_validation.md
 │  ├─ final_EGN_validation_summary.csv
@@ -20,8 +24,7 @@ EGN_model/
 │  ├─ Fig3_SMF_paper_vs_code.png
 │  ├─ Fig6_SMF_paper_vs_code.png
 │  ├─ Fig8_SMF_paper_vs_code.png
-│  ├─ quadrature_sensitivity_SMF_50span.png
-│  └─ final_EGN_validation_bundle.zip
+│  └─ validation assets / bundle
 │
 └─ EGNvsGN/
    ├─ GN_integral_math_verification.ipynb
@@ -34,270 +37,358 @@ EGN_model/
    └─ readme.md
 ```
 
-두 폴더는 비슷해 보이지만 목적이 다릅니다. `EGN_Model_Validation`은 full-EGN 알고리즘 자체의 정확성과 수치 수렴성을 검증하고, `EGNvsGN`은 현재 범용 GN 엔진이 논문의 GN 결과를 얼마나 잘 재현하는지와 modulation/system layer가 어떤 범위까지 유효한지를 검증합니다.
-
-**Eng:** Although the two subdirectories are related, their purposes differ. `EGN_Model_Validation` evaluates the accuracy and numerical convergence of the full-EGN implementation itself, whereas `EGNvsGN` evaluates how accurately the general GN engine reproduces published GN results and clarifies the valid scope of the modulation/system-performance layer.
-
----
-
-# 2. `EGN_Model_Validation`
-
-## 폴더 목적 / Purpose
-
-A. Carena et al., **“EGN model of non-linear fiber propagation”** (Optics Express, 2014)의 Fig. 1, 3, 6, 8 조건을 이용하여 `final_EGN.py`의 GN baseline과 SCI/XCI/MCI EGN correction을 검증하기 위한 폴더입니다.
-
-**Eng:** This folder validates the GN baseline and SCI/XCI/MCI EGN corrections implemented in `final_EGN.py` using the conditions of Figs. 1, 3, 6, and 8 from A. Carena et al., **“EGN model of non-linear fiber propagation”** (Optics Express, 2014).
-
-검증 대상은 다음과 같습니다.
-
-**Eng:** The validation targets are:
-
-- Fig. 1: SCI  
-- Fig. 3: 3-channel XCI only  
-- Fig. 6: 3-channel XMCI = XCI + MCI  
-- Fig. 8: 9-channel XMCI = XCI + MCI  
-
-### `final_EGN.py`
-
-Poggiolini 계열 GN 적분을 baseline으로 사용하고, Carena 2014의 비가우시안 보정항을 SCI, XCI, MCI에 추가하도록 구성한 실험적 full-EGN 구현입니다. 코드에서는 GN baseline, SCI-EGN, full-EGN을 구분하여 사용할 수 있도록 설계되어 있습니다.
-
-**Eng:** This is an experimental full-EGN implementation that uses a Poggiolini-style GN integral as the baseline and adds the non-Gaussian SCI, XCI, and MCI correction structure from Carena 2014. The implementation separates GN baseline, SCI-EGN, and full-EGN operating modes.
-
-현재 상태에서 GN baseline과 SCI-EGN은 논문값과 좋은 일치를 보이지만, XCI/MCI correction integral은 quadrature order에 따른 수치 변화가 커서 완전히 수렴한 production-grade 모델로 간주하면 안 됩니다.
-
-**Eng:** At the current stage, the GN baseline and SCI-EGN show good agreement with the paper, but the XCI/MCI correction integrals remain sensitive to quadrature order. Therefore, the full-EGN path should not yet be considered production-grade or fully converged.
-
-### `final_EGN_Carena_Fig1_3_6_8_Validation_Colab.ipynb`
-
-`final_EGN.py`를 Carena 2014 Fig. 1, 3, 6, 8 조건에서 실행하고, 논문에서 추출한 기준값과 코드 계산값을 그래프와 오차 지표로 비교하기 위한 Colab 검증 노트북입니다.
-
-**Eng:** This Colab notebook runs `final_EGN.py` under the Carena 2014 Fig. 1, 3, 6, and 8 conditions and compares code results with paper-derived reference data using plots and error metrics.
-
-주요 비교 지표는 dB 절대오차, MAE, 최대오차, 선형 `eta` 기준 상대오차입니다.
-
-**Eng:** Main comparison metrics include absolute error in dB, mean absolute error (MAE), maximum error, and relative error based on linear `eta`.
-
-### `README_final_EGN_validation.md`
-
-전체 검증 조건, 결과, 현재 구현의 성숙도와 제한사항을 정리한 상세 validation report입니다. full-EGN이 완전히 검증된 것으로 오해하지 않도록 GN, SCI-EGN, XCI/MCI-EGN의 상태를 구분해 설명합니다.
-
-**Eng:** This detailed validation report documents the test conditions, results, implementation maturity, and limitations. It explicitly separates the status of GN, SCI-EGN, and XCI/MCI-EGN to avoid presenting the full-EGN implementation as fully validated.
-
-### `final_EGN_validation_summary.csv`
-
-Fig. 1/3/6/8 및 fiber별 검증 결과를 요약한 표 형식 데이터입니다. 각 조건의 paper/code 비교와 대표 오차 지표를 빠르게 확인하기 위한 파일입니다.
-
-**Eng:** This CSV summarizes validation results by figure and fiber, providing a compact paper-versus-code comparison and representative error metrics.
-
-### `final_EGN_paper_vs_code_detail.csv`
-
-각 span point 및 조건별 paper value, code value, 오차를 보다 세부적으로 기록한 데이터입니다. 평균값뿐 아니라 개별 point의 편차를 확인할 때 사용합니다.
-
-**Eng:** This file stores detailed point-by-point paper values, code values, and errors for each span and test condition, allowing inspection beyond aggregate metrics.
-
-### `Fig1_SMF_paper_vs_code.png`
-
-SMF 조건의 Fig. 1 SCI에 대해 paper와 code를 시각적으로 비교한 그래프입니다.
-
-**Eng:** Visual paper-versus-code comparison for Fig. 1 SCI under the SMF condition.
-
-### `Fig3_SMF_paper_vs_code.png`
-
-SMF 조건의 Fig. 3 XCI-only 결과를 비교하는 그래프입니다.
-
-**Eng:** Visual comparison of the Fig. 3 XCI-only result for SMF.
-
-### `Fig6_SMF_paper_vs_code.png`
-
-SMF 조건의 Fig. 6 XMCI(XCI+MCI) 결과를 비교하는 그래프입니다.
-
-**Eng:** Visual comparison of the Fig. 6 XMCI (XCI+MCI) result for SMF.
-
-### `Fig8_SMF_paper_vs_code.png`
-
-SMF 조건의 Fig. 8 9-channel XMCI 결과를 비교하는 그래프입니다.
-
-**Eng:** Visual comparison of the Fig. 8 nine-channel XMCI result for SMF.
-
-### `quadrature_sensitivity_SMF_50span.png`
-
-XCI/MCI EGN correction에서 numerical quadrature order를 바꾸었을 때 결과가 어떻게 변하는지 보여주는 민감도 그래프입니다. 현재 full-EGN 구현의 가장 중요한 제한사항인 수치 수렴 문제를 확인하기 위한 자료입니다.
-
-**Eng:** This sensitivity plot shows how the XCI/MCI EGN result changes with numerical quadrature order. It is specifically intended to expose the current full-EGN implementation's main limitation: numerical convergence of the correction integrals.
-
-### `final_EGN_validation_bundle.zip`
-
-검증 실행에 사용된 코드·데이터·결과물을 하나로 묶어 보관하기 위한 bundle입니다.
-
-**Eng:** Archive bundle containing the validation code, data, and generated results for convenient preservation or transfer.
+> **Note:** `EGNvsGN/`에는 현재 독립 실행용 `.py` 파일이 직접 들어 있지 않습니다. 이 폴더의 notebook들이 상위 폴더의 `gn_integral_general.py`와 `gn_integral_general_modulation.py` 경로를 검증하는 구조입니다.
+>
+> **Eng:** `EGNvsGN/` currently contains notebooks/data rather than a standalone Python engine. The notebooks validate the parent-level GN engine and modulation layer.
 
 ---
 
-## 3. `EGN_Model_Validation` 성능 해석 / Validation status
+# 2. `EGN_adaptive.py` — 권장 Full-EGN 모델 / Recommended Full-EGN model
 
-저장된 validation report 기준으로 GN baseline은 Carena 논문의 Fig. 1/3/6/8 GN 값과 매우 잘 일치합니다. 대표 MAE는 약 **0.05–0.08 dB** 수준이며, SCI-EGN의 Fig. 1 전체 MAE는 약 **0.144 dB**로 보고되었습니다.
+## 목적 / Purpose
 
-**Eng:** According to the stored validation report, the GN baseline agrees closely with the GN values in Carena Figs. 1/3/6/8, with representative MAEs of approximately **0.05–0.08 dB**. The reported overall Fig. 1 SCI-EGN MAE is approximately **0.144 dB**.
+`EGN_adaptive.py`는 A. Carena et al., **“EGN model of non-linear fiber propagation”** (Optics Express, 2014)의 EGN formulation을 기반으로, GN baseline에 modulation-dependent non-Gaussian correction을 추가하여 다음 세 성분을 계산하는 연구용 Full-EGN solver입니다.
 
-반면 Fig. 3/6/8의 full-EGN XCI/MCI는 특정 quadrature order에서 큰 변동을 보이며 비단조적인 수렴이 관찰됩니다. 따라서 현재 권장 상태는 다음과 같습니다.
+\[
+G_{\mathrm{NLI}}^{\mathrm{EGN}}
+=
+G_{\mathrm{SCI}}^{\mathrm{EGN}}
++
+G_{\mathrm{XCI}}^{\mathrm{EGN}}
++
+G_{\mathrm{MCI}}^{\mathrm{EGN}}
+\]
 
-**Eng:** By contrast, the full-EGN XCI/MCI paths for Figs. 3/6/8 exhibit significant quadrature-order sensitivity and non-monotonic convergence. The recommended interpretation is therefore:
+- **SCI** — Self-Channel Interference
+- **XCI** — Cross-Channel Interference
+- **MCI** — Multi-Channel Interference
 
-```text
-GN baseline : VALIDATED
-SCI-EGN     : VALIDATED / RESEARCH-GRADE
-XCI-EGN     : IMPLEMENTED, convergence improvement required
-MCI-EGN     : IMPLEMENTED, convergence improvement required
-Full-EGN    : NOT YET PRODUCTION-GRADE
+**Eng:** `EGN_adaptive.py` is the recommended Full-EGN research solver. It evaluates GN baseline contributions together with modulation-dependent SCI, XCI, and MCI correction terms following Carena et al. (2014).
+
+### 이론적 기준 / Theoretical basis
+
+주요 기준은 Carena (2014)의 다음 formulation입니다.
+
+- SCI: Eqs. (5)–(12)
+- XCI: Eq. (18), Appendix A
+- MCI: Appendix B
+- numerical reduction/factorization: Appendix C
+
+코드는 paper curve에 맞추기 위한 scale factor, empirical offset 또는 target-value fitting을 물리 계산에 사용하지 않습니다.
+
+**Eng:** The physics calculation does not use paper-target scale factors, empirical offsets, or curve fitting.
+
+---
+
+## 2.1 왜 `adaptive`인가? / Why the adaptive solver?
+
+초기 full-EGN 구현에서는 긴 coherent link에서 narrow phase-matched region 때문에 fixed/global quadrature가 적분점을 놓치거나 quadrature order에 민감해질 수 있었습니다.
+
+`EGN_adaptive.py`는 이를 줄이기 위해 다음 numerical strategy를 사용합니다.
+
+- exact linear-frequency inner primitives
+- support-boundary splitting
+- stationary-point / phase-aware splitting
+- adaptive outer quadrature
+- explicit positive/negative MCI region treatment
+- independent frequency-resolution convergence check
+- independent receiver-integration convergence check
+
+**Eng:** The adaptive solver replaces a single global fixed-order integration strategy with phase-aware domain splitting, adaptive outer quadrature, and independent convergence checks for the frequency and receiver integrations.
+
+---
+
+## 2.2 주요 API / Main API
+
+### `EGNFullOptions`
+
+Full-EGN precision solver의 numerical tolerance와 convergence check를 제어합니다.
+
+대표 옵션:
+
+- `receiver_points`
+- `max_receiver_points`
+- `panel_order`
+- `phase_step_rad`
+- `quadrature_rtol`
+- `convergence_rtol`
+- `verify_convergence`
+- `strict_convergence`
+
+`verify_convergence=True`일 때 frequency/panel refinement와 receiver refinement를 독립적으로 확인합니다. `strict_convergence=True`에서는 요구 tolerance가 입증되지 않으면 `EGNConvergenceError`를 발생시켜 조용히 결과를 통과시키지 않습니다.
+
+**Eng:** `EGNFullOptions` controls adaptive integration and numerical-convergence verification. With strict checking enabled, an unconverged result raises an explicit error rather than being silently accepted.
+
+### `EGNBreakdown`
+
+결과를 다음 성분으로 분해하여 제공합니다.
+
+- `gn_total_W`
+- `sci_gn_W`, `xci_gn_W`, `mci_gn_W`
+- `sci_correction_W`, `xci_correction_W`, `mci_correction_W`
+- `total_egn_W`
+- `egn_sci_W`, `egn_xci_W`, `egn_mci_W`, `egn_xmci_W`
+- GN 대비 EGN ratio / dB difference
+- convergence diagnostics
+
+### `egn_span_sweep(...)`
+
+동일 span의 개수를 여러 값으로 바꾸면서 GN/EGN 성분을 계산하는 대표 public API입니다. span-by-span NLI accumulation이나 Carena Fig. 1/3/6/8 형태의 비교에 적합합니다.
+
+**Eng:** `egn_span_sweep(...)` is the main precision API for evaluating several span counts using the same physical system and adaptive numerical primitives.
+
+---
+
+## 2.3 지원하는 precision Full-EGN 범위 / Supported precision scope
+
+현재 precision Full-EGN path는 다음 조건을 대상으로 합니다.
+
+- dual-polarization convention
+- coherent accumulation
+- rectangular / zero-rolloff spectrum
+- equal symbol rates
+- non-overlapping WDM channels
+- identical, loss-compensated lumped-EDFA spans
+- `beta2`-dominated dispersion (`beta3=0` in the precision EGN path)
+- MCI 계산 시 odd, symmetric, equally-spaced WDM comb
+- MCI 계산 시 equal channel powers and common modulation distribution
+- central channel as CUT for Appendix-B MCI calculation
+
+SCI와 XCI는 1/2-channel 구성에서도 계산할 수 있지만, 3채널 이상에서 Appendix-B MCI를 사용하려면 위의 symmetric-comb 조건이 필요합니다.
+
+**Eng:** The precision Full-EGN path intentionally enforces the validated assumptions of the implemented Carena formulation instead of silently applying it outside its supported scope.
+
+---
+
+## 2.4 Full-EGN path와 legacy GN path의 차이
+
+`EGN_adaptive.py` 내부에는 기존 GN API의 보다 넓은 기능도 유지되어 있습니다. 예를 들어 `beta3`, distributed gain, heterogeneous spans 등은 GN 경로에서 사용할 수 있습니다.
+
+그러나 이러한 조건은 precision Full-EGN path에서 자동으로 일반화되지 않습니다. 검증되지 않은 profile은 Full-EGN 계산에서 reject됩니다.
+
+**Eng:** The file retains broader legacy GN capabilities, but the precision Full-EGN solver deliberately rejects unvalidated profiles such as heterogeneous spans, distributed gain, or nonzero `beta3`.
+
+---
+
+## 2.5 간단한 실행 예 / Minimal example
+
+```python
+from EGN_adaptive import WDMSystem, Span, EGNFullOptions, egn_span_sweep
+
+system = WDMSystem.equispaced(
+    n_channels=3,
+    spacing_GHz=33.6,
+    baud_GBd=32.0,
+    power_dBm=0.0,
+    pulse_shape="rect",
+    rolloff=0.0,
+)
+
+span = Span(
+    length_km=100.0,
+    alpha_db_per_km=0.22,
+    gamma_W_inv_km=1.3,
+    D_ps_nm_km=16.7,
+)
+
+options = EGNFullOptions(
+    verify_convergence=True,
+    strict_convergence=True,
+)
+
+results = egn_span_sweep(
+    system=system,
+    span=span,
+    span_counts=[1, 2, 5, 10, 20, 50],
+    cut_index=1,
+    modulation="QPSK",
+    full_options=options,
+)
+
+for nspan, result in results.items():
+    print(
+        nspan,
+        result.egn_sci_W,
+        result.egn_xci_W,
+        result.egn_mci_W,
+        result.total_egn_W,
+        result.diagnostics.converged,
+    )
 ```
 
-이는 XCI/MCI 수식 구조가 구현되지 않았다는 의미가 아니라, 현재 numerical integration이 설계 보증에 사용할 정도로 충분히 안정적으로 수렴하지 않았다는 의미입니다.
+---
 
-**Eng:** This does not mean the XCI/MCI formula structure is absent; it means that the current numerical integration is not yet sufficiently stable and converged for design sign-off or specification guarantees.
+## 2.6 정확도 해석 / How to interpret accuracy
+
+`diagnostics.converged=True`는 **해당 numerical refinement에서 계산값이 설정한 tolerance 이내로 안정화되었다는 의미**입니다.
+
+이는 다음을 자동으로 보장하지 않습니다.
+
+- paper curve 대비 항상 `<3%`
+- SSFM 대비 항상 특정 오차 이내
+- 임의의 실제 실험 조건에서 동일 정확도
+
+따라서 새로운 시스템 조건에서는 가능하면 paper reference, independent SSFM, 실험값 또는 상용 optical-system simulator와 일부 reference point를 교차 검증한 후 parameter sweep에 사용하는 것을 권장합니다.
+
+**Eng:** Numerical convergence is not the same as physical-model validation. A converged integral does not guarantee a universal error bound versus SSFM or experiment.
 
 ---
 
-# 4. `EGNvsGN`
+# 3. `EGN_Model_Validation/`
 
-## 폴더 목적 / Purpose
+## 역할 / Role
 
-이 폴더는 `gn_integral_general.py`와 `gn_integral_general_modulation.py`의 GN 적분 경로를 수학적·수치적으로 확인하고, **“A Simple and Accurate Closed-Form EGN Model Formula”**의 Fig. 1–3 조건에서 paper GN/EGN/SIM 결과와 비교하기 위한 검증 자료를 포함합니다.
+이 폴더는 Carena (2014)의 Fig. 1, 3, 6, 8 조건을 이용하여 이전/reference full-EGN 구현인 `final_EGN.py`를 검증한 자료를 보관합니다.
 
-**Eng:** This directory verifies the mathematical and numerical behavior of the GN-integral path implemented in `gn_integral_general.py` and `gn_integral_general_modulation.py`, and compares it with the paper GN/EGN/SIM results of Figs. 1–3 from **“A Simple and Accurate Closed-Form EGN Model Formula.”**
+**Eng:** This folder preserves the earlier/reference Full-EGN implementation and the associated Carena Fig. 1/3/6/8 validation artifacts.
 
-현재 코드가 직접 재현하는 핵심 대상은 paper GN 곡선입니다. 논문의 EGN과 SSFM/SIM 곡선은 같은 그래프에서 참고값으로 표시하지만, 현재 범용 엔진이 full-WDM EGN 또는 SSFM을 구현했다고 해석하면 안 됩니다.
+### Python file: `final_EGN.py`
 
-**Eng:** The primary directly reproducible target is the paper GN curve. Published EGN and SSFM/SIM curves are retained as reference curves, but the general engine should not be interpreted as a full-WDM EGN implementation or an SSFM simulator.
+Poggiolini-style GN integral을 baseline으로 사용하고 Carena의 SCI/XCI/MCI non-Gaussian correction을 추가한 이전 full-EGN 구현입니다.
+
+이 파일은 현재 `EGN_adaptive.py`가 개선하려고 한 numerical-convergence 문제를 확인하는 데 중요한 **reference/validation implementation**으로 남겨두는 것이 적절합니다.
+
+**Eng:** `final_EGN.py` is retained as a reference implementation and validation baseline. It is useful for understanding the fixed/global quadrature sensitivity that motivated the phase-aware adaptive solver.
+
+### Validation notebook
+
+`final_EGN_Carena_Fig1_3_6_8_Validation_Colab.ipynb`
+
+- Fig. 1: SCI
+- Fig. 3: 3-channel XCI only
+- Fig. 6: 3-channel XMCI = XCI + MCI
+- Fig. 8: 9-channel XMCI = XCI + MCI
+
+paper-derived reference와 code result를 graph/table/error metric으로 비교합니다.
+
+### Validation data and figures
+
+- `README_final_EGN_validation.md`: 상세 validation report
+- `final_EGN_validation_summary.csv`: figure/fiber별 summary
+- `final_EGN_paper_vs_code_detail.csv`: point-by-point paper/code/error
+- `Fig1_SMF_paper_vs_code.png`: SCI comparison
+- `Fig3_SMF_paper_vs_code.png`: XCI-only comparison
+- `Fig6_SMF_paper_vs_code.png`: 3-channel XMCI comparison
+- `Fig8_SMF_paper_vs_code.png`: 9-channel XMCI comparison
+- validation bundle/assets: 재현 및 보관용 결과물
+
+### 해석 / Interpretation
+
+`final_EGN.py`의 GN baseline과 SCI-EGN은 비교적 안정적인 반면, 기존 XCI/MCI correction path는 quadrature-order sensitivity가 확인되었습니다. 이 때문에 새로운 Full-EGN 연구 계산은 root의 `EGN_adaptive.py`를 우선 사용하는 것을 권장합니다.
+
+**Eng:** The earlier implementation is valuable as a validation/reference baseline, but new Full-EGN studies should preferentially use the adaptive solver.
+
+---
+
+# 4. `EGNvsGN/`
+
+## 역할 / Role
+
+이 폴더는 Full-EGN solver 자체보다는 `gn_integral_general.py`와 `gn_integral_general_modulation.py`의 **GN baseline, 수학적 일관성, 사용법, paper-GN 재현성**을 검증하기 위한 자료입니다.
+
+**Eng:** This folder validates the general GN engine and modulation/system-performance path rather than serving as a standalone Full-EGN implementation.
+
+### Python file 유무 / Python files
+
+현재 `EGNvsGN/` 폴더 안에는 독립적인 `.py` 모델 파일이 없습니다.
+
+검증 대상 Python engine은 상위 폴더의:
+
+- `../../gn_integral_general.py`
+- `../../gn_integral_general_modulation.py`
+
+입니다.
 
 ### `GN_integral_math_verification.ipynb`
 
-GN 적분 엔진의 수식과 수치 구현을 독립적으로 sanity-check하기 위한 노트북입니다. 단위 일관성, 적분 대칭성, limiting behavior, NLI의 `P^3` power law, Sobol QMC convergence 등을 작은 독립 계산으로 확인합니다.
-
-**Eng:** This notebook performs independent sanity checks of the GN-integral mathematics and numerics, including unit consistency, integral symmetry, limiting behavior, the NLI `P^3` power law, and Sobol-QMC convergence.
-
-이 파일은 API 사용법을 설명하는 tutorial보다는 수학적 검증용입니다.
-
-**Eng:** It is primarily a mathematical/numerical verification notebook rather than an API tutorial.
+GN 적분식의 unit consistency, symmetry, limiting behavior, NLI `P^3` law 및 Sobol-QMC convergence를 독립적으로 sanity-check합니다.
 
 ### `GN_integral_usage_guide.ipynb`
 
-범용 GN 엔진을 실제로 사용하는 방법을 설명하는 단계별 guide입니다. 입력/출력, SMF 및 G.654.E 예제, span sweep, launch-power sweep, self-test, 모델의 지원 범위와 제한사항을 확인할 수 있습니다.
-
-**Eng:** Step-by-step usage guide for the general GN engine, including inputs/outputs, SMF and G.654.E examples, span sweeps, launch-power sweeps, self-tests, and supported-model limitations.
+GN engine의 입력/출력과 SMF/G.654.E 예제, span sweep, launch-power sweep, self-test 및 모델의 지원 범위를 설명합니다.
 
 ### `GN_modulation_Fig123_validation_colab.ipynb`
 
-GN 적분 + modulation/system-performance 경로를 논문의 Fig. 1–3 조건에서 검증하는 핵심 Colab report입니다. PDF 벡터 그래프에서 추출한 paper reference와 코드 계산값을 같은 그래프와 표에서 비교합니다.
+GN integral + modulation/system layer를 관련 논문의 Fig. 1–3 조건에서 검증하는 report입니다.
 
-**Eng:** This is the main Colab validation report for the GN-integral plus modulation/system-performance path. It compares code results with paper references extracted from the PDF vector plots under the Fig. 1–3 test conditions.
+- Fig. 1–2: paper GN NLI curve 비교
+- Fig. 3: modulation/channel spacing/fiber에 따른 maximum passing span 비교
+- published EGN/SIM curve는 reference로 함께 표시하지만 현재 GN engine이 이를 직접 구현했다고 주장하지 않음
 
-Fig. 1–2에서는 paper GN NLI 곡선의 오차를 평가하고, Fig. 3에서는 modulation, channel spacing, fiber 종류에 따른 maximum passing span을 비교합니다.
+### JSON reference/result files
 
-**Eng:** Figs. 1–2 evaluate error against paper GN NLI curves, while Fig. 3 compares the maximum passing span as a function of modulation, channel spacing, and fiber type.
+- `paper_fig12_reference.json`: paper Fig. 1–2 reference
+- `paper_fig3_reference.json`: paper Fig. 3 reference
+- `fig12_results_avg.json`: Fig. 1–2 code result cache
+- `fig3_code_gn_seeds.json`: Fig. 3 seed-based result cache
 
-### `paper_fig12_reference.json`
-
-논문 Fig. 1–2에서 벡터 좌표 기반으로 추출한 기준 데이터를 저장합니다. curve fitting으로 생성한 값이 아니라 논문 그래프의 축과 vector line/marker를 직접 판독한 reference입니다.
-
-**Eng:** Stores reference data extracted from the vector coordinates of paper Figs. 1–2. These are plot-derived references rather than fitted values.
-
-### `paper_fig3_reference.json`
-
-논문 Fig. 3의 maximum-reach/reference 값을 저장합니다.
-
-**Eng:** Stores the paper-derived reference data used for the Fig. 3 maximum-reach comparison.
-
-### `fig12_results_avg.json`
-
-Fig. 1–2를 고정 입력 및 여러 Sobol seed로 실행한 코드 결과의 cache입니다. 매번 장시간 재계산하지 않고 validation report를 빠르게 확인할 수 있도록 사용됩니다.
-
-**Eng:** Cache of Fig. 1–2 code results generated with fixed inputs and multiple Sobol seeds. It allows the validation report to be viewed without recomputing every integral.
-
-### `fig3_code_gn_seeds.json`
-
-Fig. 3 조건에서 GN 코드로 계산한 maximum-reach 결과와 seed별 계산값을 저장하는 cache입니다.
-
-**Eng:** Cache containing GN-code maximum-reach results and seed-dependent calculations for the Fig. 3 test cases.
-
-### `readme.md`
-
-이 하위 폴더의 검증 방법, 수치 결과, 논문 조건, 구현 범위와 한계를 자세히 설명하는 보고서입니다.
-
-**Eng:** Detailed report describing the validation method, numerical results, paper conditions, implementation scope, and limitations of the `EGNvsGN` work.
+**Eng:** These JSON files separate paper-derived references from code-generated results, which improves reproducibility and prevents hidden fitting.
 
 ---
 
-## 5. `EGNvsGN` 성능 결과 / Performance results
+# 5. 모델 선택 가이드 / Model-selection guide
 
-저장된 validation 결과에서 Fig. 1–2의 paper GN 곡선 대비 전체 평균 절대오차는 약 **0.0395 dB**, 평균 선형 NLI 상대오차는 약 **0.9052%**입니다. 따라서 범용 GN 적분 경로는 해당 논문 조건의 GN baseline을 높은 일관성으로 재현합니다.
-
-**Eng:** In the stored validation results, the overall mean absolute error against the paper GN curves of Figs. 1–2 is approximately **0.0395 dB**, with an average linear-NLI relative error of approximately **0.9052%**. The general GN-integral path therefore reproduces the paper GN baseline with strong consistency under these tested conditions.
-
-Fig. 3 paper-GN maximum-reach 비교에서는 QPSK 평균 절대오차 약 **0.872 span**, 16QAM 약 **0.569 span**이 보고되었습니다.
-
-**Eng:** For the Fig. 3 paper-GN maximum-reach comparison, the reported mean absolute errors are approximately **0.872 spans** for QPSK and **0.569 spans** for 16QAM.
-
-논문 SIM 곡선과의 차이는 더 크며, 이는 현재 코드가 GN + AWGN BER approximation인 반면 논문의 SIM 결과가 SSFM 기반이기 때문입니다. 따라서 SIM과의 차이를 GN 코드의 단순 구현 오류로 해석하면 안 됩니다.
-
-**English:** Differences relative to the paper SIM curves are larger because the current code combines GN modeling with an AWGN BER approximation, whereas the paper SIM curves are based on split-step simulation. Those differences should therefore not be interpreted simply as implementation error in the GN engine.
+| 목적 | 사용할 파일 | 설명 |
+|---|---|---|
+| 범용 GN NLI | `../gn_integral_general.py` | heterogeneous spans, flexible PSD, beta2/beta3 등 가장 넓은 GN 범위 |
+| GN + ASE/GSNR/BER/capacity | `../gn_integral_general_modulation.py` | system-performance layer |
+| SCI-only EGN correction | modulation layer의 `nli_model="egn_sci"` | Full EGN 아님 |
+| **Full EGN SCI+XCI+MCI** | **`EGN_adaptive.py`** | 현재 권장 research solver |
+| 과거 full-EGN validation 재현 | `EGN_Model_Validation/final_EGN.py` | reference/validation implementation |
+| GN 수학/논문 검증 | `EGNvsGN/` notebooks | paper-GN 및 QMC 검증 |
+| SSFM/NLSE propagation | 현재 미구현 | 별도 simulator 필요 |
 
 ---
 
-# 6. 두 폴더를 언제 사용할 것인가 / Which folder should be used?
+# 6. 권장 사용 범위 / Recommended use
 
-GN 적분 엔진 자체의 정확도, 사용법, 변조별 GSNR/BER/capacity 계산을 확인하려면 `EGNvsGN`을 우선 참고하십시오.
+`EGN_adaptive.py`는 다음과 같은 연구에 적합합니다.
 
-**Eng:** Use `EGNvsGN` first when evaluating the accuracy, usage, modulation-dependent GSNR/BER/capacity behavior, or general applicability of the GN-integral engine.
+- fiber type에 따른 NLI 비교
+- span length / number-of-spans 변화
+- channel spacing 변화
+- WDM channel-count 변화
+- modulation-dependent EGN correction
+- SCI/XCI/MCI breakdown
+- GN vs EGN comparison
+- experimental/SSFM study 전 사전 NLI prediction
 
-SCI뿐 아니라 XCI/MCI까지 포함한 Carena full-EGN 수식 구현과 그 numerical convergence를 연구하려면 `EGN_Model_Validation`을 참고하십시오.
+반면 다음 조건에서는 별도 검증 또는 모델 확장이 필요합니다.
 
-**Eng:** Use `EGN_Model_Validation` when studying the Carena full-EGN formulation, including SCI, XCI, MCI, and the numerical-convergence behavior of the implemented correction integrals.
+- non-zero RRC roll-off의 Full-EGN
+- arbitrary heterogeneous Full-EGN spans
+- distributed Raman Full-EGN
+- mid-link add/drop / ROADM filtering history
+- PMD / PDL
+- laser phase noise
+- transceiver implementation penalties
+- HCF/MCF 고유 물리효과
+- core/mode coupling
+
+---
+
+# 7. Dependencies
 
 ```text
-General GN accuracy / usage / capacity
-        → EGNvsGN
-
-SCI/XCI/MCI EGN algorithm validation
-        → EGN_Model_Validation
+Python >= 3.10
+numpy
+scipy
 ```
 
 ---
 
-# 7. 참고 논문 / References
+# 8. References
 
-### A. Carena et al., “EGN model of non-linear fiber propagation,” Optics Express 22 (2014), DOI: 10.1364/OE.22.016335
-
-`EGN_Model_Validation/final_EGN.py`의 SCI/XCI/MCI non-Gaussian correction 구조와 Fig. 1/3/6/8 validation의 직접적인 기준 논문입니다.
-
-**Eng:** This is the direct reference for the SCI/XCI/MCI non-Gaussian correction structure implemented in `final_EGN.py` and for the Fig. 1/3/6/8 validation campaign.
-
-### P. Poggiolini et al., “A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,” arXiv:1209.0394
-
-GN baseline의 수치 적분 구조와 coherent optical transmission에서의 GN-model derivation을 위한 핵심 참고 문헌입니다.
-
-**Eng:** Core reference for the numerical GN baseline and the derivation of the GN Model for nonlinear interference in coherent optical transmission systems.
-
-### P. Poggiolini et al., “A Simple and Accurate Closed-Form EGN Model Formula”
-
-`EGNvsGN` 폴더의 Fig. 1–3 validation에서 GN/EGN/SIM 비교 기준으로 사용됩니다.
-
-**Eng:** Used as the paper reference for the Fig. 1–3 GN/EGN/SIM comparisons in the `EGNvsGN` directory.
-
-### R. Dar et al., “Properties of nonlinear noise in long, dispersion-uncompensated fiber links,” Optics Express 21 (2013), DOI: 10.1364/OE.21.025685
-
-modulation-dependent nonlinear noise와 normalized higher-order moment correction의 물리적 해석을 확인하기 위한 보조 참고 문헌입니다.
-
-**Eng:** Supplementary reference for the physical interpretation of modulation-dependent nonlinear noise and normalized higher-order-moment correction terms.
+1. A. Carena, G. Bosco, V. Curri, Y. Jiang, P. Poggiolini, F. Forghieri, **“EGN model of non-linear fiber propagation,”** Optics Express 22, 16335–16362 (2014), DOI: 10.1364/OE.22.016335.
+2. P. Poggiolini et al., **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,”** arXiv:1209.0394.
+3. P. Poggiolini, **“The GN Model of Non-Linear Propagation in Uncompensated Coherent Optical Systems,”** Journal of Lightwave Technology 30(24), 3857–3879 (2012).
 
 ---
 
-# 8. 사용 시 주의사항 / Important notes
+## Summary
 
-1. `EGN_Model_Validation`의 full-EGN XCI/MCI 결과는 현재 수치 적분 convergence 개선이 필요하므로 고객 사양 보증이나 최종 설계 sign-off용 기준값으로 사용하지 마십시오.  
-   **Eng:** Do not use the current full-EGN XCI/MCI results for customer guarantees or final design sign-off until numerical convergence is improved.
-2. `EGNvsGN`의 높은 GN 재현 정확도는 검증한 논문 조건에서의 결과이며 모든 fiber/link 조건에서 동일한 오차를 보장한다는 의미는 아닙니다.  
-   **Eng:** The strong GN agreement reported in `EGNvsGN` applies to the validated paper conditions and does not guarantee the same error for every fiber or link configuration.
-3. 새로운 fiber, 저분산 fiber 또는 Raman-heavy link에서는 independent SSFM, VPIphotonics 또는 별도 trusted model과의 교차 검증을 권장합니다.  
-   **Eng:** For new fibers, low-dispersion fibers, or Raman-heavy links, independent cross-validation with SSFM, VPIphotonics, or another trusted model is recommended.
-4. paper curve 데이터는 PDF vector plot에서 추출한 값이 포함되어 있으므로 원 논문의 raw numerical dataset과 완전히 동일한 정밀도를 갖는 것은 아닙니다.  
-   **Eng:** Some paper-reference data were extracted from PDF vector plots and therefore do not have the same precision as an original raw numerical dataset from the authors.
+- **새로운 Full-EGN 계산:** `EGN_adaptive.py`
+- **이전 Full-EGN 구현/검증 자료:** `EGN_Model_Validation/`
+- **범용 GN engine 검증 및 사용 가이드:** `EGNvsGN/`
+
+**Eng:** Use `EGN_adaptive.py` for new Full-EGN research calculations, `EGN_Model_Validation/` for the earlier implementation and Carena-validation artifacts, and `EGNvsGN/` for GN-engine verification and usage studies.

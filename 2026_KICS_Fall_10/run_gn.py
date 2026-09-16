@@ -162,33 +162,65 @@ for p, gsnr, snr_nli in zip(
     )
 
 # 입력값
-# n_channels		WDM 채널 수
-# spacing_GHz		채널 중심 주파수 간격
-# baud_GBd		    각 채널 symbol rate
-# power_dBm    		채널당 launch power
-# pulse_shape	    Nyquist rectangular PSD -> "rect"
-# length_km		    span당 길이
-# alpha_db_per_km	G.654.E attenuation
-# gamma_W_inv_km	nonlinear coefficient
-# D_ps_nm_km		dispersion
-# noise_figure_db	EDFA NF
-# N_SPANS		    30 × 80 = 2400 km
-# accumulation     span NLI complex amplitude coherent 합 -> "coherent"
-# modulation	    BER/rate 계산용 modulation
-# trx_snr_db	    transceiver SNR
-# shannon_gap_db	Shannon limit 대비 gap
+# n_channels         WDM 채널 수
+# spacing_GHz        채널 중심 주파수 간격 [GHz]
+# baud_GBd           각 채널 symbol rate [GBd]
+# power_dBm          채널당 launch power [dBm]
+# pulse_shape        Tx PSD shape, Nyquist rectangular -> "rect"
+
+# length_km          span당 길이 [km]
+# alpha_db_per_km    광섬유 attenuation [dB/km]
+# gamma_W_inv_km     nonlinear coefficient [1/(W·km)]
+# D_ps_nm_km         dispersion [ps/(nm·km)]
+# noise_figure_db    EDFA noise figure [dB]
+
+# N_SPANS            span 수 (예: 30 × 80 km = 2400 km)
+# accumulation       span별 NLI accumulation 방식
+#                    -> "coherent": complex amplitude 합 후 power 계산
+#                    -> "incoherent": span별 NLI power 합
+# modulation         BER / data rate 계산용 modulation
+# trx_snr_db         transceiver SNR [dB]
+# shannon_gap_db     Shannon limit 대비 implementation gap [dB]
+
 
 # 결과값
 # 1. GNResult
-# - f_THz: NLI를 계산한 CUT의 상대 중심 주파수
-# - g_nli_W_per_THz: CUT 중심에서의 NLI Power Spectral Density
-# - integration_bounds_THz: 실제 occupied WDM bandwidth
+# - f_THz
+#   NLI PSD를 계산한 주파수, 일반적으로 CUT 중심의 상대 주파수 [THz]
+# - g_nli_W_per_THz
+#   해당 주파수에서의 NLI Power Spectral Density [W/THz]
+# - qmc_samples
+#   GN 2-D 적분에 사용한 Sobol QMC sample 수
+# - integration_bounds_THz
+#   GN 적분에 사용한 전체 WDM occupied spectrum의
+#   최소/최대 주파수 경계 [THz]
+# - accumulation
+#   사용된 NLI accumulation 방식
 
 # 2. P_NLI
+# - CUT receiver bandwidth 내에서 G_NLI(f)를 적분한 총 NLI power [W]
+
 # 3. PerformanceResult
-# 4. GSNR
-# 5.SNR_ASE
-# 6. SNR_NLI
-# 7. BER
-# 8. P_ASE
-# 9. Shannon capacity
+# - launch_power_dBm
+#   CUT 채널 launch power [dBm]
+# - cut_output_power_W
+#   링크 출력에서의 CUT signal power [W]
+# - p_ase_W
+#   CUT bandwidth 내 ASE noise power [W]
+# - p_nli_W
+#   CUT bandwidth 내 nonlinear interference power [W]
+# - snr_ase_db
+#   ASE만 고려한 SNR [dB]
+# - snr_nli_db
+#   NLI만 고려한 SNR [dB]
+# - gsnr_db
+#   ASE + NLI + optional TRX noise를 고려한 GSNR [dB]
+# - ber
+#   modulation에 따른 approximate uncoded BER
+# - gross_rate_gbps
+#   CUT 1채널의 DP gross data rate [Gb/s]
+# - net_rate_gbps
+#   coding_rate를 적용한 CUT 1채널 net data rate [Gb/s]
+#
+# - shannon_gap_capacity_gbps
+#   GSNR과 Shannon gap을 이용한 CUT 1채널 capacity [Gb/s]

@@ -160,3 +160,35 @@ for p, gsnr, snr_nli in zip(
         f"GSNR = {gsnr:7.3f} dB, "
         f"SNR_NLI = {snr_nli:7.3f} dB"
     )
+
+# 입력값
+# n_channels		WDM 채널 수
+# spacing_GHz		채널 중심 주파수 간격
+# baud_GBd		    각 채널 symbol rate
+# power_dBm    		채널당 launch power
+# pulse_shape	    Nyquist rectangular PSD -> "rect"
+# length_km		    span당 길이
+# alpha_db_per_km	G.654.E attenuation
+# gamma_W_inv_km	nonlinear coefficient
+# D_ps_nm_km		dispersion
+# noise_figure_db	EDFA NF
+# N_SPANS		    30 × 80 = 2400 km
+# accumulation     span NLI complex amplitude coherent 합 -> "coherent"
+# modulation	    BER/rate 계산용 modulation
+# trx_snr_db	    transceiver SNR
+# shannon_gap_db	Shannon limit 대비 gap
+
+# 결과값
+# 1. GNResult
+# - f_THz: NLI를 계산한 CUT의 상대 중심 주파수
+# - g_nli_W_per_THz: CUT 중심에서의 NLI Power Spectral Density
+# - integration_bounds_THz: 실제 occupied WDM bandwidth
+
+# 2. P_NLI
+# 3. PerformanceResult
+# 4. GSNR
+# 5.SNR_ASE
+# 6. SNR_NLI
+# 7. BER
+# 8. P_ASE
+# 9. Shannon capacity

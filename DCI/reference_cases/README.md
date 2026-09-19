@@ -28,7 +28,7 @@ PASS      = error <= 10%
 | 01 | [Google TPU v4](01_google_tpu_v4/) | 3D Torus + OCS | **PASS · RE-VALIDATED** | **0.00%** | **100.0%** |
 | 02 | [Google TPU v5p](02_google_tpu_v5p/) | 3D Torus | **PASS** | **0.00%** | **100.0%** |
 | 03 | [Google TPU v6e / Trillium](03_google_tpu_v6e/) | 2D Torus | **PASS** | **0.0051%** | **100.0%** |
-| 04 | Google TPU7x / Ironwood | TPU Pod | PENDING | — | — |
+| 04 | [Google TPU7x / Ironwood](04_google_tpu7x_ironwood/) | 3D Torus / Cube hierarchy | **PASS** | **0.0059%** | **100.0%** |
 | 05 | Google A3 Mega H100 | GPU + multi-NIC | PENDING | — | — |
 | 06 | Google A3 Ultra / A4 | GPU + multi-NIC | PENDING | — | — |
 | 07 | Meta RSC Phase 1 | 2-level nonblocking Clos | PENDING | — | — |
@@ -76,3 +76,5 @@ The final goal is one generalized BOM design/validation engine with <10% error a
 - Case 02 Google TPU v5p: **PASS · MAPE 0.00% · Coverage 100.0% (10/10 derived metrics)**
 
 - Case 03 Google TPU v6e / Trillium: **PASS · MAPE 0.0051% · Max error 0.0460% · Coverage 100.0% (9/9 derived metrics)**
+
+- Case 04 Google TPU7x / Ironwood: **PASS · MAPE 0.0059% · Max error 0.0532% · Coverage 100.0% (9/9 scored metrics)**

@@ -43,52 +43,73 @@ function deriveCommon(input) {
       : null;
 
   const hostCount = targetAccelerators / perHost;
+  const buildingBlockCount = acceleratorsPerBlock ? ceilDiv(targetAccelerators, acceleratorsPerBlock) : null;
   const rackCount = acceleratorsPerRack ? ceilDiv(targetAccelerators, acceleratorsPerRack) : null;
   const hostsPerRack = acceleratorsPerRack ? acceleratorsPerRack / perHost : null;
+
+  const dcnPerChip = input.accelerator && input.accelerator.dcn_bandwidth_per_chip_gbps != null
+    ? Number(input.accelerator.dcn_bandwidth_per_chip_gbps) : null;
+  const dcnPerHost = dcnPerChip != null ? dcnPerChip * perHost : null;
+
+  let maxSlice = {};
+  if (input.validation_slice && Array.isArray(input.validation_slice.dimensions)) {
+    const sliceAccelerators = product(input.validation_slice.dimensions);
+    maxSlice = {
+      max_slice_accelerator_count: sliceAccelerators,
+      max_slice_host_count: sliceAccelerators / perHost,
+      max_slice_block_count: acceleratorsPerBlock ? sliceAccelerators / acceleratorsPerBlock : null
+    };
+  }
 
   return {
     accelerator_count: targetAccelerators,
     accelerators_per_host: perHost,
     cpu_host_count: hostCount,
     accelerators_per_block: acceleratorsPerBlock,
+    building_block_count: buildingBlockCount,
     blocks_per_rack: blocksPerRack,
     accelerators_per_rack: acceleratorsPerRack,
     compute_rack_count: rackCount,
-    hosts_per_rack: hostsPerRack
+    hosts_per_rack: hostsPerRack,
+    dcn_bandwidth_per_chip_gbps: dcnPerChip,
+    dcn_bandwidth_per_host_gbps: dcnPerHost,
+    ...maxSlice
   };
 }
 
 function deriveOpticalTorus(input, common) {
   const t = input.topology || {};
-  const ocs = t.ocs || {};
+  const result = { topology_type: "optical_torus" };
 
-  const faces = requirePositive("topology.faces", t.faces);
-  const linksPerFace = requirePositive("topology.links_per_face", t.links_per_face);
-  const totalPorts = requirePositive("topology.ocs.total_ports", ocs.total_ports);
-  const sparePorts = Number(ocs.spare_ports || 0);
-  const workingPorts = totalPorts - sparePorts;
-  if (workingPorts <= 0) throw new Error("OCS working ports must be > 0");
+  const faces = t.faces != null ? Number(t.faces) : null;
+  const linksPerFace = t.links_per_face != null ? Number(t.links_per_face) : null;
+  if (faces != null && linksPerFace != null) {
+    const opticalLinksPerBlock = faces * linksPerFace;
+    const opticalLinksPerRack = opticalLinksPerBlock * common.blocks_per_rack;
+    const rackOcsLinkEndpoints = common.compute_rack_count * opticalLinksPerRack;
+    result.optical_links_per_block = opticalLinksPerBlock;
+    result.optical_links_per_rack = opticalLinksPerRack;
+    result.rack_to_ocs_link_instances = rackOcsLinkEndpoints;
 
-  const opticalLinksPerBlock = faces * linksPerFace;
-  const opticalLinksPerRack = opticalLinksPerBlock * common.blocks_per_rack;
-  const rackOcsLinkEndpoints = common.compute_rack_count * opticalLinksPerRack;
-  const ocsCount = rackOcsLinkEndpoints / workingPorts;
-  const opposingShare = t.opposing_faces_share_ocs !== false;
-  const ocsPerBlock = opposingShare ? opticalLinksPerBlock / 2 : opticalLinksPerBlock;
+    const ocs = t.ocs || null;
+    if (ocs && ocs.total_ports != null) {
+      const totalPorts = requirePositive("topology.ocs.total_ports", ocs.total_ports);
+      const sparePorts = Number(ocs.spare_ports || 0);
+      const workingPorts = totalPorts - sparePorts;
+      if (workingPorts <= 0) throw new Error("OCS working ports must be > 0");
 
-  return {
-    topology_type: "optical_torus",
-    optical_links_per_block: opticalLinksPerBlock,
-    optical_links_per_rack: opticalLinksPerRack,
-    rack_to_ocs_link_instances: rackOcsLinkEndpoints,
-    ocs_count: ocsCount,
-    ocs_per_block: ocsPerBlock,
-    ocs_total_ports_each: totalPorts,
-    ocs_working_ports_each: workingPorts,
-    ocs_spare_ports_each: sparePorts,
-    ocs_working_ports_total: ocsCount * workingPorts,
-    ocs_spare_ports_total: ocsCount * sparePorts
-  };
+      const ocsCount = rackOcsLinkEndpoints / workingPorts;
+      const opposingShare = t.opposing_faces_share_ocs !== false;
+      result.ocs_count = ocsCount;
+      result.ocs_per_block = opposingShare ? opticalLinksPerBlock / 2 : opticalLinksPerBlock;
+      result.ocs_total_ports_each = totalPorts;
+      result.ocs_working_ports_each = workingPorts;
+      result.ocs_spare_ports_each = sparePorts;
+      result.ocs_working_ports_total = ocsCount * workingPorts;
+      result.ocs_spare_ports_total = ocsCount * sparePorts;
+    }
+  }
+  return result;
 }
 
 function deriveClos(input, common) {
@@ -126,8 +147,9 @@ function deriveArchitecture(input) {
   const topologyType = input.topology && input.topology.type;
 
   let topology = {};
-  if (topologyType === "optical_torus") {
+  if (topologyType === "optical_torus" || topologyType === "torus3d" || topologyType === "3d_torus") {
     topology = deriveOpticalTorus(input, common);
+    topology.topology_type = topologyType;
   } else if (topologyType === "clos" || topologyType === "leaf_spine") {
     topology = deriveClos(input, common);
   } else if (topologyType) {

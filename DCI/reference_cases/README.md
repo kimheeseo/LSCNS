@@ -47,8 +47,8 @@ PASS      = error <= 10%
 | 20 | [Azure ND MI300X v5](20_azure_nd_mi300x_v5/) | 8-GPU / 400G fabric | **PASS** | **0.00%** | **100.0%** |
 | 21 | [NVIDIA DGX H100 SuperPOD](21_nvidia_dgx_h100_superpod/) | Rail Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
 | 22 | [NVIDIA DGX B200 SuperPOD](22_nvidia_dgx_b200_superpod/) | 3-tier Leaf-Spine-Core | **PASS** | **0.00%** | **100.0%** |
-| 23 | NVIDIA B200 Compute Fabric | Leaf-Spine | PENDING | — | — |
-| 24 | NVIDIA GB200 NVL72 | Rack-scale NVLink | PENDING | — | — |
+| 23 | [NVIDIA B200 Compute Fabric](23_nvidia_b200_compute_fabric/) | Detailed Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
+| 24 | [NVIDIA GB200 NVL72](24_nvidia_gb200_nvl72/) | Rack-scale NVLink | **PASS** | **0.00%** | **100.0%** |
 | 25 | NVIDIA DGX GB200 SuperPOD Components | Rack / NIC / PSU | PENDING | — | — |
 | 26 | NVIDIA GB200 Network Fabrics | NVLink / Ethernet / IB | PENDING | — | — |
 | 27 | NVIDIA GB300 NVL72 AI Factory | Rack-scale fabric | PENDING | — | — |
@@ -143,3 +143,7 @@ Each Case README now contains:
 - Case 21 NVIDIA H100 SuperPOD: PASS · official BOM-table reconstruction
 
 - Case 22 NVIDIA B200 SuperPOD: PASS · 6/6 3-tier BOM metrics
+
+- Case 23 NVIDIA B200 detailed compute fabric: PASS
+
+- Case 24 NVIDIA GB200 NVL72 rack: PASS · 6/6 rack components

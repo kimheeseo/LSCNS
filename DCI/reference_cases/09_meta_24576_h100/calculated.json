@@ -1,0 +1,9 @@
+{
+  "case_id": "09_meta_24576_h100",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.5",
+  "metrics": {
+    "cpu_host_count": 3072,
+    "building_block_count": 3072
+  }
+}

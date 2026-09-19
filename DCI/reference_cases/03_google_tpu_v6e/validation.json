@@ -63,5 +63,7 @@
       "status": "PASS"
     }
   },
-  "method_note": "Nine derived public quantities are compared. Rack count is intentionally excluded because Google does not disclose a v6e rack mapping on the cited pages."
+  "method_note": "Nine derived public quantities are compared. Rack count is intentionally excluded because Google does not disclose a v6e rack mapping on the cited pages.",
+  "validation_class": "B reference-input derived validation",
+  "review_note": "Official per-chip/per-host inputs; aggregate Pod quantities are derived."
 }

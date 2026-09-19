@@ -1,0 +1,36 @@
+{
+  "case_id": "13_ibm_vela",
+  "engine_version": "1.6",
+  "validation_class": "C hardware-profile consistency",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 8,
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "cpu_count": {
+      "reference": 2,
+      "calculated": 2,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "gpu_memory_gb": {
+      "reference": 640,
+      "calculated": 640,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nvme_capacity_tb": {
+      "reference": 12.8,
+      "calculated": 12.8,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

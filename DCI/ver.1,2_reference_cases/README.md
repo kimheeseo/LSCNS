@@ -1,6 +1,7 @@
 # Data Center BOM Golden Reference Validation
 
 This directory validates the BOM/design engine in `DCI/index.html` against public, independently documented data-center and AI/HPC reference architectures.
+- V2_VALIDATION_REPORT.md: ver1, 2 성능 비교
 
 ### HTML Preview
 **[index.html 바로 실행하기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kimheeseo/LSCNS/main/DCI/index.html)**

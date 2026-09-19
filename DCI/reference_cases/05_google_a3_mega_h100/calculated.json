@@ -1,0 +1,12 @@
+{
+  "case_id": "05_google_a3_mega_h100",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.4",
+  "metrics": {
+    "accelerator_count": 8,
+    "physical_nic_count_per_host": 9,
+    "total_gpu_memory_gb_per_host": 640,
+    "gpu_nic_to_accelerator_ratio": 1,
+    "data_network_count_per_host": 8
+  }
+}

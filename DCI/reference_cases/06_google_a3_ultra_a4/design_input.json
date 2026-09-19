@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "case_id": "06_google_a3_ultra_a4",
+  "machine_profiles": [
+    {
+      "id": "a3_ultra",
+      "accelerators_per_host": 8,
+      "gpu_nics_per_host": 8,
+      "service_nics_per_host": 2,
+      "memory_gb_per_accelerator": 141,
+      "gpu_network_bandwidth_total_gbps": 3200,
+      "service_network_bandwidth_total_gbps": 400
+    },
+    {
+      "id": "a4",
+      "accelerators_per_host": 8,
+      "gpu_nics_per_host": 8,
+      "service_nics_per_host": 2,
+      "memory_gb_per_accelerator": 180,
+      "gpu_network_bandwidth_total_gbps": 3200,
+      "service_network_bandwidth_total_gbps": 400
+    }
+  ]
+}

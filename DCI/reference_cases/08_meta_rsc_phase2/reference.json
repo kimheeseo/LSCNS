@@ -1,0 +1,33 @@
+{
+  "case_id": "08_meta_rsc_phase2",
+  "name": "Meta Research SuperCluster Phase 2",
+  "vendor": "Meta",
+  "year": 2023,
+  "architecture": "2,000 DGX A100; 16,000 A100; Quantum InfiniBand",
+  "sources": [
+    {
+      "title": "Meta AI - Pursuing groundbreaking scale with RSC",
+      "url": "https://ai.meta.com/blog/supercomputer-meta-research-supercluster-2023/",
+      "type": "official Meta publication"
+    },
+    {
+      "title": "NVIDIA A100 specifications",
+      "url": "https://www.nvidia.com/en-us/data-center/a100/",
+      "type": "official NVIDIA specification"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 16000,
+      "unit": "A100 GPUs",
+      "source_note": "Meta published total",
+      "verifiable": true
+    },
+    "peak_bf16_pflops_per_pod": {
+      "value": 5000,
+      "unit": "PFLOPs",
+      "source_note": "Meta says almost 5 exaflops; reference rounded to 5000 PFLOPs",
+      "verifiable": true
+    }
+  }
+}

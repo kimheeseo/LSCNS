@@ -51,10 +51,10 @@ PASS      = error <= 10%
 | 24 | [NVIDIA GB200 NVL72](24_nvidia_gb200_nvl72/) | Rack-scale NVLink | **PASS** | **0.00%** | **100.0%** |
 | 25 | [NVIDIA GB200 Components](25_nvidia_gb200_components/) | Rack / storage / PSU | **PASS** | **0.00%** | **100.0%** |
 | 26 | [NVIDIA GB200 Network Fabrics](26_nvidia_gb200_network_fabrics/) | SLG Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
-| 27 | NVIDIA GB300 NVL72 AI Factory | Rack-scale fabric | PENDING | — | — |
-| 28 | NVIDIA DSX/NCP DC Architecture | Rack-scale | PENDING | — | — |
-| 29 | Frontier | Slingshot HPC | PENDING | — | — |
-| 30 | Aurora | Slingshot HPC | PENDING | — | — |
+| 27 | [NVIDIA GB300 NVL72 AI Factory](27_nvidia_gb300_nvl72/) | Rack-scale fabric | **PASS** | **0.00%** | **100.0%** |
+| 28 | [NVIDIA DSX/NCP DC Architecture](28_nvidia_dsx_ncp/) | Rack-scale | **PASS** | **0.00%** | **100.0%** |
+| 29 | [Frontier](29_frontier/) | Slingshot HPC | **PASS** | **0.00%** | **100.0%** |
+| 30 | [Aurora](30_aurora/) | Slingshot HPC | **PASS** | **0.0377%** | **100.0%** |
 
 ## Current progress
 
@@ -64,9 +64,9 @@ PASS      = error <= 10%
 - Shared multi-architecture engine: **created** (`engine/multi_arch_bom_engine.js`)
 - Case-specific golden logic removed from `DCI/index.html`
 - Case 01 re-validation via shared engine: **PASS · MAPE 0.00% · Coverage 100.0%**
-- Cases 02–30: **pending**
+- Cases 02–30: **complete**
 
-The baseline deliberately records unsupported architectures as `NOT_SUPPORTED` instead of treating missing implementation as a fabricated 100% numerical error. Once an architecture is implemented, the same immutable reference data is used for re-test.
+All 30 benchmark folders now contain source evidence, design inputs, calculated outputs, validation metrics, and README analysis. Unsupported or undisclosed fields remain excluded rather than assigned fabricated errors.
 
 
 ## Validation policy clarification
@@ -151,3 +151,48 @@ Each Case README now contains:
 - Case 25 NVIDIA GB200 components: PASS · 7/7 rack BOM metrics
 
 - Case 26 NVIDIA GB200 fabric: PASS · 4/4 cross-document metrics
+
+
+# Review 11–30 — Source Evidence Audit
+
+Cases 11–30 were reviewed using the same rule applied to Cases 01–10: **direct reference inputs are separated from engine-derived outputs**, and each folder README identifies the exact paper/vendor table or wording used as evidence.
+
+| Case | Project | Reviewed MAPE | Validation class | Main evidence used |
+|---:|---|---:|---|---|
+| 11 | ByteDance MegaScale | 0.00% | A- | NSDI'24 Tomahawk-4 64×400G, 32/32 split, 400→2×200G, 8-rail locality |
+| 12 | Alibaba HPN | 0.00% | A | SIGCOMM'24 8 GPUs/host, dual-ToR, 128+8 down, 60 up, 16 ToRs/segment |
+| 13 | IBM Vela | 0.00% | C | IBM node table: 8×A100, 2 CPUs, 1.5TB DRAM, 4×3.2TB NVMe |
+| 14 | IBM Vela ASPLOS/RoCE | 0.00% exact-profile | C | A100 deployment profile; approximate performance values not forced into exact MAPE |
+| 15 | Cerebras CG-1 | 0.3704% | B+ | 64 CS-2 × 850k cores vs rounded 54M-core cluster figure |
+| 16 | xAI Colossus | 0.00% | C- | NVIDIA 100k Hopper → stated 200k expansion; physical BOM undisclosed |
+| 17 | AWS EC2 P5 | 0.00% | B+ | p5.48xlarge 8 H100 + 3.2Tbps EFA; 20k-GPU UltraCluster |
+| 18 | Oracle OCI H100 | 0.00% | B+ | BM.GPU.H100.8 + 16,384-GPU Supercluster maximum |
+| 19 | Azure ND H100 v5 | 0.00% | C+ | 8 H100 + 8×400G dedicated IB = 3.2Tbps |
+| 20 | Azure ND MI300X v5 | 0.00% | C+ | 8 MI300X + 8×400G dedicated IB = 3.2Tbps |
+| 21 | NVIDIA DGX H100 SuperPOD | 0.00% | A | NVIDIA official compute-fabric component/cable table |
+| 22 | NVIDIA DGX B200 SuperPOD | 0.00% | A | NVIDIA official larger SuperPOD Leaf/Spine/Core and cable table |
+| 23 | NVIDIA B200 Compute Fabric | 0.00% | A | 31/63/95/127-node detailed compute-fabric table |
+| 24 | NVIDIA GB200 NVL72 | 0.00% | A- | 18 compute trays, 72 GPUs, 9 NVLink switch trays, 2 management ToRs |
+| 25 | NVIDIA GB200 Components | 0.00% | A- | compute tray, power shelf, PSU and NVMe component counts |
+| 26 | NVIDIA GB200 Network Fabrics | 0.00% | B+ | 4×CX-7 and 2×BF3 per tray; rack-level endpoint aggregation |
+| 27 | NVIDIA GB300 NVL72 | 0.00% | B+ | 18 trays, 4×800G CX-8/tray, 2×400G converged links/tray |
+| 28 | NVIDIA DSX/NCP | 0.00% | B | GB200 tray: 4×400G CIN + BF3 TAN logical links |
+| 29 | Frontier | 0.00% | A- | OLCF rack/node/MI250X/GCD/NIC hierarchy |
+| 30 | Aurora | 0.0377% | A | ALCF node/GPU/NIC hierarchy + independent 2.12PB/s system injection cross-check |
+
+## Important review notes
+
+- **Case 11** validates the disclosed 64-server network building block only; the paper does not publish a full 12,288-GPU switch BOM.
+- **Case 14** keeps “~1500 GPUs / ~80% / ~70%” as approximate context rather than exact numerical truth.
+- **Case 16** is intentionally marked weak because the NVIDIA announcement gives scale and network family but not enough node/switch/cable detail for a strong BOM validation.
+- **Case 29** has a source-version discrepancy: the current Frontier User Guide says 9,856 compute nodes, while another OLCF allocation page contains 9,408. The Case freezes the User Guide as benchmark source.
+- **Case 30** independently reconstructs 2.1248 PB/s from node × NIC × 200G; the official presentation rounds this to 2.12 PB/s, producing the 0.2264% max error.
+
+## 30-case completion state
+
+- Benchmark cases created: **30 / 30**
+- Cases with numeric PASS (<10%): **30 / 30**
+- Highest reviewed MAPE among the 30 cases: **0.3704% (Cerebras CG-1)**
+- Highest single-metric reviewed error: **0.7407% (Cerebras core-count cross-check)**
+- Strongest architecture/BOM cases for future regression: **Alibaba HPN, NVIDIA H100/B200 SuperPOD, NVIDIA GB200/GB300, Frontier, Aurora**
+- Weaker profile/announcement cases retained but explicitly labeled: **Google A3 profiles, IBM profile checks, xAI announcement**

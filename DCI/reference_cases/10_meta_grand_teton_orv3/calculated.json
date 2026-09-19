@@ -1,0 +1,10 @@
+{
+  "case_id": "10_meta_grand_teton_orv3",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.5",
+  "metrics": {
+    "bbu_shelves_required_for_rack": 2,
+    "bbu_pair_power_kw": 30,
+    "backup_duration_seconds": 240
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "case_id": "26_nvidia_gb200_network_fabrics",
+  "name": "NVIDIA GB200 SuperPOD Network Fabric 1-SU",
+  "vendor": "NVIDIA",
+  "year": 2025,
+  "architecture": "8 NVL72 racks / 576 GPUs / 4 scalable leaf groups",
+  "sources": [
+    {
+      "title": "DGX GB200 Network Fabrics",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/network-fabrics.html",
+      "type": "NVIDIA RA"
+    },
+    {
+      "title": "DGX GB200 Hardware",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html",
+      "type": "NVIDIA User Guide"
+    }
+  ],
+  "metrics": {
+    "tray_count": {
+      "value": 144,
+      "unit": "compute trays/SU",
+      "verifiable": true
+    },
+    "accelerator_count": {
+      "value": 576,
+      "unit": "GPUs/SU",
+      "verifiable": true
+    },
+    "leaf_switch_count": {
+      "value": 32,
+      "unit": "leaf switches/SU",
+      "verifiable": true
+    },
+    "spine_switch_count": {
+      "value": 24,
+      "unit": "spine switches/SU",
+      "verifiable": true
+    }
+  }
+}

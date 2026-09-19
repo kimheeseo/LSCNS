@@ -45,8 +45,8 @@ PASS      = error <= 10%
 | 18 | [Oracle OCI H100](18_oracle_oci_h100/) | RDMA GPU cluster | **PASS** | **0.00%** | **100.0%** |
 | 19 | [Azure ND H100 v5](19_azure_nd_h100_v5/) | 8-GPU / 400G fabric | **PASS** | **0.00%** | **100.0%** |
 | 20 | [Azure ND MI300X v5](20_azure_nd_mi300x_v5/) | 8-GPU / 400G fabric | **PASS** | **0.00%** | **100.0%** |
-| 21 | NVIDIA DGX H100 SuperPOD | Leaf-Spine | PENDING | — | — |
-| 22 | NVIDIA DGX B200 SuperPOD | Leaf-Spine | PENDING | — | — |
+| 21 | [NVIDIA DGX H100 SuperPOD](21_nvidia_dgx_h100_superpod/) | Rail Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
+| 22 | [NVIDIA DGX B200 SuperPOD](22_nvidia_dgx_b200_superpod/) | 3-tier Leaf-Spine-Core | **PASS** | **0.00%** | **100.0%** |
 | 23 | NVIDIA B200 Compute Fabric | Leaf-Spine | PENDING | — | — |
 | 24 | NVIDIA GB200 NVL72 | Rack-scale NVLink | PENDING | — | — |
 | 25 | NVIDIA DGX GB200 SuperPOD Components | Rack / NIC / PSU | PENDING | — | — |
@@ -139,3 +139,7 @@ Each Case README now contains:
 - Case 19 Azure ND H100 v5: PASS · host profile consistency
 
 - Case 20 Azure ND MI300X v5: PASS · host profile consistency
+
+- Case 21 NVIDIA H100 SuperPOD: PASS · official BOM-table reconstruction
+
+- Case 22 NVIDIA B200 SuperPOD: PASS · 6/6 3-tier BOM metrics

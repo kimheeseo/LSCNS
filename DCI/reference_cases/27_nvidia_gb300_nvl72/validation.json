@@ -1,0 +1,48 @@
+{
+  "case_id": "27_nvidia_gb300_nvl72",
+  "engine_version": "1.6",
+  "validation_class": "B+ rack-network aggregate derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "tray_count": {
+      "reference": 18,
+      "calculated": 18,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerator_count": {
+      "reference": 72,
+      "calculated": 72,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "compute_nic_count": {
+      "reference": 72,
+      "calculated": 72,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "compute_bandwidth_tbps": {
+      "reference": 57.6,
+      "calculated": 57.6,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "converged_link_count": {
+      "reference": 36,
+      "calculated": 36,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "converged_bandwidth_tbps": {
+      "reference": 14.4,
+      "calculated": 14.4,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

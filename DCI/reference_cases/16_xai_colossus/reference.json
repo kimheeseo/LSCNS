@@ -1,0 +1,21 @@
+{
+  "case_id": "16_xai_colossus",
+  "name": "xAI Colossus",
+  "vendor": "xAI / NVIDIA",
+  "year": 2024,
+  "architecture": "100K Hopper + Spectrum-X",
+  "sources": [
+    {
+      "title": "NVIDIA Ethernet Networking Accelerates xAI Colossus",
+      "url": "https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus",
+      "type": "NVIDIA newsroom"
+    }
+  ],
+  "metrics": {
+    "expanded_accelerator_count": {
+      "value": 200000,
+      "unit": "Hopper GPUs planned combined total",
+      "verifiable": true
+    }
+  }
+}

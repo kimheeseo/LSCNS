@@ -32,7 +32,7 @@ PASS      = error <= 10%
 | 05 | [Google A3 Mega H100](05_google_a3_mega_h100/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
 | 06 | [Google A3 Ultra / A4](06_google_a3_ultra_a4/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
 | 07 | [Meta RSC Phase 1](07_meta_rsc_phase1/) | 2-level nonblocking Clos | **PASS** | **0.00%** | **100.0%** |
-| 08 | [Meta RSC Phase 2](08_meta_rsc_phase2/) | Large DGX Clos | **PASS** | **0.080%** | **100.0%** |
+| 08 | [Meta RSC Phase 2](08_meta_rsc_phase2/) | Large DGX Clos | **PASS** | **0.00% exact-scored** | **100.0%** |
 | 09 | [Meta 24K H100 cluster](09_meta_24576_h100/) | RoCE / Quantum-2 | **PASS** | **0.00%** | **100.0%** |
 | 10 | [Meta Grand Teton / ORv3](10_meta_grand_teton_orv3/) | Rack / power | **PASS** | **0.00%** | **100.0%** |
 | 11 | ByteDance MegaScale | 3-tier Clos + 8-rail | PENDING | — | — |
@@ -79,4 +79,43 @@ The final goal is one generalized BOM design/validation engine with <10% error a
 
 - Case 04 Google TPU7x / Ironwood: **PASS · MAPE 0.0059% · Max error 0.0532% · Coverage 100.0% (9/9 scored metrics)**
 
-- Cases 05–10 continuous validation batch: **COMPLETE**. Cases 05,06,07,09,10 MAPE 0.00%; Case 08 MAPE 0.08%. All six cases PASS (<10%).
+
+
+# Review 01–10 — Source Evidence Audit
+
+The first ten cases were re-reviewed to distinguish **reference inputs** from **engine-derived outputs** and to document the exact source evidence used in each case README.
+
+## Validation strength
+
+| Case | Project | Reviewed MAPE | Validation class | Interpretation |
+|---:|---|---:|---|---|
+| 01 | Google TPU v4 | 0.00% | B | Topology inputs → rack/link/OCS derived outputs |
+| 02 | Google TPU v5p | 0.00% | B | Pod/cube/host/slice derivation |
+| 03 | Google TPU v6e | 0.0051% | B | Host/NIC/ICI/Pod aggregate derivation |
+| 04 | Google TPU7x | 0.0059% | B+ | Google spec + All Capacity hierarchy cross-check |
+| 05 | Google A3 Mega | 0.00% | C | Vendor profile consistency; not strong predictive evidence |
+| 06 | Google A3 Ultra / A4 | 0.00% | C | Vendor profile consistency across two GPU generations |
+| 07 | Meta RSC Phase 1 | 0.00% | B | DGX/GPU/storage/endpoint aggregate derivation |
+| 08 | Meta RSC Phase 2 | 0.00% exact-scored | B+ | 16K GPU exact check; 4.992 EFLOPS is qualitative sanity check |
+| 09 | Meta 24,576 H100 | 0.00% | A- | Meta cluster scale + OCP Grand Teton node architecture |
+| 10 | Meta Grand Teton / ORv3 | 0.00% | B | Rack/BBU power-BOM derivation |
+
+### Class definitions
+
+- **A / A-**: independent or cross-source architecture quantities are combined to predict a new count.
+- **B / B+**: public reference design inputs are used to derive other published quantities.
+- **C**: vendor profile/catalog consistency test. Useful for DB/BOM correctness, but weaker evidence of predictive architecture accuracy.
+
+## Audit correction
+
+Case 08 previously treated Meta's phrase **"almost 5 exaflops"** as exactly 5.000 EFLOPS and reported 0.16% error. This review removes that approximate prose from numerical MAPE. The engine's 4.992 EFLOPS result is retained only as a qualitative consistency check.
+
+Case 01 now excludes direct reference inputs (4096-chip target, 136-port OCS, 8 spare ports) from accuracy scoring. Only nine derived outputs are scored.
+
+Each Case README now contains:
+1. source URL,
+2. short source wording or the relevant source-table subset,
+3. the exact values used as engine inputs,
+4. the engine-derived quantities,
+5. reference vs engine error,
+6. limitations and validation-strength interpretation.

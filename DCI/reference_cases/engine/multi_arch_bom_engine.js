@@ -254,7 +254,148 @@ function deriveClos(input, common) {
   };
 }
 
+
+function deriveNetworkPlan(input) {
+  const n=input.network_plan||{};
+  const hosts=Number(n.hosts||0);
+  const linksPerHost=Number(n.links_per_host||0);
+  const redundancy=Number(n.link_redundancy_factor||1);
+  const logicalDown=Number(n.logical_downlinks_per_tor||0);
+  const physicalDown=Number(n.physical_downlinks_per_tor||0);
+  const uplinks=Number(n.uplinks_per_tor||0);
+  const backupDown=Number(n.backup_downlinks_per_tor||0);
+  const serverLinks=hosts*linksPerHost*redundancy;
+  const torCount=logicalDown>0?Math.ceil(serverLinks/logicalDown):null;
+  return {
+    host_count:hosts,
+    server_network_links:serverLinks,
+    tor_count:torCount,
+    tor_logical_downlinks_total:torCount!=null?torCount*logicalDown:null,
+    tor_physical_downlinks_total:torCount!=null&&physicalDown?torCount*physicalDown:null,
+    tor_uplinks_total:torCount!=null&&uplinks?torCount*uplinks:null,
+    tor_backup_downlinks_total:torCount!=null&&backupDown?torCount*backupDown:null
+  };
+}
+
+function deriveFabricDesign(input) {
+  const f=input.fabric_design||{};
+  const active=Number(f.active_nodes||0);
+  const slots=Number(f.design_nodes||active);
+  const links=Number(f.links_per_node||0);
+  const ufm=Number(f.ufm_links||0);
+  const leafDown=Number(f.leaf_down_ports||0);
+  const leafUp=Number(f.leaf_up_ports||0);
+  const spineDown=Number(f.spine_down_ports||f.spine_ports||0);
+  const spineUp=Number(f.spine_up_ports||0);
+  const corePorts=Number(f.core_ports||0);
+  const endpointCables=active*links+ufm;
+  const designEndpointPorts=slots*links;
+  const leafCount=leafDown?Math.ceil(designEndpointPorts/leafDown):null;
+  const leafSpineLinks=leafCount!=null&&leafUp?leafCount*leafUp:null;
+  const spineCount=leafSpineLinks!=null&&spineDown?Math.ceil(leafSpineLinks/spineDown):null;
+  const spineCoreLinks=spineCount!=null&&spineUp?spineCount*spineUp:null;
+  const coreCount=spineCoreLinks!=null&&corePorts?Math.ceil(spineCoreLinks/corePorts):null;
+  return {
+    node_leaf_cable_count:endpointCables,
+    leaf_switch_count:leafCount,
+    leaf_spine_cable_count:leafSpineLinks,
+    spine_switch_count:spineCount,
+    spine_core_cable_count:spineCoreLinks,
+    core_switch_count:coreCount
+  };
+}
+
+function deriveRackSystem(input) {
+  const r=input.rack_system||{};
+  const racks=Number(r.racks||1);
+  const trays=Number(r.compute_trays_per_rack||0);
+  const gpuPerTray=Number(r.gpus_per_tray||0);
+  const cpuPerTray=Number(r.cpus_per_tray||0);
+  const switchTrays=Number(r.nvlink_switch_trays_per_rack||0);
+  const switchesPerTray=Number(r.nvswitches_per_switch_tray||0);
+  const tor=Number(r.tor_switches_per_rack||0);
+  const powerShelves=Number(r.power_shelves_per_rack||0);
+  const psusPerShelf=Number(r.psus_per_power_shelf||0);
+  const psuKw=Number(r.psu_kw||0);
+  const nvmePerTray=Number(r.data_nvme_per_tray||0);
+  const nvmeTb=Number(r.data_nvme_tb_each||0);
+  const bootPerTray=Number(r.boot_nvme_per_tray||0);
+  const bootTb=Number(r.boot_nvme_tb_each||0);
+  return {
+    compute_tray_count:racks*trays,
+    accelerator_count:racks*trays*gpuPerTray,
+    cpu_count:racks*trays*cpuPerTray,
+    nvlink_switch_tray_count:racks*switchTrays,
+    nvswitch_count:racks*switchTrays*switchesPerTray,
+    tor_switch_count:racks*tor,
+    power_shelf_count:racks*powerShelves,
+    psu_count:racks*powerShelves*psusPerShelf,
+    installed_psu_capacity_kw:racks*powerShelves*psusPerShelf*psuKw,
+    data_nvme_count:racks*trays*nvmePerTray,
+    data_nvme_capacity_tb:racks*trays*nvmePerTray*nvmeTb,
+    boot_nvme_count:racks*trays*bootPerTray,
+    boot_nvme_capacity_tb:racks*trays*bootPerTray*bootTb
+  };
+}
+
+function deriveHpcSystem(input) {
+  const h=input.hpc_system||{};
+  const nodes=Number(h.nodes||0);
+  const acc=Number(h.accelerators_per_node||0);
+  const visible=Number(h.visible_gpus_per_node||acc);
+  const nics=Number(h.nics_per_node||0);
+  const nicGbps=Number(h.nic_speed_gbps||0);
+  const racks=Number(h.racks||0);
+  return {
+    node_count:nodes,
+    accelerator_count:nodes*acc,
+    visible_gpu_count:nodes*visible,
+    nic_count:nodes*nics,
+    injection_bandwidth_per_node_gbps:nics*nicGbps,
+    aggregate_endpoint_injection_pbps:nodes*nics*nicGbps/1e6,
+    nodes_per_rack:racks?nodes/racks:null
+  };
+}
+
+function deriveScaleUnit(input) {
+  const s=input.scale_unit||{};
+  const racks=Number(s.racks||1);
+  const trays=Number(s.trays_per_rack||0);
+  const gpuPerTray=Number(s.gpus_per_tray||0);
+  const computeNics=Number(s.compute_nics_per_tray||0);
+  const computeNicGbps=Number(s.compute_nic_speed_gbps||0);
+  const convergedLinks=Number(s.converged_links_per_tray||0);
+  const convergedGbps=Number(s.converged_link_speed_gbps||0);
+  return {
+    tray_count:racks*trays,
+    accelerator_count:racks*trays*gpuPerTray,
+    compute_nic_count:racks*trays*computeNics,
+    compute_bandwidth_tbps:racks*trays*computeNics*computeNicGbps/1000,
+    converged_link_count:racks*trays*convergedLinks,
+    converged_bandwidth_tbps:racks*trays*convergedLinks*convergedGbps/1000
+  };
+}
+
+function deriveClusterScale(input) {
+  const s=input.cluster_scale||{};
+  const systems=Number(s.systems||0);
+  return {
+    system_count:systems,
+    compute_core_count:systems*Number(s.compute_cores_per_system||0),
+    memory_tb:systems*Number(s.memory_tb_per_system||0),
+    fabric_bandwidth_tbps:systems*Number(s.fabric_bandwidth_tbps_per_system||0),
+    accelerator_count:systems*Number(s.accelerators_per_system||0),
+    node_count:s.accelerators_per_system?systems:null
+  };
+}
+
 function deriveArchitecture(input) {
+  if (input.network_plan) return deriveNetworkPlan(input);
+  if (input.fabric_design) return deriveFabricDesign(input);
+  if (input.rack_system) return deriveRackSystem(input);
+  if (input.hpc_system) return deriveHpcSystem(input);
+  if (input.scale_unit) return deriveScaleUnit(input);
+  if (input.cluster_scale) return deriveClusterScale(input);
   if (input.rack_power && !input.accelerator && !Array.isArray(input.machine_profiles)) {
     return deriveRackPower(input);
   }

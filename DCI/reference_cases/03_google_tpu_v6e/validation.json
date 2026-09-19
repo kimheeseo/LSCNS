@@ -1,0 +1,67 @@
+{
+  "case_id": "03_google_tpu_v6e",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.2",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0.005109,
+  "max_error_pct": 0.045977,
+  "metrics": {
+    "cpu_host_count": {
+      "reference": 32,
+      "calculated": 32,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "dcn_bandwidth_per_host_gbps": {
+      "reference": 800,
+      "calculated": 800,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "total_nic_count": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nic_aggregate_bandwidth_per_host_gbps": {
+      "reference": 800,
+      "calculated": 800,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "dcn_bandwidth_per_pod_tbps": {
+      "reference": 25.6,
+      "calculated": 25.6,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "ici_ports_total": {
+      "reference": 1024,
+      "calculated": 1024,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "peak_bf16_pflops_per_pod": {
+      "reference": 234.9,
+      "calculated": 235.008,
+      "error_pct": 0.045977,
+      "status": "PASS"
+    },
+    "max_slice_accelerator_count": {
+      "reference": 256,
+      "calculated": 256,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "max_slice_host_count": {
+      "reference": 32,
+      "calculated": 32,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "method_note": "Nine derived public quantities are compared. Rack count is intentionally excluded because Google does not disclose a v6e rack mapping on the cited pages."
+}

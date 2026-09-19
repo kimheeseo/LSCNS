@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Center BOM Reference Case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "name",
+    "vendor",
+    "architecture",
+    "sources",
+    "metrics"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "architecture": {
+      "type": "string"
+    },
+    "year": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "url"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "value",
+          "unit"
+        ],
+        "properties": {
+          "value": {
+            "type": [
+              "number",
+              "integer",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "source_note": {
+            "type": "string"
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "verifiable": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

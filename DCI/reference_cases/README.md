@@ -36,7 +36,7 @@ PASS      = error <= 10%
 | 09 | [Meta 24K H100 cluster](09_meta_24576_h100/) | RoCE / Quantum-2 | **PASS** | **0.00%** | **100.0%** |
 | 10 | [Meta Grand Teton / ORv3](10_meta_grand_teton_orv3/) | Rack / power | **PASS** | **0.00%** | **100.0%** |
 | 11 | [ByteDance MegaScale](11_bytedance_megascale/) | 3-tier Clos + 8-rail | **PASS** | **0.00%** | **100.0%** |
-| 12 | Alibaba HPN | 2-tier + Rail + Dual-ToR + Dual-Plane | PENDING | — | — |
+| 12 | [Alibaba HPN](12_alibaba_hpn/) | Rail + Dual-ToR + Dual-Plane | **PASS** | **0.00%** | **100.0%** |
 | 13 | IBM Vela | 2-level Clos / RoCE | PENDING | — | — |
 | 14 | IBM Vela ASPLOS | Virtualized RoCE | PENDING | — | — |
 | 15 | Cerebras Condor Galaxy 1 | Wafer-scale cluster | PENDING | — | — |
@@ -121,3 +121,5 @@ Each Case README now contains:
 6. limitations and validation-strength interpretation.
 
 - Case 11 ByteDance MegaScale: PASS · 4/4 scored topology metrics
+
+- Case 12 Alibaba HPN: PASS · 4/4 scored topology metrics

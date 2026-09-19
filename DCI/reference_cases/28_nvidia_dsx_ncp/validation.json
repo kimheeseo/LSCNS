@@ -1,0 +1,42 @@
+{
+  "case_id": "28_nvidia_dsx_ncp",
+  "engine_version": "1.6",
+  "validation_class": "B compute-tray network derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 4,
+      "calculated": 4,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "compute_nic_count": {
+      "reference": 4,
+      "calculated": 4,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "compute_bandwidth_tbps": {
+      "reference": 1.6,
+      "calculated": 1.6,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "converged_link_count": {
+      "reference": 4,
+      "calculated": 4,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "converged_bandwidth_tbps": {
+      "reference": 0.8,
+      "calculated": 0.8,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

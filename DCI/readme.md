@@ -3,12 +3,6 @@
 AI 데이터센터의 **GPU/Server → Network Fabric → Rack → Optical Connectivity → Power → Cooling → BOM**을 계산하는 브라우저 기반 설계 프로토타입입니다.
 
 ## ▶ 실행
-
-### GitHub Pages
-**[AI Data Center BOM Engine 실행하기](https://kimheeseo.github.io/LSCNS/DCI/)**
-
-GitHub Pages가 아직 활성화되지 않았다면 아래 링크로 즉시 실행할 수 있습니다.
-
 ### HTML Preview
 **[index.html 바로 실행하기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kimheeseo/LSCNS/main/DCI/index.html)**
 

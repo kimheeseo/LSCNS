@@ -1,0 +1,36 @@
+{
+  "case_id": "11_bytedance_megascale",
+  "engine_version": "1.6",
+  "validation_class": "A- topology derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "server_network_links": {
+      "reference": 512,
+      "calculated": 512,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_count": {
+      "reference": 8,
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_physical_downlinks_total": {
+      "reference": 256,
+      "calculated": 256,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_uplinks_total": {
+      "reference": 256,
+      "calculated": 256,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

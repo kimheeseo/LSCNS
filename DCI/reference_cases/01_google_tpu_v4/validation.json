@@ -3,17 +3,12 @@
   "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
   "engine_version": "1.0",
   "status": "PASS",
+  "validation_class": "B reference-input derived validation",
   "pass_threshold_error_pct": 10,
   "coverage_pct": 100,
   "mape_pct": 0,
   "max_error_pct": 0,
-  "metrics": {
-    "accelerator_count": {
-      "reference": 4096,
-      "calculated": 4096,
-      "error_pct": 0,
-      "status": "PASS"
-    },
+  "scored_metrics": {
     "cpu_host_count": {
       "reference": 1024,
       "calculated": 1024,
@@ -50,21 +45,9 @@
       "error_pct": 0,
       "status": "PASS"
     },
-    "ocs_total_ports_each": {
-      "reference": 136,
-      "calculated": 136,
-      "error_pct": 0,
-      "status": "PASS"
-    },
     "ocs_working_ports_each": {
       "reference": 128,
       "calculated": 128,
-      "error_pct": 0,
-      "status": "PASS"
-    },
-    "ocs_spare_ports_each": {
-      "reference": 8,
-      "calculated": 8,
       "error_pct": 0,
       "status": "PASS"
     },
@@ -81,5 +64,19 @@
       "status": "PASS"
     }
   },
-  "method_note": "This re-validation uses the shared engine that will be reused by Cases 02-30. The production DCI/index.html is not modified to contain Google-specific expected answers."
+  "excluded_reference_inputs": {
+    "accelerator_count": {
+      "value": 4096,
+      "reason": "design target input"
+    },
+    "ocs_total_ports_each": {
+      "value": 136,
+      "reason": "reference hardware input"
+    },
+    "ocs_spare_ports_each": {
+      "value": 8,
+      "reason": "reference hardware input"
+    }
+  },
+  "review_note": "Review excludes reference inputs from accuracy scoring so the MAPE reflects derived outputs only."
 }

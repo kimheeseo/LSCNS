@@ -1,0 +1,40 @@
+{
+  "case_id": "09_meta_24576_h100",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "B",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "topology.type"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "cpu_host_count": {
+        "reference": 3072,
+        "calculated": 3072,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "building_block_count": {
+        "reference": 3072,
+        "calculated": 3072,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

@@ -68,3 +68,9 @@ Pages 링크가 열리지 않는 경우 저장소에서 다음만 한 번 설정
   - 초기 64 GPU → Compute Rack 2 / Total Rack 4
   - GPU 128로 변경 후 버튼 실행 → Compute Rack 4 / Total Rack 6
   - BIM KPI / floor-plan / power / thermal 값 동시 갱신 확인
+
+## Version 2 independent validation
+
+- New UI: [index_v2.html](index_v2.html)
+- Detailed 30-case report: [V2_VALIDATION_REPORT.md](ver.1_reference_cases/V2_VALIDATION_REPORT.md)
+- v2 adds a reference-blind calculation boundary and input-independence audit. Numeric accuracy and validation strength are reported separately.

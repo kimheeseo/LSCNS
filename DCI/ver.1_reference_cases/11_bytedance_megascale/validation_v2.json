@@ -1,0 +1,57 @@
+{
+  "case_id": "11_bytedance_megascale",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A-",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "network_plan.hosts",
+      "network_plan.links_per_host",
+      "network_plan.link_redundancy_factor",
+      "network_plan.logical_downlinks_per_tor",
+      "network_plan.physical_downlinks_per_tor",
+      "network_plan.uplinks_per_tor"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "server_network_links": {
+        "reference": 512,
+        "calculated": 512,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "tor_count": {
+        "reference": 8,
+        "calculated": 8,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "tor_physical_downlinks_total": {
+        "reference": 256,
+        "calculated": 256,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "tor_uplinks_total": {
+        "reference": 256,
+        "calculated": 256,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

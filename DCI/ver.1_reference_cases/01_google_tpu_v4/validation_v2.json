@@ -1,0 +1,105 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "topology.type",
+      "topology.faces",
+      "topology.links_per_face",
+      "topology.opposing_faces_share_ocs",
+      "topology.ocs.total_ports",
+      "topology.ocs.spare_ports"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "accelerator_count": {
+        "reference": 4096,
+        "calculated": 4096,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "cpu_host_count": {
+        "reference": 1024,
+        "calculated": 1024,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "compute_rack_count": {
+        "reference": 64,
+        "calculated": 64,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerators_per_rack": {
+        "reference": 64,
+        "calculated": 64,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "optical_links_per_rack": {
+        "reference": 96,
+        "calculated": 96,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "rack_to_ocs_link_instances": {
+        "reference": 6144,
+        "calculated": 6144,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_count": {
+        "reference": 48,
+        "calculated": 48,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_total_ports_each": {
+        "reference": 136,
+        "calculated": 136,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_working_ports_each": {
+        "reference": 128,
+        "calculated": 128,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_spare_ports_each": {
+        "reference": 8,
+        "calculated": 8,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_working_ports_total": {
+        "reference": 6144,
+        "calculated": 6144,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "ocs_spare_ports_total": {
+        "reference": 384,
+        "calculated": 384,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

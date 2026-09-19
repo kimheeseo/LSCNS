@@ -64,3 +64,28 @@ BF16 dense = 16,000 × 312 TFLOPS
 ## 검토 결론
 
 Case 08은 오히려 이번 Review를 통해 더 엄밀해졌다. “almost” 같은 표현을 정확한 reference number로 강제 변환하지 않고, exact quantity와 qualitative sanity check를 분리한다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0800% |
+| Maximum error | 0.1600% |
+| Coverage | 100.0000% |
+| Validation level | **B** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

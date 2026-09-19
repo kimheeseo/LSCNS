@@ -1,0 +1,48 @@
+{
+  "case_id": "07_meta_rsc_phase1",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A-",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "topology.type",
+      "topology.tiers",
+      "topology.oversubscription_ratio"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "accelerator_count": {
+        "reference": 6080,
+        "calculated": 6080,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "storage_total_pb": {
+        "reference": 231,
+        "calculated": 231,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "cluster_network_endpoint_tbps": {
+        "reference": 1216,
+        "calculated": 1216,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

@@ -48,3 +48,28 @@ Google의 생성 가이드에는 다음 문구도 있다.
 ## 검토 결론
 
 A3 Mega는 공개 machine table이 매우 구체적이므로 장비 profile DB 검증에는 좋은 Case다. 그러나 GPU 수, NIC 수, memory가 이미 vendor profile 입력으로 주어지므로 이것만으로 “설계 툴이 장비 수를 예측했다”고 표현하면 안 된다. 향후 cluster-size 입력에서 node/rack/switch/cable을 계산하는 별도 Case와 함께 사용해야 한다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0000% |
+| Maximum error | 0.0000% |
+| Coverage | 100.0000% |
+| Validation level | **A** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

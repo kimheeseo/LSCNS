@@ -65,3 +65,28 @@ Google의 *System architecture* 표에서 사용한 값만 추출하면 다음�
 ## 검토 결론
 
 rack count는 Google v6e 문서에서 physical rack mapping을 공개하지 않기 때문에 일부러 계산하지 않았다. 이 처리가 올바르며, rack/cable 값을 임의로 추정하는 것보다 검증 신뢰도가 높다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0051% |
+| Maximum error | 0.0460% |
+| Coverage | 100.0000% |
+| Validation level | **A** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

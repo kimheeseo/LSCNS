@@ -1,0 +1,40 @@
+{
+  "case_id": "14_ibm_vela_roce",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "B",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [
+      "clos_unit.tor_count",
+      "clos_unit.spine_count"
+    ],
+    "structural_policy_fields": [
+      "clos_unit.tor_count",
+      "clos_unit.spine_count",
+      "clos_unit.links_per_tor_spine_pair",
+      "clos_unit.link_speed_gbps"
+    ],
+    "input_independent": false,
+    "note": "Structural count-like fields were provided as a design policy; the case cannot claim fully autonomous A validation until product/constraint solvers derive them."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "tor_spine_link_count": {
+        "reference": 16,
+        "calculated": 16,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

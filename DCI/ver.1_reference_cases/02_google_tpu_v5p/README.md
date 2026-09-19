@@ -64,3 +64,28 @@ Google Cloud TPU v5p 공식 문서의 **Pod / host / cube / slice 구조**를 �
 ## 검토 결론
 
 Case 02는 Google 공식 문서 자체가 cube를 명시적으로 **“Cube (rack)”**라고 정의하므로 rack count 140을 검증에 포함해도 근거가 있다. OCS 개수나 cable/connector BOM은 이 문서에서 공개되지 않아 제외한다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0000% |
+| Maximum error | 0.0000% |
+| Coverage | 100.0000% |
+| Validation level | **A** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

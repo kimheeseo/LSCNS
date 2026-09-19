@@ -1,0 +1,57 @@
+{
+  "case_id": "26_nvidia_gb200_network_fabrics",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A-",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "scale_unit.racks",
+      "scale_unit.trays_per_rack",
+      "scale_unit.gpus_per_tray",
+      "scale_unit.fabric_group_count",
+      "scale_unit.leaf_switches_per_group",
+      "scale_unit.spine_switches_per_group"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "tray_count": {
+        "reference": 144,
+        "calculated": 144,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerator_count": {
+        "reference": 576,
+        "calculated": 576,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "leaf_switch_count": {
+        "reference": 32,
+        "calculated": 32,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "spine_switch_count": {
+        "reference": 24,
+        "calculated": 24,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

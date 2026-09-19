@@ -48,3 +48,28 @@ backup time          = 4 × 60 = 240 s
 ## 검토 결론
 
 Case 10은 network BOM 검증이 아니라 power BOM 산식 검증이다. 같은 30 kW라는 수치라도 rack power shelf와 BBU pair capacity는 의미가 다르므로 README에서 구분해 기록한다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0000% |
+| Maximum error | 0.0000% |
+| Coverage | 100.0000% |
+| Validation level | **A-** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

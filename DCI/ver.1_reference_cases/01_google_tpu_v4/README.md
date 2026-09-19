@@ -74,3 +74,28 @@ Section 2.2의 핵심 수치는 아래와 같다.
 Case 01은 단순한 값 복사가 아니라 topology 입력에서 **rack, optical endpoint, OCS 수량을 파생**하므로 유효한 구조 검증이다. 다만 136-port OCS와 8 spare는 논문 입력이므로 해당 값 자체를 정확도 항목으로 다시 세면 안 된다.
 
 Cable length, connector/ODF 수량, 실제 설치 route는 논문에 공개되지 않아 검증 대상에서 제외한다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0000% |
+| Maximum error | 0.0000% |
+| Coverage | 100.0000% |
+| Validation level | **A** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

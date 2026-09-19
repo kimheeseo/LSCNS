@@ -59,3 +59,28 @@ All Capacity 문서의 물리 hierarchy:
 ## 검토 결론
 
 Case 04는 cube를 physical rack으로 임의 해석하지 않는다. Google All Capacity 문서는 cube/sub-block hierarchy를 제공하지만 rack mapping은 제공하지 않으므로 현재 엔진이 rack 값을 N/A로 두는 것이 맞다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0059% |
+| Maximum error | 0.0532% |
+| Coverage | 100.0000% |
+| Validation level | **A** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

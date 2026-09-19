@@ -1,0 +1,72 @@
+{
+  "case_id": "22_nvidia_dgx_b200_superpod",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "fabric_design.active_nodes",
+      "fabric_design.design_nodes",
+      "fabric_design.links_per_node",
+      "fabric_design.ufm_links",
+      "fabric_design.leaf_down_ports",
+      "fabric_design.leaf_up_ports",
+      "fabric_design.spine_down_ports",
+      "fabric_design.spine_up_ports",
+      "fabric_design.core_ports"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "node_leaf_cable_count": {
+        "reference": 4096,
+        "calculated": 4096,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "leaf_switch_count": {
+        "reference": 128,
+        "calculated": 128,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "leaf_spine_cable_count": {
+        "reference": 4096,
+        "calculated": 4096,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "spine_switch_count": {
+        "reference": 128,
+        "calculated": 128,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "spine_core_cable_count": {
+        "reference": 4096,
+        "calculated": 4096,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "core_switch_count": {
+        "reference": 64,
+        "calculated": 64,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

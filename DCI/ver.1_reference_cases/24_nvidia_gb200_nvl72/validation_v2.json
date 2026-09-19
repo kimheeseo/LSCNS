@@ -1,0 +1,70 @@
+{
+  "case_id": "24_nvidia_gb200_nvl72",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "rack_system.racks",
+      "rack_system.compute_trays_per_rack",
+      "rack_system.gpus_per_tray",
+      "rack_system.cpus_per_tray",
+      "rack_system.nvlink_switch_trays_per_rack",
+      "rack_system.nvswitches_per_switch_tray",
+      "rack_system.tor_switches_per_rack"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "compute_tray_count": {
+        "reference": 18,
+        "calculated": 18,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerator_count": {
+        "reference": 72,
+        "calculated": 72,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "cpu_count": {
+        "reference": 36,
+        "calculated": 36,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "nvlink_switch_tray_count": {
+        "reference": 9,
+        "calculated": 9,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "nvswitch_count": {
+        "reference": 18,
+        "calculated": 18,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "tor_switch_count": {
+        "reference": 2,
+        "calculated": 2,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "case_id": "25_nvidia_gb200_components",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "rack_system.racks",
+      "rack_system.compute_trays_per_rack",
+      "rack_system.gpus_per_tray",
+      "rack_system.cpus_per_tray",
+      "rack_system.power_shelves_per_rack",
+      "rack_system.psus_per_power_shelf",
+      "rack_system.psu_kw",
+      "rack_system.data_nvme_per_tray",
+      "rack_system.data_nvme_tb_each",
+      "rack_system.boot_nvme_per_tray",
+      "rack_system.boot_nvme_tb_each"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "power_shelf_count": {
+        "reference": 8,
+        "calculated": 8,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "psu_count": {
+        "reference": 48,
+        "calculated": 48,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "installed_psu_capacity_kw": {
+        "reference": 264,
+        "calculated": 264,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "data_nvme_count": {
+        "reference": 72,
+        "calculated": 72,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "data_nvme_capacity_tb": {
+        "reference": 276.48,
+        "calculated": 276.48,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "boot_nvme_count": {
+        "reference": 18,
+        "calculated": 18,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "boot_nvme_capacity_tb": {
+        "reference": 34.56,
+        "calculated": 34.56,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

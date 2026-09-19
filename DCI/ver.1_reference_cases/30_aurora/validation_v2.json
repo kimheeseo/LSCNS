@@ -1,0 +1,69 @@
+{
+  "case_id": "30_aurora",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "hpc_system.nodes",
+      "hpc_system.accelerators_per_node",
+      "hpc_system.visible_gpus_per_node",
+      "hpc_system.nics_per_node",
+      "hpc_system.nic_speed_gbps",
+      "hpc_system.racks"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0.037735849056603106,
+    "max_error_pct": 0.22641509433961865,
+    "metrics": {
+      "node_count": {
+        "reference": 10624,
+        "calculated": 10624,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerator_count": {
+        "reference": 63744,
+        "calculated": 63744,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "nic_count": {
+        "reference": 84992,
+        "calculated": 84992,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "injection_bandwidth_per_node_gbps": {
+        "reference": 1600,
+        "calculated": 1600,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "nodes_per_rack": {
+        "reference": 64,
+        "calculated": 64,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "aggregate_endpoint_injection_PBps": {
+        "reference": 2.12,
+        "calculated": 2.1248,
+        "error_pct": 0.22641509433961865,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

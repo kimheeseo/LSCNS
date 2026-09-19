@@ -1,0 +1,82 @@
+{
+  "case_id": "04_google_tpu7x_ironwood",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "topology.type"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0.0059147712418309625,
+    "max_error_pct": 0.053232941176478664,
+    "metrics": {
+      "cpu_host_count": {
+        "reference": 2304,
+        "calculated": 2304,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerators_per_block": {
+        "reference": 64,
+        "calculated": 64,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "hosts_per_block": {
+        "reference": 16,
+        "calculated": 16,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "building_block_count": {
+        "reference": 144,
+        "calculated": 144,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "dcn_bandwidth_per_host_gbps": {
+        "reference": 400,
+        "calculated": 400,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "dcn_bandwidth_per_pod_tbps": {
+        "reference": 921.6,
+        "calculated": 921.6,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "peak_fp8_pflops_per_pod": {
+        "reference": 42500,
+        "calculated": 42522.624,
+        "error_pct": 0.053232941176478664,
+        "status": "PASS"
+      },
+      "tensor_cores_total": {
+        "reference": 18432,
+        "calculated": 18432,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "sparse_cores_total": {
+        "reference": 36864,
+        "calculated": 36864,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

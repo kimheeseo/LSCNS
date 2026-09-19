@@ -1,0 +1,70 @@
+{
+  "case_id": "27_nvidia_gb300_nvl72",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + v1 shared formulas only; reference.json is read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "scale_unit.racks",
+      "scale_unit.trays_per_rack",
+      "scale_unit.gpus_per_tray",
+      "scale_unit.compute_nics_per_tray",
+      "scale_unit.compute_nic_speed_gbps",
+      "scale_unit.converged_links_per_tray",
+      "scale_unit.converged_link_speed_gbps"
+    ],
+    "input_independent": true,
+    "note": "No direct output-count field found in design input."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "tray_count": {
+        "reference": 18,
+        "calculated": 18,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerator_count": {
+        "reference": 72,
+        "calculated": 72,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "compute_nic_count": {
+        "reference": 72,
+        "calculated": 72,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "compute_bandwidth_tbps": {
+        "reference": 57.6,
+        "calculated": 57.6,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "converged_link_count": {
+        "reference": 36,
+        "calculated": 36,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "converged_bandwidth_tbps": {
+        "reference": 14.4,
+        "calculated": 14.4,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "v1_to_v2_improvements": [
+    "reference.json is excluded from calculation and read only for the post-calculation comparison",
+    "direct output-count fields are audited and prevent unsupported A-grade claims",
+    "MAPE, maximum error, coverage and validation level are reported together"
+  ]
+}

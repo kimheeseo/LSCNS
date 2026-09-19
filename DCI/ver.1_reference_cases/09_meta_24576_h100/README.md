@@ -59,3 +59,28 @@ Grand Teton nodes = 24,576 GPUs / 8 GPUs per node
 ## 검토 결론
 
 Case 09는 같은 문서의 숫자를 단순 합산한 것이 아니라, **Meta cluster 규모 + OCP node 내부 구성**을 교차 사용하므로 1~10 중 비교적 독립성이 높은 검증이다. 단, Meta는 전체 switch 수와 cable 수를 공개하지 않으므로 network BOM 전체 정확도를 의미하지 않는다.
+
+## Version 2 Independent Validation
+
+| Item | v2 result |
+|---|---:|
+| Numerical result | PASS |
+| MAPE | 0.0000% |
+| Maximum error | 0.0000% |
+| Coverage | 100.0000% |
+| Validation level | **B** |
+| Direct output-count inputs | 0 |
+
+### Reference comparison
+
+The engine calculates from `design_input.json` only, then compares the output with `reference.json`. The numeric error above is therefore the reference-versus-calculation error; unsupported or undisclosed fields remain outside the MAPE.
+
+### Improvement from version 1
+
+- Adds an explicit input-independence audit instead of treating a low numerical MAPE alone as A-grade evidence.
+- Flags direct Leaf/Spine/ToR/Rack/Cable/Optic/OCS count-like fields when present in the design input.
+- Exports `validation_v2.json` with MAPE, maximum error, coverage, and a validation level in one reproducible record.
+
+### Interpretation
+
+No direct output-count field found in design input.

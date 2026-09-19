@@ -1,0 +1,101 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "tool_version": "baseline-2026-09-19",
+  "status": "NOT_SUPPORTED",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 0,
+  "mape_pct": null,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 4096,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No TPU v4 system profile."
+    },
+    "cpu_host_count": {
+      "reference": 1024,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No TPU-host allocation model."
+    },
+    "compute_rack_count": {
+      "reference": 64,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "Rack sizing cannot be evaluated without TPU profile."
+    },
+    "accelerators_per_rack": {
+      "reference": 64,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No 4x4x4 block model."
+    },
+    "optical_links_per_rack": {
+      "reference": 96,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No torus face/link model."
+    },
+    "rack_to_ocs_link_instances": {
+      "reference": 6144,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No rack-to-OCS link class."
+    },
+    "ocs_count": {
+      "reference": 48,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS object."
+    },
+    "ocs_total_ports_each": {
+      "reference": 136,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS port profile."
+    },
+    "ocs_working_ports_each": {
+      "reference": 128,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS port profile."
+    },
+    "ocs_spare_ports_each": {
+      "reference": 8,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS spare-port model."
+    },
+    "ocs_working_ports_total": {
+      "reference": 6144,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS quantity model."
+    },
+    "ocs_spare_ports_total": {
+      "reference": 384,
+      "calculated": null,
+      "error_pct": null,
+      "status": "NOT_SUPPORTED",
+      "note": "No OCS quantity model."
+    }
+  },
+  "next_required_engine_features": [
+    "TPU accelerator/server profile support",
+    "3D torus topology generator",
+    "OCS device and working/spare port model",
+    "Bidirectional optical link/circulator model",
+    "Golden-case validation runner independent of UI selections"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "case_id": "25_nvidia_gb200_components",
+  "name": "NVIDIA DGX GB200 SuperPOD Components",
+  "vendor": "NVIDIA",
+  "year": 2025,
+  "architecture": "GB200 NVL72 rack component BOM",
+  "sources": [
+    {
+      "title": "DGX GB200 SuperPOD Components",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/dgx-superpod-components.html",
+      "type": "NVIDIA RA"
+    }
+  ],
+  "metrics": {
+    "power_shelf_count": {
+      "value": 8,
+      "unit": "power shelves/rack",
+      "verifiable": true
+    },
+    "psu_count": {
+      "value": 48,
+      "unit": "PSUs/rack",
+      "verifiable": true
+    },
+    "installed_psu_capacity_kw": {
+      "value": 264,
+      "unit": "kW installed PSU nameplate",
+      "verifiable": true
+    },
+    "data_nvme_count": {
+      "value": 72,
+      "unit": "data NVMe/rack",
+      "verifiable": true
+    },
+    "data_nvme_capacity_tb": {
+      "value": 276.48,
+      "unit": "TB raw data NVMe/rack",
+      "verifiable": true
+    },
+    "boot_nvme_count": {
+      "value": 18,
+      "unit": "boot NVMe/rack",
+      "verifiable": true
+    },
+    "boot_nvme_capacity_tb": {
+      "value": 34.56,
+      "unit": "TB boot NVMe/rack",
+      "verifiable": true
+    }
+  }
+}

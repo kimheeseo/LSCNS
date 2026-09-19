@@ -25,5 +25,7 @@
       "error_pct": 0,
       "status": "PASS"
     }
-  }
+  },
+  "validation_class": "B architecture-derived validation",
+  "review_note": "Derives GPU/storage/endpoint aggregates from Meta architecture facts."
 }

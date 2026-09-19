@@ -1,0 +1,2952 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>AI Data Center BOM Engine v2.5 — Integrated UX</title>
+<style>
+:root{
+  --bg:#0a1020; --panel:#111a31; --panel2:#172443; --txt:#eef4ff; --muted:#9eafd0;
+  --line:#2a3d69; --accent:#79a8ff; --ok:#47d18c; --warn:#ffd166; --bad:#ff7d8a;
+  --rack:#2e5eab; --sw:#7c4eaa; --spine:#3f6d90; --rackscale:#205b52; --reserve:#5b6577;
+  --optic:#00bcd4; --lc:#ff9800; --copper:#7cb342; --aoc:#26a69a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif}
+.wrap{max-width:1500px;margin:auto;padding:24px}
+.hero{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+h1{margin:0 0 6px;font-size:30px}
+h2{font-size:18px;margin:0 0 14px}
+h3{font-size:15px;margin:18px 0 8px}
+.sub,.small{color:var(--muted);line-height:1.6}
+.small{font-size:12px}
+.badge{height:max-content;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+@media(max-width:980px){.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 12}}
+.field{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;align-items:center;margin:9px 0}
+.field label{font-size:13px;color:#c9d4ed}
+input,select{width:100%;background:#0c1429;color:var(--txt);border:1px solid #334a79;border-radius:9px;padding:9px 10px}
+button{width:100%;border:0;border-radius:10px;padding:11px;margin-top:12px;background:var(--accent);color:#071126;font-weight:800;cursor:pointer}
+.callout{background:#0c1429;border-left:3px solid var(--accent);padding:10px 12px;border-radius:8px;margin-top:10px}
+.good{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:980px){.metrics{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.metric{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px}
+.k{font-size:11px;color:var(--muted)} .v{font-size:20px;font-weight:800;margin-top:5px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}
+th{color:#bed0f1}
+.fixgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1100px){.fixgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:780px){.fixgrid{grid-template-columns:1fr}}
+.fix{border:1px solid #305744;background:#0d211d;border-radius:12px;padding:12px}
+.fix b{color:var(--ok)}
+.topo{background:#0b1428;border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto}
+svg text{font-family:Inter,system-ui,sans-serif}
+.legend{margin-top:10px;font-size:11px;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
+.rack-grid{display:flex;gap:16px;flex-wrap:wrap}
+.rackViz{background:#0b1428;border:1px solid var(--line);border-radius:14px;padding:12px;width:min(100%,1168px)}
+.rackVizLayout{display:grid;grid-template-columns:minmax(640px,740px) 340px;gap:12px;align-items:start}
+@media(max-width:1180px){.rackVizLayout{grid-template-columns:1fr}}
+.rackMainSvg{width:100%;height:auto;display:block}
+.rackSide{background:#0c1429;border:1px solid var(--line);border-radius:12px;padding:8px;min-height:100%}
+.rackSide svg{width:100%;height:auto;display:block;background:#f7f8fb;border-radius:10px}
+.inlineRef{margin-top:0}
+.inlineRef summary{cursor:pointer;font-weight:800;color:#dbe6ff}
+.inlineRefInner{margin-top:10px}
+.rackTitle{font-weight:800;margin-bottom:3px}
+.rackMeta{font-size:11px;color:var(--muted);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{padding:4px 8px;border:1px solid var(--line);background:#0c1429;border-radius:999px;font-size:11px;color:#bed0f1}
+.rowWrap{background:#0b1428;border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.65;color:#dce5ff}
+.refgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:980px){.refgrid{grid-template-columns:1fr}}
+.refbox{background:#0b1428;border:1px solid var(--line);border-radius:14px;padding:12px}
+.refbox h3{margin:0 0 8px}
+.refbox svg{width:100%;height:auto;background:#f7f8fb;border-radius:10px}
+.refdetails{margin-top:14px;background:#0b1428;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.refdetails summary{cursor:pointer;font-weight:700;color:#dbe6ff}
+.guideTableWrap{margin-top:10px;overflow:auto}
+.guideTableWrap table{min-width:860px}
+.notePanel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+@media(max-width:980px){.notePanel{grid-template-columns:1fr}}
+.noteBox{background:#0c1429;border:1px solid var(--line);border-radius:10px;padding:10px}
+.noteBox b{color:#dce8ff}
+
+.powerGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+@media(max-width:980px){.powerGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.powerGrid{grid-template-columns:1fr}}
+.powerBadge{padding:6px 9px;border-radius:8px;background:#0c1429;border:1px solid var(--line);font-size:11px;color:#dce8ff}
+.powerAB{display:inline-flex;gap:6px;align-items:center}.feedA{color:#ff6b6b;font-weight:800}.feedB{color:#64b5f6;font-weight:800}
+
+
+/* ===== Stage 12 Integrated UX ===== */
+html{scroll-behavior:smooth}
+.wrap{max-width:1540px}
+.workflowNav{
+  position:sticky;top:0;z-index:30;margin:16px 0 4px;padding:10px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:8px;
+  background:rgba(10,16,32,.94);backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:14px
+}
+.workflowNav a{
+  display:block;text-decoration:none;color:#dce8ff;background:#111a31;
+  border:1px solid #2d416d;border-radius:10px;padding:9px 8px;text-align:center;
+  font-size:11px;font-weight:750;line-height:1.35
+}
+.workflowNav a:hover{border-color:var(--accent);background:#16264a}
+.workflowNav b{display:block;color:#79a8ff;font-size:13px;margin-bottom:2px}
+@media(max-width:850px){.workflowNav{grid-template-columns:repeat(3,1fr)}}
+.phaseBand{
+  grid-column:span 12;border-left:4px solid var(--accent);padding:10px 14px;
+  background:linear-gradient(90deg,#13213e,#0b1428);border-radius:10px;
+  font-weight:850;font-size:17px;scroll-margin-top:100px
+}
+.phaseBand .small{font-weight:500;margin-top:3px}
+.uxFlow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.uxFlowItem{background:#0c1429;border:1px solid var(--line);border-radius:12px;padding:11px}
+.uxFlowItem .num{font-size:10px;color:#79a8ff;font-weight:800}
+.uxFlowItem b{display:block;margin:4px 0 3px}
+@media(max-width:980px){.uxFlow{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.uxFlow{grid-template-columns:repeat(2,1fr)}}
+.archStrip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+.archMini{background:#0c1429;border:1px solid var(--line);border-radius:10px;padding:9px}
+.archMini .k{font-size:10px;color:var(--muted)}.archMini .v{font-size:13px;font-weight:800;margin-top:4px}
+@media(max-width:900px){.archStrip{grid-template-columns:repeat(3,1fr)}}
+.advancedCard{
+  grid-column:span 12;background:#0d162b;border:1px solid #263b64;border-radius:14px;
+  padding:0;overflow:hidden
+}
+.advancedCard>summary{
+  cursor:pointer;padding:14px 16px;font-size:14px;font-weight:800;color:#cfe0ff;
+  list-style:none;display:flex;align-items:center;justify-content:space-between
+}
+.advancedCard>summary::-webkit-details-marker{display:none}
+.advancedCard>summary:after{content:"상세보기";font-size:10px;color:#79a8ff;border:1px solid #36578f;border-radius:999px;padding:4px 8px}
+.advancedCard[open]>summary:after{content:"접기"}
+.advancedBody{padding:0 16px 16px}
+.finalBomCard{border:1px solid #3c649c;background:linear-gradient(180deg,#13203a,#111a31)}
+.bomToolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.bomToolbar button{width:auto;margin:0;padding:8px 12px}
+.bomToolbar .secondary{background:#172443;color:#dce8ff;border:1px solid #35558a}
+.statusGood{color:var(--ok)}.statusWarn{color:var(--warn)}
+.inputHint{font-size:11px;color:var(--muted);margin:-4px 0 8px}
+.card{scroll-margin-top:105px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<div>
+<h1>AI 데이터센터 BOM 설계 엔진</h1>
+<div class="sub">최종 통합 Prototype · <b>Requirements → System → Network/Rack → Connectivity → Power/Cooling → Final BOM</b></div>
+</div>
+<div class="badge">2026.09.19 · Stage 12 Integrated UX</div>
+</div><div class="workflowNav"><a href="#step1"><b>STEP 1</b>요구조건</a><a href="#step2"><b>STEP 2</b>System</a><a href="#step3"><b>STEP 3</b>Rack/Network</a><a href="#step4"><b>STEP 4</b>Connectivity</a><a href="#step5"><b>STEP 5</b>Power/Cooling</a><a href="#step6"><b>STEP 6</b>Final BOM</a></div>
+<div class="grid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card s12"><h2>설계 Workflow</h2><div class="small">복잡한 계산식은 기본 화면에서 숨기고, 실제 설계 의사결정 순서만 따라가도록 정리했습니다.</div><div class="uxFlow" style="margin-top:12px"><div class="uxFlowItem"><div class="num">STEP 01</div><b>요구조건</b><div class="small">GPU·Workload·Rack constraints</div></div><div class="uxFlowItem"><div class="num">STEP 02</div><b>System / Switch</b><div class="small">장비 후보와 port-mode</div></div><div class="uxFlowItem"><div class="num">STEP 03</div><b>Rack / Network</b><div class="small">Topology·Leaf·Spine·배치</div></div><div class="uxFlowItem"><div class="num">STEP 04</div><b>Connectivity</b><div class="small">Optics·Cable·Panel·ODF</div></div><div class="uxFlowItem"><div class="num">STEP 05</div><b>Power / Cooling</b><div class="small">PDU A/B·열부하·CDU</div></div><div class="uxFlowItem"><div class="num">STEP 06</div><b>Final BOM</b><div class="small">설계 결과 통합·Export</div></div></div></div><div class="phaseBand" id="step1">STEP 1 · 요구조건 입력<div class="small">GPU 목표, workload, topology 의도, 거리, rack/power/cooling constraint를 정의합니다.</div></div><div class="card s4">
+<h2>요구조건 / Compute</h2>
+<div class="field"><label>설계 수준</label><select id="tier">
+<option value="simple">저사양(단순)</option>
+<option value="ha">중사양(가용성/이중화)</option>
+<option selected="" value="aifabric">고사양(AI Fabric)</option>
+</select></div>
+<div class="field"><label>Workload</label><select id="workload">
+<option value="inference">AI/LLM 추론</option>
+<option selected="" value="training">AI/LLM 학습</option>
+<option value="hpc">HPC</option>
+<option value="vision">Vision</option>
+</select></div>
+<div class="field"><label>목표 GPU 수</label><input id="gpuTarget" min="1" type="number" value="64"/></div>
+<div class="field"><label>Compute System</label><select id="systemId"></select></div>
+<div id="hostProfileBox" style="display:none;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#0c1429">
+<div class="small"><b>Partner Host Profile — USER INPUT / Assumed Example</b><br/>
+        L4/L40S는 GPU card이므로 서버 RU·전력·NIC 구성은 NVIDIA GPU 사양이 아니라 선택한 OEM/partner server에 따라 달라집니다.</div>
+<input id="hostProfileSystemId" type="hidden" value=""/>
+<div class="field"><label>GPUs / partner server</label><input id="hostGpusPerServer" max="8" min="1" type="number" value="4"/></div>
+<div class="field"><label>Partner server RU</label><input id="hostServerRU" min="1" type="number" value="4"/></div>
+<div class="field"><label>Partner server max power (kW)</label><input id="hostServerPower" min="0.1" step="0.1" type="number" value="2.0"/></div>
+<div class="field"><label>Fabric links / server</label><input id="hostFabricLinks" min="1" type="number" value="4"/></div>
+<div class="field"><label>Fabric link speed</label><select id="hostFabricSpeed"><option selected="" value="400">400G</option><option value="800">800G</option></select></div>
+<div class="field"><label>Power cords / server</label><input id="hostCordCount" min="1" type="number" value="2"/></div>
+</div>
+<div class="callout small" id="presetInfo"></div>
+</div><div class="card s4">
+<h2>Network / Fabric</h2>
+<div class="field"><label>Topology</label><select id="topology"></select></div>
+<div class="field"><label>Leaf / ToR Switch</label><select id="switchId"></select></div>
+<div class="field"><label>Uplink speed</label><select id="uplinkSpeed"></select></div>
+<div class="field"><label>Oversubscription D:U</label><select id="oversub">
+<option value="1">1:1</option>
+<option selected="" value="2">2:1</option>
+<option value="4">4:1</option>
+</select></div>
+<div class="field"><label>Connectivity spare (%)</label><input id="sparePct" type="number" value="5"/></div>
+<div class="field"><label>Auxiliary fabrics</label><select id="auxFabricMode">
+<option selected="" value="reference">NVIDIA reference profile</option>
+<option value="off">Compute fabric only</option>
+</select></div>
+<div class="field"><label>Storage fabric</label><select id="storageFabricType">
+<option selected="" value="auto">Auto by system reference</option>
+<option value="ethernet">Ethernet / RoCE</option>
+<option value="infiniband">InfiniBand / RDMA</option>
+</select></div>
+<div class="callout small" id="networkWarning"></div>
+</div><div class="card s4">
+<h2>Physical / Rack / Power / Cooling</h2>
+<div class="field"><label>Server ↔ Leaf/ToR 거리</label><select id="distServer">
+<option value="2">2 m</option>
+<option value="10">10 m</option>
+<option value="50">50 m</option>
+<option selected="" value="100">100 m</option>
+<option value="300">300 m</option>
+<option value="2000">2 km</option>
+</select></div>
+<div class="field"><label>Leaf ↔ Spine 거리</label><select id="distSpine">
+<option value="3">3 m</option>
+<option value="30">30 m</option>
+<option selected="" value="100">100 m</option>
+<option value="300">300 m</option>
+<option value="2000">2 km</option>
+</select></div>
+<div class="field"><label>Server ↔ Leaf cabling</label><select id="serverCablingMode">
+<option selected="" value="p2p">Point-to-point</option>
+<option value="structured">Structured cabling</option>
+</select></div>
+<div class="field"><label>Leaf ↔ Spine cabling</label><select id="leafSpineCablingMode">
+<option selected="" value="structured">Structured cabling</option>
+<option value="p2p">Point-to-point</option>
+</select></div>
+<div class="field"><label>Rack RU 기준</label><select id="rackRU"><option value="42">42U</option><option selected="" value="48">48U</option><option value="52">52U</option></select></div>
+<div class="field"><label>Reserved U</label><input id="reservedU" type="number" value="4"/></div>
+<div class="field"><label>Rack IT limit (kW)</label><input id="rackITLimit" min="1" type="number" value="120"/></div>
+<div class="field"><label>Rack design headroom (%)</label><input id="rackHeadroom" max="50" min="0" type="number" value="15"/></div>
+<div class="field"><label>Max placement iterations</label><input id="maxPlacementIterations" max="10" min="1" type="number" value="5"/></div>
+<h3 style="margin-top:14px">Power Connectivity</h3>
+<div class="field"><label>PDU outlet / unit</label><input id="pduOutletCount" min="1" type="number" value="24"/></div>
+<div class="field"><label>PDU rated kW / feed</label><input id="pduRatedKw" min="1" step="1" type="number" value="60"/></div>
+<div class="field"><label>Design utilization (%)</label><input id="pduUtilPct" max="100" min="1" type="number" value="80"/></div>
+<div class="field"><label>Feed architecture</label><select id="powerFeedMode"><option selected="" value="ab">A/B balanced</option></select></div>
+<h3 style="margin-top:14px">Cooling / Thermal</h3>
+<div class="field"><label>Cooling architecture</label><select id="coolingMode">
+<option selected="" value="auto">Auto by system reference</option>
+<option value="air">Air cooling</option>
+<option value="rdhx">Active Rear-Door HX</option>
+<option value="dlc">Direct Liquid Cooling</option>
+</select></div>
+<div class="field"><label>Rack cooling limit (kWth)</label><input id="rackCoolingLimit" min="1" type="number" value="120"/></div>
+<div class="field"><label>Rack airflow limit (CFM)</label><input id="rackAirflowLimit" min="100" type="number" value="9000"/></div>
+<div class="field"><label>CDU rated capacity (kWth)</label><input id="cduRatedKw" min="1" type="number" value="1200"/></div>
+<div class="field"><label>CDU design utilization (%)</label><input id="cduUtilPct" max="100" min="1" type="number" value="80"/></div>
+<button onclick="calc()">계산 / 도식 업데이트</button>
+</div><div class="phaseBand" id="step2">STEP 2 · System / Switch 선택<div class="small">선택한 시스템과 스위치의 호환성 및 설계 결과를 먼저 확인합니다.</div></div><div class="card s12">
+<h2>4. 결과 요약</h2>
+<div class="metrics">
+<div class="metric"><div class="k">Required GPU</div><div class="v" id="mGpu">-</div></div>
+<div class="metric"><div class="k" id="unitLabel">System units</div><div class="v" id="mUnits">-</div></div>
+<div class="metric"><div class="k">Compute racks</div><div class="v" id="mComputeRacks">-</div></div>
+<div class="metric"><div class="k">Leaf / ToR switches</div><div class="v" id="mLeafs">-</div></div>
+<div class="metric"><div class="k">Spine switches</div><div class="v" id="mSpines">-</div></div>
+<div class="metric"><div class="k">Compute power</div><div class="v" id="mPower">-</div></div>
+</div>
+<div class="archStrip"><div class="archMini"><div class="k">System</div><div class="v" id="uxSystem">-</div></div><div class="archMini"><div class="k">Fabric</div><div class="v" id="uxFabric">-</div></div><div class="archMini"><div class="k">Rack</div><div class="v" id="uxRack">-</div></div><div class="archMini"><div class="k">Media</div><div class="v" id="uxMedia">-</div></div><div class="archMini"><div class="k">Cooling</div><div class="v" id="uxCooling">-</div></div><div class="archMini"><div class="k">Status</div><div class="v" id="uxStatus">-</div></div></div><div class="callout small" id="resultWarning"></div>
+</div><div class="phaseBand" id="step3">STEP 3 · Rack / Network 구성<div class="small">Leaf/Spine topology와 auxiliary fabric을 확인하고 rack 수를 결정합니다.</div></div><div class="card s12">
+<h2>7. Topology 도식</h2>
+<div class="small" id="topoCaption"></div>
+<div class="topo"><svg height="400" id="topoSvg" viewbox="0 0 1250 400" width="1250"></svg></div>
+<div class="legend">
+<span class="dot" style="background:var(--copper)"></span>DAC
+          <span class="dot" style="background:var(--aoc)"></span>AOC
+          <span class="dot" style="background:var(--optic)"></span>MPO 계열
+          <span class="dot" style="background:var(--lc)"></span>LC 계열
+      </div>
+</div><div class="card s12">
+<h2>6-4. Compute / Storage / In-Band / OOB Fabrics · Stage 9</h2>
+<div class="small">
+    AI Compute Fabric과 별도로 Storage, In-Band Management, Out-of-Band Management를 분리합니다.
+    표의 switch 수는 <b>NVIDIA reference budget</b> 또는 <b>access-layer minimum</b>으로 구분하여 표시합니다.
+  </div>
+<div class="refgrid" style="margin-top:12px">
+<div class="refbox">
+<h3>Selected system · four-fabric view</h3>
+<svg id="auxFabricSvg" viewbox="0 0 760 340"></svg>
+</div>
+<div class="refbox">
+<h3>Auxiliary Network BOM</h3>
+<div class="guideTableWrap" id="auxFabricSummary"></div>
+</div>
+</div>
+<div class="callout small" id="auxFabricNotes"></div>
+</div><details class="advancedCard"><summary>계산 상세 · Rack Placement Convergence</summary><div class="advancedBody">
+
+<div class="small">
+        서버 배치 → 실제 ToR/Leaf/Panel/ODF/PDU 반영 → RU·전력 재검증 → Rack 수 변화 시 Fabric 재계산을 반복합니다.
+        안정화 조건은 <b>Compute Rack 수 + server/rack capacity + Leaf 수 + Spine 수</b>가 이전 iteration과 동일한 경우입니다.
+      </div>
+<div class="guideTableWrap" id="placementSummary"></div>
+<div class="callout small" id="placementNotes"></div>
+</div></details><div class="phaseBand" id="step4">STEP 4 · Connectivity<div class="small">서버·스위치 연결, 광모듈, cable, connector, patch panel/ODF를 확인합니다.</div></div><div class="card s6">
+<h2>5. Connectivity 상세</h2>
+<table><tbody>
+<tr><td>Server-facing logical links</td><td id="sfLinks">-</td></tr>
+<tr><td>UFM↔Leaf reference links</td><td id="ufmLinks">-</td></tr>
+<tr><td>Compute + UFM links</td><td id="computeUfmLinks">-</td></tr>
+<tr><td>Server-facing media</td><td id="sfMedia">-</td></tr>
+<tr><td>Server-facing optics / cables</td><td id="sfOC">-</td></tr>
+<tr><td>Server-facing connector ends / fiber cores</td><td id="sfCF">-</td></tr>
+<tr><td>Leaf uplinks total</td><td id="lsLinks">-</td></tr>
+<tr><td>Leaf↔Spine media</td><td id="lsMedia">-</td></tr>
+<tr><td>Leaf↔Spine optics / cables</td><td id="lsOC">-</td></tr>
+<tr><td>Leaf↔Spine connector ends / fiber cores</td><td id="lsCF">-</td></tr>
+</tbody></table>
+</div><div class="card s12">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+<div>
+<h2 style="margin:0 0 8px 0">8. Rack 도식 (Patch Panel / ODF / Cable Manager 포함)</h2>
+<div class="small" id="rackCaption"></div>
+</div>
+<details class="refdetails inlineRef">
+<summary>참고</summary>
+<div class="inlineRefInner">
+<div class="small" style="margin-bottom:8px"><b>Optical reach / connector guide</b></div>
+<div class="guideTableWrap" id="reachGuide"></div>
+<div class="small" style="margin:12px 0 8px 0"><b>Rail cabling / mapping</b></div>
+<div class="small" id="railRef" style="margin:0 0 12px 0"></div>
+<svg id="railSvg" style="width:100%;height:auto;background:#f7f8fb;border-radius:10px" viewbox="0 0 980 320"></svg>
+</div>
+</details>
+</div>
+<div class="rack-grid" id="rackGrid" style="margin-top:12px"></div>
+</div><div class="card s12">
+<h2>9. Rack 사이 실제 연결 도식</h2>
+<div class="small" id="rowCaption"></div>
+<div class="rowWrap"><svg height="420" id="rowSvg" viewbox="0 0 1350 420" width="1350"></svg></div>
+</div><details class="advancedCard"><summary>Connectivity 상세 · Patch Panel / ODF Capacity Sizing</summary><div class="advancedBody">
+
+<div class="small">
+    Corning AEN185 기준으로 MPO structured cabling은 <b>EDGE8 32-F MTP Adapter Panel (4-port)</b>,
+    housing은 <b>1U=18 / 2U=36 / 4U=72 modules·panels</b> 용량을 사용합니다.
+    LC structured cabling의 module link 수는 8-F module의 fiber capacity에서 파생 계산합니다.
+  </div>
+<div class="guideTableWrap" id="panelSizingSummary"></div>
+<div class="callout small" id="panelSizingNotes"></div>
+</div></details><div class="phaseBand" id="step5">STEP 5 · Power / Cooling<div class="small">A/B feed, PDU outlet, thermal load, airflow 또는 DLC/CDU를 검증합니다.</div></div><div class="card s12">
+<h2>6-2. Power Connectivity · Stage 4</h2>
+<div class="small">서버/스위치 PSU → locking power cord → PDU-A/B → outlet/feed까지 Rack별로 계산합니다. PDU 정격과 outlet 수는 사용자 설계 가정이며, 장비 PSU/cord 수는 제품 프로파일을 사용합니다.</div>
+<div class="guideTableWrap" id="powerSummary"></div>
+<div class="callout small" id="powerNotes"></div>
+</div><div class="card s12">
+<h2>6-5. Cooling / Thermal Engine · Stage 10</h2>
+<div class="small">
+    IT 전력은 1차 설계에서 거의 동일한 열부하로 변환하여 <b>Q<sub>IT</sub>[kWth] ≈ P<sub>IT</sub>[kW]</b>로 계산합니다.
+    Airflow, rack cooling capacity, rear-door HX, DLC/CDU를 장비 reference와 함께 검증합니다.
+  </div>
+<div class="refgrid" style="margin-top:12px">
+<div class="refbox">
+<h3>Cooling architecture</h3>
+<svg id="coolingSvg" viewbox="0 0 760 330"></svg>
+</div>
+<div class="refbox">
+<h3>Rack Thermal Sizing</h3>
+<div class="guideTableWrap" id="coolingSummary"></div>
+</div>
+</div>
+<div class="callout small" id="coolingNotes"></div>
+</div><div class="phaseBand" id="step6">STEP 6 · Final BOM<div class="small">최종 수량을 통합하고 CSV/JSON으로 내보냅니다.</div></div><div class="card s12 finalBomCard">
+<h2>6. 최종 BOM</h2>
+<div class="small">비용/RFQ는 제외하고, 현재 설계에서 계산된 Compute·Network·Optical·Power·Cooling BOM을 통합합니다.</div><div class="bomToolbar"><button onclick="downloadBomCsv()">BOM CSV 내보내기</button><button class="secondary" onclick="downloadDesignJson()">Design JSON 내보내기</button><button class="secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">맨 위로</button></div><table><thead><tr><th>Category</th><th>Item</th><th>Qty</th></tr></thead><tbody id="bom"></tbody></table>
+</div><details class="advancedCard"><summary>참고 · GPU / Server Profile DB</summary><div class="advancedBody">
+
+<div class="small">
+        GPU 자체 사양과 배포 단위를 분리했습니다. <b>L4/L40S = GPU card</b>,
+        <b>DGX H200/B200/B300 = server system</b>,
+        <b>Vera Rubin NVL72 = rack-scale system</b>입니다.
+        L4/L40S 서버 RU·전력·NIC는 Partner Host 입력값으로만 계산합니다.
+      </div>
+<div class="callout small" id="selectedProfileSummary"></div>
+<div class="guideTableWrap" id="profileDbTable"></div>
+<div class="callout small" id="profileValidation"></div>
+</div></details><details class="advancedCard"><summary>참고 · Switch / Port Mode DB</summary><div class="advancedBody">
+
+<div class="small">
+    Physical cage와 logical port를 분리했습니다. 같은 OSFP 1개라도
+    <b>QM9700은 2×400G</b>, <b>SN5610/Arista/Cisco는 1×800G 또는 2×400G</b>,
+    <b>Quantum-X800 Q3400은 1 cage에서 2×800G XDR logical ports</b>로 계산됩니다.
+    Downlink/Uplink는 보수적으로 서로 다른 cage pool에 배치하는 <b>segregated cage policy</b>를 사용합니다.
+  </div>
+<div class="callout small" id="selectedSwitchSummary"></div>
+<div class="guideTableWrap" id="switchDbTable"></div>
+<h3>Selected switch · Port Modes</h3>
+<div class="guideTableWrap" id="portModeTable"></div>
+<div class="callout small" id="switchValidation"></div>
+</div></details><details class="advancedCard"><summary>검증 · Golden Case Validation</summary><div class="advancedBody">
+
+<div class="small">
+    NVIDIA DGX SuperPOD B200/H200 공식 compute-fabric component count를 기준으로
+    <b>Node / GPU / Leaf / Spine / Compute+UFM connections / Leaf↔Spine connections</b>를 자동 비교합니다.
+    현재 선택 조건과 무관하게 고정 Golden Case를 별도로 실행합니다.
+  </div>
+<div class="guideTableWrap" id="goldenSummary"></div>
+<div class="callout small" id="goldenNotes"></div>
+</div></details><details class="advancedCard"><summary>계산 상세 · Spine/Fabric 엔진 계산 요약</summary><div class="advancedBody">
+
+<div class="mono" id="spineEngineText">-</div>
+</div></details></div>
+</div>
+<script>
+const gpuCatalog = {
+  l4:{
+    name:"NVIDIA L4", allocationUnit:"gpu_card",
+    memoryGB:24, tdpKW:.072, formFactor:"1-slot low-profile PCIe",
+    interconnect:"PCIe Gen4 x16", nvlink:false,
+    official:"Confirmed NVIDIA", status:"Current",
+    workload:"Inference / video / visual AI",
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/l4/"
+  },
+  l40s:{
+    name:"NVIDIA L40S", allocationUnit:"gpu_card",
+    memoryGB:48, tdpKW:.350, formFactor:"Dual-slot PCIe",
+    interconnect:"PCIe Gen4 x16", nvlink:false,
+    official:"Confirmed NVIDIA", status:"Current",
+    workload:"Generative AI / inference / graphics",
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/l40s/"
+  },
+  h200:{
+    name:"NVIDIA H200 SXM", allocationUnit:"gpu_card",
+    memoryGB:141, tdpKW:.700, formFactor:"SXM",
+    interconnect:"NVLink 900 GB/s + PCIe Gen5", nvlink:true,
+    official:"Confirmed NVIDIA", status:"Current",
+    workload:"Training / inference / HPC",
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/h200/"
+  },
+  b200:{
+    name:"NVIDIA B200 (DGX system basis)", allocationUnit:"gpu_card",
+    memoryGB:180, tdpKW:null, formFactor:"SXM / DGX integrated",
+    interconnect:"NVLink 5th gen", nvlink:true,
+    official:"Derived memory: 1440 GB ÷ 8", status:"Current",
+    workload:"Training / inference / HPC",
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/dgx-b200/"
+  },
+  b300:{
+    name:"NVIDIA B300 Blackwell Ultra", allocationUnit:"gpu_card",
+    memoryGB:288, tdpKW:null, formFactor:"SXM / DGX integrated",
+    interconnect:"NVLink 5th gen", nvlink:true,
+    official:"Confirmed NVIDIA User Guide", status:"Current",
+    workload:"Reasoning / training / inference",
+    sourceUrl:"https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html"
+  },
+  rubin:{
+    name:"NVIDIA Rubin GPU", allocationUnit:"gpu_card",
+    memoryGB:288, tdpKW:null, formFactor:"Rack-scale integrated",
+    interconnect:"NVLink 6", nvlink:true,
+    official:"Preliminary NVIDIA", status:"Preliminary",
+    workload:"Agentic AI / training / inference / HPC",
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/vera-rubin-nvl72/"
+  }
+};
+
+const systems = {
+  l4host:{
+    name:"L4 Partner Host (configure)", gpu:"L4", gpuId:"l4", unit:"server",
+    hostRequired:true, gpus:4, ru:2, power:1.0, links:2, linkSpeed:400,
+    psuCount:2,cordCount:2,powerRedundancy:"Partner-server dependent",powerCord:"Partner-server dependent",
+    feedSurvival:"Requires partner server design",powerConfidence:"USER INPUT / Assumed example",
+    memoryTotalGB:null, profileConfidence:"GPU confirmed; host profile user-defined",
+    fit:["simple"],work:["inference","vision"]
+  },
+  l40shost:{
+    name:"L40S Partner Host (configure)", gpu:"L40S", gpuId:"l40s", unit:"server",
+    hostRequired:true, gpus:4, ru:4, power:2.0, links:4, linkSpeed:400,
+    psuCount:2,cordCount:2,powerRedundancy:"Partner-server dependent",powerCord:"Partner-server dependent",
+    feedSurvival:"Requires partner server design",powerConfidence:"USER INPUT / Assumed example",
+    memoryTotalGB:null, profileConfidence:"GPU confirmed; host profile user-defined",
+    fit:["simple","ha"],work:["inference","vision"]
+  },
+  h200:{
+    name:"NVIDIA DGX H200",gpu:"H200",gpuId:"h200",unit:"server",
+    gpus:8,ru:8,power:10.2,powerNominal:null,memoryTotalGB:1128,
+    links:8,linkSpeed:400,physicalClusterCages:4,
+    psuCount:6,cordCount:6,powerRedundancy:"4+2",powerCord:"250VAC 20A C19/C20 locking",
+    feedSurvival:"3 PSU remaining → reduced performance",powerConfidence:"Confirmed NVIDIA",
+    profileConfidence:"Confirmed NVIDIA",fit:["ha","aifabric"],work:["training","inference","hpc"],
+    sourceUrl:"https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html"
+  },
+  b200:{
+    name:"NVIDIA DGX B200",gpu:"B200",gpuId:"b200",unit:"server",
+    gpus:8,ru:10,power:14.3,powerNominal:null,memoryTotalGB:1440,
+    links:8,linkSpeed:400,physicalClusterCages:4,
+    psuCount:6,cordCount:6,powerRedundancy:"5+1",powerCord:"250VAC 20A C19/C20 locking",
+    feedSurvival:"3 PSU remaining → reduced performance",powerConfidence:"Confirmed NVIDIA",
+    profileConfidence:"Confirmed NVIDIA",fit:["ha","aifabric"],work:["training","inference","hpc"],
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/dgx-b200/"
+  },
+  b300:{
+    name:"NVIDIA DGX B300",gpu:"B300",gpuId:"b300",unit:"server",
+    gpus:8,ru:10,power:15.0,powerNominal:14.5,memoryTotalGB:2304,
+    links:8,linkSpeed:800,physicalClusterCages:8,
+    psuCount:12,cordCount:12,powerRedundancy:"N+N AC PSU",powerCord:"12 AC inlets / 200-240V",
+    feedSurvival:"N+N power architecture",powerConfidence:"Confirmed NVIDIA User Guide; 15 kW max",
+    profileConfidence:"Confirmed NVIDIA User Guide",fit:["ha","aifabric"],work:["training","inference","hpc"],
+    sourceUrl:"https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html"
+  },
+  rubin:{
+    name:"NVIDIA DGX Vera Rubin NVL72",gpu:"Rubin",gpuId:"rubin",unit:"rack_system",
+    gpus:72,cpus:36,ru:48,power:240,powerOfficialMax:null,memoryTotalGB:20700,
+    links:144,linkSpeed:800,physicalClusterCages:144,
+    psuCount:null,cordCount:null,powerRedundancy:"Rack-scale power shelf / busbar",
+    powerCord:"Vendor rack power architecture",feedSurvival:"Requires vendor design",
+    powerConfidence:"240 kW = vendor design reference; NVIDIA official max not fixed here",
+    profileConfidence:"NVIDIA platform specs confirmed; power reference external",
+    fit:["aifabric"],work:["training","inference","hpc"],
+    sourceUrl:"https://www.nvidia.com/ko-kr/data-center/dgx-vera-rubin-nvl72/"
+  }
+};
+const switches = {
+  tor400:{
+    name:"Representative 400G ToR",vendor:"Generic",model:"400G ToR (placeholder)",
+    speeds:[400],ru:1,power:.50,powerDesign:.50,psuCount:2,cordCount:2,
+    powerRedundancy:"1+1 assumed",powerCord:"Vendor-specific",powerConfidence:"Assumed placeholder",
+    cages:32,cageType:"OSFP/QSFP-DD placeholder",fabric:"Ethernet",throughputTbps:25.6,
+    portModes:{
+      400:{logicalPerCage:2,maxLogical:64,mode:"2×400G breakout assumed"}
+    },
+    sourceUrl:"#",confidence:"Placeholder"
+  },
+  qm9700:{
+    name:"NVIDIA QM9700",vendor:"NVIDIA",model:"QM9700 / Quantum-2",
+    speeds:[400],ru:1,power:.747,powerDesign:1.72,psuCount:2,cordCount:2,
+    powerRedundancy:"2 replaceable PSU",powerCord:"Vendor AC cord",powerConfidence:"Confirmed; 747W typical / 1.72kW max active-cable",
+    cages:32,cageType:"OSFP",fabric:"InfiniBand",throughputTbps:25.6,aggregateTbps:51.2,
+    portModes:{
+      400:{logicalPerCage:2,maxLogical:64,mode:"Twin NDR: 2×400G logical ports / OSFP"}
+    },
+    sourceUrl:"https://networking-docs.nvidia.com/qm97x0hw/specifications",confidence:"Confirmed NVIDIA"
+  },
+  sn5610:{
+    name:"NVIDIA SN5610",vendor:"NVIDIA",model:"SN5610 / Spectrum-4",
+    speeds:[400,800],ru:2,power:.90,powerDesign:2.08,psuCount:4,cordCount:4,
+    powerRedundancy:"4 replaceable PSU",powerCord:"Vendor AC cord",powerConfidence:"Confirmed; 900W passive typical / 2.08kW with 64 optical modules",
+    cages:64,cageType:"OSFP",fabric:"Ethernet",throughputTbps:51.2,
+    portModes:{
+      800:{logicalPerCage:1,maxLogical:64,mode:"1×800G / OSFP"},
+      400:{logicalPerCage:2,maxLogical:128,mode:"2×400G breakout / OSFP"},
+      200:{logicalPerCage:4,maxLogical:256,mode:"up to 4×200G / OSFP"}
+    },
+    sourceUrl:"https://networking-docs.nvidia.com/sn5000hw/specifications",confidence:"Confirmed NVIDIA"
+  },
+  arista:{
+    name:"Arista 7060X6-64PE",vendor:"Arista",model:"DCS-7060X6-64PE",
+    speeds:[400,800],ru:2,power:.640,powerDesign:2.218,psuCount:2,cordCount:2,
+    powerRedundancy:"1+1 hot-swap PSU",powerCord:"Vendor AC/DC cord",powerConfidence:"Confirmed; 640W typical / 2.218kW maximum",
+    cages:64,cageType:"OSFP800",fabric:"Ethernet",throughputTbps:51.2,
+    portModes:{
+      800:{logicalPerCage:1,maxLogical:64,mode:"1×800G / OSFP"},
+      400:{logicalPerCage:2,maxLogical:128,mode:"2×400G breakout / OSFP"},
+      200:{logicalPerCage:4,maxLogical:256,mode:"4×200G"},
+      100:{logicalPerCage:5,maxLogical:320,mode:"up to 320×100G system-wide"}
+    },
+    sourceUrl:"https://www.arista.com/ko/products/7060x6-series-quick-look",confidence:"Confirmed Arista"
+  },
+  cisco9364o:{
+    name:"Cisco N9364E-SG2-O",vendor:"Cisco",model:"N9364E-SG2-O",
+    speeds:[400,800],ru:2,power:.995,powerDesign:2.270,psuCount:2,cordCount:2,
+    powerRedundancy:"1+1 hot-swap PSU",powerCord:"Cisco 3kW HV PSU cord",powerConfidence:"Confirmed; 995W typical / 2.270kW maximum",
+    cages:64,cageType:"OSFP",fabric:"Ethernet",throughputTbps:51.2,fullDuplexTbps:102.4,
+    portModes:{
+      800:{logicalPerCage:1,maxLogical:64,mode:"1×800G / OSFP"},
+      400:{logicalPerCage:2,maxLogical:128,mode:"2×400G breakout / OSFP"},
+      100:{logicalPerCage:8,maxLogical:512,mode:"8×100G breakout / OSFP"}
+    },
+    sourceUrl:"https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sg2-switch-ds.html",confidence:"Confirmed Cisco"
+  },
+  q3200:{
+    name:"NVIDIA Quantum-X800 Q3200-RA",vendor:"NVIDIA",model:"Q3200-RA / Quantum-3",
+    speeds:[400,800],ru:2,power:.862,powerDesign:3.486,psuCount:4,cordCount:4,
+    powerRedundancy:"4 replaceable PSU; redundancy topology vendor-confirm",powerCord:"200–240VAC per PSU",powerConfidence:"Confirmed; 862W typical / 3.486kW max active-cable",
+    cages:36,cageType:"OSFP",fabric:"InfiniBand XDR",throughputTbps:57.6,
+    portModes:{
+      800:{logicalPerCage:2,maxLogical:72,mode:"2×800G XDR logical ports / OSFP"},
+      400:{logicalPerCage:2,maxLogical:72,mode:"2 logical XDR ports / OSFP, each supports 400G"}
+    },
+    sourceUrl:"https://networking-docs.nvidia.com/xdrswitcheshw/introduction",confidence:"Confirmed NVIDIA"
+  },
+  q3400:{
+    name:"NVIDIA Quantum-X800 Q3400-RA",vendor:"NVIDIA",model:"Q3400-RA / Quantum-3",
+    speeds:[400,800],ru:4,power:2.900,powerDesign:7.000,psuCount:8,cordCount:8,
+    powerRedundancy:"8 replaceable PSU; redundancy topology vendor-confirm",powerCord:"200–240VAC per PSU",powerConfidence:"Confirmed; 2.9kW typical / 7.0kW max active-cable",
+    cages:72,cageType:"OSFP",fabric:"InfiniBand XDR",throughputTbps:115.2,
+    portModes:{
+      800:{logicalPerCage:2,maxLogical:144,mode:"2×800G XDR logical ports / OSFP"},
+      400:{logicalPerCage:2,maxLogical:144,mode:"2 logical XDR ports / OSFP, each supports 400G"}
+    },
+    sourceUrl:"https://networking-docs.nvidia.com/xdrswitcheshw/specifications",confidence:"Confirmed NVIDIA"
+  }
+};
+
+const auxSwitches = {
+  sn2201:{
+    name:"NVIDIA SN2201",fabric:"OOB Ethernet",ru:1,power:.098,
+    ports:{1:48,100:4},media:{1:"Cat5e/Cat6 RJ45",100:"QSFP28"},
+    confidence:"Confirmed NVIDIA"
+  },
+  sn4600c:{
+    name:"NVIDIA SN4600C",fabric:"In-Band Ethernet",ru:2,power:.466,
+    ports:{100:64},media:{100:"QSFP28 / AOC or optics"},
+    confidence:"Confirmed NVIDIA"
+  },
+  sn5600:{
+    name:"NVIDIA SN5600",fabric:"Spectrum-4 Ethernet",ru:2,power:.940,
+    ports:{200:256,400:128,800:64},media:{200:"OSFP breakout",400:"OSFP breakout",800:"OSFP"},
+    confidence:"Confirmed NVIDIA"
+  },
+  sn5610:{
+    name:"NVIDIA SN5610",fabric:"Spectrum-4 Ethernet",ru:2,power:.900,
+    ports:{200:256,400:128,800:64},media:{200:"OSFP breakout",400:"OSFP breakout",800:"OSFP"},
+    confidence:"Confirmed NVIDIA"
+  },
+  qm9700:{
+    name:"NVIDIA QM9700",fabric:"NDR InfiniBand",ru:1,power:.747,
+    ports:{400:64},media:{400:"OSFP Twin / QSFP112 endpoint"},
+    confidence:"Confirmed NVIDIA"
+  }
+};
+
+const auxSystemProfiles = {
+  h200:{
+    suSize:32,
+    storage:{
+      linksPerUnit:2,speed:400,protocol:"InfiniBand / RDMA",
+      autoSwitch:"qm9700",ethernetSwitch:null,ibSwitch:"qm9700",
+      switchBudgetPerSU:4,media:"400G NDR optical",
+      confidence:"Reference-derived: 254 DGX storage transceivers / 127 nodes"
+    },
+    inband:{
+      linksPerUnit:2,speed:100,switch:"sn4600c",
+      switchBudgetPerSU:2,media:"bonded Ethernet",
+      confidence:"NVIDIA RA text: 100G bonded; newer cable BOM lists 200G-capable AOC"
+    },
+    oob:{
+      portsPerUnit:1,speed:1,switch:"sn2201",media:"Cat5e/Cat6",
+      confidence:"Confirmed: system BMC"
+    }
+  },
+  b200:{
+    suSize:32,
+    storage:{
+      linksPerUnit:2,speed:400,protocol:"Ethernet / RoCE or optional InfiniBand",
+      autoSwitch:"sn5600",ethernetSwitch:"sn5600",ibSwitch:"qm9700",
+      switchBudgetPerSU:4,media:"400G optical",
+      confidence:"Reference profile; final storage partner topology varies"
+    },
+    inband:{
+      linksPerUnit:2,speed:200,switch:"sn5600",
+      switchBudgetPerSU:1,media:"bonded Ethernet",
+      confidence:"Confirmed NVIDIA: 200G bonded"
+    },
+    oob:{
+      portsPerUnit:3,speed:1,switch:"sn2201",media:"Cat5e/Cat6",
+      confidence:"Reference-derived: 381 DGX OOB 1G cables / 127 nodes"
+    }
+  },
+  b300:{
+    suSize:72,
+    storage:{
+      linksPerUnit:2,speed:400,protocol:"Ethernet / RoCE or NDR InfiniBand",
+      autoSwitch:"sn5610",ethernetSwitch:"sn5610",ibSwitch:"qm9700",
+      switchBudgetPerSU:4,media:"400G optical",
+      confidence:"Confirmed reference component ratio: 2×400G DGX storage links"
+    },
+    inband:{
+      linksPerUnit:2,speed:200,switch:"sn5610",
+      switchBudgetPerSU:1,media:"bonded Ethernet",
+      confidence:"Confirmed NVIDIA: 200G bonded"
+    },
+    oob:{
+      portsPerUnit:3,speed:1,switch:"sn2201",media:"Cat6",
+      confidence:"System BMC + BlueField BMC endpoints; full OOB also includes switches/PDUs"
+    }
+  }
+};
+
+
+const coolingProfiles = {
+  l4:{
+    referenceMode:"air", cfmPerSystem:null, confidence:"Partner host required",
+    note:"GPU card only. Host-level airflow/cooling must come from OEM server profile."
+  },
+  l40s:{
+    referenceMode:"air", cfmPerSystem:null, confidence:"Partner host required",
+    note:"GPU card only. Host-level airflow/cooling must come from OEM server profile."
+  },
+  h200:{
+    referenceMode:"air", cfmPerSystem:1105, inletMaxC:30, confidence:"Confirmed NVIDIA",
+    note:"DGX H100/H200: air cooled, 1105 CFM front-to-back @ 80% fan PWM."
+  },
+  b200:{
+    referenceMode:"air", cfmPerSystem:2145, inletMaxC:30, confidence:"Confirmed NVIDIA",
+    rackReferences:{
+      2:{systems:2,powerKw:28.6,airflowCfm:4290,rackU:42,mode:"air"},
+      4:{systems:4,powerKw:57.2,airflowCfm:8580,rackU:52,mode:"extreme-density air"}
+    },
+    note:"Typical deployment = 2 systems/rack. 4/rack is an extreme-density air-cooled option."
+  },
+  b300:{
+    referenceMode:"air", cfmPerSystem:1500, inletMaxC:35, confidence:"Confirmed NVIDIA",
+    rackReferences:{
+      2:{systems:2,powerKw:39.4,airflowCfm:4200,rackU:48,mode:"air"},
+      4:{systems:4,powerKw:76.0,airflowCfm:6200,rackU:48,mode:"active rear-door HX"}
+    },
+    note:"2/rack reference uses air cooling; 4/rack high-density reference uses an active rear-door heat exchanger."
+  },
+  rubin:{
+    referenceMode:"dlc", cfmPerSystem:0, liquidSupplyC:45, liquidFraction:1.0,
+    confidence:"Confirmed NVIDIA platform direction; rack power uses vendor design reference",
+    note:"Vera Rubin NVL72 uses warm-water single-phase direct liquid cooling with a 45°C supply design."
+  }
+};
+
+function coolingProfileFor(s){
+  return coolingProfiles[s.gpuId] || {
+    referenceMode:"air",cfmPerSystem:null,confidence:"Estimated",
+    note:"No validated cooling profile."
+  };
+}
+const presets = {
+  simple:{name:"저사양(단순)",topo:"single",systems:["l4host","l40shost"],switches:["tor400","sn5610","arista","cisco9364o"]},
+  ha:{name:"중사양(가용성/이중화)",topo:"dual",systems:["l40shost","h200","b200","b300"],switches:["tor400","sn5610","arista","cisco9364o","q3200"]},
+  aifabric:{name:"고사양(AI Fabric)",topo:"rail",systems:["h200","b200","b300","rubin"],switches:["qm9700","sn5610","arista","cisco9364o","q3200","q3400"]}
+};
+
+function q(id){ return document.getElementById(id); }
+
+function getSelectedSystem(){
+  const id=q("systemId").value;
+  const base=systems[id];
+  if(!base) return systems.h200;
+  if(!base.hostRequired) return base;
+  const gpus=Math.max(1,+q("hostGpusPerServer").value||base.gpus);
+  const ru=Math.max(1,+q("hostServerRU").value||base.ru);
+  const power=Math.max(.1,+q("hostServerPower").value||base.power);
+  const links=Math.max(1,+q("hostFabricLinks").value||base.links);
+  const linkSpeed=+q("hostFabricSpeed").value||base.linkSpeed;
+  const cords=Math.max(1,+q("hostCordCount").value||base.cordCount||2);
+  const gpuMem=gpuCatalog[base.gpuId]?.memoryGB||0;
+  return {
+    ...base,gpus,ru,power,links,linkSpeed,cordCount:cords,psuCount:cords,
+    memoryTotalGB:gpuMem*gpus,
+    profileConfidence:"GPU card confirmed; partner host fields = USER INPUT"
+  };
+}
+
+function loadHostDefaults(id){
+  const b=systems[id];
+  if(!b || !b.hostRequired) return;
+  if(q("hostProfileSystemId").value===id) return;
+  q("hostProfileSystemId").value=id;
+  q("hostGpusPerServer").value=b.gpus;
+  q("hostServerRU").value=b.ru;
+  q("hostServerPower").value=b.power;
+  q("hostFabricLinks").value=b.links;
+  q("hostFabricSpeed").value=String(b.linkSpeed);
+  q("hostCordCount").value=b.cordCount||2;
+}
+
+function fillSelect(sel, ids, fn){
+  sel.innerHTML = "";
+  ids.forEach(id=>{
+    const o=document.createElement("option");
+    o.value=id; o.textContent=fn(id); sel.appendChild(o);
+  });
+}
+function topoLabel(t){ return t==="single"?"Single ToR":t==="dual"?"Dual ToR":"Rail-optimized"; }
+function portMode(sw,speed){
+  return sw && sw.portModes ? (sw.portModes[speed] || sw.portModes[String(speed)] || null) : null;
+}
+function portsPerCage(sw,speed){
+  const m=portMode(sw,speed);
+  return m ? m.logicalPerCage : 0;
+}
+function maxLogical(sw,speed){
+  const m=portMode(sw,speed);
+  return m ? m.maxLogical : 0;
+}
+
+function maxDownlinks(sw,downSpeed,upSpeed,oversub){
+  const bD=portsPerCage(sw,downSpeed), bU=portsPerCage(sw,upSpeed);
+  const dmax=maxLogical(sw,downSpeed);
+  if(!bD || !bU || !dmax) return null;
+  // Conservative policy: downlink and uplink logical ports occupy segregated cage pools.
+  for(let d=dmax; d>=1; d--){
+    const u=Math.ceil(d*downSpeed/(oversub*upSpeed));
+    const cd=Math.ceil(d/bD), cu=Math.ceil(u/bU);
+    if(cd+cu<=sw.cages && u<=maxLogical(sw,upSpeed)){
+      return {downlinks:d,uplinks:u,downCages:cd,upCages:cu,policy:"segregated-cage"};
+    }
+  }
+  return null;
+}
+function mediaColor(profile){
+  if(profile.media.includes("DAC")) return "#7cb342";
+  if(profile.media.includes("AOC")) return "#26a69a";
+  if(profile.connector.includes("MPO")) return "#00bcd4";
+  if(profile.connector.includes("LC")) return "#ff9800";
+  return "#8eb0ff";
+}
+function mediaProfile(speed, distanceM){
+  if(speed===400){
+    if(distanceM<=3) return {media:"400G DAC", optics:0, connector:"Integrated", connEnds:0, fibers:0, cableType:"DAC", optical:false};
+    if(distanceM<=30) return {media:"400G AOC", optics:0, connector:"Integrated", connEnds:0, fibers:0, cableType:"AOC", optical:false};
+    if(distanceM<=500) return {media:"400G DR4", optics:2, connector:"MPO-12/APC", connEnds:2, fibers:8, cableType:"SMF trunk", optical:true};
+    if(distanceM<=2000) return {media:"400G FR4", optics:2, connector:"Duplex LC", connEnds:2, fibers:2, cableType:"Duplex SMF", optical:true};
+  }
+  if(speed===800){
+    if(distanceM<=2) return {media:"800G DAC", optics:0, connector:"Integrated", connEnds:0, fibers:0, cableType:"DAC", optical:false};
+    if(distanceM<=30) return {media:"800G AOC", optics:0, connector:"Integrated", connEnds:0, fibers:0, cableType:"AOC", optical:false};
+    if(distanceM<=500) return {media:"800G-2xDR4 (DR8 footprint)", optics:2, connector:"2× MPO-8/12 APC", connEnds:4, fibers:16, cableType:"SMF trunk", optical:true};
+    if(distanceM<=2000) return {media:"800G 2×FR4", optics:2, connector:"2× Duplex LC", connEnds:4, fibers:4, cableType:"2× Duplex SMF", optical:true};
+  }
+  return {media:"Unsupported", optics:0, connector:"-", connEnds:0, fibers:0, cableType:"-", optical:false};
+}
+
+function refreshPreset(){
+  const p = presets[q("tier").value];
+  const curSys = q("systemId").value;
+  fillSelect(q("systemId"), p.systems, id=>systems[id].name);
+  if(p.systems.includes(curSys)) q("systemId").value = curSys;
+  q("topology").innerHTML = "";
+  const topOpt = document.createElement("option");
+  topOpt.value = p.topo; topOpt.textContent = topoLabel(p.topo);
+  q("topology").appendChild(topOpt);
+  q("presetInfo").innerHTML = `<b>${p.name}</b> → 기본 topology: ${topoLabel(p.topo)}`;
+  refreshSystem();
+}
+function refreshSystem(){
+  const id=q("systemId").value;
+  const base=systems[id];
+  loadHostDefaults(id);
+  q("hostProfileBox").style.display = base && base.hostRequired ? "block" : "none";
+  const s = getSelectedSystem();
+
+  let swids = presets[q("tier").value].switches.slice();
+  if(s.unit==="rack_system") swids = ["q3400","q3200","sn5610","arista","cisco9364o"];
+  else swids = swids.filter(id=>switches[id].speeds.includes(s.linkSpeed));
+  if(!swids.length) swids = Object.keys(switches).filter(id=>switches[id].speeds.includes(s.linkSpeed));
+
+  const curSw = q("switchId").value;
+  fillSelect(q("switchId"), swids, id=>switches[id].name);
+  if(swids.includes(curSw)) q("switchId").value = curSw;
+  renderProfileDb();
+  refreshSwitch();
+}
+function refreshSwitch(){
+  const sw = switches[q("switchId").value];
+  const curUp = q("uplinkSpeed").value;
+  fillSelect(q("uplinkSpeed"), sw.speeds.map(String), x=>x+"G");
+  if(sw.speeds.map(String).includes(curUp)) q("uplinkSpeed").value = curUp;
+  const speedText=sw.speeds.map(x=>x+"G").join(" / ");
+  q("networkWarning").innerHTML =
+    `<span class="good">✓ Port-mode profile active</span> · ${sw.name} · ${sw.cages}× ${sw.cageType} · ${speedText}. `+
+    `Downlink/Uplink cage allocation = segregated policy.`;
+  renderSwitchDb();
+  calc();
+}
+
+
+
+
+function renderSwitchDb(){
+  const table=q("switchDbTable"), summary=q("selectedSwitchSummary"), modeEl=q("portModeTable"), val=q("switchValidation");
+  if(!table||!summary||!modeEl||!val) return;
+  const sw=switches[q("switchId").value];
+  const s=getSelectedSystem();
+
+  const ids=["qm9700","sn5610","q3200","q3400","arista","cisco9364o"];
+  const rows=ids.map(id=>{
+    const x=switches[id];
+    const m400=maxLogical(x,400)||"—", m800=maxLogical(x,800)||"—";
+    return [
+      x.vendor,x.model,x.fabric,`${x.ru}U`,
+      `${x.cages}× ${x.cageType}`,m400,m800,
+      `${x.throughputTbps} Tb/s`,
+      `${x.power.toFixed(3)} / ${x.powerDesign.toFixed(3)} kW`,
+      x.confidence
+    ];
+  });
+  table.innerHTML=`<table><thead><tr>
+    <th>Vendor</th><th>Model</th><th>Fabric</th><th>RU</th><th>Physical cages</th>
+    <th>Max 400G logical</th><th>Max 800G logical</th><th>Switching</th>
+    <th>Power typ/design</th><th>Confidence</th>
+  </tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+
+  const modes=Object.entries(sw.portModes||{}).sort((a,b)=>+b[0]-+a[0]);
+  modeEl.innerHTML=`<table><thead><tr>
+    <th>Speed</th><th>Logical ports / physical cage</th><th>Max logical ports</th><th>Mode / breakout</th>
+  </tr></thead><tbody>${modes.map(([speed,m])=>`<tr>
+    <td>${speed}G</td><td>${m.logicalPerCage}</td><td>${m.maxLogical}</td><td>${m.mode}</td>
+  </tr>`).join("")}</tbody></table>`;
+
+  const currentDown=s.linkSpeed;
+  const currentUp=+q("uplinkSpeed").value||currentDown;
+  const downMode=portMode(sw,currentDown), upMode=portMode(sw,currentUp);
+  const cap=(downMode&&upMode)?maxDownlinks(sw,currentDown,currentUp,+q("oversub").value||1):null;
+
+  summary.innerHTML =
+    `<b>Selected:</b> ${sw.name} · ${sw.fabric} · ${sw.ru}U · `+
+    `${sw.cages}× ${sw.cageType} · ${sw.throughputTbps} Tb/s switching · `+
+    `${(sw.power*1000).toFixed(0)} W typical / ${(sw.powerDesign*1000).toFixed(0)} W design basis · `+
+    `<a href="${sw.sourceUrl}" target="_blank" style="color:#9ec5ff">official source</a>`;
+
+  const issues=[];
+  if(!downMode) issues.push(`${currentDown}G server-facing mode unsupported`);
+  if(!upMode) issues.push(`${currentUp}G uplink mode unsupported`);
+  if(downMode && downMode.maxLogical<=0) issues.push("No usable downlink logical ports");
+  if(!cap && downMode && upMode) issues.push("Selected oversubscription cannot be packed within physical cages");
+  if(sw.confidence==="Placeholder") issues.push("Placeholder profile");
+  if(sw===switches.q3400 && sw.ru!==4) issues.push("Q3400 RU mismatch");
+  val.innerHTML =
+    `• Physical cage → logical port model: <b>${downMode&&upMode?"PASS":"FAIL"}</b> · `+
+    `Server speed ${currentDown}G: <b>${downMode?"PASS":"FAIL"}</b> · Uplink ${currentUp}G: <b>${upMode?"PASS":"FAIL"}</b>`+
+    (cap?`<br>• Current packing: downlinks <b>${cap.downlinks}</b> (${cap.downCages} cages) + uplinks <b>${cap.uplinks}</b> (${cap.upCages} cages), policy=${cap.policy}.`:"")+
+    (issues.length?`<br>• <span class="warn">${issues.join(" · ")}</span>`:`<br>• <span class="good"><b>Switch profile consistency PASS</b></span>`);
+}
+
+function renderProfileDb(){
+  const el=q("profileDbTable"), summary=q("selectedProfileSummary"), val=q("profileValidation");
+  if(!el||!summary||!val) return;
+  const s=getSelectedSystem();
+  const id=q("systemId").value;
+  const gpu=gpuCatalog[s.gpuId];
+
+  const rows=[
+    ["NVIDIA L4","GPU card","1","24 GB","—","72 W TDP","Host-defined","Partner host required","Confirmed"],
+    ["NVIDIA L40S","GPU card","1","48 GB","—","350 W max","Host-defined","Partner host required","Confirmed"],
+    ["NVIDIA DGX H200","Server system","8","1,128 GB","8U","10.2 kW max","8×400G logical / 4 OSFP cages","6 PSU, 4+2","Confirmed"],
+    ["NVIDIA DGX B200","Server system","8","1,440 GB","10U","14.3 kW max","8×400G logical / 4 OSFP cages","6 PSU, 5+1","Confirmed"],
+    ["NVIDIA DGX B300","Server system","8","2,304 GB (8×288)","10U","15 kW design max","8×800G / 8 OSFP","12 PSU, N+N","Confirmed User Guide"],
+    ["NVIDIA DGX Vera Rubin NVL72","Rack-scale system","72","20.7 TB","Rack-scale","Official max not fixed; 240 kW vendor ref",">144×800G ConnectX-9","Rack power architecture","Preliminary / mixed confidence"]
+  ];
+  el.innerHTML=`<table><thead><tr>
+    <th>Profile</th><th>Allocation</th><th>GPU / unit</th><th>GPU memory</th><th>RU</th>
+    <th>Power</th><th>Compute fabric</th><th>Power architecture</th><th>Confidence</th>
+  </tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+
+  const source=s.sourceUrl || gpu?.sourceUrl || "#";
+  const hostMsg=s.hostRequired
+    ? `<br><span class="warn"><b>Partner Host:</b> ${s.gpus} GPU/server, ${s.ru}U, ${s.power.toFixed(1)} kW, ${s.links}×${s.linkSpeed}G는 현재 USER INPUT입니다.</span>`
+    : "";
+  summary.innerHTML=
+    `<b>Selected:</b> ${s.name} · allocation=<b>${s.unit}</b> · ${s.gpus} GPU/unit · `+
+    `${s.memoryTotalGB!=null ? s.memoryTotalGB.toLocaleString()+" GB GPU memory" : "GPU memory profile"} · `+
+    `${s.unit==="rack_system" ? "rack-scale" : s.ru+"U"} · ${s.power.toFixed(1)} kW design basis · `+
+    `${s.links}×${s.linkSpeed}G fabric links`+
+    hostMsg+
+    `<br><a href="${source}" target="_blank" style="color:#9ec5ff">Official / profile source</a>`;
+
+  const sw=switches[q("switchId").value];
+  const speedOK=sw ? sw.speeds.includes(s.linkSpeed) : false;
+  const unitOK=["server","rack_system"].includes(s.unit);
+  const memoryOK=s.memoryTotalGB!=null && s.memoryTotalGB>0;
+  const powerOK=s.power>0;
+  const issues=[];
+  if(!unitOK) issues.push("Unsupported allocation unit");
+  if(!speedOK) issues.push(`Selected switch does not support ${s.linkSpeed}G`);
+  if(!memoryOK) issues.push("GPU memory profile missing");
+  if(!powerOK) issues.push("Power profile missing");
+  if(s.hostRequired) issues.push("Partner server values must be replaced with actual OEM SKU before RFQ");
+  if(id==="rubin") issues.push("Rubin power is vendor-reference, not NVIDIA official max");
+  if(id==="b300") issues.push("DGX B300 engine uses detailed User Guide values: 8×288 GB = 2.3 TB, 15 kW max; NVIDIA marketing quick-spec pages may show rounded/different figures");
+  val.innerHTML =
+    `• Allocation model: <b>${unitOK?"PASS":"FAIL"}</b> · Switch-speed compatibility: <b>${speedOK?"PASS":"FAIL"}</b> · `+
+    `Memory: <b>${memoryOK?"PASS":"FAIL"}</b> · Power basis: <b>${powerOK?"PASS":"FAIL"}</b>`+
+    (issues.length?`<br>• <span class="warn">${issues.join(" · ")}</span>`:`<br>• <span class="good"><b>Profile consistency PASS</b></span>`);
+}
+
+function chooseHousing(requiredModules){
+  const n = Math.max(0, Math.ceil(requiredModules || 0));
+  if(n===0) return {totalU:0, totalCapacity:0, items:[], label:"None"};
+  let rem=n, items=[], totalU=0, totalCapacity=0;
+  while(rem>72){ items.push({sku:"EDGE8-04U", qty:1, capacity:72, ru:4}); rem-=72; totalU+=4; totalCapacity+=72; }
+  if(rem>36){ items.push({sku:"EDGE8-04U", qty:1, capacity:72, ru:4}); totalU+=4; totalCapacity+=72; rem=0; }
+  else if(rem>18){ items.push({sku:"EDGE8-02U", qty:1, capacity:36, ru:2}); totalU+=2; totalCapacity+=36; rem=0; }
+  else if(rem>0){ items.push({sku:"EDGE8-01U-SP", qty:1, capacity:18, ru:1}); totalU+=1; totalCapacity+=18; rem=0; }
+  const grouped={};
+  items.forEach(x=>{
+    if(!grouped[x.sku]) grouped[x.sku]={...x,qty:0};
+    grouped[x.sku].qty += x.qty;
+  });
+  const arr=Object.values(grouped);
+  return {
+    totalU,
+    totalCapacity,
+    items:arr,
+    label:arr.map(x=>`${x.sku} × ${x.qty}`).join(" + ")
+  };
+}
+
+function structuredEndSizing(linkCount, profile, mode, endName){
+  const links=Math.max(0, Math.ceil(linkCount||0));
+  if(mode!=="structured" || !profile.optical || links===0){
+    return {
+      endName, required:false, links, connector:profile.connector,
+      modules:0, panelPorts:0, linksPerModule:0, housing:chooseHousing(0),
+      trunkFibers:0, trunk144:0, item:"Not required", confidence:"Confirmed/Rule"
+    };
+  }
+
+  const isMPO = profile.connector.includes("MPO");
+  const isLC = profile.connector.includes("LC");
+  let modules=0, panelPorts=0, linksPerModule=0, item="", confidence="Confirmed";
+
+  if(isMPO){
+    const mpoPortsPerLink=Math.max(1, Math.ceil((profile.fibers||8)/8));
+    panelPorts=links*mpoPortsPerLink;
+    modules=Math.ceil(panelPorts/4);
+    linksPerModule=Math.floor(4/mpoPortsPerLink);
+    item="EDGE8 32-F MTP Adapter Panel (4-port)";
+  } else if(isLC){
+    linksPerModule=Math.max(1, Math.floor(8/Math.max(2,profile.fibers||2)));
+    modules=Math.ceil(links/linksPerModule);
+    panelPorts=links;
+    item="EDGE8 Ultra-Low-Loss LC duplex → MTP 8-F Module";
+    confidence="Derived: 8F module ÷ fibers/link";
+  } else {
+    return {
+      endName, required:false, links, connector:profile.connector,
+      modules:0, panelPorts:0, linksPerModule:0, housing:chooseHousing(0),
+      trunkFibers:0, trunk144:0, item:"Direct attach", confidence:"Rule"
+    };
+  }
+
+  const trunkFibers=links*Math.max(0,profile.fibers||0);
+  const trunk144=trunkFibers>0 ? Math.ceil(trunkFibers/144) : 0;
+  return {
+    endName, required:true, links, connector:profile.connector,
+    modules, panelPorts, linksPerModule,
+    housing:chooseHousing(modules),
+    trunkFibers, trunk144, item, confidence
+  };
+}
+
+function buildPanelSizing({alloc,s,serverCablingMode,leafSpineCablingMode,sfProfile,lsProfile,sfCables,lsCables}){
+  const spareFactor=1+(+q("sparePct").value||0)/100;
+  const computeRackEnds=[];
+  if(serverCablingMode==="structured" && sfProfile.optical && s.unit!=="rack_system"){
+    alloc.forEach((n,idx)=>{
+      const links=Math.ceil(n*s.links*spareFactor);
+      computeRackEnds.push(structuredEndSizing(links,sfProfile,"structured",`Compute Rack ${idx+1}`));
+    });
+  }
+  const computeModules=computeRackEnds.reduce((a,x)=>a+x.modules,0);
+  const computeHousingU=computeRackEnds.reduce((a,x)=>a+x.housing.totalU,0);
+
+  const serverLeafEnd=structuredEndSizing(sfCables,sfProfile,serverCablingMode,"Leaf side for Server↔Leaf");
+  const leafEnd=structuredEndSizing(lsCables,lsProfile,leafSpineCablingMode,"Leaf side for Leaf↔Spine");
+  const spineEnd=structuredEndSizing(lsCables,lsProfile,leafSpineCablingMode,"Spine side for Leaf↔Spine");
+
+  return {
+    serverCablingMode, leafSpineCablingMode,
+    computeRackEnds, computeModules, computeHousingU,
+    serverLeafEnd, leafEnd, spineEnd
+  };
+}
+
+function renderPanelSizing(panelSizing){
+  const el=q("panelSizingSummary");
+  const note=q("panelSizingNotes");
+  const rows=[];
+
+  if(panelSizing.computeRackEnds.length){
+    panelSizing.computeRackEnds.forEach(x=>{
+      rows.push([
+        x.endName, "Server↔Leaf", x.connector, x.links,
+        `${x.modules} panel/module`,
+        x.housing.label,
+        `${x.housing.totalU}U`,
+        x.trunk144 ? `${x.trunk144} × 144F-equivalent` : "-"
+      ]);
+    });
+  } else {
+    rows.push(["Compute Rack side","Server↔Leaf", panelSizing.serverLeafEnd.connector,
+      panelSizing.serverLeafEnd.links,"0","Point-to-point / no structured housing","0U","-"]);
+  }
+
+  const structuredRows=[panelSizing.serverLeafEnd,panelSizing.leafEnd,panelSizing.spineEnd];
+  structuredRows.forEach(x=>{
+    if(x.required){
+      rows.push([
+        x.endName,
+        x.endName.includes("Server↔Leaf")?"Server↔Leaf":"Leaf↔Spine",
+        x.connector, x.links,
+        `${x.modules} panel/module`,
+        x.housing.label,
+        `${x.housing.totalU}U`,
+        `${x.trunk144} × 144F-equivalent`
+      ]);
+    }
+  });
+
+  el.innerHTML=`<table><thead><tr>
+    <th>Rack / End</th><th>Segment</th><th>Connector</th><th>Links</th>
+    <th>Adapter panel / module</th><th>Housing BOM</th><th>Rack U</th><th>Backbone trunk sizing</th>
+  </tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+
+  const lcDerived=[panelSizing.serverLeafEnd,panelSizing.leafEnd,panelSizing.spineEnd,...panelSizing.computeRackEnds]
+    .some(x=>x.confidence && x.confidence.startsWith("Derived"));
+
+  note.innerHTML =
+    `• Server↔Leaf mode: <b>${panelSizing.serverCablingMode}</b> / Leaf↔Spine mode: <b>${panelSizing.leafSpineCablingMode}</b><br>`+
+    `• MPO 계산: 32-F / 4-port adapter panel 기준. 800G 2×DR4는 16F이므로 link당 MPO 8-F 포트 2개를 사용하도록 계산합니다.<br>`+
+    `• Housing: EDGE8-01U-SP=18, EDGE8-02U=36, EDGE8-04U=72 modules/panels 최대 수용량을 적용합니다.<br>`+
+    `• Backbone trunk는 Corning 예시의 144-F trunk를 <b>equivalent sizing</b>으로 표시하며 실제 주문 시 8–288F 옵션을 다시 선택해야 합니다.`+
+    (lcDerived ? `<br>• <span class="warn">LC module capacity는 8-F module을 2F/4F link에 나눈 파생값(Derived)입니다.</span>` : "");
+}
+
+
+function splitAB(total){
+  const n=Math.max(0,Math.ceil(total||0));
+  return {a:Math.ceil(n/2), b:Math.floor(n/2)};
+}
+
+function sizeRackPower(name, deviceGroups){
+  const outletPerPdu=Math.max(1,+q("pduOutletCount").value||24);
+  const pduRatedKw=Math.max(1,+q("pduRatedKw").value||60);
+  const util=Math.min(1,Math.max(.01,(+q("pduUtilPct").value||80)/100));
+  const usablePerPdu=pduRatedKw*util;
+
+  let rackPower=0, cordsA=0, cordsB=0, totalCords=0, assumptions=[], survival=[];
+  deviceGroups.forEach(g=>{
+    if(!g || !g.qty || !g.profile) return;
+    const p=g.profile;
+    const designPower=(p.powerDesign!=null?p.powerDesign:p.power||0)*g.qty;
+    rackPower += designPower;
+    if(p.cordCount==null){
+      assumptions.push(`${g.label}: vendor rack/busbar power architecture required`);
+      survival.push(`${g.label}: ${p.feedSurvival||"vendor review"}`);
+      return;
+    }
+    const cords=p.cordCount*g.qty;
+    const sp=splitAB(cords);
+    totalCords += cords; cordsA += sp.a; cordsB += sp.b;
+    if(p.powerConfidence && (p.powerConfidence.includes("Assumed") || p.powerConfidence.includes("placeholder") || p.powerConfidence.includes("Placeholder"))) assumptions.push(`${g.label}: ${p.powerConfidence}`);
+    if(p.feedSurvival) survival.push(`${g.label}: ${p.feedSurvival}`);
+  });
+
+  const normalA=rackPower/2, normalB=rackPower/2;
+  const pduA=Math.max(cordsA?Math.ceil(cordsA/outletPerPdu):0, normalA?Math.ceil(normalA/usablePerPdu):0);
+  const pduB=Math.max(cordsB?Math.ceil(cordsB/outletPerPdu):0, normalB?Math.ceil(normalB/usablePerPdu):0);
+  const capA=pduA*usablePerPdu, capB=pduB*usablePerPdu;
+  const singleFeedFullLoad = rackPower===0 ? true : (capA>=rackPower && capB>=rackPower);
+  return {name,rackPower,totalCords,cordsA,cordsB,pduA,pduB,normalA,normalB,capA,capB,singleFeedFullLoad,outletPerPdu,pduRatedKw,util,assumptions,survival};
+}
+
+function buildPowerSizing({s,sw,topology,alloc,computeRacks,leafCount,spineCount}){
+  const racks=[];
+  if(s.unit==="rack_system"){
+    for(let r=0;r<computeRacks;r++) racks.push(sizeRackPower(`Rack-scale ${r+1}`,[{label:s.name,qty:1,profile:s}]));
+  } else {
+    alloc.forEach((n,r)=>{
+      const groups=[{label:s.name,qty:n,profile:s}];
+      if(topology==="single") groups.push({label:sw.name,qty:1,profile:sw});
+      if(topology==="dual") groups.push({label:sw.name,qty:2,profile:sw});
+      racks.push(sizeRackPower(`Compute Rack ${r+1}`,groups));
+    });
+  }
+  if(topology==="rail" && leafCount>0) racks.push(sizeRackPower("Network Rack",[{label:sw.name,qty:leafCount,profile:sw}]));
+  if(spineCount>0) racks.push(sizeRackPower("Spine Rack",[{label:sw.name,qty:spineCount,profile:sw}]));
+  return {racks};
+}
+
+function renderPowerSizing(powerSizing){
+  const el=q("powerSummary"), notes=q("powerNotes");
+  const rows=powerSizing.racks.map(r=>[
+    r.name,
+    `${r.rackPower.toFixed(1)} kW`,
+    r.totalCords||"Vendor rack power",
+    r.totalCords?`${r.cordsA} / ${r.cordsB}`:"—",
+    r.totalCords?`${r.pduA} / ${r.pduB}`:"Vendor design",
+    `${r.normalA.toFixed(1)} / ${r.normalB.toFixed(1)} kW`,
+    r.totalCords?`${r.capA.toFixed(1)} / ${r.capB.toFixed(1)} kW`:`—`,
+    !r.totalCords?"VENDOR REVIEW":(r.singleFeedFullLoad?"PASS":"NO · normal A/B only / degraded or extra PDU required")
+  ]);
+  el.innerHTML=`<table><thead><tr><th>Rack</th><th>Design power</th><th>Power cords</th><th>Outlets A/B</th><th>PDU units A/B</th><th>Normal load A/B</th><th>Usable capacity A/B</th><th>Single-feed full-load</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const assumed=powerSizing.racks.flatMap(r=>r.assumptions).filter(Boolean);
+  const survival=powerSizing.racks.flatMap(r=>r.survival).filter(Boolean);
+  const pduRated=+q("pduRatedKw").value||60, util=+q("pduUtilPct").value||80, outlets=+q("pduOutletCount").value||24;
+  notes.innerHTML = `• PDU design assumption: <b>${pduRated} kW rated × ${util}% = ${(pduRated*util/100).toFixed(1)} kW usable/PDU</b>, ${outlets} outlets/PDU.<br>`+
+    `• A/B cord assignment은 균등 분배 규칙입니다. NVIDIA가 특정 PSU 번호를 특정 PDU에 연결하라고 지정한 배선도가 아니라 <b>설계 규칙</b>입니다.<br>`+
+    `• H200/B200는 3+3 A/B split에서 한 feed를 잃으면 3 PSU만 남아 <b>reduced-performance state</b>로 평가합니다.<br>`+
+    (survival.length?`• Device survival notes: ${[...new Set(survival)].join("; ")}<br>`:"")+
+    (assumed.length?`• <span class="warn">Assumption / vendor review: ${[...new Set(assumed)].join("; ")}</span>`:"");
+}
+
+
+
+function effectiveCoolingMode(s){
+  const selected=q("coolingMode") ? q("coolingMode").value : "auto";
+  const p=coolingProfileFor(s);
+  if(selected!=="auto") return selected;
+  return p.referenceMode || "air";
+}
+
+function coolingAirflowForRack(s,systemCount){
+  const p=coolingProfileFor(s);
+  if(!systemCount) return 0;
+  if(p.rackReferences && p.rackReferences[systemCount]) return p.rackReferences[systemCount].airflowCfm;
+  if(p.cfmPerSystem!=null) return p.cfmPerSystem*systemCount;
+  return systemCount*s.power*150; // planning fallback, clearly estimated in notes
+}
+
+function coolingModeLabel(mode){
+  return mode==="dlc"?"Direct Liquid Cooling":
+         mode==="rdhx"?"Active Rear-Door HX":
+         mode==="air"?"Air Cooling":"Auto";
+}
+
+function computeCoolingCapacityForRack({s,sw,topology,rackCoolingLimit,rackAirflowLimit,headroom}){
+  const mode=effectiveCoolingMode(s);
+  if(s.unit==="rack_system"){
+    return {
+      mode,byCooling:1,byAirflow:mode==="dlc"?1:0,
+      usableCooling:rackCoolingLimit*(1-headroom),
+      usableAirflow:rackAirflowLimit
+    };
+  }
+  const switchQty=topology==="single"?1:(topology==="dual"?2:0);
+  const switchPower=switchQty*(sw.powerDesign!=null?sw.powerDesign:sw.power||0);
+  const usableCooling=Math.max(0,rackCoolingLimit*(1-headroom));
+  const usableAirflow=Math.max(0,rackAirflowLimit);
+  let byCooling=0,byAirflow=999;
+  for(let n=1;n<=128;n++){
+    const heat=n*s.power+switchPower;
+    if(heat<=usableCooling) byCooling=n; else break;
+  }
+  if(mode!=="dlc"){
+    byAirflow=0;
+    for(let n=1;n<=128;n++){
+      const cfm=coolingAirflowForRack(s,n)+switchPower*150;
+      if(cfm<=usableAirflow) byAirflow=n; else break;
+    }
+  }
+  return {mode,byCooling,byAirflow,usableCooling,usableAirflow,switchPower};
+}
+
+function buildCoolingSizing({s,sw,topology,alloc,leafCount,spineCount,placement,auxSizing}){
+  const p=coolingProfileFor(s);
+  const selected=q("coolingMode").value;
+  const mode=effectiveCoolingMode(s);
+  const rackCoolingLimit=Math.max(1,+q("rackCoolingLimit").value||120);
+  const rackAirflowLimit=Math.max(100,+q("rackAirflowLimit").value||9000);
+  const headroom=Math.min(.5,Math.max(0,(+q("rackHeadroom").value||15)/100));
+  const cduRated=Math.max(1,+q("cduRatedKw").value||1200);
+  const cduUtil=Math.min(1,Math.max(.01,(+q("cduUtilPct").value||80)/100));
+  const swPower=(sw.powerDesign!=null?sw.powerDesign:sw.power||0);
+  const localSwitchQty=topology==="single"?1:(topology==="dual"?2:0);
+
+  const rackRows=alloc.map((n,i)=>{
+    const heat=n*s.power+localSwitchQty*swPower;
+    const cfm=mode==="dlc"?0:coolingAirflowForRack(s,n)+localSwitchQty*swPower*150;
+    const coolingMargin=rackCoolingLimit*(1-headroom)-heat;
+    const airflowMargin=mode==="dlc"?null:rackAirflowLimit-cfm;
+    let reference="";
+    if(p.rackReferences && p.rackReferences[n]){
+      const r=p.rackReferences[n];
+      reference=`Vendor ref: ${r.airflowCfm} CFM · ${r.mode}`;
+    } else if(p.cfmPerSystem!=null) {
+      reference=`${p.cfmPerSystem} CFM/system reference`;
+    } else {
+      reference="Estimated / host profile required";
+    }
+    return {rack:`Compute Rack ${i+1}`,systems:n,heat,cfm,coolingMargin,airflowMargin,reference};
+  });
+
+  const computeHeat=alloc.reduce((a,n)=>a+n*s.power,0);
+  const computeLocalSwitchHeat=alloc.length*localSwitchQty*swPower;
+  const fabricHeat=(leafCount+spineCount)*swPower;
+
+  let auxHeat=0;
+  if(auxSizing && auxSizing.rows){
+    auxSizing.rows.forEach(r=>{
+      const swObj=Object.values(auxSwitches).find(x=>x.name===r.switchName);
+      if(swObj) auxHeat += (r.refBudget||0)*(swObj.power||0);
+    });
+  }
+
+  const totalITHeat=computeHeat+computeLocalSwitchHeat+fabricHeat+auxHeat;
+  const liquidHeat = mode==="dlc" ? (s.unit==="rack_system" ? computeHeat : computeHeat+computeLocalSwitchHeat) : 0;
+  const usableCdu=cduRated*cduUtil;
+  const cduCount=liquidHeat>0?Math.ceil(liquidHeat/usableCdu):0;
+  const totalBtu=totalITHeat*3412.142;
+
+  const notes=[];
+  notes.push(`${s.name}: reference cooling = ${p.referenceMode.toUpperCase()} · ${p.confidence}.`);
+  notes.push(p.note);
+  notes.push(`Thermal balance basis: Q_IT ≈ P_IT. Total modeled IT heat = ${totalITHeat.toFixed(1)} kWth (${Math.round(totalBtu).toLocaleString()} BTU/hr).`);
+  if(mode==="dlc"){
+    notes.push(`CDU sizing: ceil(${liquidHeat.toFixed(1)} / (${cduRated} × ${(cduUtil*100).toFixed(0)}%)) = ${cduCount}.`);
+    if(p.liquidSupplyC) notes.push(`Reference liquid supply temperature: ${p.liquidSupplyC}°C.`);
+    if(selected==="dlc" && p.referenceMode!=="dlc") notes.push("WARNING: DLC was manually selected for an air-cooled reference system. Treat as site/vendor engineering assumption, not an NVIDIA standard configuration.");
+  } else {
+    notes.push(`Airflow limit used for placement: ${rackAirflowLimit.toFixed(0)} CFM/rack. Switch airflow planning fallback = 150 CFM/kW.`);
+  }
+  if(s===systems.b300 && Math.max(...alloc,0)>=4 && mode==="air"){
+    notes.push("WARNING: NVIDIA's 4×B300 high-density rack reference uses an active rear-door heat exchanger, not plain air-only rack cooling.");
+  }
+  if(s===systems.b200 && Math.max(...alloc,0)>=4){
+    notes.push("B200 4/rack is an extreme-density air-cooled deployment; NVIDIA's typical pattern is 2/rack.");
+  }
+  if(s.hostRequired) notes.push("Partner Host cooling/airflow is not validated; current airflow is a planning fallback only.");
+
+  return {
+    profile:p,selectedMode:selected,mode,rackCoolingLimit,rackAirflowLimit,
+    cduRated,cduUtil,cduCount,usableCdu,liquidHeat,totalITHeat,totalBtu,
+    rackRows,notes
+  };
+}
+
+function renderCoolingSizing(c){
+  const table=q("coolingSummary"), note=q("coolingNotes"), svg=q("coolingSvg");
+  if(!table||!note||!svg) return;
+
+  table.innerHTML=`<table><thead><tr>
+    <th>Rack</th><th>Systems</th><th>Heat</th><th>Airflow</th><th>Cooling margin</th><th>Airflow margin</th><th>Reference</th>
+  </tr></thead><tbody>${c.rackRows.map(r=>`<tr>
+    <td>${r.rack}</td><td>${r.systems}</td><td>${r.heat.toFixed(1)} kWth</td>
+    <td>${c.mode==="dlc"?"Liquid":Math.round(r.cfm)+" CFM"}</td>
+    <td class="${r.coolingMargin>=0?"good":"bad"}">${r.coolingMargin.toFixed(1)} kW</td>
+    <td class="${r.airflowMargin==null||r.airflowMargin>=0?"good":"bad"}">${r.airflowMargin==null?"—":Math.round(r.airflowMargin)+" CFM"}</td>
+    <td>${r.reference}</td>
+  </tr>`).join("")}</tbody></table>`;
+
+  note.innerHTML =
+    `• Effective architecture: <b>${coolingModeLabel(c.mode)}</b> · Total modeled heat: <b>${c.totalITHeat.toFixed(1)} kWth</b>.<br>`+
+    (c.mode==="dlc"
+      ? `• Liquid heat basis: <b>${c.liquidHeat.toFixed(1)} kWth</b> · CDU: <b>${c.cduCount}</b> × ${c.cduRated} kWth @ ${(c.cduUtil*100).toFixed(0)}% design utilization.<br>`
+      : `• Rack cooling limit: <b>${c.rackCoolingLimit} kWth</b> · Airflow limit: <b>${c.rackAirflowLimit} CFM</b>.<br>`) +
+    c.notes.map(x=>"• "+x).join("<br>");
+
+  svg.innerHTML="";
+  function T(x,y,txt,size=11,fill="#17202d",anchor="start",weight="700"){
+    const t=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight});t.textContent=txt;svg.appendChild(t);return t;
+  }
+  function B(x,y,w,h,label,fill,stroke="#6f7f90"){
+    svg.appendChild(svgEl("rect",{x,y,width:w,height:h,rx:10,fill,stroke,"stroke-width":1.4}));
+    String(label).split("\n").forEach((ln,i)=>T(x+w/2,y+h/2-5+i*15,ln,11,"#fff","middle","700"));
+  }
+  function A(x1,y1,x2,y2,color,w=4){
+    svg.appendChild(svgEl("line",{x1,y1,x2,y2,stroke:color,"stroke-width":w,"stroke-linecap":"round"}));
+    svg.appendChild(svgEl("polygon",{points:`${x2},${y2} ${x2-10},${y2-5} ${x2-10},${y2+5}`,fill:color}));
+  }
+
+  T(20,24,`${coolingModeLabel(c.mode)} · thermal path`,14,"#1a2c54","start","800");
+  if(c.mode==="dlc"){
+    B(30,100,145,80,`CDU\n${c.cduCount} unit(s)`,"#3478a5");
+    B(300,82,160,116,"Rack\nCold Plates / Manifold","#315f89");
+    B(585,100,145,80,"Return\nWarm Water","#8f4d4d");
+    A(175,125,300,125,"#2f80ed",5);
+    A(460,145,585,145,"#ef5350",5);
+    T(236,112,`Supply`,10,"#2f80ed","middle","700");
+    T(522,132,`Return`,10,"#b13c3c","middle","700");
+    T(380,225,`${c.liquidHeat.toFixed(1)} kWth liquid heat`,12,"#253858","middle","700");
+    if(c.profile.liquidSupplyC) T(380,245,`${c.profile.liquidSupplyC}°C supply reference`,11,"#4b5e78","middle","600");
+  } else if(c.mode==="rdhx"){
+    B(30,100,145,80,"Cold Aisle\nSupply Air","#4f8fbf");
+    B(290,80,165,120,"IT Rack\nServer Fans","#315f89");
+    B(570,80,150,120,"Active RDHx\nWater Loop","#608d58");
+    A(175,125,290,125,"#2f80ed",5);
+    A(455,125,570,125,"#ef8f53",5);
+    T(380,235,`Air-cooled IT → rear-door heat exchanger`,12,"#253858","middle","700");
+  } else {
+    B(30,100,145,80,"Cold Aisle\nSupply Air","#4f8fbf");
+    B(300,80,160,120,"IT Rack\nServer Fans","#315f89");
+    B(585,100,145,80,"Hot Aisle\nReturn Air","#a85b4b");
+    A(175,125,300,125,"#2f80ed",5);
+    A(460,125,585,125,"#ef8f53",5);
+    T(380,235,`${c.rackAirflowLimit.toFixed(0)} CFM/rack design limit`,12,"#253858","middle","700");
+  }
+  T(20,302,`Q_IT ≈ P_IT · total ${c.totalITHeat.toFixed(1)} kWth`,11,"#4b5e78","start","600");
+}
+
+
+function packedAllocation(units, capacity){
+  const cap=Math.max(1,Math.floor(capacity||1));
+  const racks=Math.ceil(units/cap);
+  const alloc=[]; let left=units;
+  for(let i=0;i<racks;i++){ const n=Math.min(cap,left); alloc.push(n); left-=n; }
+  return alloc;
+}
+
+function computeRackCapacity({s,sw,topology,sfProfile,serverCablingMode,spareFactor,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit}){
+  const cooling=computeCoolingCapacityForRack({s,sw,topology,rackCoolingLimit,rackAirflowLimit,headroom});
+  if(s.unit==="rack_system"){
+    const validCooling=cooling.mode==="dlc" && s===systems.rubin ? 1 : (s===systems.rubin ? 0 : 1);
+    return {
+      capacity:validCooling,byRU:1,byPower:1,byCooling:validCooling,byAirflow:cooling.mode==="dlc"?1:0,
+      switchU:0,switchPower:0,infraU:0,reason:"rack_system",coolingMode:cooling.mode
+    };
+  }
+
+  const switchQty=topology==="single"?1:(topology==="dual"?2:0);
+  const switchU=switchQty*sw.ru;
+  const switchPower=switchQty*(sw.powerDesign!=null?sw.powerDesign:sw.power||0);
+  const fixedCableU=2;
+  const usablePower=Math.max(0,rackITLimit*(1-headroom)-switchPower);
+
+  let maxByRU=0;
+  for(let n=1;n<=128;n++){
+    const links=Math.ceil(n*s.links*spareFactor);
+    const end=structuredEndSizing(links,sfProfile,serverCablingMode,"compute");
+    const panelU=end.required?end.housing.totalU:0;
+    const usedU=n*s.ru + switchU + fixedCableU + panelU + reservedU;
+    if(usedU<=rackRU) maxByRU=n;
+    else break;
+  }
+  const maxByPower=Math.max(0,Math.floor(usablePower/Math.max(.001,s.power)));
+  const maxByCooling=Math.max(0,cooling.byCooling);
+  const maxByAirflow=cooling.mode==="dlc" ? 999 : Math.max(0,cooling.byAirflow);
+  const capacity=Math.max(0,Math.min(maxByRU,maxByPower,maxByCooling,maxByAirflow));
+  return {
+    capacity,byRU:maxByRU,byPower:maxByPower,byCooling:maxByCooling,
+    byAirflow:cooling.mode==="dlc"?null:maxByAirflow,
+    switchU,switchPower,infraU:fixedCableU,usablePower,coolingMode:cooling.mode
+  };
+}
+
+function computeFabricState({s,sw,topology,units,alloc,sfSpeed,upSpeed,oversub,spareFactor}){
+  const computeRacks=alloc.length;
+  let leafCount=0,spineCount=0,totalLeafUplinks=0,perLeafDownActual=0,uplinksPerLeaf=0;
+  let ufmLinks=0,computeAndUfmConnections=units*(s.links||0),referenceSU=null;
+  let spineDetail="", basis="port-based";
+  const cap=maxDownlinks(sw,sfSpeed,upSpeed,oversub);
+  if(!cap) return {leafCount:0,spineCount:0,totalLeafUplinks:0,perLeafDownActual:0,uplinksPerLeaf:0,ufmLinks:0,computeAndUfmConnections:units*(s.links||0),referenceSU:null,spineDetail:"INVALID PORT PACKING",basis:"invalid"};
+
+  const maxServersPerRack=Math.max(...alloc,0);
+
+  if(topology==="single"){
+    leafCount=computeRacks;
+    perLeafDownActual=Math.ceil(maxServersPerRack*s.links);
+    uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
+    totalLeafUplinks=leafCount*uplinksPerLeaf;
+    spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
+    spineDetail=`PORT-BASED · Single ToR: racks=${computeRacks}, down/ToR=${perLeafDownActual}, uplink/ToR=${uplinksPerLeaf}, spine=${spineCount}`;
+  } else if(topology==="dual"){
+    leafCount=computeRacks*2;
+    perLeafDownActual=Math.ceil(maxServersPerRack*s.links/2);
+    uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
+    totalLeafUplinks=leafCount*uplinksPerLeaf;
+    spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
+    spineDetail=`PORT-BASED · Dual ToR: racks=${computeRacks}, leaf=${leafCount}, uplink/leaf=${uplinksPerLeaf}, spine=${spineCount}`;
+  } else {
+    const useNvidiaRailReference =
+      sw===switches.qm9700 &&
+      (s===systems.b200 || s===systems.h200) &&
+      sfSpeed===400 && upSpeed===400;
+
+    if(useNvidiaRailReference){
+      // Detailed NVIDIA compute-fabric table uses 31/63/95/127 DGX nodes
+      // because one DGX system position is displaced by UFM connectivity in the full design.
+      const suCount=Math.max(1,Math.ceil((units+1)/32));
+      const table=[
+        {su:1,nodes:31,gpus:248,leaf:8,spine:4,computeUfm:252,leafSpine:256},
+        {su:2,nodes:63,gpus:504,leaf:16,spine:8,computeUfm:508,leafSpine:512},
+        {su:3,nodes:95,gpus:760,leaf:24,spine:16,computeUfm:764,leafSpine:768},
+        {su:4,nodes:127,gpus:1016,leaf:32,spine:16,computeUfm:1020,leafSpine:1024}
+      ];
+      const row=table.find(x=>x.su===suCount);
+      if(row){
+        leafCount=row.leaf; spineCount=row.spine; totalLeafUplinks=row.leafSpine;
+        perLeafDownActual=Math.ceil(units*s.links/leafCount);
+        uplinksPerLeaf=Math.ceil(totalLeafUplinks/leafCount);
+        ufmLinks=4;
+        computeAndUfmConnections=units*s.links+ufmLinks;
+        referenceSU=suCount;
+        basis=`NVIDIA reference ${suCount} SU`;
+        spineDetail=`NVIDIA REFERENCE · SU=${suCount}, Leaf=${leafCount}, Spine=${spineCount}, Compute+UFM=${computeAndUfmConnections}, Leaf↔Spine=${totalLeafUplinks}`;
+      } else {
+        const rails=Math.min(8,s.links);
+        const leafPerRail=Math.ceil((units*spareFactor)/cap.downlinks);
+        leafCount=rails*leafPerRail;
+        perLeafDownActual=Math.ceil(units/leafPerRail);
+        uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
+        totalLeafUplinks=leafCount*uplinksPerLeaf;
+        spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
+        basis="port-based fallback";
+        spineDetail=`PORT-BASED FALLBACK · leaf=${leafCount}, spine=${spineCount}`;
+      }
+    } else {
+      const rails=Math.min(8,s.links);
+      const leafPerRail=Math.ceil((units*spareFactor)/cap.downlinks);
+      leafCount=rails*leafPerRail;
+      perLeafDownActual=Math.ceil(units/leafPerRail);
+      uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
+      totalLeafUplinks=leafCount*uplinksPerLeaf;
+      spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
+      spineDetail=`PORT-BASED · Rail: leaf=${leafCount}, uplink/leaf=${uplinksPerLeaf}, spine=${spineCount}`;
+    }
+  }
+  return {leafCount,spineCount,totalLeafUplinks,perLeafDownActual,uplinksPerLeaf,ufmLinks,computeAndUfmConnections,referenceSU,spineDetail,basis};
+}
+
+function sizeFabricRacks({sw,topology,leafCount,spineCount,panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit}){
+  const usableU=Math.max(1,rackRU-reservedU-2);
+  const usablePower=Math.max(.1,rackITLimit*(1-headroom));
+  const usableCooling=Math.max(.1,rackCoolingLimit*(1-headroom));
+  const swPower=(sw.powerDesign!=null?sw.powerDesign:sw.power||0);
+  const airflowPerSwitch=swPower*150;
+
+  let networkRackCount=0;
+  if(topology==="rail" && leafCount>0){
+    const panelU=(panelSizing.serverLeafEnd.required?panelSizing.serverLeafEnd.housing.totalU:0) +
+                 (panelSizing.leafEnd.required?panelSizing.leafEnd.housing.totalU:0);
+    const byRU=Math.ceil((leafCount*sw.ru + panelU)/usableU);
+    const byPower=Math.ceil((leafCount*swPower)/usablePower);
+    const byCooling=Math.ceil((leafCount*swPower)/usableCooling);
+    const byAirflow=Math.ceil((leafCount*airflowPerSwitch)/Math.max(100,rackAirflowLimit));
+    networkRackCount=Math.max(1,byRU,byPower,byCooling,byAirflow);
+  }
+
+  let spineRackCount=0;
+  if(spineCount>0){
+    const panelU=panelSizing.spineEnd.required?panelSizing.spineEnd.housing.totalU:0;
+    const byRU=Math.ceil((spineCount*sw.ru + panelU)/usableU);
+    const byPower=Math.ceil((spineCount*swPower)/usablePower);
+    const byCooling=Math.ceil((spineCount*swPower)/usableCooling);
+    const byAirflow=Math.ceil((spineCount*airflowPerSwitch)/Math.max(100,rackAirflowLimit));
+    spineRackCount=Math.max(1,byRU,byPower,byCooling,byAirflow);
+  }
+  return {networkRackCount,spineRackCount,usableU,usablePower,usableCooling};
+}
+
+function iterativePlacementSolve({s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,spareFactor,serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,maxIterations,rackCoolingLimit,rackAirflowLimit}){
+  if(s.unit==="rack_system"){
+    const alloc=Array(units).fill(1);
+    const fabric=computeFabricState({s,sw,topology,units,alloc,sfSpeed,upSpeed,oversub,spareFactor});
+    const sfCables=Math.ceil(units*s.links*spareFactor);
+    const lsCables=Math.ceil(fabric.totalLeafUplinks*spareFactor);
+    const panelSizing=buildPanelSizing({alloc,s,serverCablingMode,leafSpineCablingMode,sfProfile,lsProfile,sfCables,lsCables});
+    const fabricRacks=sizeFabricRacks({sw,topology,leafCount:fabric.leafCount,spineCount:fabric.spineCount,panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
+    return {alloc,capacity:1,iterations:[{iter:1,capacity:1,computeRacks:units,leaf:fabric.leafCount,spine:fabric.spineCount,networkRacks:fabricRacks.networkRackCount,spineRacks:fabricRacks.spineRackCount,byCooling:1,byAirflow:null,coolingMode:effectiveCoolingMode(s),status:"STABLE"}],fabric,panelSizing,fabricRacks,converged:true};
+  }
+
+  const initialCooling=computeCoolingCapacityForRack({s,sw,topology,rackCoolingLimit,rackAirflowLimit,headroom});
+  let capGuess=Math.max(1,Math.min(
+    Math.floor((rackRU-reservedU-2)/Math.max(1,s.ru)),
+    Math.floor((rackITLimit*(1-headroom))/Math.max(.001,s.power)),
+    Math.max(1,initialCooling.byCooling),
+    initialCooling.mode==="dlc"?999:Math.max(1,initialCooling.byAirflow)
+  ));
+  let alloc=packedAllocation(units,capGuess);
+  let previousKey="", iterations=[], converged=false, finalFabric=null, finalPanel=null, finalFabricRacks=null, finalCapacity=capGuess;
+
+  for(let iter=1;iter<=maxIterations;iter++){
+    const capInfo=computeRackCapacity({s,sw,topology,sfProfile,serverCablingMode,spareFactor,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
+    if(capInfo.capacity<1){
+      iterations.push({iter,capacity:0,computeRacks:0,leaf:0,spine:0,networkRacks:0,spineRacks:0,status:"INFEASIBLE"});
+      return {alloc:[],capacity:0,iterations,fabric:null,panelSizing:null,fabricRacks:null,converged:false,infeasible:true,capInfo};
+    }
+
+    finalCapacity=capInfo.capacity;
+    alloc=packedAllocation(units,finalCapacity);
+    const fabric=computeFabricState({s,sw,topology,units,alloc,sfSpeed,upSpeed,oversub,spareFactor});
+    const sfCables=Math.ceil(units*s.links*spareFactor);
+    const lsCables=Math.ceil(fabric.totalLeafUplinks*spareFactor);
+    const panelSizing=buildPanelSizing({alloc,s,serverCablingMode,leafSpineCablingMode,sfProfile,lsProfile,sfCables,lsCables});
+    const fabricRacks=sizeFabricRacks({sw,topology,leafCount:fabric.leafCount,spineCount:fabric.spineCount,panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
+
+    const key=[finalCapacity,alloc.length,fabric.leafCount,fabric.spineCount,fabricRacks.networkRackCount,fabricRacks.spineRackCount].join("|");
+    const stable=(key===previousKey);
+    iterations.push({
+      iter,capacity:finalCapacity,computeRacks:alloc.length,leaf:fabric.leafCount,spine:fabric.spineCount,
+      networkRacks:fabricRacks.networkRackCount,spineRacks:fabricRacks.spineRackCount,status:stable?"STABLE":"RECALCULATE",
+      byRU:capInfo.byRU,byPower:capInfo.byPower,byCooling:capInfo.byCooling,byAirflow:capInfo.byAirflow,coolingMode:capInfo.coolingMode
+    });
+    finalFabric=fabric; finalPanel=panelSizing; finalFabricRacks=fabricRacks;
+    if(stable){ converged=true; break; }
+    previousKey=key;
+  }
+
+  return {alloc,capacity:finalCapacity,iterations,fabric:finalFabric,panelSizing:finalPanel,fabricRacks:finalFabricRacks,converged};
+}
+
+function renderPlacementConvergence(result){
+  const el=q("placementSummary"), note=q("placementNotes");
+  if(!result || result.infeasible){
+    el.innerHTML="<div class='bad'>현재 RU/전력 제약으로 서버 1대도 배치할 수 없습니다.</div>";
+    note.innerHTML="Rack IT limit, headroom, reserved U 또는 장비 선택을 변경하십시오.";
+    return;
+  }
+  const rows=result.iterations.map(x=>[
+    x.iter,x.capacity,x.computeRacks,x.leaf,x.spine,x.networkRacks,x.spineRacks,
+    x.byRU==null?"—":x.byRU,x.byPower==null?"—":x.byPower,
+    x.byCooling==null?"—":x.byCooling,x.byAirflow==null?"—":x.byAirflow,
+    x.coolingMode?coolingModeLabel(x.coolingMode):"—",x.status
+  ]);
+  el.innerHTML=`<table><thead><tr><th>Iter</th><th>Server/Rack capacity</th><th>Compute Racks</th><th>Leaf</th><th>Spine</th><th>Network Racks</th><th>Spine Racks</th><th>RU limit</th><th>Power limit</th><th>Cooling limit</th><th>Airflow limit</th><th>Cooling mode</th><th>Status</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const last=result.iterations[result.iterations.length-1];
+  note.innerHTML =
+    `• Final placement: <b>${last.computeRacks} Compute Rack(s)</b>, server/rack capacity <b>${last.capacity}</b>.<br>`+
+    `• Fabric housing: Network Rack <b>${last.networkRacks}</b>, Spine Rack <b>${last.spineRacks}</b>.<br>`+
+    `• ${result.converged?'<span class="good"><b>Converged</b></span>':'<span class="warn"><b>Max iteration reached / review required</b></span>'}. `+
+    `Rack capacity는 RU / Power / Cooling kWth / Airflow 중 가장 엄격한 제약을 적용합니다. PDU는 vertical 0U 가정입니다.`;
+}
+
+
+const goldenFabricCases=[
+  {systemId:"b200",label:"B200",su:1,nodes:31,gpus:248,leaf:8,spine:4,computeUfm:252,leafSpine:256},
+  {systemId:"b200",label:"B200",su:2,nodes:63,gpus:504,leaf:16,spine:8,computeUfm:508,leafSpine:512},
+  {systemId:"b200",label:"B200",su:3,nodes:95,gpus:760,leaf:24,spine:16,computeUfm:764,leafSpine:768},
+  {systemId:"b200",label:"B200",su:4,nodes:127,gpus:1016,leaf:32,spine:16,computeUfm:1020,leafSpine:1024},
+  {systemId:"h200",label:"H200",su:1,nodes:31,gpus:248,leaf:8,spine:4,computeUfm:252,leafSpine:256},
+  {systemId:"h200",label:"H200",su:2,nodes:63,gpus:504,leaf:16,spine:8,computeUfm:508,leafSpine:512},
+  {systemId:"h200",label:"H200",su:3,nodes:95,gpus:760,leaf:24,spine:16,computeUfm:764,leafSpine:768},
+  {systemId:"h200",label:"H200",su:4,nodes:127,gpus:1016,leaf:32,spine:16,computeUfm:1020,leafSpine:1024}
+];
+
+function pctError(actual,expected){
+  if(expected===0) return actual===0?0:100;
+  return Math.abs(actual-expected)/expected*100;
+}
+function fmtErr(v){ return `${v.toFixed(2)}%`; }
+
+function runGoldenFabricCase(c){
+  const s=systems[c.systemId], sw=switches.qm9700;
+  const alloc=packedAllocation(c.nodes,4);
+  const f=computeFabricState({
+    s,sw,topology:"rail",units:c.nodes,alloc,
+    sfSpeed:400,upSpeed:400,oversub:1,spareFactor:1
+  });
+  const actual={
+    gpus:c.nodes*s.gpus,
+    leaf:f.leafCount,
+    spine:f.spineCount,
+    computeUfm:f.computeAndUfmConnections,
+    leafSpine:f.totalLeafUplinks,
+    su:f.referenceSU
+  };
+  const errors={
+    gpu:pctError(actual.gpus,c.gpus),
+    leaf:pctError(actual.leaf,c.leaf),
+    spine:pctError(actual.spine,c.spine),
+    computeUfm:pctError(actual.computeUfm,c.computeUfm),
+    leafSpine:pctError(actual.leafSpine,c.leafSpine)
+  };
+  const maxErr=Math.max(...Object.values(errors));
+  return {...c,actual,errors,maxErr,status:maxErr<1e-9 && actual.su===c.su ? "PASS":"FAIL"};
+}
+
+function renderGoldenValidation(){
+  const el=q("goldenSummary"), note=q("goldenNotes");
+  if(!el||!note) return;
+  const results=goldenFabricCases.map(runGoldenFabricCase);
+  el.innerHTML=`<table><thead><tr>
+    <th>System</th><th>SU</th><th>Nodes</th>
+    <th>GPU Ref / Engine</th><th>Leaf Ref / Engine</th><th>Spine Ref / Engine</th>
+    <th>Compute+UFM Ref / Engine</th><th>Leaf↔Spine Ref / Engine</th><th>Max Error</th><th>Result</th>
+  </tr></thead><tbody>${
+    results.map(r=>`<tr>
+      <td>${r.label}</td><td>${r.su}</td><td>${r.nodes}</td>
+      <td>${r.gpus} / ${r.actual.gpus}</td>
+      <td>${r.leaf} / ${r.actual.leaf}</td>
+      <td>${r.spine} / ${r.actual.spine}</td>
+      <td>${r.computeUfm} / ${r.actual.computeUfm}</td>
+      <td>${r.leafSpine} / ${r.actual.leafSpine}</td>
+      <td>${fmtErr(r.maxErr)}</td>
+      <td class="${r.status==="PASS"?"good":"bad"}"><b>${r.status}</b></td>
+    </tr>`).join("")
+  }</tbody></table>`;
+
+  const allPass=results.every(r=>r.status==="PASS");
+  const corningRailPass=systems.h200.links===8 && maxLogical(switches.qm9700,400)===64;
+  note.innerHTML=
+    `• <b>SU mapping correction:</b> 31 / 63 / 95 / 127 nodes → 1 / 2 / 3 / 4 SU. 기존 <code>ceil(nodes/31)</code> 로직을 <code>ceil((nodes+1)/32)</code>로 수정했습니다.<br>`+
+    `• <b>UFM correction:</b> detailed NVIDIA compute-fabric golden에서는 server links 외에 UFM용 4 connections을 별도 반영합니다.<br>`+
+    `• Golden fabric cases: <span class="${allPass?"good":"bad"}"><b>${allPass?"ALL PASS":"REVIEW REQUIRED"}</b></span>. `+
+    `Corning rail sanity check (8 links/server, QM9700 64 individual 400G ports): <span class="${corningRailPass?"good":"bad"}"><b>${corningRailPass?"PASS":"FAIL"}</b></span>.<br>`+
+    `• Rack density는 strict fabric golden에서 제외합니다. B200 공식 자료는 2 systems/rack을 일반 패턴으로 제시하며, 4 systems/rack은 52U high-density 옵션입니다. H200 RA는 2 systems/rack reference를 제시합니다.`;
+}
+
+
+function auxPorts(swId,speed){
+  const s=auxSwitches[swId];
+  if(!s||!s.ports) return 0;
+  return s.ports[speed] || s.ports[String(speed)] || 0;
+}
+
+function resolveAuxSystemProfile(s){
+  if(s===systems.h200) return {id:"h200",...auxSystemProfiles.h200};
+  if(s===systems.b200) return {id:"b200",...auxSystemProfiles.b200};
+  if(s===systems.b300) return {id:"b300",...auxSystemProfiles.b300};
+  return null;
+}
+
+function resolveStorageSwitch(profile){
+  if(!profile) return null;
+  const sel=q("storageFabricType") ? q("storageFabricType").value : "auto";
+  if(sel==="infiniband") return profile.storage.ibSwitch || profile.storage.autoSwitch;
+  if(sel==="ethernet") return profile.storage.ethernetSwitch || profile.storage.autoSwitch;
+  return profile.storage.autoSwitch;
+}
+
+function buildAuxFabricSizing({s,units,leafCount,spineCount,computeRacks,placement,powerSizing}){
+  const enabled = !q("auxFabricMode") || q("auxFabricMode").value!=="off";
+  const p=resolveAuxSystemProfile(s);
+  if(!enabled){
+    return {enabled:false,supported:!!p,profile:p,rows:[],bom:[],notes:["Auxiliary fabrics disabled by user."]};
+  }
+  if(!p){
+    return {
+      enabled:true,supported:false,profile:null,rows:[],bom:[],
+      notes:["Selected system does not have a validated auxiliary-network profile. Partner/OEM host network ports must be supplied before RFQ."]
+    };
+  }
+
+  const spareFactor=1+(+q("sparePct").value||0)/100;
+  const suCount=Math.max(1,Math.ceil(units/p.suSize));
+  const rows=[], bom=[], notes=[];
+
+  // Storage
+  const storageSwId=resolveStorageSwitch(p);
+  const storageSw=auxSwitches[storageSwId];
+  const storageLinks=Math.ceil(units*p.storage.linksPerUnit*spareFactor);
+  const storagePerPlane=Math.ceil(units*spareFactor);
+  const storageCap=auxPorts(storageSwId,p.storage.speed);
+  const storageAccessMin=storageCap ? 2*Math.ceil(storagePerPlane/storageCap) : 0;
+  const storageRefBudget=p.storage.switchBudgetPerSU*suCount;
+  rows.push({
+    network:"Storage Fabric",
+    endpoint:`${p.storage.linksPerUnit} × ${p.storage.speed}G / system`,
+    links:storageLinks,
+    switchName:storageSw?storageSw.name:"Vendor review",
+    accessMin:storageAccessMin,
+    refBudget:storageRefBudget,
+    media:p.storage.media,
+    confidence:p.storage.confidence
+  });
+  if(storageSw){
+    bom.push(["Storage fabric switch",`${storageSw.name} · NVIDIA reference budget`,storageRefBudget]);
+    bom.push(["Storage node-facing cable",`${p.storage.speed}G · ${p.storage.media}`,storageLinks]);
+    bom.push(["Storage node-side transceiver",`${p.storage.speed}G endpoint optic`,storageLinks]);
+  }
+
+  // In-band
+  const ibSwId=p.inband.switch, ibSw=auxSwitches[ibSwId];
+  const inbandLinks=Math.ceil(units*p.inband.linksPerUnit*spareFactor);
+  const inbandPerPlane=Math.ceil(units*spareFactor);
+  const inbandCap=auxPorts(ibSwId,p.inband.speed);
+  const inbandAccessMin=inbandCap ? 2*Math.ceil(inbandPerPlane/inbandCap) : 0;
+  let inbandRefBudget=Math.max(2,p.inband.switchBudgetPerSU*suCount);
+  rows.push({
+    network:"In-Band Management",
+    endpoint:`${p.inband.linksPerUnit} × ${p.inband.speed}G bonded / system`,
+    links:inbandLinks,
+    switchName:ibSw.name,
+    accessMin:inbandAccessMin,
+    refBudget:inbandRefBudget,
+    media:p.inband.media,
+    confidence:p.inband.confidence
+  });
+  bom.push(["In-band management switch",`${ibSw.name} · reference budget`,inbandRefBudget]);
+  bom.push(["In-band node cable",`${p.inband.speed}G · ${p.inband.media}`,inbandLinks]);
+
+  // OOB endpoints include DGX/BF BMC + compute-fabric switches + estimated rPDU management ports.
+  const systemOob=Math.ceil(units*p.oob.portsPerUnit);
+  const switchOob=Math.ceil((leafCount||0)+(spineCount||0)+storageRefBudget+inbandRefBudget);
+  let pduOob=0;
+  if(powerSizing && powerSizing.racks) {
+    pduOob=powerSizing.racks.reduce((sum,r)=>sum+(r.pduA||0)+(r.pduB||0),0);
+  } else {
+    const nr=placement&&placement.fabricRacks ? placement.fabricRacks.networkRackCount : 0;
+    const sr=placement&&placement.fabricRacks ? placement.fabricRacks.spineRackCount : 0;
+    pduOob=2*((computeRacks||0)+nr+sr);
+  }
+  const totalOobEndpoints=Math.ceil((systemOob+switchOob+pduOob)*spareFactor);
+  const oobSw=auxSwitches[p.oob.switch];
+  const oobAccessMin=Math.ceil(totalOobEndpoints/auxPorts(p.oob.switch,1));
+  rows.push({
+    network:"Out-of-Band Management",
+    endpoint:`${p.oob.portsPerUnit} × 1G / system + switch/PDU mgmt`,
+    links:totalOobEndpoints,
+    switchName:oobSw.name,
+    accessMin:oobAccessMin,
+    refBudget:oobAccessMin,
+    media:p.oob.media,
+    confidence:p.oob.confidence
+  });
+  bom.push(["OOB management switch",`${oobSw.name} · 48×1G RJ45`,oobAccessMin]);
+  bom.push(["OOB copper patch cable",`${p.oob.media} · 1G`,totalOobEndpoints]);
+
+  notes.push(`Auxiliary fabric SU basis: ${suCount} SU × ${p.suSize} systems/SU design block.`);
+  notes.push(`Storage switch budget uses ${p.storage.switchBudgetPerSU} switches/SU reference ratio; actual storage-side leaf/spine count depends on certified storage partner topology.`);
+  notes.push(`OOB endpoint estimate includes system/BF BMC ports, fabric switch management and calculated rPDU management ports.`);
+  if(p.id==="h200") notes.push("H200 source-revision note: architecture text specifies bonded 100G in-band links, while a newer component BOM lists 200G-capable QSFP56 AOC. Engine uses 100G logical reference and flags the cable capability difference.");
+  if(q("storageFabricType") && q("storageFabricType").value==="ethernet" && !p.storage.ethernetSwitch) notes.push("Ethernet storage was requested but this system's validated reference profile is InfiniBand; selected switch falls back to reference.");
+  return {enabled:true,supported:true,profile:p,suCount,rows,bom,notes,storageSwId};
+}
+
+function renderAuxFabric(aux,s,units){
+  const table=q("auxFabricSummary"), note=q("auxFabricNotes"), svg=q("auxFabricSvg");
+  if(!table||!note||!svg) return;
+
+  if(!aux.enabled){
+    table.innerHTML="<div class='small'>Compute fabric only mode.</div>";
+    note.innerHTML="Auxiliary networks are disabled.";
+    svg.innerHTML="";
+    return;
+  }
+  if(!aux.supported){
+    table.innerHTML="<div class='warn'><b>Vendor/Host profile required.</b></div>";
+    note.innerHTML=aux.notes.join("<br>");
+    svg.innerHTML="";
+    return;
+  }
+
+  table.innerHTML=`<table><thead><tr>
+    <th>Network</th><th>System endpoint</th><th>Design links</th><th>Reference switch</th>
+    <th>Access min</th><th>Reference budget</th><th>Media</th>
+  </tr></thead><tbody>${aux.rows.map(r=>`<tr>
+    <td><b>${r.network}</b></td><td>${r.endpoint}</td><td>${r.links}</td><td>${r.switchName}</td>
+    <td>${r.accessMin}</td><td>${r.refBudget}</td><td>${r.media}</td>
+  </tr>`).join("")}</tbody></table>`;
+  note.innerHTML=aux.notes.map(x=>"• "+x).join("<br>");
+
+  svg.innerHTML="";
+  function E(tag,a){ const e=svgEl(tag,a); svg.appendChild(e); return e; }
+  function T(x,y,txt,size=11,fill="#17202d",anchor="start",weight="700"){
+    const t=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); t.textContent=txt; svg.appendChild(t); return t;
+  }
+  function B(x,y,w,h,label,fill,stroke="#748294"){
+    E("rect",{x,y,width:w,height:h,rx:9,fill,stroke,"stroke-width":1.3});
+    String(label).split("\n").forEach((ln,i)=>T(x+w/2,y+h/2-5+i*15,ln,11,"#fff","middle","700"));
+  }
+  function L(x1,y1,x2,y2,c,w=3){
+    E("line",{x1,y1,x2,y2,stroke:c,"stroke-width":w,"stroke-linecap":"round"});
+  }
+
+  const colors={compute:"#00bcd4",storage:"#8e44ad",inband:"#f4b942",oob:"#687386"};
+  T(20,24,`${s.name} · network separation`,14,"#1a2c54","start","800");
+  B(30,102,160,128,`${s.gpu}\nSystem`, "#34475e","#253444");
+
+  const y=[55,125,195,265];
+  const labels=[
+    [`Compute`,`${s.links}×${s.linkSpeed}G`,colors.compute],
+    [`Storage`,`${aux.profile.storage.linksPerUnit}×${aux.profile.storage.speed}G`,colors.storage],
+    [`In-Band`,`${aux.profile.inband.linksPerUnit}×${aux.profile.inband.speed}G`,colors.inband],
+    [`OOB`,`${aux.profile.oob.portsPerUnit}×1G + mgmt`,colors.oob]
+  ];
+  labels.forEach((r,i)=>{
+    B(490,y[i]-22,220,44,`${r[0]}\n${r[1]}`,r[2],r[2]);
+    L(190,125+i*18,490,y[i],r[2],3);
+  });
+
+  T(235,48,"Separate physical / logical fabrics",11,"#4b5e78","start","700");
+  T(235,292,"Compute traffic ≠ Storage I/O ≠ Cluster management ≠ BMC/IPMI",10,"#4b5e78","start","600");
+  T(235,312,`Design basis: ${aux.suCount} SU / ${units} system(s)`,10,"#4b5e78","start","600");
+}
+
+function calc(){
+  const s = getSelectedSystem();
+  const sw = switches[q("switchId").value];
+  const topology = q("topology").value;
+  const targetGPU = Math.max(1, +q("gpuTarget").value || 1);
+  const units = Math.ceil(targetGPU / s.gpus);
+  const spareFactor = 1 + (+q("sparePct").value||0)/100;
+  const oversub = +q("oversub").value;
+  const rackRU = +q("rackRU").value;
+  const reservedU = +q("reservedU").value;
+  const sfDistance = +q("distServer").value;
+  const lsDistance = +q("distSpine").value;
+  const sfSpeed = s.linkSpeed;
+  const upSpeed = +q("uplinkSpeed").value;
+  const sfProfile = mediaProfile(sfSpeed, sfDistance);
+  const serverCablingMode = q("serverCablingMode").value;
+  const leafSpineCablingMode = q("leafSpineCablingMode").value;
+
+  // iterative rack placement + fabric recalculation
+  const rackITLimit=Math.max(1,+q("rackITLimit").value||120);
+  const headroom=Math.min(.5,Math.max(0,(+q("rackHeadroom").value||15)/100));
+  const maxIterations=Math.min(10,Math.max(1,+q("maxPlacementIterations").value||5));
+  const rackCoolingLimit=Math.max(1,+q("rackCoolingLimit").value||120);
+  const rackAirflowLimit=Math.max(100,+q("rackAirflowLimit").value||9000);
+  const lsProfile = mediaProfile(upSpeed, lsDistance);
+
+  const placement = iterativePlacementSolve({
+    s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,spareFactor,
+    serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,maxIterations,
+    rackCoolingLimit,rackAirflowLimit
+  });
+  renderPlacementConvergence(placement);
+
+  let alloc=placement.alloc||[];
+  let computeRacks=alloc.length;
+  let serverPerRack=placement.capacity||0;
+  let leafCount=placement.fabric?placement.fabric.leafCount:0;
+  let spineCount=placement.fabric?placement.fabric.spineCount:0;
+  let totalLeafUplinks=placement.fabric?placement.fabric.totalLeafUplinks:0;
+  let perLeafDownActual=placement.fabric?placement.fabric.perLeafDownActual:0;
+  let uplinksPerLeaf=placement.fabric?placement.fabric.uplinksPerLeaf:0;
+  let spineDetail=placement.fabric?placement.fabric.spineDetail:"INFEASIBLE";
+  let ufmLinks=placement.fabric?placement.fabric.ufmLinks:0;
+  let computeUfmConnections=placement.fabric?placement.fabric.computeAndUfmConnections:(units*s.links);
+  let notes=[];
+  if(placement.infeasible){
+    notes.push("INFEASIBLE_RACK_CONSTRAINT: 현재 RU/전력 조건에서 장비 1대를 배치할 수 없습니다.");
+  } else {
+    notes.push(`Iterative placement: ${computeRacks} Compute Rack(s), capacity=${serverPerRack} system/rack`);
+    notes.push(`Fabric sizing basis: ${placement.fabric.basis}`);
+    if(!placement.converged) notes.push("TOPOLOGY_NOT_CONVERGED: 최대 iteration 내 상태가 완전히 안정화되지 않았습니다.");
+  }
+
+  // connectivity quantities
+  const serverFacingLinks = units * s.links;
+  const sfCables = Math.ceil(serverFacingLinks * spareFactor);
+  const sfOptics = sfProfile.optics * sfCables;
+  const sfConnEnds = sfProfile.connEnds * sfCables;
+  const sfFibers = sfProfile.fibers * sfCables;
+
+  const lsCables = Math.ceil(totalLeafUplinks * spareFactor);
+  const lsOptics = lsProfile.optics * lsCables;
+  const lsConnEnds = lsProfile.connEnds * lsCables;
+  const lsFibers = lsProfile.fibers * lsCables;
+
+  const panelSizing = placement.panelSizing || buildPanelSizing({
+    alloc, s, serverCablingMode, leafSpineCablingMode,
+    sfProfile, lsProfile, sfCables, lsCables
+  });
+  renderPanelSizing(panelSizing);
+
+  const powerSizing = buildPowerSizing({s,sw,topology,alloc,computeRacks,leafCount,spineCount});
+  renderPowerSizing(powerSizing);
+
+  const auxSizing = buildAuxFabricSizing({
+    s,units,leafCount,spineCount,computeRacks,placement,powerSizing
+  });
+  renderAuxFabric(auxSizing,s,units);
+
+  const coolingSizing = buildCoolingSizing({
+    s,sw,topology,alloc,leafCount,spineCount,placement,auxSizing
+  });
+  renderCoolingSizing(coolingSizing);
+
+  // power
+  const computePower = units * s.power;
+
+  // output summary
+  q("mGpu").textContent = targetGPU;
+  q("mUnits").textContent = units;
+  q("unitLabel").textContent = s.unit==="rack_system" ? "Rack-scale systems" : "Server systems";
+  q("mComputeRacks").textContent = computeRacks;
+  q("mLeafs").textContent = leafCount;
+  q("mSpines").textContent = spineCount;
+  q("mPower").textContent = computePower.toFixed(1)+" kW";
+  notes.push(`Server-facing media: ${sfProfile.media} @ ${sfDistance} m`);
+  notes.push(`Leaf↔Spine media: ${lsProfile.media} @ ${lsDistance} m`);
+  if(placement.fabricRacks) notes.push(`Network Rack=${placement.fabricRacks.networkRackCount}, Spine Rack=${placement.fabricRacks.spineRackCount}`);
+  notes.push(`Cooling: ${coolingModeLabel(coolingSizing.mode)} · ${coolingSizing.totalITHeat.toFixed(1)} kWth modeled heat`);
+  q("resultWarning").innerHTML = notes.map(x=>"• "+x).join("<br>");
+
+  q("sfLinks").textContent = `${serverFacingLinks} × ${sfSpeed}G`;
+  q("ufmLinks").textContent = ufmLinks>0 ? `${ufmLinks} × ${sfSpeed}G` : "—";
+  q("computeUfmLinks").textContent = `${computeUfmConnections} total`;
+  q("sfMedia").textContent = `${sfProfile.media} · ${sfProfile.connector}`;
+  q("sfOC").textContent = `${sfOptics===0?"integrated":sfOptics+" optics"} / ${sfCables} cable(s)`;
+  q("sfCF").textContent = `${sfConnEnds===0?"integrated":sfConnEnds+" ends"} / ${sfFibers===0?"-":sfFibers+" cores"}`;
+  q("lsLinks").textContent = `${totalLeafUplinks} × ${upSpeed}G fabric connections`;
+  q("lsMedia").textContent = `${lsProfile.media} · ${lsProfile.connector}`;
+  q("lsOC").textContent = `${lsOptics===0?"integrated":lsOptics+" optics"} / ${lsCables} cable(s)`;
+  q("lsCF").textContent = `${lsConnEnds===0?"integrated":lsConnEnds+" ends"} / ${lsFibers===0?"-":lsFibers+" cores"}`;
+
+  q("spineEngineText").textContent = spineDetail;
+  renderGoldenValidation();
+
+  const bom = [
+    ["Compute System", s.name, units],
+    ["GPU", s.gpu, units*s.gpus],
+    ["Compute Rack", s.unit==="rack_system"?"Integrated rack_system":`${rackRU}U Compute Rack`, computeRacks],
+    ...(placement.fabricRacks && placement.fabricRacks.networkRackCount>0 ? [["Network Rack", `${rackRU}U network rack`, placement.fabricRacks.networkRackCount]] : []),
+    ...(placement.fabricRacks && placement.fabricRacks.spineRackCount>0 ? [["Spine Rack", `${rackRU}U spine rack`, placement.fabricRacks.spineRackCount]] : []),
+    ["Leaf / ToR", sw.name, leafCount],
+    ["Spine", sw.name + " (same family, MVP assumption)", spineCount],
+    ["Server-facing cable", sfProfile.media, sfCables],
+    ...(ufmLinks>0 ? [["UFM→Leaf compute links", `${sfSpeed}G reference fabric links`, ufmLinks]] : []),
+    ...(sfOptics>0 ? [["Server-facing optics", sfProfile.media+" transceiver", sfOptics]] : []),
+    ...(sfConnEnds>0 ? [["Server-facing connector ends", sfProfile.connector, sfConnEnds]] : []),
+    ...(sfFibers>0 ? [["Server-facing fiber cores", "fiber core", sfFibers]] : []),
+    ["Leaf↔Spine cable", lsProfile.media, lsCables],
+    ...(lsOptics>0 ? [["Leaf↔Spine optics", lsProfile.media+" transceiver", lsOptics]] : []),
+    ...(lsConnEnds>0 ? [["Leaf↔Spine connector ends", lsProfile.connector, lsConnEnds]] : []),
+    ...(lsFibers>0 ? [["Leaf↔Spine fiber cores", "fiber core", lsFibers]] : []),
+    ...(panelSizing.serverLeafEnd.required ? [["Server↔Leaf adapter panels/modules", panelSizing.serverLeafEnd.item, panelSizing.serverLeafEnd.modules]] : []),
+    ...(panelSizing.serverLeafEnd.required ? [["Server↔Leaf Leaf-side housing", panelSizing.serverLeafEnd.housing.label, panelSizing.serverLeafEnd.housing.totalU+"U"]] : []),
+    ...(panelSizing.leafEnd.required ? [["Leaf↔Spine Leaf-side adapter panels/modules", panelSizing.leafEnd.item, panelSizing.leafEnd.modules]] : []),
+    ...(panelSizing.leafEnd.required ? [["Leaf↔Spine Leaf-side housing", panelSizing.leafEnd.housing.label, panelSizing.leafEnd.housing.totalU+"U"]] : []),
+    ...(panelSizing.spineEnd.required ? [["Leaf↔Spine Spine-side adapter panels/modules", panelSizing.spineEnd.item, panelSizing.spineEnd.modules]] : []),
+    ...(panelSizing.spineEnd.required ? [["Leaf↔Spine Spine-side housing", panelSizing.spineEnd.housing.label, panelSizing.spineEnd.housing.totalU+"U"]] : []),
+    ...(panelSizing.leafEnd.required ? [["Structured backbone trunk", "144-F equivalent trunk sizing", panelSizing.leafEnd.trunk144]] : []),
+    ["Power cord", s.powerCord || "Vendor-specific", powerSizing.racks.reduce((a,r)=>a+r.totalCords,0)],
+    ["PDU-A", `${(+q("pduRatedKw").value||60)} kW rated / ${(+q("pduOutletCount").value||24)} outlets`, powerSizing.racks.reduce((a,r)=>a+r.pduA,0)],
+    ["PDU-B", `${(+q("pduRatedKw").value||60)} kW rated / ${(+q("pduOutletCount").value||24)} outlets`, powerSizing.racks.reduce((a,r)=>a+r.pduB,0)],
+    ...(auxSizing && auxSizing.bom ? auxSizing.bom : []),
+    ...(coolingSizing.mode==="dlc" ? [["CDU", `${coolingSizing.cduRated} kWth @ ${(coolingSizing.cduUtil*100).toFixed(0)}% design utilization`, coolingSizing.cduCount]] : []),
+    ["Cooling design load", `${coolingModeLabel(coolingSizing.mode)} · total modeled heat`, `${coolingSizing.totalITHeat.toFixed(1)} kWth`],
+  ];
+  q("bom").innerHTML = bom.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+
+  renderTopology({s, sw, topology, computeRacks, leafCount, spineCount, sfProfile, lsProfile, units});
+  renderRackVisuals({s, sw, topology, computeRacks, alloc, serverPerRack, sfProfile, lsProfile, units, leafCount, spineCount, panelSizing, powerSizing, auxSizing, coolingSizing});
+  renderReachGuide({s, sw, topology, sfProfile, lsProfile});
+  renderRailRefSvg({s, sw, topology, computeRacks, units, leafCount, spineCount, sfProfile, lsProfile});
+  renderRowDiagram({s, sw, topology, computeRacks, leafCount, spineCount, sfProfile, lsProfile});
+  updateUxSummary({s,sw,topology,computeRacks,sfProfile,lsProfile,coolingSizing,placement});
+  window.currentDesignSnapshot={
+    generatedAt:new Date().toISOString(),
+    inputs:{
+      targetGPU,workload:q("workload").value,tier:q("tier").value,
+      system:s.name,switch:sw.name,topology,
+      rackRU,rackITLimit,rackCoolingLimit,rackAirflowLimit,
+      serverDistanceM:sfDistance,leafSpineDistanceM:lsDistance
+    },
+    results:{
+      units,computeRacks,leafCount,spineCount,
+      computePowerKW:+computePower.toFixed(1),
+      totalHeatKWth:+coolingSizing.totalITHeat.toFixed(1),
+      serverFacingMedia:sfProfile.media,leafSpineMedia:lsProfile.media,
+      cooling:coolingModeLabel(coolingSizing.mode),
+      converged:placement.converged
+    },
+    bom:bom.map(r=>({category:r[0],item:r[1],quantity:r[2]}))
+  };
+}
+
+function svgEl(tag, attrs){
+  const e=document.createElementNS("http://www.w3.org/2000/svg", tag);
+  Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));
+  return e;
+}
+function addRect(svg,x,y,w,h,label,fill,stroke="#dce8ff"){
+  svg.appendChild(svgEl("rect",{x,y,width:w,height:h,rx:8,fill,stroke,"stroke-width":1.2}));
+  const t=svgEl("text",{x:x+w/2,y:y+h/2+4,fill:"#fff","font-size":12,"text-anchor":"middle"});
+  t.textContent=label; svg.appendChild(t);
+}
+function addLine(svg,x1,y1,x2,y2,color,label="",dash=false,width=2){
+  const l=svgEl("line",{x1,y1,x2,y2,stroke:color,"stroke-width":width});
+  if(dash) l.setAttribute("stroke-dasharray","6,4");
+  svg.appendChild(l);
+  if(label){
+    const t=svgEl("text",{x:(x1+x2)/2,y:(y1+y2)/2-6,fill:"#dff5ff","font-size":11,"text-anchor":"middle"});
+    t.textContent=label; svg.appendChild(t);
+  }
+}
+
+
+function renderTopology(ctx){
+  const {s, sw, topology, computeRacks, leafCount, spineCount, sfProfile, lsProfile, units} = ctx;
+  const svg=q("topoSvg"); svg.innerHTML="";
+  const sfColor=mediaColor(sfProfile), lsColor=mediaColor(lsProfile);
+
+  function text(x,y,txt,size=11,fill="#d7e4ff",anchor="start",weight="600"){
+    const t=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight});
+    t.textContent=txt; svg.appendChild(t); return t;
+  }
+  function box(x,y,w,h,label,fill,stroke="#dce8ff"){
+    svg.appendChild(svgEl("rect",{x,y,width:w,height:h,rx:8,fill,stroke,"stroke-width":1.2}));
+    const lines = String(label).split("\n");
+    lines.forEach((ln,i)=>{
+      text(x+w/2, y+h/2-(lines.length-1)*8/2 + i*16 + 4, ln, 12, "#fff", "middle", "700");
+    });
+  }
+  function simpleLink(x1,y1,x2,y2,color,width=1.8){
+    svg.appendChild(svgEl("line",{x1,y1,x2,y2,stroke:color,"stroke-width":width}));
+  }
+  function serverIcon(x,y,label){
+    svg.appendChild(svgEl("rect",{x,y,width:38,height:26,rx:2,fill:"#d7ddd2",stroke:"#7f8677"}));
+    svg.appendChild(svgEl("rect",{x:x+4,y:y+4,width:30,height:14,fill:"#f4f4ef",stroke:"#9da68f","stroke-width":0.8}));
+    text(x+19,y+39,label,9,"#d7e4ff","middle","500");
+  }
+  function descBox(x,y,title,lines,color){
+    svg.appendChild(svgEl("rect",{x,y,width:255,height:72,rx:10,fill:"#0d1730",stroke:color,"stroke-width":1.4}));
+    text(x+12,y+18,title,12,color,"start","800");
+    lines.forEach((ln,i)=>text(x+12,y+36+i*13,ln,10,"#dce6ff","start","500"));
+  }
+
+  q("topoCaption").innerHTML = `1번째 첨부 예시처럼 계층형 구조를 유지하면서, <b>왼쪽 설명 박스</b>에 Server / Leaf / Spine 역할과 적용 media를 정리했습니다.`;
+
+  descBox(18,30,"Server / Compute rack",[
+    `${s.name}`,
+    `${units} system(s), ${computeRacks} compute rack(s)`,
+    `Server-facing: ${sfProfile.media}`
+  ],"#9ec5ff");
+  descBox(18,118,"Leaf / ToR layer",[
+    `${sw.name}`,
+    `Leaf/ToR count: ${leafCount}`,
+    topology==="rail" ? "Rail-aware fanout / server rail 분산" : "Rack downlink fanout"
+  ],"#7fd7ff");
+  descBox(18,206,"Spine layer",[
+    `Spine count: ${spineCount}`,
+    `Uplink media: ${lsProfile.media}`,
+    `Fabric: ${sw.fabric}`
+  ],"#ffcc80");
+  descBox(18,294,"Reference note",[
+    "Topology는 개념 구조도입니다.",
+    "아래 Rack/Reference 패널에서",
+    "cable path와 panel 연결을 상세 표시합니다."
+  ],"#9ad7ab");
+
+  const dx = 315;
+  const spineN = Math.max(2, Math.min(spineCount || 2, 4));
+  const leafN = Math.max(4, Math.min(leafCount || 4, 8));
+  const rackN = Math.max(4, Math.min(computeRacks || 4, 8));
+
+  const spineXs = [];
+  for(let i=0;i<spineN;i++){
+    const x = dx + 70 + i*170;
+    spineXs.push(x);
+    box(x,36,105,34,`Spine ${i+1}`,"#3f6d90");
+  }
+  text(1115,58,"Spine layer",13,"#ff6b6b","start","700");
+
+  const leafXs = [];
+  for(let i=0;i<leafN;i++){
+    const x = dx + 20 + i*95;
+    leafXs.push(x);
+    box(x,138,78,28,`Leaf ${i+1}`,"#58a6dc");
+    const parent = spineXs[Math.floor(i*spineN/leafN)];
+    simpleLink(parent+52,70,x+39,138,"#5c6f83",1.6);
+  }
+  text(1115,154,"Leaf / Edge layer",13,"#ff6b6b","start","700");
+
+  const rackXs = [];
+  for(let i=0;i<rackN;i++){
+    const x = dx + 5 + i*95;
+    rackXs.push(x);
+    box(x,228,88,32,`Rack ${i+1}`,"#2e5eab");
+    const parent = leafXs[Math.floor(i*leafN/rackN)];
+    simpleLink(parent+39,166,x+44,228,"#7a8898",1.5);
+  }
+  text(1115,246,"Server rack",13,"#ff6b6b","start","700");
+
+  rackXs.forEach((rx)=>{
+    serverIcon(rx+4,295,"");
+    serverIcon(rx+25,295,"");
+    serverIcon(rx+46,295,"");
+    simpleLink(rx+44,260,rx+40,295,"#6f7785",1.3);
+  });
+  text(1115,314,"Server",13,"#ff6b6b","start","700");
+
+  text(dx+10,380,`Server-facing media: ${sfProfile.media} / ${sfProfile.connector}`,11,sfColor,"start","700");
+  text(dx+480,380,`Leaf↔Spine media: ${lsProfile.media} / ${lsProfile.connector}`,11,lsColor,"start","700");
+  const topoMsg = topology==="rail" ? "Rail-optimized: server links are distributed across multiple leaf switches." :
+                  topology==="dual" ? "Dual ToR: rack-to-leaf redundancy is reflected in the middle layer." :
+                  "Single ToR: one logical top-of-rack per rack is abstracted into leaf layer.";
+  text(dx+10,396,topoMsg,10,"#bed0f1","start","500");
+}
+
+function rackCard(title, meta, drawFn, chips, sideDrawFn){
+  const div=document.createElement("div");
+  div.className="rackViz";
+  div.innerHTML=`<div class="rackTitle">${title}</div><div class="rackMeta">${meta}</div><div class="rackVizLayout"><svg class="rackMainSvg" width="740" height="590" viewBox="0 0 740 590"></svg><div class="rackSide"><svg width="340" height="590" viewBox="0 0 340 590"></svg></div></div><div class="chips"></div>`;
+  const svg=div.querySelector(".rackMainSvg"); drawFn(svg);
+  const sideWrap=div.querySelector(".rackSide");
+  if(sideDrawFn){ sideDrawFn(sideWrap.querySelector("svg")); } else { sideWrap.style.display="none"; }
+  const c=div.querySelector(".chips");
+  chips.forEach(x=>{ const chip=document.createElement("div"); chip.className="chip"; chip.textContent=x; c.appendChild(chip); });
+  return div;
+}
+
+function drawSideReference(svg, cfg){
+  if(!svg) return;
+  svg.innerHTML = "";
+  const NS='http://www.w3.org/2000/svg';
+  function E(tag, attrs){ const el=document.createElementNS(NS, tag); Object.entries(attrs||{}).forEach(([k,v])=>el.setAttribute(k,v)); return el; }
+  function T(x,y,txt,size=11,fill="#17202d",anchor="start",weight="700"){
+    const el=E('text',{x,y,fill,'font-size':size,'text-anchor':anchor,'font-weight':weight}); el.textContent=txt; svg.appendChild(el); return el;
+  }
+  function B(x,y,w,h,label,fill="#e8edf3",stroke="#7d8a98",textFill="#17202d"){
+    svg.appendChild(E('rect',{x,y,width:w,height:h,rx:10,fill,stroke,'stroke-width':1.4}));
+    const lines=String(label).split('\n');
+    lines.forEach((ln,i)=>T(x+w/2,y+h/2-((lines.length-1)*7)+i*14+4,ln,11,textFill,'middle','700'));
+    return {x,y,w,h};
+  }
+  function P(x1,y1,x2,y2,color="#00bcd4",w=2.3){ svg.appendChild(E('path',{d:`M ${x1} ${y1} C ${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}`,fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'round'})); }
+  function ports(x,y,count,type,color){
+    const shown=Math.min(count,16);
+    for(let i=0;i<shown;i++){
+      const px=x+(i%4)*26, py=y+Math.floor(i/4)*18;
+      if(type==='LC') svg.appendChild(E('circle',{cx:px+5,cy:py+5,r:4,fill:color,stroke:'#ffffff','stroke-width':0.6}));
+      else svg.appendChild(E('rect',{x:px,y:py,width:12,height:9,rx:1.5,fill:color,stroke:'#ffffff','stroke-width':0.6}));
+    }
+  }
+  function labelChip(x,y,w,text,color){ svg.appendChild(E('rect',{x,y,width:w,height:18,rx:9,fill:'#ffffff',stroke:color,'stroke-width':1})); T(x+w/2,y+12,text,9,color,'middle','700'); }
+
+  svg.appendChild(E('rect',{x:0,y:0,width:340,height:565,rx:12,fill:'#f7f8fb'}));
+  const mediaColor = cfg.mediaColor || '#00bcd4';
+  const uplinkColor = cfg.uplinkColor || '#e91e63';
+  const connectorType = cfg.connectorType || 'MPO';
+
+  if(cfg.type==='compute'){
+    T(20,26,'장비 연결 구성',14,'#1a2c54','start','800');
+    T(20,44,cfg.title || 'Compute rear connectivity',10,'#4b5e78','start','600');
+    const srv=B(26,64,288,84,`${cfg.systemName || 'Server'}\nrear ports`, '#e8eef6','#7c8794','#17202d');
+    ports(52,96,cfg.portCount||8,connectorType==='LC'?'LC':'MPO',mediaColor);
+    labelChip(210,76,88,`${cfg.portCount||8} ports`,mediaColor);
+    let panel, sw;
+    if(cfg.direct){
+      sw=B(74,240,190,56,`${cfg.switchName || 'Leaf / ToR'}\n${cfg.media || ''}`, '#315f89','#244666','#ffffff');
+      const shown=Math.min(cfg.portCount||8,8);
+      for(let i=0;i<shown;i++){
+        const sx=58+(i%4)*26, sy=116+Math.floor(i/4)*18;
+        const tx=112+(i%4)*20, ty=258+Math.floor(i/4)*10;
+        P(sx,sy,tx,ty,mediaColor,2.0);
+      }
+      ports(110,250,Math.min(cfg.portCount||8,8),'LC','#dbe9f8');
+      T(24,332,'direct attach / direct optical',10,'#4b5e78','start','600');
+    } else {
+      panel=B(76,192,188,46,`${connectorType} PANEL`, '#608d58','#476f40','#ffffff');
+      ports(110,206,Math.min(cfg.panelPorts||8,8),connectorType==='LC'?'LC':'MPO','#dff4db');
+      B(92,252,156,30,'CABLE MGR', '#4d5969','#3d4a58','#ffffff');
+      sw=B(74,328,190,58,`${cfg.switchName || 'Leaf / ToR'}\n${cfg.media || ''}`, '#315f89','#244666','#ffffff');
+      ports(108,342,Math.min(cfg.switchPorts||8,8),'LC','#dbe9f8');
+      const shown=Math.min(cfg.portCount||8,8);
+      for(let i=0;i<shown;i++){
+        const sx=58+(i%4)*26, sy=116+Math.floor(i/4)*18;
+        const px=108+(i%4)*20, py=214+Math.floor(i/4)*10;
+        const tx=110+(i%4)*20, ty=346+Math.floor(i/4)*10;
+        P(sx,sy,px,py,mediaColor,2.0);
+        P(px,py,tx,ty,mediaColor,2.0);
+      }
+      const odf=B(100,418,140,42,'ODF / TRUNK','#77609a','#5d4b7f','#ffffff');
+      P(170,238,170,418,uplinkColor,2.2);
+    }
+  } else if(cfg.type==='network'){
+    T(20,26,'스위치 / 패널 구성',14,'#1a2c54','start','800');
+    T(20,44,cfg.title || 'Network rack connectivity',10,'#4b5e78','start','600');
+    const ingress=B(22,88,116,62,`${cfg.ingress || 'Ingress'}\nPANEL`, '#608d58','#476f40','#ffffff');
+    const sw=B(108,220,124,74,`${cfg.switchName || 'Switch'}\nface`, '#315f89','#244666','#ffffff');
+    const uplink=B(202,88,116,62,`${cfg.uplink || 'Uplink'}\nPANEL`, '#77609a','#5d4b7f','#ffffff');
+    ports(42,108,Math.min(cfg.ingressPorts||8,8), cfg.ingressType || 'MPO', '#dff4db');
+    ports(222,108,Math.min(cfg.uplinkPorts||8,8), cfg.uplinkType || 'LC', '#f0e7fb');
+    ports(132,244,12, 'LC', '#dbe9f8');
+    for(let i=0;i<6;i++){
+      P(58+(i%3)*18,122+Math.floor(i/3)*16,136+(i%3)*18,244+Math.floor(i/3)*16, mediaColor, 1.8);
+      P(238+(i%3)*18,122+Math.floor(i/3)*16,190+(i%3)*16,244+Math.floor(i/3)*16, uplinkColor, 1.8);
+    }
+    B(100,370,140,42,'ODF / TRUNK','#4d5969','#3d4a58','#ffffff');
+    P(170,294,170,370,uplinkColor,2.2);
+    labelChip(28,162,104,`${cfg.ingressLabel || ''}`,mediaColor);
+    labelChip(210,162,104,`${cfg.uplinkLabel || ''}`,uplinkColor);
+  } else if(cfg.type==='spine'){
+    T(20,26,'스파인 연결 구성',14,'#1a2c54','start','800');
+    T(20,44,cfg.title || 'Spine / core side',10,'#4b5e78','start','600');
+    const sw=B(70,94,200,72,`${cfg.switchName || 'Spine switch'}\nface`, '#355d73','#284b5c','#ffffff');
+    ports(102,122,16,'LC','#dbe9f8');
+    const patch=B(70,244,200,48,`${cfg.patchLabel || 'PATCH PANEL'}`, '#608d58','#476f40','#ffffff');
+    ports(104,260,Math.min(cfg.patchPorts||8,8), cfg.patchType || 'MPO', '#dff4db');
+    const odf=B(92,356,156,44,'ODF / FIBER TRAY','#77609a','#5d4b7f','#ffffff');
+    for(let i=0;i<8;i++){
+      const sx=102+(i%4)*22, sy=126+Math.floor(i/4)*18;
+      const px=106+(i%4)*22, py=262+Math.floor(i/4)*10;
+      P(sx,sy,px,py,mediaColor,1.9);
+    }
+    P(170,292,170,356,uplinkColor,2.3);
+  } else if(cfg.type==='rackscale'){
+    T(20,26,'랙 스케일 연결 구성',14,'#1a2c54','start','800');
+    T(20,44,cfg.title || 'Rack-scale fabric',10,'#4b5e78','start','600');
+    const comp=B(40,70,260,180,'NVL72\ncompute / memory complex','#e8eef6','#7c8794','#17202d');
+    const io=B(64,286,212,52,'FABRIC I/O','#315f89','#244666','#ffffff');
+    const panel=B(64,372,212,44,(cfg.connectorType||'MPO')+' PANEL','#608d58','#476f40','#ffffff');
+    ports(88,392,8,cfg.connectorType==='LC'?'LC':'MPO','#dff4db');
+    B(92,450,156,42,'SPINE UPLINK','#77609a','#5d4b7f','#ffffff');
+    for(let i=0;i<8;i++) P(84+(i%4)*34,190+Math.floor(i/4)*22,104+(i%4)*24,304+Math.floor(i/4)*8,mediaColor,2.0);
+    P(170,338,170,372,uplinkColor,2.2); P(170,416,170,450,uplinkColor,2.2);
+  }
+}
+
+function drawRackBase(svg, rackItems, sideLines){
+  svg.appendChild(svgEl("rect",{x:18,y:20,width:135,height:500,rx:8,fill:"none",stroke:"#8aa1cc","stroke-width":2}));
+  [1,12,24,36,48].forEach(u=>{
+    const y=20+500-(u/48)*500;
+    const t=svgEl("text",{x:2,y:y+4,fill:"#aebbd3","font-size":8}); t.textContent="U"+u; svg.appendChild(t);
+  });
+  rackItems.forEach(it=>{
+    const y=20+500-((it.start+it.ru-1)/48)*500;
+    const h=(it.ru/48)*500-2;
+    svg.appendChild(svgEl("rect",{x:24,y:y,width:123,height:h,rx:4,fill:it.fill,stroke:"rgba(255,255,255,.4)"}));
+    const t=svgEl("text",{x:85.5,y:y+h/2+3,fill:"#fff","font-size":10,"text-anchor":"middle"}); t.textContent=it.label; svg.appendChild(t);
+  });
+  svg.appendChild(svgEl("rect",{x:175,y:35,width:210,height:470,rx:10,fill:"#0d162d",stroke:"#31486f"}));
+  const hd=svgEl("text",{x:280,y:58,fill:"#fff","font-size":14,"text-anchor":"middle","font-weight":"700"}); hd.textContent="Interconnect"; svg.appendChild(hd);
+  let y=86;
+  sideLines.forEach(line=>{
+    if(line.kind==="title"){
+      const t=svgEl("text",{x:190,y:y,fill:"#bed0f1","font-size":12,"font-weight":"700"}); t.textContent=line.text; svg.appendChild(t); y+=20;
+    }else if(line.kind==="arrow"){
+      svg.appendChild(svgEl("line",{x1:190,y1:y-4,x2:360,y2:y-4,stroke:line.color,"stroke-width":3}));
+      const t=svgEl("text",{x:275,y:y-10,fill:"#dffcff","font-size":11,"text-anchor":"middle"}); t.textContent=line.text; svg.appendChild(t); y+=18;
+    }else{
+      const t=svgEl("text",{x:190,y:y,fill:"#d7e4ff","font-size":11}); t.textContent="• "+line.text; svg.appendChild(t); y+=16;
+    }
+  });
+}
+
+
+function renderRackVisuals(ctx){
+  const {s, sw, topology, computeRacks, alloc, serverPerRack, sfProfile, lsProfile, leafCount, spineCount, panelSizing, powerSizing, auxSizing, coolingSizing} = ctx;
+  const grid=q("rackGrid"); grid.innerHTML="";
+  const spareFactor=1+(+q("sparePct").value||0)/100;
+
+  const mediaMainColor = sfProfile.media.includes("DAC") ? "#7cb342" :
+                         sfProfile.media.includes("AOC") ? "#8e44ad" :
+                         (sfProfile.connector && sfProfile.connector.includes("LC")) ? "#ff9800" : "#00bcd4";
+  const uplinkColor = lsProfile.media.includes("DAC") ? "#7cb342" :
+                      lsProfile.media.includes("AOC") ? "#8e44ad" :
+                      (lsProfile.connector && lsProfile.connector.includes("LC")) ? "#ff9800" : "#00bcd4";
+  const serverPatchColor = "#2f80ed";
+  const mgmtColor = "#ffd54f";
+  const powerColor = "#ef5350";
+
+  function addText(svg,x,y,txt,size=10,fill="#182234",anchor="start",weight="500"){
+    const t=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight});
+    t.textContent=txt; svg.appendChild(t); return t;
+  }
+  function line(svg,x1,y1,x2,y2,color="#50627e",w=1.4,dash=""){
+    const ln=svgEl("line",{x1,y1,x2,y2,stroke:color,"stroke-width":w});
+    if(dash) ln.setAttribute("stroke-dasharray",dash);
+    svg.appendChild(ln);
+  }
+  function path(svg,d,color="#50627e",w=2.5){
+    svg.appendChild(svgEl("path",{d,fill:"none",stroke:color,"stroke-width":w,"stroke-linecap":"round","stroke-linejoin":"round"}));
+  }
+  function equipment(svg,x,y,w,h,label,kind="server"){
+    const fills={server:"#34475e",switch:"#315f89",patch:"#608d58",odf:"#77609a",manager:"#4d5969",power:"#775a3b",spine:"#355d73",tray:"#666c7a"};
+    svg.appendChild(svgEl("rect",{x,y,width:w,height:h,rx:3,fill:fills[kind]||"#46566a",stroke:"#17202d","stroke-width":1}));
+    if(kind==="server"){
+      svg.appendChild(svgEl("rect",{x:x+7,y:y+5,width:w*.42,height:Math.max(3,h-10),rx:2,fill:"#1f2b39"}));
+      for(let k=0;k<5;k++) svg.appendChild(svgEl("circle",{cx:x+w-13-k*8,cy:y+h/2,r:2,fill:"#9db1c8"}));
+    }else if(kind==="switch" || kind==="spine"){
+      for(let k=0;k<12;k++) svg.appendChild(svgEl("rect",{x:x+8+k*8,y:y+h/2-3,width:5,height:6,rx:1,fill:"#b9d4e7"}));
+    }else if(kind==="patch"||kind==="odf"){
+      for(let k=0;k<14;k++) svg.appendChild(svgEl("rect",{x:x+7+k*7,y:y+h/2-2,width:4,height:4,rx:1,fill:"#d8e5d4"}));
+    }else if(kind==="manager" || kind==="tray"){
+      for(let k=0;k<9;k++) line(svg,x+8+k*11,y+5,x+8+k*11,y+h-5,"#a9b4c4",1);
+    }
+    addText(svg,x+w/2,y+h/2+4,label,Math.min(12,Math.max(9,h*.35+2)),"#fff","middle","700");
+  }
+  function callout(svg,x,y,label,value,color="#355d73"){
+    svg.appendChild(svgEl("rect",{x,y,width:210,height:32,rx:7,fill:"#ffffff",stroke:color,"stroke-width":1.5}));
+    addText(svg,x+10,y+12,label,9,"#526077","start","600");
+    addText(svg,x+200,y+22,value,11,"#17202d","end","800");
+  }
+  function legend(svg,x,y){
+    const items = [
+      ["Server patch", serverPatchColor],
+      ["MPO / parallel optics", "#00bcd4"],
+      ["LC duplex", "#ff9800"],
+      ["DAC copper", "#7cb342"],
+      ["AOC", "#8e44ad"],
+      ["Mgmt", mgmtColor],
+      ["Power", powerColor],
+      ["Uplink", "#e91e63"]
+    ];
+    svg.appendChild(svgEl("rect",{x,y,width:210,height:116,rx:8,fill:"#ffffff",stroke:"#9fb2d9","stroke-width":1.2}));
+    addText(svg,x+10,y+14,"Cable legend",10,"#526077","start","700");
+    items.forEach((it,i)=>{
+      line(svg,x+12,y+28+i*11,x+32,y+28+i*11,it[1],3);
+      addText(svg,x+40,y+31+i*11,it[0],8,"#17202d","start","600");
+    });
+  }
+
+  function rackStats(n){
+    const links=n*s.links;
+    const cables=Math.ceil(links*spareFactor);
+    const optics=cables*sfProfile.optics;
+    const conn=cables*sfProfile.connEnds;
+    const fibers=cables*sfProfile.fibers;
+    const serverEnds=conn===0 ? 0 : Math.ceil(conn/2);
+    const panelEnds=conn===0 ? 0 : conn-serverEnds;
+    return {links,cables,optics,conn,fibers,serverEnds,panelEnds};
+  }
+
+  function getRackGeometry(x){
+    const y0=40, rw=210, rh=470, ix=x+25, iw=160, usableH=rh-36;
+    return {x,y0,rw,rh,ix,iw,usableH};
+  }
+  function yForU(g,start,ru){
+    return g.y0+g.rh-18-(start+ru-1)*g.usableH/48;
+  }
+  function hForRU(g,ru){
+    return Math.max(9,ru*g.usableH/48-1);
+  }
+
+  function drawRackFrame(svg, x, title){
+    const g=getRackGeometry(x);
+    addText(svg,x+g.rw/2,24,title,13,"#17202d","middle","800");
+    svg.appendChild(svgEl("rect",{x,y:g.y0,width:g.rw,height:g.rh,rx:8,fill:"#252d37",stroke:"#111820","stroke-width":4}));
+    svg.appendChild(svgEl("rect",{x:g.ix,y:g.y0+14,width:g.iw,height:g.rh-28,fill:"#d5dbe2",stroke:"#6e7885","stroke-width":2}));
+    line(svg,g.ix+5,g.y0+16,g.ix+5,g.y0+g.rh-16,"#717c89",3);
+    line(svg,g.ix+g.iw-5,g.y0+16,g.ix+g.iw-5,g.y0+g.rh-16,"#717c89",3);
+    for(let u=1;u<=48;u++){
+      const yy=g.y0+g.rh-18-u*(g.usableH/48);
+      if(u%4===0) addText(svg,g.ix-5,yy+3,String(u),7,"#566273","end");
+      line(svg,g.ix+7,yy,g.ix+g.iw-7,yy,"#c2c8d0",.35);
+    }
+    return g;
+  }
+
+  function drawItems(svg, g, items){
+    const rects = {};
+    items.forEach(it=>{
+      const y=yForU(g,it.start,it.ru), h=hForRU(g,it.ru);
+      const x=g.ix+11, w=g.iw-22;
+      equipment(svg,x,y,w,h,it.label,it.kind);
+      rects[it.label] = {x,y,w,h,start:it.start,ru:it.ru,kind:it.kind};
+      if(it.panelPorts){
+        drawPortPanel(svg, x, y, w, h, it.panelPorts.type, it.panelPorts.total, it.panelPorts.color);
+      }
+    });
+    return rects;
+  }
+
+  function drawPortPanel(svg, x, y, w, h, type, totalPorts, color){
+    const shown = Math.min(totalPorts || 0, type==="MPO" ? 24 : 24);
+    const cols = 8;
+    const rows = Math.max(1, Math.ceil(shown / cols));
+    const startX = x + 10;
+    const startY = y + Math.max(4, h/2 - rows*4);
+    for(let i=0;i<shown;i++){
+      const px = startX + (i % cols) * 16;
+      const py = startY + Math.floor(i / cols) * 8;
+      if(type==="MPO"){
+        svg.appendChild(svgEl("rect",{x:px,y:py,width:10,height:5,rx:1,fill:color,stroke:"#ffffff","stroke-width":0.5}));
+      } else {
+        svg.appendChild(svgEl("circle",{cx:px+4,cy:py+3,r:3,fill:color,stroke:"#ffffff","stroke-width":0.5}));
+      }
+    }
+    addText(svg, x+w-6, y+11, `${shown}${totalPorts>shown?"/"+totalPorts:""} ${type}`, 7, "#ffffff", "end", "700");
+  }
+
+  function drawPowerOverlay(svg, g, deviceItems, profile, rackPowerRow, switchProfile=null, topologyMode="rail"){
+    const xA=g.x+7, xB=g.x+g.rw-7;
+    line(svg,xA,90,xA,462,"#ef5350",6);
+    line(svg,xB,90,xB,462,"#42a5f5",6);
+    addText(svg,xA,80,"PDU-A",9,"#ef5350","middle","800");
+    addText(svg,xB,80,"PDU-B",9,"#42a5f5","middle","800");
+    const cords=profile && profile.cordCount!=null ? profile.cordCount : 0;
+    const a=Math.ceil(cords/2), b=Math.floor(cords/2);
+    deviceItems.filter(it=>it.kind==="server").forEach((it,idx)=>{
+      const y=yForU(g,it.start,it.ru)+hForRU(g,it.ru)/2;
+      for(let k=0;k<Math.min(a,3);k++) path(svg,`M ${g.ix+14} ${y+k*2} C ${g.x+35} ${y+k*2}, ${xA+6} ${y-6+k*3}, ${xA} ${y-6+k*3}`,"#ef5350",1.5);
+      for(let k=0;k<Math.min(b,3);k++) path(svg,`M ${g.ix+g.iw-14} ${y+k*2} C ${g.x+g.rw-35} ${y+k*2}, ${xB-6} ${y-6+k*3}, ${xB} ${y-6+k*3}`,"#42a5f5",1.5);
+    });
+    if(rackPowerRow){
+      addText(svg,g.x+g.rw/2,493,`A/B outlets ${rackPowerRow.cordsA}/${rackPowerRow.cordsB} · PDU ${rackPowerRow.pduA}/${rackPowerRow.pduB}`,8,"#253858","middle","700");
+    }
+  }
+
+  function drawRearComputeConnections(svg, g, serverRects, panelRect, managerRect, trayRect, odfRect, torRects, stats, color, uplinkCol){
+    const servers = Object.values(serverRects).filter(r => r.kind === "server").sort((a,b)=>a.y-b.y);
+    servers.forEach((sr, idx)=>{
+      const sy = sr.y + sr.h/2;
+      const sx = sr.x + sr.w - 6;
+      const mx = managerRect.x + 14;
+      const my = sy + (idx%2===0 ? -4 : 4);
+      path(svg, `M ${sx} ${sy} C ${sx+16} ${sy}, ${mx-18} ${my}, ${mx} ${my}`, serverPatchColor, 2.2);
+      const tx = trayRect.x + 18, ty = trayRect.y + trayRect.h/2;
+      path(svg, `M ${mx} ${my} C ${mx+18} ${my}, ${tx-16} ${ty}, ${tx} ${ty}`, color, 2.2);
+      const px = panelRect.x + 18, py = panelRect.y + panelRect.h/2 + ((idx%4)-1.5)*5;
+      path(svg, `M ${tx} ${ty} C ${tx+22} ${ty}, ${px-18} ${py}, ${px} ${py}`, color, 2.0);
+    });
+    if(odfRect){
+      path(svg, `M ${panelRect.x + panelRect.w - 15} ${panelRect.y + panelRect.h/2} C ${panelRect.x + panelRect.w + 15} ${panelRect.y + panelRect.h/2}, ${odfRect.x - 15} ${odfRect.y + odfRect.h/2}, ${odfRect.x + 12} ${odfRect.y + odfRect.h/2}`, color, 2.3);
+    }
+    torRects.forEach((tr, i)=>{
+      const tx = tr.x + tr.w/2;
+      const ty = tr.y + tr.h/2;
+      const px = panelRect.x + panelRect.w - 12;
+      const py = panelRect.y + panelRect.h/2 + (i===0?-8:8);
+      path(svg, `M ${tx} ${ty} C ${tx+8} ${ty}, ${px-18} ${py}, ${px} ${py}`, "#e91e63", 2.6);
+    });
+    // management and power bundle decoration
+    line(svg, g.x+10, 110, g.x+10, 430, mgmtColor, 3);
+    line(svg, g.x+g.rw-10, 120, g.x+g.rw-10, 440, powerColor, 3);
+  }
+
+  function drawRearNetworkConnections(svg, g, frontRects, odfRect, ingressRect, uplinkRect, managerRect, colorIngress, colorUplink){
+    const sws = Object.values(frontRects).filter(r => r.kind==="switch" || r.kind==="spine").sort((a,b)=>a.y-b.y);
+    sws.slice(0,8).forEach((sr, idx)=>{
+      const sy = sr.y + sr.h/2;
+      const sx = sr.x + sr.w - 6;
+      const mx = managerRect.x + 14;
+      path(svg, `M ${sx} ${sy} C ${sx+14} ${sy}, ${mx-16} ${sy}, ${mx} ${sy}`, serverPatchColor, 2.0);
+      const ix = ingressRect.x + 16, iy = ingressRect.y + ingressRect.h/2 + ((idx%4)-1.5)*4;
+      path(svg, `M ${mx} ${sy} C ${mx+18} ${sy}, ${ix-18} ${iy}, ${ix} ${iy}`, colorIngress, 2.0);
+      const ux = uplinkRect.x + 16, uy = uplinkRect.y + uplinkRect.h/2 + ((idx%4)-1.5)*4;
+      path(svg, `M ${sx-10} ${sy} C ${sx+10} ${sy}, ${ux-18} ${uy}, ${ux} ${uy}`, "#e91e63", 2.0);
+    });
+    if(odfRect){
+      path(svg, `M ${uplinkRect.x + uplinkRect.w - 10} ${uplinkRect.y + uplinkRect.h/2} C ${uplinkRect.x + uplinkRect.w + 14} ${uplinkRect.y + uplinkRect.h/2}, ${odfRect.x - 14} ${odfRect.y + odfRect.h/2}, ${odfRect.x + 10} ${odfRect.y + odfRect.h/2}`, colorUplink, 2.2);
+    }
+    line(svg, g.x+10, 110, g.x+10, 430, colorIngress, 3.2);
+    line(svg, g.x+g.rw-10, 120, g.x+g.rw-10, 440, colorUplink, 3.2);
+  }
+
+  if(s.unit==="rack_system"){
+    for(let r=0;r<Math.min(computeRacks,2);r++){
+      grid.appendChild(rackCard(`Rack-scale System ${r+1}`,`${s.name} · detailed rack diagram`,svg=>{
+        const fg = drawRackFrame(svg, 20, "FRONT");
+        const rg = drawRackFrame(svg, 250, "REAR");
+        drawItems(svg, fg, [
+          {start:1,ru:40,label:"NVL72 COMPUTE",kind:"server"},
+          {start:42,ru:2,label:"FABRIC I/O",kind:"switch"},
+          {start:44,ru:2,label:"PATCH PANEL",kind:"patch",panelPorts:{type:"MPO", total:12, color:"#00bcd4"}},
+          {start:46,ru:2,label:"CABLE MGR",kind:"manager"}
+        ]);
+        const rearRects = drawItems(svg, rg, [
+          {start:1,ru:40,label:"REAR SERVICE",kind:"server"},
+          {start:41,ru:2,label:"ODF",kind:"odf",panelPorts:{type:"MPO", total:12, color:"#00bcd4"}},
+          {start:43,ru:1,label:"CABLE MGR",kind:"manager"},
+          {start:44,ru:1,label:"PATCH TRAY",kind:"tray"},
+          {start:45,ru:2,label:"MPO PANEL",kind:"patch",panelPorts:{type:"MPO", total:12, color:"#00bcd4"}}
+        ]);
+        const rackPowerRow = powerSizing ? powerSizing.racks.find(x=>x.name===`Rack-scale ${r+1}`) : null;
+        if(rackPowerRow) { addText(svg, rg.x+rg.rw/2, 493, `Vendor rack power architecture · ${rackPowerRow.rackPower.toFixed(0)} kW`, 8, "#253858", "middle", "700"); }
+        line(svg, rg.x+10, 120, rg.x+10, 430, mediaMainColor, 4);
+        line(svg, rg.x+rg.rw-10, 120, rg.x+rg.rw-10, 430, "#e91e63", 4);
+        callout(svg,485,50,"Scale-out","800G");
+        callout(svg,485,88,"Media",sfProfile.media,mediaMainColor);
+        callout(svg,485,126,"Connector",sfProfile.connector||"Integrated",mediaMainColor);
+        callout(svg,485,164,"MPO ports","12 shown",mediaMainColor);
+        callout(svg,485,202,"Termination","MPO panel → ODF",mediaMainColor);
+        legend(svg,485,252);
+      },["detailed rack diagram","MPO ports","cable roles",coolingSizing?coolingModeLabel(coolingSizing.mode):"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"rackscale", title:`${s.name} · fabric view`, systemName:s.name, connectorType:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC":"MPO", mediaColor:mediaMainColor, uplinkColor:"#e91e63"})));
+    }
+  } else {
+    for(let r=0;r<Math.min(computeRacks,3);r++){
+      const n=alloc[r], st=rackStats(n);
+      const front=[]; let u=1;
+      for(let i=0;i<n;i++){ front.push({start:u,ru:s.ru,label:`${s.gpu} ${r*serverPerRack+i+1}`,kind:"server"});u+=s.ru; }
+      if(topology==="single") front.push({start:44,ru:sw.ru,label:"ToR",kind:"switch"});
+      if(topology==="dual"){ front.push({start:43,ru:sw.ru,label:"ToR-A",kind:"switch"}); front.push({start:44,ru:sw.ru,label:"ToR-B",kind:"switch"}); }
+      front.push({start:46,ru:1,label:"PATCH",kind:"patch"});
+      front.push({start:47,ru:1,label:"CABLE MGR",kind:"manager"});
+
+      const panelType = sfProfile.optical ? (sfProfile.connector.includes("MPO") ? "MPO" : "LC") : (sfProfile.media.includes("DAC") ? "DAC" : "AOC");
+      const frontPortCount = st.serverEnds>0 ? st.serverEnds : Math.min(st.links, 16);
+      const rearItems = [
+        {start:40,ru:2,label:"ODF",kind:"odf", panelPorts: sfProfile.optical ? {type: panelType==="MPO"?"MPO":"LC", total: Math.max(1, st.panelEnds), color: mediaMainColor} : null},
+        {start:42,ru:1,label:"CABLE MGR",kind:"manager"},
+        {start:43,ru:1,label:"PATCH TRAY",kind:"tray"},
+        {start:44,ru:1,label:"CONNECTOR",kind:"patch", panelPorts: sfProfile.optical ? {type: panelType==="MPO"?"MPO":"LC", total: Math.max(1, st.panelEnds), color: mediaMainColor} : null},
+        {start:45,ru:2,label:panelType==="MPO"?"MPO PANEL":panelType==="LC"?"LC PANEL":panelType+" ZONE",kind:"patch", panelPorts: sfProfile.optical ? {type: panelType==="MPO"?"MPO":"LC", total: Math.max(1, st.panelEnds), color: mediaMainColor} : null}
+      ];
+
+      grid.appendChild(rackCard(`Compute Rack ${r+1}`,`${n} GPU systems · detailed cable/connector drawing`,svg=>{
+        const fg = drawRackFrame(svg, 20, "FRONT");
+        const rg = drawRackFrame(svg, 250, "REAR");
+        const frontRects = drawItems(svg, fg, front);
+        const rearRects = drawItems(svg, rg, rearItems);
+        const rackPowerRow = powerSizing ? powerSizing.racks.find(x=>x.name===`Compute Rack ${r+1}`) : null;
+        drawPowerOverlay(svg, rg, front, s, rackPowerRow, sw, topology);
+
+        // port count markers on front server switch area
+        Object.values(frontRects).filter(r=>r.kind==="server").forEach((fr, idx)=>{
+          const px = fr.x + fr.w - 22;
+          const py = fr.y + fr.h/2 - 6;
+          const count = Math.min(s.links, 8);
+          for(let i=0;i<count;i++){
+            svg.appendChild(svgEl("circle",{cx:px + (i%4)*6, cy:py + Math.floor(i/4)*6, r:1.8, fill:serverPatchColor}));
+          }
+        });
+        if(frontRects["ToR"]) drawPortPanel(svg, frontRects["ToR"].x, frontRects["ToR"].y, frontRects["ToR"].w, frontRects["ToR"].h, "LC", Math.min(st.panelEnds, 16) || 8, "#e91e63");
+        if(frontRects["ToR-A"]) drawPortPanel(svg, frontRects["ToR-A"].x, frontRects["ToR-A"].y, frontRects["ToR-A"].w, frontRects["ToR-A"].h, "LC", Math.min(st.panelEnds, 8) || 4, "#e91e63");
+        if(frontRects["ToR-B"]) drawPortPanel(svg, frontRects["ToR-B"].x, frontRects["ToR-B"].y, frontRects["ToR-B"].w, frontRects["ToR-B"].h, "LC", Math.min(st.panelEnds, 8) || 4, "#e91e63");
+
+        const torRects = [];
+        if(frontRects["ToR"]) torRects.push(frontRects["ToR"]);
+        if(frontRects["ToR-A"]) torRects.push(frontRects["ToR-A"]);
+        if(frontRects["ToR-B"]) torRects.push(frontRects["ToR-B"]);
+
+        drawRearComputeConnections(
+          svg, rg,
+          frontRects,
+          rearRects[panelType==="MPO" ? "MPO PANEL" : panelType==="LC" ? "LC PANEL" : panelType+" ZONE"],
+          rearRects["CABLE MGR"],
+          rearRects["PATCH TRAY"],
+          rearRects["ODF"],
+          torRects,
+          st,
+          mediaMainColor,
+          "#e91e63"
+        );
+
+        callout(svg,485,42,"Links",String(st.links));
+        callout(svg,485,76,"Cable qty",`${st.cables} × ${sfProfile.media}`,mediaMainColor);
+        callout(svg,485,110,"Transceivers",st.optics===0?"Integrated":String(st.optics),mediaMainColor);
+        callout(svg,485,144,"Server-side ports",String(frontPortCount),serverPatchColor);
+        callout(svg,485,178,"Server-side ends",st.conn===0?"Integrated":String(st.serverEnds),serverPatchColor);
+        callout(svg,485,212,"Panel-side ends",st.conn===0?"Integrated":String(st.panelEnds),mediaMainColor);
+        callout(svg,485,246,"Panel type",panelType,mediaMainColor);
+        callout(svg,485,280,"Fiber cores",st.fibers===0?"—":String(st.fibers),mediaMainColor);
+        callout(svg,485,314,"Cable path","Server → Mgr → Tray → Panel → ODF",mediaMainColor);
+        if(auxSizing && auxSizing.supported){
+          callout(svg,485,348,"Storage",`${auxSizing.profile.storage.linksPerUnit}×${auxSizing.profile.storage.speed}G / server`,"#8e44ad");
+          callout(svg,485,382,"In-Band",`${auxSizing.profile.inband.linksPerUnit}×${auxSizing.profile.inband.speed}G bonded`,"#f4b942");
+          callout(svg,485,416,"OOB",`${auxSizing.profile.oob.portsPerUnit}×1G / server`,"#687386");
+          legend(svg,485,454);
+        } else {
+          legend(svg,485,360);
+        }
+      },["color-coded cables",panelType+" ports",`${st.conn} connector ends`,`precise cable path`,coolingSizing?coolingModeLabel(coolingSizing.mode):"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"compute", title:`${s.name} · rear / interconnect`, systemName:s.name, portCount:Math.min(s.links,8), panelPorts:Math.max(1, st.panelEnds), switchPorts:Math.max(4, Math.min(st.panelEnds,8)), connectorType:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC":"MPO", mediaColor:mediaMainColor, uplinkColor:"#e91e63", media:sfProfile.media, switchName: topology==="single" ? "ToR" : "Leaf / ToR", direct:!sfProfile.optical})));
+    }
+  }
+
+  grid.appendChild(rackCard("Network Rack",`${sw.name} · detailed cable and connector drawing`,svg=>{
+    const front=[];
+    const shown=Math.min(leafCount,10);
+    for(let i=0;i<shown;i++) front.push({start:2+i*2,ru:Math.max(1,sw.ru),label:`${topology==="rail"?"Leaf":"ToR"} ${i+1}`,kind:"switch"});
+    const fg = drawRackFrame(svg, 20, "FRONT");
+    const rg = drawRackFrame(svg, 250, "REAR");
+    const frontRects = drawItems(svg, fg, front);
+    const rearRects = drawItems(svg, rg, [
+      {start:39,ru:2,label:"ODF",kind:"odf", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, shown*2), color: uplinkColor} : null},
+      {start:41,ru:1,label:"CABLE MGR",kind:"manager"},
+      {start:42,ru:2,label:"INGRESS PANEL",kind:"patch", panelPorts: sfProfile.optical ? {type:(sfProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, shown*2), color: mediaMainColor} : null},
+      {start:44,ru:2,label:"UPLINK PANEL",kind:"patch", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, shown*2), color: uplinkColor} : null}
+    ]);
+    const networkPowerRow = powerSizing ? powerSizing.racks.find(x=>x.name==="Network Rack") : null;
+    if(networkPowerRow) drawPowerOverlay(svg, rg, front, sw, networkPowerRow, sw, topology);
+    drawRearNetworkConnections(svg, rg, frontRects, rearRects["ODF"], rearRects["INGRESS PANEL"], rearRects["UPLINK PANEL"], rearRects["CABLE MGR"], mediaMainColor, uplinkColor);
+
+    callout(svg,485,54,"Leaf/ToR count",String(leafCount));
+    callout(svg,485,90,"Ingress media",sfProfile.media,mediaMainColor);
+    callout(svg,485,126,"Ingress connector",sfProfile.connEnds===0?"Integrated":sfProfile.connector,mediaMainColor);
+    callout(svg,485,162,"Uplink media",lsProfile.media,uplinkColor);
+    callout(svg,485,198,"Uplink connector",lsProfile.connEnds===0?"Integrated":lsProfile.connector,uplinkColor);
+    callout(svg,485,234,"Port viz",`${shown*2} panel ports class`,uplinkColor);
+    callout(svg,485,270,"Cable path","Ingress → Panel → Switch → Uplink Panel → ODF",uplinkColor);
+    legend(svg,485,324);
+  },["network rack","segmented cable colors","port visualization",coolingSizing?`${coolingSizing.rackCoolingLimit} kWth/rack`:"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"network", title:`${sw.name} reference`, switchName:sw.name, ingress:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC" : (sfProfile.optical?"MPO":"DIRECT"), uplink:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC" : (lsProfile.optical?"MPO":"DIRECT"), ingressType:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC":"MPO", uplinkType:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC":"MPO", ingressPorts:Math.max(4,shown*2), uplinkPorts:Math.max(4,shown*2), ingressLabel:sfProfile.media, uplinkLabel:lsProfile.media, mediaColor:mediaMainColor, uplinkColor:uplinkColor})));
+
+  grid.appendChild(rackCard("Spine Rack",`Spine switches × ${spineCount}`,svg=>{
+    const front=[];
+    for(let i=0;i<Math.min(spineCount,10);i++) front.push({start:2+i*2,ru:2,label:`SPINE ${i+1}`,kind:"spine"});
+    const fg = drawRackFrame(svg, 20, "FRONT");
+    const rg = drawRackFrame(svg, 250, "REAR");
+    const frontRects = drawItems(svg, fg, front);
+    const rearRects = drawItems(svg, rg, [
+      {start:39,ru:2,label:"ODF",kind:"odf", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, spineCount*2), color: uplinkColor} : null},
+      {start:41,ru:1,label:"CABLE MGR",kind:"manager"},
+      {start:42,ru:2,label:"PATCH PANEL",kind:"patch", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, spineCount*2), color: uplinkColor} : null},
+      {start:44,ru:2,label:"FIBER TRAY",kind:"tray"}
+    ]);
+    const spinePowerRow = powerSizing ? powerSizing.racks.find(x=>x.name==="Spine Rack") : null;
+    if(spinePowerRow) drawPowerOverlay(svg, rg, front, sw, spinePowerRow, sw, topology);
+
+    const sws = Object.values(frontRects).filter(r=>r.kind==="spine");
+    sws.forEach((sr, idx)=>{
+      const sy = sr.y + sr.h/2;
+      const sx = sr.x + sr.w - 6;
+      const mx = rearRects["CABLE MGR"].x + 15;
+      path(svg, `M ${sx} ${sy} C ${sx+14} ${sy}, ${mx-16} ${sy}, ${mx} ${sy}`, serverPatchColor, 2.0);
+      const px = rearRects["PATCH PANEL"].x + 16, py = rearRects["PATCH PANEL"].y + rearRects["PATCH PANEL"].h/2 + ((idx%4)-1.5)*4;
+      path(svg, `M ${mx} ${sy} C ${mx+18} ${sy}, ${px-18} ${py}, ${px} ${py}`, uplinkColor, 2.0);
+    });
+    path(svg, `M ${rearRects["PATCH PANEL"].x + rearRects["PATCH PANEL"].w - 10} ${rearRects["PATCH PANEL"].y + rearRects["PATCH PANEL"].h/2} C ${rearRects["PATCH PANEL"].x + rearRects["PATCH PANEL"].w + 16} ${rearRects["PATCH PANEL"].y + rearRects["PATCH PANEL"].h/2}, ${rearRects["ODF"].x - 16} ${rearRects["ODF"].y + rearRects["ODF"].h/2}, ${rearRects["ODF"].x + 10} ${rearRects["ODF"].y + rearRects["ODF"].h/2}`, uplinkColor, 2.2);
+    line(svg, rg.x+10, 110, rg.x+10, 430, uplinkColor, 3.5);
+
+    callout(svg,485,60,"Spine switches",String(spineCount));
+    callout(svg,485,96,"Media",lsProfile.media,uplinkColor);
+    callout(svg,485,132,"Connector",lsProfile.connEnds===0?"Integrated":lsProfile.connector,uplinkColor);
+    callout(svg,485,168,"Port viz",`${Math.max(1, spineCount*2)} class`,uplinkColor);
+    callout(svg,485,204,"Cable path","Spine → Cable Mgr → Patch Panel → ODF",uplinkColor);
+    legend(svg,485,250);
+  },["spine rack","color-coded cables","panel ports",coolingSizing?`${coolingSizing.rackCoolingLimit} kWth/rack`:"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"spine", title:`Spine side · ${lsProfile.media}`, switchName:"Spine switch", patchLabel:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC PATCH":"MPO PATCH", patchType:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC":"MPO", patchPorts:Math.max(8, spineCount*2), mediaColor:uplinkColor, uplinkColor:uplinkColor})));
+
+  q("rackCaption").innerHTML='Rack 본체 옆에 <b>조건 연동형 장비 연결 구성 그림</b>을 배치했습니다. 선택한 GPU 시스템, 스위치, 토폴로지, 광 미디어(DAC/AOC/MPO/LC)에 따라 옆 그림도 함께 바뀝니다. 추가 설명은 우측 상단 <b>참고</b> 버튼 안으로 이동했고, 후면 Rack 그림에는 <span class="feedA">PDU-A</span>/<span class="feedB">PDU-B</span> 전원 rail과 power cord 연결도 함께 표시됩니다.';
+}
+
+
+function renderReachGuide(ctx){
+  const {sfProfile, lsProfile} = ctx;
+  const el = q("reachGuide");
+  const rows = [
+    ["400G DAC", "≤ 3 m", "Integrated copper", "same rack / short direct attach"],
+    ["400G AOC", "≤ 30 m", "Integrated active optical cable", "short optical jumper"],
+    ["400G DR4", "50–500 m", "MPO-8/12 APC", "parallel SMF, 8-fiber application"],
+    ["400G FR4", "500 m – 2 km", "Duplex LC", "longer duplex SMF link"],
+    ["800G DAC", "≤ 2 m", "Integrated copper", "very short high-density interconnect"],
+    ["800G AOC", "≤ 30 m", "Integrated active optical cable", "short optical link"],
+    ["800G-2×DR4", "50–500 m", "2× MPO-8/12 APC", "parallel SMF, dual 8-fiber footprint"],
+    ["800G 2×FR4", "500 m – 2 km", "2× Duplex LC", "duplex SMF breakout-style optical link"]
+  ];
+  const activeHint = `<div class="small" style="margin-bottom:8px">현재 선택 기준: <b>Server-facing = ${sfProfile.media}</b>, <b>Leaf↔Spine = ${lsProfile.media}</b></div>`;
+  const table = `<table><thead><tr><th>Media</th><th>Typical reach</th><th>Connector / interface</th><th>설명</th></tr></thead><tbody>${
+    rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join("")
+  }</tbody></table>`;
+  el.innerHTML = activeHint + table;
+}
+
+function renderReferencePanels(ctx){
+  renderRailRefSvg(ctx);
+}
+
+function renderOverallSvg(ctx){
+  const {s, sfProfile, lsProfile} = ctx;
+  const svg = q("overallSvg"); svg.innerHTML = "";
+  function t(x,y,txt,size=11,fill="#1b2432",anchor="start",weight="600"){
+    const n=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); n.textContent=txt; svg.appendChild(n);
+  }
+  function box(x,y,w,h,label,fill,stroke="#5b6470"){
+    svg.appendChild(svgEl("rect",{x,y,width:w,height:h,rx:8,fill,stroke,"stroke-width":1.2}));
+    const lines = String(label).split("\n");
+    lines.forEach((ln,i)=>t(x+w/2,y+h/2-(lines.length-1)*8/2+i*16+4,ln,12,"#fff","middle","700"));
+  }
+  t(14,22,"Overall scalable unit overview",14,"#1a2c54","start","800");
+  box(28,118,100,128,`${s.gpu}
+server`,"#edf2f7","#9aa8ba");
+  for(let i=0;i<8;i++){
+    const x = 160 + i*62;
+    box(x,145,46,88,`SRV
+${i+1}`,"#2e2f32","#826f42");
+  }
+  for(let i=0;i<8;i++){
+    svg.appendChild(svgEl("line",{x1:128,y1:174,x2:160,y2:145+i*10,stroke:"#00bcd4","stroke-width":2}));
+  }
+  box(520,128,62,126,`Leaf
+rack`,"#efe7cd","#c3ab61");
+  for(let i=0;i<6;i++){
+    svg.appendChild(svgEl("line",{x1:206+i*62,y1:190,x2:520,y2:150+i*16,stroke:"#d8a019","stroke-width":1.8,opacity:.9}));
+  }
+  box(625,35,88,42,`Spine
+row`,"#4f7798","#48647d");
+  svg.appendChild(svgEl("line",{x1:582,y1:158,x2:625,y2:56,stroke:"#e91e63","stroke-width":2.2}));
+  t(18,268,`Example concept: 8 compute racks → leaf rack(s) → spine switch row`,11,"#4b5e78","start","600");
+  t(18,284,`Server-facing links use ${sfProfile.media}, leaf uplink uses ${lsProfile.media}.`,11,"#4b5e78","start","600");
+}
+
+function renderH200Svg(ctx){
+  const svg = q("h200Svg"); svg.innerHTML = "";
+  function t(x,y,txt,size=11,fill="#1b2432",anchor="start",weight="600"){
+    const n=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); n.textContent=txt; svg.appendChild(n);
+  }
+  t(12,24,"H200 rear connectivity reference",14,"#1a2c54","start","800");
+  svg.appendChild(svgEl("rect",{x:120,y:68,width:500,height:110,rx:10,fill:"#eceff3",stroke:"#6f7a87","stroke-width":2}));
+  svg.appendChild(svgEl("rect",{x:150,y:90,width:120,height:42,rx:4,fill:"#d8dde4",stroke:"#7e8792"}));
+  svg.appendChild(svgEl("rect",{x:350,y:85,width:150,height:52,rx:4,fill:"#dce1e8",stroke:"#7e8792"}));
+  svg.appendChild(svgEl("rect",{x:510,y:90,width:90,height:42,rx:4,fill:"#d8dde4",stroke:"#7e8792"}));
+  t(150,82,"Storage single-port QSFP",11,"#3d7d42","start","700");
+  t(365,76,"Compute 4× dual-port OSFP",11,"#2451a6","start","700");
+  t(510,82,"In-band management",11,"#3d7d42","start","700");
+  for(let i=0;i<4;i++){
+    const px = 368 + i*30;
+    svg.appendChild(svgEl("rect",{x:px,y:103,width:20,height:12,rx:2,fill:"#3c4857",stroke:"#fff"}));
+    svg.appendChild(svgEl("line",{x1:px+10,y1:115,x2:px+10,y2:150,stroke:"#00bcd4","stroke-width":2}));
+    svg.appendChild(svgEl("line",{x1:px+10,y1:115,x2:px+26,y2:150,stroke:"#00bcd4","stroke-width":2}));
+  }
+  svg.appendChild(svgEl("line",{x1:210,y1:132,x2:210,y2:170,stroke:"#7cb342","stroke-width":2.4}));
+  svg.appendChild(svgEl("line",{x1:555,y1:132,x2:555,y2:170,stroke:"#7cb342","stroke-width":2.4}));
+  svg.appendChild(svgEl("line",{x1:330,y1:145,x2:330,y2:185,stroke:"#ffd54f","stroke-width":2.4}));
+  t(138,195,"Storage / management / compute ports are separated; compute OSFP bundles fan out to the fabric.",10,"#4b5e78","start","600");
+}
+
+function renderSwitchMapSvg(ctx){
+  const {sw, topology} = ctx;
+  const svg = q("switchMapSvg"); svg.innerHTML = "";
+  function t(x,y,txt,size=11,fill="#1b2432",anchor="start",weight="600"){
+    const n=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); n.textContent=txt; svg.appendChild(n);
+  }
+  t(14,22,"Switch port mapping concept",14,"#1a2c54","start","800");
+  svg.appendChild(svgEl("rect",{x:80,y:68,width:600,height:60,rx:8,fill:"#1f2733",stroke:"#616b79","stroke-width":1.5}));
+  t(380,58,sw.name,12,"#304f90","middle","700");
+  for(let i=0;i<64;i++){
+    const x = 92 + (i%32)*18;
+    const y = i<32 ? 82 : 104;
+    const fill = (i<32) ? "#00c853" : "#ff5252";
+    svg.appendChild(svgEl("rect",{x,y,width:13,height:8,rx:1,fill,stroke:"#fff","stroke-width":0.4}));
+  }
+  svg.appendChild(svgEl("line",{x1:80,y1:150,x2:360,y2:150,stroke:"#00c853","stroke-width":2.5}));
+  svg.appendChild(svgEl("line",{x1:400,y1:150,x2:680,y2:150,stroke:"#ff5252","stroke-width":2.5}));
+  t(80,166,"Ports 1–32 → server rack / leaf-facing side",11,"#2d7a3c","start","700");
+  t(400,166,"Ports 33–64 → spine / uplink-facing side",11,"#b13c3c","start","700");
+  t(80,200,topology==="rail" ? "Rail mode에서는 색상 rail별 분산을 적용할 수 있습니다." : "Single / Dual ToR는 rack 단위 fanout을 우선 적용합니다.",10,"#4b5e78","start","600");
+  t(80,216,"4·5·8번째 참고 이미지처럼 switch face 기준으로 어느 포트군이 어느 방향으로 연결되는지 이해하도록 돕는 설명도입니다.",10,"#4b5e78","start","600");
+}
+
+function renderBundleSvg(ctx){
+  const svg = q("bundleSvg"); svg.innerHTML = "";
+  function t(x,y,txt,size=11,fill="#1b2432",anchor="start",weight="600"){
+    const n=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); n.textContent=txt; svg.appendChild(n);
+  }
+  function fanout(x,y,dir,color,count){
+    svg.appendChild(svgEl("path",{d:`M ${x} ${y} C ${x+30*dir} ${y}, ${x+55*dir} ${y}, ${x+82*dir} ${y}`,fill:"none",stroke:color,"stroke-width":6,"stroke-linecap":"round"}));
+    for(let i=0;i<count;i++){
+      const yy = y-42 + i*12;
+      svg.appendChild(svgEl("path",{d:`M ${x+82*dir} ${y} C ${x+115*dir} ${y}, ${x+130*dir} ${yy}, ${x+155*dir} ${yy}`,fill:"none",stroke:color,"stroke-width":2,"stroke-linecap":"round"}));
+      svg.appendChild(svgEl("circle",{cx:x+155*dir,cy:yy,r:2.8,fill:"#4caf50"}));
+    }
+  }
+  t(14,22,"Structured cabling example",14,"#1a2c54","start","800");
+  t(48,56,"① Server side",12,"#4067b5","start","800");
+  t(320,56,"② Leaf / panel",12,"#7f7f7f","start","800");
+  t(520,56,"③ Backbone / jumper",12,"#6a35b1","start","800");
+  svg.appendChild(svgEl("rect",{x:24,y:100,width:110,height:44,rx:8,fill:"#edf2f7",stroke:"#7f8da0"}));
+  t(79,126,"Twin MPO-8/12",12,"#253858","middle","700");
+  fanout(135,122,1,"#d7c34f",8);
+  svg.appendChild(svgEl("rect",{x:290,y:78,width:70,height:30,rx:6,fill:"#dfe4eb",stroke:"#8b97a7"}));
+  svg.appendChild(svgEl("rect",{x:290,y:122,width:70,height:30,rx:6,fill:"#dfe4eb",stroke:"#8b97a7"}));
+  t(325,97,"Panel A",11,"#253858","middle","700");
+  t(325,141,"Panel B",11,"#253858","middle","700");
+  svg.appendChild(svgEl("path",{d:"M 360 93 C 420 93, 430 120, 490 120",fill:"none",stroke:"#8c78d8","stroke-width":4}));
+  svg.appendChild(svgEl("path",{d:"M 360 137 C 420 137, 430 160, 490 160",fill:"none",stroke:"#8c78d8","stroke-width":4}));
+  svg.appendChild(svgEl("circle",{cx:520,cy:140,r:26,fill:"none",stroke:"#8c78d8","stroke-width":5}));
+  const loop = svgEl("text",{x:520,y:145,fill:"#6a35b1","font-size":10,"text-anchor":"middle","font-weight":"700"});
+  loop.textContent = "loop"; svg.appendChild(loop);
+  svg.appendChild(svgEl("rect",{x:580,y:98,width:130,height:44,rx:8,fill:"#edf2f7",stroke:"#7f8da0"}));
+  t(645,126,"Leaf / Spine side",12,"#253858","middle","700");
+  t(24,236,"8번째 참고 이미지의 structured cabling 감각을 반영한 개념 그림입니다.",10,"#4b5e78","start","600");
+}
+
+function renderRailRefSvg(ctx){
+  const {s} = ctx;
+  q("railRef").innerHTML = `Rail-optimized fabric은 server의 여러 scale-out 포트를 한 leaf에 몰지 않고, <b>rail별로 서로 다른 leaf switch에 분산</b>시키는 방식입니다. 예를 들어 H200/B200 계열은 server당 여러 개의 400G fabric link를 갖고, 각 link가 Leaf-01 ~ Leaf-08 같은 서로 다른 rail에 대응합니다. 아래 그림은 7번째 참고 이미지의 논리를 MVP에서 이해용으로 재구성한 것입니다.`;
+
+  const svg = q("railSvg"); svg.innerHTML = "";
+  function t(x,y,txt,size=11,fill="#1b2432",anchor="start",weight="600"){
+    const n=svgEl("text",{x,y,fill,"font-size":size,"text-anchor":anchor,"font-weight":weight}); n.textContent=txt; svg.appendChild(n);
+  }
+  const railColors = ["#3b82f6","#f97316","#22c55e","#8b5cf6","#a16207","#64748b","#ef4444","#111827"];
+  t(22,22,"Rail mapping reference",14,"#1a2c54","start","800");
+  for(let i=0;i<4;i++){
+    svg.appendChild(svgEl("rect",{x:110,y:54+i*60,width:100,height:40,rx:7,fill:"#e8edf3",stroke:"#7f8da0"}));
+    t(160,79+i*60,`SRV-${i+1}`,12,"#253858","middle","700");
+  }
+  for(let i=0;i<8;i++){
+    svg.appendChild(svgEl("rect",{x:760,y:34+i*34,width:120,height:24,rx:5,fill:"#eef4fb",stroke:railColors[i],"stroke-width":1.5}));
+    t(820,50+i*34,`Leaf-0${i+1}`,11,railColors[i],"middle","700");
+  }
+  for(let sidx=0;sidx<4;sidx++){
+    for(let r=0;r<8;r++){
+      svg.appendChild(svgEl("line",{x1:210,y1:74+sidx*60,x2:760,y2:46+r*34,stroke:railColors[r],"stroke-width":1.3,"stroke-dasharray":"4,3"}));
+    }
+  }
+  t(250,290,`${s.gpu} class server example: each rail cable lands on a different leaf switch.`,11,"#4b5e78","start","600");
+  t(250,306,"즉, 장애가 한 leaf에 집중되지 않도록 rail별로 fabric을 분산시키는 것이 핵심입니다.",11,"#4b5e78","start","600");
+}
+
+function renderRowDiagram(ctx){
+  const {s, sw, topology, computeRacks, leafCount, spineCount, sfProfile, lsProfile} = ctx;
+  const svg=q("rowSvg"); svg.innerHTML="";
+  const sfColor=mediaColor(sfProfile), lsColor=mediaColor(lsProfile);
+  q("rowCaption").innerHTML = "Compute Rack → Network Rack → Spine Rack 간 실제 연결을 단순화한 row-level 도식입니다.";
+  const comps=Math.min(computeRacks,3);
+  const compBoxes=[];
+  for(let i=0;i<comps;i++){
+    const x=40, y=40+i*110;
+    addRect(svg,x,y,170,72,`Compute Rack ${i+1}`,"#2e5eab");
+    compBoxes.push({x:x+170,y:y+36});
+    // small labels
+    const t=svgEl("text",{x:x+85,y:y+96,fill:"#cfe0ff","font-size":11,"text-anchor":"middle"});
+    t.textContent = sfProfile.media; svg.appendChild(t);
+  }
+  const netX=500, netY=120;
+  addRect(svg,netX,netY,190,90,`Network Rack\nLeaf/ToR × ${leafCount}`,"#7c4eaa");
+  const netText=svgEl("text",{x:netX+95,y:netY+108,fill:"#cfe0ff","font-size":11,"text-anchor":"middle"});
+  netText.textContent = "ODF / patch panel / cable manager"; svg.appendChild(netText);
+
+  const spineX=980, spineY=120;
+  addRect(svg,spineX,spineY,190,90,`Spine Rack\nSpine × ${spineCount}`,"#3f6d90");
+  const spText=svgEl("text",{x:spineX+95,y:spineY+108,fill:"#cfe0ff","font-size":11,"text-anchor":"middle"});
+  spText.textContent = "ODF / patch panel / cable manager"; svg.appendChild(spText);
+
+  compBoxes.forEach((p,idx)=>{
+    addLine(svg,p.x,p.y,netX,netY+45,sfColor,`${sfProfile.media}`,idx%2===1,3);
+  });
+  addLine(svg,netX+190,netY+45,spineX,spineY+45,lsColor,`${lsProfile.media}`,false,3);
+
+  // side labels
+  const labels = [
+    {x:260,y:58,text:`Connector: ${sfProfile.connector}`,c:sfColor},
+    {x:260,y:80,text:`Media color coded`,c:"#dce8ff"},
+    {x:760,y:58,text:`Connector: ${lsProfile.connector}`,c:lsColor},
+    {x:760,y:80,text:`Spine uplink actual count applied`,c:"#dce8ff"},
+  ];
+  labels.forEach(l=>{
+    const t=svgEl("text",{x:l.x,y:l.y,fill:l.c,"font-size":12}); t.textContent=l.text; svg.appendChild(t);
+  });
+}
+
+
+function updateUxSummary(ctx){
+  const {s,sw,topology,computeRacks,sfProfile,lsProfile,coolingSizing,placement} = ctx;
+  if(q("uxSystem")) q("uxSystem").textContent=s.name;
+  if(q("uxFabric")) q("uxFabric").textContent=`${topology} · ${sw.fabric}`;
+  if(q("uxRack")) q("uxRack").textContent=`${computeRacks} compute rack(s)`;
+  if(q("uxMedia")) q("uxMedia").textContent=`${sfProfile.media} / ${lsProfile.media}`;
+  if(q("uxCooling")) q("uxCooling").textContent=coolingModeLabel(coolingSizing.mode);
+  if(q("uxStatus")){
+    const ok=!placement.infeasible && placement.converged;
+    q("uxStatus").textContent=ok?"READY":"REVIEW";
+    q("uxStatus").className="v "+(ok?"statusGood":"statusWarn");
+  }
+}
+
+function bomRowsFromDom(){
+  return Array.from(q("bom").querySelectorAll("tr")).map(tr=>{
+    const td=tr.querySelectorAll("td");
+    return {category:td[0]?.textContent||"",item:td[1]?.textContent||"",quantity:td[2]?.textContent||""};
+  });
+}
+function downloadTextFile(filename,text,type){
+  const blob=new Blob([text],{type:type||"text/plain;charset=utf-8"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},0);
+}
+function downloadBomCsv(){
+  const rows=bomRowsFromDom();
+  const esc=v=>`"${String(v).replaceAll('"','""')}"`;
+  const csv=["Category,Item,Qty",...rows.map(r=>[r.category,r.item,r.quantity].map(esc).join(","))].join("\n");
+  downloadTextFile("AI_DataCenter_BOM.csv","\uFEFF"+csv,"text/csv;charset=utf-8");
+}
+function downloadDesignJson(){
+  const snapshot=window.currentDesignSnapshot || {bom:bomRowsFromDom()};
+  downloadTextFile("AI_DataCenter_Design.json",JSON.stringify(snapshot,null,2),"application/json;charset=utf-8");
+}
+
+// events
+["tier","workload","gpuTarget","systemId","switchId","uplinkSpeed","oversub","distServer","distSpine","serverCablingMode","leafSpineCablingMode","sparePct","reservedU","rackRU","pduOutletCount","pduRatedKw","pduUtilPct","powerFeedMode","rackITLimit","rackHeadroom","maxPlacementIterations","auxFabricMode","storageFabricType","hostGpusPerServer","hostServerRU","hostServerPower","hostFabricLinks","hostFabricSpeed","hostCordCount","coolingMode","rackCoolingLimit","rackAirflowLimit","cduRatedKw","cduUtilPct"].forEach(id=>{
+  q(id).addEventListener("change", ()=>{
+    if(id==="tier") refreshPreset();
+    else if(id==="systemId") refreshSystem();
+    else if(["hostGpusPerServer","hostServerRU","hostServerPower","hostFabricLinks","hostFabricSpeed","hostCordCount","coolingMode","rackCoolingLimit","rackAirflowLimit","cduRatedKw","cduUtilPct"].includes(id)) refreshSystem();
+    else if(id==="switchId") refreshSwitch();
+    else calc();
+  });
+});
+
+refreshPreset();
+</script>
+</body>
+</html>

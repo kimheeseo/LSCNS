@@ -40,8 +40,8 @@ PASS      = error <= 10%
 | 13 | [IBM Vela](13_ibm_vela/) | Node profile / 2-level Clos | **PASS** | **0.00%** | **100.0%** |
 | 14 | [IBM Vela ASPLOS](14_ibm_vela_roce/) | Virtualized RoCE / Clos | **PASS** | **0.00%** | **100.0%** |
 | 15 | [Cerebras Condor Galaxy 1](15_cerebras_cg1/) | Wafer-scale cluster | **PASS** | **0.7407%** | **100.0%** |
-| 16 | xAI Colossus | Spectrum-X Ethernet | PENDING | — | — |
-| 17 | AWS EC2 P5 UltraCluster | EFA / GPU cluster | PENDING | — | — |
+| 16 | [xAI Colossus](16_xai_colossus/) | Spectrum-X Ethernet | **PASS (weak)** | **0.00%** | **100.0%** |
+| 17 | [AWS EC2 P5](17_aws_p5/) | EFA / GPU instance | **PASS** | **0.00%** | **100.0%** |
 | 18 | Oracle OCI Supercluster | RDMA GPU cluster | PENDING | — | — |
 | 19 | Azure ND H100 v5 | 8-GPU / 400G fabric | PENDING | — | — |
 | 20 | Azure ND MI300X v5 | 8-GPU / 400G fabric | PENDING | — | — |
@@ -129,3 +129,7 @@ Each Case README now contains:
 - Case 14 IBM Vela RoCE: PASS
 
 - Case 15 Cerebras CG-1: PASS · MAPE 0.7407%
+
+- Case 16 xAI Colossus: PASS but weak C-
+
+- Case 17 AWS P5: PASS · profile arithmetic

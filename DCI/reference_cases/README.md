@@ -37,9 +37,9 @@ PASS      = error <= 10%
 | 10 | [Meta Grand Teton / ORv3](10_meta_grand_teton_orv3/) | Rack / power | **PASS** | **0.00%** | **100.0%** |
 | 11 | [ByteDance MegaScale](11_bytedance_megascale/) | 3-tier Clos + 8-rail | **PASS** | **0.00%** | **100.0%** |
 | 12 | [Alibaba HPN](12_alibaba_hpn/) | Rail + Dual-ToR + Dual-Plane | **PASS** | **0.00%** | **100.0%** |
-| 13 | IBM Vela | 2-level Clos / RoCE | PENDING | — | — |
-| 14 | IBM Vela ASPLOS | Virtualized RoCE | PENDING | — | — |
-| 15 | Cerebras Condor Galaxy 1 | Wafer-scale cluster | PENDING | — | — |
+| 13 | [IBM Vela](13_ibm_vela/) | Node profile / 2-level Clos | **PASS** | **0.00%** | **100.0%** |
+| 14 | [IBM Vela ASPLOS](14_ibm_vela_roce/) | Virtualized RoCE / Clos | **PASS** | **0.00%** | **100.0%** |
+| 15 | [Cerebras Condor Galaxy 1](15_cerebras_cg1/) | Wafer-scale cluster | **PASS** | **0.7407%** | **100.0%** |
 | 16 | xAI Colossus | Spectrum-X Ethernet | PENDING | — | — |
 | 17 | AWS EC2 P5 UltraCluster | EFA / GPU cluster | PENDING | — | — |
 | 18 | Oracle OCI Supercluster | RDMA GPU cluster | PENDING | — | — |
@@ -123,3 +123,9 @@ Each Case README now contains:
 - Case 11 ByteDance MegaScale: PASS · 4/4 scored topology metrics
 
 - Case 12 Alibaba HPN: PASS · 4/4 scored topology metrics
+
+- Case 13 IBM Vela: PASS
+
+- Case 14 IBM Vela RoCE: PASS
+
+- Case 15 Cerebras CG-1: PASS · MAPE 0.7407%

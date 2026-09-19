@@ -1,101 +1,96 @@
 {
   "case_id": "01_google_tpu_v4",
-  "tool_version": "baseline-2026-09-19",
-  "status": "NOT_SUPPORTED",
+  "tool_version": "v2.6.2-multi-architecture-golden",
+  "status": "PASS",
   "pass_threshold_error_pct": 10,
-  "coverage_pct": 0,
-  "mape_pct": null,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
   "metrics": {
     "accelerator_count": {
       "reference": 4096,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No TPU v4 system profile."
+      "calculated": 4096,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "cpu_host_count": {
       "reference": 1024,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No TPU-host allocation model."
+      "calculated": 1024,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "compute_rack_count": {
       "reference": 64,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "Rack sizing cannot be evaluated without TPU profile."
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "accelerators_per_rack": {
       "reference": 64,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No 4x4x4 block model."
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "optical_links_per_rack": {
       "reference": 96,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No torus face/link model."
+      "calculated": 96,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "rack_to_ocs_link_instances": {
       "reference": 6144,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No rack-to-OCS link class."
+      "calculated": 6144,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_count": {
       "reference": 48,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS object."
+      "calculated": 48,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_total_ports_each": {
       "reference": 136,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS port profile."
+      "calculated": 136,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_working_ports_each": {
       "reference": 128,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS port profile."
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_spare_ports_each": {
       "reference": 8,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS spare-port model."
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_working_ports_total": {
       "reference": 6144,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS quantity model."
+      "calculated": 6144,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     },
     "ocs_spare_ports_total": {
       "reference": 384,
-      "calculated": null,
-      "error_pct": null,
-      "status": "NOT_SUPPORTED",
-      "note": "No OCS quantity model."
+      "calculated": 384,
+      "error_pct": 0,
+      "status": "PASS",
+      "note": "Derived by generic optical-torus/OCS calculator."
     }
   },
-  "next_required_engine_features": [
-    "TPU accelerator/server profile support",
-    "3D torus topology generator",
-    "OCS device and working/spare port model",
-    "Bidirectional optical link/circulator model",
-    "Golden-case validation runner independent of UI selections"
-  ]
+  "scope_note": "PASS applies to the 12 deterministic public topology/BOM quantities in this reference case. Cable lengths, connector/patch-panel part counts, and undisclosed installation details are excluded."
 }

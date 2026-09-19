@@ -14,7 +14,7 @@ GitHub Pages가 아직 활성화되지 않았다면 아래 링크로 즉시 실�
 
 ## 파일
 
-- `index.html` — 최종 통합 v2.5 웹 애플리케이션
+- `index.html` — 최종 통합 v2.6 웹 애플리케이션
 - `readme.md` — 실행 링크 및 안내
 
 ## 주요 기능
@@ -42,3 +42,18 @@ Pages 링크가 열리지 않는 경우 저장소에서 다음만 한 번 설정
 설정 후 실행 주소:
 
 `https://kimheeseo.github.io/LSCNS/DCI/`
+
+
+## v2.6 업데이트
+
+- **9. Rack 사이 실제 연결 도식 수정**
+  - SVG 단독 의존을 제거하고 HTML Rack–Cable–Rack 도식 + 상세 SVG를 함께 표시
+  - Compute Rack → Network Rack → Spine Rack 연결 수량, media, connector, fiber 수 자동 반영
+- **상단 최종 설계도 + BIM-ready Summary 추가**
+  - Conceptual floor plan
+  - Compute / Network / Spine Rack schedule
+  - Rack 수, IT 전력, 열부하, Cooling, PDU A/B, Optical path 요약
+  - BIM planning assumption: rack 600×1200 mm, cold aisle 1200 mm, hot/service aisle 1000 mm
+  - Design JSON에 BIM 기본 데이터 포함
+
+> BIM 화면은 개념설계 및 Revit/IFC 입력 준비용 요약입니다. 실제 시공 BIM/IFC 모델은 프로젝트 건축·MEP 기준으로 별도 확정해야 합니다.

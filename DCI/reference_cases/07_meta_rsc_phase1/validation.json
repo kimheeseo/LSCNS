@@ -1,0 +1,29 @@
+{
+  "case_id": "07_meta_rsc_phase1",
+  "engine_version": "1.5",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 6080,
+      "calculated": 6080,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "storage_total_pb": {
+      "reference": 231,
+      "calculated": 231,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "cluster_network_endpoint_tbps": {
+      "reference": 1216,
+      "calculated": 1216,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

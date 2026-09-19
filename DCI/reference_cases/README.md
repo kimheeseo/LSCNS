@@ -2,6 +2,25 @@
 
 This directory validates the BOM/design engine in `DCI/index.html` against public, independently documented data-center and AI/HPC reference architectures.
 
+### HTML Preview
+**[index.html 바로 실행하기](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kimheeseo/LSCNS/main/DCI/index.html)**
+
+## 주요 기능
+
+- GPU / Server Profile DB
+- Switch / Port Mode DB
+- Leaf / Spine / Rail topology sizing
+- Rack iterative placement
+- Optical transceiver / DAC / AOC / cable / connector BOM
+- Patch Panel / ODF sizing
+- A/B Power Connectivity / PDU sizing
+- Compute / Storage / In-Band / OOB Network 분리
+- Cooling / Thermal / CDU sizing
+- Golden Case validation
+- BOM CSV / Design JSON export
+
+> 비용/RFQ 기능은 현재 버전에서 제외되어 있습니다.
+
 ## Method
 
 For every case:

@@ -1,0 +1,48 @@
+{
+  "case_id": "22_nvidia_dgx_b200_superpod",
+  "engine_version": "1.6",
+  "validation_class": "A official 3-tier BOM-table reconstruction",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "node_leaf_cable_count": {
+      "reference": 4096,
+      "calculated": 4096,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "leaf_switch_count": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "leaf_spine_cable_count": {
+      "reference": 4096,
+      "calculated": 4096,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "spine_switch_count": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "spine_core_cable_count": {
+      "reference": 4096,
+      "calculated": 4096,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "core_switch_count": {
+      "reference": 64,
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

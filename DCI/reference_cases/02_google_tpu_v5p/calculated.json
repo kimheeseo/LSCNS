@@ -1,0 +1,24 @@
+{
+  "case_id": "02_google_tpu_v5p",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.1",
+  "input_source": "design_input.json",
+  "metrics": {
+    "accelerator_count": 8960,
+    "accelerators_per_host": 4,
+    "cpu_host_count": 2240,
+    "accelerators_per_block": 64,
+    "building_block_count": 140,
+    "blocks_per_rack": 1,
+    "accelerators_per_rack": 64,
+    "compute_rack_count": 140,
+    "hosts_per_rack": 16,
+    "dcn_bandwidth_per_chip_gbps": 50,
+    "dcn_bandwidth_per_host_gbps": 200,
+    "max_slice_accelerator_count": 6144,
+    "max_slice_host_count": 1536,
+    "max_slice_block_count": 96,
+    "topology_type": "torus3d"
+  },
+  "note": "All validation outputs are derived from design_input.json by the shared engine. No reference expected value is used in the calculation path."
+}

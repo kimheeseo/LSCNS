@@ -51,6 +51,25 @@ function deriveCommon(input) {
     ? Number(input.accelerator.dcn_bandwidth_per_chip_gbps) : null;
   const dcnPerHost = dcnPerChip != null ? dcnPerChip * perHost : null;
 
+  const nicsPerHost = input.network && input.network.nics_per_host != null
+    ? Number(input.network.nics_per_host) : null;
+  const nicSpeedGbps = input.network && input.network.nic_speed_gbps != null
+    ? Number(input.network.nic_speed_gbps) : null;
+  const totalNicCount = nicsPerHost != null ? hostCount * nicsPerHost : null;
+  const nicAggregatePerHostGbps = nicsPerHost != null && nicSpeedGbps != null
+    ? nicsPerHost * nicSpeedGbps : null;
+  const dcnAggregatePodTbps = dcnPerChip != null
+    ? targetAccelerators * dcnPerChip / 1000 : (nicAggregatePerHostGbps != null ? hostCount * nicAggregatePerHostGbps / 1000 : null);
+
+  const iciPortsPerChip = input.accelerator && input.accelerator.ici_ports_per_chip != null
+    ? Number(input.accelerator.ici_ports_per_chip) : null;
+  const iciPortsTotal = iciPortsPerChip != null ? targetAccelerators * iciPortsPerChip : null;
+
+  const peakBf16TflopsPerChip = input.accelerator && input.accelerator.peak_bf16_tflops_per_chip != null
+    ? Number(input.accelerator.peak_bf16_tflops_per_chip) : null;
+  const peakBf16PflopsPerPod = peakBf16TflopsPerChip != null
+    ? peakBf16TflopsPerChip * targetAccelerators / 1000 : null;
+
   let maxSlice = {};
   if (input.validation_slice && Array.isArray(input.validation_slice.dimensions)) {
     const sliceAccelerators = product(input.validation_slice.dimensions);
@@ -73,6 +92,15 @@ function deriveCommon(input) {
     hosts_per_rack: hostsPerRack,
     dcn_bandwidth_per_chip_gbps: dcnPerChip,
     dcn_bandwidth_per_host_gbps: dcnPerHost,
+    nics_per_host: nicsPerHost,
+    nic_speed_gbps: nicSpeedGbps,
+    total_nic_count: totalNicCount,
+    nic_aggregate_bandwidth_per_host_gbps: nicAggregatePerHostGbps,
+    dcn_bandwidth_per_pod_tbps: dcnAggregatePodTbps,
+    ici_ports_per_chip: iciPortsPerChip,
+    ici_ports_total: iciPortsTotal,
+    peak_bf16_tflops_per_chip: peakBf16TflopsPerChip,
+    peak_bf16_pflops_per_pod: peakBf16PflopsPerPod,
     ...maxSlice
   };
 }
@@ -147,7 +175,7 @@ function deriveArchitecture(input) {
   const topologyType = input.topology && input.topology.type;
 
   let topology = {};
-  if (topologyType === "optical_torus" || topologyType === "torus3d" || topologyType === "3d_torus") {
+  if (topologyType === "optical_torus" || topologyType === "torus3d" || topologyType === "3d_torus" || topologyType === "torus2d" || topologyType === "2d_torus") {
     topology = deriveOpticalTorus(input, common);
     topology.topology_type = topologyType;
   } else if (topologyType === "clos" || topologyType === "leaf_spine") {

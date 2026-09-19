@@ -1,0 +1,41 @@
+{
+  "case_id": "28_nvidia_dsx_ncp",
+  "name": "NVIDIA DSX/NCP GB200 compute-tray network",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "architecture": "GB200 compute tray CIN/TAN/SMN network endpoints",
+  "sources": [
+    {
+      "title": "NVIDIA NCP Software Reference Guide - Data Center Architecture",
+      "url": "https://docs.nvidia.com/dsx/ncp/software-reference-guide/data-center-architecture",
+      "type": "NVIDIA DSX/NCP documentation"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 4,
+      "unit": "B200 GPUs/tray",
+      "verifiable": true
+    },
+    "compute_nic_count": {
+      "value": 4,
+      "unit": "ConnectX-7 CIN NICs/tray",
+      "verifiable": true
+    },
+    "compute_bandwidth_tbps": {
+      "value": 1.6,
+      "unit": "Tbps CIN endpoint bandwidth/tray",
+      "verifiable": true
+    },
+    "converged_link_count": {
+      "value": 4,
+      "unit": "logical 200G TAN links/tray",
+      "verifiable": true
+    },
+    "converged_bandwidth_tbps": {
+      "value": 0.8,
+      "unit": "Tbps TAN endpoint bandwidth/tray",
+      "verifiable": true
+    }
+  }
+}

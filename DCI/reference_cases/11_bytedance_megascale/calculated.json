@@ -1,0 +1,13 @@
+{
+  "case_id": "11_bytedance_megascale",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "host_count": 64,
+    "server_network_links": 512,
+    "tor_count": 8,
+    "tor_logical_downlinks_total": 512,
+    "tor_physical_downlinks_total": 256,
+    "tor_uplinks_total": 256,
+    "tor_backup_downlinks_total": null
+  }
+}

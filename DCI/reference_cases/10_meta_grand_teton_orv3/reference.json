@@ -1,0 +1,39 @@
+{
+  "case_id": "10_meta_grand_teton_orv3",
+  "name": "Meta Grand Teton / Open Rack v3",
+  "vendor": "Meta / OCP",
+  "year": 2022,
+  "architecture": "ORv3 48V rack power + Grand Teton integrated 8OU chassis",
+  "sources": [
+    {
+      "title": "Meta Engineering - OCP Summit 2022: Open hardware for AI infrastructure",
+      "url": "https://engineering.fb.com/2022/10/18/open-source/ocp-summit-2022-grand-teton/",
+      "type": "official Meta publication"
+    },
+    {
+      "title": "OCP Grand Teton Platform Specification",
+      "url": "https://www.opencompute.org/documents/grand-teton-platform-specification-v1-0-pdf",
+      "type": "OCP official specification"
+    }
+  ],
+  "metrics": {
+    "bbu_shelves_required_for_rack": {
+      "value": 2,
+      "unit": "BBU shelves",
+      "source_note": "30 kW rack / 15 kW per BBU shelf",
+      "verifiable": true
+    },
+    "bbu_pair_power_kw": {
+      "value": 30,
+      "unit": "kW",
+      "source_note": "Meta explicitly states pair provides 30 kW",
+      "verifiable": true
+    },
+    "backup_duration_seconds": {
+      "value": 240,
+      "unit": "seconds",
+      "source_note": "4 minute BBU duration",
+      "verifiable": true
+    }
+  }
+}

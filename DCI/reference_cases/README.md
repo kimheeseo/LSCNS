@@ -42,9 +42,9 @@ PASS      = error <= 10%
 | 15 | [Cerebras Condor Galaxy 1](15_cerebras_cg1/) | Wafer-scale cluster | **PASS** | **0.7407%** | **100.0%** |
 | 16 | [xAI Colossus](16_xai_colossus/) | Spectrum-X Ethernet | **PASS (weak)** | **0.00%** | **100.0%** |
 | 17 | [AWS EC2 P5](17_aws_p5/) | EFA / GPU instance | **PASS** | **0.00%** | **100.0%** |
-| 18 | Oracle OCI Supercluster | RDMA GPU cluster | PENDING | — | — |
-| 19 | Azure ND H100 v5 | 8-GPU / 400G fabric | PENDING | — | — |
-| 20 | Azure ND MI300X v5 | 8-GPU / 400G fabric | PENDING | — | — |
+| 18 | [Oracle OCI H100](18_oracle_oci_h100/) | RDMA GPU cluster | **PASS** | **0.00%** | **100.0%** |
+| 19 | [Azure ND H100 v5](19_azure_nd_h100_v5/) | 8-GPU / 400G fabric | **PASS** | **0.00%** | **100.0%** |
+| 20 | [Azure ND MI300X v5](20_azure_nd_mi300x_v5/) | 8-GPU / 400G fabric | **PASS** | **0.00%** | **100.0%** |
 | 21 | NVIDIA DGX H100 SuperPOD | Leaf-Spine | PENDING | — | — |
 | 22 | NVIDIA DGX B200 SuperPOD | Leaf-Spine | PENDING | — | — |
 | 23 | NVIDIA B200 Compute Fabric | Leaf-Spine | PENDING | — | — |
@@ -133,3 +133,9 @@ Each Case README now contains:
 - Case 16 xAI Colossus: PASS but weak C-
 
 - Case 17 AWS P5: PASS · profile arithmetic
+
+- Case 18 Oracle OCI H100: PASS · cross-source node derivation
+
+- Case 19 Azure ND H100 v5: PASS · host profile consistency
+
+- Case 20 Azure ND MI300X v5: PASS · host profile consistency

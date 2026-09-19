@@ -1,0 +1,36 @@
+{
+  "case_id": "13_ibm_vela",
+  "name": "IBM Vela node hardware",
+  "vendor": "IBM Research",
+  "year": 2023,
+  "architecture": "8×A100 cloud-native node",
+  "sources": [
+    {
+      "title": "IBM Research’s Vela is an AI supercomputer in the cloud",
+      "url": "https://research.ibm.com/blog/AI-supercomputer-Vela-GPU-cluster",
+      "type": "IBM Research"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 8,
+      "unit": "A100/node",
+      "verifiable": true
+    },
+    "cpu_count": {
+      "value": 2,
+      "unit": "CPU/node",
+      "verifiable": true
+    },
+    "gpu_memory_gb": {
+      "value": 640,
+      "unit": "GB GPU memory/node",
+      "verifiable": true
+    },
+    "nvme_capacity_tb": {
+      "value": 12.8,
+      "unit": "TB local NVMe/node",
+      "verifiable": true
+    }
+  }
+}

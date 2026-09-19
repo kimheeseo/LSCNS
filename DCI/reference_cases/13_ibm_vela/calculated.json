@@ -1,0 +1,19 @@
+{
+  "case_id": "13_ibm_vela",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "system_count": 1,
+    "compute_core_count": 0,
+    "cpu_count": 2,
+    "memory_tb": 0,
+    "fabric_bandwidth_tbps": 0,
+    "accelerator_count": 8,
+    "node_count": 1,
+    "gpu_memory_gb": 640,
+    "nvme_count": 4,
+    "nvme_capacity_tb": 12.8,
+    "network_nic_count": 0,
+    "network_bandwidth_gbps": 0,
+    "expanded_accelerator_count": null
+  }
+}

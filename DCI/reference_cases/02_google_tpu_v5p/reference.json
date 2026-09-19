@@ -1,0 +1,108 @@
+{
+  "case_id": "02_google_tpu_v5p",
+  "name": "Google Cloud TPU v5p",
+  "vendor": "Google",
+  "architecture": "3D torus, 4x4x4 cube/rack, reconfigurable ICI",
+  "year": 2023,
+  "sources": [
+    {
+      "title": "Google Cloud TPU v5p documentation",
+      "url": "https://docs.cloud.google.com/tpu/docs/v5p",
+      "type": "official vendor documentation",
+      "note": "Primary architecture and topology source"
+    },
+    {
+      "title": "Google Compute Engine TPU machine specifications",
+      "url": "https://docs.cloud.google.com/compute/docs/tpus/tpu-machines",
+      "type": "official vendor documentation",
+      "note": "Machine/NIC and per-chip DCN source"
+    }
+  ],
+  "input_context": {
+    "pod_accelerator_target": 8960,
+    "chips_per_host": 4,
+    "cube_dimensions": [
+      4,
+      4,
+      4
+    ],
+    "max_slice_dimensions": [
+      16,
+      16,
+      24
+    ],
+    "dcn_bandwidth_per_chip_gbps": 50
+  },
+  "metrics": {
+    "cpu_host_count": {
+      "value": 2240,
+      "unit": "hosts",
+      "source_note": "v5p full Pod: 2240 hosts/VMs",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "accelerators_per_block": {
+      "value": 64,
+      "unit": "chips/cube",
+      "source_note": "4x4x4 cube = 64 chips",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "building_block_count": {
+      "value": 140,
+      "unit": "cubes",
+      "source_note": "v5p full Pod: 140 cubes",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "compute_rack_count": {
+      "value": 140,
+      "unit": "racks",
+      "source_note": "Google table labels one cube as cube (rack)",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "accelerators_per_rack": {
+      "value": 64,
+      "unit": "chips/rack",
+      "source_note": "Cube (rack): 64 chips",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "hosts_per_rack": {
+      "value": 16,
+      "unit": "hosts/rack",
+      "source_note": "Cube (rack): 16 hosts/VMs",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "dcn_bandwidth_per_host_gbps": {
+      "value": 200,
+      "unit": "Gbps/host",
+      "source_note": "50 Gbps/chip x 4 chips/VM = 200 Gbps; official VM table also lists 200 Gbps",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "max_slice_accelerator_count": {
+      "value": 6144,
+      "unit": "chips",
+      "source_note": "Largest supported slice 16x16x24 = 6144 chips",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "max_slice_host_count": {
+      "value": 1536,
+      "unit": "hosts",
+      "source_note": "Largest supported slice table: 1536 hosts/VMs",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "max_slice_block_count": {
+      "value": 96,
+      "unit": "cubes",
+      "source_note": "Largest supported slice table: 96 cubes",
+      "confidence": "high",
+      "verifiable": true
+    }
+  }
+}

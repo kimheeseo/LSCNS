@@ -1,0 +1,23 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "tool": "DCI/index.html",
+  "tool_version": "baseline-2026-09-19",
+  "input_mapping": {
+    "status": "not_mappable_without_model_change",
+    "reason": "Current engine exposes single/dual/rail leaf-spine style topology and GPU server profiles; it has no TPU v4 profile, 3D torus topology, or OCS object."
+  },
+  "metrics": {
+    "accelerator_count": null,
+    "cpu_host_count": null,
+    "compute_rack_count": null,
+    "accelerators_per_rack": null,
+    "optical_links_per_rack": null,
+    "rack_to_ocs_link_instances": null,
+    "ocs_count": null,
+    "ocs_total_ports_each": null,
+    "ocs_working_ports_each": null,
+    "ocs_spare_ports_each": null,
+    "ocs_working_ports_total": null,
+    "ocs_spare_ports_total": null
+  }
+}

@@ -32,7 +32,7 @@ PASS      = error <= 10%
 | 05 | [Google A3 Mega H100](05_google_a3_mega_h100/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
 | 06 | [Google A3 Ultra / A4](06_google_a3_ultra_a4/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
 | 07 | [Meta RSC Phase 1](07_meta_rsc_phase1/) | 2-level nonblocking Clos | **PASS** | **0.00%** | **100.0%** |
-| 08 | Meta RSC Phase 2 | Large DGX Clos | PENDING | — | — |
+| 08 | [Meta RSC Phase 2](08_meta_rsc_phase2/) | Large DGX Clos | **PASS** | **0.080%** | **100.0%** |
 | 09 | Meta 24K H100 cluster | RoCE / Quantum-2 | PENDING | — | — |
 | 10 | Meta Grand Teton / ORv3 | Rack / power | PENDING | — | — |
 | 11 | ByteDance MegaScale | 3-tier Clos + 8-rail | PENDING | — | — |

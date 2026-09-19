@@ -1,0 +1,46 @@
+{
+  "case_id": "27_nvidia_gb300_nvl72",
+  "name": "NVIDIA GB300 NVL72 AI Factory",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "architecture": "18-tray / 72-GPU rack with CX-8 compute and B3240 converged networking",
+  "sources": [
+    {
+      "title": "NVIDIA GB300 NVL72 AI Factory Network Logical Architecture",
+      "url": "https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/network-logical-architecture.html",
+      "type": "NVIDIA RA"
+    }
+  ],
+  "metrics": {
+    "tray_count": {
+      "value": 18,
+      "unit": "compute trays/rack",
+      "verifiable": true
+    },
+    "accelerator_count": {
+      "value": 72,
+      "unit": "GPUs/rack",
+      "verifiable": true
+    },
+    "compute_nic_count": {
+      "value": 72,
+      "unit": "ConnectX-8 compute NICs/rack",
+      "verifiable": true
+    },
+    "compute_bandwidth_tbps": {
+      "value": 57.6,
+      "unit": "Tbps aggregate compute-NIC endpoint bandwidth/rack",
+      "verifiable": true
+    },
+    "converged_link_count": {
+      "value": 36,
+      "unit": "400G converged links/rack",
+      "verifiable": true
+    },
+    "converged_bandwidth_tbps": {
+      "value": 14.4,
+      "unit": "Tbps converged endpoint bandwidth/rack",
+      "verifiable": true
+    }
+  }
+}

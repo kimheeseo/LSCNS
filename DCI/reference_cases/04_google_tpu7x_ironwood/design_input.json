@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "case_id": "04_google_tpu7x_ironwood",
+  "target_accelerators": 9216,
+  "accelerator": {
+    "per_host": 4,
+    "dcn_bandwidth_per_chip_gbps": 100,
+    "peak_bf16_tflops_per_chip": 2307,
+    "peak_fp8_tflops_per_chip": 4614,
+    "hbm_capacity_gib_per_chip": 192,
+    "hbm_bandwidth_GBps_per_chip": 7380,
+    "tensor_cores_per_chip": 2,
+    "sparse_cores_per_chip": 4
+  },
+  "building_block": {
+    "dimensions": [
+      4,
+      4,
+      4
+    ]
+  },
+  "topology": {
+    "type": "torus3d"
+  }
+}

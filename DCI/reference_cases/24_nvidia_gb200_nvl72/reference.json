@@ -1,0 +1,46 @@
+{
+  "case_id": "24_nvidia_gb200_nvl72",
+  "name": "NVIDIA DGX GB200 NVL72 rack",
+  "vendor": "NVIDIA",
+  "year": 2025,
+  "architecture": "72-GPU rack-scale NVLink domain",
+  "sources": [
+    {
+      "title": "DGX GB Rack Scale Systems Hardware",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html",
+      "type": "NVIDIA user guide"
+    }
+  ],
+  "metrics": {
+    "compute_tray_count": {
+      "value": 18,
+      "unit": "compute trays",
+      "verifiable": true
+    },
+    "accelerator_count": {
+      "value": 72,
+      "unit": "GPUs",
+      "verifiable": true
+    },
+    "cpu_count": {
+      "value": 36,
+      "unit": "Grace CPUs",
+      "verifiable": true
+    },
+    "nvlink_switch_tray_count": {
+      "value": 9,
+      "unit": "switch trays",
+      "verifiable": true
+    },
+    "nvswitch_count": {
+      "value": 18,
+      "unit": "NVSwitch chips",
+      "verifiable": true
+    },
+    "tor_switch_count": {
+      "value": 2,
+      "unit": "management ToR switches",
+      "verifiable": true
+    }
+  }
+}

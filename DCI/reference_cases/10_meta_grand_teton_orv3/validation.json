@@ -25,5 +25,7 @@
       "error_pct": 0,
       "status": "PASS"
     }
-  }
+  },
+  "validation_class": "B power-BOM derivation",
+  "review_note": "Derives BBU shelf quantity/pair power/time from ORv3 public values."
 }

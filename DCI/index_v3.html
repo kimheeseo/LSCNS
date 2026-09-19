@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>AI Data Center BOM Engine v3.0 — Physical Fabric Validation</title>
+<title>AI Data Center BOM Engine v3.1 — Pod-first Physical Fabric Validation</title>
 <style>
 :root{
   --bg:#0a1020; --panel:#111a31; --panel2:#172443; --txt:#eef4ff; --muted:#9eafd0;
@@ -150,7 +150,7 @@ html{scroll-behavior:smooth}
 .validationControls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.validationControls button{width:auto;margin:0;padding:8px 11px}
 .validationControls select{width:auto;min-width:180px}
 
-/* ===== v3.0 physical-fabric engine ===== */
+/* ===== v3.1 physical-fabric engine ===== */
 .scopeCard{border:1px solid #2d7294;background:linear-gradient(135deg,#0d2536,#111a31);border-radius:14px;padding:14px;margin:0 0 14px}
 .scopeCard b{color:#d8f3ff}.scopeGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.scopeIn,.scopeOut{padding:10px;border-radius:10px;font-size:12px;line-height:1.55}.scopeIn{background:#102c36;border:1px solid #276f79}.scopeOut{background:#2e1f29;border:1px solid #704052}
 .solverStatus{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.solverPill{padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800;background:#1b2c49;border:1px solid #3f6d90}.solverPill.ok{background:#163b2e;border-color:#357d5d}.solverPill.warn{background:#422d1e;border-color:#9c6934}
@@ -189,10 +189,10 @@ html{scroll-behavior:smooth}
 <div class="wrap">
 <div class="hero">
 <div>
-<h1>AI 데이터센터 BOM 설계 엔진 v3</h1>
+<h1>AI 데이터센터 BOM 설계 엔진 v3.1</h1>
 <div class="sub">Physical Fabric Solver · <b>Requirements → Product Ports → Physical Racks → Link Graph → Cable BOM → Evidence Validation</b></div>
 </div>
-<div class="badge">2026.09.19 · v3.0 Physical Fabric Validation</div>
+<div class="badge">2026.09.19 · v3.1 Pod-first Physical Fabric Validation</div>
 </div><div class="workflowNav"><a href="#step1"><b>STEP 1</b>요구조건</a><a href="#step2"><b>STEP 2</b>System</a><a href="#step3"><b>STEP 3</b>Rack/Network</a><a href="#step4"><b>STEP 4</b>Connectivity</a><a href="#step5"><b>STEP 5</b>Power/Cooling</a><a href="#step6"><b>STEP 6</b>Final BOM</a>
 </div>
 <div class="topDesignResult" id="designOverview">
@@ -317,7 +317,10 @@ html{scroll-behavior:smooth}
 <div class="field"><label>Reserved U</label><input id="reservedU" type="number" value="4"/></div>
 <div class="field"><label>Rack IT limit (kW)</label><input id="rackITLimit" min="1" type="number" value="120"/></div>
 <div class="field"><label>Rack design headroom (%)</label><input id="rackHeadroom" max="50" min="0" type="number" value="15"/></div>
-<div class="field"><label>Placement verification passes</label><input id="maxPlacementIterations" max="10" min="1" type="number" value="3"/></div>
+<div class="field"><label>Aux/PDU fixed-point passes</label><input id="maxPlacementIterations" max="10" min="1" type="number" value="3"/></div>
+<div class="field"><label>Leafs / pod (design policy)</label><input id="podLeafLimit" min="1" type="number" value="32"/></div>
+<div class="field"><label>Spine → Core ports / spine</label><input id="coreUplinkPorts" min="1" type="number" value="8"/></div>
+<div class="inputHint">Pod 크기와 Spine→Core 포트는 공개 reference 값이 아니라 프로젝트 설계정책 입력입니다. 엔진은 이 값과 switch port capacity의 합계가 물리적으로 가능한지 검사합니다.</div>
 <h3 style="margin-top:14px">Power Connectivity</h3>
 <div class="field"><label>PDU outlet / unit</label><input id="pduOutletCount" min="1" type="number" value="24"/></div>
 <div class="field"><label>PDU rated kW / feed</label><input id="pduRatedKw" min="1" step="1" type="number" value="60"/></div>
@@ -496,14 +499,15 @@ html{scroll-behavior:smooth}
 
 <div class="small">
     NVIDIA DGX SuperPOD B200/H200 공식 compute-fabric component count를 기준으로
-    <b>Node / GPU / Leaf / Spine / Compute+UFM connections / Leaf↔Spine connections</b>를 자동 비교합니다.
+    <b>GPU / Leaf / Spine / Leaf↔Spine connections</b>를 표시합니다.
+    이 중 GPU는 항등식, Leaf↔Spine은 파생값이므로 <b>등급 산정에는 Leaf·Spine만</b> 사용합니다. UFM은 LS전선 BOM 범위에서 제외합니다.
     현재 선택 조건과 무관하게 고정 Golden Case를 별도로 실행합니다.
   </div>
 <div class="guideTableWrap" id="goldenSummary"></div>
 <div class="callout small" id="goldenNotes"></div>
 </div></details><details class="advancedCard"><summary>검증 · 30-Case Independent Validation Ledger</summary><div class="advancedBody">
 <div class="small">각 Case는 요구조건만 엔진으로 전달하고, 공개 Reference는 계산 이후 비교합니다. 이 표는 데이터가 부족한 Case를 억지로 A로 표기하지 않도록 합니다.</div>
-<div class="validationControls"><select id="validationFilter" onchange="renderIndependentValidation()"><option value="all">All 30 cases</option><option value="promotable">A/A- 승격 가능</option><option value="gap">Evidence gap</option></select><button class="secondary" onclick="downloadValidationCsv()">Validation CSV 내보내기</button></div>
+<div class="validationControls"><select id="validationFilter" onchange="renderIndependentValidation()"><option value="all">All 30 cases</option><option value="promotable">A/A- evidence candidate</option><option value="gap">Evidence gap</option></select><button class="secondary" onclick="downloadValidationCsv()">Validation CSV 내보내기</button></div>
 <div class="validationTableWrap"><table class="validationTable"><thead><tr><th>Case</th><th>Architecture / input boundary</th><th>Independent refs</th><th>Level</th><th>Next evidence</th></tr></thead><tbody id="independentValidationSummary"></tbody></table></div>
 <div class="callout small" id="independentValidationNotes"></div>
 </div></details><details class="advancedCard"><summary>계산 상세 · Spine/Fabric 엔진 계산 요약</summary><div class="advancedBody">
@@ -1536,81 +1540,6 @@ function computeRackCapacity({s,sw,topology,sfProfile,serverCablingMode,spareFac
     byAirflow:cooling.mode==="dlc"?null:maxByAirflow,
     switchU,switchPower,infraU:fixedCableU,usablePower,coolingMode:cooling.mode
   };
-}
-
-function legacyReferenceFabricState_DO_NOT_USE({s,sw,topology,units,alloc,sfSpeed,upSpeed,oversub,spareFactor}){
-  const computeRacks=alloc.length;
-  let leafCount=0,spineCount=0,totalLeafUplinks=0,perLeafDownActual=0,uplinksPerLeaf=0;
-  let ufmLinks=0,computeAndUfmConnections=units*(s.links||0),referenceSU=null;
-  let spineDetail="", basis="port-based";
-  const cap=maxDownlinks(sw,sfSpeed,upSpeed,oversub);
-  if(!cap) return {leafCount:0,spineCount:0,totalLeafUplinks:0,perLeafDownActual:0,uplinksPerLeaf:0,ufmLinks:0,computeAndUfmConnections:units*(s.links||0),referenceSU:null,spineDetail:"INVALID PORT PACKING",basis:"invalid"};
-
-  const maxServersPerRack=Math.max(...alloc,0);
-
-  if(topology==="single"){
-    leafCount=computeRacks;
-    perLeafDownActual=Math.ceil(maxServersPerRack*s.links);
-    uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
-    totalLeafUplinks=leafCount*uplinksPerLeaf;
-    spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
-    spineDetail=`PORT-BASED · Single ToR: racks=${computeRacks}, down/ToR=${perLeafDownActual}, uplink/ToR=${uplinksPerLeaf}, spine=${spineCount}`;
-  } else if(topology==="dual"){
-    leafCount=computeRacks*2;
-    perLeafDownActual=Math.ceil(maxServersPerRack*s.links/2);
-    uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
-    totalLeafUplinks=leafCount*uplinksPerLeaf;
-    spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
-    spineDetail=`PORT-BASED · Dual ToR: racks=${computeRacks}, leaf=${leafCount}, uplink/leaf=${uplinksPerLeaf}, spine=${spineCount}`;
-  } else {
-    const useNvidiaRailReference =
-      sw===switches.qm9700 &&
-      (s===systems.b200 || s===systems.h200) &&
-      sfSpeed===400 && upSpeed===400;
-
-    if(useNvidiaRailReference){
-      // Detailed NVIDIA compute-fabric table uses 31/63/95/127 DGX nodes
-      // because one DGX system position is displaced by UFM connectivity in the full design.
-      const suCount=Math.max(1,Math.ceil((units+1)/32));
-      const table=[
-        {su:1,nodes:31,gpus:248,leaf:8,spine:4,computeUfm:252,leafSpine:256},
-        {su:2,nodes:63,gpus:504,leaf:16,spine:8,computeUfm:508,leafSpine:512},
-        {su:3,nodes:95,gpus:760,leaf:24,spine:16,computeUfm:764,leafSpine:768},
-        {su:4,nodes:127,gpus:1016,leaf:32,spine:16,computeUfm:1020,leafSpine:1024}
-      ];
-      const row=table.find(x=>x.su===suCount);
-      if(row){
-        leafCount=row.leaf; spineCount=row.spine; totalLeafUplinks=row.leafSpine;
-        perLeafDownActual=Math.ceil(units*s.links/leafCount);
-        uplinksPerLeaf=Math.ceil(totalLeafUplinks/leafCount);
-        ufmLinks=4;
-        computeAndUfmConnections=units*s.links+ufmLinks;
-        referenceSU=suCount;
-        basis=`NVIDIA reference ${suCount} SU`;
-        spineDetail=`NVIDIA REFERENCE · SU=${suCount}, Leaf=${leafCount}, Spine=${spineCount}, Compute+UFM=${computeAndUfmConnections}, Leaf↔Spine=${totalLeafUplinks}`;
-      } else {
-        const rails=Math.min(8,s.links);
-        const leafPerRail=Math.ceil((units*spareFactor)/cap.downlinks);
-        leafCount=rails*leafPerRail;
-        perLeafDownActual=Math.ceil(units/leafPerRail);
-        uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
-        totalLeafUplinks=leafCount*uplinksPerLeaf;
-        spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
-        basis="port-based fallback";
-        spineDetail=`PORT-BASED FALLBACK · leaf=${leafCount}, spine=${spineCount}`;
-      }
-    } else {
-      const rails=Math.min(8,s.links);
-      const leafPerRail=Math.ceil((units*spareFactor)/cap.downlinks);
-      leafCount=rails*leafPerRail;
-      perLeafDownActual=Math.ceil(units/leafPerRail);
-      uplinksPerLeaf=Math.ceil(perLeafDownActual*sfSpeed/(oversub*upSpeed));
-      totalLeafUplinks=leafCount*uplinksPerLeaf;
-      spineCount=Math.ceil(totalLeafUplinks/Math.max(1,maxLogical(sw,upSpeed)));
-      spineDetail=`PORT-BASED · Rail: leaf=${leafCount}, uplink/leaf=${uplinksPerLeaf}, spine=${spineCount}`;
-    }
-  }
-  return {leafCount,spineCount,totalLeafUplinks,perLeafDownActual,uplinksPerLeaf,ufmLinks,computeAndUfmConnections,referenceSU,spineDetail,basis};
 }
 
 /* v2: reference-blind fabric solver. No Case fixture, Leaf/Spine count or port split is read here. */
@@ -2837,7 +2766,7 @@ function renderRackVisuals(ctx){
       {start:42,ru:2,label:"INGRESS PANEL",kind:"patch", panelPorts: sfProfile.optical ? {type:(sfProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, shown*2), color: mediaMainColor} : null},
       {start:44,ru:2,label:"UPLINK PANEL",kind:"patch", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, shown*2), color: uplinkColor} : null}
     ]);
-    const networkPowerRow = powerSizing ? powerSizing.racks.find(x=>x.name==="Network Rack") : null;
+    const networkPowerRow = powerSizing ? powerSizing.racks.find(x=>x.name.startsWith("Leaf Network Rack")) : null;
     if(networkPowerRow) drawPowerOverlay(svg, rg, front, sw, networkPowerRow, sw, topology);
     drawRearNetworkConnections(svg, rg, frontRects, rearRects["ODF"], rearRects["INGRESS PANEL"], rearRects["UPLINK PANEL"], rearRects["CABLE MGR"], mediaMainColor, uplinkColor);
 
@@ -2863,7 +2792,7 @@ function renderRackVisuals(ctx){
       {start:42,ru:2,label:"PATCH PANEL",kind:"patch", panelPorts: lsProfile.optical ? {type:(lsProfile.connector.includes("LC")?"LC":"MPO"), total: Math.max(1, spineCount*2), color: uplinkColor} : null},
       {start:44,ru:2,label:"FIBER TRAY",kind:"tray"}
     ]);
-    const spinePowerRow = powerSizing ? powerSizing.racks.find(x=>x.name==="Spine Rack") : null;
+    const spinePowerRow = powerSizing ? powerSizing.racks.find(x=>x.name.startsWith("Spine Rack")) : null;
     if(spinePowerRow) drawPowerOverlay(svg, rg, front, sw, spinePowerRow, sw, topology);
 
     const sws = Object.values(frontRects).filter(r=>r.kind==="spine");
@@ -3219,10 +3148,10 @@ function downloadDesignJson(){
   });
 });
 
-refreshPreset();
-</script>
-<script>
-/* v3 — physical fabric solver.  This layer deliberately replaces the v2
+/* v3 initialization is called after the physical solver is registered.
+   The application intentionally uses one script so registration order is
+   deterministic. */
+/* v3 — physical fabric solver.  This layer replaces the legacy
    reference-budget and port-division shortcuts. */
 (function(){
   const V3_SCOPE = "LS Cable physical infrastructure scope";
@@ -3235,12 +3164,14 @@ refreshPreset();
 
   function v3Policy(sw, topology, upSpeed){
     const portCapacity = Math.max(1,maxLogical(sw,upSpeed));
+    const podLeafLimit=Math.max(1,Math.floor(+qn("podLeafLimit")?.value||32));
+    const coreUplinkPorts=Math.max(1,Math.floor(+qn("coreUplinkPorts")?.value||8));
     return {
       spinePortCapacity:portCapacity,
-      maxLeavesPerPod:Math.min(32,portCapacity),
-      modularSpineStep:sw===switches.qm9700 ? 4 : 1,
+      maxLeavesPerPod:podLeafLimit,
+      coreUplinkPorts,
       topology,
-      source:"catalog port-mode + explicit design policy"
+      source:"catalog port-mode + user-selected pod/core design policy"
     };
   }
 
@@ -3279,34 +3210,44 @@ refreshPreset();
       return {leafCount,spineCount:0,coreCount:0,podCount:1,totalLeafUplinks:0,spineToCoreLinks:0,perLeafDownActual,uplinksPerLeaf:0,pathsPerLeafSpine:0,spineDownPortsUsed:0,ufmLinks:0,computeAndUfmConnections:totalEndpointLinks,referenceSU:null,spineDetail:detail,basis:"REFERENCE-BLIND · local ToR",feasible:true,issues:[]};
     }
 
-    /* Full-mesh feasibility: a spine must have a port for every Leaf↔Spine
-       path.  The parallel-path count is reduced by adding spines as needed. */
-    const portDemand=cdiv(totalLeafUplinks,p.spinePortCapacity);
-    const maxParallelPerPair=Math.max(1,Math.floor(p.spinePortCapacity/Math.max(1,leafCount)));
-    let spineCount=Math.max(portDemand,cdiv(uplinksPerLeaf,maxParallelPerPair));
-    spineCount=cdiv(spineCount,p.modularSpineStep)*p.modularSpineStep;
-    let pathsPerLeafSpine=cdiv(uplinksPerLeaf,spineCount);
-    let spineDownPortsUsed=leafCount*pathsPerLeafSpine;
-    while(spineDownPortsUsed>p.spinePortCapacity){
-      spineCount+=p.modularSpineStep;
-      pathsPerLeafSpine=cdiv(uplinksPerLeaf,spineCount);
-      spineDownPortsUsed=leafCount*pathsPerLeafSpine;
-    }
-
+    /* Pod-first solve.  A Leaf only connects to Spine switches inside its Pod.
+       There is no unbounded "add spines until it fits" loop. */
     const podCount=cdiv(leafCount,p.maxLeavesPerPod);
-    let coreCount=0, spineToCoreLinks=0;
-    if(podCount>1){
-      const spinesPerPod=cdiv(spineCount,podCount);
-      const spineCorePaths=Math.max(1,Math.ceil(p.spinePortCapacity*0.25));
-      spineToCoreLinks=podCount*spinesPerPod*spineCorePaths;
-      coreCount=cdiv(spineToCoreLinks,p.spinePortCapacity);
-    }
-    const feasible=spineDownPortsUsed<=p.spinePortCapacity;
+    const coreUplinkPorts=podCount>1 ? p.coreUplinkPorts : 0;
+    const downPortBudget=p.spinePortCapacity-coreUplinkPorts;
     const issues=[];
-    if(!feasible) issues.push("Leaf–Spine full-mesh port feasibility failed");
-    if(podCount>1) issues.push(`Pod policy activated: ${podCount} pods; super-spine count is calculated`);
-    const detail=`REFERENCE-BLIND · ${topoLabel(topology)} · ${sw.name}; endpoints=${totalEndpointLinks}; Leaf=${leafCount}; down/Leaf=${perLeafDownActual}; up/Leaf=${uplinksPerLeaf}; Spine=${spineCount}; paths/Leaf–Spine=${pathsPerLeafSpine}; Spine down-ports=${spineDownPortsUsed}/${p.spinePortCapacity}; Pod=${podCount}; Core=${coreCount}`;
-    return {leafCount,spineCount,coreCount,podCount,totalLeafUplinks,spineToCoreLinks,perLeafDownActual,uplinksPerLeaf,pathsPerLeafSpine,spineDownPortsUsed,ufmLinks:0,computeAndUfmConnections:totalEndpointLinks,referenceSU:null,spineDetail:detail,basis:"REFERENCE-BLIND · catalog + physical graph",feasible,issues};
+    if(downPortBudget<1){
+      return empty(`INFEASIBLE: Core reserve ${coreUplinkPorts} consumes all ${p.spinePortCapacity} spine ports`,"policy-invalid");
+    }
+    const pods=[];
+    let spineCount=0, spineToCoreLinks=0, feasible=true, maxPaths=0, maxSpineDownPorts=0;
+    let leafRemaining=leafCount;
+    for(let index=1;index<=podCount;index++){
+      const leaves=Math.min(p.maxLeavesPerPod,leafRemaining); leafRemaining-=leaves;
+      if(leaves>downPortBudget){
+        feasible=false; issues.push(`Pod ${index}: ${leaves} Leaf exceeds available Spine down-port budget ${downPortBudget}`);
+        pods.push({index,leaves,spineCount:0,pathsPerLeafSpine:0,spineDownPortsUsed:0,coreUplinkPorts,feasible:false});
+        continue;
+      }
+      const maxParallelPerPair=Math.max(1,Math.floor(downPortBudget/leaves));
+      const minimumSpines=Math.max(cdiv(leaves*uplinksPerLeaf,downPortBudget),cdiv(uplinksPerLeaf,maxParallelPerPair));
+      let spines=minimumSpines, paths=cdiv(uplinksPerLeaf,spines), spineDown=leaves*paths;
+      /* Bound is independent of input size; it prevents a browser lock even
+         for an invalid policy. */
+      let guard=0;
+      while(spineDown>downPortBudget && guard<Math.max(64,uplinksPerLeaf+1)){
+        spines++; paths=cdiv(uplinksPerLeaf,spines); spineDown=leaves*paths; guard++;
+      }
+      const podFeasible=spineDown<=downPortBudget && guard<Math.max(64,uplinksPerLeaf+1);
+      if(!podFeasible){feasible=false;issues.push(`Pod ${index}: unable to satisfy Leaf↔Spine port graph within bounded solve`);}
+      pods.push({index,leaves,spineCount:spines,pathsPerLeafSpine:paths,spineDownPortsUsed:spineDown,coreUplinkPorts,feasible:podFeasible});
+      spineCount+=spines; spineToCoreLinks+=spines*coreUplinkPorts; maxPaths=Math.max(maxPaths,paths); maxSpineDownPorts=Math.max(maxSpineDownPorts,spineDown);
+    }
+    const coreCount=podCount>1 ? cdiv(spineToCoreLinks,p.spinePortCapacity) : 0;
+    if(podCount>1) issues.push(`Pod-first policy: ${podCount} pod(s), ${p.maxLeavesPerPod} Leaf/pod limit, ${coreUplinkPorts} Spine→Core ports/spine.`);
+    const podSummary=pods.map(x=>`P${x.index}:${x.leaves}L/${x.spineCount}S/${x.pathsPerLeafSpine}path`).join(" · ");
+    const detail=`REFERENCE-BLIND · ${topoLabel(topology)} · ${sw.name}; endpoints=${totalEndpointLinks}; Leaf=${leafCount}; down/Leaf=${perLeafDownActual}; up/Leaf=${uplinksPerLeaf}; Spine=${spineCount}; max paths/Leaf–Spine=${maxPaths}; max Spine ports=${maxSpineDownPorts} down + ${coreUplinkPorts} core / ${p.spinePortCapacity}; Pod=${podCount}; Core=${coreCount}; ${podSummary}`;
+    return {leafCount,spineCount,coreCount,podCount,pods,totalLeafUplinks,spineToCoreLinks,perLeafDownActual,uplinksPerLeaf,pathsPerLeafSpine:maxPaths,spineDownPortsUsed:maxSpineDownPorts,coreUplinkPorts,spinePortCapacity:p.spinePortCapacity,ufmLinks:0,computeAndUfmConnections:totalEndpointLinks,referenceSU:null,spineDetail:detail,basis:"REFERENCE-BLIND · catalog + pod-first physical graph",feasible,issues};
   }
   window.solveFabricGraphV3=solveFabricGraphV3;
 
@@ -3341,7 +3282,7 @@ refreshPreset();
     const speed=s===systems.b200||s===systems.b300 ? 200 : 100;
     return {linksPerSystem:2,speed,switchId:speed>100?"sn5600":"sn4600c",media:speed>100?"200G AOC/optic":"100G AOC/optic"};
   }
-  function buildAuxFabricSizingV3({s,units,leafCount,spineCount,coreCount=0,computeRacks,fabricRacks}){
+  function buildAuxFabricSizingV3({s,units,leafCount,spineCount,coreCount=0,pduCount=0,priorOobSwitchCount=0}){
     const enabled=qn("auxFabricMode")?.value!=="off";
     if(!enabled) return {enabled:false,rows:[],bom:[],deviceGroups:[],notes:["In-band/OOB physical patching is disabled."],excluded:["UFM","management server","login/head node","storage system/fabric"]};
     const sparePct=nonneg(qn("sparePct")?.value);
@@ -3349,28 +3290,32 @@ refreshPreset();
     const inbBase=units*inb.linksPerSystem, inbSpare=roundedSpare(inbBase,sparePct);
     const inbPorts=Math.max(1,auxPorts(inb.switchId,inb.speed));
     const inbSwitchCount=2*cdiv(cdiv(inbBase+inbSpare,2),inbPorts); /* A/B planes */
-    const pduEndpoints=2*(computeRacks+(fabricRacks?.networkRackCount||0)+(fabricRacks?.spineRackCount||0)+(fabricRacks?.coreRackCount||0));
-    const oobBase=units+leafCount+spineCount+coreCount+pduEndpoints;
+    const profile=resolveAuxSystemProfile(s);
+    const oobPortsPerSystem=profile?.oob?.portsPerUnit || 1;
+    /* OOB includes only physical device-management ports in LS scope.  The
+       PDU term is supplied by the bounded PDU/Aux fixed-point solve. */
+    const oobBase=units*oobPortsPerSystem+leafCount+spineCount+coreCount+inbSwitchCount+priorOobSwitchCount+pduCount;
     const oobSpare=roundedSpare(oobBase,sparePct), oobSw=switchProfile(auxSwitches.sn2201), oobPorts=auxPorts("sn2201",1);
     const oobSwitchCount=2*cdiv(cdiv(oobBase+oobSpare,2),oobPorts);
     const rows=[
       {network:"In-band access",endpoint:`${inb.linksPerSystem} × ${inb.speed}G / compute system`,links:inbBase+inbSpare,base:inbBase,spare:inbSpare,switchName:inbSw.name,switchCount:inbSwitchCount,media:inb.media,confidence:"Assumed port policy"},
-      {network:"OOB patching",endpoint:"BMC/switch/PDU management ports only",links:oobBase+oobSpare,base:oobBase,spare:oobSpare,switchName:oobSw.name,switchCount:oobSwitchCount,media:"Cat6 patch cable",confidence:"Derived from physical device and PDU counts"}
+      {network:"OOB patching",endpoint:`${oobPortsPerSystem} BMC port(s)/system + switch/PDU management`,links:oobBase+oobSpare,base:oobBase,spare:oobSpare,switchName:oobSw.name,switchCount:oobSwitchCount,media:"Cat6 patch cable",confidence:"Derived from physical device and PDU counts"}
     ];
     const deviceGroups=[{network:"In-band access",switchCount:inbSwitchCount,profile:inbSw},{network:"OOB patching",switchCount:oobSwitchCount,profile:oobSw}];
     const bom=[
-      {category:"Auxiliary physical",sku:inbSw.model||"NVIDIA SN4600C/SN5600",item:"In-band access switch",base:inbSwitchCount,spare:0,unit:"each",confidence:"Assumed",scope:"In scope — physical patching"},
-      {category:"Auxiliary physical",sku:"Cat6",item:"OOB management patch cable",base:oobBase,spare:oobSpare,unit:"link",confidence:"Derived",scope:"In scope — physical patching"}
+      {category:"Auxiliary physical",sku:"",item:"In-band access switch",base:inbSwitchCount,spare:0,unit:"each",confidence:"Derived",scope:"In scope — physical patching"},
+      {category:"Auxiliary physical",sku:"",item:"OOB management patch cable (Cat6 class)",base:oobBase,spare:oobSpare,unit:"link",confidence:"Derived",scope:"In scope — physical patching"}
     ];
     return {enabled:true,rows,bom,deviceGroups,notes:["Switch quantities are port-capacity and A/B plane calculations; no NVIDIA reference budget is read.","UFM, management server, login/head node, storage system and storage fabric are excluded from the BOM."],excluded:["UFM","management server","login/head node","storage system/fabric"]};
   }
 
-  function iterativePlacementSolveV3({s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit}){
+  function iterativePlacementSolveV3({s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit,sparePct=0}){
     const capInfo=computeRackCapacity({s,sw,topology,sfProfile,serverCablingMode,spareFactor:1,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
     if(capInfo.capacity<1) return {alloc:[],capacity:0,iterations:[{iter:1,status:"INFEASIBLE"}],fabric:null,fabricRacks:null,converged:false,infeasible:true,capInfo};
     const alloc=s.unit==="rack_system" ? Array(units).fill(1) : packedAllocation(units,capInfo.capacity);
     const fabric=solveFabricGraphV3({s,sw,topology,units,alloc,sfSpeed,upSpeed,oversub});
-    const sfCables=units*s.links, lsCables=fabric.totalLeafUplinks;
+    const sfCables=units*s.links+roundedSpare(units*s.links,sparePct);
+    const lsCables=fabric.totalLeafUplinks+roundedSpare(fabric.totalLeafUplinks,sparePct);
     const panelSizing=buildPanelSizing({alloc,s,serverCablingMode,leafSpineCablingMode,sfProfile,lsProfile,sfCables,lsCables});
     const fabricRacks=sizeFabricRacksV3({sw,fabric,topology,panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
     const iterations=[{iter:1,capacity:capInfo.capacity,computeRacks:alloc.length,leaf:fabric.leafCount,spine:fabric.spineCount,networkRacks:fabricRacks.networkRackCount,spineRacks:fabricRacks.spineRackCount,coreRacks:fabricRacks.coreRackCount,byRU:capInfo.byRU,byPower:capInfo.byPower,byCooling:capInfo.byCooling,byAirflow:capInfo.byAirflow,coolingMode:capInfo.coolingMode,status:fabric.feasible&&fabricRacks.feasible?"SOLVED":"REVIEW"}];
@@ -3388,7 +3333,8 @@ refreshPreset();
     if(!result||result.infeasible){el.innerHTML="<div class='bad'>현재 RU/전력/냉각 제약으로 시스템 1대도 배치할 수 없습니다.</div>";note.textContent="Rack constraint 또는 장비 선택을 변경하십시오.";return;}
     const r=result.iterations[0];
     el.innerHTML=`<table><thead><tr><th>Pass</th><th>Server/Rack</th><th>Compute Rack</th><th>Leaf Rack</th><th>Spine Rack</th><th>Core Rack</th><th>RU</th><th>Power</th><th>Cooling</th><th>Airflow</th><th>Result</th></tr></thead><tbody><tr><td>Physical constraint solve</td><td>${r.capacity}</td><td>${r.computeRacks}</td><td>${r.networkRacks}</td><td>${r.spineRacks}</td><td>${r.coreRacks||0}</td><td>${r.byRU}</td><td>${r.byPower}</td><td>${r.byCooling}</td><td>${r.byAirflow==null?"—":r.byAirflow}</td><td class='${r.status==="SOLVED"?"good":"warn"}'>${r.status}</td></tr></tbody></table>`;
-    note.innerHTML=`• v3는 같은 식을 반복해 “converged”라고 표시하지 않습니다. Compute rack의 local ToR/Panel 제약과 Fabric rack의 RU·전력·열 제약을 <b>한 번의 물리 제약 전파</b>로 계산합니다.<br>• Clos3/Rail Leaf, Spine, Core와 In-band/OOB switch는 모두 별도 physical rack·PDU·thermal row로 전달됩니다.`;
+    const fp=result.auxFixedPoint;
+    note.innerHTML=`• Compute rack의 local ToR/Panel 제약과 Fabric rack의 RU·전력·열 제약을 <b>물리 제약 전파</b>로 계산합니다.<br>• Clos3/Rail Leaf, Spine, Core와 In-band/OOB switch는 모두 별도 physical rack·PDU·thermal row로 전달됩니다.`+(fp?`<br>• In-band/OOB↔PDU endpoint fixed point: <b>${Math.min(fp.passes,10)} pass</b> · ${fp.stable?"<span class='good'>stable</span>":"<span class='warn'>review required</span>"}.`:"");
   };
 
   window.buildPowerSizing=function({s,sw,topology,alloc,computeRacks,leafCount,spineCount,coreCount=0,fabricRacks,auxSizing}){
@@ -3408,9 +3354,7 @@ refreshPreset();
     return {racks};
   };
 })();
-</script>
-</script>
-<script>
+
 /* v3 output, validation, and browser regression layer */
 (function(){
   const qn=id=>document.getElementById(id);
@@ -3444,7 +3388,12 @@ refreshPreset();
     const table=qn("coolingSummary"),notes=qn("coolingNotes"); if(!table||!notes) return;
     table.innerHTML=`<table><thead><tr><th>Physical rack</th><th>Equipment</th><th>Heat</th><th>Airflow</th><th>Cooling margin</th><th>Airflow margin</th><th>Basis</th></tr></thead><tbody>${c.rackRows.map(r=>`<tr><td>${esc(r.rack)}</td><td>${esc(r.systems)}</td><td>${r.heat.toFixed(1)} kWth</td><td>${r.cfm.toFixed(0)} CFM</td><td>${r.coolingMargin.toFixed(1)} kWth</td><td>${r.airflowMargin==null?"DLC":r.airflowMargin.toFixed(0)+" CFM"}</td><td>${esc(r.reference)}</td></tr>`).join("")}</tbody></table>`;
     notes.innerHTML=`• Mode: <b>${coolingModeLabel(c.mode)}</b> · total modeled heat <b>${c.totalITHeat.toFixed(1)} kWth</b>.<br>• Rows with a negative margin require a smaller device density or a higher site cooling/airflow limit.<br>• ${c.notes.join(" ")}`;
-    const diagram=qn("coolingDiagram"); if(diagram) renderCoolingDiagram(c);
+    const svg=qn("coolingSvg");
+    if(svg){
+      const compute=c.rackRows.filter(r=>String(r.rack).startsWith("Compute")).reduce((n,r)=>n+r.heat,0);
+      const fabric=Math.max(0,c.totalITHeat-compute);
+      svg.innerHTML=`<rect x="0" y="0" width="760" height="320" fill="#f7f9fc"/><text x="24" y="30" fill="#1a2c54" font-size="15" font-weight="800">${coolingModeLabel(c.mode)} · current v3 thermal result</text><rect x="48" y="105" width="180" height="88" rx="10" fill="#315f89"/><text x="138" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">Compute racks</text><text x="138" y="166" text-anchor="middle" fill="#e8f1ff" font-size="12">${compute.toFixed(1)} kWth</text><rect x="302" y="105" width="180" height="88" rx="10" fill="#7c4eaa"/><text x="392" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">Fabric / Aux racks</text><text x="392" y="166" text-anchor="middle" fill="#efe6ff" font-size="12">${fabric.toFixed(1)} kWth</text><rect x="556" y="105" width="150" height="88" rx="10" fill="#608d58"/><text x="631" y="140" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">Site cooling</text><text x="631" y="166" text-anchor="middle" fill="#eaffea" font-size="12">${c.totalITHeat.toFixed(1)} kWth</text><line x1="228" y1="149" x2="302" y2="149" stroke="#ef8f53" stroke-width="5"/><line x1="482" y1="149" x2="556" y2="149" stroke="#ef8f53" stroke-width="5"/><text x="24" y="272" fill="#556b86" font-size="12">Rack rows: ${c.rackRows.length} · design limit: ${c.rackCoolingLimit} kWth/rack · airflow limit: ${c.rackAirflowLimit} CFM/rack</text>`;
+    }
   };
 
   window.renderAuxFabric=function(aux,s,units){
@@ -3460,33 +3409,36 @@ refreshPreset();
     const f=solveFabricGraphV3({s,sw,topology:"rail",units:c.nodes,alloc,sfSpeed:400,upSpeed:400,oversub:1});
     const actual={gpus:c.nodes*s.gpus,leaf:f.leafCount,spine:f.spineCount,leafSpine:f.totalLeafUplinks};
     const expected={gpus:c.gpus,leaf:c.leaf,spine:c.spine,leafSpine:c.leafSpine};
-    const errors=Object.fromEntries(Object.keys(expected).map(k=>[k,pctError(actual[k],expected[k])])), maxErr=Math.max(...Object.values(errors));
-    return {...c,actual,expected,errors,maxErr,fields:Object.keys(expected),independent:/REFERENCE-BLIND/.test(f.basis),status:maxErr<=5?"PASS≤5%":"REVIEW",detail:f.spineDetail};
+    const errors=Object.fromEntries(Object.keys(expected).map(k=>[k,pctError(actual[k],expected[k])]));
+    /* GPU is an identity (nodes×8), and fabric links derive from Leaf/port
+       sizing.  Only Leaf and Spine are independent comparison fields here. */
+    const fields=["leaf","spine"], maxErr=Math.max(...fields.map(k=>errors[k]));
+    return {...c,actual,expected,errors,maxErr,fields,independent:/REFERENCE-BLIND/.test(f.basis),status:maxErr<=5?"PASS≤5%":"REVIEW",detail:f.spineDetail,architectureGroup:`NDR rail ${c.su} SU`};
   }
   window.runGoldenFabricCase=v3GoldenResult;
   window.renderGoldenValidation=function(){
     const el=qn("goldenSummary"),note=qn("goldenNotes"); if(!el||!note) return;
     const rows=goldenFabricCases.map(v3GoldenResult),all=rows.every(r=>r.status==="PASS≤5%");
     el.innerHTML=`<table><thead><tr><th>System</th><th>SU</th><th>Nodes</th><th>GPU Ref / Engine</th><th>Leaf Ref / Engine</th><th>Spine Ref / Engine</th><th>Leaf↔Spine Ref / Engine</th><th>Max error</th><th>Result</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.label}</td><td>${r.su}</td><td>${r.nodes}</td><td>${r.expected.gpus} / ${r.actual.gpus}</td><td>${r.expected.leaf} / ${r.actual.leaf}</td><td>${r.expected.spine} / ${r.actual.spine}</td><td>${r.expected.leafSpine} / ${r.actual.leafSpine}</td><td>${fmtErr(r.maxErr)}</td><td class='${r.status==="PASS≤5%"?"good":"bad"}'><b>${r.status}</b></td></tr>`).join("")}</tbody></table>`;
-    note.innerHTML=`• v3 compares <b>${rows[0].fields.length} actual public reference fields</b>; UFM is excluded from LS scope and is not silently counted as a comparison field.<br>• 95-node 3-SU case uses physical full-mesh capacity: 24 Leaf × 2 paths/Spine = 48 down ports per 64-port spine, yielding 16 modular spines rather than 12 port-division spines.<br>• ${all?"All 8 golden cases PASS within 5%.":"Review the non-passing golden row before claiming A/A-."}`;
+    note.innerHTML=`• 점수에 쓰는 독립 비교 필드는 <b>Leaf, Spine 두 개</b>뿐입니다. GPU는 항등식이고 Leaf↔Spine links는 계산 파생값이라 표에는 보이지만 등급 산정에는 넣지 않습니다.<br>• H200/B200은 같은 NDR rail 산식이므로 SU별 한 architecture evidence group으로만 집계합니다.<br>• ${all?"표시된 8개 비교 행은 모두 5% 이내입니다. 다만 현재 공개 증거만으로 A/A-를 주장하지 않습니다.":"Review the non-passing golden row before claiming any validation level."}`;
   };
 
   window.independentValidationRows=function(){
     const golden=goldenFabricCases.map(v3GoldenResult);
     return CASE_VALIDATION_CATALOG.map(c=>{
       if(c.kind!=="golden") return {...c,grade:"C",maxErr:null,referenceCount:0,independent:false,boundary:"Requirement + catalog only",refs:"No public comparable fixture loaded",next:"Add URL, source revision, and ≥3 independently comparable quantities"};
-      const r=golden[c.goldenIndex], count=r.fields.length;
-      const grade=!r.independent?"C":r.maxErr>10?"B":r.maxErr>5?"B":count>=5?"A":count>=3?"A-":"B";
-      return {...c,grade,maxErr:r.maxErr,referenceCount:count,independent:r.independent,boundary:"GPU / platform / 400G / 1:1 / product ports",refs:r.fields.join(" · "),next:grade==="A"||grade==="A-"?"Add public rack/BOM source for A promotion":"Review physical spine/pod policy"};
+      const r=golden[c.goldenIndex], count=r.fields.length,shared=c.goldenIndex>=4;
+      const grade=!r.independent?"C":r.maxErr>10?"B":r.maxErr>5?"B":"B+";
+      return {...c,grade,maxErr:r.maxErr,referenceCount:count,independent:r.independent,counted:!shared,boundary:shared?"Shared NDR rail architecture group (not separately counted)":"Catalog ports + NDR rail policy",refs:"Leaf · Spine",next:"Add independent rack, cable/optic BOM, and revision-locked source for A/A-"};
     });
   };
   window.renderIndependentValidation=function(){
     const body=qn("independentValidationSummary"),note=qn("independentValidationNotes");if(!body||!note)return;
     let rows=independentValidationRows(),filter=qn("validationFilter")?.value||"all";
-    if(filter==="promotable") rows=rows.filter(r=>r.grade==="A"||r.grade==="A-"); if(filter==="gap") rows=rows.filter(r=>r.grade==="B"||r.grade==="C");
-    body.innerHTML=rows.map(r=>`<tr><td><b>${esc(r.name)}</b></td><td>${esc(r.boundary)}</td><td>${esc(r.refs)}<br><span class='sourceTag'>${r.referenceCount} compared reference field(s)</span></td><td>${gradeBadge(r.grade)}${r.maxErr!=null?` <span class='small'>${fmtErr(r.maxErr)}</span>`:""}</td><td>${esc(r.next)}</td></tr>`).join("");
-    const all=independentValidationRows(),counts=Object.fromEntries(["A","A-","B","C"].map(g=>[g,all.filter(r=>r.grade===g).length]));
-    note.innerHTML=`v3 ledger uses the actual compared field count — not a hard-coded referenceCount. Current in-browser evidence: <b>${counts.A} A</b>, <b>${counts["A-"]} A-</b>, <b>${counts.B} B</b>, <b>${counts.C} C</b>. A case without a public, revision-locked comparison fixture remains C.`;
+    if(filter==="promotable") rows=rows.filter(r=>r.grade==="A"||r.grade==="A-"); if(filter==="gap") rows=rows.filter(r=>r.grade==="B"||r.grade==="B+"||r.grade==="C");
+    body.innerHTML=rows.map(r=>{const badge=r.grade==="B+"?"<span class='grade grade-b'>B+</span>":gradeBadge(r.grade);return `<tr><td><b>${esc(r.name)}</b></td><td>${esc(r.boundary)}</td><td>${esc(r.refs)}<br><span class='sourceTag'>${r.referenceCount} independent field(s)${r.counted===false?" · shared group":""}</span></td><td>${badge}${r.maxErr!=null?` <span class='small'>${fmtErr(r.maxErr)}</span>`:""}</td><td>${esc(r.next)}</td></tr>`}).join("");
+    const all=independentValidationRows(),counts=Object.fromEntries(["B+","B","C"].map(g=>[g,all.filter(r=>r.grade===g&&r.counted!==false).length]));
+    note.innerHTML=`v3 ledger scores only non-derived fields and counts the H200/B200 pair once per SU architecture group. Current independent evidence: <b>${counts["B+"]} B+ group(s)</b>, <b>${counts.B} B</b>, <b>${counts.C} C</b>. A case without independent rack/BOM evidence remains below A/A-.`;
   };
   window.downloadValidationCsv=function(){
     const rows=independentValidationRows(),csv=[["Case","Level","Max error (%)","Compared fields","Next evidence"],...rows.map(r=>[r.name,r.grade,r.maxErr==null?"":r.maxErr.toFixed(2),r.referenceCount,r.next])].map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
@@ -3494,7 +3446,7 @@ refreshPreset();
   };
 
   function renderBomV3(rows){
-    qn("bom").innerHTML=rows.map(r=>`<tr><td>${esc(r.category)}</td><td>${esc(r.sku||"—")}</td><td>${esc(r.item)}</td><td class='num'>${r.base}</td><td class='num'>${r.spare||0}</td><td class='num'><b>${r.total}</b></td><td>${esc(r.unit)}</td><td class='confidence-${confidenceClass(r.confidence)}'>${esc(r.confidence)}</td><td><span class='scopeTag'>${esc(r.scope)}</span></td></tr>`).join("");
+    qn("bom").innerHTML=rows.map(r=>`<tr><td>${esc(r.category)}</td><td>${esc(r.sku||"")}</td><td>${esc(r.item)}</td><td class='num'>${r.base}</td><td class='num'>${r.spare||0}</td><td class='num'><b>${r.total}</b></td><td>${esc(r.unit)}</td><td class='confidence-${confidenceClass(r.confidence)}'>${esc(r.confidence)}</td><td><span class='scopeTag'>${esc(r.scope)}</span></td></tr>`).join("");
   }
   window.downloadBomCsv=function(){
     const rows=(window.currentDesignSnapshot||{}).bom||[];
@@ -3503,23 +3455,51 @@ refreshPreset();
   };
   window.bomRowsFromDom=function(){return ((window.currentDesignSnapshot||{}).bom||[]);};
 
-  const oldRow=window.renderRowDiagram,oldBim=window.renderBimOverview;
-  window.renderRowDiagram=function(ctx){oldRow(ctx);const f=ctx.fabric||{};const c=qn("rowCaption");if(c)c.innerHTML+=` · <b>Core/Super-spine ${f.coreCount||0}</b> · Leaf↔Spine ${f.pathsPerLeafSpine||0} path(s)/pair`};
+  const oldRack=window.renderRackVisuals,oldBim=window.renderBimOverview;
+  window.renderRackVisuals=function(ctx){
+    oldRack(ctx);
+    const fr=window.currentPlacementFabricRacks||{},grid=qn("rackGrid"); if(!grid) return;
+    [...grid.querySelectorAll(".rackViz")].forEach(card=>{
+      const title=card.querySelector(".rackTitle")?.textContent||"";
+      if((title==="Network Rack"&&!fr.networkRackCount)||(title==="Spine Rack"&&!fr.spineRackCount)) card.remove();
+    });
+  };
+  window.renderRowDiagram=function(ctx){
+    const fr=window.currentPlacementFabricRacks||{},f=ctx.fabric||{},h=qn("rowDiagramHtml"),caption=qn("rowCaption"),svg=qn("rowSvg");
+    const nodes=[{role:"COMPUTE RACK",title:`${ctx.computeRacks} × ${qn("rackRU").value}U`,meta:`${ctx.units} system(s) · ${ctx.units*ctx.s.gpus} GPU`}];
+    if(fr.networkRackCount) nodes.push({role:"LEAF NETWORK RACK",title:`Leaf × ${ctx.leafCount}`,meta:`${fr.networkRackCount} rack(s) · ${ctx.sw.name}`});
+    if(fr.spineRackCount) nodes.push({role:"SPINE RACK",title:`Spine × ${ctx.spineCount}`,meta:`${fr.spineRackCount} rack(s) · ${f.pathsPerLeafSpine||0} path(s)/Leaf–Spine`});
+    if(fr.coreRackCount) nodes.push({role:"CORE / SUPER-SPINE",title:`Core × ${f.coreCount}`,meta:`${fr.coreRackCount} rack(s) · ${f.spineToCoreLinks} link(s)`});
+    if(h) h.innerHTML=nodes.map((n,i)=>`${i?`<div class='rowCableBundle'><div class='count'>${i===1?ctx.units*ctx.s.links:(i===2?f.totalLeafUplinks:f.spineToCoreLinks||0)}</div><div class='media'>${i===1?ctx.sfProfile.media:ctx.lsProfile.media}</div><div class='meta'>physical link bundle</div></div>`:""}<div class='rowRackNode ${i===0?"compute":i===1?"network":i===2?"spine":"spine"}'><div class='role'>${n.role}</div><div class='title'>${n.title}</div><div class='metric'>${n.meta}</div></div>`).join("");
+    if(caption) caption.innerHTML=nodes.map(n=>`<b>${n.role}</b>`).join(" → ")+` · ${f.podCount||1} pod(s), ${f.coreCount||0} Core/Super-spine; no absent rack is drawn.`;
+    if(svg){svg.innerHTML=`<rect x="0" y="0" width="1350" height="410" fill="#f7f9fc"/><text x="40" y="55" fill="#243b5a" font-size="18" font-weight="800">Physical rack sequence</text><text x="40" y="90" fill="#556b86" font-size="13">${nodes.map(n=>n.role).join(" → ")}</text><text x="40" y="130" fill="#556b86" font-size="12">Leaf–Spine paths/pair: ${f.pathsPerLeafSpine||0} · spine ports: ${f.spineDownPortsUsed||0} down + ${f.coreUplinkPorts||0} core / ${f.spinePortCapacity||0}</text>`;}
+  };
   window.renderBimOverview=function(ctx){oldBim(ctx);const fr=ctx.fabricRacks||{},note=qn("bimNote");if(note)note.innerHTML+=`<br><b>v3 physical racks:</b> Leaf ${fr.networkRackCount||0}, Spine ${fr.spineRackCount||0}, Core ${fr.coreRackCount||0}, In-band/OOB ${fr.auxRackCount||0}.`};
 
   window.calc=function(){
     const s=getSelectedSystem(),sw=switches[qn("switchId").value],topology=qn("topology").value,targetGPU=Math.max(1,+qn("gpuTarget").value||1),units=Math.ceil(targetGPU/s.gpus),oversub=+qn("oversub").value,rackRU=+qn("rackRU").value,reservedU=+qn("reservedU").value,sfDistance=+qn("distServer").value,lsDistance=+qn("distSpine").value,sfSpeed=s.linkSpeed,upSpeed=+qn("uplinkSpeed").value,serverCablingMode=qn("serverCablingMode").value,leafSpineCablingMode=qn("leafSpineCablingMode").value;
-    const rackITLimit=Math.max(1,+qn("rackITLimit").value||120),headroom=Math.min(.5,Math.max(0,(+qn("rackHeadroom").value||15)/100)),rackCoolingLimit=Math.max(1,+qn("rackCoolingLimit").value||120),rackAirflowLimit=Math.max(100,+qn("rackAirflowLimit").value||9000),sparePct=num(qn("sparePct").value);
+    const rackITLimit=Math.max(1,+qn("rackITLimit").value||120),headroom=Math.min(.5,Math.max(0,(+qn("rackHeadroom").value||15)/100)),rackCoolingLimit=Math.max(1,+qn("rackCoolingLimit").value||120),rackAirflowLimit=Math.max(100,+qn("rackAirflowLimit").value||9000),sparePct=num(qn("sparePct").value),maxAuxPasses=Math.min(10,Math.max(1,+qn("maxPlacementIterations").value||3));
     const sfProfile=mediaProfile(sfSpeed,sfDistance),lsProfile=mediaProfile(upSpeed,lsDistance);
-    const placement=window.iterativePlacementSolve({s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit});
+    const placement=window.iterativePlacementSolve({s,sw,topology,units,sfProfile,lsProfile,sfSpeed,upSpeed,oversub,serverCablingMode,leafSpineCablingMode,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit,sparePct});
     renderPlacementConvergence(placement); if(placement.infeasible){return;}
     const f=placement.fabric,alloc=placement.alloc,computeRacks=alloc.length;
-    let aux=window.buildAuxFabricSizing({s,units,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,computeRacks,fabricRacks:placement.fabricRacks});
-    const fabricRacks=window.sizeFabricRacks({sw,fabric:f,topology,panelSizing:placement.panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit,auxSizing:aux});
-    aux=window.buildAuxFabricSizing({s,units,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,computeRacks,fabricRacks});
-    const finalFabricRacks=window.sizeFabricRacks({sw,fabric:f,topology,panelSizing:placement.panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit,auxSizing:aux});
+    /* Bounded fixed point: actual PDU quantity becomes an OOB endpoint, and
+       the resulting OOB switches are placed/powered before the next pass. */
+    let aux=null,finalFabricRacks=null,powerSizing=null,pduEndpointCount=0,priorOobSwitchCount=0,auxStable=false,previousKey="",auxPass=0;
+    for(auxPass=1;auxPass<=maxAuxPasses;auxPass++){
+      aux=window.buildAuxFabricSizing({s,units,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,pduCount:pduEndpointCount,priorOobSwitchCount});
+      finalFabricRacks=window.sizeFabricRacks({sw,fabric:f,topology,panelSizing:placement.panelSizing,rackRU,reservedU,rackITLimit,headroom,rackCoolingLimit,rackAirflowLimit,auxSizing:aux});
+      powerSizing=window.buildPowerSizing({s,sw,topology,alloc,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,fabricRacks:finalFabricRacks,auxSizing:aux});
+      const actualPduCount=powerSizing.racks.reduce((sum,r)=>sum+(r.pduA||0)+(r.pduB||0),0);
+      const currentOobCount=aux.deviceGroups.find(g=>g.network==="OOB patching")?.switchCount||0;
+      const key=[actualPduCount,currentOobCount,finalFabricRacks.auxRackCount].join("|");
+      if(key===previousKey){auxStable=true;break;}
+      previousKey=key; pduEndpointCount=actualPduCount; priorOobSwitchCount=currentOobCount;
+    }
+    const auxPassesUsed=Math.min(auxPass,maxAuxPasses);
     placement.fabricRacks=finalFabricRacks;
-    const powerSizing=window.buildPowerSizing({s,sw,topology,alloc,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,fabricRacks:finalFabricRacks,auxSizing:aux});
+    placement.auxFixedPoint={passes:auxPassesUsed,stable:auxStable,pduEndpointCount};
+    renderPlacementConvergence(placement);
     const coolingSizing=window.buildCoolingSizing({s,sw,topology,alloc,placement,fabricRacks:finalFabricRacks,auxSizing:aux});
     renderPowerSizing(powerSizing); renderAuxFabric(aux,s,units); renderCoolingSizing(coolingSizing); renderPanelSizing(placement.panelSizing);
     const serverLinks=units*s.links,lsLinks=f.totalLeafUplinks,coreLinks=f.spineToCoreLinks||0,sfSpare=spare(serverLinks,sparePct),lsSpare=spare(lsLinks,sparePct),coreSpare=spare(coreLinks,sparePct),sfTotal=serverLinks+sfSpare,lsTotal=lsLinks+lsSpare,coreTotal=coreLinks+coreSpare;
@@ -3528,56 +3508,96 @@ refreshPreset();
     qn("sfLinks").textContent=`${serverLinks} + ${sfSpare} spare × ${sfSpeed}G`;qn("ufmLinks").textContent="Excluded from LS scope";qn("computeUfmLinks").textContent=`${serverLinks} compute links`;qn("sfMedia").textContent=`${sfProfile.media} · ${sfProfile.connector}`;qn("sfOC").textContent=`${sfOptics||"integrated"} optics / ${sfTotal} cable(s)`;qn("sfCF").textContent=`${sfProfile.connEnds*sfTotal||"integrated"} ends / ${sfProfile.fibers*sfTotal||"—"} cores`;qn("lsLinks").textContent=`${lsLinks} + ${lsSpare} spare × ${upSpeed}G fabric connections`;qn("lsMedia").textContent=`${lsProfile.media} · ${lsProfile.connector}`;qn("lsOC").textContent=`${lsOptics||"integrated"} optics / ${lsTotal} cable(s)`;qn("lsCF").textContent=`${lsProfile.connEnds*lsTotal||"integrated"} ends / ${lsProfile.fibers*lsTotal||"—"} cores`;qn("spineEngineText").textContent=f.spineDetail;
     qn("resultWarning").innerHTML=[`• ${f.spineDetail}`,`• Physical racks: Leaf ${finalFabricRacks.networkRackCount}, Spine ${finalFabricRacks.spineRackCount}, Core ${finalFabricRacks.coreRackCount}, In-band/OOB ${finalFabricRacks.auxRackCount}.`,`• UFM/management server/login-head/storage system are excluded.`,`• ${f.feasible?"<span class='good'><b>Leaf–Spine port graph feasible</b></span>":"<span class='bad'><b>Leaf–Spine graph review required</b></span>"}`,...f.issues.map(i=>`• ${i}`)].join("<br>");
     renderGoldenValidation();renderIndependentValidation();
-    const panel=placement.panelSizing,unitScope="In scope — physical infrastructure",bom=[
-      bomEntry("Compute","Vendor platform",s.name,units,"system",s.profileConfidence?.includes("Confirmed")?"Confirmed":"Assumed",unitScope),
-      bomEntry("Compute","GPU integrated",s.gpu,units*s.gpus,"GPU","Confirmed",unitScope),
-      bomEntry("Rack",`${rackRU}U`,"Compute rack",computeRacks,"rack","Assumed",unitScope),
+    const panel=placement.panelSizing;
+    const basePanelSizing=buildPanelSizing({alloc,s,serverCablingMode,leafSpineCablingMode,sfProfile,lsProfile,sfCables:serverLinks,lsCables:lsLinks});
+    const unitScope="In scope — physical infrastructure";
+    const passiveRows=(key,label)=>{
+      const total=panel[key],base=basePanelSizing[key];
+      if(!total?.required) return [];
+      return [
+        bomEntry("Passive","",`${label} adapter panel/module`,base.modules,"module","Derived",unitScope,Math.max(0,total.modules-base.modules)),
+        bomEntry("Passive","",`${label} ODF/panel housing`,base.housing.totalU,"U","Derived",unitScope,Math.max(0,total.housing.totalU-base.housing.totalU))
+      ];
+    };
+    const cableManagerQty=computeRacks+finalFabricRacks.networkRackCount+finalFabricRacks.spineRackCount+finalFabricRacks.coreRackCount+finalFabricRacks.auxRackCount;
+    const bom=[
+      bomEntry("Compute","",s.name,units,"system",s.profileConfidence?.includes("Confirmed")?"Confirmed":"Assumed",unitScope),
+      bomEntry("Compute","",s.gpu,units*s.gpus,"GPU","Confirmed",unitScope),
+      bomEntry("Rack","","Compute rack",computeRacks,"rack","Assumed",unitScope),
       bomEntry("Fabric switch",sw.model||sw.name,"Leaf / ToR switch",f.leafCount,"each",sw.confidence||"Assumed",unitScope),
       ...(f.spineCount?[bomEntry("Fabric switch",sw.model||sw.name,"Spine switch",f.spineCount,"each",sw.confidence||"Assumed",unitScope)]:[]),
       ...(f.coreCount?[bomEntry("Fabric switch",sw.model||sw.name,"Core / super-spine switch",f.coreCount,"each",sw.confidence||"Assumed",unitScope)]:[]),
-      ...(finalFabricRacks.networkRackCount?[bomEntry("Rack",`${rackRU}U`,"Leaf network rack",finalFabricRacks.networkRackCount,"rack","Derived",unitScope)]:[]),
-      ...(finalFabricRacks.spineRackCount?[bomEntry("Rack",`${rackRU}U`,"Spine rack",finalFabricRacks.spineRackCount,"rack","Derived",unitScope)]:[]),
-      ...(finalFabricRacks.coreRackCount?[bomEntry("Rack",`${rackRU}U`,"Core / super-spine rack",finalFabricRacks.coreRackCount,"rack","Derived",unitScope)]:[]),
-      bomEntry("Optical / cable",sfProfile.media,"Server-facing cable",serverLinks,"link","Derived",unitScope,sfSpare),
-      ...(sfOptics?[bomEntry("Optical",sfProfile.media+" optic","Server-facing transceiver",sfProfile.optics*serverLinks,"each","Derived",unitScope,sfProfile.optics*sfSpare)]:[]),
-      bomEntry("Optical / cable",lsProfile.media,"Leaf↔Spine cable",lsLinks,"link","Derived",unitScope,lsSpare),
-      ...(lsOptics?[bomEntry("Optical",lsProfile.media+" optic","Leaf↔Spine transceiver",lsProfile.optics*lsLinks,"each","Derived",unitScope,lsProfile.optics*lsSpare)]:[]),
-      ...(coreLinks?[bomEntry("Optical / cable",lsProfile.media,"Spine↔Core cable",coreLinks,"link","Derived",unitScope,coreSpare)]:[]),
-      ...(coreOptics?[bomEntry("Optical",lsProfile.media+" optic","Spine↔Core transceiver",lsProfile.optics*coreLinks,"each","Derived",unitScope,lsProfile.optics*coreSpare)]:[]),
-      ...(panel.serverLeafEnd.required?[bomEntry("Passive",panel.serverLeafEnd.item,"Server↔Leaf adapter panel/module",panel.serverLeafEnd.modules,"module","Derived",unitScope)]:[]),
-      ...(panel.leafEnd.required?[bomEntry("Passive",panel.leafEnd.item,"Leaf-side adapter panel/module",panel.leafEnd.modules,"module","Derived",unitScope)]:[]),
-      ...(panel.spineEnd.required?[bomEntry("Passive",panel.spineEnd.item,"Spine-side adapter panel/module",panel.spineEnd.modules,"module","Derived",unitScope)]:[]),
-      ...(panel.leafEnd.required?[bomEntry("Passive","144F equivalent","Structured backbone trunk",panel.leafEnd.trunk144,"trunk","Derived",unitScope)]:[]),
-      bomEntry("Power",`${qn("pduRatedKw").value} kW PDU`,"PDU-A",powerSizing.racks.reduce((x,r)=>x+(r.pduA||0),0),"unit","Assumed",unitScope),
-      bomEntry("Power",`${qn("pduRatedKw").value} kW PDU`,"PDU-B",powerSizing.racks.reduce((x,r)=>x+(r.pduB||0),0),"unit","Assumed",unitScope),
+      ...(finalFabricRacks.networkRackCount?[bomEntry("Rack","","Leaf network rack",finalFabricRacks.networkRackCount,"rack","Derived",unitScope)]:[]),
+      ...(finalFabricRacks.spineRackCount?[bomEntry("Rack","","Spine rack",finalFabricRacks.spineRackCount,"rack","Derived",unitScope)]:[]),
+      ...(finalFabricRacks.coreRackCount?[bomEntry("Rack","","Core / super-spine rack",finalFabricRacks.coreRackCount,"rack","Derived",unitScope)]:[]),
+      bomEntry("Optical / cable","","Server-facing cable",serverLinks,"link","Derived",unitScope,sfSpare),
+      ...(sfOptics?[bomEntry("Optical","","Server-facing transceiver",sfProfile.optics*serverLinks,"each","Derived",unitScope,sfProfile.optics*sfSpare)]:[]),
+      ...(sfProfile.connEnds?[bomEntry("Connectivity","","Server-facing connector end",sfProfile.connEnds*serverLinks,"end","Derived",unitScope,sfProfile.connEnds*sfSpare)]:[]),
+      ...(sfProfile.fibers?[bomEntry("Connectivity","","Server-facing fiber core",sfProfile.fibers*serverLinks,"fiber-core","Derived",unitScope,sfProfile.fibers*sfSpare)]:[]),
+      bomEntry("Optical / cable","","Leaf↔Spine cable",lsLinks,"link","Derived",unitScope,lsSpare),
+      ...(lsOptics?[bomEntry("Optical","","Leaf↔Spine transceiver",lsProfile.optics*lsLinks,"each","Derived",unitScope,lsProfile.optics*lsSpare)]:[]),
+      ...(lsProfile.connEnds?[bomEntry("Connectivity","","Leaf↔Spine connector end",lsProfile.connEnds*lsLinks,"end","Derived",unitScope,lsProfile.connEnds*lsSpare)]:[]),
+      ...(lsProfile.fibers?[bomEntry("Connectivity","","Leaf↔Spine fiber core",lsProfile.fibers*lsLinks,"fiber-core","Derived",unitScope,lsProfile.fibers*lsSpare)]:[]),
+      ...(coreLinks?[bomEntry("Optical / cable","","Spine↔Core cable",coreLinks,"link","Derived",unitScope,coreSpare)]:[]),
+      ...(coreOptics?[bomEntry("Optical","","Spine↔Core transceiver",lsProfile.optics*coreLinks,"each","Derived",unitScope,lsProfile.optics*coreSpare)]:[]),
+      ...(coreLinks&&lsProfile.connEnds?[bomEntry("Connectivity","","Spine↔Core connector end",lsProfile.connEnds*coreLinks,"end","Derived",unitScope,lsProfile.connEnds*coreSpare)]:[]),
+      ...(coreLinks&&lsProfile.fibers?[bomEntry("Connectivity","","Spine↔Core fiber core",lsProfile.fibers*coreLinks,"fiber-core","Derived",unitScope,lsProfile.fibers*coreSpare)]:[]),
+      ...passiveRows("serverLeafEnd","Server↔Leaf"),
+      ...passiveRows("leafEnd","Leaf↔Spine Leaf-side"),
+      ...passiveRows("spineEnd","Leaf↔Spine Spine-side"),
+      ...(panel.leafEnd.required?[bomEntry("Passive","","Structured backbone trunk (144F equivalent)",basePanelSizing.leafEnd.trunk144,"trunk","Derived",unitScope,Math.max(0,panel.leafEnd.trunk144-basePanelSizing.leafEnd.trunk144))]:[]),
+      bomEntry("Passive","","Horizontal cable manager",cableManagerQty,"each","Assumed",unitScope),
+      bomEntry("Power","","Power cord",powerSizing.racks.reduce((x,r)=>x+(r.totalCords||0),0),"cord","Derived",unitScope),
+      bomEntry("Power","","PDU-A",powerSizing.racks.reduce((x,r)=>x+(r.pduA||0),0),"unit","Assumed",unitScope),
+      bomEntry("Power","","PDU-B",powerSizing.racks.reduce((x,r)=>x+(r.pduB||0),0),"unit","Assumed",unitScope),
       ...aux.bom.map(r=>({...r,total:r.base+r.spare})),
       ...(coolingSizing.mode==="dlc"?[bomEntry("Cooling",`${coolingSizing.cduRated} kWth`,"CDU",coolingSizing.cduCount,"unit","Assumed",unitScope)]:[])
     ];
     renderBomV3(bom);
     window.currentPlacementFabricRacks=finalFabricRacks;
     renderTopology({s,sw,topology,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,sfProfile,lsProfile,units});renderRackVisuals({s,sw,topology,computeRacks,alloc,serverPerRack:placement.capacity,sfProfile,lsProfile,units,leafCount:f.leafCount,spineCount:f.spineCount,panelSizing:panel,powerSizing,auxSizing:aux,coolingSizing});renderReachGuide({s,sw,topology,sfProfile,lsProfile});renderRailRefSvg({s,sw,topology,computeRacks,units,leafCount:f.leafCount,spineCount:f.spineCount,sfProfile,lsProfile});renderRowDiagram({s,sw,topology,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,sfProfile,lsProfile,units,totalLeafUplinks:f.totalLeafUplinks,panelSizing:panel,powerSizing,coolingSizing,fabric:f});renderBimOverview({s,sw,topology,units,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,sfProfile,lsProfile,rackRU,powerSizing,coolingSizing,placement,panelSizing:panel,totalLeafUplinks:f.totalLeafUplinks,fabricRacks:finalFabricRacks});updateUxSummary({s,sw,topology,computeRacks,sfProfile,lsProfile,coolingSizing,placement});
-    window.currentDesignSnapshot={generatedAt:new Date().toISOString(),version:"v3.0",scope:{included:["compute/rack","Leaf/Spine/Core rack","optics/cable/panel","PDU","thermal","in-band/OOB physical patching"],excluded:aux.excluded},inputs:{targetGPU,system:s.name,switch:sw.name,topology,rackRU,rackITLimit,rackCoolingLimit,rackAirflowLimit,serverDistanceM:sfDistance,leafSpineDistanceM:lsDistance,sparePct},results:{units,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,podCount:f.podCount,computePowerKW:+(units*dPower(s)).toFixed(1),totalHeatKWth:+coolingSizing.totalITHeat.toFixed(1),physicalRacks:{leaf:finalFabricRacks.networkRackCount,spine:finalFabricRacks.spineRackCount,core:finalFabricRacks.coreRackCount,aux:finalFabricRacks.auxRackCount},linkGraph:{leafSpineLinks:f.totalLeafUplinks,spineCoreLinks:f.spineToCoreLinks,pathsPerLeafSpine:f.pathsPerLeafSpine,spineDownPortsUsed:f.spineDownPortsUsed,feasible:f.feasible},validation:{solverBasis:f.basis,referenceBlind:true,ledger:independentValidationRows().map(r=>({case:r.name,level:r.grade,maxErrorPct:r.maxErr,referenceFields:r.referenceCount,nextEvidence:r.next}))}},bom};
+    window.currentDesignSnapshot={generatedAt:new Date().toISOString(),version:"v3.1",scope:{included:["compute/rack","Leaf/Spine/Core rack","optics/cable/panel","PDU","thermal","in-band/OOB physical patching"],excluded:aux.excluded},inputs:{targetGPU,system:s.name,switch:sw.name,topology,rackRU,rackITLimit,rackCoolingLimit,rackAirflowLimit,serverDistanceM:sfDistance,leafSpineDistanceM:lsDistance,sparePct,podLeafLimit:+qn("podLeafLimit").value,coreUplinkPorts:+qn("coreUplinkPorts").value,maxAuxPasses},results:{units,computeRacks,leafCount:f.leafCount,spineCount:f.spineCount,coreCount:f.coreCount,podCount:f.podCount,computePowerKW:+(units*dPower(s)).toFixed(1),totalHeatKWth:+coolingSizing.totalITHeat.toFixed(1),physicalRacks:{leaf:finalFabricRacks.networkRackCount,spine:finalFabricRacks.spineRackCount,core:finalFabricRacks.coreRackCount,aux:finalFabricRacks.auxRackCount},linkGraph:{leafSpineLinks:f.totalLeafUplinks,spineCoreLinks:f.spineToCoreLinks,pathsPerLeafSpine:f.pathsPerLeafSpine,spineDownPortsUsed:f.spineDownPortsUsed,spinePortCapacity:f.spinePortCapacity,feasible:f.feasible,issues:f.issues},auxFixedPoint:placement.auxFixedPoint,validation:{solverBasis:f.basis,referenceBlind:true,ledger:independentValidationRows().map(r=>({case:r.name,level:r.grade,maxErrorPct:r.maxErr,referenceFields:r.referenceCount,nextEvidence:r.next}))}},bom};
   };
 
   window.runV3RegressionChecks=function(){
     const h=systems.h200,sw=switches.qm9700;
     const single=solveFabricGraphV3({s:h,sw,topology:"single",units:1,alloc:[1],sfSpeed:400,upSpeed:400,oversub:1});
-    const rail95=solveFabricGraphV3({s:h,sw,topology:"rail",units:95,alloc:packedAllocation(95,4),sfSpeed:400,upSpeed:400,oversub:1});
     const clos=solveFabricGraphV3({s:h,sw,topology:"clos3",units:64,alloc:packedAllocation(64,4),sfSpeed:400,upSpeed:400,oversub:1});
+    const large=[1024,4096,16384].map(gpu=>{
+      const units=gpu/h.gpus;
+      return {gpu,graph:solveFabricGraphV3({s:h,sw,topology:"rail",units,alloc:packedAllocation(units,4),sfSpeed:400,upSpeed:400,oversub:1})};
+    });
+    const podInput=qn("podLeafLimit"),savedPodLimit=podInput?.value;
+    if(podInput) podInput.value="128";
+    const invalidPodPolicy=solveFabricGraphV3({s:h,sw,topology:"rail",units:4096/h.gpus,alloc:packedAllocation(4096/h.gpus,4),sfSpeed:400,upSpeed:400,oversub:1});
+    if(podInput) podInput.value=savedPodLimit;
     const checks=[
       ["Single rack does not invent Spine",single.spineCount===0,`Spine ${single.spineCount}`],
-      ["95-node rail uses physical Spine feasibility",rail95.leafCount===24&&rail95.spineCount===16&&rail95.spineDownPortsUsed<=64,`Leaf ${rail95.leafCount}, Spine ${rail95.spineCount}, ports ${rail95.spineDownPortsUsed}/64`],
       ["Clos3 emits Leaf/Spine graph",clos.leafCount>0&&clos.spineCount>0&&clos.feasible,`Leaf ${clos.leafCount}, Spine ${clos.spineCount}`],
-      ["Golden comparison excludes UFM field",v3GoldenResult(goldenFabricCases[0]).fields.includes("computeUfm")===false,`${v3GoldenResult(goldenFabricCases[0]).fields.length} compared fields`],
-      ["BOM quantities are numeric + unit-separated",((window.currentDesignSnapshot||{}).bom||[]).every(r=>typeof r.base==="number"&&typeof r.total==="number"&&!!r.unit),"Current BOM schema"]
+      ...large.map(x=>[`Large rail ${x.gpu.toLocaleString()} GPU terminates and is physically feasible`,x.graph.feasible&&x.graph.pods.every(p=>p.spineDownPortsUsed+p.coreUplinkPorts<=x.graph.spinePortCapacity),`${x.graph.podCount} pod(s), ${x.graph.spineCount} Spine, ${x.graph.coreCount} Core`]),
+      ["Invalid Leaf>64 policy returns infeasible without looping",invalidPodPolicy.feasible===false&&invalidPodPolicy.issues.length>0,invalidPodPolicy.issues[0]||"infeasible"],
+      ["Golden score excludes identity/derived fields",v3GoldenResult(goldenFabricCases[0]).fields.join("|")==="leaf|spine","Leaf + Spine only"],
+      ["BOM quantities are numeric + unit-separated",((window.currentDesignSnapshot||{}).bom||[]).every(r=>typeof r.base==="number"&&typeof r.spare==="number"&&typeof r.total==="number"&&!!r.unit),"Current BOM schema"]
     ];
     const pass=checks.every(c=>c[1]),el=qn("regressionNotes");if(el)el.innerHTML=`<b class='${pass?"good":"bad"}'>${pass?"PASS":"REVIEW"}</b> · ${checks.map(c=>`${c[1]?"✓":"✕"} ${c[0]} (${c[2]})`).join("<br>")}`;
     return {pass,checks};
   };
 
-  /* The first v2 calculation ran before this layer was registered. Re-run it
-     after all v3 overrides are in place. */
-  calc();
+  /* Named v3 public surface.  The window aliases above are retained only for
+     existing inline UI handlers; all v3 initialization happens after this
+     object is fully registered. */
+  window.DCIV3=Object.freeze({
+    version:"3.1",
+    calculate:window.calc,
+    solveFabricGraph:solveFabricGraphV3,
+    runRegressionChecks:window.runV3RegressionChecks
+  });
+
+  ["podLeafLimit","coreUplinkPorts"].forEach(id=>qn(id)?.addEventListener("change",calc));
+
+  /* Populate selectors only after the v3 solver and renderers are registered;
+     this prevents the old v2 calculation from running during page load. */
+  refreshPreset();
 })();
 </script>
 </body>

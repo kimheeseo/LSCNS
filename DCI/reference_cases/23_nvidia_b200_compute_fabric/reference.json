@@ -1,0 +1,36 @@
+{
+  "case_id": "23_nvidia_b200_compute_fabric",
+  "name": "NVIDIA B200 Compute Fabric 4-SU detailed",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "architecture": "127 active nodes + UFM in 128-slot design",
+  "sources": [
+    {
+      "title": "DGX B200 Network Fabrics",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/network-fabrics.html",
+      "type": "NVIDIA RA"
+    }
+  ],
+  "metrics": {
+    "node_leaf_cable_count": {
+      "value": 1020,
+      "unit": "Compute+UFM cables",
+      "verifiable": true
+    },
+    "leaf_switch_count": {
+      "value": 32,
+      "unit": "leaf switches",
+      "verifiable": true
+    },
+    "leaf_spine_cable_count": {
+      "value": 1024,
+      "unit": "spine-leaf cables",
+      "verifiable": true
+    },
+    "spine_switch_count": {
+      "value": 16,
+      "unit": "spine switches",
+      "verifiable": true
+    }
+  }
+}

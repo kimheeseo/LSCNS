@@ -1,0 +1,23 @@
+{
+  "case_id": "08_meta_rsc_phase2",
+  "engine_version": "1.5",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0.08,
+  "max_error_pct": 0.16,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 16000,
+      "calculated": 16000,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "peak_bf16_pflops_per_pod": {
+      "reference": 5000,
+      "calculated": 4992,
+      "error_pct": 0.16,
+      "status": "PASS"
+    }
+  }
+}

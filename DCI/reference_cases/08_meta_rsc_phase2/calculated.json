@@ -1,0 +1,9 @@
+{
+  "case_id": "08_meta_rsc_phase2",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.5",
+  "metrics": {
+    "accelerator_count": 16000,
+    "peak_bf16_pflops_per_pod": 4992
+  }
+}

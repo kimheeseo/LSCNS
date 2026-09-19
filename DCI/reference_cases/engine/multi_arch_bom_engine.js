@@ -22,8 +22,11 @@ function requirePositive(name, value) {
 }
 
 function deriveCommon(input) {
-  const targetAccelerators = requirePositive("target_accelerators", input.target_accelerators);
   const perHost = requirePositive("accelerator.per_host", input.accelerator && input.accelerator.per_host);
+  const targetHostsInput = input.target_hosts != null ? requirePositive("target_hosts", input.target_hosts) : null;
+  const targetAcceleratorsInput = input.target_accelerators != null ? requirePositive("target_accelerators", input.target_accelerators) : null;
+  if (targetHostsInput == null && targetAcceleratorsInput == null) throw new Error("target_hosts or target_accelerators is required");
+  const targetAccelerators = targetAcceleratorsInput != null ? targetAcceleratorsInput : targetHostsInput * perHost;
 
   let acceleratorsPerBlock = null;
   if (input.building_block && Array.isArray(input.building_block.dimensions)) {
@@ -43,7 +46,7 @@ function deriveCommon(input) {
       ? acceleratorsPerBlock * blocksPerRack
       : null;
 
-  const hostCount = targetAccelerators / perHost;
+  const hostCount = targetHostsInput != null ? targetHostsInput : targetAccelerators / perHost;
   const buildingBlockCount = acceleratorsPerBlock ? ceilDiv(targetAccelerators, acceleratorsPerBlock) : null;
   const hostsPerBlock = acceleratorsPerBlock ? acceleratorsPerBlock / perHost : null;
   const rackCount = acceleratorsPerRack ? ceilDiv(targetAccelerators, acceleratorsPerRack) : null;
@@ -137,7 +140,47 @@ function deriveCommon(input) {
     tensor_cores_total: tensorCoresTotal,
     sparse_cores_per_chip: sparseCoresPerChip,
     sparse_cores_total: sparseCoresTotal,
+    total_gpu_memory_gb_per_host: input.accelerator && input.accelerator.memory_gb_per_accelerator != null
+      ? Number(input.accelerator.memory_gb_per_accelerator) * perHost : null,
     ...maxSlice
+  };
+}
+
+function deriveMachineProfile(profile) {
+  const accelerators = Number(profile.accelerators_per_host || 0);
+  const gpuNics = Number(profile.gpu_nics_per_host || 0);
+  const serviceNics = Number(profile.service_nics_per_host || 0);
+  const gpuMem = profile.memory_gb_per_accelerator != null ? Number(profile.memory_gb_per_accelerator) : null;
+  const gpuNetwork = profile.gpu_network_bandwidth_total_gbps != null ? Number(profile.gpu_network_bandwidth_total_gbps) : null;
+  const serviceNetwork = profile.service_network_bandwidth_total_gbps != null ? Number(profile.service_network_bandwidth_total_gbps) : null;
+  return {
+    accelerator_count_per_host: accelerators || null,
+    physical_nic_count_per_host: gpuNics + serviceNics || null,
+    gpu_nic_count_per_host: gpuNics || null,
+    service_nic_count_per_host: serviceNics || null,
+    total_gpu_memory_gb_per_host: gpuMem != null ? gpuMem * accelerators : null,
+    gpu_nic_to_accelerator_ratio: accelerators > 0 ? gpuNics / accelerators : null,
+    data_network_count_per_host: profile.data_networks_per_host != null ? Number(profile.data_networks_per_host) : (gpuNics || null),
+    max_network_bandwidth_gbps: gpuNetwork != null && serviceNetwork != null ? gpuNetwork + serviceNetwork :
+      (profile.max_network_bandwidth_gbps != null ? Number(profile.max_network_bandwidth_gbps) : null)
+  };
+}
+
+function deriveStorage(input) {
+  const comps = input.storage && Array.isArray(input.storage.components_pb) ? input.storage.components_pb : null;
+  return comps ? { storage_total_pb: comps.reduce((a,b)=>a+Number(b),0) } : {};
+}
+
+function deriveRackPower(input) {
+  const p=input.rack_power || null;
+  if(!p) return {};
+  const shelf= p.bbu_shelf_kw != null ? Number(p.bbu_shelf_kw) : null;
+  const rack= p.rack_power_kw != null ? Number(p.rack_power_kw) : null;
+  const durationMin = p.backup_duration_minutes != null ? Number(p.backup_duration_minutes) : null;
+  return {
+    bbu_shelves_required_for_rack: shelf && rack ? Math.ceil(rack/shelf) : null,
+    bbu_pair_power_kw: shelf != null ? shelf*2 : null,
+    backup_duration_seconds: durationMin != null ? durationMin*60 : null
   };
 }
 
@@ -207,7 +250,19 @@ function deriveClos(input, common) {
 }
 
 function deriveArchitecture(input) {
+  if (Array.isArray(input.machine_profiles)) {
+    const out={};
+    input.machine_profiles.forEach(p=>{
+      const d=deriveMachineProfile(p);
+      Object.entries(d).forEach(([k,v])=>{ out[p.id+"__"+k]=v; });
+    });
+    return out;
+  }
   const common = deriveCommon(input);
+  Object.assign(common, deriveStorage(input), deriveRackPower(input));
+  if(input.machine_profile){
+    Object.assign(common, deriveMachineProfile(input.machine_profile));
+  }
   const topologyType = input.topology && input.topology.type;
 
   let topology = {};

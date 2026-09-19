@@ -35,15 +35,17 @@ function deriveCommon(input) {
     );
   }
 
-  const blocksPerRack = Number((input.rack && input.rack.blocks_per_rack) || 1);
+  const blocksPerRack = input.rack && input.rack.blocks_per_rack != null
+    ? Number(input.rack.blocks_per_rack) : null;
   const acceleratorsPerRack = input.rack && input.rack.accelerators_per_rack
     ? requirePositive("rack.accelerators_per_rack", input.rack.accelerators_per_rack)
-    : acceleratorsPerBlock
+    : (acceleratorsPerBlock && blocksPerRack != null)
       ? acceleratorsPerBlock * blocksPerRack
       : null;
 
   const hostCount = targetAccelerators / perHost;
   const buildingBlockCount = acceleratorsPerBlock ? ceilDiv(targetAccelerators, acceleratorsPerBlock) : null;
+  const hostsPerBlock = acceleratorsPerBlock ? acceleratorsPerBlock / perHost : null;
   const rackCount = acceleratorsPerRack ? ceilDiv(targetAccelerators, acceleratorsPerRack) : null;
   const hostsPerRack = acceleratorsPerRack ? acceleratorsPerRack / perHost : null;
 
@@ -109,6 +111,7 @@ function deriveCommon(input) {
     cpu_host_count: hostCount,
     accelerators_per_block: acceleratorsPerBlock,
     building_block_count: buildingBlockCount,
+    hosts_per_block: hostsPerBlock,
     blocks_per_rack: blocksPerRack,
     accelerators_per_rack: acceleratorsPerRack,
     compute_rack_count: rackCount,

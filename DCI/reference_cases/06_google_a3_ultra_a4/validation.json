@@ -67,5 +67,7 @@
       "error_pct": 0,
       "status": "PASS"
     }
-  }
+  },
+  "validation_class": "C profile consistency validation",
+  "review_note": "Vendor machine-profile consistency across H200/B200 profiles."
 }

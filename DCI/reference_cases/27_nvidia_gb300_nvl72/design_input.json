@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "27_nvidia_gb300_nvl72",
+  "scale_unit": {
+    "racks": 1,
+    "trays_per_rack": 18,
+    "gpus_per_tray": 4,
+    "compute_nics_per_tray": 4,
+    "compute_nic_speed_gbps": 800,
+    "converged_links_per_tray": 2,
+    "converged_link_speed_gbps": 400
+  }
+}

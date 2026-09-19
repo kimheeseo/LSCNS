@@ -35,7 +35,7 @@ PASS      = error <= 10%
 | 08 | [Meta RSC Phase 2](08_meta_rsc_phase2/) | Large DGX Clos | **PASS** | **0.00% exact-scored** | **100.0%** |
 | 09 | [Meta 24K H100 cluster](09_meta_24576_h100/) | RoCE / Quantum-2 | **PASS** | **0.00%** | **100.0%** |
 | 10 | [Meta Grand Teton / ORv3](10_meta_grand_teton_orv3/) | Rack / power | **PASS** | **0.00%** | **100.0%** |
-| 11 | ByteDance MegaScale | 3-tier Clos + 8-rail | PENDING | — | — |
+| 11 | [ByteDance MegaScale](11_bytedance_megascale/) | 3-tier Clos + 8-rail | **PASS** | **0.00%** | **100.0%** |
 | 12 | Alibaba HPN | 2-tier + Rail + Dual-ToR + Dual-Plane | PENDING | — | — |
 | 13 | IBM Vela | 2-level Clos / RoCE | PENDING | — | — |
 | 14 | IBM Vela ASPLOS | Virtualized RoCE | PENDING | — | — |
@@ -119,3 +119,5 @@ Each Case README now contains:
 4. the engine-derived quantities,
 5. reference vs engine error,
 6. limitations and validation-strength interpretation.
+
+- Case 11 ByteDance MegaScale: PASS · 4/4 scored topology metrics

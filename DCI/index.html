@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>AI Data Center BOM Engine v2.6.1 — Runtime Fix</title>
+<title>AI Data Center BOM Engine v2.6.2 — Multi-Architecture Golden Validation</title>
 <style>
 :root{
   --bg:#0a1020; --panel:#111a31; --panel2:#172443; --txt:#eef4ff; --muted:#9eafd0;
@@ -1692,6 +1692,55 @@ function pctError(actual,expected){
 }
 function fmtErr(v){ return `${v.toFixed(2)}%`; }
 
+// Generic optical-torus/OCS calculator used by public golden reference cases.
+// Outputs are derived from architecture inputs; expected/reference values are used only for validation.
+const opticalTorusGoldenCases=[
+  {
+    id:"google_tpu_v4", label:"Google TPU v4",
+    dimensions:[4,4,4], blockCount:64, blocksPerRack:1, chipsPerHost:4,
+    faces:6, linksPerFace:16, opposingFacesShareOcs:true,
+    ocsTotalPorts:136, ocsSparePorts:8,
+    expected:{
+      acceleratorCount:4096, hostCount:1024, rackCount:64, acceleratorsPerRack:64,
+      opticalLinksPerRack:96, rackOcsLinkEndpoints:6144, ocsCount:48,
+      ocsTotalPortsEach:136, ocsWorkingPortsEach:128, ocsSparePortsEach:8,
+      ocsWorkingPortsTotal:6144, ocsSparePortsTotal:384
+    }
+  }
+];
+
+function computeOpticalTorusArchitecture(cfg){
+  const chipsPerBlock=(cfg.dimensions||[]).reduce((a,b)=>a*b,1);
+  const acceleratorCount=chipsPerBlock*cfg.blockCount;
+  const hostCount=acceleratorCount/cfg.chipsPerHost;
+  const rackCount=Math.ceil(cfg.blockCount/Math.max(1,cfg.blocksPerRack||1));
+  const acceleratorsPerRack=chipsPerBlock*Math.max(1,cfg.blocksPerRack||1);
+  const opticalLinksPerBlock=cfg.faces*cfg.linksPerFace;
+  const opticalLinksPerRack=opticalLinksPerBlock*Math.max(1,cfg.blocksPerRack||1);
+  const rackOcsLinkEndpoints=cfg.blockCount*opticalLinksPerBlock;
+  const ocsWorkingPortsEach=cfg.ocsTotalPorts-cfg.ocsSparePorts;
+  const ocsCount=rackOcsLinkEndpoints/ocsWorkingPortsEach;
+  const ocsWorkingPortsTotal=ocsCount*ocsWorkingPortsEach;
+  const ocsSparePortsTotal=ocsCount*cfg.ocsSparePorts;
+  const ocsPerBlock=cfg.opposingFacesShareOcs ? opticalLinksPerBlock/2 : opticalLinksPerBlock;
+  return {
+    acceleratorCount,hostCount,rackCount,acceleratorsPerRack,opticalLinksPerRack,
+    rackOcsLinkEndpoints,ocsCount,ocsTotalPortsEach:cfg.ocsTotalPorts,
+    ocsWorkingPortsEach,ocsSparePortsEach:cfg.ocsSparePorts,
+    ocsWorkingPortsTotal,ocsSparePortsTotal,ocsPerBlock
+  };
+}
+
+function runOpticalTorusGoldenCase(c){
+  const actual=computeOpticalTorusArchitecture(c);
+  const errors={};
+  Object.keys(c.expected).forEach(k=>{ errors[k]=pctError(actual[k],c.expected[k]); });
+  const values=Object.values(errors);
+  const maxErr=values.length?Math.max(...values):0;
+  const mape=values.length?values.reduce((a,b)=>a+b,0)/values.length:0;
+  return {...c,actual,errors,maxErr,mape,status:maxErr<=10?"PASS":"FAIL"};
+}
+
 function runGoldenFabricCase(c){
   const s=systems[c.systemId], sw=switches.qm9700;
   const alloc=packedAllocation(c.nodes,4);
@@ -1722,6 +1771,7 @@ function renderGoldenValidation(){
   const el=q("goldenSummary"), note=q("goldenNotes");
   if(!el||!note) return;
   const results=goldenFabricCases.map(runGoldenFabricCase);
+  const torusResults=opticalTorusGoldenCases.map(runOpticalTorusGoldenCase);
   el.innerHTML=`<table><thead><tr>
     <th>System</th><th>SU</th><th>Nodes</th>
     <th>GPU Ref / Engine</th><th>Leaf Ref / Engine</th><th>Spine Ref / Engine</th>
@@ -1737,14 +1787,30 @@ function renderGoldenValidation(){
       <td>${fmtErr(r.maxErr)}</td>
       <td class="${r.status==="PASS"?"good":"bad"}"><b>${r.status}</b></td>
     </tr>`).join("")
+  }</tbody></table>`+
+  `<div class="small" style="margin-top:12px"><b>Optical Torus / OCS Golden Cases</b></div>`+
+  `<table><thead><tr><th>Case</th><th>Accelerator Ref / Engine</th><th>Hosts Ref / Engine</th><th>Racks Ref / Engine</th><th>Optical links/rack</th><th>OCS Ref / Engine</th><th>Working ports total</th><th>MAPE</th><th>Max Error</th><th>Result</th></tr></thead><tbody>${
+    torusResults.map(r=>`<tr>
+      <td>${r.label}</td>
+      <td>${r.expected.acceleratorCount} / ${r.actual.acceleratorCount}</td>
+      <td>${r.expected.hostCount} / ${r.actual.hostCount}</td>
+      <td>${r.expected.rackCount} / ${r.actual.rackCount}</td>
+      <td>${r.expected.opticalLinksPerRack} / ${r.actual.opticalLinksPerRack}</td>
+      <td>${r.expected.ocsCount} / ${r.actual.ocsCount}</td>
+      <td>${r.expected.ocsWorkingPortsTotal} / ${r.actual.ocsWorkingPortsTotal}</td>
+      <td>${fmtErr(r.mape)}</td><td>${fmtErr(r.maxErr)}</td>
+      <td class="${r.status==="PASS"?"good":"bad"}"><b>${r.status}</b></td>
+    </tr>`).join("")
   }</tbody></table>`;
 
   const allPass=results.every(r=>r.status==="PASS");
+  const allTorusPass=torusResults.every(r=>r.status==="PASS");
   const corningRailPass=systems.h200.links===8 && maxLogical(switches.qm9700,400)===64;
   note.innerHTML=
     `• <b>SU mapping correction:</b> 31 / 63 / 95 / 127 nodes → 1 / 2 / 3 / 4 SU. 기존 <code>ceil(nodes/31)</code> 로직을 <code>ceil((nodes+1)/32)</code>로 수정했습니다.<br>`+
     `• <b>UFM correction:</b> detailed NVIDIA compute-fabric golden에서는 server links 외에 UFM용 4 connections을 별도 반영합니다.<br>`+
     `• Golden fabric cases: <span class="${allPass?"good":"bad"}"><b>${allPass?"ALL PASS":"REVIEW REQUIRED"}</b></span>. `+
+    `Optical Torus/OCS golden: <span class="${allTorusPass?"good":"bad"}"><b>${allTorusPass?"ALL PASS":"REVIEW REQUIRED"}</b></span>. Google TPU v4 values are derived by the generic <code>computeOpticalTorusArchitecture()</code> calculator, not copied as outputs.<br>`+
     `Corning rail sanity check (8 links/server, QM9700 64 individual 400G ports): <span class="${corningRailPass?"good":"bad"}"><b>${corningRailPass?"PASS":"FAIL"}</b></span>.<br>`+
     `• Rack density는 strict fabric golden에서 제외합니다. B200 공식 자료는 2 systems/rack을 일반 패턴으로 제시하며, 4 systems/rack은 52U high-density 옵션입니다. H200 RA는 2 systems/rack reference를 제시합니다.`;
 }

@@ -34,7 +34,7 @@ PASS      = error <= 10%
 | 07 | [Meta RSC Phase 1](07_meta_rsc_phase1/) | 2-level nonblocking Clos | **PASS** | **0.00%** | **100.0%** |
 | 08 | [Meta RSC Phase 2](08_meta_rsc_phase2/) | Large DGX Clos | **PASS** | **0.080%** | **100.0%** |
 | 09 | [Meta 24K H100 cluster](09_meta_24576_h100/) | RoCE / Quantum-2 | **PASS** | **0.00%** | **100.0%** |
-| 10 | Meta Grand Teton / ORv3 | Rack / power | PENDING | — | — |
+| 10 | [Meta Grand Teton / ORv3](10_meta_grand_teton_orv3/) | Rack / power | **PASS** | **0.00%** | **100.0%** |
 | 11 | ByteDance MegaScale | 3-tier Clos + 8-rail | PENDING | — | — |
 | 12 | Alibaba HPN | 2-tier + Rail + Dual-ToR + Dual-Plane | PENDING | — | — |
 | 13 | IBM Vela | 2-level Clos / RoCE | PENDING | — | — |
@@ -78,3 +78,5 @@ The final goal is one generalized BOM design/validation engine with <10% error a
 - Case 03 Google TPU v6e / Trillium: **PASS · MAPE 0.0051% · Max error 0.0460% · Coverage 100.0% (9/9 derived metrics)**
 
 - Case 04 Google TPU7x / Ironwood: **PASS · MAPE 0.0059% · Max error 0.0532% · Coverage 100.0% (9/9 scored metrics)**
+
+- Cases 05–10 continuous validation batch: **COMPLETE**. Cases 05,06,07,09,10 MAPE 0.00%; Case 08 MAPE 0.08%. All six cases PASS (<10%).

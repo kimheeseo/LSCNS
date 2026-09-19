@@ -1,0 +1,19 @@
+{
+  "case_id": "16_xai_colossus",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "system_count": 100000,
+    "compute_core_count": 0,
+    "cpu_count": 0,
+    "memory_tb": 0,
+    "fabric_bandwidth_tbps": 0,
+    "accelerator_count": 100000,
+    "node_count": 100000,
+    "gpu_memory_gb": 0,
+    "nvme_count": 0,
+    "nvme_capacity_tb": 0,
+    "network_nic_count": 0,
+    "network_bandwidth_gbps": 0,
+    "expanded_accelerator_count": 200000
+  }
+}

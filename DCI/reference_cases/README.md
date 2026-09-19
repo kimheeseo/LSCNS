@@ -25,7 +25,7 @@ PASS      = error <= 10%
 
 | # | Reference case | Main architecture | Status | MAPE | Coverage |
 |---:|---|---|---|---:|---:|
-| 01 | [Google TPU v4](01_google_tpu_v4/) | 3D Torus + OCS | NOT_SUPPORTED (baseline) | N/A | 0.0% |
+| 01 | [Google TPU v4](01_google_tpu_v4/) | 3D Torus + OCS | **PASS** | **0.00%** | **100.0%** |
 | 02 | Google TPU v5p | 3D Torus | PENDING | — | — |
 | 03 | Google TPU v6e / Trillium | 2D Torus | PENDING | — | — |
 | 04 | Google TPU7x / Ironwood | TPU Pod | PENDING | — | — |
@@ -61,7 +61,8 @@ PASS      = error <= 10%
 - Framework/schema: **complete**
 - Case 01 source extraction: **complete**
 - Case 01 baseline validation: **complete**
-- Case 01 engine support: **not yet implemented**
+- Case 01 generic optical-torus/OCS calculator: **implemented**
+- Case 01 re-validation: **PASS · MAPE 0.00% · Coverage 100.0%**
 - Cases 02–30: **pending**
 
 The baseline deliberately records unsupported architectures as `NOT_SUPPORTED` instead of treating missing implementation as a fabricated 100% numerical error. Once an architecture is implemented, the same immutable reference data is used for re-test.

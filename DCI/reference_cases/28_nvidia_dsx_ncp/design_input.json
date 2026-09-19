@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "28_nvidia_dsx_ncp",
+  "scale_unit": {
+    "racks": 1,
+    "trays_per_rack": 1,
+    "gpus_per_tray": 4,
+    "compute_nics_per_tray": 4,
+    "compute_nic_speed_gbps": 400,
+    "converged_links_per_tray": 4,
+    "converged_link_speed_gbps": 200
+  }
+}

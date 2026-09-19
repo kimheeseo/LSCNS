@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "case_id": "25_nvidia_gb200_components",
+  "rack_system": {
+    "racks": 1,
+    "compute_trays_per_rack": 18,
+    "gpus_per_tray": 4,
+    "cpus_per_tray": 2,
+    "power_shelves_per_rack": 8,
+    "psus_per_power_shelf": 6,
+    "psu_kw": 5.5,
+    "data_nvme_per_tray": 4,
+    "data_nvme_tb_each": 3.84,
+    "boot_nvme_per_tray": 1,
+    "boot_nvme_tb_each": 1.92
+  }
+}

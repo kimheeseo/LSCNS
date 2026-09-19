@@ -1,0 +1,36 @@
+{
+  "case_id": "12_alibaba_hpn",
+  "engine_version": "1.6",
+  "validation_class": "A topology derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "server_network_links": {
+      "reference": 2048,
+      "calculated": 2048,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_count": {
+      "reference": 16,
+      "calculated": 16,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_uplinks_total": {
+      "reference": 960,
+      "calculated": 960,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_backup_downlinks_total": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

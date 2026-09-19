@@ -1,0 +1,36 @@
+{
+  "case_id": "26_nvidia_gb200_network_fabrics",
+  "engine_version": "1.6",
+  "validation_class": "A- cross-document fabric reconstruction",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "tray_count": {
+      "reference": 144,
+      "calculated": 144,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerator_count": {
+      "reference": 576,
+      "calculated": 576,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "leaf_switch_count": {
+      "reference": 32,
+      "calculated": 32,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "spine_switch_count": {
+      "reference": 24,
+      "calculated": 24,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

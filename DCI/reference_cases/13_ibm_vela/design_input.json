@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "case_id": "13_ibm_vela",
+  "cluster_scale": {
+    "systems": 1,
+    "accelerators_per_system": 8,
+    "cpus_per_system": 2,
+    "gpu_memory_gb_per_accelerator": 80,
+    "nvme_devices_per_system": 4,
+    "nvme_tb_each": 3.2
+  }
+}

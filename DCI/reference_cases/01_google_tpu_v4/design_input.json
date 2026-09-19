@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "case_id": "01_google_tpu_v4",
+  "target_accelerators": 4096,
+  "accelerator": {
+    "per_host": 4
+  },
+  "building_block": {
+    "dimensions": [
+      4,
+      4,
+      4
+    ]
+  },
+  "rack": {
+    "blocks_per_rack": 1
+  },
+  "topology": {
+    "type": "optical_torus",
+    "faces": 6,
+    "links_per_face": 16,
+    "opposing_faces_share_ocs": true,
+    "ocs": {
+      "total_ports": 136,
+      "spare_ports": 8
+    }
+  }
+}

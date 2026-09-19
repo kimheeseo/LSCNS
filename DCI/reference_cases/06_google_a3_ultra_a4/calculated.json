@@ -1,0 +1,17 @@
+{
+  "case_id": "06_google_a3_ultra_a4",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.4",
+  "metrics": {
+    "a3_ultra__accelerator_count_per_host": 8,
+    "a3_ultra__physical_nic_count_per_host": 10,
+    "a3_ultra__total_gpu_memory_gb_per_host": 1128,
+    "a3_ultra__gpu_nic_to_accelerator_ratio": 1,
+    "a3_ultra__max_network_bandwidth_gbps": 3600,
+    "a4__accelerator_count_per_host": 8,
+    "a4__physical_nic_count_per_host": 10,
+    "a4__total_gpu_memory_gb_per_host": 1440,
+    "a4__gpu_nic_to_accelerator_ratio": 1,
+    "a4__max_network_bandwidth_gbps": 3600
+  }
+}

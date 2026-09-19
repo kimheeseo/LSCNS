@@ -1,0 +1,12 @@
+{
+  "case_id": "23_nvidia_b200_compute_fabric",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "node_leaf_cable_count": 1020,
+    "leaf_switch_count": 32,
+    "leaf_spine_cable_count": 1024,
+    "spine_switch_count": 16,
+    "spine_core_cable_count": null,
+    "core_switch_count": null
+  }
+}

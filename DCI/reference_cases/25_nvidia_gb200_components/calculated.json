@@ -1,0 +1,19 @@
+{
+  "case_id": "25_nvidia_gb200_components",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "compute_tray_count": 18,
+    "accelerator_count": 72,
+    "cpu_count": 36,
+    "nvlink_switch_tray_count": 0,
+    "nvswitch_count": 0,
+    "tor_switch_count": 0,
+    "power_shelf_count": 8,
+    "psu_count": 48,
+    "installed_psu_capacity_kw": 264,
+    "data_nvme_count": 72,
+    "data_nvme_capacity_tb": 276.48,
+    "boot_nvme_count": 18,
+    "boot_nvme_capacity_tb": 34.56
+  }
+}

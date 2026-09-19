@@ -1,0 +1,34 @@
+{
+  "case_id": "07_meta_rsc_phase1",
+  "name": "Meta Research SuperCluster Phase 1",
+  "vendor": "Meta",
+  "year": 2022,
+  "architecture": "760 DGX A100 nodes; 2-level non-oversubscribed Quantum InfiniBand Clos",
+  "sources": [
+    {
+      "title": "Meta AI - Introducing the AI Research SuperCluster",
+      "url": "https://ai.meta.com/blog/ai-rsc/",
+      "type": "official Meta publication"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 6080,
+      "unit": "A100 GPUs",
+      "source_note": "760 DGX x 8 GPUs",
+      "verifiable": true
+    },
+    "storage_total_pb": {
+      "value": 231,
+      "unit": "PB",
+      "source_note": "175 PB FlashArray + 46 PB cache + 10 PB FlashBlade",
+      "verifiable": true
+    },
+    "cluster_network_endpoint_tbps": {
+      "value": 1216,
+      "unit": "Tbps endpoint bandwidth",
+      "source_note": "760 DGX x 1600 Gbps",
+      "verifiable": true
+    }
+  }
+}

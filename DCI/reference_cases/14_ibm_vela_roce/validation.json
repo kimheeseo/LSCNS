@@ -1,0 +1,18 @@
+{
+  "case_id": "14_ibm_vela_roce",
+  "engine_version": "1.6",
+  "validation_class": "B cross-source network-structure derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "tor_spine_link_count": {
+      "reference": 16,
+      "calculated": 16,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

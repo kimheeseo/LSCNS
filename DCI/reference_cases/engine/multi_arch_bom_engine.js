@@ -353,6 +353,7 @@ function deriveHpcSystem(input) {
     nic_count:nodes*nics,
     injection_bandwidth_per_node_gbps:nics*nicGbps,
     aggregate_endpoint_injection_pbps:nodes*nics*nicGbps/1e6,
+    aggregate_endpoint_injection_PBps:nodes*nics*nicGbps/8/1e6,
     nodes_per_rack:racks?nodes/racks:null
   };
 }
@@ -366,31 +367,66 @@ function deriveScaleUnit(input) {
   const computeNicGbps=Number(s.compute_nic_speed_gbps||0);
   const convergedLinks=Number(s.converged_links_per_tray||0);
   const convergedGbps=Number(s.converged_link_speed_gbps||0);
+  const groups=Number(s.fabric_group_count||0);
+  const leafPerGroup=Number(s.leaf_switches_per_group||0);
+  const spinePerGroup=Number(s.spine_switches_per_group||0);
   return {
     tray_count:racks*trays,
     accelerator_count:racks*trays*gpuPerTray,
     compute_nic_count:racks*trays*computeNics,
     compute_bandwidth_tbps:racks*trays*computeNics*computeNicGbps/1000,
     converged_link_count:racks*trays*convergedLinks,
-    converged_bandwidth_tbps:racks*trays*convergedLinks*convergedGbps/1000
+    converged_bandwidth_tbps:racks*trays*convergedLinks*convergedGbps/1000,
+    fabric_group_count:groups||null,
+    leaf_switch_count:groups&&leafPerGroup?groups*leafPerGroup:null,
+    spine_switch_count:groups&&spinePerGroup?groups*spinePerGroup:null
   };
 }
 
 function deriveClusterScale(input) {
   const s=input.cluster_scale||{};
-  const systems=Number(s.systems||0);
+  const aps=Number(s.accelerators_per_system||0);
+  const targetAcc=Number(s.target_accelerators||0);
+  const systems=Number(s.systems||0) || (targetAcc&&aps?Math.ceil(targetAcc/aps):0);
+  const gpuMem=Number(s.gpu_memory_gb_per_accelerator||0);
+  const nvmeCount=Number(s.nvme_devices_per_system||0);
+  const nvmeTb=Number(s.nvme_tb_each||0);
+  const expansion=Number(s.expansion_factor||0);
+  const nicsPerAcc=Number(s.network_nics_per_accelerator||0);
+  const networkGbps=Number(s.network_bandwidth_gbps_per_system||0);
   return {
     system_count:systems,
     compute_core_count:systems*Number(s.compute_cores_per_system||0),
+    cpu_count:systems*Number(s.cpus_per_system||0),
     memory_tb:systems*Number(s.memory_tb_per_system||0),
     fabric_bandwidth_tbps:systems*Number(s.fabric_bandwidth_tbps_per_system||0),
-    accelerator_count:systems*Number(s.accelerators_per_system||0),
-    node_count:s.accelerators_per_system?systems:null
+    accelerator_count:systems*aps,
+    node_count:systems||null,
+    gpu_memory_gb:systems*aps*gpuMem,
+    nvme_count:systems*nvmeCount,
+    nvme_capacity_tb:systems*nvmeCount*nvmeTb,
+    network_nic_count:systems*aps*nicsPerAcc,
+    network_bandwidth_gbps:systems*networkGbps,
+    expanded_accelerator_count:expansion?systems*aps*expansion:null
+  };
+}
+
+function deriveClosUnit(input) {
+  const u=input.clos_unit||{};
+  const tor=Number(u.tor_count||0), spine=Number(u.spine_count||0);
+  const linksPerPair=Number(u.links_per_tor_spine_pair||0);
+  const speed=Number(u.link_speed_gbps||0);
+  const links=tor*spine*linksPerPair;
+  return {
+    tor_count:tor,spine_count:spine,
+    tor_spine_link_count:links,
+    tor_spine_aggregate_tbps:links*speed/1000
   };
 }
 
 function deriveArchitecture(input) {
   if (input.network_plan) return deriveNetworkPlan(input);
+  if (input.clos_unit) return deriveClosUnit(input);
   if (input.fabric_design) return deriveFabricDesign(input);
   if (input.rack_system) return deriveRackSystem(input);
   if (input.hpc_system) return deriveHpcSystem(input);

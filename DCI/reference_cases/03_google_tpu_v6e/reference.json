@@ -1,0 +1,100 @@
+{
+  "case_id": "03_google_tpu_v6e",
+  "name": "Google Cloud TPU v6e (Trillium)",
+  "vendor": "Google",
+  "architecture": "256-chip Pod, 2D torus, 8 chips/host, 4x200G NIC/host",
+  "year": 2024,
+  "sources": [
+    {
+      "title": "Google Cloud TPU v6e documentation",
+      "url": "https://docs.cloud.google.com/tpu/docs/v6e",
+      "type": "official vendor documentation",
+      "note": "Primary architecture, Pod, topology, host, NIC and bandwidth source"
+    },
+    {
+      "title": "Google Compute Engine TPU machine specifications",
+      "url": "https://docs.cloud.google.com/compute/docs/tpus/tpu-machines",
+      "type": "official vendor documentation",
+      "note": "Cross-check for Pod size, BF16, ICI and DCN-per-chip"
+    }
+  ],
+  "input_context": {
+    "pod_accelerator_target": 256,
+    "chips_per_host": 8,
+    "topology": "2D torus",
+    "nics_per_host": 4,
+    "nic_speed_gbps": 200,
+    "dcn_bandwidth_per_chip_gbps": 100,
+    "ici_ports_per_chip": 4,
+    "peak_bf16_tflops_per_chip": 918,
+    "largest_slice_dimensions": [
+      16,
+      16
+    ]
+  },
+  "metrics": {
+    "cpu_host_count": {
+      "value": 32,
+      "unit": "hosts/Pod",
+      "source_note": "256 chips / 8 chips per host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "dcn_bandwidth_per_host_gbps": {
+      "value": 800,
+      "unit": "Gbps/host",
+      "source_note": "4 x 200 Gbps NIC per host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "total_nic_count": {
+      "value": 128,
+      "unit": "NICs/Pod",
+      "source_note": "32 hosts x 4 NICs",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "nic_aggregate_bandwidth_per_host_gbps": {
+      "value": 800,
+      "unit": "Gbps/host",
+      "source_note": "4 x 200 Gbps NIC",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "dcn_bandwidth_per_pod_tbps": {
+      "value": 25.6,
+      "unit": "Tbps/Pod",
+      "source_note": "Official v6e spec",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ici_ports_total": {
+      "value": 1024,
+      "unit": "ICI ports/Pod",
+      "source_note": "256 chips x 4 ICI ports/chip",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "peak_bf16_pflops_per_pod": {
+      "value": 234.9,
+      "unit": "PFLOPs/Pod",
+      "source_note": "Official rounded v6e Pod BF16 peak",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "max_slice_accelerator_count": {
+      "value": 256,
+      "unit": "chips",
+      "source_note": "16x16 supported full-Pod slice",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "max_slice_host_count": {
+      "value": 32,
+      "unit": "hosts",
+      "source_note": "16x16 supported slice table",
+      "confidence": "high",
+      "verifiable": true
+    }
+  }
+}

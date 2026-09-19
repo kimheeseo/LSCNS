@@ -1,0 +1,36 @@
+{
+  "case_id": "21_nvidia_dgx_h100_superpod",
+  "name": "NVIDIA DGX H100 SuperPOD 4-SU",
+  "vendor": "NVIDIA",
+  "year": 2024,
+  "architecture": "128 nodes / 1024 GPUs / 2-tier rail-aligned InfiniBand",
+  "sources": [
+    {
+      "title": "DGX H100 SuperPOD Architecture",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/dgx-superpod-architecture.html",
+      "type": "NVIDIA RA"
+    }
+  ],
+  "metrics": {
+    "node_leaf_cable_count": {
+      "value": 1024,
+      "unit": "cables",
+      "verifiable": true
+    },
+    "leaf_switch_count": {
+      "value": 32,
+      "unit": "switches",
+      "verifiable": true
+    },
+    "leaf_spine_cable_count": {
+      "value": 1024,
+      "unit": "cables",
+      "verifiable": true
+    },
+    "spine_switch_count": {
+      "value": 16,
+      "unit": "switches",
+      "verifiable": true
+    }
+  }
+}

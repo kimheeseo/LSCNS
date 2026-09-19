@@ -1,0 +1,26 @@
+{
+  "case_id": "19_azure_nd_h100_v5",
+  "name": "Azure ND H100 v5",
+  "vendor": "Microsoft Azure",
+  "year": 2026,
+  "architecture": "8×H100 + dedicated 400G/GPU",
+  "sources": [
+    {
+      "title": "ND-H100-v5 sizes series",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+      "type": "Microsoft Learn"
+    }
+  ],
+  "metrics": {
+    "gpu_memory_gb": {
+      "value": 640,
+      "unit": "GB",
+      "verifiable": true
+    },
+    "network_nic_count": {
+      "value": 8,
+      "unit": "NICs",
+      "verifiable": true
+    }
+  }
+}

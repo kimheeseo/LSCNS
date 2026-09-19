@@ -1,0 +1,19 @@
+{
+  "case_id": "20_azure_nd_mi300x_v5",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "system_count": 1,
+    "compute_core_count": 0,
+    "cpu_count": 0,
+    "memory_tb": 0,
+    "fabric_bandwidth_tbps": 0,
+    "accelerator_count": 8,
+    "node_count": 1,
+    "gpu_memory_gb": 1536,
+    "nvme_count": 0,
+    "nvme_capacity_tb": 0,
+    "network_nic_count": 8,
+    "network_bandwidth_gbps": 3200,
+    "expanded_accelerator_count": null
+  }
+}

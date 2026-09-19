@@ -1,0 +1,36 @@
+{
+  "case_id": "11_bytedance_megascale",
+  "name": "ByteDance MegaScale",
+  "vendor": "ByteDance",
+  "year": 2024,
+  "architecture": "3-layer Clos-like + 8-rail + 400G→2×200G breakout",
+  "sources": [
+    {
+      "title": "MegaScale: Scaling Large Language Model Training to More Than 10,000 GPUs",
+      "url": "https://www.usenix.org/system/files/nsdi24-jiang-ziheng.pdf",
+      "type": "USENIX NSDI 2024"
+    }
+  ],
+  "metrics": {
+    "server_network_links": {
+      "value": 512,
+      "unit": "200G server links in one 64-server ToR set",
+      "verifiable": true
+    },
+    "tor_count": {
+      "value": 8,
+      "unit": "ToRs per 64-server multi-rail group",
+      "verifiable": true
+    },
+    "tor_physical_downlinks_total": {
+      "value": 256,
+      "unit": "400G physical downlink ports",
+      "verifiable": true
+    },
+    "tor_uplinks_total": {
+      "value": 256,
+      "unit": "400G uplinks",
+      "verifiable": true
+    }
+  }
+}

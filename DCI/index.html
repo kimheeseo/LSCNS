@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>AI Data Center BOM Engine v2.6 — BIM Overview + Rack Interconnect</title>
+<title>AI Data Center BOM Engine v2.6.1 — Runtime Fix</title>
 <style>
 :root{
   --bg:#0a1020; --panel:#111a31; --panel2:#172443; --txt:#eef4ff; --muted:#9eafd0;
@@ -174,7 +174,7 @@ html{scroll-behavior:smooth}
 <h1>AI 데이터센터 BOM 설계 엔진</h1>
 <div class="sub">최종 통합 Prototype · <b>Requirements → System → Network/Rack → Connectivity → Power/Cooling → Final BOM</b></div>
 </div>
-<div class="badge">2026.09.19 · v2.6 BIM Overview + Rack Interconnect</div>
+<div class="badge">2026.09.19 · v2.6.1 Runtime Fix</div>
 </div><div class="workflowNav"><a href="#step1"><b>STEP 1</b>요구조건</a><a href="#step2"><b>STEP 2</b>System</a><a href="#step3"><b>STEP 3</b>Rack/Network</a><a href="#step4"><b>STEP 4</b>Connectivity</a><a href="#step5"><b>STEP 5</b>Power/Cooling</a><a href="#step6"><b>STEP 6</b>Final BOM</a>
 </div>
 <div class="topDesignResult" id="designOverview">
@@ -2710,7 +2710,7 @@ function renderRackVisuals(ctx){
     callout(svg,485,234,"Port viz",`${shown*2} panel ports class`,uplinkColor);
     callout(svg,485,270,"Cable path","Ingress → Panel → Switch → Uplink Panel → ODF",uplinkColor);
     legend(svg,485,324);
-  },["network rack","segmented cable colors","port visualization",coolingSizing?`${coolingSizing.rackCoolingLimit} kWth/rack`:"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"network", title:`${sw.name} reference`, switchName:sw.name, ingress:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC" : (sfProfile.optical?"MPO":"DIRECT"), uplink:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC" : (lsProfile.optical?"MPO":"DIRECT"), ingressType:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC":"MPO", uplinkType:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC":"MPO", ingressPorts:Math.max(4,shown*2), uplinkPorts:Math.max(4,shown*2), ingressLabel:sfProfile.media, uplinkLabel:lsProfile.media, mediaColor:mediaMainColor, uplinkColor:uplinkColor})));
+  },["network rack","segmented cable colors","port visualization",coolingSizing?`${coolingSizing.rackCoolingLimit} kWth/rack`:"cooling"], sideSvg=>drawSideReference(sideSvg,{type:"network", title:`${sw.name} reference`, switchName:sw.name, ingress:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC" : (sfProfile.optical?"MPO":"DIRECT"), uplink:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC" : (lsProfile.optical?"MPO":"DIRECT"), ingressType:(sfProfile.connector&&sfProfile.connector.includes("LC"))?"LC":"MPO", uplinkType:(lsProfile.connector&&lsProfile.connector.includes("LC"))?"LC":"MPO", ingressPorts:Math.max(4,Math.min(leafCount,10)*2), uplinkPorts:Math.max(4,Math.min(leafCount,10)*2), ingressLabel:sfProfile.media, uplinkLabel:lsProfile.media, mediaColor:mediaMainColor, uplinkColor:uplinkColor})));
 
   grid.appendChild(rackCard("Spine Rack",`Spine switches × ${spineCount}`,svg=>{
     const front=[];

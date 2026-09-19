@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "case_id": "02_google_tpu_v5p",
+  "target_accelerators": 8960,
+  "accelerator": {
+    "per_host": 4,
+    "dcn_bandwidth_per_chip_gbps": 50
+  },
+  "building_block": {
+    "dimensions": [
+      4,
+      4,
+      4
+    ]
+  },
+  "rack": {
+    "blocks_per_rack": 1
+  },
+  "topology": {
+    "type": "torus3d"
+  },
+  "validation_slice": {
+    "dimensions": [
+      16,
+      16,
+      24
+    ]
+  }
+}

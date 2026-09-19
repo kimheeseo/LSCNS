@@ -1,0 +1,36 @@
+{
+  "case_id": "12_alibaba_hpn",
+  "name": "Alibaba HPN",
+  "vendor": "Alibaba Cloud",
+  "year": 2024,
+  "architecture": "Rail + dual-ToR + dual-plane, 1K-GPU segment",
+  "sources": [
+    {
+      "title": "Alibaba HPN: A Data Center Network for Large Language Model Training",
+      "url": "https://cs.stanford.edu/~keithw/sigcomm2024/sigcomm24-final878-acmpaginated.pdf",
+      "type": "ACM SIGCOMM 2024"
+    }
+  ],
+  "metrics": {
+    "server_network_links": {
+      "value": 2048,
+      "unit": "active 200G backend links",
+      "verifiable": true
+    },
+    "tor_count": {
+      "value": 16,
+      "unit": "ToRs/segment",
+      "verifiable": true
+    },
+    "tor_uplinks_total": {
+      "value": 960,
+      "unit": "400G uplinks",
+      "verifiable": true
+    },
+    "tor_backup_downlinks_total": {
+      "value": 128,
+      "unit": "backup 200G ports",
+      "verifiable": true
+    }
+  }
+}

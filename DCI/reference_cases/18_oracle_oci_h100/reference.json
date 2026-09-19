@@ -1,0 +1,26 @@
+{
+  "case_id": "18_oracle_oci_h100",
+  "name": "Oracle OCI H100 Supercluster scale",
+  "vendor": "Oracle",
+  "year": 2026,
+  "architecture": "BM.GPU.H100.8 + OCI Supercluster",
+  "sources": [
+    {
+      "title": "OCI AI Infrastructure",
+      "url": "https://www.oracle.com/ai-infrastructure/",
+      "type": "Oracle official"
+    },
+    {
+      "title": "OCI H100 Quick Start",
+      "url": "https://docs.oracle.com/en-us/iaas/Content/Compute/gpu-quick-start/nvidia/H100/README-H100.htm",
+      "type": "Oracle docs"
+    }
+  ],
+  "metrics": {
+    "system_count": {
+      "value": 2048,
+      "unit": "H100 nodes",
+      "verifiable": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "case_id": "22_nvidia_dgx_b200_superpod",
+  "fabric_design": {
+    "active_nodes": 512,
+    "design_nodes": 512,
+    "links_per_node": 8,
+    "ufm_links": 0,
+    "leaf_down_ports": 32,
+    "leaf_up_ports": 32,
+    "spine_down_ports": 32,
+    "spine_up_ports": 32,
+    "core_ports": 64
+  }
+}

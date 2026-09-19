@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "case_id": "17_aws_p5",
+  "cluster_scale": {
+    "systems": 1,
+    "accelerators_per_system": 8,
+    "gpu_memory_gb_per_accelerator": 80,
+    "network_bandwidth_gbps_per_system": 3200
+  }
+}

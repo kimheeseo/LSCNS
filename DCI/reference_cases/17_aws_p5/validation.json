@@ -1,0 +1,18 @@
+{
+  "case_id": "17_aws_p5",
+  "engine_version": "1.6",
+  "validation_class": "C profile arithmetic",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "gpu_memory_gb": {
+      "reference": 640,
+      "calculated": 640,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "29_frontier",
+  "hpc_system": {
+    "nodes": 9856,
+    "accelerators_per_node": 4,
+    "visible_gpus_per_node": 8,
+    "nics_per_node": 4,
+    "nic_speed_gbps": 200,
+    "racks": 77
+  }
+}

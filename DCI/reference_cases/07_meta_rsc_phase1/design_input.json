@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "case_id": "07_meta_rsc_phase1",
+  "target_hosts": 760,
+  "accelerator": {
+    "per_host": 8
+  },
+  "network": {
+    "bandwidth_per_host_gbps": 1600
+  },
+  "topology": {
+    "type": "clos",
+    "tiers": 2,
+    "oversubscription_ratio": 1
+  },
+  "storage": {
+    "components_pb": [
+      175,
+      46,
+      10
+    ]
+  }
+}

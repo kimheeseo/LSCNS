@@ -1,0 +1,73 @@
+{
+  "case_id": "06_google_a3_ultra_a4",
+  "engine_version": "1.4",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "a3_ultra__accelerator_count_per_host": {
+      "reference": 8,
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a3_ultra__physical_nic_count_per_host": {
+      "reference": 10,
+      "calculated": 10,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a3_ultra__total_gpu_memory_gb_per_host": {
+      "reference": 1128,
+      "calculated": 1128,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a3_ultra__gpu_nic_to_accelerator_ratio": {
+      "reference": 1,
+      "calculated": 1,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a3_ultra__max_network_bandwidth_gbps": {
+      "reference": 3600,
+      "calculated": 3600,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a4__accelerator_count_per_host": {
+      "reference": 8,
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a4__physical_nic_count_per_host": {
+      "reference": 10,
+      "calculated": 10,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a4__total_gpu_memory_gb_per_host": {
+      "reference": 1440,
+      "calculated": 1440,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a4__gpu_nic_to_accelerator_ratio": {
+      "reference": 1,
+      "calculated": 1,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "a4__max_network_bandwidth_gbps": {
+      "reference": 3600,
+      "calculated": 3600,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "validation_class": "C profile consistency validation",
+  "review_note": "Vendor machine-profile consistency across H200/B200 profiles."
+}

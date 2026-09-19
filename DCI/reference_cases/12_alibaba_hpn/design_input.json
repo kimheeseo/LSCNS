@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "12_alibaba_hpn",
+  "network_plan": {
+    "hosts": 128,
+    "links_per_host": 8,
+    "link_redundancy_factor": 2,
+    "logical_downlinks_per_tor": 128,
+    "physical_downlinks_per_tor": 128,
+    "uplinks_per_tor": 60,
+    "backup_downlinks_per_tor": 8
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "17_aws_p5",
+  "name": "AWS EC2 P5",
+  "vendor": "AWS",
+  "year": 2026,
+  "architecture": "8×H100 instance + EFA",
+  "sources": [
+    {
+      "title": "Amazon EC2 P5 Instances",
+      "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "type": "AWS official"
+    }
+  ],
+  "metrics": {
+    "gpu_memory_gb": {
+      "value": 640,
+      "unit": "GB HBM3 / instance",
+      "verifiable": true
+    }
+  }
+}

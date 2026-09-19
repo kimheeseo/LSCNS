@@ -1,0 +1,48 @@
+{
+  "case_id": "29_frontier",
+  "engine_version": "1.6",
+  "validation_class": "A- HPC system derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "node_count": {
+      "reference": 9856,
+      "calculated": 9856,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerator_count": {
+      "reference": 39424,
+      "calculated": 39424,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "visible_gpu_count": {
+      "reference": 78848,
+      "calculated": 78848,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nic_count": {
+      "reference": 39424,
+      "calculated": 39424,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "injection_bandwidth_per_node_gbps": {
+      "reference": 800,
+      "calculated": 800,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nodes_per_rack": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

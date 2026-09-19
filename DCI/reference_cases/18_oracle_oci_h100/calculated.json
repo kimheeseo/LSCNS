@@ -1,0 +1,19 @@
+{
+  "case_id": "18_oracle_oci_h100",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "system_count": 2048,
+    "compute_core_count": 0,
+    "cpu_count": 0,
+    "memory_tb": 0,
+    "fabric_bandwidth_tbps": 0,
+    "accelerator_count": 16384,
+    "node_count": 2048,
+    "gpu_memory_gb": 1310720,
+    "nvme_count": 0,
+    "nvme_capacity_tb": 0,
+    "network_nic_count": 16384,
+    "network_bandwidth_gbps": 6553600,
+    "expanded_accelerator_count": null
+  }
+}

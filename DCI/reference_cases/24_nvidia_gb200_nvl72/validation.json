@@ -1,0 +1,48 @@
+{
+  "case_id": "24_nvidia_gb200_nvl72",
+  "engine_version": "1.6",
+  "validation_class": "A rack-component reconstruction",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "compute_tray_count": {
+      "reference": 18,
+      "calculated": 18,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerator_count": {
+      "reference": 72,
+      "calculated": 72,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "cpu_count": {
+      "reference": 36,
+      "calculated": 36,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nvlink_switch_tray_count": {
+      "reference": 9,
+      "calculated": 9,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nvswitch_count": {
+      "reference": 18,
+      "calculated": 18,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "tor_switch_count": {
+      "reference": 2,
+      "calculated": 2,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

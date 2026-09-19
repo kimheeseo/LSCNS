@@ -1,0 +1,27 @@
+{
+  "case_id": "15_cerebras_cg1",
+  "name": "Cerebras Condor Galaxy 1",
+  "vendor": "Cerebras / G42",
+  "year": 2023,
+  "architecture": "64 CS-2 wafer-scale cluster",
+  "sources": [
+    {
+      "title": "Introducing Condor Galaxy 1",
+      "url": "https://www.cerebras.ai/blog/introducing-condor-galaxy-1-a-4-exaflop-supercomputer-for-generative-ai",
+      "type": "Cerebras official"
+    },
+    {
+      "title": "CS-2 White Paper",
+      "url": "https://cerebras.ai/wp-content/uploads/2021/04/Cerebras-CS-2-Whitepaper.pdf",
+      "type": "Cerebras official"
+    }
+  ],
+  "metrics": {
+    "compute_core_count": {
+      "value": 54000000,
+      "unit": "AI cores",
+      "source_note": "CG-1 rounded published aggregate",
+      "verifiable": true
+    }
+  }
+}

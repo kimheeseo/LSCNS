@@ -1,0 +1,15 @@
+{
+  "case_id": "29_frontier",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.6",
+  "metrics": {
+    "node_count": 9856,
+    "accelerator_count": 39424,
+    "visible_gpu_count": 78848,
+    "nic_count": 39424,
+    "injection_bandwidth_per_node_gbps": 800,
+    "aggregate_endpoint_injection_pbps": 7.8848,
+    "aggregate_endpoint_injection_PBps": 0.9856,
+    "nodes_per_rack": 128
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "30_aurora",
+  "hpc_system": {
+    "nodes": 10624,
+    "accelerators_per_node": 6,
+    "visible_gpus_per_node": 6,
+    "nics_per_node": 8,
+    "nic_speed_gbps": 200,
+    "racks": 166
+  }
+}

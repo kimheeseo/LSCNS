@@ -1,0 +1,18 @@
+{
+  "case_id": "15_cerebras_cg1",
+  "engine_version": "1.6",
+  "validation_class": "A- cross-product aggregate check",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0.7407407407407408,
+  "max_error_pct": 0.7407407407407408,
+  "metrics": {
+    "compute_core_count": {
+      "reference": 54000000,
+      "calculated": 54400000,
+      "error_pct": 0.7407407407407408,
+      "status": "PASS"
+    }
+  }
+}

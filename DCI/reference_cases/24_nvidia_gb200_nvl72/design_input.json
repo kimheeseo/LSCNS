@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "24_nvidia_gb200_nvl72",
+  "rack_system": {
+    "racks": 1,
+    "compute_trays_per_rack": 18,
+    "gpus_per_tray": 4,
+    "cpus_per_tray": 2,
+    "nvlink_switch_trays_per_rack": 9,
+    "nvswitches_per_switch_tray": 2,
+    "tor_switches_per_rack": 2
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "08_meta_rsc_phase2",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.5",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "validation_class": "B+ cross-source sanity check",
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "accelerator_count": {
+      "reference": 16000,
+      "calculated": 16000,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "qualitative_cross_checks": {
+    "peak_bf16_pflops_per_cluster": {
+      "reference_text": "almost 5 exaflops",
+      "calculated_pflops": 4992,
+      "nominal_difference_vs_5000_pct": 0.16,
+      "scored": false,
+      "assessment": "consistent with approximate source wording"
+    },
+    "fabric_tbps": {
+      "reference": 16,
+      "calculated": null,
+      "scored": false,
+      "assessment": "published context; not predicted"
+    }
+  },
+  "review_note": "The previous 0.16% error treated 'almost 5 exaflops' as exactly 5.000 EFLOPS. Review corrected this: approximate prose is no longer numerically scored."
+}

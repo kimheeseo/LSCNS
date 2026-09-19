@@ -1,0 +1,26 @@
+{
+  "case_id": "14_ibm_vela_roce",
+  "name": "IBM Vela redundant Clos unit",
+  "vendor": "IBM Research",
+  "year": 2025,
+  "architecture": "Virtualized RoCE/GDR + redundant two-level Clos",
+  "sources": [
+    {
+      "title": "Vela: A Virtualized LLM Training System with GPU Direct and RoCE",
+      "url": "https://research.ibm.com/publications/vela-a-virtualized-llm-training-system-with-gpu-direct-and-roce",
+      "type": "ASPLOS 2025"
+    },
+    {
+      "title": "IBM Research Vela architecture blog",
+      "url": "https://research.ibm.com/blog/AI-supercomputer-Vela-GPU-cluster",
+      "type": "IBM Research"
+    }
+  ],
+  "metrics": {
+    "tor_spine_link_count": {
+      "value": 16,
+      "unit": "100G TOR-spine links per redundant TOR pair",
+      "verifiable": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "27_nvidia_gb300_nvl72",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "tray_count": 18,
+    "accelerator_count": 72,
+    "compute_nic_count": 72,
+    "compute_bandwidth_tbps": 57.6,
+    "converged_link_count": 36,
+    "converged_bandwidth_tbps": 14.4,
+    "fabric_group_count": null,
+    "leaf_switch_count": null,
+    "spine_switch_count": null
+  }
+}

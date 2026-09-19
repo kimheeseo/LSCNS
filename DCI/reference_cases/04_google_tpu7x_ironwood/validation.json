@@ -1,0 +1,69 @@
+{
+  "case_id": "04_google_tpu7x_ironwood",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.3",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0.005915,
+  "max_error_pct": 0.053233,
+  "metrics": {
+    "cpu_host_count": {
+      "reference": 2304,
+      "calculated": 2304,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerators_per_block": {
+      "reference": 64,
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "hosts_per_block": {
+      "reference": 16,
+      "calculated": 16,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "building_block_count": {
+      "reference": 144,
+      "calculated": 144,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "dcn_bandwidth_per_host_gbps": {
+      "reference": 400,
+      "calculated": 400,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "dcn_bandwidth_per_pod_tbps": {
+      "reference": 921.6,
+      "calculated": 921.6,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "peak_fp8_pflops_per_pod": {
+      "reference": 42500,
+      "calculated": 42522.624,
+      "error_pct": 0.053233,
+      "status": "PASS"
+    },
+    "tensor_cores_total": {
+      "reference": 18432,
+      "calculated": 18432,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "sparse_cores_total": {
+      "reference": 36864,
+      "calculated": 36864,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "method_note": "Nine public/derived architecture quantities are compared. Physical rack count and cable/connector quantities are not scored because they are not disclosed in the cited sources.",
+  "validation_class": "B+ official cross-document validation",
+  "review_note": "TPU7x specs are cross-checked with All Capacity hierarchy."
+}

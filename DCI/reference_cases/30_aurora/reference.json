@@ -1,0 +1,44 @@
+{
+  "case_id": "30_aurora",
+  "name": "ALCF Aurora",
+  "vendor": "HPE/Intel",
+  "year": 2026,
+  "sources": [
+    {
+      "title": "Aurora Machine Overview",
+      "url": "https://docs.alcf.anl.gov/aurora/",
+      "type": "official ALCF documentation"
+    },
+    {
+      "title": "Aurora Data Flow overview",
+      "url": "https://www.alcf.anl.gov/sites/default/files/2024-03/Aurora-Data%20Flow-28Feb24.pdf",
+      "type": "official ALCF presentation"
+    }
+  ],
+  "metrics": {
+    "node_count": {
+      "value": 10624,
+      "unit": "nodes"
+    },
+    "accelerator_count": {
+      "value": 63744,
+      "unit": "GPUs"
+    },
+    "nic_count": {
+      "value": 84992,
+      "unit": "NICs"
+    },
+    "injection_bandwidth_per_node_gbps": {
+      "value": 1600,
+      "unit": "Gbps/node"
+    },
+    "nodes_per_rack": {
+      "value": 64,
+      "unit": "nodes/rack"
+    },
+    "aggregate_endpoint_injection_PBps": {
+      "value": 2.12,
+      "unit": "PB/s"
+    }
+  }
+}

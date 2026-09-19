@@ -1,0 +1,19 @@
+{
+  "case_id": "15_cerebras_cg1",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "system_count": 64,
+    "compute_core_count": 54400000,
+    "cpu_count": 0,
+    "memory_tb": 0,
+    "fabric_bandwidth_tbps": 0,
+    "accelerator_count": 0,
+    "node_count": 64,
+    "gpu_memory_gb": 0,
+    "nvme_count": 0,
+    "nvme_capacity_tb": 0,
+    "network_nic_count": 0,
+    "network_bandwidth_gbps": 0,
+    "expanded_accelerator_count": null
+  }
+}

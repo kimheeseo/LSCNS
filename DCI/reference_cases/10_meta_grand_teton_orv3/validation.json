@@ -1,0 +1,31 @@
+{
+  "case_id": "10_meta_grand_teton_orv3",
+  "engine_version": "1.5",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "bbu_shelves_required_for_rack": {
+      "reference": 2,
+      "calculated": 2,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "bbu_pair_power_kw": {
+      "reference": 30,
+      "calculated": 30,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "backup_duration_seconds": {
+      "reference": 240,
+      "calculated": 240,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "validation_class": "B power-BOM derivation",
+  "review_note": "Derives BBU shelf quantity/pair power/time from ORv3 public values."
+}

@@ -1,0 +1,39 @@
+{
+  "case_id": "29_frontier",
+  "name": "OLCF Frontier",
+  "vendor": "HPE/AMD",
+  "year": 2026,
+  "sources": [
+    {
+      "title": "Frontier User Guide",
+      "url": "https://docs.olcf.ornl.gov/systems/frontier_user_guide.html",
+      "type": "official OLCF user documentation"
+    }
+  ],
+  "metrics": {
+    "node_count": {
+      "value": 9856,
+      "unit": "compute nodes"
+    },
+    "accelerator_count": {
+      "value": 39424,
+      "unit": "MI250X accelerators"
+    },
+    "visible_gpu_count": {
+      "value": 78848,
+      "unit": "GCD GPUs"
+    },
+    "nic_count": {
+      "value": 39424,
+      "unit": "Slingshot NICs"
+    },
+    "injection_bandwidth_per_node_gbps": {
+      "value": 800,
+      "unit": "Gbps/node"
+    },
+    "nodes_per_rack": {
+      "value": 128,
+      "unit": "nodes/rack"
+    }
+  }
+}

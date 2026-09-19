@@ -1,0 +1,28 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.0",
+  "input_source": "design_input.json",
+  "metrics": {
+    "accelerator_count": 4096,
+    "accelerators_per_host": 4,
+    "cpu_host_count": 1024,
+    "accelerators_per_block": 64,
+    "blocks_per_rack": 1,
+    "accelerators_per_rack": 64,
+    "compute_rack_count": 64,
+    "hosts_per_rack": 16,
+    "topology_type": "optical_torus",
+    "optical_links_per_block": 96,
+    "optical_links_per_rack": 96,
+    "rack_to_ocs_link_instances": 6144,
+    "ocs_count": 48,
+    "ocs_per_block": 48,
+    "ocs_total_ports_each": 136,
+    "ocs_working_ports_each": 128,
+    "ocs_spare_ports_each": 8,
+    "ocs_working_ports_total": 6144,
+    "ocs_spare_ports_total": 384
+  },
+  "note": "Calculated only from design_input.json using the shared multi-architecture engine. No reference expected value is used by the calculation path."
+}

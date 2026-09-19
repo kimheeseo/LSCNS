@@ -1,0 +1,33 @@
+{
+  "case_id": "03_google_tpu_v6e",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.2",
+  "input_source": "design_input.json",
+  "metrics": {
+    "accelerator_count": 256,
+    "accelerators_per_host": 8,
+    "cpu_host_count": 32,
+    "accelerators_per_block": null,
+    "building_block_count": null,
+    "blocks_per_rack": 1,
+    "accelerators_per_rack": null,
+    "compute_rack_count": null,
+    "hosts_per_rack": null,
+    "dcn_bandwidth_per_chip_gbps": 100,
+    "dcn_bandwidth_per_host_gbps": 800,
+    "nics_per_host": 4,
+    "nic_speed_gbps": 200,
+    "total_nic_count": 128,
+    "nic_aggregate_bandwidth_per_host_gbps": 800,
+    "dcn_bandwidth_per_pod_tbps": 25.6,
+    "ici_ports_per_chip": 4,
+    "ici_ports_total": 1024,
+    "peak_bf16_tflops_per_chip": 918,
+    "peak_bf16_pflops_per_pod": 235.008,
+    "max_slice_accelerator_count": 256,
+    "max_slice_host_count": 32,
+    "max_slice_block_count": null,
+    "topology_type": "torus2d"
+  },
+  "note": "Calculated from generic host/NIC/Pod/topology primitives only. No v6e expected quantity is embedded in the engine."
+}

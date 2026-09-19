@@ -1,0 +1,15 @@
+{
+  "case_id": "28_nvidia_dsx_ncp",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "tray_count": 1,
+    "accelerator_count": 4,
+    "compute_nic_count": 4,
+    "compute_bandwidth_tbps": 1.6,
+    "converged_link_count": 4,
+    "converged_bandwidth_tbps": 0.8,
+    "fabric_group_count": null,
+    "leaf_switch_count": null,
+    "spine_switch_count": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "18_oracle_oci_h100",
+  "engine_version": "1.6",
+  "validation_class": "A- cross-source scale derivation",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "system_count": {
+      "reference": 2048,
+      "calculated": 2048,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

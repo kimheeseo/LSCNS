@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Center BOM Validation Result",
+  "type": "object",
+  "required": [
+    "case_id",
+    "tool_version",
+    "status",
+    "coverage_pct",
+    "metrics"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT_SUPPORTED",
+        "PENDING"
+      ]
+    },
+    "pass_threshold_error_pct": {
+      "type": "number"
+    },
+    "coverage_pct": {
+      "type": "number"
+    },
+    "mape_pct": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "calculated": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "error_pct": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_VERIFIABLE",
+              "NOT_SUPPORTED"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

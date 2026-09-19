@@ -1,0 +1,13 @@
+{
+  "case_id": "12_alibaba_hpn",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "host_count": 128,
+    "server_network_links": 2048,
+    "tor_count": 16,
+    "tor_logical_downlinks_total": 2048,
+    "tor_physical_downlinks_total": 2048,
+    "tor_uplinks_total": 960,
+    "tor_backup_downlinks_total": 128
+  }
+}

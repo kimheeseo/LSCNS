@@ -1,0 +1,71 @@
+{
+  "case_id": "06_google_a3_ultra_a4",
+  "name": "Google A3 Ultra H200 / A4 B200",
+  "vendor": "Google",
+  "year": 2026,
+  "architecture": "8 accelerator host; 8 CX-7 + 2 gVNIC; 3.6 Tbps total",
+  "sources": [
+    {
+      "title": "Google Compute Engine - Networking and GPU machines",
+      "url": "https://docs.cloud.google.com/compute/docs/gpus/gpu-network-bandwidth",
+      "type": "official documentation"
+    },
+    {
+      "title": "GKE accelerator networking",
+      "url": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/config-auto-net-for-accelerators",
+      "type": "official documentation"
+    }
+  ],
+  "metrics": {
+    "a3_ultra__accelerator_count_per_host": {
+      "value": 8,
+      "unit": "GPU/host",
+      "verifiable": true
+    },
+    "a3_ultra__physical_nic_count_per_host": {
+      "value": 10,
+      "unit": "NIC/host",
+      "verifiable": true
+    },
+    "a3_ultra__total_gpu_memory_gb_per_host": {
+      "value": 1128,
+      "unit": "GB/host",
+      "verifiable": true
+    },
+    "a3_ultra__gpu_nic_to_accelerator_ratio": {
+      "value": 1,
+      "unit": "ratio",
+      "verifiable": true
+    },
+    "a3_ultra__max_network_bandwidth_gbps": {
+      "value": 3600,
+      "unit": "Gbps",
+      "verifiable": true
+    },
+    "a4__accelerator_count_per_host": {
+      "value": 8,
+      "unit": "GPU/host",
+      "verifiable": true
+    },
+    "a4__physical_nic_count_per_host": {
+      "value": 10,
+      "unit": "NIC/host",
+      "verifiable": true
+    },
+    "a4__total_gpu_memory_gb_per_host": {
+      "value": 1440,
+      "unit": "GB/host",
+      "verifiable": true
+    },
+    "a4__gpu_nic_to_accelerator_ratio": {
+      "value": 1,
+      "unit": "ratio",
+      "verifiable": true
+    },
+    "a4__max_network_bandwidth_gbps": {
+      "value": 3600,
+      "unit": "Gbps",
+      "verifiable": true
+    }
+  }
+}

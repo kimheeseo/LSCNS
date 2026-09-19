@@ -1,0 +1,46 @@
+{
+  "case_id": "22_nvidia_dgx_b200_superpod",
+  "name": "NVIDIA DGX B200 SuperPOD 16-SU",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "architecture": "512 nodes / 4096 GPUs / 3-tier InfiniBand",
+  "sources": [
+    {
+      "title": "DGX B200 SuperPOD Architecture",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/dgx-superpod-architecture.html",
+      "type": "NVIDIA RA"
+    }
+  ],
+  "metrics": {
+    "node_leaf_cable_count": {
+      "value": 4096,
+      "unit": "cables",
+      "verifiable": true
+    },
+    "leaf_switch_count": {
+      "value": 128,
+      "unit": "switches",
+      "verifiable": true
+    },
+    "leaf_spine_cable_count": {
+      "value": 4096,
+      "unit": "cables",
+      "verifiable": true
+    },
+    "spine_switch_count": {
+      "value": 128,
+      "unit": "switches",
+      "verifiable": true
+    },
+    "spine_core_cable_count": {
+      "value": 4096,
+      "unit": "cables",
+      "verifiable": true
+    },
+    "core_switch_count": {
+      "value": 64,
+      "unit": "switches",
+      "verifiable": true
+    }
+  }
+}

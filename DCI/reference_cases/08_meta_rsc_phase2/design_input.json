@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "case_id": "08_meta_rsc_phase2",
+  "target_hosts": 2000,
+  "accelerator": {
+    "per_host": 8,
+    "peak_bf16_tflops_per_chip": 312
+  },
+  "topology": {
+    "type": "clos"
+  },
+  "published_context": {
+    "fabric_total_tbps": 16
+  }
+}

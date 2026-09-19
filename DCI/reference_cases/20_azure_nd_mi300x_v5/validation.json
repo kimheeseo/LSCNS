@@ -1,0 +1,24 @@
+{
+  "case_id": "20_azure_nd_mi300x_v5",
+  "engine_version": "1.6",
+  "validation_class": "C profile consistency",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "gpu_memory_gb": {
+      "reference": 1536,
+      "calculated": 1536,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "network_nic_count": {
+      "reference": 8,
+      "calculated": 8,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

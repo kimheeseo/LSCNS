@@ -1,0 +1,107 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "name": "TPU v4: An Optically Reconfigurable Supercomputer for Machine Learning",
+  "vendor": "Google",
+  "architecture": "4x4x4 3D torus + Palomar optical circuit switches",
+  "year": 2023,
+  "sources": [
+    {
+      "title": "ISCA 2023 paper",
+      "url": "https://doi.org/10.1145/3579371.3589350",
+      "type": "peer-reviewed paper",
+      "note": "Primary source"
+    },
+    {
+      "title": "arXiv 2304.01433",
+      "url": "https://arxiv.org/abs/2304.01433",
+      "type": "preprint",
+      "note": "Public full text"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 4096,
+      "unit": "TPU chips",
+      "source_note": "64 blocks x 64 TPU chips",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "cpu_host_count": {
+      "value": 1024,
+      "unit": "hosts",
+      "source_note": "4 TPU v4 chips per CPU host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "compute_rack_count": {
+      "value": 64,
+      "unit": "racks",
+      "source_note": "One 4x4x4=64-chip block per rack; 64 blocks total",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "accelerators_per_rack": {
+      "value": 64,
+      "unit": "TPU chips/rack",
+      "source_note": "4x4x4 building block",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "optical_links_per_rack": {
+      "value": 96,
+      "unit": "links/rack",
+      "source_note": "6 faces x 16 links",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "rack_to_ocs_link_instances": {
+      "value": 6144,
+      "unit": "link endpoints",
+      "source_note": "64 racks x 96 optical links",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_count": {
+      "value": 48,
+      "unit": "OCS",
+      "source_note": "Each block connects to 48 OCSes",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_total_ports_each": {
+      "value": 136,
+      "unit": "ports/OCS",
+      "source_note": "Palomar 136x136",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_working_ports_each": {
+      "value": 128,
+      "unit": "ports/OCS",
+      "source_note": "128 working + 8 spare",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_spare_ports_each": {
+      "value": 8,
+      "unit": "ports/OCS",
+      "source_note": "8 spare ports for testing/repair",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_working_ports_total": {
+      "value": 6144,
+      "unit": "ports",
+      "source_note": "48 x 128",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "ocs_spare_ports_total": {
+      "value": 384,
+      "unit": "ports",
+      "source_note": "48 x 8",
+      "confidence": "high",
+      "verifiable": true
+    }
+  }
+}

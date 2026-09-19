@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "case_id": "11_bytedance_megascale",
+  "network_plan": {
+    "hosts": 64,
+    "links_per_host": 8,
+    "link_redundancy_factor": 1,
+    "logical_downlinks_per_tor": 64,
+    "physical_downlinks_per_tor": 32,
+    "uplinks_per_tor": 32
+  }
+}

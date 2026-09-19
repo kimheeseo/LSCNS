@@ -1,0 +1,10 @@
+{
+  "case_id": "07_meta_rsc_phase1",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.5",
+  "metrics": {
+    "accelerator_count": 6080,
+    "storage_total_pb": 231,
+    "cluster_network_endpoint_tbps": 1216
+  }
+}

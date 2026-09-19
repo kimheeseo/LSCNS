@@ -1,0 +1,82 @@
+{
+  "case_id": "01_google_tpu_v4",
+  "engine": "DCI/reference_cases/engine/multi_arch_bom_engine.js",
+  "engine_version": "1.0",
+  "status": "PASS",
+  "validation_class": "B reference-input derived validation",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "scored_metrics": {
+    "cpu_host_count": {
+      "reference": 1024,
+      "calculated": 1024,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "compute_rack_count": {
+      "reference": 64,
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerators_per_rack": {
+      "reference": 64,
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "optical_links_per_rack": {
+      "reference": 96,
+      "calculated": 96,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "rack_to_ocs_link_instances": {
+      "reference": 6144,
+      "calculated": 6144,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "ocs_count": {
+      "reference": 48,
+      "calculated": 48,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "ocs_working_ports_each": {
+      "reference": 128,
+      "calculated": 128,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "ocs_working_ports_total": {
+      "reference": 6144,
+      "calculated": 6144,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "ocs_spare_ports_total": {
+      "reference": 384,
+      "calculated": 384,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "excluded_reference_inputs": {
+    "accelerator_count": {
+      "value": 4096,
+      "reason": "design target input"
+    },
+    "ocs_total_ports_each": {
+      "value": 136,
+      "reason": "reference hardware input"
+    },
+    "ocs_spare_ports_each": {
+      "value": 8,
+      "reason": "reference hardware input"
+    }
+  },
+  "review_note": "Review excludes reference inputs from accuracy scoring so the MAPE reflects derived outputs only."
+}

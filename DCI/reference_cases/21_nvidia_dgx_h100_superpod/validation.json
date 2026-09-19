@@ -1,0 +1,36 @@
+{
+  "case_id": "21_nvidia_dgx_h100_superpod",
+  "engine_version": "1.6",
+  "validation_class": "A official BOM-table reconstruction",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0,
+  "max_error_pct": 0,
+  "metrics": {
+    "node_leaf_cable_count": {
+      "reference": 1024,
+      "calculated": 1024,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "leaf_switch_count": {
+      "reference": 32,
+      "calculated": 32,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "leaf_spine_cable_count": {
+      "reference": 1024,
+      "calculated": 1024,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "spine_switch_count": {
+      "reference": 16,
+      "calculated": 16,
+      "error_pct": 0,
+      "status": "PASS"
+    }
+  }
+}

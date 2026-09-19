@@ -1,0 +1,12 @@
+{
+  "case_id": "22_nvidia_dgx_b200_superpod",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "node_leaf_cable_count": 4096,
+    "leaf_switch_count": 128,
+    "leaf_spine_cable_count": 4096,
+    "spine_switch_count": 128,
+    "spine_core_cable_count": 4096,
+    "core_switch_count": 64
+  }
+}

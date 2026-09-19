@@ -1,0 +1,56 @@
+{
+  "case_id": "05_google_a3_mega_h100",
+  "name": "Google A3 Mega H100",
+  "vendor": "Google",
+  "year": 2026,
+  "architecture": "8x H100 host; 8 GPU NICs + 1 Titanium NIC; TCPXO",
+  "sources": [
+    {
+      "title": "Google Compute Engine - Networking and GPU machines",
+      "url": "https://docs.cloud.google.com/compute/docs/gpus/gpu-network-bandwidth",
+      "type": "official documentation"
+    },
+    {
+      "title": "GKE - Configure automated networking for accelerator VMs",
+      "url": "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/config-auto-net-for-accelerators",
+      "type": "official documentation"
+    },
+    {
+      "title": "AI Hypercomputer - Create A3 High or A3 Mega",
+      "url": "https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a3-high-mega",
+      "type": "official documentation"
+    }
+  ],
+  "metrics": {
+    "accelerator_count": {
+      "value": 8,
+      "unit": "GPU/host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "physical_nic_count_per_host": {
+      "value": 9,
+      "unit": "physical NIC/host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "total_gpu_memory_gb_per_host": {
+      "value": 640,
+      "unit": "GB HBM3/host",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "gpu_nic_to_accelerator_ratio": {
+      "value": 1,
+      "unit": "ratio",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "data_network_count_per_host": {
+      "value": 8,
+      "unit": "data networks/host",
+      "confidence": "high",
+      "verifiable": true
+    }
+  }
+}

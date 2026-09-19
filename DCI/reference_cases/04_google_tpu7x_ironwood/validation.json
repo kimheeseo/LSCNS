@@ -63,5 +63,7 @@
       "status": "PASS"
     }
   },
-  "method_note": "Nine public/derived architecture quantities are compared. Physical rack count and cable/connector quantities are not scored because they are not disclosed in the cited sources."
+  "method_note": "Nine public/derived architecture quantities are compared. Physical rack count and cable/connector quantities are not scored because they are not disclosed in the cited sources.",
+  "validation_class": "B+ official cross-document validation",
+  "review_note": "TPU7x specs are cross-checked with All Capacity hierarchy."
 }

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "case_id": "03_google_tpu_v6e",
+  "target_accelerators": 256,
+  "accelerator": {
+    "per_host": 8,
+    "dcn_bandwidth_per_chip_gbps": 100,
+    "ici_ports_per_chip": 4,
+    "peak_bf16_tflops_per_chip": 918
+  },
+  "network": {
+    "nics_per_host": 4,
+    "nic_speed_gbps": 200
+  },
+  "topology": {
+    "type": "torus2d"
+  },
+  "validation_slice": {
+    "dimensions": [
+      16,
+      16
+    ]
+  }
+}

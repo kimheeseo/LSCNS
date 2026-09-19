@@ -25,7 +25,7 @@ PASS      = error <= 10%
 
 | # | Reference case | Main architecture | Status | MAPE | Coverage |
 |---:|---|---|---|---:|---:|
-| 01 | [Google TPU v4](01_google_tpu_v4/) | 3D Torus + OCS | **PASS** | **0.00%** | **100.0%** |
+| 01 | [Google TPU v4](01_google_tpu_v4/) | 3D Torus + OCS | **PASS · RE-VALIDATED** | **0.00%** | **100.0%** |
 | 02 | Google TPU v5p | 3D Torus | PENDING | — | — |
 | 03 | Google TPU v6e / Trillium | 2D Torus | PENDING | — | — |
 | 04 | Google TPU7x / Ironwood | TPU Pod | PENDING | — | — |
@@ -61,8 +61,14 @@ PASS      = error <= 10%
 - Framework/schema: **complete**
 - Case 01 source extraction: **complete**
 - Case 01 baseline validation: **complete**
-- Case 01 generic optical-torus/OCS calculator: **implemented**
-- Case 01 re-validation: **PASS · MAPE 0.00% · Coverage 100.0%**
+- Shared multi-architecture engine: **created** (`engine/multi_arch_bom_engine.js`)
+- Case-specific golden logic removed from `DCI/index.html`
+- Case 01 re-validation via shared engine: **PASS · MAPE 0.00% · Coverage 100.0%**
 - Cases 02–30: **pending**
 
 The baseline deliberately records unsupported architectures as `NOT_SUPPORTED` instead of treating missing implementation as a fabricated 100% numerical error. Once an architecture is implemented, the same immutable reference data is used for re-test.
+
+
+## Validation policy clarification
+
+The final goal is one generalized BOM design/validation engine with <10% error across the 30 public cases. Reference answers must never be embedded in the calculation path. Each case is committed and reported independently after validation.

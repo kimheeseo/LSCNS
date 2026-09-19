@@ -65,6 +65,9 @@ function deriveCommon(input) {
     ? nicsPerHost * nicSpeedGbps : null;
   const dcnAggregatePodTbps = dcnPerChip != null
     ? targetAccelerators * dcnPerChip / 1000 : (nicAggregatePerHostGbps != null ? hostCount * nicAggregatePerHostGbps / 1000 : null);
+  const bandwidthPerHostGbps = input.network && input.network.bandwidth_per_host_gbps != null
+    ? Number(input.network.bandwidth_per_host_gbps) : null;
+  const clusterNetworkEndpointTbps = bandwidthPerHostGbps != null ? hostCount * bandwidthPerHostGbps / 1000 : null;
 
   const iciPortsPerChip = input.accelerator && input.accelerator.ici_ports_per_chip != null
     ? Number(input.accelerator.ici_ports_per_chip) : null;
@@ -126,6 +129,8 @@ function deriveCommon(input) {
     total_nic_count: totalNicCount,
     nic_aggregate_bandwidth_per_host_gbps: nicAggregatePerHostGbps,
     dcn_bandwidth_per_pod_tbps: dcnAggregatePodTbps,
+    network_bandwidth_per_host_gbps: bandwidthPerHostGbps,
+    cluster_network_endpoint_tbps: clusterNetworkEndpointTbps,
     ici_ports_per_chip: iciPortsPerChip,
     ici_ports_total: iciPortsTotal,
     peak_bf16_tflops_per_chip: peakBf16TflopsPerChip,
@@ -250,6 +255,9 @@ function deriveClos(input, common) {
 }
 
 function deriveArchitecture(input) {
+  if (input.rack_power && !input.accelerator && !Array.isArray(input.machine_profiles)) {
+    return deriveRackPower(input);
+  }
   if (Array.isArray(input.machine_profiles)) {
     const out={};
     input.machine_profiles.forEach(p=>{

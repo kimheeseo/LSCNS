@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "23_nvidia_b200_compute_fabric",
+  "fabric_design": {
+    "active_nodes": 127,
+    "design_nodes": 128,
+    "links_per_node": 8,
+    "ufm_links": 4,
+    "leaf_down_ports": 32,
+    "leaf_up_ports": 32,
+    "spine_down_ports": 64
+  }
+}

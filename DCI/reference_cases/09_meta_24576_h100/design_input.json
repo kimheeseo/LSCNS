@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "case_id": "09_meta_24576_h100",
+  "target_accelerators": 24576,
+  "accelerator": {
+    "per_host": 8
+  },
+  "building_block": {
+    "accelerators_per_block": 8
+  },
+  "topology": {
+    "type": "clos"
+  },
+  "published_context": {
+    "endpoint_speed_gbps": 400,
+    "fabrics": [
+      "RoCE: Arista 7800 + Wedge400 + Minipack2",
+      "NVIDIA Quantum-2 InfiniBand"
+    ]
+  }
+}

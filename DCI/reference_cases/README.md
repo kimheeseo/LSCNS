@@ -30,7 +30,7 @@ PASS      = error <= 10%
 | 03 | [Google TPU v6e / Trillium](03_google_tpu_v6e/) | 2D Torus | **PASS** | **0.0051%** | **100.0%** |
 | 04 | [Google TPU7x / Ironwood](04_google_tpu7x_ironwood/) | 3D Torus / Cube hierarchy | **PASS** | **0.0059%** | **100.0%** |
 | 05 | [Google A3 Mega H100](05_google_a3_mega_h100/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
-| 06 | Google A3 Ultra / A4 | GPU + multi-NIC | PENDING | — | — |
+| 06 | [Google A3 Ultra / A4](06_google_a3_ultra_a4/) | GPU + multi-NIC | **PASS** | **0.00%** | **100.0%** |
 | 07 | Meta RSC Phase 1 | 2-level nonblocking Clos | PENDING | — | — |
 | 08 | Meta RSC Phase 2 | Large DGX Clos | PENDING | — | — |
 | 09 | Meta 24K H100 cluster | RoCE / Quantum-2 | PENDING | — | — |

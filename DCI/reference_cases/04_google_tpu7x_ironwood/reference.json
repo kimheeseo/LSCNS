@@ -1,0 +1,103 @@
+{
+  "case_id": "04_google_tpu7x_ironwood",
+  "name": "Google TPU7x (Ironwood)",
+  "vendor": "Google",
+  "architecture": "3D torus; 64-chip cubes; 9,216-chip Pod",
+  "year": 2026,
+  "sources": [
+    {
+      "title": "Google Cloud TPU7x (Ironwood) documentation",
+      "url": "https://docs.cloud.google.com/tpu/docs/tpu7x",
+      "type": "official vendor documentation",
+      "note": "Primary chip, Pod, host, topology and bandwidth source"
+    },
+    {
+      "title": "Google Cloud All Capacity mode overview",
+      "url": "https://docs.cloud.google.com/tpu/docs/all-capacity-overview",
+      "type": "official vendor documentation",
+      "note": "Independent block/cube/host hierarchy source"
+    },
+    {
+      "title": "Ironwood: The first Google TPU for the age of inference",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/",
+      "type": "official Google blog",
+      "note": "Independent aggregate 42.5 ExaFLOPS Pod performance source"
+    }
+  ],
+  "input_context": {
+    "pod_accelerator_target": 9216,
+    "chips_per_host": 4,
+    "cube_dimensions": [
+      4,
+      4,
+      4
+    ],
+    "dcn_bandwidth_per_chip_gbps": 100,
+    "peak_fp8_tflops_per_chip": 4614
+  },
+  "metrics": {
+    "cpu_host_count": {
+      "value": 2304,
+      "unit": "hosts/Pod",
+      "source_note": "All Capacity: full Ironwood Pod up to 9216 chips / 2304 hosts",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "accelerators_per_block": {
+      "value": 64,
+      "unit": "chips/cube",
+      "source_note": "4x4x4 cube = 64 chips",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "hosts_per_block": {
+      "value": 16,
+      "unit": "hosts/cube",
+      "source_note": "All Capacity: cube = 64 chips / 16 hosts",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "building_block_count": {
+      "value": 144,
+      "unit": "cubes/Pod",
+      "source_note": "All Capacity: full Pod = 144 cubes",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "dcn_bandwidth_per_host_gbps": {
+      "value": 400,
+      "unit": "Gbps/host",
+      "source_note": "100 Gbps/chip x 4 chips/VM",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "dcn_bandwidth_per_pod_tbps": {
+      "value": 921.6,
+      "unit": "Tbps/Pod",
+      "source_note": "9216 chips x 100 Gbps/chip",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "peak_fp8_pflops_per_pod": {
+      "value": 42500,
+      "unit": "PFLOPs/Pod",
+      "source_note": "Google independently states 42.5 ExaFLOPS per 9216-chip Pod",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "tensor_cores_total": {
+      "value": 18432,
+      "unit": "TensorCores/Pod",
+      "source_note": "2 TensorCores/chip x 9216",
+      "confidence": "high",
+      "verifiable": true
+    },
+    "sparse_cores_total": {
+      "value": 36864,
+      "unit": "SparseCores/Pod",
+      "source_note": "4 SparseCores/chip x 9216",
+      "confidence": "high",
+      "verifiable": true
+    }
+  }
+}

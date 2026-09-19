@@ -49,8 +49,8 @@ PASS      = error <= 10%
 | 22 | [NVIDIA DGX B200 SuperPOD](22_nvidia_dgx_b200_superpod/) | 3-tier Leaf-Spine-Core | **PASS** | **0.00%** | **100.0%** |
 | 23 | [NVIDIA B200 Compute Fabric](23_nvidia_b200_compute_fabric/) | Detailed Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
 | 24 | [NVIDIA GB200 NVL72](24_nvidia_gb200_nvl72/) | Rack-scale NVLink | **PASS** | **0.00%** | **100.0%** |
-| 25 | NVIDIA DGX GB200 SuperPOD Components | Rack / NIC / PSU | PENDING | — | — |
-| 26 | NVIDIA GB200 Network Fabrics | NVLink / Ethernet / IB | PENDING | — | — |
+| 25 | [NVIDIA GB200 Components](25_nvidia_gb200_components/) | Rack / storage / PSU | **PASS** | **0.00%** | **100.0%** |
+| 26 | [NVIDIA GB200 Network Fabrics](26_nvidia_gb200_network_fabrics/) | SLG Leaf-Spine | **PASS** | **0.00%** | **100.0%** |
 | 27 | NVIDIA GB300 NVL72 AI Factory | Rack-scale fabric | PENDING | — | — |
 | 28 | NVIDIA DSX/NCP DC Architecture | Rack-scale | PENDING | — | — |
 | 29 | Frontier | Slingshot HPC | PENDING | — | — |
@@ -147,3 +147,7 @@ Each Case README now contains:
 - Case 23 NVIDIA B200 detailed compute fabric: PASS
 
 - Case 24 NVIDIA GB200 NVL72 rack: PASS · 6/6 rack components
+
+- Case 25 NVIDIA GB200 components: PASS · 7/7 rack BOM metrics
+
+- Case 26 NVIDIA GB200 fabric: PASS · 4/4 cross-document metrics

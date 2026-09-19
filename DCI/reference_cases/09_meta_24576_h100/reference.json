@@ -1,0 +1,33 @@
+{
+  "case_id": "09_meta_24576_h100",
+  "name": "Meta 24,576-H100 GenAI Cluster",
+  "vendor": "Meta",
+  "year": 2024,
+  "architecture": "Grand Teton H100; RoCE or Quantum-2; 400G endpoints",
+  "sources": [
+    {
+      "title": "Meta Engineering - Building Meta's GenAI Infrastructure",
+      "url": "https://engineering.fb.com/2024/03/12/data-center-engineering/building-metas-genai-infrastructure/",
+      "type": "official Meta publication"
+    },
+    {
+      "title": "OCP Grand Teton AMD-based CPU Tray Specification",
+      "url": "https://www.opencompute.org/documents/grand-teton-amd-based-cpu-tray-specification-v1-0-pdf",
+      "type": "OCP official specification"
+    }
+  ],
+  "metrics": {
+    "cpu_host_count": {
+      "value": 3072,
+      "unit": "Grand Teton hosts",
+      "source_note": "24576 H100 / 8 GPUs per Grand Teton",
+      "verifiable": true
+    },
+    "building_block_count": {
+      "value": 3072,
+      "unit": "Grand Teton chassis",
+      "source_note": "8-GPU accelerator tray per Grand Teton",
+      "verifiable": true
+    }
+  }
+}

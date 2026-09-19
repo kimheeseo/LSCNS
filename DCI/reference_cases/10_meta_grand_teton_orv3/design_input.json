@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "case_id": "10_meta_grand_teton_orv3",
+  "rack_power": {
+    "rack_power_kw": 30,
+    "bbu_shelf_kw": 15,
+    "backup_duration_minutes": 4
+  },
+  "published_context": {
+    "rack_output_voltage_vdc": 48,
+    "grand_teton_input_nominal_vdc": 51,
+    "grand_teton_ou": 8,
+    "tray_count": 3,
+    "trays": [
+      "CPU Tray",
+      "Switch Tray",
+      "Accelerator Tray"
+    ]
+  }
+}

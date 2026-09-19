@@ -69,5 +69,7 @@
       "status": "PASS"
     }
   },
-  "method_note": "Ten derived BOM/topology quantities are compared. Pod target size and other direct design inputs are not counted as prediction metrics."
+  "method_note": "Ten derived BOM/topology quantities are compared. Pod target size and other direct design inputs are not counted as prediction metrics.",
+  "validation_class": "B reference-input derived validation",
+  "review_note": "Official topology/table inputs; outputs are derived host/cube/rack/slice quantities."
 }

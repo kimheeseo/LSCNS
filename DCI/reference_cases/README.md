@@ -196,3 +196,431 @@ Cases 11–30 were reviewed using the same rule applied to Cases 01–10: **dire
 - Highest single-metric reviewed error: **0.7407% (Cerebras core-count cross-check)**
 - Strongest architecture/BOM cases for future regression: **Alibaba HPN, NVIDIA H100/B200 SuperPOD, NVIDIA GB200/GB300, Frontier, Aurora**
 - Weaker profile/announcement cases retained but explicitly labeled: **Google A3 profiles, IBM profile checks, xAI announcement**
+
+
+# Simulation Tool Limitations and Required Improvements
+
+The current validation framework demonstrates that the shared calculation engine can reproduce many published quantities across 30 public data-center / AI / HPC reference cases with low numerical error. However, **a low error value does not by itself prove that the tool is already a fully generalized data-center design engine**.
+
+The main limitation is not arithmetic accuracy. The main limitation is **design independence**: in several B/C-class cases, important architectural choices are still provided as inputs from the reference rather than selected autonomously by the engine.
+
+## 1. Current strengths
+
+The current engine already supports a broad set of reusable calculations:
+
+- accelerator / host / rack aggregation
+- 2D and 3D torus arithmetic
+- OCS quantity and port accounting
+- Clos / Leaf-Spine style switch-count calculations
+- rail / dual-ToR / dual-plane related validation primitives
+- rack-scale GPU / NVLink / power / storage aggregation
+- HPC node / rack / NIC / injection-bandwidth aggregation
+- machine-profile consistency checks
+- reference-vs-calculated error, MAPE and coverage reporting
+
+These capabilities are sufficient to reproduce many disclosed quantities in the 30-case benchmark.
+
+## 2. Main limitation: topology is still too reference-driven
+
+Several current calculation paths require the design topology to be substantially specified in advance.
+
+Examples include:
+
+- number of rails
+- number of network tiers
+- dual-ToR or single-ToR selection
+- dual-plane selection
+- switch downlink / uplink allocation
+- building-block size
+- rack mapping
+- breakout rules
+- OCS geometry
+
+This means the current workflow can still resemble:
+
+```
+Reference architecture
+      ↓
+Case-specific design_input.json
+      ↓
+Shared calculator
+      ↓
+Derived quantities
+```
+
+The final target should instead be:
+
+```
+Design requirements + equipment catalog
+      ↓
+Architecture selection
+      ↓
+Topology solver
+      ↓
+Port packing / breakout solver
+      ↓
+Rack placement solver
+      ↓
+Physical link graph
+      ↓
+Cable / optics / connector BOM
+      ↓
+Power / cooling BOM
+```
+
+The difference is important. A generalized tool should determine more of the architecture itself rather than requiring the reference architecture to be pre-described.
+
+## 3. Unified Architecture Model is required
+
+The engine currently contains multiple specialized calculation paths such as:
+
+- `deriveNetworkPlan()`
+- `deriveFabricDesign()`
+- `deriveRackSystem()`
+- `deriveHpcSystem()`
+- `deriveScaleUnit()`
+- `deriveClusterScale()`
+- `deriveClos()`
+- `deriveOpticalTorus()`
+
+These functions are useful, but they still behave partly as a collection of specialized calculators.
+
+A more generalized architecture model should be compositional, for example:
+
+```
+base_topology = Clos | Torus | Dragonfly | OCS
+tiers         = 2 | 3
+rails         = N
+dual_tor      = true | false
+planes        = 1 | 2
+switching     = packet | optical
+breakout      = none | 800G→2×400G | 400G→2×200G
+redundancy    = N+1 | dual-homed | spare-percent
+```
+
+With this approach:
+
+- ByteDance MegaScale can be represented as Clos + 3-tier + Rail8 + breakout.
+- Alibaba HPN can be represented as Clos + Rail8 + Dual-ToR + Dual-Plane.
+- NVIDIA SuperPOD can be represented as Clos + Rail-based Leaf-Spine.
+- Google TPU v4 can be represented as 3D Torus + OCS.
+- Frontier / Aurora can be represented by HPC / Dragonfly-style fabrics.
+
+The objective is to describe architectures with reusable primitives rather than one calculator per benchmark family.
+
+## 4. Port Packing / Breakout Solver is still insufficient
+
+A switch should not be modeled only by a nominal port count.
+
+Real BOM calculation depends on:
+
+- physical cage count
+- logical port count
+- supported port speeds
+- breakout capability
+- downlink / uplink role allocation
+- spare ports
+- rail assignment
+- plane assignment
+- oversubscription target
+
+For example, a nominal 64×400G switch may be used as:
+
+```
+32 × 400G uplink
+32 × 400G physical downlink
+32 × (2 × 200G) logical breakout
+= 64 logical 200G server-facing links
+```
+
+Therefore the generalized switch solver should derive:
+
+```
+physical cages
+→ logical ports
+→ role allocation
+→ link speed
+→ breakout
+→ usable capacity
+→ switch quantity
+```
+
+This is essential for accurate ByteDance, Alibaba, NVIDIA and future CPO / 800G / 1.6T designs.
+
+## 5. Rack Placement Solver is required
+
+Many current cases either use a published rack quantity or avoid rack calculation when the reference does not disclose the mapping.
+
+A generalized tool should calculate rack placement from physical constraints such as:
+
+- RU / OU space
+- maximum rack power
+- cooling capacity
+- accelerator-system dimensions
+- switch quantity
+- power shelves
+- management equipment
+- spare capacity
+- weight limits if available
+
+Example target logic:
+
+```
+usable_systems_per_rack =
+min(
+    floor(available_RU / system_RU),
+    floor(rack_power_limit / system_power),
+    cooling_limit,
+    vendor_constraints
+)
+
+rack_count =
+ceil(system_count / usable_systems_per_rack)
+```
+
+Without this layer, rack count can remain dependent on reference documents rather than being independently predicted.
+
+## 6. Physical Cable / Optics / Connector BOM is the largest remaining gap
+
+The current benchmark is strong at logical quantities such as:
+
+- hosts
+- GPUs
+- NICs
+- leaf / spine switches
+- logical network links
+- aggregate bandwidth
+
+However, the final LS Cable & System use case requires physical BOM quantities such as:
+
+- cable assemblies
+- optical transceivers
+- AOC / DAC
+- MMF / SMF cable
+- MPO / LC connectors
+- patch panels
+- ODF
+- trunk cables
+- breakout harnesses
+- cable lengths
+- spare cables
+
+The engine should create a **physical link graph**. Each network edge should have:
+
+```
+source device
+source port
+destination device
+destination port
+speed
+media
+distance
+connector type
+optic type
+redundancy role
+```
+
+Then:
+
+```
+cable_count = number of physical edges
+
+optic_count =
+2 × optical links
+(adjusted for AOC / onboard optics / co-packaged optics)
+
+connector_count =
+sum(connectors required by each physical edge)
+```
+
+This layer is necessary before the tool can be considered a full BOM/BIM design engine rather than mainly a topology calculator.
+
+## 7. Media selection and distance model are required
+
+Cable BOM cannot be generalized without physical distance.
+
+A future engine should estimate or accept:
+
+- intra-rack distance
+- adjacent-rack distance
+- row distance
+- cross-row distance
+- network-rack distance
+- overhead / underfloor routing factor
+- service-loop allowance
+
+A reusable policy can then select media, for example:
+
+```
+short reach   → DAC
+medium reach  → AOC / MMF
+longer reach  → SMF
+```
+
+The actual thresholds must come from the equipment / optic catalog rather than being hardcoded globally.
+
+## 8. Equipment catalog must be separated from design logic
+
+Vendor/product specifications should live in a normalized catalog rather than inside topology equations.
+
+Suggested catalog entities:
+
+```
+Accelerator
+ComputeSystem
+NIC
+Switch
+Optic
+Cable
+Connector
+PatchPanel
+Rack
+PowerShelf
+CoolingSystem
+```
+
+Each item should contain only device facts such as:
+
+- port count
+- supported speed
+- breakout matrix
+- form factor
+- power
+- dimensions
+- cooling requirement
+- optical reach
+- connector type
+
+The solver should use these facts to build the architecture.
+
+This separation is important for replacing NVIDIA, Arista, Broadcom, Google, or future devices without changing the topology algorithm.
+
+## 9. Redundancy / spare policy must become generic
+
+Current reference cases use several different availability models:
+
+- spare OCS ports
+- backup GPU links
+- dual-ToR
+- dual network planes
+- UFM / management links
+- N+1 power
+- field spare percentages
+
+These should be represented as generic policy inputs rather than case-specific arithmetic.
+
+Example:
+
+```
+availability_policy:
+  dual_homing: true
+  network_planes: 2
+  switch_spare_percent: 5
+  cable_spare_percent: 3
+  power_redundancy: N+1
+```
+
+## 10. Validation quality must be separated from numerical error
+
+A 0.00% error does not always mean the same thing.
+
+Current classes should continue to be interpreted as:
+
+- **A / A-**: independent or cross-source architecture derivation.
+- **B / B+**: reference architecture inputs are used to derive other published quantities.
+- **C / C+**: vendor profile / catalog consistency check.
+
+Therefore:
+
+```
+C-class 0% ≠ A-class 0%
+```
+
+For example, reproducing an 8-GPU / 10-NIC machine profile exactly is useful for catalog validation, but it is weaker evidence than independently predicting the number of ToR and Spine switches required for a multi-thousand-GPU cluster.
+
+The long-term target should be:
+
+```
+Engine capability = A-class
+```
+
+even when a particular public reference can only provide B- or C-class validation due to limited disclosure.
+
+## 11. Hold-out validation is required to prove generalization
+
+The 30 current cases have already influenced development of the engine. Therefore they should primarily be treated as development / regression benchmarks.
+
+A stronger future evaluation should freeze the engine and test previously unseen systems.
+
+Recommended split:
+
+```
+Development / calibration : Cases 01–20
+Regression               : Cases 21–30
+Hold-out                  : New Cases 31–35
+```
+
+Success criteria should include:
+
+- no benchmark-specific constants in the calculation path
+- no reference answer available to the solver
+- architecture generated from requirements + catalog
+- supported-field MAPE < 10%
+- high coverage of physical BOM fields
+- no manual topology correction after viewing the answer
+
+A successful hold-out test would provide much stronger evidence that the system is a generalized design engine rather than a benchmark-matching calculator.
+
+## 12. Recommended development priority
+
+The recommended implementation order is:
+
+| Priority | Improvement | Expected effect |
+|---:|---|---|
+| 1 | Unified Architecture Model | Remove case-family-specific solver paths |
+| 2 | Topology + Port Packing Solver | Automatically derive Leaf/Spine/Core/Rail/Plane quantities |
+| 3 | Rack Placement Solver | Independently calculate rack counts |
+| 4 | Physical Link Graph | Convert logical network into physical connections |
+| 5 | Cable / Optics / Connector Solver | Produce commercial BOM quantities |
+| 6 | Power / Cooling Constraint Solver | Make rack placement physically realistic |
+| 7 | Normalized Equipment Catalog | Separate vendor data from algorithms |
+| 8 | Generic Redundancy / Spare Policy | Support enterprise-grade availability rules |
+| 9 | Hold-out Cases 31–35 | Demonstrate true generalization |
+
+## Target state
+
+The desired final engine should be able to receive an input similar to:
+
+```
+target_accelerators = 8192
+accelerator_platform = H200
+fabric_speed = 400G
+availability = dual-homed
+oversubscription = 1:1
+rack_power_limit = 120 kW
+maximum_link_distance = 100 m
+```
+
+and autonomously determine:
+
+```
+compute systems
+compute racks
+network racks
+NICs
+rail count
+Leaf switches
+Spine switches
+Core switches
+physical links
+breakout mapping
+transceivers
+cable assemblies
+MPO / LC connectors
+patch panels
+power requirement
+cooling requirement
+spares
+```
+
+This is the standard required before the project can be described as a **generalized data-center BOM/BIM design engine** rather than only a multi-reference validation calculator.

@@ -1,0 +1,10 @@
+{
+  "case_id": "14_ibm_vela_roce",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "tor_count": 2,
+    "spine_count": 4,
+    "tor_spine_link_count": 16,
+    "tor_spine_aggregate_tbps": 1.6
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "30_aurora",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.6",
+  "metrics": {
+    "node_count": 10624,
+    "accelerator_count": 63744,
+    "visible_gpu_count": 63744,
+    "nic_count": 84992,
+    "injection_bandwidth_per_node_gbps": 1600,
+    "aggregate_endpoint_injection_pbps": 16.9984,
+    "aggregate_endpoint_injection_PBps": 2.1248,
+    "nodes_per_rack": 64
+  }
+}

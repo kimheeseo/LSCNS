@@ -1,0 +1,48 @@
+{
+  "case_id": "30_aurora",
+  "engine_version": "1.6",
+  "validation_class": "A HPC system cross-check",
+  "status": "PASS",
+  "pass_threshold_error_pct": 10,
+  "coverage_pct": 100,
+  "mape_pct": 0.037736,
+  "max_error_pct": 0.226415,
+  "metrics": {
+    "node_count": {
+      "reference": 10624,
+      "calculated": 10624,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "accelerator_count": {
+      "reference": 63744,
+      "calculated": 63744,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nic_count": {
+      "reference": 84992,
+      "calculated": 84992,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "injection_bandwidth_per_node_gbps": {
+      "reference": 1600,
+      "calculated": 1600,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "nodes_per_rack": {
+      "reference": 64,
+      "calculated": 64,
+      "error_pct": 0,
+      "status": "PASS"
+    },
+    "aggregate_endpoint_injection_PBps": {
+      "reference": 2.12,
+      "calculated": 2.1248,
+      "error_pct": 0.226415,
+      "status": "PASS"
+    }
+  }
+}

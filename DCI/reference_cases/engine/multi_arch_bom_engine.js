@@ -70,6 +70,29 @@ function deriveCommon(input) {
   const peakBf16PflopsPerPod = peakBf16TflopsPerChip != null
     ? peakBf16TflopsPerChip * targetAccelerators / 1000 : null;
 
+  const peakFp8TflopsPerChip = input.accelerator && input.accelerator.peak_fp8_tflops_per_chip != null
+    ? Number(input.accelerator.peak_fp8_tflops_per_chip) : null;
+  const peakFp8PflopsPerPod = peakFp8TflopsPerChip != null
+    ? peakFp8TflopsPerChip * targetAccelerators / 1000 : null;
+
+  const hbmCapacityGibPerChip = input.accelerator && input.accelerator.hbm_capacity_gib_per_chip != null
+    ? Number(input.accelerator.hbm_capacity_gib_per_chip) : null;
+  const hbmCapacityGibPerPod = hbmCapacityGibPerChip != null
+    ? hbmCapacityGibPerChip * targetAccelerators : null;
+
+  const hbmBandwidthGBpsPerChip = input.accelerator && input.accelerator.hbm_bandwidth_GBps_per_chip != null
+    ? Number(input.accelerator.hbm_bandwidth_GBps_per_chip) : null;
+  const hbmBandwidthTBpsPerPod = hbmBandwidthGBpsPerChip != null
+    ? hbmBandwidthGBpsPerChip * targetAccelerators / 1000 : null;
+
+  const tensorCoresPerChip = input.accelerator && input.accelerator.tensor_cores_per_chip != null
+    ? Number(input.accelerator.tensor_cores_per_chip) : null;
+  const tensorCoresTotal = tensorCoresPerChip != null ? tensorCoresPerChip * targetAccelerators : null;
+
+  const sparseCoresPerChip = input.accelerator && input.accelerator.sparse_cores_per_chip != null
+    ? Number(input.accelerator.sparse_cores_per_chip) : null;
+  const sparseCoresTotal = sparseCoresPerChip != null ? sparseCoresPerChip * targetAccelerators : null;
+
   let maxSlice = {};
   if (input.validation_slice && Array.isArray(input.validation_slice.dimensions)) {
     const sliceAccelerators = product(input.validation_slice.dimensions);
@@ -101,6 +124,16 @@ function deriveCommon(input) {
     ici_ports_total: iciPortsTotal,
     peak_bf16_tflops_per_chip: peakBf16TflopsPerChip,
     peak_bf16_pflops_per_pod: peakBf16PflopsPerPod,
+    peak_fp8_tflops_per_chip: peakFp8TflopsPerChip,
+    peak_fp8_pflops_per_pod: peakFp8PflopsPerPod,
+    hbm_capacity_gib_per_chip: hbmCapacityGibPerChip,
+    hbm_capacity_gib_per_pod: hbmCapacityGibPerPod,
+    hbm_bandwidth_GBps_per_chip: hbmBandwidthGBpsPerChip,
+    hbm_bandwidth_TBps_per_pod: hbmBandwidthTBpsPerPod,
+    tensor_cores_per_chip: tensorCoresPerChip,
+    tensor_cores_total: tensorCoresTotal,
+    sparse_cores_per_chip: sparseCoresPerChip,
+    sparse_cores_total: sparseCoresTotal,
     ...maxSlice
   };
 }

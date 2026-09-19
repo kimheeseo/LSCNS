@@ -1,0 +1,15 @@
+{
+  "case_id": "26_nvidia_gb200_network_fabrics",
+  "engine": "multi_arch_bom_engine.js",
+  "metrics": {
+    "tray_count": 144,
+    "accelerator_count": 576,
+    "compute_nic_count": 0,
+    "compute_bandwidth_tbps": 0,
+    "converged_link_count": 0,
+    "converged_bandwidth_tbps": 0,
+    "fabric_group_count": 4,
+    "leaf_switch_count": 32,
+    "spine_switch_count": 24
+  }
+}

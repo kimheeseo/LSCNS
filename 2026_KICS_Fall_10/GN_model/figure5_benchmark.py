@@ -195,98 +195,44 @@ def main():
     gdf=pd.DataFrame(grows)
     gdf.to_csv(OUT/"figure5_reproduction.csv",index=False)
 
-    # ---------- full EGN representative comparison ----------
-    # Representative 50-GHz QPSK slice: all three fiber types. Full Fig.-5 GN
-    # is still evaluated for all 63 digitized points. To keep precision Full-EGN
-    # reproducible in Colab/CI, evaluate only the local span
-    # neighborhood of the paper point (Npaper-2, Npaper, Npaper+2). This is
-    # sufficient to estimate the local maximum-reach crossing without fitting a
-    # physics scale factor.
+    # ---------- EGN representative comparison ----------
+    # Carena-2012 Fig. 5 is a GN benchmark and its plotted model uses the paper's
+    # incoherent span accumulation (Eq. 17). EGN_adaptive's native full path is
+    # coherent and rectangular-spectrum. Therefore a direct "EGN should match
+    # Fig. 5" accuracy claim would be invalid.
+    #
+    # To satisfy the requested three-way comparison without hiding this mismatch,
+    # use a clearly-labelled paper-convention proxy on the representative 50-GHz
+    # QPSK points (PSCF/SMF/NZDSF): calculate the FULL one-span EGN NLI from
+    # EGN_adaptive.py, then apply the same incoherent N-span scaling used by the
+    # 2012 Fig. 5 plotting convention. No fitted scale factor is used.
     subset = gdf[np.isclose(gdf.spacing_GHz,50.0) & (gdf.modulation=="QPSK")].copy()
     erows=[]
-    eopt=egn.EGNFullOptions(receiver_points=3,max_receiver_points=3,panel_order=8,
-                            quadrature_rtol=1e-3,verify_convergence=False,
+    eopt=egn.EGNFullOptions(receiver_points=5,max_receiver_points=5,panel_order=8,
+                            quadrature_rtol=5e-4,verify_convergence=False,
                             strict_convergence=False)
 
-    def egn_reach_local(row):
-        n0=max(1,int(round(float(row.paper_Lmax_km)/SPAN_KM)))
-        system=egn.WDMSystem.equispaced(NCH,float(row.spacing_GHz),RS_GBD,0.0)
-        span=egn.Span(SPAN_KM,float(row.alpha_dB_km),float(row.gamma_W_inv_km),
-                      D_ps_nm_km=float(row.D_ps_nm_km),noise_figure_db=NF_DB)
-        A=float(row.ase_one_span_W)
-        snr_req=10.0**(float(row.required_snr_db)/10.0)
-        max_supported=max(1,int(math.floor(600.0/(2.0*span.alpha_field_per_km*SPAN_KM))))
-        if n0>max_supported:
-            return {"status":"unsupported_span_limit","max_supported_spans":max_supported,
-                    "nspans":math.nan,"Lmax_km":math.nan,"popt_dBm":math.nan,
-                    "eta_at_Lmax_W_inv2":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax_db":math.nan,
-                    "snr_at_Lmax_db":math.nan}
-
-        counts=sorted(set(n for n in (max(1,n0-2),n0,min(max_supported,n0+2)) if 1<=n<=max_supported))
-        brs=egn.egn_span_sweep(system,span,counts,CUT,str(row.modulation),full_options=eopt)
-        ns=[]; snrs=[]; popts=[]; etas=[]; ratios=[]; ratios_db=[]
-        for n in counts:
-            br=brs[n]
-            eta=float(br.total_egn_W)/(1e-3**3)
-            p_opt=(n*A/(2.0*eta))**(1.0/3.0)
-            snr=p_opt/(n*A+eta*p_opt**3)
-            ns.append(float(n));snrs.append(float(snr));popts.append(float(p_opt))
-            etas.append(float(eta));ratios.append(float(br.total_egn_W/br.gn_total_W))
-            ratios_db.append(float(br.ratio_to_gn_db))
-        ns=np.asarray(ns);snrs=np.asarray(snrs);popts=np.asarray(popts)
-        etas=np.asarray(etas);ratios=np.asarray(ratios);ratios_db=np.asarray(ratios_db)
-        order=np.argsort(ns);ns,snrs,popts,etas,ratios,ratios_db=[x[order] for x in (ns,snrs,popts,etas,ratios,ratios_db)]
-
-        # Local log-SNR slope gives the reach crossing. This is interpolation
-        # when the threshold is bracketed, otherwise a clearly-labelled local
-        # extrapolation around the paper's own Fig.-5 point.
-        x=ns; y=np.log(snrs)
-        if len(x)>=2:
-            slope=(y[-1]-y[0])/(x[-1]-x[0])
-        else:
-            slope=-1.0/max(x[0],1.0)
-        if slope>=0 or not math.isfinite(slope):
-            return {"status":"invalid_local_slope","max_supported_spans":max_supported,
-                    "nspans":math.nan,"Lmax_km":math.nan,"popt_dBm":math.nan,
-                    "eta_at_Lmax_W_inv2":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax_db":math.nan,
-                    "snr_at_Lmax_db":math.nan}
-        idx=int(np.argmin(np.abs(x-n0)))
-        n_cross=float(x[idx]+(math.log(snr_req)-y[idx])/slope)
-        status="local_interpolated_full_egn" if (snrs.min()<=snr_req<=snrs.max()) else "local_extrapolated_full_egn"
-        if n_cross<1 or n_cross>max_supported:
-            status="reach_outside_validated_span_range"
-            L=math.nan
-        else:
-            L=n_cross*SPAN_KM
-        # Report secondary quantities at the paper-nearest evaluated span.
-        return {"status":status,"max_supported_spans":max_supported,
-                "nspans":n_cross,"Lmax_km":L,"popt_dBm":egn.w_to_dbm(popts[idx]),
-                "eta_at_Lmax_W_inv2":etas[idx],
-                "egn_to_gn_nli_ratio_at_Lmax":ratios[idx],
-                "egn_to_gn_nli_ratio_at_Lmax_db":ratios_db[idx],
-                "snr_at_Lmax_db":10*math.log10(snrs[idx])}
-
     for _, r in subset.iterrows():
-        reach=egn_reach_local(r)
+        system=egn.WDMSystem.equispaced(NCH,float(r.spacing_GHz),RS_GBD,0.0)
+        span=egn.Span(SPAN_KM,float(r.alpha_dB_km),float(r.gamma_W_inv_km),
+                      D_ps_nm_km=float(r.D_ps_nm_km),noise_figure_db=NF_DB)
+        br=egn.full_egn_nli_power(
+            system,[span],CUT,str(r.modulation),
+            gn_options=egn.GNIntegralOptions(accumulation="coherent"),
+            full_options=eopt)
+        eta_egn=float(br.total_egn_W)/(1e-3**3)
+        reach=lmax_from_eta(eta_egn,float(r.ase_one_span_W),float(r.paper_required_OSNR_dB_0p1nm))
         d=r.to_dict()
         d.update({
-            "egn_eta_W_inv2":reach["eta_at_Lmax_W_inv2"],
-            "egn_to_gn_nli_ratio":reach["egn_to_gn_nli_ratio_at_Lmax"],
-            "egn_to_gn_nli_ratio_db":reach["egn_to_gn_nli_ratio_at_Lmax_db"],
-            "egn_Lmax_km":reach["Lmax_km"],
-            "egn_popt_dBm":reach["popt_dBm"],
-            "egn_error_pct":(abs(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0
-                             if math.isfinite(reach["Lmax_km"]) else math.nan),
-            "egn_signed_error_pct":((reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0
-                                    if math.isfinite(reach["Lmax_km"]) else math.nan),
-            "egn_status":reach["status"],
-            "egn_max_supported_spans":reach["max_supported_spans"],
-            "egn_span_count":reach["nspans"],
-            "egn_snr_at_paper_neighborhood_db":reach["snr_at_Lmax_db"],
+            "egn_eta_W_inv2":eta_egn,
+            "egn_one_span_nli_W_at_0dBm":float(br.total_egn_W),
+            "egn_to_gn_nli_ratio":float(br.total_egn_W/br.gn_total_W),
+            "egn_to_gn_nli_ratio_db":float(br.ratio_to_gn_db),
+            "egn_Lmax_km":float(reach["Lmax_km"]),
+            "egn_popt_dBm":float(reach["popt_dBm"]),
+            "egn_error_pct":abs(float(reach["Lmax_km"])-float(r.paper_Lmax_km))/float(r.paper_Lmax_km)*100.0,
+            "egn_signed_error_pct":(float(reach["Lmax_km"])-float(r.paper_Lmax_km))/float(r.paper_Lmax_km)*100.0,
+            "egn_status":"paper_incoherent_scaling_of_one_span_full_egn",
         })
         erows.append(d)
         print("EGN_ROW_JSON="+json.dumps({k:(v.item() if hasattr(v,"item") else v) for k,v in d.items()},default=float,separators=(",",":")))
@@ -311,7 +257,7 @@ def main():
         "important_scope_notes":[
             "Paper Fig.5 GN uses incoherent span accumulation; the GN reproduction matches that convention.",
             "GN Tx PSD uses NRZ sinc^2 multiplied by a fourth-order super-Gaussian with Bopt=spacing, normalized to channel power.",
-            "EGN_adaptive is evaluated with its native full coherent multi-span physics on the 50/38.4-GHz subset; its rectangular-spectrum requirement differs from the paper's optimized super-Gaussian Tx spectrum.",
+            "The EGN three-way comparison is a paper-convention proxy: full one-span EGN is calculated by EGN_adaptive, then scaled incoherently across spans like Carena-2012 Fig.5. It is not a native multi-span EGN accuracy benchmark.",
             "No fitted NLI scale factor is used.",
             "Paper Fig.5 and Fig.3 values are digitized from the supplied PDF; error metrics therefore include digitization uncertainty."
         ]

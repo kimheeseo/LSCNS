@@ -40,12 +40,9 @@ and compares a representative subset against:
 The paper/reference points in `paper_fig5_digitized.csv` are digitized from the supplied PDF rather than copied from an author data file. Each row therefore carries an explicit digitization-uncertainty estimate.
 
 ### GN vs EGN comparison
-The full precision path in `EGN_adaptive.py` supports rectangular spectra and coherent multi-span propagation. To compare it with Carena-2012 Fig. 5 without modifying the EGN physics implementation, the benchmark:
-1. computes the **full one-span EGN NLI**,
-2. converts it to an NLI coefficient,
-3. applies the **paper's incoherent N-span scaling** for the reach calculation.
+The full precision path in `EGN_adaptive.py` supports rectangular spectra and coherent multi-span propagation. The representative 50/38.4-GHz comparison therefore uses **native full coherent multi-span EGN** and searches span count around the published reach. No EGN scale factor is fitted.
 
-This is intentionally labeled a nearest-scope comparison. It is not presented as a full multi-span EGN reproduction of Fig. 5.
+This is intentionally labeled a scope-different comparison: the 2012 paper used an optimized fourth-order super-Gaussian Tx filter and chose incoherent GN accumulation for Figs. 4–7, whereas `EGN_adaptive.py` uses rectangular spectra and coherent multi-span EGN physics.
 
 ## Colab
 

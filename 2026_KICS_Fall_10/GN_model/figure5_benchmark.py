@@ -207,12 +207,22 @@ def main():
                       D_ps_nm_km=float(row.D_ps_nm_km),noise_figure_db=NF_DB)
         A=float(row.ase_one_span_W)
         snr_req=10.0**(float(row.required_snr_db)/10.0)
+        # EGN_adaptive exact primitive has an explicit validated numerical guard:
+        # max(N) * (2*alpha_field) * L <= 600.
+        max_supported=max(1,int(math.floor(600.0/(2.0*span.alpha_field_per_km*SPAN_KM))))
+        if n0 > max_supported:
+            return {"status":"unsupported_span_limit","max_supported_spans":max_supported,
+                    "nspans":math.nan,"Lmax_km":math.nan,"popt_dBm":math.nan,
+                    "eta_at_Lmax_W_inv2":math.nan,
+                    "egn_to_gn_nli_ratio_at_Lmax":math.nan,
+                    "egn_to_gn_nli_ratio_at_Lmax_db":math.nan,
+                    "snr_at_Lmax_db":math.nan}
 
         # Dense only around the published reach; this keeps the exact full-EGN
         # integral tractable while avoiding any fitted correction factor.
         lo=max(1,n0-20)
-        hi=n0+40
-        counts=sorted(set([1,2,3,5,8,10]+list(range(lo,hi+1,2))))
+        hi=min(max_supported,n0+40)
+        counts=sorted(set(n for n in [1,2,3,5,8,10]+list(range(lo,hi+1,2)) if n<=max_supported))
         brs=egn.egn_span_sweep(system,span,counts,CUT,str(row.modulation),full_options=eopt)
 
         def eval_count(n, br):
@@ -226,8 +236,8 @@ def main():
 
         # If the upper boundary still passes, extend once. This is rare but
         # prevents one-span EGN over-correction from silently truncating reach.
-        if passing and max(passing)>=hi-2:
-            extra=list(range(hi+2,n0+102,2))
+        if passing and max(passing)>=hi-2 and hi < max_supported:
+            extra=list(range(hi+2,min(max_supported,n0+100)+1,2))
             if extra:
                 b2=egn.egn_span_sweep(system,span,extra,CUT,str(row.modulation),full_options=eopt)
                 vals.update({n:eval_count(n,b2[n]) for n in extra})
@@ -237,9 +247,16 @@ def main():
             nbest=1
         else:
             nbest=max(passing)
+        if nbest >= max_supported and vals[nbest][0] >= snr_req:
+            return {"status":"right_censored_span_limit","max_supported_spans":max_supported,
+                    "nspans":nbest,"Lmax_km":math.nan,"popt_dBm":egn.w_to_dbm(vals[nbest][1]),
+                    "eta_at_Lmax_W_inv2":vals[nbest][2],
+                    "egn_to_gn_nli_ratio_at_Lmax":vals[nbest][3].total_egn_W/vals[nbest][3].gn_total_W,
+                    "egn_to_gn_nli_ratio_at_Lmax_db":vals[nbest][3].ratio_to_gn_db,
+                    "snr_at_Lmax_db":10*math.log10(vals[nbest][0])}
 
         # Refine the +/-2-span neighborhood at single-span resolution.
-        refine=sorted(set(n for n in range(max(1,nbest-2),nbest+4) if n not in vals))
+        refine=sorted(set(n for n in range(max(1,nbest-2),min(max_supported,nbest+3)+1) if n not in vals))
         if refine:
             b3=egn.egn_span_sweep(system,span,refine,CUT,str(row.modulation),full_options=eopt)
             vals.update({n:eval_count(n,b3[n]) for n in refine})
@@ -248,6 +265,7 @@ def main():
 
         snr,popt,eta,br=vals[nbest]
         return {
+            "status":"ok","max_supported_spans":max_supported,
             "nspans":nbest,
             "Lmax_km":nbest*SPAN_KM,
             "popt_dBm":egn.w_to_dbm(popt),
@@ -266,8 +284,12 @@ def main():
             "egn_to_gn_nli_ratio_db":reach["egn_to_gn_nli_ratio_at_Lmax_db"],
             "egn_Lmax_km":reach["Lmax_km"],
             "egn_popt_dBm":reach["popt_dBm"],
-            "egn_error_pct":abs(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
-            "egn_signed_error_pct":(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
+            "egn_error_pct":(abs(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0
+                             if math.isfinite(reach["Lmax_km"]) else math.nan),
+            "egn_signed_error_pct":((reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0
+                                    if math.isfinite(reach["Lmax_km"]) else math.nan),
+            "egn_status":reach["status"],
+            "egn_max_supported_spans":reach["max_supported_spans"],
             "egn_span_count":reach["nspans"],
             "egn_snr_at_Lmax_db":reach["snr_at_Lmax_db"],
         })

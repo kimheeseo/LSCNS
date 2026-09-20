@@ -1,0 +1,22 @@
+{
+  "figure5_points": 63,
+  "gn_mape_pct": 8.655676101720614,
+  "gn_median_ape_pct": 6.666666666666667,
+  "gn_max_ape_pct": 50.0,
+  "egn_subset_points": 3,
+  "egn_subset_mape_pct": 58.033487950360154,
+  "egn_subset_median_ape_pct": 58.536585365853654,
+  "egn_subset_max_ape_pct": 67.41573033707866,
+  "gn_same_subset_mape_pct": 8.542506149156372,
+  "paper_digitization_uncertainty_pct_range": [
+    4.0,
+    8.0
+  ],
+  "important_scope_notes": [
+    "Paper Fig.5 GN uses incoherent span accumulation; the GN reproduction matches that convention.",
+    "GN Tx PSD uses NRZ sinc^2 multiplied by a fourth-order super-Gaussian with Bopt=spacing, normalized to channel power.",
+    "The EGN three-way comparison is a paper-convention proxy: full one-span EGN is calculated by EGN_adaptive, then scaled incoherently across spans like Carena-2012 Fig.5. It is not a native multi-span EGN accuracy benchmark.",
+    "No fitted NLI scale factor is used.",
+    "Paper Fig.5 and Fig.3 values are digitized from the supplied PDF; error metrics therefore include digitization uncertainty."
+  ]
+}

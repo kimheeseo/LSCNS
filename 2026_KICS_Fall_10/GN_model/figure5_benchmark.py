@@ -137,17 +137,23 @@ def svg_fig5(df: pd.DataFrame, path: Path):
 
 
 def svg_parity(df: pd.DataFrame, path: Path):
+    """Single requested comparison graph: paper vs GN vs EGN on the same x-axis."""
     import matplotlib.pyplot as plt
-    fig, ax = plt.subplots(figsize=(6.2,6.0))
-    lo=max(150, float(df.paper_Lmax_km.min())*.75)
-    hi=float(df.paper_Lmax_km.max())*1.25
-    ax.loglog([lo,hi],[lo,hi],linestyle="--",label="ideal agreement")
-    ax.scatter(df.paper_Lmax_km, df.gn_Lmax_km, marker="o", label="GN")
-    ax.scatter(df.paper_Lmax_km, df.egn_Lmax_km, marker="x", label="EGN adaptive*")
-    ax.set_xlabel("Paper Fig.5 Lmax [km]")
-    ax.set_ylabel("Code-predicted Lmax [km]")
-    ax.set_title("Paper vs GN vs EGN (50/38.4-GHz subset)")
-    ax.grid(True, which="both", alpha=.25)
+    d=df.copy()
+    order={"PSCF":0,"SMF":1,"NZDSF":2}
+    d["_order"]=d.fiber.map(order)
+    d=d.sort_values("_order")
+    x=np.arange(len(d))
+    labels=[f"{r.fiber}\n{r.modulation} {r.spacing_GHz:g} GHz" for _,r in d.iterrows()]
+    fig, ax = plt.subplots(figsize=(8.0,5.2))
+    ax.plot(x,d.paper_Lmax_km,marker="o",label="Paper Fig. 5")
+    ax.plot(x,d.gn_Lmax_km,marker="s",label="GN model")
+    ax.plot(x,d.egn_Lmax_km,marker="^",label="EGN adaptive")
+    ax.set_yscale("log")
+    ax.set_xticks(x,labels)
+    ax.set_ylabel("Maximum reach [km]")
+    ax.set_title("Paper vs GN vs EGN — representative QPSK, 50 GHz")
+    ax.grid(True,which="both",alpha=.25)
     ax.legend()
     fig.tight_layout()
     fig.savefig(path)

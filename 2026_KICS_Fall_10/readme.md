@@ -178,49 +178,249 @@ result = launch_power_vs_gsnr(
 
 ## 6. 어떤 모델을 사용해야 하는가? / Which model should I use?
 
-| 목적 | 권장 경로 | 비고 |
+| 목적 | 권장 경로 | 현재 위치 |
 |---|---|---|
 | 범용 WDM GN NLI | `gn_integral_general.py` | 가장 넓은 링크/PSD 범위 |
 | ASE + GSNR + BER + capacity | `gn_integral_general_modulation.py`, `nli_model="gn"` | 시스템 성능 분석용 |
-| modulation-dependent SCI 보정 | `nli_model="egn_sci"` | **SCI only**, Full EGN 아님 |
-| SCI + XCI + MCI Full-EGN | `EGN_model/EGN_adaptive.py` | 검증된 precision scope 내 사용 권장 |
+| modulation-dependent SCI 보정 | `nli_model="egn_sci"` | SCI only, Full EGN 아님 |
+| SCI + XCI + MCI Full-EGN | `EGN_model/EGN_adaptive.py` | 검증된 precision scope 내 research solver |
 | SSFM/NLSE waveform propagation | 현재 미구현 | 별도 SSFM 또는 상용 simulator 필요 |
 
----
+실무/연구에서는 GN과 EGN 중 하나를 고르는 방식보다 다음과 같은 계층형 사용을 권장합니다.
 
-## 7. 검증 / Validation
+```text
+GN screening / parameter sweep
+        ↓
+EGN refinement at selected operating points
+        ↓
+SSFM / VPI / experiment cross-validation
+```
 
-`EGN_model/EGNvsGN/GN_modulation_Fig123_validation_colab.ipynb`는 동일 GN 경로를 문헌의 GN reference curve와 비교합니다.
-
-저장된 결과 기준 Fig. 1–2 paper-GN 곡선 대비:
-
-- 전체 평균 절대오차: 약 **0.0395 dB**
-- 평균 linear-NLI 상대오차: 약 **0.9052%**
-
-Fig. 3 maximum-reach의 paper-GN curve 대비 평균 절대오차는 QPSK 약 **0.872 span**, 16QAM 약 **0.569 span**입니다.
-
-이 수치는 **해당 논문 조건에 대한 검증 결과**이며 임의의 시스템에서 동일한 정확도를 보장한다는 의미가 아닙니다.
-
-**Eng:** The stored validation results reproduce the tested paper-GN curves closely, but the reported errors apply only to the tested configurations and are not a universal accuracy guarantee.
+GN은 넓은 설계 공간을 빠르게 탐색하는 데 적합하고, EGN은 변조 의존성과 SCI/XCI/MCI의 비가우시안 보정을 정밀하게 확인하는 데 적합합니다.
 
 ---
 
-## 8. 사용 시 주의사항 / Limitations and interpretation
+## 7. 레퍼런스 논문 구현 충실도 / Fidelity to the reference formulations
 
-- GN Model은 Gaussian-signal assumption을 사용합니다.  
-  **Eng:** The GN Model relies on the Gaussian-signal assumption.
-- QMC 결과는 `sobol_power`, seed, receiver integration resolution에 대해 convergence를 확인하는 것이 좋습니다.  
-  **Eng:** High-accuracy use should include convergence checks versus QMC sample count/seed and receiver integration resolution.
-- distributed Raman/custom gain은 범용 numerical extension이며 실제 시스템 sign-off 전 독립 검증이 필요합니다.  
-  **Eng:** Distributed-Raman/custom gain support should be independently validated before design sign-off.
-- `egn_sci`는 Full EGN이 아닙니다. Full EGN 연구는 `EGN_model/EGN_adaptive.py`를 사용하십시오.  
-  **Eng:** `egn_sci` is not Full EGN; use `EGN_model/EGN_adaptive.py` for SCI+XCI+MCI correction.
-- 본 코드는 SSFM simulator가 아니며 PMD, PDL, laser phase noise, DSP penalty 등 모든 실험 요소를 포함하지 않습니다.  
-  **Eng:** This repository is not an SSFM simulator and does not model every experimental impairment.
+### 7.1 GN path
+
+GN core는 Poggiolini 계열 formulation의 핵심 항목을 그대로 구현합니다.
+
+- power attenuation [dB/km] → field attenuation 변환
+- `beta2` / `beta3` 기반 four-wave-mixing phase mismatch
+- single-span nonlinear source integral
+- coherent / incoherent span accumulation
+- multi-span phase history
+- full-WDM 2-D frequency integration
+- exact first-order cubic NLI scaling: `P_NLI ∝ P_ch^3`
+
+이 구현은 특정 paper curve에 맞춘 fitting model이 아니라, **논문 수식을 범용 numerical solver로 확장한 형태**입니다. 따라서 irregular spacing, unequal channel powers, custom PSD, unequal spans, beta3, heterogeneous span parameters까지 GN 경로에서 처리할 수 있습니다.
+
+`gn_integral_general_modulation.py`는 GN 수식을 다시 구현하지 않고, 이 GN core 위에 ASE, GSNR, BER, modulation, throughput/capacity 계산을 추가합니다.
+
+### 7.2 EGN path
+
+`EGN_model/EGN_adaptive.py`는 Carena et al. (2014)의 Full-EGN formulation을 기준으로 다음을 구현합니다.
+
+- SCI: Eqs. (5)–(12)
+- XCI: Eq. (18), Appendix A
+- MCI: Appendix B
+- numerical reduction / factorization: Appendix C
+- modulation moments `mu4`, `mu6`
+- SCI/XCI/MCI component breakdown
+- phase-aware adaptive numerical integration
+- independent frequency / receiver convergence checks
+
+물리 계산에는 paper curve에 맞추기 위한 scale factor, empirical offset, target-value fitting을 사용하지 않습니다.
+
+다만 precision Full-EGN path는 논문의 검증된 조건을 의도적으로 따릅니다.
+
+- rectangular / zero-rolloff spectrum
+- equal symbol rate
+- coherent accumulation
+- identical loss-compensated lumped-EDFA spans
+- beta2-dominated dispersion
+- symmetric/equispaced WDM comb for Appendix-B MCI
+- central CUT / equal-power assumptions where required
+
+즉 **EGN은 GN보다 정밀하지만, 현재 검증된 적용 범위는 GN보다 좁습니다.**
 
 ---
 
-## 9. Dependencies
+## 8. 검증 성능 / Validation performance
+
+### 8.1 GN — equation-level reproducibility
+
+실행형 validation은 다음 위치에 있습니다.
+
+- [GN_model/README.md](./GN_model/README.md)
+- [GN_Model_Colab.ipynb](./GN_model/GN_Model_Colab.ipynb)
+- [results/COLAB_EXECUTION_REPORT.md](./GN_model/results/COLAB_EXECUTION_REPORT.md)
+
+Poggiolini 기반 equation-level test 결과:
+
+| 항목 | 결과 |
+|---|---:|
+| Equation-level assessment | **PASS** |
+| Maximum equation relative error | **1.29452 × 10⁻¹¹ %** |
+| Sobol relative std @ 32,768 samples | **0.0935 %** |
+| 8,192 → 32,768 sample change | **0.1441 %** |
+
+이 결과는 GN 식 자체의 구현과 numerical integration이 매우 안정적임을 의미합니다.
+
+### 8.2 GN — Carena 2012 Fig. 5 maximum-reach reproduction
+
+Carena et al. JLT 2012 Fig. 5의 63개 digitized point를 이용한 end-to-end reach validation 결과:
+
+| Metric | GN result |
+|---|---:|
+| Compared points | **63** |
+| Overall MAPE | **8.66 %** |
+| Median APE | **6.67 %** |
+| Points within 5 % | **36.5 %** |
+| Points within 10 % | **69.8 %** |
+| Points within 15 % | **85.7 %** |
+| Points within 20 % | **92.1 %** |
+| Reach ≥ 1,000 km MAPE | **7.38 %** |
+
+Fiber-level MAPE:
+
+| Fiber | MAPE |
+|---|---:|
+| PSCF | 9.58 % |
+| SMF | 6.95 % |
+| NZDSF | 9.43 % |
+
+Modulation-level MAPE:
+
+| Modulation | MAPE |
+|---|---:|
+| BPSK | 9.31 % |
+| **QPSK** | **5.20 %** |
+| 8QAM | 10.11 % |
+| 16QAM | 11.03 % |
+
+최대 percentage error는 short-reach point에서 크게 나타날 수 있습니다. Fig. 5는 100-km span 단위의 maximum reach이고, reference 값도 PDF에서 digitize했기 때문에 짧은 거리에서는 span 하나 차이가 큰 percentage error로 보일 수 있습니다.
+
+Paper-derived Fig. 3 / Fig. 5 reference는 원 저자 raw table이 아니라 PDF plot에서 추출했으며, validation data에는 약 **4–8 % digitization uncertainty**가 별도로 표시되어 있습니다.
+
+### 8.3 EGN_adaptive — Carena 2014 analytical EGN reproduction
+
+현재 `EGN_adaptive.py`의 직접 검증은 다음 위치에 있습니다.
+
+- [EGN_MODEL_Validation/README.md](./EGN_model/EGN_MODEL_Validation/README.md)
+- [EGN_Model_Validation_Colab.ipynb](./EGN_model/EGN_MODEL_Validation/EGN_Model_Validation_Colab.ipynb)
+- [paper_vs_code_error_summary.csv](./EGN_model/EGN_MODEL_Validation/paper_vs_code_error_summary.csv)
+
+Carena et al. Optics Express 2014의 analytical EGN curves를 Fig. 1 / 3 / 6 / 8에서 비교한 결과:
+
+| Item | Result |
+|---|---:|
+| Compared figures | Fig. 1, 3, 6, 8 |
+| Compared points | **72** |
+| Overall MAE | **0.136 dB** |
+| Overall RMSE | **0.193 dB** |
+| Mean relative error in linear eta | **3.13 %** |
+| Maximum absolute error | **0.745 dB** |
+| Representative high-resolution repeat | **≤ 0.032 dB change** |
+
+세부 panel별 mean relative error:
+
+| Case | SMF | NZDSF | LS |
+|---|---:|---:|---:|
+| Fig. 1 SCI | 5.02 % | 2.75 % | 1.95 % |
+| Fig. 3 XCI, 3 ch | 2.71 % | 2.09 % | 3.12 % |
+| Fig. 6 XMCI, 3 ch | **0.74 %** | 1.54 % | 3.39 % |
+| Fig. 8 XMCI, 9 ch | 2.37 % | 6.18 % | 5.75 % |
+
+따라서 현재 검증 범위에서 `EGN_adaptive.py`는 Carena 2014 analytical EGN result를 평균적으로 약 **3.1 %** 수준으로 재현합니다.
+
+**중요:** 이는 SSFM/실험 대비 3.13 %라는 뜻이 아닙니다. 동일한 analytical EGN reference를 얼마나 충실하게 구현했는지를 나타내는 값입니다. SSFM 또는 실험과의 독립 검증은 별도의 단계입니다.
+
+### 8.4 GN Fig. 5에서 보인 EGN proxy 오차를 어떻게 해석해야 하는가
+
+GN Fig. 5 비교 과정에서 EGN one-span result를 paper의 incoherent accumulation convention에 맞춰 비교한 proxy는 큰 오차를 보였습니다. 이 값은 `EGN_adaptive.py`의 native Full-EGN 정확도 점수로 사용하면 안 됩니다.
+
+이유는 다음과 같습니다.
+
+- Carena 2012 Fig. 5: **GN benchmark + incoherent span accumulation**
+- `EGN_adaptive.py`: **coherent Full-EGN + rectangular-spectrum precision path**
+
+따라서 EGN 자체의 구현 성능은 위의 **Carena 2014 Fig. 1/3/6/8, 72-point validation**을 기준으로 해석해야 합니다.
+
+---
+
+## 9. 범용성 및 권장 활용 / Generality and recommended use
+
+### GN model
+
+현재 GN 모델은 다음 용도로 범용적으로 사용할 수 있습니다.
+
+- SMF / G.652.D
+- G.654.E
+- 일반 WDM coherent link
+- launch-power optimization
+- span-length / span-count sweep
+- fiber parameter comparison
+- attenuation / dispersion / gamma / Aeff sensitivity
+- GSNR / BER / throughput / capacity screening
+- repeater / span architecture preliminary study
+
+특히 다음과 같은 engineering trend 분석에 적합합니다.
+
+```text
+Aeff ↑
+  → gamma = 2π n2 / (lambda · Aeff) ↓
+  → P_NLI ↓
+  → GSNR ↑
+```
+
+즉 G.652.D vs G.654.E, span length, launch power, channel spacing, WDM bandwidth, repeater 수에 따른 상대 비교를 빠르게 수행하는 **general-purpose GN screening / design engine**으로 사용하는 것이 적절합니다.
+
+현재 독립 Fig. 5 validation을 기준으로는 모든 조건에서 <5 %라고 주장하면 안 되지만, tested domain에서 대체로 **약 7–9 % 수준의 reach-prediction accuracy**, QPSK에서는 약 **5.2 % MAPE**를 보였습니다.
+
+### EGN_adaptive
+
+`EGN_adaptive.py`는 다음 용도로 적합합니다.
+
+- modulation-dependent nonlinear correction
+- SCI / XCI / MCI breakdown
+- GN vs EGN comparison
+- low-dispersion / strongly modulation-dependent cases
+- selected operating-point refinement
+- paper reproduction / advanced NLI research
+
+Carena 2014 analytical EGN reproduction은 평균 **3.13 %** 수준이므로, 검증된 scope 내에서는 research-grade refinement model로 사용할 수 있습니다.
+
+하지만 GN보다 적용 범위가 좁기 때문에 arbitrary heterogeneous link, distributed Raman, nonzero beta3, ROADM filtering history 등에서는 native precision Full-EGN result를 일반화하면 안 됩니다.
+
+### 권장 workflow
+
+```text
+GN screening
+    ↓
+EGN refinement
+    ↓
+SSFM / VPI / experiment validation
+```
+
+예를 들어 해저 광전송 시스템에서는 GN으로 수천 개의 fiber / span / launch-power 조합을 먼저 탐색하고, 최종 후보 operating point만 EGN으로 다시 계산한 뒤 SSFM/VPI 또는 실험값으로 최종 확인하는 구조가 효율적입니다.
+
+---
+
+## 10. 사용 시 주의사항 / Limitations and interpretation
+
+- GN Model은 Gaussian-signal assumption을 사용합니다.
+- QMC 결과는 `sobol_power`, seed, receiver integration resolution에 대해 convergence를 확인하는 것이 좋습니다.
+- distributed Raman/custom gain은 GN 경로의 numerical extension이며 실제 system sign-off 전 독립 검증이 필요합니다.
+- `egn_sci`는 Full EGN이 아닙니다. SCI+XCI+MCI correction에는 `EGN_model/EGN_adaptive.py`를 사용하십시오.
+- Full-EGN precision path는 rectangular/equal-baud/homogeneous coherent-link assumptions 안에서 사용해야 합니다.
+- 본 repository는 SSFM simulator가 아니며 PMD, PDL, laser phase noise, DSP implementation penalty, nonlinear phase-noise dynamics 등 모든 실험 요소를 포함하지 않습니다.
+- customer-facing guarantee, certification, final design sign-off에는 SSFM/VPI/experimental reference point를 함께 사용하는 것을 권장합니다.
+
+---
+
+## 11. Dependencies
 
 ```text
 Python >= 3.10
@@ -232,16 +432,33 @@ Colab 또는 일반 Python 환경에서 사용할 수 있습니다.
 
 ---
 
-## 10. References
+## 12. References
 
 1. P. Poggiolini et al., **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems”**, arXiv:1209.0394.
 2. P. Poggiolini, **“The GN Model of Non-Linear Propagation in Uncompensated Coherent Optical Systems”**, Journal of Lightwave Technology 30(24), 3857–3879 (2012).
-3. A. Carena et al., **“EGN model of non-linear fiber propagation”**, Optics Express 22, 16335–16362 (2014), DOI: 10.1364/OE.22.016335.
+3. A. Carena et al., **“Modeling of the Impact of Nonlinear Propagation Effects in Uncompensated Optical Coherent Transmission Links”**, Journal of Lightwave Technology 30(10), 1524–1539 (2012).
+4. A. Carena et al., **“EGN model of non-linear fiber propagation”**, Optics Express 22, 16335–16362 (2014), DOI: 10.1364/OE.22.016335.
 
 ---
 
 ## Summary
 
-이 폴더의 두 핵심 파일은 **범용 GN 기반 링크/NLI 및 시스템 성능 분석**을 위한 코드입니다. 변조 보정이 필요한 경우 제한적인 SCI-EGN 옵션을 사용할 수 있으며, **Full-EGN 연구 계산은 `EGN_model/EGN_adaptive.py`로 분리**되어 있습니다.
+현재 코드의 역할은 다음처럼 구분하는 것이 가장 적절합니다.
 
-**Eng:** The two main files in this directory form a general GN-based NLI and system-performance toolkit. A limited SCI-EGN option is available, while the Full-EGN research implementation is maintained separately in `EGN_model/EGN_adaptive.py`.
+- **`gn_integral_general.py` + `gn_integral_general_modulation.py`**  
+  → 논문 수식 구현이 매우 안정적이고, 범용 WDM / link / system-performance study에 적합한 **general-purpose GN screening/design engine**  
+  → Carena 2012 Fig. 5 기준 전체 MAPE **8.66 %**, long-reach subset MAPE **7.38 %**, QPSK MAPE **5.20 %**
+
+- **`EGN_model/EGN_adaptive.py`**  
+  → Carena 2014 SCI/XCI/MCI analytical EGN을 직접 구현한 **research-grade Full-EGN refinement solver**  
+  → 72 reference points 기준 MAE **0.136 dB**, mean linear-eta relative error **3.13 %**
+
+따라서 이 repository는 단순한 paper-reproduction code라기보다,
+
+```text
+GN = broad engineering design / fast screening
+EGN = high-accuracy nonlinear refinement within validated scope
+SSFM/VPI/experiment = final independent reference
+```
+
+라는 계층형 optical-link simulation workflow로 사용하는 것이 가장 적절합니다.

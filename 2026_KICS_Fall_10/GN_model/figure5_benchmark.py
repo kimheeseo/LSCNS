@@ -190,12 +190,13 @@ def main():
     gdf.to_csv(OUT/"figure5_reproduction.csv",index=False)
 
     # ---------- full EGN representative comparison ----------
-    # 50-GHz Fig.-5 slice: 3 fibers x 4 formats. To keep the precision Full-EGN
-    # calculation reproducible in Colab/CI, evaluate only the local span
+    # Representative 50-GHz QPSK slice: all three fiber types. Full Fig.-5 GN
+    # is still evaluated for all 63 digitized points. To keep precision Full-EGN
+    # reproducible in Colab/CI, evaluate only the local span
     # neighborhood of the paper point (Npaper-2, Npaper, Npaper+2). This is
     # sufficient to estimate the local maximum-reach crossing without fitting a
     # physics scale factor.
-    subset = gdf[np.isclose(gdf.spacing_GHz,50.0)].copy()
+    subset = gdf[np.isclose(gdf.spacing_GHz,50.0) & (gdf.modulation=="QPSK")].copy()
     erows=[]
     eopt=egn.EGNFullOptions(receiver_points=3,max_receiver_points=3,panel_order=8,
                             quadrature_rtol=1e-3,verify_convergence=False,

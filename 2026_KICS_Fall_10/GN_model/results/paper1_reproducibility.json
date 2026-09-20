@@ -1,0 +1,73 @@
+{
+  "paper": "Poggiolini et al., A Detailed Analytical Derivation of the GN Model...",
+  "equation_level_tests": [
+    {
+      "test": "dB/km -> field alpha",
+      "expected": 0.025328436022934504,
+      "actual": 0.025328436022934504,
+      "relative_error": 0.0
+    },
+    {
+      "test": "beta2 phase mismatch",
+      "expected": 2.321786930859547,
+      "actual": 2.321786930859547,
+      "relative_error": 0.0
+    },
+    {
+      "test": "single-span link function",
+      "expected": 0.30854369183139757,
+      "actual": 0.30854369183139774,
+      "relative_error": 5.397402640296889e-16
+    },
+    {
+      "test": "identical-span incoherent accumulation",
+      "expected": 2.159805842819783,
+      "actual": 2.1598058428197837,
+      "relative_error": 4.1123067735595346e-16
+    },
+    {
+      "test": "identical-span coherent accumulation",
+      "expected": 15.070794147032867,
+      "actual": 15.07079414703279,
+      "relative_error": 5.06830252931622e-15
+    },
+    {
+      "test": "non-identical-span coherent phase history",
+      "expected": 3.463457544978858,
+      "actual": 3.463457544978854,
+      "relative_error": 1.1539921701783011e-15
+    },
+    {
+      "test": "common launch-power cubic scaling",
+      "expected": 8.0,
+      "actual": 8.000000000001036,
+      "relative_error": 1.2945200467129325e-13
+    }
+  ],
+  "max_equation_relative_error": 1.2945200467129325e-13,
+  "max_equation_error_pct": 1.2945200467129325e-11,
+  "qmc_convergence": [
+    {
+      "sobol_power": 11,
+      "samples": 2048,
+      "mean_W_per_THz": 3.724845312343871e-06,
+      "relative_std_pct": 2.2520127287732374
+    },
+    {
+      "sobol_power": 13,
+      "samples": 8192,
+      "mean_W_per_THz": 3.6412372402956953e-06,
+      "relative_std_pct": 0.22226505286870685,
+      "relative_change_vs_previous_pct": 2.2961445940112992
+    },
+    {
+      "sobol_power": 15,
+      "samples": 32768,
+      "mean_W_per_THz": 3.6464914996673035e-06,
+      "relative_std_pct": 0.09348857938201412,
+      "relative_change_vs_previous_pct": 0.144090816393992
+    }
+  ],
+  "assessment": "PASS",
+  "scope_note": "Equation-level reproduction tests the derivation implemented by the engine; QMC dispersion is a numerical integration uncertainty, not a physics-model error."
+}

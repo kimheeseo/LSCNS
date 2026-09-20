@@ -40,9 +40,9 @@ and compares a representative subset against:
 The paper/reference points in `paper_fig5_digitized.csv` are digitized from the supplied PDF rather than copied from an author data file. Each row therefore carries an explicit digitization-uncertainty estimate.
 
 ### GN vs EGN comparison
-The full precision path in `EGN_adaptive.py` supports rectangular spectra and coherent multi-span propagation. The cross-model comparison uses the **50-GHz QPSK points for PSCF, SMF and NZDSF**, evaluating native full coherent multi-span EGN in the local span neighborhood of the published Fig. 5 reach. No EGN scale factor is fitted.
+The full precision path in `EGN_adaptive.py` uses rectangular spectra and coherent multi-span physics, while Carena-2012 Fig. 5 is a **GN** benchmark plotted with incoherent NLI accumulation. A direct EGN-vs-Fig.5 accuracy claim would therefore mix model scopes.
 
-This is intentionally labeled a scope-different comparison: the 2012 paper used an optimized fourth-order super-Gaussian Tx filter and chose incoherent GN accumulation for Figs. 4–7, whereas `EGN_adaptive.py` uses rectangular spectra and coherent multi-span EGN physics.
+For the requested three-way graph, the representative **50-GHz QPSK points for PSCF, SMF and NZDSF** use a transparent paper-convention proxy: `EGN_adaptive.py` computes the full **one-span** EGN NLI, and that one-span NLI is accumulated incoherently across spans exactly like the Fig. 5 GN plotting convention. No fitted scale factor is used. The resulting EGN error is reported, but is explicitly **not** interpreted as a validation score for the native multi-span EGN algorithm.
 
 ## Colab
 

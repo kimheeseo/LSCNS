@@ -190,14 +190,13 @@ def main():
     gdf.to_csv(OUT/"figure5_reproduction.csv",index=False)
 
     # ---------- full EGN representative comparison ----------
-    # Representative 50/38.4-GHz subset. Unlike the 2012 GN plotting convention,
-    # EGN is evaluated with its own full coherent multi-span physics. The precision
-    # EGN implementation requires rectangular spectra, so this is a model-to-
-    # simulation comparison with an explicit spectrum-scope difference.
-    subset = gdf[gdf.spacing_GHz.isin([50.0,38.4])].copy()
+    # Use the 50-GHz Fig.-5 points (12 combinations = 3 fibers x 4 formats).
+    # This keeps the full-EGN comparison computationally bounded while covering
+    # every fiber and modulation family in the paper.
+    subset = gdf[np.isclose(gdf.spacing_GHz,50.0)].copy()
     erows=[]
     eopt=egn.EGNFullOptions(receiver_points=5,max_receiver_points=5,panel_order=8,
-                            quadrature_rtol=5e-4,verify_convergence=False,
+                            quadrature_rtol=7e-4,verify_convergence=False,
                             strict_convergence=False)
 
     def egn_reach_multispan(row):
@@ -207,73 +206,72 @@ def main():
                       D_ps_nm_km=float(row.D_ps_nm_km),noise_figure_db=NF_DB)
         A=float(row.ase_one_span_W)
         snr_req=10.0**(float(row.required_snr_db)/10.0)
-        # EGN_adaptive exact primitive has an explicit validated numerical guard:
-        # max(N) * (2*alpha_field) * L <= 600.
-        max_supported=max(1,int(math.floor(600.0/(2.0*span.alpha_field_per_km*SPAN_KM))))
-        if n0 > max_supported:
-            return {"status":"unsupported_span_limit","max_supported_spans":max_supported,
-                    "nspans":math.nan,"Lmax_km":math.nan,"popt_dBm":math.nan,
-                    "eta_at_Lmax_W_inv2":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax":math.nan,
-                    "egn_to_gn_nli_ratio_at_Lmax_db":math.nan,
-                    "snr_at_Lmax_db":math.nan}
 
-        # Dense only around the published reach; this keeps the exact full-EGN
-        # integral tractable while avoiding any fitted correction factor.
-        lo=max(1,n0-20)
-        hi=min(max_supported,n0+40)
-        counts=sorted(set(n for n in [1,2,3,5,8,10]+list(range(lo,hi+1,2)) if n<=max_supported))
+        # Explicit numerical guard built into EGN_adaptive.py.
+        max_supported=max(1,int(math.floor(600.0/(2.0*span.alpha_field_per_km*SPAN_KM))))
+        # Evaluate a compact, non-fitted span grid. Include the paper span count
+        # when it lies inside the EGN implementation's validated numerical range.
+        anchors=[1,2,5,10,20,40,60,80,100,120,max_supported]
+        around=[n0-4,n0-2,n0,n0+2,n0+4]
+        counts=sorted(set(int(n) for n in anchors+around if 1<=int(n)<=max_supported))
         brs=egn.egn_span_sweep(system,span,counts,CUT,str(row.modulation),full_options=eopt)
 
-        def eval_count(n, br):
+        ns=[]; snrs=[]; popts=[]; etas=[]; ratios=[]; ratios_db=[]
+        for n in counts:
+            br=brs[n]
             eta=float(br.total_egn_W)/(1e-3**3)
             p_opt=(n*A/(2.0*eta))**(1.0/3.0)
             snr=p_opt/(n*A+eta*p_opt**3)
-            return snr,p_opt,eta,br
+            ns.append(float(n)); snrs.append(float(snr)); popts.append(float(p_opt))
+            etas.append(float(eta)); ratios.append(float(br.total_egn_W/br.gn_total_W))
+            ratios_db.append(float(br.ratio_to_gn_db))
 
-        vals={n:eval_count(n,brs[n]) for n in counts}
-        passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
+        ns=np.asarray(ns); snrs=np.asarray(snrs); popts=np.asarray(popts)
+        etas=np.asarray(etas); ratios=np.asarray(ratios); ratios_db=np.asarray(ratios_db)
+        order=np.argsort(ns); ns,snrs,popts,etas,ratios,ratios_db=[x[order] for x in (ns,snrs,popts,etas,ratios,ratios_db)]
 
-        # If the upper boundary still passes, extend once. This is rare but
-        # prevents one-span EGN over-correction from silently truncating reach.
-        if passing and max(passing)>=hi-2 and hi < max_supported:
-            extra=list(range(hi+2,min(max_supported,n0+100)+1,2))
-            if extra:
-                b2=egn.egn_span_sweep(system,span,extra,CUT,str(row.modulation),full_options=eopt)
-                vals.update({n:eval_count(n,b2[n]) for n in extra})
-                passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
-
-        if not passing:
-            nbest=1
-        else:
-            nbest=max(passing)
-        if nbest >= max_supported and vals[nbest][0] >= snr_req:
+        # Find an SNR crossing; interpolate in log(SNR) vs span count.
+        above=snrs>=snr_req
+        if np.all(above):
             return {"status":"right_censored_span_limit","max_supported_spans":max_supported,
-                    "nspans":nbest,"Lmax_km":math.nan,"popt_dBm":egn.w_to_dbm(vals[nbest][1]),
-                    "eta_at_Lmax_W_inv2":vals[nbest][2],
-                    "egn_to_gn_nli_ratio_at_Lmax":vals[nbest][3].total_egn_W/vals[nbest][3].gn_total_W,
-                    "egn_to_gn_nli_ratio_at_Lmax_db":vals[nbest][3].ratio_to_gn_db,
-                    "snr_at_Lmax_db":10*math.log10(vals[nbest][0])}
+                    "nspans":float(ns[-1]),"Lmax_km":math.nan,
+                    "popt_dBm":egn.w_to_dbm(popts[-1]),"eta_at_Lmax_W_inv2":etas[-1],
+                    "egn_to_gn_nli_ratio_at_Lmax":ratios[-1],
+                    "egn_to_gn_nli_ratio_at_Lmax_db":ratios_db[-1],
+                    "snr_at_Lmax_db":10*math.log10(snrs[-1])}
+        if not np.any(above):
+            return {"status":"below_threshold_at_one_span","max_supported_spans":max_supported,
+                    "nspans":1.0,"Lmax_km":0.0,"popt_dBm":egn.w_to_dbm(popts[0]),
+                    "eta_at_Lmax_W_inv2":etas[0],
+                    "egn_to_gn_nli_ratio_at_Lmax":ratios[0],
+                    "egn_to_gn_nli_ratio_at_Lmax_db":ratios_db[0],
+                    "snr_at_Lmax_db":10*math.log10(snrs[0])}
 
-        # Refine the +/-2-span neighborhood at single-span resolution.
-        refine=sorted(set(n for n in range(max(1,nbest-2),min(max_supported,nbest+3)+1) if n not in vals))
-        if refine:
-            b3=egn.egn_span_sweep(system,span,refine,CUT,str(row.modulation),full_options=eopt)
-            vals.update({n:eval_count(n,b3[n]) for n in refine})
-            passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
-            nbest=max(passing) if passing else 1
+        last_pass=np.where(above)[0][-1]
+        if last_pass==len(ns)-1:
+            return {"status":"right_censored_span_limit","max_supported_spans":max_supported,
+                    "nspans":float(ns[-1]),"Lmax_km":math.nan,
+                    "popt_dBm":egn.w_to_dbm(popts[-1]),"eta_at_Lmax_W_inv2":etas[-1],
+                    "egn_to_gn_nli_ratio_at_Lmax":ratios[-1],
+                    "egn_to_gn_nli_ratio_at_Lmax_db":ratios_db[-1],
+                    "snr_at_Lmax_db":10*math.log10(snrs[-1])}
 
-        snr,popt,eta,br=vals[nbest]
-        return {
-            "status":"ok","max_supported_spans":max_supported,
-            "nspans":nbest,
-            "Lmax_km":nbest*SPAN_KM,
-            "popt_dBm":egn.w_to_dbm(popt),
-            "eta_at_Lmax_W_inv2":eta,
-            "egn_to_gn_nli_ratio_at_Lmax":br.total_egn_W/br.gn_total_W,
-            "egn_to_gn_nli_ratio_at_Lmax_db":br.ratio_to_gn_db,
-            "snr_at_Lmax_db":10*math.log10(snr),
-        }
+        i0,i1=last_pass,last_pass+1
+        y0,y1=np.log(snrs[i0]),np.log(snrs[i1])
+        yt=math.log(snr_req)
+        frac=(yt-y0)/(y1-y0) if y1!=y0 else 0.0
+        n_cross=float(ns[i0]+frac*(ns[i1]-ns[i0]))
+        # Interpolate secondary observables at the same crossing only for reporting.
+        popt=float(popts[i0]+frac*(popts[i1]-popts[i0]))
+        eta=float(np.exp(np.log(etas[i0])+frac*(np.log(etas[i1])-np.log(etas[i0]))))
+        ratio=float(ratios[i0]+frac*(ratios[i1]-ratios[i0]))
+        ratio_db=float(ratios_db[i0]+frac*(ratios_db[i1]-ratios_db[i0]))
+        return {"status":"interpolated_full_egn","max_supported_spans":max_supported,
+                "nspans":n_cross,"Lmax_km":n_cross*SPAN_KM,
+                "popt_dBm":egn.w_to_dbm(popt),"eta_at_Lmax_W_inv2":eta,
+                "egn_to_gn_nli_ratio_at_Lmax":ratio,
+                "egn_to_gn_nli_ratio_at_Lmax_db":ratio_db,
+                "snr_at_Lmax_db":10*math.log10(snr_req)}
 
     for _, r in subset.iterrows():
         reach=egn_reach_multispan(r)

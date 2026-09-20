@@ -190,33 +190,86 @@ def main():
     gdf.to_csv(OUT/"figure5_reproduction.csv",index=False)
 
     # ---------- full EGN representative comparison ----------
-    # Use 50/38.4 GHz only: filters are not at the extreme Nyquist limit and
-    # this keeps the full-EGN benchmark tractable in CI/Colab.
+    # Representative 50/38.4-GHz subset. Unlike the 2012 GN plotting convention,
+    # EGN is evaluated with its own full coherent multi-span physics. The precision
+    # EGN implementation requires rectangular spectra, so this is a model-to-
+    # simulation comparison with an explicit spectrum-scope difference.
     subset = gdf[gdf.spacing_GHz.isin([50.0,38.4])].copy()
     erows=[]
     eopt=egn.EGNFullOptions(receiver_points=5,max_receiver_points=5,panel_order=8,
                             quadrature_rtol=5e-4,verify_convergence=False,
                             strict_convergence=False)
+
+    def egn_reach_multispan(row):
+        n0=max(1,int(round(float(row.paper_Lmax_km)/SPAN_KM)))
+        system=egn.WDMSystem.equispaced(NCH,float(row.spacing_GHz),RS_GBD,0.0)
+        span=egn.Span(SPAN_KM,float(row.alpha_dB_km),float(row.gamma_W_inv_km),
+                      D_ps_nm_km=float(row.D_ps_nm_km),noise_figure_db=NF_DB)
+        A=float(row.ase_one_span_W)
+        snr_req=10.0**(float(row.required_snr_db)/10.0)
+
+        # Dense only around the published reach; this keeps the exact full-EGN
+        # integral tractable while avoiding any fitted correction factor.
+        lo=max(1,n0-20)
+        hi=n0+40
+        counts=sorted(set([1,2,3,5,8,10]+list(range(lo,hi+1,2))))
+        brs=egn.egn_span_sweep(system,span,counts,CUT,str(row.modulation),full_options=eopt)
+
+        def eval_count(n, br):
+            eta=float(br.total_egn_W)/(1e-3**3)
+            p_opt=(n*A/(2.0*eta))**(1.0/3.0)
+            snr=p_opt/(n*A+eta*p_opt**3)
+            return snr,p_opt,eta,br
+
+        vals={n:eval_count(n,brs[n]) for n in counts}
+        passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
+
+        # If the upper boundary still passes, extend once. This is rare but
+        # prevents one-span EGN over-correction from silently truncating reach.
+        if passing and max(passing)>=hi-2:
+            extra=list(range(hi+2,n0+102,2))
+            if extra:
+                b2=egn.egn_span_sweep(system,span,extra,CUT,str(row.modulation),full_options=eopt)
+                vals.update({n:eval_count(n,b2[n]) for n in extra})
+                passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
+
+        if not passing:
+            nbest=1
+        else:
+            nbest=max(passing)
+
+        # Refine the +/-2-span neighborhood at single-span resolution.
+        refine=sorted(set(n for n in range(max(1,nbest-2),nbest+4) if n not in vals))
+        if refine:
+            b3=egn.egn_span_sweep(system,span,refine,CUT,str(row.modulation),full_options=eopt)
+            vals.update({n:eval_count(n,b3[n]) for n in refine})
+            passing=[n for n,(snr,*_) in vals.items() if snr>=snr_req]
+            nbest=max(passing) if passing else 1
+
+        snr,popt,eta,br=vals[nbest]
+        return {
+            "nspans":nbest,
+            "Lmax_km":nbest*SPAN_KM,
+            "popt_dBm":egn.w_to_dbm(popt),
+            "eta_at_Lmax_W_inv2":eta,
+            "egn_to_gn_nli_ratio_at_Lmax":br.total_egn_W/br.gn_total_W,
+            "egn_to_gn_nli_ratio_at_Lmax_db":br.ratio_to_gn_db,
+            "snr_at_Lmax_db":10*math.log10(snr),
+        }
+
     for _, r in subset.iterrows():
-        system = egn.WDMSystem.equispaced(NCH,float(r.spacing_GHz),RS_GBD,0.0)
-        span = egn.Span(SPAN_KM,float(r.alpha_dB_km),float(r.gamma_W_inv_km),
-                        D_ps_nm_km=float(r.D_ps_nm_km),noise_figure_db=NF_DB)
-        br = egn.full_egn_nli_power(
-            system,[span],CUT,str(r.modulation),
-            gn_options=egn.GNIntegralOptions(accumulation="coherent"),
-            full_options=eopt)
-        eta_egn=br.total_egn_W/(1e-3**3)
-        reach=lmax_from_eta(eta_egn,float(r.ase_one_span_W),float(r.paper_required_OSNR_dB_0p1nm))
+        reach=egn_reach_multispan(r)
         d=r.to_dict()
         d.update({
-            "egn_eta_W_inv2":eta_egn,
-            "egn_one_span_nli_W_at_0dBm":br.total_egn_W,
-            "egn_to_gn_nli_ratio":br.total_egn_W/br.gn_total_W,
-            "egn_to_gn_nli_ratio_db":br.ratio_to_gn_db,
+            "egn_eta_W_inv2":reach["eta_at_Lmax_W_inv2"],
+            "egn_to_gn_nli_ratio":reach["egn_to_gn_nli_ratio_at_Lmax"],
+            "egn_to_gn_nli_ratio_db":reach["egn_to_gn_nli_ratio_at_Lmax_db"],
             "egn_Lmax_km":reach["Lmax_km"],
             "egn_popt_dBm":reach["popt_dBm"],
             "egn_error_pct":abs(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
             "egn_signed_error_pct":(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
+            "egn_span_count":reach["nspans"],
+            "egn_snr_at_Lmax_db":reach["snr_at_Lmax_db"],
         })
         erows.append(d)
         print("EGN_ROW_JSON="+json.dumps({k:(v.item() if hasattr(v,"item") else v) for k,v in d.items()},default=float,separators=(",",":")))
@@ -241,7 +294,7 @@ def main():
         "important_scope_notes":[
             "Paper Fig.5 GN uses incoherent span accumulation; the GN reproduction matches that convention.",
             "GN Tx PSD uses NRZ sinc^2 multiplied by a fourth-order super-Gaussian with Bopt=spacing, normalized to channel power.",
-            "EGN_adaptive full precision path requires rectangular spectra and coherent multi-span physics. For Fig.5 only, its one-span full EGN NLI is scaled incoherently with span count to match the paper plotting convention.",
+            "EGN_adaptive is evaluated with its native full coherent multi-span physics on the 50/38.4-GHz subset; its rectangular-spectrum requirement differs from the paper's optimized super-Gaussian Tx spectrum.",
             "No fitted NLI scale factor is used.",
             "Paper Fig.5 and Fig.3 values are digitized from the supplied PDF; error metrics therefore include digitization uncertainty."
         ]

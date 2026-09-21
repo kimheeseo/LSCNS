@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.5.0
+# AI Data Center BOM Engine v4.6.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.5.0 Multilingual Design Examples / Excel Export & Email**
+**v4.6.0 Four-Sheet Excel / Receipt Datasheets / Korea Channels / Juniper**
 
 설계 흐름:
 
@@ -28,7 +28,10 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 제품 DB 기반 Manufacturer / Product / Model / Qty / Evidence 예상 영수증
 - Performance-first / Balanced / Cost-sensitive 조달 정책
 - 설계 계산 옆 compact action bar: **Export Excel / Email Excel**
-- 실제 .xlsx 설계안 출력: Summary / Inputs / Design Data
+- Excel 출력 4개 시트: **요구조건 / 설계 결과 / Generic BOM / 제품매칭 예상 영수증**
+- 제품매칭 예상 영수증 Alternative에 확인 가능한 공식 datasheet/spec URL 표시, 확인 어려운 경우 "-"
+- 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
+- Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 설계 예시 및 이메일 제목/본문 번역
 - Excel 설계안 이메일 발송 기능 (sender: harrykim9463@gmail.com, Render secret credential 방식)
 - Conceptual BIM-ready floor plan / rack schedule
@@ -183,6 +186,27 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 메일 발송 endpoint는 same-origin으로 제한하고 client별 10분당 3회 rate limit 적용
 - Gmail App Password는 소스/GitHub에 저장하지 않고 Render Secret Environment Variable로만 설정
 - `VERSION` 단일 기준으로 webpage/API/package/Optical Advisor/Design Examples/Action Menu 버전 동기화
+
+### v4.6.0 — Four-sheet Excel / receipt datasheets / Korea channels / Juniper
+- Excel 설계안 구성을 다음 4개 시트로 재구성
+  1. 요구조건
+  2. 설계 결과
+  3. Generic BOM
+  4. 제품매칭 예상 영수증
+- Generic BOM / 제품매칭 예상 영수증은 화면에 렌더링된 현재 계산 결과 table을 기준으로 Excel에 반영
+- 제품매칭 예상 영수증의 Alternative 항목에 exact product/family가 확인되는 경우 공식 datasheet/spec 링크를 추가하고, 확인이 어려우면 `-` 표시
+- **설계 예시** 언어 선택 추적 강화: 한국어 / English / 日本語 / 中文 / Deutsch 버튼 클릭 상태를 공통 UI language state로 전달
+- 설계 예시 / Export Excel / Email Excel 아래에 **한국 구매 / 기술 문의 채널** 추가
+  - Corning: 남해이엔지 취급 채널 + 한국코닝 공식 법인
+  - Sumitomo Electric: Sumitomo Electric (Korea) Electronics
+  - Supermicro: Korea Office
+  - Juniper: 공식 총판 인성디지탈 / 시엔스 / 투케이엠시스템즈
+  - Cisco: Cisco Systems Korea
+- Juniper 제품 기업/스위치 candidate 추가
+  - QFX5240-64OD: 64 × 800GbE OSFP, 2RU
+  - QFX5240-64QD: 64 × 800GbE QSFP-DD, 2RU
+  - 공식 Juniper QFX5240 datasheet 링크 포함
+- Private `VERSION` / 실행 화면 / README / CHANGELOG를 v4.6.0으로 동기화
 
 ## 30-Case Independent Validation Ledger
 

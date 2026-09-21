@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.7.1
+# AI Data Center BOM Engine v4.7.2
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.1 Stable Excel / Multilingual / Korea Channels / Juniper**
+**v4.7.2 UI Initialization Fix / Stable Excel / Multilingual / Korea Channels / Juniper**
 
 설계 흐름:
 
@@ -245,6 +245,14 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 설계 예시 다국어, datasheet/spec 링크, 한국 구매/기술 문의 채널, Juniper QFX5240 후보는 유지
 - Private deploy branch: `dc-bom-v4-deploy`
 - Recovery branch: `dc-bom-v44-stable`
+
+### v4.7.2 — UI initialization fix
+- 모바일에서 설계 계산 버튼이 `...` 상태에 고정되는 문제 수정
+- 원인: 추가 UI의 MutationObserver가 자신이 변경한 DOM을 다시 감지하면서 반복 실행되는 self-triggering render loop
+- Design Examples / 한국 구매 채널 UI의 MutationObserver 제거
+- 언어 변경은 명시적인 click/change event + guarded timer로만 반영
+- Email 기능은 계속 비활성화
+- Export Excel 4개 시트 / 다국어 설계 예시 / datasheet 링크 / 한국 구매 채널 / Juniper 후보는 유지
 
 ## 30-Case Independent Validation Ledger
 

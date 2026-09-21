@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.6.0
+# AI Data Center BOM Engine v4.7.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.6.0 Four-Sheet Excel / Receipt Datasheets / Korea Channels / Juniper**
+**v4.7.0 Stable Excel / Email / Multilingual / Korea Channels / Juniper**
 
 설계 흐름:
 
@@ -207,6 +207,32 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - QFX5240-64QD: 64 × 800GbE QSFP-DD, 2RU
   - 공식 Juniper QFX5240 datasheet 링크 포함
 - Private `VERSION` / 실행 화면 / README / CHANGELOG를 v4.6.0으로 동기화
+
+### v4.7.0 — Stable reimplementation
+- v4.4.0 안정 배포본을 기준으로 이전 요청 기능을 다시 구현
+- Backend는 기존 server.js에 문자열 치환을 누적하지 않고, 검증된 전체 server 파일을 build 시 생성하도록 변경
+- Excel 설계안 4개 시트
+  1. 요구조건
+  2. 설계 결과
+  3. Generic BOM
+  4. 제품매칭 예상 영수증
+- 설계 예시 / Export Excel / Email Excel을 한국어 / English / 日本語 / 中文 / Deutsch 선택 상태와 연동
+- Email Excel:
+  - sender: `harrykim9463@gmail.com`
+  - 현재 선택 언어의 제목/본문 사용
+  - Excel 첨부
+  - Gmail App Password는 Render Secret Environment Variable에서만 사용
+- 제품매칭 예상 영수증 Alternative:
+  - 정확한 제품/제품군을 확인할 수 있으면 공식 datasheet/spec 링크 표시
+  - 확인이 어려우면 `-`
+- 한국 구매/기술 문의 채널 패널
+  - Corning: 공식 Optical Communications distributor 및 한국코닝
+  - Sumitomo Electric: Sumitomo Electric (Korea) Electronics
+  - Supermicro: Korea Office
+  - Juniper: 인성디지탈 / 시엔스 / 투케이엠시스템즈 공식 총판
+  - Cisco: Cisco Systems Korea
+- Juniper QFX5240-64OD / QFX5240-64QD를 switch candidate 및 receipt alternative에 추가
+- 복구용 안정 branch `dc-bom-v44-stable`을 별도 보존
 
 ## 30-Case Independent Validation Ledger
 

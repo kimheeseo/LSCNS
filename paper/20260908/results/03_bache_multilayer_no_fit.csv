@@ -1,0 +1,21 @@
+wavelength_nm,stack,polarization,loss_db_km,f_FEM,target_used_for_fitting
+1310.0,single wall,TE,59831.528336819276,,False
+1310.0,single wall,TM,253693.24933151246,,False
+1310.0,single wall,hybrid,156762.38883416587,,False
+1310.0,double wall radial stack,TE,224.3926354883483,,False
+1310.0,double wall radial stack,TM,3866.943631478219,,False
+1310.0,double wall radial stack,hybrid,2045.6681334832836,,False
+1310.0,triple wall radial stack,TE,2.109965963551532,,False
+1310.0,triple wall radial stack,TM,210.84591885259167,,False
+1310.0,triple wall radial stack,hybrid,106.4779424080716,,False
+1310.0,Bache Eq. 15-17 single wall,hybrid,156381.4508594622,,False
+1550.0,single wall,TE,47800.54302810097,,False
+1550.0,single wall,TM,204335.6166742328,,False
+1550.0,single wall,hybrid,126068.07985116688,,False
+1550.0,double wall radial stack,TE,125.90527769749774,,False
+1550.0,double wall radial stack,TM,2245.9899805496734,,False
+1550.0,double wall radial stack,hybrid,1185.9476291235856,,False
+1550.0,triple wall radial stack,TE,0.7104636049541004,,False
+1550.0,triple wall radial stack,TM,62.5686986139429,,False
+1550.0,triple wall radial stack,hybrid,31.6395811094485,,False
+1550.0,Bache Eq. 15-17 single wall,hybrid,126020.87440783823,,False

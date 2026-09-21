@@ -1,5 +1,4 @@
-# AI Data Center BOM Engine
-
+# AI Data Center BOM Engine v4.3.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -7,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.2.0 Optical Connectivity / Product Catalog / Mobile UI**
+**v4.3.0 Cisco Switch Catalog / MPO Base Architecture**
 
 설계 흐름:
 
@@ -37,6 +36,9 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Data Hall용 pre-terminated trunk와 Backbone용 high-count cable 분리
 - 총 Fiber 수와 equivalent FP(Fiber Pair) 동시 표시
 - 모바일/스마트폰 화면용 responsive layout 및 긴 문자열 줄바꿈
+- Cisco Nexus N9364E-SG2-Q/O 및 N9364E-SP2R-Q/O switch candidate catalog
+- MPO architecture 세부화: Auto / Base-8 / Base-12 / Base-16
+- MPO ferrule / installed fiber / typical application / breakout / direct-channel utilization 표시
 
 ## Version history
 
@@ -119,6 +121,23 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 좁은 화면에서 주요 card / KPI / form을 1열로 자동 배치
 - VERSION / CHANGELOG 기반 버전 관리 정책 도입
 - 앞으로 사용자에게 보이는 기능, 제품 DB, UI 변경 시 버전을 갱신하고 이 README의 Version history에도 함께 기록
+
+
+### v4.3.0 — Cisco switch catalog / MPO Base architecture
+- Cisco 데이터센터/AI fabric switch 후보 추가
+  - Nexus N9364E-SG2-Q: 64 × 800G QSFP-DD, 2RU, 995W typical / 2,270W max
+  - Nexus N9364E-SG2-O: 64 × 800G OSFP, 2RU
+  - Nexus N9364E-SP2R-Q/O: 64 × 800G, 3RU, 16GB HBM deep-buffer spine/DCI 후보
+- Cisco N9364E-SG2는 2×400G / 8×100G breakout을 지원하고, SP2R 계열은 2×400G / 4×200G / 8×100G 등 더 다양한 breakout mode를 지원
+- Cisco 항목은 공식 datasheet 기반 verified candidate로 표시하며, 기존 타사 switch profile에 임의 매핑하지 않음
+- MPO architecture selector 추가
+  - **Base-8**: 일반적으로 MPO-12 ferrule에서 8 active fibers를 사용하는 4-lane parallel 구조. SR4 / PSM4 / DR4 및 다수 400G parallel/breakout 구성에 활용
+  - **Base-12**: 12-fiber trunk 구조. 8F parallel optic을 직접 연결하면 4심이 미사용될 수 있어 cassette/harness packing 검토 필요
+  - **Base-16**: MPO-16 / 16 active fibers. 400GBASE-SR8, SR8/DR8(PSM8), 일부 800G parallel optic 등에 적용
+- MPO-16 ↔ 2 × MPO-8 Y-harness 등 migration/breakout 경로 표시
+- MPO base 선택은 transceiver의 실제 active fiber count를 임의 변경하지 않으며, polarity / cassette / harness / physical-link graph를 별도 검토
+- 실행 화면 제목을 **AI 데이터센터 BOM 설계 엔진 v4.3.0**으로 갱신
+- 앞으로 버전 증가 시 실행 화면 제목과 본 README 제목/현재 개발 버전/Version history를 함께 갱신
 
 ## 30-Case Independent Validation Ledger
 

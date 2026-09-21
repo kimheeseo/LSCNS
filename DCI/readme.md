@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.7.0
+# AI Data Center BOM Engine v4.7.1
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.0 Stable Excel / Email / Multilingual / Korea Channels / Juniper**
+**v4.7.1 Stable Excel / Multilingual / Korea Channels / Juniper**
 
 설계 흐름:
 
@@ -33,7 +33,6 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 설계 예시 및 이메일 제목/본문 번역
-- Excel 설계안 이메일 발송 기능 (sender: harrykim9463@gmail.com, Render secret credential 방식)
 - Conceptual BIM-ready floor plan / rack schedule
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
@@ -233,6 +232,19 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - Cisco: Cisco Systems Korea
 - Juniper QFX5240-64OD / QFX5240-64QD를 switch candidate 및 receipt alternative에 추가
 - 복구용 안정 branch `dc-bom-v44-stable`을 별도 보존
+
+### v4.7.1 — Email removed for deployment stability
+- 홈페이지 안정성을 위해 Email Excel 기능을 제거
+- `nodemailer`, Gmail runtime dependency, `/api/email-design` endpoint 제거
+- Render의 `MAIL_USER` / `MAIL_APP_PASSWORD`가 없어도 실행 가능
+- **Export Excel**은 유지하며 4개 시트 출력
+  1. 요구조건
+  2. 설계 결과
+  3. Generic BOM
+  4. 제품매칭 예상 영수증
+- 설계 예시 다국어, datasheet/spec 링크, 한국 구매/기술 문의 채널, Juniper QFX5240 후보는 유지
+- Private deploy branch: `dc-bom-v4-deploy`
+- Recovery branch: `dc-bom-v44-stable`
 
 ## 30-Case Independent Validation Ledger
 

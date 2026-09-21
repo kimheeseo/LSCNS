@@ -7,7 +7,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v3.8 Multilingual / Neutral**
+**v4.2.0 Optical Connectivity / Product Catalog / Mobile UI**
 
 설계 흐름:
 
@@ -31,6 +31,12 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Conceptual BIM-ready floor plan / rack schedule
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
+- GPU 규모별 NVIDIA DGX SuperPOD reference-size class 표시
+- Optical connectivity interface 구체화: Port / Optic / Connector / Fiber / Fibers-per-link / Trunk
+- LS Cable & System / Hengtong / YOFC / Lightera / Sumitomo Electric / Corning / ZTT 다심 광케이블 후보
+- Data Hall용 pre-terminated trunk와 Backbone용 high-count cable 분리
+- 총 Fiber 수와 equivalent FP(Fiber Pair) 동시 표시
+- 모바일/스마트폰 화면용 responsive layout 및 긴 문자열 줄바꿈
 
 ## Version history
 
@@ -86,6 +92,34 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 한국어 / 日本語 / English / 中文 / Deutsch 5개 언어 지원
 - 제품명·SKU·DR4/FR4/MPO/OSFP 등 기술 식별자는 원문 유지
 
+
+### v4.0–v4.1 — Private deployment / product-aware advisor
+- 실행 가능한 설계 엔진을 Private Git repository + Render 구조로 분리
+- 공개 GitHub에는 개발 이력/검증 문서만 유지
+- Contact 안내 문구 및 Render 배포용 patch 구조 추가
+- GPU 수와 시스템 입력을 기반으로 NVIDIA DGX SuperPOD reference-size class 표시
+- Optical connectivity advisor 추가
+- 400G DR4 / FR4 / SR8, NVIDIA NDR 400G MMF, 800G parallel, short-reach DAC/AEC/AOC application 구분
+- Port → Optic → Connector → Fiber → Trunk chain 표시
+- Required fiber 및 equivalent FP(Fiber Pair) 계산
+- Data Hall / Backbone trunk scope 구분
+
+### v4.2.0 — Optical cable catalog / mobile layout
+- 광케이블 vendor catalog 확대
+  - LS Cable & System: Micro Array / Lock'n Roll™ Ribbon
+  - Hengtong: High-density MPO / pre-terminated data-center cable
+  - YOFC: 12–144F MPO/MTP pre-terminated trunk
+  - Lightera: DuctSaver® / AccuTube®+ / R-Pack rollable-ribbon 계열
+  - Sumitomo Electric: FREEFORM RIBBON™ UHFC / 3,456F pre-connectorized MPO / 6,912F high-density cable
+  - Corning: EDGE8® MTP® trunk / RocketRibbon® high-fiber-count cable
+  - ZTT: 17,280F ultra-high-density flexible-ribbon cable
+- 각 vendor에 대표 제품군과 공식 Product / Homepage 링크 구분
+- exact SKU 또는 fiber-count가 공개자료로 확인되지 않는 경우 임의 생성하지 않고 RFQ로 표시
+- 스마트폰 화면에서 긴 제품명·URL·interface 문자열이 화면 밖으로 벗어나지 않도록 responsive wrapping 보완
+- 좁은 화면에서 주요 card / KPI / form을 1열로 자동 배치
+- VERSION / CHANGELOG 기반 버전 관리 정책 도입
+- 앞으로 사용자에게 보이는 기능, 제품 DB, UI 변경 시 버전을 갱신하고 이 README의 Version history에도 함께 기록
+
 ## 30-Case Independent Validation Ledger
 
 30-Case Ledger는 개별 고객 설계 결과가 아니라 **엔진 자체의 검증 이력 관리표**입니다.
@@ -108,6 +142,18 @@ Golden fabric case에서는 Leaf / Spine 등 독립 비교 가능한 항목을 �
 - 제품군만 확인 가능한 경우 family/RFQ로 표시
 - 지역별 공급성, firmware compatibility, support contract는 RFQ 단계에서 재확인
 - 조달 정책은 실제 최저가 순위가 아니라 요구조건을 만족하는 제품 후보의 우선 검토 전략
+
+
+## Update / versioning policy
+
+앞으로 데이터센터 BOM 설계툴에 사용자에게 보이는 기능, 제품 catalog, validation, UI/UX, 계산 정책이 새롭게 반영될 때마다 다음 항목을 함께 갱신합니다.
+
+1. Private 실행본의 VERSION
+2. Private CHANGELOG
+3. GitHub commit message
+4. 본 공개 문서 `DCI/readme.md`의 **현재 개발 버전 / 주요 기능 / Version history**
+
+즉, 실행본 변경과 공개 개발 이력이 서로 어긋나지 않도록 동일 버전 기준으로 관리합니다.
 
 ## Source / execution policy
 

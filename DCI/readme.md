@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.4.0
+# AI Data Center BOM Engine v4.5.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.4.0 Verified MPO Products / Design Examples**
+**v4.5.0 Multilingual Design Examples / Excel Export & Email**
 
 설계 흐름:
 
@@ -27,6 +27,10 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Storage 옵션: Storage system / Storage fabric
 - 제품 DB 기반 Manufacturer / Product / Model / Qty / Evidence 예상 영수증
 - Performance-first / Balanced / Cost-sensitive 조달 정책
+- 설계 계산 옆 compact action bar: **Export Excel / Email Excel**
+- 실제 .xlsx 설계안 출력: Summary / Inputs / Design Data
+- 선택 UI 언어에 따른 설계 예시 및 이메일 제목/본문 번역
+- Excel 설계안 이메일 발송 기능 (sender: harrykim9463@gmail.com, Render secret credential 방식)
 - Conceptual BIM-ready floor plan / rack schedule
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
@@ -159,6 +163,26 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - Optical advisor version
   - Design example version
   를 build 시 같은 버전으로 동기화
+
+### v4.5.0 — Multilingual design examples / Excel export & email
+- **설계 예시** 영역을 한국어 / English / 日本語 / 中文 / Deutsch UI 선택에 따라 동적으로 번역
+- 설계 계산 버튼 옆에 작은 action bar 추가
+  - **Export Excel**: 현재 입력/요약/설계 데이터를 실제 `.xlsx` 파일로 생성
+  - **Email Excel**: 수신자 이메일을 입력하면 동일한 `.xlsx` 설계안을 첨부하여 발송
+- Excel workbook 구성
+  - Summary
+  - Inputs
+  - Design Data
+- 이메일 발신자는 `harrykim9463@gmail.com`으로 고정
+- 이메일 제목과 안내 문구는 현재 선택한 UI 언어를 따름
+  - KO: 이 설계안이 당신의 업무에 도움이 되면 좋겠습니다.
+  - EN: I hope this design proposal helps you with your work.
+  - JA: この設計案があなたの業務に役立てば幸いです。
+  - ZH: 希望这份设计方案能对您的工作有所帮助。
+  - DE: Ich hoffe, dass dieser Entwurf Sie bei Ihrer Arbeit unterstützt.
+- 메일 발송 endpoint는 same-origin으로 제한하고 client별 10분당 3회 rate limit 적용
+- Gmail App Password는 소스/GitHub에 저장하지 않고 Render Secret Environment Variable로만 설정
+- `VERSION` 단일 기준으로 webpage/API/package/Optical Advisor/Design Examples/Action Menu 버전 동기화
 
 ## 30-Case Independent Validation Ledger
 

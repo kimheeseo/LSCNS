@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.3.0
+# AI Data Center BOM Engine v4.4.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.3.0 Cisco Switch Catalog / MPO Base Architecture**
+**v4.4.0 Verified MPO Products / Design Examples**
 
 설계 흐름:
 
@@ -37,7 +37,9 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 총 Fiber 수와 equivalent FP(Fiber Pair) 동시 표시
 - 모바일/스마트폰 화면용 responsive layout 및 긴 문자열 줄바꿈
 - Cisco Nexus N9364E-SG2-Q/O 및 N9364E-SP2R-Q/O switch candidate catalog
-- MPO architecture 세부화: Auto / Base-8 / Base-12 / Base-16
+- MPO product/interface 세부화: Auto / verified MPO-8 / verified MPO-12 / verified MPO-16
+- MPO-8 / 12 / 16은 제조사 공식 제품 또는 공식 제품군이 확인된 경우에만 추천
+- 설계 계산 아래 **설계 예시** 셀 추가: Performance first / Balanced / Cost-sensitive 비교
 - MPO ferrule / installed fiber / typical application / breakout / direct-channel utilization 표시
 
 ## Version history
@@ -130,7 +132,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - Nexus N9364E-SP2R-Q/O: 64 × 800G, 3RU, 16GB HBM deep-buffer spine/DCI 후보
 - Cisco N9364E-SG2는 2×400G / 8×100G breakout을 지원하고, SP2R 계열은 2×400G / 4×200G / 8×100G 등 더 다양한 breakout mode를 지원
 - Cisco 항목은 공식 datasheet 기반 verified candidate로 표시하며, 기존 타사 switch profile에 임의 매핑하지 않음
-- MPO architecture selector 추가
+- MPO architecture selector 추가 *(v4.4.0에서 verified product 방식으로 대체)*
   - **Base-8**: 일반적으로 MPO-12 ferrule에서 8 active fibers를 사용하는 4-lane parallel 구조. SR4 / PSM4 / DR4 및 다수 400G parallel/breakout 구성에 활용
   - **Base-12**: 12-fiber trunk 구조. 8F parallel optic을 직접 연결하면 4심이 미사용될 수 있어 cassette/harness packing 검토 필요
   - **Base-16**: MPO-16 / 16 active fibers. 400GBASE-SR8, SR8/DR8(PSM8), 일부 800G parallel optic 등에 적용
@@ -138,6 +140,25 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - MPO base 선택은 transceiver의 실제 active fiber count를 임의 변경하지 않으며, polarity / cassette / harness / physical-link graph를 별도 검토
 - 실행 화면 제목을 **AI 데이터센터 BOM 설계 엔진 v4.3.0**으로 갱신
 - 앞으로 버전 증가 시 실행 화면 제목과 본 README 제목/현재 개발 버전/Version history를 함께 갱신
+
+### v4.4.0 — Verified MPO products / procurement design examples
+- MPO connector 추천을 generic Base architecture 중심에서 **실제 제품 확인 중심**으로 변경
+  - MPO-8 / 8F MTP: Corning EDGE8® 8F MTP® trunk 제품 확인
+  - MPO-12 / 12F MTP: Corning EDGE™ 12F MTP® trunk 제품 확인
+  - MPO-16 / 16F: SENKO MPO-16 및 US Conec MTP®-16 제품군 확인
+- 800G라는 속도 정보만으로 MPO-8/12/16을 임의 선택하지 않으며, exact transceiver/interface가 없으면 MPO 추천을 보류
+- Optical connectivity 화면에 verified product와 official product link를 함께 표시
+- 설계 계산 버튼 아래 **설계 예시** 셀 추가
+  - Performance first: 800G-ready, 1:1 우선, 높은 spare/headroom, 고밀도 cooling 우선
+  - Balanced: 400G server-facing + 필요 시 800G uplink, 2:1 초기 검토, 중간 spare
+  - Cost-sensitive: 400G 중심, workload 허용 시 높은 oversubscription 검토, short-reach DAC/AEC/AOC 우선
+- 설계 예시는 확정 BOM이 아니라 현재 GPU/system/topology 입력을 기준으로 한 advisory configuration이며, 실제 수량은 설계 계산을 다시 수행하여 확정
+- Private build의 `VERSION`을 단일 source of truth로 사용하도록 version patch 개선
+  - Webpage title
+  - API/package metadata
+  - Optical advisor version
+  - Design example version
+  를 build 시 같은 버전으로 동기화
 
 ## 30-Case Independent Validation Ledger
 

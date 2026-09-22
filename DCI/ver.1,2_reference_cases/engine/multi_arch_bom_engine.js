@@ -281,6 +281,7 @@ function deriveFabricDesign(input) {
   const f=input.fabric_design||{};
   const active=Number(f.active_nodes||0);
   const slots=Number(f.design_nodes||active);
+  const acceleratorsPerNode=Number(f.accelerators_per_node||0);
   const links=Number(f.links_per_node||0);
   const ufm=Number(f.ufm_links||0);
   const leafDown=Number(f.leaf_down_ports||0);
@@ -288,17 +289,51 @@ function deriveFabricDesign(input) {
   const spineDown=Number(f.spine_down_ports||f.spine_ports||0);
   const spineUp=Number(f.spine_up_ports||0);
   const corePorts=Number(f.core_ports||0);
-  const endpointCables=active*links+ufm;
+
+  // Logical topology quantities.
+  const endpointLinks=active*links+ufm;
   const designEndpointPorts=slots*links;
   const leafCount=leafDown?Math.ceil(designEndpointPorts/leafDown):null;
   const leafSpineLinks=leafCount!=null&&leafUp?leafCount*leafUp:null;
   const spineCount=leafSpineLinks!=null&&spineDown?Math.ceil(leafSpineLinks/spineDown):null;
   const spineCoreLinks=spineCount!=null&&spineUp?spineCount*spineUp:null;
   const coreCount=spineCoreLinks!=null&&corePorts?Math.ceil(spineCoreLinks/corePorts):null;
+
+  // Physicalization layer. A logical link is not assumed to equal one physical
+  // switch cage or one optic. This is required for twin-port OSFP platforms.
+  const endpointLpc=Math.max(1,Number(f.endpoint_logical_per_cage||1));
+  const leafDownLpc=Math.max(1,Number(f.leaf_down_logical_per_cage||1));
+  const leafUpLpc=Math.max(1,Number(f.leaf_up_logical_per_cage||1));
+  const spineDownLpc=Math.max(1,Number(f.spine_down_logical_per_cage||1));
+  const linksPerCable=Math.max(1,Number(f.logical_links_per_cable||1));
+  const endpointPhysicalCages=Math.ceil((active*links)/endpointLpc);
+  const leafDownPhysicalCages=leafCount!=null&&leafDown
+    ? leafCount*Math.ceil(leafDown/leafDownLpc) : null;
+  const leafUpPhysicalCages=leafCount!=null&&leafUp
+    ? leafCount*Math.ceil(leafUp/leafUpLpc) : null;
+  const spineDownPerSwitch=spineCount&&leafSpineLinks!=null
+    ? Math.ceil(leafSpineLinks/spineCount) : null;
+  const spineDownPhysicalCages=spineCount&&spineDownPerSwitch!=null
+    ? spineCount*Math.ceil(spineDownPerSwitch/spineDownLpc) : null;
+
   return {
-    node_leaf_cable_count:endpointCables,
+    node_count:active,
+    design_node_count:slots,
+    accelerator_count:acceleratorsPerNode?active*acceleratorsPerNode:null,
+    node_leaf_logical_link_count:endpointLinks,
+    node_leaf_cable_count:endpointLinks,
+    node_leaf_physical_cable_count:Math.ceil(endpointLinks/linksPerCable),
+    endpoint_physical_cage_count:endpointPhysicalCages,
+    leaf_down_physical_cage_count:leafDownPhysicalCages,
+    node_leaf_endpoint_optic_count:endpointPhysicalCages,
+    node_leaf_leaf_optic_count:leafDownPhysicalCages,
+    node_leaf_total_optic_count:leafDownPhysicalCages==null?null:endpointPhysicalCages+leafDownPhysicalCages,
     leaf_switch_count:leafCount,
+    leaf_spine_logical_link_count:leafSpineLinks,
     leaf_spine_cable_count:leafSpineLinks,
+    leaf_up_physical_cage_count:leafUpPhysicalCages,
+    spine_down_physical_cage_count:spineDownPhysicalCages,
+    leaf_spine_total_optic_count:(leafUpPhysicalCages==null||spineDownPhysicalCages==null)?null:leafUpPhysicalCages+spineDownPhysicalCages,
     spine_switch_count:spineCount,
     spine_core_cable_count:spineCoreLinks,
     core_switch_count:coreCount

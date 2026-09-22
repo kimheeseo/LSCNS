@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.8.2
+# AI Data Center BOM Engine v4.9.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.8.2 Juniper Korea Contact / Procurement Channel Update**
+**v4.9.0 Live Hold-out Validation / Realistic Rack Twin / Juniper Korea Channel Update**
 
 설계 흐름:
 
@@ -22,6 +22,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - **Network Role Model**: Compute / Storage / In-Band / OOB 속도·fabric을 독립 role로 설계
 - **Physical Cage Model**: logical link / physical cage / optic module / cable assembly 수량을 분리
 - Twin-port OSFP 및 breakout을 physical cage packing에 반영
+- **Live B300 Validation Suite**: 실행 화면에서 Case 31 golden + Cases 32–35 hold-out을 동일 generalized fabric/power 식으로 재계산하고 MAPE / Max Error / PASS 표시
 - DAC / AOC / DR4 / FR4 / MPO / LC media selection
 - 8F / 16F / 24F / 32F / 48F / 72F / 96F / 144F structured trunk sizing
 - Patch panel / housing / connector / cable manager BOM
@@ -35,11 +36,14 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Excel 출력 4개 시트: **요구조건 / 설계 결과 / Generic BOM / 제품매칭 예상 영수증**
 - 제품매칭 예상 영수증 Alternative에 확인 가능한 공식 datasheet/spec URL 표시, 확인 어려운 경우 "-"
 - 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
-- Juniper 한국 채널의 회사별 URL / 주소 / 영업·기술 문의 연락처 표시
+- Juniper 한국 구매/기술 문의 채널을 사용자 지정 최신 정보로 동기화
+  - (주)인성 디지탈: 서울특별시 송파구 위례성대로 22길 28 (오금동, S2F빌딩) 3, 4층 · `junipersalesgroup@isd.co.kr`
+  - (주)시엔스: 서울특별시 강남구 테헤란로 44길 8, 8층(역삼동,아이콘역삼빌딩) · `sales@sciens21.com`
+  - (주)투케이엠시스템즈: 서울특별시 서초구 남부순환로 2395 호경빌딩 3층 · `twokm@twokm.co.kr`
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
-- **Rack Twin View**: 실제 rack 형태에 가까운 동적 2D Front Elevation + 3D Isometric/Service View
+- **Rack Twin View**: 동적 현실형 2D Front Elevation + 3D Isometric/Service View — rack rail/mounting hole, bezel/handle, vent, drive·PSU·NIC bay, switch optic-port field, status LED, A/B 0U PDU, cable manager/patch panel, fiber/power service routing 표현
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
 - GPU 규모별 NVIDIA DGX SuperPOD reference-size class 표시
@@ -333,6 +337,25 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Korea channel table에 **Contact** 열을 추가하고 이메일이 있는 경우 클릭 가능한 mail 링크로 표시
 - 남해이엔지 Corning 채널 URL을 기존 요청한 제품 카탈로그 링크로 동기화
 - 계산 엔진 / v4.8.1 power·network-role·physical-cage·35-case validation 로직은 변경하지 않음
+
+### v4.9.0 — Live hold-out validation / realistic rack twin / Juniper Korea channels
+- 실행 화면의 DGX B300 validation을 Case 31 단일 golden 표시에서 **Case 31–35 live validation suite**로 확장
+  - Case 31: DGX B300 1 SU golden/reference
+  - Case 32: DGX B300 2 SU frozen-engine topology hold-out
+  - Case 33: DGX B300 2-system rack 3-level power hold-out
+  - Case 34: DGX B300 4-system rack 3-level power hold-out
+  - Case 35: DGX B300 18 SU frozen-engine topology hold-out
+- Case 35의 공개 GPU total 불일치는 임의 보정하지 않고 exact scoring에서 제외하는 기존 검증 정책 유지
+- 실행 UI는 각 Case의 Engine output / Reference / MAPE / Max error / PASS를 동일 generalized formula로 재계산하여 표시
+- Rack Twin 현실화
+  - 2D: rack rail / mounting hole / bezel / handle / vent perforation / drive·PSU·NIC bay / OSFP·QSFP port field / LED / horizontal cable manager / fiber patch panel / dual A/B PDU / fiber service loop
+  - 3D: cabinet/equipment depth / top·side geometry / service-side PDU / fiber bundle / power whip routing
+  - 제조사 CAD/IFC가 아닌 conceptual engineering geometry임을 명시
+- **한국 구매 / 기술 문의 채널 — Juniper**
+  1. (주)인성 디지탈 — 서울특별시 송파구 위례성대로 22길 28 (오금동, S2F빌딩) 3, 4층 — `junipersalesgroup@isd.co.kr`
+  2. (주)시엔스 — 서울특별시 강남구 테헤란로 44길 8, 8층(역삼동,아이콘역삼빌딩) — `sales@sciens21.com`
+  3. (주)투케이엠시스템즈 — 서울특별시 서초구 남부순환로 2395 호경빌딩 3층 — `twokm@twokm.co.kr`
+- 기존 v4.8의 3-Level Power Model / role-based network speed / logical-vs-physical cage 분리 / spare-before-packing / B300 200G logical In-Band 정책은 유지
 
 ## 35-Case Validation Ledger
 

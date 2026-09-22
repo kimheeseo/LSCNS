@@ -1,0 +1,75 @@
+{
+  "case_id": "35_nvidia_dgx_b300_18su_holdout",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "engine_freeze_commit": "04ad2c1e6a023811b50e79dc3b891fe5e1f590c3",
+  "holdout": true,
+  "validation_level": "A",
+  "input_independence": {
+    "calculation_path": "design_input + frozen v1 shared formulas only; reference.json read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "fabric_design.active_nodes",
+      "fabric_design.design_nodes",
+      "fabric_design.accelerators_per_node",
+      "fabric_design.links_per_node",
+      "fabric_design.link_speed_gbps",
+      "fabric_design.ufm_links",
+      "fabric_design.leaf_down_ports",
+      "fabric_design.leaf_up_ports",
+      "fabric_design.spine_down_ports",
+      "fabric_design.endpoint_logical_per_cage",
+      "fabric_design.leaf_down_logical_per_cage",
+      "fabric_design.leaf_up_logical_per_cage",
+      "fabric_design.spine_down_logical_per_cage",
+      "fabric_design.logical_links_per_cable"
+    ],
+    "input_independent": true,
+    "note": "Executed after engine freeze; no case-specific production-engine changes were made for this case."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 0,
+    "max_error_pct": 0,
+    "metrics": {
+      "node_count": {
+        "reference": 1296,
+        "calculated": 1296,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "accelerator_count": {
+        "reference": 10368,
+        "calculated": 10368,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "leaf_switch_count": {
+        "reference": 144,
+        "calculated": 144,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "spine_switch_count": {
+        "reference": 72,
+        "calculated": 72,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "node_leaf_cable_count": {
+        "reference": 10368,
+        "calculated": 10368,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "leaf_spine_cable_count": {
+        "reference": 10368,
+        "calculated": 10368,
+        "error_pct": 0,
+        "status": "PASS"
+      }
+    }
+  },
+  "semantic_evidence_class": "A"
+}

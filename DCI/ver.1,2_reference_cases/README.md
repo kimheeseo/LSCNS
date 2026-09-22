@@ -81,6 +81,11 @@ PASS      = error <= 10%
 | 34 | [DGX B300 high-density power](34_nvidia_dgx_b300_4rack_power_holdout/) | 3-level power envelope hold-out | **PASS** | **1.2281%** | **100.0%** |
 | 35 | [NVIDIA DGX B300 18 SU](35_nvidia_dgx_b300_18su_holdout/) | XDR800 frozen-engine hold-out | **PASS** | **0.0000%** | **100.0%** |
 
+
+### v4.9.0 live validation UI sync
+
+The private running UI now recalculates and displays **Case 31 through Case 35** as one DGX B300 validation suite. Case 31 remains the golden/reference case; Cases 32–35 remain hold-out checks and are evaluated with the same generalized topology/power equations. The public reference files remain separated from the production calculation path.
+
 ## Current progress
 
 - Framework/schema: **complete**

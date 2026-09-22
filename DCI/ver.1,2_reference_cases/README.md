@@ -217,8 +217,9 @@ Cases 11–30 were reviewed using the same rule applied to Cases 01–10: **dire
 
 - Benchmark / validation cases created: **35 / 35**
 - Cases with numeric PASS (<10%): **35 / 35**
-- Highest reviewed MAPE among the 30 cases: **0.3704% (Cerebras CG-1)**
-- Highest single-metric reviewed error: **0.7407% (Cerebras core-count cross-check)**
+- Highest semantic-review MAPE within development/regression Cases 01–30: **0.3704% (Cerebras CG-1)**
+- Formal 35-case v2 maximum MAPE: **1.2281% (Case 34, B300 high-density rack power)**
+- Formal 35-case maximum single-metric error: **3.6842% (Case 34 peak-provisioning power)**
 - Strongest architecture/BOM cases for future regression: **Alibaba HPN, NVIDIA H100/B200 SuperPOD, NVIDIA GB200/GB300, Frontier, Aurora**
 - Weaker profile/announcement cases retained but explicitly labeled: **Google A3 profiles, IBM profile checks, xAI announcement**
 
@@ -622,7 +623,15 @@ The recommended implementation order is:
 | 6 | Power / Cooling Constraint Solver | Make rack placement physically realistic |
 | 7 | Normalized Equipment Catalog | Separate vendor data from algorithms |
 | 8 | Generic Redundancy / Spare Policy | Support enterprise-grade availability rules |
-| 9 | Hold-out Cases 31–35 | Demonstrate true generalization |
+| 9 | Cross-vendor frozen-engine hold-out beyond B300 | Demonstrate broader generalization |
+
+### v4.8.1 validation clarification
+
+- Case 31 is a new DGX B300 golden/reference case, not a strict unseen hold-out.
+- Cases 32–35 are frozen-engine **B300-family** hold-outs and all remain below the 10% numerical threshold.
+- These cases strengthen scale/power extrapolation evidence, but they do not close the cross-vendor generalization question.
+- The next validation milestone is a frozen engine tested on previously unseen **non-B300 vendor/system families**, with topology and physical BOM fields scored together.
+- `V2_VALIDATION_REPORT.md` is synchronized to **35 cases**: A 16 / A- 10 / B 9 / C 0, numeric PASS 35/35.
 
 ## Target state
 

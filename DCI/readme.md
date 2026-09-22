@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.8.0
+# AI Data Center BOM Engine v4.8.1
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.8.0 Power Envelope / Role-Based Networks / Physical Cage Model / B300 Validation / Rack Twin**
+**v4.8.1 Role Capability / Spare-Aware Physicalization / 35-Case Report Sync**
 
 설계 흐름:
 
@@ -308,6 +308,23 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - 시스템/RU/서버-per-rack/switch 입력에 따라 동적으로 변경
 - Email Excel은 안정성 이슈로 계속 제거 상태이며 **Export Excel**만 유지
 - Public validation engine의 공통 primitive에 `power_envelope`, `network_roles`, physical-cage derivation을 추가
+
+### v4.8.1 — Role capability / spare-aware physicalization / validation report sync
+- DGX B300의 current SuperPOD reference 기준 **In-Band Ethernet role을 400G**로 수정
+- 시스템/role별 허용 속도 gate 추가
+  - H200 Compute: 400G
+  - B200 Compute: 400G
+  - B300 Compute: 800G
+  - B300 Storage: 400G
+  - B300 In-Band: 400G
+  - OOB: 1G
+- 지원하지 않는 수동 line-rate 선택은 다른 network role로 전파하지 않고 해당 role의 검증된 기본값으로 복귀
+- Spare %를 physical cage/optic 수량을 반올림한 뒤 곱하지 않고, **design logical links에 먼저 적용한 후 physical packing** 수행
+- Logical link / endpoint cage / switch cage / optic module을 별도 집계하고, exact breakout/harness SKU가 확인되지 않은 cable은 **link-level cable leg**로 표시
+- H200/B200 Compute는 8×400G logical link와 4 physical OSFP cage를 분리해서 취급
+- Public shared validation engine의 role model에 switch-side physical cage 및 physical cable count primitive 추가
+- `V2_VALIDATION_REPORT.md`를 30-case에서 **35-case** 기준으로 동기화
+- Rack Twin 2D/3D는 실제 장비 배치에 가까운 conceptual engineering view를 유지하며 manufacturer CAD/IFC로 오인하지 않도록 표기
 
 ## 35-Case Validation Ledger
 

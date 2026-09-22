@@ -24,7 +24,7 @@
       "fabric_design.logical_links_per_cable"
     ],
     "input_independent": true,
-    "note": "Executed after engine freeze; no case-specific production-engine changes were made for this case."
+    "note": "Executed after engine freeze; no case-specific production-engine changes were made for this case. NVIDIA Table 3 accelerator count is internally inconsistent and is explicitly excluded from scoring."
   },
   "validation": {
     "status": "PASS",
@@ -36,12 +36,6 @@
       "node_count": {
         "reference": 1296,
         "calculated": 1296,
-        "error_pct": 0,
-        "status": "PASS"
-      },
-      "accelerator_count": {
-        "reference": 10368,
-        "calculated": 10368,
         "error_pct": 0,
         "status": "PASS"
       },

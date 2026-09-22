@@ -1,0 +1,49 @@
+{
+  "case_id": "32_nvidia_dgx_b300_2su_holdout",
+  "name": "NVIDIA DGX B300 SuperPOD — 2 SU hold-out",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "sources": [
+    {
+      "title": "DGX SuperPOD Architecture — DGX B300 / Quantum-X800 XDR",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/dgx-superpod-architecture.html",
+      "type": "official NVIDIA reference architecture"
+    },
+    {
+      "title": "Major Components — DGX B300 SuperPOD",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/components.html",
+      "type": "official NVIDIA reference architecture"
+    },
+    {
+      "title": "Introduction to NVIDIA DGX B300 Systems",
+      "url": "https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html",
+      "type": "official NVIDIA user guide"
+    }
+  ],
+  "metrics": {
+    "node_count": {
+      "value": 144,
+      "unit": "systems"
+    },
+    "accelerator_count": {
+      "value": 1152,
+      "unit": "GPUs"
+    },
+    "leaf_switch_count": {
+      "value": 16,
+      "unit": "leaf switches"
+    },
+    "spine_switch_count": {
+      "value": 8,
+      "unit": "spine switches"
+    },
+    "node_leaf_cable_count": {
+      "value": 1152,
+      "unit": "cables"
+    },
+    "leaf_spine_cable_count": {
+      "value": 1152,
+      "unit": "cables"
+    }
+  }
+}

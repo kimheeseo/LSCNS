@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.7.3
+# AI Data Center BOM Engine v4.8.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.3 VSFF Connectivity / Korea Channel Update**
+**v4.8.0 Power Envelope / Role-Based Networks / Physical Cage Model / B300 Validation / Rack Twin**
 
 설계 흐름:
 
@@ -18,6 +18,10 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Leaf / Spine / Core / Rail topology physical solver
 - 실제 사용 포트 기준 Pod egress oversubscription 계산
 - Rack RU / 전력 / 냉각 / airflow 제한 기반 iterative placement
+- **3-Level Power Model**: Typical IT Power / Design-Max Power / Peak-Provisioning Power 분리
+- **Network Role Model**: Compute / Storage / In-Band / OOB 속도·fabric을 독립 role로 설계
+- **Physical Cage Model**: logical link / physical cage / optic module / cable assembly 수량을 분리
+- Twin-port OSFP 및 breakout을 physical cage packing에 반영
 - DAC / AOC / DR4 / FR4 / MPO / LC media selection
 - 8F / 16F / 24F / 32F / 48F / 72F / 96F / 144F structured trunk sizing
 - Patch panel / housing / connector / cable manager BOM
@@ -27,13 +31,14 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Storage 옵션: Storage system / Storage fabric
 - 제품 DB 기반 Manufacturer / Product / Model / Qty / Evidence 예상 영수증
 - Performance-first / Balanced / Cost-sensitive 조달 정책
-- 설계 계산 옆 compact action bar: **Export Excel / Email Excel**
+- 설계 계산 옆 compact action bar: **Export Excel**
 - Excel 출력 4개 시트: **요구조건 / 설계 결과 / Generic BOM / 제품매칭 예상 영수증**
 - 제품매칭 예상 영수증 Alternative에 확인 가능한 공식 datasheet/spec URL 표시, 확인 어려운 경우 "-"
 - 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
-- 선택 UI 언어에 따른 설계 예시 및 이메일 제목/본문 번역
+- 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
+- **Rack Twin View**: 실제 rack 형태에 가까운 동적 2D Front Elevation + 3D Isometric/Service View
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
 - GPU 규모별 NVIDIA DGX SuperPOD reference-size class 표시
@@ -271,9 +276,42 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Corning connectivity 표시를 `MTP/MPO / LC duplex / VSFF MDC / SN / CS`로 확장
 - v4.7.2의 UI initialization fix와 no-email 안정 배포 구조는 그대로 유지
 
-## 30-Case Independent Validation Ledger
+### v4.8.0 — Power envelope / role-based network / physical cage / B300 validation / rack twin
+- **Power Model 3단계 분리**
+  - Typical IT Power: 실제 운용/에너지 기준
+  - Design-Max Power: rack placement / cooling 설계 기준
+  - Peak-Provisioning Power: PDU / upstream electrical provisioning 기준
+  - H200: Design-Max 10.2 kW, 별도 Typical 미공개 시 `-`
+  - B200: Design-Max 14.3 kW, 별도 Typical 미공개 시 `-`
+  - B300: Typical 14.5 kW / Design-Max 15.0 kW / Peak-Provisioning 19.7 kW per system
+- **Network speed를 GPU 이름이 아닌 network role로 분리**
+  - Compute / Storage / In-Band / OOB 각각 독립 speed 선택
+  - B300 기본 reference: Compute XDR800 / Storage 400G / In-Band Ethernet / OOB 1G
+  - "800G data center" 입력 하나가 모든 network port를 800G로 변경하지 않음
+- **Logical Link ↔ Physical Cage / Optic 분리**
+  - logical link 수, physical OSFP/QSFP cage 수, optic module 수, cable assembly 수를 별도 산출
+  - NVIDIA twin-port OSFP의 `logicalPerCage`를 port packing에 반영
+  - Generic BOM의 optical quantity도 physical cage 기준 audit 결과로 보정
+- **DGX B300 전용 golden/reference validation 추가**
+  - Case 31: 1 SU = 72 systems / 576 GPUs / Leaf 8 / Spine 4 / Node–Leaf 576 / Leaf–Spine 576
+  - GB300 NVL72(Case 27)와 DGX B300을 별도 시스템으로 취급
+- **Frozen-engine validation Cases 32–35 추가**
+  - Case 32 B300 2 SU: PASS · MAPE 0.0000%
+  - Case 33 B300 2-system rack power: PASS · MAPE 1.1111%
+  - Case 34 B300 4-system rack power: PASS · MAPE 1.2281%
+  - Case 35 B300 18 SU: PASS · 0.0000% on 5 scored topology metrics
+  - Case 35의 NVIDIA 공개표는 1,296 nodes와 9,216 GPUs가 내부적으로 불일치하므로 GPU count를 임의 보정하지 않고 scoring에서 제외
+  - Cases 32–35는 **B300 family 내부 hold-out**이며 cross-vendor generalization의 최종 증거로 과장하지 않음
+- **Rack 구성 시각화 현실화**
+  - 2D Front Elevation: U-grid, server faceplate, vent/port/LED, A/B 0U PDU, patch/cable manager, switch
+  - 3D Isometric/Service View: cabinet depth, device depth, dual PDU, cable bundle 표현
+  - 시스템/RU/서버-per-rack/switch 입력에 따라 동적으로 변경
+- Email Excel은 안정성 이슈로 계속 제거 상태이며 **Export Excel**만 유지
+- Public validation engine의 공통 primitive에 `power_envelope`, `network_roles`, physical-cage derivation을 추가
 
-30-Case Ledger는 개별 고객 설계 결과가 아니라 **엔진 자체의 검증 이력 관리표**입니다.
+## 35-Case Validation Ledger
+
+35-Case Ledger는 개별 고객 설계 결과가 아니라 **엔진 자체의 검증 이력 관리표**입니다. Cases 01–30은 개발/회귀 benchmark, Case 31은 신규 DGX B300 golden/reference, Cases 32–35는 v4.8 shared-engine freeze 이후의 B300-family hold-out입니다.
 
 검증 원칙:
 

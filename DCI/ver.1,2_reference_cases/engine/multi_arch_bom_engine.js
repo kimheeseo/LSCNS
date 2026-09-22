@@ -364,11 +364,20 @@ function deriveNetworkRoles(input) {
   Object.entries(n.roles||{}).forEach(([role,profile])=>{
     const links=Number(profile.links_per_unit||0);
     const speed=Number(profile.speed_gbps||0);
-    const logicalPerCage=Math.max(1,Number(profile.endpoint_logical_per_cage||1));
-    out[role+"__logical_link_count"]=units*links;
+    const logicalLinks=units*links;
+    const endpointLogicalPerCage=Math.max(1,Number(profile.endpoint_logical_per_cage||1));
+    const switchLogicalPerCage=Math.max(1,Number(profile.switch_logical_per_cage||profile.endpoint_logical_per_cage||1));
+    const logicalLinksPerCable=Math.max(1,Number(profile.logical_links_per_cable||1));
+    const endpointCages=Math.ceil(logicalLinks/endpointLogicalPerCage);
+    const switchCages=Math.ceil(logicalLinks/switchLogicalPerCage);
+    out[role+"__logical_link_count"]=logicalLinks;
     out[role+"__link_speed_gbps"]=speed;
-    out[role+"__aggregate_bandwidth_tbps"]=units*links*speed/1000;
-    out[role+"__endpoint_physical_cage_count"]=Math.ceil(units*links/logicalPerCage);
+    out[role+"__aggregate_bandwidth_tbps"]=logicalLinks*speed/1000;
+    out[role+"__endpoint_physical_cage_count"]=endpointCages;
+    out[role+"__switch_physical_cage_count"]=switchCages;
+    out[role+"__physical_cable_count"]=Math.ceil(logicalLinks/logicalLinksPerCable);
+    out[role+"__endpoint_logical_per_cage"]=endpointLogicalPerCage;
+    out[role+"__switch_logical_per_cage"]=switchLogicalPerCage;
   });
   return out;
 }

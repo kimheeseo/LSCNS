@@ -1,0 +1,28 @@
+{
+  "case_id": "32_nvidia_dgx_b300_2su_holdout",
+  "engine": "multi_arch_bom_engine.js",
+  "engine_version": "1.7",
+  "engine_freeze_commit": "04ad2c1e6a023811b50e79dc3b891fe5e1f590c3",
+  "metrics": {
+    "node_count": 144,
+    "design_node_count": 144,
+    "accelerator_count": 1152,
+    "node_leaf_logical_link_count": 1152,
+    "node_leaf_cable_count": 1152,
+    "node_leaf_physical_cable_count": 1152,
+    "endpoint_physical_cage_count": 1152,
+    "leaf_down_physical_cage_count": 576,
+    "node_leaf_endpoint_optic_count": 1152,
+    "node_leaf_leaf_optic_count": 576,
+    "node_leaf_total_optic_count": 1728,
+    "leaf_switch_count": 16,
+    "leaf_spine_logical_link_count": 1152,
+    "leaf_spine_cable_count": 1152,
+    "leaf_up_physical_cage_count": 576,
+    "spine_down_physical_cage_count": 576,
+    "leaf_spine_total_optic_count": 1152,
+    "spine_switch_count": 8,
+    "spine_core_cable_count": null,
+    "core_switch_count": null
+  }
+}

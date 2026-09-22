@@ -340,6 +340,39 @@ function deriveFabricDesign(input) {
   };
 }
 
+function derivePowerEnvelope(input) {
+  const p=input.power_envelope||{};
+  const units=Number(p.units||0);
+  const typical=p.typical_it_kw_per_unit==null?null:Number(p.typical_it_kw_per_unit);
+  const design=p.design_max_kw_per_unit==null?null:Number(p.design_max_kw_per_unit);
+  const peak=p.peak_provisioning_kw_per_unit==null?design:Number(p.peak_provisioning_kw_per_unit);
+  return {
+    power_unit_count:units,
+    typical_it_power_per_unit_kw:typical,
+    design_max_power_per_unit_kw:design,
+    peak_provisioning_power_per_unit_kw:peak,
+    typical_it_power_kw:typical==null?null:units*typical,
+    design_max_power_kw:design==null?null:units*design,
+    peak_provisioning_power_kw:peak==null?null:units*peak
+  };
+}
+
+function deriveNetworkRoles(input) {
+  const n=input.network_roles||{};
+  const units=Number(n.units||0);
+  const out={};
+  Object.entries(n.roles||{}).forEach(([role,profile])=>{
+    const links=Number(profile.links_per_unit||0);
+    const speed=Number(profile.speed_gbps||0);
+    const logicalPerCage=Math.max(1,Number(profile.endpoint_logical_per_cage||1));
+    out[role+"__logical_link_count"]=units*links;
+    out[role+"__link_speed_gbps"]=speed;
+    out[role+"__aggregate_bandwidth_tbps"]=units*links*speed/1000;
+    out[role+"__endpoint_physical_cage_count"]=Math.ceil(units*links/logicalPerCage);
+  });
+  return out;
+}
+
 function deriveRackSystem(input) {
   const r=input.rack_system||{};
   const racks=Number(r.racks||1);
@@ -460,9 +493,11 @@ function deriveClosUnit(input) {
 }
 
 function deriveArchitecture(input) {
-  if (input.network_plan) return deriveNetworkPlan(input);
-  if (input.clos_unit) return deriveClosUnit(input);
-  if (input.fabric_design) return deriveFabricDesign(input);
+  if (input.network_plan) return Object.assign({}, deriveNetworkPlan(input), input.power_envelope?derivePowerEnvelope(input):{}, input.network_roles?deriveNetworkRoles(input):{});
+  if (input.clos_unit) return Object.assign({}, deriveClosUnit(input), input.power_envelope?derivePowerEnvelope(input):{}, input.network_roles?deriveNetworkRoles(input):{});
+  if (input.fabric_design) return Object.assign({}, deriveFabricDesign(input), input.power_envelope?derivePowerEnvelope(input):{}, input.network_roles?deriveNetworkRoles(input):{});
+  if (input.power_envelope && !input.rack_system && !input.hpc_system && !input.scale_unit && !input.cluster_scale) return Object.assign({}, derivePowerEnvelope(input), input.network_roles?deriveNetworkRoles(input):{});
+  if (input.network_roles && !input.rack_system && !input.hpc_system && !input.scale_unit && !input.cluster_scale) return deriveNetworkRoles(input);
   if (input.rack_system) return deriveRackSystem(input);
   if (input.hpc_system) return deriveHpcSystem(input);
   if (input.scale_unit) return deriveScaleUnit(input);

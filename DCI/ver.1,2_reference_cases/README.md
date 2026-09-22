@@ -41,7 +41,7 @@ coverage  = comparable reference metrics / all verifiable reference metrics * 10
 PASS      = error <= 10%
 ```
 
-## 30-case validation matrix
+## 35-case validation matrix
 
 | # | Reference case | Main architecture | Status | MAPE | Coverage |
 |---:|---|---|---|---:|---:|
@@ -75,6 +75,11 @@ PASS      = error <= 10%
 | 28 | [NVIDIA DSX/NCP DC Architecture](28_nvidia_dsx_ncp/) | Rack-scale | **PASS** | **0.00%** | **100.0%** |
 | 29 | [Frontier](29_frontier/) | Slingshot HPC | **PASS** | **0.00%** | **100.0%** |
 | 30 | [Aurora](30_aurora/) | Slingshot HPC | **PASS** | **0.0377%** | **100.0%** |
+| 31 | [NVIDIA DGX B300 1 SU](31_nvidia_dgx_b300_1su/) | XDR800 Rail Leaf-Spine · new golden | **PASS** | **0.0000%** | **100.0%** |
+| 32 | [NVIDIA DGX B300 2 SU](32_nvidia_dgx_b300_2su_holdout/) | XDR800 frozen-engine hold-out | **PASS** | **0.0000%** | **100.0%** |
+| 33 | [DGX B300 low-density power](33_nvidia_dgx_b300_2rack_power_holdout/) | 3-level power envelope hold-out | **PASS** | **1.1111%** | **100.0%** |
+| 34 | [DGX B300 high-density power](34_nvidia_dgx_b300_4rack_power_holdout/) | 3-level power envelope hold-out | **PASS** | **1.2281%** | **100.0%** |
+| 35 | [NVIDIA DGX B300 18 SU](35_nvidia_dgx_b300_18su_holdout/) | XDR800 frozen-engine hold-out | **PASS** | **0.0000%** | **100.0%** |
 
 ## Current progress
 
@@ -84,14 +89,14 @@ PASS      = error <= 10%
 - Shared multi-architecture engine: **created** (`engine/multi_arch_bom_engine.js`)
 - Case-specific golden logic removed from `DCI/index.html`
 - Case 01 re-validation via shared engine: **PASS · MAPE 0.00% · Coverage 100.0%**
-- Cases 02–30: **complete**
+- Cases 02–35: **complete**
 
-All 30 benchmark folders now contain source evidence, design inputs, calculated outputs, validation metrics, and README analysis. Unsupported or undisclosed fields remain excluded rather than assigned fabricated errors.
+Cases 01–35 now contain source evidence / design inputs / calculated outputs / validation records as applicable. Case 31 is the new DGX B300 golden/reference case; Cases 32–35 were executed after the v4.8 shared-engine freeze as hold-out checks. Unsupported or undisclosed fields remain excluded rather than assigned fabricated errors.
 
 
 ## Validation policy clarification
 
-The final goal is one generalized BOM design/validation engine with <10% error across the 30 public cases. Reference answers must never be embedded in the calculation path. Each case is committed and reported independently after validation.
+The final goal is one generalized BOM design/validation engine with <10% error across the supported public validation cases. Reference answers must never be embedded in the calculation path. Each case is committed and reported independently after validation.
 
 - Case 02 Google TPU v5p: **PASS · MAPE 0.00% · Coverage 100.0% (10/10 derived metrics)**
 
@@ -208,10 +213,10 @@ Cases 11–30 were reviewed using the same rule applied to Cases 01–10: **dire
 - **Case 29** has a source-version discrepancy: the current Frontier User Guide says 9,856 compute nodes, while another OLCF allocation page contains 9,408. The Case freezes the User Guide as benchmark source.
 - **Case 30** independently reconstructs 2.1248 PB/s from node × NIC × 200G; the official presentation rounds this to 2.12 PB/s, producing the 0.2264% max error.
 
-## 30-case completion state
+## 35-case completion state
 
-- Benchmark cases created: **30 / 30**
-- Cases with numeric PASS (<10%): **30 / 30**
+- Benchmark / validation cases created: **35 / 35**
+- Cases with numeric PASS (<10%): **35 / 35**
 - Highest reviewed MAPE among the 30 cases: **0.3704% (Cerebras CG-1)**
 - Highest single-metric reviewed error: **0.7407% (Cerebras core-count cross-check)**
 - Strongest architecture/BOM cases for future regression: **Alibaba HPN, NVIDIA H100/B200 SuperPOD, NVIDIA GB200/GB300, Frontier, Aurora**
@@ -220,7 +225,7 @@ Cases 11–30 were reviewed using the same rule applied to Cases 01–10: **dire
 
 # Simulation Tool Limitations and Required Improvements
 
-The current validation framework demonstrates that the shared calculation engine can reproduce many published quantities across 30 public data-center / AI / HPC reference cases with low numerical error. However, **a low error value does not by itself prove that the tool is already a fully generalized data-center design engine**.
+The current validation framework demonstrates that the shared calculation engine can reproduce many published quantities across 35 public data-center / AI / HPC reference cases with low numerical error. However, **a low error value does not by itself prove that the tool is already a fully generalized data-center design engine**.
 
 The main limitation is not arithmetic accuracy. The main limitation is **design independence**: in several B/C-class cases, important architectural choices are still provided as inputs from the reference rather than selected autonomously by the engine.
 
@@ -590,6 +595,18 @@ Success criteria should include:
 - no manual topology correction after viewing the answer
 
 A successful hold-out test would provide much stronger evidence that the system is a generalized design engine rather than a benchmark-matching calculator.
+
+### v4.8 hold-out execution
+
+The shared v1 calculation engine was frozen at commit `04ad2c1e6a023811b50e79dc3b891fe5e1f590c3` after the generic **three-level power**, **network-role**, and **logical-link ↔ physical-cage** primitives were added.
+
+- **Case 31 — DGX B300 1 SU:** new golden/reference validation used during the v4.8 architecture update; **not counted as strict hold-out**. 72 systems / 576 GPUs / 8 Leaf / 4 Spine / 576 Node–Leaf / 576 Leaf–Spine are reproduced with 0.0000% MAPE.
+- **Case 32 — DGX B300 2 SU:** frozen-engine topology hold-out. **PASS · 0.0000% MAPE.**
+- **Case 33 — DGX B300 2-system low-density rack power:** frozen-engine power-envelope hold-out. **PASS · 1.1111% MAPE · 3.3333% max error.**
+- **Case 34 — DGX B300 4-system high-density rack power:** frozen-engine power-envelope hold-out. **PASS · 1.2281% MAPE · 3.6842% max error.**
+- **Case 35 — DGX B300 18 SU:** frozen-engine topology hold-out. **PASS · 0.0000% MAPE on five scored topology metrics.** NVIDIA's published 18-SU row has an internally inconsistent GPU count (1,296 nodes but 9,216 GPUs despite 8 GPUs/DGX), so that GPU value is documented but excluded from scoring.
+
+These are **intra-family B300 hold-outs**, not a cross-vendor generalization proof. They demonstrate that the frozen generic equations extrapolate across additional scale/power conditions without case-specific engine changes. A stronger next step remains a cross-vendor hold-out set using the same frozen engine.
 
 ## 12. Recommended development priority
 

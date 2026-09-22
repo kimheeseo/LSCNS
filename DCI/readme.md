@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.3 Korea Channel Update / Stable Excel / Multilingual / Juniper**
+**v4.7.3 VSFF Connectivity / Korea Channel Update**
 
 설계 흐름:
 
@@ -259,6 +259,17 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - URL: `https://www.nhelec.com/main/?load_popup=1`
 - 주소: 경기도 성남시 중원구 갈마치로 288번길 14, 331호 (상대원동, 성남SK V1 타워)
 - 기존 한국코닝 공식 법인 및 다른 Corning 관련 항목은 유지
+
+### v4.7.3 — VSFF connectivity / Korea channel update
+- Corning 한국 구매/기술 문의 채널 중 **Daeshin NS** URL을 `http://www.ds-ns.net/`으로 수정
+- Optical Connectivity의 connector 선택을 MPO 중심에서 **Connector product/interface** 중심으로 확장
+- Verified VSFF 선택지 추가
+  - Corning MDC duplex
+  - SENKO SN® connector family
+  - SENKO CS® Standard Connector
+- VSFF는 단순 속도(400G/800G)만으로 자동 추천하지 않고, exact optic/transceiver/adapter가 해당 interface를 지원할 때만 선택하도록 유지
+- Corning connectivity 표시를 `MTP/MPO / LC duplex / VSFF MDC / SN / CS`로 확장
+- v4.7.2의 UI initialization fix와 no-email 안정 배포 구조는 그대로 유지
 
 ## 30-Case Independent Validation Ledger
 

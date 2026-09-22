@@ -310,13 +310,13 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Public validation engine의 공통 primitive에 `power_envelope`, `network_roles`, physical-cage derivation을 추가
 
 ### v4.8.1 — Role capability / spare-aware physicalization / validation report sync
-- DGX B300의 current SuperPOD reference 기준 **In-Band Ethernet role을 400G**로 수정
+- DGX B300의 current SuperPOD reference 기준 **In-Band Ethernet logical connection을 200G, bonded**로 유지/정정하고, 400G-capable QSFP / 800G twin-port OSFP는 physical-interface capability로 별도 취급
 - 시스템/role별 허용 속도 gate 추가
   - H200 Compute: 400G
   - B200 Compute: 400G
   - B300 Compute: 800G
   - B300 Storage: 400G
-  - B300 In-Band: 400G
+  - B300 In-Band: 200G logical (bonded)
   - OOB: 1G
 - 지원하지 않는 수동 line-rate 선택은 다른 network role로 전파하지 않고 해당 role의 검증된 기본값으로 복귀
 - Spare %를 physical cage/optic 수량을 반올림한 뒤 곱하지 않고, **design logical links에 먼저 적용한 후 physical packing** 수행

@@ -1,10 +1,11 @@
-# Version 2 — 30-Case Independent Validation Report
+# Version 2 — 35-Case Independent Validation Report
 
 ## Outcome
 
-- Numeric PASS (<10% each comparable metric): **30/30**
-- Validation levels: **A 13 / A- 8 / B 9 / C 0**
-- Highest v2 MAPE: **0.7407%** (15_cerebras_cg1)
+- Numeric PASS (<10% each comparable metric): **35/35**
+- Validation levels: **A 16 / A- 10 / B 9 / C 0**
+- Highest v2 MAPE: **1.2281%** (34_nvidia_dgx_b300_4rack_power_holdout)
+- Highest v2 single-metric error: **3.6842%** (Case 34 peak-provisioning power)
 
 The numerical formulas remain shared and reference-blind. Version 2 improves the benchmark by separating numerical agreement from design independence: a low MAPE cannot by itself produce an A-grade result.
 
@@ -49,6 +50,11 @@ The numerical formulas remain shared and reference-blind. Version 2 improves the
 | 28 | 28_nvidia_dsx_ncp | PASS | 0.0000% | 0.0000% | 100.0000% | A | 0 |
 | 29 | 29_frontier | PASS | 0.0000% | 0.0000% | 100.0000% | A | 0 |
 | 30 | 30_aurora | PASS | 0.0377% | 0.2264% | 100.0000% | A | 0 |
+| 31 | 31_nvidia_dgx_b300_1su | PASS | 0.0000% | 0.0000% | 100.0000% | A | 0 |
+| 32 | 32_nvidia_dgx_b300_2su_holdout | PASS | 0.0000% | 0.0000% | 100.0000% | A | 0 |
+| 33 | 33_nvidia_dgx_b300_2rack_power_holdout | PASS | 1.1111% | 3.3333% | 100.0000% | A- | 0 |
+| 34 | 34_nvidia_dgx_b300_4rack_power_holdout | PASS | 1.2281% | 3.6842% | 100.0000% | A- | 0 |
+| 35 | 35_nvidia_dgx_b300_18su_holdout | PASS | 0.0000% | 0.0000% | 100.0000% | A | 0 |
 
 ## Interpretation
 
@@ -57,3 +63,12 @@ The numerical formulas remain shared and reference-blind. Version 2 improves the
 - **C**: profile-only or evidence-limited validation; it is retained rather than overstating design autonomy.
 
 This classification is deliberately stricter than v1. It reports where the solver should next replace reference-derived structural policies with catalog, port-packing, rack-placement and physical-link-graph solvers.
+
+
+## Cases 31–35 interpretation
+
+- **Case 31** is the new DGX B300 golden/reference case used during the v4.8 architecture update. It is not counted as a strict unseen hold-out.
+- **Cases 32–35** were evaluated after the shared v1 engine freeze commit `04ad2c1e6a023811b50e79dc3b891fe5e1f590c3`.
+- Cases 32–35 are **B300-family intra-family hold-outs**. They test frozen equations at additional scale/power conditions, but they are not presented as cross-vendor generalization proof.
+- Case 35 excludes the published 18-SU GPU count from exact scoring because the same NVIDIA row states 1,296 DGX B300 nodes and 9,216 GPUs, which is internally inconsistent with 8 GPUs per DGX B300 system.
+- A stronger next validation step is a frozen-engine **cross-vendor hold-out** using previously unseen architecture families and physical BOM fields.

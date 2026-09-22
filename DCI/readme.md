@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.9.0
+# AI Data Center BOM Engine v4.9.1
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.9.0 Live Hold-out Validation / Realistic Rack Twin / Juniper Korea Channel Update**
+**v4.9.1 Rack 2D/3D Front/Rear Explanation View**
 
 설계 흐름:
 
@@ -43,7 +43,10 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
-- **Rack Twin View**: 동적 현실형 2D Front Elevation + 3D Isometric/Service View — rack rail/mounting hole, bezel/handle, vent, drive·PSU·NIC bay, switch optic-port field, status LED, A/B 0U PDU, cable manager/patch panel, fiber/power service routing 표현
+- **Rack 구성 해설도**: [2D] [3D] 두 셀 + Front / Rear 전환으로 2D Front / 2D Rear / 3D Front / 3D Rear를 선택 표시
+  - 2D Front: rack rail/U scale, mounting hole, bezel/handle, vent, drive/I/O, NIC/optic cage, switch port field, LED, cable manager, patch panel, A/B 0U PDU, fiber service loop
+  - 2D Rear: fan, PSU/power inlet, NIC/OSFP, management/service area, switch PSU/fan side, trunk entry, rear fiber/power routing
+  - 3D Front/Rear: cabinet·equipment depth와 front/service-side cabling을 isometric으로 표현
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
 - GPU 규모별 NVIDIA DGX SuperPOD reference-size class 표시
@@ -356,6 +359,29 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   2. (주)시엔스 — 서울특별시 강남구 테헤란로 44길 8, 8층(역삼동,아이콘역삼빌딩) — `sales@sciens21.com`
   3. (주)투케이엠시스템즈 — 서울특별시 서초구 남부순환로 2395 호경빌딩 3층 — `twokm@twokm.co.kr`
 - 기존 v4.8의 3-Level Power Model / role-based network speed / logical-vs-physical cage 분리 / spare-before-packing / B300 200G logical In-Band 정책은 유지
+
+### v4.9.1 — Rack 2D/3D + Front/Rear explanation view
+- Rack 구성 해설도를 2D/3D 동시 표시에서 **2개의 선택 셀 [2D] [3D]** 구조로 변경
+- 별도 **Front / Rear** 선택을 추가하여 네 가지 view 제공
+  1. 2D Front
+  2. 2D Rear
+  3. 3D Front
+  4. 3D Rear
+- 선택된 view 하나만 넓게 표시하여 제품 구성과 배선 구조를 읽기 쉽게 개선
+- 2D Front를 단순 사각형 블록도에서 상세 equipment elevation으로 확장
+  - rack rail / RU number / mounting hole
+  - server bezel / handle / vent perforation
+  - drive·I/O / NIC·optic cage
+  - switch port field / status LED
+  - horizontal cable manager / fiber patch panel
+  - A/B 0U PDU / fiber service loop
+- 2D Rear 신규 추가
+  - fan module / PSU / power inlet
+  - NIC / OSFP cage / management-service zone
+  - switch rear PSU·fan side / rear patch-trunk entry
+  - rear fiber bundle / A-B power routing
+- 3D Front/Rear는 cabinet depth / equipment depth / front or service-side routing을 각각 강조
+- 제조사 CAD/IFC가 아닌 **conceptual engineering explanation view**로 명시
 
 ## 35-Case Validation Ledger
 

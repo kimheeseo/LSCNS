@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.8.1
+# AI Data Center BOM Engine v4.8.2
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.8.1 Role Capability / Spare-Aware Physicalization / 35-Case Report Sync**
+**v4.8.2 Juniper Korea Contact / Procurement Channel Update**
 
 설계 흐름:
 
@@ -35,6 +35,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Excel 출력 4개 시트: **요구조건 / 설계 결과 / Generic BOM / 제품매칭 예상 영수증**
 - 제품매칭 예상 영수증 Alternative에 확인 가능한 공식 datasheet/spec URL 표시, 확인 어려운 경우 "-"
 - 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
+- Juniper 한국 채널의 회사별 URL / 주소 / 영업·기술 문의 연락처 표시
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
@@ -325,6 +326,13 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - Public shared validation engine의 role model에 switch-side physical cage 및 physical cable count primitive 추가
 - `V2_VALIDATION_REPORT.md`를 30-case에서 **35-case** 기준으로 동기화
 - Rack Twin 2D/3D는 실제 장비 배치에 가까운 conceptual engineering view를 유지하며 manufacturer CAD/IFC로 오인하지 않도록 표기
+
+### v4.8.2 — Juniper Korea contact / procurement channel update
+- **한국 구매 / 기술 문의 채널**의 Juniper 항목을 투케이엠시스템즈 / 시엔스 / 인성디지탈 기준으로 세부화
+- 각 채널의 회사 URL, 최신 제공 주소, 영업·기술 문의 연락처를 UI에 표시
+- Korea channel table에 **Contact** 열을 추가하고 이메일이 있는 경우 클릭 가능한 mail 링크로 표시
+- 남해이엔지 Corning 채널 URL을 기존 요청한 제품 카탈로그 링크로 동기화
+- 계산 엔진 / v4.8.1 power·network-role·physical-cage·35-case validation 로직은 변경하지 않음
 
 ## 35-Case Validation Ledger
 

@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.9.1
+# AI Data Center BOM Engine v4.9.2
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.9.1 Rack 2D/3D Front/Rear Explanation View**
+**v4.9.2 Korea Purchasing / Technical Contact Update**
 
 설계 흐름:
 
@@ -40,6 +40,14 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - (주)인성 디지탈: 서울특별시 송파구 위례성대로 22길 28 (오금동, S2F빌딩) 3, 4층 · `junipersalesgroup@isd.co.kr`
   - (주)시엔스: 서울특별시 강남구 테헤란로 44길 8, 8층(역삼동,아이콘역삼빌딩) · `sales@sciens21.com`
   - (주)투케이엠시스템즈: 서울특별시 서초구 남부순환로 2395 호경빌딩 3층 · `twokm@twokm.co.kr`
+- 한국 구매 / 기술 문의 채널 연락처 최신화
+  - 남해이엔지: `nheng01130@nheng.kr`
+  - 대신엔에스: `070-7013-0005`
+  - 한국코닝: `02-796-9500`
+  - 스미토모 코리아: `02-3453-4511`
+  - 슈퍼마이크로컴 코리아: `02-554-0045`
+  - 시스코 코리아: `02 3429 8000`
+  - 이메일은 mailto:, 전화번호는 tel: 링크로 표시
 - Juniper QFX5240-64OD / QFX5240-64QD verified switch candidate 추가
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
@@ -382,6 +390,17 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   - rear fiber bundle / A-B power routing
 - 3D Front/Rear는 cabinet depth / equipment depth / front or service-side routing을 각각 강조
 - 제조사 CAD/IFC가 아닌 **conceptual engineering explanation view**로 명시
+
+### v4.9.2 — Korea purchasing / technical contact update
+- 한국 구매 / 기술 문의 채널에 다음 연락처를 반영
+  - 남해이엔지: `nheng01130@nheng.kr`
+  - 대신엔에스: `070-7013-0005`
+  - 한국코닝: `02-796-9500`
+  - 스미토모 코리아: `02-3453-4511`
+  - 슈퍼마이크로컴 코리아: `02-554-0045`
+  - 시스코 코리아: `02 3429 8000`
+- 기존 Juniper 3개 채널 연락처는 유지
+- Contact cell은 이메일이면 mailto:, 전화번호면 tel: 링크로 동작하도록 수정
 
 ## 35-Case Validation Ledger
 

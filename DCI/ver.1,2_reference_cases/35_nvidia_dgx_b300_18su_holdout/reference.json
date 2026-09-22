@@ -1,0 +1,44 @@
+{
+  "case_id": "35_nvidia_dgx_b300_18su_holdout",
+  "name": "NVIDIA DGX B300 SuperPOD — 18 SU hold-out",
+  "vendor": "NVIDIA",
+  "year": 2026,
+  "sources": [
+    {
+      "title": "DGX SuperPOD Architecture — DGX B300 / Quantum-X800 XDR",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/dgx-superpod-architecture.html",
+      "type": "official NVIDIA reference architecture"
+    },
+    {
+      "title": "Major Components — DGX B300 SuperPOD",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/components.html",
+      "type": "official NVIDIA reference architecture"
+    }
+  ],
+  "metrics": {
+    "node_count": {
+      "value": 1296,
+      "unit": "systems"
+    },
+    "accelerator_count": {
+      "value": 10368,
+      "unit": "GPUs"
+    },
+    "leaf_switch_count": {
+      "value": 144,
+      "unit": "leaf switches"
+    },
+    "spine_switch_count": {
+      "value": 72,
+      "unit": "spine switches"
+    },
+    "node_leaf_cable_count": {
+      "value": 10368,
+      "unit": "cables"
+    },
+    "leaf_spine_cable_count": {
+      "value": 10368,
+      "unit": "cables"
+    }
+  }
+}

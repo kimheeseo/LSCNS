@@ -1,0 +1,47 @@
+{
+  "case_id": "34_nvidia_dgx_b300_4rack_power_holdout",
+  "engine": "multi_arch_bom_engine_v2.js",
+  "engine_freeze_commit": "04ad2c1e6a023811b50e79dc3b891fe5e1f590c3",
+  "holdout": true,
+  "validation_level": "A-",
+  "input_independence": {
+    "calculation_path": "design_input + frozen v1 shared formulas only; reference.json read after calculation",
+    "blocked_output_fields": [],
+    "structural_policy_fields": [
+      "power_envelope.units",
+      "power_envelope.typical_it_kw_per_unit",
+      "power_envelope.design_max_kw_per_unit",
+      "power_envelope.peak_provisioning_kw_per_unit"
+    ],
+    "input_independent": true,
+    "note": "Executed after engine freeze; no case-specific production-engine changes were made for this case."
+  },
+  "validation": {
+    "status": "PASS",
+    "pass_threshold_error_pct": 10,
+    "coverage_pct": 100,
+    "mape_pct": 1.2280701754385968,
+    "max_error_pct": 3.6842105263157903,
+    "metrics": {
+      "typical_it_power_kw": {
+        "reference": 58,
+        "calculated": 58,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "design_max_power_kw": {
+        "reference": 60,
+        "calculated": 60,
+        "error_pct": 0,
+        "status": "PASS"
+      },
+      "peak_provisioning_power_kw": {
+        "reference": 76,
+        "calculated": 78.8,
+        "error_pct": 3.684210526315786,
+        "status": "PASS"
+      }
+    }
+  },
+  "semantic_evidence_class": "B"
+}

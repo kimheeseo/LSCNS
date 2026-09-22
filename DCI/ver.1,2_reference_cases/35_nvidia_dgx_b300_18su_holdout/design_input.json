@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.1",
+  "case_id": "35_nvidia_dgx_b300_18su_holdout",
+  "fabric_design": {
+    "active_nodes": 1296,
+    "design_nodes": 1296,
+    "accelerators_per_node": 8,
+    "links_per_node": 8,
+    "link_speed_gbps": 800,
+    "ufm_links": 0,
+    "leaf_down_ports": 72,
+    "leaf_up_ports": 72,
+    "spine_down_ports": 144,
+    "endpoint_logical_per_cage": 1,
+    "leaf_down_logical_per_cage": 2,
+    "leaf_up_logical_per_cage": 2,
+    "spine_down_logical_per_cage": 2,
+    "logical_links_per_cable": 1
+  }
+}

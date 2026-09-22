@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.7.2
+# AI Data Center BOM Engine v4.7.3
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.2 UI Initialization Fix / Stable Excel / Multilingual / Korea Channels / Juniper**
+**v4.7.3 Korea Channel Update / Stable Excel / Multilingual / Juniper**
 
 설계 흐름:
 
@@ -253,6 +253,12 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 언어 변경은 명시적인 click/change event + guarded timer로만 반영
 - Email 기능은 계속 비활성화
 - Export Excel 4개 시트 / 다국어 설계 예시 / datasheet 링크 / 한국 구매 채널 / Juniper 후보는 유지
+
+### v4.7.3 — Corning Korea channel update
+- Corning 한국 채널에서 A.J. World 항목을 **남해이엔지 (Namhae ENG)**로 교체
+- URL: `https://www.nhelec.com/main/?load_popup=1`
+- 주소: 경기도 성남시 중원구 갈마치로 288번길 14, 331호 (상대원동, 성남SK V1 타워)
+- 기존 한국코닝 공식 법인 및 다른 Corning 관련 항목은 유지
 
 ## 30-Case Independent Validation Ledger
 

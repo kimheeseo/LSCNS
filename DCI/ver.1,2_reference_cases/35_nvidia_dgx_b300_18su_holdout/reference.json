@@ -21,8 +21,10 @@
       "unit": "systems"
     },
     "accelerator_count": {
-      "value": 10368,
-      "unit": "GPUs"
+      "value": 9216,
+      "unit": "GPUs",
+      "verifiable": false,
+      "note": "Official Table 3 lists 1,296 nodes but 9,216 GPUs, which is internally inconsistent with 8 GPUs per DGX B300 (1,296×8=10,368). Excluded from numerical scoring rather than silently corrected."
     },
     "leaf_switch_count": {
       "value": 144,

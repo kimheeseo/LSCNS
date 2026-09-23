@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.10.0
+# AI Data Center BOM Engine v5.3.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.10.0 Rack 4-View / Multilingual Cooling Architecture**
+**v5.3.0 Rack 4-View / Multilingual Cooling Architecture**
 
 설계 흐름:
 
@@ -53,7 +53,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
 - **Rack 구성 해설도**: [2D] [3D] 두 셀 + Front / Rear 전환으로 2D Front / 2D Rear / 3D Front / 3D Rear를 선택 표시
-  - v4.10에서 renderRack2DFront / renderRack2DRear / renderRack3DFront / renderRack3DRear 함수로 명시적으로 분리하고 공통 drawing primitive를 재사용
+  - v5.2.1 현재 버전을 기준으로 v5.3.0에서 renderRack2DFront / renderRack2DRear / renderRack3DFront / renderRack3DRear 함수로 명시적으로 분리하고 공통 drawing primitive를 재사용
   - 2D Front: rack rail/U scale, mounting hole, bezel/handle, vent, drive/I/O, NIC/optic cage, switch port field, LED, cable manager, patch panel, A/B 0U PDU, fiber service loop
   - 2D Rear: fan, PSU/power inlet, NIC/OSFP, management/service area, switch PSU/fan side, trunk entry, rear fiber/power routing
   - 3D Front/Rear: cabinet·equipment depth와 front/service-side cabling을 isometric으로 표현
@@ -450,7 +450,8 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   4. DGX B300 Case 31 golden validation
   5. Cases 32–35 frozen-engine hold-out validation
 
-### v4.10.0 — Rack 4-view / Multilingual Cooling architecture
+### v5.3.0 — Rack 4-view / Multilingual Cooling architecture
+- **v5.2.1을 기준으로 기존 상세 Cooling SVG와 calculation crash fix를 유지한 상태에서 업데이트**
 - Rack 구성 해설도 코드 구조를 4개 독립 view renderer로 정리
   - `renderRack2DFront(svg)`
   - `renderRack2DRear(svg)`

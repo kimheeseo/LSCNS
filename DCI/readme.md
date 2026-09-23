@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.9.2
+# AI Data Center BOM Engine v5.0.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.9.2 Korea Purchasing / Technical Contact Update**
+**v5.0.0 Dynamic BOM Supply Chain**
 
 설계 흐름:
 
@@ -33,6 +33,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 제품 DB 기반 Manufacturer / Product / Model / Qty / Evidence 예상 영수증
 - Performance-first / Balanced / Cost-sensitive 조달 정책
 - 설계 계산 옆 compact action bar: **Export Excel**
+- 설계 계산 옆 **Supply Chain** 버튼: 현재 Generic BOM / 제품매칭 예상 영수증에 실제 등장하는 제품만 공급망 뷰로 재구성
 - Excel 출력 4개 시트: **요구조건 / 설계 결과 / Generic BOM / 제품매칭 예상 영수증**
 - 제품매칭 예상 영수증 Alternative에 확인 가능한 공식 datasheet/spec URL 표시, 확인 어려운 경우 "-"
 - 한국 구매/기술 문의 채널 패널: Corning / Sumitomo Electric / Supermicro / Juniper / Cisco 등
@@ -70,6 +71,25 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - MPO ferrule / installed fiber / typical application / breakout / direct-channel utilization 표시
 
 ## Version history
+
+### v5.0.0 — Dynamic BOM Supply Chain
+- 설계 계산 옆 **Supply Chain** 버튼 추가
+- 현재 화면의 Generic BOM + 제품매칭 예상 영수증을 읽어 실제 사용/추천 제품을 공급망 관점으로 재구성
+- 중앙 Current BOM 카드 + 8개 공급망 영역
+  - Compute / GPU
+  - Network Fabric
+  - Optical Connectivity
+  - Power / UPS / PDU
+  - Cooling / HVAC
+  - Rack / Physical
+  - Storage
+  - Facility / Security
+- 제품/벤더/수량을 표시하고, 기존 BOM 결과에 datasheet/product URL이 있으면 클릭 가능한 링크로 유지
+- 한국어 / English / 日本語 / 中文 / Deutsch 선택과 연동
+- 모바일에서는 3×3 infographic 대신 세로형 supply-chain stack으로 자동 전환
+- 기존 UI freeze 이슈를 피하기 위해 MutationObserver 미사용
+
+
 
 ### v2.x — 초기 통합 엔진
 - GPU/Server → Fabric → Rack → Optical → Power → Cooling → BOM 흐름 통합

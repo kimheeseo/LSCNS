@@ -493,3 +493,16 @@ Golden fabric case에서는 Leaf / Spine 등 독립 비교 가능한 항목을 �
 - 실제 광손실은 transceiver application, connector grade, polarity, patching route, vendor datasheet를 기준으로 재검토해야 합니다.
 - UPS/Generator/Transformer는 초기 sizing이며 실제 전기설계에는 계통전압, 역률, 고조파, 보호협조, 연료/배기/법규 검토가 추가로 필요합니다.
 - 제품 추천은 호환성/용량/성능 조건 기반 후보 제시이며 최종 구매 승인이나 가격 보장은 아닙니다.
+
+## DC BOM v5.2.0 — Power / Network / Physical validation + realistic Rack Twin
+
+The deployed DC BOM architecture now keeps the following engineering layers separate.
+
+- **3-level power model:** Typical IT Power / Design-Max Power / Peak-Provisioning Power. Current profiles use H200 10.2 kW design/max basis, B200 14.3 kW, and B300 14.5 kW typical / 15.0 kW design-max / 19.7 kW peak-provisioning envelope.
+- **Network role model:** Compute, Storage, In-Band Ethernet and OOB speeds are resolved independently instead of mapping one global speed from the GPU/system name. B300 can therefore retain XDR800 compute while using NDR400-class storage and a separate in-band profile.
+- **Logical vs physical connectivity:** logical links are converted separately into physical OSFP cages, optics and cables. Twin-port OSFP packing is explicitly considered so logical 400G/800G link counts are not assumed to equal cage/optic counts.
+- **DGX B300 golden validation:** Case 31 target is 72 systems / 576 GPUs / Leaf 8 / Spine 4 / Node–Leaf 576 / Leaf–Spine 576 for the 1-SU Q3400 XDR800 basis.
+- **Hold-out validation:** Cases 32–35 are recalculated from generalized fabric/power equations and expose MAPE and maximum error with a <10% pass criterion; they are kept separate from the older development/regression references.
+- **Rack Twin visualization:** 2D Front/Rear and 3D Front/Rear SVG views now use a more realistic rack cabinet, rail/door depth, raised-floor perspective, server bezel/vent, switch port fields, fan/PSU/NIC/OSFP zones, A/B PDU rails, patching and service cable routing. These remain conceptual engineering views rather than manufacturer CAD/IFC drawings.
+
+Deployment source: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`.

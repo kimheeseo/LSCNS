@@ -506,3 +506,7 @@ The deployed DC BOM architecture now keeps the following engineering layers sepa
 - **Rack Twin visualization:** 2D Front/Rear and 3D Front/Rear SVG views now use a more realistic rack cabinet, rail/door depth, raised-floor perspective, server bezel/vent, switch port fields, fan/PSU/NIC/OSFP zones, A/B PDU rails, patching and service cable routing. These remain conceptual engineering views rather than manufacturer CAD/IFC drawings.
 
 Deployment source: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`.
+
+### Cooling Architecture v5.2.1
+
+Cooling Architecture is now a detailed liquid-cooling heat-removal diagram rather than a simple block flow. The UI separates the **Facility Water Loop** and **IT/Technology Cooling Loop**, shows the **CDU heat exchanger boundary**, cold Supply and heated Return paths, **rack manifold**, **QD**, GPU/CPU **cold plates**, and facility heat rejection equipment (chiller / dry cooler / cooling tower). Live design cards connect the diagram to Typical / Design-Max / Peak heat, approximate rack heat, water-equivalent flow at ΔT 10°C, and a first-pass CDU capacity estimate. Flow and CDU values are preliminary engineering references; final equipment selection requires hydraulic, coolant-property, redundancy, leak-detection and OEM verification.

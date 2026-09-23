@@ -422,6 +422,27 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 기존 Juniper 3개 채널 연락처는 유지
 - Contact cell은 이메일이면 mailto:, 전화번호면 tel: 링크로 동작하도록 수정
 
+### v5.1.0 — Cooling architecture / contact / rack engineering UI
+- Private deployment source remains `kimheeseo/others → dc-bom-v4-deploy → DC_BOM_BUNDLE`.
+- **한국 구매 / 기술 문의 채널**의 Cisco Korea 전화번호를 `02-3429-8000` 형식으로 정규화하고 클릭 가능한 전화 링크를 유지.
+- **Cooling Architecture**를 단순 그림에서 열 제거 경로 설명도로 확장:
+  - Facility Heat Rejection → CDU → Rack Manifold → Quick Disconnect / Cold Plate → Heated Return
+  - 각 구성요소의 역할과 Supply/Return loop 의미를 설명
+  - 현재 BOM 계산 결과의 Design-Max IT heat / rack 수 / heat per rack을 연결
+  - `Q = ṁ·Cp·ΔT` 기반 ΔT 10°C water-equivalent 1차 유량 reference 표시
+  - 실제 CDU 선정/P&ID가 아니라 conceptual BOM sizing reference임을 명시
+- **Rack 구성 해설도**를 2D Front / 2D Rear / 3D Front / 3D Rear 관점으로 더 명확히 설명하고 실제 rack에 가까운 depth/shadow 표현을 강화.
+  - 2D Front: RU rail, bezel, handle, vent, drive/I/O, OSFP/QSFP field, patch panel, cable manager
+  - 2D Rear: fan wall, PSU, power inlet, NIC/OSFP, management zone, A/B PDU, rear cable exit
+  - 3D Front: cabinet/equipment depth + front optical patch/service loop
+  - 3D Rear: service-side fan/PSU/NIC + fiber/power routing
+- 기존 요청 5개 핵심 설계 보정은 계속 유지:
+  1. Typical IT / Design-Max / Peak-Provisioning 3-level power model
+  2. Compute / Storage / In-Band / OOB network-role speed 분리
+  3. Logical link / physical cage / optic / cable quantity 분리
+  4. DGX B300 Case 31 golden validation
+  5. Cases 32–35 frozen-engine hold-out validation
+
 ## 35-Case Validation Ledger
 
 35-Case Ledger는 개별 고객 설계 결과가 아니라 **엔진 자체의 검증 이력 관리표**입니다. Cases 01–30은 개발/회귀 benchmark, Case 31은 신규 DGX B300 golden/reference, Cases 32–35는 v4.8 shared-engine freeze 이후의 B300-family hold-out입니다.

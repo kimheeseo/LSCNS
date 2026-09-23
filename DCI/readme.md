@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v5.0.0
+# AI Data Center BOM Engine v4.10.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v5.0.0 Dynamic BOM Supply Chain**
+**v4.10.0 Rack 4-View / Multilingual Cooling Architecture**
 
 설계 흐름:
 
@@ -53,9 +53,16 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 - 선택 UI 언어에 따른 **설계 예시** 동적 번역
 - Conceptual BIM-ready floor plan / rack schedule
 - **Rack 구성 해설도**: [2D] [3D] 두 셀 + Front / Rear 전환으로 2D Front / 2D Rear / 3D Front / 3D Rear를 선택 표시
+  - v4.10에서 renderRack2DFront / renderRack2DRear / renderRack3DFront / renderRack3DRear 함수로 명시적으로 분리하고 공통 drawing primitive를 재사용
   - 2D Front: rack rail/U scale, mounting hole, bezel/handle, vent, drive/I/O, NIC/optic cage, switch port field, LED, cable manager, patch panel, A/B 0U PDU, fiber service loop
   - 2D Rear: fan, PSU/power inlet, NIC/OSFP, management/service area, switch PSU/fan side, trunk entry, rear fiber/power routing
   - 3D Front/Rear: cabinet·equipment depth와 front/service-side cabling을 isometric으로 표현
+- **Cooling architecture 상세화**: Data Center Facility → CDU → Rack Manifold → Compute Rack / GPU Cold Plate 전체 액체냉각 경로를 시각화
+  - 파란색 Supply / 빨간색 Return 경로 분리
+  - Facility primary loop / IT secondary loop / Heat Exchanger / QD / Cold Plate를 구분
+  - 하단에 동작 원리 / 동적 설계 예시 / 주요 메모 제공
+  - 선택한 system 및 systems/rack 기준으로 Typical / Design-Max / Peak-Provisioning 전력과 water-equivalent 유량, CDU 초기 용량을 계산
+  - 한국어 기본, English / 中文 / 日本語 / Deutsch 선택 시 Cooling 설명과 표가 자동 전환
 - CSV BOM / Validation CSV / Design JSON export
 - 한국어 / 日本語 / English / 中文 / Deutsch 내장 UI 번역
 - GPU 규모별 NVIDIA DGX SuperPOD reference-size class 표시
@@ -442,6 +449,30 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
   3. Logical link / physical cage / optic / cable quantity 분리
   4. DGX B300 Case 31 golden validation
   5. Cases 32–35 frozen-engine hold-out validation
+
+### v4.10.0 — Rack 4-view / Multilingual Cooling architecture
+- Rack 구성 해설도 코드 구조를 4개 독립 view renderer로 정리
+  - `renderRack2DFront(svg)`
+  - `renderRack2DRear(svg)`
+  - `renderRack3DFront(svg)`
+  - `renderRack3DRear(svg)`
+- 공통 drawing 함수로 rack shell / RU scale / front·rear server / front·rear switch / patch panel / cable manager / A·B PDU / callout을 분리
+- 2D Front: RU numbering, rail, bezel, GPU server front face, drive/vent/I/O, Leaf QSFP/OSFP port field, patch panel, cable manager, A/B PDU, callout 표현
+- 2D Rear: PSU, fan, rear NIC/network I/O, management, power inlet, vertical PDU, cable routing 표현
+- 3D Front: cabinet/equipment depth, front door/cabinet, patching, cable service loop 표현
+- 3D Rear: PSU/fan side, rear NIC/transceiver zone, power whip, rear fiber bundle, service-clearance 표현
+- **Cooling architecture**를 첨부 reference와 유사한 engineering 설명형 구성으로 재설계
+  - Data Center Facility → CDU → Rack Manifold → Compute Rack / GPU Cold Plate
+  - Supply(blue) / Return(red) 전체 경로
+  - Facility primary loop와 IT secondary loop를 Heat Exchanger로 분리
+  - Rack manifold와 QD supply/return branch 표현
+  - How it works / Design example / Key notes 영역 추가
+- Cooling 설계 예시는 현재 선택 system 및 systems/rack을 따라 동적으로 계산
+  - `Flow[L/min] = Heat Load[kW] × 60 / (4.186 × ΔT[°C])`
+  - CDU first-pass capacity = `Heat Load × 1.15`
+  - 최종 CDU 선정은 N+1, 현장조건, coolant 특성, vendor curve 별도 검토
+- Cooling 설명은 **한국어를 기본값**으로 하고 UI 언어 선택에 따라 English / 中文 / 日本語 / Deutsch까지 자동 전환
+- 기존 3-Level Power / Network Role / Physical Cage / B300 Cases 31–35 validation / Korea purchasing contacts는 유지
 
 ## 35-Case Validation Ledger
 

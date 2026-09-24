@@ -11,6 +11,34 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.2.0 — 2026-09-24
+
+### Interactive CPO package diagram + vendor/news explorer
+
+- Rebuilt the main HTML around an interactive CPO package / physical-layout schematic inspired by the supplied reference image.
+- Added 8 clickable CPO component regions:
+  - External Laser Source (ELS)
+  - PM Fiber
+  - Optical Engine / PIC + EIC
+  - Switch ASIC
+  - Common Package / Substrate
+  - FAU
+  - Data Fiber
+  - Front Connector / VSFF
+- Clicking a component now lists relevant companies for that component.
+- Clicking a company now shows:
+  - company role in the CPO stack
+  - representative product / technology focus
+  - official company/product link
+  - curated recent CPO / AI optical-interconnect article links
+  - a live "latest news search" link for additional current coverage
+- Added curated 2026 CPO-related news for major ecosystem companies including Coherent, Lumentum, Ayar Labs, Broadcom, NVIDIA, Marvell, Lightmatter, Molex, Corning, SENKO, US Conec, Fujikura, Sumitomo Electric, Furukawa Electric, Hengtong, and Intel.
+- Added search, component selector, component quick cards, and responsive mobile layout.
+- Updated page version badge to v1.2.0.
+- Static-site note: the page does not call a live news API; curated links are stored in the HTML and can later be moved into JSON data files for easier maintenance.
+
+---
+
 ## v1.1.0 — 2026-09-24
 
 ### Interactive HTML prototype added

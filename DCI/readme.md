@@ -593,3 +593,7 @@ The tool now separates **GPU / Accelerator** and **Server CPU** supplier referen
 ### v6.1.1 — Rack Digital Twin 2D/3D deployment fix
 
 The four rack views (2D Front/Rear and 3D Front/Rear) are now mounted independently instead of depending strictly on the legacy rack container. This prevents the detailed rack view from disappearing when the older container is not present. The view includes RU/rails, GPU server faces, Leaf port fields, patch/cable management, A/B PDU, rear PSU/fans/NIC/management, 3D depth, fiber/power routing and rear service clearance.
+
+## DC BOM v6.2.0 — Realistic Cooling Architecture
+
+Cooling Architecture now defaults to a realistic 3D-style AI data-center liquid-cooling visual showing Facility Cooling → CDU → Rack Manifold → Liquid-Cooled GPU Servers → GPU/CPU Cold Plate. The UI includes a Realistic 3D / Engineering SVG toggle and click-to-expand viewing. Existing dynamic rack heat, coolant ΔT, required flow and CDU first-pass sizing calculations remain unchanged and remain the engineering source of truth. Surrounding labels/notes continue to support Korean, English, Chinese, Japanese and German.

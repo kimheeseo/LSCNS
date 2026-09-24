@@ -11,6 +11,32 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.2.1 — 2026-09-24
+
+### Render Web Service deployment support
+
+- Added `package.json` so Render can successfully run `npm install`.
+- Added `server.js` using the built-in Node.js HTTP server; no external runtime dependency is required.
+- Added `npm start` script for Render Web Service deployment.
+- Added `/api/health` endpoint for Render health checks.
+- Server binds to `0.0.0.0` and uses Render's `PORT` environment variable.
+- Static files in `DCI/CPO/` are served directly, with `index.html` as the default page.
+- Updated the site version badge to `v1.2.1`.
+
+### Render settings
+
+- Service Type: `Web Service`
+- Repository: `kimheeseo/LSCNS`
+- Branch: `main`
+- Root Directory: `DCI/CPO`
+- Runtime: `Node`
+- Build Command: `npm install`
+- Start Command: `npm start`
+- Health Check Path: `/api/health`
+- Auto Deploy: `Yes`
+
+---
+
 ## v1.2.0 — 2026-09-24
 
 ### Interactive CPO package diagram + vendor/news explorer

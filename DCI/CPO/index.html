@@ -1,225 +1,503 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CPO Component Explorer</title>
-  <meta name="description" content="CPO(Co-Packaged Optics) 구성요소와 관련 기업을 탐색하는 인터랙티브 페이지" />
-  <style>
-    :root{
-      --bg:#08111f;--panel:#0f1b2d;--panel2:#132238;--line:#243852;
-      --text:#eef4ff;--muted:#9fb0c7;--accent:#4ea1ff;--accent2:#66d9c9;
-      --warn:#ffcc66;--chip:#172a43
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#07101c,#0b1422 40%,#07101c);color:var(--text);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif}
-    a{color:#8fc5ff;text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1240px;margin:auto;padding:32px 20px 64px}
-    .hero{display:grid;grid-template-columns:1.5fr .8fr;gap:20px;align-items:stretch}
-    .card{background:rgba(15,27,45,.94);border:1px solid var(--line);border-radius:18px;padding:22px}
-    .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent2);text-transform:uppercase;font-weight:800}
-    h1{font-size:clamp(30px,5vw,54px);margin:8px 0 10px;line-height:1.05}
-    h2{font-size:22px;margin:0 0 14px}
-    h3{font-size:16px;margin:0 0 6px}
-    p{color:var(--muted);line-height:1.65}
-    .version{display:inline-flex;padding:7px 10px;border:1px solid #32547b;border-radius:999px;background:#10253d;color:#bdddff;font-size:12px;font-weight:700}
-    .metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
-    .metric div{background:#0b1727;border:1px solid var(--line);border-radius:14px;padding:14px}
-    .metric b{display:block;font-size:20px;color:white}.metric span{font-size:12px;color:var(--muted)}
-    .architecture{margin-top:20px}
-    .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:center}
-    .node{border:1px solid var(--line);background:var(--panel2);border-radius:14px;padding:14px 10px;min-height:82px;
-      display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;font-weight:800;cursor:pointer;transition:.18s}
-    .node:hover,.node.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(78,161,255,.14);transform:translateY(-1px)}
-    .arrow{text-align:center;color:#6f88a8;font-weight:900}
-    .section{margin-top:24px}
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-    input,select{background:#0b1727;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:14px}
-    input{flex:1;min-width:220px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .component{cursor:pointer}
-    .component .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-    .tag{font-size:11px;padding:5px 8px;border-radius:999px;background:var(--chip);border:1px solid #29405f;color:#bfd2e8}
-    .companies{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-    .company{font-size:12px;background:#0b1727;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:#d8e5f5}
-    .detail{margin-top:20px;display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
-    .detail-list{display:grid;gap:10px}
-    .detail-row{padding:13px;border:1px solid var(--line);border-radius:12px;background:#0b1727}
-    .detail-row b{display:block;margin-bottom:4px}
-    .muted{color:var(--muted);font-size:13px}
-    .note{border-left:3px solid var(--warn);padding:10px 12px;background:#1b1c20;border-radius:8px;color:#d9c89d;font-size:13px}
-    footer{margin-top:26px;color:#71839a;font-size:12px}
-    @media(max-width:900px){
-      .hero,.detail{grid-template-columns:1fr}
-      .flow{grid-template-columns:1fr 24px 1fr 24px 1fr}.flow .hide-sm{display:none}
-      .grid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:620px){.grid,.metric{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CPO Component Explorer</title>
+<meta name="description" content="CPO 구성요소를 클릭해 관련 업체, 대표 제품/역할, 최근 관련 기사를 확인하는 인터랙티브 탐색기">
+<style>
+:root{
+  --bg:#f4f8fc;--panel:#ffffff;--panel2:#f8fbff;--line:#d6e2ef;--text:#172a3f;--muted:#6f8195;
+  --accent:#1677ff;--accent2:#0d5fc8;--soft:#eaf3ff;--teal:#1e7078;--board:#175d62;--board2:#2e7275;
+  --gold:#d6a53b;--shadow:0 14px 34px rgba(28,61,95,.09)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#f7fbff 0,#edf4fb 100%);color:var(--text);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1280px;margin:0 auto;padding:26px 18px 64px}
+.header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.eyebrow{font-size:11px;letter-spacing:.16em;color:#6485a6;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(28px,4vw,46px);line-height:1.08;margin:7px 0 9px}
+h2{font-size:22px;margin:0 0 12px}
+h3{font-size:16px;margin:0}
+p{color:var(--muted);line-height:1.6;margin:8px 0}
+.badge{display:inline-flex;align-items:center;border:1px solid #bcd2eb;background:#eef6ff;color:#2f6297;
+border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:nowrap}
+.card{background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.55fr);gap:16px}
+.hero-main{padding:22px}
+.hero-side{padding:20px}
+.hero-side .kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}
+.kpi div{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--panel2)}
+.kpi b{display:block;font-size:19px}.kpi span{font-size:11px;color:var(--muted)}
+.arch{margin-top:16px;padding:14px}
+.arch-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:5px 6px 11px}
+.arch-note{font-size:12px;color:var(--muted)}
+.diagram-shell{border:1px solid #dce7f2;border-radius:16px;background:#f9fcff;overflow:hidden}
+.diagram-shell svg{display:block;width:100%;height:auto;min-height:430px}
+.svg-hotspot{cursor:pointer;outline:none}
+.svg-hotspot .callout{fill:#fff;stroke:#b9cee4;stroke-width:1.5}
+.svg-hotspot .num{fill:#e9f2ff}
+.svg-hotspot .numtxt{fill:#2c78d8;font-size:11px;font-weight:800}
+.svg-hotspot .label{fill:#29425b;font-size:14px;font-weight:800}
+.svg-hotspot .sub{fill:#7d8da0;font-size:10px}
+.svg-hotspot:hover .callout,.svg-hotspot.active .callout{stroke:#1677ff;stroke-width:2.7;fill:#f2f7ff}
+.svg-hotspot.active .num{fill:#dcecff}
+.board-label{fill:#d8e9e9;font-size:10px;letter-spacing:.16em}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 12px}
+.search{flex:1;min-width:230px;border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 13px;color:var(--text)}
+.select{border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 12px;color:var(--text)}
+.small-btn{border:1px solid #c8d8e9;background:white;border-radius:11px;padding:10px 12px;color:#315b85;font-weight:800}
+.small-btn:hover{border-color:#8eb4dd;background:#f5f9ff}
+.detail-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:16px}
+.component-panel,.vendor-panel{padding:20px;min-width:0}
+.comp-title{display:flex;gap:12px;align-items:flex-start}
+.comp-icon{width:42px;height:42px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;
+color:var(--accent);font-weight:900;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}
+.chip{font-size:11px;border:1px solid #cfe0f1;background:#f8fbff;border-radius:999px;padding:6px 9px;color:#52708d}
+.vendor-list{display:grid;gap:9px;margin-top:12px}
+.vendor-btn{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px;
+display:flex;gap:12px;align-items:center;transition:.15s}
+.vendor-btn:hover,.vendor-btn.active{border-color:#85b6ed;background:#f5f9ff}
+.vendor-mark{width:38px;height:38px;border-radius:11px;background:#edf4fb;border:1px solid #d7e4ef;display:flex;
+align-items:center;justify-content:center;font-weight:900;color:#3c638a;flex:none}
+.vendor-btn b{display:block;color:#1f3448}.vendor-btn span{font-size:11px;color:var(--muted)}
+.vendor-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:14px;border-bottom:1px solid #e3ebf3}
+.vendor-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.action{display:inline-flex;align-items:center;gap:5px;border:1px solid #c9dcec;border-radius:10px;padding:8px 10px;
+font-size:12px;font-weight:800;background:white;color:#315f8c}
+.action.primary{background:#1677ff;border-color:#1677ff;color:white}
+.rolebox{margin:14px 0;background:#f7faff;border:1px solid #dce7f1;border-radius:13px;padding:13px}
+.rolebox strong{display:block;margin-bottom:5px}.rolebox span{color:var(--muted);font-size:13px;line-height:1.55}
+.news-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:17px 0 9px}
+.news-list{display:grid;gap:9px}
+.news-item{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid #dce7f1;
+border-radius:12px;padding:11px;background:white}
+.news-date{font-size:11px;color:#73869a;font-weight:800}
+.news-title{font-size:13px;font-weight:800;color:#243d56;line-height:1.4}
+.news-source{font-size:10px;color:#7c8da0;margin-top:3px}
+.news-go{width:34px;height:34px;border-radius:9px;border:1px solid #cfe0ef;background:#f8fbff;color:#2d6dab;font-weight:900}
+.empty{padding:18px;border:1px dashed #c7d9ea;border-radius:12px;color:#72869a;text-align:center;background:#fafdff}
+.footer-note{margin-top:15px;padding:12px 14px;border-radius:12px;background:#fff8e7;border:1px solid #f0dda8;color:#775f24;font-size:12px;line-height:1.55}
+.component-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.component-card{border:1px solid #d6e3ef;background:white;border-radius:13px;padding:12px;text-align:left}
+.component-card:hover,.component-card.active{border-color:#85b6ed;background:#f5f9ff}
+.component-card b{display:block;font-size:13px}.component-card span{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
+@media(max-width:980px){.hero,.detail-layout{grid-template-columns:1fr}.diagram-shell svg{min-height:360px}.component-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.header{flex-direction:column}.hero-side .kpi{grid-template-columns:1fr 1fr}.news-item{grid-template-columns:78px minmax(0,1fr)}.news-go{display:none}.component-grid{grid-template-columns:1fr}.diagram-shell{overflow-x:auto}.diagram-shell svg{min-width:760px}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="card">
-        <div class="eyebrow">LSCNS · DCI · CPO</div>
-        <h1>CPO Component Explorer</h1>
-        <p>CPO(Co-Packaged Optics)의 구성요소를 클릭해 관련 기업과 대표적인 역할을 빠르게 살펴보는 GitHub 기반 프로토타입입니다. 이후 제품·공식 URL·최근 뉴스 데이터를 분리해 지속 업데이트하는 구조로 확장합니다.</p>
-        <span class="version">v1.1.0 · 2026-09-24</span>
-        <div class="metric">
-          <div><b id="countComponents">0</b><span>Component groups</span></div>
-          <div><b id="countCompanies">0</b><span>Company references</span></div>
-          <div><b>GitHub</b><span>Version-controlled</span></div>
-        </div>
+<main class="wrap">
+  <header class="header">
+    <div>
+      <div class="eyebrow">LSCNS / DCI / CPO</div>
+      <h1>CPO Component Explorer</h1>
+      <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
+    </div>
+    <span class="badge">v1.2.0 · 2026-09-24</span>
+  </header>
+
+  <section class="hero">
+    <div class="card hero-main">
+      <div class="eyebrow">CPO package / physical layout</div>
+      <h2 style="margin-top:7px">클릭 가능한 CPO 패키지 개념도</h2>
+      <p>첨부 이미지의 구성 방식을 참고한 개념도입니다. 실제 제품의 치수·배선·package stack을 그대로 나타내는 도면은 아닙니다.</p>
+    </div>
+    <aside class="card hero-side">
+      <div class="eyebrow">Explorer status</div>
+      <div class="kpi">
+        <div><b id="kpiComponents">8</b><span>Clickable parts</span></div>
+        <div><b id="kpiCompanies">0</b><span>Companies</span></div>
+        <div><b id="kpiNews">0</b><span>Curated news</span></div>
+        <div><b>Live</b><span>External links</span></div>
       </div>
-      <div class="card">
-        <h2>Explorer 사용법</h2>
-        <p>아래 CPO 흐름도 또는 카드에서 부품을 선택하면 상세 영역이 갱신됩니다. 검색창으로 회사명·부품명을 필터링할 수 있습니다.</p>
-        <div class="note">현재 버전은 구조·탐색 UI 중심의 초기 HTML입니다. 제품·뉴스 데이터는 이후 공식 출처 확인 후 단계적으로 추가합니다.</div>
+    </aside>
+  </section>
+
+  <section class="card arch" id="architecture">
+    <div class="arch-head">
+      <div>
+        <div class="eyebrow">Interactive architecture</div>
+        <h2 style="margin-top:6px">부품을 눌러 업체 탐색</h2>
       </div>
-    </section>
+      <div class="arch-note">선택된 부품은 파란색 테두리로 표시됩니다.</div>
+    </div>
+    <div class="diagram-shell">
+      <svg viewBox="0 0 900 560" role="img" aria-label="CPO package interactive schematic">
+        <defs>
+          <linearGradient id="pcb" x1="0" x2="1"><stop offset="0" stop-color="#1a6267"/><stop offset="1" stop-color="#15585d"/></linearGradient>
+          <linearGradient id="pkg" x1="0" x2="1"><stop offset="0" stop-color="#789b89"/><stop offset="1" stop-color="#90a58d"/></linearGradient>
+          <linearGradient id="asic" x1="0" x2="1"><stop offset="0" stop-color="#263d58"/><stop offset="1" stop-color="#1d3048"/></linearGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity=".18"/></filter>
+        </defs>
 
-    <section class="card architecture">
-      <h2>CPO architecture</h2>
-      <div class="flow" id="flow"></div>
-    </section>
+        <polygon points="120,275 345,110 820,250 575,455" fill="url(#pcb)" stroke="#0f4b50" stroke-width="3" filter="url(#shadow)"/>
+        <circle cx="145" cy="287" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
+        <circle cx="780" cy="270" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
+        <circle cx="565" cy="425" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
 
-    <section class="section">
-      <div class="toolbar">
-        <input id="search" type="search" placeholder="부품 또는 회사 검색 (예: FAU, Broadcom, Fujikura)" />
-        <select id="category">
-          <option value="all">전체 카테고리</option>
-        </select>
+        <polygon points="260,250 395,160 675,244 526,370" fill="url(#pkg)" stroke="#b7c5ab" stroke-width="2" filter="url(#shadow)"/>
+        <rect x="383" y="220" width="160" height="98" rx="5" fill="url(#asic)" stroke="#637b95" stroke-width="2" transform="rotate(10 463 269)"/>
+        <text x="421" y="260" fill="#e9f1fa" font-size="16" font-weight="800" transform="rotate(10 463 269)">SWITCH ASIC</text>
+        <text x="432" y="280" fill="#a9bad0" font-size="9" transform="rotate(10 463 269)">Electrical switching</text>
+
+        <g fill="#d8b65c" stroke="#8a6a20" stroke-width="1.5">
+          <rect x="320" y="210" width="55" height="34" transform="rotate(10 347 227)"/>
+          <rect x="552" y="226" width="55" height="34" transform="rotate(10 580 243)"/>
+          <rect x="300" y="275" width="55" height="34" transform="rotate(10 328 292)"/>
+          <rect x="560" y="300" width="55" height="34" transform="rotate(10 588 317)"/>
+        </g>
+        <g fill="#eaf1f7" stroke="#9fb3c7">
+          <rect x="330" y="201" width="20" height="8" transform="rotate(10 340 205)"/>
+          <rect x="562" y="217" width="20" height="8" transform="rotate(10 572 221)"/>
+          <rect x="310" y="266" width="20" height="8" transform="rotate(10 320 270)"/>
+          <rect x="570" y="291" width="20" height="8" transform="rotate(10 580 295)"/>
+        </g>
+
+        <g fill="#e5ebef" stroke="#9dadb6">
+          <polygon points="255,137 335,153 335,202 255,185"/>
+          <polygon points="335,153 369,133 369,180 335,202"/>
+          <polygon points="255,137 290,117 369,133 335,153"/>
+        </g>
+        <text x="287" y="158" fill="#4f5f68" font-size="11">ELS</text>
+        <g stroke="#8ca0ac" stroke-width="1">
+          <line x1="270" y1="143" x2="328" y2="155"/><line x1="270" y1="149" x2="328" y2="161"/><line x1="270" y1="155" x2="328" y2="167"/>
+        </g>
+
+        <g fill="none" stroke="#efa43a" stroke-width="4" stroke-linecap="round">
+          <path d="M340 175 C300 195 300 235 339 248"/>
+          <path d="M347 170 C309 199 310 221 347 238"/>
+        </g>
+        <g fill="none" stroke="#4a9ce7" stroke-width="3" opacity=".95">
+          <path d="M330 244 C240 255 206 320 220 348"/>
+          <path d="M368 245 C280 280 270 330 300 362"/>
+          <path d="M548 246 C640 250 666 307 620 348"/>
+          <path d="M565 306 C690 310 660 365 560 390"/>
+        </g>
+
+        <g id="fau-shapes" fill="#2784e3" stroke="#0a5fb6" stroke-width="2">
+          <rect x="185" y="342" width="48" height="27" transform="rotate(11 209 355)"/>
+          <rect x="238" y="353" width="48" height="27" transform="rotate(11 262 366)"/>
+          <rect x="291" y="364" width="48" height="27" transform="rotate(11 315 377)"/>
+          <rect x="344" y="375" width="48" height="27" transform="rotate(11 368 388)"/>
+          <rect x="397" y="386" width="48" height="27" transform="rotate(11 421 399)"/>
+          <rect x="450" y="397" width="48" height="27" transform="rotate(11 474 410)"/>
+        </g>
+        <g fill="#92c8ff">
+          <rect x="190" y="347" width="30" height="5" transform="rotate(11 205 350)"/>
+          <rect x="243" y="358" width="30" height="5" transform="rotate(11 258 361)"/>
+          <rect x="296" y="369" width="30" height="5" transform="rotate(11 311 372)"/>
+          <rect x="349" y="380" width="30" height="5" transform="rotate(11 364 383)"/>
+          <rect x="402" y="391" width="30" height="5" transform="rotate(11 417 394)"/>
+          <rect x="455" y="402" width="30" height="5" transform="rotate(11 470 405)"/>
+        </g>
+
+        <text x="333" y="439" class="board-label">FRONT OPTICAL I/O</text>
+
+        <g class="svg-hotspot" data-id="els" tabindex="0">
+          <line x1="172" y1="119" x2="280" y2="150" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="15" y="92" rx="10" width="158" height="57"/>
+          <rect class="num" x="26" y="105" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="121">01</text>
+          <text class="label" x="60" y="118">외부 광원</text><text class="sub" x="60" y="137">금속 하우징 · ELS</text>
+        </g>
+        <g class="svg-hotspot" data-id="pmFiber" tabindex="0">
+          <line x1="172" y1="209" x2="315" y2="210" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="15" y="180" rx="10" width="158" height="57"/>
+          <rect class="num" x="26" y="193" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="209">02</text>
+          <text class="label" x="60" y="206">PM fiber</text><text class="sub" x="60" y="225">광원 공급 경로</text>
+        </g>
+        <g class="svg-hotspot" data-id="opticalEngine" tabindex="0">
+          <line x1="704" y1="106" x2="584" y2="222" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="704" y="80" rx="10" width="178" height="57"/>
+          <rect class="num" x="716" y="93" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="109">03</text>
+          <text class="label" x="750" y="106">광엔진</text><text class="sub" x="750" y="125">PIC + EIC · 8개 예시</text>
+        </g>
+        <g class="svg-hotspot" data-id="switchAsic" tabindex="0">
+          <line x1="704" y1="188" x2="535" y2="255" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="704" y="160" rx="10" width="178" height="57"/>
+          <rect class="num" x="716" y="173" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="189">04</text>
+          <text class="label" x="750" y="186">Switch ASIC</text><text class="sub" x="750" y="205">중앙 전기 스위칭 칩</text>
+        </g>
+        <g class="svg-hotspot" data-id="package" tabindex="0">
+          <line x1="704" y1="300" x2="604" y2="305" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="704" y="273" rx="10" width="178" height="57"/>
+          <rect class="num" x="716" y="286" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="302">05</text>
+          <text class="label" x="750" y="299">공통 패키지</text><text class="sub" x="750" y="318">기판 · BGA 연결</text>
+        </g>
+        <g class="svg-hotspot" data-id="fau" tabindex="0">
+          <line x1="173" y1="330" x2="225" y2="349" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="15" y="302" rx="10" width="158" height="57"/>
+          <rect class="num" x="26" y="315" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="331">06</text>
+          <text class="label" x="60" y="328">FAU</text><text class="sub" x="60" y="347">광섬유–PIC 정렬</text>
+        </g>
+        <g class="svg-hotspot" data-id="dataFiber" tabindex="0">
+          <line x1="174" y1="465" x2="248" y2="374" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="15" y="437" rx="10" width="158" height="57"/>
+          <rect class="num" x="26" y="450" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="466">07</text>
+          <text class="label" x="60" y="463">Data fiber</text><text class="sub" x="60" y="482">데이터 송수신 경로</text>
+        </g>
+        <g class="svg-hotspot" data-id="connector" tabindex="0">
+          <line x1="665" y1="489" x2="481" y2="410" stroke="#9fb3c7" stroke-width="1.4"/>
+          <rect class="callout" x="665" y="459" rx="10" width="217" height="61"/>
+          <rect class="num" x="677" y="473" rx="5" width="26" height="24"/><text class="numtxt" x="684" y="489">08</text>
+          <text class="label" x="711" y="486">전면 커넥터</text><text class="sub" x="711" y="505">MPO / VSFF 후보</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <input class="search" id="search" type="search" placeholder="업체 또는 부품 검색: Corning, Molex, ELS, FAU …">
+    <select class="select" id="partSelect"></select>
+    <button class="small-btn" id="resetBtn" type="button">초기화</button>
+  </div>
+
+  <section class="detail-layout" id="details">
+    <div class="card component-panel">
+      <div class="eyebrow">Selected component</div>
+      <div class="comp-title" style="margin-top:8px">
+        <div class="comp-icon" id="partIcon">03</div>
+        <div><h2 id="partTitle">광엔진</h2><p id="partDesc"></p></div>
       </div>
-      <div class="grid" id="componentGrid"></div>
-    </section>
+      <div class="chips" id="partTags"></div>
+      <div class="eyebrow" style="margin-top:18px">Related companies</div>
+      <div class="vendor-list" id="vendorList"></div>
+    </div>
 
-    <section class="detail">
-      <div class="card">
-        <div class="eyebrow">Selected component</div>
-        <h2 id="detailTitle">부품을 선택하세요</h2>
-        <p id="detailDesc">상단 구조도 또는 카드 중 하나를 클릭하면 상세 설명이 표시됩니다.</p>
-        <div id="detailCompanies" class="companies"></div>
-      </div>
-      <div class="card">
-        <h2>Development roadmap</h2>
-        <div class="detail-list">
-          <div class="detail-row"><b>1. 업체/제품 DB</b><span class="muted">회사 · 공식 URL · 대표 제품을 JSON으로 분리</span></div>
-          <div class="detail-row"><b>2. 최근 CPO 뉴스</b><span class="muted">업체별 최근 기사 제목 및 발표 내역 연계</span></div>
-          <div class="detail-row"><b>3. Simulation 연계</b><span class="muted">Link budget · coupling loss · BER · energy/bit 결과 연결</span></div>
-          <div class="detail-row"><b>4. 다국어</b><span class="muted">한국어 기본, 영어/중국어 UI 확장</span></div>
-        </div>
-      </div>
-    </section>
+    <div class="card vendor-panel">
+      <div id="vendorContent"></div>
+    </div>
+  </section>
 
-    <footer>
-      Repository: kimheeseo/LSCNS · Path: DCI/CPO/ · README에 버전별 변경사항을 누적 기록합니다.
-    </footer>
-  </main>
+  <section class="component-grid" id="componentGrid"></section>
 
-  <script>
-    const data = [
-      {
-        id:"compute", category:"Compute / ASIC", name:"ASIC & xPU",
-        desc:"GPU/xPU와 switch ASIC이 CPO optical engine과 패키지 수준에서 결합되는 영역입니다.",
-        companies:["NVIDIA","Broadcom","AMD","Intel","Marvell","Cisco","Fujitsu"]
-      },
-      {
-        id:"laser", category:"Light Source", name:"Laser / Light Source",
-        desc:"CW laser 또는 외부 광원으로 optical engine에 광을 공급합니다. External laser source(ELS) 구조도 CPO에서 중요합니다.",
-        companies:["Lumentum","Coherent","Broadcom","Intel","Cisco","Sumitomo Electric","Furukawa Electric"]
-      },
-      {
-        id:"modulator", category:"PIC", name:"Modulator / PIC",
-        desc:"Electrical data를 optical signal로 변환하며 SiPh waveguide, modulator, mux/demux 등의 PIC 기능을 포함합니다.",
-        companies:["Broadcom","Intel","Cisco","Marvell","Ayar Labs","Ranovus","Lightmatter"]
-      },
-      {
-        id:"fau", category:"Optical Connectivity", name:"FAU / Fiber Attach",
-        desc:"PIC와 광섬유 배열을 정렬·결합하는 인터페이스입니다. Coupling loss와 정렬 공차가 핵심 성능지표입니다.",
-        companies:["Fujikura","Sumitomo Electric","Furukawa Electric","Molex"]
-      },
-      {
-        id:"connector", category:"Optical Connectivity", name:"Connector / VSFF",
-        desc:"MPO, SN, MDC 등 고밀도 광 커넥터가 CPO/AI 데이터센터의 패널 밀도와 serviceability를 좌우합니다.",
-        companies:["Senko","US Conec","Molex","Corning"]
-      },
-      {
-        id:"fiber", category:"Fiber", name:"SMF / PM Fiber",
-        desc:"CPO optical engine에서 외부 레이저·FAU·rack interconnect를 연결합니다. 용도에 따라 SMF 또는 PM fiber가 사용됩니다.",
-        companies:["Corning","Fujikura","Sumitomo Electric","Furukawa Electric","Hengtong"]
-      },
-      {
-        id:"electrical", category:"Electrical", name:"DSP / Driver / TIA",
-        desc:"Modulator 구동, 수신 TIA, equalization 및 DSP를 담당하는 전기적 프론트엔드입니다.",
-        companies:["Marvell","Broadcom","Credo","MaxLinear"]
-      },
-      {
-        id:"package", category:"Packaging", name:"Package / Thermal",
-        desc:"ASIC-PIC co-package, substrate, heat spreader, cooling 구조를 포함하며 thermal drift와 electrical SI가 주요 이슈입니다.",
-        companies:["TSMC","Intel","ASE","Amkor"]
-      },
-      {
-        id:"switch", category:"System", name:"CPO Switch System",
-        desc:"Switch ASIC과 optical engine이 결합된 최종 시스템 계층으로, port density·power/bit·serviceability를 평가합니다.",
-        companies:["Broadcom","NVIDIA","Cisco"]
-      }
-    ];
+  <div class="footer-note">
+    기사 영역은 사이트에 저장된 검증 기사와 업체별 최신 검색 링크를 함께 제공합니다. 정적 GitHub Pages이므로 외부 뉴스 API를 실시간 호출하지 않으며,
+    다음 업데이트에서 기사 데이터를 JSON으로 분리해 유지보수할 수 있습니다.
+  </div>
+  <footer>kimheeseo/LSCNS · DCI/CPO · CPO Component Explorer</footer>
+</main>
 
-    const flowIds = ["compute","modulator","fau","connector","fiber"];
-    const flow = document.getElementById("flow");
-    flowIds.forEach((id,i)=>{
-      const item=data.find(x=>x.id===id);
-      const btn=document.createElement("button");
-      btn.className="node";btn.type="button";btn.dataset.id=id;btn.textContent=item.name;
-      btn.addEventListener("click",()=>selectItem(id));
-      flow.appendChild(btn);
-      if(i<flowIds.length-1){
-        const a=document.createElement("div");a.className="arrow";a.textContent="→";flow.appendChild(a);
-      }
-    });
+<script>
+var companies={
+  coherent:{name:'Coherent',initial:'CO',official:'https://www.coherent.com/',focus:'ELS · SiPh · CPO optical assembly',
+    product:'PhotonLink™, socketed CPO, external laser source',
+    news:[
+      {date:'2026-09-21',title:'Coherent Launches PhotonLink™ Integrated Optics Platform for AI Infrastructure',source:'Coherent',url:'https://www.coherent.com/news/press-releases/launches-photonlink-integrated-optics-platform-ai-infrastructure'},
+      {date:'2026-09-20',title:'Coherent Showcases Optical Innovations to Scale AI Infrastructure at ECOC 2026',source:'Coherent',url:'https://www.coherent.com/news/press-releases/showcases-optical-innovations-scale-ai-infrastructure-ecoc-2026'},
+      {date:'2026-03-17',title:'Coherent Demonstrates Multiple Co-Packaged Optics Technologies at OFC 2026',source:'Coherent',url:'https://www.coherent.com/news/press-releases/coherent-co-packaged-optics-cpo-technologies-ofc-2026'}
+    ]},
+  lumentum:{name:'Lumentum',initial:'LU',official:'https://www.lumentum.com/',focus:'External laser source · high-power InP laser',
+    product:'DWDM ELSFP · UHP/SHP laser',
+    news:[
+      {date:'2026-09-21',title:'Lumentum to Demonstrate DWDM ELSFP Laser Module for OCI MSA Applications at ECOC 2026',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-to-Demonstrate-DWDM-ELSFP-Laser-Module-for-OCI-MSA-Applications-at-ECOC-2026/default.aspx'},
+      {date:'2026-06-17',title:'Reliability Becomes the New Currency: How CPO Is Rewriting Laser Performance',source:'Lumentum',url:'https://www.lumentum.com/en/blog/reliability-becomes-new-currency-how-cpo-rewriting-laser-performance'},
+      {date:'2026-03-17',title:'Lumentum Demonstrates Industry-Leading Technologies for AI Infrastructure at OFC 2026',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Demonstrates-Industry-Leading-Technologies-and-Products-for-Scale-Out-Scale-Up-and-Scale-Across-AI-Infrastructure-at-OFC-2026/default.aspx'}
+    ]},
+  ayar:{name:'Ayar Labs',initial:'AY',official:'https://ayarlabs.com/',focus:'CPO optical I/O chiplet · ELS',
+    product:'TeraPHY™ Optical Engine · SuperNova™ Light Source',
+    news:[
+      {date:'2026-09-10',title:'Ayar Labs Expands 2026 Funding to $650 Million to Scale Manufacturing-Ready CPO',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million'},
+      {date:'2026-06-02',title:'Ayar Labs Joins NVIDIA NVLink Fusion Ecosystem to Bring CPO to Rack-Scale AI Infrastructure',source:'Ayar Labs',url:'https://ayarlabs.com/news/'},
+      {date:'2026-03-11',title:'Ayar Labs and Wiwynn Partner to Bring Co-Packaged Optics to Rack-Scale AI Systems',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-and-wiwynn-partner-to-bring-co-packaged-optics-to-rack-scale-ai-systems/'}
+    ]},
+  broadcom:{name:'Broadcom',initial:'BC',official:'https://www.broadcom.com/',focus:'Switch ASIC · silicon photonics CPO',
+    product:'Bailly 51.2T CPO platform (industry-reported)',
+    news:[
+      {date:'2026-07-27',title:'NVIDIA and Broadcom Begin Volume Ramp of CPO Switches',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'}
+    ]},
+  nvidia:{name:'NVIDIA',initial:'NV',official:'https://www.nvidia.com/',focus:'AI networking · photonics switch platform',
+    product:'Spectrum-X / Quantum-X photonics ecosystem',
+    news:[
+      {date:'2026-07-27',title:'NVIDIA and Broadcom Begin Volume Ramp of CPO Switches',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'},
+      {date:'2026-05-06',title:'NVIDIA and Corning Announce Long-Term Partnership for AI Optical Connectivity Manufacturing',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/05/nvidia-and-corning-announce-long-term-partnership-to-strengthen-us-manufacturing-for-ai-infrastructure.html'}
+    ]},
+  marvell:{name:'Marvell',initial:'MV',official:'https://www.marvell.com/',focus:'Switch/DSP · CPO platform',
+    product:'102.4T CPO platform · 2nm optical connectivity',
+    news:[
+      {date:'2026-09-20',title:'Marvell to Showcase Industry-First 2nm Optical Technology Demos at ECOC 2026',source:'Marvell',url:'https://www.marvell.com/company/newsroom/marvell-industry-first-2nm-optical-technology-ai-data-center-infrastructure-ecoc-2026.html'},
+      {date:'2026-05-28',title:'Open CPX Sets the Stage for More Flexible, Scalable Connectivity',source:'Marvell',url:'https://www.marvell.com/blogs.html?archivemonth=2026-05'}
+    ]},
+  lightmatter:{name:'Lightmatter',initial:'LM',official:'https://lightmatter.co/',focus:'Photonic interconnect · CPO/NPO optical engine',
+    product:'Passage™ · vClick™ Optics',
+    news:[
+      {date:'2026-09-17',title:'Lightmatter Joins Open CPX MSA and Introduces Bidirectional CPX Optical Engine',source:'Lightmatter',url:'https://lightmatter.co/press-releases/'},
+      {date:'2026-06-02',title:'Lightmatter Joins NVIDIA NVLink Fusion and Powers Next-Generation AI Infrastructure',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-joins-nvidia-nvlink-fusion/'},
+      {date:'2026-03-11',title:'Lightmatter Achieves Record 1.6 Tbps Per Fiber to Accelerate AI Optical Interconnect',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-achieves-record-1-6-tbps-per-fiber-to-accelerate-ai-optical-interconnect/'}
+    ]},
+  molex:{name:'Molex',initial:'MO',official:'https://www.molex.com/en-us/industries-applications/data-center-connector-solutions/near-asic/co-packaged-optics',focus:'CPO connectivity · ELSFP · detachable fiber-to-chip',
+    product:'VersaBeam · ELSFP Interconnect · CPO toolkit',
+    news:[
+      {date:'2026-09-21',title:'Molex Announces VersaBeam Mini for Ultra-Dense AI Optical Interconnects',source:'Molex',url:'https://www.molex.com/en-us/news/molex-announces-versabeam-mini-to-advance-optical-interconnects'},
+      {date:'2026-05-07',title:'Molex Completes Acquisition of Teramount for Detachable Fiber-to-Chip CPO Connectivity',source:'Molex',url:'https://www.molex.com/en-us/news/molex-completes-acquisition-of-teramount-ltd'},
+      {date:'2026-03-17',title:'Molex Accelerates AI Cluster Deployment with Expanded CPO Interconnect Toolkit',source:'Molex',url:'https://www.molex.com/en-us/news/molex-accelerates-ai-cluster-deployment-with-one-stop-optical-interconnect-architecture-and-debut-of-high-radix-optical-circuit-switch-platform'}
+    ]},
+  corning:{name:'Corning',initial:'CR',official:'https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/optical-communication-components/co-packaged-optics.html',focus:'Fiber-to-chip · FAU · fiber · connector',
+    product:'GlassBridge™ · FAU · MMC/PRIZM TMT · CPO FlexConnect™',
+    news:[
+      {date:'2026-09-21',title:'Corning at ECOC 2026: From Fiber to Chip, AI Network Innovations',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/corning-at-ecoc-2026.html'},
+      {date:'2026-09-17',title:'Corning to Showcase End-to-End Passive CPO/NPO Solutions at ECOC 2026',source:'Corning',url:'https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/09/corning-to-showcase-new-cable-and-connectivity-innovations-to-accelerate-and-streamline-ai-network-growth-at-ecoc-2026.html'},
+      {date:'2026-07-23',title:'Why Scalable CPO Must Be Built as a System',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/why-scalable-cpo-must-be-built-as-a-system.html'},
+      {date:'2026-03-11',title:'Corning Expands AI Data Center Connectivity Portfolio with PRIZM TMT Technology',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/03/corning-expands-ai-data-center-connectivity-portfolio-with-prizm-tmt-technology.html'}
+    ]},
+  senko:{name:'SENKO',initial:'SE',official:'https://www.senko.com/',focus:'VSFF / detachable PIC connectivity',
+    product:'SN® family · detachable connectivity to PIC',
+    news:[
+      {date:'2026-03-11',title:'SENKO Collaborates with Lightmatter on Detachable Connectivity to the PIC for 3D CPO',source:'SENKO',url:'https://www.senko.com/news/'},
+      {date:'2026-06-01',title:'From Architecture to Adoption: Ecosystem Collaboration Accelerates Co-Packaged Optics',source:'SENKO',url:'https://www.senko.com/news/'}
+    ]},
+  usconec:{name:'US Conec',initial:'UC',official:'https://www.usconec.com/',focus:'VSFF · expanded-beam ferrule',
+    product:'PRIZM® TMT · MMC® connector ecosystem',
+    news:[
+      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+    ]},
+  fujikura:{name:'Fujikura',initial:'FJ',official:'https://www.fujikura.co.jp/eng/',focus:'Fiber · high-density connectivity · ferrule ecosystem',
+    product:'Optical fiber/connector ecosystem · PRIZM TMT framework participant',
+    news:[
+      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+    ]},
+  sumitomo:{name:'Sumitomo Electric',initial:'SE',official:'https://sumitomoelectric.com/',focus:'Fiber · connectivity · ferrule ecosystem',
+    product:'Optical fiber/cabling · PRIZM TMT framework participant',
+    news:[
+      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+    ]},
+  furukawa:{name:'Furukawa Electric',initial:'FE',official:'https://www.furukawaelectric.com/en/',focus:'Fiber · VSFF connector supply chain',
+    product:'Optical solutions · Hakusan TMT ferrule supply ecosystem',
+    news:[
+      {date:'2026-06-02',title:'Hakusan Constructs New Plant for Mass Production of TMT Ferrules for VSFF Multi-Fiber Optical Connectors',source:'Furukawa Electric',url:'https://www.furukawaelectric.com/en/release/'}
+    ]},
+  hengtong:{name:'Hengtong',initial:'HT',official:'https://www.hengtongglobal.com/',focus:'Optical fiber/cable · AI data center connectivity',
+    product:'Fiber/cable portfolio · CPO technology coverage',
+    news:[
+      {date:'2026-06-04',title:'Co-Packaged Optics: Is 1.6T CPO Ready for AI Data Centers?',source:'Hengtong',url:'https://www.hengtongglobal.com/info/co-packaged-optics-1-6t-cpo-ai-data-centers-103530147.html'}
+    ]},
+  tsmc:{name:'TSMC',initial:'TS',official:'https://www.tsmc.com/',focus:'Advanced packaging · silicon photonics ecosystem',
+    product:'Advanced package integration for AI/CPO architectures',news:[]},
+  intel:{name:'Intel',initial:'IN',official:'https://www.intel.com/',focus:'Silicon photonics · advanced packaging',
+    product:'SiPh / package integration technology',
+    news:[{date:'2026-07-24',title:'Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era',source:'Intel',url:'https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era'}]},
+  ase:{name:'ASE',initial:'AS',official:'https://www.aseglobal.com/',focus:'OSAT · advanced package assembly',product:'Package assembly/test ecosystem',news:[]},
+  amkor:{name:'Amkor',initial:'AM',official:'https://amkor.com/',focus:'OSAT · advanced packaging',product:'Package assembly/test ecosystem',news:[]},
+  cisco:{name:'Cisco',initial:'CS',official:'https://www.cisco.com/',focus:'Networking silicon · optical networking',product:'Silicon One / optical networking ecosystem',news:[]},
+  ranovus:{name:'Ranovus',initial:'RA',official:'https://www.ranovus.com/',focus:'Silicon photonics optical engine',product:'ODIN® optical interconnect platform',news:[]}
+};
 
-    const categories=[...new Set(data.map(x=>x.category))];
-    const category=document.getElementById("category");
-    categories.forEach(c=>{
-      const o=document.createElement("option");o.value=c;o.textContent=c;category.appendChild(o);
-    });
+var parts={
+  els:{num:'01',name:'외부 광원',en:'External Laser Source',desc:'CPO 패키지 밖에서 CW 광을 생성해 PM fiber를 통해 optical engine에 공급합니다. 열·신뢰성·서비스성을 위해 laser를 package 밖에 두는 구조가 일반적입니다.',tags:['ELS','CW laser','ELSFP','thermal'],vendors:['lumentum','coherent','ayar','molex']},
+  pmFiber:{num:'02',name:'PM fiber',en:'Polarization-Maintaining Fiber',desc:'외부 광원의 편광 상태를 유지하며 optical engine까지 광을 전달하는 경로입니다. ELS 구조에서 굴곡, 커넥터, 편광 유지 성능이 중요합니다.',tags:['PM fiber','laser feed','bend','polarization'],vendors:['fujikura','sumitomo','corning','furukawa']},
+  opticalEngine:{num:'03',name:'광엔진',en:'Optical Engine / PIC + EIC',desc:'SiPh/PIC와 EIC가 전기 신호를 광 신호로 변환하고 다시 수신하는 핵심 CPO 블록입니다. bandwidth density, coupling loss, thermal drift, testability가 주요 지표입니다.',tags:['PIC','EIC','SiPh','200G/lane','CPO'],vendors:['broadcom','ayar','lightmatter','marvell','coherent','ranovus']},
+  switchAsic:{num:'04',name:'Switch ASIC',en:'Electrical Switching ASIC',desc:'CPO 패키지 중앙의 고대역폭 스위칭 칩입니다. SerDes 거리를 줄이기 위해 optical engine을 ASIC 가까이 배치합니다.',tags:['switch silicon','SerDes','51.2T+','AI fabric'],vendors:['broadcom','nvidia','marvell','cisco']},
+  package:{num:'05',name:'공통 패키지',en:'Package / Substrate',desc:'Switch ASIC과 optical engine, 전기 배선, 전원 및 기계/열 구조를 하나의 고밀도 패키지로 통합합니다.',tags:['substrate','BGA','advanced packaging','thermal'],vendors:['tsmc','intel','ase','amkor']},
+  fau:{num:'06',name:'FAU',en:'Fiber Array Unit',desc:'PIC edge/grating coupler와 다심 fiber array를 정밀 정렬·고정합니다. coupling loss, x/y/z tolerance, angle tolerance와 고온 신뢰성이 핵심입니다.',tags:['FAU','fiber-to-chip','alignment','coupling loss'],vendors:['corning','molex','fujikura','sumitomo','furukawa']},
+  dataFiber:{num:'07',name:'Data fiber',en:'Data Fiber',desc:'Optical engine에서 전면 connector 또는 외부 optical fabric으로 데이터를 송수신하는 광섬유 경로입니다. bend loss, density, MPI, routing이 중요합니다.',tags:['SMF','bend','routing','density'],vendors:['corning','fujikura','sumitomo','furukawa','hengtong']},
+  connector:{num:'08',name:'전면 커넥터',en:'Front Connector / VSFF',desc:'CPO chassis 전면에서 수십~수백 개 fiber를 serviceable하게 연결합니다. MPO/MMC/SN 계열 등 고밀도 interface와 expanded-beam 방식이 후보입니다.',tags:['MPO','MMC','SN','VSFF','expanded beam'],vendors:['senko','usconec','molex','corning','furukawa']}
+};
 
-    const grid=document.getElementById("componentGrid");
-    function render(){
-      const q=document.getElementById("search").value.trim().toLowerCase();
-      const cat=category.value;
-      grid.innerHTML="";
-      data.filter(item=>{
-        const hay=[item.name,item.category,item.desc,...item.companies].join(" ").toLowerCase();
-        return (cat==="all"||item.category===cat) && (!q||hay.includes(q));
-      }).forEach(item=>{
-        const el=document.createElement("article");
-        el.className="card component";
-        el.tabIndex=0;
-        el.innerHTML='<div class="top"><div><h3>'+item.name+'</h3><span class="muted">'+item.desc+'</span></div><span class="tag">'+item.category+'</span></div>'+
-          '<div class="companies">'+item.companies.slice(0,5).map(c=>'<span class="company">'+c+'</span>').join("")+'</div>';
-        el.addEventListener("click",()=>selectItem(item.id));
-        el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectItem(item.id)}});
-        grid.appendChild(el);
-      });
-    }
+var selectedPart='opticalEngine';
+var selectedVendor='broadcom';
 
-    function selectItem(id){
-      const item=data.find(x=>x.id===id); if(!item) return;
-      document.getElementById("detailTitle").textContent=item.name;
-      document.getElementById("detailDesc").textContent=item.desc;
-      document.getElementById("detailCompanies").innerHTML=item.companies.map(c=>'<span class="company">'+c+'</span>').join("");
-      document.querySelectorAll(".node").forEach(n=>n.classList.toggle("active",n.dataset.id===id));
-      document.querySelector(".detail").scrollIntoView({behavior:"smooth",block:"start"});
-    }
+function qs(s){return document.querySelector(s)}
+function qsa(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function newsSearchUrl(name){return 'https://www.google.com/search?tbm=nws&q='+encodeURIComponent(name+' co-packaged optics CPO optical interconnect')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]})}
 
-    document.getElementById("search").addEventListener("input",render);
-    category.addEventListener("change",render);
-    document.getElementById("countComponents").textContent=data.length;
-    document.getElementById("countCompanies").textContent=new Set(data.flatMap(x=>x.companies)).size;
-    render();
-  </script>
+function renderPartSelect(){
+  var sel=qs('#partSelect');sel.innerHTML='';
+  Object.keys(parts).forEach(function(id){
+    var o=document.createElement('option');o.value=id;o.textContent=parts[id].num+' '+parts[id].name;sel.appendChild(o)
+  });
+  sel.value=selectedPart
+}
+
+function renderComponentGrid(){
+  var root=qs('#componentGrid');root.innerHTML='';
+  Object.keys(parts).forEach(function(id){
+    var p=parts[id];var b=document.createElement('button');b.type='button';
+    b.className='component-card'+(id===selectedPart?' active':'');
+    b.innerHTML='<b>'+p.num+' · '+escapeHtml(p.name)+'</b><span>'+escapeHtml(p.en)+'</span>';
+    b.addEventListener('click',function(){selectPart(id,true)});root.appendChild(b)
+  })
+}
+
+function selectPart(id,scroll){
+  if(!parts[id])return;
+  selectedPart=id;
+  var p=parts[id];
+  selectedVendor=p.vendors[0];
+  qs('#partIcon').textContent=p.num;
+  qs('#partTitle').textContent=p.name;
+  qs('#partDesc').textContent=p.desc;
+  qs('#partTags').innerHTML=p.tags.map(function(t){return '<span class="chip">'+escapeHtml(t)+'</span>'}).join('');
+  qs('#partSelect').value=id;
+  qsa('.svg-hotspot').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-id')===id)});
+  renderVendorList();
+  renderVendor();
+  renderComponentGrid();
+  if(scroll){qs('#details').scrollIntoView({behavior:'smooth',block:'start'})}
+}
+
+function renderVendorList(){
+  var root=qs('#vendorList'),p=parts[selectedPart],q=qs('#search').value.trim().toLowerCase();
+  root.innerHTML='';
+  p.vendors.forEach(function(id){
+    var c=companies[id];if(!c)return;
+    var hay=(c.name+' '+c.focus+' '+c.product).toLowerCase();
+    if(q && hay.indexOf(q)<0)return;
+    var b=document.createElement('button');b.type='button';b.className='vendor-btn'+(id===selectedVendor?' active':'');
+    b.innerHTML='<span class="vendor-mark">'+escapeHtml(c.initial)+'</span><span><b>'+escapeHtml(c.name)+'</b><span>'+escapeHtml(c.focus)+'</span></span>';
+    b.addEventListener('click',function(){selectedVendor=id;renderVendorList();renderVendor()});root.appendChild(b)
+  });
+  if(!root.children.length)root.innerHTML='<div class="empty">검색 조건에 맞는 업체가 없습니다.</div>'
+}
+
+function renderVendor(){
+  var c=companies[selectedVendor];
+  if(!c){qs('#vendorContent').innerHTML='<div class="empty">업체를 선택하세요.</div>';return}
+  var news=(c.news||[]).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+  var items=news.length?news.map(function(n){
+    return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
+  }).join(''):'<div class="empty">현재 저장된 검증 기사 링크가 없습니다. 아래 “최신 기사 검색”으로 바로 확인할 수 있습니다.</div>';
+  qs('#vendorContent').innerHTML=
+    '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
+    '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최신 기사 검색 ↗</a></div></div>'+
+    '<div class="rolebox"><strong>대표 제품 / 관련 역할</strong><span>'+escapeHtml(c.product)+'</span></div>'+
+    '<div class="news-head"><div><div class="eyebrow">Recent related articles</div><h3 style="margin-top:5px">최근 CPO · AI 광연결 기사</h3></div><span class="badge">'+news.length+' saved</span></div>'+
+    '<div class="news-list">'+items+'</div>';
+}
+
+function globalSearch(){
+  var q=qs('#search').value.trim().toLowerCase();
+  if(!q){renderVendorList();return}
+  var matchingPart=null;
+  Object.keys(parts).some(function(id){
+    var p=parts[id];var hay=(p.name+' '+p.en+' '+p.desc+' '+p.tags.join(' ')).toLowerCase();
+    if(hay.indexOf(q)>=0){matchingPart=id;return true}
+    return p.vendors.some(function(v){var c=companies[v];return c && (c.name+' '+c.focus+' '+c.product).toLowerCase().indexOf(q)>=0})
+  });
+  if(matchingPart && matchingPart!==selectedPart){selectedPart=matchingPart;selectedVendor=parts[matchingPart].vendors[0];selectPart(matchingPart,false)}
+  else renderVendorList()
+}
+
+qsa('.svg-hotspot').forEach(function(n){
+  n.addEventListener('click',function(){selectPart(n.getAttribute('data-id'),true)});
+  n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPart(n.getAttribute('data-id'),true)}})
+});
+qs('#partSelect').addEventListener('change',function(){selectPart(this.value,true)});
+qs('#search').addEventListener('input',globalSearch);
+qs('#resetBtn').addEventListener('click',function(){qs('#search').value='';selectPart('opticalEngine',false)});
+qs('#kpiCompanies').textContent=Object.keys(companies).length;
+qs('#kpiNews').textContent=Object.keys(companies).reduce(function(n,k){return n+(companies[k].news||[]).length},0);
+renderPartSelect();
+renderComponentGrid();
+selectPart(selectedPart,false);
+</script>
 </body>
 </html>

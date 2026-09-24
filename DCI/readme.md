@@ -546,3 +546,7 @@ Cooling Architecture is now a detailed liquid-cooling heat-removal diagram rathe
 ### Supply Chain vendor/product map v5.3.0
 
 A compact **Supply Chain** button is positioned directly beside **Design Calculation**. The popup is not a static logo board: it is rebuilt from the current **Generic BOM + Product Match** result and groups only the vendors/products actually used by the selected design into Compute/GPU, Network Fabric, Optical Connectivity, Power/UPS/PDU, Cooling/HVAC, Rack/Physical, Storage, and Facility/Security. Each card shows vendor, product/model, quantity when available, the originating BOM source, and product/datasheet links when present. The view is responsive for mobile use.
+
+### Supply Chain related-company ecosystem v5.3.1
+
+The Supply Chain popup now has two clearly separated layers: **(1) vendors/products actually used by the current BOM**, and **(2) Related companies** for each category. Related companies are visually tagged as reference-only / not currently selected, so they do not inflate or alter BOM quantities. Coverage is expanded across compute, network, optical, power, cooling, racks, storage, and facility/security ecosystems.

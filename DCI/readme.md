@@ -572,3 +572,7 @@ Deployment source remains: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM
 ### v6.0.1 hotfix
 
 Fixed a JavaScript string-concatenation syntax error in the v6 Rack Constraint Review (Power cap / Cooling cap rows). The corrected v6 system-engineering patch was syntax-validated before commit. Functional scope remains the same as v6.0.0.
+
+### v6.0.2 build hotfix
+
+Resolved the Render build failure in `patch-v50-supply-chain.js`: the Related Companies HTML fragment contained unescaped double quotes inside the generated JavaScript string. Both the patch file and generated `supply-chain.js` were syntax-validated after correction. v6 engineering logic is unchanged.

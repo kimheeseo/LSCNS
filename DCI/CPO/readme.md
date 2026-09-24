@@ -11,6 +11,36 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.0 — 2026-09-25
+
+### Front-view CPO layout, component-specific news, stock symbol corrections, and upcoming events
+
+- Corrected stock-chart labels/mappings requested by the user:
+  - LS전선 reference chart → `LS` (LS Corp. reference, KRX 006260)
+  - YOFC → `SHA: 601869`
+  - Sumitomo Electric → `TYO: 5802`
+  - Fujikura → `TYO: 5803`
+  - Furukawa Electric → `TYO: 5801`
+- Added `Hengtong` to the PM fiber company list.
+- Changed article discovery to be component-aware:
+  - PM fiber selection searches for `PM fiber / polarization-maintaining fiber + CPO`
+  - Optical Engine selection searches for `PIC / optical engine / silicon photonics + CPO`
+  - Similar component-specific query terms are used for Laser, Switch ASIC, Package, FAU, Optical fiber, and Connector.
+- Stored article cards are filtered by the selected component; unrelated stored headlines are hidden.
+- Changed the CPO hardware illustration to a front-facing / orthographic view while retaining raised-component depth and the 10-second component highlight interaction.
+- Removed the final creator/repository footer from the public UI.
+- Added a compact `CPO 주요 예정 행사` box beside the interactive CPO concept diagram.
+- The event box automatically hides events whose end date has passed and shows the next up-to-five events in chronological order.
+- Seeded upcoming official events:
+  - Optica Online Industry Meeting: Co-Packaged & Pluggable Optics — 12 Jan 2027
+  - DesignCon 2027 — 2–4 Feb 2027
+  - OFC 2027 — 7–11 Mar 2027
+  - Optica GAMA 2027 — 12–13 May 2027
+  - Optica Online Industry Meeting: Co-Packaged & Pluggable Optics — 21 Sep 2027
+- Updated the site/package version to `v1.8.0`.
+
+---
+
 ## v1.7.0 — 2026-09-25
 
 ### Vendor expansion, Korean news titles, and live stock charts

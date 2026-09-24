@@ -11,6 +11,23 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.5.0 — 2026-09-24
+
+### More realistic 3D CPO package visual
+
+- Refined the homepage CPO package to look closer to a physical hardware render while keeping it browser-rendered and sharp at different resolutions.
+- Added stronger perspective, board thickness, multilayer package depth, metallic ELS housing, package traces, gold ASIC pin detail, raised optical-engine modules, metallic FAU structures, blue front connectors, board screws, and passive SMD details.
+- Improved blue data-fiber and orange PM-fiber depth using shadows and optical glow effects.
+- Preserved interactive component highlighting:
+  - Optical Engine selection highlights all eight optical-engine modules in blue.
+  - Switch ASIC selection highlights the center switch chip in orange.
+  - ELS, PM fiber, common package, FAU, data fiber, and front connectors retain selection effects.
+- Kept the existing related-company, representative-product, official-link, and recent-news panels.
+- Updated the site/package version to `v1.5.0`.
+- Render deployment settings are unchanged.
+
+---
+
 ## v1.4.0 — 2026-09-24
 
 ### Crisp interactive 3D CPO model + component highlight actions

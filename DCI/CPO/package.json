@@ -1,0 +1,12 @@
+{
+  "name": "cpo-component-explorer",
+  "version": "1.2.1",
+  "private": true,
+  "description": "CPO Component Explorer for LSCNS DCI/CPO",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20 <25"
+  }
+}

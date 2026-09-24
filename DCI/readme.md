@@ -605,3 +605,7 @@ A new top-level **CPO (Co-Packaged Optics)** button has been added to the Data C
 ### DC BOM v6.3.1 — Cooling Architecture refinement
 
 Cooling Architecture now shows **one view only**. The previous duplicated realistic-image / engineering-SVG presentation was replaced by a single high-DPI 3D engineering canvas. It renders Facility Cooling → CDU → Rack Manifold → liquid-cooled GPU racks → GPU/CPU cold plate with separate cold-supply and warm-return paths. The canvas is device-pixel-ratio aware, supports click-to-expand, and preserves the existing dynamic Rack Heat, ΔT, Flow and CDU calculations below the visual.
+
+### DC BOM v6.3.3 — Rate-limit reliability
+
+The backend no longer counts static HTML/CSS/JS/image requests toward the API rate limit. Rate limiting is now scoped to POST /api/design and POST /api/export-xlsx, with Render-aware forwarded client IP handling so independent visitors do not share one proxy bucket. Genuine API throttling returns Retry-After: 60.

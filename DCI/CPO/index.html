@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CPO Component Explorer</title>
+  <meta name="description" content="CPO(Co-Packaged Optics) 구성요소와 관련 기업을 탐색하는 인터랙티브 페이지" />
+  <style>
+    :root{
+      --bg:#08111f;--panel:#0f1b2d;--panel2:#132238;--line:#243852;
+      --text:#eef4ff;--muted:#9fb0c7;--accent:#4ea1ff;--accent2:#66d9c9;
+      --warn:#ffcc66;--chip:#172a43
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#07101c,#0b1422 40%,#07101c);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif}
+    a{color:#8fc5ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1240px;margin:auto;padding:32px 20px 64px}
+    .hero{display:grid;grid-template-columns:1.5fr .8fr;gap:20px;align-items:stretch}
+    .card{background:rgba(15,27,45,.94);border:1px solid var(--line);border-radius:18px;padding:22px}
+    .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent2);text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(30px,5vw,54px);margin:8px 0 10px;line-height:1.05}
+    h2{font-size:22px;margin:0 0 14px}
+    h3{font-size:16px;margin:0 0 6px}
+    p{color:var(--muted);line-height:1.65}
+    .version{display:inline-flex;padding:7px 10px;border:1px solid #32547b;border-radius:999px;background:#10253d;color:#bdddff;font-size:12px;font-weight:700}
+    .metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .metric div{background:#0b1727;border:1px solid var(--line);border-radius:14px;padding:14px}
+    .metric b{display:block;font-size:20px;color:white}.metric span{font-size:12px;color:var(--muted)}
+    .architecture{margin-top:20px}
+    .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:center}
+    .node{border:1px solid var(--line);background:var(--panel2);border-radius:14px;padding:14px 10px;min-height:82px;
+      display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;font-weight:800;cursor:pointer;transition:.18s}
+    .node:hover,.node.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(78,161,255,.14);transform:translateY(-1px)}
+    .arrow{text-align:center;color:#6f88a8;font-weight:900}
+    .section{margin-top:24px}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    input,select{background:#0b1727;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:14px}
+    input{flex:1;min-width:220px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .component{cursor:pointer}
+    .component .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+    .tag{font-size:11px;padding:5px 8px;border-radius:999px;background:var(--chip);border:1px solid #29405f;color:#bfd2e8}
+    .companies{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+    .company{font-size:12px;background:#0b1727;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:#d8e5f5}
+    .detail{margin-top:20px;display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+    .detail-list{display:grid;gap:10px}
+    .detail-row{padding:13px;border:1px solid var(--line);border-radius:12px;background:#0b1727}
+    .detail-row b{display:block;margin-bottom:4px}
+    .muted{color:var(--muted);font-size:13px}
+    .note{border-left:3px solid var(--warn);padding:10px 12px;background:#1b1c20;border-radius:8px;color:#d9c89d;font-size:13px}
+    footer{margin-top:26px;color:#71839a;font-size:12px}
+    @media(max-width:900px){
+      .hero,.detail{grid-template-columns:1fr}
+      .flow{grid-template-columns:1fr 24px 1fr 24px 1fr}.flow .hide-sm{display:none}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:620px){.grid,.metric{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="eyebrow">LSCNS · DCI · CPO</div>
+        <h1>CPO Component Explorer</h1>
+        <p>CPO(Co-Packaged Optics)의 구성요소를 클릭해 관련 기업과 대표적인 역할을 빠르게 살펴보는 GitHub 기반 프로토타입입니다. 이후 제품·공식 URL·최근 뉴스 데이터를 분리해 지속 업데이트하는 구조로 확장합니다.</p>
+        <span class="version">v1.1.0 · 2026-09-24</span>
+        <div class="metric">
+          <div><b id="countComponents">0</b><span>Component groups</span></div>
+          <div><b id="countCompanies">0</b><span>Company references</span></div>
+          <div><b>GitHub</b><span>Version-controlled</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Explorer 사용법</h2>
+        <p>아래 CPO 흐름도 또는 카드에서 부품을 선택하면 상세 영역이 갱신됩니다. 검색창으로 회사명·부품명을 필터링할 수 있습니다.</p>
+        <div class="note">현재 버전은 구조·탐색 UI 중심의 초기 HTML입니다. 제품·뉴스 데이터는 이후 공식 출처 확인 후 단계적으로 추가합니다.</div>
+      </div>
+    </section>
+
+    <section class="card architecture">
+      <h2>CPO architecture</h2>
+      <div class="flow" id="flow"></div>
+    </section>
+
+    <section class="section">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="부품 또는 회사 검색 (예: FAU, Broadcom, Fujikura)" />
+        <select id="category">
+          <option value="all">전체 카테고리</option>
+        </select>
+      </div>
+      <div class="grid" id="componentGrid"></div>
+    </section>
+
+    <section class="detail">
+      <div class="card">
+        <div class="eyebrow">Selected component</div>
+        <h2 id="detailTitle">부품을 선택하세요</h2>
+        <p id="detailDesc">상단 구조도 또는 카드 중 하나를 클릭하면 상세 설명이 표시됩니다.</p>
+        <div id="detailCompanies" class="companies"></div>
+      </div>
+      <div class="card">
+        <h2>Development roadmap</h2>
+        <div class="detail-list">
+          <div class="detail-row"><b>1. 업체/제품 DB</b><span class="muted">회사 · 공식 URL · 대표 제품을 JSON으로 분리</span></div>
+          <div class="detail-row"><b>2. 최근 CPO 뉴스</b><span class="muted">업체별 최근 기사 제목 및 발표 내역 연계</span></div>
+          <div class="detail-row"><b>3. Simulation 연계</b><span class="muted">Link budget · coupling loss · BER · energy/bit 결과 연결</span></div>
+          <div class="detail-row"><b>4. 다국어</b><span class="muted">한국어 기본, 영어/중국어 UI 확장</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Repository: kimheeseo/LSCNS · Path: DCI/CPO/ · README에 버전별 변경사항을 누적 기록합니다.
+    </footer>
+  </main>
+
+  <script>
+    const data = [
+      {
+        id:"compute", category:"Compute / ASIC", name:"ASIC & xPU",
+        desc:"GPU/xPU와 switch ASIC이 CPO optical engine과 패키지 수준에서 결합되는 영역입니다.",
+        companies:["NVIDIA","Broadcom","AMD","Intel","Marvell","Cisco","Fujitsu"]
+      },
+      {
+        id:"laser", category:"Light Source", name:"Laser / Light Source",
+        desc:"CW laser 또는 외부 광원으로 optical engine에 광을 공급합니다. External laser source(ELS) 구조도 CPO에서 중요합니다.",
+        companies:["Lumentum","Coherent","Broadcom","Intel","Cisco","Sumitomo Electric","Furukawa Electric"]
+      },
+      {
+        id:"modulator", category:"PIC", name:"Modulator / PIC",
+        desc:"Electrical data를 optical signal로 변환하며 SiPh waveguide, modulator, mux/demux 등의 PIC 기능을 포함합니다.",
+        companies:["Broadcom","Intel","Cisco","Marvell","Ayar Labs","Ranovus","Lightmatter"]
+      },
+      {
+        id:"fau", category:"Optical Connectivity", name:"FAU / Fiber Attach",
+        desc:"PIC와 광섬유 배열을 정렬·결합하는 인터페이스입니다. Coupling loss와 정렬 공차가 핵심 성능지표입니다.",
+        companies:["Fujikura","Sumitomo Electric","Furukawa Electric","Molex"]
+      },
+      {
+        id:"connector", category:"Optical Connectivity", name:"Connector / VSFF",
+        desc:"MPO, SN, MDC 등 고밀도 광 커넥터가 CPO/AI 데이터센터의 패널 밀도와 serviceability를 좌우합니다.",
+        companies:["Senko","US Conec","Molex","Corning"]
+      },
+      {
+        id:"fiber", category:"Fiber", name:"SMF / PM Fiber",
+        desc:"CPO optical engine에서 외부 레이저·FAU·rack interconnect를 연결합니다. 용도에 따라 SMF 또는 PM fiber가 사용됩니다.",
+        companies:["Corning","Fujikura","Sumitomo Electric","Furukawa Electric","Hengtong"]
+      },
+      {
+        id:"electrical", category:"Electrical", name:"DSP / Driver / TIA",
+        desc:"Modulator 구동, 수신 TIA, equalization 및 DSP를 담당하는 전기적 프론트엔드입니다.",
+        companies:["Marvell","Broadcom","Credo","MaxLinear"]
+      },
+      {
+        id:"package", category:"Packaging", name:"Package / Thermal",
+        desc:"ASIC-PIC co-package, substrate, heat spreader, cooling 구조를 포함하며 thermal drift와 electrical SI가 주요 이슈입니다.",
+        companies:["TSMC","Intel","ASE","Amkor"]
+      },
+      {
+        id:"switch", category:"System", name:"CPO Switch System",
+        desc:"Switch ASIC과 optical engine이 결합된 최종 시스템 계층으로, port density·power/bit·serviceability를 평가합니다.",
+        companies:["Broadcom","NVIDIA","Cisco"]
+      }
+    ];
+
+    const flowIds = ["compute","modulator","fau","connector","fiber"];
+    const flow = document.getElementById("flow");
+    flowIds.forEach((id,i)=>{
+      const item=data.find(x=>x.id===id);
+      const btn=document.createElement("button");
+      btn.className="node";btn.type="button";btn.dataset.id=id;btn.textContent=item.name;
+      btn.addEventListener("click",()=>selectItem(id));
+      flow.appendChild(btn);
+      if(i<flowIds.length-1){
+        const a=document.createElement("div");a.className="arrow";a.textContent="→";flow.appendChild(a);
+      }
+    });
+
+    const categories=[...new Set(data.map(x=>x.category))];
+    const category=document.getElementById("category");
+    categories.forEach(c=>{
+      const o=document.createElement("option");o.value=c;o.textContent=c;category.appendChild(o);
+    });
+
+    const grid=document.getElementById("componentGrid");
+    function render(){
+      const q=document.getElementById("search").value.trim().toLowerCase();
+      const cat=category.value;
+      grid.innerHTML="";
+      data.filter(item=>{
+        const hay=[item.name,item.category,item.desc,...item.companies].join(" ").toLowerCase();
+        return (cat==="all"||item.category===cat) && (!q||hay.includes(q));
+      }).forEach(item=>{
+        const el=document.createElement("article");
+        el.className="card component";
+        el.tabIndex=0;
+        el.innerHTML='<div class="top"><div><h3>'+item.name+'</h3><span class="muted">'+item.desc+'</span></div><span class="tag">'+item.category+'</span></div>'+
+          '<div class="companies">'+item.companies.slice(0,5).map(c=>'<span class="company">'+c+'</span>').join("")+'</div>';
+        el.addEventListener("click",()=>selectItem(item.id));
+        el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectItem(item.id)}});
+        grid.appendChild(el);
+      });
+    }
+
+    function selectItem(id){
+      const item=data.find(x=>x.id===id); if(!item) return;
+      document.getElementById("detailTitle").textContent=item.name;
+      document.getElementById("detailDesc").textContent=item.desc;
+      document.getElementById("detailCompanies").innerHTML=item.companies.map(c=>'<span class="company">'+c+'</span>').join("");
+      document.querySelectorAll(".node").forEach(n=>n.classList.toggle("active",n.dataset.id===id));
+      document.querySelector(".detail").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
+    document.getElementById("search").addEventListener("input",render);
+    category.addEventListener("change",render);
+    document.getElementById("countComponents").textContent=data.length;
+    document.getElementById("countCompanies").textContent=new Set(data.flatMap(x=>x.companies)).size;
+    render();
+  </script>
+</body>
+</html>

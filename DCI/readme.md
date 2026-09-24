@@ -576,3 +576,16 @@ Fixed a JavaScript string-concatenation syntax error in the v6 Rack Constraint R
 ### v6.0.2 build hotfix
 
 Resolved the Render build failure in `patch-v50-supply-chain.js`: the Related Companies HTML fragment contained unescaped double quotes inside the generated JavaScript string. Both the patch file and generated `supply-chain.js` were syntax-validated after correction. v6 engineering logic is unchanged.
+
+## DC BOM v6.1.0 — GPU suppliers + Server CPU
+
+The tool now separates **GPU / Accelerator** and **Server CPU** supplier references.
+
+- GPU suppliers: NVIDIA, AMD, Intel, Biren Technology.
+- AMD reference family: Instinct MI300 / MI350.
+- Intel GPU reference: Data Center GPU Max Series; availability/lifecycle must be checked for procurement.
+- Biren reference: BR100 family; regional availability/compliance must be checked.
+- Server CPU suppliers: Intel, AMD, NVIDIA, Ampere Computing.
+- Default Server CPU reference: Intel Xeon 6.
+- Related CPU families: AMD EPYC 9005, NVIDIA Grace CPU, AmpereOne.
+- These are supplier/BOM reference selections. They do not alter validated rack/power/network calculations until a vendor-specific system profile is added.

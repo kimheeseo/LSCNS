@@ -49,6 +49,26 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 .svg-hotspot:hover .callout,.svg-hotspot.active .callout{stroke:#1677ff;stroke-width:2.7;fill:#f2f7ff}
 .svg-hotspot.active .num{fill:#dcecff}
 .board-label{fill:#d8e9e9;font-size:10px;letter-spacing:.16em}
+
+.image-stage{position:relative;width:100%;background:#f7fbff;overflow:hidden;border-radius:14px}
+.cpo-render{display:block;width:100%;height:auto}
+.hotspot{position:absolute;border:2px solid transparent;background:rgba(22,119,255,0);border-radius:12px;cursor:pointer;transition:.15s;z-index:5}
+.hotspot:hover,.hotspot:focus-visible,.hotspot.active{border-color:#1677ff;background:rgba(22,119,255,.09);box-shadow:0 0 0 4px rgba(22,119,255,.10);outline:none}
+.hotspot::after{content:attr(data-tip);position:absolute;left:50%;top:-32px;transform:translateX(-50%);white-space:nowrap;background:#17395f;color:#fff;font-size:10px;font-weight:800;padding:5px 7px;border-radius:7px;opacity:0;pointer-events:none;transition:.15s}
+.hotspot:hover::after,.hotspot:focus-visible::after{opacity:1}
+.hotspot[data-id="els"]{left:4.2%;top:17.5%;width:19%;height:9%}
+.hotspot[data-id="pmFiber"]{left:3%;top:29%;width:19%;height:9%}
+.hotspot[data-id="opticalEngine"]{left:80.5%;top:16.8%;width:17.5%;height:9%}
+.hotspot[data-id="switchAsic"]{left:79%;top:29.5%;width:19%;height:9%}
+.hotspot[data-id="package"]{left:82.5%;top:54%;width:16%;height:9%}
+.hotspot[data-id="fau"]{left:7%;top:73%;width:18%;height:9%}
+.hotspot[data-id="dataFiber"]{left:2.5%;top:60%;width:18%;height:9%}
+.hotspot[data-id="connector"]{left:79%;top:84%;width:19%;height:9%}
+@media(max-width:620px){
+  .image-stage{min-width:760px}
+  .hotspot::after{display:none}
+}
+
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 12px}
 .search{flex:1;min-width:230px;border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 13px;color:var(--text)}
 .select{border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 12px;color:var(--text)}
@@ -102,7 +122,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.2.1 · 2026-09-24</span>
+    <span class="badge">v1.3.0 · 2026-09-24</span>
   </header>
 
   <section class="hero">
@@ -131,126 +151,17 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <div class="arch-note">선택된 부품은 파란색 테두리로 표시됩니다.</div>
     </div>
     <div class="diagram-shell">
-      <svg viewBox="0 0 900 560" role="img" aria-label="CPO package interactive schematic">
-        <defs>
-          <linearGradient id="pcb" x1="0" x2="1"><stop offset="0" stop-color="#1a6267"/><stop offset="1" stop-color="#15585d"/></linearGradient>
-          <linearGradient id="pkg" x1="0" x2="1"><stop offset="0" stop-color="#789b89"/><stop offset="1" stop-color="#90a58d"/></linearGradient>
-          <linearGradient id="asic" x1="0" x2="1"><stop offset="0" stop-color="#263d58"/><stop offset="1" stop-color="#1d3048"/></linearGradient>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity=".18"/></filter>
-        </defs>
-
-        <polygon points="120,275 345,110 820,250 575,455" fill="url(#pcb)" stroke="#0f4b50" stroke-width="3" filter="url(#shadow)"/>
-        <circle cx="145" cy="287" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
-        <circle cx="780" cy="270" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
-        <circle cx="565" cy="425" r="5" fill="none" stroke="#b6c7a9" stroke-width="2"/>
-
-        <polygon points="260,250 395,160 675,244 526,370" fill="url(#pkg)" stroke="#b7c5ab" stroke-width="2" filter="url(#shadow)"/>
-        <rect x="383" y="220" width="160" height="98" rx="5" fill="url(#asic)" stroke="#637b95" stroke-width="2" transform="rotate(10 463 269)"/>
-        <text x="421" y="260" fill="#e9f1fa" font-size="16" font-weight="800" transform="rotate(10 463 269)">SWITCH ASIC</text>
-        <text x="432" y="280" fill="#a9bad0" font-size="9" transform="rotate(10 463 269)">Electrical switching</text>
-
-        <g fill="#d8b65c" stroke="#8a6a20" stroke-width="1.5">
-          <rect x="320" y="210" width="55" height="34" transform="rotate(10 347 227)"/>
-          <rect x="552" y="226" width="55" height="34" transform="rotate(10 580 243)"/>
-          <rect x="300" y="275" width="55" height="34" transform="rotate(10 328 292)"/>
-          <rect x="560" y="300" width="55" height="34" transform="rotate(10 588 317)"/>
-        </g>
-        <g fill="#eaf1f7" stroke="#9fb3c7">
-          <rect x="330" y="201" width="20" height="8" transform="rotate(10 340 205)"/>
-          <rect x="562" y="217" width="20" height="8" transform="rotate(10 572 221)"/>
-          <rect x="310" y="266" width="20" height="8" transform="rotate(10 320 270)"/>
-          <rect x="570" y="291" width="20" height="8" transform="rotate(10 580 295)"/>
-        </g>
-
-        <g fill="#e5ebef" stroke="#9dadb6">
-          <polygon points="255,137 335,153 335,202 255,185"/>
-          <polygon points="335,153 369,133 369,180 335,202"/>
-          <polygon points="255,137 290,117 369,133 335,153"/>
-        </g>
-        <text x="287" y="158" fill="#4f5f68" font-size="11">ELS</text>
-        <g stroke="#8ca0ac" stroke-width="1">
-          <line x1="270" y1="143" x2="328" y2="155"/><line x1="270" y1="149" x2="328" y2="161"/><line x1="270" y1="155" x2="328" y2="167"/>
-        </g>
-
-        <g fill="none" stroke="#efa43a" stroke-width="4" stroke-linecap="round">
-          <path d="M340 175 C300 195 300 235 339 248"/>
-          <path d="M347 170 C309 199 310 221 347 238"/>
-        </g>
-        <g fill="none" stroke="#4a9ce7" stroke-width="3" opacity=".95">
-          <path d="M330 244 C240 255 206 320 220 348"/>
-          <path d="M368 245 C280 280 270 330 300 362"/>
-          <path d="M548 246 C640 250 666 307 620 348"/>
-          <path d="M565 306 C690 310 660 365 560 390"/>
-        </g>
-
-        <g id="fau-shapes" fill="#2784e3" stroke="#0a5fb6" stroke-width="2">
-          <rect x="185" y="342" width="48" height="27" transform="rotate(11 209 355)"/>
-          <rect x="238" y="353" width="48" height="27" transform="rotate(11 262 366)"/>
-          <rect x="291" y="364" width="48" height="27" transform="rotate(11 315 377)"/>
-          <rect x="344" y="375" width="48" height="27" transform="rotate(11 368 388)"/>
-          <rect x="397" y="386" width="48" height="27" transform="rotate(11 421 399)"/>
-          <rect x="450" y="397" width="48" height="27" transform="rotate(11 474 410)"/>
-        </g>
-        <g fill="#92c8ff">
-          <rect x="190" y="347" width="30" height="5" transform="rotate(11 205 350)"/>
-          <rect x="243" y="358" width="30" height="5" transform="rotate(11 258 361)"/>
-          <rect x="296" y="369" width="30" height="5" transform="rotate(11 311 372)"/>
-          <rect x="349" y="380" width="30" height="5" transform="rotate(11 364 383)"/>
-          <rect x="402" y="391" width="30" height="5" transform="rotate(11 417 394)"/>
-          <rect x="455" y="402" width="30" height="5" transform="rotate(11 470 405)"/>
-        </g>
-
-        <text x="333" y="439" class="board-label">FRONT OPTICAL I/O</text>
-
-        <g class="svg-hotspot" data-id="els" tabindex="0">
-          <line x1="172" y1="119" x2="280" y2="150" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="15" y="92" rx="10" width="158" height="57"/>
-          <rect class="num" x="26" y="105" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="121">01</text>
-          <text class="label" x="60" y="118">외부 광원</text><text class="sub" x="60" y="137">금속 하우징 · ELS</text>
-        </g>
-        <g class="svg-hotspot" data-id="pmFiber" tabindex="0">
-          <line x1="172" y1="209" x2="315" y2="210" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="15" y="180" rx="10" width="158" height="57"/>
-          <rect class="num" x="26" y="193" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="209">02</text>
-          <text class="label" x="60" y="206">PM fiber</text><text class="sub" x="60" y="225">광원 공급 경로</text>
-        </g>
-        <g class="svg-hotspot" data-id="opticalEngine" tabindex="0">
-          <line x1="704" y1="106" x2="584" y2="222" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="704" y="80" rx="10" width="178" height="57"/>
-          <rect class="num" x="716" y="93" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="109">03</text>
-          <text class="label" x="750" y="106">광엔진</text><text class="sub" x="750" y="125">PIC + EIC · 8개 예시</text>
-        </g>
-        <g class="svg-hotspot" data-id="switchAsic" tabindex="0">
-          <line x1="704" y1="188" x2="535" y2="255" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="704" y="160" rx="10" width="178" height="57"/>
-          <rect class="num" x="716" y="173" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="189">04</text>
-          <text class="label" x="750" y="186">Switch ASIC</text><text class="sub" x="750" y="205">중앙 전기 스위칭 칩</text>
-        </g>
-        <g class="svg-hotspot" data-id="package" tabindex="0">
-          <line x1="704" y1="300" x2="604" y2="305" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="704" y="273" rx="10" width="178" height="57"/>
-          <rect class="num" x="716" y="286" rx="5" width="26" height="24"/><text class="numtxt" x="723" y="302">05</text>
-          <text class="label" x="750" y="299">공통 패키지</text><text class="sub" x="750" y="318">기판 · BGA 연결</text>
-        </g>
-        <g class="svg-hotspot" data-id="fau" tabindex="0">
-          <line x1="173" y1="330" x2="225" y2="349" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="15" y="302" rx="10" width="158" height="57"/>
-          <rect class="num" x="26" y="315" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="331">06</text>
-          <text class="label" x="60" y="328">FAU</text><text class="sub" x="60" y="347">광섬유–PIC 정렬</text>
-        </g>
-        <g class="svg-hotspot" data-id="dataFiber" tabindex="0">
-          <line x1="174" y1="465" x2="248" y2="374" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="15" y="437" rx="10" width="158" height="57"/>
-          <rect class="num" x="26" y="450" rx="5" width="26" height="24"/><text class="numtxt" x="33" y="466">07</text>
-          <text class="label" x="60" y="463">Data fiber</text><text class="sub" x="60" y="482">데이터 송수신 경로</text>
-        </g>
-        <g class="svg-hotspot" data-id="connector" tabindex="0">
-          <line x1="665" y1="489" x2="481" y2="410" stroke="#9fb3c7" stroke-width="1.4"/>
-          <rect class="callout" x="665" y="459" rx="10" width="217" height="61"/>
-          <rect class="num" x="677" y="473" rx="5" width="26" height="24"/><text class="numtxt" x="684" y="489">08</text>
-          <text class="label" x="711" y="486">전면 커넥터</text><text class="sub" x="711" y="505">MPO / VSFF 후보</text>
-        </g>
-      </svg>
+      <div class="image-stage" aria-label="CPO package 3D physical layout">
+        <img class="cpo-render" src="assets/cpo-package-3d.webp" alt="입체형 CPO package physical layout: ELS, PM fiber, optical engines, switch ASIC, package, FAU, data fiber and front connectors">
+        <button type="button" class="hotspot" data-id="els" data-tip="01 외부 광원" aria-label="01 외부 광원"></button>
+        <button type="button" class="hotspot" data-id="pmFiber" data-tip="02 PM fiber" aria-label="02 PM fiber"></button>
+        <button type="button" class="hotspot" data-id="opticalEngine" data-tip="03 광엔진" aria-label="03 광엔진"></button>
+        <button type="button" class="hotspot" data-id="switchAsic" data-tip="04 Switch ASIC" aria-label="04 Switch ASIC"></button>
+        <button type="button" class="hotspot" data-id="package" data-tip="05 공통 패키지" aria-label="05 공통 패키지"></button>
+        <button type="button" class="hotspot" data-id="fau" data-tip="06 FAU" aria-label="06 FAU"></button>
+        <button type="button" class="hotspot" data-id="dataFiber" data-tip="07 Data fiber" aria-label="07 Data fiber"></button>
+        <button type="button" class="hotspot" data-id="connector" data-tip="08 전면 커넥터" aria-label="08 전면 커넥터"></button>
+      </div>
     </div>
   </section>
 
@@ -437,7 +348,7 @@ function selectPart(id,scroll){
   qs('#partDesc').textContent=p.desc;
   qs('#partTags').innerHTML=p.tags.map(function(t){return '<span class="chip">'+escapeHtml(t)+'</span>'}).join('');
   qs('#partSelect').value=id;
-  qsa('.svg-hotspot').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-id')===id)});
+  qsa('.hotspot').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-id')===id)});
   renderVendorList();
   renderVendor();
   renderComponentGrid();
@@ -486,7 +397,7 @@ function globalSearch(){
   else renderVendorList()
 }
 
-qsa('.svg-hotspot').forEach(function(n){
+qsa('.hotspot').forEach(function(n){
   n.addEventListener('click',function(){selectPart(n.getAttribute('data-id'),true)});
   n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPart(n.getAttribute('data-id'),true)}})
 });

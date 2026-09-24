@@ -550,3 +550,21 @@ A compact **Supply Chain** button is positioned directly beside **Design Calcula
 ### Supply Chain related-company ecosystem v5.3.1
 
 The Supply Chain popup now has two clearly separated layers: **(1) vendors/products actually used by the current BOM**, and **(2) Related companies** for each category. Related companies are visually tagged as reference-only / not currently selected, so they do not inflate or alter BOM quantities. Coverage is expanded across compute, network, optical, power, cooling, racks, storage, and facility/security ecosystems.
+
+## DC BOM v6.0.0 — System Engineering + PUE
+
+v6 extends the BOM tool from equipment-counting toward a broader **Data Center Architecture / System Engineering** workflow.
+
+- **Facility Power / PUE**: explicit editable PUE scenario, Facility Design Power = Design-Max IT × PUE, Peak Facility Envelope = Peak-Provisioning IT × PUE, and separate non-IT overhead.
+- **PUE measurement boundary**: Category 0 (instantaneous / UPS output), Category 1 (annual / UPS output), Category 2 (annual / RPP output), Category 3 (annual / Rack PDU output). The tool clearly distinguishes a design scenario from a measured operating PUE.
+- **WUE**: optional user input; when supplied, v6 shows a water-use proxy instead of inventing a default value.
+- **Cooling architecture selection**: Review/Not fixed, Air, Direct-to-Chip Cold Plate, Air + Liquid Hybrid, Immersion.
+- **Rack constraint review**: RU capacity plus optional rack power and cooling limits; recommended systems/rack is the minimum valid constraint and the bottleneck is shown.
+- **Reliability / resilience**: Power, Cooling and Network redundancy, availability target, optional MTBF/MTTR and the availability proxy A = MTBF/(MTBF+MTTR). This is a configuration review, not an uptime certification.
+- **Network / Optical lens**: Scale-Up, Scale-Out Compute, Storage, In-Band/OOB and the existing logical-link / physical-cage / optics / cable separation are shown together.
+- **5E engineering status**: Energy, Computing, Data, Transmission and Operation are displayed as transparent modeled/review states rather than an opaque numerical rating.
+- **Supply Chain readiness**: existing spare policy, vendor/product map and related-company layer are surfaced inside the system-engineering review.
+
+Reference basis: Huawei Data Center 2030 concepts, DEFOG PUE measurement-boundary guidance, Siemens cooling/digital-twin engineering, and the uploaded GPU-infrastructure, resilience and hyperscale-supply-chain white papers. Values not supported by a source remain user-entered or unset.
+
+Deployment source remains: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`.

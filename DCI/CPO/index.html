@@ -38,6 +38,20 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 .arch{margin-top:16px;padding:14px}
 .arch-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:5px 6px 11px}
 .arch-note{font-size:12px;color:var(--muted)}
+
+.arch-body{display:grid;grid-template-columns:minmax(0,1fr) 295px;gap:14px;align-items:stretch}
+.event-box{border:1px solid #d8e5f1;border-radius:16px;background:#fff;padding:15px;box-shadow:0 10px 26px rgba(31,66,98,.06)}
+.event-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.event-title b{font-size:14px;color:#24435f}.event-title span{font-size:10px;color:#7b8fa3}
+.event-list{display:grid;gap:8px}
+.event-item{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;padding:9px;border:1px solid #e0e9f2;border-radius:11px;background:#f9fbfe}
+.event-check{width:16px;height:16px;border:1.5px solid #5d9ce1;border-radius:4px;margin-top:2px;background:#eef6ff;position:relative}
+.event-check::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border-right:2px solid #2879d0;border-bottom:2px solid #2879d0;transform:rotate(45deg)}
+.event-item b{display:block;font-size:12px;color:#25445f;line-height:1.35}
+.event-item span{display:block;font-size:10px;color:#74889b;line-height:1.45;margin-top:3px}
+.event-item a{font-size:10px;font-weight:800;color:#236ec0}
+@media(max-width:1050px){.arch-body{grid-template-columns:1fr}.event-box{order:2}}
+
 .diagram-shell{border:1px solid #dce7f2;border-radius:16px;background:#f9fcff;overflow:hidden}
 .diagram-shell svg{display:block;width:100%;height:auto;min-height:430px}
 .svg-hotspot{cursor:pointer;outline:none}
@@ -66,12 +80,12 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 }
 .model-caption b{color:#214363}
 .scene3d{
-  position:absolute;inset:26px 5.5% 8px;perspective:1450px;perspective-origin:50% 34%;
+  position:absolute;inset:26px 5.5% 8px;perspective:1450px;perspective-origin:50% 50%;
 }
 .board3d{
-  position:absolute;left:9%;top:8%;width:82%;height:75%;
+  position:absolute;left:11%;top:8%;width:78%;height:78%;
   transform-style:preserve-3d;
-  transform:rotateX(57deg) rotateZ(-27deg) translateZ(0);
+  transform:rotateX(0deg) rotateZ(0deg) translateZ(0);
   background:
     radial-gradient(circle at 12% 18%,rgba(255,255,255,.18) 0 2px,transparent 3px),
     radial-gradient(circle at 82% 24%,rgba(255,255,255,.10) 0 1px,transparent 2px),
@@ -351,7 +365,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.7.0 · 2026-09-25</span>
+    <span class="badge">v1.8.0 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -379,7 +393,8 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       </div>
       <div class="arch-note">선택된 부품은 파란색 테두리로 표시됩니다.</div>
     </div>
-    <div class="diagram-shell">
+    <div class="arch-body">
+      <div class="diagram-shell">
       <div class="model-stage" aria-label="Interactive 3D CPO package model">
         <div class="model-caption"><b>Interactive CPO package</b> · 실제 부품을 클릭하면 해당 영역이 강조됩니다.</div>
 
@@ -449,6 +464,12 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
         <button type="button" class="scene-label part-target" data-id="connector"><span>08</span>전면 커넥터</button>
       </div>
     </div>
+  
+      <aside class="event-box">
+        <div class="event-title"><b>CPO 주요 예정 행사</b><span>자동 갱신</span></div>
+        <div class="event-list" id="eventList"></div>
+      </aside>
+    </div>
   </section>
 
   <div class="toolbar">
@@ -475,10 +496,32 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
   </section>
 
   <section class="component-grid" id="componentGrid"></section>
-  <footer>kimheeseo/LSCNS · DCI/CPO · CPO Component Explorer</footer>
 </main>
 
 <script>
+var cpoEvents=[
+  {start:'2027-01-12',end:'2027-01-12',name:'Optica Online Industry Meeting: Co-Packaged & Pluggable Optics',where:'온라인',url:'https://www.optica.org/events/webinar/2027/january/co-packaged_pluggable_optics/'},
+  {start:'2027-02-02',end:'2027-02-04',name:'DesignCon 2027',where:'Santa Clara, CA',url:'https://www.designcon.com/'},
+  {start:'2027-03-07',end:'2027-03-11',name:'OFC 2027',where:'Los Angeles, CA',url:'https://www.ofcconference.org/'},
+  {start:'2027-05-12',end:'2027-05-13',name:'Optica GAMA 2027',where:'ASML Veldhoven, Netherlands',url:'https://www.optica.org/events/industry_events/2027/optica_advanced_manufacturing_alliance/'},
+  {start:'2027-09-21',end:'2027-09-21',name:'Optica Online Industry Meeting: Co-Packaged & Pluggable Optics',where:'온라인',url:'https://www.optica.org/events/webinar/2027/september/co-packaged_pluggable_optics/'}
+];
+function fmtEventDate(e){
+  var s=new Date(e.start+'T00:00:00'),en=new Date(e.end+'T00:00:00');
+  var opt={year:'numeric',month:'short',day:'numeric'};
+  if(e.start===e.end) return s.toLocaleDateString('ko-KR',opt);
+  return s.toLocaleDateString('ko-KR',opt)+' ~ '+en.toLocaleDateString('ko-KR',opt);
+}
+function renderUpcomingEvents(){
+  var root=document.getElementById('eventList'); if(!root)return;
+  var now=new Date(); now.setHours(0,0,0,0);
+  var upcoming=cpoEvents.filter(function(e){return new Date(e.end+'T23:59:59')>=now})
+    .sort(function(a,b){return a.start.localeCompare(b.start)}).slice(0,5);
+  root.innerHTML=upcoming.length?upcoming.map(function(e){
+    return '<div class="event-item"><span class="event-check"></span><div><b>'+escapeHtml(e.name)+'</b><span>'+fmtEventDate(e)+' · '+escapeHtml(e.where)+'</span><a href="'+e.url+'" target="_blank" rel="noopener">행사 정보 ↗</a></div></div>';
+  }).join(''):'<div class="empty">등록된 향후 행사가 없습니다.</div>';
+}
+
 var companies={
   coherent:{name:'Coherent',initial:'CO',official:'https://www.coherent.com/',focus:'레이저 · SiPh · CPO optical assembly',
     product:'PhotonLink™ · socketed CPO · external laser source',
@@ -613,18 +656,18 @@ var stockMeta={
   amkor:{symbol:'NASDAQ:AMKR',label:'Amkor · AMKR'},
   globalfoundries:{symbol:'NASDAQ:GFS',label:'GlobalFoundries · GFS'},
   umc:{symbol:'NYSE:UMC',label:'UMC ADR · UMC'},
-  fujikura:{symbol:'TSE:5803',label:'Fujikura · 5803'},
-  sumitomo:{symbol:'TSE:5802',label:'Sumitomo Electric · 5802'},
-  furukawa:{symbol:'TSE:5801',label:'Furukawa Electric · 5801'},
+  fujikura:{symbol:'TSE:5803',label:'Fujikura · TYO: 5803'},
+  sumitomo:{symbol:'TSE:5802',label:'Sumitomo Electric · TYO: 5802'},
+  furukawa:{symbol:'TSE:5801',label:'Furukawa Electric · TYO: 5801'},
   hengtong:{symbol:'SSE:600487',label:'Hengtong Optic-Electric · 600487'},
-  yofc:{symbol:'HKEX:6869',label:'YOFC · 06869.HK'},
+  yofc:{symbol:'SSE:601869',label:'YOFC · SHA: 601869'},
   ztt:{symbol:'SSE:600522',label:'ZTT · 600522.SH'},
-  lscns:{symbol:'KRX:006260',label:'LS Corp. · 006260',note:'LS전선 자체는 비상장사입니다. 아래 차트는 모회사 LS Corp.의 참고 주가입니다.'}
+  lscns:{symbol:'KRX:006260',label:'LS',note:'LS전선 자체는 비상장사입니다. 아래 차트는 LS(006260) 참고 주가입니다.'}
 };
 
 var parts={
   els:{num:'01',name:'레이저',en:'Laser / External Laser Source',desc:'CPO 패키지 밖에서 CW 광을 생성해 PM fiber를 통해 optical engine에 공급합니다. 열·신뢰성·서비스성을 위해 laser를 package 밖에 두는 구조가 일반적입니다.',tags:['Laser','ELS','CW laser','ELSFP','thermal'],vendors:['lumentum','coherent','ayar','molex']},
-  pmFiber:{num:'02',name:'PM fiber',en:'Polarization-Maintaining Fiber',desc:'레이저의 편광 상태를 유지하며 optical engine까지 광을 전달하는 경로입니다. ELS 구조에서 굴곡, 커넥터, 편광 유지 성능이 중요합니다.',tags:['PM fiber','laser feed','bend','polarization'],vendors:['fujikura','sumitomo','corning','furukawa']},
+  pmFiber:{num:'02',name:'PM fiber',en:'Polarization-Maintaining Fiber',desc:'레이저의 편광 상태를 유지하며 optical engine까지 광을 전달하는 경로입니다. ELS 구조에서 굴곡, 커넥터, 편광 유지 성능이 중요합니다.',tags:['PM fiber','laser feed','bend','polarization'],vendors:['fujikura','sumitomo','corning','furukawa','hengtong']},
   opticalEngine:{num:'03',name:'광엔진',en:'Optical Engine / PIC + EIC',desc:'SiPh/PIC와 EIC가 전기 신호를 광 신호로 변환하고 다시 수신하는 핵심 CPO 블록입니다. bandwidth density, coupling loss, thermal drift, testability가 주요 지표입니다.',tags:['PIC','EIC','SiPh','200G/lane','CPO'],vendors:['broadcom','ranovus','ayar','lightmatter','marvell','coherent','openlight']},
   switchAsic:{num:'04',name:'Switch ASIC',en:'Electrical Switching ASIC',desc:'CPO 패키지 중앙의 고대역폭 스위칭 칩입니다. SerDes 거리를 줄이기 위해 optical engine을 ASIC 가까이 배치합니다.',tags:['switch silicon','SerDes','51.2T+','AI fabric'],vendors:['broadcom','nvidia','marvell','cisco']},
   package:{num:'05',name:'공통 패키지',en:'Package / Substrate',desc:'Switch ASIC과 optical engine, 전기 배선, 전원 및 기계/열 구조를 하나의 고밀도 패키지로 통합합니다.',tags:['substrate','BGA','advanced packaging','thermal'],vendors:['tsmc','intel','ase','amkor','globalfoundries','umc']},
@@ -638,7 +681,36 @@ var selectedVendor='broadcom';
 
 function qs(s){return document.querySelector(s)}
 function qsa(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
-function newsSearchUrl(name){return 'https://www.google.com/search?tbm=nws&q='+encodeURIComponent(name+' co-packaged optics CPO optical interconnect')}
+function partNewsTerms(id){
+  var map={
+    els:'laser external laser source ELS CPO',
+    pmFiber:'PM fiber polarization maintaining fiber CPO',
+    opticalEngine:'PIC optical engine silicon photonics CPO',
+    switchAsic:'switch ASIC CPO co-packaged optics',
+    package:'advanced packaging substrate CPO photonics',
+    fau:'FAU fiber array unit fiber attach CPO',
+    dataFiber:'optical fiber CPO AI data center',
+    connector:'connector VSFF MPO SN MMC CPO'
+  };
+  return map[id]||'CPO co-packaged optics';
+}
+function newsSearchUrl(name){
+  return 'https://www.google.com/search?tbm=nws&q='+encodeURIComponent(name+' '+partNewsTerms(selectedPart));
+}
+function newsMatchesSelectedPart(n){
+  var text=((n.title||'')+' '+(n.url||'')).toLowerCase();
+  var rules={
+    els:['laser','els'],
+    pmFiber:['pm fiber','polarization','maintaining fiber','pm-fiber'],
+    opticalEngine:['optical engine','silicon photonics','photonlink','cpo','cpX','photonic'],
+    switchAsic:['switch','tomahawk','spectrum','quantum','cpo'],
+    package:['packag','substrate','foundry','wafer','cpo'],
+    fau:['fau','fiber-to-chip','fiber attach','glassbridge','prizm'],
+    dataFiber:['fiber','cable','optical connectivity'],
+    connector:['connector','vsff','mmc','sn','prizm','versabeam']
+  };
+  return (rules[selectedPart]||['cpo']).some(function(k){return text.indexOf(k.toLowerCase())>=0});
+}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]})}
 
 function renderPartSelect(){
@@ -746,10 +818,10 @@ function renderStockChart(id){
 function renderVendor(){
   var c=companies[selectedVendor];
   if(!c){qs('#vendorContent').innerHTML='<div class="empty">업체를 선택하세요.</div>';return}
-  var news=(c.news||[]).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+  var news=(c.news||[]).filter(newsMatchesSelectedPart).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
   var items=news.length?news.map(function(n){
     return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
-  }).join(''):'<div class="empty">현재 저장된 관련 기사 링크가 없습니다. “최신 기사 검색”에서 추가 기사를 확인할 수 있습니다.</div>';
+  }).join(''):'<div class="empty">현재 저장된 "+parts[selectedPart].name+" + CPO 관련 기사가 없습니다. “최신 기사 검색”에서 해당 부품 중심으로 확인할 수 있습니다.</div>';
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
     '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최신 기사 검색 ↗</a></div></div>'+
@@ -787,6 +859,7 @@ qs('#search').addEventListener('input',globalSearch);
 qs('#resetBtn').addEventListener('click',function(){qs('#search').value='';selectPart('opticalEngine',false,false)});
 qs('#kpiCompanies').textContent=Object.keys(companies).length;
 qs('#kpiNews').textContent=Object.keys(companies).reduce(function(n,k){return n+(companies[k].news||[]).length},0);
+renderUpcomingEvents();
 renderPartSelect();
 renderComponentGrid();
 selectPart(selectedPart,false,false);

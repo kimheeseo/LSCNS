@@ -597,3 +597,7 @@ The four rack views (2D Front/Rear and 3D Front/Rear) are now mounted independen
 ## DC BOM v6.2.0 — Realistic Cooling Architecture
 
 Cooling Architecture now defaults to a realistic 3D-style AI data-center liquid-cooling visual showing Facility Cooling → CDU → Rack Manifold → Liquid-Cooled GPU Servers → GPU/CPU Cold Plate. The UI includes a Realistic 3D / Engineering SVG toggle and click-to-expand viewing. Existing dynamic rack heat, coolant ΔT, required flow and CDU first-pass sizing calculations remain unchanged and remain the engineering source of truth. Surrounding labels/notes continue to support Korean, English, Chinese, Japanese and German.
+
+## DC BOM v6.3.0 — CPO navigation
+
+A new top-level **CPO (Co-Packaged Optics)** button has been added to the Data Center BOM UI. It links to https://lscns.onrender.com/ in a new tab so the current BOM design session remains open.

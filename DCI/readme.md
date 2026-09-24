@@ -601,3 +601,7 @@ Cooling Architecture now defaults to a realistic 3D-style AI data-center liquid-
 ## DC BOM v6.3.0 — CPO navigation
 
 A new top-level **CPO (Co-Packaged Optics)** button has been added to the Data Center BOM UI. It links to https://lscns.onrender.com/ in a new tab so the current BOM design session remains open.
+
+### DC BOM v6.3.1 — Cooling Architecture refinement
+
+Cooling Architecture now shows **one view only**. The previous duplicated realistic-image / engineering-SVG presentation was replaced by a single high-DPI 3D engineering canvas. It renders Facility Cooling → CDU → Rack Manifold → liquid-cooled GPU racks → GPU/CPU cold plate with separate cold-supply and warm-return paths. The canvas is device-pixel-ratio aware, supports click-to-expand, and preserves the existing dynamic Rack Heat, ΔT, Flow and CDU calculations below the visual.

@@ -11,6 +11,29 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.7.0 — 2026-09-25
+
+### Vendor expansion, Korean news titles, and live stock charts
+
+- Renamed component `07 Data fiber` to `07 Optical fiber`.
+- Added Optical fiber companies:
+  - LS전선
+  - YOFC
+  - ZTT
+- Added `OpenLight` to the Optical Engine / PIC company list.
+- Added `GlobalFoundries` and `UMC` to the Common Package company list.
+- Renamed `01 외부 광원` to `01 레이저` across the component selector and diagram UI.
+- Converted the stored CPO / AI optical-interconnect news headlines to Korean display titles while preserving the original source links.
+- Removed the bottom explanatory notice about static GitHub Pages / JSON news maintenance.
+- Added a current-market stock-chart panel to company detail cards:
+  - Public companies load a current daily chart through TradingView.
+  - Private/unlisted companies show a clear "direct stock chart unavailable" message.
+  - LS전선 is unlisted; its card clearly labels the LS Corp. chart as a parent-company reference.
+- Added/validated market mappings for major public companies including Broadcom, NVIDIA, Marvell, Coherent, Lumentum, Corning, Intel, Cisco, TSMC, ASE, Amkor, GlobalFoundries, UMC, Fujikura, Sumitomo Electric, Furukawa Electric, Hengtong, YOFC, ZTT, and LS Corp. reference.
+- Updated the site/package version to `v1.7.0`.
+
+---
+
 ## v1.6.0 — 2026-09-25
 
 ### Component-only 10-second highlight interaction

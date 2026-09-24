@@ -1,1 +1,149 @@
+# CPO Component Explorer
 
+GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니다.
+
+- 저장 위치: `kimheeseo/LSCNS/DCI/CPO/`
+- 기존 참고 사이트: `https://cpo-component-explorer.harrykim9463.chatgpt.site`
+- 운영 목표: Data Center BOM Tool과 유사하게 GitHub에서 사이트 소스와 변경 이력을 관리
+- 기본 언어: 한국어
+- 향후 다국어: 영어 / 중국어 등 선택형 UI
+
+---
+
+## v1.0.0 — 2026-09-24
+
+### GitHub 프로젝트 운영 구조 정의
+
+CPO Component Explorer를 GitHub 기반 정적 사이트로 이전·운영하기 위한 기본 구조와 업데이트 원칙을 정의했습니다.
+
+### 핵심 기능
+
+1. **CPO 구성도 기반 탐색**
+   - CPO 시스템/모듈 그림에서 부품 클릭
+   - 클릭한 부품의 관련 업체 및 제품 확인
+
+2. **부품별 업체 Ecosystem**
+   - Laser / Light Source
+   - Modulator
+   - PIC / Optical Engine
+   - ASIC / xPU
+   - FAU
+   - MPO / VSFF / SN / MDC 등 Connector
+   - PM Fiber / SMF / 관련 Fiber
+   - DSP / Driver / TIA
+   - 기타 CPO 관련 부품
+
+3. **업체 상세 정보**
+   - 업체명
+   - 공식 홈페이지
+   - 대표 CPO 관련 제품
+   - 간단한 기술/제품 설명
+   - 해당 기업의 최근 CPO 관련 뉴스 제목 약 5건
+
+4. **제품 및 업체 데이터 분리**
+   사이트 코드와 데이터를 분리하여 유지보수성을 높이는 방향을 기본으로 합니다.
+
+   ```text
+   DCI/CPO/
+   ├── index.html
+   ├── styles.css
+   ├── app.js
+   ├── data/
+   │   ├── components.json
+   │   ├── companies.json
+   │   ├── products.json
+   │   └── news.json
+   ├── assets/
+   │   └── images/
+   └── readme.md
+   ```
+
+5. **다국어 지원**
+   - 한국어를 기본 표시 언어로 사용
+   - 향후 영어 / 중국어 등 언어 선택 시 설명 및 UI 텍스트 전환
+
+---
+
+## 향후 업데이트 원칙
+
+앞으로 CPO Component Explorer를 수정할 때는 다음 순서로 관리합니다.
+
+```text
+사이트 기능/데이터 수정
+        ↓
+GitHub DCI/CPO 코드 업데이트
+        ↓
+버전 증가
+        ↓
+readme.md에 변경사항 기록
+```
+
+예:
+
+```text
+v1.1.0 — PM Fiber ecosystem update
+v1.2.0 — Connector / VSFF product update
+v1.3.0 — Vendor product + official URL + news update
+```
+
+### README 변경 이력 작성 항목
+
+- 버전
+- 수정 날짜
+- 추가/변경된 기능
+- 신규 업체/제품
+- 데이터 구조 변경
+- UI/UX 변경
+- 오류 수정
+- 향후 추가 예정 기능
+
+---
+
+## 계획된 사이트 동작 예
+
+예를 들어 **PM Fiber**를 클릭하면:
+
+```text
+PM Fiber
+  ├─ Hengtong
+  │   ├─ 대표 제품
+  │   ├─ 공식 홈페이지
+  │   └─ 최근 CPO 관련 뉴스
+  ├─ Fujikura
+  ├─ Sumitomo Electric
+  └─ 기타 관련 업체
+```
+
+Connector를 클릭하면:
+
+```text
+Connector
+  ├─ MPO
+  ├─ SN
+  ├─ MDC
+  └─ VSFF
+```
+
+각 항목에서 관련 업체, 대표 제품, 공식 URL, 최근 CPO 관련 정보를 확인할 수 있도록 구성합니다.
+
+---
+
+## 개발 방향
+
+단순 업체 목록이 아니라 다음 형태의 **CPO Supply-Chain / Component Intelligence Tool**로 발전시키는 것을 목표로 합니다.
+
+```text
+CPO Architecture
+      ↓
+Component
+      ↓
+Company
+      ↓
+Representative Product
+      ↓
+Official Product / Company URL
+      ↓
+Recent CPO News
+```
+
+추후에는 제품 비교, 검색/필터, 기술 분류, CPO 시뮬레이션 결과 연계 등의 기능도 추가할 수 있습니다.

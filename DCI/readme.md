@@ -609,3 +609,7 @@ Cooling Architecture now shows **one view only**. The previous duplicated realis
 ### DC BOM v6.3.3 — Rate-limit reliability
 
 The backend no longer counts static HTML/CSS/JS/image requests toward the API rate limit. Rate limiting is now scoped to POST /api/design and POST /api/export-xlsx, with Render-aware forwarded client IP handling so independent visitors do not share one proxy bucket. Genuine API throttling returns Retry-After: 60.
+
+### DC BOM v6.4.0 — 1.2T Aggregate network model
+
+The Network Role Model now supports **1.2T Aggregate · 3×400G** for Compute, Storage and In-Band scenarios. The tool treats 1.2T as a logical aggregate bandwidth target and physicalizes it into three 400G links for switch-port, optic, cable and cage sizing. Native 1.2T optics or cages are not assumed by default, and the UI separates logical 1.2T service counts from physical 400G link counts.

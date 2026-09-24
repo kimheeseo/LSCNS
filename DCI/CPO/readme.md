@@ -11,6 +11,25 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.4.0 — 2026-09-24
+
+### Crisp interactive 3D CPO model + component highlight actions
+
+- Removed the low-resolution raster CPO artwork from the main UI to prevent blur/pixelation when the browser scales the diagram.
+- Rebuilt the CPO package as an original HTML/CSS 3D model rather than copying the supplied reference layout.
+- The new model stays sharp at different browser sizes because the board, ASIC, optical engines, ELS, FAUs, fibers, and connectors are rendered as browser elements rather than a stretched bitmap.
+- Added persistent selection highlighting on the actual hardware:
+  - Optical Engine selection highlights all eight optical-engine modules in blue.
+  - Switch ASIC selection highlights the central ASIC with an orange outline/glow.
+  - ELS, PM fiber, package, FAU, data-fiber routes, and front connectors also receive component-specific highlighting.
+- Added a short pulse animation when a component is selected.
+- Diagram clicks now keep the diagram in view instead of immediately scrolling away, so the highlight action can be seen.
+- Related-company, product/role, official-link, and recent-news panels continue to update from the selected component.
+- Updated the site/package version to `v1.4.0`.
+- Render deployment settings remain unchanged: `npm install` → `npm start`, health check `/api/health`.
+
+---
+
 ## v1.3.0 — 2026-09-24
 
 ### 3D CPO package image + interactive hotspot update

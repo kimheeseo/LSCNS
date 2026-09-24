@@ -50,25 +50,160 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 .svg-hotspot.active .num{fill:#dcecff}
 .board-label{fill:#d8e9e9;font-size:10px;letter-spacing:.16em}
 
-.image-stage{position:relative;width:100%;background:#f7fbff;overflow:hidden;border-radius:14px}
-.cpo-render{display:block;width:100%;height:auto}
-.hotspot{position:absolute;border:2px solid transparent;background:rgba(22,119,255,0);border-radius:12px;cursor:pointer;transition:.15s;z-index:5}
-.hotspot:hover,.hotspot:focus-visible,.hotspot.active{border-color:#1677ff;background:rgba(22,119,255,.09);box-shadow:0 0 0 4px rgba(22,119,255,.10);outline:none}
-.hotspot::after{content:attr(data-tip);position:absolute;left:50%;top:-32px;transform:translateX(-50%);white-space:nowrap;background:#17395f;color:#fff;font-size:10px;font-weight:800;padding:5px 7px;border-radius:7px;opacity:0;pointer-events:none;transition:.15s}
-.hotspot:hover::after,.hotspot:focus-visible::after{opacity:1}
-.hotspot[data-id="els"]{left:4.2%;top:17.5%;width:19%;height:9%}
-.hotspot[data-id="pmFiber"]{left:3%;top:29%;width:19%;height:9%}
-.hotspot[data-id="opticalEngine"]{left:80.5%;top:16.8%;width:17.5%;height:9%}
-.hotspot[data-id="switchAsic"]{left:79%;top:29.5%;width:19%;height:9%}
-.hotspot[data-id="package"]{left:82.5%;top:54%;width:16%;height:9%}
-.hotspot[data-id="fau"]{left:7%;top:73%;width:18%;height:9%}
-.hotspot[data-id="dataFiber"]{left:2.5%;top:60%;width:18%;height:9%}
-.hotspot[data-id="connector"]{left:79%;top:84%;width:19%;height:9%}
-@media(max-width:620px){
-  .image-stage{min-width:760px}
-  .hotspot::after{display:none}
-}
 
+.model-stage{
+  position:relative;width:100%;aspect-ratio:16/9;min-height:520px;overflow:hidden;border-radius:16px;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(63,142,210,.10),transparent 36%),
+    linear-gradient(180deg,#fbfdff 0%,#eef5fb 100%);
+}
+.model-caption{
+  position:absolute;left:18px;top:16px;z-index:30;background:rgba(255,255,255,.9);
+  border:1px solid #d6e4f1;border-radius:11px;padding:8px 10px;font-size:11px;color:#55718d;
+  backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(25,59,90,.06)
+}
+.model-caption b{color:#214363}
+.scene3d{
+  position:absolute;inset:35px 8% 15px;perspective:1200px;perspective-origin:50% 42%;
+}
+.board3d{
+  position:absolute;left:11%;top:10%;width:78%;height:73%;
+  transform-style:preserve-3d;
+  transform:rotateX(57deg) rotateZ(-31deg);
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,255,255,.13) 0 2px,transparent 3px),
+    linear-gradient(145deg,#1a6b69,#0b4b50 74%);
+  background-size:42px 42px,auto;
+  border:2px solid #0a4448;border-radius:18px;
+  box-shadow:0 46px 55px rgba(16,44,66,.28),inset 0 0 0 2px rgba(255,255,255,.04);
+}
+.board3d::before{
+  content:"";position:absolute;inset:4%;border:1px solid rgba(146,211,203,.16);border-radius:13px;
+  background:
+    linear-gradient(90deg,transparent 49.5%,rgba(180,220,201,.08) 50%,transparent 50.5%),
+    linear-gradient(0deg,transparent 49.5%,rgba(180,220,201,.06) 50%,transparent 50.5%);
+  background-size:70px 70px;pointer-events:none
+}
+.package3d{
+  position:absolute;left:24%;top:19%;width:53%;height:53%;border-radius:12px;
+  background:linear-gradient(145deg,#8ea88e,#6d907a);
+  border:2px solid #a9bda2;box-shadow:0 0 0 7px rgba(202,214,177,.10),0 8px 0 #466b62;
+  transform:translateZ(9px);z-index:2
+}
+.part-target{
+  position:absolute;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;
+  transform-style:preserve-3d;transition:filter .2s ease,box-shadow .2s ease,outline-color .2s ease;
+}
+.part-target:focus-visible{outline:3px solid #1677ff;outline-offset:4px}
+.part-target.flash{animation:selectPulse .75s ease-out 1}
+@keyframes selectPulse{
+  0%{filter:brightness(1)}
+  35%{filter:brightness(1.5) drop-shadow(0 0 18px rgba(22,119,255,.85))}
+  100%{filter:brightness(1)}
+}
+.switch-chip{
+  left:38%;top:31%;width:29%;height:26%;z-index:8;transform:translateZ(32px);
+  border-radius:8px;background:linear-gradient(145deg,#31465e,#172a42);
+  border:2px solid #758ba0;box-shadow:0 8px 0 #0b1d2e,0 10px 18px rgba(0,0,0,.24)
+}
+.switch-chip::before{
+  content:"SWITCH ASIC";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#dfe9f5;font-size:clamp(10px,1.2vw,18px);font-weight:900;letter-spacing:.06em
+}
+.switch-chip.active{
+  outline:4px solid #ff9d24;outline-offset:5px;
+  box-shadow:0 8px 0 #0b1d2e,0 0 0 10px rgba(255,157,36,.14),0 0 34px rgba(255,157,36,.72)
+}
+.oe{
+  width:12%;height:12%;z-index:10;transform:translateZ(36px);border-radius:6px;
+  background:linear-gradient(145deg,#d9c073,#ae883b);
+  border:1px solid #ead89a;box-shadow:0 5px 0 #765927,0 7px 13px rgba(0,0,0,.22)
+}
+.oe::before{
+  content:"OE";position:absolute;left:22%;top:18%;right:22%;bottom:18%;border-radius:4px;
+  background:linear-gradient(145deg,#435368,#253349);color:#e9f3ff;display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:900
+}
+.oe.active{
+  outline:4px solid #1684ff;outline-offset:4px;
+  box-shadow:0 5px 0 #765927,0 0 0 9px rgba(22,132,255,.14),0 0 30px rgba(22,132,255,.82)
+}
+.oe1{left:27%;top:22%}.oe2{left:44%;top:18%}.oe3{left:64%;top:23%}.oe4{left:69%;top:44%}
+.oe5{left:61%;top:61%}.oe6{left:43%;top:64%}.oe7{left:25%;top:57%}.oe8{left:20%;top:39%}
+.els-box{
+  left:7%;top:8%;width:22%;height:23%;z-index:9;transform:translateZ(42px);
+  border-radius:8px;background:linear-gradient(145deg,#e9edf0,#aab7c0 72%);
+  border:2px solid #82929e;box-shadow:0 8px 0 #697881,0 12px 20px rgba(0,0,0,.22)
+}
+.els-box::before{
+  content:"ELS";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#43515c;font-weight:900;font-size:clamp(11px,1.1vw,17px);letter-spacing:.08em
+}
+.els-box::after{
+  content:"";position:absolute;left:15%;right:15%;top:18%;height:28%;
+  background:repeating-linear-gradient(90deg,#798b96 0 2px,transparent 2px 7px);opacity:.6
+}
+.els-box.active{outline:4px solid #7d9bb8;outline-offset:5px;box-shadow:0 8px 0 #697881,0 0 30px rgba(91,136,179,.75)}
+.io-row{
+  position:absolute;left:4%;top:73%;width:90%;height:17%;z-index:14;transform:translateZ(28px);
+  display:grid;grid-template-columns:repeat(8,1fr);gap:1.4%;align-items:end
+}
+.connector3d{
+  position:relative;height:70%;border:0;border-radius:5px;background:linear-gradient(145deg,#bac6cd,#778791);
+  box-shadow:0 5px 0 #45545d,0 7px 12px rgba(0,0,0,.20);cursor:pointer
+}
+.connector3d::after{
+  content:"";position:absolute;left:12%;right:12%;bottom:9%;height:35%;border-radius:3px;
+  background:linear-gradient(180deg,#3093ee,#0562bd);box-shadow:inset 0 0 0 2px #7ac2ff
+}
+.connector3d.active{outline:4px solid #2087ef;outline-offset:3px;box-shadow:0 5px 0 #45545d,0 0 23px rgba(32,135,239,.85)}
+.fau-unit{
+  position:absolute;width:7.5%;height:7%;z-index:13;transform:translateZ(31px);
+  border-radius:4px;background:linear-gradient(145deg,#eef5f7,#aebec8);border:1px solid #7b929e;
+  box-shadow:0 4px 0 #677d88
+}
+.fau-unit::after{content:"";position:absolute;right:-12%;top:30%;width:22%;height:40%;background:#2188e9;border-radius:2px}
+.fau-unit.active{outline:4px solid #19a0ff;outline-offset:3px;box-shadow:0 4px 0 #677d88,0 0 20px rgba(25,160,255,.85)}
+.f1{left:19%;top:68%}.f2{left:29%;top:69%}.f3{left:39%;top:69%}.f4{left:49%;top:69%}
+.f5{left:59%;top:69%}.f6{left:69%;top:68%}
+.fiberArc,.pmArc{
+  position:absolute;z-index:12;pointer-events:auto;background:transparent;border-style:solid;border-radius:50%;
+  cursor:pointer;transition:filter .2s ease
+}
+.fiberArc{border-color:#148ceb transparent transparent #148ceb;border-width:4px}
+.fiberArc.active{filter:drop-shadow(0 0 7px #4db5ff);border-color:#66c6ff transparent transparent #66c6ff;border-width:6px}
+.fa1{left:24%;top:39%;width:27%;height:35%;transform:translateZ(29px) rotate(10deg)}
+.fa2{left:48%;top:34%;width:31%;height:38%;transform:translateZ(29px) rotate(25deg)}
+.fa3{left:36%;top:49%;width:35%;height:30%;transform:translateZ(29px) rotate(-12deg)}
+.pmArc{border-color:#ffad2e transparent transparent #ffad2e;border-width:5px}
+.pmArc.active{filter:drop-shadow(0 0 8px #ffb23e);border-width:7px}
+.pm1{left:16%;top:22%;width:21%;height:30%;transform:translateZ(31px) rotate(5deg)}
+.pm2{left:20%;top:19%;width:18%;height:25%;transform:translateZ(31px) rotate(20deg)}
+.package-hit{
+  left:24%;top:19%;width:53%;height:53%;z-index:3;transform:translateZ(10px);background:transparent;border-radius:12px
+}
+.package-hit.active{outline:4px solid #69a97c;outline-offset:7px;box-shadow:0 0 28px rgba(68,150,91,.55)}
+.data-hit{left:14%;top:37%;width:67%;height:42%;z-index:11;background:transparent;transform:translateZ(28px);pointer-events:none}
+.data-hit.active{outline:3px dashed rgba(68,176,255,.95);outline-offset:5px;border-radius:24px;box-shadow:0 0 30px rgba(36,157,255,.28)}
+.scene-label{
+  position:absolute;z-index:40;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.92);
+  border:1px solid #d2e1ef;border-radius:10px;padding:7px 9px;color:#35536f;font-size:11px;font-weight:800;
+  box-shadow:0 7px 20px rgba(36,69,100,.08);backdrop-filter:blur(7px)
+}
+.scene-label span{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;border-radius:7px;background:#e7f1ff;color:#1677ff}
+.scene-label[data-id="els"]{left:2%;top:18%}
+.scene-label[data-id="pmFiber"]{left:2%;top:31%}
+.scene-label[data-id="opticalEngine"]{right:2%;top:18%}
+.scene-label[data-id="switchAsic"]{right:2%;top:31%}
+.scene-label[data-id="package"]{right:2%;top:56%}
+.scene-label[data-id="fau"]{left:4%;bottom:11%}
+.scene-label[data-id="dataFiber"]{left:2%;top:57%}
+.scene-label[data-id="connector"]{right:3%;bottom:8%}
+.scene-label.active{border-color:#1677ff;box-shadow:0 0 0 3px rgba(22,119,255,.10),0 8px 22px rgba(36,69,100,.10)}
+@media(max-width:760px){
+  .model-stage{min-width:820px;min-height:500px}
+  .scene3d{inset:35px 5% 10px}
+}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 12px}
 .search{flex:1;min-width:230px;border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 13px;color:var(--text)}
 .select{border:1px solid #cdddeb;background:white;border-radius:12px;padding:11px 12px;color:var(--text)}
@@ -122,7 +257,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.3.0 · 2026-09-24</span>
+    <span class="badge">v1.4.0 · 2026-09-24</span>
   </header>
 
   <section class="hero">
@@ -151,16 +286,63 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <div class="arch-note">선택된 부품은 파란색 테두리로 표시됩니다.</div>
     </div>
     <div class="diagram-shell">
-      <div class="image-stage" aria-label="CPO package 3D physical layout">
-        <img class="cpo-render" src="assets/cpo-package-3d.webp" alt="입체형 CPO package physical layout: ELS, PM fiber, optical engines, switch ASIC, package, FAU, data fiber and front connectors">
-        <button type="button" class="hotspot" data-id="els" data-tip="01 외부 광원" aria-label="01 외부 광원"></button>
-        <button type="button" class="hotspot" data-id="pmFiber" data-tip="02 PM fiber" aria-label="02 PM fiber"></button>
-        <button type="button" class="hotspot" data-id="opticalEngine" data-tip="03 광엔진" aria-label="03 광엔진"></button>
-        <button type="button" class="hotspot" data-id="switchAsic" data-tip="04 Switch ASIC" aria-label="04 Switch ASIC"></button>
-        <button type="button" class="hotspot" data-id="package" data-tip="05 공통 패키지" aria-label="05 공통 패키지"></button>
-        <button type="button" class="hotspot" data-id="fau" data-tip="06 FAU" aria-label="06 FAU"></button>
-        <button type="button" class="hotspot" data-id="dataFiber" data-tip="07 Data fiber" aria-label="07 Data fiber"></button>
-        <button type="button" class="hotspot" data-id="connector" data-tip="08 전면 커넥터" aria-label="08 전면 커넥터"></button>
+      <div class="model-stage" aria-label="Interactive 3D CPO package model">
+        <div class="model-caption"><b>Interactive CPO package</b> · 실제 부품을 클릭하면 해당 영역이 강조됩니다.</div>
+
+        <div class="scene3d">
+          <div class="board3d">
+            <button type="button" class="part-target package-hit" data-id="package" aria-label="공통 패키지"></button>
+            <div class="package3d" aria-hidden="true"></div>
+
+            <button type="button" class="part-target els-box" data-id="els" aria-label="외부 광원 ELS"></button>
+
+            <button type="button" class="part-target switch-chip" data-id="switchAsic" aria-label="Switch ASIC"></button>
+
+            <button type="button" class="part-target oe oe1" data-id="opticalEngine" aria-label="Optical Engine 1"></button>
+            <button type="button" class="part-target oe oe2" data-id="opticalEngine" aria-label="Optical Engine 2"></button>
+            <button type="button" class="part-target oe oe3" data-id="opticalEngine" aria-label="Optical Engine 3"></button>
+            <button type="button" class="part-target oe oe4" data-id="opticalEngine" aria-label="Optical Engine 4"></button>
+            <button type="button" class="part-target oe oe5" data-id="opticalEngine" aria-label="Optical Engine 5"></button>
+            <button type="button" class="part-target oe oe6" data-id="opticalEngine" aria-label="Optical Engine 6"></button>
+            <button type="button" class="part-target oe oe7" data-id="opticalEngine" aria-label="Optical Engine 7"></button>
+            <button type="button" class="part-target oe oe8" data-id="opticalEngine" aria-label="Optical Engine 8"></button>
+
+            <button type="button" class="part-target pmArc pm1" data-id="pmFiber" aria-label="PM fiber route 1"></button>
+            <button type="button" class="part-target pmArc pm2" data-id="pmFiber" aria-label="PM fiber route 2"></button>
+
+            <button type="button" class="part-target fiberArc fa1" data-id="dataFiber" aria-label="Data fiber route 1"></button>
+            <button type="button" class="part-target fiberArc fa2" data-id="dataFiber" aria-label="Data fiber route 2"></button>
+            <button type="button" class="part-target fiberArc fa3" data-id="dataFiber" aria-label="Data fiber route 3"></button>
+            <div class="part-target data-hit" data-id="dataFiber" aria-hidden="true"></div>
+
+            <button type="button" class="part-target fau-unit f1" data-id="fau" aria-label="FAU 1"></button>
+            <button type="button" class="part-target fau-unit f2" data-id="fau" aria-label="FAU 2"></button>
+            <button type="button" class="part-target fau-unit f3" data-id="fau" aria-label="FAU 3"></button>
+            <button type="button" class="part-target fau-unit f4" data-id="fau" aria-label="FAU 4"></button>
+            <button type="button" class="part-target fau-unit f5" data-id="fau" aria-label="FAU 5"></button>
+            <button type="button" class="part-target fau-unit f6" data-id="fau" aria-label="FAU 6"></button>
+
+            <div class="io-row">
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 1"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 2"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 3"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 4"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 5"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 6"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 7"></button>
+              <button type="button" class="part-target connector3d" data-id="connector" aria-label="Front connector 8"></button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="scene-label part-target" data-id="els"><span>01</span>외부 광원</button>
+        <button type="button" class="scene-label part-target" data-id="pmFiber"><span>02</span>PM fiber</button>
+        <button type="button" class="scene-label part-target" data-id="opticalEngine"><span>03</span>광엔진</button>
+        <button type="button" class="scene-label part-target" data-id="switchAsic"><span>04</span>Switch ASIC</button>
+        <button type="button" class="scene-label part-target" data-id="package"><span>05</span>공통 패키지</button>
+        <button type="button" class="scene-label part-target" data-id="fau"><span>06</span>FAU</button>
+        <button type="button" class="scene-label part-target" data-id="dataFiber"><span>07</span>Data fiber</button>
+        <button type="button" class="scene-label part-target" data-id="connector"><span>08</span>전면 커넥터</button>
       </div>
     </div>
   </section>
@@ -348,7 +530,12 @@ function selectPart(id,scroll){
   qs('#partDesc').textContent=p.desc;
   qs('#partTags').innerHTML=p.tags.map(function(t){return '<span class="chip">'+escapeHtml(t)+'</span>'}).join('');
   qs('#partSelect').value=id;
-  qsa('.hotspot').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-id')===id)});
+  qsa('.part-target').forEach(function(n){
+    var match=n.getAttribute('data-id')===id;
+    n.classList.toggle('active',match);
+    n.classList.remove('flash');
+    if(match){void n.offsetWidth;n.classList.add('flash')}
+  });
   renderVendorList();
   renderVendor();
   renderComponentGrid();
@@ -397,9 +584,15 @@ function globalSearch(){
   else renderVendorList()
 }
 
-qsa('.hotspot').forEach(function(n){
-  n.addEventListener('click',function(){selectPart(n.getAttribute('data-id'),true)});
-  n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPart(n.getAttribute('data-id'),true)}})
+qsa('.part-target').forEach(function(n){
+  if(n.getAttribute('aria-hidden')==='true') return;
+  n.addEventListener('click',function(e){
+    e.stopPropagation();
+    selectPart(n.getAttribute('data-id'),false);
+  });
+  n.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPart(n.getAttribute('data-id'),false)}
+  });
 });
 qs('#partSelect').addEventListener('change',function(){selectPart(this.value,true)});
 qs('#search').addEventListener('input',globalSearch);

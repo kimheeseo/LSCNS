@@ -391,12 +391,12 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
         <div class="eyebrow">Interactive architecture</div>
         <h2 style="margin-top:6px">부품을 눌러 업체 탐색</h2>
       </div>
-      <div class="arch-note">선택된 부품은 파란색 테두리로 표시됩니다.</div>
+      <div class="arch-note">클릭한 부품만 약 10초 동안 강조됩니다.</div>
     </div>
     <div class="arch-body">
       <div class="diagram-shell">
-      <div class="model-stage" aria-label="Interactive 3D CPO package model">
-        <div class="model-caption"><b>Interactive CPO package</b> · 실제 부품을 클릭하면 해당 영역이 강조됩니다.</div>
+      <div class="model-stage" aria-label="Interactive front-view CPO package model">
+        <div class="model-caption"><b>Front-view CPO package</b> · 정면 시점에서 부품을 클릭하면 해당 영역만 강조됩니다.</div>
 
         <div class="scene3d">
           <div class="board3d">
@@ -821,7 +821,7 @@ function renderVendor(){
   var news=(c.news||[]).filter(newsMatchesSelectedPart).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
   var items=news.length?news.map(function(n){
     return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
-  }).join(''):'<div class="empty">현재 저장된 "+parts[selectedPart].name+" + CPO 관련 기사가 없습니다. “최신 기사 검색”에서 해당 부품 중심으로 확인할 수 있습니다.</div>';
+  }).join(''):'<div class="empty">현재 저장된 '+escapeHtml(parts[selectedPart].name)+' + CPO 관련 기사가 없습니다. “최신 기사 검색”에서 해당 부품 중심으로 확인할 수 있습니다.</div>';
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
     '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최신 기사 검색 ↗</a></div></div>'+

@@ -11,6 +11,28 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.3.0 — 2026-09-24
+
+### 3D CPO package image + interactive hotspot update
+
+- Replaced the previous schematic SVG illustration with a rendered 3D/isometric CPO package image.
+- Added the generated image as `assets/cpo-package-3d.webp`.
+- Preserved all 8 interactive component selections using transparent responsive hotspot buttons over the image:
+  - 01 External Laser Source
+  - 02 PM Fiber
+  - 03 Optical Engine / PIC + EIC
+  - 04 Switch ASIC
+  - 05 Common Package
+  - 06 FAU
+  - 07 Data Fiber
+  - 08 Front Connector
+- Clicking a hotspot continues to update the related-company list and company detail/news panel.
+- Optical Engine remains the default selection, with Broadcom shown first in the detail panel.
+- Updated the site/package version to `v1.3.0`.
+- Render deployment remains compatible with the existing `npm install` / `npm start` setup.
+
+---
+
 ## v1.2.1 — 2026-09-24
 
 ### Render Web Service deployment support

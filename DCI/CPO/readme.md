@@ -11,6 +11,23 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.6.0 — 2026-09-25
+
+### Component-only 10-second highlight interaction
+
+- Removed the top `LSCNS / DCI / CPO` breadcrumb from the homepage header.
+- Changed diagram interaction so only the selected component and its matching callout are highlighted.
+- Added a repeating sparkle/pulse effect that runs for approximately 10 seconds after each component click.
+- After 10 seconds, only the visual highlight is cleared; the selected component, company list, product information, and news detail remain selected.
+- Optical Engine selection highlights the optical-engine modules only.
+- Switch ASIC selection highlights the central ASIC only.
+- ELS, PM fiber, common package, FAU, data fiber, and front connector selections use the same component-specific behavior.
+- Clicking another component immediately cancels the previous highlight and starts a new 10-second highlight for the new selection.
+- Initial page load and search filtering do not trigger the 10-second animation automatically.
+- Updated the site/package version to `v1.6.0`.
+
+---
+
 ## v1.5.0 — 2026-09-24
 
 ### More realistic 3D CPO package visual

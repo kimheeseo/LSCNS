@@ -589,3 +589,7 @@ The tool now separates **GPU / Accelerator** and **Server CPU** supplier referen
 - Default Server CPU reference: Intel Xeon 6.
 - Related CPU families: AMD EPYC 9005, NVIDIA Grace CPU, AmpereOne.
 - These are supplier/BOM reference selections. They do not alter validated rack/power/network calculations until a vendor-specific system profile is added.
+
+### v6.1.1 — Rack Digital Twin 2D/3D deployment fix
+
+The four rack views (2D Front/Rear and 3D Front/Rear) are now mounted independently instead of depending strictly on the legacy rack container. This prevents the detailed rack view from disappearing when the older container is not present. The view includes RU/rails, GPU server faces, Leaf port fields, patch/cable management, A/B PDU, rear PSU/fans/NIC/management, 3D depth, fiber/power routing and rear service clearance.

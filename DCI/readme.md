@@ -542,3 +542,7 @@ Deployment source: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`
 ### Cooling Architecture v5.2.1
 
 Cooling Architecture is now a detailed liquid-cooling heat-removal diagram rather than a simple block flow. The UI separates the **Facility Water Loop** and **IT/Technology Cooling Loop**, shows the **CDU heat exchanger boundary**, cold Supply and heated Return paths, **rack manifold**, **QD**, GPU/CPU **cold plates**, and facility heat rejection equipment (chiller / dry cooler / cooling tower). Live design cards connect the diagram to Typical / Design-Max / Peak heat, approximate rack heat, water-equivalent flow at ΔT 10°C, and a first-pass CDU capacity estimate. Flow and CDU values are preliminary engineering references; final equipment selection requires hydraulic, coolant-property, redundancy, leak-detection and OEM verification.
+
+### Supply Chain vendor/product map v5.3.0
+
+A compact **Supply Chain** button is positioned directly beside **Design Calculation**. The popup is not a static logo board: it is rebuilt from the current **Generic BOM + Product Match** result and groups only the vendors/products actually used by the selected design into Compute/GPU, Network Fabric, Optical Connectivity, Power/UPS/PDU, Cooling/HVAC, Rack/Physical, Storage, and Facility/Security. Each card shows vendor, product/model, quantity when available, the originating BOM source, and product/datasheet links when present. The view is responsive for mobile use.

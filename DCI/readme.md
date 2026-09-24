@@ -613,3 +613,7 @@ The backend no longer counts static HTML/CSS/JS/image requests toward the API ra
 ### DC BOM v6.4.0 — 1.2T Aggregate network model
 
 The Network Role Model now supports **1.2T Aggregate · 3×400G** for Compute, Storage and In-Band scenarios. The tool treats 1.2T as a logical aggregate bandwidth target and physicalizes it into three 400G links for switch-port, optic, cable and cage sizing. Native 1.2T optics or cages are not assumed by default, and the UI separates logical 1.2T service counts from physical 400G link counts.
+
+### DC BOM v6.5.0 — Colocation / Multi-tenant scenario
+
+The tool now includes a top-level **Data Center Operating Scenario** selector for AI/GPU Cluster or Colocation / Multi-tenant. Colocation mode adds editable tenant count, racks per tenant, average rack density, capacity reserve and carrier-path assumptions, then calculates tenant rack count, base/reserved IT capacity, facility design power using the current PUE, and reference cross-connect paths. It also presents a colocation design proposal for A/B power and resilience, carrier-diverse MMR/network topology, density-based cooling zones, and tenant isolation/operations. Existing AI/GPU BOM calculations are preserved as a workload module. The Korea Purchasing / Technical Contacts section is now kept at the bottom of the page.

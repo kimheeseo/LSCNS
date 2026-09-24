@@ -10,6 +10,21 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 
 ---
 
+
+## v1.1.0 — 2026-09-24
+
+### Interactive HTML prototype added
+
+- Added `DCI/CPO/index.html` as a self-contained interactive CPO Component Explorer.
+- Added clickable CPO architecture flow.
+- Added component/category search and filtering.
+- Added representative company chips by component.
+- Added selected-component detail view.
+- Added roadmap for product/news/simulation/multilingual expansion.
+- Current HTML is an initial structure/UI prototype; product/news data will be validated and expanded in later versions.
+
+---
+
 ## v1.0.0 — 2026-09-24
 
 ### GitHub 프로젝트 운영 구조 정의

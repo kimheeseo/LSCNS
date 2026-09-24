@@ -568,3 +568,7 @@ v6 extends the BOM tool from equipment-counting toward a broader **Data Center A
 Reference basis: Huawei Data Center 2030 concepts, DEFOG PUE measurement-boundary guidance, Siemens cooling/digital-twin engineering, and the uploaded GPU-infrastructure, resilience and hyperscale-supply-chain white papers. Values not supported by a source remain user-entered or unset.
 
 Deployment source remains: `kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`.
+
+### v6.0.1 hotfix
+
+Fixed a JavaScript string-concatenation syntax error in the v6 Rack Constraint Review (Power cap / Cooling cap rows). The corrected v6 system-engineering patch was syntax-validated before commit. Functional scope remains the same as v6.0.0.

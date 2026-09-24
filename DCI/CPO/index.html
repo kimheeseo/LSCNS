@@ -325,6 +325,15 @@ border-radius:12px;padding:11px;background:white}
 .news-source{font-size:10px;color:#7c8da0;margin-top:3px}
 .news-go{width:34px;height:34px;border-radius:9px;border:1px solid #cfe0ef;background:#f8fbff;color:#2d6dab;font-weight:900}
 .empty{padding:18px;border:1px dashed #c7d9ea;border-radius:12px;color:#72869a;text-align:center;background:#fafdff}
+
+.stock-card{margin:16px 0;border:1px solid #dce7f1;border-radius:14px;background:#fff;overflow:hidden}
+.stock-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:13px 14px 10px;border-bottom:1px solid #e7eef5}
+.stock-head b{display:block;font-size:14px;color:#223e58}
+.stock-head span{display:block;margin-top:3px;font-size:11px;color:#7b8ea0;line-height:1.45}
+.stock-link{font-size:11px;font-weight:800;white-space:nowrap}
+.stock-frame{width:100%;height:300px;border:0;display:block;background:#f7faff}
+.stock-private{padding:22px 16px;text-align:center;color:#6f8295;background:#f8fbff;font-size:13px;line-height:1.6}
+
 .footer-note{margin-top:15px;padding:12px 14px;border-radius:12px;background:#fff8e7;border:1px solid #f0dda8;color:#775f24;font-size:12px;line-height:1.55}
 .component-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
 .component-card{border:1px solid #d6e3ef;background:white;border-radius:13px;padding:12px;text-align:left}
@@ -342,7 +351,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.6.0 · 2026-09-25</span>
+    <span class="badge">v1.7.0 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -389,7 +398,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
             <button type="button" class="part-target package-hit" data-id="package" aria-label="공통 패키지"></button>
             <div class="package3d" aria-hidden="true"></div>
 
-            <button type="button" class="part-target els-box" data-id="els" aria-label="외부 광원 ELS"></button>
+            <button type="button" class="part-target els-box" data-id="els" aria-label="레이저 ELS"></button>
 
             <button type="button" class="part-target switch-chip" data-id="switchAsic" aria-label="Switch ASIC"></button>
 
@@ -405,9 +414,9 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
             <button type="button" class="part-target pmArc pm1" data-id="pmFiber" aria-label="PM fiber route 1"></button>
             <button type="button" class="part-target pmArc pm2" data-id="pmFiber" aria-label="PM fiber route 2"></button>
 
-            <button type="button" class="part-target fiberArc fa1" data-id="dataFiber" aria-label="Data fiber route 1"></button>
-            <button type="button" class="part-target fiberArc fa2" data-id="dataFiber" aria-label="Data fiber route 2"></button>
-            <button type="button" class="part-target fiberArc fa3" data-id="dataFiber" aria-label="Data fiber route 3"></button>
+            <button type="button" class="part-target fiberArc fa1" data-id="dataFiber" aria-label="Optical fiber route 1"></button>
+            <button type="button" class="part-target fiberArc fa2" data-id="dataFiber" aria-label="Optical fiber route 2"></button>
+            <button type="button" class="part-target fiberArc fa3" data-id="dataFiber" aria-label="Optical fiber route 3"></button>
             <div class="part-target data-hit" data-id="dataFiber" aria-hidden="true"></div>
 
             <button type="button" class="part-target fau-unit f1" data-id="fau" aria-label="FAU 1"></button>
@@ -430,13 +439,13 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
           </div>
         </div>
 
-        <button type="button" class="scene-label part-target" data-id="els"><span>01</span>외부 광원</button>
+        <button type="button" class="scene-label part-target" data-id="els"><span>01</span>레이저</button>
         <button type="button" class="scene-label part-target" data-id="pmFiber"><span>02</span>PM fiber</button>
         <button type="button" class="scene-label part-target" data-id="opticalEngine"><span>03</span>광엔진</button>
         <button type="button" class="scene-label part-target" data-id="switchAsic"><span>04</span>Switch ASIC</button>
         <button type="button" class="scene-label part-target" data-id="package"><span>05</span>공통 패키지</button>
         <button type="button" class="scene-label part-target" data-id="fau"><span>06</span>FAU</button>
-        <button type="button" class="scene-label part-target" data-id="dataFiber"><span>07</span>Data fiber</button>
+        <button type="button" class="scene-label part-target" data-id="dataFiber"><span>07</span>Optical fiber</button>
         <button type="button" class="scene-label part-target" data-id="connector"><span>08</span>전면 커넥터</button>
       </div>
     </div>
@@ -466,126 +475,161 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
   </section>
 
   <section class="component-grid" id="componentGrid"></section>
-
-  <div class="footer-note">
-    기사 영역은 사이트에 저장된 검증 기사와 업체별 최신 검색 링크를 함께 제공합니다. 정적 GitHub Pages이므로 외부 뉴스 API를 실시간 호출하지 않으며,
-    다음 업데이트에서 기사 데이터를 JSON으로 분리해 유지보수할 수 있습니다.
-  </div>
   <footer>kimheeseo/LSCNS · DCI/CPO · CPO Component Explorer</footer>
 </main>
 
 <script>
 var companies={
-  coherent:{name:'Coherent',initial:'CO',official:'https://www.coherent.com/',focus:'ELS · SiPh · CPO optical assembly',
-    product:'PhotonLink™, socketed CPO, external laser source',
+  coherent:{name:'Coherent',initial:'CO',official:'https://www.coherent.com/',focus:'레이저 · SiPh · CPO optical assembly',
+    product:'PhotonLink™ · socketed CPO · external laser source',
     news:[
-      {date:'2026-09-21',title:'Coherent Launches PhotonLink™ Integrated Optics Platform for AI Infrastructure',source:'Coherent',url:'https://www.coherent.com/news/press-releases/launches-photonlink-integrated-optics-platform-ai-infrastructure'},
-      {date:'2026-09-20',title:'Coherent Showcases Optical Innovations to Scale AI Infrastructure at ECOC 2026',source:'Coherent',url:'https://www.coherent.com/news/press-releases/showcases-optical-innovations-scale-ai-infrastructure-ecoc-2026'},
-      {date:'2026-03-17',title:'Coherent Demonstrates Multiple Co-Packaged Optics Technologies at OFC 2026',source:'Coherent',url:'https://www.coherent.com/news/press-releases/coherent-co-packaged-optics-cpo-technologies-ofc-2026'}
+      {date:'2026-09-21',title:'Coherent, AI 인프라용 PhotonLink™ 통합 광학 플랫폼 출시',source:'Coherent',url:'https://www.coherent.com/news/press-releases/launches-photonlink-integrated-optics-platform-ai-infrastructure'},
+      {date:'2026-09-20',title:'Coherent, ECOC 2026에서 AI 인프라 확장용 광학 혁신 공개',source:'Coherent',url:'https://www.coherent.com/news/press-releases/showcases-optical-innovations-scale-ai-infrastructure-ecoc-2026'},
+      {date:'2026-03-17',title:'Coherent, OFC 2026에서 다수의 CPO 기술 시연',source:'Coherent',url:'https://www.coherent.com/news/press-releases/coherent-co-packaged-optics-cpo-technologies-ofc-2026'}
     ]},
   lumentum:{name:'Lumentum',initial:'LU',official:'https://www.lumentum.com/',focus:'External laser source · high-power InP laser',
     product:'DWDM ELSFP · UHP/SHP laser',
     news:[
-      {date:'2026-09-21',title:'Lumentum to Demonstrate DWDM ELSFP Laser Module for OCI MSA Applications at ECOC 2026',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-to-Demonstrate-DWDM-ELSFP-Laser-Module-for-OCI-MSA-Applications-at-ECOC-2026/default.aspx'},
-      {date:'2026-06-17',title:'Reliability Becomes the New Currency: How CPO Is Rewriting Laser Performance',source:'Lumentum',url:'https://www.lumentum.com/en/blog/reliability-becomes-new-currency-how-cpo-rewriting-laser-performance'},
-      {date:'2026-03-17',title:'Lumentum Demonstrates Industry-Leading Technologies for AI Infrastructure at OFC 2026',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Demonstrates-Industry-Leading-Technologies-and-Products-for-Scale-Out-Scale-Up-and-Scale-Across-AI-Infrastructure-at-OFC-2026/default.aspx'}
+      {date:'2026-09-21',title:'Lumentum, ECOC 2026에서 OCI MSA용 DWDM ELSFP 레이저 모듈 시연',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-to-Demonstrate-DWDM-ELSFP-Laser-Module-for-OCI-MSA-Applications-at-ECOC-2026/default.aspx'},
+      {date:'2026-06-17',title:'CPO 시대의 레이저 신뢰성: 성능 기준이 어떻게 달라지는가',source:'Lumentum',url:'https://www.lumentum.com/en/blog/reliability-becomes-new-currency-how-cpo-rewriting-laser-performance'},
+      {date:'2026-03-17',title:'Lumentum, OFC 2026에서 AI 인프라용 주요 기술과 제품 시연',source:'Lumentum',url:'https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Demonstrates-Industry-Leading-Technologies-and-Products-for-Scale-Out-Scale-Up-and-Scale-Across-AI-Infrastructure-at-OFC-2026/default.aspx'}
     ]},
   ayar:{name:'Ayar Labs',initial:'AY',official:'https://ayarlabs.com/',focus:'CPO optical I/O chiplet · ELS',
     product:'TeraPHY™ Optical Engine · SuperNova™ Light Source',
     news:[
-      {date:'2026-09-10',title:'Ayar Labs Expands 2026 Funding to $650 Million to Scale Manufacturing-Ready CPO',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million'},
-      {date:'2026-06-02',title:'Ayar Labs Joins NVIDIA NVLink Fusion Ecosystem to Bring CPO to Rack-Scale AI Infrastructure',source:'Ayar Labs',url:'https://ayarlabs.com/news/'},
-      {date:'2026-03-11',title:'Ayar Labs and Wiwynn Partner to Bring Co-Packaged Optics to Rack-Scale AI Systems',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-and-wiwynn-partner-to-bring-co-packaged-optics-to-rack-scale-ai-systems/'}
+      {date:'2026-09-10',title:'Ayar Labs, 양산형 CPO 확대 위해 2026년 투자유치 규모를 6.5억 달러로 확대',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million'},
+      {date:'2026-06-02',title:'Ayar Labs, NVIDIA NVLink Fusion 생태계 합류… 랙 스케일 AI에 CPO 적용',source:'Ayar Labs',url:'https://ayarlabs.com/news/'},
+      {date:'2026-03-11',title:'Ayar Labs·Wiwynn, 랙 스케일 AI 시스템용 CPO 협력',source:'Ayar Labs',url:'https://ayarlabs.com/news/ayar-labs-and-wiwynn-partner-to-bring-co-packaged-optics-to-rack-scale-ai-systems/'}
     ]},
   broadcom:{name:'Broadcom',initial:'BC',official:'https://www.broadcom.com/',focus:'Switch ASIC · silicon photonics CPO',
-    product:'Bailly 51.2T CPO platform (industry-reported)',
+    product:'Bailly 51.2T CPO platform',
     news:[
-      {date:'2026-07-27',title:'NVIDIA and Broadcom Begin Volume Ramp of CPO Switches',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'}
+      {date:'2026-07-27',title:'NVIDIA·Broadcom, CPO 스위치 양산 확대 시작',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'}
     ]},
   nvidia:{name:'NVIDIA',initial:'NV',official:'https://www.nvidia.com/',focus:'AI networking · photonics switch platform',
     product:'Spectrum-X / Quantum-X photonics ecosystem',
     news:[
-      {date:'2026-07-27',title:'NVIDIA and Broadcom Begin Volume Ramp of CPO Switches',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'},
-      {date:'2026-05-06',title:'NVIDIA and Corning Announce Long-Term Partnership for AI Optical Connectivity Manufacturing',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/05/nvidia-and-corning-announce-long-term-partnership-to-strengthen-us-manufacturing-for-ai-infrastructure.html'}
+      {date:'2026-07-27',title:'NVIDIA·Broadcom, CPO 스위치 양산 확대 시작',source:'TrendForce',url:'https://www.trendforce.com/presscenter/news/20260727-13151.html'},
+      {date:'2026-05-06',title:'NVIDIA·Corning, AI 광연결 제조 역량 강화를 위한 장기 파트너십 발표',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/05/nvidia-and-corning-announce-long-term-partnership-to-strengthen-us-manufacturing-for-ai-infrastructure.html'}
     ]},
   marvell:{name:'Marvell',initial:'MV',official:'https://www.marvell.com/',focus:'Switch/DSP · CPO platform',
     product:'102.4T CPO platform · 2nm optical connectivity',
     news:[
-      {date:'2026-09-20',title:'Marvell to Showcase Industry-First 2nm Optical Technology Demos at ECOC 2026',source:'Marvell',url:'https://www.marvell.com/company/newsroom/marvell-industry-first-2nm-optical-technology-ai-data-center-infrastructure-ecoc-2026.html'},
-      {date:'2026-05-28',title:'Open CPX Sets the Stage for More Flexible, Scalable Connectivity',source:'Marvell',url:'https://www.marvell.com/blogs.html?archivemonth=2026-05'}
+      {date:'2026-09-20',title:'Marvell, ECOC 2026에서 업계 최초 2nm 광학 기술 시연',source:'Marvell',url:'https://www.marvell.com/company/newsroom/marvell-industry-first-2nm-optical-technology-ai-data-center-infrastructure-ecoc-2026.html'},
+      {date:'2026-05-28',title:'Open CPX, 더 유연하고 확장 가능한 연결성의 기반 마련',source:'Marvell',url:'https://www.marvell.com/blogs.html?archivemonth=2026-05'}
     ]},
   lightmatter:{name:'Lightmatter',initial:'LM',official:'https://lightmatter.co/',focus:'Photonic interconnect · CPO/NPO optical engine',
     product:'Passage™ · vClick™ Optics',
     news:[
-      {date:'2026-09-17',title:'Lightmatter Joins Open CPX MSA and Introduces Bidirectional CPX Optical Engine',source:'Lightmatter',url:'https://lightmatter.co/press-releases/'},
-      {date:'2026-06-02',title:'Lightmatter Joins NVIDIA NVLink Fusion and Powers Next-Generation AI Infrastructure',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-joins-nvidia-nvlink-fusion/'},
-      {date:'2026-03-11',title:'Lightmatter Achieves Record 1.6 Tbps Per Fiber to Accelerate AI Optical Interconnect',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-achieves-record-1-6-tbps-per-fiber-to-accelerate-ai-optical-interconnect/'}
+      {date:'2026-09-17',title:'Lightmatter, Open CPX MSA 합류 및 양방향 CPX 광엔진 공개',source:'Lightmatter',url:'https://lightmatter.co/press-releases/'},
+      {date:'2026-06-02',title:'Lightmatter, NVIDIA NVLink Fusion 합류… 차세대 AI 인프라 지원',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-joins-nvidia-nvlink-fusion/'},
+      {date:'2026-03-11',title:'Lightmatter, 파이버당 1.6 Tbps 광인터커넥트 기록 달성',source:'Lightmatter',url:'https://lightmatter.co/press-release/lightmatter-achieves-record-1-6-tbps-per-fiber-to-accelerate-ai-optical-interconnect/'}
+    ]},
+  openlight:{name:'OpenLight',initial:'OL',official:'https://openlightphotonics.com/',focus:'Heterogeneous silicon photonics · PASIC · PIC',
+    product:'1.6T DR8 PIC · PASIC PDK · heterogeneous InP-on-silicon platform',
+    news:[
+      {date:'2026-09-21',title:'OpenLight, 실리콘 포토닉스 사업 확대 위해 전 GlobalFoundries·STMicroelectronics 임원 영입',source:'OpenLight',url:'https://openlightphotonics.com/newsroom/openlight-expands-executive-leadership-team-with-strategic-appointments-to-accelerate-growth'},
+      {date:'2026-08-01',title:'OpenLight, 주요 글로벌 행사에서 이종집적 실리콘 포토닉스 기술 공개 예정',source:'OpenLight',url:'https://openlightphotonics.com/newsroom'},
+      {date:'2026-08-01',title:'OpenLight·Tower Semiconductor, PH18DA 포토닉스 생태계 확대',source:'OpenLight',url:'https://openlightphotonics.com/newsroom'}
     ]},
   molex:{name:'Molex',initial:'MO',official:'https://www.molex.com/en-us/industries-applications/data-center-connector-solutions/near-asic/co-packaged-optics',focus:'CPO connectivity · ELSFP · detachable fiber-to-chip',
     product:'VersaBeam · ELSFP Interconnect · CPO toolkit',
     news:[
-      {date:'2026-09-21',title:'Molex Announces VersaBeam Mini for Ultra-Dense AI Optical Interconnects',source:'Molex',url:'https://www.molex.com/en-us/news/molex-announces-versabeam-mini-to-advance-optical-interconnects'},
-      {date:'2026-05-07',title:'Molex Completes Acquisition of Teramount for Detachable Fiber-to-Chip CPO Connectivity',source:'Molex',url:'https://www.molex.com/en-us/news/molex-completes-acquisition-of-teramount-ltd'},
-      {date:'2026-03-17',title:'Molex Accelerates AI Cluster Deployment with Expanded CPO Interconnect Toolkit',source:'Molex',url:'https://www.molex.com/en-us/news/molex-accelerates-ai-cluster-deployment-with-one-stop-optical-interconnect-architecture-and-debut-of-high-radix-optical-circuit-switch-platform'}
+      {date:'2026-09-21',title:'Molex, 초고밀도 AI 광인터커넥트용 VersaBeam Mini 발표',source:'Molex',url:'https://www.molex.com/en-us/news/molex-announces-versabeam-mini-to-advance-optical-interconnects'},
+      {date:'2026-05-07',title:'Molex, 분리형 Fiber-to-Chip CPO 연결 기술 기업 Teramount 인수 완료',source:'Molex',url:'https://www.molex.com/en-us/news/molex-completes-acquisition-of-teramount-ltd'},
+      {date:'2026-03-17',title:'Molex, AI 클러스터 구축용 CPO 인터커넥트 툴킷 확대',source:'Molex',url:'https://www.molex.com/en-us/news/molex-accelerates-ai-cluster-deployment-with-one-stop-optical-interconnect-architecture-and-debut-of-high-radix-optical-circuit-switch-platform'}
     ]},
-  corning:{name:'Corning',initial:'CR',official:'https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/optical-communication-components/co-packaged-optics.html',focus:'Fiber-to-chip · FAU · fiber · connector',
+  corning:{name:'Corning',initial:'CR',official:'https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/optical-communication-components/co-packaged-optics.html',focus:'Fiber-to-chip · FAU · optical fiber · connector',
     product:'GlassBridge™ · FAU · MMC/PRIZM TMT · CPO FlexConnect™',
     news:[
-      {date:'2026-09-21',title:'Corning at ECOC 2026: From Fiber to Chip, AI Network Innovations',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/corning-at-ecoc-2026.html'},
-      {date:'2026-09-17',title:'Corning to Showcase End-to-End Passive CPO/NPO Solutions at ECOC 2026',source:'Corning',url:'https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/09/corning-to-showcase-new-cable-and-connectivity-innovations-to-accelerate-and-streamline-ai-network-growth-at-ecoc-2026.html'},
-      {date:'2026-07-23',title:'Why Scalable CPO Must Be Built as a System',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/why-scalable-cpo-must-be-built-as-a-system.html'},
-      {date:'2026-03-11',title:'Corning Expands AI Data Center Connectivity Portfolio with PRIZM TMT Technology',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/03/corning-expands-ai-data-center-connectivity-portfolio-with-prizm-tmt-technology.html'}
+      {date:'2026-09-21',title:'Corning, ECOC 2026에서 Fiber-to-Chip 기반 AI 네트워크 혁신 공개',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/corning-at-ecoc-2026.html'},
+      {date:'2026-09-17',title:'Corning, ECOC 2026에서 End-to-End 수동형 CPO/NPO 솔루션 공개',source:'Corning',url:'https://www.corning.com/worldwide/en/about-us/news-events/news-releases/2026/09/corning-to-showcase-new-cable-and-connectivity-innovations-to-accelerate-and-streamline-ai-network-growth-at-ecoc-2026.html'},
+      {date:'2026-07-23',title:'확장 가능한 CPO를 시스템 관점에서 설계해야 하는 이유',source:'Corning',url:'https://www.corning.com/optical-communications/worldwide/en/home/the-signal-network-blog/why-scalable-cpo-must-be-built-as-a-system.html'},
+      {date:'2026-03-11',title:'Corning, PRIZM TMT 기술로 AI 데이터센터 연결 포트폴리오 확대',source:'Corning',url:'https://www.corning.com/emea/en/about-us/news-events/news-releases/2026/03/corning-expands-ai-data-center-connectivity-portfolio-with-prizm-tmt-technology.html'}
     ]},
   senko:{name:'SENKO',initial:'SE',official:'https://www.senko.com/',focus:'VSFF / detachable PIC connectivity',
     product:'SN® family · detachable connectivity to PIC',
     news:[
-      {date:'2026-03-11',title:'SENKO Collaborates with Lightmatter on Detachable Connectivity to the PIC for 3D CPO',source:'SENKO',url:'https://www.senko.com/news/'},
-      {date:'2026-06-01',title:'From Architecture to Adoption: Ecosystem Collaboration Accelerates Co-Packaged Optics',source:'SENKO',url:'https://www.senko.com/news/'}
+      {date:'2026-06-01',title:'CPO 도입 가속을 위한 생태계 협업: 아키텍처에서 상용화까지',source:'SENKO',url:'https://www.senko.com/news/'},
+      {date:'2026-03-11',title:'SENKO·Lightmatter, 3D CPO용 분리형 PIC 연결 기술 협력',source:'SENKO',url:'https://www.senko.com/news/'}
     ]},
   usconec:{name:'US Conec',initial:'UC',official:'https://www.usconec.com/',focus:'VSFF · expanded-beam ferrule',
     product:'PRIZM® TMT · MMC® connector ecosystem',
     news:[
-      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+      {date:'2026-03-11',title:'US Conec·Corning·Fujikura·Sumitomo Electric, PRIZM TMT·MMC 다중 공급 프레임워크 발표',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
     ]},
-  fujikura:{name:'Fujikura',initial:'FJ',official:'https://www.fujikura.co.jp/eng/',focus:'Fiber · high-density connectivity · ferrule ecosystem',
+  fujikura:{name:'Fujikura',initial:'FJ',official:'https://www.fujikura.co.jp/eng/',focus:'Optical fiber · high-density connectivity · ferrule ecosystem',
     product:'Optical fiber/connector ecosystem · PRIZM TMT framework participant',
     news:[
-      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+      {date:'2026-03-11',title:'US Conec·Corning·Fujikura·Sumitomo Electric, PRIZM TMT·MMC 다중 공급 프레임워크 발표',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
     ]},
-  sumitomo:{name:'Sumitomo Electric',initial:'SE',official:'https://sumitomoelectric.com/',focus:'Fiber · connectivity · ferrule ecosystem',
+  sumitomo:{name:'Sumitomo Electric',initial:'SE',official:'https://sumitomoelectric.com/',focus:'Optical fiber · connectivity · ferrule ecosystem',
     product:'Optical fiber/cabling · PRIZM TMT framework participant',
     news:[
-      {date:'2026-03-11',title:'US Conec, Corning, Fujikura and Sumitomo Electric Lightwave Announce Multi-Source Framework for PRIZM TMT and MMC',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
+      {date:'2026-03-11',title:'US Conec·Corning·Fujikura·Sumitomo Electric, PRIZM TMT·MMC 다중 공급 프레임워크 발표',source:'US Conec',url:'https://www.usconec.com/media/h4zopm3k/us-conec-corning-fujikura-and-sumitomo-electric-joint-press-release_3-11-2026_final.pdf'}
     ]},
-  furukawa:{name:'Furukawa Electric',initial:'FE',official:'https://www.furukawaelectric.com/en/',focus:'Fiber · VSFF connector supply chain',
+  furukawa:{name:'Furukawa Electric',initial:'FE',official:'https://www.furukawaelectric.com/en/',focus:'Optical fiber · VSFF connector supply chain',
     product:'Optical solutions · Hakusan TMT ferrule supply ecosystem',
     news:[
-      {date:'2026-06-02',title:'Hakusan Constructs New Plant for Mass Production of TMT Ferrules for VSFF Multi-Fiber Optical Connectors',source:'Furukawa Electric',url:'https://www.furukawaelectric.com/en/release/'}
+      {date:'2026-06-02',title:'Hakusan, VSFF 다심 광커넥터용 TMT 페룰 양산 신공장 구축',source:'Furukawa Electric',url:'https://www.furukawaelectric.com/en/release/'}
     ]},
   hengtong:{name:'Hengtong',initial:'HT',official:'https://www.hengtongglobal.com/',focus:'Optical fiber/cable · AI data center connectivity',
     product:'Fiber/cable portfolio · CPO technology coverage',
     news:[
-      {date:'2026-06-04',title:'Co-Packaged Optics: Is 1.6T CPO Ready for AI Data Centers?',source:'Hengtong',url:'https://www.hengtongglobal.com/info/co-packaged-optics-1-6t-cpo-ai-data-centers-103530147.html'}
+      {date:'2026-06-04',title:'1.6T CPO는 AI 데이터센터에 적용 준비가 되었는가?',source:'Hengtong',url:'https://www.hengtongglobal.com/info/co-packaged-optics-1-6t-cpo-ai-data-centers-103530147.html'}
     ]},
+  lscns:{name:'LS전선',initial:'LS',official:'https://www.lscns.com/',focus:'Optical fiber/cable · data center connectivity',
+    product:'광섬유·광케이블 및 데이터센터 광연결 응용',news:[]},
+  yofc:{name:'YOFC',initial:'YO',official:'https://en.yofc.com/',focus:'Optical fiber · cable · specialty fiber',
+    product:'Optical fibre preform · optical fibre · cable · specialty fibre',news:[]},
+  ztt:{name:'ZTT',initial:'ZT',official:'https://www.zttgroup.com/',focus:'Optical fiber/cable · telecom · data connectivity',
+    product:'Optical fiber/cable · telecom connectivity portfolio',news:[]},
   tsmc:{name:'TSMC',initial:'TS',official:'https://www.tsmc.com/',focus:'Advanced packaging · silicon photonics ecosystem',
     product:'Advanced package integration for AI/CPO architectures',news:[]},
   intel:{name:'Intel',initial:'IN',official:'https://www.intel.com/',focus:'Silicon photonics · advanced packaging',
     product:'SiPh / package integration technology',
-    news:[{date:'2026-07-24',title:'Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era',source:'Intel',url:'https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era'}]},
+    news:[{date:'2026-07-24',title:'Intel·Lens Technology, AI 시대 첨단 반도체 패키징 협력',source:'Intel',url:'https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era'}]},
   ase:{name:'ASE',initial:'AS',official:'https://www.aseglobal.com/',focus:'OSAT · advanced package assembly',product:'Package assembly/test ecosystem',news:[]},
   amkor:{name:'Amkor',initial:'AM',official:'https://amkor.com/',focus:'OSAT · advanced packaging',product:'Package assembly/test ecosystem',news:[]},
   cisco:{name:'Cisco',initial:'CS',official:'https://www.cisco.com/',focus:'Networking silicon · optical networking',product:'Silicon One / optical networking ecosystem',news:[]},
-  ranovus:{name:'Ranovus',initial:'RA',official:'https://www.ranovus.com/',focus:'Silicon photonics optical engine',product:'ODIN® optical interconnect platform',news:[]}
+  ranovus:{name:'RANOVUS',initial:'RA',official:'https://www.ranovus.com/',focus:'Silicon photonics optical engine',product:'ODIN® optical interconnect platform',news:[]},
+  globalfoundries:{name:'GlobalFoundries',initial:'GF',official:'https://www.gf.com/',focus:'Semiconductor foundry · silicon photonics · advanced packaging ecosystem',
+    product:'Silicon photonics foundry / package manufacturing platform',news:[]},
+  umc:{name:'UMC',initial:'UM',official:'https://www.umc.com/',focus:'Semiconductor foundry · package ecosystem',
+    product:'Foundry manufacturing platform for advanced connectivity ICs',news:[]}
+};
+
+var stockMeta={
+  broadcom:{symbol:'NASDAQ:AVGO',label:'Broadcom · AVGO'},
+  nvidia:{symbol:'NASDAQ:NVDA',label:'NVIDIA · NVDA'},
+  marvell:{symbol:'NASDAQ:MRVL',label:'Marvell · MRVL'},
+  coherent:{symbol:'NYSE:COHR',label:'Coherent · COHR'},
+  lumentum:{symbol:'NASDAQ:LITE',label:'Lumentum · LITE'},
+  corning:{symbol:'NYSE:GLW',label:'Corning · GLW'},
+  intel:{symbol:'NASDAQ:INTC',label:'Intel · INTC'},
+  cisco:{symbol:'NASDAQ:CSCO',label:'Cisco · CSCO'},
+  tsmc:{symbol:'NYSE:TSM',label:'TSMC ADR · TSM'},
+  ase:{symbol:'NYSE:ASX',label:'ASE Technology · ASX'},
+  amkor:{symbol:'NASDAQ:AMKR',label:'Amkor · AMKR'},
+  globalfoundries:{symbol:'NASDAQ:GFS',label:'GlobalFoundries · GFS'},
+  umc:{symbol:'NYSE:UMC',label:'UMC ADR · UMC'},
+  fujikura:{symbol:'TSE:5803',label:'Fujikura · 5803'},
+  sumitomo:{symbol:'TSE:5802',label:'Sumitomo Electric · 5802'},
+  furukawa:{symbol:'TSE:5801',label:'Furukawa Electric · 5801'},
+  hengtong:{symbol:'SSE:600487',label:'Hengtong Optic-Electric · 600487'},
+  yofc:{symbol:'HKEX:6869',label:'YOFC · 06869.HK'},
+  ztt:{symbol:'SSE:600522',label:'ZTT · 600522.SH'},
+  lscns:{symbol:'KRX:006260',label:'LS Corp. · 006260',note:'LS전선 자체는 비상장사입니다. 아래 차트는 모회사 LS Corp.의 참고 주가입니다.'}
 };
 
 var parts={
-  els:{num:'01',name:'외부 광원',en:'External Laser Source',desc:'CPO 패키지 밖에서 CW 광을 생성해 PM fiber를 통해 optical engine에 공급합니다. 열·신뢰성·서비스성을 위해 laser를 package 밖에 두는 구조가 일반적입니다.',tags:['ELS','CW laser','ELSFP','thermal'],vendors:['lumentum','coherent','ayar','molex']},
-  pmFiber:{num:'02',name:'PM fiber',en:'Polarization-Maintaining Fiber',desc:'외부 광원의 편광 상태를 유지하며 optical engine까지 광을 전달하는 경로입니다. ELS 구조에서 굴곡, 커넥터, 편광 유지 성능이 중요합니다.',tags:['PM fiber','laser feed','bend','polarization'],vendors:['fujikura','sumitomo','corning','furukawa']},
-  opticalEngine:{num:'03',name:'광엔진',en:'Optical Engine / PIC + EIC',desc:'SiPh/PIC와 EIC가 전기 신호를 광 신호로 변환하고 다시 수신하는 핵심 CPO 블록입니다. bandwidth density, coupling loss, thermal drift, testability가 주요 지표입니다.',tags:['PIC','EIC','SiPh','200G/lane','CPO'],vendors:['broadcom','ayar','lightmatter','marvell','coherent','ranovus']},
+  els:{num:'01',name:'레이저',en:'Laser / External Laser Source',desc:'CPO 패키지 밖에서 CW 광을 생성해 PM fiber를 통해 optical engine에 공급합니다. 열·신뢰성·서비스성을 위해 laser를 package 밖에 두는 구조가 일반적입니다.',tags:['Laser','ELS','CW laser','ELSFP','thermal'],vendors:['lumentum','coherent','ayar','molex']},
+  pmFiber:{num:'02',name:'PM fiber',en:'Polarization-Maintaining Fiber',desc:'레이저의 편광 상태를 유지하며 optical engine까지 광을 전달하는 경로입니다. ELS 구조에서 굴곡, 커넥터, 편광 유지 성능이 중요합니다.',tags:['PM fiber','laser feed','bend','polarization'],vendors:['fujikura','sumitomo','corning','furukawa']},
+  opticalEngine:{num:'03',name:'광엔진',en:'Optical Engine / PIC + EIC',desc:'SiPh/PIC와 EIC가 전기 신호를 광 신호로 변환하고 다시 수신하는 핵심 CPO 블록입니다. bandwidth density, coupling loss, thermal drift, testability가 주요 지표입니다.',tags:['PIC','EIC','SiPh','200G/lane','CPO'],vendors:['broadcom','ranovus','ayar','lightmatter','marvell','coherent','openlight']},
   switchAsic:{num:'04',name:'Switch ASIC',en:'Electrical Switching ASIC',desc:'CPO 패키지 중앙의 고대역폭 스위칭 칩입니다. SerDes 거리를 줄이기 위해 optical engine을 ASIC 가까이 배치합니다.',tags:['switch silicon','SerDes','51.2T+','AI fabric'],vendors:['broadcom','nvidia','marvell','cisco']},
-  package:{num:'05',name:'공통 패키지',en:'Package / Substrate',desc:'Switch ASIC과 optical engine, 전기 배선, 전원 및 기계/열 구조를 하나의 고밀도 패키지로 통합합니다.',tags:['substrate','BGA','advanced packaging','thermal'],vendors:['tsmc','intel','ase','amkor']},
+  package:{num:'05',name:'공통 패키지',en:'Package / Substrate',desc:'Switch ASIC과 optical engine, 전기 배선, 전원 및 기계/열 구조를 하나의 고밀도 패키지로 통합합니다.',tags:['substrate','BGA','advanced packaging','thermal'],vendors:['tsmc','intel','ase','amkor','globalfoundries','umc']},
   fau:{num:'06',name:'FAU',en:'Fiber Array Unit',desc:'PIC edge/grating coupler와 다심 fiber array를 정밀 정렬·고정합니다. coupling loss, x/y/z tolerance, angle tolerance와 고온 신뢰성이 핵심입니다.',tags:['FAU','fiber-to-chip','alignment','coupling loss'],vendors:['corning','molex','fujikura','sumitomo','furukawa']},
-  dataFiber:{num:'07',name:'Data fiber',en:'Data Fiber',desc:'Optical engine에서 전면 connector 또는 외부 optical fabric으로 데이터를 송수신하는 광섬유 경로입니다. bend loss, density, MPI, routing이 중요합니다.',tags:['SMF','bend','routing','density'],vendors:['corning','fujikura','sumitomo','furukawa','hengtong']},
+  dataFiber:{num:'07',name:'Optical fiber',en:'Optical Fiber',desc:'Optical engine에서 전면 connector 또는 외부 optical fabric으로 데이터를 송수신하는 광섬유 경로입니다. bend loss, density, MPI, routing이 중요합니다.',tags:['Optical fiber','SMF','bend','routing','density'],vendors:['lscns','yofc','ztt','corning','fujikura','sumitomo','furukawa','hengtong']},
   connector:{num:'08',name:'전면 커넥터',en:'Front Connector / VSFF',desc:'CPO chassis 전면에서 수십~수백 개 fiber를 serviceable하게 연결합니다. MPO/MMC/SN 계열 등 고밀도 interface와 expanded-beam 방식이 후보입니다.',tags:['MPO','MMC','SN','VSFF','expanded beam'],vendors:['senko','usconec','molex','corning','furukawa']}
 };
 
@@ -681,18 +725,37 @@ function renderVendorList(){
   if(!root.children.length)root.innerHTML='<div class="empty">검색 조건에 맞는 업체가 없습니다.</div>'
 }
 
+function tradingViewUrl(symbol){
+  return 'https://s.tradingview.com/widgetembed/?frameElementId=cpo_stock&symbol='+encodeURIComponent(symbol)+
+    '&interval=D&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=light&style=2&timezone=Asia%2FSeoul&withdateranges=1&hideideas=1&locale=kr';
+}
+
+function renderStockChart(id){
+  var meta=stockMeta[id];
+  if(!meta){
+    return '<div class="stock-card"><div class="stock-head"><div><b>주가 그래프</b><span>현재 확인 가능한 직접 상장 티커가 없습니다.</span></div></div>'+
+      '<div class="stock-private">비상장 기업이거나 독립 상장 주식이 없어 직접 주가 그래프를 제공하지 않습니다.</div></div>';
+  }
+  var note=meta.note?'<span>'+escapeHtml(meta.note)+'</span>':'<span>일봉 기준 · 시장 데이터는 거래소/TradingView 상황에 따라 지연될 수 있습니다.</span>';
+  var tv='https://www.tradingview.com/symbols/'+meta.symbol.replace(':','-')+'/';
+  return '<div class="stock-card"><div class="stock-head"><div><b>현재 주가 그래프 · '+escapeHtml(meta.label)+'</b>'+note+'</div>'+
+    '<a class="stock-link" href="'+tv+'" target="_blank" rel="noopener">TradingView ↗</a></div>'+
+    '<iframe class="stock-frame" src="'+tradingViewUrl(meta.symbol)+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="'+escapeHtml(meta.label)+' 주가 그래프"></iframe></div>';
+}
+
 function renderVendor(){
   var c=companies[selectedVendor];
   if(!c){qs('#vendorContent').innerHTML='<div class="empty">업체를 선택하세요.</div>';return}
   var news=(c.news||[]).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
   var items=news.length?news.map(function(n){
     return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
-  }).join(''):'<div class="empty">현재 저장된 검증 기사 링크가 없습니다. 아래 “최신 기사 검색”으로 바로 확인할 수 있습니다.</div>';
+  }).join(''):'<div class="empty">현재 저장된 관련 기사 링크가 없습니다. “최신 기사 검색”에서 추가 기사를 확인할 수 있습니다.</div>';
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
     '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최신 기사 검색 ↗</a></div></div>'+
     '<div class="rolebox"><strong>대표 제품 / 관련 역할</strong><span>'+escapeHtml(c.product)+'</span></div>'+
-    '<div class="news-head"><div><div class="eyebrow">Recent related articles</div><h3 style="margin-top:5px">최근 CPO · AI 광연결 기사</h3></div><span class="badge">'+news.length+' saved</span></div>'+
+    renderStockChart(selectedVendor)+
+    '<div class="news-head"><div><div class="eyebrow">관련 기사</div><h3 style="margin-top:5px">최근 CPO · AI 광연결 기사</h3></div><span class="badge">'+news.length+'건</span></div>'+
     '<div class="news-list">'+items+'</div>';
 }
 

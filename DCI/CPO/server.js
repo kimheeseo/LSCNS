@@ -180,17 +180,29 @@ function tagValue(block, tag) {
   return match ? xmlDecode(match[1]) : "";
 }
 
-function buildNewsQuery(company, part, lang = "ko") {
-  const cfg = NEWS_CONFIG[part] || { terms: ["CPO", "co-packaged optics"], tags: ["CPO", "AI"] };
-  const partGroup = cfg.terms.map(term => term.includes(" ") ? '"' + term + '"' : term).join(" OR ");
-  const aiTerms = {
+function newsAiTerms(lang = "ko") {
+  const map = {
     ko: '(AI OR "AI 데이터센터" OR "AI 인프라")',
     en: '(AI OR "AI data center" OR "AI infrastructure")',
     ja: '(AI OR "AIデータセンター" OR "AIインフラ")',
     zh: '(AI OR "AI 数据中心" OR "AI 基础设施")',
     de: '(AI OR "KI-Rechenzentrum" OR "KI-Infrastruktur")'
   };
-  return '"' + company + '" (CPO OR "co-packaged optics") ' + (aiTerms[lang] || aiTerms.ko) + ' (' + partGroup + ') when:30d';
+  return map[lang] || map.ko;
+}
+
+function buildStrictNewsQuery(company, part, lang = "ko") {
+  const cfg = NEWS_CONFIG[part] || { terms: ["CPO", "co-packaged optics"] };
+  const partGroup = cfg.terms.map(term => term.includes(" ") ? '"' + term + '"' : term).join(" OR ");
+  return '"' + company + '" (CPO OR "co-packaged optics") ' + newsAiTerms(lang) + ' (' + partGroup + ') when:30d';
+}
+
+function buildCpoAiNewsQuery(company, lang = "ko") {
+  return '"' + company + '" ((CPO OR "co-packaged optics") OR ' + newsAiTerms(lang) + ') when:30d';
+}
+
+function buildCompanyNewsQuery(company) {
+  return '"' + company + '" when:30d';
 }
 
 function parseGoogleNewsRss(xml) {
@@ -215,17 +227,10 @@ function parseGoogleNewsRss(xml) {
     item.url &&
     item.publishedAt &&
     Date.parse(item.publishedAt) >= cutoff
-  ).slice(0, 5);
+  );
 }
 
-async function fetchRecentNews(company, part, lang = "ko") {
-  const key = company + "|" + part + "|" + lang;
-  const cached = newsCache.get(key);
-  if (cached && Date.now() - cached.time < NEWS_CACHE_MS) return cached.data;
-
-  const cfg = NEWS_CONFIG[part] || { tags: ["CPO", "AI"] };
-  const query = buildNewsQuery(company, part, lang);
-  const locale = NEWS_LOCALES[lang] || NEWS_LOCALES.ko;
+async function fetchGoogleNewsQuery(query, locale) {
   const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(query) +
     "&hl=" + encodeURIComponent(locale.hl) +
     "&gl=" + encodeURIComponent(locale.gl) +
@@ -240,15 +245,82 @@ async function fetchRecentNews(company, part, lang = "ko") {
   });
 
   if (!response.ok) throw new Error("Google News RSS HTTP " + response.status);
-  const xml = await response.text();
+  return parseGoogleNewsRss(await response.text());
+}
+
+function normalizeNewsTitle(title = "") {
+  return title
+    .toLowerCase()
+    .replace(/[\s\u00a0]+/g, " ")
+    .replace(/[“”"'‘’´.,:;!?()[\]{}<>·•\-–—_]/g, "")
+    .trim();
+}
+
+function mergeNewsItems(target, incoming, relevance, limit = 5) {
+  for (const item of incoming) {
+    if (target.length >= limit) break;
+    const key = normalizeNewsTitle(item.title);
+    const duplicate = target.some(existing =>
+      existing.url === item.url ||
+      normalizeNewsTitle(existing.title) === key
+    );
+    if (!duplicate) target.push({ ...item, relevance });
+  }
+  return target;
+}
+
+async function fetchRecentNews(company, part, lang = "ko") {
+  const key = company + "|" + part + "|" + lang;
+  const cached = newsCache.get(key);
+  if (cached && Date.now() - cached.time < NEWS_CACHE_MS) return cached.data;
+
+  const cfg = NEWS_CONFIG[part] || { tags: ["CPO", "AI"] };
+  const locale = NEWS_LOCALES[lang] || NEWS_LOCALES.ko;
+  const strictQuery = buildStrictNewsQuery(company, part, lang);
+  const cpoAiQuery = buildCpoAiNewsQuery(company, lang);
+  const companyQuery = buildCompanyNewsQuery(company);
+
+  const items = [];
+  const queryLog = [];
+
+  try {
+    const strict = await fetchGoogleNewsQuery(strictQuery, locale);
+    mergeNewsItems(items, strict, "component", 5);
+    queryLog.push({ tier: "component", query: strictQuery, found: strict.length });
+  } catch (error) {
+    queryLog.push({ tier: "component", query: strictQuery, found: 0, error: String(error.message || error) });
+  }
+
+  if (items.length < 5) {
+    try {
+      const related = await fetchGoogleNewsQuery(cpoAiQuery, locale);
+      mergeNewsItems(items, related, "cpo_ai", 5);
+      queryLog.push({ tier: "cpo_ai", query: cpoAiQuery, found: related.length });
+    } catch (error) {
+      queryLog.push({ tier: "cpo_ai", query: cpoAiQuery, found: 0, error: String(error.message || error) });
+    }
+  }
+
+  if (items.length < 5) {
+    try {
+      const general = await fetchGoogleNewsQuery(companyQuery, locale);
+      mergeNewsItems(items, general, "company", 5);
+      queryLog.push({ tier: "company", query: companyQuery, found: general.length });
+    } catch (error) {
+      queryLog.push({ tier: "company", query: companyQuery, found: 0, error: String(error.message || error) });
+    }
+  }
+
   const data = {
     company,
     part,
     lang,
-    query,
+    query: strictQuery,
+    queries: queryLog,
     tags: ["#" + company, ...cfg.tags.map(tag => "#" + tag)],
     windowDays: 30,
-    items: parseGoogleNewsRss(xml)
+    requestedCount: 5,
+    items: items.slice(0, 5)
   };
 
   newsCache.set(key, { time: Date.now(), data });

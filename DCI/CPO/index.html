@@ -365,7 +365,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.8.0 · 2026-09-25</span>
+    <span class="badge">v1.8.1 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -466,7 +466,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
     </div>
   
       <aside class="event-box">
-        <div class="event-title"><b>CPO 주요 예정 행사</b><span>자동 갱신</span></div>
+        <div class="event-title"><b>CPO 주요 예정 행사</b><span>향후 3~5개 · 자동 갱신</span></div>
         <div class="event-list" id="eventList"></div>
       </aside>
     </div>
@@ -662,7 +662,7 @@ var stockMeta={
   hengtong:{symbol:'SSE:600487',label:'Hengtong Optic-Electric · 600487'},
   yofc:{symbol:'SSE:601869',label:'YOFC · SHA: 601869'},
   ztt:{symbol:'SSE:600522',label:'ZTT · 600522.SH'},
-  lscns:{symbol:'KRX:006260',label:'LS',note:'LS전선 자체는 비상장사입니다. 아래 차트는 LS(006260) 참고 주가입니다.'}
+  lscns:{symbol:'KRX:006260',label:'LS · KRX: 006260',note:'LS전선 자체는 비상장사입니다. 아래 차트는 LS(006260) 참고 주가입니다.'}
 };
 
 var parts={
@@ -675,6 +675,14 @@ var parts={
   dataFiber:{num:'07',name:'Optical fiber',en:'Optical Fiber',desc:'Optical engine에서 전면 connector 또는 외부 optical fabric으로 데이터를 송수신하는 광섬유 경로입니다. bend loss, density, MPI, routing이 중요합니다.',tags:['Optical fiber','SMF','bend','routing','density'],vendors:['lscns','yofc','ztt','corning','fujikura','sumitomo','furukawa','hengtong']},
   connector:{num:'08',name:'전면 커넥터',en:'Front Connector / VSFF',desc:'CPO chassis 전면에서 수십~수백 개 fiber를 serviceable하게 연결합니다. MPO/MMC/SN 계열 등 고밀도 interface와 expanded-beam 방식이 후보입니다.',tags:['MPO','MMC','SN','VSFF','expanded beam'],vendors:['senko','usconec','molex','corning','furukawa']}
 };
+
+function sortedVendorIds(part){
+  return (part.vendors||[]).slice().sort(function(a,b){
+    var an=companies[a]?companies[a].name:a;
+    var bn=companies[b]?companies[b].name:b;
+    return an.localeCompare(bn,'en',{sensitivity:'base'});
+  });
+}
 
 var selectedPart='opticalEngine';
 var selectedVendor='broadcom';
@@ -747,7 +755,7 @@ function selectPart(id,scroll,animateHighlight){
 
   selectedPart=id;
   var p=parts[id];
-  selectedVendor=p.vendors[0];
+  selectedVendor=sortedVendorIds(p)[0];
   qs('#partIcon').textContent=p.num;
   qs('#partTitle').textContent=p.name;
   qs('#partDesc').textContent=p.desc;
@@ -786,7 +794,7 @@ function selectPart(id,scroll,animateHighlight){
 function renderVendorList(){
   var root=qs('#vendorList'),p=parts[selectedPart],q=qs('#search').value.trim().toLowerCase();
   root.innerHTML='';
-  p.vendors.forEach(function(id){
+  sortedVendorIds(p).forEach(function(id){
     var c=companies[id];if(!c)return;
     var hay=(c.name+' '+c.focus+' '+c.product).toLowerCase();
     if(q && hay.indexOf(q)<0)return;

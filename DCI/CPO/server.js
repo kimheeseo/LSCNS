@@ -60,6 +60,100 @@ const NEWS_CONFIG = {
 const newsCache = new Map();
 const NEWS_CACHE_MS = 15 * 60 * 1000;
 
+const STOCK_TICKERS = {
+  broadcom: { yahoo: "AVGO", label: "Broadcom", currency: "USD" },
+  nvidia: { yahoo: "NVDA", label: "NVIDIA", currency: "USD" },
+  marvell: { yahoo: "MRVL", label: "Marvell", currency: "USD" },
+  coherent: { yahoo: "COHR", label: "Coherent", currency: "USD" },
+  lumentum: { yahoo: "LITE", label: "Lumentum", currency: "USD" },
+  corning: { yahoo: "GLW", label: "Corning", currency: "USD" },
+  intel: { yahoo: "INTC", label: "Intel", currency: "USD" },
+  cisco: { yahoo: "CSCO", label: "Cisco", currency: "USD" },
+  tsmc: { yahoo: "TSM", label: "TSMC ADR", currency: "USD" },
+  ase: { yahoo: "ASX", label: "ASE Technology", currency: "USD" },
+  amkor: { yahoo: "AMKR", label: "Amkor", currency: "USD" },
+  globalfoundries: { yahoo: "GFS", label: "GlobalFoundries", currency: "USD" },
+  umc: { yahoo: "UMC", label: "UMC ADR", currency: "USD" },
+  fujikura: { yahoo: "5803.T", label: "Fujikura", currency: "JPY" },
+  sumitomo: { yahoo: "5802.T", label: "Sumitomo Electric", currency: "JPY" },
+  furukawa: { yahoo: "5801.T", label: "Furukawa Electric", currency: "JPY" },
+  hengtong: { yahoo: "600487.SS", label: "Hengtong Optic-Electric", currency: "CNY" },
+  yofc: { yahoo: "601869.SS", label: "YOFC", currency: "CNY" },
+  ztt: { yahoo: "600522.SS", label: "ZTT", currency: "CNY" },
+  lscns: { yahoo: "006260.KS", label: "LS reference", currency: "KRW" }
+};
+
+const stockCache = new Map();
+const STOCK_CACHE_MS = 15 * 60 * 1000;
+
+async function fetchStockSeries(id) {
+  const meta = STOCK_TICKERS[id];
+  if (!meta) return null;
+
+  const cached = stockCache.get(id);
+  if (cached && Date.now() - cached.time < STOCK_CACHE_MS) return cached.data;
+
+  const url = "https://query1.finance.yahoo.com/v8/finance/chart/" +
+    encodeURIComponent(meta.yahoo) +
+    "?range=6mo&interval=1d&includePrePost=false&events=div%2Csplits";
+
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 CPO-Component-Explorer/1.0",
+      "Accept": "application/json"
+    },
+    signal: AbortSignal.timeout(10000)
+  });
+
+  if (!response.ok) throw new Error("Yahoo Finance HTTP " + response.status);
+  const json = await response.json();
+  const result = json?.chart?.result?.[0];
+  if (!result) throw new Error(json?.chart?.error?.description || "No stock chart data");
+
+  const timestamps = result.timestamp || [];
+  const quote = result.indicators?.quote?.[0] || {};
+  const closes = quote.close || [];
+  const volumes = quote.volume || [];
+  const points = [];
+
+  for (let i = 0; i < timestamps.length; i++) {
+    const close = closes[i];
+    if (typeof close !== "number" || !Number.isFinite(close)) continue;
+    points.push({
+      t: timestamps[i] * 1000,
+      close,
+      volume: typeof volumes[i] === "number" && Number.isFinite(volumes[i]) ? volumes[i] : null
+    });
+  }
+
+  if (!points.length) throw new Error("No valid price points");
+
+  const first = points[0].close;
+  const last = points[points.length - 1].close;
+  const previous = points.length > 1 ? points[points.length - 2].close : first;
+  const change = last - previous;
+  const changePct = previous ? (change / previous) * 100 : 0;
+  const rangeChangePct = first ? ((last - first) / first) * 100 : 0;
+
+  const data = {
+    id,
+    symbol: meta.yahoo,
+    label: meta.label,
+    currency: result.meta?.currency || meta.currency,
+    exchangeName: result.meta?.fullExchangeName || result.meta?.exchangeName || "",
+    regularMarketPrice: result.meta?.regularMarketPrice ?? last,
+    previousClose: result.meta?.chartPreviousClose ?? previous,
+    change,
+    changePct,
+    rangeChangePct,
+    points
+  };
+
+  stockCache.set(id, { time: Date.now(), data });
+  return data;
+}
+
+
 function xmlDecode(value = "") {
   return value
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
@@ -163,6 +257,26 @@ function safeFilePath(urlPath) {
 }
 
 const server = http.createServer((req, res) => {
+  if (req.url?.startsWith("/api/stock")) {
+    try {
+      const requestUrl = new URL(req.url, "http://localhost");
+      const id = (requestUrl.searchParams.get("id") || "").trim();
+      if (!STOCK_TICKERS[id]) {
+        return sendJson(res, 400, { ok: false, error: "valid stock id is required" });
+      }
+      fetchStockSeries(id)
+        .then(data => sendJson(res, 200, { ok: true, ...data }))
+        .catch(error => sendJson(res, 502, {
+          ok: false,
+          error: "Stock lookup failed",
+          detail: String(error && error.message ? error.message : error)
+        }));
+      return;
+    } catch (error) {
+      return sendJson(res, 400, { ok: false, error: "Bad stock request" });
+    }
+  }
+
   if (req.url?.startsWith("/api/news")) {
     try {
       const requestUrl = new URL(req.url, "http://localhost");

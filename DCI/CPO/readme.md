@@ -11,6 +11,33 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.2 — 2026-09-25
+
+### 30-day company + CPO + AI + component-keyword news filtering
+
+- Restricted stored related-news cards to articles dated within the last 30 days.
+- Updated the external news-search link to include a `when:30d` freshness condition.
+- Every company news query now combines:
+  - company name
+  - CPO
+  - AI
+  - selected component-specific technical keywords
+- Added visible keyword chips to each company detail panel so users can see exactly how the news search is scoped.
+- Component keyword sets:
+  - Laser: `#CPO #AI #레이저 #ELS #External Laser Source`
+  - PM fiber: `#CPO #AI #PM fiber #Polarization Maintaining Fiber`
+  - Optical Engine: `#CPO #AI #광엔진 #SiPh #PIC #EIC`
+  - Switch ASIC: `#CPO #AI #Switch ASIC #Network Switch`
+  - Common Package: `#CPO #AI #공통 패키지 #Advanced Packaging #Substrate`
+  - FAU: `#CPO #AI #FAU #Fiber Array Unit #Fiber-to-Chip`
+  - Optical fiber: `#CPO #AI #Optical fiber #AI Data Center #Optical Connectivity`
+  - Connector: `#CPO #AI #Connector #VSFF #MPO #SN #MMC`
+- Example: selecting Optical Engine → Ayar Labs searches using `#Ayar Labs #CPO #AI #광엔진 #SiPh #PIC #EIC`.
+- If no stored matching article exists within 30 days, the card now clearly directs users to the scoped 30-day news search.
+- Updated the site/package version to `v1.8.2`.
+
+---
+
 ## v1.8.1 — 2026-09-25
 
 ### Stock-label corrections, alphabetical vendor order, and event-box confirmation

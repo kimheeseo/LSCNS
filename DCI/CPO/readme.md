@@ -11,6 +11,24 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.4 — 2026-09-25
+
+### Cable-company ticker label cleanup
+
+- Normalized the displayed ticker labels requested for the CPO Explorer:
+  - LS전선 참고 → `006260`
+  - Sumitomo Electric → `5802`
+  - Furukawa Electric → `5801`
+  - Fujikura → `5803`
+- Kept the internal TradingView market-qualified symbols for chart lookup:
+  - LS reference → `KRX:006260`
+  - Sumitomo Electric → `TSE:5802`
+  - Furukawa Electric → `TSE:5801`
+  - Fujikura → `TSE:5803`
+- Updated the site/package version to `v1.8.4`.
+
+---
+
 ## v1.8.3 — 2026-09-25
 
 ### Live 30-day news feed inside the company panel

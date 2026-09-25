@@ -337,6 +337,12 @@ font-size:12px;font-weight:800;background:white;color:#315f8c}
 
 .news-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:17px 0 9px}
 .news-list{display:grid;gap:9px}
+
+.news-loading{padding:18px;border:1px dashed #c7d9ea;border-radius:12px;background:#fafdff;color:#667d94;text-align:center;font-size:12px}
+.news-loading::before{content:"";display:inline-block;width:12px;height:12px;margin-right:7px;border:2px solid #b8cfe6;border-top-color:#1677ff;border-radius:50%;vertical-align:-2px;animation:newsSpin .8s linear infinite}
+@keyframes newsSpin{to{transform:rotate(360deg)}}
+.news-live-note{font-size:10px;color:#8193a5;margin-top:4px}
+
 .news-item{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid #dce7f1;
 border-radius:12px;padding:11px;background:white}
 .news-date{font-size:11px;color:#73869a;font-weight:800}
@@ -370,7 +376,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.8.2 · 2026-09-25</span>
+    <span class="badge">v1.8.3 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -876,22 +882,79 @@ function renderStockChart(id){
     '<iframe class="stock-frame" src="'+tradingViewUrl(meta.symbol)+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="'+escapeHtml(meta.label)+' 주가 그래프"></iframe></div>';
 }
 
+var liveNewsSeq=0;
+
+function newsItemHtml(n){
+  return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date||'')+'</div><div>'+
+    '<div class="news-title">'+escapeHtml(n.title||'')+'</div>'+
+    '<div class="news-source">'+escapeHtml(n.source||'Google News')+'</div></div>'+
+    '<a class="news-go" href="'+escapeHtml(n.url||'#')+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>';
+}
+
+async function loadLiveNews(vendorId,partId){
+  var seq=++liveNewsSeq;
+  var c=companies[vendorId];
+  var list=qs('#liveNewsList');
+  var count=qs('#liveNewsCount');
+  if(!c||!list||!count)return;
+
+  try{
+    var url='/api/news?company='+encodeURIComponent(c.name)+'&part='+encodeURIComponent(partId);
+    var response=await fetch(url,{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    var data=await response.json();
+
+    if(seq!==liveNewsSeq||selectedVendor!==vendorId||selectedPart!==partId)return;
+
+    var items=Array.isArray(data.items)?data.items:[];
+    count.textContent=items.length+'건';
+
+    if(Array.isArray(data.tags)&&data.tags.length){
+      var keyRoot=qs('#liveNewsKeywords');
+      if(keyRoot){
+        keyRoot.innerHTML=data.tags.map(function(k){
+          return '<span class="news-keyword">'+escapeHtml(k)+'</span>';
+        }).join('');
+      }
+    }
+
+    list.innerHTML=items.length
+      ?items.map(newsItemHtml).join('')
+      :'<div class="empty">최근 30일 동안 이 기업과 '+escapeHtml(parts[partId].name)+'·CPO·AI 키워드를 함께 만족하는 기사를 찾지 못했습니다.</div>';
+  }catch(err){
+    if(seq!==liveNewsSeq||selectedVendor!==vendorId||selectedPart!==partId)return;
+
+    var fallback=(c.news||[]).filter(newsMatchesSelectedPart).slice()
+      .sort(function(a,b){return b.date.localeCompare(a.date)}).slice(0,5);
+
+    count.textContent=fallback.length+'건';
+    list.innerHTML=fallback.length
+      ?fallback.map(newsItemHtml).join('')+
+        '<div class="news-live-note">실시간 뉴스 조회에 실패해 저장된 최근 기사로 표시했습니다.</div>'
+      :'<div class="empty">실시간 뉴스 조회에 실패했습니다. “최근 30일 기사 검색”에서 같은 키워드로 확인할 수 있습니다.</div>';
+  }
+}
+
 function renderVendor(){
-  var c=companies[selectedVendor];
+  var vendorId=selectedVendor;
+  var partId=selectedPart;
+  var c=companies[vendorId];
   if(!c){qs('#vendorContent').innerHTML='<div class="empty">업체를 선택하세요.</div>';return}
-  var news=(c.news||[]).filter(newsMatchesSelectedPart).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+
   var keywords=companyNewsKeywords(c.name);
-  var items=news.length?news.map(function(n){
-    return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
-  }).join(''):'<div class="empty">최근 30일 내 저장된 '+escapeHtml(parts[selectedPart].name)+' + CPO 관련 기사가 없습니다. “최근 30일 기사 검색”에서 해당 키워드 기준으로 확인할 수 있습니다.</div>';
+
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
     '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최근 30일 기사 검색 ↗</a></div></div>'+
     '<div class="rolebox"><strong>대표 제품 / 관련 역할</strong><span>'+escapeHtml(c.product)+'</span></div>'+
-    renderStockChart(selectedVendor)+
-    '<div class="news-head"><div><div class="eyebrow">관련 기사</div><h3 style="margin-top:5px">최근 30일 관련 기사</h3><div class="news-window">기업명 + CPO + AI + 선택 부품 핵심 키워드 기준</div></div><span class="badge">'+news.length+'건</span></div>'+ 
-    '<div class="news-keywords">'+keywords.map(function(k){return '<span class="news-keyword">'+escapeHtml(k)+'</span>'}).join('')+'</div>'+
-    '<div class="news-list">'+items+'</div>';
+    renderStockChart(vendorId)+
+    '<div class="news-head"><div><div class="eyebrow">관련 기사</div><h3 style="margin-top:5px">최근 30일 실시간 기사</h3>'+
+    '<div class="news-window">기업명 + CPO + AI + 선택 부품 핵심 키워드 · Google News 한국어 결과</div></div>'+
+    '<span class="badge" id="liveNewsCount">조회 중</span></div>'+
+    '<div class="news-keywords" id="liveNewsKeywords">'+keywords.map(function(k){return '<span class="news-keyword">'+escapeHtml(k)+'</span>'}).join('')+'</div>'+
+    '<div class="news-list" id="liveNewsList"><div class="news-loading">최근 30일 뉴스를 조회하고 있습니다.</div></div>';
+
+  loadLiveNews(vendorId,partId);
 }
 
 function globalSearch(){

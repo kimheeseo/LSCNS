@@ -330,6 +330,11 @@ font-size:12px;font-weight:800;background:white;color:#315f8c}
 .action.primary{background:#1677ff;border-color:#1677ff;color:white}
 .rolebox{margin:14px 0;background:#f7faff;border:1px solid #dce7f1;border-radius:13px;padding:13px}
 .rolebox strong{display:block;margin-bottom:5px}.rolebox span{color:var(--muted);font-size:13px;line-height:1.55}
+
+.news-keywords{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.news-keyword{font-size:10px;font-weight:800;color:#37648f;background:#eef6ff;border:1px solid #cfe1f3;border-radius:999px;padding:5px 8px}
+.news-window{font-size:10px;color:#7b8ea0;margin-top:4px}
+
 .news-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:17px 0 9px}
 .news-list{display:grid;gap:9px}
 .news-item{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid #dce7f1;
@@ -365,7 +370,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.8.1 · 2026-09-25</span>
+    <span class="badge">v1.8.2 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -689,36 +694,84 @@ var selectedVendor='broadcom';
 
 function qs(s){return document.querySelector(s)}
 function qsa(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
-function partNewsTerms(id){
+function partNewsConfig(id){
   var map={
-    els:'laser external laser source ELS CPO',
-    pmFiber:'PM fiber polarization maintaining fiber CPO',
-    opticalEngine:'PIC optical engine silicon photonics CPO',
-    switchAsic:'switch ASIC CPO co-packaged optics',
-    package:'advanced packaging substrate CPO photonics',
-    fau:'FAU fiber array unit fiber attach CPO',
-    dataFiber:'optical fiber CPO AI data center',
-    connector:'connector VSFF MPO SN MMC CPO'
+    els:{
+      search:['CPO','AI','laser','external laser source','ELS'],
+      tags:['CPO','AI','레이저','ELS','External Laser Source']
+    },
+    pmFiber:{
+      search:['CPO','AI','PM fiber','polarization maintaining fiber','polarization-maintaining fiber'],
+      tags:['CPO','AI','PM fiber','Polarization Maintaining Fiber']
+    },
+    opticalEngine:{
+      search:['CPO','AI','optical engine','SiPh','silicon photonics','PIC','EIC'],
+      tags:['CPO','AI','광엔진','SiPh','PIC','EIC']
+    },
+    switchAsic:{
+      search:['CPO','AI','switch ASIC','co-packaged optics','network switch'],
+      tags:['CPO','AI','Switch ASIC','Network Switch']
+    },
+    package:{
+      search:['CPO','AI','advanced packaging','substrate','co-packaged optics','photonic packaging'],
+      tags:['CPO','AI','공통 패키지','Advanced Packaging','Substrate']
+    },
+    fau:{
+      search:['CPO','AI','FAU','fiber array unit','fiber attach','fiber-to-chip'],
+      tags:['CPO','AI','FAU','Fiber Array Unit','Fiber-to-Chip']
+    },
+    dataFiber:{
+      search:['CPO','AI','optical fiber','fiber cable','AI data center','optical connectivity'],
+      tags:['CPO','AI','Optical fiber','AI Data Center','Optical Connectivity']
+    },
+    connector:{
+      search:['CPO','AI','connector','VSFF','MPO','SN','MMC','optical connector'],
+      tags:['CPO','AI','Connector','VSFF','MPO','SN','MMC']
+    }
   };
-  return map[id]||'CPO co-packaged optics';
+  return map[id]||{search:['CPO','AI'],tags:['CPO','AI']};
 }
+
+function newsCutoffDate(){
+  var d=new Date();
+  d.setHours(0,0,0,0);
+  d.setDate(d.getDate()-30);
+  return d;
+}
+
+function isWithinLast30Days(dateStr){
+  if(!dateStr)return false;
+  var d=new Date(dateStr+'T00:00:00');
+  if(Number.isNaN(d.getTime()))return false;
+  return d>=newsCutoffDate();
+}
+
+function companyNewsKeywords(name){
+  var cfg=partNewsConfig(selectedPart);
+  return ['#'+name].concat(cfg.tags.map(function(t){return '#'+t}));
+}
+
 function newsSearchUrl(name){
-  return 'https://www.google.com/search?tbm=nws&q='+encodeURIComponent(name+' '+partNewsTerms(selectedPart));
+  var cfg=partNewsConfig(selectedPart);
+  var q='"'+name+'" '+cfg.search.map(function(k){
+    return k.indexOf(' ')>=0?'"'+k+'"':k;
+  }).join(' ')+' when:30d';
+  return 'https://www.google.com/search?tbm=nws&q='+encodeURIComponent(q);
 }
+
 function newsMatchesSelectedPart(n){
+  if(!isWithinLast30Days(n.date))return false;
   var text=((n.title||'')+' '+(n.url||'')).toLowerCase();
-  var rules={
-    els:['laser','els'],
-    pmFiber:['pm fiber','polarization','maintaining fiber','pm-fiber'],
-    opticalEngine:['optical engine','silicon photonics','photonlink','cpo','cpX','photonic'],
-    switchAsic:['switch','tomahawk','spectrum','quantum','cpo'],
-    package:['packag','substrate','foundry','wafer','cpo'],
-    fau:['fau','fiber-to-chip','fiber attach','glassbridge','prizm'],
-    dataFiber:['fiber','cable','optical connectivity'],
-    connector:['connector','vsff','mmc','sn','prizm','versabeam']
-  };
-  return (rules[selectedPart]||['cpo']).some(function(k){return text.indexOf(k.toLowerCase())>=0});
+  var cfg=partNewsConfig(selectedPart);
+  var specific=cfg.search.filter(function(k){
+    var x=k.toLowerCase();
+    return x!=='cpo' && x!=='ai';
+  });
+  return specific.some(function(k){
+    return text.indexOf(k.toLowerCase())>=0;
+  });
 }
+
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]})}
 
 function renderPartSelect(){
@@ -827,15 +880,17 @@ function renderVendor(){
   var c=companies[selectedVendor];
   if(!c){qs('#vendorContent').innerHTML='<div class="empty">업체를 선택하세요.</div>';return}
   var news=(c.news||[]).filter(newsMatchesSelectedPart).slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+  var keywords=companyNewsKeywords(c.name);
   var items=news.length?news.map(function(n){
     return '<div class="news-item"><div class="news-date">'+escapeHtml(n.date)+'</div><div><div class="news-title">'+escapeHtml(n.title)+'</div><div class="news-source">'+escapeHtml(n.source)+'</div></div><a class="news-go" href="'+n.url+'" target="_blank" rel="noopener" aria-label="기사 열기">↗</a></div>'
-  }).join(''):'<div class="empty">현재 저장된 '+escapeHtml(parts[selectedPart].name)+' + CPO 관련 기사가 없습니다. “최신 기사 검색”에서 해당 부품 중심으로 확인할 수 있습니다.</div>';
+  }).join(''):'<div class="empty">최근 30일 내 저장된 '+escapeHtml(parts[selectedPart].name)+' + CPO 관련 기사가 없습니다. “최근 30일 기사 검색”에서 해당 키워드 기준으로 확인할 수 있습니다.</div>';
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">Company detail</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
-    '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최신 기사 검색 ↗</a></div></div>'+
+    '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">공식 사이트 ↗</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">최근 30일 기사 검색 ↗</a></div></div>'+
     '<div class="rolebox"><strong>대표 제품 / 관련 역할</strong><span>'+escapeHtml(c.product)+'</span></div>'+
     renderStockChart(selectedVendor)+
-    '<div class="news-head"><div><div class="eyebrow">관련 기사</div><h3 style="margin-top:5px">최근 CPO · AI 광연결 기사</h3></div><span class="badge">'+news.length+'건</span></div>'+
+    '<div class="news-head"><div><div class="eyebrow">관련 기사</div><h3 style="margin-top:5px">최근 30일 관련 기사</h3><div class="news-window">기업명 + CPO + AI + 선택 부품 핵심 키워드 기준</div></div><span class="badge">'+news.length+'건</span></div>'+ 
+    '<div class="news-keywords">'+keywords.map(function(k){return '<span class="news-keyword">'+escapeHtml(k)+'</span>'}).join('')+'</div>'+
     '<div class="news-list">'+items+'</div>';
 }
 

@@ -944,14 +944,29 @@ function isWithinLast30Days(dateStr){
   return d>=newsCutoffDate();
 }
 
+function localizedNewsTags(id){
+  var technical={
+    els:['CPO','AI','ELS','External Laser Source'],
+    pmFiber:['CPO','AI','PM fiber','Polarization Maintaining Fiber'],
+    opticalEngine:['CPO','AI','SiPh','PIC','EIC'],
+    switchAsic:['CPO','AI','Switch ASIC','Network Switch'],
+    package:['CPO','AI','Advanced Packaging','Substrate'],
+    fau:['CPO','AI','FAU','Fiber Array Unit','Fiber-to-Chip'],
+    dataFiber:['CPO','AI','Optical fiber','AI Data Center','Optical Connectivity'],
+    connector:['CPO','AI','Connector','VSFF','MPO','SN','MMC']
+  };
+  var tags=(technical[id]||['CPO','AI']).slice();
+  var translated=partName(id);
+  if(tags.map(function(x){return x.toLowerCase()}).indexOf(translated.toLowerCase())<0) tags.splice(2,0,translated);
+  return tags;
+}
 function companyNewsKeywords(name){
-  var cfg=partNewsConfig(selectedPart);
-  return ['#'+name].concat(cfg.tags.map(function(t){return '#'+t}));
+  return ['#'+name].concat(localizedNewsTags(selectedPart).map(function(t){return '#'+t}));
 }
 
 function newsSearchUrl(name){
   var cfg=partNewsConfig(selectedPart);
-  var q='"'+name+'" '+cfg.search.map(function(k){
+  var q='"'+name+'" "'+partName(selectedPart)+'" '+cfg.search.map(function(k){
     return k.indexOf(' ')>=0?'"'+k+'"':k;
   }).join(' ')+' when:30d';
   var meta=langLocale(); return 'https://www.google.com/search?tbm=nws&hl='+encodeURIComponent(meta.google)+'&q='+encodeURIComponent(q);
@@ -1074,7 +1089,7 @@ function formatStockPrice(value,currency){
   if(!Number.isFinite(value))return '-';
   var digits=(currency==='KRW'||currency==='JPY')?0:2;
   try{
-    return new Intl.NumberFormat(undefined,{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(value);
+    return new Intl.NumberFormat(langLocale().locale,{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(value);
   }catch(e){
     return value.toFixed(digits);
   }
@@ -1179,13 +1194,11 @@ async function loadLiveNews(vendorId,partId){
     var items=Array.isArray(data.items)?data.items:[];
     count.textContent=items.length+(currentLang==='ko'?'건':'');
 
-    if(Array.isArray(data.tags)&&data.tags.length){
-      var keyRoot=qs('#liveNewsKeywords');
-      if(keyRoot){
-        keyRoot.innerHTML=data.tags.map(function(k){
-          return '<span class="news-keyword">'+escapeHtml(k)+'</span>';
-        }).join('');
-      }
+    var keyRoot=qs('#liveNewsKeywords');
+    if(keyRoot){
+      keyRoot.innerHTML=companyNewsKeywords(c.name).map(function(k){
+        return '<span class="news-keyword">'+escapeHtml(k)+'</span>';
+      }).join('');
     }
 
     list.innerHTML=items.length

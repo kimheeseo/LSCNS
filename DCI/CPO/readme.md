@@ -11,6 +11,26 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.6 — 2026-09-25
+
+### Native stock charts + front-perspective CPO view
+
+- Removed TradingView chart embedding from the company detail panel because exchange-specific widgets could remain blank or show symbol-availability warnings even with correct tickers.
+- Added a Render server endpoint at `/api/stock` that retrieves recent price history from Yahoo Finance.
+- The site now draws its own responsive SVG stock chart, so chart rendering no longer depends on third-party iframe/widget permissions.
+- Stock series currently use:
+  - LS reference → `006260.KS`
+  - Sumitomo Electric → `5802.T`
+  - Furukawa Electric → `5801.T`
+  - Fujikura → `5803.T`
+- Charts show recent six-month daily price history, current price, daily change, and six-month change.
+- Yahoo Finance is linked as the source from each chart card.
+- Adjusted the CPO package view from a completely flat orthographic top view to a front-perspective 2.5D view so board thickness and component height are visible while maintaining a frontal orientation.
+- Existing 10-second selected-component highlight behavior is preserved.
+- Updated the site/package version to `v1.8.6`.
+
+---
+
 ## v1.8.5 — 2026-09-25
 
 ### TradingView stock chart rendering fix

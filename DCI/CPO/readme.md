@@ -11,6 +11,29 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.9.1 — 2026-09-25
+
+### Priority news feed with company-news fallback
+
+- Changed the live-news logic from a single strict query to a tiered recent-news pipeline.
+- News priority is now:
+  1. company + CPO + AI + selected-component keywords
+  2. company + CPO/AI
+  3. general company news
+  4. relaxed company-name matching
+- All tiers retain the previous 30-day freshness limit.
+- Results are de-duplicated and merged in priority order until up to five articles are collected.
+- Added relevance badges to each article so users can distinguish:
+  - component-keyword related
+  - CPO/AI related
+  - general company news
+  - saved fallback article
+- Updated the five-language explanatory text for the new fallback behavior.
+- If fewer than five verifiable articles exist in the last 30 days even after company-news fallback, the UI states this explicitly rather than fabricating articles.
+- Updated the site/package version to `v1.9.1`.
+
+---
+
 ## v1.9.0 — 2026-09-25
 
 ### Five-language UI switcher

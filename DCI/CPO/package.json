@@ -1,6 +1,6 @@
 {
   "name": "cpo-component-explorer",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "private": true,
   "description": "CPO Component Explorer for LSCNS DCI/CPO",
   "scripts": {

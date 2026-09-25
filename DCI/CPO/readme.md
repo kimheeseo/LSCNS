@@ -11,6 +11,39 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.9.0 — 2026-09-25
+
+### Five-language UI switcher
+
+- Added language buttons at the very top of the CPO Explorer:
+  - 한글
+  - English
+  - 日本語
+  - 中文
+  - Deutsch
+- The selected language is saved locally in the browser and restored on the next visit.
+- Switching language now updates:
+  - page descriptions and section titles
+  - CPO component names and component descriptions
+  - interactive diagram callout labels
+  - search placeholder and reset controls
+  - related-company / company-detail UI labels
+  - stock-chart labels, loading/error messages, and number formatting
+  - upcoming-event box labels and date formatting
+  - live-news labels, loading/error messages, keyword chips, and article search controls
+- Live Google News requests now pass the selected language to the Render server.
+- The Render news API now uses locale-specific Google News settings:
+  - Korean → Korea / Korean
+  - English → US / English
+  - Japanese → Japan / Japanese
+  - Chinese → China / Simplified Chinese
+  - German → Germany / German
+- Component-specific news keyword chips use the selected language for the component name while retaining technical search terms such as CPO, AI, SiPh, PIC, EIC, VSFF, MPO, and FAU.
+- Event dates and stock-number formatting now follow the selected locale.
+- Updated the site/package version to `v1.9.0`.
+
+---
+
 ## v1.8.6 — 2026-09-25
 
 ### Native stock charts + front-perspective CPO view

@@ -205,6 +205,10 @@ function buildCompanyNewsQuery(company) {
   return '"' + company + '" when:30d';
 }
 
+function buildLooseCompanyNewsQuery(company) {
+  return company + ' when:30d';
+}
+
 function parseGoogleNewsRss(xml) {
   const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
   const blocks = xml.match(/<item>[\s\S]*?<\/item>/gi) || [];
@@ -279,6 +283,7 @@ async function fetchRecentNews(company, part, lang = "ko") {
   const strictQuery = buildStrictNewsQuery(company, part, lang);
   const cpoAiQuery = buildCpoAiNewsQuery(company, lang);
   const companyQuery = buildCompanyNewsQuery(company);
+  const looseCompanyQuery = buildLooseCompanyNewsQuery(company);
 
   const items = [];
   const queryLog = [];
@@ -308,6 +313,18 @@ async function fetchRecentNews(company, part, lang = "ko") {
       queryLog.push({ tier: "company", query: companyQuery, found: general.length });
     } catch (error) {
       queryLog.push({ tier: "company", query: companyQuery, found: 0, error: String(error.message || error) });
+    }
+  }
+
+  // Final 30-day fill: relaxed company-name matching to catch headlines that
+  // mention the company in a different punctuation/wording form.
+  if (items.length < 5) {
+    try {
+      const loose = await fetchGoogleNewsQuery(looseCompanyQuery, locale);
+      mergeNewsItems(items, loose, "company", 5);
+      queryLog.push({ tier: "company_loose", query: looseCompanyQuery, found: loose.length });
+    } catch (error) {
+      queryLog.push({ tier: "company_loose", query: looseCompanyQuery, found: 0, error: String(error.message || error) });
     }
   }
 

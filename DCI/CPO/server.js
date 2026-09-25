@@ -60,6 +60,15 @@ const NEWS_CONFIG = {
 const newsCache = new Map();
 const NEWS_CACHE_MS = 15 * 60 * 1000;
 
+const NEWS_LOCALES = {
+  ko: { hl: "ko", gl: "KR", ceid: "KR:ko" },
+  en: { hl: "en-US", gl: "US", ceid: "US:en" },
+  ja: { hl: "ja", gl: "JP", ceid: "JP:ja" },
+  zh: { hl: "zh-CN", gl: "CN", ceid: "CN:zh-Hans" },
+  de: { hl: "de", gl: "DE", ceid: "DE:de" }
+};
+
+
 const STOCK_TICKERS = {
   broadcom: { yahoo: "AVGO", label: "Broadcom", currency: "USD" },
   nvidia: { yahoo: "NVDA", label: "NVIDIA", currency: "USD" },
@@ -171,10 +180,17 @@ function tagValue(block, tag) {
   return match ? xmlDecode(match[1]) : "";
 }
 
-function buildNewsQuery(company, part) {
+function buildNewsQuery(company, part, lang = "ko") {
   const cfg = NEWS_CONFIG[part] || { terms: ["CPO", "co-packaged optics"], tags: ["CPO", "AI"] };
   const partGroup = cfg.terms.map(term => term.includes(" ") ? '"' + term + '"' : term).join(" OR ");
-  return '"' + company + '" (CPO OR "co-packaged optics") (AI OR "AI data center" OR "AI 인프라") (' + partGroup + ') when:30d';
+  const aiTerms = {
+    ko: '(AI OR "AI 데이터센터" OR "AI 인프라")',
+    en: '(AI OR "AI data center" OR "AI infrastructure")',
+    ja: '(AI OR "AIデータセンター" OR "AIインフラ")',
+    zh: '(AI OR "AI 数据中心" OR "AI 基础设施")',
+    de: '(AI OR "KI-Rechenzentrum" OR "KI-Infrastruktur")'
+  };
+  return '"' + company + '" (CPO OR "co-packaged optics") ' + (aiTerms[lang] || aiTerms.ko) + ' (' + partGroup + ') when:30d';
 }
 
 function parseGoogleNewsRss(xml) {
@@ -202,15 +218,18 @@ function parseGoogleNewsRss(xml) {
   ).slice(0, 5);
 }
 
-async function fetchRecentNews(company, part) {
-  const key = company + "|" + part;
+async function fetchRecentNews(company, part, lang = "ko") {
+  const key = company + "|" + part + "|" + lang;
   const cached = newsCache.get(key);
   if (cached && Date.now() - cached.time < NEWS_CACHE_MS) return cached.data;
 
   const cfg = NEWS_CONFIG[part] || { tags: ["CPO", "AI"] };
-  const query = buildNewsQuery(company, part);
+  const query = buildNewsQuery(company, part, lang);
+  const locale = NEWS_LOCALES[lang] || NEWS_LOCALES.ko;
   const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(query) +
-    "&hl=ko&gl=KR&ceid=KR:ko";
+    "&hl=" + encodeURIComponent(locale.hl) +
+    "&gl=" + encodeURIComponent(locale.gl) +
+    "&ceid=" + encodeURIComponent(locale.ceid);
 
   const response = await fetch(url, {
     headers: {
@@ -225,6 +244,7 @@ async function fetchRecentNews(company, part) {
   const data = {
     company,
     part,
+    lang,
     query,
     tags: ["#" + company, ...cfg.tags.map(tag => "#" + tag)],
     windowDays: 30,
@@ -282,10 +302,11 @@ const server = http.createServer((req, res) => {
       const requestUrl = new URL(req.url, "http://localhost");
       const company = (requestUrl.searchParams.get("company") || "").trim().slice(0, 100);
       const part = (requestUrl.searchParams.get("part") || "").trim();
-      if (!company || !NEWS_CONFIG[part]) {
+      const lang = (requestUrl.searchParams.get("lang") || "ko").trim();
+      if (!company || !NEWS_CONFIG[part] || !NEWS_LOCALES[lang]) {
         return sendJson(res, 400, { ok: false, error: "company and valid part are required" });
       }
-      fetchRecentNews(company, part)
+      fetchRecentNews(company, part, lang)
         .then(data => sendJson(res, 200, { ok: true, ...data }))
         .catch(error => sendJson(res, 502, {
           ok: false,

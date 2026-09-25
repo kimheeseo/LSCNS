@@ -11,6 +11,33 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.9.2 — 2026-09-25
+
+### Domestic/overseas CPO events + representative product/spec links
+
+- Split the `CPO 주요 예정 행사` box into two explicit groups:
+  - 국내 / Domestic
+  - 국외 / Overseas
+- Added verified upcoming domestic events relevant to the CPO/photonics/advanced-packaging ecosystem:
+  - PHOTONICS KOREA 2026 — 28–29 Oct 2026, Gwangju
+  - SEMICON Korea 2027 — 17–19 Feb 2027, Seoul
+- Kept major overseas CPO/optical-interconnect events including the Optica Co-Packaged & Pluggable Optics industry meeting, DesignCon 2027, and OFC 2027.
+- Added a `대표 제품 / 주요 사양` card to each company detail panel.
+- Every company now has a product/spec link:
+  - component-specific official product/spec pages are used when verified;
+  - otherwise the company's official product/company page is used as the fallback.
+- Added verified PM-fiber-specific entries:
+  - Corning — PANDA PM Fibers for Co-Packaged Optics / TitaniaBend PANDA PM Fiber
+  - Fujikura — 1310 nm band PANDA PM Fiber (SM13 series)
+  - Sumitomo Electric — Stress-free Bent PMF / 2D-FBGE CPO coupling technology
+  - Furukawa Electric — ClearLite TruePhase® PANDA PM Fiber
+  - Hengtong — Polarization-Maintaining Fibers for Devices
+- PM-fiber cards include key published specs when an official quantitative specification is available, and explicitly state when a public SKU-level specification was not found.
+- Updated the five-language UI labels for domestic/overseas events and product/spec links.
+- Updated the site/package version to `v1.9.2`.
+
+---
+
 ## v1.9.1 — 2026-09-25
 
 ### Priority news feed with company-news fallback

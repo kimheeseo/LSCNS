@@ -80,12 +80,13 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 }
 .model-caption b{color:#214363}
 .scene3d{
-  position:absolute;inset:26px 5.5% 8px;perspective:1450px;perspective-origin:50% 50%;
+  position:absolute;inset:26px 5.5% 8px;perspective:1450px;perspective-origin:50% 38%;
 }
 .board3d{
-  position:absolute;left:11%;top:8%;width:78%;height:78%;
+  position:absolute;left:10%;top:3%;width:80%;height:78%;
   transform-style:preserve-3d;
-  transform:rotateX(0deg) rotateZ(0deg) translateZ(0);
+  transform-origin:50% 62%;
+  transform:rotateX(46deg) rotateZ(0deg) translateZ(0);
   background:
     radial-gradient(circle at 12% 18%,rgba(255,255,255,.18) 0 2px,transparent 3px),
     radial-gradient(circle at 82% 24%,rgba(255,255,255,.10) 0 1px,transparent 2px),
@@ -356,7 +357,21 @@ border-radius:12px;padding:11px;background:white}
 .stock-head b{display:block;font-size:14px;color:#223e58}
 .stock-head span{display:block;margin-top:3px;font-size:11px;color:#7b8ea0;line-height:1.45}
 .stock-link{font-size:11px;font-weight:800;white-space:nowrap}
-.stock-frame{width:100%;height:320px;border:0;display:block;background:#f7faff;overflow:hidden}.tradingview-widget-container{height:100%;width:100%}.tradingview-widget-container__widget{height:100%;width:100%}
+.stock-frame{width:100%;min-height:320px;border:0;display:block;background:#fbfdff;overflow:hidden;padding:10px 10px 6px}
+.stock-chart-wrap{width:100%;height:300px;position:relative}
+.stock-svg{display:block;width:100%;height:100%}
+.stock-grid-line{stroke:#dce7f1;stroke-width:1;stroke-dasharray:3 4}
+.stock-axis-text{fill:#7d8fa1;font-size:11px}
+.stock-line{fill:none;stroke:#287de8;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.stock-area{fill:url(#stockAreaGradient)}
+.stock-dot{fill:#287de8;stroke:#fff;stroke-width:2}
+.stock-summary{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;padding:0 6px 8px}
+.stock-price{font-size:22px;font-weight:900;color:#1f3e5a}
+.stock-change{font-size:12px;font-weight:800}
+.stock-change.up{color:#d9485f}.stock-change.down{color:#1677ff}
+.stock-period{font-size:11px;color:#7b8ea0}
+.stock-loading{height:300px;display:flex;align-items:center;justify-content:center;color:#6f8295;font-size:12px}
+.stock-error{height:300px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:#6f8295;font-size:12px}
 .stock-private{padding:22px 16px;text-align:center;color:#6f8295;background:#f8fbff;font-size:13px;line-height:1.6}
 
 .footer-note{margin-top:15px;padding:12px 14px;border-radius:12px;background:#fff8e7;border:1px solid #f0dda8;color:#775f24;font-size:12px;line-height:1.55}
@@ -376,7 +391,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p>부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.8.5 · 2026-09-25</span>
+    <span class="badge">v1.8.6 · 2026-09-25</span>
   </header>
 
   <section class="hero">
@@ -407,7 +422,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
     <div class="arch-body">
       <div class="diagram-shell">
       <div class="model-stage" aria-label="Interactive front-view CPO package model">
-        <div class="model-caption"><b>Front-view CPO package</b> · 정면 시점에서 부품을 클릭하면 해당 영역만 강조됩니다.</div>
+        <div class="model-caption"><b>Front-perspective CPO package</b> · 정면을 유지하면서 부품 높이와 보드 두께가 보이도록 표시합니다.</div>
 
         <div class="scene3d">
           <div class="board3d">
@@ -864,54 +879,100 @@ function renderVendorList(){
   if(!root.children.length)root.innerHTML='<div class="empty">검색 조건에 맞는 업체가 없습니다.</div>'
 }
 
-function tradingViewPageUrl(symbol){
-  return 'https://www.tradingview.com/symbols/'+symbol.replace(':','-')+'/';
-}
-
 function renderStockChart(id){
   var meta=stockMeta[id];
   if(!meta){
     return '<div class="stock-card"><div class="stock-head"><div><b>주가 그래프</b><span>현재 확인 가능한 직접 상장 티커가 없습니다.</span></div></div>'+
       '<div class="stock-private">비상장 기업이거나 독립 상장 주식이 없어 직접 주가 그래프를 제공하지 않습니다.</div></div>';
   }
-  var note=meta.note?'<span>'+escapeHtml(meta.note)+'</span>':'<span>일봉 기준 · 시장 데이터는 거래소/TradingView 상황에 따라 지연될 수 있습니다.</span>';
+  var note=meta.note?'<span>'+escapeHtml(meta.note)+'</span>':'<span>최근 6개월 일봉 · Yahoo Finance 시계열 기반</span>';
   return '<div class="stock-card"><div class="stock-head"><div><b>현재 주가 그래프 · '+escapeHtml(meta.label)+'</b>'+note+'</div>'+
-    '<a class="stock-link" href="'+tradingViewPageUrl(meta.symbol)+'" target="_blank" rel="noopener">TradingView ↗</a></div>'+
-    '<div class="stock-frame"><div id="tvStockWidget" class="tradingview-widget-container">'+
-    '<div class="tradingview-widget-container__widget"></div></div></div></div>';
+    '<a class="stock-link" id="stockSourceLink" href="#" target="_blank" rel="noopener">Yahoo Finance ↗</a></div>'+
+    '<div class="stock-frame"><div id="nativeStockChart" class="stock-loading">주가 데이터를 불러오고 있습니다.</div></div></div>';
 }
 
-function mountTradingViewStock(id){
-  var meta=stockMeta[id];
-  var container=document.getElementById('tvStockWidget');
-  if(!meta||!container)return;
+var stockChartSeq=0;
 
-  container.innerHTML='<div class="tradingview-widget-container__widget"></div>';
+function formatStockPrice(value,currency){
+  if(!Number.isFinite(value))return '-';
+  var digits=(currency==='KRW'||currency==='JPY')?0:2;
+  try{
+    return new Intl.NumberFormat(undefined,{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(value);
+  }catch(e){
+    return value.toFixed(digits);
+  }
+}
 
-  var script=document.createElement('script');
-  script.type='text/javascript';
-  script.src='https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-  script.async=true;
-  script.text=JSON.stringify({
-    autosize:true,
-    symbol:meta.symbol,
-    interval:'D',
-    timezone:'exchange',
-    theme:'light',
-    backgroundColor:'#ffffff',
-    style:'3',
-    hide_top_toolbar:true,
-    hide_side_toolbar:true,
-    hide_legend:false,
-    hide_volume:false,
-    allow_symbol_change:false,
-    save_image:false,
-    withdateranges:true,
-    locale:'kr',
-    calendar:false,
-    support_host:'https://www.tradingview.com'
+function stockDateLabel(ms){
+  var d=new Date(ms);
+  return (d.getMonth()+1)+'/'+d.getDate();
+}
+
+function stockChartSvg(data){
+  var pts=(data.points||[]).filter(function(p){return Number.isFinite(p.close)&&Number.isFinite(p.t)});
+  if(pts.length<2)return '<div class="stock-error">표시할 주가 시계열이 충분하지 않습니다.</div>';
+
+  var W=760,H=270,L=54,R=18,T=18,B=34;
+  var values=pts.map(function(p){return p.close});
+  var min=Math.min.apply(null,values),max=Math.max.apply(null,values);
+  var pad=(max-min)*0.12||Math.max(max*.02,1);
+  min-=pad;max+=pad;
+
+  function x(i){return L+(W-L-R)*(i/(pts.length-1))}
+  function y(v){return T+(H-T-B)*(1-(v-min)/(max-min))}
+
+  var line=pts.map(function(p,i){return (i?'L':'M')+x(i).toFixed(1)+' '+y(p.close).toFixed(1)}).join(' ');
+  var area=line+' L '+x(pts.length-1).toFixed(1)+' '+(H-B)+' L '+x(0).toFixed(1)+' '+(H-B)+' Z';
+
+  var grid='';
+  [0,.5,1].forEach(function(r){
+    var yy=T+(H-T-B)*r;
+    var val=max-(max-min)*r;
+    grid+='<line class="stock-grid-line" x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'"></line>'+
+      '<text class="stock-axis-text" x="'+(L-8)+'" y="'+(yy+4)+'" text-anchor="end">'+escapeHtml(formatStockPrice(val,data.currency))+'</text>';
   });
-  container.appendChild(script);
+
+  var xlabels='';
+  [0,Math.floor((pts.length-1)/2),pts.length-1].forEach(function(i){
+    xlabels+='<text class="stock-axis-text" x="'+x(i)+'" y="'+(H-8)+'" text-anchor="'+(i===0?'start':(i===pts.length-1?'end':'middle'))+'">'+stockDateLabel(pts[i].t)+'</text>';
+  });
+
+  var last=pts[pts.length-1];
+  return '<svg class="stock-svg" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="최근 6개월 주가 차트">'+
+    '<defs><linearGradient id="stockAreaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#287de8" stop-opacity=".22"/><stop offset="100%" stop-color="#287de8" stop-opacity=".02"/></linearGradient></defs>'+
+    grid+xlabels+'<path class="stock-area" d="'+area+'"></path><path class="stock-line" d="'+line+'"></path>'+
+    '<circle class="stock-dot" cx="'+x(pts.length-1)+'" cy="'+y(last.close)+'" r="4.5"></circle></svg>';
+}
+
+async function loadStockChart(id){
+  var seq=++stockChartSeq;
+  var root=document.getElementById('nativeStockChart');
+  if(!root||!stockMeta[id])return;
+
+  try{
+    var response=await fetch('/api/stock?id='+encodeURIComponent(id),{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    var data=await response.json();
+    if(seq!==stockChartSeq||selectedVendor!==id)return;
+
+    var source=document.getElementById('stockSourceLink');
+    if(source&&data.symbol){
+      source.href='https://finance.yahoo.com/quote/'+encodeURIComponent(data.symbol)+'/';
+    }
+
+    var changeClass=(data.change||0)>=0?'up':'down';
+    var sign=(data.change||0)>=0?'+':'';
+    root.className='stock-chart-wrap';
+    root.innerHTML=
+      '<div class="stock-summary"><span class="stock-price">'+escapeHtml(formatStockPrice(data.regularMarketPrice,data.currency))+' '+escapeHtml(data.currency||'')+'</span>'+
+      '<span class="stock-change '+changeClass+'">'+sign+escapeHtml(formatStockPrice(data.change,data.currency))+' ('+sign+Number(data.changePct||0).toFixed(2)+'%)</span>'+
+      '<span class="stock-period">최근 6개월 '+Number(data.rangeChangePct||0).toFixed(2)+'%</span></div>'+
+      stockChartSvg(data);
+  }catch(err){
+    if(seq!==stockChartSeq||selectedVendor!==id)return;
+    root.className='stock-error';
+    root.innerHTML='주가 시계열을 불러오지 못했습니다. 우측 Yahoo Finance 링크에서 직접 확인할 수 있습니다.';
+  }
 }
 
 var liveNewsSeq=0;
@@ -986,7 +1047,7 @@ function renderVendor(){
     '<div class="news-keywords" id="liveNewsKeywords">'+keywords.map(function(k){return '<span class="news-keyword">'+escapeHtml(k)+'</span>'}).join('')+'</div>'+
     '<div class="news-list" id="liveNewsList"><div class="news-loading">최근 30일 뉴스를 조회하고 있습니다.</div></div>';
 
-  mountTradingViewStock(vendorId);
+  loadStockChart(vendorId);
   loadLiveNews(vendorId,partId);
 }
 

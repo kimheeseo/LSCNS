@@ -11,6 +11,25 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.1 — 2026-09-25
+
+### Stock-label corrections, alphabetical vendor order, and event-box confirmation
+
+- Corrected the LS reference stock display to `LS · KRX: 006260`.
+- Confirmed PM fiber stock labels:
+  - Fujikura → `TYO: 5803`
+  - Sumitomo Electric → `TYO: 5802`
+  - Furukawa Electric → `TYO: 5801`
+- Kept Hengtong in the PM fiber vendor list.
+- Changed every component's related-company buttons to render automatically in alphabetical order by company name.
+- The first company automatically selected after a component click is now also the alphabetically first company.
+- Confirmed the compact `CPO 주요 예정 행사` box remains beside the clickable CPO package diagram.
+- The event box shows the next 3–5 configured events, automatically filters out events whose end date has passed, and sorts remaining events by date.
+- The existing recurring event-maintenance workflow remains in place to replace expired events with future CPO-related events.
+- Updated the site/package version to `v1.8.1`.
+
+---
+
 ## v1.8.0 — 2026-09-25
 
 ### Front-view CPO layout, component-specific news, stock symbol corrections, and upcoming events

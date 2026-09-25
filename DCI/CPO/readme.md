@@ -11,6 +11,30 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.3 — 2026-09-25
+
+### Live 30-day news feed inside the company panel
+
+- Fixed the issue where the site only filtered pre-saved static headlines and therefore could show zero results even when Google News had recent CPO coverage.
+- Added a Render server endpoint at `/api/news` that retrieves current Google News RSS results using the Korean locale.
+- The live query combines:
+  - selected company name
+  - CPO / co-packaged optics
+  - AI / AI data center / AI infrastructure
+  - selected component-specific technical keywords
+  - a 30-day freshness condition
+- Added server-side enforcement that discards RSS items older than 30 days.
+- Added a 15-minute server cache to reduce repeated external news requests while keeping results current.
+- The company detail panel now loads up to five current news items directly inside the site.
+- Example Optical Engine query uses the equivalent of:
+  - `#Ayar Labs #CPO #AI #광엔진 #SiPh #PIC #EIC`
+- Google News is requested with Korean locale parameters so Korean-language coverage is prioritized.
+- If the live news endpoint is temporarily unavailable, the UI falls back to any matching saved headlines from the last 30 days.
+- Added a loading state and visible live-news result count.
+- Updated the site/package version to `v1.8.3`.
+
+---
+
 ## v1.8.2 — 2026-09-25
 
 ### 30-day company + CPO + AI + component-keyword news filtering

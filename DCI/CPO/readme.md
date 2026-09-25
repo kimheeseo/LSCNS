@@ -11,6 +11,25 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.8.5 — 2026-09-25
+
+### TradingView stock chart rendering fix
+
+- Fixed blank stock-chart panels that could appear even when the ticker symbol was correct.
+- Replaced the legacy direct `s.tradingview.com/widgetembed` iframe URL with TradingView's current official Advanced Chart embedding script:
+  - `https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js`
+- The chart widget is now mounted dynamically whenever a company card is selected.
+- Retained the verified market-qualified chart symbols:
+  - LS reference → `KRX:006260`
+  - Sumitomo Electric → `TSE:5802`
+  - Furukawa Electric → `TSE:5801`
+  - Fujikura → `TSE:5803`
+- Kept the simplified ticker labels visible to users.
+- Increased the chart area height to 320 px.
+- Updated the site/package version to `v1.8.5`.
+
+---
+
 ## v1.8.4 — 2026-09-25
 
 ### Cable-company ticker label cleanup

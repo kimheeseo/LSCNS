@@ -61,6 +61,16 @@ border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;white-space:
 .product-spec-card span{display:block;font-size:11px;color:#637b90;line-height:1.55}
 .product-spec-link{display:inline-flex;margin-top:8px;font-size:11px;font-weight:900;color:#176fc1;text-decoration:none}
 .product-spec-link:hover{text-decoration:underline}
+
+.contact-card{margin-top:10px;padding:11px 12px;border:1px solid #d9e6f1;border-radius:11px;background:#fff}
+.contact-card b{display:block;font-size:12px;color:#27455f;margin-bottom:6px}
+.contact-row{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:11px;color:#61788d;line-height:1.55}
+.contact-row a{font-weight:800;color:#176fc1;text-decoration:none}
+.contact-row a:hover{text-decoration:underline}
+.contact-note{display:block;margin-top:5px;font-size:10px;color:#8192a3}
+.contact-link{display:inline-flex;margin-top:8px;font-size:11px;font-weight:900;color:#176fc1;text-decoration:none}
+.contact-link:hover{text-decoration:underline}
+
 .event-item{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;padding:9px;border:1px solid #e0e9f2;border-radius:11px;background:#f9fbfe}
 .event-check{width:16px;height:16px;border:1.5px solid #5d9ce1;border-radius:4px;margin-top:2px;background:#eef6ff;position:relative}
 .event-check::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border-right:2px solid #2879d0;border-bottom:2px solid #2879d0;transform:rotate(45deg)}
@@ -422,7 +432,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p id="headerDesc">부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.9.3 · 2026-09-27</span>
+    <span class="badge">v1.9.4 · 2026-09-27</span>
   </header>
 
   <section class="hero">
@@ -579,7 +589,7 @@ ko:{
   eventTitle:'CPO 주요 예정 행사',eventSub:'국내 / 국외 · 자동 갱신',eventInfo:'행사 정보 ↗',eventDomestic:'국내',eventOverseas:'국외',noEvents:'등록된 향후 행사가 없습니다.',
   searchPlaceholder:'업체 또는 부품 검색: Corning, Molex, ELS, FAU …',reset:'초기화',
   selectedComponent:'Selected component',relatedCompanies:'Related companies',companyDetail:'Company detail',
-  officialSite:'공식 사이트 ↗',newsSearch:'최근 30일 기사 검색 ↗',role:'대표 제품 / 관련 역할',productSpec:'대표 제품 / 주요 사양',productSpecLink:'제품·스펙 확인 ↗',
+  officialSite:'공식 사이트 ↗',newsSearch:'최근 30일 기사 검색 ↗',role:'대표 제품 / 관련 역할',productSpec:'대표 제품 / 주요 사양',productSpecLink:'제품·스펙 확인 ↗',contactTitle:'공개 문의 연락처',contactLink:'Contact Us / 문의 ↗',contactPhone:'전화',contactEmail:'이메일',contactForm:'공식 문의 폼',contactFallback:'공식 사이트에서 문의 채널 확인',
   stockTitle:'주가 그래프',noTicker:'현재 확인 가능한 직접 상장 티커가 없습니다.',privateStock:'비상장 기업이거나 독립 상장 주식이 없어 직접 주가 그래프를 제공하지 않습니다.',
   stockDaily:'최근 6개월 일봉 · Yahoo Finance 시계열 기반',stockLoading:'주가 데이터를 불러오고 있습니다.',stockError:'주가 시계열을 불러오지 못했습니다. 우측 Yahoo Finance 링크에서 직접 확인할 수 있습니다.',stockPeriod:'최근 6개월',
   relatedNews:'관련 기사',recentNews:'최근 30일 실시간 기사',newsScope:'부품 키워드 관련 기사를 우선 표시하고, 부족하면 CPO/AI 기사 → 회사 일반 기사 순으로 최근 30일 내 최대 5건을 채웁니다.',newsPriorityComponent:'부품 키워드 관련',newsPriorityCpoAi:'CPO/AI 관련',newsPriorityCompany:'회사 일반',newsPrioritySaved:'저장 기사',
@@ -606,7 +616,7 @@ en:{
   eventTitle:'Upcoming CPO Events',eventSub:'Domestic / Overseas · auto refresh',eventInfo:'Event info ↗',eventDomestic:'Domestic',eventOverseas:'Overseas',noEvents:'No upcoming events are registered.',
   searchPlaceholder:'Search company or component: Corning, Molex, ELS, FAU …',reset:'Reset',
   selectedComponent:'Selected component',relatedCompanies:'Related companies',companyDetail:'Company detail',
-  officialSite:'Official site ↗',newsSearch:'Search last 30 days ↗',role:'Representative product / role',productSpec:'Representative product / key specs',productSpecLink:'Product / specs ↗',
+  officialSite:'Official site ↗',newsSearch:'Search last 30 days ↗',role:'Representative product / role',productSpec:'Representative product / key specs',productSpecLink:'Product / specs ↗',contactTitle:'Public contact',contactLink:'Contact Us ↗',contactPhone:'Phone',contactEmail:'Email',contactForm:'Official inquiry form',contactFallback:'Check inquiry channels on the official site',
   stockTitle:'Stock chart',noTicker:'No directly listed ticker is currently available.',privateStock:'This company is private or has no independently listed equity for a direct stock chart.',
   stockDaily:'Last 6 months · daily data from Yahoo Finance',stockLoading:'Loading stock data…',stockError:'Unable to load the stock series. Use the Yahoo Finance link to check it directly.',stockPeriod:'6-month change',
   relatedNews:'Related news',recentNews:'Live news · last 30 days',newsScope:'Component-keyword news is prioritized; if fewer than five are found, CPO/AI news and then general company news fill the remaining slots within the last 30 days.',newsPriorityComponent:'Component-related',newsPriorityCpoAi:'CPO/AI related',newsPriorityCompany:'Company news',newsPrioritySaved:'Saved article',
@@ -633,7 +643,7 @@ ja:{
   eventTitle:'今後のCPO主要イベント',eventSub:'国内 / 海外 · 自動更新',eventInfo:'イベント情報 ↗',eventDomestic:'国内',eventOverseas:'海外',noEvents:'今後のイベントは登録されていません。',
   searchPlaceholder:'企業または部品を検索: Corning, Molex, ELS, FAU …',reset:'リセット',
   selectedComponent:'選択部品',relatedCompanies:'関連企業',companyDetail:'企業詳細',
-  officialSite:'公式サイト ↗',newsSearch:'直近30日を検索 ↗',role:'代表製品 / 関連役割',productSpec:'代表製品 / 主な仕様',productSpecLink:'製品・仕様を見る ↗',
+  officialSite:'公式サイト ↗',newsSearch:'直近30日を検索 ↗',role:'代表製品 / 関連役割',productSpec:'代表製品 / 主な仕様',productSpecLink:'製品・仕様を見る ↗',contactTitle:'公開問い合わせ先',contactLink:'Contact Us / 問い合わせ ↗',contactPhone:'電話',contactEmail:'メール',contactForm:'公式問い合わせフォーム',contactFallback:'公式サイトで問い合わせ先を確認',
   stockTitle:'株価チャート',noTicker:'直接上場しているティッカーを確認できません。',privateStock:'非上場企業、または独立上場株式がないため直接の株価チャートは表示できません。',
   stockDaily:'直近6か月・日足 · Yahoo Finance時系列',stockLoading:'株価データを読み込み中…',stockError:'株価時系列を読み込めませんでした。Yahoo Financeリンクから確認してください。',stockPeriod:'6か月変化率',
   relatedNews:'関連ニュース',recentNews:'直近30日のライブニュース',newsScope:'部品キーワード関連記事を優先し、5件未満の場合はCPO/AI関連記事、さらに一般企業ニュースで直近30日の最大5件を補完します。',newsPriorityComponent:'部品関連',newsPriorityCpoAi:'CPO/AI関連',newsPriorityCompany:'企業一般',newsPrioritySaved:'保存記事',
@@ -660,7 +670,7 @@ zh:{
   eventTitle:'即将举行的CPO主要活动',eventSub:'国内 / 国外 · 自动更新',eventInfo:'活动信息 ↗',eventDomestic:'国内',eventOverseas:'国外',noEvents:'暂无已登记的未来活动。',
   searchPlaceholder:'搜索企业或部件: Corning, Molex, ELS, FAU …',reset:'重置',
   selectedComponent:'已选部件',relatedCompanies:'相关企业',companyDetail:'企业详情',
-  officialSite:'官方网站 ↗',newsSearch:'搜索最近30天 ↗',role:'代表产品 / 相关角色',productSpec:'代表产品 / 关键规格',productSpecLink:'查看产品/规格 ↗',
+  officialSite:'官方网站 ↗',newsSearch:'搜索最近30天 ↗',role:'代表产品 / 相关角色',productSpec:'代表产品 / 关键规格',productSpecLink:'查看产品/规格 ↗',contactTitle:'公开联系信息',contactLink:'Contact Us / 联系 ↗',contactPhone:'电话',contactEmail:'邮箱',contactForm:'官方联系表单',contactFallback:'请在官网查看联系渠道',
   stockTitle:'股价图',noTicker:'目前没有可确认的直接上市代码。',privateStock:'该企业未上市或没有独立上市股票，因此无法提供直接股价图。',
   stockDaily:'最近6个月·日线 · Yahoo Finance数据',stockLoading:'正在加载股价数据…',stockError:'无法加载股价时间序列，请通过Yahoo Finance链接直接查看。',stockPeriod:'6个月涨跌',
   relatedNews:'相关新闻',recentNews:'最近30天实时新闻',newsScope:'优先显示部件关键词相关新闻；不足5条时依次用CPO/AI相关新闻和公司一般新闻补足，范围均为最近30天。',newsPriorityComponent:'部件相关',newsPriorityCpoAi:'CPO/AI相关',newsPriorityCompany:'公司一般',newsPrioritySaved:'已存新闻',
@@ -687,7 +697,7 @@ de:{
   eventTitle:'Bevorstehende CPO-Termine',eventSub:'Inland / Ausland · automatisch',eventInfo:'Event-Info ↗',eventDomestic:'Inland',eventOverseas:'Ausland',noEvents:'Keine zukünftigen Veranstaltungen eingetragen.',
   searchPlaceholder:'Unternehmen oder Komponente suchen: Corning, Molex, ELS, FAU …',reset:'Zurücksetzen',
   selectedComponent:'Ausgewählte Komponente',relatedCompanies:'Zugehörige Unternehmen',companyDetail:'Unternehmensdetails',
-  officialSite:'Offizielle Website ↗',newsSearch:'Letzte 30 Tage suchen ↗',role:'Repräsentatives Produkt / Rolle',productSpec:'Repräsentatives Produkt / Kerndaten',productSpecLink:'Produkt / Datenblatt ↗',
+  officialSite:'Offizielle Website ↗',newsSearch:'Letzte 30 Tage suchen ↗',role:'Repräsentatives Produkt / Rolle',productSpec:'Repräsentatives Produkt / Kerndaten',productSpecLink:'Produkt / Datenblatt ↗',contactTitle:'Öffentlicher Kontakt',contactLink:'Contact Us / Anfrage ↗',contactPhone:'Telefon',contactEmail:'E-Mail',contactForm:'Offizielles Anfrageformular',contactFallback:'Kontaktkanäle auf der offiziellen Website prüfen',
   stockTitle:'Aktienchart',noTicker:'Kein direkt börsennotiertes Tickersymbol verfügbar.',privateStock:'Das Unternehmen ist nicht börsennotiert oder besitzt keine eigenständig gelistete Aktie.',
   stockDaily:'Letzte 6 Monate · Tagesdaten von Yahoo Finance',stockLoading:'Aktienkursdaten werden geladen…',stockError:'Kursreihe konnte nicht geladen werden. Bitte über Yahoo Finance prüfen.',stockPeriod:'6-Monats-Änderung',
   relatedNews:'Zugehörige Nachrichten',recentNews:'Live-Nachrichten · letzte 30 Tage',newsScope:'Komponentenbezogene Artikel werden priorisiert. Fehlen bis zu fünf Treffer, wird zuerst mit CPO/AI-Nachrichten und danach mit allgemeinen Unternehmensnachrichten der letzten 30 Tage aufgefüllt.',newsPriorityComponent:'Komponentenbezogen',newsPriorityCpoAi:'CPO/AI-bezogen',newsPriorityCompany:'Unternehmensnews',newsPrioritySaved:'Gespeichert',
@@ -918,6 +928,48 @@ function renderProductSpec(vendorId,partId){
   return '<div class="product-spec-card"><b>'+tr('productSpec')+'</b><span><strong>'+escapeHtml(info.name)+'</strong></span>'+
     (info.spec?'<span>'+escapeHtml(info.spec)+'</span>':'')+launch+
     '<a class="product-spec-link" href="'+escapeHtml(info.url)+'" target="_blank" rel="noopener">'+tr('productSpecLink')+'</a></div>';
+}
+
+var contactDirectory={
+  coherent:{url:'https://www.coherent.com/contact',note:'form'},
+  lumentum:{url:'https://www.lumentum.com/company/contact-us',email:'customer.service@lumentum.com',phone:'+1 613 843 5378'},
+  ayar:{url:'https://ayarlabs.com/contact',phone:'+1 650 963 7200',note:'form'},
+  broadcom:{url:'https://www.broadcom.com/company/contact/sales',phone:'+1 650 427 6000',note:'sales'},
+  nvidia:{url:'https://www.nvidia.com/ko-kr/contact/',email:'info@nvidia.com',phone:'+1 408 486 2000'},
+  marvell:{url:'https://www.marvell.com/company/contact.html',note:'sales/support'},
+  lightmatter:{url:'https://lightmatter.co/contact-us/',email:'info@lightmatter.co',phone:'+1 617 454 4815'},
+  openlight:{url:'https://openlightphotonics.com/contact',email:'info@openlightphotonics.com',phone:'+1 805 880 2000'},
+  molex:{url:'https://www.molex.com/en-us/contact',phone:'+800 786 6539',note:'form'},
+  corning:{url:'https://www.corning.com/optical-communications/worldwide/en/home/support/customer-support.html',email:'cofic@corning.com',phone:'+1 607 248 2000'},
+  senko:{url:'https://www.senko.com/contact/',phone:'+81 59 399 3900',note:'form'},
+  usconec:{url:'https://www.usconec.com/contact-us',email:'apac-cs@usconec.com',phone:'+1 828 323 8883'},
+  fujikura:{url:'https://www.fujikura.co.jp/en/contact/',note:'form'},
+  sumitomo:{url:'https://sumitomoelectric.com/contact-us',note:'form'},
+  furukawa:{url:'https://www.furukawaelectric.com/en/inquiry/',phone:'+81 3 3286 3245',note:'fiber sales/support'},
+  hengtong:{url:'https://www.hengtongglobal.com/contact-us',phone:'+86 157 1101 0061',note:'form'},
+  lscns:{url:'https://www.lscns.com/',phone:'+82 2 2189 9114',note:'official corporate contact'},
+  yofc:{url:'https://en.yofc.com/list/259.html',email:'400@yofc.com',phone:'+86 400 006 6869'},
+  ztt:{url:'https://www.zttgroup.com/',email:'sales@zttgroup.com',note:'sales'},
+  tsmc:{url:'https://www.tsmc.com/english/aboutTSMC/business_contacts',email:'G_sales_korea@tsmc.com',phone:'+82 2 2183 1688'},
+  intel:{url:'https://www.intel.com/content/www/us/en/support/contact-us.html',phone:'+1 408 765 8080',note:'support'},
+  ase:{url:'https://ase.aseglobal.com/about-ase/contact/',note:'sales contacts'},
+  amkor:{url:'https://amkor.com/contact-us/',phone:'+82 32 728 4114',note:'Korea customer support'},
+  cisco:{url:'https://www.cisco.com/site/us/en/about/contact-cisco/index.html',phone:'+1 800 553 6387',note:'sales'},
+  ranovus:{url:'https://ranovus.com/contact-us/',email:'info@ranovus.com',phone:'+1 613 912 8007'},
+  globalfoundries:{url:'https://gf.com/about-gf/contact-us/sales-products-services-inquiries/',note:'sales form'},
+  umc:{url:'https://www.umc.com/en/Html/general_inquiries',phone:'+82 2 2183 1790',note:'Korea / new customer inquiry'}
+};
+
+function renderContactCard(vendorId){
+  var c=companies[vendorId];
+  var info=contactDirectory[vendorId]||{url:c.official,note:'official'};
+  var bits=[];
+  if(info.phone)bits.push('<span>'+tr('contactPhone')+': <a href="tel:'+escapeHtml(info.phone.replace(/[^+0-9]/g,''))+'">'+escapeHtml(info.phone)+'</a></span>');
+  if(info.email)bits.push('<span>'+tr('contactEmail')+': <a href="mailto:'+escapeHtml(info.email)+'">'+escapeHtml(info.email)+'</a></span>');
+  var note=info.note?'<span class="contact-note">'+escapeHtml(info.note==='form'?tr('contactForm'):info.note)+'</span>':'';
+  return '<div class="contact-card"><b>'+tr('contactTitle')+'</b>'+
+    (bits.length?'<div class="contact-row">'+bits.join('')+'</div>':'<span class="contact-note">'+tr('contactFallback')+'</span>')+
+    note+'<a class="contact-link" href="'+escapeHtml(info.url)+'" target="_blank" rel="noopener">'+tr('contactLink')+'</a></div>';
 }
 
 var stockMeta={
@@ -1313,7 +1365,7 @@ function renderVendor(){
   qs('#vendorContent').innerHTML=
     '<div class="vendor-top"><div><div class="eyebrow">'+tr('companyDetail')+'</div><h2 style="margin-top:7px">'+escapeHtml(c.name)+'</h2><p style="margin-bottom:0">'+escapeHtml(c.focus)+'</p></div>'+
     '<div class="vendor-actions"><a class="action" href="'+c.official+'" target="_blank" rel="noopener">'+tr('officialSite')+'</a><a class="action primary" href="'+newsSearchUrl(c.name)+'" target="_blank" rel="noopener">'+tr('newsSearch')+'</a></div></div>'+
-    '<div class="rolebox"><strong>'+tr('role')+'</strong><span>'+escapeHtml(c.product)+'</span>'+renderProductSpec(vendorId,partId)+'</div>'+
+    '<div class="rolebox"><strong>'+tr('role')+'</strong><span>'+escapeHtml(c.product)+'</span>'+renderProductSpec(vendorId,partId)+renderContactCard(vendorId)+'</div>'+
     renderStockChart(vendorId)+
     '<div class="news-head"><div><div class="eyebrow">'+tr('relatedNews')+'</div><h3 style="margin-top:5px">'+tr('recentNews')+'</h3>'+
     '<div class="news-window">'+tr('newsScope')+'</div></div>'+

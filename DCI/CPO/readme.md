@@ -11,6 +11,32 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.9.4 — 2026-09-27
+
+### Public company contact channels
+
+- Added a `공개 문의 연락처 / Public contact` card to every company detail panel.
+- The contact card uses only business contact information publicly exposed by official company websites:
+  - official Contact Us / Sales / Customer Support URL
+  - public corporate/customer-service email when available
+  - public business phone number when available
+- No private or inferred employee contact information is added.
+- Verified examples include:
+  - Corning optical-fiber customer service: `cofic@corning.com`, `+1 607 248 2000`
+  - Lumentum customer service: `customer.service@lumentum.com`, `+1 613 843 5378`
+  - Lightmatter: `info@lightmatter.co`, `+1 617 454 4815`
+  - OpenLight: `info@openlightphotonics.com`, `+1 805 880 2000`
+  - YOFC: `400@yofc.com`, `+86 400 006 6869`
+  - ZTT: `sales@zttgroup.com`
+  - TSMC Korea business: `G_sales_korea@tsmc.com`, `+82 2 2183 1688`
+  - RANOVUS: `info@ranovus.com`, `+1 613 912 8007`
+- Companies that only publish a contact form now show the official inquiry form instead of guessed email addresses.
+- LS Cable & System shows the publicly listed corporate phone and links to the official corporate site; no sales email is invented.
+- Added translated contact-card labels for Korean, English, Japanese, Chinese, and German.
+- Updated the site/package version to `v1.9.4`.
+
+---
+
 ## v1.9.3 — 2026-09-27
 
 ### Hengtong PMFSen™ PM fiber update from CIOE 2026

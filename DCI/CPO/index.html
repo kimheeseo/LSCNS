@@ -422,7 +422,7 @@ footer{margin-top:22px;color:#8494a6;font-size:11px;text-align:center}
       <h1>CPO Component Explorer</h1>
       <p id="headerDesc">부품을 클릭하면 관련 업체를 확인하고, 업체를 선택하면 대표 역할·제품과 최근 CPO/AI 광연결 관련 기사를 확인할 수 있습니다.</p>
     </div>
-    <span class="badge">v1.9.2 · 2026-09-25</span>
+    <span class="badge">v1.9.3 · 2026-09-27</span>
   </header>
 
   <section class="hero">
@@ -854,9 +854,11 @@ var companies={
     news:[
       {date:'2026-06-02',title:'Hakusan, VSFF 다심 광커넥터용 TMT 페룰 양산 신공장 구축',source:'Furukawa Electric',url:'https://www.furukawaelectric.com/en/release/'}
     ]},
-  hengtong:{name:'Hengtong',initial:'HT',official:'https://www.hengtongglobal.com/',focus:'Optical fiber/cable · AI data center connectivity',
-    product:'Fiber/cable portfolio · CPO technology coverage',
+  hengtong:{name:'Hengtong',initial:'HT',official:'https://www.hengtongglobal.com/',focus:'Optical fiber/cable · PM fiber · CPO/NPO optical connectivity',
+    product:'PMFSen™ CPO/NPO PM Fiber · high-density optical fiber/cable portfolio',
     news:[
+      {date:'2026-09-10',title:'CIOE 2026에서 CPO/NPO용 PMFSen™ 보편광섬유 브랜드 공식 공개',source:'Hengtong World / CIOE 2026',url:'https://finance.sina.com.cn/roll/2026-09-10/doc-inirixkn8620767.shtml'},
+      {date:'2026-09-08',title:'Hengtong, PM fiber의 birefringence 기반 polarization-maintaining 원리와 CPO 적용 기술 소개',source:'Hengtong',url:'https://www.hengtongglobal.com/info/how-pm-fiber-maintains-polarization-103644603.html'},
       {date:'2026-06-04',title:'1.6T CPO는 AI 데이터센터에 적용 준비가 되었는가?',source:'Hengtong',url:'https://www.hengtongglobal.com/info/co-packaged-optics-1-6t-cpo-ai-data-centers-103530147.html'}
     ]},
   lscns:{name:'LS전선',initial:'LS',official:'https://www.lscns.com/',focus:'Optical fiber/cable · data center connectivity',
@@ -894,7 +896,11 @@ var componentProducts={
     pmFiber:{name:'ClearLite TruePhase® PANDA Polarization-Maintaining Fiber',spec:'통신용 980–1550 nm 대역 제품군. 표준 polarization crosstalk/extinction 성능은 < -35 dB/100 m로 안내되며 small-bend 및 2% proof 옵션이 공개되어 있습니다.',url:'https://www.furukawa.co.jp/telecom/product/opt_fiber/specialty_clearlite_ture.html'}
   },
   hengtong:{
-    pmFiber:{name:'Polarization-Maintaining Fibers for Devices',spec:'Hengtong 공식 자료에서 소자용 polarization-maintaining fiber 제품군을 공개하고 있습니다. 확인 가능한 공개 페이지에는 개별 SKU별 정량 사양표가 없어 상세 수치는 공식 문의가 필요합니다.',url:'https://www.hengtongglobal.com/info/hengtong-displays-special-fibers-for-fiber-las-102842100.html'}
+    pmFiber:{
+      name:'PMFSen™ — CPO/NPO 전용 Polarization-Maintaining Fiber',
+      spec:'CIOE 2026에서 공개. Panda-type stress structure 기반 PM fiber로 100 m crosstalk ≤ -30 dB, beat length ≤ 4.0 mm. 굽힘·온도 변화에 대한 편광 안정성을 목표로 하며 coherent module 및 CPO optical engine에 적용, 400G~1.6T 고속 광인터커넥트를 대상으로 합니다.',
+      url:'https://finance.sina.com.cn/roll/2026-09-10/doc-inirixkn8620767.shtml'
+    }
   }
 };
 
@@ -907,8 +913,10 @@ function productInfoFor(vendorId,partId){
 
 function renderProductSpec(vendorId,partId){
   var info=productInfoFor(vendorId,partId);
+  var launch=(vendorId==='hengtong'&&partId==='pmFiber')
+    ?'<span style="margin-top:6px;font-weight:800;color:#5d7287">CIOE 2026 · Shenzhen · 2026-09-10 공개</span>':'';
   return '<div class="product-spec-card"><b>'+tr('productSpec')+'</b><span><strong>'+escapeHtml(info.name)+'</strong></span>'+
-    (info.spec?'<span>'+escapeHtml(info.spec)+'</span>':'')+
+    (info.spec?'<span>'+escapeHtml(info.spec)+'</span>':'')+launch+
     '<a class="product-spec-link" href="'+escapeHtml(info.url)+'" target="_blank" rel="noopener">'+tr('productSpecLink')+'</a></div>';
 }
 

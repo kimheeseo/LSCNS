@@ -1,0 +1,165 @@
+{
+  "title": "2026-09-26 Public Data Center BOM / Architecture Re-validation",
+  "snapshot_date": "2026-09-26",
+  "repo": "kimheeseo/LSCNS",
+  "engine": "DCI/ver.1,2_reference_cases/engine/multi_arch_bom_engine_v2.js",
+  "threshold_error_pct": 10,
+  "methodology": {
+    "description": "Re-run the current shared reference-blind v2 engine on 10 selected public architecture/BOM cases, then recompute metric-level absolute percentage error from reference and calculated values.",
+    "selection": "Architecture-diverse subset spanning Google TPU, Meta RSC, ByteDance MegaScale, NVIDIA SuperPOD/NVL72, Frontier and Aurora.",
+    "important_limitation": "These 10 cases are existing development/regression benchmark cases, not a new unseen hold-out set. The resulting precision is a reproducibility/regression statistic, not independent proof of cross-vendor generalization.",
+    "unsupported_fields": "Undisclosed physical quantities such as exact cable length, patch-panel quantity, connector SKU or facility layout are excluded rather than guessed."
+  },
+  "expected_current_snapshot": {
+    "case_count": 10,
+    "metric_count": 62,
+    "pass_cases": 10,
+    "coverage_pct": 100,
+    "case_average_mape_pct": 0.0042844405889298064,
+    "metric_weighted_mape_pct": 0.004393421061836665,
+    "max_case_mape_pct": 0.037735849056603106,
+    "max_single_metric_error_pct": 0.22641509433961865,
+    "validation_levels": {
+      "A": 7,
+      "A-": 3
+    }
+  },
+  "selected_cases": [
+    {
+      "case_id": "01_google_tpu_v4",
+      "name": "Google TPU v4",
+      "vendor": "Google",
+      "level": "A",
+      "mape_pct": 0,
+      "metric_count": 12,
+      "source_type": "Primary paper / public preprint",
+      "sources": [
+        "https://arxiv.org/abs/2304.01433",
+        "https://doi.org/10.1145/3579371.3589350"
+      ],
+      "note": "4096-chip TPU v4 system; rack/block and OCS quantities are scored only where publicly disclosed."
+    },
+    {
+      "case_id": "03_google_tpu_v6e",
+      "name": "Google TPU v6e / Trillium",
+      "vendor": "Google",
+      "level": "A",
+      "mape_pct": 0.0051085568326949575,
+      "metric_count": 9,
+      "source_type": "Official Google Cloud documentation",
+      "sources": [
+        "https://docs.cloud.google.com/tpu/docs/v6e",
+        "https://docs.cloud.google.com/compute/docs/tpus/tpu-machines"
+      ],
+      "note": "256-chip pod, 8 chips/host, 4×200G NIC/host, 25.6 Tbps pod DCN and published BF16 throughput."
+    },
+    {
+      "case_id": "07_meta_rsc_phase1",
+      "name": "Meta AI Research SuperCluster Phase 1",
+      "vendor": "Meta",
+      "level": "A-",
+      "mape_pct": 0,
+      "metric_count": 3,
+      "source_type": "Official Meta engineering article",
+      "sources": [
+        "https://ai.meta.com/blog/ai-rsc/"
+      ],
+      "note": "760 DGX A100 / 6080 GPUs / storage and endpoint-bandwidth facts."
+    },
+    {
+      "case_id": "11_bytedance_megascale",
+      "name": "ByteDance MegaScale network building block",
+      "vendor": "ByteDance",
+      "level": "A-",
+      "mape_pct": 0,
+      "metric_count": 4,
+      "source_type": "USENIX NSDI 2024 paper",
+      "sources": [
+        "https://www.usenix.org/conference/nsdi24/presentation/jiang-ziheng",
+        "https://www.usenix.org/system/files/nsdi24-jiang-ziheng.pdf"
+      ],
+      "note": "Network-port packing / ToR quantities from the public NSDI paper; not a full facility BOM."
+    },
+    {
+      "case_id": "21_nvidia_dgx_h100_superpod",
+      "name": "NVIDIA DGX H100 SuperPOD",
+      "vendor": "NVIDIA",
+      "level": "A-",
+      "mape_pct": 0,
+      "metric_count": 4,
+      "source_type": "Official NVIDIA reference architecture",
+      "sources": [
+        "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/dgx-superpod-architecture.html"
+      ],
+      "note": "4 SU / 128-node row; Leaf, Spine, node-leaf and leaf-spine counts."
+    },
+    {
+      "case_id": "22_nvidia_dgx_b200_superpod",
+      "name": "NVIDIA DGX B200 SuperPOD",
+      "vendor": "NVIDIA",
+      "level": "A",
+      "mape_pct": 0,
+      "metric_count": 6,
+      "source_type": "Official NVIDIA reference architecture",
+      "sources": [
+        "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/dgx-superpod-architecture.html"
+      ],
+      "note": "16 SU / 512-node row; Leaf/Spine/Core and three cable-count layers."
+    },
+    {
+      "case_id": "24_nvidia_gb200_nvl72",
+      "name": "NVIDIA GB200 NVL72 rack",
+      "vendor": "NVIDIA",
+      "level": "A",
+      "mape_pct": 0,
+      "metric_count": 6,
+      "source_type": "Official NVIDIA hardware guide",
+      "sources": [
+        "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html"
+      ],
+      "note": "18 compute trays, 72 GPUs, 36 Grace CPUs, 9 NVLink switch trays, 18 NVSwitches and 2 management ToRs."
+    },
+    {
+      "case_id": "29_frontier",
+      "name": "Frontier",
+      "vendor": "OLCF / HPE / AMD",
+      "level": "A",
+      "mape_pct": 0,
+      "metric_count": 6,
+      "source_type": "Official OLCF user guide",
+      "sources": [
+        "https://docs.olcf.ornl.gov/systems/frontier_user_guide.html"
+      ],
+      "note": "9856 compute nodes from the User Guide is the frozen reference; the separate allocation page has a conflicting 9408-node figure."
+    },
+    {
+      "case_id": "30_aurora",
+      "name": "Aurora",
+      "vendor": "ALCF / HPE / Intel",
+      "level": "A",
+      "mape_pct": 0.037735849056603106,
+      "metric_count": 6,
+      "source_type": "Official ALCF documentation",
+      "sources": [
+        "https://docs.alcf.anl.gov/aurora/",
+        "https://www.alcf.anl.gov/sites/default/files/2024-03/Aurora-Data%20Flow-28Feb24.pdf"
+      ],
+      "note": "10624 nodes, 166 racks, 63744 GPUs and network facts; published 2.12 PB/s injection value is rounded."
+    },
+    {
+      "case_id": "31_nvidia_dgx_b300_1su",
+      "name": "NVIDIA DGX B300 SuperPOD — 1 SU",
+      "vendor": "NVIDIA",
+      "level": "A",
+      "mape_pct": 0,
+      "metric_count": 6,
+      "source_type": "Official NVIDIA reference architecture / user guide",
+      "sources": [
+        "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/dgx-superpod-architecture.html",
+        "https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-b300-xdr/latest/components.html",
+        "https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html"
+      ],
+      "note": "Golden/reference case, not a strict hold-out: 72 systems, 576 GPUs, 8 Leaf, 4 Spine, 576 node-leaf and 576 leaf-spine."
+    }
+  ]
+}

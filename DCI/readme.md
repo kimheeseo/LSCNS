@@ -617,3 +617,38 @@ The Network Role Model now supports **1.2T Aggregate · 3×400G** for Compute, S
 ### DC BOM v6.5.0 — Colocation / Multi-tenant scenario
 
 The tool now includes a top-level **Data Center Operating Scenario** selector for AI/GPU Cluster or Colocation / Multi-tenant. Colocation mode adds editable tenant count, racks per tenant, average rack density, capacity reserve and carrier-path assumptions, then calculates tenant rack count, base/reserved IT capacity, facility design power using the current PUE, and reference cross-connect paths. It also presents a colocation design proposal for A/B power and resilience, carrier-diverse MMR/network topology, density-based cooling zones, and tenant isolation/operations. Existing AI/GPU BOM calculations are preserved as a workload module. The Korea Purchasing / Technical Contacts section is now kept at the bottom of the page.
+
+
+## 2026-09-26 Public 10-Case Re-validation
+
+새로운 검증 snapshot 폴더를 추가했습니다.
+
+- Folder: `DCI/260926_validation/`
+- Colab: `260926_validation_colab.ipynb`
+- Case matrix: `validation_cases.json`
+- Report: `README.md`
+
+Architecture-diverse 10-case subset:
+- Google TPU v4
+- Google TPU v6e / Trillium
+- Meta AI Research SuperCluster Phase 1
+- ByteDance MegaScale network building block
+- NVIDIA DGX H100 SuperPOD
+- NVIDIA DGX B200 SuperPOD
+- NVIDIA GB200 NVL72 rack
+- Frontier
+- Aurora
+- NVIDIA DGX B300 SuperPOD — 1 SU
+
+Snapshot outcome:
+- **PASS 10/10**
+- **62 comparable metrics**
+- **100% selected-field coverage**
+- **Case-average MAPE 0.004284%**
+- **Metric-weighted MAPE 0.004393%**
+- **Maximum case MAPE 0.037736%**
+- **Maximum single-metric error 0.226415%**
+- Validation level mix: **A 7 / A- 3**
+
+이 검증은 기존 개발/회귀 benchmark 중 10개를 다시 실행한 **re-validation / reproducibility snapshot**이며, strict unseen hold-out으로 해석하지 않습니다. Colab notebook은 GitHub `main`을 clone한 뒤 현재 `multi_arch_bom_engine_v2.js`를 직접 실행하여 결과를 재계산합니다.
+

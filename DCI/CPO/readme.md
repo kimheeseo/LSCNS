@@ -11,6 +11,30 @@ GitHub 기반 **CPO(Co-Packaged Optics) Component Explorer** 프로젝트입니�
 ---
 
 
+## v1.9.3 — 2026-09-27
+
+### Hengtong PMFSen™ PM fiber update from CIOE 2026
+
+- Added the CIOE 2026 Hengtong PM fiber launch to the CPO Explorer.
+- CIOE 2026 was held on 9–11 September 2026 at the Shenzhen World Exhibition & Convention Center.
+- Hengtong launched the `PMFSen™` CPO/NPO specialty polarization-maintaining fiber brand at its 10 September 2026 AI × Fiber N event.
+- Updated the Hengtong company card to highlight PM fiber and CPO/NPO optical connectivity.
+- Added Hengtong recent-news entries for:
+  - the CIOE 2026 PMFSen™ launch
+  - Hengtong's PM-fiber birefringence / polarization-maintaining technology explainer
+- Updated `PM fiber → Hengtong` representative product details:
+  - Product: `PMFSen™ — CPO/NPO Polarization-Maintaining Fiber`
+  - Panda-type stress structure
+  - 100 m crosstalk ≤ -30 dB
+  - beat length ≤ 4.0 mm
+  - targeted at coherent modules and CPO optical engines
+  - positioned for 400G–1.6T high-speed optical interconnects
+- Added an in-card launch context label: `CIOE 2026 · Shenzhen · 2026-09-10 공개`.
+- The linked launch source reproduces Hengtong World's CIOE 2026 release; Hengtong's official PM-fiber technical page is also included in the company news list.
+- Updated the site/package version to `v1.9.3`.
+
+---
+
 ## v1.9.2 — 2026-09-25
 
 ### Domestic/overseas CPO events + representative product/spec links

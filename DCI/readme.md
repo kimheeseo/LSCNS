@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v4.7.5
+# AI Data Center BOM Engine v5.0.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v4.7.5 Data-Center Supply Chain / Verified Facility Products**
+**v5.0.0 Supply Chain UI / Dynamic BOM Vendor Map**
 
 설계 흐름:
 

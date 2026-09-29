@@ -1,4 +1,4 @@
-# AI Data Center BOM Engine v5.0.0
+# AI Data Center BOM Engine v6.7.0
 AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이력 및 검증 개요**를 정리한 문서입니다.
 - URL: https://others-q976.onrender.com/
 > **Source policy:** 실행 가능한 HTML/JavaScript 소스는 이 공개 저장소에 배포하지 않습니다.  
@@ -6,7 +6,7 @@ AI 데이터센터 물리 인프라/BOM 설계 프로토타입의 **개발 이�
 
 ## 현재 개발 버전
 
-**v5.0.0 Supply Chain UI / Dynamic BOM Vendor Map**
+**v6.7.0 Role-Based Link Engineering / Realistic Rack-Cooling / Korea Channel UI**
 
 설계 흐름:
 
@@ -652,3 +652,68 @@ Snapshot outcome:
 
 이 검증은 기존 개발/회귀 benchmark 중 10개를 다시 실행한 **re-validation / reproducibility snapshot**이며, strict unseen hold-out으로 해석하지 않습니다. Colab notebook은 GitHub `main`을 clone한 뒤 현재 `multi_arch_bom_engine_v2.js`를 직접 실행하여 결과를 재계산합니다.
 
+
+
+## DC BOM v6.7.0 — UI/engineering hardening
+
+사용자 UI 검토에서 확인된 5개 개선점을 현재 private Render build에 다시 활성화/보완했습니다.
+
+### 1. Power Model — 3단계 분리
+- `Typical IT Power`
+- `Design-Max Power`
+- `Peak-Provisioning Power`
+- Rack placement / cooling은 Design-Max를 기준으로 하고, 전기 인프라 provisioning은 Peak-Provisioning을 별도 확인합니다.
+- H200/B200/B300의 기존 v4.8 power-envelope 모델을 active build에 다시 포함했습니다.
+
+### 2. Network speed — GPU 이름이 아니라 network role 기준
+- Compute / Storage / In-Band / OOB를 독립적으로 계산합니다.
+- 각 role에 별도 **Link media / optic class** 선택을 추가했습니다.
+  - Auto
+  - DAC
+  - AEC
+  - AOC
+  - SR
+  - DR
+  - FR
+- Breakout / aggregation 선택:
+  - Auto / native
+  - 800G cage → 2×400G logical
+  - 1.2T aggregate → 3×400G physical
+  - 1.6T aggregate → 2×800G physical
+- 1.2T / 1.6T는 기본적으로 aggregate planning profile이며, exact native optic/cage를 임의 가정하지 않습니다.
+
+### 3. Logical link / physical cage / optic / cable 분리
+- Logical link 수와 OSFP/QSFP cage 수를 동일하게 취급하지 않습니다.
+- Twin-port OSFP / breakout은 `logicalPerCage` 및 physicalization 단계에서 별도로 처리합니다.
+- Cable assembly는 verified harness SKU가 없으면 physical cage 수와 동일하다고 간주하지 않습니다.
+
+### 4. Rack / Cooling visualization
+- Rack 구성 해설은 2D Front / 2D Rear / 3D Front / 3D Rear의 4개 view를 사용합니다.
+- 단순 블록 대신 RU/rail, GPU server face, fan/PSU/NIC/OSFP, switch port field, patching, cable manager, A/B PDU, fiber/power routing을 보여주는 realistic engineering view를 active build에 다시 포함했습니다.
+- Cooling은 Facility Cooling → CDU → Rack Manifold → Liquid-Cooled GPU Rack → GPU/CPU Cold Plate의 3D engineering canvas를 사용하고 cold supply / warm return을 분리해서 표시합니다.
+- 시각화는 설명용 conceptual engineering geometry이며 vendor CAD/IFC를 의미하지 않습니다.
+
+### 5. Korea Channel UI
+- 페이지 하단에 길게 노출되던 한국 구매/기술 문의 채널 table을 기본 화면에서 숨깁니다.
+- 상단 CPO 버튼과 같은 navigation bar에 **한국 채널 / Korea Channel** 버튼을 추가합니다.
+- 클릭 시 기존 한국 법인/총판/유통 채널 정보를 modal에서 확인합니다.
+
+### Capacity substitution helper
+UI에는 다음 nominal bandwidth equivalence를 별도로 표시합니다.
+
+```
+400G = 1 × 400G
+800G = 2 × 400G
+1.2T Aggregate = 3 × 400G
+1.6T Aggregate = 4 × 400G = 2 × 800G
+```
+
+이는 **bandwidth equivalence**이며 실제 breakout 지원 여부는 switch / NIC / transceiver / cable 제품 compatibility로 다시 확인해야 합니다.
+
+### Validation
+- DGX B300 Case 31 golden/reference validation과 Cases 32–35 B300-family frozen-engine hold-out은 기존 v4.8 validation 기록을 유지합니다.
+- Cases 32–35는 모두 numerical threshold `<10%`를 충족하지만, cross-vendor unseen hold-out을 대체하지는 않습니다.
+- 향후 가장 강한 범용성 검증은 frozen engine + non-B300 / cross-vendor Case 36+에서 topology와 physical BOM을 함께 scoring하는 것입니다.
+
+Deployment source:
+`kimheeseo/others` → `dc-bom-v4-deploy` → `DC_BOM_BUNDLE`

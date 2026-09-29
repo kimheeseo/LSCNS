@@ -675,3 +675,16 @@ spares
 ```
 
 This is the standard required before the project can be described as a **generalized data-center BOM/BIM design engine** rather than only a multi-reference validation calculator.
+
+
+### v6.7 deployment alignment
+
+The active private Render build has been realigned with the architecture changes documented above.
+
+- Three-level power model is active in the deployment path.
+- Network speed is role-based (Compute / Storage / In-Band / OOB), not a single GPU-name-driven global speed.
+- 1.2T aggregate is physicalized as 3×400G; v6.7 additionally exposes a 1.6T aggregate planning profile as 2×800G.
+- Physical cages, logical links, optic modules, and cable assemblies remain separate quantities.
+- Rack and cooling visuals were restored to the detailed 2D/3D engineering views.
+- Cases 31–35 remain the current B300-family golden/hold-out set. They should not be presented as cross-vendor unseen validation.
+- The next stronger validation target remains a frozen-engine, non-B300/cross-vendor hold-out set with physical BOM fields included in scoring.

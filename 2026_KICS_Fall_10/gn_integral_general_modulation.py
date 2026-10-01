@@ -1,25 +1,10 @@
-"""Modulation/system-performance layer for ``gn_integral_general.py``.
+"""Modulation, EDFA ASE, GSNR, approximate BER and rate/capacity tools.
 
-Adds:
-- modulation metadata (BPSK/QPSK/8QAM/16QAM/32QAM/64QAM/256QAM)
-- EDFA ASE accumulation
-- NLI power in a selected CUT
-- SNR_ASE, SNR_NLI, optional transceiver SNR, and GSNR
-- approximate AWGN BER by modulation
-- launch-power-vs-GSNR sweep
-- gross modulation rate and Shannon-gap capacity estimates
-
-Important
----------
-MODULATION_PHI now means the signed Carena (2014) Eq. (6) coefficient
-Phi=mu4-2, computed directly from explicitly defined equiprobable constellations.
-It is NOT Channel.modulation_phi (a legacy SCI multiplier, default 1).
-ModulationFormat.phi retains that legacy multiplier meaning; its default is 1.
-
-Default nli_model='gn' preserves the original pure-GN behavior. Select
-nli_model='egn_sci' to pass both mu4 and mu6 to the engine, which computes the
-link-dependent SCI ratio using Carena Eqs. (5)-(9), Appendix C. Rectangular
-spectra/coherent accumulation only. XCI/MCI remain GN, not full WDM EGN.
+NLI integration is delegated to gn_integral_general.py. The default
+nli_model='gn' uses pure GN; 'egn_sci' corrects rectangular-spectrum SCI
+with coherent accumulation, leaving XCI/MCI as GN.
+MODULATION_PHI is the signed coefficient mu4-2, calculated from explicit
+constellations; ModulationFormat.phi is a separate legacy SCI multiplier.
 """
 from __future__ import annotations
 
@@ -162,20 +147,7 @@ MODULATION_MOMENTS = {
     name: constellation_moments(constellation_symbols(name)) for name in MODULATIONS
 }
 
-# DIRECTLY CALCULATED constellation 4th moment, using constellation_symbols()
-# and constellation_moments(): Phi = E[|X|^4]/E[|X|^2]^2 - 2.
-# Definition: Carena, Bosco, Curri, Jiang, Poggiolini, Forghieri,
-# "EGN model of non-linear fiber propagation", Opt. Express 22 (2014),
-# DOI 10.1364/OE.22.016335, Eq. (6); BPSK/QPSK/16QAM/64QAM cross-check Table 1.
-# Dar et al., "Properties of nonlinear noise in long, dispersion-uncompensated
-# fiber links", Opt. Express 21 (2013), DOI 10.1364/OE.21.025685, Eq. (25):
-# the same normalized correction enters as (mu4-2)*chi2, NOT an SCI multiplier.
-# BPSK/QPSK: +/-1 / square coordinates; 16/64/256QAM: odd-integer square grids.
-# 8QAM and 32QAM: the explicit cross geometries documented above. Their moments
-# must be recalculated if a different geometry or symbol probability is used.
-# This is a deliberate semantic correction of the old, ungrounded dictionary:
-# negative values here MUST NOT be assigned to Channel.modulation_phi.
-# No approximate or fitted numeric multipliers remain in this table.
+# Carena (2014), Eq. (6): signed Phi=mu4-2, not the legacy SCI multiplier.
 MODULATION_PHI = {name: moments.egn_phi for name, moments in MODULATION_MOMENTS.items()}
 
 
@@ -361,7 +333,6 @@ def launch_power_vs_gsnr(
     p0 = float(cut.power_W)
     p0_dbm = w_to_dbm(p0)
 
-    # Reference output signal and noises.
     p_sig0 = link_output_signal_power(base_system, spans, cut_index)
     p_ase = ase_noise_power_edfa(spans, cut.baud_GBd * 1e9, ch_center_wavelength_nm(spans, cut))
     mod = get_modulation(modulation, coding_rate)
@@ -412,7 +383,6 @@ def launch_power_vs_gsnr(
     return {k: np.asarray(v, dtype=float) for k, v in out.items()}
 
 
-# Backward-compatible descriptive alias used in earlier project notes.
 def simulate_snr_curve(*args, **kwargs):
     return launch_power_vs_gsnr(*args, **kwargs)
 
@@ -450,3 +420,4 @@ __all__ = [
     "ConstellationMoments", "MODULATION_MOMENTS", "constellation_symbols",
     "constellation_moments", "constellation_moment_self_test",
 ]
+

@@ -1,134 +1,99 @@
-# GN_model — GN/EGN Paper Reproducibility Validation
+# GN 모델 구현 완성도 평가
 
-This folder validates the numerical GN-model implementation in:
+본 문서는 코드 신뢰성을 확인하기 위해 **Poggiolini 등, 「A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems」[1]의 수식·가정과 아래 두 Python 파일을 비교하여 GN 모델의 구현 완성도를 평가한 결과**입니다. 기존 README의 다른 논문 그래프 재현 및 GN/EGN 비교 내용은 이 문서에서 제외했습니다.
 
-- `../gn_integral_general.py`
-- `../gn_integral_general_modulation.py`
+- [gn_integral_general.py](../gn_integral_general.py): WDM GN 적분 및 링크 물리 계산.
+- [gn_integral_general_modulation.py](../gn_integral_general_modulation.py): ASE·GSNR·BER 및 입사전력별 성능 계산.
+- 평가일: **2026-10-01**. 비교 논문: **arXiv:1209.0394v13**.
+- 평가 대상 파일의 Git blob SHA: 각각 `97679bd26a2c78b5671f8f9032b8b99e10119e05`, `0ca57239e75b9b8b1b39d5bca114c66a68bd91df`.
 
-and compares a representative subset against:
+## 1. 평가 결론
 
-- `../EGN_model/EGN_adaptive.py`
+**핵심 적분형 GN 엔진은 논문의 주요 구조를 구현하고 있으며, 이번에 실행한 수식 재현 검증을 통과했습니다.** 전체 WDM PSD, 단일 스팬 비선형 소스, 다중 스팬의 위상 누적 및 NLI의 입사전력 세제곱 관계가 구현되어 있습니다. 상위 모듈의 EDFA ASE, GSNR, QPSK BER 계산도 별도로 확인했습니다.
 
-## References
+따라서 검증한 조건에서 **GN 수식 구현의 일관성과 수치 재현성을 확인한 연구용 계산 코드**로 평가합니다. 이 결과만으로 논문의 모든 일반화 조건을 검증했다고 하거나, 실제 링크 대비 예측 정확도를 특정 백분율로 보증하지는 않습니다. 구현 범위, 수치 수렴, 실제 시스템 정확도는 서로 다른 평가 항목입니다.
 
-1. P. Poggiolini et al., **A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems**.
-2. A. Carena et al., **Modeling of the Impact of Nonlinear Propagation Effects in Uncompensated Optical Coherent Transmission Links**, JLT 30(10), 2012.
+## 2. 논문과 코드의 대응
 
-## What is tested
+수식 번호는 참고문헌 [1]의 v13을 기준으로 합니다. ‘구현 확인’은 코드 구조를 대조했다는 뜻이며, 모든 운용 조건의 수치 검증을 의미하지 않습니다.
 
-### Paper 1 — equation-level reproducibility
-`paper1_reproducibility.py` checks the implementation against the GN derivation without fitting:
-- power-attenuation dB/km to field attenuation conversion,
-- beta2 phase mismatch,
-- one-span GN link function,
-- incoherent and coherent identical-span accumulation,
-- generalized non-identical-span coherent phase history,
-- exact first-order NLI cubic power scaling,
-- scrambled-Sobol QMC convergence.
+| 비교 항목 | 논문 근거 | 코드 위치 | 평가 |
+|---|---|---|---|
+| 광전력 감쇠와 전계 감쇠의 구분 | 제II절의 감쇠 정의 | `alpha_field_from_db()`, `Span` | 구현·변환식 실행 확인 |
+| DP NLI PSD의 이중 적분 및 계수 16/27 | 식 (88), (96) | `DP_GN_COEFF`, `gn_nli_psd_qmc()` | 구현 확인; QMC 수렴 표본 시험 |
+| beta2/beta3 위상 부정합 | 식 (G.1)–(G.4) | `beta_of_f_offset()`, `phase_mismatch_beta23()` | 구현 확인; beta2 경로 실행 검증 |
+| 단일 스팬 비선형 소스 | 식 (88)의 링크 항 | `_safe_complex_span_integral()`, `_local_span_source_integral()` | 집중형 EDFA 경로 실행 검증 |
+| 동일 스팬의 코히어런트 누적 | 식 (96), (G.3), (G.4) | `_link_amplitudes()`, `link_kernel()` | 위상합 실행 검증 |
+| 서로 다른 스팬 및 비코히어런트 근사 | 식 (100), (101), 부록 B | `Span`, `_link_amplitudes()`, `link_kernel()` | 손실 보상된 서로 다른 2개 스팬의 위상 이력과 동일 스팬의 비코히어런트 누적 검증 |
+| 분포형 증폭 | 제IV-I절, 식 (I.1), (103)–(105) | `field_gain_coeff()`, `distributed_field_log_gain()` | 프로파일 구현 확인; 이번 수치 검증 범위 밖 |
+| EDFA ASE와 ASE+NLI SNR | 식 (8), (11) | `ase_noise_power_edfa()`, `evaluate_performance()` | EDFA 표본 조건에서 실행 검증 |
+| 수신 대역의 NLI 적분 | 식 (12) | `integrate_nli_over_channel()` | 폭 Rs의 직사각형 수신 대역으로 구현; 일반 수신 필터는 미구현 |
+| PM-QPSK BER | 식 (6) | `ber_awgn_approx()` | 수식 대조 및 표본 SNR에서 실행 검증 |
 
-### Paper 2 — Figure 5
-`figure5_benchmark.py` reconstructs the Fig. 5 maximum-reach calculation using:
-- 9 WDM channels,
-- 32 GBd,
-- 100-km spans,
-- 5-dB EDFA NF,
-- PSCF / SMF / NZDSF parameters from Table I,
-- the paper's Fig. 4–7 **incoherent NLI accumulation** convention,
-- a paper-like NRZ `sinc²` spectrum filtered by a fourth-order super-Gaussian with `Bopt = Δf`,
-- required back-to-back OSNR digitized from Fig. 3.
+## 3. 이번 실행에서 확인한 결과
 
-The paper/reference points in `paper_fig5_digitized.csv` are digitized from the supplied PDF rather than copied from an author data file. Each row therefore carries an explicit digitization-uncertainty estimate.
+### 핵심 GN 수식
 
-### GN vs EGN comparison
-The full precision path in `EGN_adaptive.py` uses rectangular spectra and coherent multi-span physics, while Carena-2012 Fig. 5 is a **GN** benchmark plotted with incoherent NLI accumulation. A direct EGN-vs-Fig.5 accuracy claim would therefore mix model scopes.
+현재 두 파일을 변경하지 않고 [paper1_reproducibility.py](./paper1_reproducibility.py)를 재실행했습니다.
 
-For the requested three-way graph, the representative **50-GHz QPSK points for PSCF, SMF and NZDSF** use a transparent paper-convention proxy: `EGN_adaptive.py` computes the full **one-span** EGN NLI, and that one-span NLI is accumulated incoherently across spans exactly like the Fig. 5 GN plotting convention. No fitted scale factor is used. The resulting EGN error is reported, but is explicitly **not** interpreted as a validation score for the native multi-span EGN algorithm.
+| 검증 항목 | 결과 |
+|---|---|
+| dB/km → 전계 감쇠 변환 | 통과 |
+| beta2 위상 부정합 | 통과 |
+| 단일 스팬 링크 함수 | 통과 |
+| 동일 스팬 비코히어런트 누적 | 통과 |
+| 동일 스팬 코히어런트 위상합 | 통과 |
+| 서로 다른 스팬의 코히어런트 위상 이력 | 통과 |
+| 모든 채널의 전력 2배 → NLI 8배 | 통과 |
 
-## Colab
+7개 항목의 최대 상대오차는 **1.29452 × 10⁻¹¹ %**였습니다. 이는 선정한 수식·대수 관계의 재현 오차입니다. 실제 광전송 링크나 SSFM 대비 물리 모델의 예측 오차가 아닙니다. 일부 항목은 코드의 보조 함수를 공유하므로, 완전히 독립적인 솔버와 전체 적분 결과를 비교한 검증으로 해석해서는 안 됩니다.
 
-Open `GN_Model_Colab.ipynb`. The committed executed copy is written to:
-`results/GN_Model_Colab_executed.ipynb`.
+### Sobol 적분의 표본 수렴
 
-Set `RUN_HEAVY=True` in the last cell to recompute the GN and EGN numerical integrations in Colab.
+조건: 3채널, 50 GHz 간격, 32 GBd, 채널당 −3 dBm, 80 km × 2스팬, 감쇠 0.2 dB/km, D=17 ps/(nm·km), gamma=1.3 /(W·km), 코히어런트 누적. 중앙 주파수의 NLI PSD를 시드 3·11·29·47로 계산했습니다.
 
-## Reproduce locally
+| Sobol 표본 수 | 시드 간 상대 표준편차 | 직전 표본 수 대비 평균값 변화 |
+|---:|---:|---:|
+| 2,048 | 2.2520% | — |
+| 8,192 | 0.2223% | 2.2961% |
+| 32,768 | 0.09349% | 0.14409% |
 
-```bash
-python -m pip install -r 2026_KICS_Fall_10/GN_model/requirements.txt
-python 2026_KICS_Fall_10/GN_model/paper1_reproducibility.py
-python 2026_KICS_Fall_10/GN_model/figure5_benchmark.py
-```
+이 표는 **해당 조건·해당 주파수에서의 수치 안정성**을 보여줍니다. 시드 간 표준편차는 절대오차의 상한이 아니며, 다채널·장거리·낮은 분산 등 다른 조건과 수신 대역 적분의 수렴은 별도로 확인해야 합니다.
 
-## Performance results
+### 시스템 성능 모듈
 
-GitHub Actions run #15 completed successfully after executing the repository code, the paper-1 tests, the Fig. 5 benchmark, and the executed Colab report.
+추가 표본 검증에서는 3채널·32 GBd·80 km × 2스팬·NF 5 dB 조건을 사용했습니다. NLI 적분은 Sobol 표본 수 4,096, 시드 1, 수신 적분점 3개로 실행했습니다.
 
-### Paper 1 — equation-level reproducibility
+| 검증 항목 | 이번 결과 |
+|---|---:|
+| EDFA ASE와 별도로 계산한 식 (8)의 상대오차 | 4.44 × 10⁻¹⁶ |
+| QPSK BER과 식 (6)의 최대 절대오차(SNR=1, 10, 100) | 0 |
+| ASE+NLI+TRX 잡음으로 재계산한 GSNR과의 차이 | 0 dB |
+| 세제곱 scaling과 전력별 재적분 GSNR의 최대 차이(−3, 0 dBm) | 0 dB |
 
-- Assessment: **PASS**
-- Maximum equation-level relative error: **1.29452 × 10⁻¹¹ %**
-- Scrambled-Sobol relative standard deviation at 32,768 samples: **0.0935 %**
-- Change from 8,192 to 32,768 samples: **0.1441 %**
+TRX SNR은 18 dB를 사용했습니다. TRX 항은 코드의 추가 모델이며, 위 결과는 상위 모듈의 계산 일관성을 확인한 것입니다. 이 검증의 추가 점검 코드는 이번 평가에서 임시 실행했으며 저장소의 재실행 스크립트에는 포함하지 않았습니다.
 
-These values show that the implementation reproduces the tested GN equations to floating-point precision and that the numerical WDM integral is stable at the selected high-resolution setting.
+## 4. 완성도와 적용 범위
 
-### Paper 2 — Carena 2012 Fig. 5
+| 평가 구분 | 판단 |
+|---|---|
+| 핵심 적분형 GN 구현 | 주요 구조 구현 및 선정 수식 검증 통과 |
+| ASE·GSNR·QPSK BER 연결 | 표본 조건의 계산 일관성 확인 |
+| 수치 적분 안정성 | 한 WDM 표본 조건의 PSD 수렴 확인 |
+| 논문의 전체 확장 조건 | 일부 구현 확인; 포괄적 검증은 미완료 |
+| 실험·SSFM 대비 전송 성능 정확도 | 이번 평가에서 확인하지 않음 |
 
-Across **63 digitized Fig. 5 points**:
+다음 항목은 구분하여 사용해야 합니다.
 
-- GN MAPE: **8.66 %**
-- Median absolute percentage error: **6.67 %**
-- Maximum point error: **50.0 %**
-- Points within 5 %: **36.5 %**
-- Points within 10 %: **69.8 %**
-- Points within 15 %: **85.7 %**
-- Points within 20 %: **92.1 %**
+- **범용 분산:** 코드는 beta2/beta3까지 표현합니다. 논문에서 사용하는 일반적인 주파수 의존 전파상수 전체를 입력받는 구현은 아닙니다.
+- **수신 필터:** NLI는 폭 Rs의 직사각형 대역으로 적분합니다. 임의의 수신 필터 가중치에 따른 성능은 별도 구현이 필요합니다.
+- **분포형 증폭:** GN 소스 적분에 이득 프로파일을 사용할 수 있지만, ASE 함수는 집중형 EDFA용입니다. Raman 시스템 전체 GSNR의 검증 완료를 뜻하지 않습니다.
+- **논문의 폐형식 근사:** 제V절의 근사식을 모두 구현하는 대신 직접 수치 적분하는 엔진입니다. 폐형식 미구현과 핵심 적분식 미구현은 구분합니다.
+- **코드의 추가 기능:** Sobol QMC, 선택적 SCI-EGN 보정, TRX 잡음, 변조별 전송률 및 Shannon-gap 용량은 이 논문의 GN 수식 재현과 별도 평가 대상입니다. 특히 `nli_model="egn_sci"`는 SCI만 보정하며 전체 WDM EGN 검증 대상이 아닙니다.
+- **운용 가정:** 링크 중간의 채널 추가·삭제, PMD/PDL 및 상세 DSP는 포함하지 않습니다. 강한 비선형이나 분산 관리 링크까지 이번 결론을 일반화할 수 없습니다.
 
-For points with paper reach ≥ 1,000 km (**47 points**), GN MAPE improves to **7.38 %**, with a maximum error of **19.08 %**. The largest percentage errors occur mainly at very short-reach points where a 100-km span step and PDF digitization have a large percentage effect.
+후속 검증은 beta3, 불완전 손실 보상, 분포형 이득, 사용자 정의 PSD 및 수신 적분점 수렴을 각각 확인하고, 조건을 일치시킨 독립 수치 적분·SSFM 또는 실험 결과와 비교하는 방식으로 확장할 수 있습니다.
 
-Fiber-level MAPE:
+## 참고문헌
 
-| Fiber | Points | GN MAPE |
-|---|---:|---:|
-| PSCF | 21 | 9.58 % |
-| SMF | 21 | 6.95 % |
-| NZDSF | 21 | 9.43 % |
-
-Modulation-level MAPE:
-
-| Modulation | Points | GN MAPE |
-|---|---:|---:|
-| BPSK | 18 | 9.31 % |
-| QPSK | 18 | 5.20 % |
-| 8QAM | 15 | 10.11 % |
-| 16QAM | 12 | 11.03 % |
-
-### Paper vs GN vs EGN representative comparison
-
-For the representative **50-GHz QPSK** PSCF / SMF / NZDSF subset:
-
-| Fiber | Paper reach | GN reach | GN error | EGN proxy reach | EGN proxy error |
-|---|---:|---:|---:|---:|---:|
-| PSCF | 8,900 km | 10,200 km | 14.61 % | 14,900 km | 67.42 % |
-| SMF | 4,100 km | 4,400 km | 7.32 % | 6,500 km | 58.54 % |
-| NZDSF | 2,700 km | 2,800 km | 3.70 % | 4,000 km | 48.15 % |
-
-Same-subset GN MAPE is **8.54 %**. The EGN proxy MAPE is **58.03 %**.
-
-**Important:** the EGN number above is deliberately not treated as a native EGN validation score. Carena-2012 Fig. 5 is a GN benchmark with incoherent span accumulation, while `EGN_adaptive.py` is designed for rectangular spectra and coherent multi-span EGN physics. The three-way graph therefore uses one-span full-EGN NLI with the paper's incoherent accumulation convention only to provide the requested side-by-side comparison. A proper EGN validation must use a paper/SSFM benchmark with matching EGN assumptions.
-
-Final machine-readable outputs are stored in:
-- `results/paper1_reproducibility.json`
-- `results/figure5_reproduction.csv`
-- `results/paper_gn_egn_comparison.csv`
-- `results/summary.json`
-- `results/COLAB_EXECUTION_REPORT.md`
-- `results/GN_Model_Colab_executed.ipynb`
-
-## Interpretation and recommendation for general use
-
-The strongest evidence for this GN code is not a fitted match to one plot. The same engine reproduces the tested GN link-function equations to floating-point precision, shows sub-0.1 % high-resolution Sobol run-to-run dispersion, and reproduces a published 63-point reach benchmark with **8.66 % overall MAPE without an NLI fitting factor**.
-
-For engineering studies, the model is therefore well suited as a **general-purpose GN screening / design engine** when the system is within standard GN assumptions: uncompensated coherent transmission, sufficient accumulated dispersion / Gaussianization, low-to-moderate nonlinear regime, and accurately represented Tx/Rx spectra. Its support for full-WDM SCI/XCI/MCI, irregular channel plans, unequal spans, beta2+beta3, and heterogeneous span parameters makes it more broadly reusable than a Fig.-5-specific reproduction script.
-
-It should not be presented as universally <5 % accurate. The present independent Fig. 5 validation supports roughly **7–9 % typical reach error** over the tested domain, with QPSK performing best (~5.2 % MAPE) and short-reach / high-order-modulation points showing larger percentage deviations. For publication or customer-facing high-accuracy claims, use this GN model together with matched SSFM/EGN validation for the exact fiber, spectrum, modulation and span regime.
+[1] P. Poggiolini, G. Bosco, A. Carena, V. Curri, Y. Jiang, and F. Forghieri, **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,”** arXiv:1209.0394, v13, 2014. [논문 페이지](https://arxiv.org/abs/1209.0394v13) · [PDF](https://arxiv.org/pdf/1209.0394v13).

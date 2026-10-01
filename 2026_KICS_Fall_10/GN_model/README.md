@@ -1,67 +1,99 @@
-# GN 모델 검증 요약
+# GN 모델 구현 완성도 평가
 
-두 논문을 기준으로 현재 [GN 적분 엔진](../gn_integral_general.py)과 [시스템 성능 모듈](../gn_integral_general_modulation.py)의 구현 신뢰성을 평가했습니다. 검증일: **2026-10-01**. 핵심 두 Python 파일은 수정하지 않았습니다.
+본 문서는 코드 신뢰성을 확인하기 위해 **Poggiolini 등, 「A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems」[1]의 수식·가정과 아래 두 Python 파일을 비교하여 GN 모델의 구현 완성도를 평가한 결과**입니다. 기존 README의 다른 논문 그래프 재현 및 GN/EGN 비교 내용은 이 문서에서 제외했습니다.
 
-## 결론
+- [gn_integral_general.py](../gn_integral_general.py): WDM GN 적분 및 링크 물리 계산.
+- [gn_integral_general_modulation.py](../gn_integral_general_modulation.py): ASE·GSNR·BER 및 입사전력별 성능 계산.
+- 평가일: **2026-10-01**. 비교 논문: **arXiv:1209.0394v13**.
+- 평가 대상 파일의 Git blob SHA: 각각 `97679bd26a2c78b5671f8f9032b8b99e10119e05`, `0ca57239e75b9b8b1b39d5bca114c66a68bd91df`.
 
-**선정 GN 수식의 구현 일관성과 그림 5의 전송 거리 경향을 확인했습니다.** 현재 검증 범위에서는 연구용 링크 비교·입사전력 최적화에 활용할 수 있으나, 모든 조건에서 5% 이하 정확도나 실장비 성능을 보증하는 검증은 아닙니다.
+## 1. 평가 결론
 
-| 검증 | 결과 | 의미 |
-|---|---:|---|
-| Poggiolini [1]의 선정 수식 7개 | 모두 통과 | 감쇠·위상·링크 함수·스팬 누적·전력 세제곱 관계의 구현 확인 |
-| 최대 수식 재현 상대오차 | 1.2945e-11% | 선정한 대수 관계의 오차; 실제 링크 예측 오차와 구분 |
-| 논문 1의 QMC 시드 간 상대 표준편차 | 0.09349% | 한 표본 조건의 중앙 주파수 PSD, 32,768표본 |
-| Carena [2] Fig. 5 전체 63점 MAPE | **8.71%** | 논문의 시뮬레이션 마커에서 읽은 최대 거리와 비교 |
-| Fig. 5 중앙값 / 최대 상대오차 | 6.67% / 50.00% | 짧은 거리 일부에서 큰 오차 발생 |
-| 참조 거리 ≥1,000 km의 MAPE | 7.45% | 해당 부분집합의 평균 상대오차 |
-| 두 적분 설정 간 NLI 계수 최대 변화 | 0.180% | 복합 해상도·시드 민감도; 절대오차 상한 아님 |
-| 두 설정 간 최대 거리 변화 | 0 km | 비교한 설정에서 최대 정수 스팬 수 동일 |
+**핵심 적분형 GN 엔진은 논문의 주요 구조를 구현하고 있으며, 이번에 실행한 수식 재현 검증을 통과했습니다.** 전체 WDM PSD, 단일 스팬 비선형 소스, 다중 스팬의 위상 누적 및 NLI의 입사전력 세제곱 관계가 구현되어 있습니다. 상위 모듈의 EDFA ASE, GSNR, QPSK BER 계산도 별도로 확인했습니다.
 
-### 그림 5 세부 결과
+따라서 검증한 조건에서 **GN 수식 구현의 일관성과 수치 재현성을 확인한 연구용 계산 코드**로 평가합니다. 이 결과만으로 논문의 모든 일반화 조건을 검증했다고 하거나, 실제 링크 대비 예측 정확도를 특정 백분율로 보증하지는 않습니다. 구현 범위, 수치 수렴, 실제 시스템 정확도는 서로 다른 평가 항목입니다.
 
-| 광섬유 | 비교점 | 평균 상대오차 |
-|---|---:|---:|
-| PSCF | 21 | 9.75% |
-| SMF | 21 | 6.95% |
-| NZDSF | 21 | 9.43% |
+## 2. 논문과 코드의 대응
 
-| 변조 | 평균 상대오차 |
+수식 번호는 참고문헌 [1]의 v13을 기준으로 합니다. ‘구현 확인’은 코드 구조를 대조했다는 뜻이며, 모든 운용 조건의 수치 검증을 의미하지 않습니다.
+
+| 비교 항목 | 논문 근거 | 코드 위치 | 평가 |
+|---|---|---|---|
+| 광전력 감쇠와 전계 감쇠의 구분 | 제II절의 감쇠 정의 | `alpha_field_from_db()`, `Span` | 구현·변환식 실행 확인 |
+| DP NLI PSD의 이중 적분 및 계수 16/27 | 식 (88), (96) | `DP_GN_COEFF`, `gn_nli_psd_qmc()` | 구현 확인; QMC 수렴 표본 시험 |
+| beta2/beta3 위상 부정합 | 식 (G.1)–(G.4) | `beta_of_f_offset()`, `phase_mismatch_beta23()` | 구현 확인; beta2 경로 실행 검증 |
+| 단일 스팬 비선형 소스 | 식 (88)의 링크 항 | `_safe_complex_span_integral()`, `_local_span_source_integral()` | 집중형 EDFA 경로 실행 검증 |
+| 동일 스팬의 코히어런트 누적 | 식 (96), (G.3), (G.4) | `_link_amplitudes()`, `link_kernel()` | 위상합 실행 검증 |
+| 서로 다른 스팬 및 비코히어런트 근사 | 식 (100), (101), 부록 B | `Span`, `_link_amplitudes()`, `link_kernel()` | 손실 보상된 서로 다른 2개 스팬의 위상 이력과 동일 스팬의 비코히어런트 누적 검증 |
+| 분포형 증폭 | 제IV-I절, 식 (I.1), (103)–(105) | `field_gain_coeff()`, `distributed_field_log_gain()` | 프로파일 구현 확인; 이번 수치 검증 범위 밖 |
+| EDFA ASE와 ASE+NLI SNR | 식 (8), (11) | `ase_noise_power_edfa()`, `evaluate_performance()` | EDFA 표본 조건에서 실행 검증 |
+| 수신 대역의 NLI 적분 | 식 (12) | `integrate_nli_over_channel()` | 폭 Rs의 직사각형 수신 대역으로 구현; 일반 수신 필터는 미구현 |
+| PM-QPSK BER | 식 (6) | `ber_awgn_approx()` | 수식 대조 및 표본 SNR에서 실행 검증 |
+
+## 3. 이번 실행에서 확인한 결과
+
+### 핵심 GN 수식
+
+현재 두 파일을 변경하지 않고 [paper1_reproducibility.py](./paper1_reproducibility.py)를 재실행했습니다.
+
+| 검증 항목 | 결과 |
+|---|---|
+| dB/km → 전계 감쇠 변환 | 통과 |
+| beta2 위상 부정합 | 통과 |
+| 단일 스팬 링크 함수 | 통과 |
+| 동일 스팬 비코히어런트 누적 | 통과 |
+| 동일 스팬 코히어런트 위상합 | 통과 |
+| 서로 다른 스팬의 코히어런트 위상 이력 | 통과 |
+| 모든 채널의 전력 2배 → NLI 8배 | 통과 |
+
+7개 항목의 최대 상대오차는 **1.29452 × 10⁻¹¹ %**였습니다. 이는 선정한 수식·대수 관계의 재현 오차입니다. 실제 광전송 링크나 SSFM 대비 물리 모델의 예측 오차가 아닙니다. 일부 항목은 코드의 보조 함수를 공유하므로, 완전히 독립적인 솔버와 전체 적분 결과를 비교한 검증으로 해석해서는 안 됩니다.
+
+### Sobol 적분의 표본 수렴
+
+조건: 3채널, 50 GHz 간격, 32 GBd, 채널당 −3 dBm, 80 km × 2스팬, 감쇠 0.2 dB/km, D=17 ps/(nm·km), gamma=1.3 /(W·km), 코히어런트 누적. 중앙 주파수의 NLI PSD를 시드 3·11·29·47로 계산했습니다.
+
+| Sobol 표본 수 | 시드 간 상대 표준편차 | 직전 표본 수 대비 평균값 변화 |
+|---:|---:|---:|
+| 2,048 | 2.2520% | — |
+| 8,192 | 0.2223% | 2.2961% |
+| 32,768 | 0.09349% | 0.14409% |
+
+이 표는 **해당 조건·해당 주파수에서의 수치 안정성**을 보여줍니다. 시드 간 표준편차는 절대오차의 상한이 아니며, 다채널·장거리·낮은 분산 등 다른 조건과 수신 대역 적분의 수렴은 별도로 확인해야 합니다.
+
+### 시스템 성능 모듈
+
+추가 표본 검증에서는 3채널·32 GBd·80 km × 2스팬·NF 5 dB 조건을 사용했습니다. NLI 적분은 Sobol 표본 수 4,096, 시드 1, 수신 적분점 3개로 실행했습니다.
+
+| 검증 항목 | 이번 결과 |
 |---|---:|
-| BPSK | 9.44% |
-| QPSK | 5.27% |
-| 8QAM | 10.11% |
-| 16QAM | 11.03% |
+| EDFA ASE와 별도로 계산한 식 (8)의 상대오차 | 4.44 × 10⁻¹⁶ |
+| QPSK BER과 식 (6)의 최대 절대오차(SNR=1, 10, 100) | 0 |
+| ASE+NLI+TRX 잡음으로 재계산한 GSNR과의 차이 | 0 dB |
+| 세제곱 scaling과 전력별 재적분 GSNR의 최대 차이(−3, 0 dBm) | 0 dB |
 
-## 그림 5 검증 방법과 한계
+TRX SNR은 18 dB를 사용했습니다. TRX 항은 코드의 추가 모델이며, 위 결과는 상위 모듈의 계산 일관성을 확인한 것입니다. 이 검증의 추가 점검 코드는 이번 평가에서 임시 실행했으며 저장소의 재실행 스크립트에는 포함하지 않았습니다.
 
-- 논문과 같이 9채널·32 GBd·100 km 스팬·NF 5 dB·BER=10⁻³·비코히어런트 NLI 누적을 사용했습니다. 광섬유 사양은 표 I, 순 심볼률은 25 GBd입니다.
-- NRZ sinc² × 4차 super-Gaussian 송신 PSD를 정규화해 원본 엔진에 입력했습니다. 송신 필터 폭은 채널 간격, 수신 NLI 적분 폭은 Rs로 근사했습니다.
-- 그림 3의 back-to-back OSNR을 요구 SNR로 환산하여 선형 XI/ISI 감도를 반영했습니다. 이 값은 논문에서 읽은 외부 입력이며, NLI를 그림 5에 맞추는 fitting 계수는 사용하지 않았습니다.
-- 한 스팬의 NLI 계수 eta와 ASE를 계산해 Popt=(ASE₁/(2·eta))^(1/3), Nmax=floor[Popt/{SNRreq·(ASE₁+eta·Popt³)}], Lmax=100·Nmax로 최대 거리를 구했습니다.
-- 최종 적분 설정은 Sobol 2¹⁸·시드 2·수신점 11개입니다. 2¹⁷·시드 1·수신점 7개의 결과와 비교했습니다. TRX 잡음 및 EGN 보정은 넣지 않았습니다.
-- `paper`는 제공된 PDF 그림 5의 **시뮬레이션 마커 판독값**이며 저자의 원시 데이터가 아닙니다. 기존 참조 CSV를 PDF와 시각적으로 대조해 재사용했습니다. CSV의 4–8% 판독 불확도는 대략적 추정이며 통계적 신뢰구간은 아닙니다.
-- 오차에는 판독, 송수신 스펙트럼 근사, 100 km 스팬 단위 양자화가 함께 포함됩니다. 짧은 거리에서 최대 50% 오차가 발생했습니다. 수치 수렴이 물리 정확도를 보증하지는 않습니다.
-- 이 벤치마크는 변조별 논문 감도값을 사용하므로, 코드의 모든 변조 BER 근사식을 독립 검증한 결과는 아닙니다. beta3·Raman·사용자 정의 수신 필터·실험/SSFM 검증은 별도로 필요합니다.
+## 4. 완성도와 적용 범위
 
-## 실행과 결과
+| 평가 구분 | 판단 |
+|---|---|
+| 핵심 적분형 GN 구현 | 주요 구조 구현 및 선정 수식 검증 통과 |
+| ASE·GSNR·QPSK BER 연결 | 표본 조건의 계산 일관성 확인 |
+| 수치 적분 안정성 | 한 WDM 표본 조건의 PSD 수렴 확인 |
+| 논문의 전체 확장 조건 | 일부 구현 확인; 포괄적 검증은 미완료 |
+| 실험·SSFM 대비 전송 성능 정확도 | 이번 평가에서 확인하지 않음 |
 
-[실행 출력이 포함된 Colab 호환 노트북](./GN_Model_Colab.ipynb) · [Colab에서 열기](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/2026_KICS_Fall_10/GN_model/GN_Model_Colab.ipynb)
+다음 항목은 구분하여 사용해야 합니다.
 
-이 저장본은 **Python/IPython에서 각 셀을 실제 실행한 노트북**입니다. Google Colab 서비스에서 실행한 기록은 아닙니다. Colab 재실행 시 검증 대상 코드는 고정 커밋에서 읽고 SHA-256을 확인합니다.
+- **범용 분산:** 코드는 beta2/beta3까지 표현합니다. 논문에서 사용하는 일반적인 주파수 의존 전파상수 전체를 입력받는 구현은 아닙니다.
+- **수신 필터:** NLI는 폭 Rs의 직사각형 대역으로 적분합니다. 임의의 수신 필터 가중치에 따른 성능은 별도 구현이 필요합니다.
+- **분포형 증폭:** GN 소스 적분에 이득 프로파일을 사용할 수 있지만, ASE 함수는 집중형 EDFA용입니다. Raman 시스템 전체 GSNR의 검증 완료를 뜻하지 않습니다.
+- **논문의 폐형식 근사:** 제V절의 근사식을 모두 구현하는 대신 직접 수치 적분하는 엔진입니다. 폐형식 미구현과 핵심 적분식 미구현은 구분합니다.
+- **코드의 추가 기능:** Sobol QMC, 선택적 SCI-EGN 보정, TRX 잡음, 변조별 전송률 및 Shannon-gap 용량은 이 논문의 GN 수식 재현과 별도 평가 대상입니다. 특히 `nli_model="egn_sci"`는 SCI만 보정하며 전체 WDM EGN 검증 대상이 아닙니다.
+- **운용 가정:** 링크 중간의 채널 추가·삭제, PMD/PDL 및 상세 DSP는 포함하지 않습니다. 강한 비선형이나 분산 관리 링크까지 이번 결론을 일반화할 수 없습니다.
 
-```bash
-pip install -r 2026_KICS_Fall_10/GN_model/requirements.txt
-python 2026_KICS_Fall_10/GN_model/execute_notebook.py
-```
-
-결과는 [result](./result/)에 저장됩니다. 원본 엔진이 변경되면 노트북 해시 검사가 중단되므로, 새 버전 평가 시 기준 해시를 의도적으로 갱신해야 합니다.
-
-![그림 5: code와 paper 비교](./result/figure5_code_vs_paper.png)
-
-[세부 비교 CSV](./result/figure5_comparison.csv) · [수렴 비교 CSV](./result/figure5_convergence.csv) · [논문 1 실행 결과](./result/paper1_reproducibility.json) · [그림 5 실행 요약](./result/figure5_summary.json)
+후속 검증은 beta3, 불완전 손실 보상, 분포형 이득, 사용자 정의 PSD 및 수신 적분점 수렴을 각각 확인하고, 조건을 일치시킨 독립 수치 적분·SSFM 또는 실험 결과와 비교하는 방식으로 확장할 수 있습니다.
 
 ## 참고문헌
 
-[1] P. Poggiolini et al., “A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,” arXiv:1209.0394v13, 2014. [논문](https://arxiv.org/abs/1209.0394v13).
-
-[2] A. Carena, V. Curri, G. Bosco, P. Poggiolini, and F. Forghieri, “Modeling of the Impact of Nonlinear Propagation Effects in Uncompensated Optical Coherent Transmission Links,” JLT 30(10), 1524–1539, 2012, DOI: 10.1109/JLT.2012.2189198. [논문](https://ieeexplore.ieee.org/document/6158564/).
+[1] P. Poggiolini, G. Bosco, A. Carena, V. Curri, Y. Jiang, and F. Forghieri, **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,”** arXiv:1209.0394, v13, 2014. [논문 페이지](https://arxiv.org/abs/1209.0394v13) · [PDF](https://arxiv.org/pdf/1209.0394v13).

@@ -1,51 +1,12 @@
-"""General-purpose numerical GN-model integral engine.
+"""Numerical WDM GN engine using scrambled Sobol integration.
 
-This module extends the original single-channel ``gn_integral.py`` into a
-reusable WDM/link engine while keeping the same Poggiolini GN-model
-conventions.
-
-Implemented scope
------------------
-1. Full WDM PSD integration (SCI/XCI/MCI arise naturally from the full PSD).
-2. Unequal channel powers, bandwidths and irregular spacing.
-3. Rectangular, raised-cosine / RRC-power, and user-supplied PSD shapes.
-4. beta2 + beta3 phase mismatch (Appendix G, Eq. G.3/G.4 convention).
-5. Non-identical spans with span-specific length, loss, dispersion, gamma,
-   lumped gain and optional lumped dispersion compensation (Eq. 100 style).
-6. Coherent or incoherent span accumulation.
-7. Numerical distributed-gain profiles: ideal distributed gain and a simple
-   backward-Raman profile based on Eqs. (103)-(105).
-8. Scrambled Sobol QMC integration for the 2-D frequency integral.
-
-Important convention
---------------------
-- Frequency: THz (= 1/ps)
-- beta2: ps^2/km
-- beta3: ps^3/km
-- distance: km
-- gamma: 1/(W km)
-- alpha_db_per_km: conventional *POWER* attenuation [dB/km]
-- internally alpha_field = alpha_db_per_km*ln(10)/20, so field~exp(-alpha z)
-- channel power and PSD are total dual-polarization quantities
-- DP GN coefficient = 16/27
-
-The primary path is the *integral GN model*, not the Section-V asinh
-closed-form approximation.  The epsilon coherent-correction formula belongs
-mainly to the optional closed-form/incoherent approximation family and is not
-used to replace the direct coherent integral here.
-
-Limits
-------
-- The default is the unchanged GN model (Gaussian-signal assumption).
-  Optional egn_mu4/egn_mu6 enable the rectangular-spectrum SCI terms of
-  Carena et al., Opt. Express 22, 16335 (2014), Eqs. (5)-(9), (43)-(45).
-  XCI/MCI remain GN: this is not a full WDM EGN implementation.
-- Mid-link channel add/drop is intentionally not modeled; the source paper
-  states that a compact general formula is difficult because each spectral
-  portion has a different amplitude/phase history.
-- Distributed-amplification handling is a numerical profile extension of the
-  paper's distributed-gain integral.  For heterogeneous Raman links, validate
-  against a dedicated Raman model / simulator before design sign-off.
+Units: THz, km, beta2 [ps^2/km], beta3 [ps^3/km], gamma [1/(W km)].
+Attenuation is power loss [dB/km]; channel power/PSD are total dual-pol
+quantities with GN coefficient 16/27. Supports unequal channels/spans,
+beta2/beta3, coherent/incoherent accumulation and distributed gain profiles.
+Optional rectangular-spectrum EGN corrects SCI only; XCI/MCI remain GN.
+Mid-link channel add/drop is not modeled. Distributed-gain extensions require
+independent validation for heterogeneous Raman links.
 """
 from __future__ import annotations
 
@@ -184,7 +145,6 @@ class Channel:
     label: str = ""
     custom_psd: Optional[Callable[[np.ndarray], np.ndarray]] = field(default=None, compare=False, repr=False)
     custom_support_half_width_THz: Optional[float] = None
-    # Legacy SCI multiplier, Phi=1이면 GN과 동일; NOT EGN excess kurtosis.
     modulation_phi: float = 1.0
     egn_mu4: Optional[float] = None
     egn_mu6: Optional[float] = None
@@ -312,7 +272,6 @@ class Span:
         if self.gain_db is not None:
             return 10.0 ** (float(self.gain_db) / 10.0)
         if self.amplification == "lumped_edfa":
-            # Exact compensation of conventional power loss alpha_dB*L.
             return 10.0 ** (float(self.alpha_db_per_km) * float(self.length_km) / 10.0)
         return 1.0
 
@@ -344,7 +303,6 @@ class Span:
             if abs(ap) < 1e-15:
                 return A * z
             return A * (np.exp(2.0 * ap * z) - 1.0) / (2.0 * ap)
-        # Custom: numerical cumulative integral, scalar/vector friendly.
         flat = np.atleast_1d(z)
         vals = []
         for zz in flat:
@@ -394,7 +352,6 @@ def _local_span_source_integral(span: Span, q, z_order: int = 64):
     if span.amplification == "lumped_edfa":
         return _safe_complex_span_integral(q, span.alpha_field_per_km, span.length_km)
 
-    # Gauss-Legendre z integration; vectorised in q chunks by broadcasting.
     x, w = np.polynomial.legendre.leggauss(int(z_order))
     L = float(span.length_km)
     z = 0.5 * (x + 1.0) * L
@@ -654,7 +611,6 @@ def gn_nli_psd_qmc(
             if phi != 1.0:
                 raise ValueError("do not combine manual modulation_phi with EGN moments")
             _validate_egn_moments(cut_channel.egn_mu4, cut_channel.egn_mu6)
-            # The geometric SCI mask is unambiguous only for nonoverlapping CUTs.
             matching = [ch for ch in system.channels
                         if ch.center_THz == cut_channel.center_THz]
             if len(matching) != 1:
@@ -781,7 +737,6 @@ def egn_backward_compat_self_test() -> dict:
         old = gn_nli_psd_qmc(system, spans, f, opt).g_nli_W_per_THz
         new = gn_nli_psd_qmc(system, spans, f, opt, cut_channel=ch).g_nli_W_per_THz
         errors.append(abs(new - old) / max(abs(old), np.finfo(float).tiny))
-    # Independently reconstruct legacy receiver integration: no CUT argument.
     x, w = np.polynomial.legendre.leggauss(3)
     half = ch.symbol_rate_THz / 2.0
     old_power = float(np.sum(half * w * np.asarray([
@@ -919,3 +874,4 @@ __all__ = [
     "modulation_phi_self_test", "egn_literature_self_test", "DP_GN_COEFF",
     "EGNSCICoefficients", "egn_sci_coefficients", "integrate_egn_sci_coefficients",
 ]
+

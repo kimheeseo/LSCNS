@@ -1,278 +1,128 @@
-"""Reproduce Carena et al. JLT 2012 Fig. 5 with the user's numerical GN engine
-and compare a representative subset against EGN_adaptive.py.
-
-Paper Fig. 5 convention:
-- 9 channels, 32 GBd
-- 100-km spans, EDFA NF=5 dB and exact span-loss compensation
-- 4th-order super-Gaussian Tx filter, optimized Bopt ~= channel spacing
-- target BER=1e-3; linear XI/ISI penalty obtained from back-to-back Fig. 3
-- Figs. 4-7 use INCOHERENT NLI accumulation (paper Eq. 17)
-
-The GN run below approximates the NRZ/SG optical PSD by sinc^2(NRZ)*4th-order
-super-Gaussian and feeds that PSD to gn_integral_general.py. No fitted NLI
-scale factor is used.
-
-EGN_adaptive's precision path accepts rectangular spectra and coherent
-multi-span accumulation only. For the requested Fig.-5 comparison we therefore
-compute its FULL one-span EGN NLI coefficient, then apply the paper's
-incoherent N-span scaling. This is explicitly a nearest-scope comparison, not
-a claim that Carena-2012 Fig. 5 is an EGN benchmark.
-"""
+"""Carena (2012) Fig. 5 검증: 현재 GN 엔진을 실행하며 NLI fitting을 하지 않는다."""
 from __future__ import annotations
-import json, math, sys
+import hashlib, json, math, sys, time
 from pathlib import Path
 from functools import lru_cache
 import numpy as np
 import pandas as pd
 from scipy.integrate import quad
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.ticker import FixedLocator, ScalarFormatter
 
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
-EGN_DIR = ROOT / "EGN_model"
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(EGN_DIR))
-
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parent
+sys.path.insert(0,str(ROOT))
 import gn_integral_general as gn
 import gn_integral_general_modulation as perf
-import EGN_adaptive as egn
-
-OUT = HERE / "results"
+OUT=HERE/'result'
 OUT.mkdir(exist_ok=True)
+RS=32.; BN=12.5; SPAN=100.; NF=5.; CUT=4; NCH=9
 
-RS_GBD = 32.0
-BN_GHZ = 12.5  # 0.1 nm convention used by the paper
-SPAN_KM = 100.0
-NF_DB = 5.0
-CUT = 4
-NCH = 9
-
-
-@lru_cache(maxsize=None)
-def _sg_norm(rs_THz: float, bandwidth_THz: float) -> float:
-    # PSD before optical filtering: NRZ sinc^2. Power transfer of 4th-order
-    # super-Gaussian: exp[-ln2*(2f/B)^8], where B is bilateral -3 dB BW.
-    B = float(bandwidth_THz)
-    Rs = float(rs_THz)
+@lru_cache(None)
+def paper_like_psd(spacing):
+    rs=RS/1000; bw=float(spacing)/1000
     def raw(f):
-        x = f / Rs
-        sinc = 1.0 if x == 0 else math.sin(math.pi*x)/(math.pi*x)
-        sg = math.exp(-math.log(2.0)*(2.0*f/B)**8)
-        return sinc*sinc*sg
-    return quad(raw, -B, B, epsabs=1e-13, epsrel=1e-10, limit=300)[0]
+        return np.sinc(np.asarray(f)/rs)**2*np.exp(-math.log(2)*(2*np.asarray(f)/bw)**8)
+    norm=quad(lambda f: float(raw(f)), -bw,bw,epsabs=1e-13,epsrel=1e-10)[0]
+    return lambda f: raw(f)/norm, bw
 
+def system_for_spacing(spacing):
+    shape,support=paper_like_psd(float(spacing))
+    return gn.WDMSystem(tuple(gn.Channel(float((k-4)*spacing/1000),1e-3,RS,
+        pulse_shape='custom',custom_psd=shape,custom_support_half_width_THz=support)
+        for k in range(NCH)))
 
-def paper_like_psd(spacing_GHz: float):
-    Rs = RS_GBD/1000.0
-    B = float(spacing_GHz)/1000.0
-    norm = _sg_norm(Rs, B)
-    def shape(offset_THz):
-        x = np.asarray(offset_THz, dtype=float)
-        sinc2 = np.sinc(x/Rs)**2
-        sg = np.exp(-math.log(2.0)*(2.0*x/B)**8)
-        return sinc2*sg/norm
-    return shape, B
+def reach(eta,ase,osnr):
+    required=10**(float(osnr)/10)*BN/RS
+    p=(ase/(2*eta))**(1/3)
+    continuous=p/(ase+eta*p**3)/required
+    n=max(0,math.floor(continuous+1e-12))
+    # NLI와 ASE를 비코히어런트 방식으로 누적한다.
+    return n*SPAN,gn.w_to_dbm(p),continuous*SPAN
 
-
-def make_paper_system(spacing_GHz: float, power_dBm: float=0.0):
-    spacing = float(spacing_GHz)/1000.0
-    centers = (np.arange(NCH)-(NCH-1)/2.0)*spacing
-    p = gn.dbm_to_w(power_dBm)
-    shape, support = paper_like_psd(spacing_GHz)
-    channels = tuple(
-        gn.Channel(float(fc), p, RS_GBD, pulse_shape="custom",
-                   custom_psd=shape, custom_support_half_width_THz=support,
-                   label=f"ch{k}")
-        for k,fc in enumerate(centers)
-    )
-    return gn.WDMSystem(channels)
-
-
-def ase_per_span_W(span) -> float:
-    return perf.ase_noise_power_edfa([span], RS_GBD*1e9, 1550.0)
-
-
-def lmax_from_eta(eta_W_inv2: float, ase1_W: float, required_osnr_db: float):
-    # Fig.3 OSNR -> matched-filter SNR_ASE via paper Eq.(8):
-    # SNR = OSNR * B_N/R_s.
-    snr_req_db = float(required_osnr_db) + 10.0*math.log10(BN_GHZ/RS_GBD)
-    snr_req = 10.0**(snr_req_db/10.0)
-    eta = float(eta_W_inv2)
-    A = float(ase1_W)
-    if eta <= 0 or A <= 0:
-        raise ValueError("eta and ASE must be positive")
-    p_opt = (A/(2.0*eta))**(1.0/3.0)
-    snr_one_span = p_opt/(A + eta*p_opt**3)
-    nmax = max(0, int(math.floor(snr_one_span/snr_req + 1e-12)))
-    return {
-        "required_snr_db": snr_req_db,
-        "popt_dBm": gn.w_to_dbm(p_opt),
-        "snr_one_span_db": 10*math.log10(snr_one_span),
-        "nspans": nmax,
-        "Lmax_km": nmax*SPAN_KM,
-    }
-
-
-def svg_fig5(df: pd.DataFrame, path: Path):
-    import matplotlib.pyplot as plt
-    mods = ["BPSK","QPSK","8QAM","16QAM"]
-    for fiber in ["PSCF","SMF","NZDSF"]:
-        d = df[df.fiber==fiber]
-        fig, ax = plt.subplots(figsize=(7.4,5.0))
+def plots(df):
+    mods=['BPSK','QPSK','8QAM','16QAM']
+    colors={'BPSK':'#b322b5','QPSK':'#df3232','8QAM':'#292929','16QAM':'#2758da'}
+    ticks=[100,200,500,1000,2000,5000,10000,20000]
+    def draw(ax,fiber):
         for mod in mods:
-            m=d[d.modulation==mod].sort_values("net_SE_bit_s_Hz")
-            if m.empty: continue
-            ax.plot(m.net_SE_bit_s_Hz, m.paper_Lmax_km, marker="o", linestyle="--", label=f"Paper {mod}")
-            ax.plot(m.net_SE_bit_s_Hz, m.gn_Lmax_km, marker="x", linestyle="-", label=f"GN code {mod}")
-        ax.set_yscale("log")
-        ax.set_ylim(180,22000)
-        ax.set_xlim(.9,6.0)
-        ax.set_xlabel("Net spectral efficiency [bit/s/Hz]")
-        ax.set_ylabel("Maximum reach [km]")
-        ax.set_title(f"Carena 2012 Fig. 5 reproduction — {fiber}")
-        ax.grid(True, which="both", alpha=.25)
-        ax.legend(ncol=2, fontsize=7)
-        fig.tight_layout()
-        fig.savefig(path.with_name(path.stem+f"_{fiber}"+path.suffix))
-        plt.close(fig)
-
-
-def svg_parity(df: pd.DataFrame, path: Path):
-    """Single requested comparison graph: paper vs GN vs EGN on the same x-axis."""
-    import matplotlib.pyplot as plt
-    d=df.copy()
-    order={"PSCF":0,"SMF":1,"NZDSF":2}
-    d["_order"]=d.fiber.map(order)
-    d=d.sort_values("_order")
-    x=np.arange(len(d))
-    labels=[f"{r.fiber}\n{r.modulation} {r.spacing_GHz:g} GHz" for _,r in d.iterrows()]
-    fig, ax = plt.subplots(figsize=(8.0,5.2))
-    ax.plot(x,d.paper_Lmax_km,marker="o",label="Paper Fig. 5")
-    ax.plot(x,d.gn_Lmax_km,marker="s",label="GN model")
-    ax.plot(x,d.egn_Lmax_km,marker="^",label="EGN adaptive")
-    ax.set_yscale("log")
-    ax.set_xticks(x,labels)
-    ax.set_ylabel("Maximum reach [km]")
-    ax.set_title("Paper vs GN vs EGN — representative QPSK, 50 GHz")
-    ax.grid(True,which="both",alpha=.25)
-    ax.legend()
-    fig.tight_layout()
-    fig.savefig(path)
+            d=df[(df.fiber==fiber)&(df.modulation==mod)].sort_values('net_SE_bit_s_Hz')
+            ax.plot(d.net_SE_bit_s_Hz,d.code_Lmax_km,color=colors[mod],lw=1.7,marker='x',ms=4)
+            ax.plot(d.net_SE_bit_s_Hz,d.paper_Lmax_km,color=colors[mod],lw=1.2,ls='--',marker='o',ms=4,mfc='white')
+        ax.set(yscale='log',ylim=(90,24000),xlim=(.9,6.1),title=fiber,
+            xlabel='Net spectral efficiency [bit/s/Hz]',ylabel='Maximum reach [km]')
+        ax.yaxis.set_major_locator(FixedLocator(ticks)); ax.yaxis.set_major_formatter(ScalarFormatter())
+        ax.tick_params(which='minor',labelleft=False)
+        ax.grid(True,which='major',alpha=.25)
+        handles=[Line2D([],[],color='black',marker='x',label='code'),
+            Line2D([],[],color='black',ls='--',marker='o',mfc='white',label='paper')]
+        ax.legend(handles=handles,loc='upper right',fontsize=9,framealpha=.9)
+    fig,axs=plt.subplots(1,3,figsize=(15,5.3),sharey=True)
+    for ax,fiber in zip(axs,['PSCF','SMF','NZDSF']): draw(ax,fiber)
+    fig.legend(handles=[Line2D([],[],color=colors[m],lw=2,label='PM-'+m) for m in mods],
+        loc='lower center',ncol=4,frameon=False)
+    fig.suptitle('Carena 2012 Fig. 5: current GN code vs paper simulation markers',fontsize=13)
+    fig.tight_layout(rect=(0,.07,1,.94))
+    fig.savefig(OUT/'figure5_code_vs_paper.png',dpi=180)
+    fig.savefig(OUT/'figure5_code_vs_paper.svg')
     plt.close(fig)
-
+    for fiber in ['PSCF','SMF','NZDSF']:
+        fig,ax=plt.subplots(figsize=(7.2,5.5));draw(ax,fiber)
+        fig.legend(handles=[Line2D([],[],color=colors[m],lw=2,label='PM-'+m) for m in mods],loc='lower center',ncol=4,fontsize=9,frameon=False)
+        fig.tight_layout(rect=(0,.07,1,1));fig.savefig(OUT/f'figure5_{fiber}.png',dpi=180);plt.close(fig)
 
 def main():
-    ref = pd.read_csv(HERE/"paper_fig5_digitized.csv")
+    start=time.perf_counter();ref=pd.read_csv(HERE/'paper_fig5_digitized.csv')
+    assert len(ref)==63 and not ref.duplicated(['fiber','modulation','spacing_GHz']).any()
+    assert np.allclose(ref.net_SE_bit_s_Hz,ref.modulation.map({'BPSK':2,'QPSK':4,'8QAM':6,'16QAM':8})*25/ref.spacing_GHz,atol=6e-5)
+    cache={};conv=[]
+    # 같은 조건의 두 해상도/시드로 독립 재계산한다.
+    for (fiber,alpha,d,gamma,spacing),_ in ref.groupby(['fiber','alpha_dB_km','D_ps_nm_km','gamma_W_inv_km','spacing_GHz']):
+        span=gn.Span(SPAN,alpha,gamma,D_ps_nm_km=d,noise_figure_db=NF)
+        sys0=system_for_spacing(spacing)
+        vals=[]
+        for power,seed,rp in [(17,1,7),(18,2,11)]:
+            opt=gn.GNIntegralOptions(sobol_power=power,seed=seed,accumulation='incoherent')
+            val=gn.integrate_nli_over_channel(sys0,[span],CUT,opt,receiver_points=rp)
+            vals.append(val/(1e-3**3))
+        ase=perf.ase_noise_power_edfa([span],RS*1e9,1550.)
+        cache[(fiber,float(spacing))]=(vals[1],ase,vals[0])
+        conv.append(dict(fiber=fiber,spacing_GHz=spacing,eta_17_seed1_rx7=vals[0],eta_18_seed2_rx11=vals[1],relative_change_pct=abs(vals[1]/vals[0]-1)*100))
+        print(f'{fiber} {spacing:g} GHz: eta={vals[1]:.6g}, change={conv[-1]["relative_change_pct"]:.3f}%',flush=True)
+    rows=[]
+    for _,r in ref.iterrows():
+        eta,ase,eta_lo=cache[(r.fiber,float(r.spacing_GHz))]
+        L,p,lc=reach(eta,ase,r.paper_required_OSNR_dB_0p1nm)
+        Ll,_,_=reach(eta_lo,ase,r.paper_required_OSNR_dB_0p1nm)
+        row=r.to_dict();row.update(code_eta_W_inv2=eta,ase_per_span_W=ase,code_Lmax_km=L,
+            code_continuous_reach_km=lc,code_popt_dBm=p,code_low_resolution_reach_km=Ll,
+            absolute_error_pct=abs(L/r.paper_Lmax_km-1)*100,
+            signed_error_pct=(L/r.paper_Lmax_km-1)*100,
+            required_snr_db=r.paper_required_OSNR_dB_0p1nm+10*math.log10(BN/RS))
+        rows.append(row)
+    df=pd.DataFrame(rows);df.to_csv(OUT/'figure5_comparison.csv',index=False)
+    pd.DataFrame(conv).to_csv(OUT/'figure5_convergence.csv',index=False)
+    byfiber=df.groupby('fiber').absolute_error_pct.agg(['count','mean','max'])
+    bymod=df.groupby('modulation').absolute_error_pct.agg(['count','mean','max'])
+    byfiber.to_csv(OUT/'figure5_error_by_fiber.csv');bymod.to_csv(OUT/'figure5_error_by_modulation.csv')
+    summary=dict(points=len(df),mape_pct=float(df.absolute_error_pct.mean()),median_ape_pct=float(df.absolute_error_pct.median()),
+        max_ape_pct=float(df.absolute_error_pct.max()),long_reach_mape_pct=float(df.loc[df.paper_Lmax_km>=1000,'absolute_error_pct'].mean()),
+        by_fiber=json.loads(byfiber.to_json(orient='index')),by_modulation=json.loads(bymod.to_json(orient='index')),
+        max_eta_resolution_change_pct=max(c['relative_change_pct'] for c in conv),
+        max_reach_resolution_change_km=float(abs(df.code_Lmax_km-df.code_low_resolution_reach_km).max()),
+        settings=dict(sobol_power=18,seed=2,receiver_points=11,accumulation='incoherent',channels=9,baud_GBd=32,span_km=100,NF_dB=5,trx_snr_db=None),
+        source_sha256={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in ['gn_integral_general.py','gn_integral_general_modulation.py']},
+        elapsed_seconds=time.perf_counter()-start,
+        reference='Figure 5 simulation markers digitized from the user-supplied publisher PDF; not author raw data.',
+        limitations=['Approximate NRZ sinc-squared PSD and 4th-order SG filter; rectangular receiver integration.',
+            'Figure 3 back-to-back OSNR is external calibration for linear XI/ISI, not a GN NLI fit.',
+            'Reported 4-8% digitization estimates are inherited approximate estimates, not statistical confidence intervals.',
+            'Two-setting sensitivity checks change seed, Sobol samples and receiver points together; not an absolute error bound.'])
+    (OUT/'figure5_summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False)+'\n')
+    plots(df)
+    print(json.dumps(summary,indent=2,ensure_ascii=False));return df,summary
 
-    # ---------- GN Fig. 5 reproduction ----------
-    gn_cache = {}
-    gn_opt = gn.GNIntegralOptions(sobol_power=14, seed=17, accumulation="incoherent",
-                                  z_quadrature_order=64)
-    for (fiber, alpha, D, gamma, spacing), _ in ref.groupby(
-        ["fiber","alpha_dB_km","D_ps_nm_km","gamma_W_inv_km","spacing_GHz"]):
-        span = gn.Span(SPAN_KM, alpha, gamma, D_ps_nm_km=D,
-                       noise_figure_db=NF_DB)
-        system = make_paper_system(spacing, 0.0)
-        p_nli_1 = gn.integrate_nli_over_channel(system,[span],CUT,gn_opt,receiver_points=5)
-        eta = p_nli_1/(1e-3**3)
-        gn_cache[(fiber,float(spacing))]=(eta,ase_per_span_W(span),p_nli_1)
-
-    grows=[]
-    for _, r in ref.iterrows():
-        eta,A,pn = gn_cache[(r.fiber,float(r.spacing_GHz))]
-        reach=lmax_from_eta(eta,A,r.paper_required_OSNR_dB_0p1nm)
-        d=r.to_dict()
-        d.update({
-            "gn_eta_W_inv2":eta,
-            "gn_one_span_nli_W_at_0dBm":pn,
-            "ase_one_span_W":A,
-            "gn_Lmax_km":reach["Lmax_km"],
-            "gn_popt_dBm":reach["popt_dBm"],
-            "gn_error_pct":abs(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
-            "gn_signed_error_pct":(reach["Lmax_km"]-r.paper_Lmax_km)/r.paper_Lmax_km*100.0,
-            "required_snr_db":reach["required_snr_db"],
-        })
-        grows.append(d)
-    gdf=pd.DataFrame(grows)
-    gdf.to_csv(OUT/"figure5_reproduction.csv",index=False)
-
-    # ---------- EGN representative comparison ----------
-    # Carena-2012 Fig. 5 is a GN benchmark and its plotted model uses the paper's
-    # incoherent span accumulation (Eq. 17). EGN_adaptive's native full path is
-    # coherent and rectangular-spectrum. Therefore a direct "EGN should match
-    # Fig. 5" accuracy claim would be invalid.
-    #
-    # To satisfy the requested three-way comparison without hiding this mismatch,
-    # use a clearly-labelled paper-convention proxy on the representative 50-GHz
-    # QPSK points (PSCF/SMF/NZDSF): calculate the FULL one-span EGN NLI from
-    # EGN_adaptive.py, then apply the same incoherent N-span scaling used by the
-    # 2012 Fig. 5 plotting convention. No fitted scale factor is used.
-    subset = gdf[np.isclose(gdf.spacing_GHz,50.0) & (gdf.modulation=="QPSK")].copy()
-    erows=[]
-    eopt=egn.EGNFullOptions(receiver_points=5,max_receiver_points=5,panel_order=8,
-                            quadrature_rtol=5e-4,verify_convergence=False,
-                            strict_convergence=False)
-
-    for _, r in subset.iterrows():
-        system=egn.WDMSystem.equispaced(NCH,float(r.spacing_GHz),RS_GBD,0.0)
-        span=egn.Span(SPAN_KM,float(r.alpha_dB_km),float(r.gamma_W_inv_km),
-                      D_ps_nm_km=float(r.D_ps_nm_km),noise_figure_db=NF_DB)
-        br=egn.full_egn_nli_power(
-            system,[span],CUT,str(r.modulation),
-            gn_options=egn.GNIntegralOptions(accumulation="coherent"),
-            full_options=eopt)
-        eta_egn=float(br.total_egn_W)/(1e-3**3)
-        reach=lmax_from_eta(eta_egn,float(r.ase_one_span_W),float(r.paper_required_OSNR_dB_0p1nm))
-        d=r.to_dict()
-        d.update({
-            "egn_eta_W_inv2":eta_egn,
-            "egn_one_span_nli_W_at_0dBm":float(br.total_egn_W),
-            "egn_to_gn_nli_ratio":float(br.total_egn_W/br.gn_total_W),
-            "egn_to_gn_nli_ratio_db":float(br.ratio_to_gn_db),
-            "egn_Lmax_km":float(reach["Lmax_km"]),
-            "egn_popt_dBm":float(reach["popt_dBm"]),
-            "egn_error_pct":abs(float(reach["Lmax_km"])-float(r.paper_Lmax_km))/float(r.paper_Lmax_km)*100.0,
-            "egn_signed_error_pct":(float(reach["Lmax_km"])-float(r.paper_Lmax_km))/float(r.paper_Lmax_km)*100.0,
-            "egn_status":"paper_incoherent_scaling_of_one_span_full_egn",
-        })
-        erows.append(d)
-        print("EGN_ROW_JSON="+json.dumps({k:(v.item() if hasattr(v,"item") else v) for k,v in d.items()},default=float,separators=(",",":")))
-    edf=pd.DataFrame(erows)
-    edf.to_csv(OUT/"paper_gn_egn_comparison.csv",index=False)
-
-    # Error summaries. MAPE is accompanied by digitization uncertainty because
-    # the source paper supplies curves/markers, not the raw Fig.5 numeric table.
-    summary={
-        "figure5_points":int(len(gdf)),
-        "gn_mape_pct":float(gdf.gn_error_pct.mean()),
-        "gn_median_ape_pct":float(gdf.gn_error_pct.median()),
-        "gn_max_ape_pct":float(gdf.gn_error_pct.max()),
-        "egn_subset_points":int(len(edf)),
-        "egn_subset_mape_pct":float(edf.egn_error_pct.mean()),
-        "egn_subset_median_ape_pct":float(edf.egn_error_pct.median()),
-        "egn_subset_max_ape_pct":float(edf.egn_error_pct.max()),
-        "gn_same_subset_mape_pct":float(edf.gn_error_pct.mean()),
-        "paper_digitization_uncertainty_pct_range":[
-            float(ref.digitization_uncertainty_pct.min()),
-            float(ref.digitization_uncertainty_pct.max())],
-        "important_scope_notes":[
-            "Paper Fig.5 GN uses incoherent span accumulation; the GN reproduction matches that convention.",
-            "GN Tx PSD uses NRZ sinc^2 multiplied by a fourth-order super-Gaussian with Bopt=spacing, normalized to channel power.",
-            "The EGN three-way comparison is a paper-convention proxy: full one-span EGN is calculated by EGN_adaptive, then scaled incoherently across spans like Carena-2012 Fig.5. It is not a native multi-span EGN accuracy benchmark.",
-            "No fitted NLI scale factor is used.",
-            "Paper Fig.5 and Fig.3 values are digitized from the supplied PDF; error metrics therefore include digitization uncertainty."
-        ]
-    }
-    (OUT/"summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
-    svg_fig5(gdf,OUT/"figure5_reproduction.svg")
-    svg_parity(edf,OUT/"paper_gn_egn_parity.svg")
-    print("SUMMARY_JSON="+json.dumps(summary,separators=(",",":")))
-    print("\nGN worst 10 points:")
-    print(gdf.sort_values("gn_error_pct",ascending=False)[
-        ["fiber","modulation","spacing_GHz","paper_Lmax_km","gn_Lmax_km","gn_error_pct"]
-    ].head(10).to_string(index=False))
-    print("\nGN/EGN comparison:")
-    print(edf[["fiber","modulation","spacing_GHz","paper_Lmax_km","gn_Lmax_km","egn_Lmax_km","gn_error_pct","egn_error_pct"]].to_string(index=False))
-
-
-if __name__=="__main__":
-    main()
+if __name__=='__main__': main()

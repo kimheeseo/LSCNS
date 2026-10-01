@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 import gn_integral_general as gn
 
-OUT = HERE / "results"
+OUT = HERE / "result"
 OUT.mkdir(exist_ok=True)
 
 
@@ -123,3 +123,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

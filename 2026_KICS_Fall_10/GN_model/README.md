@@ -1,99 +1,80 @@
 # GN 모델 구현 완성도 평가
 
-본 문서는 코드 신뢰성을 확인하기 위해 **Poggiolini 등, 「A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems」[1]의 수식·가정과 아래 두 Python 파일을 비교하여 GN 모델의 구현 완성도를 평가한 결과**입니다. 기존 README의 다른 논문 그래프 재현 및 GN/EGN 비교 내용은 이 문서에서 제외했습니다.
+코드 신뢰성을 확인하기 위해 **Poggiolini 등의 「A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems」[1]과 두 Python 파일의 수식·가정을 비교**했습니다.
 
-- [gn_integral_general.py](../gn_integral_general.py): WDM GN 적분 및 링크 물리 계산.
+- [gn_integral_general.py](../gn_integral_general.py): WDM GN 적분과 링크 물리 계산.
 - [gn_integral_general_modulation.py](../gn_integral_general_modulation.py): ASE·GSNR·BER 및 입사전력별 성능 계산.
-- 평가일: **2026-10-01**. 비교 논문: **arXiv:1209.0394v13**.
-- 평가 대상 파일의 Git blob SHA: 각각 `97679bd26a2c78b5671f8f9032b8b99e10119e05`, `0ca57239e75b9b8b1b39d5bca114c66a68bd91df`.
+- 평가일: **2026-10-01** / 논문 버전: **arXiv:1209.0394v13**.
 
 ## 1. 평가 결론
 
-**핵심 적분형 GN 엔진은 논문의 주요 구조를 구현하고 있으며, 이번에 실행한 수식 재현 검증을 통과했습니다.** 전체 WDM PSD, 단일 스팬 비선형 소스, 다중 스팬의 위상 누적 및 NLI의 입사전력 세제곱 관계가 구현되어 있습니다. 상위 모듈의 EDFA ASE, GSNR, QPSK BER 계산도 별도로 확인했습니다.
+**핵심 적분형 GN 엔진의 주요 구조와 선정 수식의 재현성을 확인했습니다.** WDM PSD, 단일·다중 스팬 링크 함수, NLI의 전력 세제곱 관계와 ASE·GSNR·QPSK BER 연결을 확인했습니다.
 
-따라서 검증한 조건에서 **GN 수식 구현의 일관성과 수치 재현성을 확인한 연구용 계산 코드**로 평가합니다. 이 결과만으로 논문의 모든 일반화 조건을 검증했다고 하거나, 실제 링크 대비 예측 정확도를 특정 백분율로 보증하지는 않습니다. 구현 범위, 수치 수렴, 실제 시스템 정확도는 서로 다른 평가 항목입니다.
+논문의 모든 확장 조건이나 실험·SSFM 대비 절대 예측 정확도를 보증하는 결과는 아닙니다.
 
 ## 2. 논문과 코드의 대응
 
-수식 번호는 참고문헌 [1]의 v13을 기준으로 합니다. ‘구현 확인’은 코드 구조를 대조했다는 뜻이며, 모든 운용 조건의 수치 검증을 의미하지 않습니다.
+수식 번호는 [1]의 v13 기준입니다.
 
-| 비교 항목 | 논문 근거 | 코드 위치 | 평가 |
+| 비교 항목 | 논문 근거 | 코드 위치 | 확인 범위 |
 |---|---|---|---|
-| 광전력 감쇠와 전계 감쇠의 구분 | 제II절의 감쇠 정의 | `alpha_field_from_db()`, `Span` | 구현·변환식 실행 확인 |
-| DP NLI PSD의 이중 적분 및 계수 16/27 | 식 (88), (96) | `DP_GN_COEFF`, `gn_nli_psd_qmc()` | 구현 확인; QMC 수렴 표본 시험 |
-| beta2/beta3 위상 부정합 | 식 (G.1)–(G.4) | `beta_of_f_offset()`, `phase_mismatch_beta23()` | 구현 확인; beta2 경로 실행 검증 |
-| 단일 스팬 비선형 소스 | 식 (88)의 링크 항 | `_safe_complex_span_integral()`, `_local_span_source_integral()` | 집중형 EDFA 경로 실행 검증 |
-| 동일 스팬의 코히어런트 누적 | 식 (96), (G.3), (G.4) | `_link_amplitudes()`, `link_kernel()` | 위상합 실행 검증 |
-| 서로 다른 스팬 및 비코히어런트 근사 | 식 (100), (101), 부록 B | `Span`, `_link_amplitudes()`, `link_kernel()` | 손실 보상된 서로 다른 2개 스팬의 위상 이력과 동일 스팬의 비코히어런트 누적 검증 |
-| 분포형 증폭 | 제IV-I절, 식 (I.1), (103)–(105) | `field_gain_coeff()`, `distributed_field_log_gain()` | 프로파일 구현 확인; 이번 수치 검증 범위 밖 |
-| EDFA ASE와 ASE+NLI SNR | 식 (8), (11) | `ase_noise_power_edfa()`, `evaluate_performance()` | EDFA 표본 조건에서 실행 검증 |
-| 수신 대역의 NLI 적분 | 식 (12) | `integrate_nli_over_channel()` | 폭 Rs의 직사각형 수신 대역으로 구현; 일반 수신 필터는 미구현 |
-| PM-QPSK BER | 식 (6) | `ber_awgn_approx()` | 수식 대조 및 표본 SNR에서 실행 검증 |
+| 광전력·전계 감쇠 구분 | 제II절 | `alpha_field_from_db()` | 변환식 실행 |
+| DP NLI 이중 적분, 16/27 계수 | 식 (88), (96) | `gn_nli_psd_qmc()` | QMC 표본 수렴 |
+| beta2/beta3 위상 부정합 | 식 (G.1)–(G.4) | `phase_mismatch_beta23()` | 구현; beta2 실행 |
+| 단일 스팬 비선형 소스 | 식 (88) | `_local_span_source_integral()` | 집중형 EDFA 경로 실행 |
+| 다중 스팬 코히어런트·비코히어런트 누적 | 식 (96), (100), (101), 부록 B | `link_kernel()` | 동일 스팬 및 손실 보상된 서로 다른 2스팬 실행 |
+| 분포형 증폭 | 식 (I.1), (103)–(105) | `distributed_field_log_gain()` | 프로파일 구현; 수치 검증 제외 |
+| EDFA ASE와 SNR | 식 (8), (11) | `evaluate_performance()` | 표본 조건 실행 |
+| 수신 대역 NLI 적분 | 식 (12) | `integrate_nli_over_channel()` | 폭 Rs의 직사각형 대역 |
+| PM-QPSK BER | 식 (6) | `ber_awgn_approx()` | 표본 SNR 실행 |
 
-## 3. 이번 실행에서 확인한 결과
+## 3. 실행 검증 결과
 
 ### 핵심 GN 수식
 
-현재 두 파일을 변경하지 않고 [paper1_reproducibility.py](./paper1_reproducibility.py)를 재실행했습니다.
+두 대상 파일을 변경하지 않고 [paper1_reproducibility.py](./paper1_reproducibility.py)를 실행했습니다.
 
-| 검증 항목 | 결과 |
-|---|---|
-| dB/km → 전계 감쇠 변환 | 통과 |
-| beta2 위상 부정합 | 통과 |
-| 단일 스팬 링크 함수 | 통과 |
-| 동일 스팬 비코히어런트 누적 | 통과 |
-| 동일 스팬 코히어런트 위상합 | 통과 |
-| 서로 다른 스팬의 코히어런트 위상 이력 | 통과 |
-| 모든 채널의 전력 2배 → NLI 8배 | 통과 |
+**7개 항목 모두 통과:** 감쇠 변환, beta2 위상 부정합, 단일 스팬 링크 함수, 동일 스팬의 비코히어런트 누적·코히어런트 위상합, 서로 다른 스팬의 위상 이력, 모든 채널의 전력 2배에 따른 NLI 8배 관계.
 
-7개 항목의 최대 상대오차는 **1.29452 × 10⁻¹¹ %**였습니다. 이는 선정한 수식·대수 관계의 재현 오차입니다. 실제 광전송 링크나 SSFM 대비 물리 모델의 예측 오차가 아닙니다. 일부 항목은 코드의 보조 함수를 공유하므로, 완전히 독립적인 솔버와 전체 적분 결과를 비교한 검증으로 해석해서는 안 됩니다.
+최대 상대오차는 **1.29452 × 10⁻¹¹ %**입니다. 이는 선정 수식·대수 관계의 재현 오차이며 실제 링크 예측 오차가 아닙니다. 일부 검증은 코드의 보조 함수를 공유하므로 완전히 독립적인 솔버와의 비교로 해석할 수 없습니다.
 
-### Sobol 적분의 표본 수렴
+### Sobol 적분 수렴
 
-조건: 3채널, 50 GHz 간격, 32 GBd, 채널당 −3 dBm, 80 km × 2스팬, 감쇠 0.2 dB/km, D=17 ps/(nm·km), gamma=1.3 /(W·km), 코히어런트 누적. 중앙 주파수의 NLI PSD를 시드 3·11·29·47로 계산했습니다.
+조건: 3채널, 50 GHz 간격, 32 GBd, 채널당 −3 dBm, 80 km × 2스팬, 감쇠 0.2 dB/km, D=17 ps/(nm·km), gamma=1.3 /(W·km), 코히어런트 누적. 중앙 주파수 NLI PSD를 시드 3·11·29·47로 계산했습니다.
 
-| Sobol 표본 수 | 시드 간 상대 표준편차 | 직전 표본 수 대비 평균값 변화 |
+| 표본 수 | 시드 간 상대 표준편차 | 직전 표본 수 대비 평균값 변화 |
 |---:|---:|---:|
 | 2,048 | 2.2520% | — |
 | 8,192 | 0.2223% | 2.2961% |
 | 32,768 | 0.09349% | 0.14409% |
 
-이 표는 **해당 조건·해당 주파수에서의 수치 안정성**을 보여줍니다. 시드 간 표준편차는 절대오차의 상한이 아니며, 다채널·장거리·낮은 분산 등 다른 조건과 수신 대역 적분의 수렴은 별도로 확인해야 합니다.
+해당 조건·주파수에서의 수치 안정성을 확인했습니다. 표준편차는 절대오차 상한이 아니며, 다른 링크 조건과 수신 대역 적분의 수렴은 별도 검증이 필요합니다.
 
 ### 시스템 성능 모듈
 
-추가 표본 검증에서는 3채널·32 GBd·80 km × 2스팬·NF 5 dB 조건을 사용했습니다. NLI 적분은 Sobol 표본 수 4,096, 시드 1, 수신 적분점 3개로 실행했습니다.
+3채널·32 GBd·80 km × 2스팬·NF 5 dB·TRX SNR 18 dB에서 추가 점검했습니다. NLI 계산은 Sobol 표본 4,096개, 시드 1, 수신 적분점 3개를 사용했습니다.
 
-| 검증 항목 | 이번 결과 |
+| 검증 항목 | 결과 |
 |---|---:|
-| EDFA ASE와 별도로 계산한 식 (8)의 상대오차 | 4.44 × 10⁻¹⁶ |
+| EDFA ASE와 별도 계산한 식 (8)의 상대오차 | 4.44 × 10⁻¹⁶ |
 | QPSK BER과 식 (6)의 최대 절대오차(SNR=1, 10, 100) | 0 |
-| ASE+NLI+TRX 잡음으로 재계산한 GSNR과의 차이 | 0 dB |
-| 세제곱 scaling과 전력별 재적분 GSNR의 최대 차이(−3, 0 dBm) | 0 dB |
+| ASE+NLI+TRX로 재계산한 GSNR 차이 | 0 dB |
+| 세제곱 scaling과 전력별 재적분 GSNR 차이(−3, 0 dBm) | 0 dB |
 
-TRX SNR은 18 dB를 사용했습니다. TRX 항은 코드의 추가 모델이며, 위 결과는 상위 모듈의 계산 일관성을 확인한 것입니다. 이 검증의 추가 점검 코드는 이번 평가에서 임시 실행했으며 저장소의 재실행 스크립트에는 포함하지 않았습니다.
+TRX는 추가 모델입니다. 이 점검 코드는 임시 실행했으며 저장소 재실행 스크립트에는 포함하지 않았습니다.
 
-## 4. 완성도와 적용 범위
+## 4. 적용 범위와 남은 검증
 
-| 평가 구분 | 판단 |
-|---|---|
-| 핵심 적분형 GN 구현 | 주요 구조 구현 및 선정 수식 검증 통과 |
-| ASE·GSNR·QPSK BER 연결 | 표본 조건의 계산 일관성 확인 |
-| 수치 적분 안정성 | 한 WDM 표본 조건의 PSD 수렴 확인 |
-| 논문의 전체 확장 조건 | 일부 구현 확인; 포괄적 검증은 미완료 |
-| 실험·SSFM 대비 전송 성능 정확도 | 이번 평가에서 확인하지 않음 |
+**전체 확장 조건과 실험·SSFM 대비 정확도 검증은 미완료입니다.**
 
-다음 항목은 구분하여 사용해야 합니다.
+- **분산·수신 필터:** beta2/beta3와 폭 Rs의 직사각형 수신 대역을 사용합니다. 일반 주파수 의존 전파상수 및 임의 수신 필터는 미구현입니다.
+- **분포형 증폭:** GN 소스에 이득 프로파일을 적용할 수 있지만 ASE 함수는 집중형 EDFA용입니다. Raman 시스템 전체 GSNR은 검증하지 않았습니다.
+- **계산 방식:** 제V절의 폐형식 근사 전체 대신 GN 적분을 직접 수치 계산합니다.
+- **추가 기능:** Sobol QMC, TRX 잡음, 변조별 전송률, Shannon-gap 용량은 별도 평가 대상입니다. `nli_model="egn_sci"`는 SCI만 보정하며 전체 WDM EGN 검증을 뜻하지 않습니다.
+- **운용 가정:** 중간 채널 추가·삭제, PMD/PDL, 상세 DSP는 포함하지 않습니다. 강한 비선형·분산 관리 링크로 결론을 일반화할 수 없습니다.
 
-- **범용 분산:** 코드는 beta2/beta3까지 표현합니다. 논문에서 사용하는 일반적인 주파수 의존 전파상수 전체를 입력받는 구현은 아닙니다.
-- **수신 필터:** NLI는 폭 Rs의 직사각형 대역으로 적분합니다. 임의의 수신 필터 가중치에 따른 성능은 별도 구현이 필요합니다.
-- **분포형 증폭:** GN 소스 적분에 이득 프로파일을 사용할 수 있지만, ASE 함수는 집중형 EDFA용입니다. Raman 시스템 전체 GSNR의 검증 완료를 뜻하지 않습니다.
-- **논문의 폐형식 근사:** 제V절의 근사식을 모두 구현하는 대신 직접 수치 적분하는 엔진입니다. 폐형식 미구현과 핵심 적분식 미구현은 구분합니다.
-- **코드의 추가 기능:** Sobol QMC, 선택적 SCI-EGN 보정, TRX 잡음, 변조별 전송률 및 Shannon-gap 용량은 이 논문의 GN 수식 재현과 별도 평가 대상입니다. 특히 `nli_model="egn_sci"`는 SCI만 보정하며 전체 WDM EGN 검증 대상이 아닙니다.
-- **운용 가정:** 링크 중간의 채널 추가·삭제, PMD/PDL 및 상세 DSP는 포함하지 않습니다. 강한 비선형이나 분산 관리 링크까지 이번 결론을 일반화할 수 없습니다.
-
-후속 검증은 beta3, 불완전 손실 보상, 분포형 이득, 사용자 정의 PSD 및 수신 적분점 수렴을 각각 확인하고, 조건을 일치시킨 독립 수치 적분·SSFM 또는 실험 결과와 비교하는 방식으로 확장할 수 있습니다.
+후속 검증 대상은 beta3, 불완전 손실 보상, 분포형 이득, 사용자 정의 PSD, 수신 적분점 수렴 및 동일 조건의 독립 적분·SSFM·실험 비교입니다.
 
 ## 참고문헌
 
-[1] P. Poggiolini, G. Bosco, A. Carena, V. Curri, Y. Jiang, and F. Forghieri, **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,”** arXiv:1209.0394, v13, 2014. [논문 페이지](https://arxiv.org/abs/1209.0394v13) · [PDF](https://arxiv.org/pdf/1209.0394v13).
+[1] P. Poggiolini, G. Bosco, A. Carena, V. Curri, Y. Jiang, and F. Forghieri, **“A Detailed Analytical Derivation of the GN Model of Non-Linear Interference in Coherent Optical Transmission Systems,”** arXiv:1209.0394, v13, 2014. [논문](https://arxiv.org/abs/1209.0394v13) · [PDF](https://arxiv.org/pdf/1209.0394v13).

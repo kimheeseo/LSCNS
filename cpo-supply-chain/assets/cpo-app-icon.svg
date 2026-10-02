@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#1677ff"/>
+  <rect x="84" y="84" width="344" height="344" rx="78" fill="#ffffff"/>
+  <rect x="146" y="172" width="220" height="168" rx="34" fill="#173d5c"/>
+  <rect x="198" y="216" width="116" height="80" rx="18" fill="#d9e4ec"/>
+  <g stroke="#1677ff" stroke-width="16" stroke-linecap="round">
+    <path d="M84 148h74"/><path d="M84 204h74"/><path d="M84 260h74"/><path d="M84 316h74"/><path d="M354 148h74"/><path d="M354 204h74"/><path d="M354 260h74"/><path d="M354 316h74"/>
+  </g>
+  <text x="256" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#173d5c">CPO</text>
+</svg>

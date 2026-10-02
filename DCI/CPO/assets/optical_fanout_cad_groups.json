@@ -1,0 +1,18 @@
+{
+  "source": "optical_fanout_concept_3D(1).glb",
+  "units": "mm",
+  "group_count": 10,
+  "groups": {
+    "Main_cable": {"mesh_count":23,"center":[117.535,-40.987,-5.501],"extents":[236.088,85.327,14.496]},
+    "Branch_cables": {"mesh_count":44,"center":[0.153,27.913,7.496],"extents":[189.775,129.006,18.491]},
+    "Fanout_fibers_A": {"mesh_count":156,"center":[-154.372,-44.0,0.524],"extents":[95.255,89.03,10.047]},
+    "Fanout_fibers_B": {"mesh_count":156,"center":[-133.343,108.0,11.778],"extents":[101.314,89.03,5.434]},
+    "Breakout_sleeves": {"mesh_count":18,"center":[65.168,3.429,1.932],"extents":[350.296,181.984,34.459]},
+    "LC_connectors": {"mesh_count":432,"center":[-224.0,32.0,5.79],"extents":[36.0,246.4,25.58]},
+    "Connector_boots": {"mesh_count":216,"center":[-204.0,32.0,4.99],"extents":[40.0,245.0,22.98]},
+    "Single_branch_connector": {"mesh_count":12,"center":[109.5,91.5,15.5],"extents":[29.0,9.0,8.0]},
+    "Main_termination": {"mesh_count":12,"center":[260.584,-88.267,-11.5],"extents":[52.832,17.467,6.191]},
+    "Tag_/_pull_tab": {"mesh_count":12,"center":[268.5,-79.5,-11.4],"extents":[51.0,33.0,5.2]}
+  },
+  "note": "Compact browser-viewer metadata extracted from the uploaded conceptual GLB. This is not a replacement for the original GLB/STEP/STL geometry."
+}

@@ -1,0 +1,21 @@
+{
+  "name": "CPO Supply Chain",
+  "short_name": "CPO Supply",
+  "description": "CPO / Silicon Photonics supply-chain explorer with interactive architecture, CAD FAU viewer, products, vendors and news.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f8fc",
+  "theme_color": "#1677ff",
+  "lang": "ko",
+  "categories": ["business", "education", "productivity"],
+  "icons": [
+    {
+      "src": "./assets/cpo-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -3,10 +3,14 @@
 The CPO Supply Chain application is maintained in this repository under `cpo-supply-chain/`.
 
 - Application: [GitHub Pages](https://kimheeseo.github.io/LSCNS/cpo-supply-chain/)
-- Current release: **v2.10.0**
-- Main entry: `index.html` loads the versioned `app.v2.10.0.payload`.
+- Current release: **v2.10.1**
+- Main entry: `index.html` loads the versioned `app.v2.10.1.txt`.
 
 ## Version log
+
+### version: 2.10.1 — 2026-10-02
+
+- Updated the launcher and version label to v2.10.1. No other differences from v2.10.0 were found in the app payload.
 
 ### version: 2.10.0 — 2026-10-02
 

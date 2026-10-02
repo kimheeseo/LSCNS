@@ -1,0 +1,17 @@
+
+#design-example-cell{margin-top:10px;width:100%;box-sizing:border-box}
+#design-example-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border:1px solid #315687;border-radius:10px;background:#0d1c38;color:#eef5ff;cursor:pointer;font:inherit;text-align:left}
+#design-example-toggle:hover,#design-example-toggle:focus-visible{border-color:#6798dd;background:#102344}
+#design-example-toggle .dex-title{font-weight:900;font-size:14px}
+#design-example-toggle .dex-sub{display:block;margin-top:2px;font-size:10px;color:#9cb0ce;font-weight:500}
+#design-example-toggle .dex-chevron{font-size:18px;color:#8ab8ff}
+#design-example-panel{margin-top:9px;padding:12px;border:1px solid #29466f;border-radius:12px;background:#09152d;color:#eef5ff}
+#design-example-panel[hidden]{display:none!important}
+#design-example-panel .dex-context{font-size:10px;color:#9db1d0;margin:0 0 10px;line-height:1.55}
+#design-example-panel .dex-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#design-example-panel .dex-card{min-width:0;border:1px solid #263f64;border-radius:10px;background:#0d1a33;padding:12px}
+#design-example-panel .dex-card h4{margin:0 0 8px;font-size:13px}
+#design-example-panel .dex-card .dex-badge{display:inline-block;margin-bottom:8px;padding:4px 7px;border:1px solid #365986;border-radius:999px;font-size:9px;color:#b7cff0}
+#design-example-panel .dex-card ul{margin:0;padding-left:16px;font-size:10px;line-height:1.65;color:#dbe7f8}
+#design-example-panel .dex-note{margin-top:10px;font-size:9px;line-height:1.55;color:#8fa5c5}
+@media(max-width:900px){#design-example-panel .dex-grid{grid-template-columns:1fr}}

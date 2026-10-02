@@ -1,0 +1,48 @@
+{
+  "event": "CIOE 2026",
+  "scope": "Data Center only",
+  "date": "2026-09-09/11",
+  "location": "Shenzhen",
+  "products": [
+    [
+      "Optical Transceiver",
+      "Macrochip",
+      "1.6T OSFP DR8 Optical Transceiver",
+      "1.6T OSFP DR8; AI cluster optical interconnect",
+      "12D29",
+      "https://www.cioe.cn/mail/2026/20260630_sz_en/20260630_sz_en.html"
+    ],
+    [
+      "Optical Circuit Switch",
+      "GLSUN",
+      "Optical Circuit Switch (OCS)",
+      "AI data-center optical switching / fabric",
+      "13C81",
+      "https://www.cioe.cn/mail/2026/20260630_sz_en/20260630_sz_en.html"
+    ],
+    [
+      "Optical Circuit Switch",
+      "Beeplux",
+      "Optical Circuit Switch (OCS)",
+      "AI data-center optical switching / fabric",
+      "12C69",
+      "https://www.cioe.cn/mail/2026/20260630_sz_en/20260630_sz_en.html"
+    ],
+    [
+      "Silicon Photonics",
+      "Credo",
+      "Silicon Photonics PICs",
+      "High-speed optical interconnect for AI computing clusters",
+      "13A25",
+      "https://www.cioe.cn/mail/2026/20260630_sz_en/20260630_sz_en.html"
+    ],
+    [
+      "Optical Chip",
+      "Hyper Photonix",
+      "1.6T / 800G / 400G Silicon Optical Chip",
+      "High-speed data-center optical interconnect",
+      "12A21",
+      "https://www.cioe.cn/mail/2026/20260630_sz_en/20260630_sz_en.html"
+    ]
+  ]
+}

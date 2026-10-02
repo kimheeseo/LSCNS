@@ -1,0 +1,44 @@
+
+#bom-contact-info {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 16px;
+  padding: 18px 20px;
+  border: 1px solid #29466f;
+  border-radius: 12px;
+  background: rgba(8, 17, 36, 0.72);
+  color: #eef5ff;
+  line-height: 1.65;
+  grid-column: 1 / -1;
+}
+#bom-contact-info .bom-contact-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+#bom-contact-info .bom-contact-line {
+  margin: 0;
+  font-size: 14px;
+  color: #d6e4f8;
+}
+#bom-contact-info a {
+  color: #8ab8ff;
+  font-weight: 800;
+  text-decoration: none;
+}
+#bom-contact-info a:hover,
+#bom-contact-info a:focus-visible {
+  text-decoration: underline;
+}
+@media (max-width: 760px) {
+  #bom-contact-info {
+    padding: 15px 16px;
+  }
+  #bom-contact-info .bom-contact-title {
+    font-size: 15px;
+  }
+  #bom-contact-info .bom-contact-line {
+    font-size: 13px;
+  }
+}

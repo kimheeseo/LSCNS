@@ -1,0 +1,11 @@
+.v631-cool3d{position:relative;border:1px solid #2d527c;border-radius:15px;overflow:hidden;background:#06111f;box-shadow:0 16px 38px rgba(0,0,0,.28)}
+.v631-cool3d canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#06111f;cursor:zoom-in}
+.v631-cool3d-head{position:absolute;left:14px;top:12px;z-index:2;padding:7px 10px;border:1px solid rgba(126,193,244,.42);border-radius:10px;background:rgba(5,18,33,.78);backdrop-filter:blur(6px);color:#eef7ff;font-size:9px;font-weight:900;box-shadow:0 5px 18px rgba(0,0,0,.22)}
+.v631-cool3d-head small{display:block;margin-top:3px;color:#8faccc;font-size:7px;font-weight:600}
+.v631-cool3d-legend{position:absolute;right:14px;bottom:12px;z-index:2;display:flex;gap:8px;flex-wrap:wrap;padding:6px 8px;border:1px solid rgba(84,120,160,.42);border-radius:9px;background:rgba(5,18,33,.76);backdrop-filter:blur(5px);font-size:7.5px;color:#bcd0e6}
+.v631-leg{display:inline-flex;align-items:center;gap:5px}.v631-dot{width:8px;height:8px;border-radius:50%}.v631-cold{background:#34aaf7;box-shadow:0 0 8px rgba(52,170,247,.72)}.v631-warm{background:#ff6b57;box-shadow:0 0 8px rgba(255,107,87,.72)}
+.v631-cool-note{margin:8px 2px 0;color:#8099b8;font-size:8.5px;line-height:1.55}
+#v631-cooling-lightbox[hidden]{display:none!important}#v631-cooling-lightbox{position:fixed;inset:0;z-index:12000;background:rgba(0,5,14,.94);display:flex;align-items:center;justify-content:center;padding:18px}
+#v631-cooling-lightbox .v631-lb-box{width:min(1500px,96vw);position:relative}#v631-cooling-lightbox canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:14px;border:1px solid #315987;background:#06111f;box-shadow:0 28px 90px rgba(0,0,0,.6)}
+#v631-cooling-lightbox button{position:fixed;right:24px;top:20px;width:42px;height:42px;border:1px solid #557aa5;border-radius:50%;background:#0c1c32;color:#fff;font-size:24px;cursor:pointer}
+@media(max-width:700px){.v631-cool3d{border-radius:11px}.v631-cool3d-head{left:8px;top:8px;font-size:8px}.v631-cool3d-legend{right:8px;bottom:8px}}

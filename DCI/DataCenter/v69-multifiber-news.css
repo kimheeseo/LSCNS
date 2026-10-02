@@ -1,0 +1,26 @@
+
+#multifiber-inline-host{display:inline-flex;vertical-align:middle;margin-left:8px}
+#multifiber-candidates-btn{min-height:34px;padding:7px 12px;border:1px solid #4f7fbd;border-radius:9px;background:linear-gradient(180deg,#163052,#0d1e38);color:#eef6ff;font-size:10px;font-weight:900;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+#multifiber-candidates-btn:hover,#multifiber-candidates-btn:focus-visible{border-color:#79abea;background:#15305a}
+#multifiber-modal{position:fixed;inset:0;z-index:100050;background:rgba(2,8,18,.88);padding:18px;overflow:auto}
+#multifiber-modal[hidden]{display:none!important}
+.mfc-shell{width:min(1120px,100%);margin:20px auto;border:1px solid #315687;border-radius:18px;background:#071326;color:#edf5ff;box-shadow:0 24px 80px rgba(0,0,0,.58);overflow:hidden}
+.mfc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 20px;border-bottom:1px solid #203755;background:#0a1931}
+.mfc-head h2{margin:0;font-size:21px}.mfc-head p{margin:6px 0 0;color:#9db1d0;font-size:11px;line-height:1.55;max-width:800px}.mfc-close{border:1px solid #315687;border-radius:8px;background:#102344;color:#edf5ff;padding:7px 10px;cursor:pointer;font-size:18px;line-height:1}
+.mfc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;padding:16px}
+.mfc-card{border:1px solid #29496f;border-radius:13px;background:#0b1930;padding:12px;min-width:0}
+.mfc-vendor{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.mfc-vendor b{font-size:13px}.mfc-tag{font-size:8px;border:1px solid #365d8b;border-radius:999px;padding:3px 6px;color:#9fc7f6}
+.mfc-product{font-size:11px;font-weight:900;color:#f3f7ff;line-height:1.45}.mfc-spec{font-size:9px;color:#9fb1ca;line-height:1.5;margin-top:5px}.mfc-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.mfc-links a{font-size:9px;color:#8ab8ff;text-decoration:none;font-weight:800}.mfc-links a:hover{text-decoration:underline}
+.mfc-foot{padding:0 16px 16px;color:#7f96b6;font-size:9px;line-height:1.5}
+#industry-trends-panel{border:1px solid #315486;border-radius:14px;background:linear-gradient(180deg,#0d1b35,#09152b);padding:13px;min-width:0}
+#industry-trends-panel .it-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
+#industry-trends-panel .it-kicker{font-size:9px;letter-spacing:.06em;color:#7fb0f2;font-weight:900;text-transform:uppercase}
+#industry-trends-panel h3{margin:3px 0 0;font-size:15px}.it-updated{font-size:8px;border:1px solid #355b89;border-radius:999px;padding:4px 6px;color:#9fc4f4;white-space:nowrap}
+.it-countries{display:grid;grid-template-columns:1fr;gap:8px;max-height:520px;overflow:auto;padding-right:2px}
+.it-country{border:1px solid #263f65;border-radius:10px;background:#0c1830;padding:8px}.it-country-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.it-country-head b{font-size:10px}.it-country-head span{font-size:8px;color:#7e96b8}
+.it-item{padding:5px 0;border-top:1px solid #1c3454}.it-item:first-of-type{border-top:0}.it-item a{display:block;color:#dbe9fb;text-decoration:none;font-size:9px;line-height:1.4;font-weight:700}.it-item a:hover{color:#8ab8ff;text-decoration:underline}.it-meta{font-size:8px;color:#7790b0;margin-top:2px}
+.it-note{margin-top:7px;color:#7f96b6;font-size:8px;line-height:1.45}
+@media(min-width:1320px){.gpu-result-layout{grid-template-columns:minmax(0,1.25fr) minmax(300px,.55fr) minmax(330px,.62fr)!important}}
+@media(max-width:1319px) and (min-width:1051px){.gpu-result-layout{grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr)!important}#industry-trends-panel{grid-column:1/-1}.it-countries{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}}
+@media(max-width:1050px){#industry-trends-panel{margin-top:0}.it-countries{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}}
+@media(max-width:700px){.mfc-grid{grid-template-columns:1fr}.it-countries{grid-template-columns:1fr}#multifiber-inline-host{display:flex;margin:7px 0 0;width:100%}#multifiber-candidates-btn{width:100%;white-space:normal}}

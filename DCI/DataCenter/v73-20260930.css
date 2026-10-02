@@ -1,0 +1,21 @@
+#v51-cooling-architecture{display:none!important}
+body[data-v73-cooling-state="closed"] #v53-cooling-architecture{display:none!important}
+body[data-v73-cooling-state="open"] #v53-cooling-architecture{display:block!important}
+#v53-cooling-architecture{display:none!important}
+#v53-cooling-architecture.v73-cooling-open{display:block!important}
+#v73-schedule-btn{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:7px 12px;border:1px solid #4f8bc3;border-radius:10px;background:linear-gradient(180deg,#173c66,#0d2848);color:#f1f8ff;font-size:10px;font-weight:900;cursor:pointer;white-space:nowrap;box-shadow:0 5px 16px rgba(0,0,0,.22);transition:transform .15s ease,border-color .15s ease,background .15s ease}
+#v73-schedule-btn:hover{transform:translateY(-1px);border-color:#82c8ff;background:linear-gradient(180deg,#1d527f,#12345a)}
+#v73-schedule-btn .v73-dot{width:8px;height:8px;border-radius:50%;background:#74d7ff;box-shadow:0 0 10px rgba(116,215,255,.9)}
+#v73-schedule-modal[hidden]{display:none!important}
+#v73-schedule-modal{position:fixed;inset:0;z-index:18000;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(2,7,17,.90);backdrop-filter:blur(8px)}
+#v73-schedule-modal .v73-card{width:min(760px,96vw);max-height:88vh;overflow:auto;border:1px solid #345f91;border-radius:16px;background:linear-gradient(180deg,#07162a,#091a31);color:#eef6ff;box-shadow:0 34px 110px rgba(0,0,0,.68);padding:15px}
+.v73-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}
+.v73-head h2{margin:0;font-size:18px}
+.v73-close{width:36px;height:36px;border:1px solid #496d95;border-radius:50%;background:#102844;color:#fff;font-size:21px;cursor:pointer}
+.v73-group{margin-top:12px}.v73-group h3{margin:0 0 7px;color:#8fc7ff;font-size:11px;letter-spacing:.02em}
+.v73-list{display:grid;gap:7px}
+.v73-item{display:block;width:100%;padding:10px 11px;border:1px solid #294765;border-radius:10px;background:#0c2038;color:#f3f8ff!important;text-decoration:none!important;font-size:11px;font-weight:850;line-height:1.4}
+.v73-item:hover{border-color:#67bfff;background:#123054}
+.v73-empty{padding:14px;border:1px dashed #335878;border-radius:10px;color:#92a9c6;font-size:10px}
+@media(max-width:900px){#v73-schedule-btn{flex:1 1 100px;justify-content:center}}
+@media(max-width:620px){#v73-schedule-modal{padding:6px}#v73-schedule-modal .v73-card{padding:11px}.v73-head h2{font-size:15px}.v73-item{font-size:10px}}

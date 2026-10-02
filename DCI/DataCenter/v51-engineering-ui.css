@@ -1,0 +1,12 @@
+
+#v51-cooling-architecture{display:none!important}
+#v51-cooling-architecture h3{margin:0 0 7px;font-size:14px}.v51-sub{font-size:10px;color:#9db1d0;line-height:1.6}
+.v52-cooling-diagram{margin-top:12px;border:1px solid #29466f;border-radius:14px;background:linear-gradient(180deg,#eef4f8,#dce6ed);padding:10px;overflow:auto}
+.v52-cooling-diagram svg{display:block;width:100%;height:auto;min-width:780px}
+.v52-legend{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 2px;font-size:9px;color:#b9cce8}.v52-dot{display:inline-block;width:18px;height:4px;border-radius:4px;margin-right:5px;vertical-align:middle}.v52-supply{background:#2387d9}.v52-return{background:#d75b4d}.v52-fac{background:#6a7890}
+.v52-explain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:10px}.v52-explain>div{border:1px solid #29466f;border-radius:10px;background:#0d1a33;padding:9px;font-size:9px;line-height:1.5;color:#a9bdd8}.v52-explain b{display:block;color:#f2f7ff;font-size:10px;margin-bottom:4px}
+.v51-cooling-metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:10px}.v51-metric{border:1px solid #263f64;border-radius:10px;background:#0d1a33;padding:9px}.v51-metric .k{font-size:8px;color:#91a8c7}.v51-metric .v{font-size:14px;font-weight:900;margin-top:4px}
+.v51-rack-explain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:10px}.v51-rack-explain>div{border:1px solid #29466f;border-radius:10px;background:#0d1a33;padding:9px;font-size:9px;line-height:1.45;color:#a9bdd8}.v51-rack-explain b{display:block;color:#f2f7ff;font-size:10px;margin-bottom:4px}
+#v48-rack-twin .v491-rack-stage{background:radial-gradient(circle at 50% 25%,#fff,#dce4ec 62%,#c8d1db);box-shadow:inset 0 0 0 1px #fff,0 10px 30px rgba(0,0,0,.18)}
+#v48-rack-twin .v491-rack-stage svg{filter:drop-shadow(0 10px 14px rgba(0,0,0,.12))}
+@media(max-width:900px){.v51-cooling-metrics{grid-template-columns:repeat(3,1fr)}.v52-explain,.v51-rack-explain{grid-template-columns:1fr 1fr}}@media(max-width:560px){.v51-cooling-metrics,.v52-explain,.v51-rack-explain{grid-template-columns:1fr}}

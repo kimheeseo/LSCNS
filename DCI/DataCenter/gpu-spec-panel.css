@@ -1,0 +1,24 @@
+
+.gpu-result-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.65fr);gap:14px;align-items:start}
+.gpu-result-left{min-width:0}
+#gpu-spec-panel{border:1px solid #315486;border-radius:14px;background:linear-gradient(180deg,#0d1b35,#09152b);padding:14px;min-height:100%}
+#gpu-spec-panel .gsp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+#gpu-spec-panel .gsp-kicker{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#7fb0f2;font-weight:900}
+#gpu-spec-panel h3{margin:3px 0 0;font-size:15px;line-height:1.3}
+#gpu-spec-panel .gsp-badge{flex:0 0 auto;border:1px solid #3b6197;background:#102444;color:#a9c8f4;border-radius:999px;padding:4px 7px;font-size:9px;font-weight:800}
+#gpu-spec-panel .gsp-gpu{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid #263f65;border-radius:11px;background:#0c1830;margin-bottom:10px}
+#gpu-spec-panel .gsp-chip{width:56px;height:46px;border:2px solid #6f9ad1;border-radius:8px;position:relative;flex:0 0 auto;background:linear-gradient(145deg,#152d55,#0a1428)}
+#gpu-spec-panel .gsp-chip:before{content:'';position:absolute;inset:8px;border:1px solid #84b2eb;border-radius:4px}
+#gpu-spec-panel .gsp-chip:after{content:'GPU';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#b9d5f7}
+#gpu-spec-panel .gsp-model{font-size:13px;font-weight:900}
+#gpu-spec-panel .gsp-arch{font-size:10px;color:#99afd0;margin-top:3px}
+#gpu-spec-panel .gsp-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+#gpu-spec-panel .gsp-cell{border:1px solid #263f65;border-radius:9px;background:#0c1830;padding:8px;min-width:0}
+#gpu-spec-panel .gsp-k{font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:#8fa8ca;font-weight:800}
+#gpu-spec-panel .gsp-v{font-size:11px;font-weight:800;color:#eef5ff;margin-top:3px;line-height:1.35;overflow-wrap:anywhere}
+#gpu-spec-panel .gsp-network{margin-top:8px;padding:9px;border:1px solid #29466e;border-radius:9px;background:#0a162c;font-size:10px;line-height:1.5;color:#cbd9ed}
+#gpu-spec-panel .gsp-note{margin-top:8px;font-size:9px;line-height:1.5;color:#8fa8ca}
+#gpu-spec-panel .gsp-source{display:inline-block;margin-top:8px;color:#89b8f5;text-decoration:none;font-size:9px;font-weight:800}
+#gpu-spec-panel .gsp-source:hover{text-decoration:underline}
+@media(max-width:1050px){.gpu-result-layout{grid-template-columns:1fr}}
+@media(max-width:620px){#gpu-spec-panel .gsp-grid{grid-template-columns:1fr 1fr}}

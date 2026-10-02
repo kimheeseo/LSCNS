@@ -1,0 +1,19 @@
+#v53-cooling-architecture{display:none!important}
+#v53-cooling-architecture.v70-open{display:block!important}
+.v68-flow-overlay{display:none!important}
+.v70-flow-svg{position:absolute!important;inset:0;width:100%!important;height:100%!important;z-index:4!important;pointer-events:none!important;overflow:visible}
+.v70-flow-svg .cold-main,.v70-flow-svg .cold-branch{fill:none;stroke:#35b9ff;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(53,185,255,.82));stroke-dasharray:22 12;animation:v70flowCold 1.35s linear infinite}
+.v70-flow-svg .warm-main,.v70-flow-svg .warm-branch{fill:none;stroke:#ff6b59;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(255,107,89,.78));stroke-dasharray:22 12;animation:v70flowWarm 1.35s linear infinite}
+.v70-flow-svg .cold-main,.v70-flow-svg .warm-main{stroke-width:9}.v70-flow-svg .cold-branch,.v70-flow-svg .warm-branch{stroke-width:6}
+.v70-flow-svg .flow-tag{font:800 14px system-ui,-apple-system,Segoe UI,sans-serif;paint-order:stroke;stroke:#06111f;stroke-width:5px;stroke-linejoin:round}
+.v70-flow-svg .cold-tag{fill:#7ed8ff}.v70-flow-svg .warm-tag{fill:#ff9d91}
+@keyframes v70flowCold{to{stroke-dashoffset:-68}}
+@keyframes v70flowWarm{to{stroke-dashoffset:68}}
+.v70-svg-wrap{overflow:auto;border:1px solid #31577f;border-radius:13px;background:#f7f9fb;padding:8px}
+.v70-svg-wrap svg{display:block;width:100%;height:auto;min-width:980px}
+.v70-summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin:9px 0}
+.v70-kpi{border:1px solid #294563;border-radius:10px;background:#0d1d35;padding:8px}.v70-kpi .k{color:#8fa8c8;font-size:8px;text-transform:uppercase;letter-spacing:.04em}.v70-kpi .v{margin-top:3px;font-size:13px;font-weight:900;color:#f4f8ff}
+.v70-note{margin-top:8px;padding:9px 10px;border:1px solid #2a4669;border-radius:9px;background:#0b1930;color:#a9bdd5;font-size:9px;line-height:1.55}
+.v70-source{margin-top:8px;color:#8097b2;font-size:8.5px;line-height:1.5}
+@media(max-width:900px){.v70-summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.v70-summary{grid-template-columns:repeat(2,1fr)}.v70-svg-wrap svg{min-width:860px}}

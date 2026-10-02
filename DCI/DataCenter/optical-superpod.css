@@ -1,0 +1,64 @@
+
+#optical-superpod-advisor{box-sizing:border-box;grid-column:1/-1;width:100%;margin-top:16px;padding:18px;border:1px solid #29466f;border-radius:14px;background:linear-gradient(180deg,rgba(12,24,49,.98),rgba(8,17,36,.98));color:#edf5ff}
+#optical-superpod-advisor *{box-sizing:border-box}
+#optical-superpod-advisor .osa-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+#optical-superpod-advisor h3{margin:0;font-size:18px}
+#optical-superpod-advisor .osa-sub{margin-top:4px;color:#9db1d0;font-size:12px;line-height:1.5}
+#optical-superpod-advisor .osa-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#optical-superpod-advisor .osa-card{border:1px solid #263b61;border-radius:12px;background:#0c162b;padding:14px;min-width:0}
+#optical-superpod-advisor .osa-title{font-size:13px;font-weight:850;margin:0 0 10px}
+#optical-superpod-advisor .osa-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}
+#optical-superpod-advisor .osa-kpi{border:1px solid #24395e;border-radius:10px;padding:10px;background:#101c34}
+#optical-superpod-advisor .osa-kpi .k{color:#94a9cb;font-size:10px;margin-bottom:4px}
+#optical-superpod-advisor .osa-kpi .v{font-size:16px;font-weight:900;word-break:break-word}
+#optical-superpod-advisor .osa-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}
+#optical-superpod-advisor label{display:block;color:#9db1d0;font-size:10px;margin-bottom:4px}
+#optical-superpod-advisor select,#optical-superpod-advisor input{width:100%;border:1px solid #31507d;border-radius:8px;background:#081226;color:#edf5ff;padding:8px 9px;min-height:36px}
+#optical-superpod-advisor table{width:100%;border-collapse:collapse;font-size:11px}
+#optical-superpod-advisor th,#optical-superpod-advisor td{border-bottom:1px solid #223756;padding:7px 6px;text-align:left;vertical-align:top}
+#optical-superpod-advisor th{color:#9db1d0;font-weight:700}
+#optical-superpod-advisor .osa-note{margin-top:9px;color:#9db1d0;font-size:10px;line-height:1.55}
+#optical-superpod-advisor .osa-chain{margin:8px 0 10px;padding:10px;border:1px dashed #3c5c88;border-radius:9px;color:#dce8ff;font-size:11px;line-height:1.55;background:#081226}
+#optical-superpod-advisor .osa-badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;border:1px solid #31507d;color:#bcd2f4;background:#0a1730;font-size:10px;font-weight:800}
+#optical-superpod-advisor a{color:#8ab8ff;text-decoration:none}
+#optical-superpod-advisor a:hover{text-decoration:underline}
+@media(max-width:980px){#optical-superpod-advisor .osa-grid{grid-template-columns:1fr}#optical-superpod-advisor .osa-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#optical-superpod-advisor .osa-form{grid-template-columns:1fr}}
+
+/* v4.2.0 mobile/responsive hardening */
+html,body{max-width:100%;overflow-x:hidden}
+#optical-superpod-advisor,#optical-superpod-advisor .osa-card,#optical-superpod-advisor .osa-kpi{min-width:0;max-width:100%}
+#optical-superpod-advisor h3,#optical-superpod-advisor .osa-sub,#optical-superpod-advisor .osa-title,#optical-superpod-advisor .osa-note,#optical-superpod-advisor .osa-chain,#optical-superpod-advisor th,#optical-superpod-advisor td,#optical-superpod-advisor a{overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+#optical-superpod-advisor table{table-layout:fixed;max-width:100%}
+#optical-superpod-advisor select,#optical-superpod-advisor input{min-width:0;max-width:100%}
+@media(max-width:760px){
+  .wrap,.container,main{max-width:100%!important;min-width:0!important;padding-left:10px!important;padding-right:10px!important}
+  .grid{grid-template-columns:1fr!important}
+  .s4,.s6,.s12{grid-column:1/-1!important;min-width:0!important}
+  .card,.panel,.metric,.archMini,.refbox,.phaseBand{min-width:0!important;max-width:100%!important;overflow-wrap:anywhere;word-break:break-word}
+  .metrics,.archStrip,.refgrid,.topDesignGrid{grid-template-columns:1fr!important}
+  .field{min-width:0!important}
+  label,.small,.sub,.v,.k,h1,h2,h3,h4,p,td,th{overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+  input,select,button{max-width:100%!important;min-width:0!important}
+  .guideTableWrap,.topo,.bimSchedule,.rowDiagramHtml{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+  #optical-superpod-advisor{padding:12px}
+  #optical-superpod-advisor .osa-grid{grid-template-columns:1fr}
+  #optical-superpod-advisor .osa-kpis{grid-template-columns:1fr 1fr}
+  #optical-superpod-advisor .osa-form{grid-template-columns:1fr}
+  #optical-superpod-advisor table{font-size:10px}
+  #optical-superpod-advisor th,#optical-superpod-advisor td{padding:6px 4px}
+}
+@media(max-width:420px){
+  #optical-superpod-advisor .osa-kpis{grid-template-columns:1fr}
+  #optical-superpod-advisor table{display:block;overflow-x:auto;table-layout:auto}
+  #optical-superpod-advisor table th,#optical-superpod-advisor table td{min-width:92px}
+}
+
+/* v4.3.0 Cisco + MPO detail */
+#optical-superpod-advisor .osa-card table{width:100%;max-width:100%}
+#optical-superpod-advisor .osa-card td,#optical-superpod-advisor .osa-card th{hyphens:auto}
+@media(max-width:760px){
+  #optical-superpod-advisor .osa-card>table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  #optical-superpod-advisor .osa-card>table thead,#optical-superpod-advisor .osa-card>table tbody{min-width:760px}
+  #optical-superpod-advisor .osa-card>table td,#optical-superpod-advisor .osa-card>table th{white-space:normal}
+}

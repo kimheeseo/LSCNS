@@ -1,0 +1,94 @@
+﻿번호,국가,국가별 업체수,업체명,회사Key,주요분야,공식사이트
+1,대만,7,ASE,ase,OSAT · advanced package assembly,https://www.aseglobal.com/
+2,대만,7,Asia Vital Components (AVC),avc,Thermal management · cooling,https://www.avc.com.tw/
+3,대만,7,Auras Technology,auras,Thermal solutions · heat sink,https://www.auras.com.tw/
+4,대만,7,Cooler Master,coolermaster,Thermal / cooling solutions,https://www.coolermaster.com/
+5,대만,7,FIT Hon Teng,fit,Interconnect · thermal · optical connectivity,https://www.fit-foxconn.com/
+6,대만,7,TSMC,tsmc,Advanced packaging · silicon photonics ecosystem,https://www.tsmc.com/
+7,대만,7,UMC,umc,Semiconductor foundry · package ecosystem,https://www.umc.com/
+8,독일,5,Black Semiconductor,blacksemiconductor,Graphene photonics · chip connectivity,https://blacksemiconductor.de/
+9,독일,5,DELO,delo,High-tech adhesives for photonics,https://www.delo-adhesives.com/
+10,독일,5,ficonTEC,ficontec,Photonic assembly · active alignment · test,https://www.ficontec.com/
+11,독일,5,Henkel,henkel,CPO packaging materials · adhesives · underfill · TIM,https://www.henkel-adhesives.com/
+12,독일,5,SCHOTT,schott,Specialty glass / advanced substrate,https://www.schott.com/
+13,미국,41,3M,3m,Thermal / electronic materials,https://www.3m.com/
+14,미국,41,AMD,amd,CPU/GPU/xPU · AI compute,https://www.amd.com/
+15,미국,41,Amkor,amkor,OSAT · advanced packaging,https://amkor.com/
+16,미국,41,Amphenol,amphenol,High-speed connectors · optical connectivity,https://www.amphenol.com/
+17,미국,41,Applied Optoelectronics (AAOI),aaoi,Datacenter optical transceivers,https://www.ao-inc.com/
+18,미국,41,Arista Networks,arista,Cloud networking systems,https://www.arista.com/
+19,미국,41,Astera Labs,astera,AI connectivity semiconductor,https://www.asteralabs.com/
+20,미국,41,Ayar Labs,ayar,CPO optical I/O chiplet · ELS,https://ayarlabs.com/
+21,미국,41,Boyd,boyd,Thermal management,https://www.boydcorp.com/
+22,미국,41,Broadcom,broadcom,Switch ASIC · silicon photonics CPO,https://www.broadcom.com/
+23,미국,41,Celestial AI,celestial,Photonic fabric · AI interconnect,https://www.celestial.ai/
+24,미국,41,Ciena,ciena,Optical networking systems,https://www.ciena.com/
+25,미국,41,Cisco,cisco,Networking silicon · optical networking,https://www.cisco.com/
+26,미국,41,Coherent,coherent,레이저 · SiPh · CPO optical assembly,https://www.coherent.com/
+27,미국,41,Corning,corning,Fiber-to-chip · FAU · optical fiber · connector,https://www.corning.com/oem-solutions/worldwide/en/home/products-solutions/optical-communication-components/co-packaged-optics.html
+28,미국,41,Credo Technology,credo,High-speed connectivity · DSP / SerDes,https://www.credosemi.com/
+29,미국,41,Dell Technologies,dell,AI infrastructure / servers,https://www.dell.com/
+30,미국,41,Dow,dow,Electronic / thermal materials,https://www.dow.com/
+31,미국,41,DuPont,dupont,Advanced packaging / electronic materials,https://www.dupont.com/
+32,미국,41,Dymax,dymax,UV-curable optical adhesive,https://dymax.com/
+33,미국,41,FormFactor,formfactor,Semiconductor / photonics test,https://www.formfactor.com/
+34,미국,41,GlobalFoundries,globalfoundries,Semiconductor foundry · silicon photonics · advanced packaging ecosystem,https://www.gf.com/
+35,미국,41,HPE,hpe,AI systems / networking,https://www.hpe.com/
+36,미국,41,HyperLight,hyperlight,Thin-film lithium niobate photonics,https://hyperlightcorp.com/
+37,미국,41,Indium Corporation,indium,Thermal interface / solder materials,https://www.indium.com/
+38,미국,41,Intel,intel,Silicon photonics · advanced packaging,https://www.intel.com/
+39,미국,41,Jabil,jabil,EMS · photonics manufacturing,https://www.jabil.com/
+40,미국,41,Keysight,keysight,High-speed / optical test,https://www.keysight.com/
+41,미국,41,Lightmatter,lightmatter,Photonic interconnect · CPO/NPO optical engine,https://lightmatter.co/
+42,미국,41,Lightwave Logic,lightwavelogic,Electro-optic polymer,https://www.lightwavelogic.com/
+43,미국,41,Lumentum,lumentum,External laser source · high-power InP laser,https://www.lumentum.com/
+44,미국,41,MACOM,macom,Analog / RF / optical semiconductor,https://www.macom.com/
+45,미국,41,Marvell,marvell,Switch/DSP · CPO platform,https://www.marvell.com/
+46,미국,41,Molex,molex,CPO connectivity · ELSFP · detachable fiber-to-chip,https://www.molex.com/en-us/industries-applications/data-center-connector-solutions/near-asic/co-packaged-optics
+47,미국,41,NLM Photonics,nlm,Electro-optic materials · silicon photonics,https://nlmphotonics.com/
+48,미국,41,Norland Products,norland,Optical adhesive,https://www.norlandprod.com/
+49,미국,41,NVIDIA,nvidia,AI networking · photonics switch platform,https://www.nvidia.com/
+50,미국,41,OpenLight,openlight,Heterogeneous silicon photonics · PASIC · PIC,https://openlightphotonics.com/
+51,미국,41,SkyWater Technology,skywater,US foundry · advanced integration,https://www.skywatertechnology.com/
+52,미국,41,Teradyne,teradyne,Semiconductor automated test,https://www.teradyne.com/
+53,미국,41,US Conec,usconec,VSFF · expanded-beam ferrule,https://www.usconec.com/
+54,스위스,2,Silorix,silorix,Silicon-organic hybrid photonics,https://silorix.com/
+55,스위스,2,STMicroelectronics,stm,CMOS / silicon photonics manufacturing ecosystem,https://www.st.com/
+56,스페인,1,iPronics,ipronics,Programmable photonics,https://ipronics.com/
+57,이스라엘,2,NewPhotonics,newphotonics,Silicon photonics · optical signal processing,https://newphotonics.com/
+58,이스라엘,2,Tower Semiconductor,tower,Silicon photonics foundry · analog specialty process,https://towersemi.com/
+59,이탈리아,1,Prysmian,prysmian,Optical fiber/cable · data center connectivity,https://www.prysmian.com/
+60,일본,18,Advantest,advantest,Semiconductor test systems,https://www.advantest.com/
+61,일본,18,AGC,agc,Glass substrate / advanced glass,https://www.agc.com/en/
+62,일본,18,Ajinomoto Fine-Techno,ajinomoto,Build-up film / package substrate materials,https://www.aft-website.com/en/
+63,일본,18,Daikin,daikin,Fluorochemical optical materials,https://www.daikinchemicals.com/
+64,일본,18,Fujikura,fujikura,Optical fiber · high-density connectivity · ferrule ecosystem,https://www.fujikura.co.jp/eng/
+65,일본,18,Furukawa Electric,furukawa,Optical fiber · VSFF connector supply chain,https://www.furukawaelectric.com/en/
+66,일본,18,Kyocera,kyocera,Ceramic / semiconductor packaging materials,https://global.kyocera.com/
+67,일본,18,Nagase,nagase,Electronic materials / underfill supply,https://www.nagase.com/
+68,일본,18,NAMICS,namics,Underfill · encapsulant,https://www.namics.co.jp/e/
+69,일본,18,Nippon Electric Glass (NEG),neg,Electronic glass / glass substrate,https://www.neg.co.jp/en/
+70,일본,18,Panasonic Industry,panasonic,Electronic materials · underfill,https://industrial.panasonic.com/
+71,일본,18,Resonac,resonac,Semiconductor packaging materials,https://www.resonac.com/
+72,일본,18,SEKISUI Chemical,sekisui,Optical adhesive · electronic materials,https://www.sekisuichemical.com/
+73,일본,18,SENKO,senko,VSFF / detachable PIC connectivity,https://www.senko.com/
+74,일본,18,Shin-Etsu Chemical,shinetsu,Semiconductor materials · wafers · thermal materials,https://www.shinetsu.co.jp/en/
+75,일본,18,Sumitomo Bakelite,sumitomoBakelite,Semiconductor packaging materials,https://www.sumibe.co.jp/english/
+76,일본,18,Sumitomo Electric,sumitomo,Optical fiber · PM fiber · multicore fiber · data center connectivity,https://sumitomoelectric.com/
+77,일본,18,Suruga Seiki,suruga,Precision positioning · optical alignment,https://eng.surugaseiki.com/
+78,중국,7,BOE Technology,boe,Display / glass and semiconductor ecosystem,https://www.boe.com/en/
+79,중국,7,Cambridge Industries Group (CIG),cambridgecioe,CIOE 2026 · FRO/LRO/LPO/NPO/ELSFP optical modules,https://www.cigtech.com/
+80,중국,7,Hengtong,hengtong,Optical fiber/cable · PM fiber · CPO/NPO optical connectivity,https://www.hengtongglobal.com/
+81,중국,7,JCET Group,jcet,OSAT · advanced packaging,https://www.jcetglobal.com/
+82,중국,7,TFC Optical Communication,tfcioe,CIOE 2026 · optical engine · FAU / PM · fiber-to-chip,https://www.tfcsz.com/
+83,중국,7,"YOFC (Yangtze Optical Fibre and Cable Co., Ltd)",yofc,Optical fiber/cable · PM fiber · HCF/MCF · AI data center connectivity,https://en.yofc.com/
+84,중국,7,ZTT,ztt,Optical fiber/cable · telecom · data connectivity,https://www.zttgroup.com/
+85,캐나다,3,Celestica,celestica,EMS · cloud networking hardware,https://www.celestica.com/
+86,캐나다,3,POET Technologies,poet,Optical interposer · photonic engines,https://poet-technologies.com/
+87,캐나다,3,RANOVUS,ranovus,Silicon photonics optical engine,https://www.ranovus.com/
+88,태국,1,Fabrinet,fabrinet,Optical / electronic manufacturing services,https://fabrinet.com/
+89,프랑스,1,Soitec,soitec,SOI engineered substrates,https://www.soitec.com/
+90,핀란드,1,Nokia,nokia,Optical and IP networking systems,https://www.nokia.com/
+91,한국,3,Hanwha Solutions,hanwha,Advanced materials ecosystem,https://www.hanwhasolutions.com/en/
+92,한국,3,LS전선,lscns,Optical fiber/cable · data center connectivity,https://www.lscns.com/
+93,한국,3,OE Solutions (오이솔루션),oesolutions,Data-center optical transceiver · ELSFP / laser integration,https://oesolutions.com/ko/

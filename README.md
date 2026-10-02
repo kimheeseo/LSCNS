@@ -4,10 +4,8 @@ Research and engineering projects.
 
 ## CPO Supply Chain
 
-The CPO Supply Chain application has been consolidated into this repository:
+The CPO Supply Chain app and its supplier lists are maintained in the separate [cpo-supply-chain repository](https://github.com/kimheeseo/cpo-supply-chain).
 
-- [Open the CPO Supply Chain app](https://kimheeseo.github.io/LSCNS/cpo-supply-chain/)
-- [Application source and version log](cpo-supply-chain/README.md)
-- [Newly added suppliers CSV](cpo-supply-chain/list/added_companies.csv)
-
-For future CPO app releases, record every user-requested version improvement in the project's README under a dated `### version: x.y.z` heading. Log each newly added supplier in the CSV in `cpo-supply-chain/list/`.
+- [Open the CPO Supply Chain app](https://kimheeseo.github.io/cpo-supply-chain/)
+- [Application source and version log](https://github.com/kimheeseo/cpo-supply-chain/blob/main/README.md)
+- [Supplier CSV files](https://github.com/kimheeseo/cpo-supply-chain/tree/main/list)

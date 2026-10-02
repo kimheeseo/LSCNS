@@ -1,6 +1,6 @@
 (function browserPatch(){
 'use strict';
-const URL='https://cpo-supply-chain.onrender.com/';
+const URL='https://kimheeseo.github.io/LSCNS/DCI/CPO/';
 function mount(){
  const existing=document.getElementById('v63-cpo-link');
  if(existing){existing.href=URL;existing.title='Open CPO (Co-Packaged Optics) Supply Chain';return true;}

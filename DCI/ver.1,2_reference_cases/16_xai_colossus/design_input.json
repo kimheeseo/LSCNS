@@ -1,9 +1,0 @@
-{
-  "schema_version": "1.0",
-  "case_id": "16_xai_colossus",
-  "cluster_scale": {
-    "systems": 100000,
-    "accelerators_per_system": 1,
-    "expansion_factor": 2
-  }
-}

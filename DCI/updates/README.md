@@ -1,25 +1,10 @@
-# DCI Development Updates
+# DCI Update History
 
-## Current runtime
+날짜별 개발·정리 내역을 기록합니다.
 
-**v7.3.2**
-
-- Runtime: `DCI/DataCenter/index.html`
-- Latest UI layer: `v73-20260930.css / v73-20260930.js`
-- Public URL: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/
-- Deployment: **GitHub Pages only**
-
-## Current scope
-
-- Compute / Network / Optical / Rack / Power / Cooling / BOM
-- Rack 2D/3D 및 Physical Connectivity
-- Optical / Cooling / Power 시각화
-- Supply Chain / Product Mapping
-- Excel / CSV / Design JSON export
-
-## Update records
+## Updates
 
 - [2026-10-03 — Repository cleanup & GitHub Pages links](./2026-10-03.md)
 - [Legacy Full History](./legacy_full_history.md)
 
-향후 버전 변경사항은 이 `updates/` 폴더에 날짜별 문서로 추가합니다.
+현재 개발 버전과 runtime 정보는 [../current_version/README.md](../current_version/README.md)에서 확인합니다.

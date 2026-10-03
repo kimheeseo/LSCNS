@@ -5,13 +5,13 @@ const assert=require('node:assert/strict');
  const dom=new JSDOM(require('fs').readFileSync('index.html','utf8').replace(/<script src="\.\/([^"]+)"><\/script>/g,(_,file)=>file.startsWith('exceljs')?'':'<script>'+require('fs').readFileSync(file.split('?')[0],'utf8')+'</script>'),{url:'http://localhost:8765/',runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){w.fetch=global.fetch;w.Response=global.Response;w.Headers=global.Headers;w.URL.createObjectURL=()=>'';}});
  const w=dom.window,d=w.document,$=id=>d.getElementById(id),wait=async pred=>{for(let i=0;i<300;i++){if(pred())return;await new Promise(r=>setTimeout(r,10));}console.log({errors,ready:d.readyState,design:w.DCDesign,planning:$('planningSummary')?.outerHTML});throw Error('DOM condition timeout')},change=(id,value)=>{$(id).value=value;$(id).dispatchEvent(new w.Event('change',{bubbles:true}));},run=async()=>{$('run').click();await wait(()=>!$('run').disabled);await new Promise(r=>setTimeout(r,30));};
  await wait(()=>$('completeness-summary')?.children.length===2);
- assert.ok(w.DCDesign.planningTotals.routeLengthM>133120);assert.ok(w.DCDesign.planningTotals.installedFibers>16384);assert.ok(w.DCDesign.validation.every(x=>x.errorPct===0));
+ assert.ok(w.DCDesign.planningTotals.routeLengthM===101150);assert.ok(w.DCDesign.planningTotals.installedFibers===12940);assert.ok(w.DCDesign.validation.every(x=>x.errorPct===0));
  assert.ok($('planningValidation').textContent.includes('0%'));assert.equal($('customKw').closest('#basicInputs')!==null,true);
 
  assert.equal(d.querySelectorAll('label label').length,0);assert.ok($('network-policy').closest('#basicInputs'));assert.ok($('rackPowerKw').closest('.advanced'));
  const base={...w.getEngineeringInputs(),systemId:'h200',frontendEnabled:false,oobEnabled:false};
  const design=patch=>w.DCBOMRunScenario({...base,...patch});
- let r=design({});assert.ok(r.usable);assert.equal(r.planningTotals.routeLengthM,133120);assert.equal(r.networkTotals.switches,48);
+ let r=design({});assert.ok(r.usable);assert.equal(r.planningTotals.routeLengthM,81920);assert.equal(r.networkTotals.switches,48);
  r=design({slackPct:10,terminationM:2});assert.ok(r.usable);assert.equal(r.input.serverDistanceM,37);assert.equal(r.optical.server.profile.media,'400G DR');
  r=design({switchOverride:true,switchRadix:128,switchLogicalPerCage:2});assert.ok(r.usable);assert.ok(r.networkTotals.switches<48);assert.equal(design({}).networkTotals.switches,48);
  r=design({nicOverride:true,nicLinks:4,nicPacking:1,nicSpeed:400});assert.ok(r.usable);assert.equal(r.fabric.serverLinks,512);

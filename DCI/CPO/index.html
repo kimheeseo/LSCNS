@@ -913,6 +913,24 @@ html[data-theme="dark"] .nickname-input{background:#162235;color:#e8f0fa;border-
 html[data-theme="dark"] .chat-bubble{background:#1a2a40;color:#e8f0fa}
 html[data-theme="dark"] .chat-message.mine .chat-bubble{background:#194675;color:#f2f7ff}
 
+
+.country-browse-btn{border-color:#b8a4ee;background:#f5f1ff;color:#6441ad}.country-browse-btn:hover{background:#7452c8;border-color:#7452c8;color:#fff}
+.country-picker{position:fixed;inset:0;z-index:1300;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(13,24,39,.58)}
+.country-picker.open{display:flex}
+.country-picker-panel{width:min(760px,100%);max-height:min(84vh,820px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 24px 80px rgba(0,0,0,.25)}
+.country-picker-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.country-picker-head h3{margin:0}
+.country-picker-head button,.country-picker-back{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:800}
+.country-picker-help{color:var(--muted);font-size:13px;margin:0 0 14px}
+.country-picker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.country-picker-grid button{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:14px;padding:14px;text-align:left;cursor:pointer;font-weight:850}
+.country-picker-grid button:hover{border-color:#1677ff;box-shadow:0 6px 18px rgba(22,119,255,.12)}
+.country-picker-grid button span{display:block;color:var(--muted);font-size:12px;font-weight:600;margin-top:4px}
+.country-picker-message{padding:18px;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}
+html[data-theme="dark"] .country-browse-btn{background:#251d3c;border-color:#604c91;color:#d8ccff}
+html[data-theme="dark"] .country-picker-panel{background:#101a29;border-color:#2a3b53}
+@media(max-width:760px){.country-picker{padding:8px}.country-picker-panel{max-height:92vh;border-radius:16px}.country-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -959,6 +977,7 @@ html[data-theme="dark"] .chat-message.mine .chat-bubble{background:#194675;color
       <div class="status-head">
         <div class="eyebrow" id="statusTitle">Explorer status</div>
         <button type="button" class="korea-sales-btn" id="koreaSalesBtn">🇰🇷 국내 영업업체</button>
+        <button type="button" class="korea-sales-btn country-browse-btn" id="countryBrowseBtn">🌐 국가별 업체</button>
       </div>
       <div class="kpi">
         <div><b id="kpiComponents">8</b><span id="kpiPartsLabel">Clickable parts</span></div>
@@ -1017,7 +1036,7 @@ html[data-theme="dark"] .chat-message.mine .chat-bubble{background:#194675;color
     <div class="arch-head">
       <div>
         <div class="eyebrow" id="archEyebrow">Interactive architecture</div>
-        <h2 id="archTitle" style="margin-top:6px">부품을 눌러 업체 탐색</h2>
+        <h2 id="archTitle" style="margin-top:6px">부품별 업체 조회</h2>
       </div>
       <div class="arch-note" id="archNote">클릭한 부품만 약 10초 동안 강조됩니다.</div>
     </div>
@@ -1213,7 +1232,20 @@ html[data-theme="dark"] .chat-message.mine .chat-bubble{background:#194675;color
     </div>
   </section>
 
+  <div class="country-picker" id="countryPicker" aria-hidden="true">
+    <section class="country-picker-panel" role="dialog" aria-modal="true" aria-labelledby="countryPickerTitle">
+      <div class="country-picker-head">
+        <h3 id="countryPickerTitle">국가별 업체 탐색</h3>
+        <button type="button" id="countryPickerClose">닫기</button>
+      </div>
+      <p class="country-picker-help" id="countryPickerHelp">국가를 선택한 뒤 부품을 선택하면 해당 국가의 업체만 표시됩니다.</p>
+      <button type="button" class="country-picker-back" id="countryPickerBack" hidden>← 국가 목록</button>
+      <div class="country-picker-grid" id="countryPickerGrid"></div>
+    </section>
+  </div>
+
   <div class="toolbar">
+    <select class="select" id="countrySelect" aria-label="국가별 업체 필터"></select>
     <input class="search" id="search" type="search" placeholder="업체 또는 부품 검색: Corning, Molex, ELS, FAU …">
     <select class="select" id="partSelect"></select>
     <button class="small-btn" id="resetBtn" type="button">초기화</button>
@@ -1304,7 +1336,7 @@ ko:{
   heroTitle:'클릭 가능한 CPO 패키지 개념도',
   heroDesc:'CPO 패키지의 주요 부품과 광 연결 경로를 설명하기 위한 개념도입니다. 실제 제조사 제품의 치수·배선·패키지 구조와 동일하지 않습니다.',
   statusTitle:'Supply chain status',koreaSales:'국내 영업업체',koreaSalesTitle:'한국 내 영업/지원 업체',koreaSalesDesc:'공식 한국 법인·영업 채널 또는 제조사 공식 한국 유통망에서 공개한 연락처 기준입니다.',koreaSalesCompany:'업체명',koreaSalesField:'분야',koreaSalesContact:'연락처',koreaSalesNote:'※ 공개된 공식 영업/지원 또는 공식 유통망 연락처만 정리했습니다. 개인 연락처나 비공개 정보는 포함하지 않았습니다.',kpiParts:'공급망 계층',kpiCompanies:'관련 기업',kpiNews:'저장 기사',live:'실시간',links:'외부 링크',
-  archEyebrow:'Interactive architecture',archTitle:'부품을 눌러 업체 탐색',archNote:'클릭한 부품만 약 10초 동안 강조됩니다.',
+  archEyebrow:'Interactive architecture',archTitle:'부품별 업체 조회',archNote:'클릭한 부품만 약 10초 동안 강조됩니다.',
   modelCaption:'<b>Front-perspective CPO package</b> · 정면을 유지하면서 부품 높이와 보드 두께가 보이도록 표시합니다.',
   eventTitle:'CPO 주요 예정 행사',eventSub:'국내 / 국외 · 자동 갱신',eventInfo:'행사 정보 ↗',eventDomestic:'국내',eventOverseas:'국외',noEvents:'등록된 향후 행사가 없습니다.',
   searchPlaceholder:'기업 또는 제품 검색: YOFC, Corning, PM fiber, ELS …',reset:'초기화',allParts:'전체',allDesc:'전체 CPO / Silicon Photonics 공급망에서 기업과 제품을 검색합니다.',allTag:'전체 공급망',supplyMapTitle:'확장 CPO / Silicon Photonics 공급망',supplyMapHint:'09–20 · 계층을 클릭하세요',view3d:'3D',view2d:'2D',viewFauCad:'CPO Assembly(3D)',viewFau2D:'CPO Assembly(2D)',installApp:'앱 설치',themeDark:'야간 모드',themeLight:'주간 모드',fau2dSelect:'FAU 부품을 선택하세요',fau2dSelectDesc:'이미지의 부품명을 클릭하면 기능과 연결 공급망을 확인할 수 있습니다.',fau2dVendors:'관련 기업',fau2dNote:'부품별 대표 공급망 계층과 등록된 기업 목록을 한 화면에서 확인할 수 있습니다.',view2dNote:'CPO 2D 이미지 위에 부품명을 표시합니다. 이미지는 클릭해도 동작하지 않으며, 관련 업체 탐색은 아래 01~08 항목을 이용하세요.',viewFauNote:'Three.js 3D viewer에서 3D 자유 회전과 정면·좌측·우측·위·아래 CAD 시점을 전환하고 개별 3D component group을 클릭할 수 있습니다.',partInspector:'선택한 부품',functionLabel:'기능',mappedLayer:'연결 공급망',rotateHint:'좌우로 드래그하거나 화살표로 회전',frontView:'정면',topView:'위에서 보기',bottomView:'아래에서 보기',rotationNote:'3D CAD 기반 참고 뷰',cad3D:'3D',cadFront:'정면',cadLeft:'좌측',cadRight:'우측',cadTop:'위',cadBottom:'아래',cadReset:'Reset',cadDetailComponent:'Detail Component',cadAssemblyView:'Assembly View',cadHint:'3D는 원근 투영 · 정면/좌/우/위/아래는 3D 정투영 · 드래그: 회전 · 휠: 확대/축소',cadSourceNote:'업로드한 GLB의 10개 3D component group과 치수 JSON을 기반으로 웹용 인터랙티브 3D 구조를 재구성했습니다. 치수는 제조 도면이 아닌 사진 기반 가정치입니다.',cadReferenceTitle:'원본 FAU reference image 보기',cadSelectPart:'3D 부품을 선택하세요',cadSelectDesc:'3D 모델 또는 아래 3D component 버튼을 클릭하면 3D component group 이름, 기능, 연결 공급망을 확인할 수 있습니다.',
@@ -1950,9 +1982,46 @@ var companyCountry={
   agc:'일본',neg:'일본',schott:'독일',boe:'중국',soitec:'프랑스',arista:'미국',nokia:'핀란드',hpe:'미국',dell:'미국',
   blacksemiconductor:'독일',lightwavelogic:'미국',ipronics:'스페인',hyperlight:'미국',silorix:'스위스',nlm:'미국'
 };
+
+companies.accelink={name:'Accelink Technologies',initial:'AC',official:'https://www.accelink.com/en/',focus:'광통신 칩·디바이스·모듈 · CIOE 참가 기업',product:'800G / 1.6T optical modules',news:[]};
+companies.innolight={name:'InnoLight Technology',initial:'IL',official:'https://www.innolight.com/',focus:'AI 데이터센터용 고속 광트랜시버',product:'800G / 1.6T optical transceiver portfolio',news:[]};
+companies.eoptolink={name:'Eoptolink Technology',initial:'EO',official:'https://www.eoptolink.com/',focus:'데이터센터·통신용 광트랜시버 및 부품',product:'800G / 1.6T optical transceiver portfolio',news:[]};
+companies.hfcl={name:'HFCL',initial:'HF',official:'https://www.hfcl.com/',focus:'단일모드 광섬유·광케이블 · 인도 제조사',product:'G.657.A2 / G.652.D optical fiber portfolio',news:[]};
+companies.stl={name:'Sterlite Technologies (STL)',initial:'ST',official:'https://stl.tech/',focus:'광섬유·광케이블·데이터센터 광연결 · 인도 제조사',product:'G.657 / data-center optical connectivity portfolio',news:[]};
+companies.nttinnovative={name:'NTT Innovative Devices',initial:'NI',official:'https://www.ntt-innovative-devices.com/en/',focus:'광전기 집적 서브어셈블리·광엔진·광트랜시버',product:'Optical/electrical integrated products',news:[]};
+Object.assign(companyCountry,{accelink:'중국',innolight:'중국',eoptolink:'중국',hfcl:'인도',stl:'인도',nttinnovative:'일본'});
+function addCountryVendorToPart(partId,id){if(parts[partId]&&parts[partId].vendors.indexOf(id)<0)parts[partId].vendors.push(id)}
+['accelink','innolight','eoptolink'].forEach(function(id){addCountryVendorToPart('opticalModule',id)});
+['hfcl','stl'].forEach(function(id){addCountryVendorToPart('dataFiber',id)});
+addCountryVendorToPart('opticalEngine','nttinnovative');
+addCountryVendorToPart('opticalModule','nttinnovative');
+addCountryVendorToPart('eicDsp','nttinnovative');
+
 function companyDisplayName(id){
   var x=companies[id];if(!x)return '';
   return (companyCountry[id]?'('+companyCountry[id]+') ':'')+x.name;
+}
+
+
+var countryFilter='all';
+var extraCountries=['인도','베트남','싱가포르','대만'];
+function countryNames(){
+  return Array.from(new Set(Object.keys(companyCountry).map(function(id){return companyCountry[id]}).filter(Boolean).concat(extraCountries)))
+    .sort(function(a,b){return a.localeCompare(b,'ko')});
+}
+function idsForCurrentScope(partId,country){
+  var ids=partId==='all'?allVendorIds():sortedVendorIds(parts[partId]);
+  if(country&&country!=='all')ids=ids.filter(function(id){return companyCountry[id]===country});
+  return ids;
+}
+function renderCountrySelect(){
+  var el=qs('#countrySelect');if(!el)return;
+  var names=countryNames();
+  el.innerHTML='<option value="all">전체 국가</option>'+names.map(function(name){
+    var count=Object.keys(companyCountry).filter(function(id){return companyCountry[id]===name&&companies[id]}).length;
+    return '<option value="'+escapeHtml(name)+'">'+escapeHtml(name)+' ('+count+')</option>';
+  }).join('');
+  el.value=countryFilter;
 }
 
 var selectedPart='all';
@@ -2077,8 +2146,8 @@ function selectPart(id,scroll,animateHighlight,preferredVendor){
 
   selectedPart=id;
   if(id==='all'){
-    var allIds=allVendorIds();
-    selectedVendor=(preferredVendor&&companies[preferredVendor])?preferredVendor:(allIds[0]||null);
+    var allIds=idsForCurrentScope('all',countryFilter);
+    selectedVendor=(preferredVendor&&allIds.indexOf(preferredVendor)>=0)?preferredVendor:(allIds[0]||null);
     qs('#partIcon').textContent='ALL';
     qs('#partTitle').textContent=tr('allParts');
     qs('#partDesc').textContent=tr('allDesc');
@@ -2087,7 +2156,8 @@ function selectPart(id,scroll,animateHighlight,preferredVendor){
     clearDiagramHighlight();
   }else{
     var p=parts[id];
-    selectedVendor=(preferredVendor&&p.vendors.indexOf(preferredVendor)>=0)?preferredVendor:sortedVendorIds(p)[0];
+    var scopedIds=idsForCurrentScope(id,countryFilter);
+    selectedVendor=(preferredVendor&&scopedIds.indexOf(preferredVendor)>=0)?preferredVendor:(scopedIds[0]||null);
     qs('#partIcon').textContent=p.num;
     qs('#partTitle').textContent=partName(id);
     qs('#partDesc').textContent=partDesc(id);
@@ -2123,7 +2193,7 @@ function selectPart(id,scroll,animateHighlight,preferredVendor){
 
 function renderVendorList(){
   var root=qs('#vendorList'),q=qs('#search').value.trim().toLowerCase();
-  var ids=selectedPart==='all'?allVendorIds():sortedVendorIds(parts[selectedPart]);
+  var ids=idsForCurrentScope(selectedPart,countryFilter);
   root.innerHTML='';
   ids.forEach(function(id){
     var c=companies[id];if(!c)return;
@@ -2937,6 +3007,7 @@ function applyLanguage(){
   renderUpcomingEvents();
   renderFau2DCompanyMap();
   renderPartSelect();
+  renderCountrySelect();
   renderComponentGrid();
   selectPart(selectedPart,false,false);
   setArchitectureView(activeArchitectureView);
@@ -2999,7 +3070,7 @@ function globalSearch(){
   var q=qs('#search').value.trim().toLowerCase();
   if(!q){renderVendorList();return}
 
-  var companyMatch=allVendorIds().find(function(id){return vendorSearchText(id).indexOf(q)>=0});
+  var companyMatch=idsForCurrentScope('all',countryFilter).find(function(id){return vendorSearchText(id).indexOf(q)>=0});
   if(companyMatch){
     if(selectedPart!=='all'){
       selectPart('all',false,false,companyMatch);
@@ -3456,9 +3527,69 @@ if(cadBottom)cadBottom.addEventListener('click',function(){setCadView('bottom')}
 if(cadDetail)cadDetail.addEventListener('click',function(){setCadExploded()});
 if(cadReset)cadReset.addEventListener('click',resetCadViewer);
 
+
+function countryPartCount(country,partId){
+  return idsForCurrentScope(partId,country).length;
+}
+function openCountryPicker(){
+  var modal=qs('#countryPicker');if(!modal)return;
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');renderCountryChoices();
+}
+function closeCountryPicker(){
+  var modal=qs('#countryPicker');if(!modal)return;
+  modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+}
+function renderCountryChoices(){
+  var grid=qs('#countryPickerGrid'),back=qs('#countryPickerBack'),title=qs('#countryPickerTitle'),help=qs('#countryPickerHelp');
+  if(!grid)return;
+  title.textContent='국가별 업체 탐색';
+  help.textContent='국가를 선택한 뒤 부품을 선택하면 해당 국가의 업체만 표시됩니다.';
+  back.hidden=true;
+  grid.innerHTML=countryNames().map(function(country){
+    var count=idsForCurrentScope('all',country).length;
+    return '<button type="button" data-country="'+escapeHtml(country)+'">'+escapeHtml(country)+'<span>등록 업체 '+count+'개</span></button>';
+  }).join('');
+  grid.querySelectorAll('[data-country]').forEach(function(btn){
+    btn.addEventListener('click',function(){renderCountryParts(btn.getAttribute('data-country'))});
+  });
+}
+function renderCountryParts(country){
+  var grid=qs('#countryPickerGrid'),back=qs('#countryPickerBack'),title=qs('#countryPickerTitle'),help=qs('#countryPickerHelp');
+  title.textContent=country+' 업체';
+  help.textContent='부품을 선택하면 '+country+'에 등록된 해당 부품 업체만 표시됩니다.';
+  back.hidden=false;
+  var active=Object.keys(parts).filter(function(id){return countryPartCount(country,id)>0});
+  grid.innerHTML=active.length?active.map(function(id){
+    return '<button type="button" data-country-part="'+escapeHtml(id)+'">'+escapeHtml(partName(id))+'<span>업체 '+countryPartCount(country,id)+'개</span></button>';
+  }).join(''):'<div class="country-picker-message">'+escapeHtml(country+'에 등록된 업체가 아직 없습니다.')+'</div>';
+  grid.querySelectorAll('[data-country-part]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      countryFilter=country;
+      renderCountrySelect();
+      qs('#search').value='';
+      closeCountryPicker();
+      selectPart(btn.getAttribute('data-country-part'),true,false);
+    });
+  });
+}
+var countryBrowseBtn=qs('#countryBrowseBtn');
+if(countryBrowseBtn)countryBrowseBtn.addEventListener('click',openCountryPicker);
+var countryPickerClose=qs('#countryPickerClose');
+if(countryPickerClose)countryPickerClose.addEventListener('click',closeCountryPicker);
+var countryPicker=qs('#countryPicker');
+if(countryPicker)countryPicker.addEventListener('click',function(e){if(e.target===countryPicker)closeCountryPicker()});
+var countryPickerBack=qs('#countryPickerBack');
+if(countryPickerBack)countryPickerBack.addEventListener('click',renderCountryChoices);
+var countrySelectEl=qs('#countrySelect');
+if(countrySelectEl)countrySelectEl.addEventListener('change',function(){
+  countryFilter=this.value||'all';
+  qs('#search').value='';
+  selectPart(selectedPart,false,false);
+});
+
 qs('#partSelect').addEventListener('change',function(){selectPart(this.value,false,true)});
 qs('#search').addEventListener('input',globalSearch);
-qs('#resetBtn').addEventListener('click',function(){qs('#search').value='';selectPart('all',false,false)});
+qs('#resetBtn').addEventListener('click',function(){qs('#search').value='';countryFilter='all';renderCountrySelect();selectPart('all',false,false)});
 qsa('.lang-btn').forEach(function(btn){
   btn.addEventListener('click',function(){setLanguage(btn.getAttribute('data-lang'))});
 });
@@ -3485,6 +3616,7 @@ qs('#kpiComponents').textContent=Object.keys(parts).length;
 qs('#kpiCompanies').textContent=Object.keys(companies).length;
 qs('#kpiNews').textContent=Object.keys(companies).reduce(function(n,k){return n+(companies[k].news||[]).length},0);
 applyTheme(currentTheme,false);
+renderCountrySelect();
 applyLanguage();
 </script>
 </body>

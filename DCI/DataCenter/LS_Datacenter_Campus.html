@@ -48,6 +48,15 @@ m=base('white','white');fill(m,10,1,4,18,'walk');fill(m,2,3,7,1,'hot');fill(m,2,
 obj(m,2,4,7,3,'racks','server','COMPUTE');obj(m,2,9,7,3,'racks','server','COMPUTE');obj(m,15,4,7,3,'racks','network','NETWORK');obj(m,15,9,7,3,'racks','storage','STORAGE');obj(m,17,15,1,1,'sign','aisle','');
 for(let x=10;x<=13;x++){m.grid[19][x]='exit';m.doors[x+',19']=['gray',11,1,'down']}
 const names={campus:'01 · LS DATACENTER CAMPUS',gray:'02 · GRAY ZONE',white:'03 · WHITE ZONE'};
+const resetTour=new URLSearchParams(location.search).get('reset')==='1';
+if(resetTour){
+  try{localStorage.removeItem('ls-pixel-discoveries')}catch(e){}
+  try{
+    const cleanUrl=new URL(location.href);
+    cleanUrl.searchParams.delete('reset');
+    history.replaceState(null,'',cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+  }catch(e){}
+}
 let zone='campus',p={x:11,y:17,dir:'up'},move=null,fade=0,clock=0,keys=[],visited=new Set();try{visited=new Set(JSON.parse(localStorage.getItem('ls-pixel-discoveries')||'[]').filter(v=>info[v]))}catch(e){}
 const dirs={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]},keymap={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'};
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),w,h)}

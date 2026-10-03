@@ -8,7 +8,7 @@ const assert=require('node:assert/strict');
  assert.ok(w.DCDesign.planningTotals.routeLengthM>133120);assert.ok(w.DCDesign.planningTotals.installedFibers>16384);assert.ok(w.DCDesign.validation.every(x=>x.errorPct===0));
  assert.ok($('planningValidation').textContent.includes('0%'));assert.equal($('customKw').closest('#basicInputs')!==null,true);
 
- assert.ok($('network-policy').closest('#basicInputs'));assert.ok($('rackPowerKw').closest('.advanced'));
+ assert.equal(d.querySelectorAll('label label').length,0);assert.ok($('network-policy').closest('#basicInputs'));assert.ok($('rackPowerKw').closest('.advanced'));
  const base={...w.getEngineeringInputs(),systemId:'h200',frontendEnabled:false,oobEnabled:false};
  const design=patch=>w.DCBOMRunScenario({...base,...patch});
  let r=design({});assert.ok(r.usable);assert.equal(r.planningTotals.routeLengthM,133120);assert.equal(r.networkTotals.switches,48);

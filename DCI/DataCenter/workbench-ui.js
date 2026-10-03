@@ -35,7 +35,7 @@
     const oldBom=$('bomBody')?.closest('section.panel');if(oldBom)oldBom.hidden=true;
     const notice=document.createElement('div');notice.id='statusNotice';notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');result.prepend(notice);
     $('targetPodEgress')?.closest('label')?.insertAdjacentHTML('beforeend','<small class="fieldHelp">Pod의 다운링크 대 업링크 대역폭 비율입니다. 4:1은 업링크 합계가 GPU 연결 대역폭의 1/4입니다.</small>');
-    for(const id of ['serverDistanceM','leafSpineDistanceM'])$(id)?.closest('label')?.insertAdjacentHTML('beforeend','<small class="fieldHelp">입력 경로 길이입니다. 포설 여유와 트레이 실측 경로는 포함되지 않습니다.</small>');
+    for(const id of ['serverDistanceM','leafSpineDistanceM'])$(id)?.closest('label')?.insertAdjacentHTML('beforeend','<small class="fieldHelp">트레이 경로를 입력하세요. 아래 포설 여유와 양단 여유를 더한 유효 길이로 산정합니다.</small>');
     nav.querySelector('.jumpInput').onclick=()=>{ $('targetGPU').focus({preventScroll:true});form.scrollIntoView({behavior:'smooth',block:'start'}); };
     nav.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>activate(b.dataset.view));
     $('schedulePrev').onclick=()=>{page=Math.max(0,page-1);renderSchedule()};$('scheduleNext').onclick=()=>{page=Math.min(Math.ceil(allRoutes.length/80)-1,page+1);renderSchedule()};

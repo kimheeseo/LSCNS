@@ -7,4 +7,6 @@
 @media(max-width:780px){.wrap{padding:14px}.workbench-top{grid-template-columns:1fr}.formPanel{position:static;max-height:none}.workbench-top{display:flex;flex-direction:column}.formPanel,.workbench-view{width:100%}#workbench-nav{margin:0 -2px}.summaryStrip{grid-template-columns:repeat(2,minmax(0,1fr))}.sourceRef{grid-template-columns:1fr;gap:4px}}
 @media(max-width:520px){.fields,.advanced #engineering-inputs>.fields{grid-template-columns:1fr}.inputGroup label:first-child,.fields .check{grid-column:auto}.summaryStrip{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:14px}.security{align-items:flex-start;flex-direction:column;gap:3px}}
 .formPanel>.fields{display:block}.inputGroup label:first-child{grid-column:auto}.scheduleTable{min-width:850px}.scheduleTable th:nth-child(2){min-width:240px}.scheduleTable th:nth-child(3){min-width:125px}
-.kpis{grid-template-columns:repeat(auto-fit,minmax(105px,1fr))}.kpi .v{font-size:clamp(18px,1.45vw,21px);overflow-wrap:anywhere}
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.kpi .v{font-size:clamp(18px,1.45vw,21px);overflow-wrap:anywhere}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}

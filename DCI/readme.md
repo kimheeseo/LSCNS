@@ -5,7 +5,7 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 ## 바로 실행
 
 - [▶ DataCenter Tool](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/)
-- [LS Datacenter Campus · Gold Pixel Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html)
+- [LS Datacenter Campus · Gold Pixel Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html?reset=1)
 - [CPO Supply Chain](https://kimheeseo.github.io/LSCNS/DCI/CPO/)
 
 > Render가 아닌 **GitHub Pages**에서 직접 실행됩니다.

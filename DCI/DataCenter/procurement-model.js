@@ -37,7 +37,7 @@
   const o=q.profile;if(!o)return false;
   if(c.kind==='lc')return o.optical&&o.fiberType===c.fiber&&/LC/.test(o.connector)&&o.installedChannelFibers===2&&q.unit==='channel'&&!/adapter/i.test(q.item);
   if(c.kind==='copper')return /RJ45/.test(o.connector)&&q.unit==='assembly';
-  if(c.kind==='connector')return /MPO/.test(o.connector)&&!['module','assembly','reel'].includes(q.unit)&&c.bases.includes(o.base);
+  if(c.kind==='connector')return /MPO/.test(o.connector)&&!['module','assembly','reel'].includes(q.unit)&&!/adapter/i.test(q.item)&&c.bases.includes(o.base);
   if(c.kind==='adapter')return /adapter/i.test(q.item)&&/MPO/.test(o.connector)&&c.bases.includes(o.base);
   if(c.kind==='panel')return /panel/i.test(q.item);
   if(c.kind==='bulk')return q.unit==='reel'&&(!c.fiber||c.fiber===o.fiberType);
@@ -49,7 +49,13 @@
   for(const k of keys)r.input[k]=x[k]??(k==='fiberPatchM'?2:'review');
   const patchM=Number(x.fiberPatchM??2);if(!Number.isFinite(patchM)||patchM<0||patchM>100)throw Error('패치코드 길이는 0–100 m입니다.');
   r.productRequirements=r.bom.map(b=>{const o=r.optical[b.segment],p=o?.profile;return {category:b.category,item:b.item,segment:b.segment||'',installed:b.installedQty??b.qty,purchase:b.qty,unit:b.unit,lengthM:/patch|harness/i.test(b.item)?patchM:Number(r.input[{server:'serverDistanceM',leafSpine:'leafSpineDistanceM',core:'coreDistanceM'}[b.segment]||b.segment+'DistanceM'])||null,fibers:p?.optical?(b.unit==='trunk'||b.unit==='reel'?p.trunkFiberCount||r.input.trunkFiberCount:p.installedChannelFibers):0,activeFibers:p?.fibers||0,profile:p,polarity:p?.optical?(x.fiberPolarity||'review'):'N/A',gender:p&&/MPO/.test(p.connector)?x.mpoGender||'review':'N/A',jacket:x.cableJacket||'project',candidates:[]};});
-  for(const q of r.productRequirements)q.candidates=match(q);
+  for(const q of r.productRequirements){
+   q.cable=!!q.profile&&['trunk','reel','assembly','channel'].includes(q.unit)&&!/adapter/i.test(q.item);
+   if(!q.cable){q.lengthM=null;q.fibers=0;}
+   if(q.profile?.optical&&!q.profile.base){q.profile.base=2;q.profile.connectorGroups=(q.profile.installedChannelFibers||2)/2;}
+   if(q.profile?.optical&&!/MPO/.test(q.profile.connector))q.polarity='Duplex pairing RFQ';
+   q.candidates=match(q);
+  }
   const opticalLinks=Object.values(r.optical||{}).filter(o=>o.profile.optical).reduce((s,o)=>s+o.links,0),copperLinks=Object.values(r.optical||{}).filter(o=>!o.profile.optical&&/RJ45/.test(o.profile.connector)).reduce((s,o)=>s+o.links,0),assemblies=r.productRequirements.filter(q=>['trunk','assembly','channel'].includes(q.unit)&&!/adapter/i.test(q.item));
   r.cablingHandover=[{item:'Cable end ID labels',qty:2*assemblies.reduce((s,q)=>s+q.installed,0),unit:'label',basis:'설치 케이블/패치 채널 1개당 양단 2개 · fanout 세부 라벨 별도'},{item:'Optical channel test records',qty:opticalLinks,unit:'record',basis:'논리 광링크당 IL/RL·극성·연속성 기록; 합격 기준은 선정 SKU/광 예산'},{item:'Copper channel test records',qty:copperLinks,unit:'record',basis:'관리망 링크별 인증 시험; Category·차폐·규격은 RFQ'},{item:'Rack/route/port map + packing manifest',qty:1,unit:'set',basis:'계산상 endpoint ID → 실제 rack/port/트레이 ID 매핑 필요'}];
   const racks=r.racks||[],sum=racks.reduce((s,z)=>s+Number(z.powerKw||0),0),compute=racks.filter(z=>z.role==='Compute'),computeKw=compute.reduce((s,z)=>s+z.powerKw,0),it=r.summary.totalItPowerKw,pue=Number(r.input.pue),head=1+Number(r.input.facilityHeadroomPct||0)/100;

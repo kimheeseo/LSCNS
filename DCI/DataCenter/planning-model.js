@@ -24,7 +24,7 @@
     let routeLengthM=0,trunkLengthM=0,assemblyLengthM=0,p2pLengthM=0,activeFibers=0,installedFibers=0,hasRoutes=false;
     for(const [segment,o] of Object.entries(r.optical||{})){
       if(!o.links)continue;
-      const d=Number(r.input?.[{server:'serverDistanceM',leafSpine:'leafSpineDistanceM',core:'coreDistanceM'}[segment]]);
+      const d=Number(r.input?.[({server:'serverDistanceM',leafSpine:'leafSpineDistanceM',core:'coreDistanceM'}[segment]||segment+'DistanceM')]);
       if(!Number.isFinite(d))continue;
       hasRoutes=true;
       if(o.trunk?.installedCableCount){const length=d*o.trunk.installedCableCount;trunkLengthM+=length;routeLengthM+=length;activeFibers+=Number(o.trunk.requiredFibers)||0;installedFibers+=Number(o.trunk.provisionedFibers)||0;}
@@ -35,10 +35,10 @@
   function quote(r,prices,currency){let subtotal=0,priced=0;for(const x of r.bom||[]){const key=x.category+' · '+x.item,p=prices[currency]?.[key];if(p!==''&&p!=null&&Number.isFinite(Number(p))&&Number(p)>=0){subtotal+=Number(p)*Number(x.qty);priced++;}}return {subtotal,priced,total:(r.bom||[]).length,complete:priced===(r.bom||[]).length&&priced>0};}
   function checks(r){
     if(!r.usable)return [];
-    const ref=references[r.input?.systemId],rows=[];
+    const ref=references[r.input?.referenceSystemId||r.input?.systemId],rows=[];
     const add=(label,actual,expected,unit,source,type)=>rows.push({label,actual,expected,unit,source,type,errorPct:errorPct(Number(actual),Number(expected))});
     if(ref&&r.systemProfile){const p=r.systemProfile;add('가속기 / 서버',p.gpus,ref.gpus,'개',ref.source,'공식 사양');add('서버 높이',p.ru,ref.ru,'RU',ref.source,'공식 사양');add('서버 최대 설계전력',p.power,ref.kw,'kW',ref.source,'공식 사양');add('Compute 전력',r.summary.computePowerKw,Math.ceil(r.input.targetGPU/ref.gpus)*ref.kw,'kW',ref.source,'공식 사양 × 서버 수');}
-    for(const [key,o] of Object.entries(r.optical||{}))if(o.loss?.applicable){const i=r.input,d=Number(i[{server:'serverDistanceM',leafSpine:'leafSpineDistanceM',core:'coreDistanceM'}[key]]),structured=i[{server:'serverCabling',leafSpine:'leafSpineCabling',core:'coreCabling'}[key]]==='structured',pairs=structured?i.matedPairs:2,connector=/MPO|MTP/i.test(o.profile?.connector||'')?i.mpoLossDb:i.lcLossDb,expected=d/1000*i.fiberAttenDbKm+pairs*connector+i.spliceCount*i.spliceLossDb+i.marginDb;add(key+' 채널 손실',o.loss.estimatedDb,Math.round(expected*1000)/1000,'dB','', '입력 가정의 독립 산식');}
+    for(const [key,o] of Object.entries(r.optical||{}))if(o.loss?.applicable){const i=r.input,d=Number(i[{server:'serverDistanceM',leafSpine:'leafSpineDistanceM',core:'coreDistanceM'}[key]]),structured=i[{server:'serverCabling',leafSpine:'leafSpineCabling',core:'coreCabling'}[key]]==='structured',pairs=structured?i.matedPairs:2,connector=/MPO|MTP/i.test(o.profile?.connector||'')?i.mpoLossDb:i.lcLossDb,expected=d/1000*(o.profile?.attenDbKm??i.fiberAttenDbKm)+pairs*connector+i.spliceCount*i.spliceLossDb+i.marginDb;add(key+' 채널 손실',o.loss.estimatedDb,Math.round(expected*1000)/1000,'dB','', '입력 가정의 독립 산식');}
     if(r.portAudit){const routes=r.portAudit.routes||[];for(const [key,o] of Object.entries(r.optical||{}))add(key+' 링크 보존',routes.filter(x=>x.segment===key).reduce((s,x)=>s+x.links,0),o.links,'링크','','예약 경로 합계 점검');}
     return rows;
   }

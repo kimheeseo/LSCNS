@@ -22,7 +22,7 @@ This release is a conceptual engineering planning tool, not a certified purchase
 
 ## Verification
 
-208 valid/invalid engine scenarios: H200/B200/B300, IB/Ethernet, rail/single/dual/Clos, 1–4096 GPU; zero values, invalid input, partial pod, storage/operations dependencies, 24U rack, physical module counts, custom and colocation cases. Invariants cover link conservation, endpoint capacity, cage packing, integer BOM, spare separation, rack RU/power and per-rack PDU minimum. Boundary sizing at 100000 GPU is checked separately.
+210 valid/invalid engine scenarios: H200/B200/B300, IB/Ethernet, rail/single/dual/Clos, 1–4096 GPU; zero values, invalid input, partial pod, storage/operations dependencies, 24U rack, physical module counts, custom and colocation cases. Invariants cover link conservation, endpoint capacity, cage packing, integer BOM, spare separation, rack RU/power and per-rack PDU minimum. Boundary sizing at 100000 GPU is checked separately.
 
 Full-page DOM integration checks initial render, zero spares, partial pod, custom profile, colocation isolation, invalid-result clearing, no boot script errors and 7-sheet Excel export. Source and build/test scripts are maintained in the private repository; the public repository contains the generated runtime and UI.
 

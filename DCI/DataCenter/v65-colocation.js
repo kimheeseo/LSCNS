@@ -74,7 +74,7 @@ function field(label,id,type,value,min,step){
 }
 function metric(k,v,s){return '<div class="metric v65-metric"><div class="k">'+k+'</div><div class="v">'+v+'</div><div class="s">'+s+'</div></div>'}
 function num(id,d){const e=document.getElementById(id),v=e?Number(e.value):NaN;return Number.isFinite(v)?v:d}
-function pue(){const e=document.getElementById('v60-pue'),v=e?Number(e.value):NaN;return Number.isFinite(v)&&v>=1?v:1.2}
+function pue(){const a=document.getElementById('pue');if(a)return Number(a.value)||1.2;const e=document.getElementById('v60-pue'),v=e?Number(e.value):NaN;return Number.isFinite(v)&&v>=1?v:1.2}
 function scenario(){const e=document.getElementById('v65-mode');return e?e.value:'ai'}
 function setIfBlank(id,value){
  const e=document.getElementById(id);if(!e||e.value)return;
@@ -92,7 +92,7 @@ function snapshot(data){
  try{
   window.currentDesignSnapshot=window.currentDesignSnapshot||{};
   window.currentDesignSnapshot.results=window.currentDesignSnapshot.results||{};
-  window.currentDesignSnapshot.results.operatingScenario=data;
+  window.currentDesignSnapshot.referenceScenario=data;
  }catch(_){}
 }
 function render(){

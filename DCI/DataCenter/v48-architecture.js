@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+const q=id=>document.getElementById(id);
 const VERSION='7.3.2';
 const POWER_SOURCES={
  h200:'https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html',

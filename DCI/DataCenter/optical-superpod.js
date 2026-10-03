@@ -55,7 +55,7 @@
     return '';
   }
   function getDistance(){
-    for(const id of ['distServer','serverLeafDistance','serverToLeafDistance']){const el=document.getElementById(id);if(el&&num(el.value)!=null)return num(el.value)}
+    for(const id of ['serverDistanceM','distServer','serverLeafDistance','serverToLeafDistance']){const el=document.getElementById(id);if(el&&num(el.value)!=null)return num(el.value)}
     const by=inputByLabel(['server->leaf','server ↔ leaf','server-leaf']);return by&&num(by.value)!=null?num(by.value):null;
   }
   function deepNumber(obj,patterns){
@@ -64,7 +64,7 @@
       for(const [k,v] of Object.entries(cur)){const nk=String(k).toLowerCase().replace(/[^a-z0-9]/g,'');if(patterns.some(re=>re.test(nk))&&Number.isFinite(Number(v))&&Number(v)>0)return Number(v);if(v&&typeof v==='object')q.push(v)}
     } return null;
   }
-  function inferredLinks(gpu){
+  function inferredLinks(gpu){if(window.DCDesign?.usable)return {value:window.DCDesign.fabric.serverLinks,source:'Actual solver logical links'};
     const d=state.lastDesign?deepNumber(state.lastDesign,[/nodeleaf.*(link|cable|connection|count)/,/serverleaf.*(link|cable|connection|count)/,/compute.*(link|cable).*count/,/node.*leaf/]):null;
     if(d)return{value:Math.round(d),source:'solver output'};
     for(const id of ['nodeLeafCableCount','serverLeafLinks','mServerLeafLinks','computeCableCount']){const el=document.getElementById(id);if(el&&num(txt(el)||el.value)>0)return{value:Math.round(num(txt(el)||el.value)),source:'solver UI'}}
@@ -231,7 +231,7 @@
     refresh();
   }
   function refresh(){
-    const box=document.getElementById('optical-superpod-advisor');if(!box)return;
+    const box=document.getElementById('optical-superpod-advisor');if(!box)return;if(window.DCDesign&&(!window.DCDesign.usable||window.DCDesign.input?.scenario==='colo')){box.hidden=true;return;}box.hidden=false;
     const gpu=getGpu(),system=getSystem(),distance=getDistance(),cls=superpod(gpu),inf=inferredLinks(gpu),linksInput=document.getElementById('osaLinks');
     if(!state.userLinks||state.lastGpu!==gpu){linksInput.value=inf.value;state.userLinks=false}state.lastGpu=gpu;
     const links=Math.max(1,Math.round(num(linksInput.value)||inf.value||1));
@@ -252,9 +252,15 @@
     document.getElementById('osaOptNote').innerHTML=s.note+' <b>Recommendation rule:</b> MPO-8/12/16 and VSFF MDC/SN/CS are shown only when a real manufacturer product or product family is verified; the selected transceiver/adapter must explicitly support that interface. Generic line-rate inference is not treated as a product recommendation. Exact trunk packing still depends on polarity, breakout mapping and cassette/harness design. <a href="'+MPO_SOURCES.corning8+'" target="_blank" rel="noopener">Corning MPO-8</a> · <a href="'+MPO_SOURCES.corning12+'" target="_blank" rel="noopener">Corning MPO-12</a> · <a href="'+MPO_SOURCES.senko16+'" target="_blank" rel="noopener">SENKO MPO-16</a> · <a href="'+MPO_SOURCES.corningMdc+'" target="_blank" rel="noopener">Corning MDC</a> · <a href="'+MPO_SOURCES.senkoSn+'" target="_blank" rel="noopener">SENKO SN</a> · <a href="'+MPO_SOURCES.senkoCs+'" target="_blank" rel="noopener">SENKO CS</a>. Links/stage source: <b>'+(state.userLinks?'user override':inf.source)+'</b>. Trunk scope: <b>'+(scope==='backbone'?'backbone/high-count':'data hall/preterminated')+'</b>. '+(distance!=null?('Server↔Leaf distance input: <b>'+distance+' m</b>. '):'')+'<a href="'+NVIDIA_COMPONENTS+'" target="_blank" rel="noopener">NVIDIA cable/transceiver example</a>.';
     document.getElementById('osaVendors').innerHTML=vendorRows(req||Math.max(144,gpu||144),scope);
     document.getElementById('osaSwitches').innerHTML=switchRows();
+    const actual=window.DCDesign;if(actual?.usable&&document.getElementById('osaApp').value==='auto'){
+      const x=actual.optical.server;
+      if(x){document.getElementById('osaPort').textContent=actual.systemProfile.logicalPerCage+' logical ports / physical server cage · exact module RFQ';document.getElementById('osaConnector').textContent=x.profile.connector;document.getElementById('osaFiber').textContent=x.profile.fiberType;document.getElementById('osaFpl').textContent=x.profile.fibers+' active / '+x.profile.installedChannelFibers+' installed fibers per channel';document.getElementById('osaFiberDemand').textContent=x.trunk.requiredFibers+' active F / '+x.trunk.occupiedFibers+' occupied F';document.getElementById('osaTrunk').textContent=x.trunk.installedCableCount+' installed + '+x.trunk.spareCableCount+' spare trunks (solver)';document.getElementById('osaChain').textContent=actual.interconnectGuide.find(x=>x.segment==='Server↔Leaf')?.rule||'No compute fabric in this scenario';document.getElementById('osaMpoLabel').textContent=x.profile.connector;document.getElementById('osaMpoConnector').textContent=x.profile.installedChannelFibers+'F/channel — pinning / polarity RFQ';document.getElementById('osaMpoProduct').textContent='Exact connector SKU RFQ';document.getElementById('osaMpoApps').textContent=x.profile.media+' · compatibility REVIEW';document.getElementById('osaMpoUtil').textContent='Installed counts from solver; no global fiber pooling';document.getElementById('osaMpoBreakout').textContent='Exact breakout mapping RFQ';}
+    }
+    document.getElementById('osaOptNote').insertAdjacentHTML('afterbegin','<b>Vendor candidates and manual application overrides are reference exploration; they do not change the calculated BOM.</b> ');
+
   }
   const nativeFetch=window.fetch;
   if(nativeFetch&&!window.__dcBomOpticalFetchWrapped){window.__dcBomOpticalFetchWrapped=true;window.fetch=async function(...args){const res=await nativeFetch.apply(this,args);try{const url=String(args[0]&&args[0].url?args[0].url:args[0]||'');if(url.includes('/api/design'))res.clone().json().then(data=>{state.lastDesign=data;setTimeout(refresh,0)}).catch(()=>{})}catch(_){}return res}}
-  function start(){mount();document.addEventListener('change',()=>setTimeout(refresh,0),true);document.addEventListener('click',e=>{if(e.target&&(e.target.tagName==='BUTTON'||e.target.closest('button')))setTimeout(refresh,500)},true);let tries=0;const timer=setInterval(()=>{tries++;if(!document.getElementById('optical-superpod-advisor'))mount();refresh();if(tries>=20)clearInterval(timer)},500)}
+  function start(){mount();document.addEventListener('dc:design',refresh);document.addEventListener('change',()=>setTimeout(refresh,0),true);document.addEventListener('click',e=>{if(e.target&&(e.target.tagName==='BUTTON'||e.target.closest('button')))setTimeout(refresh,500)},true);let tries=0;const timer=setInterval(()=>{tries++;if(!document.getElementById('optical-superpod-advisor'))mount();refresh();if(tries>=20)clearInterval(timer)},500)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();

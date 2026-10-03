@@ -4,11 +4,11 @@ function $v(id){return document.getElementById(id)}
 function txtV(e){return(e&&(e.innerText||e.textContent)||'').replace(/\s+/g,' ').trim()}
 function numV(v,d){var m=String(v==null?'':v).replace(/,/g,'').match(/-?\d+(?:\.\d+)?/);return m?Number(m[0]):(d||0)}
 function fmtV(v,u,d){return Number.isFinite(v)?v.toFixed(d==null?1:d)+(u?' '+u:''):'—'}
-function selectedV(){try{if(typeof getSelectedSystem==='function')return getSelectedSystem()}catch(e){}return{}}
-function unitsV(){return Math.max(0,numV(txtV($v('mUnits')),0))}
-function racksV(){return Math.max(1,numV(txtV($v('mComputeRacks')),1))}
+function selectedV(){if(window.DCDesign?.systemProfile)return window.DCDesign.systemProfile;try{if(typeof getSelectedSystem==='function')return getSelectedSystem()}catch(e){}return{}}
+function unitsV(){if(window.DCDesign?.usable)return window.DCDesign.summary.systemUnits;return Math.max(0,numV(txtV($v('mUnits')),0))}
+function racksV(){if(window.DCDesign?.usable)return window.DCDesign.summary.computeRacks||window.DCDesign.summary.totalRacks;return Math.max(1,numV(txtV($v('mComputeRacks')),1))}
 function rackUV(){return Math.max(1,numV($v('rackRU')?$v('rackRU').value:48,48))}
-function powerV(){
+function powerV(){if(window.DCDesign?.usable){const n=window.DCDesign.summary.totalItPowerKw;return {typical:null,design:n,peak:n};}
  var typical=null,design=0,peak=0,p=$v('v48-power-model');
  if(p){
   Array.from(p.querySelectorAll('.v48-power-cell')).forEach(function(c){
@@ -31,7 +31,7 @@ function roleSpeedV(id,fallback){
  var re=new RegExp(label+'\\s+(\\d+)G','i'),m=note.match(re);return m?Number(m[1]):fallback;
 }
 function valV(id){var e=$v(id);return e?e.value:''}
-function pueV(){var v=numV(valV('v60-pue'),1.2);return Math.max(1,v||1.2)}
+function pueV(){if($v('pue'))return Number($v('pue').value)||1.2;var v=numV(valV('v60-pue'),1.2);return Math.max(1,v||1.2)}
 function wueV(){var raw=valV('v60-wue');return raw===''?null:Math.max(0,numV(raw,0))}
 function mountV(){
  var p=$v('v60-system-engineering');if(p)return p;
@@ -73,7 +73,7 @@ function bomUpsertV(cat,item,qty,key){
  var td=row.querySelectorAll('td');if(td.length>=3){td[0].textContent=cat;td[1].textContent=item;td[2].textContent=qty}
 }
 function renderV(){
- var p=mountV();if(!p)return;
+ var p=mountV();if(!p)return;if($v('pue'))$v('v60-pue').value=$v('pue').value;
  var pw=powerV(),pue=pueV(),wue=wueV(),facility=pw.design*pue,overhead=Math.max(0,facility-pw.design),peakFacility=pw.peak*pue;
  var water=(wue==null?null:wue*pw.design),cat=valV('v60-pue-cat')||'0';
  $v('v60-facility-grid').innerHTML=
@@ -92,9 +92,9 @@ function renderV(){
   '<div class="v60-fabric"><b>Storage Fabric</b><span>'+(st?st+'G role-selected fabric':'review')+'</span></div>'+
   '<div class="v60-fabric"><b>In-Band / OOB</b><span>'+(ib?ib+'G':'review')+' in-band · 1G OOB reference</span></div>'+
   '<div class="v60-fabric"><b>Optical Physicalization</b><span>'+(phys?'Logical links separated from cages / optics / cables':'Physical cage/optic audit not available')+'</span></div>';
- var s=selectedV(),u=unitsV(),r=racksV(),per=r?Math.ceil(u/r):0,ru=Number(s.ru||0),rackU=rackUV(),ruCap=ru>0?Math.floor(rackU/ru):null,sp=Number(s.powerDesignMax!=null?s.powerDesignMax:s.power||0);
- var pLimRaw=valV('v60-rack-power-limit'),cLimRaw=valV('v60-rack-cooling-limit'),pLim=pLimRaw===''?null:numV(pLimRaw,0),cLim=cLimRaw===''?null:numV(cLimRaw,0);
- var pCap=pLim!=null&&sp>0?Math.floor(pLim/sp):null,cCap=cLim!=null&&sp>0?Math.floor(cLim/sp):null,caps=[ruCap,pCap,cCap].filter(function(x){return x!=null&&Number.isFinite(x)&&x>=0}),recommended=caps.length?Math.min.apply(null,caps):null;
+ var s=selectedV(),u=unitsV(),r=racksV(),per=r?Math.ceil(u/r):0,ru=Number(s.ru||0),rackU=rackUV(),ruCap=ru>0?Math.floor((rackU-Number($v('reservedRU')?.value||0))/ru):null,sp=Number(s.powerDesignMax!=null?s.powerDesignMax:s.power||0);
+ var pLimRaw=valV('rackPowerKw'),cLimRaw=valV('rackCoolingKw'),pLim=pLimRaw===''?null:numV(pLimRaw,0),cLim=cLimRaw===''?null:numV(cLimRaw,0);
+ var pCap=pLim!=null&&sp>0?Math.floor(pLim*(1-Number($v('rackHeadroomPct')?.value||0)/100)/sp):null,cCap=cLim!=null&&sp>0?Math.floor(cLim*(1-Number($v('rackHeadroomPct')?.value||0)/100)/sp):null,caps=[ruCap,pCap,cCap].filter(function(x){return x!=null&&Number.isFinite(x)&&x>=0}),recommended=caps.length?Math.min.apply(null,caps):null;
  var bottleneck='Not enough constraints';if(recommended!=null){if(ruCap===recommended)bottleneck='RU';if(pCap===recommended)bottleneck='Power';if(cCap===recommended)bottleneck='Cooling'}
  $v('v60-rack-table').innerHTML='<thead><tr><th>Constraint</th><th>Capacity</th><th>Basis</th></tr></thead><tbody>'+
   '<tr><td>Current placement</td><td>'+per+' systems/rack</td><td>'+u+' systems / '+r+' racks</td></tr>'+
@@ -145,6 +145,8 @@ function renderV(){
 function startV(){
  if(!mountV()){setTimeout(startV,400);return}
  renderV();
+ document.addEventListener('dc:design',renderV);
+ for(const id of ['v60-rack-power-limit','v60-rack-cooling-limit','v60-cooling-mode','v60-power-red']){const el=$v(id);if(el){el.disabled=true;el.title='Use the main design inputs; this field is a reference only';}}
  document.addEventListener('click',function(e){var x=e.target;if(x&&x.closest&&x.closest('button'))setTimeout(renderV,120)},true);
  document.addEventListener('change',function(){setTimeout(renderV,80)},true);
  setTimeout(renderV,900);

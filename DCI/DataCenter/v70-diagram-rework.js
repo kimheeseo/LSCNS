@@ -69,7 +69,7 @@ function T(){return I18N[lang()]||I18N.ko}
 function esc(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function num(id,fallback){const e=q(id);if(!e)return fallback||0;const m=txt(e).replace(/,/g,'').match(/-?\d+(?:\.\d+)?/);return m?Number(m[0]):fallback||0}
 function inputVal(ids,fallback){for(const id of ids){const e=q(id);if(e){if(e.tagName==='SELECT'){const o=e.options&&e.options[e.selectedIndex];return(o&&txt(o))||e.value||fallback}return e.value||txt(e)||fallback}}return fallback}
-function design(){
+function design(){const r=window.DCDesign;if(r?.usable){const o=r.optical.leafSpine;return {systems:r.summary.systemUnits,gpus:r.summary.targetGPU,leaf:r.fabric.leafCount,spine:r.fabric.spineCount,core:r.fabric.coreCount,racks:r.summary.computeRacks||r.summary.totalRacks,speed:r.systemProfile?.linkSpeed||'RFQ',topology:r.input.topology,connector:o?.profile.connector||'RFQ',connectorDetail:'Exact pinning / polarity RFQ',product:o?.profile.media||'RFQ',trunk:o?.trunk.installedCableCount+' installed trunks',chain:'See calculated BOM; illustration only'};}
  return{
    systems:Math.max(0,num('mUnits',num('osaGpu',0))),
    gpus:Math.max(0,num('mGpu',num('osaGpu',0))),

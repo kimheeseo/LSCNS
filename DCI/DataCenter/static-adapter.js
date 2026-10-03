@@ -25,9 +25,11 @@
     result.addRow(['Field', 'Value']);
     addRows(result, (payload.designResult || []).map(r => [r.field, r.value]));
     result.addRow([]); addRows(result, flatten(payload.design || {}));
-    const generic = wb.addWorksheet('3_Generic BOM'); addRows(generic, payload.genericBom?.rows || []);
-    const receipt = wb.addWorksheet('4_Product Match'); addRows(receipt, payload.receipt?.rows || []);
-    for (const ws of [req, result, generic, receipt]) {
+    const generic = wb.addWorksheet('3_Generic BOM'); generic.addRow(['Category','Item','Purchase qty','Installed qty','Spare qty','Unit','Basis']);addRows(generic,(payload.design?.bom||[]).map(x=>[x.category,x.item,x.qty,x.installedQty??x.qty,x.spareQty??0,x.unit,x.basis]));
+    const receipt = wb.addWorksheet('4_Product Match');receipt.addRow(['Category','Vendor','Product','Quantity','Evidence','Source']);addRows(receipt,(payload.design?.products||[]).map(x=>[x.category,x.vendor,x.product,x.qty,x.evidence,x.source]));const audit=wb.addWorksheet('5_Engineering Audit');audit.addRow(['Field','Value']);addRows(audit,flatten({input:payload.design?.input,warnings:payload.design?.warnings,facility:payload.design?.facility,optical:payload.design?.optical,racks:payload.design?.racks,portAudit:payload.design?.portAudit}));
+    const nodes=wb.addWorksheet('6_Port Nodes');nodes.addRow(['Endpoint','Role','Logical capacity','Logical / cage','Server ports','Leaf-spine ports','Core ports']);addRows(nodes,(payload.design?.portAudit?.nodes||[]).map(x=>[x.id,x.role,x.capacity,x.logicalPerCage,x.used.server,x.used.leafSpine,x.used.core]));
+    const routes=wb.addWorksheet('7_Link Routes');routes.addRow(['Segment','Endpoint A','Endpoint B','Installed logical links']);addRows(routes,(payload.design?.portAudit?.routes||[]).map(x=>[x.segment,x.a,x.b,x.links]));
+    for (const ws of [req, result, generic, receipt, audit, nodes, routes]) {
       ws.views = [{ state: 'frozen', ySplit: 1 }];
       ws.columns = Array.from({ length: Math.max(2, ws.columnCount) }, () => ({ width: 36 }));
       ws.getRow(1).font = { bold: true };

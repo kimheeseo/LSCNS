@@ -1,6 +1,7 @@
 (() => {
 'use strict';
-const VERSION='7.3.2';
+const VERSION='7.4.1-ux7';
+let selectedCategory='all',returnFocus;
 const textOf=e=>(e&&(e.innerText||e.textContent)||'').replace(/\s+/g,' ').trim();
 
 const I18N={
@@ -126,6 +127,12 @@ function rowItems(table,source){
   }).filter(Boolean);
 }
 function collect(){
+  const r=window.DCDesign;
+  if(r){const primary=(r.products||[]).map((x,i)=>({id:'product-'+i,source:'receipt',vendor:x.vendor,product:x.product,qty:String(x.qty??''),row:[x.category,x.product,x.model].join(' · '),links:x.source&&/^https?:/i.test(x.source)?[{label:'Product / Datasheet',url:x.source}]:[],category:categorize([x.category,x.product,x.model].join(' · '))}));
+    const secondary=(r.bom||[]).map((x,i)=>({id:'bom-'+i,source:'generic',vendor:'',product:x.item,qty:String(x.qty??''),row:[x.category,x.item].join(' · '),links:[],category:categorize([x.category,x.item].join(' · '))}));
+    const seen=new Set(primary.map(x=>x.product.toLowerCase()));
+    return [...primary,...secondary.filter(x=>!seen.has(x.product.toLowerCase()))];
+  }
   const receipt=findTable(/제품.*매칭.*영수증|product.*match.*receipt|product.*receipt|製品.*マッチ|产品.*匹配|produkt.*matching/i);
   const generic=findTable(/generic\s*bom|일반\s*bom|범용\s*bom|汎用.*bom|通用.*bom/i);
   const primary=rowItems(receipt,'receipt'),secondary=rowItems(generic,'generic');
@@ -174,11 +181,12 @@ function itemHtml(x){
 }
 function modal(){
   let m=document.getElementById('supply-chain-modal');if(m)return m;
-  m=document.createElement('div');m.id='supply-chain-modal';m.hidden=true;
+  m=document.createElement('div');m.id='supply-chain-modal';m.hidden=true;m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','Supply Chain');
   m.innerHTML='<div class="sc-shell"><div class="sc-top"><div><h2 class="sc-title"></h2><p class="sc-sub"></p></div><div class="sc-top-actions"><button type="button" class="sc-refresh"></button><button type="button" class="sc-close">×</button></div></div><div class="sc-body"></div><div class="sc-foot">v'+VERSION+' · Generated from the current on-screen BOM / product-match result</div></div>';
   document.body.appendChild(m);
-  m.querySelector('.sc-close').onclick=()=>m.hidden=true;
-  m.addEventListener('click',e=>{if(e.target===m)m.hidden=true});
+  m.querySelector('.sc-close').onclick=close;
+  m.querySelector('.sc-close').setAttribute('aria-label',tr().close);
+  m.addEventListener('click',e=>{if(e.target===m)close()});
   m.querySelector('.sc-refresh').onclick=render;
   return m;
 }
@@ -187,23 +195,25 @@ function render(){
   m.querySelector('.sc-title').textContent=t.title;
   m.querySelector('.sc-sub').textContent=t.sub;
   m.querySelector('.sc-refresh').textContent=t.refresh;
-  if(!items.length){m.querySelector('.sc-body').innerHTML='<div class="sc-empty">'+t.need+'</div>';return}
+  
   const groups={};for(const k of Object.keys(t.cats))groups[k]=[];
   items.forEach(x=>(groups[x.category]||(groups[x.category]=[])).push(x));
   const vendorCount=new Set(items.map(x=>x.vendor).filter(Boolean)).size;
   const center='<section class="sc-center"><div class="sc-center-icon">DC</div><h3>'+t.center+'</h3><div class="sc-center-stat"><b>'+items.length+'</b> '+t.used+'</div><div class="sc-center-stat"><b>'+vendorCount+'</b> Vendors</div></section>';
   const order=['compute','cpu','network','optical','power','cooling','rack','storage','facility'];
-  const cards=order.map(k=>{
+  const cards=order.filter(k=>selectedCategory==='all'||k===selectedCategory).map(k=>{
     const arr=groups[k]||[];
-    const body=(arr.length?arr.slice(0,7).map(itemHtml).join('')+' '+(arr.length>7?'<div class="sc-more">+'+(arr.length-7)+' more</div>':''):'<div class="sc-none">현재 BOM 선택 업체 없음</div>')+relatedHtml(k,arr);
+    const body=(arr.length?arr.map(itemHtml).join(''):'<div class="sc-none">현재 BOM 선택 업체 없음</div>')+relatedHtml(k,arr);
     return'<section class="sc-card sc-'+k+'"><div class="sc-cat-head"><span class="sc-dot"></span><h3>'+esc(t.cats[k])+'</h3><span class="sc-count">'+arr.length+' used</span></div>'+body+'</section>';
   }).join('');
-  m.querySelector('.sc-body').innerHTML='<div class="sc-map">'+center+cards+'</div>';
+  m.querySelector('.sc-body').innerHTML='<nav class="sc-filters" aria-label="부품별 업체"><button type="button" data-category="all" aria-pressed="'+(selectedCategory==='all')+'">전체</button>'+order.map(k=>'<button type="button" data-category="'+k+'" aria-pressed="'+(selectedCategory===k)+'">'+esc(t.cats[k])+'</button>').join('')+'</nav>'+(window.DCDesignStale?'<p class="sc-stale">입력값 변경됨 · BOM 수량은 이전 계산 기준입니다.</p>':'')+'<div class="sc-map'+(selectedCategory!=='all'?' sc-single':'')+'">'+(selectedCategory==='all'?center:'')+cards+'</div>';
+  m.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{selectedCategory=b.dataset.category;render();m.querySelector('[data-category="'+selectedCategory+'"]')?.focus();});
 }
-function open(){const items=collect();if(!items.length&&!document.querySelector('#mGpu,#mComputeRacks,#mLeafs,#mSpines')){alert(tr().need);return}render();modal().hidden=false}
+function close(){const m=document.getElementById('supply-chain-modal');if(m)m.hidden=true;returnFocus?.focus();}
+function open(){returnFocus=document.activeElement;render();modal().hidden=false;modal().querySelector('.sc-close').focus();}
 function mount(){
   if(document.getElementById('supply-chain-btn'))return true;
-  const calc=findCalc();if(!calc||!calc.parentNode)return false;
+  const calc=document.getElementById('run')||findCalc();if(!calc||!calc.parentNode)return false;
   const host=document.createElement('span');host.id='supply-chain-inline-host';
   const b=document.createElement('button');b.type='button';b.id='supply-chain-btn';b.textContent=tr().button;b.title='BOM 설계에 실제 사용된 업체/제품 보기';b.onclick=open;host.appendChild(b);
   calc.insertAdjacentElement('afterend',host);
@@ -211,6 +221,9 @@ function mount(){
 }
 function localize(){const b=document.getElementById('supply-chain-btn');if(b)b.textContent=tr().button;const m=document.getElementById('supply-chain-modal');if(m&&!m.hidden)render()}
 function start(){
+  mount();
+  document.addEventListener('keydown',e=>{const m=document.getElementById('supply-chain-modal');if(!m||m.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const a=[...m.querySelectorAll('button,a[href]')],first=a[0],last=a[a.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  document.addEventListener('dc:design',()=>{localize();enrichProductReceipt();});
   let attempts=0;const boot=setInterval(()=>{attempts++;const mounted=mount();const enriched=enrichProductReceipt();if((mounted&&enriched)||attempts>24)clearInterval(boot)},500);
   document.addEventListener('click',e=>{const q=e.target&&e.target.closest&&e.target.closest('[data-lang],[data-language],button,a,[role="button"]');if(q)setTimeout(()=>{localize();enrichProductReceipt()},50)},true);
   document.addEventListener('change',()=>setTimeout(()=>{localize();enrichProductReceipt()},30),true);

@@ -10,3 +10,8 @@
 .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.kpi .v{font-size:clamp(18px,1.45vw,21px);overflow-wrap:anywhere}
 @media(max-width:980px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:520px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+#kpis.kpis{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+#kpis .kpi:last-child .v{font-size:17px}
+@media(max-width:980px){#kpis.kpis{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:520px){#kpis.kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}}

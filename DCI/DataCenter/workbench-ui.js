@@ -8,6 +8,7 @@
   function build() {
     const main = document.querySelector('main.grid'), form = document.querySelector('.formPanel'), result = document.querySelector('.resultPanel');
     if (!main || !form || !result) return;
+    const h1=document.querySelector('header h1'),subtitle=document.querySelector('header p'),scopeNote=document.querySelector('.security span');if(h1)h1.textContent='데이터센터 케이블 설계';if(subtitle)subtitle.textContent='요구조건에서 광·전력·자재 산출까지';if(scopeNote)scopeNote.textContent='결과는 입력한 가정에 따른 계획 산출입니다. 실제 제품 호환성, 시공 경로와 LS 품목 코드는 별도 검토가 필요합니다.';
     const grid = form.querySelector(':scope > .fields'), original = [...grid.querySelectorAll(':scope > label')];
     const groups = [['기본 요구조건',['targetGPU','systemId','topology','fabricProtocol','procurementTier']],['Fabric·포트 정책',['podLeafLimit','targetPodEgress']],['랙·냉각 한도',['rackRU','rackPowerKw','rackCoolingKw','coolingMode']],['배선 구간',['serverDistanceM','leafSpineDistanceM','serverCabling','leafSpineCabling','trunkFiberCount','sparePct']]];
     grid.replaceChildren();
@@ -28,6 +29,7 @@
     const detailLabels={facilityEnabled:'UPS·발전기·변압기 산정',facilityRedundancy:'시설 이중화',storageEnabled:'스토리지 포함',storageCapacityTb:'스토리지 용량 (TB)',storageProtocol:'스토리지 프로토콜',storageEndpointPorts:'스토리지 종단 포트',enterpriseRackEnabled:'운영 보조장비 포함',firewallQty:'방화벽 수량',routerQty:'라우터 수량',loadBalancerQty:'로드밸런서 수량',kvmQty:'KVM 수량',nasQty:'NAS 수량'};
     for(const [id,text] of Object.entries(detailLabels)){const label=$(id)?.closest('label');if(label){const span=label.querySelector('span');if(span)span.textContent=text;}}
     for(const [id,map] of Object.entries({procurementTier:{premium:'성능 우선',balanced:'균형',value:'비용 우선'},coolingMode:{auto:'자동 · 서버 공랭 유지',air:'공랭', 'rear-door':'후면 도어 열교환기',dlc:'직접 액체 냉각',immersion:'액침 냉각'},serverCabling:{structured:'구조화 배선',p2p:'점대점'},leafSpineCabling:{structured:'구조화 배선',p2p:'점대점'}})){for(const opt of $(id)?.options||[])if(map[opt.value])opt.textContent=map[opt.value];}
+    for(const [id,map] of Object.entries({topology:{clos3:'3단 Clos',single:'단일 ToR',dual:'이중 ToR'},systemId:{custom:'사용자 지정 서버 사양'}})){for(const opt of $(id)?.options||[])if(map[opt.value])opt.textContent=map[opt.value];}
     const move=(id,target,title)=>{const el=$(id)?.closest('section.panel');if(el){el.hidden=false;if(title&&el.querySelector('h2'))el.querySelector('h2').textContent=title;target.append(el)}};
     if($('engineering-audit'))panels.evidence.append($('engineering-audit'));move('fabricDetail',panels.optical,'포트·광 예산 감사');move('coverageGrid',panels.evidence,'설계 범위와 미포함 항목');move('productBody',panels.evidence,'계산 서버 프로파일');move('opticalGuideCards',panels.optical,'광 인터커넥트 참고');move('coolingSvg',panels.power);move('rackSvg',panels.power);
     const oldBom=$('bomBody')?.closest('section.panel');if(oldBom)oldBom.hidden=true;

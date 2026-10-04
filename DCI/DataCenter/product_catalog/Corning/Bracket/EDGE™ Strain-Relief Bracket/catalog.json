@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE™ Strain-Relief Bracket",
+  "displayName": "EDGE™ Strain-Relief Bracket",
+  "description": "External trunk strain-relief brackets for EDGE housings.",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Trunk Capacity"
+  ],
+  "products": {
+    "EDGE-CDF-RJ04-BKT": {
+      "name": "EDGE-CDF-RJ04-BKT",
+      "description": "CDF strain-relief bracket with 4 EDGE Solutions clip parking positions.",
+      "specs": {
+        "Trunk Capacity": "8 (size 1 or 2, double stack cradle)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Accessories/EDGE%E2%84%A2-Strain-Relief-Bracket/p/EDGE-CDF-RJ04-BKT"
+    },
+    "EDGE-CDF-RJ08-BKT": {
+      "name": "EDGE-CDF-RJ08-BKT",
+      "description": "CDF strain-relief bracket with 8 EDGE Solutions clip parking positions.",
+      "specs": {
+        "Trunk Capacity": "16 (size 1 or 2, double stack cradle)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Accessories/EDGE%E2%84%A2-Strain-Relief-Bracket/p/EDGE-CDF-RJ08-BKT"
+    },
+    "EDGE-CDF-RJ12-BKT": {
+      "name": "EDGE-CDF-RJ12-BKT",
+      "description": "CDF strain-relief bracket with 12 EDGE Solutions clip parking positions.",
+      "specs": {
+        "Trunk Capacity": "24 (size 1 or 2, double stack cradle)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Accessories/EDGE%E2%84%A2-Strain-Relief-Bracket/p/EDGE-CDF-RJ12-BKT"
+    },
+    "EDGE-EMOD-STRN": {
+      "name": "EDGE-EMOD-STRN",
+      "description": "1U rack-mount EDGE fixed-module strain-relief bracket; Corning does not publish a Trunk Capacity value for this model.",
+      "specs": {
+        "Trunk Capacity": "—"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Accessories/EDGE%E2%84%A2-Strain-Relief-Bracket/p/EDGE-EMOD-STRN"
+    }
+  }
+}

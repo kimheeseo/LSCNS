@@ -92,7 +92,7 @@
   }
 
   function cleanLabel(value) {
-    return String(value || '').replace(/^Connecttor$/i, 'Connector');
+    return String(value || '').replace(/^Connecttor$/i, 'Connector').replace(/^USConnec$/i, 'US Conec');
   }
 
   function button(label, type, selected) {
@@ -237,7 +237,7 @@
     const keys = specKeys && specKeys.length ? specKeys : Object.keys(d.specs);
     const rows = keys.map(key => [key, d.specs[key] ?? '—']);
     return '<article class="catalog-card" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
-      '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(state.company) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(d.file.size)) + '</span></div>' +
+      '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(cleanLabel(state.company)) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(d.file.size)) + '</span></div>' +
       (d.description ? '<p class="catalog-description">' + esc(d.description) + '</p>' : '') +
       (rows.length ? '<dl class="catalog-specs">' + rows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
         '<div class="catalog-no-spec">공통 비교 스펙 미등록 · catalog.json에 comparisonFields를 추가해야 합니다.</div>') +

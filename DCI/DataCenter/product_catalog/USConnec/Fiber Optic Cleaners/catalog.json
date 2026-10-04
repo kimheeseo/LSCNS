@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "Fiber Optic Cleaners",
+  "displayName": "Fiber Optic Cleaners",
+  "description": "Fiber-optic connector cleaning solutions including IBC™ push cleaners, refillable cassettes, stick cleaners and cleaning fluid.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.usconec.com/cleaners/cleaning-tools",
+  "comparisonFields": [
+    "Style",
+    "Connector Type",
+    "Number of Cleans",
+    "Key Feature"
+  ],
+  "products": {
+    "C12910": {
+      "name": "C12910 · IBC™ H125",
+      "description": "Harsh-environment 1.25 mm cleaner for LC/MU-class connector systems and rugged optical interfaces.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "LC, MU / harsh-environment 1.25 mm",
+        "Number of Cleans": "525+",
+        "Key Feature": "In-situ or unmated cleaning; anti-static non-fraying cloth"
+      }
+    },
+    "C12926": {
+      "name": "C12926 · IBC™ M20",
+      "description": "Cleaner for harsh-environment 2.0 mm connector systems including SMPTE and MIL-PRF interfaces.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "SMPTE 304M/358M, MIL-PRF 28876",
+        "Number of Cleans": "525+",
+        "Key Feature": "Harsh-environment 2.0 mm cleaning"
+      }
+    },
+    "C13309": {
+      "name": "C13309 · IBC™ M16",
+      "description": "Cleaner for harsh-environment 1.6 mm connector systems such as M38999.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "M38999",
+        "Number of Cleans": "525+",
+        "Key Feature": "Harsh-environment 1.6 mm cleaning"
+      }
+    },
+    "C13310": {
+      "name": "C13310 · IBC™ M250",
+      "description": "2.5 mm-class cleaner for SC/ST/FC/TFOCA with an approximately 1.8 mm cleaning region.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "SC, ST, FC, TFOCA",
+        "Number of Cleans": "525+",
+        "Key Feature": "1.8 mm cleaning region"
+      }
+    },
+    "C13964": {
+      "name": "C13964 · IBC™ Zi25",
+      "description": "Compact 2.5 mm cleaner for SC/ST/FC/E2000 with retractable zipcord.",
+      "specs": {
+        "Style": "Thumbwheel / compact port cleaner",
+        "Connector Type": "SC, ST, FC, E2000",
+        "Number of Cleans": "525+",
+        "Key Feature": "Compact housing with retractable zipcord"
+      }
+    },
+    "C13965": {
+      "name": "C13965 · IBC™ Zi125",
+      "description": "Compact 1.25 mm cleaner for LC/MU with retractable zipcord.",
+      "specs": {
+        "Style": "Thumbwheel / compact port cleaner",
+        "Connector Type": "LC, MU",
+        "Number of Cleans": "525+",
+        "Key Feature": "Compact housing with retractable zipcord"
+      }
+    },
+    "C14303": {
+      "name": "C14303 · IBC™ LC²",
+      "description": "Dual-ferrule endface cleaner for LC duplex connectors.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "Duplex LC",
+        "Number of Cleans": "525+ connectors",
+        "Key Feature": "Cleans both LC duplex ferrules; 1,050+ endfaces"
+      }
+    },
+    "C14554": {
+      "name": "C14554 · NEOCLEAN-PZ Cassette",
+      "description": "Refillable cassette cleaner for PRIZM® LightTurn® connectors using anti-static microfiber fabric.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "PRIZM® LightTurn®",
+        "Number of Cleans": "500+",
+        "Key Feature": "Works with bare ferrules, ribbon and jacketed assemblies"
+      }
+    },
+    "C14555": {
+      "name": "C14555 · NEOCLEAN-PZ Refill",
+      "description": "Replacement refill for the NEOCLEAN-PZ PRIZM® LightTurn® cassette cleaner.",
+      "specs": {
+        "Style": "Cassette Refill",
+        "Connector Type": "PRIZM® LightTurn®",
+        "Number of Cleans": "500+",
+        "Key Feature": "Replacement microfiber cleaning cassette"
+      }
+    },
+    "C14649": {
+      "name": "C14649 · IBC™ ZiA125",
+      "description": "Compact harsh-environment 1.25 mm cleaner with retractable zipcord.",
+      "specs": {
+        "Style": "Thumbwheel / compact port cleaner",
+        "Connector Type": "LC/MU-class rugged 1.25 mm systems",
+        "Number of Cleans": "525+",
+        "Key Feature": "Harsh-environment cleaning in compact format"
+      }
+    },
+    "C14703": {
+      "name": "C14703 · CLETOP Type A Blue",
+      "description": "Refillable anti-static cassette cleaner for common 2.5 mm single-fiber connector endfaces.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "SC, FC, ST, DIN, D4, E2000",
+        "Number of Cleans": "400+",
+        "Key Feature": "Refillable blue-tape CLETOP Type A"
+      }
+    },
+    "C14707": {
+      "name": "C14707 · CLETOP-S Type A Blue",
+      "description": "Refillable CLETOP-S cartridge cleaner for 2.5 mm-class connector endfaces.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "SC, FC, ST, DIN, D4, E2000",
+        "Number of Cleans": "400+",
+        "Key Feature": "Compact CLETOP-S cartridge format"
+      }
+    },
+    "C14709": {
+      "name": "C14709 · CLETOP Blue Tape Refill",
+      "description": "Blue replacement tape for CLETOP Type A/B cleaners.",
+      "specs": {
+        "Style": "Cassette Refill",
+        "Connector Type": "Refill for CLETOP 14703/14704",
+        "Number of Cleans": "400+",
+        "Key Feature": "Blue anti-static replacement tape"
+      }
+    },
+    "C14711": {
+      "name": "C14711 · CLETOP-S Blue Refill",
+      "description": "Blue replacement cartridge for CLETOP-S cleaners.",
+      "specs": {
+        "Style": "Cassette Refill",
+        "Connector Type": "CLETOP-S refill",
+        "Number of Cleans": "400+",
+        "Key Feature": "Blue anti-static replacement cartridge"
+      }
+    },
+    "C14829": {
+      "name": "C14829 · IBC™ GA16",
+      "description": "Compact cleaner for Glenair/M38999-type harsh-environment 1.6 mm systems.",
+      "specs": {
+        "Style": "Thumbwheel / compact port cleaner",
+        "Connector Type": "M38999",
+        "Number of Cleans": "525+",
+        "Key Feature": "Cleans through Glenair M38999 test adapters"
+      }
+    },
+    "C15523": {
+      "name": "C15523 · IBC™ G1000",
+      "description": "Compact cleaner for Glenair Mighty Mouse 20 series and MIL/AERO 1.0 mm connectors.",
+      "specs": {
+        "Style": "Thumbwheel / compact port cleaner",
+        "Connector Type": "Glenair Mighty Mouse 20 Series",
+        "Number of Cleans": "525+",
+        "Key Feature": "1.0 mm MIL/AERO cleaning; retractable zipcord"
+      }
+    },
+    "C15546": {
+      "name": "C15546 · IBC™ MT38 II",
+      "description": "Multi-fiber cleaner for MT-based D38999 applications; used with special adapters.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MT-based D38999",
+        "Number of Cleans": "525+",
+        "Key Feature": "Harsh-environment MT cleaning with adapters"
+      }
+    },
+    "C15549": {
+      "name": "C15549 · IBC™ HQMT",
+      "description": "Cleaner for Q-ODC-12/24 and other MT-based harsh-environment connectors.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "Q-ODC-12/24",
+        "Number of Cleans": "525+",
+        "Key Feature": "MT-based harsh-environment cleaning"
+      }
+    },
+    "C15639": {
+      "name": "C15639 · IBC™ OptiTip® II",
+      "description": "Cleaner for OptiTip® connectors; uses an attached lanyard of adapters.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "OptiTip®",
+        "Number of Cleans": "525+",
+        "Key Feature": "OptiTip®-specific adapter system"
+      }
+    },
+    "C15990": {
+      "name": "C15990 · PRIZM® MT / MXC® Cleaner",
+      "description": "One-push cleaner for PRIZM® MT ferrules in MXC® plugs, receptacles and backplane interfaces.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MXC® / PRIZM® MT",
+        "Number of Cleans": "150+",
+        "Key Feature": "Cleans lensed PRIZM® MT ferrules"
+      }
+    },
+    "C16899": {
+      "name": "C16899 · PRIZM® MTP® Cleaner",
+      "description": "Cleaner for MTP® connectors using PRIZM® MT ferrules, including unmated and bulkhead-loaded cables.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MTP® with PRIZM® MT",
+        "Number of Cleans": "150+",
+        "Key Feature": "PRIZM® MT lensed-ferrule cleaning"
+      }
+    },
+    "C17669": {
+      "name": "C17669 · IBC™ MTP®-16",
+      "description": "Multi-fiber cleaner for MTP®-16 / TIA-604-5 MPO connectors.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MTP®-16 / MPO-16",
+        "Number of Cleans": "525+",
+        "Key Feature": "Cleans flat and angled MT-16 ferrules"
+      }
+    },
+    "C21098": {
+      "name": "C21098 · IBC™ Eliminator™ Cleaning Fluid",
+      "description": "Non-flammable, low-odor fiber endface cleaning fluid that dries quickly without residue.",
+      "specs": {
+        "Style": "Solvent",
+        "Connector Type": "All / fiber preparation",
+        "Number of Cleans": "650+ individual cleans",
+        "Key Feature": "Dissolves stubborn debris and reduces static-borne contamination"
+      }
+    },
+    "C22046": {
+      "name": "C22046 · IBC™ MDC",
+      "description": "Dual-ferrule cleaner for VSFF MDC connectors.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MDC",
+        "Number of Cleans": "525 MDC connectors",
+        "Key Feature": "Cleans both MDC ferrules; 1,050+ ferrule endfaces"
+      }
+    },
+    "C22277": {
+      "name": "C22277 · IBC™ QM125",
+      "description": "Cleaner for harsh-environment 1.25 mm Q-ODC-2 Mini connector systems.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "Q-ODC-2 Mini",
+        "Number of Cleans": "525+",
+        "Key Feature": "Harsh-environment 1.25 mm connector cleaning"
+      }
+    },
+    "C24366": {
+      "name": "C24366 · IBC™ LC PLUS",
+      "description": "LC cleaner with a nozzle that cleans both accessible connectors and endfaces through bulkhead adapters without changing adapters.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "LC",
+        "Number of Cleans": "775+",
+        "Key Feature": "No-adapter-change PLUS nozzle design"
+      }
+    },
+    "C24367": {
+      "name": "C24367 · IBC™ SC PLUS",
+      "description": "SC cleaner with a nozzle that cleans accessible connectors and behind-bulkhead endfaces without changing adapters.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "SC",
+        "Number of Cleans": "775+",
+        "Key Feature": "No-adapter-change PLUS nozzle design"
+      }
+    },
+    "C24981": {
+      "name": "C24981 · NEOCLEAN S 1.25 mm Stick",
+      "description": "1.25 mm stick cleaner for hard-to-reach optical interfaces; notched for length customization.",
+      "specs": {
+        "Style": "Stick",
+        "Connector Type": "1.25 mm interfaces",
+        "Number of Cleans": "N/A",
+        "Key Feature": "200 sticks/case; 10/sleeve; customizable length"
+      }
+    },
+    "C25802": {
+      "name": "C25802 · IBC™ Cleaner MMC II",
+      "description": "Push cleaner designed for 12-fiber MMC Sr. / TMT-12 connector endfaces, in-hand or behind-panel.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MMC Sr. / TMT-12",
+        "Number of Cleans": "525+",
+        "Key Feature": "MMC-specific nozzle reaches dense behind-adapter connectors"
+      }
+    },
+    "C25803": {
+      "name": "C25803 · IBC™ Cleaner MMC 16 II",
+      "description": "Push cleaner designed for 16-fiber MMC-16 / TMT-16 connector endfaces.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MMC-16 / TMT-16",
+        "Number of Cleans": "525+",
+        "Key Feature": "MMC-16-specific nozzle for dense connector environments"
+      }
+    },
+    "C6232": {
+      "name": "C6232 · OPTIPOP R Refill",
+      "description": "Universal refill reel used across OPTIPOP R refillable cassette cleaners.",
+      "specs": {
+        "Style": "Cassette Refill",
+        "Connector Type": "OPTIPOP R family",
+        "Number of Cleans": "400+",
+        "Key Feature": "One refill reel format across multiple OPTIPOP R cassette versions"
+      }
+    },
+    "C6338": {
+      "name": "C6338 · OPTIPOP R Single Slot",
+      "description": "Refillable cassette for SC/ST/FC/E2000/LC/MU and female MPO/MTRJ/MMC-TMT interfaces.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "SC, ST, FC, E2000, LC, MU, female MPO/MTRJ/MMC-TMT",
+        "Number of Cleans": "400+",
+        "Key Feature": "Single-slot cassette; common replacement reel"
+      }
+    },
+    "C6339": {
+      "name": "C6339 · OPTIPOP R MPO Male",
+      "description": "Refillable cassette for male MPO and male MMC/TMT connectors with guide pins.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "Male MPO / male MMC-TMT",
+        "Number of Cleans": "400+",
+        "Key Feature": "Guide-pin compatible MPO/MMC cleaning"
+      }
+    },
+    "C6340": {
+      "name": "C6340 · OPTIPOP R MTRJ Male",
+      "description": "Refillable cassette cleaner for male MTRJ connectors with guide pins.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "Male MTRJ",
+        "Number of Cleans": "400+",
+        "Key Feature": "Guide-pin compatible MTRJ cleaning"
+      }
+    },
+    "C6437": {
+      "name": "C6437 · OPTIPOP R Two Slots",
+      "description": "Two-slot refillable cassette cleaner for LC/MU connector endfaces.",
+      "specs": {
+        "Style": "Cassette",
+        "Connector Type": "LC, MU",
+        "Number of Cleans": "400+",
+        "Key Feature": "Two-slot cassette; common replacement reel"
+      }
+    },
+    "C7104": {
+      "name": "C7104 · IBC™ MPO II",
+      "description": "Multi-fiber cleaner for MPO connectors and MT ferrules.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "MPO",
+        "Number of Cleans": "525+",
+        "Key Feature": "Cleans flat and angled MT ferrules"
+      }
+    },
+    "C8037": {
+      "name": "C8037 · IBC™ HBMT",
+      "description": "Multi-fiber cleaner for Molex HBMT, ARRAY and MT/MPO-style interfaces; adapters available.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "HBMT / ARRAY / MT / MPO",
+        "Number of Cleans": "525+",
+        "Key Feature": "Supports multiple HBMT and array connector geometries"
+      }
+    },
+    "C9392": {
+      "name": "C9392 · IBC™ SC",
+      "description": "Popular 2.5 mm single-fiber cleaner for SC/ST/FC/E2000.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "SC, ST, FC, E2000",
+        "Number of Cleans": "525+",
+        "Key Feature": "General-purpose 2.5 mm connector cleaner"
+      }
+    },
+    "C9393": {
+      "name": "C9393 · IBC™ LC",
+      "description": "Popular 1.25 mm single-fiber cleaner for LC/MU.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "LC, MU",
+        "Number of Cleans": "525+",
+        "Key Feature": "General-purpose 1.25 mm connector cleaner"
+      }
+    },
+    "C9394": {
+      "name": "C9394 · IBC™ HC OptiTap®",
+      "description": "Cleaner for OptiTap® and OptiTap®-compatible FTTx connectors.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "OptiTap®",
+        "Number of Cleans": "525+",
+        "Key Feature": "FTTx hardened connector cleaning"
+      }
+    },
+    "C9959": {
+      "name": "C9959 · IBC™ HBMT EN",
+      "description": "Extended-nozzle HBMT cleaner for Molex HBMT/ARRAY/MT/MPO interfaces.",
+      "specs": {
+        "Style": "Push Style Port Cleaner",
+        "Connector Type": "HBMT / ARRAY / MT / MPO",
+        "Number of Cleans": "525+",
+        "Key Feature": "224 mm extended nozzle for harder-to-reach interfaces"
+      }
+    }
+  }
+}

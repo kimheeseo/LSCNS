@@ -3,86 +3,47 @@
   "company": "Amphenol",
   "category": "Power Distribution Panels",
   "displayName": "Power Distribution Panels",
-  "description": "Amphenol Network Solutions power distribution and circuit protection panels listed in the IT Datacom market catalog for data center and telecom equipment power distribution.",
+  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Power Distribution Panels. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?pagenumber=2"
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1"
   ],
-  "sourceCount": 5,
-  "storageMode": "metadata only; official product pages are linked, PDF files are not uploaded",
+  "sourceCount": 2,
+  "sourceTotal": 665,
+  "storageMode": "metadata only; official listing URLs retained",
   "comparisonFields": [
-    "Product Area",
-    "Form Factor",
-    "Capacity",
-    "Key Feature",
+    "Product Type",
+    "Key Spec",
     "Application",
-    "Source"
+    "Amphenol Business",
+    "Source Page"
   ],
   "products": {
-    "1ru-125a-dual-feed-gmt-fuse-panel": {
-      "name": "1RU 125A Dual-Feed GMT Fuse Panel",
-      "description": "125A dual-feed 1RU fuse panel with 10/10 or 15/15 GMT fuse positions and up to 20A GMT fuse support.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Area": "Fuse panel",
-        "Form Factor": "1RU",
-        "Capacity": "125A dual-feed",
-        "Key Feature": "GMT fuse positions",
-        "Application": "Data center / telecom rack power distribution and circuit protection",
-        "Source": "Amphenol IT Datacom market page"
-      }
-    },
-    "1ru-240a-dual-feed-9-9-tpa-gmt-fuse-panel": {
-      "name": "1RU 240A Dual-Feed 9/9 TPA/GMT Fuse Panel",
-      "description": "240A dual-feed 1RU combination fuse panel with GMT and TPA fuse/circuit breaker positions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Area": "Fuse panel",
-        "Form Factor": "1RU",
-        "Capacity": "240A dual-feed",
-        "Key Feature": "GMT + TPA positions",
-        "Application": "Data center / telecom rack power distribution and circuit protection",
-        "Source": "Amphenol IT Datacom market page"
-      }
-    },
-    "1ru-250a-dual-feed-8-8-tpa-fuse-panel": {
-      "name": "1RU 250A Dual-Feed 8/8 TPA Fuse Panel",
-      "description": "250A dual-feed 1RU panel with 8/8 TPA fuse positions supporting up to 50A TPA fuses.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Area": "Fuse panel",
-        "Form Factor": "1RU",
-        "Capacity": "250A dual-feed",
-        "Key Feature": "TPA fuse positions",
-        "Application": "Data center / telecom rack power distribution and circuit protection",
-        "Source": "Amphenol IT Datacom market page"
-      }
-    },
     "1ru-325a-dual-feed-8-8-circuit-breaker-panel": {
-      "name": "1RU 325A Dual-Feed 8/8 Circuit Breaker Panel",
-      "description": "325A dual-feed 1RU circuit breaker panel with 8/8 breaker positions supporting up to 60A breakers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "name": "1RU 325A Dual-Feed, 8/8 Circuit Breaker Panel",
+      "description": "The 300CB08/nrg300CB08 circuit breaker panels are 325A dual-feed and provide 8/8 breaker positions. Engineered into a standard 1RU footprint, each circuit supports up to 60A breakers in each position, providing ample capacity for distribution to a broad range of components. Advanced circuit-level monitoring features are available as an option.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
       "specs": {
-        "Product Area": "Circuit breaker panel",
-        "Form Factor": "1RU",
-        "Capacity": "325A dual-feed",
-        "Key Feature": "8/8 breaker positions",
-        "Application": "Data center / telecom rack power distribution and circuit protection",
-        "Source": "Amphenol IT Datacom market page"
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.1"
       }
     },
     "1ru-circuit-breakers": {
       "name": "1RU Circuit Breakers",
-      "description": "Single-pole standard-delay circuit breakers for 1RU panels, supporting DC applications from 5A to 60A.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Engineered for use in 1RU circuit breaker panels, these single-pole standard delay circuit breakers provide reliable circuit protection for DC applications from 5A to 60A. In addition to providing conventional overcurrent protection, each breaker can be used as an on-off switch.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
       "specs": {
-        "Product Area": "Circuit breaker",
-        "Form Factor": "1RU panel component",
-        "Capacity": "5A-60A",
-        "Key Feature": "DC circuit protection",
-        "Application": "Data center / telecom rack power distribution and circuit protection",
-        "Source": "Amphenol IT Datacom market page"
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol QSFP DD to QSFP DD 200G Active Optical Cable assemblies increase the number of lanes from 4 to 8 and double the port density as compared to 100G QSFP28",
+        "Source Page": "IT Datacom p.1"
       }
     }
   }

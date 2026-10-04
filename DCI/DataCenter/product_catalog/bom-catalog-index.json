@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "checked": "2026-10-05",
   "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트)",
-  "totalStructuredCatalogs": 123,
+  "totalStructuredCatalogs": 143,
   "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. 인터페이스, 심수, fiber type, connector, 거리/속도, polarity/gender/jacket 조건을 점수화하며, 조건이 불충분하거나 제품군만 확인되는 경우 RFQ로 유지한다.",
   "roles": {
     "compute": [
@@ -18,6 +18,7 @@
       "NVIDIA/Networking/catalog.json"
     ],
     "optic": [
+      "Amphenol/Optical Transceivers and AOC/catalog.json",
       "YOFC/Transceiver/1.25G/catalog.json",
       "YOFC/Transceiver/100G/catalog.json",
       "YOFC/Transceiver/10G SFP+/catalog.json",
@@ -32,6 +33,7 @@
       "YOFC/Transceiver/PON Series/catalog.json"
     ],
     "trunk": [
+      "Amphenol/High-Speed Cable Assemblies/catalog.json",
       "Corning/Trunk/EDGE™ Armored Trunk/catalog.json",
       "Corning/Trunk/EDGE™ MTP® Extender Trunk/catalog.json",
       "Sumitomo Electric/Cable Assemblies/Cable Assemblies/catalog.json",
@@ -39,6 +41,8 @@
       "YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json"
     ],
     "patchCord": [
+      "Amphenol/Fiber Optic Connectivity/catalog.json",
+      "Amphenol/High-Speed Cable Assemblies/catalog.json",
       "Corning/Jumper/12-Fiber MTP® PRO Jumper/catalog.json",
       "Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex/catalog.json",
       "Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper/catalog.json",
@@ -93,6 +97,16 @@
       "ZTT/Data Center Infrastructure/High-density ODF/catalog.json"
     ],
     "connector": [
+      "Amphenol/Backplane and Orthogonal Connectors/catalog.json",
+      "Amphenol/Ethernet USB and External I-O/catalog.json",
+      "Amphenol/Fiber Optic Connectivity/catalog.json",
+      "Amphenol/High-Speed Board Connectors/catalog.json",
+      "Amphenol/Memory and Card Edge Connectors/catalog.json",
+      "Amphenol/RF and Coaxial Connectivity/catalog.json",
+      "Amphenol/Rugged Circular and D-Sub/catalog.json",
+      "Amphenol/Storage and PCIe-SAS Interconnects/catalog.json",
+      "Amphenol/Terminal Blocks and General Interconnect/catalog.json",
+      "Amphenol/Wire-to-Board and FFC-FPC/catalog.json",
       "SENKO/Field Connectors/catalog.json",
       "SENKO/Legacy Connectors/catalog.json",
       "SENKO/MPO-MT Connectors/catalog.json",
@@ -110,6 +124,7 @@
       "USConnec/MTP Connectors/MTP-16/catalog.json"
     ],
     "adapter": [
+      "Amphenol/Fiber Optic Connectivity/catalog.json",
       "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC/catalog.json",
       "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®/catalog.json",
       "Corning/Panel/CCH Panel/CCH Panel, LC Adapters/catalog.json",
@@ -125,6 +140,8 @@
       "ZTT/Data Center Infrastructure/IT Cabinet/catalog.json"
     ],
     "power": [
+      "Amphenol/Power Connectors and Busbar/catalog.json",
+      "Amphenol/Power Distribution Panels/catalog.json",
       "Furukawa Electric/Power Cable/600V EM-FCC(T)/catalog.json",
       "Furukawa Electric/Power Cable/EM-LMFC/catalog.json",
       "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json"
@@ -138,5 +155,11 @@
     "CDU": "In-row air conditioner는 CDU와 동일 제품이 아니므로 자동 대체하지 않음",
     "UPS/Generator/Transformer": "현재 structured catalog에 해당 공식 제품군 미등록",
     "Storage system": "현재 structured catalog에 storage array official family 미등록"
+  },
+  "amphenolItDatacom": {
+    "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+    "sourceTotal": 665,
+    "categoryCount": 15,
+    "mode": "All official IT Datacom listing products indexed; tool-side category classification"
   }
 }

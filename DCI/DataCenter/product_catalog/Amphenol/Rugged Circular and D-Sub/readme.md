@@ -1,7 +1,7 @@
-# Amphenol Optical Transceivers and AOC
+# Amphenol Rugged Circular and D-Sub
 
 - Official market: https://www.amphenol.com/markets/it-datacom
-- Products in this tool category: 31
+- Products in this tool category: 50
 - Official IT Datacom total at sync: 665
 - Reviewed: 2026-10-05
 

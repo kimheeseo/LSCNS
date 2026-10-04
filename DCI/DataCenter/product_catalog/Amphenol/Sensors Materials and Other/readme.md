@@ -1,7 +1,7 @@
-# Amphenol Optical Transceivers and AOC
+# Amphenol Sensors Materials and Other
 
 - Official market: https://www.amphenol.com/markets/it-datacom
-- Products in this tool category: 31
+- Products in this tool category: 58
 - Official IT Datacom total at sync: 665
 - Reviewed: 2026-10-05
 

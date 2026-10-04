@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "Memory and Card Edge Connectors",
+  "displayName": "Memory and Card Edge Connectors",
+  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Memory and Card Edge Connectors. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+  "sourceUrls": [
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8"
+  ],
+  "sourceCount": 15,
+  "sourceTotal": 665,
+  "storageMode": "metadata only; official listing URLs retained",
+  "comparisonFields": [
+    "Product Type",
+    "Key Spec",
+    "Application",
+    "Amphenol Business",
+    "Source Page"
+  ],
+  "products": {
+    "ddr2-so-dimm-memory-module-sockets": {
+      "name": "DDR2 SO-DIMM Memory Module Sockets",
+      "description": "DDR2 SO-DIMM sockets are designed to accept modules that conform to JEDEC MO-224. The sockets come with a small form factor which allows fitting into smaller chassis, aiding the development of smaller & lighter notebooks. It comes in two voltage options with different key-ID to prevent incorrect mating. It operates at a higher speed & bandwidth lowers power consumption.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr3-memory-module-sockets": {
+      "name": "DDR3 Memory Module Sockets",
+      "description": "DDR3 vertical DIMM sockets are designed to accept 240 position DDR3 memory modules that conform to JEDEC M0-269. Low-resistance contacts support the use of RDIMM (registered DIMM), which helps to further reduce power consumption in data center hardware.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Data center",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr4-memory-module-sockets": {
+      "name": "DDR4 Memory Module Sockets",
+      "description": "Vertical DDR4 DIMM sockets from Amphenol provide 288 contacts on 0.85mm pitch and are designed to accept DDR4 memory modules that conform to JEDEC MO-309. The DDR4 series complies with the new interface standard JEDEC POD12. It allows a module seating plane of 2.40mm and supports module variants in UDIMM, RDIMM, and LRDIMM.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr4-so-dimm-memory-module-sockets": {
+      "name": "DDR4 SO-DIMM Memory Module Sockets",
+      "description": "HIGH-SPEED HIGH-DENSITY SO-DIMM SOCKETS DDR4 SO-DIMM connectors deliver high-speed and bandwidth. Being half the size of regular DIMMs, they lower power consumption and promote better thermal management. Different key positions aid alignment and prevent mismating. 260 position SO-DIMM connectors are available in 4.00mm, 5.20mm, 8.00mm, 9.20mm height, in standard or reverse options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr4-ultra-low-profile-memory-module-sockets": {
+      "name": "DDR4 Ultra Low Profile Memory Module Sockets",
+      "description": "DDR4 Ultra Low Profile (ULP) vertical DIMM sockets provide 288 contacts on 0.85mm pitch. It facilitates convenient memory expansion in servers, workstations, desktop PCs, and embedded applications in communications and industrial equipment. With an ultra-low module seating height of 1.1mm and connector height of 13.1mm, it reduces the overall profile of the connector.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server / Industrial",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr5-lpddr5-camm2-connector": {
+      "name": "DDR5/LPDDR5 CAMM2 Connector",
+      "description": "COMPLIES TO JEDEC SO-032 SPEC The DDR5/LPDDR5 CAMM2 connector follows JEDEC standards with 644 pins/666 pins, has a pitch of 1.00x1.38mm, and a connector height of 1.0mm. It provides dual channel memory which could support higher bandwidth and can catch up all DDR5 capacities needed. This connector is developed to support lower-power DDR5 memory and does not require ground shielding.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr5-memory-module-sockets-smt": {
+      "name": "DDR5 Memory Module Sockets (SMT)",
+      "description": "COMPLIES TO NEW INTERFACE STANDARD JEDEC SO-023D AND JEDEC SO-023 The new DDR5 connector with only 287 terminals addresses the resonance from the floating RFU pin 220 which resulted in a margin delta. Both RDIMM and UDIMM versions of the new DDR5 socket are tooled and available.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr5-socamm-connector": {
+      "name": "DDR5 SOCAMM Connector",
+      "description": "LATEST MEMORY FORM FACTOR FOR AI SERVERS The LP DDR5 Small Outline Compression Attached Memory Module (SOCAMM) is designed specifically for server and data center applications. It utilizes a compression connector interface and offers all the advantages of LPCAMM DDR5 in a more optimized form factor, making it ideal for high-performance computing (HPC) and artificial intelligence (AI) servers.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Data center / Server / HPC / AI",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "ddr5-so-dimm-connectors": {
+      "name": "DDR5 SO-DIMM Connectors",
+      "description": "HIGH SPEED HIGH DENSITY SO-DIMM SOCKETS DDR5 SO-DIMM connectors deliver high-speed and bandwidth. Being half the size of regular DIMMs, they lower power consumption and promote better thermal management. 262 positions SO-DIMM connector are available in various height options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "hpce-high-power-card-edge-connector": {
+      "name": "HPCE® High Power Card Edge Connector",
+      "description": "The High Power Card Edge (HPCE®) connector is a next-generation power card edge connector for demanding applications requiring high linear current density and low power loss. HPCE offers a low profile height (7.50mm) and is based on very cost-effective and highly reliable stamped-and-formed power contact technology similar to other power solutions from Amphenol.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "micro-cool-edge-nf1-ngsff-0-50mm-connectors": {
+      "name": "Micro Cool Edge NF1/NGSFF 0.50mm Connectors",
+      "description": "Micro Cool Edge NF1/NGSFF 0.50mm is a new small form factor card edge connector designed for enterprise and data center SSD (Solid State Drive) servers. It supports NF1/NGSFF (Next Generation Small Form Factor) which can double storage capacity and enable front side service within server systems compared to the M.2 standard.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Data center / Server / Storage",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "microsd-express-connector": {
+      "name": "microSD Express Connector",
+      "description": "Micro-TCA Card Edge Connectors",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol is the first in the industry to offer card sockets for both microSD Express and Micro SD cards (UHS-I). The 17 pin microSD Express connector is capable",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "micro-tca-card-edge-connectors": {
+      "name": "Micro-TCA Card Edge Connectors",
+      "description": "FULLY COMPLIANT CONNECTOR FOR ADVANCED MC™ MODULES MicroTCA (μTCA) vertical card edge connectors provide 170 contacts on a 0.75mm pitch and enable Advanced MC™ modules to be plugged directly into a backplane. MicroTCA card edge connectors' conventional press-fit or surface mount assembly processes and connector designs require no costly hardware, resulting in low total applied cost.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "position-sensors": {
+      "name": "Position Sensors",
+      "description": "The Power Card Edge connectors are a cost-effective system that can be used for DC power output from embedded AC/DC power supplies or for power distribution between boards within an enclosure. The narrow connector body helps maximize airflow for increased cooling and is well-suited for use in 1U rack-mount servers or on power distribution boards inside 1U redundant power supply assemblies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server",
+        "Amphenol Business": "Piher provides high-accuracy position sensors engineered for harsh environments. Utilizing resistive, Hall-effect and inductive technologies, these automotive-q",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "power-card-edge": {
+      "name": "Power Card Edge",
+      "description": "The Power Card Edge connectors are a cost-effective system that can be used for DC power output from embedded AC/DC power supplies or for power distribution between boards within an enclosure. The narrow connector body helps maximize airflow for increased cooling and is well-suited for use in 1U rack-mount servers or on power distribution boards inside 1U redundant power supply assemblies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server",
+        "Amphenol Business": "Amphenol LTW's Power Series is rated up to IP68, providing a current rating range up to 80A in a variety of shell sizes. In design, the Ecomate® program meets t",
+        "Source Page": "IT Datacom p.11"
+      }
+    }
+  }
+}

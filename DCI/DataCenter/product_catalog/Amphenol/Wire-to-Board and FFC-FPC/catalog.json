@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "Wire-to-Board and FFC-FPC",
+  "displayName": "Wire-to-Board and FFC-FPC",
+  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Wire-to-Board and FFC-FPC. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+  "sourceUrls": [
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+  ],
+  "sourceCount": 34,
+  "sourceTotal": 665,
+  "storageMode": "metadata only; official listing URLs retained",
+  "comparisonFields": [
+    "Product Type",
+    "Key Spec",
+    "Application",
+    "Amphenol Business",
+    "Source Page"
+  ],
+  "products": {
+    "0-21mm-super-low-profile-fpc-connector": {
+      "name": "0.21mm Super Low Profile FPC connector",
+      "description": "F01C series is a 0.21mm pitch right angle Non-ZIF FPC connector with an autolock mechanism and surface mount termination. It has a high density design and low height 0.5mm. It features a cable thickness of 0.18mm and provide high retention force with locking arm. It provides a good solution for wearable facilities.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-30mm-fpc-connectors-f14d-f13s-series": {
+      "name": "0.30mm FPC Connectors - F14D/F13S Series",
+      "description": "RIGHT ANGLE ZIF FLEX CONNECTOR F14D/F13S series is a right angle ZIF flex connector with a front flip lock, surface mount termination, and bottom side contact. It features a small profile with 0.3mm pitch and 1.0mm height. This series features a FPC thickness of 0.20mm and provide enhanced durability",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol's 103 series are 0.35mm pitch micro board-to-board connectors designed for high-density applications. They support an extreme low profile 0.60mm stack ",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-40mm-pitch-ffc-fpc-f21l-series": {
+      "name": "0.40mm Pitch FFC/FPC – F21L Series",
+      "description": "F21L series is a 0.40mm pitch right angle ZIF flex connector with a front flip lock, surface mount termination, dual beam and double contact points. It features 2.60mm height and comes in 4 to 120 contacts. This series features a cable thickness of 0.30mm and provides enhanced durability of 30 mating cycles. The connectors come with a robust design and prevent solder and flux wicking.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-50mm-ffc-fpc-connectors": {
+      "name": "0.50mm FFC/FPC Connectors",
+      "description": "0.50mm FFC/FPC Connectors-SFV/SFVL/VLL/OPU Series",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol's 0.50mm pitch flex connectors utilize 0.50mm contact spacing to terminate mobile devices across a variety of applications. These connectors are offere",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-50mm-ffc-fpc-connectors-sfv-sfvl-vll-opu-series": {
+      "name": "0.50mm FFC/FPC Connectors-SFV/SFVL/VLL/OPU Series",
+      "description": "FCI Basic 0.50mm pitch flex connectors provide an economical way to connect displays and support flexible board to board connections. These connectors are available in both Right-Angle and Vertical configurations with Surface Mount mounting styles, and offer ZIF (zero insertion force) cable styles with optional cable lock function for extra cable retention.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-50mm-pitch-ffc-fpc-autolock-connectors": {
+      "name": "0.50mm Pitch FFC/FPC Autolock Connectors",
+      "description": "F33M/F332/F323 series is a 0.50mm pitch Non-ZIF flex connector with an Autolock mechanism and surface mount termination. It comes with 6 to 68 contact positions in both right angle and vertical orientations. This series features a cable thickness of 0.33mm and provide the durability of 20 mating cycles. Its robust connector design makes it suitable for robotic operations, supporting Industry 4.0.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacki",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "1-00mm-ffc-fpc-connectors": {
+      "name": "1.00mm FFC/FPC Connectors",
+      "description": "100% Truly Backward Compatible: MPronto-12 M12 Push-Pull Connector",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW MPronto-12 Push-Pull Connectors are the world's first truly backward compatible to all M12*1.0 threaded sockets of any manufacturer. Support all M1",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "agillinktm-0-8mm-wire-to-board": {
+      "name": "AgilLink™ 0.8mm Wire-to-Board",
+      "description": "AgilLink™ 0.8mm wire-to-board connector is the most common solution for transferring low power and signal. This series can carry a maximum current rating of 1A. Amphenol offers a comprehensive range of these headers including, V/T SMT, and R/A SMT to meet various customer requirements. The compactness of the connectors allows for extensive usage in consumer applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-1-0mm-wire-to-board": {
+      "name": "AgilLink™ 1.0mm Wire-to-Board",
+      "description": "AgilLink™ 1.0mm Wire-to-Board is the most common solution for transferring power and signal. This series can carry a maximum current rating of 1A. Amphenol offers a comprehensive range of these headers including Single Row V/T SMT, R/A SMT and Dual Row V/T SMT, R/A SMT to meet various customer requirements. It comes in customizable for Low profile or latch feature, which makes it an ideal choice for several",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-1-20mm-wire-to-board-header": {
+      "name": "AgilLink™ 1.20mm Wire-to-Board Header",
+      "description": "AgilLink™ 1.20mm Wire-to-Board G823H series is the most common solution for transferring power and signal. This series can carry a maximum current rating of 1A. Amphenol I offers a comprehensive range of these headers including V/T SMT and vertical and R/A right angle SMT to meet various customer requirements. It is offered in customizable for high current ratings, which makes it an ideal c...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-1-25mm-wire-to-board": {
+      "name": "AgilLink™ 1.25mm Wire-to-Board",
+      "description": "AgilLink™ 1.25mm Wire-to-Board is the most common solution for transferring power and signal. This series can carry a maximum current rating of 1A. Amphenol offers a comprehensive range of these headers including V/T DIP, V/T SMT, R/A DIP, R/A SMT to meet various customer requirements. It comes in customizable for pin length, latch or location post, which makes it an ideal choice for several applications",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-1-50mm-wire-to-board-header": {
+      "name": "AgilLink™ 1.50mm Wire-to-Board Header",
+      "description": "AgilLink™ 1.50mm Wire-to-Board G886 series is the most common solution for transferring power and signal. This series can carry a maximum current rating of 2.5A. Amphenol offers a comprehensive range of these headers including, vertical and right-angle DIP, and vertical and right angle SMT, to meet various customer requirements. It comes with customizable pin length, latch, or location post...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-2-50mm-wire-to-board-header": {
+      "name": "AgilLink™ 2.50mm Wire-to-Board Header",
+      "description": "AgilLink™ 2.50mm Wire-to-Board is the most common solution for transferring power and signal. This series can carry a maximum current rating of 1.25A to3A. Amphenol offers a comprehensive range of these headers including, vertical DIP, right-angle DIP, vertical SMT, and right angle SMT to meet various customer requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-2-54mm-wire-to-board": {
+      "name": "AgilLink™ 2.54mm Wire-to-Board",
+      "description": "AgilLink™ 2.54mm wire-to-board is the most common solution for transferring power and signal. This series can carry a maximum current rating of 3A. Amphenol offers a comprehensive range of these headers including V/T DIP, V/T SMT, R/A DIP, R/A SMT to meet various customer requirements. It comes with customizable pin length, latch or location post, which makes it an ideal choice for several applications",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agillinktm-3-96mm-wire-to-board": {
+      "name": "AgilLink™ 3.96mm Wire-to-Board",
+      "description": "AgilLink™ 3.96mm wire-to-board is the most common solution for transferring power and signal. This series can carry a maximum current rating of 6A. Amphenol offers a comprehensive range of these headers including V/T DIP, V/T SMT, R/A DIP, R/A SMT to meet various customer requirements. It comes with customizable pin length which makes it an ideal choice for several applications and specific designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "combo-d": {
+      "name": "Combo-D",
+      "description": "ComboLock® Wire-to-Board Connector System",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Positronic Combo-D connectors are a combination of signal and power and are part of the D-sub family. Combo-D connectors are used in military, communications, s",
+        "Source Page": "IT Datacom p.3"
+      }
+    },
+    "combolock-wire-to-board-connector-system": {
+      "name": "ComboLock® Wire-to-Board Connector System",
+      "description": "ComboLock® is a compact, hybrid wire-to-board connector system that saves space, allows for simpler assembly and simpler cable management. The connector system offers a hybrid 1.00mm pitch signal and 3.00mm pitch power configuration with an active latching feature. The connector has nominal current carrying capacity of 10A/pin max. for power and 1.5A/pin max. for signal.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "10A · 1.5A · 1.00mm pitch · 3.00mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.3"
+      }
+    },
+    "d-sub-standard-density-connectors-nfd17-series": {
+      "name": "D-Sub Standard Density Connectors - NFD17 Series",
+      "description": "The Dubox®, connector family offers an extensive range of through-hole and surface-mount part options. It is available in single or double-row in both straight and right angle orientations from 2 to 50 positions, with a maximum current rating of 3A per individual contact. This cost-efficient solution offers high reliability in electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol's NFD17 D-Subminiature connectors complement our extensive I/O connector product line. This line of connectors offers many superior features, high perf",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "dubox-2-54mm": {
+      "name": "Dubox® 2.54mm",
+      "description": "The Dubox®, connector family offers an extensive range of through-hole and surface-mount part options. It is available in single or double-row in both straight and right angle orientations from 2 to 50 positions, with a maximum current rating of 3A per individual contact. This cost-efficient solution offers high reliability in electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "dubox-2-54mm-crimp-to-wire": {
+      "name": "Dubox® 2.54mm Crimp to Wire",
+      "description": "The Dubox®, connector families offer an extensive range of through-hole and surface-mount part options, including single or double-row in either straight or right-angle orientation from 2 to 50 positions, with a current rating of 3A (maximum) per individual contact. The Dubox® contact has a pre-stressed, dual-beam design to enable low insertion force, 4-wall contact design for signal protection.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "ffc-jumper": {
+      "name": "FFC Jumper",
+      "description": "Ffiltrered ARINC 600 Connectors",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol CDI filtrered ARINC 600 connectors feature the complete line of layouts and meet the applicable performance and environmental portions of the ARINC spe",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "filter-rf-connectors": {
+      "name": "Filter RF Connectors",
+      "description": "FitMate™ 0.80mm Wire-to-Board Connector System",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol's BNC RF connectors provide optimum capacitive decoupling between the connector body and the mounting panel, by harmlessly dissipating EMI (Electromagn",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "fitmatetm-0-80mm-wire-to-board-connector-system": {
+      "name": "FitMate™ 0.80mm Wire-to-Board Connector System",
+      "description": "Designed for finest pitch wire-to-board applications, Amphenol's FitMate™ 0.80mm is the ideal solution for devices that require compact and low profile connectors. With wire gauge range from 32AWG-28AWG, these connectors are available in single row vertical SMT and right angle SMT configurations. These connectors come with locking features to provide enhanced contact reliability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "fitmatetm-1-00mm": {
+      "name": "FitMate™ 1.00mm",
+      "description": "Designed for the finest pitch wire-to-board applications, Amphenol's FitMate™ 1.00mm is the ideal solution for devices that require compact and low-profile connectors. With a wire gauge range from 32AWG-28AWG, these connectors are available in double row vertical SMT and right angle SMT configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "fitmatetm-1-25mm": {
+      "name": "FitMate™ 1.25mm",
+      "description": "Designed for fine pitch wire-to-board applications, Amphenol's FitMate™ 1.25mm is the ideal solution for devices that require compact connectors without sacrificing overall quality. With wire gauge range from 32AWG-28AWG, these connectors are available in single/double row, vertical/right angle, without (only single row) and with active latch, SMT/DIP configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "fitmatetm-1-5mm": {
+      "name": "FitMate™ 1.5mm",
+      "description": "Designed for fine pitch wire-to-board applications, Amphenol's FitMate™ 1.5mm is the ideal solution for devices that require connectors with robust features and compact design. With wire gauge range from 26AWG-24AWG, these connectors are available in single row/double row, vertical/right angle, SMT configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol RF offers a full line of pre-assembled, fixed-length cable assemblies. Fixed length assemblies are offered in all of our most popular connector series ",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "minitek-0-80mm-wire-to-board-connector-system": {
+      "name": "Minitek® 0.80mm Wire-to-Board Connector System",
+      "description": "Designed for the finest pitch wire-to-board applications, FCI Basics Minitek® 0.80mm is the ideal solution for devices that require compact and low-profile connectors. With wire gauge range from 32AWG-28AWG, these connectors are available in a single row vertical SMT and right angle SMT configurations. These connectors come with locking features to provide enhanced contact reliability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-1-00mm-wire-to-board-connector-system": {
+      "name": "Minitek® 1.00mm Wire-to-Board Connector System",
+      "description": "FCI Basics Minitek® 1.00mm connector system is the ideal solution for devices that require compact and low-profile connectors. These connectors are designed for fine pitch wire-to-board application with wire gauge range from 32AWG-28AWG. Minitek® 1.00mm solution includes single row vertical surface mount and right angle surface mount configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-board-in-2-00mm-and-2-50mm-connector": {
+      "name": "Minitek® Board-In 2.00mm and 2.50mm Connector",
+      "description": "Minitek® Board-In connector system is a flexible solution designed for economical and permanent wire-to-board applications up to 3A. It is a one-piece direct solder-to-board solution that provides space and cost savings compared to a two-piece connector system. It is currently offered in 2-16 positions under 2.00mm and 2.50mm pitch sizes covering vertical and horizontal configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-multipitch-1-25mm-and-1-50mm-wire-to-board-connector-system": {
+      "name": "Minitek® Multipitch 1.25mm and 1.50mm Wire-to-Board Connector System",
+      "description": "The Minitek® Multipitch platform connector's compact design addresses the growing demand for miniaturizing components. The connector system has single row and double row with active latching, and TPA and CPA features can be an optional. The connector has current carrying capacity of 2A and cable external diameter from 24 AWG to 28 AWG.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-pwr-3-0-high-current-connector": {
+      "name": "Minitek® Pwr 3.0 High Current Connector",
+      "description": "ROBUST, VERSATILE AND HIGH CURRENT PERFORMANCE Minitek® Pwr 3.0 High Current Connector (HCC) is designed for power applications with a current rating of up to 12A per contact and a wire gauge range from 16AWG to 30AWG for Wire-to-wire and Wire-to-Board applications. It is available in 2 to 24 circuits for dual rows and 2 to 12 circuits for single rows.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-pwr-4-2-high-current-connector": {
+      "name": "Minitek® Pwr 4.2 High Current Connector",
+      "description": "ROBUST, VERSATILE AND HIGH CURRENT PERFORMANCE Minitek® Pwr 4.2 High Current Connector (HCC) is designed for power applications with current rating up to 13A per contact and wire gauge range from 30AWG-16AWG for wire-to-wire and wire-to-board applications. It is available in 2 to 24 circuits for dual row and 3 to 5 circuits for single row.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "minitek-pwr-5-7-connector-system": {
+      "name": "Minitek® Pwr 5.7 Connector System",
+      "description": "Minitek® Pwr 5.7 is a flexible and comprehensive solution for power application with a high current rating of up to 23A per contact and wire gauge range from 16-12AWG for wire-to-board application. Minitek® Pwr 5.7 features polarized mating geometry, this helps to prevent mismating. It offers a wide operating temperature, ranging from -40°C to 105°C, making it suitable for a range of applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol introduces the Gen 5, Minitek® 12VHPWR connector system. This new introduction CEM 5.0 PCI Express® 12V-2x6 auxiliary power connector and cable assembl",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "push-on-rf-cable-connectors": {
+      "name": "Push-On RF Cable Connectors",
+      "description": "PV® Wire-to-Board and Wire-to-Wire Connector System",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
+      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Type": "Wire-to-Board and FFC-FPC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol CDI Push-On RF Cable Connectors provide fast and reliable connections for high-frequency applications. Designed for ease of use, these connectors elimi",
+        "Source Page": "IT Datacom p.11"
+      }
+    }
+  }
+}

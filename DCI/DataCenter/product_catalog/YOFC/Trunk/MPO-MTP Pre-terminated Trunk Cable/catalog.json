@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "MPO-MTP Pre-terminated Trunk Cable",
+  "displayName": "MPO-MTP Pre-terminated Trunk Cable",
+  "description": "Factory pre-terminated trunk cable family for data-center interconnection with flexible Type A/B/C polarity and LSZH/OFNR/OFNP sheath options.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3030.html",
+  "comparisonFields": [
+    "Connector",
+    "Connector Gender",
+    "Fiber Count",
+    "Flame Rating",
+    "Polarity",
+    "Fiber Category",
+    "Length"
+  ],
+  "products": {
+    "iCONEC-DTHBTTFFE12H-0100": {
+      "name": "iCONEC-DTHBTTFFE12H-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFE12R-0100": {
+      "name": "iCONEC-DTHBTTFFE12R-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFE12P-0100": {
+      "name": "iCONEC-DTHBTTFFE12P-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFA12H-0100": {
+      "name": "iCONEC-DTHBTTFFA12H-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFA12R-0100": {
+      "name": "iCONEC-DTHBTTFFA12R-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFA12P-0100": {
+      "name": "iCONEC-DTHBTTFFA12P-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFN12H-0100": {
+      "name": "iCONEC-DTHBTTFFN12H-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFN12R-0100": {
+      "name": "iCONEC-DTHBTTFFN12R-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBTTFFN12P-0100": {
+      "name": "iCONEC-DTHBTTFFN12P-0100",
+      "description": "MTP Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFE12H-0100": {
+      "name": "iCONEC-DTHBPTFFE12H-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFE12R-0100": {
+      "name": "iCONEC-DTHBPTFFE12R-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFE12P-0100": {
+      "name": "iCONEC-DTHBPTFFE12P-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, G.657.A2, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "G.657.A2",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFA12H-0100": {
+      "name": "iCONEC-DTHBPTFFA12H-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFA12R-0100": {
+      "name": "iCONEC-DTHBPTFFA12R-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFA12P-0100": {
+      "name": "iCONEC-DTHBPTFFA12P-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, OM3, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "OM3",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFN12H-0100": {
+      "name": "iCONEC-DTHBPTFFN12H-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, LSZH-1, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFN12R-0100": {
+      "name": "iCONEC-DTHBPTFFN12R-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNR, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    },
+    "iCONEC-DTHBPTFFN12P-0100": {
+      "name": "iCONEC-DTHBPTFFN12P-0100",
+      "description": "MPO Pre-terminated Trunk Cable, Connector F-F, 12-core, OFNP, Type B, OM4, 10m.",
+      "officialUrl": "https://en.yofc.com/view/3030.html",
+      "specs": {
+        "Connector": "MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Polarity": "Type B",
+        "Fiber Category": "OM4",
+        "Length": "10 m"
+      }
+    }
+  }
+}

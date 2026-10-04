@@ -68,29 +68,19 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-04)
 
-현재 총 **311개 PDF**가 등록되어 있으며, DataCenter Tool은 모든 하위 제품군을 재귀적으로 읽습니다.
+현재 GitHub에 업로드된 PDF는 총 **394개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
 
+구조화된 `catalog.json`이 아직 없는 제품군은 **9개 폴더 / 125개 PDF**이며, 이 파일들은 PDF 목록은 표시되지만 동일 스펙 비교는 아직 미등록 상태입니다.
+
+### 구조화 메타데이터 재검토 필요
 - `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
 - `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
 - `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
-- `Corning/Bracket/EDGE™ Strain-Relief Bracket`: 4 PDFs
 - `Corning/Connector/MMC`: 1 PDFs
-- `Corning/Housing/EDGE™ Housing, FX`: 5 PDFs
-- `Corning/Housing/Pretium® Connector Housing (PCH)`: 5 PDFs
-- `Corning/Jumper/12-Fiber MTP® PRO Jumper`: 18 PDFs
-- `Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex`: 2 PDFs
 - `Corning/ODF/EDGE™ Solutions_ODF`: 5 PDFs
-- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC`: 12 PDFs
-- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®`: 52 PDFs
 - `Corning/Panel/Adapter Panels/EDGE™ Adapter Panel, MTP®`: 8 PDFs
 - `Corning/Panel/CCH Panel/CCH Panel, FC Adapters`: 6 PDFs
-- `Corning/Panel/CCH Panel/CCH Panel, LC Adapters`: 29 PDFs
-- `Corning/Panel/CCH Panel/CCH Panel, MTP Adapters`: 20 PDFs
 - `Corning/Panel/EDGE™ Panels`: 3 PDFs
-- `Corning/Trunk/EDGE™ Armored Trunk`: 17 PDFs
-- `Corning/Trunk/EDGE™ MTP® Extender Trunk`: 30 PDFs
-- `USConnec/Fiber Optic Cleaners`: 41 PDFs
-- `USConnec/MDC Connectors`: 6 PDFs
-- `USConnec/MMC Connectors`: 23 PDFs
+- `Corning/Trunk/EDGE™ MTP® Trunk`: 78 PDFs
 
-같은 제품군은 `comparisonFields`에 정의한 동일한 스펙 항목/순서로 카드형과 표형에서 비교합니다.
+YOFC는 PDF 없이 공식 URL 기반으로 7개 페이지를 등록합니다. Product Model이 공개된 페이지는 모델별로 분리하고, Product Model이 없는 페이지는 Characteristics-only 항목으로 저장합니다.

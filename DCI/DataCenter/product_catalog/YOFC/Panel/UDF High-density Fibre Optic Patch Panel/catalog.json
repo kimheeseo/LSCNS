@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "UDF High-density Fibre Optic Patch Panel",
+  "displayName": "UDF High-density Fibre Optic Patch Panel",
+  "description": "Modular high-density UDF patch panel for HDA/IDA/MDA data-center areas.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3029.html",
+  "comparisonFields": [
+    "Max 1U Capacity",
+    "Max 4U Capacity",
+    "Module Compatibility",
+    "Installation",
+    "LC Adapter",
+    "Compliance"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "UDF High-density Fibre Optic Patch Panel",
+      "description": "High-density modular patch panel based on 8-core/12-core pre-terminated backbone connections, designed for scalable data-center density.",
+      "officialUrl": "https://en.yofc.com/view/3029.html",
+      "specs": {
+        "Max 1U Capacity": "144-core DLC / 72-port MPO",
+        "Max 4U Capacity": "576-core DLC / 288-port MPO",
+        "Module Compatibility": "12-core Base-12 and 24-core Base-8",
+        "Installation": "Tool-free module/cable installation and removal",
+        "LC Adapter": "Built-in dustproof doors",
+        "Compliance": "YD-778; GB2423.17; RoHS 2.0 coating"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

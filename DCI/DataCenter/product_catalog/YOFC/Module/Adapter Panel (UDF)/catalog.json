@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "Adapter Panel (UDF)",
+  "displayName": "Adapter Panel (UDF)",
+  "description": "UDF adapter/module/panel family with MTP, MPO and LC configurations; model-level entries follow YOFC's Product Model table.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3032.html",
+  "comparisonFields": [
+    "Product Type",
+    "Interface / Capacity",
+    "Fiber Count / Capacity",
+    "Fiber Category",
+    "Height",
+    "Color"
+  ],
+  "products": {
+    "iCONEC-DFUMTUMDE12": {
+      "name": "iCONEC-DFUMTUMDE12",
+      "description": "UDF Module/1*12-Core MTP to 6D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MTP → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "G.657.A2",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDA12": {
+      "name": "iCONEC-DFUMTUMDA12",
+      "description": "UDF Module/1*12-Core MTP to 6D LC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MTP → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM3",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDN12": {
+      "name": "iCONEC-DFUMTUMDN12",
+      "description": "UDF Module/1*12-Core MTP to 6D LC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MTP → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM4",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDD12": {
+      "name": "iCONEC-DFUMTUMDD12",
+      "description": "UDF Module/1*12-Core MTP to 6D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MTP → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM5",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDE24": {
+      "name": "iCONEC-DFUMTUMDE24",
+      "description": "UDF Module/3*8-Core MTP to 12D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MTP → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "G.657.A2",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDA24": {
+      "name": "iCONEC-DFUMTUMDA24",
+      "description": "UDF Module/3*8-Core MTP to 12D LC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MTP → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM3",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDN24": {
+      "name": "iCONEC-DFUMTUMDN24",
+      "description": "UDF Module/3*8-Core MTP to 12D LC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MTP → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM4",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMTUMDD24": {
+      "name": "iCONEC-DFUMTUMDD24",
+      "description": "UDF Module/3*8-Core MTP to 12D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MTP → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM5",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDE12": {
+      "name": "iCONEC-DFUMPUMDE12",
+      "description": "UDF Module/1*12-Core MPO to 6D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MPO → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "G.657.A2",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDA12": {
+      "name": "iCONEC-DFUMPUMDA12",
+      "description": "UDF Module/1*12-Core MPO to 6D LC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MPO → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM3",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDN12": {
+      "name": "iCONEC-DFUMPUMDN12",
+      "description": "UDF Module/1*12-Core MPO to 6D LC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MPO → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM4",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDD12": {
+      "name": "iCONEC-DFUMPUMDD12",
+      "description": "UDF Module/1*12-Core MPO to 6D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "1×12-core MPO → 6D LC",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "OM5",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDE24": {
+      "name": "iCONEC-DFUMPUMDE24",
+      "description": "UDF Module/3*8-Core MPO to 12D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MPO → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "G.657.A2",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDA24": {
+      "name": "iCONEC-DFUMPUMDA24",
+      "description": "UDF Module/3*8-Core MPO to 12D LC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MPO → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM3",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDN24": {
+      "name": "iCONEC-DFUMPUMDN24",
+      "description": "UDF Module/3*8-Core MPO to 12D LC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MPO → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM4",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUMPUMDD24": {
+      "name": "iCONEC-DFUMPUMDD24",
+      "description": "UDF Module/3*8-Core MPO to 12D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "UDF Module",
+        "Interface / Capacity": "3×8-core MPO → 12D LC",
+        "Fiber Count / Capacity": "24",
+        "Fiber Category": "OM5",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUPDUM06": {
+      "name": "iCONEC-DFUPDUM06",
+      "description": "UDF adapter panel/6-port multi-mode duplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface / Capacity": "6-port duplex LC",
+        "Fiber Count / Capacity": "—",
+        "Fiber Category": "Multimode",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-DFUPDUD06": {
+      "name": "iCONEC-DFUPDUD06",
+      "description": "UDF adapter panel/6-port multi-mode duplex LC, lime green",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface / Capacity": "6-port duplex LC",
+        "Fiber Count / Capacity": "—",
+        "Fiber Category": "Multimode",
+        "Height": "—",
+        "Color": "Lime green"
+      }
+    },
+    "iCONEC-DFUPDUS06": {
+      "name": "iCONEC-DFUPDUS06",
+      "description": "UDF adapter panel/6-port single-mode duplex LC, blue",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface / Capacity": "6-port duplex LC",
+        "Fiber Count / Capacity": "—",
+        "Fiber Category": "Single-mode",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-DFUPMT006": {
+      "name": "iCONEC-DFUPMT006",
+      "description": "UDF adapter panel/6-port MTP adapter, black (US Conec adapter)",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface / Capacity": "6-port MTP",
+        "Fiber Count / Capacity": "—",
+        "Fiber Category": "—",
+        "Height": "—",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFUP000": {
+      "name": "iCONEC-DFUP000",
+      "description": "UDF blind plate",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Blind Plate",
+        "Interface / Capacity": "Blind plate",
+        "Fiber Count / Capacity": "—",
+        "Fiber Category": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUTRAY12": {
+      "name": "iCONEC-DFUTRAY12",
+      "description": "UDF fibre splice tray/12 cores",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Splice Tray",
+        "Interface / Capacity": "12-core splice tray",
+        "Fiber Count / Capacity": "12",
+        "Fiber Category": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFUDTSL01": {
+      "name": "iCONEC-DFUDTSL01",
+      "description": "UDF rack-mounted fibre optic patch panel/empty box, 1U, sliding type, max 12 12-core MTP/LC modules or 12-core DLC panels or blind plates",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Patch Panel",
+        "Interface / Capacity": "Max 12 × 12-core modules/panels",
+        "Fiber Count / Capacity": "144",
+        "Fiber Category": "—",
+        "Height": "1U",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFUDTSL04": {
+      "name": "iCONEC-DFUDTSL04",
+      "description": "UDF rack-mounted fibre optic patch panel/empty box, 4U, sliding type, max 48 12-core MTP/LC modules or 12-core DLC panels or blind plates",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Patch Panel",
+        "Interface / Capacity": "Max 48 × 12-core modules/panels",
+        "Fiber Count / Capacity": "576",
+        "Fiber Category": "—",
+        "Height": "4U",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFUDZSL01": {
+      "name": "iCONEC-DFUDZSL01",
+      "description": "UDF rack-mounted fibre optic patch panel/empty box, 1U, sliding type, max 6 24-core MTP/LC modules",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Patch Panel",
+        "Interface / Capacity": "Max 6 × 24-core modules",
+        "Fiber Count / Capacity": "144",
+        "Fiber Category": "—",
+        "Height": "1U",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFUDZSL04": {
+      "name": "iCONEC-DFUDZSL04",
+      "description": "UDF rack-mounted fibre optic patch panel/empty box, 4U, sliding type, max 24 24-core MTP/LC modules",
+      "officialUrl": "https://en.yofc.com/view/3032.html",
+      "specs": {
+        "Product Type": "Patch Panel",
+        "Interface / Capacity": "Max 24 × 24-core modules",
+        "Fiber Count / Capacity": "576",
+        "Fiber Category": "—",
+        "Height": "4U",
+        "Color": "Black"
+      }
+    }
+  }
+}

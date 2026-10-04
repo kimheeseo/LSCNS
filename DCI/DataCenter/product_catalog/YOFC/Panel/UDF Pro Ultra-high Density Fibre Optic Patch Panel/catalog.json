@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "UDF Pro Ultra-high Density Fibre Optic Patch Panel",
+  "displayName": "UDF Pro Ultra-high Density Fibre Optic Patch Panel",
+  "description": "Ultra-high-density UDF Pro patch panel for high-density IDA/MDA data-center areas; MDC density is described by YOFC as three times DLC.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3033.html",
+  "comparisonFields": [
+    "Height",
+    "Max Module Capacity",
+    "Max MDC Cores",
+    "Max MPO/MTP Ports",
+    "Mounting",
+    "Compatible Modules"
+  ],
+  "products": {
+    "iCONEC-UDF-PRO-1U-ODU-SLIDE": {
+      "name": "iCONEC-UDF-PRO-1U-ODU-SLIDE",
+      "description": "UDF PRO rack-mounted fibre optic patch panel/empty box, 1U sliding type, max 6 72-core MTP/LC modules or 24-core DLC panels/blind plates.",
+      "officialUrl": "https://en.yofc.com/view/3033.html",
+      "specs": {
+        "Height": "1U",
+        "Max Module Capacity": "6 × 72-core modules",
+        "Max MDC Cores": "432",
+        "Max MPO/MTP Ports": "72",
+        "Mounting": "Standard 19-inch rack",
+        "Compatible Modules": "MTP→MDC and MTP→DLC"
+      }
+    },
+    "iCONEC-UDF-PRO-4U-ODU-SLIDE": {
+      "name": "iCONEC-UDF-PRO-4U-ODU-SLIDE",
+      "description": "UDF PRO rack-mounted fibre optic patch panel/empty box, 4U sliding type, max 24 72-core MTP/LC modules or 24-core DLC panels/blind plates.",
+      "officialUrl": "https://en.yofc.com/view/3033.html",
+      "specs": {
+        "Height": "4U",
+        "Max Module Capacity": "24 × 72-core modules",
+        "Max MDC Cores": "1728",
+        "Max MPO/MTP Ports": "288",
+        "Mounting": "Standard 19-inch rack",
+        "Compatible Modules": "MTP→MDC and MTP→DLC"
+      }
+    }
+  }
+}

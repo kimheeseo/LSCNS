@@ -6,7 +6,8 @@
     trunk:[
       P+'Corning/Trunk/EDGE™ Armored Trunk/catalog.json',
       P+'YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json',
-      P+'Sumitomo Electric/SWK™ Series/SWK Cable Assemblies/catalog.json'
+      P+'Sumitomo Electric/SWK™ Series/SWK Cable Assemblies/catalog.json',
+      P+'Sumitomo Electric/Cable Assemblies/Cable Assemblies/catalog.json'
     ],
     patch:[
       P+'Corning/Housing/EDGE™ Housing, FX/catalog.json',
@@ -22,7 +23,24 @@
       P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels/catalog.json',
       P+'Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels/catalog.json',
       P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/1RU LGX Compact Patch Panel/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/2RU Flush Mount Panels/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/2RU High Density Panels and Interconnect Panels/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex High Density MPO-LC Cassettes/catalog.json',
+      P+'Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex FOX Splice Cassettes/catalog.json',
+      P+'Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex LGX MPO Cassettes/catalog.json',
+      P+'Sumitomo Electric/Wall Mount Enclosures/FTWM-02L-2D Wall Mount Enclosure/catalog.json',
+      P+'Sumitomo Electric/Wall Mount Enclosures/FTWM-04L-2D Wall Mount Enclosure/catalog.json',
     ],
+    connector:[
+      P+'USConnec/MTP Connectors/MTP Universal/catalog.json',
+      P+'USConnec/MTP Connectors/MTP PRO/catalog.json',
+      P+'USConnec/MTP Connectors/MTP PRO X/catalog.json',
+      P+'USConnec/MTP Connectors/MTP-16/catalog.json',
+      P+'USConnec/MTP Connectors/MTP 900µ & Fanout/catalog.json',
+      P+'USConnec/MTP Connectors/Fast-Track & Pin Clamp/catalog.json'
+    ],
+    adapter:[P+'USConnec/MTP Connectors/Adapters/catalog.json'],
     rack:[P+'ZTT/Data Center Infrastructure/IT Cabinet/catalog.json']
   };
   const OPTIC={
@@ -91,16 +109,47 @@
     const expected=String(r.optical?.server?.profile?.fiberType||r.optical?.leafSpine?.profile?.fiberType||'OS2').toUpperCase();
     const rank=c=>{const f=val(c,'Fiber Category','Fiber category').toUpperCase();let s=0;if(expected.includes('OS2')&&(f.includes('OS2')||f.includes('G.657')||f.includes('SINGLE')))s+=30;return s};
     exact.sort((a,b)=>rank(b)-rank(a));
-    if(exact.length)return toRow(row,exact[0],exact.slice(1,3),'Exact fiber-count catalog match',`product_catalog · ${need}F exact · quantity retained from segment calculation`);
+    if(exact.length){const configurable=/yes/i.test(val(exact[0],'Configurable'));return toRow(row,exact[0],exact.slice(1,3),configurable?'Configurable catalog family match · RFQ':'Exact fiber-count catalog match',`product_catalog · ${need}F · quantity retained from segment calculation${configurable?' · exact termination/polarity/length code requires RFQ':''}`);}
     const near=candidates.filter(c=>Number.isFinite(fc(c))&&fc(c)>=need).sort((a,b)=>fc(a)-fc(b));
     return fallback(row,`product_catalog: no exact ${need}F structured-trunk SKU; engine quantity retained pending SKU review`,near.slice(0,2));
   }
   async function matchPatch(row){
     const candidates=await families(MAP.patch);
-    const preferred=['EDGE-01U-EMOD','PCH-01U','iCONEC-DFGDSL01','GPX02-600Y1'];
+    const preferred=['EDGE-01U-EMOD','FT01L03-LSA','FT02FMFP-6LGX-INTERCONNECT','FT02SEL12-S','PFCST-1U-F12-BK','PCH-01U','iCONEC-DFGDSL01','GPX02-600Y1'];
     candidates.sort((a,b)=>preferred.indexOf(a.key)<0?1:preferred.indexOf(b.key)<0?-1:preferred.indexOf(a.key)-preferred.indexOf(b.key));
     if(!candidates.length)return fallback(row,'product_catalog: patch-panel/housing family unavailable');
     return toRow(row,candidates[0],candidates.slice(1,3),'Planning catalog candidate','product_catalog · exact panel capacity/topology requires project review');
+  }
+  function connectorBase(profile){
+    const c=String(profile?.connector||'').toUpperCase();
+    if(/MPO-16/.test(c))return 16;
+    if(/MPO/.test(c))return 12;
+    return 0;
+  }
+  async function matchConnector(row,r){
+    const candidates=await families(MAP.connector);
+    if(!candidates.length)return fallback(row,'product_catalog: MTP connector families unavailable');
+    const profile=r.optical?.[row.segment]?.profile||r.optical?.server?.profile||r.optical?.leafSpine?.profile||{};
+    const base=connectorBase(profile),wantGender=String(r.input?.mpoGender||'review').toLowerCase();
+    const scored=candidates.map(c=>{
+      const style=val(c,'Connector Style','Style').toUpperCase(),fibers=val(c,'Fiber Count'),gender=val(c,'Gender').toLowerCase();
+      let score=0;
+      if(base===16)score+=/MPO\s*16|MPO-16/.test(style)?100:-40;
+      else if(base&&/MPO/.test(style)&&!/16/.test(style))score+=55;
+      if(base===8&&/(1x8|4\+4)/i.test(fibers))score+=30;
+      if(base===12&&/(1x12|2x12)/i.test(fibers))score+=30;
+      if(base===16&&/(1x16|2x16)/i.test(fibers))score+=30;
+      if(wantGender!=='review'&&wantGender!=='n/a'&&gender.includes(wantGender))score+=15;
+      return {c,score};
+    }).sort((a,b)=>b.score-a.score);
+    if(!scored.length)return fallback(row,'product_catalog: no MTP connector candidate');
+    return toRow(row,scored[0].c,scored.slice(1,3).map(x=>x.c),'Catalog connector candidate · RFQ',`product_catalog · ${profile.connector||'MPO/MTP'} · final gender/pinning/polarity must be confirmed`);
+  }
+  async function matchAdapter(row,r){
+    const candidates=await families(MAP.adapter);
+    if(!candidates.length)return fallback(row,'product_catalog: MTP adapter family unavailable');
+    candidates.sort((a,b)=>(/Standard Footprint/.test(val(a,'Adapter Style'))?-1:0)-(/Standard Footprint/.test(val(b,'Adapter Style'))?-1:0));
+    return toRow(row,candidates[0],candidates.slice(1,3),'Catalog adapter candidate · RFQ','product_catalog · key orientation / mounting / color must be confirmed');
   }
   async function matchRack(row){
     const c=(await families(MAP.rack))[0];
@@ -108,6 +157,9 @@
     return toRow(row,c,[],'Catalog family match','product_catalog · exact cabinet width/height and accessory SKU RFQ');
   }
   async function one(row,r){
+    const label=[row.category,row.product,row.model,row.evidence].filter(Boolean).join(' ');
+    if(/adapter/i.test(label))return matchAdapter(row,r);
+    if(/connector/i.test(label))return matchConnector(row,r);
     if(/Server-facing optic|Leaf↔Spine optic/i.test(row.category))return matchOptic(row,r);
     if(/Structured cabling/i.test(row.category))return matchTrunk(row,r);
     if(/Patch panel\s*\/\s*housing/i.test(row.category))return matchPatch(row,r);

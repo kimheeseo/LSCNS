@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Professional GPUs Reference",
+  "displayName": "Professional GPUs Reference",
+  "description": "NVIDIA professional workstation GPUs supplied as reference material. These are separated from data center GPUs to avoid mixing workstation and server SKUs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "sourceUrls": [
+    "https://www.nvidia.com/content/dam/en-zz/Solutions/products/workstations/nvidia-rtx-4000-datasheet.pdf",
+    "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/proviz-print-nvidia-rtx-a6000-datasheet-us-nvidia-1454980-r9-web%20(1).pdf"
+  ],
+  "sourceCount": 2,
+  "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
+  "comparisonFields": [
+    "Architecture",
+    "GPU Memory",
+    "Memory Bandwidth",
+    "CUDA Cores",
+    "Tensor Cores",
+    "TDP",
+    "Form Factor",
+    "Source"
+  ],
+  "products": {
+    "nvidia-rtx-4000-ada-generation": {
+      "name": "NVIDIA RTX 4000 Ada Generation",
+      "description": "Single-slot professional workstation GPU for AI, real-time rendering, graphics, and compute workloads; included as reference material, not as a primary data center GPU SKU.",
+      "officialUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/products/workstations/nvidia-rtx-4000-datasheet.pdf",
+      "specs": {
+        "Architecture": "Ada Lovelace",
+        "GPU Memory": "20 GB GDDR6 with ECC",
+        "Memory Interface": "160 bit",
+        "Memory Bandwidth": "360 GB/s",
+        "CUDA Cores": "6,144",
+        "Tensor Cores": "192 fourth-generation Tensor Cores",
+        "RT Cores": "48 third-generation RT Cores",
+        "Single-Precision Performance": "26.7 TFLOPS",
+        "Tensor Performance": "327.6 TFLOPS",
+        "System Interface": "PCIe 4.0 x16",
+        "TDP": "130 W total board power",
+        "Form Factor": "Single slot workstation GPU",
+        "Source": "NVIDIA RTX 4000 Ada Generation Datasheet"
+      }
+    },
+    "nvidia-rtx-a6000": {
+      "name": "NVIDIA RTX A6000",
+      "description": "Ampere professional workstation GPU with 48 GB GDDR6 ECC, NVLink support, and vGPU support; included as reference material, not as a primary data center GPU SKU.",
+      "officialUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/proviz-print-nvidia-rtx-a6000-datasheet-us-nvidia-1454980-r9-web%20(1).pdf",
+      "specs": {
+        "Architecture": "Ampere",
+        "GPU Memory": "48 GB GDDR6 with ECC",
+        "Memory Interface": "384 bit",
+        "Memory Bandwidth": "768 GB/s",
+        "CUDA Cores": "10,752",
+        "Tensor Cores": "336 third-generation Tensor Cores",
+        "RT Cores": "84 second-generation RT Cores",
+        "Single-Precision Performance": "38.7 TFLOPS",
+        "Tensor Performance": "309.7 TFLOPS",
+        "NVLink": "Connects two RTX A6000 GPUs; 112.5 GB/s bidirectional bandwidth",
+        "System Interface": "PCIe 4.0 x16",
+        "TDP": "300 W total board power",
+        "Form Factor": "Dual slot workstation GPU",
+        "Source": "NVIDIA RTX A6000 Datasheet"
+      }
+    }
+  }
+}

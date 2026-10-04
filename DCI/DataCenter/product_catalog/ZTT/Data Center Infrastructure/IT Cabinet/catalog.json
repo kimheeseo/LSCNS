@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "IT Cabinet",
+  "displayName": "IT Cabinet",
+  "description": "IT rack cabinet specification used in ZTT micro-modular data-center systems.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/it-cabinet/",
+  "comparisonFields": [
+    "Dimensions",
+    "Available Space",
+    "Door Perforation",
+    "Static Bearing",
+    "Dynamic Bearing",
+    "Protection Level"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "IT Cabinet",
+      "description": "ZTT cabinet for data-center micro-modules with high-perforation front/rear doors and 42U/47U usable space.",
+      "officialUrl": "https://www.zttgroup.com/product/it-cabinet/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Dimensions": "2000/2200 × 600/800 × 1200 mm (H×W×D)",
+        "Available Space": "42U / 47U",
+        "Door Perforation": "≥75%",
+        "Static Bearing": "≥1500 kg",
+        "Dynamic Bearing": "≥1200 kg",
+        "Protection Level": "IP20"
+      }
+    }
+  }
+}

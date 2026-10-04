@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "High-density ODF",
+  "displayName": "High-density ODF",
+  "description": "High-density optical distribution frame for central-office/access-network fiber termination, distribution and cross-connection.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+  "comparisonFields": [
+    "Dimensions",
+    "Distribution Capacity",
+    "Storage Unit",
+    "Module / Tray Capacity"
+  ],
+  "products": {
+    "GPX02-600Y1": {
+      "name": "GPX02-600Y1",
+      "description": "ZTT optical distribution frame, distribution capacity 360.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2000×600×300 mm",
+        "Distribution Capacity": "360",
+        "Storage Unit": "3",
+        "Module / Tray Capacity": "Max 30 × 12-core integrated trays"
+      }
+    },
+    "GPX02-600Y2": {
+      "name": "GPX02-600Y2",
+      "description": "ZTT optical distribution frame, distribution capacity 504.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2200×600×300 mm",
+        "Distribution Capacity": "504",
+        "Storage Unit": "3",
+        "Module / Tray Capacity": "Max 42 × 12-core integrated trays"
+      }
+    },
+    "GPX02-600Y3": {
+      "name": "GPX02-600Y3",
+      "description": "ZTT optical distribution frame, distribution capacity 576.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2600×600×300 mm",
+        "Distribution Capacity": "576",
+        "Storage Unit": "4",
+        "Module / Tray Capacity": "Max 48 × 12-core integrated trays"
+      }
+    },
+    "GPX02-840Y1": {
+      "name": "GPX02-840Y1",
+      "description": "ZTT optical distribution frame, distribution capacity 576.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2000×840×300 mm",
+        "Distribution Capacity": "576",
+        "Storage Unit": "—",
+        "Module / Tray Capacity": "Max 48 × 12-core integrated trays"
+      }
+    },
+    "GPX02-840Y2": {
+      "name": "GPX02-840Y2",
+      "description": "ZTT optical distribution frame, distribution capacity 720.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2200×840×300 mm",
+        "Distribution Capacity": "720",
+        "Storage Unit": "—",
+        "Module / Tray Capacity": "Max 60 × 12-core integrated trays"
+      }
+    },
+    "GPX02-840Y3": {
+      "name": "GPX02-840Y3",
+      "description": "ZTT optical distribution frame, distribution capacity 864.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2600×840×300 mm",
+        "Distribution Capacity": "864",
+        "Storage Unit": "—",
+        "Module / Tray Capacity": "Max 72 × 12-core integrated trays"
+      }
+    },
+    "GPX03-840Y1": {
+      "name": "GPX03-840Y1",
+      "description": "ZTT optical distribution frame, distribution capacity 504.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2000×840×300 mm",
+        "Distribution Capacity": "504",
+        "Storage Unit": "2",
+        "Module / Tray Capacity": "Max 7 × 72-core ODF modules"
+      }
+    },
+    "GPX03-840Y2": {
+      "name": "GPX03-840Y2",
+      "description": "ZTT optical distribution frame, distribution capacity 576.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2200×840×300 mm",
+        "Distribution Capacity": "576",
+        "Storage Unit": "2",
+        "Module / Tray Capacity": "Max 8 × 72-core ODF modules"
+      }
+    },
+    "GPX03-840Y3": {
+      "name": "GPX03-840Y3",
+      "description": "ZTT optical distribution frame, distribution capacity 720.",
+      "officialUrl": "https://www.zttgroup.com/product/high-density-odf/",
+      "specs": {
+        "Dimensions": "2600×840×300 mm",
+        "Distribution Capacity": "720",
+        "Storage Unit": "2",
+        "Module / Tray Capacity": "Max 10 × 72-core ODF modules"
+      }
+    }
+  },
+  "crossReferenceUrl": "https://www.zttgroup.com/product/optical-distribution-frame-odf/"
+}

@@ -1,10 +1,10 @@
 {
   "checked": "2026-10-04",
-  "pdfCount": 394,
-  "structuredCatalogFiles": 40,
-  "pendingStructuredFolders": 9,
-  "pendingStructuredPdfs": 125,
-  "urlOnlyCatalogs": 26,
+  "pdfCount": 700,
+  "structuredCatalogFiles": 50,
+  "pendingStructuredFolders": 28,
+  "pendingStructuredPdfs": 431,
+  "note": "700 uploaded PDFs are discoverable; design matching uses only structured catalog families.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Solutions_Rack Accessory",
@@ -27,8 +27,48 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Corning/Cable/Loose Tube/ALTOS® Figure-8 Loose Tube, Gel-Free Cable",
+      "pdfCount": 62,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology",
+      "pdfCount": 8,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology",
+      "pdfCount": 9,
+      "structuredMetadata": false
+    },
+    {
       "folder": "Corning/Connector/MMC",
       "pdfCount": 1,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Harness/EDGE™ Conversion Harness",
+      "pdfCount": 3,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness",
+      "pdfCount": 44,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Harness/EDGE™ Solutions 24 F Y Harness",
+      "pdfCount": 11,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Harness/EDGE™ Solutions 2x3 Conversion Harness",
+      "pdfCount": 1,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Harness/EDGE™ Staggered Harness",
+      "pdfCount": 29,
       "structuredMetadata": false
     },
     {
@@ -50,6 +90,46 @@
       "folder": "Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex",
       "pdfCount": 2,
       "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Module/EDGE™ 4x4 Mesh Module",
+      "pdfCount": 2,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Base-8 Module",
+      "pdfCount": 2,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Bidi Tap Module",
+      "pdfCount": 2,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Conversion Modules",
+      "pdfCount": 4,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Module, Ultra Low Loss",
+      "pdfCount": 9,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Module",
+      "pdfCount": 11,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/EDGE™ Tap Module",
+      "pdfCount": 22,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Module/Fiber to the Desk Module",
+      "pdfCount": 8,
+      "structuredMetadata": false
     },
     {
       "folder": "Corning/ODF/EDGE™ Solutions_ODF",
@@ -87,6 +167,11 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Corning/Panel/CCH Panel/CCH Panel, SC Adapters",
+      "pdfCount": 30,
+      "structuredMetadata": false
+    },
+    {
       "folder": "Corning/Panel/EDGE™ Panels",
       "pdfCount": 3,
       "structuredMetadata": false
@@ -97,13 +182,23 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Corning/Trunk/EDGE™ Hybrid Trunk",
+      "pdfCount": 21,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Trunk/EDGE™ Indoor Ribbon Trunk",
+      "pdfCount": 1,
+      "structuredMetadata": false
+    },
+    {
       "folder": "Corning/Trunk/EDGE™ MTP® Extender Trunk",
       "pdfCount": 30,
       "structuredMetadata": true
     },
     {
       "folder": "Corning/Trunk/EDGE™ MTP® Trunk",
-      "pdfCount": 78,
+      "pdfCount": 105,
       "structuredMetadata": false
     },
     {

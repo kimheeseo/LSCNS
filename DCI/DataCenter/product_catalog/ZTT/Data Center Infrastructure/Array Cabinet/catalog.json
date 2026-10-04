@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "Array Cabinet",
+  "displayName": "Array Cabinet",
+  "description": "ZTT power array cabinet family for telecom/data-center power-distribution applications.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/array-cabinet/",
+  "comparisonFields": [
+    "Model Reference",
+    "System Voltage",
+    "Current",
+    "Role",
+    "Verification"
+  ],
+  "products": {
+    "DPF01-48V400A": {
+      "name": "DPF01-48V400A",
+      "description": "ZTT Power Array Cabinet identified in ZTT TELECOM infrastructure solution material.",
+      "officialUrl": "https://www.zttgroup.com/product/array-cabinet/",
+      "specs": {
+        "Model Reference": "DPF01-48V400A",
+        "System Voltage": "48 V DC (model designation)",
+        "Current": "400 A (model designation)",
+        "Role": "Power distribution / array cabinet",
+        "Verification": "Detailed ordering configuration requires RFQ"
+      }
+    }
+  }
+}

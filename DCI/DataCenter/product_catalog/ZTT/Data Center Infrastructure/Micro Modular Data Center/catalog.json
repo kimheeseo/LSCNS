@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "Micro Modular Data Center",
+  "displayName": "Micro Modular Data Center",
+  "description": "Prefabricated micro-modular data-center solution integrating racks, power, cooling, distribution and monitoring.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/micro-modular-data-center/",
+  "comparisonFields": [
+    "Module Size",
+    "Cabinets per Module",
+    "Max IT Load",
+    "Rack Space",
+    "Cooling Capacity",
+    "Power Supply",
+    "Monitoring"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "Micro Modular Data Center",
+      "description": "Factory-prefabricated modular data center for rapid deployment and flexible expansion.",
+      "officialUrl": "https://www.zttgroup.com/product/micro-modular-data-center/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Module Size": "Single row L×2400×2000/2200; dual row L×3600×2000/2200 mm; L≤15 m",
+        "Cabinets per Module": "Single row ≤24; dual row ≤48",
+        "Max IT Load": "125 / 145 / 235 / 310 kW depending on power architecture",
+        "Rack Space": "42U–56U",
+        "Cooling Capacity": "25–40 kW per in-row unit",
+        "Power Supply": "380/400/415 Vac, 3P+N+E, 50/60 Hz",
+        "Monitoring": "Temperature/humidity, smoke, leakage, access, camera, power/battery/distribution/AC"
+      }
+    }
+  }
+}

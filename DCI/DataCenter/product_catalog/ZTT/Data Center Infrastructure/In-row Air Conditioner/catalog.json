@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "In-row Air Conditioner",
+  "displayName": "In-row Air Conditioner",
+  "description": "Data-center in-row cooling unit used close to high-density IT racks.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/in-row-air-conditioner/",
+  "comparisonFields": [
+    "Cooling Capacity",
+    "Dimensions",
+    "Cooling Method",
+    "Refrigerant",
+    "Source Basis"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "In-row Air Conditioner",
+      "description": "ZTT micro-modular data-center documentation specifies an in-row cooling block for high-density racks.",
+      "officialUrl": "https://www.zttgroup.com/product/in-row-air-conditioner/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Cooling Capacity": "25–45 kW",
+        "Dimensions": "2000×300×1200; 2000×600×1200; 2200×600×1200 mm",
+        "Cooling Method": "Air cooling / water cooling",
+        "Refrigerant": "R410A",
+        "Source Basis": "ZTT micro-modular data-center specification"
+      }
+    }
+  }
+}

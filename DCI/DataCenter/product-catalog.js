@@ -21,7 +21,7 @@
     if (!force && cache.has(path)) return cache.get(path);
     const response = await fetch(API + pathUrl(path) + '?ref=' + encodeURIComponent(REF), {
       headers: {Accept: 'application/vnd.github+json'},
-      cache: force ? 'reload' : 'default'
+      cache: 'no-store'
     });
     if (!response.ok) {
       if (response.status === 403) throw new Error('GitHub API 조회 한도에 도달했습니다. 잠시 후 새로고침해 주세요.');
@@ -91,9 +91,14 @@
     });
   }
 
+  function cleanLabel(value) {
+    return String(value || '').replace(/^Connecttor$/i, 'Connector');
+  }
+
   function button(label, type, selected) {
+    const shown = cleanLabel(label);
     return '<button type="button" class="catalog-select' + (selected ? ' selected' : '') + '" data-' + type + '="' + esc(label) + '" aria-pressed="' + String(!!selected) + '">' +
-      '<span>' + esc(label) + '</span><b>›</b></button>';
+      '<span>' + esc(shown) + '</span><b>›</b></button>';
   }
 
   async function loadCompanies(force) {

@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "High-Speed Board Connectors",
+  "displayName": "High-Speed Board Connectors",
+  "description": "Amphenol IT Datacom high-speed board-to-board, FPC/FFC, card edge, and backplane connector products for servers, networking equipment, storage systems, GPU links, and datacom hardware.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+  "sourceUrls": [
+    "https://www.amphenol.com/markets/it-datacom",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2"
+  ],
+  "sourceCount": 18,
+  "availableCatalogItems": "Amphenol IT Datacom page indicates 668 total items across 34 pages; this catalog captures high-speed board connector items verified in the accessible pages.",
+  "storageMode": "metadata only; official product pages are linked, PDF files are not uploaded",
+  "comparisonFields": [
+    "Product Area",
+    "Pitch",
+    "Stack / Height",
+    "Key Feature",
+    "Application",
+    "Source"
+  ],
+  "products": {
+    "0-21mm-super-low-profile-fpc-connector": {
+      "name": "0.21mm Super Low Profile FPC connector",
+      "description": "0.21 mm pitch right-angle Non-ZIF FPC connector with autolock mechanism and 0.5 mm low height.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC",
+        "Pitch": "0.21 mm",
+        "Stack / Height": "0.5 mm height",
+        "Key Feature": "Autolock, 0.18 mm cable thickness",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-30mm-fpc-connectors-f14d-f13s-series": {
+      "name": "0.30mm FPC Connectors - F14D/F13S Series",
+      "description": "Right-angle ZIF flex connector with front flip lock, 0.3 mm pitch, 1.0 mm height, and 0.20 mm FPC thickness.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC",
+        "Pitch": "0.30 mm",
+        "Stack / Height": "1.0 mm height",
+        "Key Feature": "ZIF, front flip lock",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-35mm-micro-board-to-board-0-60mm-stack-height-103-series": {
+      "name": "0.35mm Micro Board-to-Board 0.60mm Stack Height - 103 Series",
+      "description": "0.35 mm pitch micro board-to-board connector for high-density applications with 0.60 mm stack height and up to 5 A current rating.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.35 mm",
+        "Stack / Height": "0.60 mm stack",
+        "Key Feature": "USB 3.1 Gen 2 signal rates",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-35mm-micro-board-to-board-1-00mm-stack-height-101-series": {
+      "name": "0.35mm Micro Board-to-Board 1.00mm Stack Height - 101 Series",
+      "description": "0.35 mm pitch micro board-to-board connector with 1.00 mm stack height for high-density applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.35 mm",
+        "Stack / Height": "1.00 mm stack",
+        "Key Feature": "SMT termination",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-40mm-fine-pitch-3-0mm-stacked-height-board-to-board": {
+      "name": "0.40mm Fine Pitch 3.0mm Stacked Height Board-to-Board",
+      "description": "0.40 mm fine-pitch 3.0 mm stacked height board-to-board connector with data rates up to 6 Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.40 mm",
+        "Stack / Height": "3.0 mm stack",
+        "Key Feature": "Up to 6 Gb/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-40mm-fine-pitch-floating-board-to-board": {
+      "name": "0.40mm Fine Pitch Floating Board-to-Board",
+      "description": "0.40 mm pitch, 4 mm stacked height floating board-to-board connector with +/-0.20 mm X/Y floating range and up to 6 Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.40 mm",
+        "Stack / Height": "4 mm stack",
+        "Key Feature": "Floating, up to 6 Gb/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-40mm-pitch-ffc-fpc-f21l-series": {
+      "name": "0.40mm Pitch FFC/FPC - F21L Series",
+      "description": "0.40 mm pitch right-angle ZIF flex connector with front flip lock, 2.60 mm height, 4 to 120 contacts.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC/FFC",
+        "Pitch": "0.40 mm",
+        "Stack / Height": "2.60 mm height",
+        "Key Feature": "30 mating cycles",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-50mm-board-to-board": {
+      "name": "0.50mm Board-to-Board",
+      "description": "0.50 mm pitch, 85 ohm high-speed board-to-board connector family for high-performance applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.50 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "85 ohm high-speed design",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-50mm-ffc-fpc-connectors": {
+      "name": "0.50mm FFC/FPC Connectors",
+      "description": "0.50 mm pitch flex connector family with ZIF and Non-ZIF cable terminations, 1.25 mm to 5.80 mm height, 4 to 80 positions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC/FFC",
+        "Pitch": "0.50 mm",
+        "Stack / Height": "1.25-5.80 mm height",
+        "Key Feature": "4-80 positions",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-50mm-ffc-fpc-connectors-sfv-sfvl-vll-opu-series": {
+      "name": "0.50mm FFC/FPC Connectors SFV/SFVL/VLL/OPU Series",
+      "description": "FCI Basic 0.50 mm pitch flex connectors in right-angle and vertical SMT configurations with optional cable lock.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC/FFC",
+        "Pitch": "0.50 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "ZIF, optional cable lock",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-50mm-pitch-ffc-fpc-autolock-connectors": {
+      "name": "0.50mm Pitch FFC/FPC Autolock Connectors",
+      "description": "F33M/F332/F323 0.50 mm Non-ZIF flex connector with autolock, 6 to 68 contacts, right angle and vertical orientations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "FPC/FFC",
+        "Pitch": "0.50 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "Autolock, 20 mating cycles",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-60mm-board-to-board-85-ohm": {
+      "name": "0.60mm Board-to-Board 85 ohm",
+      "description": "0.60 mm high-speed BTB connector with superior SI performance and PCIe Gen3 8GT/s support.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.60 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "PCIe Gen3 8GT/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-80mm-board-to-board-100-ohm": {
+      "name": "0.80mm Board-to-Board 100 ohm",
+      "description": "0.80 mm high-speed BTB connector with 100 ohm design and SAS 3.0 12GT/s support.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.80 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "SAS 3.0 12GT/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-80mm-board-to-board-85-ohm": {
+      "name": "0.80mm Board-to-Board 85 ohm",
+      "description": "0.80 mm high-speed BTB connector with 85 ohm design and PCIe Gen3 8GT/s support.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.80 mm",
+        "Stack / Height": "Various",
+        "Key Feature": "PCIe Gen3 8GT/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-80mm-board-to-board-connectors-b401-b402-series": {
+      "name": "0.80mm Board-to-Board Connectors - B401/B402 Series",
+      "description": "0.80 mm pitch high-density vertical board-to-board connectors supporting stack heights up to 10 mm and 100 positions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.80 mm",
+        "Stack / Height": "Up to 10 mm stack",
+        "Key Feature": "Up to 100 positions",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "0-80mm-floating-board-to-board-connectors-b406-b407-b410-series": {
+      "name": "0.80mm Floating Board-to-Board Connectors - B406/B407/B410 Series",
+      "description": "0.80 mm pitch floating BTB connectors supporting stack height up to 23 mm, 30 to 120 positions, +/-0.50 mm floating range, and up to 2.5 Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Board-to-board",
+        "Pitch": "0.80 mm",
+        "Stack / Height": "Up to 23 mm stack",
+        "Key Feature": "Floating, up to 2.5 Gb/s",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "112g-pam4-mini-cool-edge-0-60mm-card-edge-connectors": {
+      "name": "112G PAM4 Mini Cool Edge 0.60mm Card Edge Connectors",
+      "description": "0.60 mm high-density high-speed card edge connector meeting SFF-TA-1002 and OCP NIC 3.0 specifications for NIC, add-in card, and GPU link applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Card edge",
+        "Pitch": "0.60 mm",
+        "Stack / Height": "Mini Cool Edge",
+        "Key Feature": "112G PAM4, OCP NIC 3.0, GPU link",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "100g-vpx-backplane": {
+      "name": "100G VPX Backplane",
+      "description": "100G VPX backplane based on OpenVPX profile for 100G bandwidth over copper backplane assemblies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Product Area": "Backplane",
+        "Pitch": "—",
+        "Stack / Height": "VPX backplane",
+        "Key Feature": "100G copper backplane",
+        "Application": "IT/datacom equipment, servers, storage, networking equipment, add-in cards, GPU links",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    }
+  }
+}

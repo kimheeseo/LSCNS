@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "2RU High Density Panels and Interconnect Panels",
+  "displayName": "2RU High Density Panels and Interconnect Panels",
+  "description": "2RU SEL-footprint high-density panel system.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2024/09/SEL_08.26.24-2RU-HD-Panels-Ver1_v4.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "Port Capacity",
+    "Panel Capacity",
+    "Connector",
+    "Fiber Type",
+    "Polish"
+  ],
+  "products": {
+    "FT02SEL12-S": {
+      "name": "FT02SEL12-S",
+      "description": "Short rear management panel.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+      "specs": {
+        "Product Type": "Patch panel",
+        "Rack Unit": "2RU",
+        "Port Capacity": "288 LC",
+        "Panel Capacity": "12",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Polish": "—"
+      }
+    },
+    "FT02SEL12-L": {
+      "name": "FT02SEL12-L",
+      "description": "Long rear management panel.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+      "specs": {
+        "Product Type": "Patch panel",
+        "Rack Unit": "2RU",
+        "Port Capacity": "288 LC",
+        "Panel Capacity": "12",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Polish": "—"
+      }
+    },
+    "FTLCU-SM24-SEL": {
+      "name": "FTLCU-SM24-SEL",
+      "description": "LC/UPC bulkhead.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+      "specs": {
+        "Product Type": "Interconnect bulkhead",
+        "Rack Unit": "—",
+        "Port Capacity": "24",
+        "Panel Capacity": "1",
+        "Connector": "LC / 6 Quad",
+        "Fiber Type": "SM",
+        "Polish": "UPC"
+      }
+    },
+    "FTLCA-SM24-SEL": {
+      "name": "FTLCA-SM24-SEL",
+      "description": "LC/APC bulkhead.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+      "specs": {
+        "Product Type": "Interconnect bulkhead",
+        "Rack Unit": "—",
+        "Port Capacity": "24",
+        "Panel Capacity": "1",
+        "Connector": "LC / 6 Quad",
+        "Fiber Type": "SM",
+        "Polish": "APC"
+      }
+    },
+    "FTLCBLANK-SEL": {
+      "name": "FTLCBLANK-SEL",
+      "description": "Blank bulkhead.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/",
+      "specs": {
+        "Product Type": "Blank bulkhead",
+        "Rack Unit": "—",
+        "Port Capacity": "0",
+        "Panel Capacity": "1",
+        "Connector": "Blank",
+        "Fiber Type": "—",
+        "Polish": "—"
+      }
+    }
+  }
+}

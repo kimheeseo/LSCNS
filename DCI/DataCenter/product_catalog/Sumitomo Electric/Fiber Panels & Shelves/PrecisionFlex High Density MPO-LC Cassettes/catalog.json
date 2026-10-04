@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex High Density MPO-LC Cassettes",
+  "displayName": "PrecisionFlex High Density MPO-LC Cassettes",
+  "description": "1RU 144F MPO-to-LC cassette platform.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-high-density-mpo-cassette-panel/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/09/SEL_08.31.23-PrecisionFlex-High-Density-MPO-Cassette-Panel_v1.1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Chassis Type",
+    "Rack Unit",
+    "Cassette Capacity",
+    "LC Capacity",
+    "Fiber Type",
+    "Front Connector",
+    "Rear Connector",
+    "Insertion Loss",
+    "Return Loss"
+  ],
+  "products": {
+    "PFCST-1U-S-RPS-BK": {
+      "name": "PFCST-1U-S-RPS-BK",
+      "description": "Slide chassis.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-high-density-mpo-cassette-panel/",
+      "specs": {
+        "Product Type": "Cassette chassis",
+        "Chassis Type": "Slide",
+        "Rack Unit": "1RU",
+        "Cassette Capacity": "12",
+        "LC Capacity": "144",
+        "Fiber Type": "—",
+        "Front Connector": "—",
+        "Rear Connector": "—",
+        "Insertion Loss": "—",
+        "Return Loss": "—"
+      }
+    },
+    "PFCST-1U-F12-BK": {
+      "name": "PFCST-1U-F12-BK",
+      "description": "Fixed chassis.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-high-density-mpo-cassette-panel/",
+      "specs": {
+        "Product Type": "Cassette chassis",
+        "Chassis Type": "Fixed",
+        "Rack Unit": "1RU",
+        "Cassette Capacity": "12",
+        "LC Capacity": "144",
+        "Fiber Type": "—",
+        "Front Connector": "—",
+        "Rear Connector": "—",
+        "Insertion Loss": "—",
+        "Return Loss": "—"
+      }
+    },
+    "PFCST-SM-1X12MPOM-LC-S": {
+      "name": "PFCST-SM-1X12MPOM-LC-S",
+      "description": "SM MPO-LC cassette.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-high-density-mpo-cassette-panel/",
+      "specs": {
+        "Product Type": "MPO-LC cassette",
+        "Chassis Type": "—",
+        "Rack Unit": "—",
+        "Cassette Capacity": "—",
+        "LC Capacity": "12f",
+        "Fiber Type": "SM",
+        "Front Connector": "LC",
+        "Rear Connector": "12MPO",
+        "Insertion Loss": "≤0.65 dB",
+        "Return Loss": "≥50 dB"
+      }
+    },
+    "PFCST-MM-1X12MPOM-LC-S": {
+      "name": "PFCST-MM-1X12MPOM-LC-S",
+      "description": "MM MPO-LC cassette.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-high-density-mpo-cassette-panel/",
+      "specs": {
+        "Product Type": "MPO-LC cassette",
+        "Chassis Type": "—",
+        "Rack Unit": "—",
+        "Cassette Capacity": "—",
+        "LC Capacity": "12f",
+        "Fiber Type": "MM",
+        "Front Connector": "LC",
+        "Rear Connector": "12MPO",
+        "Insertion Loss": "≤0.50 dB",
+        "Return Loss": "≥25 dB"
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Cable Assemblies",
+  "displayName": "Cable Assemblies",
+  "description": "Configurable optical cable assemblies for data-center interconnects.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/01/SEL_06.11.25_Cable-Assemblies_Ver1_V1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Count",
+    "Fiber Types",
+    "Connector Options",
+    "Insertion Loss",
+    "Return Loss",
+    "Configurable"
+  ],
+  "products": {
+    "CONFIG-008F": {
+      "name": "Configurable Cable Assembly · 8F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "8",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-012F": {
+      "name": "Configurable Cable Assembly · 12F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "12",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-016F": {
+      "name": "Configurable Cable Assembly · 16F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "16",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-024F": {
+      "name": "Configurable Cable Assembly · 24F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "24",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-032F": {
+      "name": "Configurable Cable Assembly · 32F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "32",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-048F": {
+      "name": "Configurable Cable Assembly · 48F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "48",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-072F": {
+      "name": "Configurable Cable Assembly · 72F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "72",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-096F": {
+      "name": "Configurable Cable Assembly · 96F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "96",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    },
+    "CONFIG-144F": {
+      "name": "Configurable Cable Assembly · 144F",
+      "description": "BOM planning configuration; exact code remains RFQ.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-assemblies/",
+      "specs": {
+        "Product Type": "Configurable cable assembly",
+        "Fiber Count": "144",
+        "Fiber Types": "OM1/OM2/OM3/OM4/OM5 / G.657.A1 / G.657.A2",
+        "Connector Options": "LC / SC / ST / MPO / MTP",
+        "Insertion Loss": "MPO low-loss ≤0.35 dB; LC SM UPC ≤0.25 dB",
+        "Return Loss": "MPO SM low-loss ≥60 dB; LC SM UPC ≥55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    }
+  }
+}

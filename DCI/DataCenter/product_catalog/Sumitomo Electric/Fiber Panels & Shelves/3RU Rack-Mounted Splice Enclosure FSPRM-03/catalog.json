@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "3RU Rack-Mounted Splice Enclosure FSPRM-03",
+  "displayName": "3RU Rack-Mounted Splice Enclosure FSPRM-03",
+  "description": "High-density 19-inch rack splice enclosure.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/rack-mounted-splice-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/03/SEL_06.07.23-Rack-Mounted-Splice-Enclosure-Ver.2_v2.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "Fiber Capacity",
+    "Tray Capacity",
+    "Fiber per Tray",
+    "Dimensions"
+  ],
+  "products": {
+    "FSPRM-03": {
+      "name": "FSPRM-03",
+      "description": "3RU splice enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/rack-mounted-splice-enclosure/",
+      "specs": {
+        "Product Type": "Rack splice enclosure",
+        "Rack Unit": "3RU",
+        "Fiber Capacity": "1,728f",
+        "Tray Capacity": "4",
+        "Fiber per Tray": "432f",
+        "Dimensions": "133 × 534 × 508 mm"
+      }
+    },
+    "FTHFC-IMST432": {
+      "name": "FTHFC-IMST432",
+      "description": "432f splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/rack-mounted-splice-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "Rack Unit": "—",
+        "Fiber Capacity": "432f",
+        "Tray Capacity": "1",
+        "Fiber per Tray": "432f / 36 × 12ct",
+        "Dimensions": "—"
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "2RU Flush Mount Panels",
+  "displayName": "2RU Flush Mount Panels",
+  "description": "2RU LGX panel family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2024/11/SEL_08.26.24-2RU-Flush-Mount-Panels-Ver1_v1.1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "Module Type",
+    "Module Capacity",
+    "LC Port Capacity",
+    "SC Port Capacity",
+    "Configuration"
+  ],
+  "products": {
+    "FT02FMFP-6LGX-INTERCONNECT": {
+      "name": "FT02FMFP-6LGX-INTERCONNECT",
+      "description": "2RU Flush Mount product.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+      "specs": {
+        "Product Type": "Patch panel assembly",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX interconnect/bulkhead",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144",
+        "SC Port Capacity": "72",
+        "Configuration": "Assembled"
+      }
+    },
+    "FT02FMFP-6LGX-CASSETTES": {
+      "name": "FT02FMFP-6LGX-CASSETTES",
+      "description": "2RU Flush Mount product.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+      "specs": {
+        "Product Type": "Patch panel assembly",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX cassette",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144",
+        "SC Port Capacity": "72",
+        "Configuration": "Assembled"
+      }
+    },
+    "FT02FMFP-6LGX-FACEPLATE": {
+      "name": "FT02FMFP-6LGX-FACEPLATE",
+      "description": "2RU Flush Mount product.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+      "specs": {
+        "Product Type": "Faceplate",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX interconnect/bulkhead",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144",
+        "SC Port Capacity": "72",
+        "Configuration": "Component"
+      }
+    },
+    "FT02FMFP-6LGX-REARFRAME": {
+      "name": "FT02FMFP-6LGX-REARFRAME",
+      "description": "2RU Flush Mount product.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+      "specs": {
+        "Product Type": "Rear frame",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX interconnect/bulkhead",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144",
+        "SC Port Capacity": "72",
+        "Configuration": "Component"
+      }
+    },
+    "FT02FMFP-6LGX-REARFRAME-CASSETTE": {
+      "name": "FT02FMFP-6LGX-REARFRAME-CASSETTE",
+      "description": "2RU Flush Mount product.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/2ru-flush-mount-panels/",
+      "specs": {
+        "Product Type": "Rear frame",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX cassette",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144",
+        "SC Port Capacity": "72",
+        "Configuration": "Component"
+      }
+    }
+  }
+}

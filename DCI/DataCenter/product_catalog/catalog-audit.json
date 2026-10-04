@@ -1,24 +1,21 @@
 {
   "checked": "2026-10-05",
-  "pdfCount": 1070,
-  "structuredCatalogFiles": 123,
-  "pendingStructuredFolders": 36,
-  "pendingStructuredPdfs": 745,
+  "pdfCount": 1021,
+  "structuredCatalogFiles": 82,
+  "pendingStructuredFolders": 34,
+  "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
-    "pdfCount": 44,
-    "catalogCount": 44,
-    "productGroups": 44,
-    "sourceBatches": 4
+    "pdfCount": 10,
+    "catalogCount": 10,
+    "productRows": 54
   },
   "usConecMtp": {
     "sourceRows": 1895,
     "uniqueDrawingProducts": 154,
     "pdfCount": 0,
-    "storageMode": "metadata only; official product/drawing links retained",
-    "subfamilies": 7,
-    "classification": "Adapters / MTP Universal / MTP PRO / MTP PRO X / MTP-16 / Fast-Track & Pin Clamp / MTP 900µ & Fanout"
+    "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
   },
-  "note": "Inventory regenerated from current repository tree. Recent Sumitomo PDF batch is present as PDF + catalog.json + readme.md. BOM/quotation matching now indexes relevant structured catalogs across vendors rather than a fixed hand-picked subset.",
+  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed. NVIDIA Vera Rubin AI Factory Platform catalog added from attached NVIDIA datasheet as metadata-only product specs. NVIDIA data center GPU/platform/networking catalog expanded with supplied NVIDIA resource links. Fujikura optic-product and Amphenol IT Datacom catalogs added as metadata-only product specs.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -246,137 +243,12 @@
       "structuredMetadata": false
     },
     {
-      "folder": "Furukawa Electric/Network/FITELnet FX2",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Network/FITELnet FX201",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Network/FITELnet vFX",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Optical Cable/High Density Optical Fiber Cable",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Optical Components/IMDD CW-DFB Laser Chip",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Optical Connectivity/Patch Panel & ODF",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Furukawa Electric/PDF Sources",
       "pdfCount": 3,
       "structuredMetadata": true
     },
     {
-      "folder": "Furukawa Electric/Power Cable/600V EM-FCC(T)",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Furukawa Electric/Power Cable/EM-LMFC",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "LS CNS/광통신",
-      "pdfCount": 2,
-      "structuredMetadata": false
-    },
-    {
-      "folder": "LS CNS/통합배선",
-      "pdfCount": 4,
-      "structuredMetadata": false
-    },
-    {
-      "folder": "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "NVIDIA/AI Factory Platforms/Vera Rubin Platform",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "NVIDIA/CPU and Superchips",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "NVIDIA/Data Center GPUs",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "NVIDIA/Networking",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "NVIDIA/Professional GPUs Reference",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "SENKO/Field Connectors",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "SENKO/Legacy Connectors",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "SENKO/MPO-MT Connectors",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "SENKO/SC-LC Connectors",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "SENKO/VSFF Connectors",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Cable Assemblies/Cable Assemblies",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex FOX Splice Cassettes",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex LGX MPO Cassettes",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -391,32 +263,7 @@
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Entrance Frames/Ultra Hyperscale eXchange (U-HSX)",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/1RU LGX Compact Patch Panel",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/2RU Flush Mount Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/2RU High Density Panels and Interconnect Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -426,77 +273,7 @@
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex High Density MPO-LC Cassettes",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Splice Tray & Holders",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fusion Splicer Solutions/Fiber Protection Sleeves",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fusion Splicer Solutions/JR-7 Thermal Jacket Remover",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fusion Splicer Solutions/JR-7S Thermal Jacket Remover",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fusion Splicer Solutions/Splice Tray Holder Kit",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/6912 Fiber Transition Module",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP4-PR432",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP8-PR864",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/TN Fiber Optic Splice Closures",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/12-Fiber Ribbon Pigtail Fanout Kits",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -506,67 +283,12 @@
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Cable Breakout Kits for Ribbons",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/SWK™ Series/SWK Cable Assemblies",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/SWK™ Series/SWK Connector",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/SWK™ Series/SWK Fiber Adapter Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/SWK™ Series/SWK Fiber Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Splice Trays/Splice Trays",
       "pdfCount": 1,
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-02L-2D Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L-2D Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-08L Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/NEMA 4X-IP66 Splice Transit Enclosure",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -591,227 +313,62 @@
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MT Ferrules",
-      "pdfCount": 9,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "USConnec/MTP Connectors",
+      "folder": "NVIDIA/AI Factory Platforms/Vera Rubin Platform",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/Adapters",
+      "folder": "NVIDIA/Data Center GPUs",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/Fast-Track & Pin Clamp",
+      "folder": "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/MTP 900µ & Fanout",
+      "folder": "NVIDIA/CPU and Superchips",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/MTP PRO",
+      "folder": "NVIDIA/Networking",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/MTP PRO X",
+      "folder": "NVIDIA/Professional GPUs Reference",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/MTP Universal",
+      "folder": "Fujikura/Fiber Optic Cables",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "USConnec/MTP Connectors/MTP-16",
+      "folder": "Fujikura/Optical Fibers",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "YOFC/Module/Adapter Panel (UDF)",
+      "folder": "Fujikura/Optical Connectivity and Rack Enclosures",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "YOFC/Module/MTP-LC Conversion Module (UDF)",
+      "folder": "Amphenol/Optical Transceivers and AOC",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "YOFC/Module/SDF Optical Fibre Module Cassette",
+      "folder": "Amphenol/High-Speed Board Connectors",
       "pdfCount": 0,
       "structuredMetadata": true
     },
     {
-      "folder": "YOFC/Module/UDF Pro Optical Fibre Module Cassette",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/G4 Fixed Type Fibre Optic Patch Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/G4 MPO-MTP Modules and Panels",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/G4 Telescopic Type Fibre Optic Patch Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/SDF Adapter Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/SDF Fibre Optic Patch Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/UDF High-density Fibre Optic Patch Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Panel/UDF Pro Ultra-high Density Fibre Optic Patch Panel",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Patch Cord/MPO-MTP Branching Patch Cord",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Patch Cord/MPO-MTP Pre-terminated Patch Cord",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/1.25G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/100G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/10G SFP+",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/10G XFP",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/2.5G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/200G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/25G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/400G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/40G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/50G",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/AOC",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Transceiver/PON Series",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/All-in-One Cabinet",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/Array Cabinet",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/Containerized Data Center",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/Containment Aisle",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/High-density ODF",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/IT Cabinet",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/In-row Air Conditioner",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/Micro Modular Data Center",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Data Center Infrastructure/Smart Busbar",
-      "pdfCount": 0,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "ZTT/Optical Connectivity/MPO-MTP Patch Cord",
+      "folder": "Amphenol/Power Distribution Panels",
       "pdfCount": 0,
       "structuredMetadata": true
     }
@@ -836,9 +393,29 @@
       "https://resources.nvidia.com/en-us-gpu-resources/l4-tensor-datasheet?lx=CPwSfP"
     ]
   },
-  "bomCatalogIndex": {
-    "path": "bom-catalog-index.json",
-    "structuredCatalogs": 123,
-    "policy": "Use vendor structured catalogs as BOM/quotation candidates by role and conditions; keep insufficient or configurable matches as RFQ."
+  "fujikuraOpticProduct": {
+    "productGroups": 3,
+    "productRows": 37,
+    "pdfCount": 0,
+    "storageMode": "metadata only; official product pages and catalog links are referenced but PDFs are not uploaded",
+    "officialUrl": "https://www.optic-product.fujikura.com/",
+    "sourcePages": [
+      "https://www.optic-product.fujikura.com/",
+      "https://www.optic-product.fujikura.com/data-center-solution/"
+    ]
+  },
+  "amphenolItDatacom": {
+    "productGroups": 3,
+    "productRows": 34,
+    "visibleCatalogItemsCaptured": 34,
+    "reportedCatalogItems": 668,
+    "reportedPages": 34,
+    "pdfCount": 0,
+    "storageMode": "metadata only; official market pages are referenced but PDFs are not uploaded",
+    "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+    "sourcePages": [
+      "https://www.amphenol.com/markets/it-datacom",
+      "https://www.amphenol.com/markets/it-datacom?pagenumber=2"
+    ]
   }
 }

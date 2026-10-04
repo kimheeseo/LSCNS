@@ -3,9 +3,9 @@
   "company": "US Conec",
   "category": "MDC Connectors",
   "displayName": "MDC Connectors",
-  "description": "US Conec ELiMENT® MDC is a VSFF duplex optical connector using proven 1.25 mm ferrule technology from the LC ecosystem, designed for single-mode and multimode fiber cables up to 2.0 mm diameter.",
+  "description": "ELiMENT® MDC is a VSFF duplex optical connector using two 1.25 mm ferrules in one housing, DirectConec™ push-pull access and up to 3× LC cabling density.",
   "checked": "2026-10-04",
-  "officialUrl": "https://www.usconec.com/connectors/mdc-connectors",
+  "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
   "comparisonFields": [
     "Type",
     "Style",
@@ -20,7 +20,8 @@
   "products": {
     "C21871": {
       "name": "C21871 · ELiMENT® MDC 3-Port Adapter",
-      "description": "Blue, no-flange, aligned 3-port MDC-to-MDC Jr. adapter supplied with 3 dust plugs.",
+      "description": "Blue no-flange aligned 3-port MDC/MDC Jr. adapter with 3 dust plugs.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
       "specs": {
         "Type": "Adapter",
         "Style": "MDC/MDC Jr.",
@@ -35,7 +36,8 @@
     },
     "C21878": {
       "name": "C21878 · ELiMENT® MDC 3-Port Adapter",
-      "description": "Blue, no-flange, aligned 3-port MDC-to-MDC Jr. adapter supplied with 0 dust plugs.",
+      "description": "Blue no-flange aligned 3-port MDC/MDC Jr. adapter with 0 dust plugs.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
       "specs": {
         "Type": "Adapter",
         "Style": "MDC/MDC Jr.",
@@ -50,7 +52,8 @@
     },
     "C22082": {
       "name": "C22082 · ELiMENT® MDC Sr Plug",
-      "description": "Low-loss single-mode duplex MDC Sr plug using LC-class 1.25 mm ferrules; blue housing, 2.0 mm round cable and black push-pull boot.",
+      "description": "Low-loss single-mode duplex MDC Sr plug: 1x2 fibers, PC polish, blue housing, 2.0 mm round cable and black DirectConec™ push-pull boot.",
+      "officialUrl": "https://www.usconec.com/products/kit-mdc-2mm-single-mode-blue-housing-black-push-pull-boot",
       "specs": {
         "Type": "Plug",
         "Style": "MDC Sr",
@@ -60,12 +63,13 @@
         "Cable Style": "2.0 mm Round",
         "Insertion / Extraction": "Push Pull",
         "Adapter Footprint": "—",
-        "Key Feature": "Blue housing · black push-pull boot"
+        "Key Feature": "Low-loss · blue housing · black push-pull boot"
       }
     },
     "C22085": {
       "name": "C22085 · ELiMENT® MDC Jr Plug",
-      "description": "Low-loss single-mode duplex MDC Jr plug with blue housing; compact Jr. housing, no boot and latch-release extraction.",
+      "description": "Low-loss single-mode duplex MDC Jr plug: 1x2 fibers, PC polish, blue housing, Jr. housing and latch-release extraction with no boot.",
+      "officialUrl": "https://www.usconec.com/products/kit-mdc-jr-single-mode-blue-housing",
       "specs": {
         "Type": "Plug",
         "Style": "MDC Jr",
@@ -75,12 +79,13 @@
         "Cable Style": "Jr. MDC Housing",
         "Insertion / Extraction": "Latch Release",
         "Adapter Footprint": "—",
-        "Key Feature": "Blue housing · no boot"
+        "Key Feature": "Low-loss · blue housing · no boot"
       }
     },
     "C22849": {
       "name": "C22849 · ELiMENT® MDC 4-Port Adapter",
-      "description": "Blue, no-flange, aligned 4-port MDC-to-MDC Jr. adapter supplied with 0 dust plugs.",
+      "description": "Blue no-flange aligned 4-port MDC/MDC Jr. adapter with 0 dust plugs.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
       "specs": {
         "Type": "Adapter",
         "Style": "MDC/MDC Jr.",
@@ -95,7 +100,8 @@
     },
     "C22855": {
       "name": "C22855 · ELiMENT® MDC 4-Port Adapter",
-      "description": "Blue, no-flange, aligned 4-port MDC-to-MDC Jr. adapter supplied with 4 dust plugs.",
+      "description": "Blue no-flange aligned 4-port MDC/MDC Jr. adapter with 4 dust plugs.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
       "specs": {
         "Type": "Adapter",
         "Style": "MDC/MDC Jr.",

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "SWK Fiber Adapter Panels",
+  "displayName": "SWK Fiber Adapter Panels",
+  "description": "Universal 1RU SWK adapter-panel platform with replaceable bulkhead modules.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.12.23_SWK-Fiber-Adapter-Panels_v1.2.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "Module Ports",
+    "Fiber Capacity",
+    "Interface",
+    "Dimensions",
+    "Material"
+  ],
+  "products": {
+    "SEL-01.12.23_SWK-Fiber-Adapter-Panels_v1.2": {
+      "name": "SWK™ Fiber Adapter Panels",
+      "description": "1RU rapid-latch universal adapter-panel system.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "Fiber Adapter Panel",
+        "Rack Unit": "1RU",
+        "Module Ports": "12",
+        "Fiber Capacity": "Up to 1,728f",
+        "Interface": "Universal Bulkhead Module",
+        "Dimensions": "485W × 44H × 62D mm",
+        "Material": "Aluminum"
+      }
+    },
+    "SWK-FAP1-12UBM": {
+      "name": "SWK-FAP1-12UBM",
+      "description": "Universal SWK Fiber Adapter Panel.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "Panel",
+        "Rack Unit": "1RU",
+        "Module Ports": "12 × UBM",
+        "Fiber Capacity": "Up to 1,728f",
+        "Interface": "UBM",
+        "Dimensions": "485 × 44 × 62 mm",
+        "Material": "Aluminum"
+      }
+    },
+    "SWK-UBM-SWKL": {
+      "name": "SWK-UBM-SWKL",
+      "description": "Universal Bulkhead Module with SWK-L connector.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "UBM",
+        "Rack Unit": "—",
+        "Module Ports": "1 module",
+        "Fiber Capacity": "SWK fiber count",
+        "Interface": "SWK-L",
+        "Dimensions": "—",
+        "Material": "—"
+      }
+    },
+    "SWK-UBM-4LC": {
+      "name": "SWK-UBM-4LC",
+      "description": "Universal Bulkhead Module with four LC interfaces.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "UBM",
+        "Rack Unit": "—",
+        "Module Ports": "1 module",
+        "Fiber Capacity": "8f duplex LC max",
+        "Interface": "4 × LC",
+        "Dimensions": "—",
+        "Material": "—"
+      }
+    },
+    "SWK-UBM-4MPO": {
+      "name": "SWK-UBM-4MPO",
+      "description": "Universal Bulkhead Module with four MPO interfaces.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "UBM",
+        "Rack Unit": "—",
+        "Module Ports": "1 module",
+        "Fiber Capacity": "Depends on MPO count",
+        "Interface": "4 × MPO",
+        "Dimensions": "—",
+        "Material": "—"
+      }
+    },
+    "SWK-UBM-1RJ45": {
+      "name": "SWK-UBM-1RJ45",
+      "description": "Universal Bulkhead Module with RJ45 Cat6 interface.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-adapter-panel/",
+      "specs": {
+        "Product Type": "UBM",
+        "Rack Unit": "—",
+        "Module Ports": "1 module",
+        "Fiber Capacity": "—",
+        "Interface": "1 × RJ45 Cat6",
+        "Dimensions": "—",
+        "Material": "—"
+      }
+    }
+  }
+}

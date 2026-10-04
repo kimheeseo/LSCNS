@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Ultra Hyperscale eXchange (U-HSX)",
+  "displayName": "Ultra Hyperscale eXchange (U-HSX)",
+  "description": "Wall-mounted high-density entrance / demarcation cabinet supporting up to 41,472 ribbon fibers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL_08.26.26_Ultra-Hyperscale-eXchange-U-HSX_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "Splice Capacity",
+    "Mounting Type",
+    "Dimensions",
+    "Tray Capacity",
+    "Cable Access"
+  ],
+  "products": {
+    "SEL_08.26.26_Ultra-Hyperscale-eXchange-U-HSX_Ver1_v1": {
+      "name": "FTHFC-41K-SK1",
+      "description": "Ultra Hyperscale eXchange solution: wall-mounted demarcation cabinet for high-fiber-count ribbon cable transitions.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+      "specs": {
+        "Product Type": "U-HSX Solution",
+        "Fiber Capacity": "41,472f",
+        "Splice Capacity": "3,456 mass splices / 48 trays",
+        "Mounting Type": "Wall mount",
+        "Dimensions": "56 × 72 × 20 in (1,422 × 1,829 × 508 mm)",
+        "Tray Capacity": "48 × 864f trays",
+        "Cable Access": "Top 1 / Bottom 1 / Left 6 access areas"
+      }
+    },
+    "FTHFC-ACK-3456-1728": {
+      "name": "FTHFC-ACK-3456-1728",
+      "description": "Accessory kit for one 3,456f U-HSX cable entry transitioning to 1,728f.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+      "specs": {
+        "Product Type": "Accessory kit",
+        "Fiber Capacity": "3,456f → 1,728f",
+        "Splice Capacity": "Consumables included",
+        "Mounting Type": "U-HSX accessory",
+        "Dimensions": "—",
+        "Tray Capacity": "—",
+        "Cable Access": "Includes gland / sock / hook-and-loop consumables"
+      }
+    },
+    "FTHFC-GLAND-KIT-1.02": {
+      "name": "FTHFC-GLAND-KIT-1.02",
+      "description": "Strain-relief gland for U-HSX cable terminal.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+      "specs": {
+        "Product Type": "Cable gland",
+        "Fiber Capacity": "—",
+        "Splice Capacity": "—",
+        "Mounting Type": "U-HSX accessory",
+        "Dimensions": "Cable range 20–26 mm",
+        "Tray Capacity": "—",
+        "Cable Access": "0.787–1.020 in"
+      }
+    },
+    "FTHFC-GLAND-KIT-1.515": {
+      "name": "FTHFC-GLAND-KIT-1.515",
+      "description": "Large-range strain-relief gland for U-HSX cable terminal.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+      "specs": {
+        "Product Type": "Cable gland",
+        "Fiber Capacity": "—",
+        "Splice Capacity": "—",
+        "Mounting Type": "U-HSX accessory",
+        "Dimensions": "Cable range 24–38.5 mm",
+        "Tray Capacity": "—",
+        "Cable Access": "0.944–1.515 in"
+      }
+    },
+    "FTHFC-SOCK-5/8-75FT": {
+      "name": "FTHFC-SOCK-5/8-75FT",
+      "description": "Ribbon protection sock used with U-HSX cable routing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ultra-hyperscale-exchange-u-hsx/",
+      "specs": {
+        "Product Type": "Ribbon protection sock",
+        "Fiber Capacity": "—",
+        "Splice Capacity": "—",
+        "Mounting Type": "U-HSX accessory",
+        "Dimensions": "0.625 in × 75 ft (16 mm × 22.9 m)",
+        "Tray Capacity": "—",
+        "Cable Access": "Internal protection"
+      }
+    }
+  }
+}

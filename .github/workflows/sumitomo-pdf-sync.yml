@@ -51,6 +51,19 @@ jobs:
           get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2023/01/SEL_05.30.25-FTWM-04L-Wall-Mount-Enclosure_v1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure/SEL_05.30.25-FTWM-04L-Wall-Mount-Enclosure_v1.pdf'
           get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL_02.18.26_6912F-Transition-Module_Ver1_v1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Other Enclosures/6912 Fiber Transition Module/SEL_02.18.26_6912F-Transition-Module_Ver1_v1.pdf'
 
+
+          # Third user-supplied PDF batch (2026-10-05)
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL_08.26.26_Ultra-Hyperscale-eXchange-U-HSX_Ver1_v1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Entrance Frames/Ultra Hyperscale eXchange (U-HSX)/SEL_08.26.26_Ultra-Hyperscale-eXchange-U-HSX_Ver1_v1.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2016/01/SEL_25.06.04_12-Fiber-Ribbon-Pigtail-Fanout-Kits_v1.1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Ribbon Breakout & Fanout Kits/12-Fiber Ribbon Pigtail Fanout Kits/SEL_25.06.04_12-Fiber-Ribbon-Pigtail-Fanout-Kits_v1.1.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.11.23_SWK-Fiber-Patch-Panels_v1.1-print.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/SWK™ Series/SWK Fiber Patch Panels/SEL-01.11.23_SWK-Fiber-Patch-Panels_v1.1-print.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.12.23_SWK-Connection_v1-print.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/SWK™ Series/SWK Connector/SEL-01.12.23_SWK-Connection_v1-print.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.12.23_SWK-Fiber-Adapter-Panels_v1.2.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/SWK™ Series/SWK Fiber Adapter Panels/SEL-01.12.23_SWK-Fiber-Adapter-Panels_v1.2.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2021/09/SEL-04.18.24_FTWM-08L_WallMountEnclosure-_Ver1_v1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Wall Mount Enclosures/FTWM-08L Wall Mount Enclosure/SEL-04.18.24_FTWM-08L_WallMountEnclosure-_Ver1_v1.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL-07.14.26_Fiber-Protection-Sleeves-1.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Fusion Splicer Solutions/Fiber Protection Sleeves/SEL-07.14.26_Fiber-Protection-Sleeves-1.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL-10.03.23_TN-5184-Optical-Closure-version2_v3.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Other Enclosures/TN Fiber Optic Splice Closures/SEL-10.03.23_TN-5184-Optical-Closure-version2_v3.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2023/09/SEL-10.05.23_Flexible-Reel-Jumper-version1_v1.3.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper/SEL-10.05.23_Flexible-Reel-Jumper-version1_v1.3.pdf'
+          get 'https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SpliceTrayHolderKit-0216.pdf' 'DCI/DataCenter/product_catalog/Sumitomo Electric/Fusion Splicer Solutions/Splice Tray Holder Kit/SpliceTrayHolderKit-0216.pdf'
+
       - name: Commit PDFs
         shell: bash
         run: |

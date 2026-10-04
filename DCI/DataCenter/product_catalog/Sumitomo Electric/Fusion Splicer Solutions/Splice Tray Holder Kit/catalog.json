@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Splice Tray Holder Kit",
+  "displayName": "Splice Tray Holder Kit",
+  "description": "Collapsible, adjustable splice-tray support accessory for Quantum fusion splicers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-tray-holder/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SpliceTrayHolderKit-0216.pdf",
+  "comparisonFields": [
+    "Part Number",
+    "Product Type",
+    "Construction",
+    "Tray Support",
+    "Compatible Splicers",
+    "Storage"
+  ],
+  "products": {
+    "SpliceTrayHolderKit-0216": {
+      "name": "Q101-STH-001",
+      "description": "Two-piece splice tray holder kit for Sumitomo Quantum fusion splicers.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-tray-holder/",
+      "specs": {
+        "Part Number": "Q101-STH-001",
+        "Product Type": "Splice tray holder kit",
+        "Construction": "Black powder-coated all-metal frame",
+        "Tray Support": "Adjustable clamping support + fiber positioning guides",
+        "Compatible Splicers": "Type-Q101-CA / CA+ / VS / VS+ / M12",
+        "Storage": "Collapsible; stores in splicer case"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "SWK Connector",
+  "displayName": "SWK Connector",
+  "description": "High-strand-count SWK connector for compact, low-loss hyperscale fiber connectivity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-connector/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.12.23_SWK-Connection_v1-print.pdf",
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Type",
+    "Insertion Loss",
+    "Return Loss",
+    "Cable Jacket",
+    "Bend Radius",
+    "Temperature"
+  ],
+  "products": {
+    "SEL-01.12.23_SWK-Connection_v1-print": {
+      "name": "SWK™ Connector",
+      "description": "High-density SWK multi-fiber connector platform with self-cleaning/self-protecting shroud and quick-change polarity.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-connector/",
+      "specs": {
+        "Fiber Count": "48f / 96f / 144f",
+        "Fiber Type": "Single mode; OS2 (G.654.D / G.657.A1 compliant) or multimode options",
+        "Insertion Loss": "<0.35 dB @ 1310 nm",
+        "Return Loss": ">55 dB @ 1310 nm",
+        "Cable Jacket": "OFNP; LSZH available",
+        "Bend Radius": "Cable 180 mm install / 90 mm operation",
+        "Temperature": "Connector -40 to 70°C; cable -20 to 70°C"
+      }
+    }
+  }
+}

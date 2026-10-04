@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Flexible Reel Jumper",
+  "displayName": "Flexible Reel Jumper",
+  "description": "OS2 Uniboot LC/UPC jumper system packaged on rotatable reels for rapid installation.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/flexible-reel-jumper/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/09/SEL-10.05.23_Flexible-Reel-Jumper-version1_v1.3.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Connector",
+    "Fiber Type",
+    "Fire Rating",
+    "Insertion Loss",
+    "Return Loss",
+    "Length"
+  ],
+  "products": {
+    "SEL-10.05.23_Flexible-Reel-Jumper-version1_v1.3": {
+      "name": "Flexible Reel Jumper",
+      "description": "Pre-managed reel jumper system designed to reduce installation time and prevent tangling.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flexible-reel-jumper/",
+      "specs": {
+        "Product Type": "Jumper",
+        "Connector": "UNIBOOT LC / UPC",
+        "Fiber Type": "OS2 (G.657.A1 / G.652.D compliant)",
+        "Fire Rating": "OFNP / Plenum",
+        "Insertion Loss": "≤ αL + 0.25 dB @ 1310 nm",
+        "Return Loss": ">55 dB @ 1310 nm",
+        "Length": "Up to 40 m"
+      }
+    },
+    "TA-2-ULCUULCU-SMPY25B-XXX": {
+      "name": "TA-2-ULCUULCU-SMPY25B-XXX",
+      "description": "Ordering-code format for duplex OS2 Uniboot LC/UPC Flexible Reel Jumper.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flexible-reel-jumper/",
+      "specs": {
+        "Product Type": "Jumper ordering format",
+        "Connector": "UNIBOOT LC/UPC ↔ UNIBOOT LC/UPC",
+        "Fiber Type": "OS2",
+        "Fire Rating": "OFNP",
+        "Insertion Loss": "≤ αL + 0.25 dB",
+        "Return Loss": ">55 dB",
+        "Length": "XXX m, max 40 m"
+      }
+    },
+    "ULC-FR-TOOL-01": {
+      "name": "ULC-FR-TOOL-01",
+      "description": "Reusable stick-type tool for installing up to 12 Flexible Reel Jumpers.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flexible-reel-jumper/",
+      "specs": {
+        "Product Type": "Installation tool",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fire Rating": "—",
+        "Insertion Loss": "—",
+        "Return Loss": "—",
+        "Length": "Supports up to 12 jumpers"
+      }
+    }
+  }
+}

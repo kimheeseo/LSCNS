@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "TN Fiber Optic Splice Closures",
+  "displayName": "TN Fiber Optic Splice Closures",
+  "description": "Compact reusable high-fiber-count OSP splice-closure family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL-10.03.23_TN-5184-Optical-Closure-version2_v3.pdf",
+  "comparisonFields": [
+    "Configuration",
+    "Fiber Capacity",
+    "Tray Type",
+    "Tray Count",
+    "Cable Entry",
+    "IP Rating",
+    "Dimensions"
+  ],
+  "products": {
+    "SEL-10.03.23_TN-5184-Optical-Closure-version2_v3": {
+      "name": "TN Fiber Optic Splice Closures",
+      "description": "Reusable high-capacity OSP closure family for 12-fiber ribbon, pliable ribbon and loose-tube cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+      "specs": {
+        "Configuration": "Butt / in-line",
+        "Fiber Capacity": "3,456–6,912f",
+        "Tray Type": "216f thin / 864f thick",
+        "Tray Count": "5–24 depending model",
+        "Cable Entry": "2 main + 1 or 4 branch",
+        "IP Rating": "IP68",
+        "Dimensions": "9.7 × 11.6 × 24.3 in"
+      }
+    },
+    "FTC-TN3456-IL": {
+      "name": "FTC-TN3456-IL",
+      "description": "In-line TN closure using thin trays.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+      "specs": {
+        "Configuration": "In-line",
+        "Fiber Capacity": "3,456f",
+        "Tray Type": "216f thin",
+        "Tray Count": "16",
+        "Cable Entry": "2 main + 4 branch",
+        "IP Rating": "IP68",
+        "Dimensions": "9.7 × 11.6 × 24.3 in (246 × 293 × 618 mm)"
+      }
+    },
+    "FTC-TN4320-IL": {
+      "name": "FTC-TN4320-IL",
+      "description": "In-line TN closure using thick trays.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+      "specs": {
+        "Configuration": "In-line",
+        "Fiber Capacity": "4,320f",
+        "Tray Type": "864f thick",
+        "Tray Count": "5",
+        "Cable Entry": "2 main + 4 branch",
+        "IP Rating": "IP68",
+        "Dimensions": "9.7 × 11.6 × 24.3 in (246 × 293 × 618 mm)"
+      }
+    },
+    "FTC-TN5184": {
+      "name": "FTC-TN5184",
+      "description": "Butt-style TN closure using thin trays.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+      "specs": {
+        "Configuration": "Butt",
+        "Fiber Capacity": "5,184f",
+        "Tray Type": "216f thin",
+        "Tray Count": "24",
+        "Cable Entry": "2 main + 1 branch",
+        "IP Rating": "IP68",
+        "Dimensions": "9.7 × 11.6 × 24.3 in (246 × 293 × 618 mm)"
+      }
+    },
+    "FTC-TN6912": {
+      "name": "FTC-TN6912",
+      "description": "Butt-style TN closure using thick trays.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/tn-fiber-optic-splice-closures/",
+      "specs": {
+        "Configuration": "Butt",
+        "Fiber Capacity": "6,912f",
+        "Tray Type": "864f thick",
+        "Tray Count": "8",
+        "Cable Entry": "2 main + 1 branch",
+        "IP Rating": "IP68",
+        "Dimensions": "9.7 × 11.6 × 24.3 in (246 × 293 × 618 mm)"
+      }
+    }
+  }
+}

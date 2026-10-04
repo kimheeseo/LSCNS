@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex",
+  "displayName": "LC Uniboot → SC Duplex",
+  "description": "EDGE 2-fiber data-center jumper",
+  "checked": "2026-10-04",
+  "defaultSpecs": {
+    "Cable Type": "Tight-Buffered",
+    "Flame Rating": "Riser (OFNR)",
+    "Fiber Category": "50 µm MM",
+    "Cable Assembly Type": "Two Fiber"
+  },
+  "products": {
+    "577902QD120003M": {
+      "name": "577902QD120003M",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Two-Fiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Solutions-Jumper%2C-2-F%2C-LC-Uniboot-to-SC-Duplex%2C-Interconnect-Cable%2C-Riser/p/577902QD120003M"
+    },
+    "577902TD120003M": {
+      "name": "577902TD120003M",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Two-Fiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Solutions-Jumper%2C-2-F%2C-LC-Uniboot-to-SC-Duplex%2C-Interconnect-Cable%2C-Riser/p/577902TD120003M"
+    }
+  }
+}

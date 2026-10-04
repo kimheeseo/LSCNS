@@ -1,21 +1,23 @@
 {
   "checked": "2026-10-05",
-  "pdfCount": 1021,
-  "structuredCatalogFiles": 71,
+  "pdfCount": 1064,
+  "structuredCatalogFiles": 118,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
-    "pdfCount": 10,
-    "catalogCount": 10,
-    "productRows": 54
+    "pdfCount": 44,
+    "catalogCount": 44,
+    "productGroups": 44,
+    "sourceBatches": 4
   },
   "usConecMtp": {
     "sourceRows": 1895,
     "uniqueDrawingProducts": 154,
-    "pdfCount": 0,
-    "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
+    "subfamilies": 7,
+    "grouping": "Adapters / MTP Universal / MTP PRO / MTP PRO X / MTP-16 / Fast-Track & Pin Clamp / MTP 900µ & Fanout",
+    "storageMode": "metadata only; official drawing links retained"
   },
-  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed. NVIDIA Vera Rubin AI Factory Platform catalog added from attached NVIDIA datasheet as metadata-only product specs.",
+  "note": "Inventory regenerated from current repository tree. Sumitomo Electric batch 4 and US Conec MTP subgroup classification are included. BOM/procurement candidate matching uses these structured catalogs; configurable or interface-dependent selections remain RFQ.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -248,7 +250,27 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Sumitomo Electric/Cable Assemblies/Cable Assemblies",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
       "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex FOX Splice Cassettes",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex LGX MPO Cassettes",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -263,7 +285,32 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Sumitomo Electric/Entrance Frames/Ultra Hyperscale eXchange (U-HSX)",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
       "folder": "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/1RU LGX Compact Patch Panel",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/2RU Flush Mount Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/2RU High Density Panels and Interconnect Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -273,7 +320,77 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex High Density MPO-LC Cassettes",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
       "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Splice Tray & Holders",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fusion Splicer Solutions/Fiber Protection Sleeves",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fusion Splicer Solutions/JR-7 Thermal Jacket Remover",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fusion Splicer Solutions/JR-7S Thermal Jacket Remover",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fusion Splicer Solutions/Splice Tray Holder Kit",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Other Enclosures/6912 Fiber Transition Module",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP4-PR432",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP8-PR864",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Other Enclosures/TN Fiber Optic Splice Closures",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/12-Fiber Ribbon Pigtail Fanout Kits",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -283,12 +400,67 @@
       "structuredMetadata": true
     },
     {
+      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Cable Breakout Kits for Ribbons",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
       "folder": "Sumitomo Electric/Splice Trays/Splice Trays",
       "pdfCount": 1,
       "structuredMetadata": true
     },
     {
+      "folder": "Sumitomo Electric/SWK™ Series/SWK Cable Assemblies",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/SWK™ Series/SWK Connector",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/SWK™ Series/SWK Fiber Adapter Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/SWK™ Series/SWK Fiber Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
       "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-02L-2D Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L-2D Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-08L Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/NEMA 4X-IP66 Splice Transit Enclosure",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -313,17 +485,9 @@
       "structuredMetadata": true
     },
     {
-      "folder": "NVIDIA/AI Factory Platforms/Vera Rubin Platform",
-      "pdfCount": 0,
+      "folder": "USConnec/MT Ferrules",
+      "pdfCount": 9,
       "structuredMetadata": true
     }
-  ],
-  "nvidiaDataCenter": {
-    "productGroups": 1,
-    "productRows": 5,
-    "pdfCount": 0,
-    "storageMode": "metadata only; attached Vera Rubin datasheet was used as source and PDF was not uploaded",
-    "sourceDocument": "gpu-architecture-datasheet-vera-rubin-nvidia-us-5198950-web.pdf",
-    "officialUrl": "https://www.nvidia.com/ko-kr/data-center/"
-  }
+  ]
 }

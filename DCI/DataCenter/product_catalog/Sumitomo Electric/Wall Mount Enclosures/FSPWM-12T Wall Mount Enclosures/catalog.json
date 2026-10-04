@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FSPWM-12T Wall Mount Enclosures",
+  "displayName": "FSPWM-12T Wall Mount Enclosures",
+  "description": "Key-lockable indoor wall-mount steel cabinet for transitioning outside-plant to indoor-distribution cable, with 12-tray / 2,304f mass-fusion capacity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/fspwm-12t-wall-mount-enclosures/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/01/SEL_04.18.24-FSPWM-12T_WallMountEnclosure_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Mounting Type",
+    "Material",
+    "Fiber Capacity",
+    "Splice Tray Capacity",
+    "Hole Type",
+    "LC Port Capacity",
+    "Dimensions",
+    "Cable Construction"
+  ],
+  "products": {
+    "FSPWM-12T": {
+      "name": "FSPWM-12T",
+      "description": "Indoor wall-mount steel enclosure, 2,304f mass-fusion capacity, knockout cable entry.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fspwm-12t-wall-mount-enclosures/",
+      "specs": {
+        "Mounting Type": "Wall",
+        "Material": "Steel",
+        "Fiber Capacity": "2,304f",
+        "Splice Tray Capacity": "12",
+        "Hole Type": "Knockout",
+        "LC Port Capacity": "N/A",
+        "Dimensions": "438 × 540 × 119 mm",
+        "Cable Construction": "Ribbon / loose-buffer / tight-buffer"
+      }
+    },
+    "FSPWM-12T-LCE": {
+      "name": "FSPWM-12T-LCE",
+      "description": "Indoor wall-mount steel enclosure, 2,304f mass-fusion capacity, slotted cable entry.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fspwm-12t-wall-mount-enclosures/",
+      "specs": {
+        "Mounting Type": "Wall",
+        "Material": "Steel",
+        "Fiber Capacity": "2,304f",
+        "Splice Tray Capacity": "12",
+        "Hole Type": "Slotted",
+        "LC Port Capacity": "N/A",
+        "Dimensions": "438 × 540 × 119 mm",
+        "Cable Construction": "Ribbon / loose-buffer / tight-buffer"
+      }
+    }
+  }
+}

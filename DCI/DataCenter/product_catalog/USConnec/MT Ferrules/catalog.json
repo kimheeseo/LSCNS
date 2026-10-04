@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MT Ferrules",
+  "displayName": "MT Ferrules",
+  "description": "Precision multi-fiber MT ferrule family offered in multiple performance grades for application and fiber-count requirements. US Conec supplies single-mode and multimode versions in Standard, MT Elite® and Super MT Elite® selections, including APC/PC and flat/pre-angle configurations.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/ferrules/mt",
+  "sourceCatalog": "https://www.usconec.com/media/2bsp1emu/us-conec-product-catalog.pdf",
+  "comparisonFields": [
+    "Performance Grades",
+    "Fiber Types",
+    "Fiber Count Options",
+    "Polish Types",
+    "Endface Types",
+    "Fiber Cladding",
+    "Max Fiber Holes",
+    "Fiber Pitch",
+    "Material",
+    "Alignment",
+    "Standards / Applications"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "MT Ferrules",
+      "description": "PPS-based precision multi-fiber ferrules with up to 72 fiber holes for 125 µm optical fiber. Alignment uses two stainless guide pins in precision-molded guide holes. Designed for MTP®/MPO connectivity and custom passive/active optical coupling; MT Elite® variants target lower-loss applications.",
+      "officialUrl": "https://www.usconec.com/ferrules/mt",
+      "characteristicsOnly": true,
+      "specs": {
+        "Performance Grades": "Standard / MT Elite® / Super MT Elite®",
+        "Fiber Types": "Multimode / Multimode Elite / Single-mode / Single-Mode Elite / Super Elite",
+        "Fiber Count Options": "1×12 / 1×16 / 2×12 / 4×12 / 6×12; catalog family up to 72 fiber holes",
+        "Polish Types": "APC / PC",
+        "Endface Types": "Flat Ferrule / Pre-Angle Ferrule",
+        "Fiber Cladding": "125 µm / 80 µm",
+        "Max Fiber Holes": "Up to 72 (125 µm fiber)",
+        "Fiber Pitch": "0.25 mm",
+        "Material": "Composite PPS thermoplastic; low hygroscopic material",
+        "Alignment": "Two stainless-steel guide pins in precision-molded alignment holes",
+        "Standards / Applications": "IEC 61754-5; MTP®/MPO assemblies; custom passive/active coupling; MT Elite MM optimized for 10G/40G/100G/400G"
+      }
+    }
+  }
+}

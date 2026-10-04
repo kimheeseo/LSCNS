@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex Pre-Terminated Patch Panels",
+  "displayName": "PrecisionFlex Pre-Terminated Patch Panels",
+  "description": "Factory-assembled and tested pre-terminated patch-panel family for data centers, enterprise networks and central offices.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-rack-mount-preterminated-patch-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/06/SEL_05.21.25-PrecisionFlex-Pre-Terminated-Patch-Panels_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Model",
+    "Fiber Count",
+    "Fiber Type",
+    "Connector Options",
+    "Rack Unit",
+    "LGX Capacity",
+    "Typical Insertion Loss",
+    "Return Loss",
+    "Operating Temperature"
+  ],
+  "products": {
+    "__configurable__": {
+      "name": "PrecisionFlex Pre-Terminated configurable family",
+      "description": "Configurable ordering-code family; the brochure specifies fiber type/count, connector type and panel size rather than a single fixed model list.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-rack-mount-preterminated-patch-panels/",
+      "specs": {
+        "Product Model": "Configurable FT ordering code",
+        "Fiber Count": "24 / 48 / 72 / 96 / 144 / 288 / 432 / 576 / 864F",
+        "Fiber Type": "OM1 / OM2 / OM3 / OM4 / SM G.657.A1",
+        "Connector Options": "MPO/MTP 12F/24F · LC/LC-APC · SC/SC-APC · FC · ST · bare end",
+        "Rack Unit": "1RU / 2RU / 4RU / 6RU",
+        "LGX Capacity": "1RU 72 LC/36 SC; 2RU 144/72; 3RU 216/108; 4RU 288/144; 6RU 432/216",
+        "Typical Insertion Loss": "SM UPC/APC ≤0.5 dB; MM ≤0.30 dB",
+        "Return Loss": "SM UPC ≥50 dB; SM APC ≥60 dB; MM ≥25 dB",
+        "Operating Temperature": "-20 to +70°C"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

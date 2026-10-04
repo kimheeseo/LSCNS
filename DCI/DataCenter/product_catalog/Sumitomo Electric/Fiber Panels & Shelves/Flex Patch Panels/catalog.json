@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Flex Patch Panels",
+  "displayName": "Flex Patch Panels",
+  "description": "Rack-mounted termination panels compatible with FOX splice cassettes, LGX MPO cassettes and interconnect panels, with front/rear sliding tray access.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2019/12/SEL_03.25.24_Flex-Patch-Panel_Ver1_v4.pdf",
+  "comparisonFields": [
+    "Version",
+    "Rack Unit",
+    "Module Type",
+    "Module Capacity",
+    "LC Port Capacity",
+    "SC Port Capacity",
+    "Dimensions",
+    "Rack Compatibility"
+  ],
+  "products": {
+    "FT01RU3P": {
+      "name": "FT01RU3P",
+      "description": "1RU LGX Flex rack-mount patch panel; 72 LC / 36 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Standard",
+        "Rack Unit": "1RU",
+        "Module Type": "LGX",
+        "Module Capacity": "3",
+        "LC Port Capacity": "72 LC",
+        "SC Port Capacity": "36 SC",
+        "Dimensions": "44 × 432 × 375 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT02RU6P": {
+      "name": "FT02RU6P",
+      "description": "2RU LGX Flex rack-mount patch panel; 144 LC / 72 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Standard",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144 LC",
+        "SC Port Capacity": "72 SC",
+        "Dimensions": "89 × 432 × 375 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT02RU6PX": {
+      "name": "FT02RU6PX",
+      "description": "2RU LGX Flex rack-mount patch panel; 144 LC / 72 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Extended",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144 LC",
+        "SC Port Capacity": "72 SC",
+        "Dimensions": "89 × 432 × 432 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT03RU9P": {
+      "name": "FT03RU9P",
+      "description": "3RU LGX Flex rack-mount patch panel; 216 LC / 108 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Standard",
+        "Rack Unit": "3RU",
+        "Module Type": "LGX",
+        "Module Capacity": "9",
+        "LC Port Capacity": "216 LC",
+        "SC Port Capacity": "108 SC",
+        "Dimensions": "133 × 432 × 377 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT04RU12P": {
+      "name": "FT04RU12P",
+      "description": "4RU LGX Flex rack-mount patch panel; 288 LC / 144 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Standard",
+        "Rack Unit": "4RU",
+        "Module Type": "LGX",
+        "Module Capacity": "12",
+        "LC Port Capacity": "288 LC",
+        "SC Port Capacity": "144 SC",
+        "Dimensions": "178 × 432 × 375 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT04RU12PX": {
+      "name": "FT04RU12PX",
+      "description": "4RU LGX Flex rack-mount patch panel; 288 LC / 144 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/flex-rack-mount-patch-panels/",
+      "specs": {
+        "Version": "Extended",
+        "Rack Unit": "4RU",
+        "Module Type": "LGX",
+        "Module Capacity": "12",
+        "LC Port Capacity": "288 LC",
+        "SC Port Capacity": "144 SC",
+        "Dimensions": "178 × 432 × 432 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    }
+  }
+}

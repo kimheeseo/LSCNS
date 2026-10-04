@@ -5,7 +5,8 @@
   const MAP={
     trunk:[
       P+'Corning/Trunk/EDGE™ Armored Trunk/catalog.json',
-      P+'YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json'
+      P+'YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json',
+      P+'Sumitomo Electric/SWK™ Series/SWK Cable Assemblies/catalog.json'
     ],
     patch:[
       P+'Corning/Housing/EDGE™ Housing, FX/catalog.json',
@@ -16,6 +17,11 @@
       P+'Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure/catalog.json',
       P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels/catalog.json',
       P+'Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels/catalog.json',
+      P+'Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures/catalog.json',
+      P+'Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels/catalog.json',
     ],
     rack:[P+'ZTT/Data Center Infrastructure/IT Cabinet/catalog.json']
   };

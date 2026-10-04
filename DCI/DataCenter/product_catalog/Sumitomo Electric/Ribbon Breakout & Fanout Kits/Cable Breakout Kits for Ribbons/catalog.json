@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Cable Breakout Kits for Ribbons",
+  "displayName": "Cable Breakout Kits for Ribbons",
+  "description": "Breakout kits for managing, protecting and splitting 48–288F cables using 12F flat or pliable ribbon structures.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/01/SEL_05.06.26_Cable-Breakout-Kits-for-Ribbons_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Fiber Capacity",
+    "Ribbon Type",
+    "Furcation Port Qty",
+    "Tube Length",
+    "Minimum Cable OD",
+    "Maximum Cable OD",
+    "Note"
+  ],
+  "products": {
+    "FOR-048-O-1": {
+      "name": "FOR-048-O-1",
+      "description": "48f ribbon cable breakout kit with 4 furcation ports and 1 m tubing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+      "specs": {
+        "Fiber Capacity": "48f",
+        "Ribbon Type": "Flat / Pliable / Freeform Ribbon",
+        "Furcation Port Qty": "4",
+        "Tube Length": "1 m",
+        "Minimum Cable OD": "9.8 mm",
+        "Maximum Cable OD": "12.4 mm",
+        "Note": "—"
+      }
+    },
+    "FOR-072-O-1": {
+      "name": "FOR-072-O-1",
+      "description": "72f ribbon cable breakout kit with 6 furcation ports and 1 m tubing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+      "specs": {
+        "Fiber Capacity": "72f",
+        "Ribbon Type": "Flat / Pliable / Freeform Ribbon",
+        "Furcation Port Qty": "6",
+        "Tube Length": "1 m",
+        "Minimum Cable OD": "9.8 mm",
+        "Maximum Cable OD": "12.4 mm",
+        "Note": "—"
+      }
+    },
+    "FOR-096-O-1": {
+      "name": "FOR-096-O-1",
+      "description": "96f ribbon cable breakout kit with 8 furcation ports and 1 m tubing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+      "specs": {
+        "Fiber Capacity": "96f",
+        "Ribbon Type": "Flat / Pliable / Freeform Ribbon",
+        "Furcation Port Qty": "8",
+        "Tube Length": "1 m",
+        "Minimum Cable OD": "11.0 mm",
+        "Maximum Cable OD": "17.9 mm",
+        "Note": "—"
+      }
+    },
+    "FOR-144-O-1": {
+      "name": "FOR-144-O-1",
+      "description": "144f ribbon cable breakout kit with 12 furcation ports and 1 m tubing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+      "specs": {
+        "Fiber Capacity": "144f",
+        "Ribbon Type": "Flat / Pliable / Freeform Ribbon",
+        "Furcation Port Qty": "12",
+        "Tube Length": "1 m",
+        "Minimum Cable OD": "11.0 mm",
+        "Maximum Cable OD": "17.9 mm",
+        "Note": "—"
+      }
+    },
+    "FOR-288-O-1": {
+      "name": "FOR-288-O-1",
+      "description": "288f ribbon cable breakout kit with 24 furcation ports and 1 m tubing.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/cable-breakout-kits-for-ribbon-12f-to-288f/",
+      "specs": {
+        "Fiber Capacity": "288f",
+        "Ribbon Type": "Flat / Pliable / Freeform Ribbon",
+        "Furcation Port Qty": "24",
+        "Tube Length": "1 m",
+        "Minimum Cable OD": "11.0 mm",
+        "Maximum Cable OD": "17.9 mm",
+        "Note": "Not for flat-ribbon-based 288-count cable; use FOR-288-O for that construction."
+      }
+    }
+  }
+}

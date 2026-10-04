@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTC-GP8-PR864",
+  "displayName": "FTC-GP8-PR864",
+  "description": "Reusable IP68 mechanical dome closure for larger high-density ribbon/single-fiber cable deployments.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftc-gp8-pr864/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/10/SEL_05.08.25-FTC-GP8-PR864-ver1_v1.pdf",
+  "comparisonFields": [
+    "Closure Type",
+    "IP Rating",
+    "Max Pliable Ribbon Capacity",
+    "Standard Ribbon Capacity",
+    "Single Fiber Capacity",
+    "Main Cable Entry",
+    "Branch Cable Entry",
+    "Applicable Cable OD",
+    "Dimensions",
+    "Weight"
+  ],
+  "products": {
+    "FTC-GP8-PR864": {
+      "name": "FTC-GP8-PR864",
+      "description": "High-capacity reusable optical closure with up to 864F pliable-ribbon splice capacity.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftc-gp8-pr864/",
+      "specs": {
+        "Closure Type": "Dome",
+        "IP Rating": "IP68",
+        "Max Pliable Ribbon Capacity": "864f",
+        "Standard Ribbon Capacity": "432f",
+        "Single Fiber Capacity": "288f",
+        "Main Cable Entry": "2 cables via 1 oval port",
+        "Branch Cable Entry": "6 round ports",
+        "Applicable Cable OD": "Main / Branch 8–20 mm",
+        "Dimensions": "280 × 214 × 317 mm",
+        "Weight": "~4.0 kg"
+      }
+    }
+  }
+}

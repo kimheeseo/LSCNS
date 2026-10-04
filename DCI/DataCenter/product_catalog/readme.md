@@ -68,11 +68,19 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-05)
 
-현재 GitHub `product_catalog`에는 PDF가 총 **1021개** 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
+현재 GitHub `product_catalog`에는 PDF가 총 **1070개**, 구조화된 `catalog.json`이 **123개** 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
 
-Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 제품 폴더에 저장했고, **10개 제품군 / 54개 구조화 제품·구성 행**으로 정리했습니다. US Conec MTP® Connectors는 공식 제품 API 76페이지의 **1,895개 제품 행**을 drawing PDF 파일명 기준 **154개 제품 그룹**으로 묶어 추가했습니다. PDF 원본은 업로드하지 않고 공식 제품/도면 링크와 간략 스펙 메타데이터만 저장했습니다. NVIDIA는 Vera Rubin Platform에 이어 추가 자료 기준으로 **6개 제품군 / 27개 GPU·플랫폼·CPU·네트워킹·전문 GPU reference 제품**을 메타데이터 전용 catalog로 확장했습니다. ZTT의 IT Cabinet / Containerized Data Center / Micro Modular Data Center도 최신 공식 사양표 기준으로 갱신했습니다.
+Sumitomo Electric은 현재 **44개 제품군 / 44개 공식 PDF**가 `PDF + catalog.json + readme.md` 구조로 정리되어 있습니다. 최근 업로드한 FTWM-02L/04L-2D, Rack-Mounted Splice Enclosure, Cable Assemblies, PrecisionFlex FOX/LGX/MPO-LC, 1RU/2RU Panel, NEMA 4X/IP66, JR-7/JR-7S 자료도 포함됩니다.
 
-구조화 `catalog.json`이 아직 없는 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다.
+US Conec MTP® Connectors는 1,895개 원본 제품 행을 154개 drawing/product group으로 정리한 뒤 **7개 비교 가능한 하위 제품군**으로 분리했습니다. NVIDIA는 구조화 메타데이터 제품군으로 유지합니다.
+
+### BOM / 견적 연계
+
+`bom-catalog-index.json`은 업체별 부품 리스트의 구조화 catalog를 BOM 역할별로 색인합니다. 현재 Compute, Network, Optic, Trunk, Patch Cord, Panel/Housing, Connector, Adapter, Rack 등에서 설계 조건과 맞는 공식 제품/제품군 후보를 찾습니다.
+
+자동 매칭 조건에는 **속도, 거리, 커넥터, Base, 심수, fiber type, polarity, gender, jacket** 등이 포함됩니다. 정확한 SKU를 확정할 근거가 부족하거나 configurable family인 경우에는 RFQ 상태를 유지합니다. 또한 Smart Busbar를 Rack PDU로, In-row Air Conditioner를 CDU로 임의 대체하지 않습니다.
+
+구조화 `catalog.json`이 아직 없는 PDF 제품군은 **36개 폴더 / 745개 PDF**입니다.
 
 ### 구조화 메타데이터 재검토 필요
 - `Corning/Accessories/EDGE™ Port Replication Housing Accessory`: 3 PDFs
@@ -97,8 +105,8 @@ Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 �
 - `Corning/Module/EDGE™ Base-8 Module`: 2 PDFs
 - `Corning/Module/EDGE™ Bidi Tap Module`: 2 PDFs
 - `Corning/Module/EDGE™ Conversion Modules`: 4 PDFs
-- `Corning/Module/EDGE™ Module, Ultra Low Loss`: 9 PDFs
 - `Corning/Module/EDGE™ Module`: 11 PDFs
+- `Corning/Module/EDGE™ Module, Ultra Low Loss`: 9 PDFs
 - `Corning/Module/EDGE™ Tap Module`: 22 PDFs
 - `Corning/Module/Fiber to the Desk Module`: 8 PDFs
 - `Corning/ODF/EDGE™ Solutions_ODF`: 5 PDFs
@@ -109,3 +117,5 @@ Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 �
 - `Corning/Trunk/EDGE™ Hybrid Trunk`: 21 PDFs
 - `Corning/Trunk/EDGE™ Indoor Ribbon Trunk`: 1 PDFs
 - `Corning/Trunk/EDGE™ MTP® Trunk`: 105 PDFs
+- `LS CNS/광통신`: 2 PDFs
+- `LS CNS/통합배선`: 4 PDFs

@@ -51,3 +51,8 @@
 .evidenceFormulaGrid b{font-size:12px;color:#edf5fc}.evidenceFormulaGrid code{font-size:11px;color:#9ecbff;white-space:normal}
 .evidenceFormulaGrid span{font-size:11px;color:#a9bacb;line-height:1.45}.evidenceFormulaGrid a{font-size:10px;color:#9bc8f8;text-decoration:none}
 .resultEvidence{margin-top:8px}
+
+.catalog-relation{display:inline-block;padding:3px 7px;border:1px solid #48627e;border-radius:999px;background:#10263d;color:#cfe5fb;font-size:10px;font-weight:800;white-space:normal}
+.catalog-korea-table td:first-child{min-width:110px}
+.catalog-korea-table td:nth-child(2){min-width:220px}
+.catalog-korea-table td:nth-child(3){min-width:150px}

@@ -15,7 +15,8 @@ from urllib.parse import urljoin, urlparse
 from curl_cffi import requests
 from bs4 import BeautifulSoup
 
-BASE = "https://www.amphenol.com/markets/it-datacom"
+BASE = "https://staging.amphenol.com/markets/it-datacom"
+OFFICIAL_BASE = "https://www.amphenol.com/markets/it-datacom"
 PAGE_SIZE = 50
 ROOT = Path("DCI/DataCenter/product_catalog")
 AMPHENOL_ROOT = ROOT / "Amphenol"
@@ -253,7 +254,7 @@ def write_catalogs(items: list[dict], total: int):
             "displayName": category,
             "description": f"Amphenol IT Datacom products classified for the DataCenter Tool: {category}. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
             "checked": CHECKED,
-            "officialUrl": BASE,
+            "officialUrl": OFFICIAL_BASE,
             "sourceUrls": sorted(set(source_urls)),
             "sourceCount": len(rows),
             "sourceTotal": total,
@@ -276,7 +277,7 @@ def write_catalogs(items: list[dict], total: int):
     root_summary = {
         "schemaVersion": 1,
         "company": "Amphenol",
-        "officialUrl": BASE,
+        "officialUrl": OFFICIAL_BASE,
         "checked": CHECKED,
         "sourceTotal": total,
         "parsedTotal": len(items),
@@ -331,7 +332,7 @@ def update_bom_index(grouped):
     data["source"] = "DCI/DataCenter/product_catalog (업체별 부품 리스트)"
     data["totalStructuredCatalogs"] = len(list(ROOT.rglob("catalog.json")))
     data["amphenolItDatacom"] = {
-        "officialUrl": BASE,
+        "officialUrl": OFFICIAL_BASE,
         "sourceTotal": sum(len(v) for v in grouped.values()),
         "categoryCount": len(grouped),
         "mode": "All official IT Datacom listing products indexed; tool-side category classification",

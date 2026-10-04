@@ -1,10 +1,15 @@
 {
   "checked": "2026-10-05",
-  "pdfCount": 1011,
-  "structuredCatalogFiles": 59,
+  "pdfCount": 1021,
+  "structuredCatalogFiles": 69,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
-  "note": "Furukawa source PDFs synchronized from official Furukawa URLs; all three are stored under Furukawa Electric/PDF Sources.",
+  "sumitomoElectric": {
+    "pdfCount": 10,
+    "catalogCount": 10,
+    "productRows": 54
+  },
+  "note": "Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -234,6 +239,56 @@
     {
       "folder": "Furukawa Electric/PDF Sources",
       "pdfCount": 3,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/Hyperscale eXchange (HSX)",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03-K672SS",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Breakout Kits for High Fiber Count Ribbon Cables",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Splice Trays/Splice Trays",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/Pre-Terminated LC-APC Patching Transit Enclosure",
+      "pdfCount": 1,
       "structuredMetadata": true
     },
     {

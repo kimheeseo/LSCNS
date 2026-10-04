@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MDC Connectors",
+  "displayName": "MDC Connectors",
+  "description": "US Conec ELiMENT® MDC is a VSFF duplex optical connector using proven 1.25 mm ferrule technology from the LC ecosystem, designed for single-mode and multimode fiber cables up to 2.0 mm diameter.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.usconec.com/connectors/mdc-connectors",
+  "comparisonFields": [
+    "Type",
+    "Style",
+    "Fiber Type",
+    "Fiber Count",
+    "Polish Type",
+    "Cable Style",
+    "Insertion / Extraction",
+    "Adapter Footprint",
+    "Key Feature"
+  ],
+  "products": {
+    "C21871": {
+      "name": "C21871 · ELiMENT® MDC 3-Port Adapter",
+      "description": "Blue, no-flange, aligned 3-port MDC-to-MDC Jr. adapter supplied with 3 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC Jr.",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "3 Port",
+        "Key Feature": "No flange · aligned · blue · 3 dust plugs"
+      }
+    },
+    "C21878": {
+      "name": "C21878 · ELiMENT® MDC 3-Port Adapter",
+      "description": "Blue, no-flange, aligned 3-port MDC-to-MDC Jr. adapter supplied with 0 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC Jr.",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "3 Port",
+        "Key Feature": "No flange · aligned · blue · 0 dust plugs"
+      }
+    },
+    "C22082": {
+      "name": "C22082 · ELiMENT® MDC Sr Plug",
+      "description": "Low-loss single-mode duplex MDC Sr plug using LC-class 1.25 mm ferrules; blue housing, 2.0 mm round cable and black push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Style": "MDC Sr",
+        "Fiber Type": "Single-mode",
+        "Fiber Count": "1x2",
+        "Polish Type": "PC",
+        "Cable Style": "2.0 mm Round",
+        "Insertion / Extraction": "Push Pull",
+        "Adapter Footprint": "—",
+        "Key Feature": "Blue housing · black push-pull boot"
+      }
+    },
+    "C22085": {
+      "name": "C22085 · ELiMENT® MDC Jr Plug",
+      "description": "Low-loss single-mode duplex MDC Jr plug with blue housing; compact Jr. housing, no boot and latch-release extraction.",
+      "specs": {
+        "Type": "Plug",
+        "Style": "MDC Jr",
+        "Fiber Type": "Single-mode",
+        "Fiber Count": "1x2",
+        "Polish Type": "PC",
+        "Cable Style": "Jr. MDC Housing",
+        "Insertion / Extraction": "Latch Release",
+        "Adapter Footprint": "—",
+        "Key Feature": "Blue housing · no boot"
+      }
+    },
+    "C22849": {
+      "name": "C22849 · ELiMENT® MDC 4-Port Adapter",
+      "description": "Blue, no-flange, aligned 4-port MDC-to-MDC Jr. adapter supplied with 0 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC Jr.",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "4 Port",
+        "Key Feature": "No flange · aligned · blue · 0 dust plugs"
+      }
+    },
+    "C22855": {
+      "name": "C22855 · ELiMENT® MDC 4-Port Adapter",
+      "description": "Blue, no-flange, aligned 4-port MDC-to-MDC Jr. adapter supplied with 4 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC Jr.",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "4 Port",
+        "Key Feature": "No flange · aligned · blue · 4 dust plugs"
+      }
+    }
+  }
+}

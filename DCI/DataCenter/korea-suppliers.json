@@ -1,0 +1,51 @@
+{
+  "checked": "2026-10-04",
+  "description": "Korean optical/data-network suppliers with official public URLs and contact information.",
+  "suppliers": [
+    {
+      "company": "LS Cable & System",
+      "category": "Optical fiber / cable · structured cabling · data-center connectivity",
+      "website": "https://www.lscns.com/",
+      "contactUrl": "https://www.lscns.com/cn/intro/global_offices.asp",
+      "email": "",
+      "phone": "+82-2-2189-9114",
+      "note": "Korea headquarters public contact"
+    },
+    {
+      "company": "OE Solutions (오이솔루션)",
+      "category": "400G/800G/1.6T optical transceivers · ELSFP / optical modules",
+      "website": "https://oesolutions.com/ko/",
+      "contactUrl": "https://oesolutions.com/contact/sales/",
+      "email": "sales@oesolutions.com",
+      "phone": "+82-62-960-5252",
+      "note": "Korea Head Office / Factory"
+    },
+    {
+      "company": "SOLTECH (솔텍)",
+      "category": "Fiber Ethernet switches · optical converters · optical transport/network",
+      "website": "https://soltech.co.kr/",
+      "contactUrl": "https://soltech.co.kr/solcontact/",
+      "email": "soltech@soltech.co.kr",
+      "phone": "02-701-8100",
+      "note": "Product / sales inquiry"
+    },
+    {
+      "company": "FIBERPRO",
+      "category": "Fiber-optic / photonic solutions · fiber measurement and sensing",
+      "website": "https://fiberpro.com/korea/",
+      "contactUrl": "https://fiberpro.com/bbs/content.php?co_id=fiber_qa",
+      "email": "sales@fiberpro.com",
+      "phone": "+82-42-360-0030",
+      "note": "Korea headquarters"
+    },
+    {
+      "company": "HFR",
+      "category": "WDM xHaul · Carrier Ethernet · broadband / enterprise optical networking",
+      "website": "https://www.hfrnet.com/",
+      "contactUrl": "https://www.hfrnet.com/front/solution/solution",
+      "email": "resonant@hfrnet.com",
+      "phone": "+82-31-712-7768",
+      "note": "Official public contact"
+    }
+  ]
+}

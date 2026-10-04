@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE™ Armored Trunk",
+  "displayName": "EDGE™ Armored Trunk",
+  "description": "Armored EDGE™ MTP® trunks for data-center backbone cabling.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/edge-trunk-cable-armored",
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Category",
+    "Fiber Core Diameter"
+  ],
+  "products": {
+    "G757512QADDDU100F": {
+      "name": "G757512QADDDU100F",
+      "description": "EDGE™ Armored Trunk, 12F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757512QADDDU100F"
+    },
+    "G757512TADDDU100F": {
+      "name": "G757512TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 12F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757512TADDDU100F"
+    },
+    "G757524QADDDU100F": {
+      "name": "G757524QADDDU100F",
+      "description": "EDGE™ Armored Trunk, 24F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757524QADDDU100F"
+    },
+    "G757524TADDDU100F": {
+      "name": "G757524TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 24F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757524TADDDU100F"
+    },
+    "G757536QADDDU100F": {
+      "name": "G757536QADDDU100F",
+      "description": "EDGE™ Armored Trunk, 36F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757536QADDDU100F"
+    },
+    "G757536TADDDU100F": {
+      "name": "G757536TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 36F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757536TADDDU100F"
+    },
+    "G757548TADDDU100F": {
+      "name": "G757548TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 48F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757548TADDDU100F"
+    },
+    "G757572TADDDU100F": {
+      "name": "G757572TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 72F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757572TADDDU100F"
+    },
+    "G757596TADDDU100F": {
+      "name": "G757596TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 96F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G757596TADDDU100F"
+    },
+    "G7575E4QADDDU100F": {
+      "name": "G7575E4QADDDU100F",
+      "description": "EDGE™ Armored Trunk, 144F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G7575E4QADDDU100F"
+    },
+    "G7575E4TADDDU100F": {
+      "name": "G7575E4TADDDU100F",
+      "description": "EDGE™ Armored Trunk, 144F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G7575E4TADDDU100F"
+    },
+    "G909012GADDDU100F": {
+      "name": "G909012GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 12F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G909012GADDDU100F"
+    },
+    "G909024GADDDU100F": {
+      "name": "G909024GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 24F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G909024GADDDU100F"
+    },
+    "G909036GADDDU100F": {
+      "name": "G909036GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 36F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G909036GADDDU100F"
+    },
+    "G909048GADDDU100F": {
+      "name": "G909048GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 48F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G909048GADDDU100F"
+    },
+    "G909096GADDDU100F": {
+      "name": "G909096GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 96F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G909096GADDDU100F"
+    },
+    "G9090E4GADDDU100F": {
+      "name": "G9090E4GADDDU100F",
+      "description": "EDGE™ Armored Trunk, 144F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-Armored-Trunk/p/G9090E4GADDDU100F"
+    }
+  }
+}

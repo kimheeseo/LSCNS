@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "All-in-One Cabinet",
+  "displayName": "All-in-One Cabinet",
+  "description": "Compact edge-node data-center cabinet integrating IT racks, power distribution, UPS, battery backup, cooling and monitoring.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/all-in-one-cabinet/",
+  "comparisonFields": [
+    "Integration",
+    "Deployment",
+    "Primary Use",
+    "Verification"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "All-in-One Cabinet",
+      "description": "ZTT AiO edge-node concept integrates IT racks, power distribution, UPS, battery backup, cooling and monitoring into a single compact plug-and-play cabinet.",
+      "officialUrl": "https://www.zttgroup.com/product/all-in-one-cabinet/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Integration": "IT rack · power distribution · UPS · battery · cooling · monitoring",
+        "Deployment": "Prefabricated / plug-and-play",
+        "Primary Use": "Edge / space-constrained computing",
+        "Verification": "Exact configuration is project-specific / RFQ"
+      }
+    }
+  }
+}

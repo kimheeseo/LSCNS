@@ -1,19 +1,23 @@
 {
   "checked": "2026-10-04",
-  "description": "Korean optical/data-network suppliers with official public URLs and contact information.",
+  "description": "국내 업체와 업체별 부품 리스트 제조사의 한국 법인·국내 공급 파트너·공식 문의 경로를 함께 관리합니다. 관계 유형은 공개 근거 수준에 따라 구분합니다.",
   "suppliers": [
     {
-      "company": "LS Cable & System",
-      "category": "Optical fiber / cable · structured cabling · data-center connectivity",
-      "website": "https://www.lscns.com/",
-      "contactUrl": "https://www.lscns.com/cn/intro/global_offices.asp",
+      "manufacturer": "LS Cable & System",
+      "company": "LS Cable & System (LS전선)",
+      "relationship": "국내 제조사",
+      "category": "광케이블 · 통합배선 · 데이터센터 연결 솔루션",
+      "website": "https://www.lscns.co.kr/",
+      "contactUrl": "https://www.lscns.co.kr/kr/customer/contact_information.asp",
       "email": "",
-      "phone": "+82-2-2189-9114",
-      "note": "Korea headquarters public contact"
+      "phone": "02-2189-9114",
+      "note": "LS전선 공식 담당자 정보 페이지"
     },
     {
+      "manufacturer": "OE Solutions",
       "company": "OE Solutions (오이솔루션)",
-      "category": "400G/800G/1.6T optical transceivers · ELSFP / optical modules",
+      "relationship": "국내 제조사",
+      "category": "400G/800G/1.6T 광트랜시버 · ELSFP · 광모듈",
       "website": "https://oesolutions.com/ko/",
       "contactUrl": "https://oesolutions.com/contact/sales/",
       "email": "sales@oesolutions.com",
@@ -21,17 +25,21 @@
       "note": "Korea Head Office / Factory"
     },
     {
+      "manufacturer": "SOLTECH",
       "company": "SOLTECH (솔텍)",
-      "category": "Fiber Ethernet switches · optical converters · optical transport/network",
+      "relationship": "국내 제조사",
+      "category": "광 이더넷 스위치 · 광컨버터 · 광전송",
       "website": "https://soltech.co.kr/",
       "contactUrl": "https://soltech.co.kr/solcontact/",
       "email": "soltech@soltech.co.kr",
       "phone": "02-701-8100",
-      "note": "Product / sales inquiry"
+      "note": "제품·영업 문의"
     },
     {
+      "manufacturer": "FIBERPRO",
       "company": "FIBERPRO",
-      "category": "Fiber-optic / photonic solutions · fiber measurement and sensing",
+      "relationship": "국내 제조사",
+      "category": "광부품 · 광계측 · 광센싱",
       "website": "https://fiberpro.com/korea/",
       "contactUrl": "https://fiberpro.com/bbs/content.php?co_id=fiber_qa",
       "email": "sales@fiberpro.com",
@@ -39,13 +47,59 @@
       "note": "Korea headquarters"
     },
     {
+      "manufacturer": "HFR",
       "company": "HFR",
-      "category": "WDM xHaul · Carrier Ethernet · broadband / enterprise optical networking",
+      "relationship": "국내 제조사",
+      "category": "WDM xHaul · Carrier Ethernet · 기업망 광네트워크",
       "website": "https://www.hfrnet.com/",
       "contactUrl": "https://www.hfrnet.com/front/solution/solution",
       "email": "resonant@hfrnet.com",
       "phone": "+82-31-712-7768",
-      "note": "Official public contact"
+      "note": "공식 공개 연락처"
+    },
+    {
+      "manufacturer": "Corning",
+      "company": "Corning Korea Company Ltd.",
+      "relationship": "한국 법인",
+      "category": "Corning 광통신·데이터센터 제품 국내 문의 경로",
+      "website": "https://www.corning.com/worldwide/en/contact-us.html",
+      "contactUrl": "https://www.corning.com/data-center/worldwide/en/home/support-center.html",
+      "email": "",
+      "phone": "+82-2-796-9500",
+      "note": "Corning 공식 Korea / Seoul 법인. Optical Communications 구매·영업 문의는 Corning Support Center 이용"
+    },
+    {
+      "manufacturer": "YOFC",
+      "company": "HC&G Co., Ltd. (에이치씨앤지)",
+      "relationship": "국내 공급 파트너",
+      "category": "YOFC 광섬유·광케이블 및 데이터센터 광통신 제품 국내 공급 문의",
+      "website": "https://www.hcng.co.kr/kr/sub/business/optical.php",
+      "contactUrl": "https://www.hcng.co.kr/kr/sub/company/visit.php",
+      "email": "sales@hcng.co.kr",
+      "phone": "02-504-6674",
+      "note": "HC&G 광통신 사업 페이지에서 YOFC를 Global Partner로 명시"
+    },
+    {
+      "manufacturer": "ZTT",
+      "company": "PM&TG Co., Ltd. (피엠티지)",
+      "relationship": "국내 공급사",
+      "category": "ZTT 케이블·통신·전력 제품 국내 공급 문의",
+      "website": "https://www.p-m.co.kr/",
+      "contactUrl": "https://www.p-m.co.kr/",
+      "email": "pm@p-m.co.kr",
+      "phone": "031-941-9035",
+      "note": "PM&TG가 자사 홈페이지에서 ZTT 제품을 국내에 공급한다고 명시"
+    },
+    {
+      "manufacturer": "US Conec",
+      "company": "US Conec Ltd.",
+      "relationship": "한국 공식 대리점 공개 확인 안 됨 · 본사 직접 문의",
+      "category": "MTP® · MMC · MDC · 광커넥터 · Cleaner",
+      "website": "https://www.usconec.com/",
+      "contactUrl": "https://www.usconec.com/contact-us",
+      "email": "customerservice@usconec.com",
+      "phone": "+1-828-323-8883",
+      "note": "공개 공식 자료에서 한국 대리점을 확인하지 못해 US Conec 공식 Contact/Customer Service를 표시"
     }
   ]
 }

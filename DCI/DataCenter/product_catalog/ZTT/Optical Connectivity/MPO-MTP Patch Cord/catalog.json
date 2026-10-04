@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "MPO/MTP Patch Cord",
+  "displayName": "MPO/MTP Patch Cord",
+  "description": "High-density factory-preterminated MPO/MTP patch cord for trunk-line and parallel-optics connections.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/mpo-mtp-patch-cord/",
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Category",
+    "Polish",
+    "Insertion Loss",
+    "Return Loss",
+    "Working Temperature",
+    "Wavelength"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "MPO/MTP Patch Cord",
+      "description": "ZTT MPO/MTP multi-core patch cord for high-density trunk and equipment cabling.",
+      "officialUrl": "https://www.zttgroup.com/product/mpo-mtp-patch-cord/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Fiber Count": "4 / 8 / 12 / 24 cores",
+        "Fiber Category": "SM: G.652D/G.657A2 · MM: OM3/OM4",
+        "Polish": "PC / APC (8°)",
+        "Insertion Loss": "Typical 0.35 dB; SM ≤0.75 dB; MM ≤0.6 dB",
+        "Return Loss": "SM ≥60 dB APC / ≥50 dB PC; MM ≥20 dB",
+        "Working Temperature": "-40 to +85 °C",
+        "Wavelength": "SM 1310 nm · MM 850 nm"
+      }
+    }
+  }
+}

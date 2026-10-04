@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "Smart Busbar",
+  "displayName": "Smart Busbar",
+  "description": "Intelligent mini-busbar system combining busbar body, connection devices, monitoring and energy-efficiency management.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/smart-busbar/",
+  "comparisonFields": [
+    "DC Total Current",
+    "AC Total Current",
+    "Feeder Box",
+    "Functions",
+    "Application"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "Smart Busbar",
+      "description": "High-level data-center power-distribution terminal integrating intelligent monitoring and energy-efficiency management.",
+      "officialUrl": "https://www.zttgroup.com/product/smart-busbar/",
+      "characteristicsOnly": true,
+      "specs": {
+        "DC Total Current": "250–1250 A",
+        "AC Total Current": "100–800 A",
+        "Feeder Box": "10–100 A",
+        "Functions": "Distribution · monitoring · fault-circuit maintenance · energy statistics",
+        "Application": "Data centers / computer rooms / industrial & commercial power management"
+      }
+    }
+  }
+}

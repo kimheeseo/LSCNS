@@ -68,19 +68,38 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-04)
 
-현재 GitHub에 업로드된 PDF는 총 **394개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
+현재 GitHub에 업로드된 PDF는 총 **700개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
 
-구조화된 `catalog.json`이 아직 없는 제품군은 **9개 폴더 / 125개 PDF**입니다.
+구조화된 `catalog.json`이 아직 없는 제품군은 **28개 폴더 / 431개 PDF**입니다. 이 파일들도 PDF 목록은 즉시 표시되지만 동일 스펙 비교/설계 매칭은 메타데이터 등록 후 활성화됩니다.
 
 ### 구조화 메타데이터 재검토 필요
 - `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
 - `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
 - `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Figure-8 Loose Tube, Gel-Free Cable`: 62 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology`: 8 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology`: 9 PDFs
 - `Corning/Connector/MMC`: 1 PDFs
+- `Corning/Harness/EDGE™ Conversion Harness`: 3 PDFs
+- `Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness`: 44 PDFs
+- `Corning/Harness/EDGE™ Solutions 24 F Y Harness`: 11 PDFs
+- `Corning/Harness/EDGE™ Solutions 2x3 Conversion Harness`: 1 PDFs
+- `Corning/Harness/EDGE™ Staggered Harness`: 29 PDFs
+- `Corning/Module/EDGE™ 4x4 Mesh Module`: 2 PDFs
+- `Corning/Module/EDGE™ Base-8 Module`: 2 PDFs
+- `Corning/Module/EDGE™ Bidi Tap Module`: 2 PDFs
+- `Corning/Module/EDGE™ Conversion Modules`: 4 PDFs
+- `Corning/Module/EDGE™ Module, Ultra Low Loss`: 9 PDFs
+- `Corning/Module/EDGE™ Module`: 11 PDFs
+- `Corning/Module/EDGE™ Tap Module`: 22 PDFs
+- `Corning/Module/Fiber to the Desk Module`: 8 PDFs
 - `Corning/ODF/EDGE™ Solutions_ODF`: 5 PDFs
 - `Corning/Panel/Adapter Panels/EDGE™ Adapter Panel, MTP®`: 8 PDFs
 - `Corning/Panel/CCH Panel/CCH Panel, FC Adapters`: 6 PDFs
+- `Corning/Panel/CCH Panel/CCH Panel, SC Adapters`: 30 PDFs
 - `Corning/Panel/EDGE™ Panels`: 3 PDFs
-- `Corning/Trunk/EDGE™ MTP® Trunk`: 78 PDFs
+- `Corning/Trunk/EDGE™ Hybrid Trunk`: 21 PDFs
+- `Corning/Trunk/EDGE™ Indoor Ribbon Trunk`: 1 PDFs
+- `Corning/Trunk/EDGE™ MTP® Trunk`: 105 PDFs
 
-YOFC URL-only 제품은 Product Model 표가 있으면 모델별로 저장하고, Product Model 표가 없으면 Characteristics-only 항목으로 저장합니다.
+설계 계산의 제품 영수증은 전체 DB를 한 번에 브라우저로 로드하지 않고, 계산된 요구조건에 관련된 `catalog.json` 제품군만 선택적으로 조회합니다.

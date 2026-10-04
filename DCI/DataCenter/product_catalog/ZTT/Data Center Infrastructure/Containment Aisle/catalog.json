@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "ZTT",
+  "category": "Containment Aisle",
+  "displayName": "Containment Aisle",
+  "description": "Modular cold/hot aisle containment system for separating hot and cold airflow in data centers.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.zttgroup.com/product/containment-aisle/",
+  "comparisonFields": [
+    "Rack Compatibility",
+    "Construction",
+    "Configuration",
+    "Cooling Objective",
+    "Specification"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "Containment Aisle",
+      "description": "Industrial-grade sheet-metal aisle containment compatible with standard 19-inch rack cabinets and scalable modular deployment.",
+      "officialUrl": "https://www.zttgroup.com/product/containment-aisle/",
+      "characteristicsOnly": true,
+      "specs": {
+        "Rack Compatibility": "Standard 19-inch rack cabinets",
+        "Construction": "Industrial-grade sheet metal",
+        "Configuration": "Modular / expandable",
+        "Cooling Objective": "Separate hot and cold airflow; reduce localized hotspots and cooling energy",
+        "Specification": "Customized according to customer requirements"
+      }
+    }
+  }
+}

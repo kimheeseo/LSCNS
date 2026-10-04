@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "checked": "2026-10-05",
+  "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트)",
+  "totalStructuredCatalogs": 123,
+  "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. 인터페이스, 심수, fiber type, connector, 거리/속도, polarity/gender/jacket 조건을 점수화하며, 조건이 불충분하거나 제품군만 확인되는 경우 RFQ로 유지한다.",
+  "roles": {
+    "compute": [
+      "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms/catalog.json",
+      "NVIDIA/AI Factory Platforms/Vera Rubin Platform/catalog.json",
+      "NVIDIA/CPU and Superchips/catalog.json",
+      "NVIDIA/Data Center GPUs/catalog.json"
+    ],
+    "network": [
+      "Furukawa Electric/Network/FITELnet FX2/catalog.json",
+      "Furukawa Electric/Network/FITELnet FX201/catalog.json",
+      "Furukawa Electric/Network/FITELnet vFX/catalog.json",
+      "NVIDIA/Networking/catalog.json"
+    ],
+    "optic": [
+      "YOFC/Transceiver/1.25G/catalog.json",
+      "YOFC/Transceiver/100G/catalog.json",
+      "YOFC/Transceiver/10G SFP+/catalog.json",
+      "YOFC/Transceiver/10G XFP/catalog.json",
+      "YOFC/Transceiver/2.5G/catalog.json",
+      "YOFC/Transceiver/200G/catalog.json",
+      "YOFC/Transceiver/25G/catalog.json",
+      "YOFC/Transceiver/400G/catalog.json",
+      "YOFC/Transceiver/40G/catalog.json",
+      "YOFC/Transceiver/50G/catalog.json",
+      "YOFC/Transceiver/AOC/catalog.json",
+      "YOFC/Transceiver/PON Series/catalog.json"
+    ],
+    "trunk": [
+      "Corning/Trunk/EDGE™ Armored Trunk/catalog.json",
+      "Corning/Trunk/EDGE™ MTP® Extender Trunk/catalog.json",
+      "Sumitomo Electric/Cable Assemblies/Cable Assemblies/catalog.json",
+      "Sumitomo Electric/SWK™ Series/SWK Cable Assemblies/catalog.json",
+      "YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json"
+    ],
+    "patchCord": [
+      "Corning/Jumper/12-Fiber MTP® PRO Jumper/catalog.json",
+      "Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex/catalog.json",
+      "Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper/catalog.json",
+      "Sumitomo Electric/Ribbon Breakout & Fanout Kits/12-Fiber Ribbon Pigtail Fanout Kits/catalog.json",
+      "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Breakout Kits for High Fiber Count Ribbon Cables/catalog.json",
+      "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Cable Breakout Kits for Ribbons/catalog.json",
+      "YOFC/Patch Cord/MPO-MTP Branching Patch Cord/catalog.json",
+      "YOFC/Patch Cord/MPO-MTP Pre-terminated Patch Cord/catalog.json",
+      "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json"
+    ],
+    "patch": [
+      "Corning/Housing/EDGE™ Housing, FX/catalog.json",
+      "Corning/Housing/Pretium® Connector Housing (PCH)/catalog.json",
+      "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC/catalog.json",
+      "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®/catalog.json",
+      "Corning/Panel/CCH Panel/CCH Panel, LC Adapters/catalog.json",
+      "Corning/Panel/CCH Panel/CCH Panel, MTP Adapters/catalog.json",
+      "Furukawa Electric/Optical Connectivity/Patch Panel & ODF/catalog.json",
+      "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels/catalog.json",
+      "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex FOX Splice Cassettes/catalog.json",
+      "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex LGX MPO Cassettes/catalog.json",
+      "Sumitomo Electric/Entrance Frames/3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet/catalog.json",
+      "Sumitomo Electric/Entrance Frames/Hyperscale eXchange (HSX)/catalog.json",
+      "Sumitomo Electric/Entrance Frames/Ultra Hyperscale eXchange (U-HSX)/catalog.json",
+      "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/1RU LGX Compact Patch Panel/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex High Density MPO-LC Cassettes/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels/catalog.json",
+      "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels/catalog.json",
+      "Sumitomo Electric/SWK™ Series/SWK Fiber Patch Panels/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FTWM-02L-2D Wall Mount Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L-2D Wall Mount Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/FTWM-08L Wall Mount Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/NEMA 4X-IP66 Splice Transit Enclosure/catalog.json",
+      "Sumitomo Electric/Wall Mount Enclosures/Pre-Terminated LC-APC Patching Transit Enclosure/catalog.json",
+      "YOFC/Module/Adapter Panel (UDF)/catalog.json",
+      "YOFC/Module/MTP-LC Conversion Module (UDF)/catalog.json",
+      "YOFC/Module/SDF Optical Fibre Module Cassette/catalog.json",
+      "YOFC/Module/UDF Pro Optical Fibre Module Cassette/catalog.json",
+      "YOFC/Panel/G4 Fixed Type Fibre Optic Patch Panel/catalog.json",
+      "YOFC/Panel/G4 MPO-MTP Modules and Panels/catalog.json",
+      "YOFC/Panel/G4 Telescopic Type Fibre Optic Patch Panel/catalog.json",
+      "YOFC/Panel/SDF Adapter Panel/catalog.json",
+      "YOFC/Panel/SDF Fibre Optic Patch Panel/catalog.json",
+      "YOFC/Panel/UDF High-density Fibre Optic Patch Panel/catalog.json",
+      "YOFC/Panel/UDF Pro Ultra-high Density Fibre Optic Patch Panel/catalog.json",
+      "ZTT/Data Center Infrastructure/High-density ODF/catalog.json"
+    ],
+    "connector": [
+      "SENKO/Field Connectors/catalog.json",
+      "SENKO/Legacy Connectors/catalog.json",
+      "SENKO/MPO-MT Connectors/catalog.json",
+      "SENKO/SC-LC Connectors/catalog.json",
+      "SENKO/VSFF Connectors/catalog.json",
+      "Sumitomo Electric/SWK™ Series/SWK Connector/catalog.json",
+      "USConnec/MDC Connectors/catalog.json",
+      "USConnec/MMC Connectors/catalog.json",
+      "USConnec/MTP Connectors/Adapters/catalog.json",
+      "USConnec/MTP Connectors/Fast-Track & Pin Clamp/catalog.json",
+      "USConnec/MTP Connectors/MTP 900µ & Fanout/catalog.json",
+      "USConnec/MTP Connectors/MTP PRO X/catalog.json",
+      "USConnec/MTP Connectors/MTP PRO/catalog.json",
+      "USConnec/MTP Connectors/MTP Universal/catalog.json",
+      "USConnec/MTP Connectors/MTP-16/catalog.json"
+    ],
+    "adapter": [
+      "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC/catalog.json",
+      "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®/catalog.json",
+      "Corning/Panel/CCH Panel/CCH Panel, LC Adapters/catalog.json",
+      "Corning/Panel/CCH Panel/CCH Panel, MTP Adapters/catalog.json",
+      "Sumitomo Electric/SWK™ Series/SWK Fiber Adapter Panels/catalog.json",
+      "USConnec/MTP Connectors/Adapters/catalog.json",
+      "YOFC/Module/Adapter Panel (UDF)/catalog.json",
+      "YOFC/Panel/SDF Adapter Panel/catalog.json"
+    ],
+    "rack": [
+      "ZTT/Data Center Infrastructure/All-in-One Cabinet/catalog.json",
+      "ZTT/Data Center Infrastructure/Array Cabinet/catalog.json",
+      "ZTT/Data Center Infrastructure/IT Cabinet/catalog.json"
+    ],
+    "power": [
+      "Furukawa Electric/Power Cable/600V EM-FCC(T)/catalog.json",
+      "Furukawa Electric/Power Cable/EM-LMFC/catalog.json",
+      "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json"
+    ],
+    "cooling": [
+      "ZTT/Data Center Infrastructure/In-row Air Conditioner/catalog.json"
+    ]
+  },
+  "intentionallyNotAutoSubstituted": {
+    "Rack PDU": "현재 structured catalog에 rack-PDU exact family가 없어 Smart Busbar로 대체하지 않음",
+    "CDU": "In-row air conditioner는 CDU와 동일 제품이 아니므로 자동 대체하지 않음",
+    "UPS/Generator/Transformer": "현재 structured catalog에 해당 공식 제품군 미등록",
+    "Storage system": "현재 structured catalog에 storage array official family 미등록"
+  }
+}

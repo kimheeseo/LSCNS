@@ -2,6 +2,8 @@
 (()=>{
   const CACHE=new Map();
   const P='./product_catalog/';
+  const INDEX_PATH=P+'bom-catalog-index.json';
+  let INDEX_PROMISE=null;
   const MAP={
     trunk:[
       P+'Corning/Trunk/EDGE™ Armored Trunk/catalog.json',
@@ -59,6 +61,13 @@
     const promise=fetch(new URL(path,location.href),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(path+' HTTP '+r.status);return r.json()});
     CACHE.set(path,promise);return promise;
   }
+  async function rolePaths(role){
+    if(!INDEX_PROMISE)INDEX_PROMISE=load(INDEX_PATH).catch(()=>({roles:{}}));
+    const idx=await INDEX_PROMISE;
+    const rel=Array.isArray(idx?.roles?.[role])?idx.roles[role]:[];
+    const dynamic=rel.map(x=>P+x);
+    return dynamic.length?dynamic:(MAP[role]||[]);
+  }
   function merged(manifest,meta){return {...(manifest.defaultSpecs||{}),...(meta.specs||{})}}
   function flatten(manifest,path){return Object.entries(manifest.products||{}).map(([key,meta])=>({path,manifest,key,meta,specs:merged(manifest,meta)}))}
   async function families(paths){const out=[];for(const path of paths){try{out.push(...flatten(await load(path),path))}catch(e){}}return out}
@@ -83,10 +92,107 @@
     if(/LC/.test(e))return /LC/.test(c)?30:-80;
     return 0;
   }
+  function corpus(c){
+    return [c.manifest.company,c.manifest.category,c.meta.name,c.meta.description,...Object.values(c.specs||{})].filter(Boolean).join(' ').toLowerCase();
+  }
+  function norm(v){return String(v||'').toLowerCase().replace(/[®™]/g,'').replace(/[^a-z0-9가-힣.+×/-]+/g,' ')}
+  function fiberText(profile){const f=String(profile?.fiberType||'').toUpperCase();if(/OS2|SM/.test(f))return 'os2';if(/OM5/.test(f))return 'om5';if(/OM4/.test(f))return 'om4';if(/OM3/.test(f))return 'om3';return f.toLowerCase()}
+  function hasFiber(cText,f){
+    if(!f)return false;
+    if(f==='os2')return /\bos2\b|g\.657|g\.652|single.?mode|\bsm\b/.test(cText);
+    return cText.includes(f);
+  }
+  function reqRole(q){
+    const item=String(q.item||'').toLowerCase(),cat=String(q.category||'').toLowerCase();
+    if(q.unit==='transceiver')return 'optic';
+    if(q.unit==='trunk')return 'trunk';
+    if(/patch|harness|jumper|fanout/.test(item)&&q.unit==='channel')return 'patchCord';
+    if(/adapter/.test(item))return 'adapter';
+    if(/connector/.test(item))return 'connector';
+    if(/panel|housing|odf|cassette/.test(item))return 'patch';
+    if(q.unit==='rack'||cat==='rack')return 'rack';
+    if(cat==='compute')return 'compute';
+    if(cat==='network'||/fabric switch/.test(item))return 'network';
+    return '';
+  }
+  function requirementScore(q,c,role,r){
+    const text=corpus(c),profile=q.profile||{},expectedConn=String(profile.connector||'').toUpperCase(),f=fiberText(profile);
+    let score=5;const basis=[];
+    if(role==='connector'&&/tool|cleaner|guide pin|dust cap|crimp/.test(text))score-=80;
+    if(role==='adapter'&&!/adapter/.test(text))score-=45;
+    if(role==='patch'&&!/panel|housing|odf|cassette|enclosure/.test(text))score-=30;
+    if(role==='compute'){
+      const wanted=norm([q.item,r.systemProfile?.name,r.systemProfile?.gpu].join(' '));
+      for(const token of wanted.split(' ').filter(x=>/^[a-z]*\d+[a-z0-9-]*$/i.test(x)&&x.length>=3)){if(text.includes(token)){score+=90;basis.push(token.toUpperCase())}}
+    }
+    if(role==='network'){
+      const protocol=String(r.input?.fabricProtocol||r.storage?.protocol||'').toLowerCase();
+      if(protocol&&text.includes(protocol)){score+=45;basis.push(protocol)}
+      const speed=Number(r.systemProfile?.linkSpeed)||0;
+      if(speed&&new RegExp('\\b'+speed+'\\s*g','i').test(text)){score+=25;basis.push(speed+'G')}
+      const wanted=norm(q.item);for(const token of wanted.split(' ').filter(x=>x.length>=4)){if(text.includes(token)){score+=12;basis.push(token)}}
+    }
+    if(expectedConn){
+      if(/MPO-16/.test(expectedConn)){if(/mpo.?16|mtp.?16|16.?fiber|16f/.test(text)){score+=55;basis.push('MPO-16')}else if(role==='connector'||role==='trunk'||role==='patchCord')score-=25}
+      else if(/MPO|MTP/.test(expectedConn)){if(/\bmpo\b|\bmtp\b/.test(text)){score+=35;basis.push('MPO/MTP')}else if(role==='connector'||role==='trunk'||role==='patchCord')score-=30}
+      if(/LC/.test(expectedConn)){if(/\blc\b/.test(text)){score+=35;basis.push('LC')}else if(role==='patchCord'||role==='adapter')score-=20}
+    }
+    if(f&&hasFiber(text,f)){score+=24;basis.push(f.toUpperCase())}
+    const fibers=Number(q.fibers)||0;
+    if(fibers&&['trunk','patchCord','connector'].includes(role)){
+      const fc=fcValue(c);
+      if(Number.isFinite(fc)){if(fc===fibers){score+=55;basis.push(fibers+'F exact')}else if(fc<fibers)score-=35;else score+=5}
+      else if(new RegExp('(?:^|\\D)'+fibers+'(?:f|.?fiber|.?core|\\D|$)','i').test(text)){score+=28;basis.push(fibers+'F')}
+    }
+    const jacket=String(q.jacket||'').toUpperCase();if(jacket&&jacket!=='PROJECT'&&text.includes(jacket.toLowerCase())){score+=16;basis.push(jacket)}
+    const pol=String(q.polarity||'').toUpperCase();if(/^[ABC]$/.test(pol)&&new RegExp('(type|method)\\s*'+pol,'i').test(text)){score+=14;basis.push('Polarity '+pol)}
+    const gender=String(q.gender||'').toLowerCase();
+    if(gender&&gender!=='review'&&gender!=='n/a'){
+      const pin=gender.includes('pinned'),unpin=gender.includes('unpinned');
+      if(pin&&/pinned|male/.test(text)){score+=8;basis.push('pinned')}
+      if(unpin&&/unpinned|female/.test(text)){score+=8;basis.push('unpinned')}
+    }
+    return {score,basis:[...new Set(basis)].slice(0,5)};
+  }
+  function fcValue(c){
+    for(const k of ['Fiber Count','Fiber count','Fiber Count / Capacity']){const n=num(c.specs?.[k]);if(Number.isFinite(n))return n}
+    return NaN;
+  }
+  function distinctVendors(scored,limit=3){
+    const out=[],seen=new Set();
+    for(const x of scored){const v=String(x.c.manifest.company||'');if(seen.has(v)&&out.length<2)continue;out.push(x);seen.add(v);if(out.length>=limit)break}
+    if(out.length<limit)for(const x of scored){if(!out.includes(x)){out.push(x);if(out.length>=limit)break}}
+    return out;
+  }
+  async function requirementCandidates(q,r){
+    const role=reqRole(q);if(!role)return [];
+    const candidates=await families(await rolePaths(role));
+    const scored=candidates.map(c=>({c,...requirementScore(q,c,role,r)})).filter(x=>x.score>=20).sort((a,b)=>b.score-a.score);
+    return distinctVendors(scored,3).map(x=>({vendor:x.c.manifest.company,name:model(x.c),source:url(x.c),kind:role,catalogPath:x.c.path,score:x.score,matchBasis:(x.basis.length?'조건 일치: '+x.basis.join(' · '):'공식 제품군 후보')+' · 최종 SKU/RFQ 확인'}));
+  }
+  async function enrichRequirements(r){
+    if(!Array.isArray(r.productRequirements))return;
+    for(const q of r.productRequirements){
+      try{const c=await requirementCandidates(q,r);if(c.length)q.candidates=c}catch(e){}
+    }
+  }
+  async function matchCompute(row,r){
+    const q={item:[row.model,row.product,r.systemProfile?.name,r.systemProfile?.gpu].filter(Boolean).join(' '),category:'Compute',unit:'system',profile:{}};
+    const candidates=await families(await rolePaths('compute'));
+    const scored=candidates.map(c=>({c,...requirementScore(q,c,'compute',r)})).filter(x=>x.score>=70).sort((a,b)=>b.score-a.score);
+    if(!scored.length)return fallback(row,'product_catalog: no exact-enough official compute platform family match');
+    return toRow(row,scored[0].c,distinctVendors(scored.slice(1),2).map(x=>x.c),'Official platform family · RFQ','업체별 부품 리스트 · compute model/GPU token match');
+  }
+  async function matchNetwork(row,r){
+    const q={item:[row.model,row.product,row.category].filter(Boolean).join(' '),category:'Network',unit:'switch',profile:{}};
+    const candidates=await families(await rolePaths('network'));
+    const scored=candidates.map(c=>({c,...requirementScore(q,c,'network',r)})).filter(x=>x.score>=25).sort((a,b)=>b.score-a.score);
+    if(!scored.length)return fallback(row,'product_catalog: no sufficiently compatible official network family');
+    return toRow(row,scored[0].c,distinctVendors(scored.slice(1),2).map(x=>x.c),'Official network family · RFQ','업체별 부품 리스트 · protocol/speed/name conditions');
+  }
   async function matchOptic(row,r){
     const speed=Number(r.systemProfile?.linkSpeed);
-    const path=OPTIC[speed];if(!path)return fallback(row,'product_catalog: '+speed+'G optical transceiver family not registered');
-    const candidates=await families([path]);
+    const candidates=await families(await rolePaths('optic'));if(!candidates.length)return fallback(row,'product_catalog: optical transceiver catalogs unavailable');
     const server=/Server-facing/i.test(row.category);
     const o=server?r.optical?.server:r.optical?.leafSpine;
     const distance=Number(server?r.input?.serverDistanceM:r.input?.leafSpineDistanceM)||0;
@@ -104,7 +210,7 @@
     return toRow(row,primary.c,scored.slice(1,3).map(x=>x.c),'Catalog match',`product_catalog · ${media} · ${distance} m`);
   }
   async function matchTrunk(row,r){
-    const candidates=await families(MAP.trunk),need=Number(r.input?.trunkFiberCount)||0;
+    const candidates=await families(await rolePaths('trunk')),need=Math.max(Number(r.optical?.server?.profile?.trunkFiberCount)||0,Number(r.optical?.leafSpine?.profile?.trunkFiberCount)||0,Number(r.input?.trunkFiberCount)||0);
     const exact=candidates.filter(c=>fc(c)===need);
     const expected=String(r.optical?.server?.profile?.fiberType||r.optical?.leafSpine?.profile?.fiberType||'OS2').toUpperCase();
     const rank=c=>{const f=val(c,'Fiber Category','Fiber category').toUpperCase();let s=0;if(expected.includes('OS2')&&(f.includes('OS2')||f.includes('G.657')||f.includes('SINGLE')))s+=30;return s};
@@ -114,7 +220,7 @@
     return fallback(row,`product_catalog: no exact ${need}F structured-trunk SKU; engine quantity retained pending SKU review`,near.slice(0,2));
   }
   async function matchPatch(row){
-    const candidates=await families(MAP.patch);
+    const candidates=await families(await rolePaths('patch'));
     const preferred=['EDGE-01U-EMOD','FT01L03-LSA','FT02FMFP-6LGX-INTERCONNECT','FT02SEL12-S','PFCST-1U-F12-BK','PCH-01U','iCONEC-DFGDSL01','GPX02-600Y1'];
     candidates.sort((a,b)=>preferred.indexOf(a.key)<0?1:preferred.indexOf(b.key)<0?-1:preferred.indexOf(a.key)-preferred.indexOf(b.key));
     if(!candidates.length)return fallback(row,'product_catalog: patch-panel/housing family unavailable');
@@ -127,7 +233,7 @@
     return 0;
   }
   async function matchConnector(row,r){
-    const candidates=await families(MAP.connector);
+    const candidates=await families(await rolePaths('connector'));
     if(!candidates.length)return fallback(row,'product_catalog: MTP connector families unavailable');
     const profile=r.optical?.[row.segment]?.profile||r.optical?.server?.profile||r.optical?.leafSpine?.profile||{};
     const base=connectorBase(profile),wantGender=String(r.input?.mpoGender||'review').toLowerCase();
@@ -146,18 +252,20 @@
     return toRow(row,scored[0].c,scored.slice(1,3).map(x=>x.c),'Catalog connector candidate · RFQ',`product_catalog · ${profile.connector||'MPO/MTP'} · final gender/pinning/polarity must be confirmed`);
   }
   async function matchAdapter(row,r){
-    const candidates=await families(MAP.adapter);
+    const candidates=await families(await rolePaths('adapter'));
     if(!candidates.length)return fallback(row,'product_catalog: MTP adapter family unavailable');
     candidates.sort((a,b)=>(/Standard Footprint/.test(val(a,'Adapter Style'))?-1:0)-(/Standard Footprint/.test(val(b,'Adapter Style'))?-1:0));
     return toRow(row,candidates[0],candidates.slice(1,3),'Catalog adapter candidate · RFQ','product_catalog · key orientation / mounting / color must be confirmed');
   }
   async function matchRack(row){
-    const c=(await families(MAP.rack))[0];
+    const c=(await families(await rolePaths('rack'))).find(x=>/IT Cabinet/i.test(model(x)))||(await families(await rolePaths('rack')))[0];
     if(!c)return fallback(row,'product_catalog: rack family unavailable');
     return toRow(row,c,[],'Catalog family match','product_catalog · exact cabinet width/height and accessory SKU RFQ');
   }
   async function one(row,r){
     const label=[row.category,row.product,row.model,row.evidence].filter(Boolean).join(' ');
+    if(/^Compute$/i.test(row.category))return matchCompute(row,r);
+    if(/Fabric switch|Storage fabric/i.test(row.category))return matchNetwork(row,r);
     if(/adapter/i.test(label))return matchAdapter(row,r);
     if(/connector/i.test(label))return matchConnector(row,r);
     if(/Server-facing optic|Leaf↔Spine optic/i.test(row.category))return matchOptic(row,r);
@@ -171,8 +279,9 @@
     const engineProducts=r.products.map(x=>({...x,alternatives:[...(x.alternatives||[])]}));
     const out=[];for(const row of engineProducts){try{out.push(await one(row,r))}catch(e){out.push(fallback(row,'product_catalog match error: '+e.message))}}
     r.engineProducts=engineProducts;r.products=out;
+    await enrichRequirements(r);
     const matched=out.filter(x=>x.catalogBased).length,rfq=out.length-matched;
-    r.catalogMatchSummary={matched,rfq,total:out.length,source:'product_catalog',mode:'selected families only; full DB is not loaded into the calculation view'};
+    r.catalogMatchSummary={matched,rfq,total:out.length,source:'product_catalog/bom-catalog-index.json',mode:'업체별 부품 리스트의 관련 structured catalog 전체에서 조건 기반 공식 제품/제품군 후보를 선택; 불충분 조건은 RFQ'};
     return r;
   };
 })();

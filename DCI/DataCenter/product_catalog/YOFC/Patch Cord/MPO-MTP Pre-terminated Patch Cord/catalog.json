@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "MPO/MTP Pre-terminated Patch Cord",
+  "displayName": "MPO/MTP Pre-terminated Patch Cord",
+  "description": "Factory pre-terminated MTP-MTP and MPO-MPO patch cords.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3040.html",
+  "comparisonFields": [
+    "Connector",
+    "Connector Gender",
+    "Fiber Count",
+    "Flame Rating",
+    "Fiber Category",
+    "Polarity",
+    "Length"
+  ],
+  "products": {
+    "iCONEC-DBPBTTFFE12H-0030": {
+      "name": "iCONEC-DBPBTTFFE12H-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-1, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFE12L-0030": {
+      "name": "iCONEC-DBPBTTFFE12L-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-3, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFE12R-0030": {
+      "name": "iCONEC-DBPBTTFFE12R-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNR, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFE12P-0030": {
+      "name": "iCONEC-DBPBTTFFE12P-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNP, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFA12H-0030": {
+      "name": "iCONEC-DBPBTTFFA12H-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-1, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFA12L-0030": {
+      "name": "iCONEC-DBPBTTFFA12L-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-3, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFA12R-0030": {
+      "name": "iCONEC-DBPBTTFFA12R-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNR, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFA12P-0030": {
+      "name": "iCONEC-DBPBTTFFA12P-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNP, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFN12H-0030": {
+      "name": "iCONEC-DBPBTTFFN12H-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-1, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFN12L-0030": {
+      "name": "iCONEC-DBPBTTFFN12L-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-3, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFN12R-0030": {
+      "name": "iCONEC-DBPBTTFFN12R-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNR, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFN12P-0030": {
+      "name": "iCONEC-DBPBTTFFN12P-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNP, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFD12H-0030": {
+      "name": "iCONEC-DBPBTTFFD12H-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-1, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFD12L-0030": {
+      "name": "iCONEC-DBPBTTFFD12L-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, LSZH-3, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFD12R-0030": {
+      "name": "iCONEC-DBPBTTFFD12R-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNR, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTFFD12P-0030": {
+      "name": "iCONEC-DBPBTTFFD12P-0030",
+      "description": "MTP-MTP Patch Cord, Connector F-F, 12-Core, OFNP, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MTP-MTP",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFE12H-0030": {
+      "name": "iCONEC-DBPBPTFFE12H-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-1, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFE12L-0030": {
+      "name": "iCONEC-DBPBPTFFE12L-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-3, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFE12R-0030": {
+      "name": "iCONEC-DBPBPTFFE12R-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNR, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFE12P-0030": {
+      "name": "iCONEC-DBPBPTFFE12P-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNP, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFA12H-0030": {
+      "name": "iCONEC-DBPBPTFFA12H-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-1, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFA12L-0030": {
+      "name": "iCONEC-DBPBPTFFA12L-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-3, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFA12R-0030": {
+      "name": "iCONEC-DBPBPTFFA12R-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNR, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFA12P-0030": {
+      "name": "iCONEC-DBPBPTFFA12P-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNP, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFN12H-0030": {
+      "name": "iCONEC-DBPBPTFFN12H-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-1, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFN12L-0030": {
+      "name": "iCONEC-DBPBPTFFN12L-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-3, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFN12R-0030": {
+      "name": "iCONEC-DBPBPTFFN12R-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNR, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFN12P-0030": {
+      "name": "iCONEC-DBPBPTFFN12P-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNP, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFD12H-0030": {
+      "name": "iCONEC-DBPBPTFFD12H-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-1, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFD12L-0030": {
+      "name": "iCONEC-DBPBPTFFD12L-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, LSZH-3, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFD12R-0030": {
+      "name": "iCONEC-DBPBPTFFD12R-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNR, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTFFD12P-0030": {
+      "name": "iCONEC-DBPBPTFFD12P-0030",
+      "description": "MPO-MPO Patch Cord, Connector F-F, 12-Core, OFNP, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3040.html",
+      "specs": {
+        "Connector": "MPO-MPO",
+        "Connector Gender": "F-F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    }
+  }
+}

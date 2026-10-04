@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "SDF Adapter Panel",
+  "displayName": "SDF Adapter Panel",
+  "description": "SDF adapter/module/panel family. Source wording is preserved for each Product Description.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3041.html",
+  "comparisonFields": [
+    "Product Type",
+    "Interface",
+    "Fiber Category",
+    "Capacity / Ports",
+    "Height",
+    "Color"
+  ],
+  "products": {
+    "iCONEC-OFSMTUMDE24": {
+      "name": "iCONEC-OFSMTUMDE24",
+      "description": "SDF Module/1*12-Core MTP to 12D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDA24": {
+      "name": "iCONEC-OFSMTUMDA24",
+      "description": "SDF Module/1*24-Core MTP to 12D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDN24": {
+      "name": "iCONEC-OFSMTUMDN24",
+      "description": "SDF Module/1*24-Core MTP to 12D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDD24": {
+      "name": "iCONEC-OFSMTUMDD24",
+      "description": "SDF Module/1*24-Core MTP to 12D LC, Bend Insensitive OM5",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDE12": {
+      "name": "iCONEC-OFSMTUMDE12",
+      "description": "SDF Module/1*12-Core MTP to 6D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDA12": {
+      "name": "iCONEC-OFSMTUMDA12",
+      "description": "SDF Module/1*12-Core MTP to 6D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDN12": {
+      "name": "iCONEC-OFSMTUMDN12",
+      "description": "SDF Module/1*12-Core MTP to 6D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMTUMDD12": {
+      "name": "iCONEC-OFSMTUMDD12",
+      "description": "SDF Module/1*12-Core MTP to 6D LC, Bend Insensitive OM5",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDE24": {
+      "name": "iCONEC-OFSMPUMDE24",
+      "description": "SDF Module/1*24-Core MPO to 12D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDA24": {
+      "name": "iCONEC-OFSMPUMDA24",
+      "description": "SDF Module/1*24-Core MPO to 12D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDN24": {
+      "name": "iCONEC-OFSMPUMDN24",
+      "description": "SDF Module/1*24-Core MPO to 12D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDD24": {
+      "name": "iCONEC-OFSMPUMDD24",
+      "description": "SDF Module/1*24-Core MPO to 12D LC, Bend Insensitive OM5",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDE12": {
+      "name": "iCONEC-OFSMPUMDE12",
+      "description": "SDF Module/1*12-Core MPO to 6D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDA12": {
+      "name": "iCONEC-OFSMPUMDA12",
+      "description": "SDF Module/1*12 Core MPO to 6D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDN12": {
+      "name": "iCONEC-OFSMPUMDN12",
+      "description": "SDF Module/1*12-Core MPO to 6D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSMPUMDD12": {
+      "name": "iCONEC-OFSMPUMDD12",
+      "description": "SDF Module/1*12-Core MTP to 6D LC, Bend Insensitive OM5",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSPDUM06": {
+      "name": "iCONEC-OFSPDUM06",
+      "description": "SDF adapter panel/6*mutil-mode duplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-OFSPDUS06": {
+      "name": "iCONEC-OFSPDUS06",
+      "description": "SDF adapter panel/6*single-mode duplex LC, blue",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-OFSPDUM12": {
+      "name": "iCONEC-OFSPDUM12",
+      "description": "SDF adapter panel/12*multimode duplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-OFSPDUS12": {
+      "name": "iCONEC-OFSPDUS12",
+      "description": "SDF adapter panel/12*single-mode duplex LC, blue",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-OFSPSUM06": {
+      "name": "iCONEC-OFSPSUM06",
+      "description": "SDF adapter panel/6*multimode simplex SC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-OFSPSUS06": {
+      "name": "iCONEC-OFSPSUS06",
+      "description": "SDF adapter panel/6*port single-mode duplex SC, blue",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-OFSPSUM12": {
+      "name": "iCONEC-OFSPSUM12",
+      "description": "SDF adapter panel/12*multimode simplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-OFSPSUS12": {
+      "name": "iCONEC-OFSPSUS12",
+      "description": "SDF adapter panel/12*single-mode simplex SC, Blue",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-OFSPFUS12": {
+      "name": "iCONEC-OFSPFUS12",
+      "description": "SDF adapter panel/12* single-mode simplex FC",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "FC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSPMT008": {
+      "name": "iCONEC-OFSPMT008",
+      "description": "SDF adapter panel/8*MTP adapter, multimode/single-mode (Uscon adapter)",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "MTP",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSPMT006": {
+      "name": "iCONEC-OFSPMT006",
+      "description": "SDF adapter panel/6*MTP adapter, multimode/single-mode (Uscon adapter)",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "MTP",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSGYFP": {
+      "name": "iCONEC-OFSGYFP",
+      "description": "SDF rack-mounted fiber optic patch panel outdoor cable fixings",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Accessory",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSP00": {
+      "name": "iCONEC-OFSP00",
+      "description": "SDF blind plate",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Blind Plate",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-TRAY24": {
+      "name": "iCONEC-TRAY24",
+      "description": "24-core general fiber splice trays, each of which can accommodate 12-core to 24-core fused pigtails",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Splice Tray",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-TRAY-24CB": {
+      "name": "iCONEC-TRAY-24CB",
+      "description": "24-core ultra-thin fiber splice trays, each of which can accommodate 12-core to 24-core fused pigtails",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Splice Tray",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSDFC01": {
+      "name": "iCONEC-OFSDFC01",
+      "description": "SDF rack-mounted fiber optic patch panel/empty box, 1U, fixed cabinet, installed with max 3 GDF series MTP/LC modules/panels/blind plates, fusion splicing 72 cores",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 3 GDF series MTP/LC modules/panels/blind plates",
+        "Height": "1U",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSDFB01": {
+      "name": "iCONEC-OFSDFB01",
+      "description": "SDF rack-mounted fiber optic patch panel /empty box, 1U, cable tray hoisting fixed type, installed with max 3 GDF series MTP/LC modules/panels/blind plates, fusion splicing 72 cores",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 3 GDF series MTP/LC modules/panels/blind plates",
+        "Height": "1U",
+        "Color": "—"
+      }
+    },
+    "iCONEC-OFSDFC04": {
+      "name": "iCONEC-OFSDFC04",
+      "description": "SDF rack-mounted fiber optic patch panel/empty box, 4U, fixed cabinet, installed with max 12 GDF series MTP/LC modules/panels/blind plates, fusion splicing 288 cores",
+      "officialUrl": "https://en.yofc.com/view/3041.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 12 GDF series MTP/LC modules/panels/blind plates",
+        "Height": "4U",
+        "Color": "—"
+      }
+    }
+  }
+}

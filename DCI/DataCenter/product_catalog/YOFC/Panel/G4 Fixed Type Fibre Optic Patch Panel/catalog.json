@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "G4 Fixed Type Fibre Optic Patch Panel",
+  "displayName": "G4 Fixed Type Fibre Optic Patch Panel",
+  "description": "G4 fixed-type patch-panel family; official Product Model table also lists compatible modules and panels.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3037.html",
+  "comparisonFields": [
+    "Product Type",
+    "Interface",
+    "Fiber Category",
+    "Capacity / Ports",
+    "Height",
+    "Color"
+  ],
+  "products": {
+    "iCONEC-DFGDSL01": {
+      "name": "iCONEC-DFGDSL01",
+      "description": "G4 rack-mounted fiber optic patch panel/empty box, 1U, sliding type, installed with max 4 G4 MTP/LC modules or 96-core DLC panels or blind plates",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 4 G4 MTP/LC modules or 96-core DLC panels or blind plates",
+        "Height": "1U",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGDSL02": {
+      "name": "iCONEC-DFGDSL02",
+      "description": "G4 rack-mounted fiber optic patch panel/empty box, 2U, sliding type, installed with max 8 G4 MTP/LC modules or 192-core DLC panels or blind plates",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 8 G4 MTP/LC modules or 192-core DLC panels or blind plates",
+        "Height": "2U",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGDSL04": {
+      "name": "iCONEC-DFGDSL04",
+      "description": "G4 rack-mounted fiber optic patch panel/empty box, 4U, sliding type, installed with max 16 G4 MTP/LC modules or 384-core DLC panels or blind plates",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "max 16 G4 MTP/LC modules or 384-core DLC panels or blind plates",
+        "Height": "4U",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDE24": {
+      "name": "iCONEC-DFGMTUMDE24",
+      "description": "G4 Module/2*12-Core MTP to 12D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDA24": {
+      "name": "iCONEC-DFGMTUMDA24",
+      "description": "G4 Module/2*12-Core MTP to 12D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDN24": {
+      "name": "iCONEC-DFGMTUMDN24",
+      "description": "G4 Module/2*12-Core MTP to 12D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDD24": {
+      "name": "iCONEC-DFGMTUMDD24",
+      "description": "G4 Module/2*12-Core MTP to 12D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDE12": {
+      "name": "iCONEC-DFGMTUMDE12",
+      "description": "G4 Module/1*12-Core MTP to 6D LC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDA12": {
+      "name": "iCONEC-DFGMTUMDA12",
+      "description": "G4 Module/1*12-Core MTP to 6D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDN12": {
+      "name": "iCONEC-DFGMTUMDN12",
+      "description": "G4 Module/1*12-Core MTP to 6D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMTUMDD12": {
+      "name": "iCONEC-DFGMTUMDD12",
+      "description": "G4 Module/1*12-Core MTP to 6D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MTP / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDE24": {
+      "name": "iCONEC-DFGMPUMDE24",
+      "description": "G4 Module/2*12-Core MPO to 12D LC, G.657A.2",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDA24": {
+      "name": "iCONEC-DFGMPUMDA24",
+      "description": "G4 Module/2*12-Core MPO to 12D LC, Bend Insensitive OM3",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDN24": {
+      "name": "iCONEC-DFGMPUMDN24",
+      "description": "G4 Module/2*12-Core MPO to 12D LC, Bend Insensitive OM4",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDD24": {
+      "name": "iCONEC-DFGMPUMDD24",
+      "description": "G4 Module/2*12-Core MPO to 12D LC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO / LC",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDE12": {
+      "name": "iCONEC-DFGMPUMDE12",
+      "description": "G4 Module/1*12-Core MPO-6DLC/G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO",
+        "Fiber Category": "G.657.A2",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDA12": {
+      "name": "iCONEC-DFGMPUMDA12",
+      "description": "G4 Module/1*12-Core MPO-6DLC/BI-OM3",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO",
+        "Fiber Category": "OM3",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDN12": {
+      "name": "iCONEC-DFGMPUMDN12",
+      "description": "G4 Module/1*12-Core MPO-6DLC/BI-OM4",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO",
+        "Fiber Category": "OM4",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGMPUMDD12": {
+      "name": "iCONEC-DFGMPUMDD12",
+      "description": "G4 Module/1*12-Core MPO-6DLC/BI-OM5",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Module",
+        "Interface": "MPO",
+        "Fiber Category": "OM5",
+        "Capacity / Ports": "12 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGPDUM06": {
+      "name": "iCONEC-DFGPDUM06",
+      "description": "G4 adapter panel/6-port multimode duplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "6-port multimode duplex LC",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-DFGPDUS06": {
+      "name": "iCONEC-DFGPDUS06",
+      "description": "G4 adapter panel/6-port single-mode duplex LC, blue",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "6-port single-mode duplex LC",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-DFGPDUM12": {
+      "name": "iCONEC-DFGPDUM12",
+      "description": "G4 adapter panel/12-port multimode duplex LC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "12-port multimode duplex LC",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-DFGPDUS12": {
+      "name": "iCONEC-DFGPDUS12",
+      "description": "G4 adapter panel/12-port single-mode duplex LC, blue",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "LC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "12-port single-mode duplex LC",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-DFGPSUM06": {
+      "name": "iCONEC-DFGPSUM06",
+      "description": "G4 adapter panel/6-port multimode SC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "6-port multimode SC",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-DFGPSUS06": {
+      "name": "iCONEC-DFGPSUS06",
+      "description": "G4 adapter panel/6-port single-mode SC, blue",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "6-port single-mode SC",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-DFGPSUM12": {
+      "name": "iCONEC-DFGPSUM12",
+      "description": "G4 adapter panel/12-port multimode SC, aqua green",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "Multimode",
+        "Capacity / Ports": "12-port multimode SC",
+        "Height": "—",
+        "Color": "Aqua"
+      }
+    },
+    "iCONEC-DFGPSUS12": {
+      "name": "iCONEC-DFGPSUS12",
+      "description": "G4 adapter panel/12-port single mode SC, blue",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "SC",
+        "Fiber Category": "—",
+        "Capacity / Ports": "12-port single mode SC",
+        "Height": "—",
+        "Color": "Blue"
+      }
+    },
+    "iCONEC-DFGPFUS12": {
+      "name": "iCONEC-DFGPFUS12",
+      "description": "G4 adapter panel/12-port single-mode simplex FC",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "FC",
+        "Fiber Category": "Single-mode",
+        "Capacity / Ports": "12-port single-mode simplex FC",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-DFGPMT012": {
+      "name": "iCONEC-DFGPMT012",
+      "description": "G4 adapter panel/12-port MTP adapter, black (Uscon adapter)",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "MTP",
+        "Fiber Category": "—",
+        "Capacity / Ports": "12-port MTP adapter",
+        "Height": "—",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFGPMT008": {
+      "name": "iCONEC-DFGPMT008",
+      "description": "G4 adapter panel/8-port MTP adapter, black (Uscon adapter)",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "MTP",
+        "Fiber Category": "—",
+        "Capacity / Ports": "8-port MTP adapter",
+        "Height": "—",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFGPMT006": {
+      "name": "iCONEC-DFGPMT006",
+      "description": "G4 adapter panel/6-port MTP adapter, black (Uscon adapter)",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Adapter Panel",
+        "Interface": "MTP",
+        "Fiber Category": "—",
+        "Capacity / Ports": "6-port MTP adapter",
+        "Height": "—",
+        "Color": "Black"
+      }
+    },
+    "iCONEC-DFGP00": {
+      "name": "iCONEC-DFGP00",
+      "description": "G4 blind plate",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Blind Plate",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "—",
+        "Height": "—",
+        "Color": "—"
+      }
+    },
+    "iCONEC-TRAY24": {
+      "name": "iCONEC-TRAY24",
+      "description": "24-core general fiber splice trays, each of which can accommodate 12-core to 24-core fused pigtails",
+      "officialUrl": "https://en.yofc.com/view/3037.html",
+      "specs": {
+        "Product Type": "Splice Tray",
+        "Interface": "—",
+        "Fiber Category": "—",
+        "Capacity / Ports": "24 cores",
+        "Height": "—",
+        "Color": "—"
+      }
+    }
+  }
+}

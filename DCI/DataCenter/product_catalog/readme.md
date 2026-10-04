@@ -70,7 +70,7 @@ Corning/
 
 현재 GitHub에 업로드된 PDF는 총 **394개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
 
-구조화된 `catalog.json`이 아직 없는 제품군은 **9개 폴더 / 125개 PDF**이며, 이 파일들은 PDF 목록은 표시되지만 동일 스펙 비교는 아직 미등록 상태입니다.
+구조화된 `catalog.json`이 아직 없는 제품군은 **9개 폴더 / 125개 PDF**입니다.
 
 ### 구조화 메타데이터 재검토 필요
 - `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
@@ -83,4 +83,4 @@ Corning/
 - `Corning/Panel/EDGE™ Panels`: 3 PDFs
 - `Corning/Trunk/EDGE™ MTP® Trunk`: 78 PDFs
 
-YOFC는 PDF 없이 공식 URL 기반으로 7개 페이지를 등록합니다. Product Model이 공개된 페이지는 모델별로 분리하고, Product Model이 없는 페이지는 Characteristics-only 항목으로 저장합니다.
+YOFC URL-only 제품은 Product Model 표가 있으면 모델별로 저장하고, Product Model 표가 없으면 Characteristics-only 항목으로 저장합니다.

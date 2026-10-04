@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "G4 MPO/MTP Modules and Panels",
+  "displayName": "G4 MPO/MTP Modules and Panels",
+  "description": "G4 pre-terminated cassette family converting MPO/MTP trunk connectors to LC duplex for modular data-center distribution.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3036.html",
+  "comparisonFields": [
+    "Core Versions",
+    "Loss Options",
+    "Max Density",
+    "Design",
+    "Testing",
+    "Standards"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "G4 MPO/MTP Modules and Panels",
+      "description": "YOFC publishes characteristics but no Product Model table on this page.",
+      "officialUrl": "https://en.yofc.com/view/3036.html",
+      "specs": {
+        "Core Versions": "12-core / 24-core",
+        "Loss Options": "Standard-loss / low-loss MTP-LC cassette",
+        "Max Density": "96 cores (1U) / 288 cores (4U)",
+        "Design": "Plug-and-play; compact modular components",
+        "Testing": "Factory pre-terminated; 100% tested",
+        "Standards": "TIA/EIA-568-C3; ISO/IEC 11801; IEC 61754-7; TIA-604-5"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

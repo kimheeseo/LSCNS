@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "SDF Optical Fibre Module Cassette",
+  "displayName": "SDF Optical Fibre Module Cassette",
+  "description": "SDF MPO/MTP plug-and-play cassette with built-in branching patch cords.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3039.html",
+  "comparisonFields": [
+    "Input",
+    "Output",
+    "Core Versions",
+    "Testing",
+    "Expansion",
+    "Standards"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "SDF Optical Fibre Module Cassette",
+      "description": "Splits trunk-side 12-core MPO/MTP into front single/dual-core LC/SC adapters.",
+      "officialUrl": "https://en.yofc.com/view/3039.html",
+      "specs": {
+        "Input": "1 or 2 rear MPO/MTP adapters",
+        "Output": "Front LC/SC single-core or dual-core adapters",
+        "Core Versions": "12-core / 24-core",
+        "Testing": "Factory pre-terminated; 100% tested",
+        "Expansion": "Modular; ready for later capacity expansion",
+        "Standards": "TIA/EIA 604-5-D-2007; IEC 61754-7-2008"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

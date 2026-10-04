@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "company": "YOFC",
-  "category": "MPO-MTP Pre-terminated Trunk Cable",
-  "displayName": "MPO-MTP Pre-terminated Trunk Cable",
-  "description": "Factory pre-terminated trunk cable family for data-center interconnection with flexible Type A/B/C polarity and LSZH/OFNR/OFNP sheath options.",
+  "category": "MPO/MTP Pre-terminated Trunk Cable",
+  "displayName": "MPO/MTP Pre-terminated Trunk Cable",
+  "description": "Factory pre-terminated MTP/MPO trunk cable family.",
   "checked": "2026-10-04",
   "officialUrl": "https://en.yofc.com/view/3030.html",
   "comparisonFields": [

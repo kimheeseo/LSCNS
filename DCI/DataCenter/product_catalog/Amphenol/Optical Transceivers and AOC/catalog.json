@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "Optical Transceivers and AOC",
+  "displayName": "Optical Transceivers and AOC",
+  "description": "Amphenol IT Datacom optical modules and active optical cable products for data centers, DCI, storage, HPC, Fibre Channel, and Ethernet applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+  "sourceUrls": [
+    "https://www.amphenol.com/markets/it-datacom",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2"
+  ],
+  "sourceCount": 11,
+  "availableCatalogItems": "Amphenol IT Datacom page indicates 668 total items across 34 pages; this catalog captures the optical/datacenter-relevant items verified in the accessible pages.",
+  "storageMode": "metadata only; official product pages are linked, PDF files are not uploaded",
+  "comparisonFields": [
+    "Data Rate",
+    "Form Factor",
+    "Optical Interface",
+    "Application",
+    "Standards / Notes",
+    "Source"
+  ],
+  "products": {
+    "100gb-s-qsfp28-active-optical-cables-aoc": {
+      "name": "100Gb/s QSFP28 Active Optical Cables (AOC)",
+      "description": "100G QSFP28 AOC family including SR4/AOC/breakout/CWDM4/LR4/ER4/ZR4 options using LC or MPO ports.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "100G",
+        "Form Factor": "QSFP28 AOC",
+        "Optical Interface": "LC or MPO",
+        "Application": "Data center internal network, DCI, metro",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "100gb-s-qsfp28-transceivers": {
+      "name": "100Gb/s QSFP28 Transceivers",
+      "description": "100G QSFP28 optical module family with SR4, CWDM4, LR4, ER4 Lite, ER4, and ZR4 options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "100G",
+        "Form Factor": "QSFP28 transceiver",
+        "Optical Interface": "LC or MPO",
+        "Application": "Data center internal network, DCI, metro",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "100g-cfp-transceivers": {
+      "name": "100G CFP Transceivers",
+      "description": "100G CFP/CFP2/CFP4 optical transceivers supporting 10 km to 40 km reach with LC interface.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "100G",
+        "Form Factor": "CFP/CFP2/CFP4 transceiver",
+        "Optical Interface": "LC",
+        "Application": "Large data centers and telecom",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "100g-qsfp28-active-optical-cable-aoc": {
+      "name": "100G QSFP28 Active Optical Cable (AOC)",
+      "description": "100G QSFP28-to-QSFP28 AOC for high-density storage, data center, and HPC signal transmission up to 100 m.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "100G",
+        "Form Factor": "QSFP28-to-QSFP28 AOC",
+        "Optical Interface": "Parallel MMF",
+        "Application": "Storage, data center, HPC",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "10g-sfp-active-optical-cables-aoc": {
+      "name": "10G SFP+ Active Optical Cables (AOC)",
+      "description": "10G SFP+ AOC compliant with SFP+ MSA, SFF-8431, and SFF-8472.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "10G",
+        "Form Factor": "SFP+ AOC",
+        "Optical Interface": "SFP+",
+        "Application": "Telecom, wireless, InfiniBand, Fibre Channel",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "10g-sfp-transceivers": {
+      "name": "10G SFP+ Transceivers",
+      "description": "10G SFP+ transceiver family for 10G Ethernet and CPRI links.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "10G",
+        "Form Factor": "SFP+ transceiver",
+        "Optical Interface": "SFP+",
+        "Application": "Telecom, wireless, InfiniBand, Fibre Channel",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "10g-xfp-transceivers": {
+      "name": "10G XFP Transceivers",
+      "description": "XFP 10G optical transceivers including SR, LR, ER, ZR, duplex, BiDi, CWDM, and DWDM options with LC interface.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "10G",
+        "Form Factor": "XFP transceiver",
+        "Optical Interface": "LC",
+        "Application": "10G optical networking",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "1-25g-sfp-transceivers": {
+      "name": "1.25G SFP Transceivers",
+      "description": "SFP optical transceivers including 1.25Gb and 2.5Gb series with duplex, BiDi, CWDM, and DWDM options, reaches from 500 m to 80 km.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "1.25G / 2.5G",
+        "Form Factor": "SFP transceiver",
+        "Optical Interface": "LC",
+        "Application": "Access and data communication links",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "16g-fc-transceivers": {
+      "name": "16G FC Transceivers",
+      "description": "Fibre Channel transceivers up to 14.025 Gb/s with low power and multimode reach options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "16G FC",
+        "Form Factor": "FC transceiver",
+        "Optical Interface": "—",
+        "Application": "Fibre Channel storage networking",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "1-6t-osfp-transceivers": {
+      "name": "1.6T OSFP Transceivers",
+      "description": "High-speed OSFP transceiver family for 800G/1.6T with 200G per lane, DR4/FR4/2xDR4/2xFR4/AOC/breakout AOC configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "800G / 1.6T",
+        "Form Factor": "OSFP transceiver",
+        "Optical Interface": "LC or MPO",
+        "Application": "800G/1.6T Ethernet data center applications",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    },
+    "200g-qsfp-dd-active-optical-cable-aoc": {
+      "name": "200G QSFP-DD Active Optical Cable (AOC)",
+      "description": "QSFP-DD to QSFP-DD 200G AOC using 8 lanes at up to 25 Gb/s NRZ and supporting 100 m over parallel multimode fiber.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+      "specs": {
+        "Data Rate": "200G",
+        "Form Factor": "QSFP-DD AOC",
+        "Optical Interface": "Parallel MMF",
+        "Application": "Data center high-density links",
+        "Standards / Notes": "See Amphenol IT Datacom product listing",
+        "Source": "Amphenol IT Datacom market page"
+      }
+    }
+  }
+}

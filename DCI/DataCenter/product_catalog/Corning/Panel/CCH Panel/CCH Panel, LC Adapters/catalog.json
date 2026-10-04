@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "CCH Panel, LC Adapters",
+  "displayName": "CCH · LC",
+  "description": "Closet Connector Housing LC adapter panels",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Fiber Category",
+    "Fiber Count",
+    "Number of Adapters per Panel",
+    "Adapter Type",
+    "Polish",
+    "Housing Color"
+  ],
+  "products": {
+    "CCH-CP06-A8": {
+      "name": "CCH-CP06-A8",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "6",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP06-A8"
+    },
+    "CCH-CP06-A9": {
+      "name": "CCH-CP06-A9",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "6",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "LC duplex",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP06-A9"
+    },
+    "CCH-CP06-B3": {
+      "name": "CCH-CP06-B3",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "6",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "LC duplex",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP06-B3"
+    },
+    "CCH-CP06-D3": {
+      "name": "CCH-CP06-D3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "6",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP06-D3"
+    },
+    "CCH-CP06-E4": {
+      "name": "CCH-CP06-E4",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "6",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP06-E4"
+    },
+    "CCH-CP08-A8": {
+      "name": "CCH-CP08-A8",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "8",
+        "Number of Adapters per Panel": "4",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP08-A8"
+    },
+    "CCH-CP08-A9": {
+      "name": "CCH-CP08-A9",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "8",
+        "Number of Adapters per Panel": "4",
+        "Adapter Type": "LC duplex",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP08-A9"
+    },
+    "CCH-CP08-B3": {
+      "name": "CCH-CP08-B3",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "8",
+        "Number of Adapters per Panel": "4",
+        "Adapter Type": "LC duplex",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP08-B3"
+    },
+    "CCH-CP08-D3": {
+      "name": "CCH-CP08-D3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "8",
+        "Number of Adapters per Panel": "4",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP08-D3"
+    },
+    "CCH-CP08-E4": {
+      "name": "CCH-CP08-E4",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "8",
+        "Number of Adapters per Panel": "4",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP08-E4"
+    },
+    "CCH-CP12-A8": {
+      "name": "CCH-CP12-A8",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-A8"
+    },
+    "CCH-CP12-A9": {
+      "name": "CCH-CP12-A9",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC duplex",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-A9"
+    },
+    "CCH-CP12-AD": {
+      "name": "CCH-CP12-AD",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC Duplex Shuttered",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-AD"
+    },
+    "CCH-CP12-AE": {
+      "name": "CCH-CP12-AE",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC Duplex Shuttered",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-AE"
+    },
+    "CCH-CP12-B3": {
+      "name": "CCH-CP12-B3",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC duplex",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-B3"
+    },
+    "CCH-CP12-D3": {
+      "name": "CCH-CP12-D3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-D3"
+    },
+    "CCH-CP12-E4": {
+      "name": "CCH-CP12-E4",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "12",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP12-E4"
+    },
+    "CCH-CP16-A8": {
+      "name": "CCH-CP16-A8",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "16",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP16-A8"
+    },
+    "CCH-CP16-A9": {
+      "name": "CCH-CP16-A9",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "16",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "LC duplex",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP16-A9"
+    },
+    "CCH-CP16-B3": {
+      "name": "CCH-CP16-B3",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "16",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "LC duplex",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP16-B3"
+    },
+    "CCH-CP16-D3": {
+      "name": "CCH-CP16-D3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "16",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP16-D3"
+    },
+    "CCH-CP16-E4": {
+      "name": "CCH-CP16-E4",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "16",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP16-E4"
+    },
+    "CCH-CP24-A8": {
+      "name": "CCH-CP24-A8",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-A8"
+    },
+    "CCH-CP24-A9": {
+      "name": "CCH-CP24-A9",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC duplex",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-A9"
+    },
+    "CCH-CP24-AE": {
+      "name": "CCH-CP24-AE",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC Duplex Shuttered",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-AE"
+    },
+    "CCH-CP24-B3": {
+      "name": "CCH-CP24-B3",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC duplex",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-B3"
+    },
+    "CCH-CP24-D3": {
+      "name": "CCH-CP24-D3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-D3"
+    },
+    "CCH-CP24-E4": {
+      "name": "CCH-CP24-E4",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "24",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "LC duplex",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP24-E4"
+    },
+    "CCH-CP36-AE": {
+      "name": "CCH-CP36-AE",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "18",
+        "Adapter Type": "LC Duplex Shuttered",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-LC-Adapters/p/CCH-CP36-AE"
+    }
+  }
+}

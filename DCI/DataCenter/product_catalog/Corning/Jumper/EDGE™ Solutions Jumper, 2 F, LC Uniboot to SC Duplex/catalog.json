@@ -5,11 +5,16 @@
   "displayName": "LC Uniboot → SC Duplex",
   "description": "EDGE 2-fiber data-center jumper",
   "checked": "2026-10-04",
+  "comparisonFields": [
+    "Fiber Category",
+    "Flame Rating",
+    "Fiber Count",
+    "Connector Assembly Type"
+  ],
   "defaultSpecs": {
-    "Cable Type": "Tight-Buffered",
     "Flame Rating": "Riser (OFNR)",
-    "Fiber Category": "50 µm MM",
-    "Cable Assembly Type": "Two Fiber"
+    "Fiber Count": "2",
+    "Connector Assembly Type": "LC Uniboot to SC Duplex"
   },
   "products": {
     "577902QD120003M": {

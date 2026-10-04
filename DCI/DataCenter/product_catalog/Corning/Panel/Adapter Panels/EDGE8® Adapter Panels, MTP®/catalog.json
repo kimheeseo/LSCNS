@@ -535,5 +535,14 @@
       },
       "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-VF"
     }
-  }
+  },
+  "comparisonFields": [
+    "Fiber count",
+    "Adapter type",
+    "Adapters",
+    "Depth",
+    "Platform",
+    "Adapter color",
+    "Fiber category"
+  ]
 }

@@ -157,6 +157,9 @@ def parse_page(text: str, page: int) -> list[dict]:
 
     if len(rows) != expected:
         preview = [r["name"] for r in rows[:5]]
+        print(f"DIAGNOSTIC_PAGE_{page}_START")
+        print(text)
+        print(f"DIAGNOSTIC_PAGE_{page}_END")
         raise RuntimeError(f"Page {page}: parsed {len(rows)} products, expected {expected}; preview={preview}")
     return rows
 

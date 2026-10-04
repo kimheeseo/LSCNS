@@ -116,6 +116,48 @@ def parse_page(text: str, page: int) -> list[dict]:
             "sourceUrl": page_url,
         })
 
+    if len(rows) < expected and candidates:
+        # Some official rows intentionally have no image. Between two image rows, Reader emits:
+        # current-title, current-description, [image-less-title, image-less-description]...
+        existing = Counter(r["name"].casefold() for r in rows)
+        showing_idx = next((i for i, line in enumerate(lines) if re.search(r"Showing\\s+\\d+\\s+to\\s+\\d+\\s+of", line, re.I)), len(lines))
+        for pos, (img_idx, img_title) in enumerate(candidates):
+            next_idx = candidates[pos + 1][0] if pos + 1 < len(candidates) else showing_idx
+            segment = []
+            for raw in lines[img_idx + 1:next_idx]:
+                x = _clean_md_title(raw)
+                if not x or x.startswith("http") or "Image: Product" in x or "Showing " in x:
+                    continue
+                segment.append(x)
+            # Locate the repeated title then skip its own description.
+            try:
+                title_pos = next(i for i, x in enumerate(segment) if x.casefold() == img_title.casefold())
+            except StopIteration:
+                continue
+            remainder = segment[title_pos + 2:]
+            k = 0
+            while k + 1 < len(remainder):
+                title = remainder[k]
+                desc = remainder[k + 1]
+                # A genuine image-less product appears as a short standalone title followed by substantive prose.
+                if (8 <= len(title) <= 200 and len(desc) >= 24 and
+                    title.casefold() not in existing and
+                    not re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)$", title, re.I)):
+                    rows.append({
+                        "name": title,
+                        "description": desc[:1200],
+                        "business": "Amphenol",
+                        "businessUrl": OFFICIAL_BASE,
+                        "sourcePage": page,
+                        "sourceUrl": page_url,
+                    })
+                    existing[title.casefold()] += 1
+                k += 2
+                if len(rows) >= expected:
+                    break
+            if len(rows) >= expected:
+                break
+
     if len(rows) < expected:
         # Block fallback. Reader separates most products with horizontal rules. Parse likely title + description pairs.
         blocks = re.split(r"\n\s*(?:\* \* \*|---+)\s*\n", text)
@@ -157,6 +199,7 @@ def parse_page(text: str, page: int) -> list[dict]:
 
     if len(rows) != expected:
         preview = [r["name"] for r in rows[:5]]
+        print(f"DIAGNOSTIC_PAGE_{page}_ROWS=" + json.dumps([r["name"] for r in rows], ensure_ascii=False))
         print(f"DIAGNOSTIC_PAGE_{page}_START")
         print(text)
         print(f"DIAGNOSTIC_PAGE_{page}_END")

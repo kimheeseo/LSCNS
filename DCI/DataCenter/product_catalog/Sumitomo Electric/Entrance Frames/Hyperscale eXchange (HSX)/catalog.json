@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Hyperscale eXchange (HSX)",
+  "displayName": "Hyperscale eXchange (HSX)",
+  "description": "High-density floor-mountable optical splicing cabinet for data centers, supporting up to 20,736 ribbon fibers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/hyperscale-exchange-hsx/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL_02.02.24-Hyperscale-eXchange-HSX-Ver1_v3.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "Splice Tray Capacity",
+    "Growth Configuration",
+    "Mounting Type",
+    "Dimensions",
+    "Material",
+    "Cable Management"
+  ],
+  "products": {
+    "HDFOC-X-FRM-STC": {
+      "name": "HDFOC-X-FRM-STC",
+      "description": "HSX cabinet-only frame for staged high-density fiber growth.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/hyperscale-exchange-hsx/",
+      "specs": {
+        "Product Type": "HSX Cabinet",
+        "Fiber Capacity": "20,736f with 288f trays / 13,824f with 192f trays",
+        "Splice Tray Capacity": "72 trays",
+        "Growth Configuration": "Empty",
+        "Mounting Type": "Floor mount",
+        "Dimensions": "2,140 × 610 × 306 mm",
+        "Material": "Aluminum, powder coated",
+        "Cable Management": "12 lacing bars; front access"
+      }
+    },
+    "HDFOC-X-ST24-01": {
+      "name": "HDFOC-X-ST24-01",
+      "description": "288-fiber ribbon splice tray for HSX.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/hyperscale-exchange-hsx/",
+      "specs": {
+        "Product Type": "HSX Splice Tray",
+        "Fiber Capacity": "288f (24 × 12ct)",
+        "Splice Tray Capacity": "—",
+        "Growth Configuration": "Accessory",
+        "Mounting Type": "Inside HSX",
+        "Dimensions": "20 × 254 × 278 mm",
+        "Material": "—",
+        "Cable Management": "Includes 12 tie wraps"
+      }
+    },
+    "HDFOC-X-ST01": {
+      "name": "HDFOC-X-ST01",
+      "description": "192-fiber ribbon splice tray for HSX.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/hyperscale-exchange-hsx/",
+      "specs": {
+        "Product Type": "HSX Splice Tray",
+        "Fiber Capacity": "192f (16 × 12ct)",
+        "Splice Tray Capacity": "—",
+        "Growth Configuration": "Accessory",
+        "Mounting Type": "Inside HSX",
+        "Dimensions": "20 × 254 × 233 mm",
+        "Material": "—",
+        "Cable Management": "Includes 8 tie wraps"
+      }
+    }
+  }
+}

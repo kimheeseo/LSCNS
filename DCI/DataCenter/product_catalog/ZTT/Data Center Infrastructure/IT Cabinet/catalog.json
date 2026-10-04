@@ -3,30 +3,35 @@
   "company": "ZTT",
   "category": "IT Cabinet",
   "displayName": "IT Cabinet",
-  "description": "IT rack cabinet specification used in ZTT micro-modular data-center systems.",
-  "checked": "2026-10-04",
+  "description": "ZTT data-center IT cabinet characteristics cross-referenced to the current official Micro Modular Data Center cabinet-system table.",
+  "checked": "2026-10-05",
   "officialUrl": "https://www.zttgroup.com/product/it-cabinet/",
+  "sourceCrossReference": "https://www.zttgroup.com/product/micro-modular-data-center/",
   "comparisonFields": [
     "Dimensions",
     "Available Space",
     "Door Perforation",
     "Static Bearing",
     "Dynamic Bearing",
-    "Protection Level"
+    "Seismic Grade",
+    "Protection Level",
+    "Accessories"
   ],
   "products": {
     "__characteristics__": {
       "name": "IT Cabinet",
-      "description": "ZTT cabinet for data-center micro-modules with high-perforation front/rear doors and 42U/47U usable space.",
+      "description": "Data-center cabinet with high-perforation doors for ZTT modular data-center systems.",
       "officialUrl": "https://www.zttgroup.com/product/it-cabinet/",
       "characteristicsOnly": true,
       "specs": {
-        "Dimensions": "2000/2200 × 600/800 × 1200 mm (H×W×D)",
+        "Dimensions": "300/600 × 1200 × 2000/2200 mm",
         "Available Space": "42U / 47U",
         "Door Perforation": "≥75%",
-        "Static Bearing": "≥1500 kg",
-        "Dynamic Bearing": "≥1200 kg",
-        "Protection Level": "IP20"
+        "Static Bearing": "2520 kg",
+        "Dynamic Bearing": "1700 kg",
+        "Seismic Grade": "Level 8",
+        "Protection Level": "IP20",
+        "Accessories": "Tray, PDU, grounding copper bar, pulley, etc."
       }
     }
   }

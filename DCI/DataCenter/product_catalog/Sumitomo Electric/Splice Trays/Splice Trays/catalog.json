@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Splice Trays",
+  "displayName": "Splice Trays",
+  "description": "Splice trays for routing, terminating and storing single-fiber or ribbon-fiber splices.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-trays/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL_01.29.25_Splice-Trays_ver2_v1.2.pdf",
+  "comparisonFields": [
+    "Single Splice Capacity",
+    "Mass Splice Capacity",
+    "Dimensions",
+    "Compatible Items",
+    "Material"
+  ],
+  "products": {
+    "FSPST-16M": {
+      "name": "FSPST-16M",
+      "description": "Sumitomo Electric splice tray; single capacity N/A, mass capacity 192f (16 × 12ct).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-trays/",
+      "specs": {
+        "Single Splice Capacity": "N/A",
+        "Mass Splice Capacity": "192f (16 × 12ct)",
+        "Dimensions": "11 × 102 × 299 mm",
+        "Compatible Items": "FSPWM-12T / FSPWM-12T-LCE",
+        "Material": "Durable tray construction"
+      }
+    },
+    "FSPST-24S": {
+      "name": "FSPST-24S",
+      "description": "Sumitomo Electric splice tray; single capacity 24f (24 × 1ct), mass capacity N/A.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-trays/",
+      "specs": {
+        "Single Splice Capacity": "24f (24 × 1ct)",
+        "Mass Splice Capacity": "N/A",
+        "Dimensions": "11 × 102 × 299 mm",
+        "Compatible Items": "FSPWM-12T / FSPWM-12T-LCE",
+        "Material": "Durable tray construction"
+      }
+    },
+    "FT24ST2": {
+      "name": "FT24ST2",
+      "description": "Sumitomo Electric splice tray; single capacity 24f (24 × 1ct), mass capacity 144f (12 × 12ct).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-trays/",
+      "specs": {
+        "Single Splice Capacity": "24f (24 × 1ct)",
+        "Mass Splice Capacity": "144f (12 × 12ct)",
+        "Dimensions": "8 × 133 × 222 mm",
+        "Compatible Items": "Flex Patch Panels / FTWM series",
+        "Material": "Durable tray construction"
+      }
+    },
+    "ST-01": {
+      "name": "ST-01",
+      "description": "Sumitomo Electric splice tray; single capacity 24f (24 × 1ct), mass capacity 144f (12 × 12ct).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/splice-trays/",
+      "specs": {
+        "Single Splice Capacity": "24f (24 × 1ct)",
+        "Mass Splice Capacity": "144f (12 × 12ct)",
+        "Dimensions": "8 × 133 × 178 mm",
+        "Compatible Items": "Flex Patch Panels / FTWM series",
+        "Material": "Durable tray construction"
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 # IT Cabinet
 
-Official source: https://www.zttgroup.com/product/it-cabinet/
-
-Technical rack values are cross-referenced to ZTT's official micro-modular data-center specification.
+Official requested page: https://www.zttgroup.com/product/it-cabinet/
+Cross-reference specification table: https://www.zttgroup.com/product/micro-modular-data-center/
+Last reviewed: 2026-10-05

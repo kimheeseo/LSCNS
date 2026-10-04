@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex Pre-Stubbed Patch Panels",
+  "displayName": "PrecisionFlex Pre-Stubbed Patch Panels",
+  "description": "Factory-assembled pre-stubbed patch-panel family configurable by fiber type/count, cable type, connector and rack size.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-pre-stubbed-patch-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/09/SEL_01.23.24-PrecisionFlex-Pre-Stubbed-Patch-Panels_v1.3.pdf",
+  "comparisonFields": [
+    "Configuration",
+    "Rack Unit",
+    "Fiber Count",
+    "High-Density Capacity",
+    "LGX Capacity",
+    "Fiber Types",
+    "Connector Options",
+    "Cable Types",
+    "Typical IL",
+    "Return Loss"
+  ],
+  "products": {
+    "FT-9288PRLX2U300F": {
+      "name": "FT-9288PRLX2U300F",
+      "description": "Published ordering example: SM 288f indoor-riser 250 μm flat-ribbon pre-stubbed panel, duplex LC to bare end, 2RU, 300 ft.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-pre-stubbed-patch-panels/",
+      "specs": {
+        "Configuration": "Ordering example",
+        "Rack Unit": "2RU",
+        "Fiber Count": "288f",
+        "High-Density Capacity": "Up to 288 LC ports (144 SC)",
+        "LGX Capacity": "144 LC ports (72 SC)",
+        "Fiber Types": "SM G.657.A1",
+        "Connector Options": "Duplex LC → bare end",
+        "Cable Types": "Indoor Riser / 250 μm Flat Ribbon",
+        "Typical IL": "SM UPC/APC ≤0.5 dB",
+        "Return Loss": "SM UPC ≥50 dB / APC ≥60 dB"
+      }
+    },
+    "__family__": {
+      "name": "PrecisionFlex Pre-Stubbed configurable family",
+      "description": "Ordering-code family rather than one fixed SKU; supports 24–864 fibers, multiple cable types and 1RU–6RU panels.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-pre-stubbed-patch-panels/",
+      "specs": {
+        "Configuration": "Configurable ordering-code family",
+        "Rack Unit": "1RU / 2RU / 3RU / 4RU / 6RU",
+        "Fiber Count": "24 / 48 / 72 / 96 / 144 / 288 / 432 / 576 / 864",
+        "High-Density Capacity": "1RU 144 LC → 6RU 864 LC",
+        "LGX Capacity": "1RU 72 LC/36 SC → 6RU 432 LC/216 SC",
+        "Fiber Types": "OM1 / OM2 / OM3 / OM4 / OM5 / SM G.657.A1",
+        "Connector Options": "MPO/MTP 12F/24F, LC, LC/APC, SC, SC/APC, FC, ST, bare end",
+        "Cable Types": "Armored / I-O / Riser / Plenum / LSZH / 900 μm / 250 μm / Flat Ribbon / Freeform Ribbon",
+        "Typical IL": "SM UPC/APC ≤0.5 dB; MM ≤0.30 dB",
+        "Return Loss": "SM UPC ≥50 dB; APC ≥60 dB; MM ≥25 dB"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

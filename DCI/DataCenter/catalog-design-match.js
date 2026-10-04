@@ -13,6 +13,9 @@
       P+'YOFC/Panel/G4 Fixed Type Fibre Optic Patch Panel/catalog.json',
       P+'ZTT/Data Center Infrastructure/High-density ODF/catalog.json',
       P+'Furukawa Electric/Optical Connectivity/Patch Panel & ODF/catalog.json',
+      P+'Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure/catalog.json',
+      P+'Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels/catalog.json',
+      P+'Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels/catalog.json',
     ],
     rack:[P+'ZTT/Data Center Infrastructure/IT Cabinet/catalog.json']
   };

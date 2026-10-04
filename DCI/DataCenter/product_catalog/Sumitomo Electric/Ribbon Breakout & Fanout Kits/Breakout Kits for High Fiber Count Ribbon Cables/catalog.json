@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Breakout Kits for High Fiber Count Ribbon Cables",
+  "displayName": "Breakout Kits for High Fiber Count Ribbon Cables",
+  "description": "Protected transition kits for breaking high-fiber-count ribbon cables into 48f or 144f tubing groups.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/01/4LD-PS-BKFHFCRC-24032022-1.2.pdf",
+  "comparisonFields": [
+    "Cable Type",
+    "Fiber Cable Type",
+    "Max Cable OD",
+    "Standard Pack Qty",
+    "Breakout Kit Holes",
+    "Breakout Kit Type",
+    "Fibers / Tube",
+    "Dimensions (H×W×D)",
+    "Weight",
+    "Tubing Length"
+  ],
+  "products": {
+    "FOR-288-CT-SET": {
+      "name": "FOR-288-CT-SET",
+      "description": "Central Tube breakout kit for 288f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Central Tube",
+        "Fiber Cable Type": "288f",
+        "Max Cable OD": "17 mm",
+        "Standard Pack Qty": "5",
+        "Breakout Kit Holes": "6",
+        "Breakout Kit Type": "2 × 3",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "60 × 30 × 23 mm",
+        "Weight": "≤0.2 kg",
+        "Tubing Length": "61 m"
+      }
+    },
+    "FOR-576-864-CT-SET": {
+      "name": "FOR-576-864-CT-SET",
+      "description": "Central Tube breakout kit for 576f / 864f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Central Tube",
+        "Fiber Cable Type": "576f / 864f",
+        "Max Cable OD": "17.5 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "18",
+        "Breakout Kit Type": "3 × 6",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "34 × 49 × 130 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "122 m"
+      }
+    },
+    "FOR-1152-CT-SET": {
+      "name": "FOR-1152-CT-SET",
+      "description": "Central Tube breakout kit for 1,152f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Central Tube",
+        "Fiber Cable Type": "1,152f",
+        "Max Cable OD": "29.4 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "24",
+        "Breakout Kit Type": "2 × 12",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "45 × 88 × 131 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "122 m"
+      }
+    },
+    "FOR-1728-CT-SET": {
+      "name": "FOR-1728-CT-SET",
+      "description": "Central Tube breakout kit for 1,728f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Central Tube",
+        "Fiber Cable Type": "1,728f",
+        "Max Cable OD": "26 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "36",
+        "Breakout Kit Type": "3 × 12",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "45 × 88 × 132 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "183 m"
+      }
+    },
+    "FOR-1152-F-SET": {
+      "name": "FOR-1152-F-SET",
+      "description": "Slotted Core breakout kit for 1,152f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "1,152f",
+        "Max Cable OD": "26 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "24",
+        "Breakout Kit Type": "3 × 8",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "34 × 62 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "122 m"
+      }
+    },
+    "FOR-1152-12T-F-SET": {
+      "name": "FOR-1152-12T-F-SET",
+      "description": "Slotted Core breakout kit for 1,152f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "1,152f",
+        "Max Cable OD": "26 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "9",
+        "Breakout Kit Type": "2 × 4",
+        "Fibers / Tube": "144f",
+        "Dimensions (H×W×D)": "34 × 62 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "40 m"
+      }
+    },
+    "FOR-1728-F-SET": {
+      "name": "FOR-1728-F-SET",
+      "description": "Slotted Core breakout kit for 1,728f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "1,728f",
+        "Max Cable OD": "26 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "36",
+        "Breakout Kit Type": "3 × 12",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "34 × 88 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "183 m"
+      }
+    },
+    "FOR-1728-12T-F-SET": {
+      "name": "FOR-1728-12T-F-SET",
+      "description": "Slotted Core breakout kit for 1,728f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "1,728f",
+        "Max Cable OD": "26 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "12",
+        "Breakout Kit Type": "2 × 6",
+        "Fibers / Tube": "144f",
+        "Dimensions (H×W×D)": "34 × 62 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "40 m"
+      }
+    },
+    "FOR-3456-F-SET": {
+      "name": "FOR-3456-F-SET",
+      "description": "Slotted Core breakout kit for 3,456f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "3,456f",
+        "Max Cable OD": "28.5 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "72",
+        "Breakout Kit Type": "4 × 18",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "42 × 127 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "80 m"
+      }
+    },
+    "FOR-3456-250-F-SET": {
+      "name": "FOR-3456-250-F-SET",
+      "description": "Slotted Core breakout kit for 3,456f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "3,456f",
+        "Max Cable OD": "34 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "72",
+        "Breakout Kit Type": "4 × 18",
+        "Fibers / Tube": "48f",
+        "Dimensions (H×W×D)": "43 × 127 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "244 m"
+      }
+    },
+    "FOR-3456-12T-F-SET": {
+      "name": "FOR-3456-12T-F-SET",
+      "description": "Slotted Core breakout kit for 3,456f high-fiber-count ribbon cable.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/breakout-kit-for-high-fiber-count-ribbon-cables/",
+      "specs": {
+        "Cable Type": "Slotted Core",
+        "Fiber Cable Type": "3,456f",
+        "Max Cable OD": "28.5 mm",
+        "Standard Pack Qty": "2",
+        "Breakout Kit Holes": "34",
+        "Breakout Kit Type": "3 × 8",
+        "Fibers / Tube": "144f",
+        "Dimensions (H×W×D)": "44 × 80 × 180 mm",
+        "Weight": "≤0.5 kg",
+        "Tubing Length": "80 m"
+      }
+    }
+  }
+}

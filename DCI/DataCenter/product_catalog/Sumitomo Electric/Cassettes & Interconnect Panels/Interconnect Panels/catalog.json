@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Interconnect Panels",
+  "displayName": "Interconnect Panels",
+  "description": "LGX-footprint adapter/interconnect panels for wall-mount enclosures and rack-mount patch panels.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL_02.15.24-Interconnect-Panels-Ver1_v4.pdf",
+  "comparisonFields": [
+    "Connector Type",
+    "Fiber Type",
+    "Polish Type",
+    "Adapter Type",
+    "Port Qty",
+    "Port Color",
+    "Footprint"
+  ],
+  "products": {
+    "FTLCP12D7": {
+      "name": "FTLCP12D7",
+      "description": "LC LGX-compatible interconnect panel; 12 Duplex, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "12 Duplex",
+        "Port Qty": "24",
+        "Port Color": "Aqua",
+        "Footprint": "LGX"
+      }
+    },
+    "FTFC06S5": {
+      "name": "FTFC06S5",
+      "description": "FC LGX-compatible interconnect panel; 6 Simplex, 6 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "FC",
+        "Fiber Type": "N/A",
+        "Polish Type": "N/A",
+        "Adapter Type": "6 Simplex",
+        "Port Qty": "6",
+        "Port Color": "N/A",
+        "Footprint": "LGX"
+      }
+    },
+    "FTMPP3SX": {
+      "name": "FTMPP3SX",
+      "description": "MPO/MTP LGX-compatible interconnect panel; 3 MPO, 3 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "MPO/MTP",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "3 MPO",
+        "Port Qty": "3",
+        "Port Color": "Black",
+        "Footprint": "LGX"
+      }
+    },
+    "FTMPP6SX": {
+      "name": "FTMPP6SX",
+      "description": "MPO/MTP LGX-compatible interconnect panel; 6 MPO, 6 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "MPO/MTP",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 MPO",
+        "Port Qty": "6",
+        "Port Color": "Black",
+        "Footprint": "LGX"
+      }
+    },
+    "FTMPP12SX": {
+      "name": "FTMPP12SX",
+      "description": "MPO/MTP LGX-compatible interconnect panel; 12 MPO, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "MPO/MTP",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "12 MPO",
+        "Port Qty": "12",
+        "Port Color": "Black",
+        "Footprint": "LGX"
+      }
+    },
+    "FTMTP6D8": {
+      "name": "FTMTP6D8",
+      "description": "MTRJ LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "MTRJ",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Black",
+        "Footprint": "LGX"
+      }
+    },
+    "FTST06S5": {
+      "name": "FTST06S5",
+      "description": "ST LGX-compatible interconnect panel; 6 Simplex, 6 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "ST",
+        "Fiber Type": "N/A",
+        "Polish Type": "N/A",
+        "Adapter Type": "6 Simplex",
+        "Port Qty": "6",
+        "Port Color": "N/A",
+        "Footprint": "LGX"
+      }
+    },
+    "FTST12S5": {
+      "name": "FTST12S5",
+      "description": "ST LGX-compatible interconnect panel; 12 Simplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "ST",
+        "Fiber Type": "N/A",
+        "Polish Type": "N/A",
+        "Adapter Type": "12 Simplex",
+        "Port Qty": "12",
+        "Port Color": "N/A",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLC06D6": {
+      "name": "FTLC06D6",
+      "description": "LC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Red",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLC06Q5LC": {
+      "name": "FTLC06Q5LC",
+      "description": "LC LGX-compatible interconnect panel; 6 Quad, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Quad",
+        "Port Qty": "24",
+        "Port Color": "Orange",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP08D-GREEN": {
+      "name": "FTLCP08D-GREEN",
+      "description": "LC LGX-compatible interconnect panel; 8 Duplex, 16 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "SM",
+        "Polish Type": "UPC",
+        "Adapter Type": "8 Duplex",
+        "Port Qty": "16",
+        "Port Color": "Green",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP08D-YORP": {
+      "name": "FTLCP08D-YORP",
+      "description": "LC LGX-compatible interconnect panel; 8 Duplex, 16 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "8 Duplex",
+        "Port Qty": "16",
+        "Port Color": "Yellow / Orange / Red / Purple",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP10D-YORPG": {
+      "name": "FTLCP10D-YORPG",
+      "description": "LC LGX-compatible interconnect panel; 10 Duplex, 20 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "10 Duplex",
+        "Port Qty": "20",
+        "Port Color": "Yellow / Orange / Red / Purple / Green",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP12D-YORP": {
+      "name": "FTLCP12D-YORP",
+      "description": "LC LGX-compatible interconnect panel; 12 Duplex, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "12 Duplex",
+        "Port Qty": "24",
+        "Port Color": "Yellow / Orange / Red / Purple",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP6D7-YL": {
+      "name": "FTLCP6D7-YL",
+      "description": "LC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Yellow",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP6DV": {
+      "name": "FTLCP6DV",
+      "description": "LC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Violet",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP6Q7-OR": {
+      "name": "FTLCP6Q7-OR",
+      "description": "LC LGX-compatible interconnect panel; 6 Quad, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Quad",
+        "Port Qty": "24",
+        "Port Color": "Orange",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP6Q7-RD": {
+      "name": "FTLCP6Q7-RD",
+      "description": "LC LGX-compatible interconnect panel; 6 Quad, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Quad",
+        "Port Qty": "24",
+        "Port Color": "Red",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP6Q7-YL": {
+      "name": "FTLCP6Q7-YL",
+      "description": "LC LGX-compatible interconnect panel; 6 Quad, 24 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Quad",
+        "Port Qty": "24",
+        "Port Color": "Yellow",
+        "Footprint": "LGX"
+      }
+    },
+    "FTSC06D1-GREEN": {
+      "name": "FTSC06D1-GREEN",
+      "description": "SC LGX-compatible interconnect panel; 6 Duplex, 4 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "SC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "4",
+        "Port Color": "Green / Empty",
+        "Footprint": "LGX"
+      }
+    },
+    "FTSC06D1-ORYEL": {
+      "name": "FTSC06D1-ORYEL",
+      "description": "SC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "SC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Yellow / Orange",
+        "Footprint": "LGX"
+      }
+    },
+    "FTSC06D1-RDPUR": {
+      "name": "FTSC06D1-RDPUR",
+      "description": "SC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "SC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Red / Purple",
+        "Footprint": "LGX"
+      }
+    },
+    "FTSC06D4-YELLOW": {
+      "name": "FTSC06D4-YELLOW",
+      "description": "SC LGX-compatible interconnect panel; 6 Duplex, 12 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "SC",
+        "Fiber Type": "OM3/OM4",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "12",
+        "Port Color": "Yellow",
+        "Footprint": "LGX"
+      }
+    },
+    "FTLCP06D-EMPTY": {
+      "name": "FTLCP06D-EMPTY",
+      "description": "LC/SC LGX-compatible interconnect panel; 6 Duplex, 0 port(s).",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/interconnect-panels/",
+      "specs": {
+        "Connector Type": "LC/SC",
+        "Fiber Type": "SM/MM",
+        "Polish Type": "UPC",
+        "Adapter Type": "6 Duplex",
+        "Port Qty": "0",
+        "Port Color": "Empty",
+        "Footprint": "LGX"
+      }
+    }
+  }
+}

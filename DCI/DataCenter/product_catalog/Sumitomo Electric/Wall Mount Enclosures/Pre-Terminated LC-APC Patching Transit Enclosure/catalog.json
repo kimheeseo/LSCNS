@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Pre-Terminated LC-APC Patching Transit Enclosure",
+  "displayName": "Pre-Terminated LC-APC Patching Transit Enclosure",
+  "description": "IP66/NEMA 4X-equivalent indoor LC/APC transit enclosure for 12f Freeform Ribbon cabling.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/pre-terminated-lc-apc-patching-transit-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2025/02/SEL_01.27.25_Pre-Terminated-LC-APC-Patching-Transit-Enclosure_Ver1_v3.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "Connector",
+    "Polish",
+    "IP Rating",
+    "Cable Entry",
+    "Applicable Cable",
+    "Insertion Loss",
+    "Return Loss",
+    "Dimensions",
+    "Mounting"
+  ],
+  "products": {
+    "FT-IP66-9144-RLA": {
+      "name": "FT-IP66-9144-RLA",
+      "description": "Factory-preterminated 144f LC/APC patching transit enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/pre-terminated-lc-apc-patching-transit-enclosure/",
+      "specs": {
+        "Product Type": "Pre-Terminated Patching Transit Enclosure",
+        "Fiber Capacity": "144f / 144 LC",
+        "Connector": "LC",
+        "Polish": "APC",
+        "IP Rating": "IP66 / NEMA 4X equivalent",
+        "Cable Entry": "Max 1 (upper or bottom)",
+        "Applicable Cable": "12f Freeform Ribbon central-tube / slotted-core",
+        "Insertion Loss": "≤0.50 dB",
+        "Return Loss": "≥60 dB",
+        "Dimensions": "500 × 500 × 180 mm",
+        "Mounting": "Wall / ceiling"
+      }
+    },
+    "FPS-6": {
+      "name": "FPS-6",
+      "description": "40 mm splice-protection sleeve accessory used with the transit enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/pre-terminated-lc-apc-patching-transit-enclosure/",
+      "specs": {
+        "Product Type": "Splice Protection Sleeve",
+        "Fiber Capacity": "2–12 fibers",
+        "Connector": "—",
+        "Polish": "—",
+        "IP Rating": "—",
+        "Cable Entry": "—",
+        "Applicable Cable": "Fiber splice protection",
+        "Insertion Loss": "—",
+        "Return Loss": "—",
+        "Dimensions": "40 mm",
+        "Mounting": "Accessory"
+      }
+    }
+  }
+}

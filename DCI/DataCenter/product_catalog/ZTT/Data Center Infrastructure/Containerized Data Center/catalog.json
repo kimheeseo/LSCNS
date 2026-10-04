@@ -3,8 +3,8 @@
   "company": "ZTT",
   "category": "Containerized Data Center",
   "displayName": "Containerized Data Center",
-  "description": "Factory-prefabricated and pretested containerized data-center facility integrating power, cooling, racks and fire suppression.",
-  "checked": "2026-10-04",
+  "description": "Factory-prefabricated and pretested all-in-one data-center facility integrating power, cooling, IT racks, monitoring and fire suppression.",
+  "checked": "2026-10-05",
   "officialUrl": "https://www.zttgroup.com/product/containerized-data-center/",
   "comparisonFields": [
     "IT Racks",
@@ -13,35 +13,47 @@
     "Integrated UPS",
     "Battery Banks",
     "In-row Cooling",
-    "PDU"
+    "Integrated Cabinet",
+    "PDU",
+    "Closed Cold Aisle",
+    "Monitoring",
+    "Fire Suppression"
   ],
   "products": {
     "ZTT-40ft AC2150AC350": {
       "name": "ZTT-40ft AC2150AC350",
-      "description": "40-ft prefabricated data-center configuration with 8 IT racks and dual integrated UPS/battery banks.",
+      "description": "40-ft configuration with 8 IT racks and dual UPS/battery banks.",
       "officialUrl": "https://www.zttgroup.com/product/containerized-data-center/",
       "specs": {
         "IT Racks": "8",
         "Single Cabinet Power": "10 kW",
-        "Container": "12192×2438×2896 mm",
-        "Integrated UPS": "2 × 150 kVA (3×50 kVA modules, N+1)",
+        "Container": "12192 × 2438 × 2896 mm",
+        "Integrated UPS": "2 × 150 kVA; 3×50 kVA modules, N+1",
         "Battery Banks": "2 × 15-min lead-acid banks",
         "In-row Cooling": "3 × 50 kW air-cooled",
-        "PDU": "18 × 63A/2P"
+        "Integrated Cabinet": "1 × 600×600×2000 mm",
+        "PDU": "18 × 63A/2P",
+        "Closed Cold Aisle": "1 set / 14 rack positions",
+        "Monitoring": "Power, UPS, battery, cooling, fire/security, temperature/humidity",
+        "Fire Suppression": "HFC-227ea; perfluorohexanone optional"
       }
     },
     "ZTT-40ft AC1150AC350": {
       "name": "ZTT-40ft AC1150AC350",
-      "description": "40-ft prefabricated data-center configuration with 9 IT racks and one integrated UPS/battery bank.",
+      "description": "40-ft configuration with 9 IT racks and a single UPS/battery bank.",
       "officialUrl": "https://www.zttgroup.com/product/containerized-data-center/",
       "specs": {
         "IT Racks": "9",
         "Single Cabinet Power": "10 kW",
-        "Container": "12192×2438×2896 mm",
-        "Integrated UPS": "1 × 150 kVA (3×50 kVA modules, N+1)",
+        "Container": "12192 × 2438 × 2896 mm",
+        "Integrated UPS": "1 × 150 kVA; 3×50 kVA modules, N+1",
         "Battery Banks": "1 × 15-min lead-acid bank",
         "In-row Cooling": "3 × 50 kW air-cooled",
-        "PDU": "20 × 63A/2P"
+        "Integrated Cabinet": "1 × 600×600×2000 mm",
+        "PDU": "20 × 63A/2P",
+        "Closed Cold Aisle": "1 set / 14 rack positions",
+        "Monitoring": "Power, UPS, battery, cooling, fire/security, temperature/humidity",
+        "Fire Suppression": "HFC-227ea; perfluorohexanone optional"
       }
     }
   }

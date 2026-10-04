@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTWM-01L Wall Mount Enclosure",
+  "displayName": "FTWM-01L Wall Mount Enclosure",
+  "description": "Compact wall/DIN-rail mount enclosure with one LGX-compatible cassette/panel space.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-01l-wall-mount-enclosure-copy/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/01/SEL_01.21.25_FTWM-01L-Ver1_v1.1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Cassette / Panel Capacity",
+    "Port Capacity",
+    "Fiber Capacity",
+    "Mounting",
+    "Hole Type",
+    "Dimensions",
+    "Material"
+  ],
+  "products": {
+    "FTWM-01L": {
+      "name": "FTWM-01L",
+      "description": "Compact indoor interconnect/splice enclosure for one LGX-compatible cassette or interconnect panel.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-01l-wall-mount-enclosure-copy/",
+      "specs": {
+        "Product Type": "Wall Mount Enclosure",
+        "Cassette / Panel Capacity": "1",
+        "Port Capacity": "24 LC / 12 SC",
+        "Fiber Capacity": "24f",
+        "Mounting": "Wall / DIN rail",
+        "Hole Type": "Knockout",
+        "Dimensions": "251 × 155 × 56 mm",
+        "Material": "Aluminum"
+      }
+    }
+  }
+}

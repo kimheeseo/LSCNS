@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "Fast-Track & Pin Clamp",
+  "displayName": "Fast-Track & Pin Clamp",
+  "description": "Fast-Track™ MTP® and related pin/clamp component family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/connectors/mtp-connectors",
+  "sourceApi": "https://www.usconec.com/umbraco/rhythm/productapi/filter",
+  "sourceCount": 4,
+  "comparisonFields": [
+    "Connector Style",
+    "Fiber Count",
+    "Gender",
+    "Fiber Type",
+    "Cable Style",
+    "Cable Exit",
+    "Spring Force",
+    "Housing Color",
+    "Performance",
+    "Variant Count",
+    "Part Numbers"
+  ],
+  "products": {
+    "C16744": {
+      "name": "C16744 · Flat Pin Clamp Assembly, Single-mode MTP Elite®, for MT to MTP® Adapters",
+      "description": "Flat Pin Clamp Assembly, Single-mode MTP Elite®, for MT to MTP® Adapters; 3 official product descriptions share drawing C16744.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/flat-pin-clamp-assembly-single-mode-mtp-elite-for-mt-to-mtp-adapters",
+      "drawing": "C16744.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC16744.pdf",
+      "specs": {
+        "Connector Style": "—",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Fiber Type": "Single-mode / Multimode",
+        "Cable Style": "Flat Pin Clamp",
+        "Cable Exit": "—",
+        "Spring Force": "—",
+        "Housing Color": "Multimode",
+        "Performance": "MTP Elite® / Standard",
+        "Variant Count": "3",
+        "Part Numbers": "16396, 16744, 16745"
+      },
+      "partNumbers": [
+        "16396",
+        "16744",
+        "16745"
+      ],
+      "variantNames": [
+        "Flat Pin Clamp Assembly, Single-mode MTP Elite®, for MT to MTP® Adapters",
+        "Flat Pin Clamp Assembly, Multimode, for MT to MTP® Adapters",
+        "Flat Pin Clamp Assembly, Multimode MTP Elite® or Single-mode, for MT to MTP® Adapters"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Removable housing for interferometry and rework"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C22518": {
+      "name": "C22518 · Flat Pin Clamp Assembly, Single-mode, for 16F MT to MTP® Adapters, Closed Boot",
+      "description": "Flat Pin Clamp Assembly, Single-mode, for 16F MT to MTP® Adapters, Closed Boot; 3 official product descriptions share drawing C22518.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/flat-pin-clamp-assembly-single-mode-for-16f-mt-to-mtp-adapters-closed-boot",
+      "drawing": "C22518.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC22518.pdf",
+      "specs": {
+        "Connector Style": "—",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Fiber Type": "Single-mode / Multimode",
+        "Cable Style": "Flat Pin Clamp",
+        "Cable Exit": "—",
+        "Spring Force": "—",
+        "Housing Color": "Multimode",
+        "Performance": "Standard / MTP Elite®",
+        "Variant Count": "3",
+        "Part Numbers": "22518, 22520, 23526"
+      },
+      "partNumbers": [
+        "22518",
+        "22520",
+        "23526"
+      ],
+      "variantNames": [
+        "Flat Pin Clamp Assembly, Single-mode, for 16F MT to MTP® Adapters, Closed Boot",
+        "Flat Pin Clamp Assembly, Multimode, for 16F MT to MTP® Adapters, Closed Boot",
+        "Flat Pin Clamp Assembly, Single-mode MTP Elite®, for 16F MT to MTP® Adapters, Closed Boot"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Removable housing for interferometry and rework",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules"
+      ],
+      "applications": [
+        "Aggregation of SR4 & PSM4 links",
+        "Array fiber to single fiber breakouts and cassettes",
+        "High density array trunk cables",
+        "Parallel optic patch cables SR-8, SR-16, PSM8",
+        "Qualified to TIA-568.3-D",
+        "Standards Compliance IEC 61754-7-3; 61754-7-4"
+      ]
+    },
+    "C24147": {
+      "name": "C24147 · Kit Fast-Track™ MTP®, Ribbon, Female, Multimode and Single-mode",
+      "description": "Kit Fast-Track™ MTP®, Ribbon, Female, Multimode and Single-mode; 2 official product descriptions share drawing C24147.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-fast-track-mtp-ribbon-female-multimode-and-single-mode",
+      "drawing": "C24147.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC24147.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x8, 4+4, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "—",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "24147, 24148"
+      },
+      "partNumbers": [
+        "24147",
+        "24148"
+      ],
+      "variantNames": [
+        "Kit Fast-Track™ MTP®, Ribbon, Female, Multimode and Single-mode",
+        "Kit Fast-Track™ MTP®, Ribbon, Male, Single-mode MTP Elite®"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Removable housing for interferometry and rework"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C24341": {
+      "name": "C24341 · Kit Fast-Track™ MTP®, Male, Single-mode MTP Elite®, Mustard Housing",
+      "description": "Kit Fast-Track™ MTP®, Male, Single-mode MTP Elite®, Mustard Housing; 5 official product descriptions share drawing C24341.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-fast-track-mtp-male-single-mode-mtp-elite-mustard-housing",
+      "drawing": "C24341.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC24341.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x8, 4+4, 1x12, 2x12",
+        "Gender": "Male / Female",
+        "Fiber Type": "Single-mode / Multimode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "—",
+        "Performance": "MTP Elite®",
+        "Variant Count": "5",
+        "Part Numbers": "24341, 24830, 24831, 25881, 25883"
+      },
+      "partNumbers": [
+        "24341",
+        "24830",
+        "24831",
+        "25881",
+        "25883"
+      ],
+      "variantNames": [
+        "Kit Fast-Track™ MTP®, Male, Single-mode MTP Elite®, Mustard Housing",
+        "Kit Fast-Track™ MTP®, Male, Single-mode MTP Elite®, Green Housing",
+        "Kit Fast-Track™ MTP®, Male, Single-mode MTP Elite®, Yellow Housing",
+        "Kit Fast-Track™ MTP®, Male, Multimode MTP Elite®, Aqua Housing",
+        "Kit Fast-Track™ MTP®, Female, Multimode MTP Elite®, Aqua Housing"
+      ],
+      "features": [],
+      "applications": []
+    }
+  }
+}

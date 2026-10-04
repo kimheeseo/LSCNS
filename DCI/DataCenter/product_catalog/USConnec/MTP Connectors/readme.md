@@ -1,16 +1,16 @@
-# US Conec MTP® Connectors
+# MTP® Connectors
 
-Source: https://www.usconec.com/connectors/mtp-connectors
+Official source: https://www.usconec.com/connectors/mtp-connectors
 
-## Update Summary
+Products are separated for like-for-like comparison:
+- Adapters: 21
+- MTP 900µ & Fanout: 2
+- MTP-16: 20
+- Fast-Track & Pin Clamp: 4
+- MTP PRO: 30
+- MTP Universal: 44
+- MTP PRO X: 33
 
-- Checked: 2026-10-05
-- Source product rows: 1895
-- Unique products after drawing-PDF grouping: 154
-- Grouping rule: products with the same official drawing PDF filename are treated as the same product.
+Each subgroup uses its own comparison columns; the official drawing-based grouping is preserved.
 
-## DataCenter Tool Mapping
-
-The DataCenter Tool shows this folder under **US Conec → MTP Connectors**. Each card uses the official US Conec product description/name and summarizes key filter fields such as brand, type, fiber count, gender, cable style, boot/exit type, adapter style, key orientation and variant count.
-
-MTP® products cover MPO-format plugs and adapters used in high-density data center, central-office, MSO, FTTx, transceiver, breakout cassette and on-board optics applications.
+Reviewed: 2026-10-05

@@ -3,7 +3,7 @@
   "company": "US Conec",
   "category": "MDC Connectors",
   "displayName": "MDC Connectors",
-  "description": "ELiMENT® MDC is a VSFF duplex optical connector using two 1.25 mm ferrules in one housing, DirectConec™ push-pull access and up to 3× LC cabling density.",
+  "description": "US Conec ELiMENT® MDC VSFF duplex connector family. Uploaded PDF drawings are mapped by C-number to plug/adapter descriptions; adapter drawing metadata is used where a drawing represents multiple ordering configurations.",
   "checked": "2026-10-04",
   "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
   "comparisonFields": [
@@ -112,6 +112,86 @@
         "Insertion / Extraction": "—",
         "Adapter Footprint": "4 Port",
         "Key Feature": "No flange · aligned · blue · 4 dust plugs"
+      }
+    },
+    "C23568": {
+      "name": "C23568 · MDC 4-Port Adapter",
+      "description": "4-port MDC/MDC aligned-key adapter with 4 dust plugs. The uploaded PDF drawing title is “ADAPTER, 4 PORT, MDC/MDC, ALIGNED KEY, W/ 4 DUST PLUGS”.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "4 Port",
+        "Key Feature": "Aligned key · 4 dust plugs"
+      }
+    },
+    "C23579": {
+      "name": "C23579 · MDC 4-Port Adapter",
+      "description": "4-port MDC/MDC aligned-key adapter with 8 dust plugs. The uploaded PDF drawing title is “ADAPTER, 4 PORT, MDC/MDC, ALIGNED KEY, W/ 8 DUST PLUGS”.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "4 Port",
+        "Key Feature": "Aligned key · 8 dust plugs"
+      }
+    },
+    "C26194": {
+      "name": "C26194 · MDC 2-Port Adapter",
+      "description": "2-port MDC/MDC aligned-key adapter with no dust plugs. The uploaded PDF drawing title is “ADAPTER, 2 PORT, MDC/MDC, ALIGNED KEY, NO DUST PLUGS”.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "2 Port",
+        "Key Feature": "Aligned key · no dust plugs"
+      }
+    },
+    "C26205": {
+      "name": "C26205 · MDC 2-Port Adapter",
+      "description": "2-port MDC/MDC aligned-key adapter with 2 dust plugs. The uploaded PDF drawing title is “ADAPTER, 2 PORT, MDC/MDC, ALIGNED KEY, W/ 2 DUST PLUGS”.",
+      "officialUrl": "https://www.usconec.com/connectors/mdc-connectors?page=4",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "2 Port",
+        "Key Feature": "Aligned key · 2 dust plugs"
+      }
+    },
+    "C26216": {
+      "name": "C26216 · MDC 2-Port Adapter",
+      "description": "2-port MDC/MDC aligned-key adapter with 4 dust plugs. The uploaded PDF drawing title is “ADAPTER, 2 PORT, MDC/MDC, ALIGNED KEY, W/ 4 DUST PLUGS”. US Conec also lists a white reduced-flange configuration using drawing C26216.",
+      "officialUrl": "https://www.usconec.com/products/adapter-mdc-2-port-srsr-aligned-key-white-4-dust-plugs",
+      "specs": {
+        "Type": "Adapter",
+        "Style": "MDC/MDC",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Polish Type": "—",
+        "Cable Style": "—",
+        "Insertion / Extraction": "—",
+        "Adapter Footprint": "2 Port",
+        "Key Feature": "Aligned key · 4 dust plugs"
       }
     }
   }

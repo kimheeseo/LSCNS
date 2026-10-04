@@ -1,12 +1,23 @@
 # US Conec MDC Connectors
 
-Official source requested for this catalog:
+Official catalog source:
 https://www.usconec.com/connectors/mdc-connectors?page=4
 
 Family source:
 https://www.usconec.com/connectors/mdc-connectors
 
-US Conec describes ELiMENT® MDC as a Very Small Form Factor (VSFF) duplex connector using two 1.25 mm ferrules in one connector housing and DirectConec™ push-pull access. The catalog maps each uploaded Cxxxxx.pdf drawing to its part-number description.
+US Conec describes ELiMENT® MDC as a VSFF duplex connector based on two 1.25 mm ferrules in one connector housing. The family supports single-mode and multimode cabling and dense push-pull/latch-release access.
 
-Adapter part mappings are also cross-checked against the US Conec Product Catalog:
+## PDF drawing mapping
+
+The DataCenter Tool maps every uploaded `Cxxxxx.pdf` file to a product description.
+
+For the latest uploaded adapter drawings, the description is taken directly from the PDF drawing Title metadata:
+- C23568: 4-port MDC/MDC, aligned key, 4 dust plugs
+- C23579: 4-port MDC/MDC, aligned key, 8 dust plugs
+- C26194: 2-port MDC/MDC, aligned key, no dust plugs
+- C26205: 2-port MDC/MDC, aligned key, 2 dust plugs
+- C26216: 2-port MDC/MDC, aligned key, 4 dust plugs
+
+US Conec Product Catalog cross-reference:
 https://www.usconec.com/files/Literature/US_Conec_Product_Catalog.pdf

@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MMC Connectors",
+  "displayName": "MMC Connectors",
+  "description": "VSFF multi-fiber connector family using TMT ferrule technology; supports dense single-mode/multimode connectivity and DirectConec™ push-pull access.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://www.usconec.com/connectors/mmc-connectors",
+  "comparisonFields": [
+    "Type",
+    "Connector Style",
+    "Fiber Count",
+    "Gender",
+    "Cable Style",
+    "Boot Options",
+    "Adapter Port Count",
+    "Key Feature"
+  ],
+  "products": {
+    "C24171": {
+      "name": "C24171 · MMC 4-Port Sr-Jr Adapter",
+      "description": "Green 4-port MMC adapter for MMC-to-MMC Jr. mating; Sr-Jr style, no dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Jr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "4 Port",
+        "Key Feature": "High-density MMC/MMC Jr. adapter; no dust plugs"
+      }
+    },
+    "C24188": {
+      "name": "C24188 · MMC 2-Port Sr-Sr Adapter",
+      "description": "Green 2-port MMC Sr-Sr adapter with reduced flange and no dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "2 Port",
+        "Key Feature": "Reduced-flange 2-port adapter; 0 dust plugs"
+      }
+    },
+    "C24196": {
+      "name": "C24196 · MMC 2-Port Sr-Sr Adapter",
+      "description": "Green 2-port MMC/MMC Sr-Sr adapter supplied with 2 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "2 Port",
+        "Key Feature": "2-port adapter with 2 dust plugs"
+      }
+    },
+    "C24204": {
+      "name": "C24204 · MMC 2-Port Sr-Sr Adapter",
+      "description": "Green 2-port MMC/MMC Sr-Sr adapter supplied with 4 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "2 Port",
+        "Key Feature": "2-port adapter with 4 dust plugs"
+      }
+    },
+    "C24245": {
+      "name": "C24245 · MMC 4-Port Sr-Sr Adapter",
+      "description": "Green 4-port MMC/MMC Sr-Sr adapter with no dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "4 Port",
+        "Key Feature": "4-port adapter; 0 dust plugs"
+      }
+    },
+    "C24253": {
+      "name": "C24253 · MMC 4-Port Sr-Sr Adapter",
+      "description": "Green 4-port MMC/MMC Sr-Sr adapter supplied with 4 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "4 Port",
+        "Key Feature": "4-port adapter with 4 dust plugs"
+      }
+    },
+    "C24261": {
+      "name": "C24261 · MMC 4-Port Sr-Sr Adapter",
+      "description": "Green 4-port MMC/MMC Sr-Sr adapter supplied with 8 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Sr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "4 Port",
+        "Key Feature": "4-port adapter with 8 dust plugs"
+      }
+    },
+    "C24287": {
+      "name": "C24287 · MMC 4-Port Sr-Jr Adapter",
+      "description": "Green 4-port MMC-to-MMC Jr. Sr-Jr adapter supplied with 4 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC Sr-Jr",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "4 Port",
+        "Key Feature": "4-port Sr-Jr adapter with 4 dust plugs"
+      }
+    },
+    "C24889": {
+      "name": "C24889 · MMC Female 12F Plug",
+      "description": "Single-mode MMC Elite female connector for 12 fibers and 2.0 mm round cable with 28 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "12",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0 mm Round",
+        "Boot Options": "DirectConec™ Push-Pull 28 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "VSFF 12F SM plug with TMT ferrule platform"
+      }
+    },
+    "C24895": {
+      "name": "C24895 · MMC Jr Male 12F Plug",
+      "description": "Single-mode MMC Elite male MMC Jr. connector for bare ribbon; compact ribbon-style plug without a boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Jr",
+        "Fiber Count": "12",
+        "Gender": "Male",
+        "Cable Style": "Ribbon",
+        "Boot Options": "No Boot",
+        "Adapter Port Count": "—",
+        "Key Feature": "Compact bare-ribbon MMC Jr. plug"
+      }
+    },
+    "C24896": {
+      "name": "C24896 · MMC-16 Female 16F Plug",
+      "description": "Single-mode MMC-16 Elite female connector for 16 fibers and 2.0 mm round cable with 28 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "16",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0 mm Round",
+        "Boot Options": "DirectConec™ Push-Pull 28 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "16F MMC-16 VSFF plug"
+      }
+    },
+    "C24902": {
+      "name": "C24902 · MMC-16 Jr Male 16F Plug",
+      "description": "Single-mode MMC-16 Elite male MMC Jr. connector for bare ribbon; no boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Jr",
+        "Fiber Count": "16",
+        "Gender": "Male",
+        "Cable Style": "Ribbon",
+        "Boot Options": "No Boot",
+        "Adapter Port Count": "—",
+        "Key Feature": "Compact 16F bare-ribbon MMC-16 Jr. plug"
+      }
+    },
+    "C24925": {
+      "name": "C24925 · MMC 1-Port Adapter",
+      "description": "Green single-port MMC/MMC adapter with no dust plug.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "1 Port",
+        "Key Feature": "1-port adapter; 0 dust plugs"
+      }
+    },
+    "C24953": {
+      "name": "C24953 · MMC-16 Female 16F Plug",
+      "description": "Single-mode MMC-16 Elite female connector for 16 fibers and 2.0 mm nominal round cable with 44 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "16",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0 mm Round",
+        "Boot Options": "DirectConec™ Push-Pull 44 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "16F MMC-16 plug with extended 44 mm push-pull boot"
+      }
+    },
+    "C25156": {
+      "name": "C25156 · MMC 1-Port Adapter",
+      "description": "Green single-port MMC/MMC adapter supplied with 1 dust plug.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "1 Port",
+        "Key Feature": "1-port adapter with 1 dust plug"
+      }
+    },
+    "C25164": {
+      "name": "C25164 · MMC 1-Port Adapter",
+      "description": "Green single-port MMC/MMC adapter supplied with 2 dust plugs.",
+      "specs": {
+        "Type": "Adapter",
+        "Connector Style": "MMC",
+        "Fiber Count": "—",
+        "Gender": "—",
+        "Cable Style": "—",
+        "Boot Options": "—",
+        "Adapter Port Count": "1 Port",
+        "Key Feature": "1-port adapter with 2 dust plugs"
+      }
+    },
+    "C25517": {
+      "name": "C25517 · MMC Female 12F Plug",
+      "description": "Single-mode 12-fiber MMC Elite female Sr plug with jacket crimp and 28 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "12",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0–2.5 mm Round / Jacket Crimp",
+        "Boot Options": "DirectConec™ Push-Pull 28 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "Jacket-crimp 12F VSFF plug"
+      }
+    },
+    "C25519": {
+      "name": "C25519 · MMC-16 Female 16F Plug",
+      "description": "Single-mode 16-fiber MMC-16 Elite female Sr plug with jacket crimp and 28 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "16",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0–2.5 mm Round / Jacket Crimp",
+        "Boot Options": "DirectConec™ Push-Pull 28 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "Jacket-crimp 16F MMC-16 plug"
+      }
+    },
+    "C25574": {
+      "name": "C25574 · MMC Mini Female 12F Plug",
+      "description": "Single-mode 12-fiber MMC Elite female Mini connector for ribbon cable; no boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Mini",
+        "Fiber Count": "12",
+        "Gender": "Female",
+        "Cable Style": "Ribbon",
+        "Boot Options": "No Boot",
+        "Adapter Port Count": "—",
+        "Key Feature": "Very compact 12F MMC Mini ribbon plug"
+      }
+    },
+    "C25576": {
+      "name": "C25576 · MMC-16 Mini Female 16F Plug",
+      "description": "Single-mode 16-fiber MMC-16 Elite female Mini connector for ribbon cable; no boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Mini",
+        "Fiber Count": "16",
+        "Gender": "Female",
+        "Cable Style": "Ribbon",
+        "Boot Options": "No Boot",
+        "Adapter Port Count": "—",
+        "Key Feature": "Very compact 16F MMC-16 Mini ribbon plug"
+      }
+    },
+    "C25599": {
+      "name": "C25599 · MMC Female 12F Plug",
+      "description": "Single-mode MMC Elite female connector for 12 fibers and 2.0 mm nominal round cable with 44 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "12",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0 mm Round",
+        "Boot Options": "DirectConec™ Push-Pull 44 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "12F plug with extended 44 mm push-pull boot"
+      }
+    },
+    "C25601": {
+      "name": "C25601 · MMC Female 12F Plug",
+      "description": "Single-mode 12-fiber MMC Elite female Sr plug with jacket crimp and 44 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "12",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0–2.5 mm Round / Jacket Crimp",
+        "Boot Options": "DirectConec™ Push-Pull 44 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "Jacket-crimp 12F plug with 44 mm boot"
+      }
+    },
+    "C25603": {
+      "name": "C25603 · MMC-16 Female 16F Plug",
+      "description": "Single-mode 16-fiber MMC-16 Elite female Sr plug with jacket crimp and 44 mm DirectConec™ push-pull boot.",
+      "specs": {
+        "Type": "Plug",
+        "Connector Style": "MMC Sr",
+        "Fiber Count": "16",
+        "Gender": "Female",
+        "Cable Style": "Ø 2.0–2.5 mm Round / Jacket Crimp",
+        "Boot Options": "DirectConec™ Push-Pull 44 mm",
+        "Adapter Port Count": "—",
+        "Key Feature": "Jacket-crimp 16F plug with 44 mm boot"
+      }
+    }
+  }
+}

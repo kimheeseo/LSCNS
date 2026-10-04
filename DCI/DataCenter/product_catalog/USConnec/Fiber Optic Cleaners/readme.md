@@ -1,84 +1,16 @@
-# DataCenter Product Catalog
+# US Conec Fiber Optic Cleaners
 
-이 폴더는 DataCenter Tool의 **업체별 부품 리스트** 데이터 원본입니다.
+## Source
 
-## 폴더 규칙
+- Official Fiber Optic Cleaners page: https://www.usconec.com/cleaners/cleaning-tools
+- US Conec Product Catalog / cleaner descriptions: https://www.usconec.com/files/Literature/US_Conec_Product_Catalog.pdf
 
-```text
-product_catalog/
-├─ Corning/
-│  ├─ EDGE8® Adapter Panels, LC/
-│  │  ├─ catalog.json
-│  │  ├─ EMOD8-CP08-AC_NAFTA_AEN.pdf
-│  │  └─ ...
-│  └─ ...
-├─ SENKO/
-└─ ...
-```
+## Summary
 
-- 1단계 폴더명 = 업체명
-- 2단계 폴더명 = 부품군
-- 부품군 폴더 안의 PDF = 제품 자료
-- `catalog.json` = DataCenter Tool에 표시할 간략 스펙
+US Conec's cleaning portfolio includes **IBC™ push-style port cleaners, OPTIPOP/CLETOP/NEOCLEAN refillable cassette systems, stick cleaners and cleaning fluid**. The official product family emphasizes robust cleaning media, sturdy housings and cost-effective connector-endface cleaning.
 
-PDF만 추가해도 제품 목록에는 자동으로 나타납니다. 간략 스펙까지 표시하려면 같은 폴더에 `catalog.json`을 추가합니다.
+The DataCenter Tool maps each drawing filename (`Cxxxxx.pdf`) to the matching US Conec part number and uses the official model description to show the connector type, cleaner style, approximate cleaning capacity and key feature.
 
-## catalog.json 예시
+## UI comparison fields
 
-```json
-{
-  "schemaVersion": 1,
-  "company": "Vendor",
-  "category": "Product family",
-  "description": "간단한 제품군 설명",
-  "checked": "2026-10-04",
-  "officialUrl": "https://vendor.example/product-family",
-  "defaultSpecs": {
-    "Connector": "LC",
-    "Fiber count": "8F"
-  },
-  "products": {
-    "MODEL-001": {
-      "name": "MODEL-001",
-      "specs": {
-        "Color": "Blue"
-      }
-    }
-  }
-}
-```
-
-제품 key는 PDF 파일명에서 `.pdf`, `_NAFTA_AEN`, `_AEN`을 제거한 모델명을 사용하면 됩니다.
-
-## 하위 제품군 폴더
-
-부품군 아래에 제품군 폴더를 한 단계 이상 추가해도 DataCenter Tool이 재귀적으로 PDF를 탐색합니다.
-
-```text
-Corning/
-└─ Adapter Panels/
-   ├─ EDGE8® Adapter Panels, LC/
-   │  ├─ catalog.json
-   │  └─ *.pdf
-   └─ EDGE8® Adapter Panels, MTP®/
-      └─ *.pdf
-```
-
-따라서 **업체 → 부품군 → 제품군 → PDF** 구조도 지원하며, 화면에서는 업체와 부품군을 선택한 뒤 하위 제품군별 제품 카드가 표시됩니다.
-
-## 현재 카탈로그 인벤토리 (2026-10-04)
-
-DataCenter Tool은 아래 모든 제품군 폴더를 재귀적으로 읽습니다. 현재 총 **139개 PDF**가 등록되어 있습니다.
-
-- `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
-- `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
-- `Corning/Bracket/EDGE™ Strain-Relief Bracket`: 4 PDFs
-- `Corning/Connector/MMC`: 1 PDFs
-- `Corning/Housing/Pretium® Connector Housing (PCH)`: 5 PDFs
-- `Corning/Jumper/12-Fiber MTP® PRO Jumper`: 18 PDFs
-- `Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex`: 2 PDFs
-- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC`: 12 PDFs
-- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®`: 52 PDFs
-- `Corning/Panel/CCH Panel`: 29 PDFs
-
-새 PDF를 `main`에 커밋한 뒤 DataCenter Tool의 **카탈로그 새로고침**을 누르면 GitHub API를 `no-store` 방식으로 다시 조회합니다.
+Style · Connector Type · Number of Cleans · Key Feature

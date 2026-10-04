@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE™ Housing, FX",
+  "displayName": "EDGE™ Housing, FX",
+  "description": "EDGE™ fixed/fiber-zone housings",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Number of Panels per Housing",
+    "Panel or Module Type"
+  ],
+  "products": {
+    "EDGE-01U-EMOD": {
+      "name": "EDGE-01U-EMOD",
+      "specs": {
+        "Number of Panels per Housing": "8",
+        "Panel or Module Type": "EDGE"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Housings/EDGE%E2%84%A2-Housing%2C-FX/p/EDGE-01U-EMOD"
+    },
+    "EDGE-01U-FP": {
+      "name": "EDGE-01U-FP",
+      "specs": {
+        "Number of Panels per Housing": "8",
+        "Panel or Module Type": "EDGE"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Housings/EDGE%E2%84%A2-Housing%2C-FX/p/EDGE-01U-FP"
+    },
+    "EDGE-02U-FP": {
+      "name": "EDGE-02U-FP",
+      "specs": {
+        "Number of Panels per Housing": "16",
+        "Panel or Module Type": "EDGE"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Housings/EDGE%E2%84%A2-Housing%2C-FX/p/EDGE-02U-FP"
+    },
+    "EDGE-04U-FP": {
+      "name": "EDGE-04U-FP",
+      "specs": {
+        "Number of Panels per Housing": "32",
+        "Panel or Module Type": "EDGE"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Housings/EDGE%E2%84%A2-Housing%2C-FX/p/EDGE-04U-FP"
+    },
+    "EDGE-FZB-04U": {
+      "name": "EDGE-FZB-04U",
+      "specs": {
+        "Number of Panels per Housing": "32",
+        "Panel or Module Type": "EDGE"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Housings/EDGE%E2%84%A2-Housing%2C-FX/p/EDGE-FZB-04U"
+    }
+  }
+}

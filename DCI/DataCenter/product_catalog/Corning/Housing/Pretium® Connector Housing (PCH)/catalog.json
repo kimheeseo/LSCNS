@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Pretium® Connector Housing (PCH)",
+  "displayName": "Pretium® Connector Housing",
+  "description": "Pretium® Connector Housing (PCH)",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Number of Panels per Housing",
+    "Panel or Module Type"
+  ],
+  "products": {
+    "PCH-01U": {
+      "name": "PCH-01U",
+      "specs": {
+        "Number of Panels per Housing": "2",
+        "Panel or Module Type": "CCH"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Pretium%C2%AE-Connector-Housing-%28PCH%29/p/PCH-01U"
+    },
+    "PCH-02U": {
+      "name": "PCH-02U",
+      "specs": {
+        "Number of Panels per Housing": "4",
+        "Panel or Module Type": "CCH"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Pretium%C2%AE-Connector-Housing-%28PCH%29/p/PCH-02U"
+    },
+    "PCH-02U-SPL": {
+      "name": "PCH-02U-SPL",
+      "specs": {
+        "Number of Panels per Housing": "4",
+        "Panel or Module Type": "CCH"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Pretium%C2%AE-Connector-Housing-%28PCH%29/p/PCH-02U-SPL"
+    },
+    "PCH-04U": {
+      "name": "PCH-04U",
+      "specs": {
+        "Number of Panels per Housing": "12",
+        "Panel or Module Type": "CCH"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Pretium%C2%AE-Connector-Housing-%28PCH%29/p/PCH-04U"
+    },
+    "PCH-M3-01U": {
+      "name": "PCH-M3-01U",
+      "specs": {
+        "Number of Panels per Housing": "3",
+        "Panel or Module Type": "CCH"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Pretium%C2%AE-Connector-Housing-%28PCH%29/p/PCH-M3-01U"
+    }
+  }
+}

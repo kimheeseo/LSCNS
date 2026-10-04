@@ -3,6 +3,537 @@
   "company": "Corning",
   "category": "EDGE8® Adapter Panels, MTP®",
   "displayName": "MTP®",
-  "description": "EDGE8 Base-8 MTP adapter panel family",
-  "checked": "2026-10-04"
+  "description": "EDGE8 Base-8 MTP® pass-through adapter panel family",
+  "checked": "2026-10-04",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/edge8-adapter-panel-mtp-nafta-emea",
+  "defaultSpecs": {
+    "Fiber count": "Varies by model (8F/16F/24F/32F)",
+    "Adapter type": "MTP®/MPO, shuttered",
+    "Adapters": "1–4",
+    "Depth": "125.9 mm",
+    "Platform": "EDGE8 Base-8",
+    "Adapter color": "Varies by model"
+  },
+  "products": {
+    "EDGE8-CP08-V1": {
+      "name": "EDGE8-CP08-V1",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Black",
+        "Fiber category": "Single-mode (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V1"
+    },
+    "EDGE8-CP08-V2": {
+      "name": "EDGE8-CP08-V2",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Red",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V2"
+    },
+    "EDGE8-CP08-V3": {
+      "name": "EDGE8-CP08-V3",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Aqua",
+        "Fiber category": "50 µm MM (OM3/OM4/OM5)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V3"
+    },
+    "EDGE8-CP08-V4": {
+      "name": "EDGE8-CP08-V4",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Green",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V4"
+    },
+    "EDGE8-CP08-V5": {
+      "name": "EDGE8-CP08-V5",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Beige",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V5"
+    },
+    "EDGE8-CP08-V6": {
+      "name": "EDGE8-CP08-V6",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Blue",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V6"
+    },
+    "EDGE8-CP08-V7": {
+      "name": "EDGE8-CP08-V7",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Slate",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V7"
+    },
+    "EDGE8-CP08-V8": {
+      "name": "EDGE8-CP08-V8",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Violet",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V8"
+    },
+    "EDGE8-CP08-V9": {
+      "name": "EDGE8-CP08-V9",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Orange",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-V9"
+    },
+    "EDGE8-CP08-VB": {
+      "name": "EDGE8-CP08-VB",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Brown",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-VB"
+    },
+    "EDGE8-CP08-VC": {
+      "name": "EDGE8-CP08-VC",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "White",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-VC"
+    },
+    "EDGE8-CP08-VE": {
+      "name": "EDGE8-CP08-VE",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Yellow",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-VE"
+    },
+    "EDGE8-CP08-VF": {
+      "name": "EDGE8-CP08-VF",
+      "specs": {
+        "Fiber count": "8F",
+        "Adapters": "1",
+        "Adapter color": "Rose",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP08-VF"
+    },
+    "EDGE8-CP16-V1": {
+      "name": "EDGE8-CP16-V1",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Black",
+        "Fiber category": "Single-mode (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V1"
+    },
+    "EDGE8-CP16-V2": {
+      "name": "EDGE8-CP16-V2",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Red",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V2"
+    },
+    "EDGE8-CP16-V3": {
+      "name": "EDGE8-CP16-V3",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Aqua",
+        "Fiber category": "50 µm MM (OM3/OM4/OM5)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V3"
+    },
+    "EDGE8-CP16-V4": {
+      "name": "EDGE8-CP16-V4",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Green",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V4"
+    },
+    "EDGE8-CP16-V5": {
+      "name": "EDGE8-CP16-V5",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Beige",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V5"
+    },
+    "EDGE8-CP16-V6": {
+      "name": "EDGE8-CP16-V6",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Blue",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V6"
+    },
+    "EDGE8-CP16-V7": {
+      "name": "EDGE8-CP16-V7",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Slate",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V7"
+    },
+    "EDGE8-CP16-V8": {
+      "name": "EDGE8-CP16-V8",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Violet",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V8"
+    },
+    "EDGE8-CP16-V9": {
+      "name": "EDGE8-CP16-V9",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Orange",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-V9"
+    },
+    "EDGE8-CP16-VB": {
+      "name": "EDGE8-CP16-VB",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Brown",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-VB"
+    },
+    "EDGE8-CP16-VC": {
+      "name": "EDGE8-CP16-VC",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "White",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-VC"
+    },
+    "EDGE8-CP16-VE": {
+      "name": "EDGE8-CP16-VE",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Yellow",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-VE"
+    },
+    "EDGE8-CP16-VF": {
+      "name": "EDGE8-CP16-VF",
+      "specs": {
+        "Fiber count": "16F",
+        "Adapters": "2",
+        "Adapter color": "Rose",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP16-VF"
+    },
+    "EDGE8-CP24-V1": {
+      "name": "EDGE8-CP24-V1",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Black",
+        "Fiber category": "Single-mode (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V1"
+    },
+    "EDGE8-CP24-V2": {
+      "name": "EDGE8-CP24-V2",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Red",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V2"
+    },
+    "EDGE8-CP24-V3": {
+      "name": "EDGE8-CP24-V3",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Aqua",
+        "Fiber category": "50 µm MM (OM3/OM4/OM5)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V3"
+    },
+    "EDGE8-CP24-V4": {
+      "name": "EDGE8-CP24-V4",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Green",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V4"
+    },
+    "EDGE8-CP24-V5": {
+      "name": "EDGE8-CP24-V5",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Beige",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V5"
+    },
+    "EDGE8-CP24-V6": {
+      "name": "EDGE8-CP24-V6",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Blue",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V6"
+    },
+    "EDGE8-CP24-V7": {
+      "name": "EDGE8-CP24-V7",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Slate",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V7"
+    },
+    "EDGE8-CP24-V8": {
+      "name": "EDGE8-CP24-V8",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Violet",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V8"
+    },
+    "EDGE8-CP24-V9": {
+      "name": "EDGE8-CP24-V9",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Orange",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-V9"
+    },
+    "EDGE8-CP24-VB": {
+      "name": "EDGE8-CP24-VB",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Brown",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-VB"
+    },
+    "EDGE8-CP24-VC": {
+      "name": "EDGE8-CP24-VC",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "White",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-VC"
+    },
+    "EDGE8-CP24-VE": {
+      "name": "EDGE8-CP24-VE",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Yellow",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-VE"
+    },
+    "EDGE8-CP24-VF": {
+      "name": "EDGE8-CP24-VF",
+      "specs": {
+        "Fiber count": "24F",
+        "Adapters": "3",
+        "Adapter color": "Rose",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP24-VF"
+    },
+    "EDGE8-CP32-V1": {
+      "name": "EDGE8-CP32-V1",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Black",
+        "Fiber category": "Single-mode (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V1"
+    },
+    "EDGE8-CP32-V2": {
+      "name": "EDGE8-CP32-V2",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Red",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V2"
+    },
+    "EDGE8-CP32-V3": {
+      "name": "EDGE8-CP32-V3",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Aqua",
+        "Fiber category": "50 µm MM (OM3/OM4/OM5)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V3"
+    },
+    "EDGE8-CP32-V4": {
+      "name": "EDGE8-CP32-V4",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Green",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V4"
+    },
+    "EDGE8-CP32-V5": {
+      "name": "EDGE8-CP32-V5",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Beige",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V5"
+    },
+    "EDGE8-CP32-V6": {
+      "name": "EDGE8-CP32-V6",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Blue",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V6"
+    },
+    "EDGE8-CP32-V7": {
+      "name": "EDGE8-CP32-V7",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Slate",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V7"
+    },
+    "EDGE8-CP32-V8": {
+      "name": "EDGE8-CP32-V8",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Violet",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V8"
+    },
+    "EDGE8-CP32-V9": {
+      "name": "EDGE8-CP32-V9",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Orange",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-V9"
+    },
+    "EDGE8-CP32-VB": {
+      "name": "EDGE8-CP32-VB",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Brown",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-VB"
+    },
+    "EDGE8-CP32-VC": {
+      "name": "EDGE8-CP32-VC",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "White",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-VC"
+    },
+    "EDGE8-CP32-VE": {
+      "name": "EDGE8-CP32-VE",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Yellow",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-VE"
+    },
+    "EDGE8-CP32-VF": {
+      "name": "EDGE8-CP32-VF",
+      "specs": {
+        "Fiber count": "32F",
+        "Adapters": "4",
+        "Adapter color": "Rose",
+        "Fiber category": "Not Available"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-MTP%C2%AE/p/EDGE8-CP32-VF"
+    }
+  }
 }

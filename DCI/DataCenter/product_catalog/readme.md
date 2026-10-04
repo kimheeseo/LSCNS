@@ -65,3 +65,20 @@ Corning/
 ```
 
 따라서 **업체 → 부품군 → 제품군 → PDF** 구조도 지원하며, 화면에서는 업체와 부품군을 선택한 뒤 하위 제품군별 제품 카드가 표시됩니다.
+
+## 현재 카탈로그 인벤토리 (2026-10-04)
+
+DataCenter Tool은 아래 모든 제품군 폴더를 재귀적으로 읽습니다. 현재 총 **139개 PDF**가 등록되어 있습니다.
+
+- `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
+- `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
+- `Corning/Bracket/EDGE™ Strain-Relief Bracket`: 4 PDFs
+- `Corning/Connector/MMC`: 1 PDFs
+- `Corning/Housing/Pretium® Connector Housing (PCH)`: 5 PDFs
+- `Corning/Jumper/12-Fiber MTP® PRO Jumper`: 18 PDFs
+- `Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex`: 2 PDFs
+- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC`: 12 PDFs
+- `Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®`: 52 PDFs
+- `Corning/Panel/CCH Panel`: 29 PDFs
+
+새 PDF를 `main`에 커밋한 뒤 DataCenter Tool의 **카탈로그 새로고침**을 누르면 GitHub API를 `no-store` 방식으로 다시 조회합니다.

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTWM-04L Wall Mount Enclosure",
+  "displayName": "FTWM-04L Wall Mount Enclosure",
+  "description": "Compact indoor aluminum wall-mount enclosure supporting LGX/FOX components plus ribbon or single-fiber splicing.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-wall-mount-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/01/SEL_05.30.25-FTWM-04L-Wall-Mount-Enclosure_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Cassette / Panel Capacity",
+    "Port Capacity",
+    "Fiber Capacity",
+    "Splice Tray Capacity",
+    "Hole Type",
+    "Dimensions",
+    "Material"
+  ],
+  "products": {
+    "FTWM-04L": {
+      "name": "FTWM-04L",
+      "description": "Wall-mount enclosure with four LGX cassette/panel positions and 96 LC port capacity.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Wall Mount Enclosure",
+        "Cassette / Panel Capacity": "4",
+        "Port Capacity": "96 LC",
+        "Fiber Capacity": "144f",
+        "Splice Tray Capacity": "4 trays",
+        "Hole Type": "Knockout",
+        "Dimensions": "285 × 336 × 89 mm",
+        "Material": "Aluminum"
+      }
+    }
+  }
+}

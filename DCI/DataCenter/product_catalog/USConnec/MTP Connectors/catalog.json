@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MTP Connectors",
+  "displayName": "MTP® Connectors",
+  "description": "MTP® products are split into comparable subfamilies so adapters and unlike plug kits are no longer mixed in one sparse table.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/connectors/mtp-connectors",
+  "sourceApi": "https://www.usconec.com/umbraco/rhythm/productapi/filter",
+  "groupingRule": "Same drawing PDF filename is treated as the same product.",
+  "sourceCount": 1895,
+  "uniqueDrawingCount": 154,
+  "groupCounts": {
+    "Adapters": 21,
+    "MTP 900µ & Fanout": 2,
+    "MTP-16": 20,
+    "Fast-Track & Pin Clamp": 4,
+    "MTP PRO": 30,
+    "MTP Universal": 44,
+    "MTP PRO X": 33
+  },
+  "comparisonFields": [],
+  "products": {}
+}

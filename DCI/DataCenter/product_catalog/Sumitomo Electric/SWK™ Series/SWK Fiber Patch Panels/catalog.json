@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "SWK Fiber Patch Panels",
+  "displayName": "SWK Fiber Patch Panels",
+  "description": "High-density SWK rack patch-panel family for cloud and hyperscale connectivity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/12/SEL-01.11.23_SWK-Fiber-Patch-Panels_v1.1-print.pdf",
+  "comparisonFields": [
+    "Rack Unit",
+    "Fiber Capacity",
+    "Front Connectivity",
+    "Rear Connectivity",
+    "Fiber Type",
+    "Insertion Loss",
+    "Return Loss"
+  ],
+  "products": {
+    "SEL-01.11.23_SWK-Fiber-Patch-Panels_v1.1-print": {
+      "name": "SWK™ Fiber Patch Panels",
+      "description": "High-density 1RU/2RU SWK patch-panel family with Rapid Latch and Flex Adapter.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1–2RU",
+        "Fiber Capacity": "96–288f",
+        "Front Connectivity": "LC / MPO8 / MPO12",
+        "Rear Connectivity": "SWK / ribbon pigtail",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC max 0.25 dB; SWK/MPO max 0.35 dB",
+        "Return Loss": "Min. 55 dB"
+      }
+    },
+    "SW-PP1-96SM-48LCUD-SWLM": {
+      "name": "SW-PP1-96SM-48LCUD-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "48 × LC",
+        "Rear Connectivity": "SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-96SM-12MPM8-SWLM": {
+      "name": "SW-PP1-96SM-12MPM8-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "12 × MPO8 Male",
+        "Rear Connectivity": "SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-144SM-18MPM8-SWLM": {
+      "name": "SW-PP1-144SM-18MPM8-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "144f",
+        "Front Connectivity": "18 × MPO8 Male",
+        "Rear Connectivity": "SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-288SM-36MPM8-2SWLM": {
+      "name": "SW-PP1-288SM-36MPM8-2SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "36 × MPO8 Male",
+        "Rear Connectivity": "2 × SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-96SM-8MPM12-SWLM": {
+      "name": "SW-PP1-96SM-8MPM12-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "8 × MPO12 Male",
+        "Rear Connectivity": "SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-144SM-12MPM12-SWLM": {
+      "name": "SW-PP1-144SM-12MPM12-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "144f",
+        "Front Connectivity": "12 × MPO12 Male",
+        "Rear Connectivity": "SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-288SM-24MPM12-2SWLM": {
+      "name": "SW-PP1-288SM-24MPM12-2SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "24 × MPO12 Male",
+        "Rear Connectivity": "2 × SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1F-96SM-48LCUD-SWLM": {
+      "name": "SW-PP1F-96SM-48LCUD-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "48 × LC",
+        "Rear Connectivity": "SWK 96f front",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1F-96SM-12MPM8-SWLM": {
+      "name": "SW-PP1F-96SM-12MPM8-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "12 × MPO8 Male",
+        "Rear Connectivity": "SWK 96f front",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1F-144SM-18MPM8-SWLM": {
+      "name": "SW-PP1F-144SM-18MPM8-SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "144f",
+        "Front Connectivity": "18 × MPO8 Male",
+        "Rear Connectivity": "SWK 144f front",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-144LCUD-3SWLM": {
+      "name": "SW-PP2-288SM-144LCUD-3SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "144 × LC",
+        "Rear Connectivity": "3 × SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-36MPM8-3SWLM": {
+      "name": "SW-PP2-288SM-36MPM8-3SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "36 × MPO8 Male",
+        "Rear Connectivity": "3 × SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-24MPM12-3SWLM": {
+      "name": "SW-PP2-288SM-24MPM12-3SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "24 × MPO12 Male",
+        "Rear Connectivity": "3 × SWK 96f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-144LCUD-2SWLM": {
+      "name": "SW-PP2-288SM-144LCUD-2SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "144 × LC",
+        "Rear Connectivity": "2 × SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-36MPM8-2SWLM": {
+      "name": "SW-PP2-288SM-36MPM8-2SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "36 × MPO8 Male",
+        "Rear Connectivity": "2 × SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-24MPM12-2SWLM": {
+      "name": "SW-PP2-288SM-24MPM12-2SWLM",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "24 × MPO12 Male",
+        "Rear Connectivity": "2 × SWK 144f",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-96SM-48XLCUD-001M": {
+      "name": "SW-PP1-96SM-48XLCUD-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "48 × LC",
+        "Rear Connectivity": "8 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-96SM-12MPM8-001M": {
+      "name": "SW-PP1-96SM-12MPM8-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "12 × MPO8",
+        "Rear Connectivity": "8 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP1-96SM-8MPM12-001M": {
+      "name": "SW-PP1-96SM-8MPM12-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "1RU",
+        "Fiber Capacity": "96f",
+        "Front Connectivity": "8 × MPO12",
+        "Rear Connectivity": "8 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-144LCUD-001M": {
+      "name": "SW-PP2-288SM-144LCUD-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "144 × LC",
+        "Rear Connectivity": "12 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-36MPM8-001M": {
+      "name": "SW-PP2-288SM-36MPM8-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "36 × MPO8",
+        "Rear Connectivity": "12 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    },
+    "SW-PP2-288SM-24MPM12-001M": {
+      "name": "SW-PP2-288SM-24MPM12-001M",
+      "description": "SWK fiber patch-panel configuration.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-patch-panel/",
+      "specs": {
+        "Rack Unit": "2RU",
+        "Fiber Capacity": "288f",
+        "Front Connectivity": "24 × MPO12",
+        "Rear Connectivity": "12 × 12f ribbon, 1 m",
+        "Fiber Type": "SMF",
+        "Insertion Loss": "LC ≤0.25 dB; SWK/MPO ≤0.35 dB",
+        "Return Loss": ">55 dB"
+      }
+    }
+  }
+}

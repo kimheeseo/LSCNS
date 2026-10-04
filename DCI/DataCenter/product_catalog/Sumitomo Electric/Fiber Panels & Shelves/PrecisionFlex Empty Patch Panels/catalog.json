@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex Empty Patch Panels",
+  "displayName": "PrecisionFlex Empty Patch Panels",
+  "description": "Data-center patch-panel family with durable protected frame, LGX/HD options, and PrecisionFlex slide-out/angle-down access.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL_03.14.25-PrecisionFlex-Empty-Patch-Panel_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Panel Type",
+    "Rack Unit",
+    "Module Type",
+    "Module Capacity",
+    "LC Port Capacity",
+    "SC Port Capacity",
+    "Splice Tray Capacity",
+    "Dimensions",
+    "Rack Compatibility"
+  ],
+  "products": {
+    "FT01L03": {
+      "name": "FT01L03",
+      "description": "Slide-out & angle-down PrecisionFlex panel, 1RU, 72 LC / 36 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Slide-out & angle-down",
+        "Rack Unit": "1RU",
+        "Module Type": "LGX",
+        "Module Capacity": "3",
+        "LC Port Capacity": "72 LC",
+        "SC Port Capacity": "36 SC",
+        "Splice Tray Capacity": "1",
+        "Dimensions": "45 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT02L06": {
+      "name": "FT02L06",
+      "description": "Slide-out & angle-down PrecisionFlex panel, 2RU, 144 LC / 72 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Slide-out & angle-down",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144 LC",
+        "SC Port Capacity": "72 SC",
+        "Splice Tray Capacity": "2",
+        "Dimensions": "89 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT03L09": {
+      "name": "FT03L09",
+      "description": "Slide-out & angle-down PrecisionFlex panel, 3RU, 216 LC / 108 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Slide-out & angle-down",
+        "Rack Unit": "3RU",
+        "Module Type": "LGX",
+        "Module Capacity": "9",
+        "LC Port Capacity": "216 LC",
+        "SC Port Capacity": "108 SC",
+        "Splice Tray Capacity": "3",
+        "Dimensions": "133 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT04L12": {
+      "name": "FT04L12",
+      "description": "Slide-out & angle-down PrecisionFlex panel, 4RU, 288 LC / 144 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Slide-out & angle-down",
+        "Rack Unit": "4RU",
+        "Module Type": "LGX",
+        "Module Capacity": "12",
+        "LC Port Capacity": "288 LC",
+        "SC Port Capacity": "144 SC",
+        "Splice Tray Capacity": "4",
+        "Dimensions": "178 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT02L06ST": {
+      "name": "FT02L06ST",
+      "description": "Fixed PrecisionFlex panel, 2RU, 144 LC / 72 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Fixed",
+        "Rack Unit": "2RU",
+        "Module Type": "LGX",
+        "Module Capacity": "6",
+        "LC Port Capacity": "144 LC",
+        "SC Port Capacity": "72 SC",
+        "Splice Tray Capacity": "2",
+        "Dimensions": "89 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    },
+    "FT04L12ST": {
+      "name": "FT04L12ST",
+      "description": "Fixed PrecisionFlex panel, 4RU, 288 LC / 144 SC.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-empty-patch-panels/",
+      "specs": {
+        "Panel Type": "Fixed",
+        "Rack Unit": "4RU",
+        "Module Type": "LGX",
+        "Module Capacity": "12",
+        "LC Port Capacity": "288 LC",
+        "SC Port Capacity": "144 SC",
+        "Splice Tray Capacity": "4",
+        "Dimensions": "178 × 447 × 425 mm",
+        "Rack Compatibility": "19 / 23 inch"
+      }
+    }
+  }
+}

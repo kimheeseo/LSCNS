@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "SC-LC Connectors",
+  "displayName": "SC-LC Connectors",
+  "description": "SENKO LC and SC connector/adaptor families for duplex, uniboot, shuttered, premium and data-center interconnect applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.senko.com/product-category/interconnect/lc-connector-series/",
+  "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products",
+  "sourceCategoryIds": [
+    44,
+    46
+  ],
+  "sourceCount": 32,
+  "storageMode": "metadata only; no PDF files uploaded",
+  "comparisonFields": [
+    "Series / Category",
+    "Product Type",
+    "SKU",
+    "Stock Status",
+    "Source"
+  ],
+  "products": {
+    "lc-standard-2pc-connector": {
+      "name": "LC 2pc Connector",
+      "description": "The Original LC two piece design offers exceptional performance at an economical price. The LC is a Small Form Factor (SFF) connector and is ideal for high density applications. Grade C IEC61753-1 Random Mating TIA, IEC and JIS LC Compliance UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/lc-standard-2pc-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Standard-2pc-Connector-91X-e1665760540793.png",
+      "specs": {
+        "Product ID": "2524",
+        "Series / Category": "LC Connector Series / LC Standard Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-dust-shutter-adapter": {
+      "name": "LC Dust Shutter Adapter",
+      "description": "SENKO’s LC dust shutter adapter utilizes an integral hands-free shutter mechanism that protects the behind the wall connector from dust contamination when the port is not in use. Duplex and Quadruplex adapters fit panels with SC and SC DX footprint IP5X Dust protection IEC TR 62627-08 power compliance Dust shutter blocks -24dB @1310nm Traceability with visible light source One-piece body design",
+      "officialUrl": "https://www.senko.com/product/lc-dust-shutter-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Dust-Shutter-Adapter-e1665764186197.png",
+      "specs": {
+        "Product ID": "2571",
+        "Series / Category": "LC Connector Series / LC Designed for Data Centers / LC Shutter Adapter Series / Shuttered",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-ez-flip-connector": {
+      "name": "LC EZ-Flip Connector",
+      "description": "SENKO’s LC EZ-FLIP® is the easiest to use and quickest polarity reversing Duplex Uniboot connector available. Reduced profile latch mechanism and push-pull tab option for high density Data Center and Telco central office applications. Stackable for high density Data Center Polarity Reversal without twisting fiber Push-Pull tab option Preassembled version for ease of termination Visual indicator for polarity reversal Uniboot aids in cable management",
+      "officialUrl": "https://www.senko.com/product/lc-ez-flip-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/94Q-EZ-Flip-e1665761887427.png",
+      "specs": {
+        "Product ID": "2525",
+        "Series / Category": "LC Connector Series / LC Designed for Data Centers / LC Uniboot Connector and Stackable Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-ez-way-connector": {
+      "name": "LC EZ-WAY Connector",
+      "description": "The SENKO LC EZ-WAY Connector features a versatile, high-performance option for seamless integration in data transmission. Featuring an innovative push-pull boot design, it also supports polarity reversing without tools, includes a visual polarity indicator and supports a belly-to-belly setup for 800G transceivers. ​ Suitable for data centers, telecommunications, and enterprise networks, it manages high data rates and is compatible with 2.0mm and 3.0mm cables, exemplifying ease of use, high performance, and versatility. ​ Push Pull Boot ​ Polarity Changing ​ High Density – QSFP Compatible ​ Belly to Belly Setup ​ Preassembled version for ease of termination 2mm and 3mm Cable Compatible",
+      "officialUrl": "https://www.senko.com/product/lc-ez-way-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2025/03/LC-EZ-Way-Dual_web.png",
+      "specs": {
+        "Product ID": "31560",
+        "Series / Category": "LC Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-shuttered-adapter": {
+      "name": "LC Inner Shutter Adapter",
+      "description": "SENKO’s LC inner shutter adapter utilizes an integral hands free shutter mechanism that protects the behind the wall connector from dust contamination while offering eye protection by attenuating the laser light when the mated connector is removed. Duplex and Quadruplex adapters fit panels with SC and SC DX footprint IP5X Dust protection IEC TR 62627-08 power compliance Dust shutter blocks -29dB @ 1310nm Traceability with visible light source 100% automatic shutter action",
+      "officialUrl": "https://www.senko.com/product/lc-shuttered-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-inner-shutter-adapter-e1665762222798.png",
+      "specs": {
+        "Product ID": "2611",
+        "Series / Category": "LC Connector Series / LC Shutter Adapter Series / Shuttered",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-keyed-adapter": {
+      "name": "LC Keyed Adapter",
+      "description": "SENKO’s LC Keyed Solution offers mechanical network security where segregation of networks is needed for security of privacy concerns. Unique key feature prevents improper connections by only allowing mating with similar color and keyed connectors. UL-Rated housing Twelve color/key combinations Robust Premium One-Piece Design",
+      "officialUrl": "https://www.senko.com/product/lc-keyed-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Keyed-Adapter-977-4S-e1665763992363.png",
+      "specs": {
+        "Product ID": "2918",
+        "Series / Category": "LC Connector Series / Specialty LC",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-keyed-connector": {
+      "name": "LC Keyed Connector",
+      "description": "SENKO’s LC Keyed Solution offers mechanical network security where segregation of networks is needed for security of privacy concerns. Unique key feature allows mating only to similar color keyed adapter Robust Unibody design UL-Rated housing and boots Twelve color/key combinations",
+      "officialUrl": "https://www.senko.com/product/lc-keyed-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Keyed-Connector-935-936-937-938-e1665763874741.png",
+      "specs": {
+        "Product ID": "2530",
+        "Series / Category": "LC Connector Series / Specialty LC",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-metal-adapter-es-v1": {
+      "name": "LC Metal Adapter",
+      "description": "Senko’s LC metal adapters are designed for applications that need EMI shielding or applications that could benefit from higher robustness of a metal housing. An integral hands free shutter mechanism protects the behind the wall connector from dust contamination while offering eye protection by attenuating the laser light when the mated connector is removed. IP5X Dust protection IEC TR 62627-08 power compliance Traceability with visible light source 100% automatic shutter action",
+      "officialUrl": "https://www.senko.com/product/lc-metal-adapter-es-v1/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/11/LC-Quad-Metal-e1665762653329.png",
+      "specs": {
+        "Product ID": "7679",
+        "Series / Category": "LC Connector Series / Shuttered",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-mil-connector": {
+      "name": "LC Non-Pull Proof Connector",
+      "description": "SENKO’s LC Non-Pull Proof connector is designed specifically for tight packed cable also known as mil-spec cable. Tight packed cable does not allow the inner fiber subunit to move with relation to the outer cable jacket, causing micro bends and possible fiber breakage when using standard type LC connectors. The Non-Pull Proof design allows the cable to move with the connector ferrule, preventing stress to the inner fiber subunit. Robust unibody connector design and precision ferrules make this the connector of choice for years of reliable service. Non-Pull Proof design Grade B IEC61753-1 Random Mating 2mm Flex and mini boot options Rugged Unibody housing UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/lc-mil-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/04/LC-MIL-96X.png",
+      "specs": {
+        "Product ID": "20212",
+        "Series / Category": "LC Connector Series / Specialty LC",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-one-piece-adapter": {
+      "name": "LC Premium Adapter",
+      "description": "SENKO’s LC Premium adapter has a robust body design that exceeds stringent GR-326-Core requirements and offers increased side loading performance over standard ultrasonically welded two-piece designs. Laser shutter option provides additional protection for users from harmful laser radiation. Exceeds GR-326-CORE Requirements IEC TR 62627-08 power compliance Laser shutter blocks -33dB @1310nm Quad and Duplex versions Rattle free mounting clip Fits standard SC footprint",
+      "officialUrl": "https://www.senko.com/product/lc-one-piece-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-One-Piece-cover-e1665758224614.png",
+      "specs": {
+        "Product ID": "2573",
+        "Series / Category": "LC Connector Series / LC Premium Connector and LC Adapter / Shuttered",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-premium-unibody-connector": {
+      "name": "LC Premium Unibody Connector",
+      "description": "SENKO’s flagship highest quality LC Premium Unibody connector series designed to exceed the telecommunication industry’s rigorous GR-326-CORE testing requirements. Robust unibody connector design and precision ferrules make this the connector of choice for years of reliable service. Exceeds GR-326-CORE Requirements Grade B IEC61753-1 Random Mating 900um, 1.2mm, 2mm and 3mm boot options UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/lc-premium-unibody-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Premium-unibody-connector-e1665758303719.png",
+      "specs": {
+        "Product ID": "2523",
+        "Series / Category": "LC Connector Series / LC Premium Connector and LC Adapter",
+        "Product Type": "simple",
+        "SKU": "931",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-stackable-adapter": {
+      "name": "LC Stackable Adapter",
+      "description": "SENKO’s LC Stackable adapters are a high-density solution ideal for applications using LC HD pull tab style connectors. Various straight and angled versions allow for a wide variety of design options. Also available in pre-assembled packages with multiple adapter configurations. Laser shutter option Precision zirconia alignment sleeves Telcordia, TIA, NTT and JIS Compliant Modular design for custom applications",
+      "officialUrl": "https://www.senko.com/product/lc-stackable-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/06/Stachable-LC-Adapters-e1656438155952.png",
+      "specs": {
+        "Product ID": "2578",
+        "Series / Category": "LC Connector Series / LC Uniboot Connector and Stackable Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-standard-adapter": {
+      "name": "LC Standard Adapter",
+      "description": "SENKO’s LC standard adapter has a compact design that fits into industry standard RJ-45 style outlets and panels. Fits standard RJ-45 style outlets Telcordia, TIA and IEC Compliant Precision zirconia alignment sleeves UL-Rated materials",
+      "officialUrl": "https://www.senko.com/product/lc-standard-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Standard-Adapter-e1665764271417.png",
+      "specs": {
+        "Product ID": "2836",
+        "Series / Category": "LC Connector Series / LC Standard Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-switchable-uniboot": {
+      "name": "LC Switchable Uniboot",
+      "description": "SENKO LC Switchable Uniboot connector in a unique connector offering that allows for the use of a single round cable for duplex applications, a tool less polarity reversing feature, latch lock security and boot options up to 6mm. Widely used for FTTx applications requiring larger diameter cable. Boots up to 6mm for FTTx OSP cable Polarity Reversal visual indicator Uniboot aids in cable management Latch lock security option",
+      "officialUrl": "https://www.senko.com/product/lc-switchable-uniboot/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-Switchable-5mm-e1665761526869.png",
+      "specs": {
+        "Product ID": "2532",
+        "Series / Category": "LC Connector Series / LC Uniboot Connector and Stackable Adapter",
+        "Product Type": "simple",
+        "SKU": "948",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-top-adapter": {
+      "name": "LC True One-Piece Adapter",
+      "description": "SENKO’s LC True One-Piece (TOP) adapter has a robust one-piece body design that offers increased side loading performance over standard ultrasonically welded two-piece designs. Simplex, duplex and 12 port options Fits standard SC footprint UL-Rated materials",
+      "officialUrl": "https://www.senko.com/product/lc-top-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/LC-TOP-Adapter-98C-web-e1665759733708.png",
+      "specs": {
+        "Product ID": "2576",
+        "Series / Category": "LC Connector Series / LC Standard Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-hd-connector": {
+      "name": "LC-HD Connector",
+      "description": "The SENKO LC-HD has a unique design that increases panel density up to 60% while maintaining simple installation and high-quality performance. Low profile trigger mechanism Boot sizes up to 5.5mm HD design to fit stacked adapters Simplex, Duplex and Duplex Uniboot",
+      "officialUrl": "https://www.senko.com/product/lc-hd-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/LC-HD-e1665761175194.png",
+      "specs": {
+        "Product ID": "2529",
+        "Series / Category": "LC Connector Series / LC Uniboot Connector and Stackable Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "lc-hd-loopback": {
+      "name": "LC-HD Loopback",
+      "description": "SENKO’S LC-HD Loopback is designed to provide a media of return patch for a fiber optic signal. Commonly used for burn-in testing and network troubleshooting, the high density push-pull tab design will fit into may applications. UPC or APC polish High Density Design Attenuation levels from 1-20dB Push-Pull Tab for easy installation",
+      "officialUrl": "https://www.senko.com/product/lc-hd-loopback/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/LC-HD-Loopback-prouct-featured-image-e1667488500588.png",
+      "specs": {
+        "Product ID": "2599",
+        "Series / Category": "LC Connector Series / Specialty LC / Attenuators and Loopbacks",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "micro-lc-adapter": {
+      "name": "Micro LC Adapter",
+      "description": "SENKO’s MICRO LC adapters are a high-density solution that allow for a standard LC connector to be mated to the Micro LC connector used in Behind the Wall (BTW) applications. Adapter fits industry standard SC panel footprint. Hybrid connection to standard LC Anti-rattle mounting feature Bayonet latching mechanism Precision zirconia alignment sleeves",
+      "officialUrl": "https://www.senko.com/product/micro-lc-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/Micro-LC-adapter-cover-e1665763566863.png",
+      "specs": {
+        "Product ID": "2580",
+        "Series / Category": "LC Connector Series / LC Space Saving for Behind the Wall / Hybrid Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "micro-lc-connector": {
+      "name": "Micro LC Connector",
+      "description": "The Micro LC Connector is a compact, bootless connector with a bayonet latch for secure, space-saving connections. Paired with the LC Micro Adapter, it maximizes density and greatly reduces the space consumption of fiber optic connectivity behind the faceplate of patch panels and optoelectronics equipment. Grade B IEC61753-1 Random Mating Ideal for Plug and Play modules LC compatible with hybrid adapter Secure Bayonet latching mechanism",
+      "officialUrl": "https://www.senko.com/product/micro-lc-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/10/LC-Micro-Adapter-and-Bayonet-web-e1665780128375.png",
+      "specs": {
+        "Product ID": "2533",
+        "Series / Category": "LC Connector Series / LC Space Saving for Behind the Wall",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "micro-lc-dust-shutter-adapter-draft": {
+      "name": "Micro LC Dust Shutter Adapter",
+      "description": "SENKO’s MICRO LC dust shutter adapter is a high-density solution that allows for a standard LC connector to be mated to the Micro LC connector used in Behind the Wall (BTW) applications. Integral hands-free shutter mechanism protects the BTW connector from dust contamination when the port is not in use while protecting the user from potentially harmful laser radiation. Optional metal plate version is available for EMI applications. IP5X Dust protection Traceability with visible light source Hybrid connection to standard LC Bayonet latching mechanism Precision zirconia alignment sleeves",
+      "officialUrl": "https://www.senko.com/product/micro-lc-dust-shutter-adapter-draft/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/05/lc-dust-shutter.jpg",
+      "specs": {
+        "Product ID": "20538",
+        "Series / Category": "LC Connector Series / LC Space Saving for Behind the Wall / Hybrid Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "micro-lc-stackable-adapter": {
+      "name": "Micro LC Stackable Adapter",
+      "description": "SENKO’s MICRO LC Stackable adapters are a high-density solution that allow for a standard LC connector to be mated to the Micro LC connector used in Behind the Wall (BTW) applications. Stacking feature allows for various width and height combinations. Laser shutter option Bayonet latching mechanism Hybrid connection to standard LC Modular design for custom applications",
+      "officialUrl": "https://www.senko.com/product/micro-lc-stackable-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/06/Micro-LC-Stackable-lighter-e1665780913152.png",
+      "specs": {
+        "Product ID": "2581",
+        "Series / Category": "LC Connector Series / LC Space Saving for Behind the Wall / Hybrid Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "one-click-duplex-sn-end-face-cleaner-2": {
+      "name": "ONE-CLICK DUPLEX SN",
+      "description": "The ONE-CLICK DUPLEX SN tool (SCK-DC-SN) is effective for cleaning residues and dust based contamination on fiber optic end-faces. The dual cleaning tips clean both end-faces of the SN connector with each engagement. This makes this cleaner ideal for high density applications including hyperscale data centers, central offices and Fiber To The Antenna (FTTA) networks. The ONE-CLICK DUPLEX SN cleaner is RoHS and REACH compliant. Cleans SN/UPC & SN/APC Cleans IP-9 SN and IP-16 SN Fast cleaning times",
+      "officialUrl": "https://www.senko.com/product/one-click-duplex-sn-end-face-cleaner-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/29112020-IMG_1590-1-scaled.jpg",
+      "specs": {
+        "Product ID": "2643",
+        "Series / Category": "SN Accessories / LC Connector Series / Click Pen Cleaners",
+        "Product Type": "simple",
+        "SKU": "SCK-DC-SN",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-dust-shutter-adapter": {
+      "name": "SC Dust Shutter Adapter",
+      "description": "SENKO’s SC dust shutter adapter utilizes an integral hands-free shutter mechanism that protects the behind the wall connector from dust contamination when the port is not in use. IP5X Dust protection IEC TR 62627-08 power compliance Dust shutter blocks -25dB @ 1310nm Traceability with visible light source 100% automatic shutter action",
+      "officialUrl": "https://www.senko.com/product/sc-dust-shutter-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SC-Dust-Shutter-Adapter.png",
+      "specs": {
+        "Product ID": "2587",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter / Shuttered SC Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-metal-adapter": {
+      "name": "SC Metal Adapter",
+      "description": "SENKO’s SC metal adapters are designed for applications that need EMI shielding or applications that could benefit from higher robustness of a metal housing. EMI protection Simplex and duplex options High Tg hook for secure latching Precision zirconia alignment sleeves",
+      "officialUrl": "https://www.senko.com/product/sc-metal-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SC-Metal-Adapter-226-228-e1660235522252.png",
+      "specs": {
+        "Product ID": "2588",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-one-piece-adapter": {
+      "name": "SC Premium Adapter",
+      "description": "SENKO’s SC One-Piece Premium adapter has a robust one-piece body design that offers increased side loading performance over standard ultrasonically welded two-piece designs. Exceeds GR-326-CORE Requirements IEC TR 62627-08 power compliance Laser shutter option blocks -28dB @1310nm High Tg hook for secure latching",
+      "officialUrl": "https://www.senko.com/product/sc-one-piece-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SC-ONE-Piece-Adapter-Premium-242-247-e1660233980560.png",
+      "specs": {
+        "Product ID": "2583",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter / Shuttered SC Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-premium-1-2-connector": {
+      "name": "SC Premium Connector 1.2mm boot",
+      "description": "SENKO’s SC Premium Connector 1.2mm series is designed to exceed the telecommunication industry’s rigorous testing requirements for years of reliable service. Based on SENKO’s flagship SC Premium connector, it will accept smaller 1.2mm cable that is commonly found in highly dense Telco cable racks and cabinets. Exceeds GR-326-CORE Requirements Grade B IEC61753-1 Random Mating Boot type 1.2mm Popular in Central Office Exchanges UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/sc-premium-1-2-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/05/SC-Premium-Connector-12-2-e1660074222104.png",
+      "specs": {
+        "Product ID": "12443",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-premium-4-8-connector": {
+      "name": "SC Premium Connector 4.8mm boot",
+      "description": "SENKO’s SC Premium Connector 4.8mm series is designed to exceed the telecommunication industry’s rigorous testing requirements for years of reliable service. Based on SENKO’s flagship SC Premium connector, it will accept larger diameter 4.8mm cable that is commonly used in many of today’s FTTH networks. Grade B IEC61753-1 Random Mating Boot type 4.8mm Ideal for FTTH applications UL-Rated housing and boot",
+      "officialUrl": "https://www.senko.com/product/sc-premium-4-8-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/05/SC-Premium-Connector-48-e1660240542570.png",
+      "specs": {
+        "Product ID": "12445",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-premium-connector": {
+      "name": "SC Premium Connector 900μm, 2, 3mm boot",
+      "description": "SENKO’s flagship highest quality SC connector series designed to exceed the telecommunication industry’s rigorous testing requirements for years of reliable service. Exceeds GR-326-CORE Requirements Grade B IEC61753-1 Random Mating Boot types 900μm, 2mm, 3mm Telco grade quality UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/sc-premium-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SC-Connector-e1660074663133.png",
+      "specs": {
+        "Product ID": "2534",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-standard-connector": {
+      "name": "SC Standard Connector",
+      "description": "SENKO’s Standard SC connector offers high quality at a value. Single-mode and multimode connectors come with pre-polished PC profiles and spherical end face for fast polishing and quality performance. Grade C IEC61753-1 Random Mating TIA, IEC and JIS Compliant UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/sc-standard-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/Standard-Connector-231-e1660244999838.png",
+      "specs": {
+        "Product ID": "2536",
+        "Series / Category": "SC Connector Series / SC Standard Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sc-top-adapter": {
+      "name": "SC True One-Piece Adapter",
+      "description": "SENKO introduces a True One-Piece (TOP) housing design for the SC Simplex Adapter. This True One-Piece housing design has proven to be a more rugged design over the typical ultrasonic welded split flange type AND the “pseudo” one piece design which has an ultrasonic welded cover. High Tg hook for secure latching Precision zirconia alignment sleeves No Weld One-piece solid body design",
+      "officialUrl": "https://www.senko.com/product/sc-top-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/Sc-True-One-Piece-Adapter-e1660234815758.png",
+      "specs": {
+        "Product ID": "2586",
+        "Series / Category": "SC Connector Series / SC Standard Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "shuttered-sc-connector": {
+      "name": "Shuttered SC Connector",
+      "description": "The Shuttered SC Connector offers eye protection with a unique internal shutter mechanism that blocks the light path when it is not installed. Ideal for applications where the user may be untrained or connecting to energized equipment. Integral laser shutter mechanism Interface complies with IEC 61754-4 Boot types 2 & 3mm UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/shuttered-sc-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SC-Connector-Shutter-open-new-e1661364351826.png",
+      "specs": {
+        "Product ID": "2538",
+        "Series / Category": "SC Connector Series / SC Premium Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "waterproof-lc-connector": {
+      "name": "Waterproof LC Connector",
+      "description": "SENKO’s Waterproof LC Connector boasts its IP68 1 rating while it keeps the industry standard LC-style connector footprint. Along with the Waterproof LC Adapter, this connector serves your environmental requirements where sealing from the fluid or moisture is essential. Small footprint IP68 1 rated connector As easy termination as standard LC connector 2mm and 3mm boot options UL-Rated housing and boots",
+      "officialUrl": "https://www.senko.com/product/waterproof-lc-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/10/Waterproof-LC-7-e1686724051720.png",
+      "specs": {
+        "Product ID": "15966",
+        "Series / Category": "IP Connector Series / LC Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    }
+  }
+}

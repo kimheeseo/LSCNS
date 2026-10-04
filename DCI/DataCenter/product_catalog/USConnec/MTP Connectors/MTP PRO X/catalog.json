@@ -1,0 +1,1006 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MTP PRO X",
+  "displayName": "MTP PRO X",
+  "description": "MTP® PRO X plug/kit family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/connectors/mtp-connectors",
+  "sourceApi": "https://www.usconec.com/umbraco/rhythm/productapi/filter",
+  "sourceCount": 33,
+  "comparisonFields": [
+    "Connector Style",
+    "Fiber Count",
+    "Gender",
+    "Fiber Type",
+    "Cable Style",
+    "Cable Exit",
+    "Spring Force",
+    "Housing Color",
+    "Performance",
+    "Variant Count",
+    "Part Numbers"
+  ],
+  "products": {
+    "C25328": {
+      "name": "C25328 · Kit MTP® PRO X, 2.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 2.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force; 2 official product descriptions share drawing C25328.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-0-mm-round-female-single-mode-green-housing-directconec-push-pull-boot-10n-spring-force",
+      "drawing": "C25328.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC25328.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "25328, 25329"
+      },
+      "partNumbers": [
+        "25328",
+        "25329"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+        "Kit MTP® PRO X, 2.0 MM Round, Male Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C25330": {
+      "name": "C25330 · Kit MTP® PRO X, 2.5 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 2.5 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force; 2 official product descriptions share drawing C25330.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-5-mm-round-female-single-mode-green-housing-directconec-push-pull-boot-10n-spring-force",
+      "drawing": "C25330.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC25330.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.5 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "25330, 25331"
+      },
+      "partNumbers": [
+        "25330",
+        "25331"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.5 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+        "Kit MTP® PRO X, 2.5 MM Round, Male Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C25332": {
+      "name": "C25332 · Kit MTP® PRO X, 3.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force; 2 official product descriptions share drawing C25332.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0-mm-round-female-single-mode-green-housing-directconec-push-pull-boot-10n-spring-force",
+      "drawing": "C25332.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC25332.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "25332, 25333"
+      },
+      "partNumbers": [
+        "25332",
+        "25333"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0 MM Round, Female Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force",
+        "Kit MTP® PRO X, 3.0 MM Round, Male Single-Mode, Green Housing, DirectConec™ Push-Pull Boot, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C25885": {
+      "name": "C25885 · Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C25885.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-male-single-mode-mtp-elite-elite-green-housing-10n-spring-force",
+      "drawing": "C25885.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC25885.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Male / Female",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "25885, 25886"
+      },
+      "partNumbers": [
+        "25885",
+        "25886"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force (1)"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26049": {
+      "name": "C26049 · Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26049.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-mtp-elite-elite-green-housing-10n-spring-force",
+      "drawing": "C26049.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26049.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26049, 26050"
+      },
+      "partNumbers": [
+        "26049",
+        "26050"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite® Elite, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite® Elite, Green, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26051": {
+      "name": "C26051 · Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force; 2 official product descriptions share drawing C26051.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-0mm-round-female-single-mode-mtp-elite-elite-green-housing-directconec-push-pull-boot-20n-spring-force",
+      "drawing": "C26051.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26051.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26051, 26052"
+      },
+      "partNumbers": [
+        "26051",
+        "26052"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+        "Kit MTP® PRO X, 2.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26053": {
+      "name": "C26053 · Kit MTP® PRO X, 2.5mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 2.5mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force; 2 official product descriptions share drawing C26053.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-5mm-round-female-single-mode-mtp-elite-elite-green-housing-directconec-push-pull-boot-20n-spring-force",
+      "drawing": "C26053.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26053.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.5 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26053, 26054"
+      },
+      "partNumbers": [
+        "26053",
+        "26054"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.5mm Round, Female Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+        "Kit MTP® PRO X, 2.5mm Round, Male Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26058": {
+      "name": "C26058 · Kit MTP® PRO X, 2.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 2.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-0mm-round-male-single-mode-mtp-elite-short-boot-green-housing-10n-spring-force",
+      "drawing": "C26058.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26058.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26058"
+      },
+      "partNumbers": [
+        "26058"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26059": {
+      "name": "C26059 · Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26059.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-female-single-mode-mtp-elite-short-boot-green-housing-10n-spring-force",
+      "drawing": "C26059.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26059.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26059, 26060"
+      },
+      "partNumbers": [
+        "26059",
+        "26060"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26061": {
+      "name": "C26061 · Kit MTP® PRO X, 3.6mm Round, Female Single mode, Short Boot, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single mode, Short Boot, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26061.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-short-boot-green-housing-10n-spring-force",
+      "drawing": "C26061.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26061.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26061, 26062"
+      },
+      "partNumbers": [
+        "26061",
+        "26062"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single mode, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26063": {
+      "name": "C26063 · Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26063.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-4-0mm-round-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26063.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26063.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "4.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26063, 26064"
+      },
+      "partNumbers": [
+        "26063",
+        "26064"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 4.0mm Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26065": {
+      "name": "C26065 · Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26065.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-4-5mm-round-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26065.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26065.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "4.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26065, 26066"
+      },
+      "partNumbers": [
+        "26065",
+        "26066"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 4.5mm Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26067": {
+      "name": "C26067 · Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26067.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-5-0mm-round-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26067.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26067.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "5.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26067, 26068"
+      },
+      "partNumbers": [
+        "26067",
+        "26068"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 5.0mm Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26069": {
+      "name": "C26069 · Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26069.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-5-5mm-round-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26069.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26069.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "5.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26069, 26070"
+      },
+      "partNumbers": [
+        "26069",
+        "26070"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 5.5mm Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26071": {
+      "name": "C26071 · Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26071.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-0mm-round-female-single-mode-mtp-elite-short-boot-green-housing-20n-spring-force",
+      "drawing": "C26071.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26071.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26071, 26072"
+      },
+      "partNumbers": [
+        "26071",
+        "26072"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 2.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26073": {
+      "name": "C26073 · Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26073.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-female-single-mode-mtp-elite-short-boot-green-housing-20n-spring-force",
+      "drawing": "C26073.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26073.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26073, 26074"
+      },
+      "partNumbers": [
+        "26073",
+        "26074"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26075": {
+      "name": "C26075 · Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26075.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-mtp-elite-short-boot-green-housing-20n-spring-force",
+      "drawing": "C26075.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26075.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26075, 26076"
+      },
+      "partNumbers": [
+        "26075",
+        "26076"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26077": {
+      "name": "C26077 · Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26077.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-4-0mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26077.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26077.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "4.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26077, 26078"
+      },
+      "partNumbers": [
+        "26077",
+        "26078"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 4.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 4.0mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26079": {
+      "name": "C26079 · Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26079.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-4-5mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26079.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26079.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "4.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26079, 26080"
+      },
+      "partNumbers": [
+        "26079",
+        "26080"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 4.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 4.5mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26081": {
+      "name": "C26081 · Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26081.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-5-0mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26081.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26081.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "5.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26081, 26082"
+      },
+      "partNumbers": [
+        "26081",
+        "26082"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 5.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 5.0mm Round, Male Single-mode MTP Elite®, Gree Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26083": {
+      "name": "C26083 · Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26083.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-5-5mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26083.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26083.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "5.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26083, 26084"
+      },
+      "partNumbers": [
+        "26083",
+        "26084"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 5.5mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 5.5mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26085": {
+      "name": "C26085 · Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26085.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26085.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26085.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26085, 26086"
+      },
+      "partNumbers": [
+        "26085",
+        "26086"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26087": {
+      "name": "C26087 · Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26087.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26087.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26087.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26087, 26088"
+      },
+      "partNumbers": [
+        "26087",
+        "26088"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26089": {
+      "name": "C26089 · Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force (1)",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force (1); 2 official product descriptions share drawing C26089.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force-1",
+      "drawing": "C26089.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26089.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26089, 26090"
+      },
+      "partNumbers": [
+        "26089",
+        "26090"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force (1)",
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force (1)"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26091": {
+      "name": "C26091 · Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26091.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-ribbon-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26091.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26091.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26091, 26092"
+      },
+      "partNumbers": [
+        "26091",
+        "26092"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, Ribbon, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26093": {
+      "name": "C26093 · Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force; 2 official product descriptions share drawing C26093.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-short-ribbon-female-single-mode-mtp-elite-green-housing-10n-spring-force",
+      "drawing": "C26093.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26093.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26093, 26094"
+      },
+      "partNumbers": [
+        "26093",
+        "26094"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO X, Short Ribbon, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26095": {
+      "name": "C26095 · Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26095.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-ribbon-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26095.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26095.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26095, 26096"
+      },
+      "partNumbers": [
+        "26095",
+        "26096"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, Ribbon, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26097": {
+      "name": "C26097 · Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force; 2 official product descriptions share drawing C26097.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-short-ribbon-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "C26097.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26097.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26097, 26098"
+      },
+      "partNumbers": [
+        "26097",
+        "26098"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, Short Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO X, Short Ribbon, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "C26099": {
+      "name": "C26099 · Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force; 2 official product descriptions share drawing C26099.pdf.",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-female-single-mode-mtp-elite-green-housing-directconec-push-pull-boot-20n-spring-force",
+      "drawing": "C26099.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC26099.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female / Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "2",
+        "Part Numbers": "26099, 26100"
+      },
+      "partNumbers": [
+        "26099",
+        "26100"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite®, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force",
+        "Kit MTP® PRO X, 3.0mm Round, Male Single-mode MTP Elite® Elite, Green Housing, DirectConec™ Push-Pull Boot, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "NO_DRAWING_26055": {
+      "name": "NO_DRAWING_26055 · Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-female-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "NO_DRAWING_26055.pdf",
+      "drawingUrl": "https://www.usconec.com",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Female",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26055"
+      },
+      "partNumbers": [
+        "26055"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "NO_DRAWING_26056": {
+      "name": "NO_DRAWING_26056 · Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-6mm-round-male-single-mode-mtp-elite-green-housing-20n-spring-force",
+      "drawing": "NO_DRAWING_26056.pdf",
+      "drawingUrl": "https://www.usconec.com",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12, 2x12",
+        "Gender": "Male",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26056"
+      },
+      "partNumbers": [
+        "26056"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.6mm Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "NO_DRAWING_26057": {
+      "name": "NO_DRAWING_26057 · Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-2-0mm-round-female-single-mode-mtp-elite-short-boot-green-housing-10n-spring-force",
+      "drawing": "NO_DRAWING_26057.pdf",
+      "drawingUrl": "https://www.usconec.com",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26057"
+      },
+      "partNumbers": [
+        "26057"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 2.0mm Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    },
+    "NO_DRAWING_26376": {
+      "name": "NO_DRAWING_26376 · Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, Flex Boot, 10N Spring Force",
+      "description": "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, Flex Boot, 10N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-x-3-0mm-round-female-single-mode-mtp-elite-elite-green-housing-flex-boot-10n-spring-force",
+      "drawing": "NO_DRAWING_26376.pdf",
+      "drawingUrl": "https://www.usconec.com",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female",
+        "Fiber Type": "Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26376"
+      },
+      "partNumbers": [
+        "26376"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO X, 3.0mm Round, Female Single-mode MTP Elite® Elite, Green Housing, Flex Boot, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    }
+  }
+}

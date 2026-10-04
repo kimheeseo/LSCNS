@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTWM-04L-2D Wall Mount Enclosure",
+  "displayName": "FTWM-04L-2D Wall Mount Enclosure",
+  "description": "Indoor LGX wall enclosure for patching and splicing.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-2d-wall-mount-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2024/11/SEL_11.13.24-FTWM-04L-2D_ver1_v1.2.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "LC Port Capacity",
+    "Fiber Capacity",
+    "LGX Capacity",
+    "Splice Tray Capacity",
+    "Dimensions"
+  ],
+  "products": {
+    "FTWM-04L-2D": {
+      "name": "FTWM-04L-2D",
+      "description": "Four-position wall enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-2d-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Wall enclosure",
+        "LC Port Capacity": "96 LC",
+        "Fiber Capacity": "96f",
+        "LGX Capacity": "4",
+        "Splice Tray Capacity": "2",
+        "Dimensions": "367 × 334 × 78 mm"
+      }
+    },
+    "FT24ST2": {
+      "name": "FT24ST2",
+      "description": "Compatible splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-2d-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "LC Port Capacity": "—",
+        "Fiber Capacity": "24f single / 144f mass",
+        "LGX Capacity": "—",
+        "Splice Tray Capacity": "—",
+        "Dimensions": "8 × 133 × 222 mm"
+      }
+    },
+    "ST-01": {
+      "name": "ST-01",
+      "description": "Compatible splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-04l-2d-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "LC Port Capacity": "—",
+        "Fiber Capacity": "24f single / 144f mass",
+        "LGX Capacity": "—",
+        "Splice Tray Capacity": "—",
+        "Dimensions": "8 × 133 × 178 mm"
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Networking",
+  "displayName": "Networking",
+  "description": "NVIDIA data center networking products and platform networking references used with AI factory and GPU compute systems.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "sourceUrls": [
+    "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Infiniband_ConnectX-7_Advanced_Networking.pdf",
+    "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+    "https://www.nvidia.com/ko-kr/data-center/products/"
+  ],
+  "sourceCount": 4,
+  "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
+  "comparisonFields": [
+    "Protocol",
+    "Speed",
+    "Ports",
+    "Host Interface",
+    "Used With",
+    "Primary Workload",
+    "Source"
+  ],
+  "products": {
+    "nvidia-connectx-7-400g-adapters": {
+      "name": "NVIDIA ConnectX-7 400G Adapters",
+      "description": "RDMA network adapters supporting InfiniBand and Ethernet up to 400 Gb/s for AI, scientific computing, hyperscale cloud, storage, security, and enterprise data center networking.",
+      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Infiniband_ConnectX-7_Advanced_Networking.pdf",
+      "specs": {
+        "Protocol": "InfiniBand and Ethernet",
+        "InfiniBand Speeds": "NDR 400 Gb/s, HDR 200 Gb/s, EDR 100 Gb/s",
+        "Ethernet Speeds": "400GbE, 200GbE, 100GbE, 50GbE, 25GbE, 10GbE",
+        "Ports": "1 / 2 / 4",
+        "Host Interface": "PCIe Gen5 up to x32 lanes",
+        "Form Factors": "PCIe HHHL, FHHL, OCP 3.0 TSFF, SFF",
+        "Interface Technologies": "NRZ 10G/25G; PAM4 50G/100G",
+        "Primary Workload": "AI/HPC networking, RDMA, storage, security, cloud data center",
+        "Source": "NVIDIA ConnectX-7 Datasheet"
+      }
+    },
+    "nvidia-quantum-x800-infiniband": {
+      "name": "NVIDIA Quantum-X800 InfiniBand",
+      "description": "AI factory networking option listed for GB300 NVL72, GB200 NVL72, HGX B300, and HGX B200 platforms with BlueField DPUs and ConnectX SuperNICs.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+      "specs": {
+        "Protocol": "InfiniBand",
+        "Speed": "X800 generation fabric reference",
+        "Ports": "Platform dependent",
+        "Host Interface": "Used with BlueField DPUs and ConnectX SuperNICs",
+        "Used With": "GB300 NVL72, GB200 NVL72, HGX B300, HGX B200",
+        "Primary Workload": "Scale-out AI factories and high-performance GPU clusters",
+        "Source": "NVIDIA Data Center Platform Line Card"
+      }
+    },
+    "nvidia-quantum-2-infiniband": {
+      "name": "NVIDIA Quantum-2 InfiniBand",
+      "description": "NVIDIA platform networking option listed for GB200 NVL4, GH200 NVL2/NVL4, HGX H200, H200 NVL, RTX PRO, L40S, and L4 systems with BlueField-3 DPUs and ConnectX-7 NICs.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+      "specs": {
+        "Protocol": "InfiniBand",
+        "Speed": "Quantum-2 fabric reference",
+        "Ports": "Platform dependent",
+        "Host Interface": "BlueField-3 DPUs and ConnectX-7 NICs",
+        "Used With": "GB200 NVL4, GH200 NVL2/NVL4, HGX H200, H200 NVL, RTX PRO, L40S, L4",
+        "Primary Workload": "AI, HPC, inference, virtualization, and GPU server networking",
+        "Source": "NVIDIA Data Center Platform Line Card"
+      }
+    },
+    "nvidia-spectrum-x-ethernet": {
+      "name": "NVIDIA Spectrum-X Ethernet",
+      "description": "Ethernet networking platform for AI factories, listed with NVIDIA compute platforms and designed to connect data center compute fabrics and scale across AI data centers.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+      "specs": {
+        "Protocol": "Ethernet",
+        "Speed": "Spectrum-X platform reference",
+        "Ports": "Platform dependent",
+        "Host Interface": "Spectrum-X Ethernet switch and SuperNICs plus BlueField DPUs",
+        "Used With": "GB300/GB200, GH200, HGX, RTX PRO, L40S, L4 platform references",
+        "Primary Workload": "AI factory Ethernet fabric and multi-data-center scale-out",
+        "Source": "NVIDIA Data Center Products page and Data Center Platform Line Card"
+      }
+    }
+  }
+}

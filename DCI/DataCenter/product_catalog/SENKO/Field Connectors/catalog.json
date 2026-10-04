@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "Field Connectors",
+  "displayName": "Field Connectors",
+  "description": "SENKO field-installable connector products for on-site fiber termination and repair.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.senko.com/product-category/interconnect/field-installable-connectors/",
+  "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products",
+  "sourceCategoryIds": [
+    149
+  ],
+  "sourceCount": 5,
+  "storageMode": "metadata only; no PDF files uploaded",
+  "comparisonFields": [
+    "Series / Category",
+    "Product Type",
+    "SKU",
+    "Stock Status",
+    "Source"
+  ],
+  "products": {
+    "q-xp-connector": {
+      "name": "Q-XP Connector",
+      "description": "The Q-XP Premium SC APC is SENKO’s highest performing field installable connector. Tested to GR-1081, it provides Telecom grade performance with superior mechanical and optical characteristics. GR-1081 Completed Termination in under 2 minutes Pre-Polished, no epoxy required Highly Stable index matching gel",
+      "officialUrl": "https://www.senko.com/product/q-xp-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/10/QXP-Connector-QXP.png",
+      "specs": {
+        "Product ID": "2549",
+        "Series / Category": "Field Installable Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "xp-fit-plus-termination-kit": {
+      "name": "XP FIT Plus Termination Kit",
+      "description": "The XP Fit Plus termination kit contains everything needed for terminating the SC and LC XP FIT PLUS connectors in 2 minutes with standard industry tools. Optional angled cleaver is available and recommended for Q-XP Premium SC APC connectors. No external power required Visual Fault Locator w/ test cables Premium and angled cleaver options Quick termination in under 2 minutes",
+      "officialUrl": "https://www.senko.com/product/xp-fit-plus-termination-kit/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/XP-Fit-Termination.jpg",
+      "specs": {
+        "Product ID": "2919",
+        "Series / Category": "Field Installable Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "xp-fit-plus-lc": {
+      "name": "XP Fit Plus LC",
+      "description": "The XP Fit Plus LC is a highly stable pre-polished field installable connector that does not require any epoxy and can be terminated in 2 minutes with standard industry tools. TIA/EIA 568 Compliant Single-mode and Multimode Pre-Polished, no epoxy required Highly Stable index matching gel",
+      "officialUrl": "https://www.senko.com/product/xp-fit-plus-lc/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/XP-Fit-Plus-LC-1.png",
+      "specs": {
+        "Product ID": "2555",
+        "Series / Category": "Field Installable Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "xp-fit-plus-sc": {
+      "name": "XP Fit Plus SC",
+      "description": "The XP Fit Plus SC is a highly stable pre-polished field installable connector that does not require any epoxy and can be terminated in 2 minutes with standard industry tools. TIA/EIA 568 Compliant Single-mode and Multimode Pre-Polished, no epoxy required Highly Stable index matching gel",
+      "officialUrl": "https://www.senko.com/product/xp-fit-plus-sc/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/XP-Fit-Plus-SC-318.png",
+      "specs": {
+        "Product ID": "2552",
+        "Series / Category": "Field Installable Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "xp-fit-uni-sc": {
+      "name": "XP Fit UNI SC",
+      "description": "The XP Fit UNI SC is a pre-polished field installable connector compatible with the standard SC connector. The universally designed cable jacket clamping feature allows for various cordage types to be terminated using just one connector. IEC Compliant Pre-Polished, no epoxy required Highly Stable index matching gel Single-mode UPC and APC polish",
+      "officialUrl": "https://www.senko.com/product/xp-fit-uni-sc/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/10/XP-Fit-Cover.png",
+      "specs": {
+        "Product ID": "2554",
+        "Series / Category": "Field Installable Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    }
+  }
+}

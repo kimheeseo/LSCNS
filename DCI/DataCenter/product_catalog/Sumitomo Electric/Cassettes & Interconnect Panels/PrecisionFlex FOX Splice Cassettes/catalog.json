@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex FOX Splice Cassettes",
+  "displayName": "PrecisionFlex FOX Splice Cassettes",
+  "description": "LGX-footprint splice cassette family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-optic-exchange-fox-cassette/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2019/01/SEL_08.13.25-PrecisionFlex-FOX-Splice-Cassettes_Info_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Connector",
+    "Fiber Count",
+    "Construction",
+    "Fiber Type",
+    "Insertion Loss",
+    "Return Loss"
+  ],
+  "products": {
+    "FTLC-FBK24RBNOS2": {
+      "name": "FTLC-FBK24RBNOS2",
+      "description": "24f ribbon cassette.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-optic-exchange-fox-cassette/",
+      "specs": {
+        "Product Type": "FOX splice cassette",
+        "Connector": "LC",
+        "Fiber Count": "24f",
+        "Construction": "Ribbon",
+        "Fiber Type": "OS2",
+        "Insertion Loss": "LC SM UPC ≤0.25 dB",
+        "Return Loss": "LC SM UPC ≥55 dB"
+      }
+    },
+    "FTLC-FBK24TBFOS2": {
+      "name": "FTLC-FBK24TBFOS2",
+      "description": "24f tight-buffer cassette.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-optic-exchange-fox-cassette/",
+      "specs": {
+        "Product Type": "FOX splice cassette",
+        "Connector": "LC",
+        "Fiber Count": "24f",
+        "Construction": "Tight buffer",
+        "Fiber Type": "OS2",
+        "Insertion Loss": "LC SM UPC ≤0.25 dB",
+        "Return Loss": "LC SM UPC ≥55 dB"
+      }
+    },
+    "FOX-DINRAIL-ADPT-KIT": {
+      "name": "FOX-DINRAIL-ADPT-KIT",
+      "description": "DIN rail adapter kit.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-optic-exchange-fox-cassette/",
+      "specs": {
+        "Product Type": "Accessory",
+        "Connector": "—",
+        "Fiber Count": "—",
+        "Construction": "10 adapters / 20 screws",
+        "Fiber Type": "—",
+        "Insertion Loss": "—",
+        "Return Loss": "—"
+      }
+    }
+  }
+}

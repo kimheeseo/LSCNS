@@ -6,7 +6,8 @@
  const catalog=[
   {vendor:'YOFC',name:'MPO/MTP pre-terminated trunk · G.657.A2 SMF',kind:'fiber',fiber:'OS2',base:12,cores:[12,24,48,72,96,144],source:'https://en.yofc.com/view/3030.html'},
   {vendor:'Corning',name:'Professional LC UPC duplex OS2 patch family · reference SKU 1 m / project length RFQ',kind:'lc',fiber:'OS2',base:2,source:'https://ecatalog.corning.com/optical-communications/AU/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Two-Fiber-Indoor-Cable-Assemblies/Professional-2-0-mm-SM-2-Fiber-Patch-Cord/p/040402G5Z20001M'},
-  {vendor:'US Conec',name:'MTP / MTP-16 connector component family',kind:'connector',bases:[8,12,16],source:'https://www.usconec.com/connectors/mtp-connectors'},
+  {vendor:'US Conec',name:'MTP Universal / PRO / PRO X / MTP-16 connector families',kind:'connector',bases:[8,12,16],source:'https://www.usconec.com/connectors/mtp-connectors'},
+  {vendor:'US Conec',name:'MTP adapter family · standard/SC/transceiver/ganged footprints',kind:'adapter',bases:[8,12,16],source:'https://www.usconec.com/connectors/mtp-connectors'},
   {vendor:'YOFC',name:'Cat.6 Unshielded RJ45 patch cord',kind:'copper',source:'https://en.yofc.com/view/3010.html'},
   {vendor:'Corning',name:'EDGE8 MTP trunk · Base-8',kind:'fiber',base:8,fiber:'OS2',cores:[8,16,48,96,144],source:'https://ecatalog.corning.com/optical-communications/emea/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE8%C2%AE-MTP%C2%AE-Trunk/p/edge8-mtp-trunk-cable'},
   {vendor:'Corning',name:'EDGE MTP trunk · Base-12',kind:'fiber',base:12,fiber:'OS2',cores:[12],source:'https://ecatalog.corning.com/optical-communications/CALA/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Trunk/p/edge-trunk-cable'},
@@ -15,6 +16,11 @@
   {vendor:'YOFC',name:'MPO/MTP pre-terminated cable · OM4 family',kind:'fiber',fiber:'OM4',base:12,source:'https://en.yofc.com/view/3030.html'},
   {vendor:'YOFC',name:'MPO/MTP patch cable · OM4 family',kind:'patch',fiber:'OM4',base:12,source:'https://en.yofc.com/view/3040.html'},
   {vendor:'YOFC',name:'UDF high-density fiber panel',kind:'panel',source:'https://en.yofc.com/view/3029.html'},
+  {vendor:'Sumitomo Electric Lightwave',name:'Sumitomo Cable Assemblies · Base-8 configurable',kind:'fiber',fiber:'OS2',base:8,source:'https://sumitomoelectriclightwave.com/product/cable-assemblies/'},
+  {vendor:'Sumitomo Electric Lightwave',name:'Sumitomo Cable Assemblies · Base-12 configurable',kind:'fiber',fiber:'OS2',base:12,source:'https://sumitomoelectriclightwave.com/product/cable-assemblies/'},
+  {vendor:'Sumitomo Electric Lightwave',name:'Sumitomo Cable Assemblies · Base-16 configurable',kind:'fiber',fiber:'OS2',base:16,source:'https://sumitomoelectriclightwave.com/product/cable-assemblies/'},
+  {vendor:'Sumitomo Electric Lightwave',name:'1RU LGX Compact Patch Panel · 72 LC',kind:'panel',source:'https://sumitomoelectriclightwave.com/product/1ru-lgx-compact-patch-panel/'},
+  {vendor:'Sumitomo Electric Lightwave',name:'2RU High Density Panel · 288 LC',kind:'panel',source:'https://sumitomoelectriclightwave.com/product/2ru-high-density-panels-and-interconnect-panels-bulkheads/'},
   {vendor:'Sumitomo Electric Lightwave',name:'Indoor ribbon cable · bulk / field termination',kind:'bulk',fiber:'OS2',source:'https://sumitomoelectriclightwave.com/product/indoor-rohs-riser-ribbon-cable/'},
   {vendor:'Fujikura',name:'WTC / SWR fiber cable · bulk family',kind:'bulk',source:'https://www.optic-product.fujikura.com/fiber-optic-cable/'}
  ];

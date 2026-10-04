@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "SWK Cable Assemblies",
+  "displayName": "SWK Cable Assemblies",
+  "description": "SWK™ jumper, fanout and pigtail cable assemblies for cloud/hyperscale networks, emphasizing high-density, low-loss connectivity and customizable deployment.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product-category/swk-series/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2023/02/SEL_02.23.23-SWK-Cable-Assemblies-Cut-Sheet_v1.pdf",
+  "comparisonFields": [
+    "Cable Type",
+    "Flame Rating",
+    "Fiber Category",
+    "Fiber Count",
+    "Connector Assembly Type",
+    "Wavelength",
+    "Insertion Loss",
+    "Return Loss",
+    "Length"
+  ],
+  "products": {
+    "SW-24ST-SM-INP-SWLFSWLF-001M": {
+      "name": "SW-24ST-SM-INP-SWLFSWLF-001M",
+      "description": "SWK-L 24F single-mode pre-terminated jumper/patch cable, 1 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+      "specs": {
+        "Cable Type": "Jumper Trunk",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "24F",
+        "Connector Assembly Type": "SWK Female ↔ SWK Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "1 m"
+      }
+    },
+    "SW-48ST-SM-INP-SWLFSWLF-001M": {
+      "name": "SW-48ST-SM-INP-SWLFSWLF-001M",
+      "description": "SWK-L 48F single-mode pre-terminated jumper/patch cable, 1 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+      "specs": {
+        "Cable Type": "Jumper Trunk",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "48F",
+        "Connector Assembly Type": "SWK Female ↔ SWK Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "1 m"
+      }
+    },
+    "SW-96ST-SM-INP-SWLFSWLF-001M": {
+      "name": "SW-96ST-SM-INP-SWLFSWLF-001M",
+      "description": "SWK-L 96F single-mode pre-terminated jumper/patch cable, 1 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+      "specs": {
+        "Cable Type": "Jumper Trunk",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "96F",
+        "Connector Assembly Type": "SWK Female ↔ SWK Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "1 m"
+      }
+    },
+    "SW-144ST-SM-INP-SWLFSWLF-001M": {
+      "name": "SW-144ST-SM-INP-SWLFSWLF-001M",
+      "description": "SWK-L 144F single-mode pre-terminated jumper/patch cable, 1 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+      "specs": {
+        "Cable Type": "Jumper Trunk",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "144F",
+        "Connector Assembly Type": "SWK Female ↔ SWK Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "1 m"
+      }
+    },
+    "SW-192ST-SM-INP-SWLFSWLF-001M": {
+      "name": "SW-192ST-SM-INP-SWLFSWLF-001M",
+      "description": "SWK-L 192F single-mode pre-terminated jumper/patch cable, 1 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+      "specs": {
+        "Cable Type": "Jumper Trunk",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "192F",
+        "Connector Assembly Type": "SWK Female ↔ SWK Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "1 m"
+      }
+    },
+    "SW-48FO-SM-INP-SWLFULCU-003M": {
+      "name": "SW-48FO-SM-INP-SWLFULCU-003M",
+      "description": "SWK-L 48F single-mode fanout cable from SWK to 24 × LC, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "48F",
+        "Connector Assembly Type": "SWK Female → 24 × LC",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB; LC ≤0.25 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-48FO-SM-INP-SWLFMPF8-003M": {
+      "name": "SW-48FO-SM-INP-SWLFMPF8-003M",
+      "description": "SWK-L 48F single-mode fanout cable from SWK to 6 × MPO8 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "48F",
+        "Connector Assembly Type": "SWK Female → 6 × MPO8 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-48FO-SM-INP-SWLFMPF12-003M": {
+      "name": "SW-48FO-SM-INP-SWLFMPF12-003M",
+      "description": "SWK-L 48F single-mode fanout cable from SWK to 4 × MPO12 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "48F",
+        "Connector Assembly Type": "SWK Female → 4 × MPO12 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-96FO-SM-INP-SWLFULCU-003M": {
+      "name": "SW-96FO-SM-INP-SWLFULCU-003M",
+      "description": "SWK-L 96F single-mode fanout cable from SWK to 48 × LC, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "96F",
+        "Connector Assembly Type": "SWK Female → 48 × LC",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB; LC ≤0.25 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-96FO-SM-INP-SWLFMPF8-003M": {
+      "name": "SW-96FO-SM-INP-SWLFMPF8-003M",
+      "description": "SWK-L 96F single-mode fanout cable from SWK to 12 × MPO8 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "96F",
+        "Connector Assembly Type": "SWK Female → 12 × MPO8 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-96FO-SM-INP-SWLFMPF12-003M": {
+      "name": "SW-96FO-SM-INP-SWLFMPF12-003M",
+      "description": "SWK-L 96F single-mode fanout cable from SWK to 8 × MPO12 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "96F",
+        "Connector Assembly Type": "SWK Female → 8 × MPO12 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-144FO-SM-INP-SWLFULCU-003M": {
+      "name": "SW-144FO-SM-INP-SWLFULCU-003M",
+      "description": "SWK-L 144F single-mode fanout cable from SWK to 72 × LC, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "144F",
+        "Connector Assembly Type": "SWK Female → 72 × LC",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB; LC ≤0.25 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-144FO-SM-INP-SWLFMPF8-003M": {
+      "name": "SW-144FO-SM-INP-SWLFMPF8-003M",
+      "description": "SWK-L 144F single-mode fanout cable from SWK to 18 × MPO8 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "144F",
+        "Connector Assembly Type": "SWK Female → 18 × MPO8 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-144FO-SM-INP-SWLFMPF12-003M": {
+      "name": "SW-144FO-SM-INP-SWLFMPF12-003M",
+      "description": "SWK-L 144F single-mode fanout cable from SWK to 12 × MPO12 Female, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+      "specs": {
+        "Cable Type": "Fanout",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "144F",
+        "Connector Assembly Type": "SWK Female → 12 × MPO12 Female",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-24PT-SM-INP-SWLF0-003M": {
+      "name": "SW-24PT-SM-INP-SWLF0-003M",
+      "description": "SWK-L 24F single-mode pre-stubbed pigtail to 2 × 12F ribbon fibers, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/",
+      "specs": {
+        "Cable Type": "Pigtail",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "24F",
+        "Connector Assembly Type": "SWK Female → 2 × 12F ribbon fiber",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-48PT-SM-INP-SWLF0-003M": {
+      "name": "SW-48PT-SM-INP-SWLF0-003M",
+      "description": "SWK-L 48F single-mode pre-stubbed pigtail to 4 × 12F ribbon fibers, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/",
+      "specs": {
+        "Cable Type": "Pigtail",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "48F",
+        "Connector Assembly Type": "SWK Female → 4 × 12F ribbon fiber",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-96PT-SM-INP-SWLF0-003M": {
+      "name": "SW-96PT-SM-INP-SWLF0-003M",
+      "description": "SWK-L 96F single-mode pre-stubbed pigtail to 8 × 12F ribbon fibers, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/",
+      "specs": {
+        "Cable Type": "Pigtail",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "96F",
+        "Connector Assembly Type": "SWK Female → 8 × 12F ribbon fiber",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-144PT-SM-INP-SWLF0-003M": {
+      "name": "SW-144PT-SM-INP-SWLF0-003M",
+      "description": "SWK-L 144F single-mode pre-stubbed pigtail to 12 × 12F ribbon fibers, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/",
+      "specs": {
+        "Cable Type": "Pigtail",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "144F",
+        "Connector Assembly Type": "SWK Female → 12 × 12F ribbon fiber",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    },
+    "SW-192PT-SM-INP-SWLF0-003M": {
+      "name": "SW-192PT-SM-INP-SWLF0-003M",
+      "description": "SWK-L 192F single-mode pre-stubbed pigtail to 16 × 12F ribbon fibers, 3 m.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/",
+      "specs": {
+        "Cable Type": "Pigtail",
+        "Flame Rating": "OFNP / Indoor Plenum",
+        "Fiber Category": "Single-mode",
+        "Fiber Count": "192F",
+        "Connector Assembly Type": "SWK Female → 16 × 12F ribbon fiber",
+        "Wavelength": "1310 / 1550 nm",
+        "Insertion Loss": "SWK/MPO ≤0.35 dB",
+        "Return Loss": "≥55 dB per connection point",
+        "Length": "3 m"
+      }
+    }
+  },
+  "officialProductPages": [
+    "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-jumper/",
+    "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-fanout/",
+    "https://sumitomoelectriclightwave.com/product/swk-fiber-cable-assembly-pigtail/"
+  ]
+}

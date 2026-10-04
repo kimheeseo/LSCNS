@@ -1,0 +1,1682 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MTP PRO",
+  "displayName": "MTP PRO",
+  "description": "MTP® PRO plug/kit family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/connectors/mtp-connectors",
+  "sourceApi": "https://www.usconec.com/umbraco/rhythm/productapi/filter",
+  "sourceCount": 30,
+  "comparisonFields": [
+    "Connector Style",
+    "Fiber Count",
+    "Gender",
+    "Fiber Type",
+    "Cable Style",
+    "Cable Exit",
+    "Spring Force",
+    "Housing Color",
+    "Performance",
+    "Variant Count",
+    "Part Numbers"
+  ],
+  "products": {
+    "C18526": {
+      "name": "C18526 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18526.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-short-boot-aqua-housing-10n-spring-force",
+      "drawing": "C18526.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18526.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18526, 18527, 18528, 18529, 18530, 18531, 19522, 19523"
+      },
+      "partNumbers": [
+        "18526",
+        "18527",
+        "18528",
+        "18529",
+        "18530",
+        "18531",
+        "19522",
+        "19523"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18532": {
+      "name": "C18532 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18532.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-short-boot-aqua-housing-20n-spring-force",
+      "drawing": "C18532.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18532.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18532, 18533, 18534, 18535, 18536, 18537, 20982, 20983"
+      },
+      "partNumbers": [
+        "18532",
+        "18533",
+        "18534",
+        "18535",
+        "18536",
+        "18537",
+        "20982",
+        "20983"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Short Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Short Boot, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18538": {
+      "name": "C18538 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18538.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-flex-boot-aqua-housing-10n-spring-force",
+      "drawing": "C18538.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18538.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18538, 18539, 18540, 18541, 18542, 18543, 21062, 21063"
+      },
+      "partNumbers": [
+        "18538",
+        "18539",
+        "18540",
+        "18541",
+        "18542",
+        "18543",
+        "21062",
+        "21063"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, Flex Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, Flex Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18544": {
+      "name": "C18544 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18544.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-flex-boot-aqua-housing-20n-spring-force",
+      "drawing": "C18544.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18544.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18544, 18545, 18546, 18547, 18548, 18549, 20992, 20993"
+      },
+      "partNumbers": [
+        "18544",
+        "18545",
+        "18546",
+        "18547",
+        "18548",
+        "18549",
+        "20992",
+        "20993"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, Flex Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, Flex Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, Flex Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, Flex Boot, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18574": {
+      "name": "C18574 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18574.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-short-boot-aqua-housing-10n-spring-force",
+      "drawing": "C18574.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18574.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18574, 18575, 18576, 18577, 18578, 18579, 19526, 19527"
+      },
+      "partNumbers": [
+        "18574",
+        "18575",
+        "18576",
+        "18577",
+        "18578",
+        "18579",
+        "19526",
+        "19527"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round,Male Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18580": {
+      "name": "C18580 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18580.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-short-boot-aqua-housing-20n-spring-force",
+      "drawing": "C18580.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18580.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18580, 18581, 18582, 18583, 18584, 18585, 20986, 20987"
+      },
+      "partNumbers": [
+        "18580",
+        "18581",
+        "18582",
+        "18583",
+        "18584",
+        "18585",
+        "20986",
+        "20987"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Short Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Short Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Short Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Short Boot, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18586": {
+      "name": "C18586 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18586.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-flex-boot-aqua-housing-10n-spring-force",
+      "drawing": "C18586.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18586.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18586, 18587, 18588, 18589, 18590, 18591, 21064, 21065"
+      },
+      "partNumbers": [
+        "18586",
+        "18587",
+        "18588",
+        "18589",
+        "18590",
+        "18591",
+        "21064",
+        "21065"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, Flex Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, Flex Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18592": {
+      "name": "C18592 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18592.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-flex-boot-aqua-housing-20n-spring-force",
+      "drawing": "C18592.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18592.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "MTP® Flex Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18592, 18593, 18594, 18595, 18596, 18597, 21002, 21003"
+      },
+      "partNumbers": [
+        "18592",
+        "18593",
+        "18594",
+        "18595",
+        "18596",
+        "18597",
+        "21002",
+        "21003"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, Flex Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, Flex Boot, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, Flex Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, Flex Boot, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18610": {
+      "name": "C18610 · Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18610.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-4-0-mm-round-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C18610.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18610.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "4.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18610, 18611, 18612, 18613, 18614, 18615, 20948, 20949"
+      },
+      "partNumbers": [
+        "18610",
+        "18611",
+        "18612",
+        "18613",
+        "18614",
+        "18615",
+        "20948",
+        "20949"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18616": {
+      "name": "C18616 · Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18616.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-4-0-mm-round-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C18616.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18616.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "4.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18616, 18617, 18618, 18619, 18620, 18621, 20956, 20957"
+      },
+      "partNumbers": [
+        "18616",
+        "18617",
+        "18618",
+        "18619",
+        "18620",
+        "18621",
+        "20956",
+        "20957"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.0 MM Round, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18634": {
+      "name": "C18634 · Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18634.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-4-5-mm-round-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C18634.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18634.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "4.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18634, 18635, 18636, 18637, 18638, 18639, 20950, 20951"
+      },
+      "partNumbers": [
+        "18634",
+        "18635",
+        "18636",
+        "18637",
+        "18638",
+        "18639",
+        "20950",
+        "20951"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18640": {
+      "name": "C18640 · Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18640.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-4-5-mm-round-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C18640.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18640.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "4.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18640, 18641, 18642, 18643, 18644, 18645, 20958, 20959"
+      },
+      "partNumbers": [
+        "18640",
+        "18641",
+        "18642",
+        "18643",
+        "18644",
+        "18645",
+        "20958",
+        "20959"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 4.5 MM Round, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18658": {
+      "name": "C18658 · Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18658.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-5-0-mm-round-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C18658.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18658.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "5.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18658, 18659, 18660, 18661, 18662, 18663, 20952, 20953"
+      },
+      "partNumbers": [
+        "18658",
+        "18659",
+        "18660",
+        "18661",
+        "18662",
+        "18663",
+        "20952",
+        "20953"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18664": {
+      "name": "C18664 · Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18664.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-5-0-mm-round-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C18664.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18664.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "5.0 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18664, 18665, 18666, 18667, 18668, 18669, 20960, 20961"
+      },
+      "partNumbers": [
+        "18664",
+        "18665",
+        "18666",
+        "18667",
+        "18668",
+        "18669",
+        "20960",
+        "20961"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.0 MM Round, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18682": {
+      "name": "C18682 · Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18682.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-5-5-mm-round-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C18682.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18682.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "5.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18682, 18683, 18684, 18685, 18686, 18687, 20954, 20955"
+      },
+      "partNumbers": [
+        "18682",
+        "18683",
+        "18684",
+        "18685",
+        "18686",
+        "18687",
+        "20954",
+        "20955"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18688": {
+      "name": "C18688 · Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18688.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-5-5-mm-round-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C18688.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18688.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "5.5 mm",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18688, 18689, 18690, 18691, 18692, 18693, 20962, 20963"
+      },
+      "partNumbers": [
+        "18688",
+        "18689",
+        "18690",
+        "18691",
+        "18692",
+        "18693",
+        "20962",
+        "20963"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 5.5 MM Round, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18706": {
+      "name": "C18706 · Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C18706.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-ribbon-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C18706.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18706.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18706, 18707, 18708, 18709, 18710, 18711, 21020, 21021"
+      },
+      "partNumbers": [
+        "18706",
+        "18707",
+        "18708",
+        "18709",
+        "18710",
+        "18711",
+        "21020",
+        "21021"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C18712": {
+      "name": "C18712 · Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C18712.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-ribbon-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C18712.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC18712.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "Standard Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Green / Lime",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "18712, 18713, 18714, 18715, 18716, 18717, 21022, 21023"
+      },
+      "partNumbers": [
+        "18712",
+        "18713",
+        "18714",
+        "18715",
+        "18716",
+        "18717",
+        "21022",
+        "21023"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, Ribbon, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21024": {
+      "name": "C21024 · Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C21024.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-short-spring-push-ribbon-female-multimode-mtp-elite-aqua-housing-10n-spring-force",
+      "drawing": "C21024.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21024.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21024, 21025, 21026, 21027, 21028, 21029, 21030, 21031"
+      },
+      "partNumbers": [
+        "21024",
+        "21025",
+        "21026",
+        "21027",
+        "21028",
+        "21029",
+        "21030",
+        "21031"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Single-mode MTP Elite®, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Single-mode MTP Elite®, Green Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21032": {
+      "name": "C21032 · Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C21032.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-short-spring-push-ribbon-female-multimode-mtp-elite-aqua-housing-20n-spring-force",
+      "drawing": "C21032.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21032.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "Ribbon",
+        "Cable Exit": "No Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21032, 21033, 21034, 21035, 21036, 21037, 21038, 21039"
+      },
+      "partNumbers": [
+        "21032",
+        "21033",
+        "21034",
+        "21035",
+        "21036",
+        "21037",
+        "21038",
+        "21039"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Multimode MTP Elite®, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Female Single-mode MTP Elite®, Green Housing, 20N Spring Force",
+        "Kit MTP® PRO, Short Spring Push Ribbon, Male Single-mode MTP Elite®, Green Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21743": {
+      "name": "C21743 · Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C21743.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-2-0-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-10n-spring-force",
+      "drawing": "C21743.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21743.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21743, 21744, 21745, 21746, 21747, 21748, 21749, 21750"
+      },
+      "partNumbers": [
+        "21743",
+        "21744",
+        "21745",
+        "21746",
+        "21747",
+        "21748",
+        "21749",
+        "21750"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21751": {
+      "name": "C21751 · Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C21751.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-2-5-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-10n-spring-force",
+      "drawing": "C21751.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21751.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "2.5 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21751, 21752, 21753, 21754, 21755, 21756, 21757, 21758"
+      },
+      "partNumbers": [
+        "21751",
+        "21752",
+        "21753",
+        "21754",
+        "21755",
+        "21756",
+        "21757",
+        "21758"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 10N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21759": {
+      "name": "C21759 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force; 10 official product descriptions share drawing C21759.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-10n-spring-force",
+      "drawing": "C21759.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21759.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Push Pull Boot / Standard Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green / Yellow",
+        "Performance": "MTP Elite®",
+        "Variant Count": "10",
+        "Part Numbers": "21759, 21760, 21761, 21762, 21763, 21764, 21765, 21766, 25000, 25001"
+      },
+      "partNumbers": [
+        "21759",
+        "21760",
+        "21761",
+        "21762",
+        "21763",
+        "21764",
+        "21765",
+        "21766",
+        "25000",
+        "25001"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, Push-Pull Boot, Yellow Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, Push-Pull Boot, Yellow Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21767": {
+      "name": "C21767 · Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C21767.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-2-0-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-20n-spring-force",
+      "drawing": "C21767.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21767.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21767, 21768, 21769, 21770, 21771, 21772, 21773, 21774"
+      },
+      "partNumbers": [
+        "21767",
+        "21768",
+        "21769",
+        "21770",
+        "21771",
+        "21772",
+        "21773",
+        "21774"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 20N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21775": {
+      "name": "C21775 · Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C21775.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-2-5-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-20n-spring-force",
+      "drawing": "C21775.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21775.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "2.5 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21775, 21776, 21777, 21778, 21779, 21780, 21781, 21782"
+      },
+      "partNumbers": [
+        "21775",
+        "21776",
+        "21777",
+        "21778",
+        "21779",
+        "21780",
+        "21781",
+        "21782"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 20N Spring Force",
+        "Kit MTP® PRO, 2.5 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C21783": {
+      "name": "C21783 · Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C21783.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-20n-spring-force",
+      "drawing": "C21783.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC21783.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "21783, 21784, 21785, 21786, 21787, 21788, 21789, 21790"
+      },
+      "partNumbers": [
+        "21783",
+        "21784",
+        "21785",
+        "21786",
+        "21787",
+        "21788",
+        "21789",
+        "21790"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 20N Spring Force",
+        "Kit MTP® PRO, 3.0 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C23097": {
+      "name": "C23097 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C23097.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-10n-spring-force",
+      "drawing": "C23097.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC23097.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "23097, 23098, 23099, 23100, 23101, 23102, 23103, 23104"
+      },
+      "partNumbers": [
+        "23097",
+        "23098",
+        "23099",
+        "23100",
+        "23101",
+        "23102",
+        "23103",
+        "23104"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 10N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C23105": {
+      "name": "C23105 · Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+      "description": "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force; 8 official product descriptions share drawing C23105.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-6-mm-round-female-multimode-mtp-elite-directconec-push-pull-boot-aqua-housing-20n-spring-force",
+      "drawing": "C23105.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC23105.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "2x12 (20N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "3.6 mm",
+        "Cable Exit": "Push Pull Boot",
+        "Spring Force": "20N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "23105, 23106, 23107, 23108, 23109, 23110, 23111, 23112"
+      },
+      "partNumbers": [
+        "23105",
+        "23106",
+        "23107",
+        "23108",
+        "23109",
+        "23110",
+        "23111",
+        "23112"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Aqua Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Heather Violet Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Multimode MTP Elite®, DirectConec™ Push-Pull Boot, Lime Housing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Female Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, GreenHousing, 20N Spring Force",
+        "Kit MTP® PRO, 3.6 MM Round, Male Single-mode MTP Elite®, DirectConec™ Push-Pull Boot, Green Housing, 20N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "C23191": {
+      "name": "C23191 · Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+      "description": "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force; 8 official product descriptions share drawing C23191.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-2-0-mm-round-female-multimode-mtp-elite-short-boot-aqua-housing-10n-spring-force",
+      "drawing": "C23191.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC23191.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12 / 4+4, 1x12, 2x12 (10N)",
+        "Gender": "Female / Male",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "2.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Aqua / Heather Violet / Lime / Green",
+        "Performance": "MTP Elite®",
+        "Variant Count": "8",
+        "Part Numbers": "23191, 23192, 23193, 23194, 23195, 23196, 23197, 23198"
+      },
+      "partNumbers": [
+        "23191",
+        "23192",
+        "23193",
+        "23194",
+        "23195",
+        "23196",
+        "23197",
+        "23198"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, Short Boot, Aqua Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, Short Boot, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Multimode MTP Elite®, Short Boot, Lime Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Female Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force",
+        "Kit MTP® PRO, 2.0 MM Round, Male Single-mode MTP Elite®, Short Boot, Green Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules",
+        "Quick and effective field pin reconfiguration without removing housing"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to GR-1435 service life",
+        "Qualified to TIA-568.3-D"
+      ]
+    },
+    "NO_DRAWING_26679": {
+      "name": "NO_DRAWING_26679 · Kit MTP® PRO, 3.0 MM Round, Male Multimode Elite, Heather Violet Housing, Short Boot, 10N Spring Force",
+      "description": "Kit MTP® PRO, 3.0 MM Round, Male Multimode Elite, Heather Violet Housing, Short Boot, 10N Spring Force",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-pro-3-0-mm-round-male-multimode-elite-heather-violet-housing-short-boot-10n-spring-force",
+      "drawing": "NO_DRAWING_26679.pdf",
+      "drawingUrl": "https://www.usconec.com",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "4+4, 1x12",
+        "Gender": "Male",
+        "Fiber Type": "Multimode",
+        "Cable Style": "3.0 mm",
+        "Cable Exit": "Short Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Heather Violet",
+        "Performance": "MTP Elite®",
+        "Variant Count": "1",
+        "Part Numbers": "26679"
+      },
+      "partNumbers": [
+        "26679"
+      ],
+      "variantNames": [
+        "Kit MTP® PRO, 3.0 MM Round, Male Multimode Elite, Heather Violet Housing, Short Boot, 10N Spring Force"
+      ],
+      "features": [],
+      "applications": []
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTWM-02L-2D Wall Mount Enclosure",
+  "displayName": "FTWM-02L-2D Wall Mount Enclosure",
+  "description": "Compact indoor wall enclosure with two LGX positions.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-02l-2d-wall-mount-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2024/11/SEL_11.13.24-FTWM-02L-2D_ver1_v1.2.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "LC Port Capacity",
+    "Fiber Capacity",
+    "LGX Capacity",
+    "Splice Tray Capacity"
+  ],
+  "products": {
+    "FTWM-02L-2D": {
+      "name": "FTWM-02L-2D",
+      "description": "Two-position LGX wall enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-02l-2d-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Wall enclosure",
+        "LC Port Capacity": "48 LC",
+        "Fiber Capacity": "48f",
+        "LGX Capacity": "2",
+        "Splice Tray Capacity": "2"
+      }
+    }
+  }
+}

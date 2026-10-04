@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "FTWM-08L Wall Mount Enclosure",
+  "displayName": "FTWM-08L Wall Mount Enclosure",
+  "description": "Indoor wall-mount optical enclosure with 192-fiber / 8-panel capacity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2021/09/SEL-04.18.24_FTWM-08L_WallMountEnclosure-_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Mount Type",
+    "Fiber Capacity",
+    "LC Capacity",
+    "Panel Capacity",
+    "Splice Tray Capacity",
+    "Dimensions"
+  ],
+  "products": {
+    "SEL-04.18.24_FTWM-08L_WallMountEnclosure-_Ver1_v1": {
+      "name": "FTWM-08L",
+      "description": "Indoor wall-mount enclosure for OSP-to-indoor cable transition.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Wall mount enclosure",
+        "Mount Type": "Wall",
+        "Fiber Capacity": "192f",
+        "LC Capacity": "192 LC",
+        "Panel Capacity": "8",
+        "Splice Tray Capacity": "5 trays",
+        "Dimensions": "13 × 14.5 × 5.9 in (330 × 369 × 150 mm)"
+      }
+    },
+    "FTWM-TANDEM-DOOR": {
+      "name": "FTWM-TANDEM-DOOR",
+      "description": "Replacement/tandem mounting door for FTWM-08L and DE06MDU.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Accessory door",
+        "Mount Type": "FTWM-08L accessory",
+        "Fiber Capacity": "—",
+        "LC Capacity": "—",
+        "Panel Capacity": "—",
+        "Splice Tray Capacity": "—",
+        "Dimensions": "15.8 × 16 in (400 × 406 mm)"
+      }
+    },
+    "DE06MDU": {
+      "name": "DE06MDU",
+      "description": "Aluminum indoor tube-distribution unit for Air-Blown Fiber®.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Tube distribution unit",
+        "Mount Type": "Tandem with FTWM-08L",
+        "Fiber Capacity": "—",
+        "LC Capacity": "—",
+        "Panel Capacity": "—",
+        "Splice Tray Capacity": "—",
+        "Dimensions": "6 × 16 × 4 in (406 × 406 × 102 mm)"
+      }
+    },
+    "FT24ST2": {
+      "name": "FT24ST2",
+      "description": "Compatible splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "Mount Type": "Inside FTWM-08L",
+        "Fiber Capacity": "24f single / 144f mass",
+        "LC Capacity": "—",
+        "Panel Capacity": "—",
+        "Splice Tray Capacity": "24f (24×1ct) / 144f (12×12ct)",
+        "Dimensions": "0.31 × 5.25 × 8.85 in"
+      }
+    },
+    "ST-01": {
+      "name": "ST-01",
+      "description": "Compatible Sumitomo splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/ftwm-08l-wall-mount-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "Mount Type": "Inside FTWM-08L",
+        "Fiber Capacity": "24f single / 144f mass",
+        "LC Capacity": "—",
+        "Panel Capacity": "—",
+        "Splice Tray Capacity": "24f single / 144f mass",
+        "Dimensions": "—"
+      }
+    }
+  }
+}

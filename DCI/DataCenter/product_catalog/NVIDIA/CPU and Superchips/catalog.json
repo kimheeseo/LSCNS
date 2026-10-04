@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "CPU and Superchips",
+  "displayName": "CPU and Superchips",
+  "description": "NVIDIA Grace CPU and Grace Hopper superchip products for data center CPU, AI, HPC, and coherent CPU-GPU memory workloads.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "sourceUrls": [
+    "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Grace_CPU_Superchip_Datasheet.pdf",
+    "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_GH200_Grace_Hopper_Superchip_Datasheet.pdf",
+    "https://www.nvidia.com/ko-kr/data-center/products/"
+  ],
+  "sourceCount": 2,
+  "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
+  "comparisonFields": [
+    "CPU Cores",
+    "CPU Memory",
+    "GPU Memory",
+    "Memory Bandwidth",
+    "NVLink-C2C",
+    "TDP",
+    "Primary Workload",
+    "Source"
+  ],
+  "products": {
+    "nvidia-grace-cpu-superchip": {
+      "name": "NVIDIA Grace CPU Superchip",
+      "description": "No-compromise Arm data center CPU superchip for cloud, enterprise, HPC, data analytics, and memory-intensive compute workloads.",
+      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Grace_CPU_Superchip_Datasheet.pdf",
+      "specs": {
+        "CPU Cores": "144 Arm Neoverse V2 cores with 4x128b SVE2",
+        "CPU Memory": "240 GB, 480 GB, or 960 GB LPDDR5X on-module memory with ECC",
+        "Memory Bandwidth": "Up to 1 TB/s",
+        "Scalable Coherency Fabric": "3.2 TB/s bisection bandwidth",
+        "NVLink-C2C": "900 GB/s",
+        "PCIe": "Up to 8x PCIe Gen5 x16 with bifurcation option",
+        "TDP": "500 W module with memory",
+        "Primary Workload": "Cloud, enterprise, HPC, data analytics, memory-intensive CPU workloads",
+        "Source": "NVIDIA Grace CPU Superchip Datasheet"
+      }
+    },
+    "nvidia-gh200-grace-hopper-superchip": {
+      "name": "NVIDIA GH200 Grace Hopper Superchip",
+      "description": "Grace CPU plus H100 GPU superchip connected by NVLink-C2C coherent memory for large-scale AI, HPC, data analytics, and memory-intensive workloads.",
+      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_GH200_Grace_Hopper_Superchip_Datasheet.pdf",
+      "specs": {
+        "CPU Cores": "72 Arm Neoverse V2 cores",
+        "CPU Memory": "Up to 480 GB LPDDR5X with ECC",
+        "GPU Memory": "Up to 96 GB HBM3 or 144 GB HBM3e",
+        "Fast Memory": "Up to 624 GB fast-access memory",
+        "CPU Memory Bandwidth": "Up to 512 GB/s",
+        "GPU Memory Bandwidth": "Up to 4 TB/s HBM3 or 4.9 TB/s HBM3e",
+        "NVLink-C2C": "900 GB/s bidirectional coherent memory bandwidth",
+        "TDP": "Programmable from 450 W to 1,000 W (CPU + GPU + memory)",
+        "Primary Workload": "AI, HPC, data analytics, memory-intensive workloads",
+        "Source": "NVIDIA GH200 Grace Hopper Superchip Datasheet"
+      }
+    }
+  }
+}

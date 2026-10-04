@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "6912 Fiber Transition Module",
+  "displayName": "6912 Fiber Transition Module",
+  "description": "Rack-mounted UHFC transition system connecting 6,912F-class pliable-ribbon cable to smaller conduits feeding pre-terminated patch panels.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/6912f-transition-module/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2017/09/SEL_02.18.26_6912F-Transition-Module_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Large Incoming Ports",
+    "Incoming Port Capacity",
+    "Small Outgoing Ports",
+    "Outgoing Port Capacity",
+    "Mounting",
+    "Base Dimensions",
+    "Included Conduits"
+  ],
+  "products": {
+    "FTK-6912-1728-01-KIT": {
+      "name": "FTK-6912-1728-01-KIT",
+      "description": "UHFC rack transition module with 3 input ports and 8 output conduits.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/6912f-transition-module/",
+      "specs": {
+        "Product Type": "UHFC Cable Transition Module",
+        "Large Incoming Ports": "3",
+        "Incoming Port Capacity": "Up to 6,912f per large port",
+        "Small Outgoing Ports": "8",
+        "Outgoing Port Capacity": "Up to 2,304f per small port",
+        "Mounting": "Top-rear or inside rack",
+        "Base Dimensions": "440.7 × 304.8 × 127 mm",
+        "Included Conduits": "8"
+      }
+    }
+  }
+}

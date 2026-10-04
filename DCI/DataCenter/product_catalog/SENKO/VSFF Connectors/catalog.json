@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "VSFF Connectors",
+  "displayName": "VSFF Connectors",
+  "description": "SENKO VSFF connector families including SN, CS and SN-MT series for high-density duplex and multi-fiber optical connectivity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.senko.com/solutions/very-small-form-factor-vsff/",
+  "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products",
+  "sourceCategoryIds": [
+    87,
+    625,
+    74
+  ],
+  "sourceCount": 45,
+  "storageMode": "metadata only; no PDF files uploaded",
+  "comparisonFields": [
+    "Series / Category",
+    "Product Type",
+    "SKU",
+    "Stock Status",
+    "Source"
+  ],
+  "products": {
+    "2-5mm-neoclean-cleaning-stick": {
+      "name": "2.5MM NEOCLEAN Cleaning Stick",
+      "description": "The 2.5mm NEOCLEAN cleaning sticks are effective cleaning option for removing dust and residue contamination from connectors in an adapter and the recessed ferrules in multiport enclosures and 2.5mm based hardened connector systems. The sticks are an effective and safe option from removing contamination caught on inner walls of an adapter sleeve or inside the socket port of a hardened connector. Micro woven fabric cleaning tip cleans dry or can be used with solvent The hexagon handle prevents sticks from rolling away. The notched handle makes it easy to customize the length for cleaning in confined spaces. Cleans in adapter SC, ST, FC, E2000 and HFCO multiport enclosures. Cleans the socket termini of MIL DTL 83526 with the MIL 29594/16 (2.5mm) and ELIO style termini. Will clean the socket termini of the MIL PRF 28876 with the MIL 29504/15 (2.0mm) socket termini and the SMPTE 304M Jack po",
+      "officialUrl": "https://www.senko.com/product/2-5mm-neoclean-cleaning-stick/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/CSK02-1-1.png",
+      "specs": {
+        "Product ID": "2630",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Cleaning Sticks",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-900um-connector": {
+      "name": "CS 900µm Connector",
+      "description": "The CS® 900µm connector design offers exceptional performance at an economical price. The CS is a Very Small Form Factor (VSFF) connector and is ideal for space-saving solutions. The CS connector allows you to double the density in patch panels compared to an LC duplex. The unique push-pull tab allows for better usability in high-density applications. The connector has been adopted by QSFP-DD, OSFP, and COBO, Standardized by TIA. Performance exceeds LC Precision zirconia ferrules Grade B IEC61753-1 Random Mating Exceeds GR-326-CORE requirements",
+      "officialUrl": "https://www.senko.com/product/cs-900um-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-BTW-Connector-e1634568631738.png",
+      "specs": {
+        "Product ID": "2812",
+        "Series / Category": "CS Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "68x-cs-adapters-non-shuttered": {
+      "name": "CS Adapter",
+      "description": "SENKO’s CS® Standard Adapters feature a high-density, premium one-piece body design with configurations up to 8 fibers. SC duplex panel configuration available for 6 fiber adapter to easily upgrade existing industry standard panels. CS Licensees 1 through 4 Channel configurations Precision zirconia alignment sleeves Telcordia, ANSI, TIA and IEC Compliant",
+      "officialUrl": "https://www.senko.com/product/68x-cs-adapters-non-shuttered/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Adapter-1-e1634153581470.png",
+      "specs": {
+        "Product ID": "2816",
+        "Series / Category": "CS Series / Premium CS Connector / CS Connector and Adapter / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-adapter-standard-internal-shutter": {
+      "name": "CS Adapter Standard Internal Shutters 2-Channel",
+      "description": "SENKO’s 2-Channel (4f) shuttered adapter is specifically designed to enhance ingress protection and laser safety during regular Moves, Adds, and Changes (MACs) in network operations. The adapter incorporates an internal shutter that only opens when the outer body of the CS® connector makes contact during insertion. CS Licensees Premium one-piece body design Up to 360 fibers per 1RU Integrated shutter reduces impact of dust and dirt ingres",
+      "officialUrl": "https://www.senko.com/product/cs-adapter-standard-internal-shutter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Adapter-1-e1634153581470.png",
+      "specs": {
+        "Product ID": "30805",
+        "Series / Category": "CS Series / Premium CS Connector / CS Connector and Adapter / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-standard-connector": {
+      "name": "CS Connector",
+      "description": "The Original CS® Standard connector design offers exceptional performance at an economical price. The CS is a Very Small Form Factor (VSFF) connector and is ideal for space-saving solutions. The CS connector allows you to double the density in patch panels compared to an LC duplex. It offers the ability to add more room for cable management as well as better airflow within a rack. The unique push-pull tab allows for better usability in high-density applications. The connector accepts up to 2.0/3.0mm duplex fiber. The connector has been adopted by QSFP-DD, OSFP, and COBO, Standardized by TIA. CS Licensees Performance exceeds LC 40% size reduction over LC Duplex Grade B IEC61753-1 Random Mating Exceeds GR-326-CORE requirements",
+      "officialUrl": "https://www.senko.com/product/cs-standard-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Standard-Connector-Standard-6X1.png",
+      "specs": {
+        "Product ID": "2813",
+        "Series / Category": "CS Connector and Adapter / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-ez-flip-connector": {
+      "name": "CS EZ-Flip Connector",
+      "description": "The CS EZ-Flip is a Very Small Form Factor (VSFF) connector and is ideal for space-saving solutions. The CS EZ-Flip connector allows you to double the density in patch panels compared to an LC duplex. The polarity switching features allows for quick reversal of the connector polarity without the need for connector re-termination. The unique push-pull tab allows for better usability in high-density applications. The connector accepts up to 2.0/3.0mm duplex fiber. CS Licensees Performance exceeds LC 40% size reduction over LC Duplex Grade B IEC61753-1 Random Mating Exceeds GR-326-CORE requirements Polarity Reversal without twisting fiber Preassembled version for ease of termination Visual indicator for polarity reversal",
+      "officialUrl": "https://www.senko.com/product/cs-ez-flip-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Standard-Connector-Standard-6X1.png",
+      "specs": {
+        "Product ID": "9629",
+        "Series / Category": "Premium CS Connector",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-ez-way-connector": {
+      "name": "CS EZ-Way Connector",
+      "description": "The CS EZ-Way is a Very Small Form Factor (VSFF) connector and is ideal for space-saving solutions. The CS EZ-Way connector allows you to double the density in patch panels compared to an LC duplex. The polarity switching features allows for quick reversal of the connector polarity without the need for connector re-termination. The unique push-pull boot allows for better usability in high-density applications. The connector accepts up to 2.0/3.0mm duplex fiber. CS Licensees Performance exceeds LC 40% size reduction over LC Duplex Grade B IEC61753-1 Random Mating Exceeds GR-326-CORE requirements Polarity Reversal without twisting fiber Preassembled version for ease of termination Visual indicator for polarity reversal",
+      "officialUrl": "https://www.senko.com/product/cs-ez-way-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Standard-Connector-Standard-6X1.png",
+      "specs": {
+        "Product ID": "33040",
+        "Series / Category": "Premium CS Connector",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "cs-loopback": {
+      "name": "CS Loopback",
+      "description": "SENKO’S CS® Loopback is designed to provide a media of return patch for a fiber optic signal. Commonly used for burn-in testing and network troubleshooting, the high density push-pull tab design will fit into may applications. High Density Design UPC and APC polish Attenuation levels from 1-10dB Push-Pull tab for easy installation",
+      "officialUrl": "https://www.senko.com/product/cs-loopback/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/CS-Loopback-blue-e1634757561103.png",
+      "specs": {
+        "Product ID": "2912",
+        "Series / Category": "CS Series / CS Accessories / Attenuators and Loopbacks",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "manta-hm-inspection-scope": {
+      "name": "MANTA HM Inspection Scope",
+      "description": "MANTA HM Part Number: SMX-MANTA-HM 4.2mm x 2.8mm field of view 0.5μm defect detection Fast inspection speeds Evaluation units available. Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/manta-hm-inspection-scope/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/09/manta-hm-profile.jpg",
+      "specs": {
+        "Product ID": "21595",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Inspection Scopes",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "manta-w-inspection-scope": {
+      "name": "MANTA W+ Inspection Scope",
+      "description": "MANTA W+ Part Number: SMX-MANTA-W+ 4.1mm x 3.omm field of view 0.75μm defect detection Fast inspection speeds Evaluation units available. Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/manta-w-inspection-scope/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/manta-w-plus-1-2.jpg",
+      "specs": {
+        "Product ID": "2676",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Inspection Scopes",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "max-quantum-intereferometer": {
+      "name": "MAX QUANTUM",
+      "description": "SENKO Part Number: MAX-QUANTUM Annual Technical Support Plan Part Number: MAX-SUP End face geometry measurements Surface anomaly detection Multi fiber + Single fiber Auto Pass-Fail Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing and additional information. Evaluation units available.",
+      "officialUrl": "https://www.senko.com/product/max-quantum-intereferometer/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/quantum.png",
+      "specs": {
+        "Product ID": "2725",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Interferometers",
+        "Product Type": "simple",
+        "SKU": "MAX-Quantum",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "one-click-duplex-sn-end-face-cleaner-2": {
+      "name": "ONE-CLICK DUPLEX SN",
+      "description": "The ONE-CLICK DUPLEX SN tool (SCK-DC-SN) is effective for cleaning residues and dust based contamination on fiber optic end-faces. The dual cleaning tips clean both end-faces of the SN connector with each engagement. This makes this cleaner ideal for high density applications including hyperscale data centers, central offices and Fiber To The Antenna (FTTA) networks. The ONE-CLICK DUPLEX SN cleaner is RoHS and REACH compliant. Cleans SN/UPC & SN/APC Cleans IP-9 SN and IP-16 SN Fast cleaning times",
+      "officialUrl": "https://www.senko.com/product/one-click-duplex-sn-end-face-cleaner-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/29112020-IMG_1590-1-scaled.jpg",
+      "specs": {
+        "Product ID": "2643",
+        "Series / Category": "SN Accessories / LC Connector Series / Click Pen Cleaners",
+        "Product Type": "simple",
+        "SKU": "SCK-DC-SN",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "optipop-r-refills": {
+      "name": "OPTIPOP R REFILL SPOOLS",
+      "description": "SENKO Part Number: CRC-RS-01 Genuine NTT AT Product For all OPTIPOP R Cassettes Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/optipop-r-refills/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/06/CRC-RS-01-Six-Pack-e1685654506240.png",
+      "specs": {
+        "Product ID": "20934",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Cassettes + Gel Pad",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "optipop-r-cassette-connector-cleaners": {
+      "name": "OPTIPOP R STANDARD CASSETTE",
+      "description": "The OPTIPOP R cassette effectively wipes away residues and dust based contamination from ferrule end faces. The cassettes feature an ergonomic trigger to advancing a fresh section of the micro woven cleaning ribbon with engagement. Using the replacement cleaning spools will lower your cleaning costs. Cleans 800 duplex end faces or 400 simplex and MPO end faces Refillable spools lowers cleaning cost Effective wipe for removing dust and residue",
+      "officialUrl": "https://www.senko.com/product/optipop-r-cassette-connector-cleaners/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/OPTIPOP-R-cassette.png",
+      "specs": {
+        "Product ID": "2723",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Cassettes + Gel Pad",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "senko-optical-grade-wipes": {
+      "name": "SENKO OPTICAL 4X4 WIPES",
+      "description": "SENKO Part Number: AFT-A-NW Lint free, optical grade 102mm x 102mm (4″x4″) Resealable bag of 100 wipes",
+      "officialUrl": "https://www.senko.com/product/senko-optical-grade-wipes/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/08/Clean-copy-of-the-wipes.png",
+      "specs": {
+        "Product ID": "14718",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Tools + Testers+ Consumables",
+        "Product Type": "simple",
+        "SKU": "SCK-SS-250 SCK-SS-250-R-1-1",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-checker-visual-fault-locator-vfl": {
+      "name": "SMART CHECKER VFL",
+      "description": "VFL Part Number: AFT-G-FC 1.25mm Adapter Part Number: AFT-G-CAC Continuous Wave, Pulse Wave operation mode Reach of >5KM Works for UPC and APC assemblies Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-checker-visual-fault-locator-vfl/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/08/website-thumb-1.png",
+      "specs": {
+        "Product ID": "14212",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Tools + Testers+ Consumables",
+        "Product Type": "simple",
+        "SKU": "SCK-SS-250 SCK-SS-250-R-1",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-cleaner-cassette-pinned-mt-end-face-cleaner": {
+      "name": "SMART CLEANER CASSETTE – MALE MT",
+      "description": "SENKO Part Number: SCK-CC-200 Cleans 400 pinned MPO, MT and SN-MT Manual advance cleaning ribbon Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-cleaner-cassette-pinned-mt-end-face-cleaner/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SCK-SS-100.png",
+      "specs": {
+        "Product ID": "2652",
+        "Series / Category": "SN-MT Series / SN-MT Connector and Adapter / Space Saving SN-MT Connector and Adapter / SN-MT Mini Connector and Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-cleaner-cassette-standard-end-face-cleaner": {
+      "name": "SMART CLEANER CASSETTE – STANDARD",
+      "description": "SENKO Part Number: SCK-CC-100 Clean 400 single/ 800 duplex end faces Manual advance cleaning ribbon Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-cleaner-cassette-standard-end-face-cleaner/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SCK-SS-100.png",
+      "specs": {
+        "Product ID": "2642",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Cassettes + Gel Pad",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-cleaner-mini-1-25mm-cleaning-tool": {
+      "name": "SMART CLEANER MINI 1.25MM",
+      "description": "SENKO Part Number: SCK-SS-M-C125 400 cleanings 107mm length for use in tight spaces Cleans VSFF, LC and hardened 1.25mm connectors Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-cleaner-mini-1-25mm-cleaning-tool/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/10/Profile-2-sckssmc125-cleanedup-e1682379634500.png",
+      "specs": {
+        "Product ID": "6793",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Click Pen Cleaners",
+        "Product Type": "simple",
+        "SKU": "SCK-SS-M-C125",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-strip-flatdrop-3x2": {
+      "name": "SMART STRIP FLAT DROP 3×2",
+      "description": "SMART STRIP FLAT DROP 3X2 Part Number: AFT-T-DST-01 3.0mmx 2.0mm flat drop cable Internal length guide Strips jacket + dual strength rods Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-strip-flatdrop-3x2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/07/iso-2-light--e1691444916409.png",
+      "specs": {
+        "Product ID": "21277",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Tools + Testers+ Consumables",
+        "Product Type": "simple",
+        "SKU": "SCK-SS-250 SCK-SS-250-R-1-2",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-1-6mm-standard-connector": {
+      "name": "SN 1.6 mm and 2.0 mm",
+      "description": "The SN® connector combines ‘best-in-class’ packing density with carrier-grade performance and reliability. Designed and optimized for next-generation data rates, the SN connector offers network operators the chance to densify their existing legacy infrastructure whilst at the same time providing an upgrade path to 400G and beyond. The SN Standard connector is suitable for termination to either 1.6 mm or 2.0 mm round cable that incorporates a ruggedized jacket and internal strain relief. SN Licensees Accepts 1.6 mm and 2.0 mm cable Very Small Form Factor (VSFF) Uses proven LC ferrule technology Exceeds GR-326-CORE requirements",
+      "officialUrl": "https://www.senko.com/product/sn-1-6mm-standard-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SN-Standard-Connector-6X2-web-1-e1667922939129.png",
+      "specs": {
+        "Product ID": "2541",
+        "Series / Category": "SN Series / SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-adapter-sc-footprint": {
+      "name": "SN Adapter Non-Shuttered SC Footprint",
+      "description": "SENKO’s SN® SC-Shaped non-shuttered adapters are available either as a 2-channel (4 fibers) or 4-channel (8 fibers) variant. The 2-channel type is designed to fit legacy hardware incorporating an SC simplex (LC duplex) cut-out. The 4-channel version is designed to fit into legacy hardware incorporating the SC duplex (LC quad) cut-out. ​ These retro-fittable adapters are the ideal choice for cabling providers or equipment manufacturers that want to upgrade their systems to SN hyper-density without redesigning new panels or hardware. SN Licensees SC simplex and duplex types Telcordia, ANSI, TIA and IEC Compliant Mates SN standard and junior connectors",
+      "officialUrl": "https://www.senko.com/product/sn-adapter-sc-footprint/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/11/SN-SC-Footprint-Adapter-672-and-674-web-e1668636604872.png",
+      "specs": {
+        "Product ID": "17469",
+        "Series / Category": "SN Series / SN Adapters / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-compact-adapters": {
+      "name": "SN Compact Adapters SC Footprint",
+      "description": "SENKO’s SN® compact adapters are available either as a 3-channel (6 fibers) or 6-channel variant (12 fibers). The 3-channel type is designed to fit legacy hardware incorporating the SC simplex (LC duplex) cut-out, and the 6-channel version is designed to fit into legacy hardware incorporating the SC duplex (LC quad) cut-out. These compact adapters are designed for low-profile modular cassette systems that have little or no space above or below the adapter for fixing elements. The compact adapter is held in place by the base and top cover of the cassette and therefore sprung clips are placed on the upper and lower face of the adapter. SN Licensees Use only with SN Compact Connectors Precision zirconia alignment sleeves Telcordia, ANSI, TIA and IEC Compliant",
+      "officialUrl": "https://www.senko.com/product/sn-compact-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SN-Compact-Adapter-693and-696-web-e1668640718327.png",
+      "specs": {
+        "Product ID": "2805",
+        "Series / Category": "SN Series / SN Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-compact-connector": {
+      "name": "SN Compact BTW",
+      "description": "SENKO’s SN® Compact Connector is explicitly designed for the SN Compact adapter series in BTW (behind the wall) applications and is often deployed inside miniature cassette systems with little or no space above or below the adapters. The Compact series allows for 3-channel and 6-channel configurations to suit different cassette types and fiber counts. The SN Compact Connector features a latch-locking mechanism to confirm engagement with the adapter and uses industry-standard 1.25 mm ferrule technology that has been used in LC connectors for decades. SN Licensees Use only with SN Compact Adapters Latch locking mechanism Accepts 2 x 900 μm buffered fibers Extra small for space limited installations",
+      "officialUrl": "https://www.senko.com/product/sn-compact-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SN-Copmact-Web-Category.png",
+      "specs": {
+        "Product ID": "2806",
+        "Series / Category": "SN Series / SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-polarity-changeable-connector": {
+      "name": "SN EZ-Flip",
+      "description": "The SN® connector is the ultimate Base-2 connector combining ‘best-in-class’ packing density with carrier-grade performance and reliability. Designed and optimized for next-generation data rates, the SN® connector offers network operators the chance to densify their existing legacy infrastructure whilst at the same time providing an upgrade path to 400G and beyond. The SN EZ-Flip connector allows technicians to switch polarity in the field without disrupting fibers or repositioning ferrules. Not only can the polarity be changed with UPC ferrules, but APC connectors can also be polarity-flipped thanks to the unique orientation of the angled ferrules. SN Licensees Polarity switchable patch cord connector Accepts up to 2.0 mm cable IEC random mating Grade B Designed for OSFP/QSFP-DD break out",
+      "officialUrl": "https://www.senko.com/product/sn-polarity-changeable-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/06/SN-EZ-Flip-Connector-6xx-web-e1667921206404.png",
+      "specs": {
+        "Product ID": "2520",
+        "Series / Category": "SN Series / SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-gang-clip-for-adapters": {
+      "name": "SN Gang Clip for Adapters",
+      "description": "SENKO’s SN® Gang-clips are designed to hold four individual SN® connectors side by side so they can be plugged into shuttered adapters (or adapters with walls between each channel) simultaneously. This unique functionality dramatically reduces the installation time required to patch multiple connectors to high-density patch panels, as well as allowing the four duplex connectors to act as one Base-8 connector. The Gang-clip can be used to combine four individual connectors from duplex patch cords or alternatively, four connectors from a breakout cable or fanout cable. The Gang-clip is a critical solution in applications where multiple Base-8 connections are being patched to the rear side of a patch panels. Individual SN® connectors can be inserted or removed from the 4-way gang-clip thanks to flexible locking clips located on the upper face of the clip. Allows multiple SN® connectors to b",
+      "officialUrl": "https://www.senko.com/product/sn-gang-clip-for-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/12/Plastic-Gang-Clips-with-EZ-Flip-no-cables-e1670970773333.png",
+      "specs": {
+        "Product ID": "17981",
+        "Series / Category": "SN Accessories",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-gang-clip-for-transceivers": {
+      "name": "SN Gang Clip for Transceivers",
+      "description": "SENKO’s SN Gang Clips are designed to hold four individual SN connectors side by side so they can be plugged into either 4-channel QSFP-DD or 2-channel SFP-DD transceivers simultaneously. This dramatically reduces the installation time required to plug multiple connectors, and it also allows the four duplex connectors to act as a single connector. The Gang Clip is generally deployed in transceiver breakout applications where for example one 400G transceiver is broken out to 4 x 100G transceivers in spine-leaf architectures. The Quad Gang-Clip is also compatible with non shuttered SN adapters with the same footprint as QSFP-DD transceivers. Allows multiple SN connectors to be patched simultaneously The compact design prevents interference with transceiver pull-tab Suitable for QSFP-DD and SFP-DD transceivers",
+      "officialUrl": "https://www.senko.com/product/sn-gang-clip-for-transceivers/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/12/SN-Gang-Clips-Quad-QSFP-DD-and-SFP-DD-Transceivers-with-Cables-e1670970852387.png",
+      "specs": {
+        "Product ID": "17974",
+        "Series / Category": "SN Accessories",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-junior-connector": {
+      "name": "SN Junior BTW",
+      "description": "The SN® Junior connector is designed for applications that require less space consumption BTW (Behind The Wall) than conventional patch cord connectors. With a much shorter body length and boot length than conventional connectors, the SN Junior offers users the chance to reduce the depth of transition cassettes and modules as well as free up valuable space within fiber management panels for additional hardware such as splice cassettes, coherent devices or optoelectronic equipment. SN Licensees Latch locking mechanism Accepts 2 x 900 μm buffered fibers Uses proven LC ferrule technology Extra small for space limited installations",
+      "officialUrl": "https://www.senko.com/product/sn-junior-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/Sn-Junior-Gen-2-Web-Category.png",
+      "specs": {
+        "Product ID": "2907",
+        "Series / Category": "SN Series / SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-loopback": {
+      "name": "SN Loopback",
+      "description": "SENKO’S SN® Loopback is designed to provide a media of return patch for a fiber optic signal. Commonly used for burn-in testing and network troubleshooting, the high density push-pull tab design will fit into may applications. High Density Design UPC and APC polish Attenuation levels from 0-10dB Push-Pull housing for easy installation",
+      "officialUrl": "https://www.senko.com/product/sn-loopback/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SN-Loopback-web-e1667926402255.png",
+      "specs": {
+        "Product ID": "2910",
+        "Series / Category": "SN Series / SN Accessories / Attenuators and Loopbacks",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mini-connector": {
+      "name": "SN Mini BTW",
+      "description": "The SN® Mini connector is the shortest connector in the SN family and offers users the most space-efficient solution for applications demanding optimized BTW (Behind The Wall) space-saving. In combination with SN Mini connectors, as much as 14.1mm can be saved compared with standard adapters and connectors, making it the ideal solution for opto-electronic applications requiring circuit boards or other vital components to share the same space as fiber optic connectivity. SN Licensees Use only with SN Mini Adapters Latch locking mechanism Accepts 2 x 900 μm buffered fibers Extra small for space-limited installations",
+      "officialUrl": "https://www.senko.com/product/sn-mini-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-Mini-Connector-6X9-web-2.png",
+      "specs": {
+        "Product ID": "9632",
+        "Series / Category": "SN Series / SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mini-shuttered-adapters": {
+      "name": "SN Mini Shuttered Adapters",
+      "description": "SENKO’s SN® Mini, shuttered, 4-channel adapters are designed to offer maximum packing density at the front of patch panels whilst significantly reducing the space consumption at the rear of the panel for BTW (Behind The Wall) connectivity. In combination with SN® Mini connectors, as much as 14.1mm can be saved compared with standard adapters and connectors, making it the ideal solution for optoelectronic applications requiring circuit boards or other vital components to share the same space as fiber the optic connectivity. SN Licensees Use only SN Mini Connectors Maximum BTW space-saving SN Uniboot & Gang-clip compatible Telcordia, ANSI, TIA and IEC Compliant",
+      "officialUrl": "https://www.senko.com/product/sn-mini-shuttered-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SN-Mini-Adapter-No-Flange-web-e1668007714409.png",
+      "specs": {
+        "Product ID": "2804",
+        "Series / Category": "SN Series / SN Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-standard-adapters-2": {
+      "name": "SN Non-Shuttered Adapters",
+      "description": "SENKO’s SN® non-shuttered adapters are available either as a 1-channel (2 fibers) or 4-channel variant (8 fibers). The single channel is designed for applications requiring the separation of individual optical channels such as coherent optics or wave-splitting. The 4-channel version is designed to maximize port density within patch panels, and h aving the same footprint size as QSFP- DD transceivers, operators can now replicate switch-ports with inter-connected patch panels on a 1:1 basis. Note: The non-shuttered adapter is slightly smaller than the shuttered version. SN Licensees QSFP-DD footprint match 4-channel is SN Uniboot & Gang-clip compatible Telcordia, ANSI, TIA and IEC Compliant Mates SN standard, and junior connectors",
+      "officialUrl": "https://www.senko.com/product/sn-standard-adapters-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SN-Standard-Adapter-1CH-and-4CH-691-and-694-web-e1668618617351-364x251-new.png",
+      "specs": {
+        "Product ID": "2722",
+        "Series / Category": "SN Series / SN Adapters / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-shuttered-adapters": {
+      "name": "SN Shuttered Adapters",
+      "description": "SENKO’s SN® shuttered adapters are available either as a 1-channel (2 fibers) or 4-channel variant (8 fibers). The single channel is designed for applications requiring the separation of individual optical channels such as coherent optics or wave-splitting. The 4-channel (8 fibers) version is designed for maximizing port density within patch panels. This adapter is slightly larger than the non-shuttered version due to the addition of dividing walls that support the integrated dust shutters. When the connector is inserted into the adapter, the body of the connector (not the ferrule) pushes the shutter open so the ferrules can be guided into the adapter sleeve. ​ SN Uniboot and Gang-clip compatible ​ Precision zirconia alignment sleeves ​ Telcordia, ANSI, TIA and IEC Compliant 4-channel is SN Uniboot & Gang-clip compatible",
+      "officialUrl": "https://www.senko.com/product/sn-shuttered-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-Shuttered-Adapter-69D-web-e1667925655743.png",
+      "specs": {
+        "Product ID": "9802",
+        "Series / Category": "SN Series / SN Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-shuttered-adapters-sc-footprint": {
+      "name": "SN Shuttered Adapters SC Footprint",
+      "description": "SENKO’s SN® SC-Footprint shuttered adapters are available either as a 2-channel (4 fibers) or 4-channel (8 fibers) variant. The 2-channel type is designed to fit legacy hardware incorporating an SC simplex (LC duplex) cut-out. The 4-channel version is designed to fit into legacy hardware incorporating the SC duplex (LC quad) cut-out. These retro-fittable adapters are the ideal choice for cabling providers or equipment manufacturers that want to upgrade their systems to SN hyper-density without redesigning new panels or hardware. ​ SC simplex and duplex types ​ Premium one-piece body design ​ Precision zirconia alignment sleeves ​ Telcordia, ANSI, TIA and IEC Compliant",
+      "officialUrl": "https://www.senko.com/product/sn-shuttered-adapters-sc-footprint/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/11/SN-SC-Footprint-Shuttered-Adapter-67B-and-67D-web-e1668636962760.png",
+      "specs": {
+        "Product ID": "17478",
+        "Series / Category": "SN Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-uniboot": {
+      "name": "SN Uniboot",
+      "description": "The SN Uniboot is a revolutionary connector that allows four duplex SN connectors to be patched simultaneously in one operation. Subsequently, the SN-Uniboot offers the same degree of flexibility as an MPO 8-fiber connector but without the need for breakout cassettes or fanout cables to transition from Base-8 to Base-2. This dual functionality makes the SN Uniboot granular enough for duplex server connections, optimized for high-density trunks and the perfect match to high data rate transceivers utilising four optical lanes (8 fibers). TELCO grade ceramic ferrules Base-8 and Base-2 patching flexibility Push-pull Boot for simple installation and removal Eliminate cassettes and fanouts Quadrupled density versus LC duplex Supports 400G data rates with QSFP-DD and OSFP transceivers",
+      "officialUrl": "https://www.senko.com/product/sn-uniboot/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/09/SN-Uniboot-Connector-website.png",
+      "specs": {
+        "Product ID": "14902",
+        "Series / Category": "SN Connectors",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-adapter": {
+      "name": "SN-MT Adapter",
+      "description": "The SN-MT 4 channel Adapter accepts both SN-MT Connector and SN-MT Junior Connector on behind the wall (BTW) side. The SN-MT Adapter has the same foot print as the SN Adapter and houses. Same SN Adapter foot print",
+      "officialUrl": "https://www.senko.com/product/sn-mt-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-MT-4ch-adapter-wall-green.png",
+      "specs": {
+        "Product ID": "9165",
+        "Series / Category": "SN-MT Connector and Adapter / Space Saving SN-MT Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-connector": {
+      "name": "SN-MT Connector",
+      "description": "The SN-MT connector is designed for high density applications with its compact size and push-pull boots. The SN-MT is offered in 16F, and has 2.7 x the density than 16F MPO. SN-MT keeps the same footprint as the SN so it can fit 64 fibers in QSFP-DD or OSFP modules. 2.7 x the density over 16F MPO Push-pull boot Low-loss offered in 16F Allows up to 3,456 fibers per 1RU Wide range of connector and adapter types for legacy upgrades or greenfield applications",
+      "officialUrl": "https://www.senko.com/product/sn-mt-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/SN-MT-home-1-e1704828374389.png",
+      "specs": {
+        "Product ID": "9151",
+        "Series / Category": "SN-MT Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-junior-connector": {
+      "name": "SN-MT Junior Connector",
+      "description": "The SN-MT Junior connector is designed for high density applications with its compact size for behind the wall (BTW) situations. The SN-MT is offered in 16F, and has 2.7 x the density than 16F MPO. The SN-MT Junior fits on the BTW side of the SN-MT adapter. It mates using a latch. No special adapter is required for this connector. No special adapter required Low-loss offered in 16F Industry’s highest density connector",
+      "officialUrl": "https://www.senko.com/product/sn-mt-junior-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-MT-JuniorNew.png",
+      "specs": {
+        "Product ID": "9155",
+        "Series / Category": "Space Saving SN-MT Connector and Adapter / MPO Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-1ch-adapter": {
+      "name": "SN-MT Mini Adapter",
+      "description": "The SN-MT Mini Adapter accepts SN-MT Connectors on the front side and SN-MT Mini Connector on behind the wall (BTW) side. The SN-MT Mini Adapter houses. Same SN foot print",
+      "officialUrl": "https://www.senko.com/product/sn-mt-1ch-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-MT-Mini-16F-Adapter-135.png",
+      "specs": {
+        "Product ID": "9168",
+        "Series / Category": "SN-MT Mini Connector and Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-mini-connector": {
+      "name": "SN-MT Mini Connector",
+      "description": "The SN-MT Mini Connector is designed for high density applications with its very compact size. The SN-MT Connector is offered in 16F, and has 2.7 x the density than 16F MPO. The SN-MT Mini Connector fits on the behind the wall side of the SN-MT Mini adapter and mates using a latch. The SN-MT Mini Connector is the smallest form factor in the series. Smallest footprint in series Low-loss offered in 16F Mates with SN-MT Mini adapter",
+      "officialUrl": "https://www.senko.com/product/sn-mt-mini-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2024/06/SN-MT-Mini-New-e1718131307656.png",
+      "specs": {
+        "Product ID": "9158",
+        "Series / Category": "SN-MT Mini Connector and Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-16-shuttered-adapter": {
+      "name": "SN-MT Shuttered Adapter",
+      "description": "SENKO’s SN-MT shuttered adapters are available either as a 1-port or 4-port variant. The single port is designed for applications such as BASE-16 to Base-2 transitions, where the adapter is placed at the rear of fiber management cassettes or panels. The 4-port version is designed to maximize port density within high-density patch panels or active equipment. Premium one-piece body design Up to 3,456 fibers per 1RU (Rack Unit) Accepts SN-MT standard and junior connectors",
+      "officialUrl": "https://www.senko.com/product/sn-mt-16-shuttered-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/03/SN-MT-16-Shuttered-Adaoter-4ch-134.png",
+      "specs": {
+        "Product ID": "19655",
+        "Series / Category": "SN-MT Connector and Adapter / Space Saving SN-MT Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-shuttered-adapter-2-ports": {
+      "name": "SN-MT Shuttered Adapter 2 ports",
+      "description": "SENKO’s SN-MT shuttered adapters are designed for applications such as BASE-16 to Base-2 transitions, where the adapter is placed at the rear of fiber management cassettes or panels. Premium one-piece body design Up to 3,456 fibers per 1RU (Rack Unit) Accepts SN-MT standard and junior connectors",
+      "officialUrl": "https://www.senko.com/product/sn-mt-shuttered-adapter-2-ports/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2025/05/SN-MT-adapter-65s-288.png",
+      "specs": {
+        "Product ID": "32362",
+        "Series / Category": "SN-MT Connector and Adapter / Space Saving SN-MT Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-insert-extract-tool-rmt-203": {
+      "name": "SN® Insert-Extract Tool",
+      "description": "SENKO Part Number: RMT-203 Handling SN ® and SN ® -MT assemblies Ideal for use in high density patch panels Slim profile jaws Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/sn-insert-extract-tool-rmt-203/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2023/01/grabbing-SN-boot-in-panel-clean-scaled-e1674548246662.jpg",
+      "specs": {
+        "Product ID": "14750",
+        "Series / Category": "SN Accessories / Clean + Inspect + Test / Tools + Testers+ Consumables",
+        "Product Type": "simple",
+        "SKU": "SCK-SS-250 SCK-SS-250-R-1-1-1-1",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "c2-b5cs-adapters": {
+      "name": "µCS Adapter",
+      "description": "SENKO’s Micro CS® Adapters are high-density, 2 channel adapters designed for reduced foot print applications where behind the wall space is limited. Micro CS adapters and connectors are ideal for high fiber count patch panels and plug and play cassette modules. 4 fiber configuration Premium one-piece body design Precision zirconia alignment sleeves Telcordia, ANSI, TIA and IEC Compliant",
+      "officialUrl": "https://www.senko.com/product/%c2%b5cs-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/Micro-CS-Adapter-e1634153529675.png",
+      "specs": {
+        "Product ID": "2863",
+        "Series / Category": "CS Series / Micro CS Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "682U",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "c2-b5cs-connector": {
+      "name": "µCS Connector",
+      "description": "The Micro CS® connector design offers exceptional performance at an economical price. The CS is a Very Small Form Factor (VSFF) connector and is ideal for use in Plug & Play and onboard optics modules. The CS connector allows you to double the density in patch panels compared to LC duplex solutions. Cost effective Space saving Grade B IEC61753-1 Random Mating Accepts up to 900µm buffered fiber",
+      "officialUrl": "https://www.senko.com/product/%c2%b5cs-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/Micro-CS-Connector-e1634153617234.png",
+      "specs": {
+        "Product ID": "2862",
+        "Series / Category": "Micro CS Connector and Adapter",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    }
+  }
+}

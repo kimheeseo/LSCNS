@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "1RU LGX Compact Patch Panel",
+  "displayName": "1RU LGX Compact Patch Panel",
+  "description": "Compact panel supporting three LGX components.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/1ru-lgx-compact-patch-panel/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2022/11/SEL-10.16.23_1RULGX-Compact-Patch-Panel-Ver.2_v4.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "Module Type",
+    "Module Capacity",
+    "LC Port Capacity",
+    "SC Port Capacity",
+    "Dimensions"
+  ],
+  "products": {
+    "FT01L03-LSA": {
+      "name": "FT01L03-LSA",
+      "description": "1RU LGX compact patch panel.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/1ru-lgx-compact-patch-panel/",
+      "specs": {
+        "Product Type": "Patch panel",
+        "Rack Unit": "1RU",
+        "Module Type": "LGX",
+        "Module Capacity": "3",
+        "LC Port Capacity": "72",
+        "SC Port Capacity": "36",
+        "Dimensions": "41 × 484 × 254 mm"
+      }
+    }
+  }
+}

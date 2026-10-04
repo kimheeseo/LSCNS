@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-05",
   "pdfCount": 1021,
-  "structuredCatalogFiles": 69,
+  "structuredCatalogFiles": 76,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
@@ -9,7 +9,13 @@
     "catalogCount": 10,
     "productRows": 54
   },
-  "note": "Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed.",
+  "usConecMtp": {
+    "sourceRows": 1895,
+    "uniqueDrawingProducts": 154,
+    "pdfCount": 0,
+    "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
+  },
+  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed. NVIDIA Vera Rubin AI Factory Platform catalog added from attached NVIDIA datasheet as metadata-only product specs. NVIDIA data center GPU/platform/networking catalog expanded with supplied NVIDIA resource links.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -147,13 +153,13 @@
       "structuredMetadata": false
     },
     {
-      "folder": "Corning/Module/EDGE™ Module, Ultra Low Loss",
-      "pdfCount": 9,
+      "folder": "Corning/Module/EDGE™ Module",
+      "pdfCount": 11,
       "structuredMetadata": false
     },
     {
-      "folder": "Corning/Module/EDGE™ Module",
-      "pdfCount": 11,
+      "folder": "Corning/Module/EDGE™ Module, Ultra Low Loss",
+      "pdfCount": 9,
       "structuredMetadata": false
     },
     {
@@ -305,6 +311,56 @@
       "folder": "USConnec/MMC Connectors",
       "pdfCount": 23,
       "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/AI Factory Platforms/Vera Rubin Platform",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/Data Center GPUs",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/CPU and Superchips",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/Networking",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "NVIDIA/Professional GPUs Reference",
+      "pdfCount": 0,
+      "structuredMetadata": true
     }
-  ]
+  ],
+  "nvidiaDataCenter": {
+    "productGroups": 6,
+    "productRows": 27,
+    "pdfCount": 0,
+    "storageMode": "metadata only; supplied NVIDIA datasheets and official product pages are referenced but PDFs are not uploaded",
+    "expandedSourceBatch": "2026-10-05 NVIDIA GPU/platform/networking update",
+    "sourceDocuments": [
+      "gpu-architecture-datasheet-vera-rubin-nvidia-us-5198950-web.pdf",
+      "hpc-datasheet-sc24-h200-datasheet-3002446.pdf",
+      "nvidia-ampere-ga-102-gpu-architecture-whitepaper-v2.pdf"
+    ],
+    "sourceUrls": [
+      "https://www.nvidia.com/ko-kr/data-center/products/",
+      "https://resources.nvidia.com/en-us-gpu-resources/h100-datasheet-24306",
+      "https://resources.nvidia.com/en-us-gpu-resources/hpc-datasheet-sc23?lx=CPwSfP",
+      "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet?lx=CPwSfP",
+      "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+      "https://resources.nvidia.com/en-us-gpu-resources/l4-tensor-datasheet?lx=CPwSfP"
+    ]
+  }
 }

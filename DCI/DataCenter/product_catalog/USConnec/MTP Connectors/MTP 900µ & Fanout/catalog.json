@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "company": "US Conec",
+  "category": "MTP 900µ & Fanout",
+  "displayName": "MTP 900µ & Fanout",
+  "description": "900 µm and ribbon-fanout MTP® kits.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.usconec.com/connectors/mtp-connectors",
+  "sourceApi": "https://www.usconec.com/umbraco/rhythm/productapi/filter",
+  "sourceCount": 2,
+  "comparisonFields": [
+    "Connector Style",
+    "Fiber Count",
+    "Gender",
+    "Fiber Type",
+    "Cable Style",
+    "Cable Exit",
+    "Spring Force",
+    "Housing Color",
+    "Performance",
+    "Variant Count",
+    "Part Numbers"
+  ],
+  "products": {
+    "C14873": {
+      "name": "C14873 · Kit MTP® 900µ, Male Multimode, Beige Housing, 10N Spring Force",
+      "description": "Kit MTP® 900µ, Male Multimode, Beige Housing, 10N Spring Force; 19 official product descriptions share drawing C14873.pdf. Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-900µ-male-multimode-beige-housing-10n-spring-force",
+      "drawing": "C14873.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC14873.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12 / 1x4, 1x8, 1x12, 2x12 / 1x8, 4+4, 1x12, 2x12 / 1x8, 4+4, 1x12",
+        "Gender": "Male / Female",
+        "Fiber Type": "Multimode / Single-mode",
+        "Cable Style": "900 um",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Beige / Green / Yellow / Black / Aqua / Magenta",
+        "Performance": "Standard / MTP Elite® / Standard, MTP Elite®",
+        "Variant Count": "19",
+        "Part Numbers": "14873, 15313, 15314, 15315, 15316, 15317, 15318, 15319, 15320, 15321, 15322, 17060 +7 more"
+      },
+      "partNumbers": [
+        "14873",
+        "15313",
+        "15314",
+        "15315",
+        "15316",
+        "15317",
+        "15318",
+        "15319",
+        "15320",
+        "15321",
+        "15322",
+        "17060",
+        "17061",
+        "19218",
+        "19219",
+        "19220",
+        "22990",
+        "22991",
+        "22992"
+      ],
+      "variantNames": [
+        "Kit MTP® 900µ, Male Multimode, Beige Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Single-mode, Green Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Single-mode MTP Elite®, Yellow Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode, Beige Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Single-mode, Green Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Single-mode MTP Elite®, Yellow Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode, Black Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode, Black Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode, Aqua Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode or Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode MTP Elite®, Aqua Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode or Multimode MTP Elite®, Magenta Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode MTP Elite®, Magenta Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode or Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode, Lime Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode MTP Elite®, Lime Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Female Multimode or Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode, Heather Violet Housing, 10N Spring Force",
+        "Kit MTP® 900µ, Male Multimode MTP Elite®, Heather Violet Housing, 10N Spring Force"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Removable housing for interferometry and rework",
+        "Highest precision SS guide pins",
+        "Industry leading lowest loss Insertion Loss when used with MT Elite® Ferrules"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to TIA-568.3-D",
+        "Standards Compliance IEC 61754-7-1; 61754-7-2"
+      ]
+    },
+    "C15323": {
+      "name": "C15323 · Kit MTP® 900µ, Multimode/Single-mode to Ribbon Fanout",
+      "description": "Kit MTP® 900µ, Multimode/Single-mode to Ribbon Fanout Key feature: Elliptical guide pin tip to minimize ferrule debris",
+      "officialUrl": "https://www.usconec.com/products/kit-mtp-900µ-multimodesingle-mode-to-ribbon-fanout",
+      "drawing": "C15323.pdf",
+      "drawingUrl": "https://www.usconec.com/umbraco/rhythm/protectedfilesapi/download?path=%2ffiles%2fdrawings%2fC15323.pdf",
+      "specs": {
+        "Connector Style": "MPO",
+        "Fiber Count": "1x4, 1x8, 1x12",
+        "Gender": "Female",
+        "Fiber Type": "Multimode",
+        "Cable Style": "900 um",
+        "Cable Exit": "No Boot",
+        "Spring Force": "10N",
+        "Housing Color": "Black",
+        "Performance": "Standard",
+        "Variant Count": "1",
+        "Part Numbers": "15323"
+      },
+      "partNumbers": [
+        "15323"
+      ],
+      "variantNames": [
+        "Kit MTP® 900µ, Multimode/Single-mode to Ribbon Fanout"
+      ],
+      "features": [
+        "Elliptical guide pin tip to minimize ferrule debris",
+        "Exceeds TIA and IEC dimensional requirements for optimal performance",
+        "Floating ferrule design ensures fiber contact integrity",
+        "Removable housing for interferometry and rework"
+      ],
+      "applications": [
+        "Array fiber to single fiber breakouts and cassettes",
+        "Array trunk cables",
+        "FTTh (home) MDU cabling",
+        "Parallel optic patch cables: SR-4, SR-8 & PSM4",
+        "Qualified to TIA-568.3-D",
+        "Standards Compliance IEC 61754-7-1; 61754-7-2"
+      ]
+    }
+  }
+}

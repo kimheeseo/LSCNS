@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "12-Fiber Ribbon Pigtail Fanout Kits",
+  "displayName": "12-Fiber Ribbon Pigtail Fanout Kits",
+  "description": "Ribbon pigtail fanout kits for transition from 12-fiber ribbon to LC, SC or ST connectivity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/01/SEL_25.06.04_12-Fiber-Ribbon-Pigtail-Fanout-Kits_v1.1.pdf",
+  "comparisonFields": [
+    "Connector",
+    "Fiber Type",
+    "Polish",
+    "Insertion Loss",
+    "Return Loss",
+    "Total Length",
+    "Ribbon Length"
+  ],
+  "products": {
+    "SEL_25.06.04_12-Fiber-Ribbon-Pigtail-Fanout-Kits_v1.1": {
+      "name": "12-Fiber Ribbon Pigtail Fanout Kits",
+      "description": "12-fiber ribbon-to-connector fanout kit family with 900 μm furcation.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "LC / SC / ST",
+        "Fiber Type": "OS2 / OM1 / OM4 / OM5",
+        "Polish": "UPC / APC",
+        "Insertion Loss": "LC SM ≤0.25 dB UPC; ≤0.30 dB APC",
+        "Return Loss": "SM ≥55 dB UPC; ≥60 dB APC",
+        "Total Length": "Typical 9.8 ft (3.0 m)",
+        "Ribbon Length": "Typical 7.5 ft (2.3 m)"
+      }
+    },
+    "BOR-BR012LC19-V": {
+      "name": "BOR-BR012LC19-V",
+      "description": "12-fiber ribbon fanout with LC connectors.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "LC",
+        "Fiber Type": "OM5",
+        "Polish": "UPC",
+        "Insertion Loss": "MM LC ≤0.30 dB",
+        "Return Loss": "MM ≥25 dB",
+        "Total Length": "3.3 ft (1 m)",
+        "Ribbon Length": "2.3 ft (0.7 m)"
+      }
+    },
+    "BOR-BR012LC2DL": {
+      "name": "BOR-BR012LC2DL",
+      "description": "12-fiber OS2 ribbon fanout with LC connectors.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "LC",
+        "Fiber Type": "OS2",
+        "Polish": "UPC",
+        "Insertion Loss": "≤0.25 dB",
+        "Return Loss": "≥55 dB",
+        "Total Length": "6.6 ft (2 m)",
+        "Ribbon Length": "4.6 ft (1.4 m)"
+      }
+    },
+    "BOR-BR012LC2D-R": {
+      "name": "BOR-BR012LC2D-R",
+      "description": "12-fiber OS2 LC fanout with riser jacket.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "LC",
+        "Fiber Type": "OS2",
+        "Polish": "UPC",
+        "Insertion Loss": "≤0.25 dB",
+        "Return Loss": "≥55 dB",
+        "Total Length": "6.6 ft (2 m)",
+        "Ribbon Length": "4.6 ft (1.4 m)"
+      }
+    },
+    "BOR-BR012SCA3D-R": {
+      "name": "BOR-BR012SCA3D-R",
+      "description": "12-fiber OS2 SC/APC ribbon fanout with riser jacket.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "SC",
+        "Fiber Type": "OS2",
+        "Polish": "APC",
+        "Insertion Loss": "≤0.50 dB",
+        "Return Loss": "≥60 dB",
+        "Total Length": "9.8 ft (3 m)",
+        "Ribbon Length": "7.5 ft (2.3 m)"
+      }
+    },
+    "BOR-BR012SCU10-D-R": {
+      "name": "BOR-BR012SCU10-D-R",
+      "description": "12-fiber OS2 SC/UPC ribbon fanout with riser jacket.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "SC",
+        "Fiber Type": "OS2",
+        "Polish": "UPC",
+        "Insertion Loss": "≤0.30 dB",
+        "Return Loss": "≥55 dB",
+        "Total Length": "9.8 ft (3 m)",
+        "Ribbon Length": "7.5 ft (2.3 m)"
+      }
+    },
+    "BOR-BR012ST3D-V": {
+      "name": "BOR-BR012ST3D-V",
+      "description": "12-fiber OS2 ST/UPC ribbon fanout.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fan-out-kits/",
+      "specs": {
+        "Connector": "ST",
+        "Fiber Type": "OS2",
+        "Polish": "UPC",
+        "Insertion Loss": "≤0.30 dB",
+        "Return Loss": "≥55 dB",
+        "Total Length": "9.8 ft (3 m)",
+        "Ribbon Length": "7.5 ft (2.3 m)"
+      }
+    }
+  }
+}

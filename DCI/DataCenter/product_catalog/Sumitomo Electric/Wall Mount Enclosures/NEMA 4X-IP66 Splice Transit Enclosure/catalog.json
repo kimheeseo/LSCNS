@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "NEMA 4X/IP66 Splice Transit Enclosure",
+  "displayName": "NEMA 4X/IP66 Splice Transit Enclosure",
+  "description": "Environmentally hardened indoor splice transit enclosure.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/nema-4x-ip66-splice-transit-enclosure/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2024/06/SEL_11.21.25_NEMA-4X-IP66-Splice-Transit-Enclosure_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "IP Rating",
+    "Mounting",
+    "Cable Entry Capacity",
+    "Cable Diameter",
+    "Dimensions",
+    "Weight"
+  ],
+  "products": {
+    "FTC-IP66-AL-1728": {
+      "name": "FTC-IP66-AL-1728",
+      "description": "IP66 / NEMA 4X-equivalent enclosure.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/nema-4x-ip66-splice-transit-enclosure/",
+      "specs": {
+        "Product Type": "Splice transit enclosure",
+        "Fiber Capacity": "1,728f",
+        "IP Rating": "IP66 (NEMA 4X equivalent)",
+        "Mounting": "Wall / ceiling",
+        "Cable Entry Capacity": "Max 2",
+        "Cable Diameter": "Max 27.4 mm",
+        "Dimensions": "710 × 480 × 250 mm",
+        "Weight": "≤15 kg"
+      }
+    },
+    "FTC-IP66-AL-1728-ST": {
+      "name": "FTC-IP66-AL-1728-ST",
+      "description": "144f splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/nema-4x-ip66-splice-transit-enclosure/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "Fiber Capacity": "144f",
+        "IP Rating": "—",
+        "Mounting": "Inside enclosure",
+        "Cable Entry Capacity": "—",
+        "Cable Diameter": "—",
+        "Dimensions": "—",
+        "Weight": "—"
+      }
+    },
+    "FPS-6": {
+      "name": "FPS-6",
+      "description": "40 mm protection sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/nema-4x-ip66-splice-transit-enclosure/",
+      "specs": {
+        "Product Type": "Splice protection sleeve",
+        "Fiber Capacity": "2–12 fibers/splice",
+        "IP Rating": "—",
+        "Mounting": "Consumable",
+        "Cable Entry Capacity": "—",
+        "Cable Diameter": "—",
+        "Dimensions": "40 mm",
+        "Weight": "—"
+      }
+    }
+  }
+}

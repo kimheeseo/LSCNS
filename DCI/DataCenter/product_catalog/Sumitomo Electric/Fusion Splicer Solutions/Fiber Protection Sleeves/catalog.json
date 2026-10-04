@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "Fiber Protection Sleeves",
+  "displayName": "Fiber Protection Sleeves",
+  "description": "Single- and multi-fiber fusion-splice protection sleeves for durable fiber protection.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL-07.14.26_Fiber-Protection-Sleeves-1.pdf",
+  "comparisonFields": [
+    "Fiber Count",
+    "Coating Size",
+    "Length",
+    "Strength Member",
+    "Package Qty",
+    "Construction"
+  ],
+  "products": {
+    "SEL-07.14.26_Fiber-Protection-Sleeves-1": {
+      "name": "Fiber Protection Sleeves",
+      "description": "Fusion-splice protection sleeve family using heat-shrink outer tube and meltable adhesive.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f / multi-fiber",
+        "Coating Size": "200–900 μm depending model",
+        "Length": "40–61 mm",
+        "Strength Member": "Stainless steel / glass ceramic",
+        "Package Qty": "10–500 depending model",
+        "Construction": "Polyolefin outer + EVA adhesive inner"
+      }
+    },
+    "FPS-1": {
+      "name": "FPS-1",
+      "description": "Single-fiber protection sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "60 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "50",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-1-BX": {
+      "name": "FPS-1-BX",
+      "description": "Boxed single-fiber protection sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "60 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "500",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-40-10P": {
+      "name": "FPS-40-10P",
+      "description": "40 mm single-fiber sleeve, 10-pack.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "40 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "10",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-40": {
+      "name": "FPS-40",
+      "description": "40 mm single-fiber sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "40 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "50",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-40-BX": {
+      "name": "FPS-40-BX",
+      "description": "Boxed 40 mm single-fiber sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "40 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "500",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-61-2.6": {
+      "name": "FPS-61-2.6",
+      "description": "61 mm single-fiber protection sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "61 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "100",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-61-2.6-BX": {
+      "name": "FPS-61-2.6-BX",
+      "description": "Boxed 61 mm single-fiber protection sleeve.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1f",
+        "Coating Size": "200–900 μm",
+        "Length": "61 mm",
+        "Strength Member": "Stainless steel",
+        "Package Qty": "500",
+        "Construction": "Polyolefin + EVA"
+      }
+    },
+    "FPS-6": {
+      "name": "FPS-6",
+      "description": "Mass-splice protection sleeve; 16f use limited to 200 μm fiber per supplied datasheet.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/fiber-protection-sleeves/",
+      "specs": {
+        "Fiber Count": "1–16f",
+        "Coating Size": "0.3 mm thickness",
+        "Length": "40 mm",
+        "Strength Member": "Glass ceramic",
+        "Package Qty": "25",
+        "Construction": "Mass-splice sleeve"
+      }
+    }
+  }
+}

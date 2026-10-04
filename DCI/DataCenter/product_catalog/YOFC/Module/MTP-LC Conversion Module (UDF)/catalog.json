@@ -3,7 +3,7 @@
   "company": "YOFC",
   "category": "MTP-LC Conversion Module (UDF)",
   "displayName": "MTP-LC Conversion Module (UDF)",
-  "description": "UDF plug-and-play conversion module for MTP trunk termination to duplex LC distribution.",
+  "description": "UDF plug-and-play MTP-LC conversion module for structured data-center cabling.",
   "checked": "2026-10-04",
   "officialUrl": "https://en.yofc.com/view/3031.html",
   "comparisonFields": [
@@ -15,18 +15,19 @@
     "Standards"
   ],
   "products": {
-    "MTP-LC Conversion Module (UDF)": {
+    "__characteristics__": {
       "name": "MTP-LC Conversion Module (UDF)",
-      "description": "YOFC UDF plug-and-play module that splits 12-core/24-core MTP trunk interfaces into duplex LC adapters for structured data-center cabling.",
+      "description": "Splits 12-core/24-core MTP trunk interfaces into duplex LC distribution; front LC adapters connect through built-in branch cords to one or three rear MTP adapters.",
       "officialUrl": "https://en.yofc.com/view/3031.html",
       "specs": {
         "Conversion": "12-core / 24-core MTP → duplex LC",
-        "Front Interface": "Duplex LC adapters",
+        "Front Interface": "Duplex LC adapters with dustproof covers",
         "Rear Interface": "1 or 3 MTP adapters",
         "Insertion Loss": "≤0.35 dB (multimode); ≤0.65 dB (single-mode)",
-        "Application": "UDF rack-mounted fiber optic patch panel",
+        "Application": "UDF rack-mounted fibre optic patch panel",
         "Standards": "TIA/EIA 604-5-D-2007; IEC 61754-7-2008"
-      }
+      },
+      "characteristicsOnly": true
     }
   }
 }

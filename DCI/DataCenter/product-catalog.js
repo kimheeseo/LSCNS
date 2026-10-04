@@ -228,8 +228,9 @@
     const file = entry.file;
     const manifest = entry.manifest;
     const group = entry.group || state.category;
-    const model = modelFromFile(file.name);
-    const meta = productMeta(manifest, file, model);
+    const rawModel = modelFromFile(file.name);
+    const meta = productMeta(manifest, file, rawModel);
+    const model = meta.characteristicsOnly ? 'Characteristics' : rawModel;
     const specs = specObject(manifest, meta);
     const title = meta.name || model;
     const description = meta.description || (manifest && manifest.productDescription) || '';

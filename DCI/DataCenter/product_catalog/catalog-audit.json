@@ -1,0 +1,124 @@
+{
+  "checked": "2026-10-04",
+  "pdfCount": 394,
+  "structuredCatalogFiles": 15,
+  "pendingStructuredFolders": 9,
+  "pendingStructuredPdfs": 125,
+  "folders": [
+    {
+      "folder": "Corning/Accessories/EDGE™ Solutions_Rack Accessory",
+      "pdfCount": 8,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Accessories/MTP PRO Accessories",
+      "pdfCount": 6,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip",
+      "pdfCount": 10,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Bracket/EDGE™ Strain-Relief Bracket",
+      "pdfCount": 4,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Connector/MMC",
+      "pdfCount": 1,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Housing/EDGE™ Housing, FX",
+      "pdfCount": 5,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Housing/Pretium® Connector Housing (PCH)",
+      "pdfCount": 5,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Jumper/12-Fiber MTP® PRO Jumper",
+      "pdfCount": 18,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex",
+      "pdfCount": 2,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/ODF/EDGE™ Solutions_ODF",
+      "pdfCount": 5,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC",
+      "pdfCount": 12,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®",
+      "pdfCount": 52,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Panel/Adapter Panels/EDGE™ Adapter Panel, MTP®",
+      "pdfCount": 8,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Panel/CCH Panel/CCH Panel, FC Adapters",
+      "pdfCount": 6,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Panel/CCH Panel/CCH Panel, LC Adapters",
+      "pdfCount": 29,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Panel/CCH Panel/CCH Panel, MTP Adapters",
+      "pdfCount": 20,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Panel/EDGE™ Panels",
+      "pdfCount": 3,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Trunk/EDGE™ Armored Trunk",
+      "pdfCount": 17,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Trunk/EDGE™ MTP® Extender Trunk",
+      "pdfCount": 30,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Corning/Trunk/EDGE™ MTP® Trunk",
+      "pdfCount": 78,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "USConnec/Fiber Optic Cleaners",
+      "pdfCount": 41,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "USConnec/MDC Connectors",
+      "pdfCount": 11,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "USConnec/MMC Connectors",
+      "pdfCount": 23,
+      "structuredMetadata": true
+    }
+  ]
+}

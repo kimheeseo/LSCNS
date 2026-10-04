@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "UDF Pro Optical Fibre Module Cassette",
+  "displayName": "UDF Pro Optical Fibre Module Cassette",
+  "description": "72-core UDF Pro MTP-to-MDC conversion cassette family for UDF patch panels.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3034.html",
+  "comparisonFields": [
+    "Conversion",
+    "Fiber Category",
+    "Core Density",
+    "Connector Service Life",
+    "Storage Environment"
+  ],
+  "products": {
+    "iCONEC-9-MTP8-12MDC/UPC-G.657.A2-UDF/PRO": {
+      "name": "iCONEC-9-MTP8-12MDC/UPC-G.657.A2-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/9MTP8 to 12MDC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "9×MTP8 → 12×MDC",
+        "Fiber Category": "G.657.A2",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-9-MTP8-12MDC/UPC-BI OM3-UDF/PRO": {
+      "name": "iCONEC-9-MTP8-12MDC/UPC-BI OM3-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/9MTP8 to 12MDC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "9×MTP8 → 12×MDC",
+        "Fiber Category": "OM3",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-9-MTP8-12MDC/UPC-BI OM4-UDF/PRO": {
+      "name": "iCONEC-9-MTP8-12MDC/UPC-BI OM4-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/9MTP8 to 12MDC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "9×MTP8 → 12×MDC",
+        "Fiber Category": "OM4",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-9-MTP8-12MDC/UPC-BI OM5-UDF/PRO": {
+      "name": "iCONEC-9-MTP8-12MDC/UPC-BI OM5-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/9MTP8 to 12MDC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "9×MTP8 → 12×MDC",
+        "Fiber Category": "OM5",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-6-MTP12-12MDC/UPC-G.657.A2-UDF/PRO": {
+      "name": "iCONEC-6-MTP12-12MDC/UPC-G.657.A2-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/6MTP12 to 12MDC, G.657.A2",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "6×MTP12 → 12×MDC",
+        "Fiber Category": "G.657.A2",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-6-MTP12-12MDC/UPC-BI OM3-UDF/PRO": {
+      "name": "iCONEC-6-MTP12-12MDC/UPC-BI OM3-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/6MTP12 to 12MDC, OM3",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "6×MTP12 → 12×MDC",
+        "Fiber Category": "OM3",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-6-MTP12-12MDC/UPC-BI OM4-UDF/PRO": {
+      "name": "iCONEC-6-MTP12-12MDC/UPC-BI OM4-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/6MTP12 to 12MDC, OM4",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "6×MTP12 → 12×MDC",
+        "Fiber Category": "OM4",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    },
+    "iCONEC-6-MTP12-12MDC/UPC-BI OM5-UDF/PRO": {
+      "name": "iCONEC-6-MTP12-12MDC/UPC-BI OM5-UDF/PRO",
+      "description": "UDF/PRO-MDC Module/6MTP12 to 12MDC, OM5",
+      "officialUrl": "https://en.yofc.com/view/3034.html",
+      "specs": {
+        "Conversion": "6×MTP12 → 12×MDC",
+        "Fiber Category": "OM5",
+        "Core Density": "72 cores",
+        "Connector Service Life": "1000 mating cycles; IL variation <0.1 dB",
+        "Storage Environment": "-40°C to +65°C; RH ≤90% (+30°C)"
+      }
+    }
+  }
+}

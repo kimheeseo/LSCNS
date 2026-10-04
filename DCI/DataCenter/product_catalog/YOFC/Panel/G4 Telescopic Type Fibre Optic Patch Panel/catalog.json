@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "G4 Telescopic Type Fibre Optic Patch Panel",
+  "displayName": "G4 Telescopic Type Fibre Optic Patch Panel",
+  "description": "Standard 19-inch telescopic patch panel for splicing-type or pre-terminated optical distribution in EDA/HDA/MDA.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3035.html",
+  "comparisonFields": [
+    "Available Heights",
+    "Product Size",
+    "Installation",
+    "Solution Compatibility",
+    "Design",
+    "Adapter"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "G4 Telescopic Type Fibre Optic Patch Panel",
+      "description": "Tiered telescopic patch panel with tool-free transparent cover, modular drawers/cassettes and compatibility with splicing and pre-terminated solutions.",
+      "officialUrl": "https://en.yofc.com/view/3035.html",
+      "specs": {
+        "Available Heights": "1U / 2U / 3U / 4U",
+        "Product Size": "440×380×43.6 mm (1U); ×88 mm (2U); ×132 mm (3U); ×176 mm (4U)",
+        "Installation": "Standard 19-inch rack; tool-free upper cover; telescopic drawers",
+        "Solution Compatibility": "Splicing-type and pre-terminated",
+        "Design": "Tiered/telescopic modular drawers with separate wire trimming",
+        "Adapter": "Adapter panel purchased separately"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

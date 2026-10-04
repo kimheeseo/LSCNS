@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "company": "LS CNS",
+  "category": "통합배선",
+  "displayName": "통합배선",
+  "description": "LS전선 통합배선·데이터센터 관련 카탈로그 자료. 긴 PDF 파일명 대신 간략 업무명을 사용합니다.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.lscns.co.kr/",
+  "comparisonFields": [
+    "자료 구분",
+    "발행 연도"
+  ],
+  "products": {
+    "2024_LS_Simple_통합배선_카탈로그": {
+      "name": "24_LSsimple 통합배선",
+      "description": "2024 LS Simple 통합배선 카탈로그.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "통합배선",
+        "발행 연도": "2024"
+      }
+    },
+    "LS DataCenterSolution_En_200722": {
+      "name": "20_DataCenter Solution",
+      "description": "LS Data Center Solution 영문 자료.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "데이터센터 솔루션",
+        "발행 연도": "2020"
+      }
+    },
+    "LS SimpleWin(IntelligentManagementSystem)_Kr_200804": {
+      "name": "20_SimpleWin 배선관리",
+      "description": "LS SimpleWin Intelligent Management System 자료.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "지능형 배선관리",
+        "발행 연도": "2020"
+      }
+    },
+    "LS Simple지명원_200722": {
+      "name": "20_LS Simple 지명원",
+      "description": "LS Simple 통합배선 지명원.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "통합배선 지명원",
+        "발행 연도": "2020"
+      }
+    }
+  }
+}

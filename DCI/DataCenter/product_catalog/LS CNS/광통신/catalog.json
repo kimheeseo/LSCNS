@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "LS CNS",
+  "category": "광통신",
+  "displayName": "광통신",
+  "description": "LS전선 광통신 카탈로그 자료. 화면 제목은 PDF 파일명 대신 업무용 짧은 명칭으로 표시합니다.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.lscns.co.kr/",
+  "comparisonFields": [
+    "자료 구분",
+    "발행 연도"
+  ],
+  "products": {
+    "Fiber Optic Cable and Product (2020)": {
+      "name": "20_광통신 Cable & Product",
+      "description": "LS전선 Fiber Optic Cable and Product 카탈로그.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "광통신 제품 카탈로그",
+        "발행 연도": "2020"
+      }
+    },
+    "광섬유": {
+      "name": "광섬유",
+      "description": "LS전선 광섬유 제품 자료.",
+      "officialUrl": "https://www.lscns.co.kr/",
+      "specs": {
+        "자료 구분": "광섬유",
+        "발행 연도": "—"
+      }
+    }
+  }
+}

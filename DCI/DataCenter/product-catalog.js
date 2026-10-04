@@ -51,7 +51,7 @@
     const items = await api(path);
     const localManifest = await loadManifest(items);
     const manifest = localManifest || inheritedManifest || null;
-    const group = relative || state.category;
+    const group = (localManifest && localManifest.displayName) || (inheritedManifest && inheritedManifest.displayName) || relative || state.category;
     const direct = (items || [])
       .filter(x => x.type === 'file' && /\.pdf$/i.test(x.name))
       .map(file => ({file, manifest, group}));

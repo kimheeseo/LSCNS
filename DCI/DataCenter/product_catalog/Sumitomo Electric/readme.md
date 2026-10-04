@@ -14,7 +14,23 @@ The folder structure follows SEL product/application taxonomy and the DataCenter
 - Splice Trays
 - SWK™ Series
 
-This repository now structures **30 Sumitomo Electric product groups** across three user-supplied PDF batches. PDF source files are synchronized from the matching official SEL URLs by `.github/workflows/sumitomo-pdf-sync.yml`.
+This repository now structures **44 Sumitomo Electric product groups** across four user-supplied PDF batches. PDF source files are synchronized from the matching official SEL URLs by `.github/workflows/sumitomo-pdf-sync.yml`.
+
+## Added in the fourth PDF batch (2026-10-05)
+- FTWM-04L-2D Wall Mount Enclosure
+- 3RU Rack-Mounted Splice Enclosure FSPRM-03
+- Cable Assemblies
+- PrecisionFlex FOX Splice Cassettes
+- 2RU Flush Mount Panels
+- 2RU High Density Panels and Interconnect Panels
+- PrecisionFlex High Density MPO-LC Cassettes
+- PrecisionFlex LGX MPO Cassettes
+- PrecisionFlex Splice Tray & Holders
+- FTWM-02L-2D Wall Mount Enclosure
+- NEMA 4X/IP66 Splice Transit Enclosure
+- JR-7S Thermal Jacket Remover
+- JR-7 Thermal Jacket Remover
+- 1RU LGX Compact Patch Panel
 
 ## Added in the third PDF batch (2026-10-05)
 - Ultra Hyperscale eXchange (U-HSX)

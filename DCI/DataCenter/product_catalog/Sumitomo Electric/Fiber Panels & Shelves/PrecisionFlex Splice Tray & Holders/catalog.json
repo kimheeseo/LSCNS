@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex Splice Tray & Holders",
+  "displayName": "PrecisionFlex Splice Tray & Holders",
+  "description": "Stackable splice trays and panel tray mounts.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2021/09/SEL_10.09.24-PF-Splice-Tray-Tray-Mounts_ver1_v1.4.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Panel Size",
+    "Tray Capacity",
+    "Fiber Capacity",
+    "Dimensions",
+    "Compatible Items"
+  ],
+  "products": {
+    "FT-PFST-B-R": {
+      "name": "FT-PFST-B-R",
+      "description": "144f ribbon splice tray.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Splice tray",
+        "Panel Size": "—",
+        "Tray Capacity": "1",
+        "Fiber Capacity": "144f",
+        "Dimensions": "262 × 140 × 18 mm",
+        "Compatible Items": "PrecisionFlex holders"
+      }
+    },
+    "FT-PFST-2RU-KIT": {
+      "name": "FT-PFST-2RU-KIT",
+      "description": "2RU mount with two trays.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Splice tray kit",
+        "Panel Size": "2RU",
+        "Tray Capacity": "2",
+        "Fiber Capacity": "288f",
+        "Dimensions": "—",
+        "Compatible Items": "FT02 panels"
+      }
+    },
+    "FT-PFST-CHIP-R": {
+      "name": "FT-PFST-CHIP-R",
+      "description": "Ribbon splice holder.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Splice holder",
+        "Panel Size": "—",
+        "Tray Capacity": "—",
+        "Fiber Capacity": "—",
+        "Dimensions": "—",
+        "Compatible Items": "PrecisionFlex holders"
+      }
+    },
+    "FT-PFST-1RU-HOLDER": {
+      "name": "FT-PFST-1RU-HOLDER",
+      "description": "1RU holder.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Tray mount",
+        "Panel Size": "1RU",
+        "Tray Capacity": "1",
+        "Fiber Capacity": "144f",
+        "Dimensions": "—",
+        "Compatible Items": "FT01 panels"
+      }
+    },
+    "FT-PFST-2RU-HOLDER": {
+      "name": "FT-PFST-2RU-HOLDER",
+      "description": "2RU holder.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Tray mount",
+        "Panel Size": "2RU",
+        "Tray Capacity": "2",
+        "Fiber Capacity": "288f",
+        "Dimensions": "—",
+        "Compatible Items": "FT02 panels"
+      }
+    },
+    "FT-PFST-3-4RU-HOLDER": {
+      "name": "FT-PFST-3-4RU-HOLDER",
+      "description": "3RU/4RU holder.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/precisionflex-splice-trays-holders/",
+      "specs": {
+        "Product Type": "Tray mount",
+        "Panel Size": "3RU / 4RU",
+        "Tray Capacity": "4",
+        "Fiber Capacity": "576f",
+        "Dimensions": "—",
+        "Compatible Items": "FT03 / FT04 panels"
+      }
+    }
+  }
+}

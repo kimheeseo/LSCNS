@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "JR-7S Thermal Jacket Remover",
+  "displayName": "JR-7S Thermal Jacket Remover",
+  "description": "Thermal remover for 250–900 µm single-fiber coatings.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7s-thermal-jacket-remover/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2025/08/SEL-02.02.2026_Thermal-Jacket-Remover-JR-7S-V2.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Applicable Fiber",
+    "Temperature",
+    "Battery Cycles",
+    "Dimensions",
+    "Weight"
+  ],
+  "products": {
+    "JR-7S": {
+      "name": "JR-7S",
+      "description": "Heated jacket remover.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7s-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Thermal jacket remover",
+        "Applicable Fiber": "Single fiber 250–900 µm",
+        "Temperature": "80–140°C / 4 levels",
+        "Battery Cycles": "Approx. 600",
+        "Dimensions": "46 × 120.6 × 37.5 mm",
+        "Weight": "Approx. 200 g"
+      }
+    },
+    "JR7S-BL": {
+      "name": "JR7S-BL",
+      "description": "Replacement blade.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7s-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Replacement blade",
+        "Applicable Fiber": "JR-7S",
+        "Temperature": "—",
+        "Battery Cycles": "—",
+        "Dimensions": "—",
+        "Weight": "—"
+      }
+    },
+    "BU-JR": {
+      "name": "BU-JR",
+      "description": "Replacement battery.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7s-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Replacement battery",
+        "Applicable Fiber": "JR-7S",
+        "Temperature": "—",
+        "Battery Cycles": "—",
+        "Dimensions": "—",
+        "Weight": "—"
+      }
+    }
+  }
+}

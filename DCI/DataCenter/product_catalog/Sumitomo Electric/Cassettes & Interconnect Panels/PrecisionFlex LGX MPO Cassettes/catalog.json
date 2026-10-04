@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "PrecisionFlex LGX MPO Cassettes",
+  "displayName": "PrecisionFlex LGX MPO Cassettes",
+  "description": "Configurable LGX-compatible MPO cassette family.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/mpo-lgx-cassette/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2016/02/SEL_09.21.26_PrecisionFlex-LGX-MPO-Cassette_Ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Front Connector",
+    "Front Port Count",
+    "Rear MPO Count",
+    "MPO Gender",
+    "Polarity Method",
+    "Fiber Type",
+    "Insertion Loss",
+    "Return Loss",
+    "Configurable"
+  ],
+  "products": {
+    "FTLC-MP24ACOS1-L2MA": {
+      "name": "FTLC-MP24ACOS1-L2MA",
+      "description": "Example 2×12F MPO male Method A LC/APC OS1 cassette.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/mpo-lgx-cassette/",
+      "specs": {
+        "Product Type": "LGX MPO cassette",
+        "Front Connector": "LC/APC",
+        "Front Port Count": "24",
+        "Rear MPO Count": "2",
+        "MPO Gender": "Male / pinned",
+        "Polarity Method": "Method A",
+        "Fiber Type": "OS1",
+        "Insertion Loss": "LC 0.30 dB; MPO low-loss 0.35 dB",
+        "Return Loss": "LC 60 dB; MPO low-loss 60 dB",
+        "Configurable": "Yes"
+      }
+    },
+    "LGX-MPO-CONFIGURABLE": {
+      "name": "PrecisionFlex LGX MPO Cassette · Configurable",
+      "description": "1×24F, 2×12F or 3×8F family.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/mpo-lgx-cassette/",
+      "specs": {
+        "Product Type": "LGX MPO cassette family",
+        "Front Connector": "LC / SC / FC / ST",
+        "Front Port Count": "8 / 12 / 24",
+        "Rear MPO Count": "1 / 2 / 3",
+        "MPO Gender": "Male/pinned or Female/unpinned",
+        "Polarity Method": "A / B / C / Universal",
+        "Fiber Type": "OM1 / OM4 / OS1 / OS2",
+        "Insertion Loss": "MPO low-loss 0.35 dB; standard up to 0.75 dB",
+        "Return Loss": "MPO SM low-loss 60 dB; standard 55 dB",
+        "Configurable": "Yes · RFQ exact code"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "JR-7 Thermal Jacket Remover",
+  "displayName": "JR-7 Thermal Jacket Remover",
+  "description": "Thermal remover for single and ribbon fibers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7-thermal-jacket-remover/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2025/08/SEL-09.11.25-Thermal-Jacket-Remover-JR-7-ver1_v1.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Applicable Fiber",
+    "Cladding",
+    "Removal Length",
+    "Temperature",
+    "Battery Cycles",
+    "Dimensions",
+    "Weight"
+  ],
+  "products": {
+    "JR-7": {
+      "name": "JR-7",
+      "description": "Heated jacket remover.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Thermal jacket remover",
+        "Applicable Fiber": "Single 200–400 µm; 2–12f ribbon 200–400 µm",
+        "Cladding": "125 µm",
+        "Removal Length": "Max 35 mm",
+        "Temperature": "80–140°C / 4 levels",
+        "Battery Cycles": "Approx. 600",
+        "Dimensions": "46 × 116 × 37.5 mm",
+        "Weight": "Approx. 253 g"
+      }
+    },
+    "JR7-BL": {
+      "name": "JR7-BL",
+      "description": "Replacement blade.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Replacement blade",
+        "Applicable Fiber": "JR-7",
+        "Cladding": "—",
+        "Removal Length": "—",
+        "Temperature": "—",
+        "Battery Cycles": "—",
+        "Dimensions": "—",
+        "Weight": "—"
+      }
+    },
+    "BU-JR": {
+      "name": "BU-JR",
+      "description": "Replacement battery.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/jr-7-thermal-jacket-remover/",
+      "specs": {
+        "Product Type": "Replacement battery",
+        "Applicable Fiber": "JR-7",
+        "Cladding": "—",
+        "Removal Length": "—",
+        "Temperature": "—",
+        "Battery Cycles": "—",
+        "Dimensions": "—",
+        "Weight": "—"
+      }
+    }
+  }
+}

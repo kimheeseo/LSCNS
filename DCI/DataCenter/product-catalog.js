@@ -72,7 +72,7 @@
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>2. 부품군</h3><span id="catalogCategoryCount">—</span></div><div id="catalogCategories" class="catalog-list"><p class="catalog-empty">업체를 선택하세요.</p></div></section>' +
-        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><div class="catalog-products-tools"><div id="catalogViewMode" class="catalog-view-mode" role="group" aria-label="제품 정리 방식"><button type="button" data-catalog-view="cards" class="active" aria-pressed="true">카드형</button><button type="button" data-catalog-view="table" aria-pressed="false">표형 · Excel</button></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
+        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><div class="catalog-products-tools"><div id="catalogViewMode" class="catalog-view-mode" role="group" aria-label="제품 정리 방식"><button type="button" data-catalog-view="cards" class="active" aria-pressed="true">카드형</button><button type="button" data-catalog-view="table" aria-pressed="false">표형</button></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
       '</div>' +
       '<div class="catalog-foot">폴더 추가만으로 업체·부품군·하위 제품군·PDF 목록이 자동 반영됩니다. 상세 스펙은 해당 제품군 폴더 또는 상위 부품 폴더의 catalog.json으로 관리합니다.</div>' +
     '</section>';
@@ -205,19 +205,42 @@
     const officialUrl = meta.officialUrl || (manifest && manifest.officialUrl) || '';
     const checked = meta.checked || (manifest && manifest.checked) || '';
     const searchText = [title, model, file.name, state.company, state.category, group, description]
-      .concat(Object.entries(specs).flat())
-      .join(' ').toLowerCase();
-    return {file, manifest, group, model, meta, specs, title, description, officialUrl, checked, searchText};
+      .concat(Object.entries(specs).flat()).join(' ').toLowerCase();
+    return {file, manifest, group, model, specs, title, description, officialUrl, checked, searchText};
   }
 
-  function card(entry) {
+  function comparisonKeys(entries) {
+    const keys = [], seen = new Set();
+    entries.forEach(entry => {
+      const declared = entry.manifest && Array.isArray(entry.manifest.comparisonFields) ? entry.manifest.comparisonFields : [];
+      declared.forEach(key => { if (!seen.has(key)) { seen.add(key); keys.push(key); } });
+    });
+    if (keys.length) return keys;
+    entries.forEach(entry => Object.keys(entryData(entry).specs).forEach(key => {
+      if (!seen.has(key)) { seen.add(key); keys.push(key); }
+    }));
+    return keys;
+  }
+
+  function groupSchemas(entries) {
+    const groups = new Map(), schemas = new Map();
+    entries.forEach(entry => {
+      if (!groups.has(entry.group)) groups.set(entry.group, []);
+      groups.get(entry.group).push(entry);
+    });
+    groups.forEach((items, group) => schemas.set(group, comparisonKeys(items)));
+    return schemas;
+  }
+
+  function card(entry, specKeys) {
     const d = entryData(entry);
-    const specRows = Object.entries(d.specs).slice(0, 6);
+    const keys = specKeys && specKeys.length ? specKeys : Object.keys(d.specs);
+    const rows = keys.map(key => [key, d.specs[key] ?? '—']);
     return '<article class="catalog-card" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
       '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(state.company) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(d.file.size)) + '</span></div>' +
       (d.description ? '<p class="catalog-description">' + esc(d.description) + '</p>' : '') +
-      (specRows.length ? '<dl class="catalog-specs">' + specRows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
-        '<div class="catalog-no-spec">간략 스펙 미등록 · 해당 제품군 폴더에 <code>catalog.json</code>을 추가하면 스펙이 표시됩니다.</div>') +
+      (rows.length ? '<dl class="catalog-specs">' + rows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
+        '<div class="catalog-no-spec">공통 비교 스펙 미등록 · catalog.json에 comparisonFields를 추가해야 합니다.</div>') +
       '<div class="catalog-card-actions"><a href="' + esc(d.file.html_url) + '" target="_blank" rel="noopener">제품 PDF 보기 ↗</a>' +
       (d.officialUrl ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 제품 페이지 ↗</a>' : '') + '</div>' +
       (d.checked ? '<small class="catalog-checked">사양 확인일 ' + esc(d.checked) + '</small>' : '') +
@@ -225,31 +248,26 @@
   }
 
   function table(entries) {
-    const data = entries.map(entryData);
-    const specKeys = [];
-    const seen = new Set();
-    data.forEach(d => Object.keys(d.specs).forEach(key => {
-      if (!seen.has(key)) {
-        seen.add(key);
-        specKeys.push(key);
-      }
-    }));
-
-    const headers = ['제품군','모델', ...specKeys, 'PDF', '공식 페이지'];
-    const rows = data.map(d => {
-      const cells = [
-        '<td><span class="catalog-family table-family">' + esc(d.group) + '</span></td>',
-        '<td><b>' + esc(d.title) + '</b><small>' + esc(d.model) + '</small></td>',
-        ...specKeys.map(key => '<td>' + esc(d.specs[key] ?? '—') + '</td>'),
-        '<td><a href="' + esc(d.file.html_url) + '" target="_blank" rel="noopener">PDF ↗</a></td>',
-        '<td>' + (d.officialUrl ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : '—') + '</td>'
-      ].join('');
-      return '<tr class="catalog-table-row" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' + cells + '</tr>';
+    const groups = new Map();
+    entries.forEach(entry => {
+      if (!groups.has(entry.group)) groups.set(entry.group, []);
+      groups.get(entry.group).push(entry);
+    });
+    return [...groups.entries()].map(([group, items]) => {
+      const keys = comparisonKeys(items);
+      const data = items.map(entryData);
+      const headers = ['모델', ...keys, 'PDF', '공식 페이지'];
+      const rows = data.map(d => '<tr class="catalog-table-row" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
+        '<td><b>' + esc(d.title) + '</b><small>' + esc(d.model) + '</small></td>' +
+        keys.map(key => '<td>' + esc(d.specs[key] ?? '—') + '</td>').join('') +
+        '<td><a href="' + esc(d.file.html_url) + '" target="_blank" rel="noopener">PDF ↗</a></td>' +
+        '<td>' + (d.officialUrl ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : '—') + '</td></tr>').join('');
+      return '<section class="catalog-table-group" data-table-family="' + esc(group) + '">' +
+        '<div class="catalog-table-group-head"><span class="catalog-family table-family">' + esc(group) + '</span> <b>' + items.length + '개 · 동일 스펙 기준 비교</b></div>' +
+        (keys.length ? '<div class="catalog-sheet-wrap"><table class="catalog-sheet"><thead><tr>' + headers.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>' :
+        '<div class="catalog-no-spec">이 제품군은 공통 비교 스펙이 아직 등록되지 않았습니다.</div>') +
+        '</section>';
     }).join('');
-
-    return '<div class="catalog-sheet-wrap"><table class="catalog-sheet"><thead><tr>' +
-      headers.map(h => '<th>' + esc(h) + '</th>').join('') +
-      '</tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
   function renderProducts(entries) {
@@ -260,8 +278,13 @@
       host.innerHTML = '<p class="catalog-empty">이 부품군과 하위 폴더에 등록된 PDF 제품이 없습니다.</p>';
       return;
     }
-    host.innerHTML = (state.viewMode === 'table' ? table(entries) : entries.map(card).join('')) +
-      '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>';
+    if (state.viewMode === 'table') {
+      host.innerHTML = table(entries) + '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>';
+    } else {
+      const schemas = groupSchemas(entries);
+      host.innerHTML = entries.map(entry => card(entry, schemas.get(entry.group) || [])).join('') +
+        '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>';
+    }
     applySearch();
   }
 
@@ -337,6 +360,10 @@
       const match = searchMatch && familyMatch;
       el.hidden = !match;
       if (match) shown++;
+    });
+    document.querySelectorAll('#catalogProducts .catalog-table-group').forEach(section => {
+      const rows = [...section.querySelectorAll('.catalog-table-row')];
+      section.hidden = rows.length > 0 && rows.every(row => row.hidden);
     });
     const empty = $('catalogSearchEmpty');
     if (empty) empty.hidden = shown !== 0;

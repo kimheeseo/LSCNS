@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "CCH Panel, MTP Adapters",
+  "displayName": "CCH · MTP®",
+  "description": "Closet Connector Housing MTP® adapter panels",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Fiber Category",
+    "Fiber Count",
+    "Number of Adapters per Panel",
+    "Adapter Type",
+    "Polish",
+    "Housing Color"
+  ],
+  "products": {
+    "CCH-CP36-69": {
+      "name": "CCH-CP36-69",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP36-69"
+    },
+    "CCH-CP36-89": {
+      "name": "CCH-CP36-89",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "MTP®",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP36-89"
+    },
+    "CCH-CP36-90": {
+      "name": "CCH-CP36-90",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "MTP®",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP36-90"
+    },
+    "CCH-CP36-E3": {
+      "name": "CCH-CP36-E3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP36-E3"
+    },
+    "CCH-CP36-G3": {
+      "name": "CCH-CP36-G3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "36",
+        "Number of Adapters per Panel": "3",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP36-G3"
+    },
+    "CCH-CP72-69": {
+      "name": "CCH-CP72-69",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "72",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP72-69"
+    },
+    "CCH-CP72-89": {
+      "name": "CCH-CP72-89",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "72",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "MTP®",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP72-89"
+    },
+    "CCH-CP72-90": {
+      "name": "CCH-CP72-90",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "72",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "MTP®",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP72-90"
+    },
+    "CCH-CP72-E3": {
+      "name": "CCH-CP72-E3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "72",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP72-E3"
+    },
+    "CCH-CP72-G3": {
+      "name": "CCH-CP72-G3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "72",
+        "Number of Adapters per Panel": "6",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP72-G3"
+    },
+    "CCH-CP96-69": {
+      "name": "CCH-CP96-69",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "96",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP96-69"
+    },
+    "CCH-CP96-89": {
+      "name": "CCH-CP96-89",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "96",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "MTP®",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP96-89"
+    },
+    "CCH-CP96-90": {
+      "name": "CCH-CP96-90",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "96",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "MTP®",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP96-90"
+    },
+    "CCH-CP96-E3": {
+      "name": "CCH-CP96-E3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "96",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP96-E3"
+    },
+    "CCH-CP96-G3": {
+      "name": "CCH-CP96-G3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "96",
+        "Number of Adapters per Panel": "8",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CP96-G3"
+    },
+    "CCH-CPE4-69": {
+      "name": "CCH-CPE4-69",
+      "specs": {
+        "Fiber Category": "62.5 µm MM (OM1)",
+        "Fiber Count": "144",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Beige"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CPE4-69"
+    },
+    "CCH-CPE4-89": {
+      "name": "CCH-CPE4-89",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "144",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "MTP®",
+        "Polish": "UPC",
+        "Housing Color": "Blue"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CPE4-89"
+    },
+    "CCH-CPE4-90": {
+      "name": "CCH-CPE4-90",
+      "specs": {
+        "Fiber Category": "Single-mode (OS2)",
+        "Fiber Count": "144",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "MTP®",
+        "Polish": "APC",
+        "Housing Color": "Green"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CPE4-90"
+    },
+    "CCH-CPE4-E3": {
+      "name": "CCH-CPE4-E3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3/OM4)",
+        "Fiber Count": "144",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Aqua"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CPE4-E3"
+    },
+    "CCH-CPE4-G3": {
+      "name": "CCH-CPE4-G3",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM2)",
+        "Fiber Count": "144",
+        "Number of Adapters per Panel": "12",
+        "Adapter Type": "MTP®",
+        "Polish": "—",
+        "Housing Color": "Black"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/Closet-Connector-Housing-%28CCH%29-Panel%2C-MTP-Adapters/p/CCH-CPE4-G3"
+    }
+  }
+}

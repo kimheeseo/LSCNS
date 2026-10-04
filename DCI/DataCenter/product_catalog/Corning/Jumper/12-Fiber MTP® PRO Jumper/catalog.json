@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "12-Fiber MTP® PRO Jumper",
+  "displayName": "12-Fiber MTP® PRO",
+  "description": "EDGE 12-fiber MTP® PRO data-center jumper",
+  "checked": "2026-10-04",
+  "comparisonFields": [
+    "Fiber Category",
+    "Flame Rating",
+    "Fiber Count",
+    "Connector Assembly Type"
+  ],
+  "defaultSpecs": {
+    "Flame Rating": "NFPA 262 (Plenum)",
+    "Fiber Count": "12",
+    "Connector Assembly Type": "MTP to MTP"
+  },
+  "products": {
+    "J757512QE8-NA010F": {
+      "name": "J757512QE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J757512QE8-NA010F"
+    },
+    "J757512QE8-NB010F": {
+      "name": "J757512QE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J757512QE8-NB010F"
+    },
+    "J757512TE8-NA010F": {
+      "name": "J757512TE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J757512TE8-NA010F"
+    },
+    "J757512TE8-NB010F": {
+      "name": "J757512TE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J757512TE8-NB010F"
+    },
+    "J759312QE8-NA010F": {
+      "name": "J759312QE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J759312QE8-NA010F"
+    },
+    "J759312QE8-NB010F": {
+      "name": "J759312QE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J759312QE8-NB010F"
+    },
+    "J759312TE8-NA010F": {
+      "name": "J759312TE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J759312TE8-NA010F"
+    },
+    "J759312TE8-NB010F": {
+      "name": "J759312TE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J759312TE8-NB010F"
+    },
+    "J898912GE8-NA010F": {
+      "name": "J898912GE8-NA010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J898912GE8-NA010F"
+    },
+    "J898912GE8-NB010F": {
+      "name": "J898912GE8-NB010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J898912GE8-NB010F"
+    },
+    "J899012GE8-NA010F": {
+      "name": "J899012GE8-NA010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J899012GE8-NA010F"
+    },
+    "J899012GE8-NB010F": {
+      "name": "J899012GE8-NB010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J899012GE8-NB010F"
+    },
+    "J909012GE8-NA010F": {
+      "name": "J909012GE8-NA010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J909012GE8-NA010F"
+    },
+    "J909012GE8-NB010F": {
+      "name": "J909012GE8-NB010F",
+      "specs": {
+        "Fiber Category": "Bend-improved SM (OS2)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J909012GE8-NB010F"
+    },
+    "J939312QE8-NA010F": {
+      "name": "J939312QE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J939312QE8-NA010F"
+    },
+    "J939312QE8-NB010F": {
+      "name": "J939312QE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM4)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J939312QE8-NB010F"
+    },
+    "J939312TE8-NA010F": {
+      "name": "J939312TE8-NA010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J939312TE8-NA010F"
+    },
+    "J939312TE8-NB010F": {
+      "name": "J939312TE8-NB010F",
+      "specs": {
+        "Fiber Category": "50 µm MM (OM3)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/12-Fiber-MTP%C2%AE-PRO-Jumper/p/J939312TE8-NB010F"
+    }
+  }
+}

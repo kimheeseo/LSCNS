@@ -1,18 +1,21 @@
 {
   "checked": "2026-10-05",
-  "pdfCount": 1040,
-  "structuredCatalogFiles": 80,
+  "pdfCount": 1021,
+  "structuredCatalogFiles": 70,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
-    "pdfCount": 20,
-    "structuredProductGroups": 20
+    "pdfCount": 10,
+    "catalogCount": 10,
+    "productRows": 54
   },
-  "usConecMtFerrules": {
-    "structured": true,
-    "officialUrl": "https://www.usconec.com/ferrules/mt"
+  "usConecMtp": {
+    "sourceRows": 1895,
+    "uniqueDrawingProducts": 154,
+    "pdfCount": 0,
+    "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
   },
-  "note": "Second Sumitomo Electric PDF batch synchronized successfully; MT Ferrules added as an official-source characteristics catalog.",
+  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -150,13 +153,13 @@
       "structuredMetadata": false
     },
     {
-      "folder": "Corning/Module/EDGE™ Module, Ultra Low Loss",
-      "pdfCount": 9,
+      "folder": "Corning/Module/EDGE™ Module",
+      "pdfCount": 11,
       "structuredMetadata": false
     },
     {
-      "folder": "Corning/Module/EDGE™ Module",
-      "pdfCount": 11,
+      "folder": "Corning/Module/EDGE™ Module, Ultra Low Loss",
+      "pdfCount": 9,
       "structuredMetadata": false
     },
     {
@@ -270,37 +273,7 @@
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/6912 Fiber Transition Module",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP4-PR432",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Other Enclosures/FTC-GP8-PR864",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -310,32 +283,12 @@
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Cable Breakout Kits for Ribbons",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/SWK™ Series/SWK Cable Assemblies",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Splice Trays/Splice Trays",
       "pdfCount": 1,
       "structuredMetadata": true
     },
     {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
       "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure",
-      "pdfCount": 1,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure",
       "pdfCount": 1,
       "structuredMetadata": true
     },
@@ -357,11 +310,6 @@
     {
       "folder": "USConnec/MMC Connectors",
       "pdfCount": 23,
-      "structuredMetadata": true
-    },
-    {
-      "folder": "USConnec/MT Ferrules",
-      "pdfCount": 9,
       "structuredMetadata": true
     }
   ]

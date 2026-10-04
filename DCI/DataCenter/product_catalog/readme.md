@@ -68,9 +68,9 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-05)
 
-현재 GitHub에 업로드된 PDF는 총 **1008개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
+현재 GitHub에 업로드된 PDF는 총 **1011개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
 
-구조화된 `catalog.json`이 아직 없는 기존 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다. Furukawa Electric은 이번 업데이트에서 공식 URL + 첨부 브로슈어 기반으로 **9개 제품군**을 구조화했습니다. 세 첨부 브로슈어는 전용 GitHub Actions workflow가 공식 Furukawa PDF를 `Furukawa Electric/PDF Sources/`로 동기화합니다.
+구조화된 `catalog.json`이 아직 없는 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다. Furukawa Electric은 공식 웹 제품 + 첨부 브로슈어 기반으로 **9개 제품군**이 구조화되어 있으며, 첨부한 3개 PDF 대응 공식 사본도 `Furukawa Electric/PDF Sources/`에 저장되었습니다.
 
 ### 구조화 메타데이터 재검토 필요
 - `Corning/Accessories/EDGE™ Port Replication Housing Accessory`: 3 PDFs

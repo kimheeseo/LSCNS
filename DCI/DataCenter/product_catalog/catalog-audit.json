@@ -1,10 +1,10 @@
 {
   "checked": "2026-10-05",
-  "pdfCount": 1008,
+  "pdfCount": 1011,
   "structuredCatalogFiles": 59,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
-  "note": "Furukawa metadata added; 3 Furukawa source PDFs will be downloaded by furukawa-pdf-sync workflow and counted in the next audit refresh.",
+  "note": "Furukawa source PDFs synchronized from official Furukawa URLs; all three are stored under Furukawa Electric/PDF Sources.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -230,6 +230,11 @@
       "folder": "Corning/Trunk/EDGE™ MTP® Trunk",
       "pdfCount": 105,
       "structuredMetadata": false
+    },
+    {
+      "folder": "Furukawa Electric/PDF Sources",
+      "pdfCount": 3,
+      "structuredMetadata": true
     },
     {
       "folder": "USConnec/Fiber Optic Cleaners",

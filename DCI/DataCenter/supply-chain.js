@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const VERSION='7.4.2';
+const VERSION='7.4.3';
 let selectedCategory='all',returnFocus;
 const textOf=e=>(e&&(e.innerText||e.textContent)||'').replace(/\s+/g,' ').trim();
 

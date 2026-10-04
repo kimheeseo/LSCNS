@@ -49,3 +49,19 @@ PDF만 추가해도 제품 목록에는 자동으로 나타납니다. 간략 스
 ```
 
 제품 key는 PDF 파일명에서 `.pdf`, `_NAFTA_AEN`, `_AEN`을 제거한 모델명을 사용하면 됩니다.
+
+## 하위 제품군 폴더
+
+부품군 아래에 제품군 폴더를 한 단계 이상 추가해도 DataCenter Tool이 재귀적으로 PDF를 탐색합니다.
+
+```text
+Corning/
+└─ Adapter Panels/
+   ├─ EDGE8® Adapter Panels, LC/
+   │  ├─ catalog.json
+   │  └─ *.pdf
+   └─ EDGE8® Adapter Panels, MTP®/
+      └─ *.pdf
+```
+
+따라서 **업체 → 부품군 → 제품군 → PDF** 구조도 지원하며, 화면에서는 업체와 부품군을 선택한 뒤 하위 제품군별 제품 카드가 표시됩니다.

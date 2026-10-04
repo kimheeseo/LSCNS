@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "company": "Sumitomo Electric",
+  "category": "3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet",
+  "displayName": "3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet",
+  "description": "Compact wall-mountable hyperscale fiber entrance cabinet with 3,456-fiber capacity.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://sumitomoelectriclightwave.com/product/3k-vertical-hyperscale-exchange-3k-v-hsx/",
+  "officialPdfUrl": "https://sumitomoelectriclightwave.com/wp-content/uploads/2021/09/SEL_02.15.24-3K-Vertical-Hyperscale-eXchange-Cab-Ver1_v3.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "Splice Tray Capacity",
+    "Growth Configuration",
+    "Mounting Type",
+    "Dimensions",
+    "Material",
+    "Cable Entry/Exit",
+    "Work Platform"
+  ],
+  "products": {
+    "FTHFC-3K-V-SK1": {
+      "name": "FTHFC-3K-V-SK1",
+      "description": "3K-V-HSX starter kit with eight 432f splice trays and cabinet accessories.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/3k-vertical-hyperscale-exchange-3k-v-hsx/",
+      "specs": {
+        "Product Type": "3K-V-HSX Starter Kit",
+        "Fiber Capacity": "3,456f",
+        "Splice Tray Capacity": "8 × 432f FTHFC-IMST432",
+        "Growth Configuration": "Fully loaded",
+        "Mounting Type": "Wall mount",
+        "Dimensions": "813 × 546 × 381 mm",
+        "Material": "Aluminum, powder coated",
+        "Cable Entry/Exit": "6 areas",
+        "Work Platform": "Included"
+      }
+    },
+    "FTHFC-IMST432": {
+      "name": "FTHFC-IMST432",
+      "description": "432-fiber ribbon splice tray used by 3K-V-HSX.",
+      "officialUrl": "https://sumitomoelectriclightwave.com/product/3k-vertical-hyperscale-exchange-3k-v-hsx/",
+      "specs": {
+        "Product Type": "432f Splice Tray",
+        "Fiber Capacity": "432f (36 × 12ct)",
+        "Splice Tray Capacity": "—",
+        "Growth Configuration": "Accessory",
+        "Mounting Type": "Inside cabinet",
+        "Dimensions": "203 × 260 × 19 mm",
+        "Material": "—",
+        "Cable Entry/Exit": "—",
+        "Work Platform": "—"
+      }
+    }
+  }
+}

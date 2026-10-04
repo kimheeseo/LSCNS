@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "High Density Optical Fiber Cable",
+  "displayName": "High Density Optical Fiber Cable",
+  "description": "Highest-density rollable-ribbon optical cable family for large fiber counts.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+  "comparisonFields": [
+    "Ribbon Types",
+    "Fiber Counts",
+    "Outer Diameter",
+    "Weight",
+    "Max Pulling Tension",
+    "Static Bend Radius",
+    "Dynamic Bend Radius"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "High Density Optical Fiber Cable",
+      "description": "Rollable-ribbon high-density cable with fiber-count configurations from 288F to 3,456F and above.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Ribbon Types": "8-fiber rollable ribbon / 12-fiber rollable ribbon",
+        "Fiber Counts": "8F ribbon: 400 / 1,000 / 2,000; 12F ribbon: 288 / 576 / 864 / 1,152 / 1,728 / 3,456",
+        "Outer Diameter": "14.9–28.0 mm depending on configuration",
+        "Weight": "180–540 kg/km depending on configuration",
+        "Max Pulling Tension": "2,700 N",
+        "Static Bend Radius": "149–280 mm depending on configuration",
+        "Dynamic Bend Radius": "298–560 mm depending on configuration"
+      },
+      "characteristicsOnly": true,
+      "sourceDocument": "fttx_j417.pdf"
+    }
+  },
+  "sourceDocuments": [
+    "fttx_j417.pdf"
+  ]
+}

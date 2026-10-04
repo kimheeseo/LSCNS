@@ -66,19 +66,27 @@ Corning/
 
 따라서 **업체 → 부품군 → 제품군 → PDF** 구조도 지원하며, 화면에서는 업체와 부품군을 선택한 뒤 하위 제품군별 제품 카드가 표시됩니다.
 
-## 현재 카탈로그 인벤토리 (2026-10-04)
+## 현재 카탈로그 인벤토리 (2026-10-05)
 
-현재 GitHub에 업로드된 PDF는 총 **700개**입니다. 모든 PDF는 DataCenter Tool의 재귀 탐색으로 목록에 노출됩니다.
+현재 GitHub `product_catalog`에는 PDF가 총 **1021개** 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
 
-구조화된 `catalog.json`이 아직 없는 제품군은 **28개 폴더 / 431개 PDF**입니다. 이 파일들도 PDF 목록은 즉시 표시되지만 동일 스펙 비교/설계 매칭은 메타데이터 등록 후 활성화됩니다.
+Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 제품 폴더에 저장했고, **10개 제품군 / 54개 구조화 제품·구성 행**으로 정리했습니다. ZTT의 IT Cabinet / Containerized Data Center / Micro Modular Data Center도 최신 공식 사양표 기준으로 갱신했습니다.
+
+구조화 `catalog.json`이 아직 없는 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다.
 
 ### 구조화 메타데이터 재검토 필요
+- `Corning/Accessories/EDGE™ Port Replication Housing Accessory`: 3 PDFs
 - `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
 - `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
 - `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
 - `Corning/Cable/Loose Tube/ALTOS® Figure-8 Loose Tube, Gel-Free Cable`: 62 PDFs
 - `Corning/Cable/Loose Tube/ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology`: 8 PDFs
 - `Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology`: 9 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology`: 10 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology`: 60 PDFs
+- `Corning/Cable/Loose Tube/SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable`: 44 PDFs
+- `Corning/Cable/Loose Tube/SOLO® ADSS Short-Span, Loose Tube, Gel-Filled Cable`: 42 PDFs
+- `Corning/Cable/Outdoor Duct Cables/ALTOS® Loose Tube, Gel-Free Cable`: 149 PDFs
 - `Corning/Connector/MMC`: 1 PDFs
 - `Corning/Harness/EDGE™ Conversion Harness`: 3 PDFs
 - `Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness`: 44 PDFs
@@ -101,5 +109,3 @@ Corning/
 - `Corning/Trunk/EDGE™ Hybrid Trunk`: 21 PDFs
 - `Corning/Trunk/EDGE™ Indoor Ribbon Trunk`: 1 PDFs
 - `Corning/Trunk/EDGE™ MTP® Trunk`: 105 PDFs
-
-설계 계산의 제품 영수증은 전체 DB를 한 번에 브라우저로 로드하지 않고, 계산된 요구조건에 관련된 `catalog.json` 제품군만 선택적으로 조회합니다.

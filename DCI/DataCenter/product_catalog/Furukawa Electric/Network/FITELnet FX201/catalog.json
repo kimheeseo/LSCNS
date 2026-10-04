@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "FITELnet FX201",
+  "displayName": "FITELnet FX201",
+  "description": "1RU high-capacity multiservice router for large enterprise, data-center and carrier networks.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/fx201/index.html",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "1G/10G Ports",
+    "Management Port",
+    "IPv4 Routes",
+    "IPv6 Routes",
+    "BGP Peers",
+    "IPsec Throughput",
+    "Power",
+    "Power Consumption",
+    "Dimensions",
+    "Mass"
+  ],
+  "products": {
+    "FITELnet FX201": {
+      "name": "FITELnet FX201",
+      "description": "High-capacity multiservice router with 36 1G/10G multirate ports and up to 16 Gbps IPsec throughput.",
+      "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/fx201/index.html",
+      "specs": {
+        "Product Type": "Multiservice Router",
+        "Rack Unit": "1RU",
+        "1G/10G Ports": "36 × SFP/SFP+ multirate",
+        "Management Port": "1 × 10/100/1000BASE-T",
+        "IPv4 Routes": "500,000",
+        "IPv6 Routes": "300,000",
+        "BGP Peers": "4,000",
+        "IPsec Throughput": "Up to 16 Gbps",
+        "Power": "DC 48 V or AC 90–250 V; redundant",
+        "Power Consumption": "141.5 W DC / 155.0 W AC (redundant)",
+        "Dimensions": "430 × 480 × 43.5 mm",
+        "Mass": "≤10 kg"
+      }
+    }
+  },
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

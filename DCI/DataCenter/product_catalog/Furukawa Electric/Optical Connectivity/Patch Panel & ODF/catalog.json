@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "Patch Panel & ODF",
+  "displayName": "Patch Panel & ODF",
+  "description": "Furukawa central-office optical distribution frames and patch-panel configurations extracted from the attached FTTx product brochure.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+  "comparisonFields": [
+    "Product Type",
+    "Fiber Capacity",
+    "Rack Unit",
+    "Dimensions",
+    "Connector",
+    "Polish",
+    "Cable / Splicing",
+    "Color"
+  ],
+  "products": {
+    "ODF BT48 12F SM SC-APC - TELCORDIA": {
+      "name": "ODF BT48 12F SM SC-APC - TELCORDIA",
+      "description": "12-fiber single-mode ODF BT48 with SC-APC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "12F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 12F SM SC-UPC - TELCORDIA": {
+      "name": "ODF BT48 12F SM SC-UPC - TELCORDIA",
+      "description": "12-fiber single-mode ODF BT48 with SC-UPC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "12F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "UPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 24F SM SC-APC - TELCORDIA": {
+      "name": "ODF BT48 24F SM SC-APC - TELCORDIA",
+      "description": "24-fiber single-mode ODF BT48 with SC-APC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "24F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 24F SM SC-UPC - TELCORDIA": {
+      "name": "ODF BT48 24F SM SC-UPC - TELCORDIA",
+      "description": "24-fiber single-mode ODF BT48 with SC-UPC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "24F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "UPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 36F SM SC-APC - TELCORDIA": {
+      "name": "ODF BT48 36F SM SC-APC - TELCORDIA",
+      "description": "36-fiber single-mode ODF BT48 with SC-APC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "36F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 36F SM SC-UPC - TELCORDIA": {
+      "name": "ODF BT48 36F SM SC-UPC - TELCORDIA",
+      "description": "36-fiber single-mode ODF BT48 with SC-UPC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "36F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "UPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 48F SM SC-APC - TELCORDIA": {
+      "name": "ODF BT48 48F SM SC-APC - TELCORDIA",
+      "description": "48-fiber single-mode ODF BT48 with SC-APC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "48F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT48 48F SM SC-UPC - TELCORDIA": {
+      "name": "ODF BT48 48F SM SC-UPC - TELCORDIA",
+      "description": "48-fiber single-mode ODF BT48 with SC-UPC; 1U chassis family rated up to 48 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "48F",
+        "Rack Unit": "1U",
+        "Dimensions": "44.45 × 484 × 290 mm",
+        "Connector": "SC",
+        "Polish": "UPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT72 - Basic module": {
+      "name": "ODF BT72 - Basic module",
+      "description": "2U basic ODF BT72 chassis with capacity up to 72 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "Up to 72F",
+        "Rack Unit": "2U",
+        "Dimensions": "88.9 × 484 × 255 mm",
+        "Connector": "SC",
+        "Polish": "APC or UPC/SPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT72 72F SM SC-APC TELCORDIA - Full": {
+      "name": "ODF BT72 72F SM SC-APC TELCORDIA - Full",
+      "description": "Complete 72-fiber single-mode ODF BT72 with SC-APC.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "72F",
+        "Rack Unit": "2U",
+        "Dimensions": "88.9 × 484 × 255 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF BT72 72F SM SC-UPC TELCORDIA - Full": {
+      "name": "ODF BT72 72F SM SC-UPC TELCORDIA - Full",
+      "description": "Complete 72-fiber single-mode ODF BT72 with SC-UPC.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "72F",
+        "Rack Unit": "2U",
+        "Dimensions": "88.9 × 484 × 255 mm",
+        "Connector": "SC",
+        "Polish": "UPC",
+        "Cable / Splicing": "Loose-tube optical cable",
+        "Color": "Light grey (RAL 7035)"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF B144 - Basic module": {
+      "name": "ODF B144 - Basic module",
+      "description": "4U ODF B144 chassis with 144 positions.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "Up to 144F",
+        "Rack Unit": "4U",
+        "Dimensions": "177.8 × 496 × 465 mm",
+        "Connector": "—",
+        "Polish": "—",
+        "Cable / Splicing": "Patch-panel distribution",
+        "Color": "Black"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "ODF B144 144F SM SC-APC D0.9 - Complete": {
+      "name": "ODF B144 144F SM SC-APC D0.9 - Complete",
+      "description": "Complete 144-fiber single-mode SC-APC ODF B144.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF / Fiber Distribution Frame",
+        "Fiber Capacity": "144F",
+        "Rack Unit": "4U",
+        "Dimensions": "177.8 × 496 × 465 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "0.9 mm fiber distribution",
+        "Color": "Black"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "Modular Sub-rack ODF 144F": {
+      "name": "Modular Sub-rack ODF 144F",
+      "description": "4U 19-inch modular sub-rack with 12 cards and total capacity of 144 fibers.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Modular ODF",
+        "Fiber Capacity": "144F",
+        "Rack Unit": "4U / 19-inch",
+        "Dimensions": "4U × 19-inch × 365 mm",
+        "Connector": "SC (configuration dependent)",
+        "Polish": "APC/UPC depending on card",
+        "Cable / Splicing": "12 cards × 12F",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "12F Card for 144 Modular Distribution Frame": {
+      "name": "12F Card for 144 Modular Distribution Frame",
+      "description": "12-fiber card used in the 144F modular distribution frame.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "ODF Card",
+        "Fiber Capacity": "12F",
+        "Rack Unit": "Card module",
+        "Dimensions": "—",
+        "Connector": "SC",
+        "Polish": "APC/UPC configuration dependent",
+        "Cable / Splicing": "12F per card",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "Sub-rack SC-APC Complete": {
+      "name": "Sub-rack SC-APC Complete",
+      "description": "Complete SC-APC configuration for the 144F modular sub-rack ODF.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Modular ODF",
+        "Fiber Capacity": "Up to 144F",
+        "Rack Unit": "4U / 19-inch",
+        "Dimensions": "4U × 19-inch × 365 mm",
+        "Connector": "SC",
+        "Polish": "APC",
+        "Cable / Splicing": "12 cards × 12F",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "SD19P-S-24-H-SM": {
+      "name": "SD19P-S-24-H-SM",
+      "description": "SD19P fixed-type central-office patch-panel example using Single-fiber pigtail cord.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Patch Panel (SD Series)",
+        "Fiber Capacity": "24",
+        "Rack Unit": "Fixed type (H)",
+        "Dimensions": "See brochure configuration",
+        "Connector": "SC",
+        "Polish": "Configuration dependent",
+        "Cable / Splicing": "Single-fiber pigtail cord",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "SD19P-FO-24-H-SM": {
+      "name": "SD19P-FO-24-H-SM",
+      "description": "SD19P fixed-type central-office patch-panel example using 4-fiber FO pigtail cord.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Patch Panel (SD Series)",
+        "Fiber Capacity": "24",
+        "Rack Unit": "Fixed type (H)",
+        "Dimensions": "See brochure configuration",
+        "Connector": "SC",
+        "Polish": "Configuration dependent",
+        "Cable / Splicing": "4-fiber FO pigtail cord",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "SD19P-FoM-24-H-SM": {
+      "name": "SD19P-FoM-24-H-SM",
+      "description": "SD19P fixed-type central-office patch-panel example using 4-fiber FO module (pre-installed).",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Patch Panel (SD Series)",
+        "Fiber Capacity": "24",
+        "Rack Unit": "Fixed type (H)",
+        "Dimensions": "See brochure configuration",
+        "Connector": "SC",
+        "Polish": "Configuration dependent",
+        "Cable / Splicing": "4-fiber FO module (pre-installed)",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    },
+    "SD19P-CO-100(SC/RJ)-H-SM": {
+      "name": "SD19P-CO-100(SC/RJ)-H-SM",
+      "description": "SD19P fixed-type central-office patch-panel example using Cord wiring directly.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Product Type": "Patch Panel (SD Series)",
+        "Fiber Capacity": "100 (SC/RJ45)",
+        "Rack Unit": "Fixed type (H)",
+        "Dimensions": "See brochure configuration",
+        "Connector": "SC / RJ45",
+        "Polish": "Configuration dependent",
+        "Cable / Splicing": "Cord wiring directly",
+        "Color": "—"
+      },
+      "sourceDocument": "fttx_j417.pdf"
+    }
+  },
+  "sourceDocuments": [
+    "fttx_j417.pdf"
+  ]
+}

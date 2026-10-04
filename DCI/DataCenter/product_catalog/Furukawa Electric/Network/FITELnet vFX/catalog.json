@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "FITELnet vFX",
+  "displayName": "FITELnet vFX",
+  "description": "Virtual multiservice network appliance implementing FITELnet functions on general-purpose servers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/vfx/index.html",
+  "comparisonFields": [
+    "Product Type",
+    "Platform",
+    "CPU",
+    "Memory",
+    "Relay Interfaces",
+    "Plain Forwarding",
+    "Encrypted Forwarding",
+    "License Throughput",
+    "Route Table",
+    "BGP Peers"
+  ],
+  "products": {
+    "FITELnet vFX": {
+      "name": "FITELnet vFX",
+      "description": "Virtual multiservice network appliance using DPDK, PCI passthrough and SR-IOV for high-speed routing and encryption.",
+      "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/vfx/index.html",
+      "specs": {
+        "Product Type": "Virtual Network Appliance",
+        "Platform": "KVM or ESXi",
+        "CPU": "4+ cores",
+        "Memory": "8 GB+",
+        "Relay Interfaces": "Up to 10",
+        "Plain Forwarding": "Up to 100 Gbps",
+        "Encrypted Forwarding": "Up to 80 Gbps",
+        "License Throughput": "1G / 10G / 100G per interface",
+        "Route Table": "500,000 combined IPv4/IPv6",
+        "BGP Peers": "4,000"
+      }
+    }
+  },
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

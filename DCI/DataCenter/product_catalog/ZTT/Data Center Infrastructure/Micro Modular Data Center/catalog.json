@@ -3,32 +3,44 @@
   "company": "ZTT",
   "category": "Micro Modular Data Center",
   "displayName": "Micro Modular Data Center",
-  "description": "Prefabricated micro-modular data-center solution integrating racks, power, cooling, distribution and monitoring.",
-  "checked": "2026-10-04",
+  "description": "Factory-prefabricated micro-modular data-center solution integrating cabinet, UPS, distribution, cooling, aisle containment and intelligent monitoring.",
+  "checked": "2026-10-05",
   "officialUrl": "https://www.zttgroup.com/product/micro-modular-data-center/",
   "comparisonFields": [
     "Module Size",
-    "Cabinets per Module",
-    "Max IT Load",
+    "Reliability",
+    "Environment",
+    "Cabinet Size",
     "Rack Space",
+    "Door Perforation",
+    "Static Bearing",
+    "Dynamic Bearing",
+    "UPS Capacity",
+    "Distribution Capacity",
     "Cooling Capacity",
-    "Power Supply",
+    "Cooling Method",
     "Monitoring"
   ],
   "products": {
     "__characteristics__": {
       "name": "Micro Modular Data Center",
-      "description": "Factory-prefabricated modular data center for rapid deployment and flexible expansion.",
+      "description": "Integrated modular data-center platform for rapid installation and flexible expansion.",
       "officialUrl": "https://www.zttgroup.com/product/micro-modular-data-center/",
       "characteristicsOnly": true,
       "specs": {
         "Module Size": "Single row L×2400×2000/2200; dual row L×3600×2000/2200 mm; L≤15 m",
-        "Cabinets per Module": "Single row ≤24; dual row ≤48",
-        "Max IT Load": "125 / 145 / 235 / 310 kW depending on power architecture",
-        "Rack Space": "42U–56U",
-        "Cooling Capacity": "25–40 kW per in-row unit",
-        "Power Supply": "380/400/415 Vac, 3P+N+E, 50/60 Hz",
-        "Monitoring": "Temperature/humidity, smoke, leakage, access, camera, power/battery/distribution/AC"
+        "Reliability": "Tier II and above",
+        "Environment": "-30 to 45°C; 5–95% RH; ≤1000 m without derating",
+        "Cabinet Size": "300/600 × 1200 × 2000/2200 mm",
+        "Rack Space": "42U / 47U",
+        "Door Perforation": "≥75%",
+        "Static Bearing": "2520 kg",
+        "Dynamic Bearing": "1700 kg",
+        "UPS Capacity": "20–300 kVA, online modular / hot-swappable",
+        "Distribution Capacity": "16–630 A; 21–126P output circuits",
+        "Cooling Capacity": "25–40 kW",
+        "Cooling Method": "Air cooling / water cooling",
+        "Monitoring": "Temperature/humidity, smoke, leakage, access, camera, power, battery, distribution, air conditioning"
       }
     }
   }

@@ -1,11 +1,21 @@
 {
-  "checked": "2026-10-04",
-  "pdfCount": 700,
-  "structuredCatalogFiles": 50,
-  "pendingStructuredFolders": 28,
-  "pendingStructuredPdfs": 431,
-  "note": "700 uploaded PDFs are discoverable; design matching uses only structured catalog families.",
+  "checked": "2026-10-05",
+  "pdfCount": 1021,
+  "structuredCatalogFiles": 69,
+  "pendingStructuredFolders": 34,
+  "pendingStructuredPdfs": 739,
+  "sumitomoElectric": {
+    "pdfCount": 10,
+    "catalogCount": 10,
+    "productRows": 54
+  },
+  "note": "Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed.",
   "folders": [
+    {
+      "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
+      "pdfCount": 3,
+      "structuredMetadata": false
+    },
     {
       "folder": "Corning/Accessories/EDGE™ Solutions_Rack Accessory",
       "pdfCount": 8,
@@ -39,6 +49,31 @@
     {
       "folder": "Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology",
       "pdfCount": 9,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology",
+      "pdfCount": 10,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology",
+      "pdfCount": 60,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable",
+      "pdfCount": 44,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Loose Tube/SOLO® ADSS Short-Span, Loose Tube, Gel-Filled Cable",
+      "pdfCount": 42,
+      "structuredMetadata": false
+    },
+    {
+      "folder": "Corning/Cable/Outdoor Duct Cables/ALTOS® Loose Tube, Gel-Free Cable",
+      "pdfCount": 149,
       "structuredMetadata": false
     },
     {
@@ -200,6 +235,61 @@
       "folder": "Corning/Trunk/EDGE™ MTP® Trunk",
       "pdfCount": 105,
       "structuredMetadata": false
+    },
+    {
+      "folder": "Furukawa Electric/PDF Sources",
+      "pdfCount": 3,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/Hyperscale eXchange (HSX)",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03-K672SS",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Breakout Kits for High Fiber Count Ribbon Cables",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Splice Trays/Splice Trays",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Sumitomo Electric/Wall Mount Enclosures/Pre-Terminated LC-APC Patching Transit Enclosure",
+      "pdfCount": 1,
+      "structuredMetadata": true
     },
     {
       "folder": "USConnec/Fiber Optic Cleaners",

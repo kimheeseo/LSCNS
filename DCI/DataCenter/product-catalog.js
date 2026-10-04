@@ -6,7 +6,7 @@
   const BASE = 'DCI/DataCenter/product_catalog';
   const API = 'https://api.github.com/repos/' + REPO + '/contents/';
   const cache = new Map();
-  const state = { company: '', category: '', products: [], manifest: null, selectedFamilies: new Set() };
+  const state = { company: '', category: '', products: [], manifest: null, selectedFamilies: new Set(), viewMode: 'cards' };
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const pathUrl = path => path.split('/').map(encodeURIComponent).join('/');
@@ -72,7 +72,7 @@
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>2. 부품군</h3><span id="catalogCategoryCount">—</span></div><div id="catalogCategories" class="catalog-list"><p class="catalog-empty">업체를 선택하세요.</p></div></section>' +
-        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
+        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><div class="catalog-products-tools"><div id="catalogViewMode" class="catalog-view-mode" role="group" aria-label="제품 정리 방식"><button type="button" data-catalog-view="cards" class="active" aria-pressed="true">카드형</button><button type="button" data-catalog-view="table" aria-pressed="false">표형 · Excel</button></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
       '</div>' +
       '<div class="catalog-foot">폴더 추가만으로 업체·부품군·하위 제품군·PDF 목록이 자동 반영됩니다. 상세 스펙은 해당 제품군 폴더 또는 상위 부품 폴더의 catalog.json으로 관리합니다.</div>' +
     '</section>';
@@ -188,14 +188,13 @@
     return products[model] || products[file.name] || {};
   }
 
-  function card(entry) {
+  function entryData(entry) {
     const file = entry.file;
     const manifest = entry.manifest;
     const group = entry.group || state.category;
     const model = modelFromFile(file.name);
     const meta = productMeta(manifest, file, model);
     const specs = specObject(manifest, meta);
-    const specRows = Object.entries(specs).slice(0, 6);
     const title = meta.name || model;
     const description = meta.description || (manifest && manifest.productDescription) || '';
     const officialUrl = meta.officialUrl || (manifest && manifest.officialUrl) || '';
@@ -203,17 +202,64 @@
     const searchText = [title, model, file.name, state.company, state.category, group, description]
       .concat(Object.entries(specs).flat())
       .join(' ').toLowerCase();
+    return {file, manifest, group, model, meta, specs, title, description, officialUrl, checked, searchText};
+  }
 
-    return '<article class="catalog-card" data-family="' + esc(group) + '" data-search="' + esc(searchText) + '">' +
-      '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(state.company) + '</span><span class="catalog-family">' + esc(group) + '</span><h4>' + esc(title) + '</h4><code>' + esc(model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(file.size)) + '</span></div>' +
-      (description ? '<p class="catalog-description">' + esc(description) + '</p>' : '') +
+  function card(entry) {
+    const d = entryData(entry);
+    const specRows = Object.entries(d.specs).slice(0, 6);
+    return '<article class="catalog-card" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
+      '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(state.company) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(d.file.size)) + '</span></div>' +
+      (d.description ? '<p class="catalog-description">' + esc(d.description) + '</p>' : '') +
       (specRows.length ? '<dl class="catalog-specs">' + specRows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
         '<div class="catalog-no-spec">간략 스펙 미등록 · 해당 제품군 폴더에 <code>catalog.json</code>을 추가하면 스펙이 표시됩니다.</div>') +
-      '<div class="catalog-card-actions"><a href="' + esc(file.html_url) + '" target="_blank" rel="noopener">제품 PDF 보기 ↗</a>' +
-      (officialUrl ? '<a href="' + esc(officialUrl) + '" target="_blank" rel="noopener">공식 제품 페이지 ↗</a>' : '') + '</div>' +
-      (checked ? '<small class="catalog-checked">사양 확인일 ' + esc(checked) + '</small>' : '') +
+      '<div class="catalog-card-actions"><a href="' + esc(d.file.html_url) + '" target="_blank" rel="noopener">제품 PDF 보기 ↗</a>' +
+      (d.officialUrl ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 제품 페이지 ↗</a>' : '') + '</div>' +
+      (d.checked ? '<small class="catalog-checked">사양 확인일 ' + esc(d.checked) + '</small>' : '') +
     '</article>';
   }
+
+  function table(entries) {
+    const data = entries.map(entryData);
+    const specKeys = [];
+    const seen = new Set();
+    data.forEach(d => Object.keys(d.specs).forEach(key => {
+      if (!seen.has(key)) {
+        seen.add(key);
+        specKeys.push(key);
+      }
+    }));
+
+    const headers = ['제품군','모델', ...specKeys, 'PDF', '공식 페이지'];
+    const rows = data.map(d => {
+      const cells = [
+        '<td><span class="catalog-family table-family">' + esc(d.group) + '</span></td>',
+        '<td><b>' + esc(d.title) + '</b><small>' + esc(d.model) + '</small></td>',
+        ...specKeys.map(key => '<td>' + esc(d.specs[key] ?? '—') + '</td>'),
+        '<td><a href="' + esc(d.file.html_url) + '" target="_blank" rel="noopener">PDF ↗</a></td>',
+        '<td>' + (d.officialUrl ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : '—') + '</td>'
+      ].join('');
+      return '<tr class="catalog-table-row" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' + cells + '</tr>';
+    }).join('');
+
+    return '<div class="catalog-sheet-wrap"><table class="catalog-sheet"><thead><tr>' +
+      headers.map(h => '<th>' + esc(h) + '</th>').join('') +
+      '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+  }
+
+  function renderProducts(entries) {
+    const host = $('catalogProducts');
+    if (!host) return;
+    host.classList.toggle('table-mode', state.viewMode === 'table');
+    if (!entries.length) {
+      host.innerHTML = '<p class="catalog-empty">이 부품군과 하위 폴더에 등록된 PDF 제품이 없습니다.</p>';
+      return;
+    }
+    host.innerHTML = (state.viewMode === 'table' ? table(entries) : entries.map(card).join('')) +
+      '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>';
+    applySearch();
+  }
+
   function renderFamilyFilters(entries) {
     const host = $('catalogFamilyFilters');
     if (!host) return;
@@ -278,7 +324,7 @@
 
   function applySearch() {
     const q = ($('catalogSearch').value || '').trim().toLowerCase();
-    const cards = Array.from(document.querySelectorAll('#catalogProducts .catalog-card'));
+    const cards = Array.from(document.querySelectorAll('#catalogProducts .catalog-card, #catalogProducts .catalog-table-row'));
     let shown = 0;
     cards.forEach(el => {
       const searchMatch = !q || (el.dataset.search || '').includes(q);
@@ -317,9 +363,7 @@
       const families = [...new Set(entries.map(x => x.group))];
       const specCount = entries.filter(x => x.manifest).length;
       $('catalogContext').innerHTML = esc(state.company) + ' › ' + esc(category) + ' · ' + entries.length + '개 제품 · ' + families.length + '개 제품군 · <span id="catalogFilterResult">' + entries.length + '개 표시</span>';
-      $('catalogProducts').innerHTML = entries.length ?
-        entries.map(card).join('') + '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>' :
-        '<p class="catalog-empty">이 부품군과 하위 폴더에 등록된 PDF 제품이 없습니다.</p>';
+      renderProducts(entries);
       $('catalogSearch').disabled = !entries.length;
       renderFamilyFilters(entries);
       applySearch();
@@ -340,6 +384,17 @@
       loadCompanies(true);
     };
     $('catalogSearch').oninput = applySearch;
+    document.querySelectorAll('[data-catalog-view]').forEach(button => {
+      button.onclick = () => {
+        state.viewMode = button.dataset.catalogView;
+        document.querySelectorAll('[data-catalog-view]').forEach(b => {
+          const active = b.dataset.catalogView === state.viewMode;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+        renderProducts(state.products);
+      };
+    });
     loadCompanies(false);
     return true;
   }

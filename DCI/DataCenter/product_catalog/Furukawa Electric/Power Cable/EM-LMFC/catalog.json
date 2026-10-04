@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "EM-LMFC",
+  "displayName": "EM-LMFC",
+  "description": "Non-halogen, flame-retardant, highly flexible cross-linked polyethylene insulated wire for dense power wiring.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+  "comparisonFields": [
+    "Rated Voltage",
+    "Cross-section",
+    "Rated Temperature",
+    "Allowable Current @110°C",
+    "Finished OD",
+    "Max Conductor Resistance @20°C",
+    "Test Voltage",
+    "Approx. Mass",
+    "Environmental"
+  ],
+  "products": {
+    "600V EM-LMFC 2 mm²": {
+      "name": "600V EM-LMFC 2 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 2 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "2 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "41 A",
+        "Finished OD": "3.9 mm",
+        "Max Conductor Resistance @20°C": "9.91 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "30 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 8 mm²": {
+      "name": "600V EM-LMFC 8 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 8 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "8 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "93 A",
+        "Finished OD": "5.8 mm",
+        "Max Conductor Resistance @20°C": "2.45 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "92 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 14 mm²": {
+      "name": "600V EM-LMFC 14 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 14 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "14 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "134 A",
+        "Finished OD": "7 mm",
+        "Max Conductor Resistance @20°C": "1.39 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "155 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 22 mm²": {
+      "name": "600V EM-LMFC 22 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 22 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "22 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "175 A",
+        "Finished OD": "9.6 mm",
+        "Max Conductor Resistance @20°C": "0.892 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "255 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 30 mm²": {
+      "name": "600V EM-LMFC 30 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 30 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "30 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "212 A",
+        "Finished OD": "10.7 mm",
+        "Max Conductor Resistance @20°C": "0.661 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "335 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 38 mm²": {
+      "name": "600V EM-LMFC 38 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 38 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "38 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "247 A",
+        "Finished OD": "11.7 mm",
+        "Max Conductor Resistance @20°C": "0.525 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "410 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 50 mm²": {
+      "name": "600V EM-LMFC 50 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 50 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "50 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "290 A",
+        "Finished OD": "13.6 mm",
+        "Max Conductor Resistance @20°C": "0.411 Ω/km",
+        "Test Voltage": "2,500 V/min",
+        "Approx. Mass": "530 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 60 mm²": {
+      "name": "600V EM-LMFC 60 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 60 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "60 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "331 A",
+        "Finished OD": "14.8 mm",
+        "Max Conductor Resistance @20°C": "0.329 Ω/km",
+        "Test Voltage": "2,500 V/min",
+        "Approx. Mass": "650 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 80 mm²": {
+      "name": "600V EM-LMFC 80 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 80 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "80 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "392 A",
+        "Finished OD": "16.7 mm",
+        "Max Conductor Resistance @20°C": "0.243 Ω/km",
+        "Test Voltage": "2,500 V/min",
+        "Approx. Mass": "860 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 100 mm²": {
+      "name": "600V EM-LMFC 100 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 100 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "100 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "455 A",
+        "Finished OD": "19.4 mm",
+        "Max Conductor Resistance @20°C": "0.193 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "1110 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 125 mm²": {
+      "name": "600V EM-LMFC 125 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 125 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "125 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "525 A",
+        "Finished OD": "20.5 mm",
+        "Max Conductor Resistance @20°C": "0.156 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "1350 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 150 mm²": {
+      "name": "600V EM-LMFC 150 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 150 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "150 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "604 A",
+        "Finished OD": "22.2 mm",
+        "Max Conductor Resistance @20°C": "0.136 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "1540 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 200 mm²": {
+      "name": "600V EM-LMFC 200 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 200 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "200 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "717 A",
+        "Finished OD": "25.6 mm",
+        "Max Conductor Resistance @20°C": "0.0993 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "2120 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 250 mm²": {
+      "name": "600V EM-LMFC 250 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 250 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "250 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "850 A",
+        "Finished OD": "27.9 mm",
+        "Max Conductor Resistance @20°C": "0.0803 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "2580 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 325 mm²": {
+      "name": "600V EM-LMFC 325 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 325 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "325 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "994 A",
+        "Finished OD": "31.1 mm",
+        "Max Conductor Resistance @20°C": "0.0614 Ω/km",
+        "Test Voltage": "3,000 V/min",
+        "Approx. Mass": "3360 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 0.75 mm²": {
+      "name": "600V EM-LMFC 0.75 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 0.75 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "0.75 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "22 A",
+        "Finished OD": "3.2 mm",
+        "Max Conductor Resistance @20°C": "25.8 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "16 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 1.25 mm²": {
+      "name": "600V EM-LMFC 1.25 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 1.25 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "1.25 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "29 A",
+        "Finished OD": "3.6 mm",
+        "Max Conductor Resistance @20°C": "15.5 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "22 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 3.5 mm²": {
+      "name": "600V EM-LMFC 3.5 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 3.5 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "3.5 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "56 A",
+        "Finished OD": "4.6 mm",
+        "Max Conductor Resistance @20°C": "5.38 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "48 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "600V EM-LMFC 5.5 mm²": {
+      "name": "600V EM-LMFC 5.5 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 600 V EM-LMFC wire, 5.5 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "600 V",
+        "Cross-section": "5.5 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "75 A",
+        "Finished OD": "5.2 mm",
+        "Max Conductor Resistance @20°C": "3.5 Ω/km",
+        "Test Voltage": "2,200 V/min",
+        "Approx. Mass": "68 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 8 mm²": {
+      "name": "6600V EM-LMFC 8 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 8 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "8 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "93 A",
+        "Finished OD": "11.7 mm",
+        "Max Conductor Resistance @20°C": "2.45 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "200 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 14 mm²": {
+      "name": "6600V EM-LMFC 14 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 14 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "14 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "134 A",
+        "Finished OD": "12.9 mm",
+        "Max Conductor Resistance @20°C": "1.39 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "275 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 22 mm²": {
+      "name": "6600V EM-LMFC 22 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 22 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "22 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "175 A",
+        "Finished OD": "14.7 mm",
+        "Max Conductor Resistance @20°C": "0.892 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "385 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 30 mm²": {
+      "name": "6600V EM-LMFC 30 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 30 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "30 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "212 A",
+        "Finished OD": "15.8 mm",
+        "Max Conductor Resistance @20°C": "0.661 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "480 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 38 mm²": {
+      "name": "6600V EM-LMFC 38 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 38 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "38 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "247 A",
+        "Finished OD": "16.7 mm",
+        "Max Conductor Resistance @20°C": "0.525 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "565 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 50 mm²": {
+      "name": "6600V EM-LMFC 50 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 50 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "50 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "290 A",
+        "Finished OD": "18 mm",
+        "Max Conductor Resistance @20°C": "0.411 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "685 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 60 mm²": {
+      "name": "6600V EM-LMFC 60 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 60 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "60 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "331 A",
+        "Finished OD": "19.2 mm",
+        "Max Conductor Resistance @20°C": "0.329 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "815 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 80 mm²": {
+      "name": "6600V EM-LMFC 80 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 80 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "80 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "392 A",
+        "Finished OD": "21 mm",
+        "Max Conductor Resistance @20°C": "0.243 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "1050 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 100 mm²": {
+      "name": "6600V EM-LMFC 100 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 100 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "100 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "455 A",
+        "Finished OD": "22.6 mm",
+        "Max Conductor Resistance @20°C": "0.193 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "1270 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 125 mm²": {
+      "name": "6600V EM-LMFC 125 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 125 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "125 mm² (quasi-standard)",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "525 A",
+        "Finished OD": "24.3 mm",
+        "Max Conductor Resistance @20°C": "0.156 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "1520 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 150 mm²": {
+      "name": "6600V EM-LMFC 150 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 150 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "150 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "604 A",
+        "Finished OD": "26 mm",
+        "Max Conductor Resistance @20°C": "0.136 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "1740 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 3.5 mm²": {
+      "name": "6600V EM-LMFC 3.5 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 3.5 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "3.5 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "56 A",
+        "Finished OD": "10.5 mm",
+        "Max Conductor Resistance @20°C": "5.38 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "140 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    },
+    "6600V EM-LMFC 5.5 mm²": {
+      "name": "6600V EM-LMFC 5.5 mm²",
+      "description": "Non-halogen, flame-retardant, flexible 6.6 kV EM-LMFC wire, 5.5 mm².",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Rated Voltage": "6600 V",
+        "Cross-section": "5.5 mm²",
+        "Rated Temperature": "110°C",
+        "Allowable Current @110°C": "75 A",
+        "Finished OD": "11.1 mm",
+        "Max Conductor Resistance @20°C": "3.5 Ω/km",
+        "Test Voltage": "18,000 V/min",
+        "Approx. Mass": "170 kg/km",
+        "Environmental": "RoHS compliant · non-halogen · flame-retardant"
+      },
+      "sourceDocument": "em-lmfc_e_d331.pdf"
+    }
+  },
+  "sourceDocuments": [
+    "em-lmfc_e_d331.pdf"
+  ],
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

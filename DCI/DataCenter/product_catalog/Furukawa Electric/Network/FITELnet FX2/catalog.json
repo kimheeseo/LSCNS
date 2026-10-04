@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "FITELnet FX2",
+  "displayName": "FITELnet FX2",
+  "description": "1RU 100GbE multiservice router for high-capacity data-center, cloud and carrier networks.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/fx2/index.html",
+  "comparisonFields": [
+    "Product Type",
+    "Rack Unit",
+    "100G/40G Ports",
+    "1G/10G/25G Ports",
+    "IPv4 Routes",
+    "IPv6 Routes",
+    "BGP Peers",
+    "IPsec Throughput",
+    "Power",
+    "Max Power",
+    "Dimensions",
+    "Mass"
+  ],
+  "products": {
+    "FITELnet FX2": {
+      "name": "FITELnet FX2",
+      "description": "100GbE multiservice router with four 100G/40G ports, twenty-four 1G/10G/25G ports and up to 200 Gbps IPsec throughput.",
+      "officialUrl": "https://www.furukawaelectric.com/fitelnet/product/fx2/index.html",
+      "specs": {
+        "Product Type": "100GbE Multiservice Router",
+        "Rack Unit": "1RU",
+        "100G/40G Ports": "4 × QSFP28/QSFP+ multirate",
+        "1G/10G/25G Ports": "24 × SFP/SFP+/SFP28 multirate",
+        "IPv4 Routes": "4,000,000",
+        "IPv6 Routes": "600,000",
+        "BGP Peers": "8,000",
+        "IPsec Throughput": "Up to 200 Gbps",
+        "Power": "DC -40.5 to -57 V or AC 90–264 V; redundant",
+        "Max Power": "475 W AC / 485 W DC (redundant)",
+        "Dimensions": "430 × 610 × 42.5 mm",
+        "Mass": "≤15 kg"
+      }
+    }
+  },
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

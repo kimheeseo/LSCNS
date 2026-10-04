@@ -1,0 +1,43 @@
+name: Sync Furukawa product PDFs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/furukawa-pdf-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download official Furukawa PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest='DCI/DataCenter/product_catalog/Furukawa Electric/PDF Sources'
+          mkdir -p "$dest"
+          curl -fL --retry 3 --retry-delay 2 'https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf' -o "$dest/fttx_j417.pdf"
+          curl -fL --retry 3 --retry-delay 2 'https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf' -o "$dest/em-fcc_d336.pdf"
+          curl -fL --retry 3 --retry-delay 2 'https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf' -o "$dest/em-lmfc_e_d331.pdf"
+
+      - name: Commit PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'DCI/DataCenter/product_catalog/Furukawa Electric/PDF Sources/'*.pdf
+          if git diff --cached --quiet; then
+            echo 'Furukawa PDFs already synchronized.'
+            exit 0
+          fi
+          git commit -m 'chore(datacenter): sync Furukawa source PDFs'
+          git pull --rebase origin main
+          git push origin HEAD:main

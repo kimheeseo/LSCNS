@@ -11,7 +11,8 @@
       P+'Corning/Housing/EDGE™ Housing, FX/catalog.json',
       P+'Corning/Housing/Pretium® Connector Housing (PCH)/catalog.json',
       P+'YOFC/Panel/G4 Fixed Type Fibre Optic Patch Panel/catalog.json',
-      P+'ZTT/Data Center Infrastructure/High-density ODF/catalog.json'
+      P+'ZTT/Data Center Infrastructure/High-density ODF/catalog.json',
+      P+'Furukawa Electric/Optical Connectivity/Patch Panel & ODF/catalog.json',
     ],
     rack:[P+'ZTT/Data Center Infrastructure/IT Cabinet/catalog.json']
   };

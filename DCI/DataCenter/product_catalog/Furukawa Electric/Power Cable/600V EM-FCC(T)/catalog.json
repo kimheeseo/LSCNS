@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "600V EM-FCC(T)",
+  "displayName": "600V EM-FCC(T)",
+  "description": "Flexible halogen-free low-voltage eco cable for switchboards, transformers, batteries and tight wiring spaces.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+  "comparisonFields": [
+    "Type",
+    "Rated Voltage",
+    "Cross-section",
+    "Finished OD",
+    "Twisted OD",
+    "Allowable Current",
+    "Allowable Bend Radius",
+    "Heat / Cold",
+    "Environmental"
+  ],
+  "products": {
+    "600V EM-FCC 150 mm²": {
+      "name": "600V EM-FCC 150 mm²",
+      "description": "Flexible halogen-free 600 V low-voltage eco cable, 150 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCC",
+        "Rated Voltage": "600 V",
+        "Cross-section": "150 mm²",
+        "Finished OD": "26 mm",
+        "Twisted OD": "—",
+        "Allowable Current": "509 A",
+        "Allowable Bend Radius": "104 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCC 200 mm²": {
+      "name": "600V EM-FCC 200 mm²",
+      "description": "Flexible halogen-free 600 V low-voltage eco cable, 200 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCC",
+        "Rated Voltage": "600 V",
+        "Cross-section": "200 mm²",
+        "Finished OD": "29 mm",
+        "Twisted OD": "—",
+        "Allowable Current": "612 A",
+        "Allowable Bend Radius": "116 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCC 250 mm²": {
+      "name": "600V EM-FCC 250 mm²",
+      "description": "Flexible halogen-free 600 V low-voltage eco cable, 250 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCC",
+        "Rated Voltage": "600 V",
+        "Cross-section": "250 mm²",
+        "Finished OD": "31 mm",
+        "Twisted OD": "—",
+        "Allowable Current": "696 A",
+        "Allowable Bend Radius": "124 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCC 325 mm²": {
+      "name": "600V EM-FCC 325 mm²",
+      "description": "Flexible halogen-free 600 V low-voltage eco cable, 325 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCC",
+        "Rated Voltage": "600 V",
+        "Cross-section": "325 mm²",
+        "Finished OD": "35 mm",
+        "Twisted OD": "—",
+        "Allowable Current": "815 A",
+        "Allowable Bend Radius": "140 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCCT 150 mm²": {
+      "name": "600V EM-FCCT 150 mm²",
+      "description": "Triplex flexible halogen-free 600 V eco cable, 150 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCCT (Triplex)",
+        "Rated Voltage": "600 V",
+        "Cross-section": "150 mm²",
+        "Finished OD": "26 mm (single)",
+        "Twisted OD": "55 mm",
+        "Allowable Current": "409 A",
+        "Allowable Bend Radius": "220 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCCT 200 mm²": {
+      "name": "600V EM-FCCT 200 mm²",
+      "description": "Triplex flexible halogen-free 600 V eco cable, 200 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCCT (Triplex)",
+        "Rated Voltage": "600 V",
+        "Cross-section": "200 mm²",
+        "Finished OD": "29 mm (single)",
+        "Twisted OD": "62 mm",
+        "Allowable Current": "506 A",
+        "Allowable Bend Radius": "248 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCCT 250 mm²": {
+      "name": "600V EM-FCCT 250 mm²",
+      "description": "Triplex flexible halogen-free 600 V eco cable, 250 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCCT (Triplex)",
+        "Rated Voltage": "600 V",
+        "Cross-section": "250 mm²",
+        "Finished OD": "31 mm (single)",
+        "Twisted OD": "67 mm",
+        "Allowable Current": "582 A",
+        "Allowable Bend Radius": "268 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    },
+    "600V EM-FCCT 325 mm²": {
+      "name": "600V EM-FCCT 325 mm²",
+      "description": "Triplex flexible halogen-free 600 V eco cable, 325 mm² conductor.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Type": "EM-FCCT (Triplex)",
+        "Rated Voltage": "600 V",
+        "Cross-section": "325 mm²",
+        "Finished OD": "35 mm (single)",
+        "Twisted OD": "75 mm",
+        "Allowable Current": "694 A",
+        "Allowable Bend Radius": "300 mm",
+        "Heat / Cold": "90°C / -60°C",
+        "Environmental": "Halogen-free; JIS 60° inclined flame test"
+      },
+      "sourceDocument": "em-fcc_d336.pdf"
+    }
+  },
+  "sourceDocuments": [
+    "em-fcc_d336.pdf"
+  ],
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

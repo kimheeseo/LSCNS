@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "PDF Sources",
+  "displayName": "PDF Sources",
+  "description": "Source brochures corresponding to the three Furukawa PDFs supplied by the user.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/en/solution/datacenter/index.html",
+  "comparisonFields": [
+    "Document",
+    "Coverage",
+    "Source"
+  ],
+  "products": {
+    "fttx_j417": {
+      "name": "Furukawa Optical Cable & Products",
+      "description": "FTTx / optical cable and connectivity brochure used for ODF, patch-panel and high-density cable metadata.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/fttx_j417.pdf",
+      "specs": {
+        "Document": "fttx_j417.pdf",
+        "Coverage": "Optical cable · ODF · patch panel · connectivity",
+        "Source": "Official Furukawa PDF"
+      }
+    },
+    "em-fcc_d336": {
+      "name": "600V EM-FCC(T)",
+      "description": "Low-voltage flexible eco-cable brochure used for EM-FCC and EM-FCCT specifications.",
+      "officialUrl": "https://www.furukawaelectric.com/product/catalogue/pdf/em-fcc_d336.pdf",
+      "specs": {
+        "Document": "em-fcc_d336.pdf",
+        "Coverage": "600V EM-FCC / EM-FCCT",
+        "Source": "Official Furukawa PDF"
+      }
+    },
+    "em-lmfc_e_d331": {
+      "name": "EM-LMFC",
+      "description": "English EM-LMFC brochure used for 600V/6600V cable size and current specifications.",
+      "officialUrl": "https://www.furukawaelectric.com/en/product/catalogue/pdf/em-lmfc_e_d331.pdf",
+      "specs": {
+        "Document": "em-lmfc_e_d331.pdf",
+        "Coverage": "600V / 6600V EM-LMFC",
+        "Source": "Official Furukawa PDF"
+      }
+    }
+  }
+}

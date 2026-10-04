@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "IMDD CW-DFB Laser Chip",
+  "displayName": "IMDD CW-DFB Laser Chip",
+  "description": "High-power continuous-wave DFB laser chips for silicon-photonics IMDD optical transceivers.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.furukawaelectric.com/optical-components/en/product/signal/dfb-chip.html",
+  "comparisonFields": [
+    "Application",
+    "Wavelength Range",
+    "Optical Output Power",
+    "Beam Divergence",
+    "Key Feature"
+  ],
+  "products": {
+    "FOL1xQxCHP-A1": {
+      "name": "FOL1xQxCHP-A1",
+      "description": "High-reliability CW-DFB laser chip for silicon-photonics devices with approximately 70 mW optical output.",
+      "officialUrl": "https://www.furukawaelectric.com/optical-components/en/product/signal/dfb-chip.html",
+      "specs": {
+        "Application": "SiPh / IMDD signal light source",
+        "Wavelength Range": "CWDM 1271 / 1291 / 1311 / 1331 nm",
+        "Optical Output Power": "~70 mW",
+        "Beam Divergence": "18 × 22 deg",
+        "Key Feature": "High reliability; high-power CW source"
+      }
+    },
+    "FOL1xQxCHA-G1": {
+      "name": "FOL1xQxCHA-G1",
+      "description": "High-reliability 100 mW-class CW-DFB laser chip for silicon-photonics devices.",
+      "officialUrl": "https://www.furukawaelectric.com/optical-components/en/product/signal/dfb-chip.html",
+      "specs": {
+        "Application": "SiPh / IMDD signal light source",
+        "Wavelength Range": "CWDM 1271 / 1291 / 1311 / 1331 nm",
+        "Optical Output Power": "~100 mW",
+        "Beam Divergence": "18 × 22 deg",
+        "Key Feature": "High reliability; 100 mW-class output"
+      }
+    }
+  },
+  "dataCenterReference": "https://www.furukawaelectric.com/en/solution/datacenter/index.html"
+}

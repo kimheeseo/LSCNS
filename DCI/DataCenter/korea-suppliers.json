@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-04",
+  "checked": "2026-10-05",
   "description": "국내 업체와 업체별 부품 리스트 제조사의 한국 법인·국내 공급 파트너·공식 문의 경로를 함께 관리합니다. 관계 유형은 공개 근거 수준에 따라 구분합니다.",
   "suppliers": [
     {
@@ -100,6 +100,17 @@
       "email": "customerservice@usconec.com",
       "phone": "+1-828-323-8883",
       "note": "공개 공식 자료에서 한국 대리점을 확인하지 못해 US Conec 공식 Contact/Customer Service를 표시"
+    },
+    {
+      "manufacturer": "Furukawa Electric",
+      "company": "Furukawa Sangyo Korea Co., Ltd.",
+      "relationship": "한국 판매 거점",
+      "category": "Furukawa Electric Group 전자부품·케이블·비철금속 제품 국내 판매 문의",
+      "website": "https://www.furukawaelectric.com/en/company/group/salesoffice.html",
+      "contactUrl": "https://www.furukawaelectric.com/en/company/group/salesoffice.html",
+      "email": "",
+      "phone": "+82-31-898-7688",
+      "note": "Furukawa Electric 공식 Global Sales Offices의 Korea 항목"
     }
   ]
 }

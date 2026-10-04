@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "company": "Fujikura",
+  "category": "Fiber Optic Cables",
+  "displayName": "Fiber Optic Cables",
+  "description": "Fujikura high-density WTC fiber optic cable families for hyperscale data center DCI, server-room, inter-floor, meet-me-room, MDF, inter-building, microduct, and aerial cabling.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.optic-product.fujikura.com/",
+  "sourceUrls": [
+    "https://www.optic-product.fujikura.com/",
+    "https://www.optic-product.fujikura.com/data-center-solution/"
+  ],
+  "sourceCount": 8,
+  "storageMode": "metadata only; official product pages are linked, PDF/catalog files are not uploaded",
+  "comparisonFields": [
+    "Product Area",
+    "Fiber Count / Range",
+    "Application",
+    "Key Feature",
+    "Source"
+  ],
+  "products": {
+    "outdoor-wtc-144-13-824": {
+      "name": "Outdoor WTC 144-13,824",
+      "description": "High-fiber-count outdoor WTC cable family for dense inter-data-center and campus/backbone cabling.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Outdoor",
+        "Fiber Count / Range": "144-13,824 fibers",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "High-density WTC cable",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "single-jacket-single-armor-wtc-sjsa-wtc": {
+      "name": "Single Jacket Single Armor WTC (SJSA-WTC)",
+      "description": "Armored WTC cable for outdoor routes needing mechanical protection with reduced cabling volume.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Outdoor armored",
+        "Fiber Count / Range": "WTC family",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "Single jacket single armor",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "conventional-double-jacket-structure-wtc-24-864f": {
+      "name": "Conventional Double Jacket Structure WTC 24-864F",
+      "description": "Conventional double-jacket WTC cable family for outdoor optical cable routes.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Outdoor",
+        "Fiber Count / Range": "24-864 fibers",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "Double jacket",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "indoor-outdoor-wtc-144-6912f": {
+      "name": "Indoor/Outdoor WTC 144-6912F",
+      "description": "Indoor/outdoor WTC cable for data center building entry, inter-building, and campus applications.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Indoor/Outdoor",
+        "Fiber Count / Range": "144-6,912 fibers",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "High-density WTC cable",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "indoor-wtc-144-6912f": {
+      "name": "Indoor WTC 144-6912F",
+      "description": "Indoor high-density WTC cable for server room, MMR/MDF, and floor-to-floor optical cabling.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Indoor",
+        "Fiber Count / Range": "144-6,912 fibers",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "High-density WTC cable",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "air-blown-wtc-48-1728f": {
+      "name": "Air Blown WTC 48-1728F",
+      "description": "Air-blown WTC microduct cable for scalable installation and future expansion in data center/campus routes.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Microduct",
+        "Fiber Count / Range": "48-1,728 fibers",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "Air blown WTC",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "indoor-outdoor-air-blown-wtc": {
+      "name": "Indoor/Outdoor Air Blown WTC",
+      "description": "Indoor/outdoor air-blown WTC cable for flexible deployment through microduct infrastructure.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Microduct indoor/outdoor",
+        "Fiber Count / Range": "—",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "Air blown WTC",
+        "Source": "Fujikura optic-product category listing"
+      }
+    },
+    "adss-w-wtc-all-dielectric-self-supporting-wire-wtc": {
+      "name": "ADSS-W-WTC All Dielectric Self Supporting Wire WTC",
+      "description": "All-dielectric self-supporting aerial WTC cable for overhead data center campus or communication infrastructure links.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Aerial cable",
+        "Fiber Count / Range": "—",
+        "Application": "Hyperscale data center DCI / server room / campus optical cabling",
+        "Key Feature": "ADSS WTC",
+        "Source": "Fujikura optic-product category listing"
+      }
+    }
+  }
+}

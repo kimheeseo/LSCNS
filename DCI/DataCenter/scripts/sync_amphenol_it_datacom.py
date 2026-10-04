@@ -61,7 +61,9 @@ def _clean_md_title(line: str) -> str:
     line = re.sub(r"^#+\s*", "", line)
     line = re.sub(r"^[-*]\s+", "", line)
     line = re.sub(r"^\*\*(.*?)\*\*$", r"\1", line)
-    line = re.sub(r"\s*\[[^\]]*\]\([^)]*\)\s*$", "", line)
+    # Preserve markdown link labels (especially the Amphenol business name) while dropping URLs.
+    line = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", line)
+    line = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", line)
     return clean_text(line)
 
 def parse_page(text: str, page: int) -> list[dict]:

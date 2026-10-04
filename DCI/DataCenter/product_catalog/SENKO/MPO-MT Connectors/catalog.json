@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "MPO-MT Connectors",
+  "displayName": "MPO-MT Connectors",
+  "description": "SENKO MPO/MT connector families including MPO-PLUS, MT-MPO and AirMT products for high-density multi-fiber interconnects.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.senko.com/mpo-series/",
+  "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products",
+  "sourceCategoryIds": [
+    45,
+    175
+  ],
+  "sourceCount": 24,
+  "storageMode": "metadata only; no PDF files uploaded",
+  "comparisonFields": [
+    "Series / Category",
+    "Product Type",
+    "SKU",
+    "Stock Status",
+    "Source"
+  ],
+  "products": {
+    "advanced-metal-pin": {
+      "name": "Advanced Guide Pins",
+      "description": "SENKO’s innovative chamfered MT Guide pin design together with it’s improved spring are key to confidently align 2 MT Ferrules and provide a reliable fiber to fiber mating anytime, every time. SENKO’s MPO-PLUS® chamfered stainless steel guide pins are manufactured to the tightest specification having a tolerance of +/-0.1Um for the SM Super low loss guide pin , allowing a super precision alignment of the ferrule. Guide pins are available for SM Grade, SM Super Low Loss grade MM Grade and MM Super Low Loss grade. Sizes available to fit 12/24 fiber center key MPO connectors as well as 16/32 fiber offset key connectors.",
+      "officialUrl": "https://www.senko.com/product/advanced-metal-pin/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/10/MPO-12-Pin.png",
+      "specs": {
+        "Product ID": "16790",
+        "Series / Category": "MT Ferrules and Guide Pin",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "airmt-connector": {
+      "name": "AirMT Connector",
+      "description": "SENKO’s AirMT™ connector utilizes a non-contact MT ferrule based technology that greatly reduces the effects of contaminants on optical performance. The push-pull tab simplifies installation and removal in high density installations. 12/24F options Vibration resistant Lower mating force vs. MPO Consistent mating repeatability",
+      "officialUrl": "https://www.senko.com/product/airmt-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/12/AirMT-Connector-Green-596.png",
+      "specs": {
+        "Product ID": "8722",
+        "Series / Category": "AirMT / On-Board Interconnect",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "airmt-dust-shutter-adapter": {
+      "name": "AirMT Dust Shutter Adapter",
+      "description": "SENKO’s AirMT™ dust shutter adapter utilizes an integral hands-free shutter mechanism that protects the behind the wall connector from dust contamination when the port is not in use. The shutter also reduces potentially harmful laser radiation from energized ports. IP5X tested 100% Automatic Shutter Traceability with visual light source No Weld One-piece solid body design",
+      "officialUrl": "https://www.senko.com/product/airmt-dust-shutter-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/12/AirMT-Dust-Shutter-Adapter.png",
+      "specs": {
+        "Product ID": "8718",
+        "Series / Category": "AirMT / On-Board Interconnect",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "airmt-btw-connector": {
+      "name": "AirMT Junior Connector",
+      "description": "SENKO’s AirMT™ Behind The Wall connector utilizes a non-contact MT ferrule based technology that greatly reduces the effects of contaminants on optical performance. Unlike conventional MT based connectors, insertion and return loss remain stable after many matings with minimal cleaning. 12/24F options Vibration resistant Springless connector design High Density MT Connectivity",
+      "officialUrl": "https://www.senko.com/product/airmt-btw-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/12/Air-BTW-MT.png",
+      "specs": {
+        "Product ID": "8714",
+        "Series / Category": "AirMT / On-Board Interconnect",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "airmt-mbmc-stackable-connector": {
+      "name": "AirMT MBMC Stackable Connector",
+      "description": "SENKO’s AirMT™ MBMC Stackable connector utilizes a non-contact MT ferrule based technology that greatly reduces the effects of contaminants on optical performance. The unique stackable design is capable of supporting high fiber counts in a minimal space. 12/24F Compatible High Density connectivity Expandable stackable design Multiple Mounting Options for PCB",
+      "officialUrl": "https://www.senko.com/product/airmt-mbmc-stackable-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/12/AirMT-MBMC-Stackable-Connector.png",
+      "specs": {
+        "Product ID": "8710",
+        "Series / Category": "AirMT / On-Board Interconnect / Mid-plane Connector Options",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-ebo-ez-way-connector": {
+      "name": "MPO EBO EZ-WAY Connector",
+      "description": "SENKO’s MPO EBO EZ-WAY™ connector is engineered for high-density data centers, telecom networks, and harsh environments . Featuring the EZ-WAY Push Pull Boot , it integrates 3M™ Expanded Beam Optical technology , ensuring non-contact connectivity that resists dirt, debris, and vibration damage for long-term reliability . High-density design with EZ-WAY™ Push Pull Boot Non-contact, lensed 3M™ Expanded Beam Ferrule Enhanced durability against dirt, debris, and vibration Ideal for legacy applications and panel designs Developed in collaboration with Molex for interoperability",
+      "officialUrl": "https://www.senko.com/product/mpo-ebo-ez-way-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2025/03/MPO-EBO-EZ-Way-A3.png",
+      "specs": {
+        "Product ID": "31671",
+        "Series / Category": "MPO Connector Series / Key Featured Products",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-bayonet-connector": {
+      "name": "MPO-PLUS® Bayonet Connector",
+      "description": "SENKO’s MPO-PLUS® Bayonet connector is the world’s shortest housed MPO connector at under 18mm in length. With a unique bayonet locking mechanism, fiber counts up to 32F, and industry leading low loss ferrules, this is an ideal solution for all limited space applications. Locking bayonet housing Compatible with standard MPO Spring-loaded free-floating ferrule 20N spring for 16, 24 and 32F ferrules 12/24 fiber center key 16/32 fiber offset key",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-bayonet-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Bayonete-Con-705F-e1666808571559.png",
+      "specs": {
+        "Product ID": "2556",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Connector Series / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-crimp-tool": {
+      "name": "MPO-PLUS® Crimp Tool",
+      "description": "This crimp tool can be used for MPO and MPO-PLUS® connectors Precision crimping Consistent performance Non-slip handle Part Number: CRT-605 Crimp Tool for MPO-PLUS® Connector (Oval) Part Number: CRT-606 Crimp Tool for MPO-PLUS® 3.0 – 5.5mm round crimp (for thick jacket crimp) Part Number: CRT-607 Crimp Tool for MPO-PLUS® 3.0 – 5.5mm round crimp",
+      "officialUrl": "https://www.senko.com/product/mpo-crimp-tool/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/10/MPO-Crimp-Tool-image-e1666892623688.png",
+      "specs": {
+        "Product ID": "17006",
+        "Series / Category": "MPO Accessories",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-dust-shutter-adapter": {
+      "name": "MPO-PLUS® Dust Shutter Adapter",
+      "description": "Senko’s MPO Dust Shutter adapters feature an internal dust shutter system to protect the end face of MPO connectors residing in the adapter. This twin shutter system is design to eliminate the need for the protective dust plugs. Duplex version fits conventional SC duplex panel dimensions for ease of installation. Available in both center keyway for 12/24F or offset keyway for 16/32F connectors. Laser and dust protection Internal twin shutter system Center or offset keyway orientation SC Duplex footprint Flanged and no flange options Accepts female MPO on front/Male rear",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-dust-shutter-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/11/MPO-SC-DX-Adapter-7A5-web-e1675197893692.png",
+      "specs": {
+        "Product ID": "17851",
+        "Series / Category": "MPO Connector Series / Key Featured Products / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-dust-shutter-adapter": {
+      "name": "MPO-PLUS® Dust Shutter Adapter",
+      "description": "Senko’s MPO Dust Shutter adapters feature an internal dust shutter system to protect the end face of MPO connectors residing in the adapter. This twin shutter system is design to eliminate the need for the protective dust plugs. Laser and dust protection Internal twin shutter system Flanged and no flange options Center or offset keyway orientation Accepts female MPO on front/Male rear",
+      "officialUrl": "https://www.senko.com/product/mpo-dust-shutter-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Shuttered-Adapter-e1666807165476.png",
+      "specs": {
+        "Product ID": "2567",
+        "Series / Category": "MPO Connector Series / Key Featured Products / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-ez-way-connector": {
+      "name": "MPO-PLUS® EZ-Way Connector",
+      "description": "SENKO MPO-PLUS® EZ-Way™ connector is tailored for high-density scenarios where space is at a premium. Its compact design and push-pull boot are ideal for 800G dual belly-to-belly type transceivers and facilitate swift insertion and removal. Fully compatible with all industry-standard MPO connectors, this ensures seamless integration with existing systems. Equipped with industry-leading Low Loss ferrules featuring a 20N spring for 16, 24, and 32 fiber versions. Industry leading low loss ferrules Compatible with dual MPO transceivers Push-pull boot Free floating ferrule 12/24 fiber center key 16/32 fiber offset key",
+      "officialUrl": "https://www.senko.com/product/mpo-ez-way-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2024/12/MPO-EZ-Way-Iso-old-housing.png",
+      "specs": {
+        "Product ID": "28098",
+        "Series / Category": "MPO Connector Series / Key Featured Products / MPO-PLUS® Connector Series / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-latch-connector": {
+      "name": "MPO-PLUS® Latch Connector",
+      "description": "The MPO-PLUS® Latch connector offers a unique latch design for easy connect and disconnect compared to traditional push-pull MPO housings, while maintaining the MPO-PLUS® feature of oval spring and free-floating high-quality ferrules. Compact size 20N spring for 24F ferrules Industry leading low loss ferrule Latch compatible adapter required",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-latch-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Latch-1-e1666807986858.png",
+      "specs": {
+        "Product ID": "2557",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Connector Series",
+        "Product Type": "simple",
+        "SKU": "704",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-loopback": {
+      "name": "MPO-PLUS® Loopback",
+      "description": "SENKO’S MPO-PLUS® Loopback is designed to provide a media of return patch for multiple fiber optic signals. Common uses are burn-in testing and network troubleshooting for MT ferrule based devices. Standard, QSFP and customized configurations are available SM APC or MM Flat polish Push-Pull MPO design Attenuation levels from 1-20dB",
+      "officialUrl": "https://www.senko.com/product/mpo-loopback/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/MPO-Loopback-New-e1666810150945.png",
+      "specs": {
+        "Product ID": "2565",
+        "Series / Category": "MPO Connector Series / MPO Accessories / Attenuators and Loopbacks",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-metal-adapter": {
+      "name": "MPO-PLUS® Metal Adapter",
+      "description": "Senko’s MPO metal adapters are designed for applications that need EMI shielding or applications that could benefit from higher robustness of a metal housing. This adapter comes with options that include an inner shutter system and with or without flanged mounting ears. EMI protection Flanged and no flange options High stability One-piece design",
+      "officialUrl": "https://www.senko.com/product/mpo-metal-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Metal-Adapter-7M7-7M8.702-e1666809874673.png",
+      "specs": {
+        "Product ID": "2569",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-micro-latch-connector": {
+      "name": "MPO-PLUS® Micro Latch Connector",
+      "description": "SENKO’s MPO-PLUS® Micro Latch connector is the smallest pluggable MPO connector. The springless connector design allows for flush mounting with MPO adapters in behind the wall applications. Multiple ferrule offerings Latch compatible adapter required Smallest pluggable MPO connector Simplified low cost no housing design",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-micro-latch-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Micro-Latch-Conn-706F-1-e1666808216607.png",
+      "specs": {
+        "Product ID": "2560",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Connector Series / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-reverse-polarity-adapter": {
+      "name": "MPO-PLUS® Polarity Changeable Adapter",
+      "description": "Senko’s MPO Reverse Polarity Adapter enables the operator to extract an internal insert using the Polarity Change Tool (P/N RMT-609) for flat polished MPO connectors. Flippable keyway insert Center or offset keyway orientation 12/24 and 16/32 fiber MPO options",
+      "officialUrl": "https://www.senko.com/product/mpo-reverse-polarity-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Polarity-Changeable-Adapter-773-774-7W3-7W4-e1666808897455.png",
+      "specs": {
+        "Product ID": "2610",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-premium-mini-connector": {
+      "name": "MPO-PLUS® Premium Mini Connector",
+      "description": "The MPO-PLUS® Premium MINI connector is tailored for high-density scenarios where space is at a premium. Its compact design and optional pull-tab facilitate swift insertion and removal. Offering gender change capability without requiring the connector housing to be opened, it’s exceptionally adaptable for various applications. Equipped with industry-leading Low Loss ferrules featuring a 20N spring for 16, 24, and 32 fiber versions, the MPO Mini sets a new standard. Also available is a GR-1435 qualified version. Polarity changeable option available for Multimode fibers. ISO Certified ITL GR-1435 Qualified Industry leading low loss ferrules Gender changeable guide pins Shortest length 12/24 fiber center key 16/32 fiber offset key Polarity changeable option available for Multimode fibers",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-premium-mini-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/MPO-Premium-Mini-703-Web-Category-e1713011817421.png",
+      "specs": {
+        "Product ID": "2564",
+        "Series / Category": "MPO Connector Series / Key Featured Products / MPO-PLUS® Connector Series / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-sc-footprint-adapter-2": {
+      "name": "MPO-PLUS® SC Footprint Adapter",
+      "description": "Senko’s MPO SC footprint use a strong one-piece design that can be used in the faceplates with a standard SC adapter opening. Senko has an external shutter option that is sold separate and can added to your MPO adapters when your applications need some extra protection. This family of adapters comes in a flanged and no flange design with multiple color options. ISO Certified ITL GR-1435 Qualified Flanged and no flange External shutter option available Center or offset keyway orientation",
+      "officialUrl": "https://www.senko.com/product/mpo-sc-footprint-adapter-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-SC-Footprint-Adapter-e1666813860910.png",
+      "specs": {
+        "Product ID": "2568",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series / Front Panel",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-stackable-adapter": {
+      "name": "MPO-PLUS® Stackable Adapter",
+      "description": "Senko’s MPO stackable adapters are ideal for high-density applications using MPO connectors. Available in 90 and 45 degree options to assist with fiber management in densely populated panels. 90 and 45 degree mounting High stability One-piece design Pre-assembled configurations available Modular design for custom applications",
+      "officialUrl": "https://www.senko.com/product/mpo-stackable-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/mpo-stackable-adapter-e1666809945204.png",
+      "specs": {
+        "Product ID": "2570",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mpo-plus-standard-connector": {
+      "name": "MPO-PLUS® Standard Connector",
+      "description": "SENKO’s original MPO-PLUS® standard connector is designed for high density applications up to 32 fibers with industry leading low loss ferrules and components for superior performance. Oval Spring design Precision metal guide pins 20N spring for 16,24 and 32F ferrules Removable housing 12/24 fiber center key 16/32 fiber offset key Metal pin keeper",
+      "officialUrl": "https://www.senko.com/product/mpo-plus-standard-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/MPO-Standard-Connector-702F-1-e1666814323111.png",
+      "specs": {
+        "Product ID": "2562",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mt-mpo-low-profile-adapter": {
+      "name": "MT-MPO Low Profile Adapter",
+      "description": "SENKO’s MT-MPO Hybrid Low-Profile Adapter bridges MT ferrule and MPO connector, ensuring precision alignment for reliable performance, easy installation to save time and effort, and low-profile for both Single and Dual MPO transceiver interfaces. ​ This Hybrid Adapter serves as the ideal choice for MPO-12 One row, and Dual MPO-12 Optical Interface, within QSFP-DD, OSFP and OSFP-XD transceiver modules. It supports high bandwidth transceivers (400G, 800G, 1.6T) for ML and AI-driven applications. Low-profile ​ Reduced flange ​ Center key ​ High precision alignment ​ Easy installation ​ ​",
+      "officialUrl": "https://www.senko.com/product/mt-mpo-low-profile-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2024/09/MT-MPO-Adapter-7P5.png",
+      "specs": {
+        "Product ID": "26228",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "mt-mpo-standard-adapter": {
+      "name": "MT-MPO Standard Adapter",
+      "description": "SENKO’s MT-MPO Standard Adapter bridges MT ferrule and MPO connector, ensuring precision alignment for reliable performance and easy installation, saving time and effort. ​ This Hybrid Adapter is the ideal choice for MPO-12 One row, and MPO-16 One row Optical Interface, within QSFP-DD, OSFP and OSFP-XD transceiver modules. It supports high bandwidth transceivers (400G, 800G, 1.6T) for Machine Learning and AI-driven applications. With the optional mounting clip, it is an excellent solution for faceplate with limited space required inside. SC Footprint ​ Center key and offset key ​ With or without mounting clip ​ High precision alignment ​ Easy installation ​",
+      "officialUrl": "https://www.senko.com/product/mt-mpo-standard-adapter/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2024/09/MT-MPO-Adapter-7U1-SM-X-Center-Key.png",
+      "specs": {
+        "Product ID": "26245",
+        "Series / Category": "MPO Connector Series / MPO-PLUS® Adapter Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "smart-cleaner-cassette-pinned-mt-end-face-cleaner": {
+      "name": "SMART CLEANER CASSETTE – MALE MT",
+      "description": "SENKO Part Number: SCK-CC-200 Cleans 400 pinned MPO, MT and SN-MT Manual advance cleaning ribbon Email us at sales@senko.com or talk with your local SENKO Sales Representative for pricing.",
+      "officialUrl": "https://www.senko.com/product/smart-cleaner-cassette-pinned-mt-end-face-cleaner/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/SCK-SS-100.png",
+      "specs": {
+        "Product ID": "2652",
+        "Series / Category": "SN-MT Series / SN-MT Connector and Adapter / Space Saving SN-MT Connector and Adapter / SN-MT Mini Connector and Adapters",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "sn-mt-junior-connector": {
+      "name": "SN-MT Junior Connector",
+      "description": "The SN-MT Junior connector is designed for high density applications with its compact size for behind the wall (BTW) situations. The SN-MT is offered in 16F, and has 2.7 x the density than 16F MPO. The SN-MT Junior fits on the BTW side of the SN-MT adapter. It mates using a latch. No special adapter is required for this connector. No special adapter required Low-loss offered in 16F Industry’s highest density connector",
+      "officialUrl": "https://www.senko.com/product/sn-mt-junior-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2022/02/SN-MT-JuniorNew.png",
+      "specs": {
+        "Product ID": "9155",
+        "Series / Category": "Space Saving SN-MT Connector and Adapter / MPO Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    }
+  }
+}

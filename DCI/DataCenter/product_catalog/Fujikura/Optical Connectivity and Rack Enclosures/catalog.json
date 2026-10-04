@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "company": "Fujikura",
+  "category": "Optical Connectivity and Rack Enclosures",
+  "displayName": "Optical Connectivity and Rack Enclosures",
+  "description": "Fujikura data center optical connectivity products including MDC/MMC, MPO cabling, patch cords, field-installable connectors, cleaners, and 19-inch rack termination boxes.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.optic-product.fujikura.com/",
+  "sourceUrls": [
+    "https://www.optic-product.fujikura.com/multi-fiber-optical-cabling-solutions/mdc_mmc-solutions/mdc_mmc-cabling-solutions/",
+    "https://www.optic-product.fujikura.com/multi-fiber-optical-cabling-solutions/mpo-cabling-system/mpo-cabling-system/",
+    "https://www.optic-product.fujikura.com/optical-distribution-frame_termination-enclosure_optical-closures/optical-termination-enclosure-for-19inch-rack/ftb-235-series/"
+  ],
+  "sourceCount": 21,
+  "storageMode": "metadata only; official product pages are linked, PDF/catalog files are not uploaded",
+  "comparisonFields": [
+    "Product Area",
+    "Interface / Format",
+    "Application",
+    "Key Feature",
+    "Source"
+  ],
+  "products": {
+    "mdc-mmc-cabling-solutions": {
+      "name": "MDC/MMC Cabling Solutions",
+      "description": "Multi-fiber space-saving cabling for telecom and datacom applications; designed to reduce hardware and cabling space.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "MDC/MMC",
+        "Interface / Format": "Multi-fiber cabling",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "High-density telecom/datacom cabling",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "mdc-connector-solutions": {
+      "name": "MDC Connector Solutions",
+      "description": "MDC connector solution for high-density duplex optical connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "MDC",
+        "Interface / Format": "VSFF connector",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "High-density duplex connectivity",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "mmc-connector-solutions": {
+      "name": "MMC Connector Solutions",
+      "description": "MMC connector solution for multi-fiber very-small-form-factor connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "MMC",
+        "Interface / Format": "VSFF multi-fiber connector",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "High-density multi-fiber connectivity",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "mdc-mmc-cleaner": {
+      "name": "MDC/MMC Cleaner",
+      "description": "Cleaner for MDC/MMC cabling and connector systems.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Cleaning",
+        "Interface / Format": "MDC/MMC cleaner",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Connector inspection and cleaning",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "mpo-cabling-system": {
+      "name": "MPO Cabling System",
+      "description": "MPO cabling system for data centers supporting OM3/OM4 and OS2 for 10G, 40G, 100G, and 400GbE transmission.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "MPO",
+        "Interface / Format": "MPO cabling system",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "10G/40G/100G/400GbE cabling",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "optical-patch-panel-and-connector-module": {
+      "name": "Optical Patch Panel and Connector Module",
+      "description": "Patch panel and connector module components for MPO cabling systems.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Panel / Module",
+        "Interface / Format": "MPO patch panel and modules",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Structured cabling",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "mpo-connector": {
+      "name": "MPO Connector",
+      "description": "MPO connector product for multi-fiber data center cabling systems.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Connector",
+        "Interface / Format": "MPO connector",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Multi-fiber connector",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "trunk-cable": {
+      "name": "Trunk Cable",
+      "description": "Trunk cable for MPO cabling system and plug-and-play high-density deployment.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Cable assembly",
+        "Interface / Format": "MPO trunk cable",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Pre-terminated cabling",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "patch-cord-with-fiber-optic-connector-for-mpo-cabling-system": {
+      "name": "Patch Cord with Fiber-optic Connector for MPO Cabling System",
+      "description": "Patch cord product for MPO cabling system interconnects.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Patch cord",
+        "Interface / Format": "Fiber-optic connector patch cord",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "MPO system patching",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "single-fiber-optical-connector": {
+      "name": "Single-fiber Optical Connector",
+      "description": "Single-fiber optical connector for patch cord applications.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Connector",
+        "Interface / Format": "Single-fiber connector",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Optical patching",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "simplex-patch-cord": {
+      "name": "Simplex Patch Cord",
+      "description": "Simplex patch cord for optical connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Patch cord",
+        "Interface / Format": "Simplex",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Optical patching",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "duplex-patch-cord": {
+      "name": "Duplex Patch Cord",
+      "description": "Duplex patch cord for optical connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Patch cord",
+        "Interface / Format": "Duplex",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Optical patching",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "fast-connector-series": {
+      "name": "FAST Connector Series",
+      "description": "Field-installable FAST connector series for on-site optical termination.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Field installable connector",
+        "Interface / Format": "FAST connector",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "On-site installation",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "fuseconnect-series": {
+      "name": "FuseConnect Series",
+      "description": "Field-installable FuseConnect series for optical termination.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Field installable connector",
+        "Interface / Format": "FuseConnect",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "On-site installation",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "fast-plus-connector": {
+      "name": "FAST Plus Connector",
+      "description": "FAST Plus connector for field-installable optical connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Field installable connector",
+        "Interface / Format": "FAST Plus",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "On-site installation",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "fuseconnect-for-mpo": {
+      "name": "FuseConnect for MPO",
+      "description": "FuseConnect product for MPO field-installable connectivity.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Field installable connector",
+        "Interface / Format": "FuseConnect MPO",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "MPO installation",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "one-click-cleaner-mpo-esd": {
+      "name": "One-Click Cleaner MPO ESD",
+      "description": "One-Click cleaner for MPO connectors with ESD support.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Cleaner",
+        "Interface / Format": "MPO ESD cleaner",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Connector cleaning",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "one-click-cleaner-pro": {
+      "name": "One-Click Cleaner PRO",
+      "description": "One-Click Cleaner PRO for fiber connector cleaning.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Cleaner",
+        "Interface / Format": "PRO cleaner",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Connector cleaning",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "one-click-cleaner": {
+      "name": "One-Click Cleaner",
+      "description": "One-Click cleaner for fiber connector cleaning.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Cleaner",
+        "Interface / Format": "General cleaner",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "Connector cleaning",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "ftb-235-series-sliding-19-inch-rack-termination-box": {
+      "name": "FTB-235 Series Sliding 19-inch Rack Termination Box",
+      "description": "Sliding fiber optic termination box for 19-inch rack mounting; supports frames, adapter panels, wiring guides, and cable clamps.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Rack enclosure",
+        "Interface / Format": "1U/2U sliding enclosure",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "19-inch rack optical termination",
+        "Source": "Fujikura product listing and product pages"
+      }
+    },
+    "ftb-223a-series-fixed-19-inch-rack-termination-box": {
+      "name": "FTB-223A Series Fixed 19-inch Rack Termination Box",
+      "description": "Fixed fiber optic termination box for 19-inch rack mounting.",
+      "officialUrl": "https://www.optic-product.fujikura.com/",
+      "specs": {
+        "Product Area": "Rack enclosure",
+        "Interface / Format": "Fixed enclosure",
+        "Application": "Data center optical connectivity, installation, maintenance, rack termination",
+        "Key Feature": "19-inch rack optical termination",
+        "Source": "Fujikura product listing and product pages"
+      }
+    }
+  }
+}

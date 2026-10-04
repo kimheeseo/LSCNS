@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "Legacy Connectors",
+  "displayName": "Legacy Connectors",
+  "description": "SENKO legacy ST and FC connector/adaptor families used in installed-base optical networks.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.senko.com/product-category/interconnect/st-series/",
+  "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products",
+  "sourceCategoryIds": [
+    93,
+    47
+  ],
+  "sourceCount": 6,
+  "storageMode": "metadata only; no PDF files uploaded",
+  "comparisonFields": [
+    "Series / Category",
+    "Product Type",
+    "SKU",
+    "Stock Status",
+    "Source"
+  ],
+  "products": {
+    "fc-oval-and-square-adapters": {
+      "name": "FC Oval and Solid Body Adapters",
+      "description": "SENKO offers a FC Adapters in oval and solid body configurations with high precision zirconia split sleeves. Nickel plated brass housing Oval or square mount versions Narrow or wide connector key options",
+      "officialUrl": "https://www.senko.com/product/fc-oval-and-square-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/FC-Solid-Body-Adapter-297-298-e1635177079456.png",
+      "specs": {
+        "Product ID": "2913",
+        "Series / Category": "FC Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "fc-premium": {
+      "name": "FC Premium Connector",
+      "description": "SENKO’s flagship highest quality FC connector series designed to exceed the telecommunication and testing industry’s rigorous requirements for years of reliable service. Robust body design Vibration resistant threaded coupling Designed to exceed GR-326-CORE Grade B IEC61753-1 Random Mating",
+      "officialUrl": "https://www.senko.com/product/fc_premium/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/10/FC-Premium-Connector-315-Web-Category-1.png",
+      "specs": {
+        "Product ID": "2539",
+        "Series / Category": "FC Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "fc-adapters": {
+      "name": "FC Round Adapters",
+      "description": "SENKO offers FC Adapters in Round mount configuration with high precision zirconia split sleeves. Nickel plated brass housing D Flange or DD Flange mounting Narrow or wide connector key options",
+      "officialUrl": "https://www.senko.com/product/fc-adapters/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/FC-Round-Adapter-253.png",
+      "specs": {
+        "Product ID": "2592",
+        "Series / Category": "FC Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "fc-standard-connector-2": {
+      "name": "FC Standard Connector",
+      "description": "SENKO’s Standard FC connector offers high quality at a value. Single-mode and multimode connectors come with pre-polished UPC profiles and spherical end-face for fast polishing and quality performance. TIA, IEC and JIS compliance Vibration resistant threaded coupling Various boot color and sizes available",
+      "officialUrl": "https://www.senko.com/product/fc-standard-connector-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/08/FC-Standard-343-332.png",
+      "specs": {
+        "Product ID": "2540",
+        "Series / Category": "FC Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "st-adapter-2": {
+      "name": "ST Adapter",
+      "description": "SENKO’s ST simplex and duplex adapters are available with metal housing and a zirconia split sleeve. Mount style is horizontal and hybrid adapters are also available. Rugged metal housing High precision alignment Simplex and duplex options",
+      "officialUrl": "https://www.senko.com/product/st-adapter-2/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/ST-Adapter.png",
+      "specs": {
+        "Product ID": "2594",
+        "Series / Category": "ST Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    },
+    "st-premium-connector": {
+      "name": "ST Premium Connector",
+      "description": "The ST Premium connector is a legacy metal body bayonet style connector available in single-mode and multimode, generally found in older LAN and campus environments. Rugged bayonet mounting Premium quality ferrule for low loss Metal body for enhanced durability",
+      "officialUrl": "https://www.senko.com/product/st-premium-connector/",
+      "imageUrl": "https://www.senko.com/wp-content/uploads/2021/09/ST-Premium-215-e1635177263996.png",
+      "specs": {
+        "Product ID": "2545",
+        "Series / Category": "ST Connector Series",
+        "Product Type": "simple",
+        "SKU": "—",
+        "Stock Status": "in-stock",
+        "Source": "SENKO WooCommerce Store API"
+      }
+    }
+  }
+}

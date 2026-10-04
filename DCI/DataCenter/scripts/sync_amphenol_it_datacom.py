@@ -12,7 +12,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
-import requests
+from curl_cffi import requests
 from bs4 import BeautifulSoup
 
 BASE = "https://www.amphenol.com/markets/it-datacom"
@@ -22,7 +22,7 @@ AMPHENOL_ROOT = ROOT / "Amphenol"
 INDEX_PATH = ROOT / "bom-catalog-index.json"
 CHECKED = "2026-10-05"
 
-session = requests.Session()
+session = requests.Session(impersonate="chrome")
 session.headers.update({
     "User-Agent": "Mozilla/5.0 (compatible; LSCNS-DataCenter-Catalog/1.0; +https://github.com/kimheeseo/LSCNS)",
     "Accept-Language": "en-US,en;q=0.9",
@@ -36,7 +36,7 @@ def fetch(url: str) -> str:
     last = None
     for attempt in range(5):
         try:
-            r = session.get(url, timeout=60)
+            r = session.get(url, timeout=60, allow_redirects=True)
             r.raise_for_status()
             if "IT Datacom" not in r.text:
                 raise RuntimeError("Unexpected Amphenol response")

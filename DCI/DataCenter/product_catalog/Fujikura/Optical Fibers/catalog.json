@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "company": "Fujikura",
+  "category": "Optical Fibers",
+  "displayName": "Optical Fibers",
+  "description": "Fujikura FutureGuide telecommunication optical fibers including compact 200 um coating fibers, G.652.D/G.657 fibers, and G.654.E long-haul/DCI fiber.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+  "sourceUrls": [
+    "https://www.optic-product.fujikura.com/",
+    "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/futureguide-hsc-125/",
+    "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/futureguide-bis-b-200/"
+  ],
+  "sourceCount": 8,
+  "storageMode": "metadata only; official product pages are linked, PDF/catalog files are not uploaded",
+  "comparisonFields": [
+    "ITU-T Category",
+    "Coating / Glass",
+    "Application",
+    "Key Feature",
+    "Source"
+  ],
+  "products": {
+    "futureguide-bis-b-200": {
+      "name": "FutureGuide BIS-B-200",
+      "description": "ITU-T G.657.A2 and G.652.D fiber with 200 um coating diameter for compact, bend-insensitive cabling.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A2 / G.652.D",
+        "Coating / Glass": "200 um coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Bend-insensitive compact fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-bis-b": {
+      "name": "FutureGuide BIS-B",
+      "description": "ITU-T G.657.A2 and G.652.D bend-insensitive single-mode fiber for communication infrastructure.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A2 / G.652.D",
+        "Coating / Glass": "Standard coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Bend-insensitive fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-sr15e-200": {
+      "name": "FutureGuide SR15E-200",
+      "description": "ITU-T G.657.A1 and G.652.D fiber with 200 um coating diameter for reduced cable size.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A1 / G.652.D",
+        "Coating / Glass": "200 um coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Compact fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-lwp-plus-200": {
+      "name": "FutureGuide LWP plus-200",
+      "description": "ITU-T G.657.A1 and G.652.D low-water-peak plus 200 um coating fiber for compact optical cables.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A1 / G.652.D",
+        "Coating / Glass": "200 um coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Low-water-peak compact fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-sr15e": {
+      "name": "FutureGuide SR15E",
+      "description": "ITU-T G.657.A1 and G.652.D fiber for access, metro, and data center optical infrastructure.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A1 / G.652.D",
+        "Coating / Glass": "Standard coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Bend-insensitive fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-ace": {
+      "name": "FutureGuide Ace",
+      "description": "ITU-T G.657.A1 and G.652.D reduced-attenuation fiber for optical infrastructure.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.657.A1 / G.652.D",
+        "Coating / Glass": "Standard coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Reduced attenuation",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-lwp": {
+      "name": "FutureGuide LWP",
+      "description": "ITU-T G.652.D low-water-peak single-mode fiber for telecom and data center infrastructure.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.652.D",
+        "Coating / Glass": "Standard coating",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Low-water-peak fiber",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    },
+    "futureguide-hsc-125": {
+      "name": "FutureGuide HSC-125",
+      "description": "ITU-T G.654.E ultra-low-attenuation fiber optimized for high-speed coherent transmission, DCI, 400G/800G and beyond.",
+      "officialUrl": "https://www.optic-product.fujikura.com/optical-fibers/telecommunication/",
+      "specs": {
+        "ITU-T Category": "G.654.E",
+        "Coating / Glass": "125 um glass",
+        "Application": "Telecommunication, data center infrastructure, DCI, coherent transmission",
+        "Key Feature": "Ultra-low attenuation, large effective area",
+        "Source": "Fujikura optical fiber category listing"
+      }
+    }
+  }
+}

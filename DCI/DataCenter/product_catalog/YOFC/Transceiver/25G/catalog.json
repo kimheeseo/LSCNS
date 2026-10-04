@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "25G",
+  "displayName": "25G",
+  "description": "YOFC 25G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1484.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-27000C(E)000": {
+      "name": "Y-27000C(E)000 · 25GBASE-SR Ethernet",
+      "description": "25GBASE-SR Ethernet: 25.78G, SFP28, LC, 850nm, reach 100m (OM4).",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25GBASE-SR Ethernet",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "850nm",
+        "Reach": "100m (OM4)",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27014I000": {
+      "name": "Y-27014I000 · 25Gbase-LR",
+      "description": "25Gbase-LR: 25.78G, SFP28, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27011I000": {
+      "name": "Y-27011I000 · 25Gbase-LR",
+      "description": "25Gbase-LR: 25.78G, SFP28, LC, 1310nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "300m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27031I000": {
+      "name": "Y-27031I000 · CWDM 25Gbase-LR",
+      "description": "CWDM 25Gbase-LR: 25.78G, SFP28, LC, 1271nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "CWDM 25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1271nm",
+        "Reach": "300m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27041I000": {
+      "name": "Y-27041I000 · CWDM 25Gbase-LR",
+      "description": "CWDM 25Gbase-LR: 25.78G, SFP28, LC, 1291nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "CWDM 25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1291nm",
+        "Reach": "300m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27051I000": {
+      "name": "Y-27051I000 · CWDM 25Gbase-LR",
+      "description": "CWDM 25Gbase-LR: 25.78G, SFP28, LC, 1311nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "CWDM 25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1311nm",
+        "Reach": "300m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27061I000": {
+      "name": "Y-27061I000 · CWDM 25Gbase-LR",
+      "description": "CWDM 25Gbase-LR: 25.78G, SFP28, LC, 1331nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "CWDM 25Gbase-LR",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1331nm",
+        "Reach": "300m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27691I000": {
+      "name": "Y-27691I000 · 25Gbase-LR BIDI",
+      "description": "25Gbase-LR BIDI: 25.78G, SFP28, LC, 1270/1330nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25Gbase-LR BIDI",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27701I000": {
+      "name": "Y-27701I000 · 25Gbase-LR BIDI",
+      "description": "25Gbase-LR BIDI: 25.78G, SFP28, LC, 1330/1270nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25Gbase-LR BIDI",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1330/1270nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-2C000C(E)000": {
+      "name": "Y-2C000C(E)000 · Fiber channel",
+      "description": "Fiber channel: 32G, SFP28, LC, 850nm, reach 100m (OM4).",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "Fiber channel",
+        "Data Rate": "32G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "850nm",
+        "Reach": "100m (OM4)",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-2C014I000": {
+      "name": "Y-2C014I000 · Fiber channel",
+      "description": "Fiber channel: 32G, SFP28, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "Fiber channel",
+        "Data Rate": "32G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27XX4I(C)000 · 25G LR LWDM": {
+      "name": "Y-27XX4I(C)000 · 25G LR LWDM",
+      "description": "25G LR LWDM: 25G, SFP28, LC, 1269-1318nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25G LR LWDM",
+        "Data Rate": "25G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1269-1318nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27XX4I000": {
+      "name": "Y-27XX4I000 · 25G LR MWDM",
+      "description": "25G LR MWDM: 25G, SFP28, LC, 1267-1375nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25G LR MWDM",
+        "Data Rate": "25G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "1267-1375nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27XX4I(C)000 · 25G LR DWDM": {
+      "name": "Y-27XX4I(C)000 · 25G LR DWDM",
+      "description": "25G LR DWDM: 25G, SFP28, LC, O-band / C-band, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1484.html",
+      "specs": {
+        "Remark": "25G LR DWDM",
+        "Data Rate": "25G",
+        "Package": "SFP28",
+        "Connector": "LC",
+        "Wavelength": "O-band / C-band",
+        "Reach": "10km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

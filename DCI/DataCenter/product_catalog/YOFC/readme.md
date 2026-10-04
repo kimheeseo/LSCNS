@@ -16,3 +16,9 @@ Sources:
 - G4 Telescopic Type Fibre Optic Patch Panel: https://en.yofc.com/view/3035.html
 
 Last reviewed: 2026-10-04
+
+## Optical Transceiver source
+- User-provided YOFC **Optical Transceiver** brochure (10 pages; technical specification tables on brochure pages 3-13 / PDF pages 4-9)
+- Cross-checked with YOFC official AOC / 400G / 200G / 100G / 50G / 40G / 25G / 10G SFP+ / 10G XFP / 2.5G / 1.25G / PON product pages.
+
+The catalog contains **113 transceiver rows in 12 product families** with common comparison fields: Remark, Data Rate, Package, Connector, Wavelength, Reach, Transmitter, Receiver.

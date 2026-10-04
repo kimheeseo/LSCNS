@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "SDF Fibre Optic Patch Panel",
+  "displayName": "SDF Fibre Optic Patch Panel",
+  "description": "19-inch SDF high-density patch panel for main/intermediate/device cross-connects.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3038.html",
+  "comparisonFields": [
+    "Form Factor",
+    "1U Capacity",
+    "4U Capacity",
+    "Cabling Schemes",
+    "Standards",
+    "Maintenance"
+  ],
+  "products": {
+    "__characteristics__": {
+      "name": "SDF Fibre Optic Patch Panel",
+      "description": "YOFC publishes characteristics but no Product Model table on this page.",
+      "officialUrl": "https://en.yofc.com/view/3038.html",
+      "specs": {
+        "Form Factor": "1U / 4U; 3-vacancy / 12-vacancy fixed panel",
+        "1U Capacity": "72-core LC / 24-port MTP",
+        "4U Capacity": "288-core LC / 72-port MTP",
+        "Cabling Schemes": "Fusion splicing + pre-terminated",
+        "Standards": "YD-778; GB2423.17; TIA/EIA 604-5-D-2007; IEC 61754-7-2008",
+        "Maintenance": "Transparent cover/front; rear-drawable splice trays on 4U"
+      },
+      "characteristicsOnly": true
+    }
+  }
+}

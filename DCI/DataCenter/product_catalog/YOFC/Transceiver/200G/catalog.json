@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "200G",
+  "displayName": "200G",
+  "description": "YOFC 200G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/2835.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-JA000C000": {
+      "name": "Y-JA000C000 · 200G SR4",
+      "description": "200G SR4: 200G, QSFP-56, MPO-12, 850nm, reach 100m.",
+      "officialUrl": "https://en.yofc.com/view/2835.html",
+      "specs": {
+        "Remark": "200G SR4",
+        "Data Rate": "200G",
+        "Package": "QSFP-56",
+        "Connector": "MPO-12",
+        "Wavelength": "850nm",
+        "Reach": "100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    }
+  }
+}

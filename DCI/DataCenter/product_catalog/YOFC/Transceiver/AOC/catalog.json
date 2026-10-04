@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "AOC",
+  "displayName": "AOC",
+  "description": "YOFC AOC optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1502.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-16000C30X · 10G AOC": {
+      "name": "Y-16000C30X · 10G AOC",
+      "description": "10G AOC: 10.3G, SFP+, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "10G AOC",
+        "Data Rate": "10.3G",
+        "Package": "SFP+",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-27000C30X · 25G AOC": {
+      "name": "Y-27000C30X · 25G AOC",
+      "description": "25G AOC: 25.78G, SFP28, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "25G AOC",
+        "Data Rate": "25.78G",
+        "Package": "SFP28",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48770C30X · 40G AOC": {
+      "name": "Y-48770C30X · 40G AOC",
+      "description": "40G AOC: 41.2G, QSFP+, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "40G AOC",
+        "Data Rate": "41.2G",
+        "Package": "QSFP+",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48770C30X · 40G AOC Breakout": {
+      "name": "Y-48770C30X · 40G AOC Breakout",
+      "description": "40G AOC Breakout: 4×10.3G, QSFP+ to 4×SFP+, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "40G AOC Breakout",
+        "Data Rate": "4×10.3G",
+        "Package": "QSFP+ to 4×SFP+",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59770C30X · 100G AOC": {
+      "name": "Y-59770C30X · 100G AOC",
+      "description": "100G AOC: 100G, QSFP28, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "100G AOC",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59770C30X · 100G AOC Breakout": {
+      "name": "Y-59770C30X · 100G AOC Breakout",
+      "description": "100G AOC Breakout: 4×25.78G, QSFP28 to 4×SFP28, AOC, 850nm, reach 1m-100m.",
+      "officialUrl": "https://en.yofc.com/view/1502.html",
+      "specs": {
+        "Remark": "100G AOC Breakout",
+        "Data Rate": "4×25.78G",
+        "Package": "QSFP28 to 4×SFP28",
+        "Connector": "AOC",
+        "Wavelength": "850nm",
+        "Reach": "1m-100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    }
+  }
+}

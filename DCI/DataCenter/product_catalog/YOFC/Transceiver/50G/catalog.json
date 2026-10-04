@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "50G",
+  "displayName": "50G",
+  "description": "YOFC 50G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/2836.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-5F014C000": {
+      "name": "Y-5F014C000 · 50G LR Duplex",
+      "description": "50G LR Duplex: 50G, QSFP28, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/2836.html",
+      "specs": {
+        "Remark": "50G LR Duplex",
+        "Data Rate": "50G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-5F694C000": {
+      "name": "Y-5F694C000 · 50G LR BIDI",
+      "description": "50G LR BIDI: 50G, QSFP28, LC, 1270/1330nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/2836.html",
+      "specs": {
+        "Remark": "50G LR BIDI",
+        "Data Rate": "50G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-5F018C000": {
+      "name": "Y-5F018C000 · 50G ER Duplex",
+      "description": "50G ER Duplex: 50G, QSFP28, LC, 1310nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/2836.html",
+      "specs": {
+        "Remark": "50G ER Duplex",
+        "Data Rate": "50G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "40km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-5F958C000": {
+      "name": "Y-5F958C000 · 50G ER BIDI",
+      "description": "50G ER BIDI: 50G, QSFP28, LC, 1295/1305nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/2836.html",
+      "specs": {
+        "Remark": "50G ER BIDI",
+        "Data Rate": "50G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1295/1305nm",
+        "Reach": "40km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

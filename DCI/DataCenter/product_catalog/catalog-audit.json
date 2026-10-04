@@ -1,9 +1,10 @@
 {
   "checked": "2026-10-04",
   "pdfCount": 394,
-  "structuredCatalogFiles": 15,
+  "structuredCatalogFiles": 40,
   "pendingStructuredFolders": 9,
   "pendingStructuredPdfs": 125,
+  "urlOnlyCatalogs": 26,
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Solutions_Rack Accessory",

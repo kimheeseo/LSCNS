@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "MPO/MTP Branching Patch Cord",
+  "displayName": "MPO/MTP Branching Patch Cord",
+  "description": "Factory pre-terminated MTP-LC and MPO-LC branching patch cords.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/3042.html",
+  "comparisonFields": [
+    "Branch Type",
+    "Trunk Connector Gender",
+    "Fiber Count",
+    "Flame Rating",
+    "Fiber Category",
+    "Polarity",
+    "Length"
+  ],
+  "products": {
+    "iCONEC-DBPBTTMDE12H-0030": {
+      "name": "iCONEC-DBPBTTMDE12H-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-1, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDE12L-0030": {
+      "name": "iCONEC-DBPBTTMDE12L-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-3, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDE12R-0030": {
+      "name": "iCONEC-DBPBTTMDE12R-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNR, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDE12P-0030": {
+      "name": "iCONEC-DBPBTTMDE12P-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNP, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDA12H-0030": {
+      "name": "iCONEC-DBPBTTMDA12H-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-1, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDA12L-0030": {
+      "name": "iCONEC-DBPBTTMDA12L-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-3, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDA12R-0030": {
+      "name": "iCONEC-DBPBTTMDA12R-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNR, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDA12P-0030": {
+      "name": "iCONEC-DBPBTTMDA12P-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNP, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDN12H-0030": {
+      "name": "iCONEC-DBPBTTMDN12H-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-1, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDN12L-0030": {
+      "name": "iCONEC-DBPBTTMDN12L-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-3, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDN12R-0030": {
+      "name": "iCONEC-DBPBTTMDN12R-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNR, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDN12P-0030": {
+      "name": "iCONEC-DBPBTTMDN12P-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNP, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDD12H-0030": {
+      "name": "iCONEC-DBPBTTMDD12H-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-1, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDD12L-0030": {
+      "name": "iCONEC-DBPBTTMDD12L-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, LSZH-3, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDD12R-0030": {
+      "name": "iCONEC-DBPBTTMDD12R-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNR, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBTTMDD12P-0030": {
+      "name": "iCONEC-DBPBTTMDD12P-0030",
+      "description": "MTP-LC Branching Patch Cord, MTP Connector F, 12-Core, OFNP, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MTP-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDE12H-0030": {
+      "name": "iCONEC-DBPBPTMDE12H-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-1, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDE12L-0030": {
+      "name": "iCONEC-DBPBPTMDE12L-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-3, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDE12R-0030": {
+      "name": "iCONEC-DBPBPTMDE12R-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNR, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDE12P-0030": {
+      "name": "iCONEC-DBPBPTMDE12P-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNP, G.657.A2, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "G.657.A2",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDA12H-0030": {
+      "name": "iCONEC-DBPBPTMDA12H-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-1, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDA12L-0030": {
+      "name": "iCONEC-DBPBPTMDA12L-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-3, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDA12R-0030": {
+      "name": "iCONEC-DBPBPTMDA12R-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNR, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDA12P-0030": {
+      "name": "iCONEC-DBPBPTMDA12P-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNP, OM3, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM3",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDN12H-0030": {
+      "name": "iCONEC-DBPBPTMDN12H-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-1, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDN12L-0030": {
+      "name": "iCONEC-DBPBPTMDN12L-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-3, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDN12R-0030": {
+      "name": "iCONEC-DBPBPTMDN12R-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNR, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDN12P-0030": {
+      "name": "iCONEC-DBPBPTMDN12P-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNP, OM4, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM4",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDD12H-0030": {
+      "name": "iCONEC-DBPBPTMDD12H-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-1, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-1",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDD12L-0030": {
+      "name": "iCONEC-DBPBPTMDD12L-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, LSZH-3, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "LSZH-3",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDD12R-0030": {
+      "name": "iCONEC-DBPBPTMDD12R-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNR, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNR",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    },
+    "iCONEC-DBPBPTMDD12P-0030": {
+      "name": "iCONEC-DBPBPTMDD12P-0030",
+      "description": "MPO-LC Branching Patch Cord, MPO Connector F, 12-Core, OFNP, OM5, Type B, 3m.",
+      "officialUrl": "https://en.yofc.com/view/3042.html",
+      "specs": {
+        "Branch Type": "MPO-LC",
+        "Trunk Connector Gender": "F",
+        "Fiber Count": "12",
+        "Flame Rating": "OFNP",
+        "Fiber Category": "OM5",
+        "Polarity": "Type B",
+        "Length": "3 m"
+      }
+    }
+  }
+}

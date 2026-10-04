@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "1.25G",
+  "displayName": "1.25G",
+  "description": "YOFC 1.25G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1500.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-02002I000": {
+      "name": "Y-02002I000 · 1000BASE-SX",
+      "description": "1000BASE-SX: 1.25G, SFP, LC, 850nm, reach 550m.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-SX",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "850nm",
+        "Reach": "550m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02014I000": {
+      "name": "Y-02014I000 · 1000BASE-LX",
+      "description": "1000BASE-LX: 1.25G, SFP, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-LX",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02016I000": {
+      "name": "Y-02016I000 · 1000BASE-LR",
+      "description": "1000BASE-LR: 1.25G, SFP, LC, 1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-LR",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "20km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02018I000": {
+      "name": "Y-02018I000 · 1000BASE-LH",
+      "description": "1000BASE-LH: 1.25G, SFP, LC, 1310nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-LH",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02028I000": {
+      "name": "Y-02028I000 · 1000BASE-LH",
+      "description": "1000BASE-LH: 1.25G, SFP, LC, 1550nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-LH",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-0202AI000": {
+      "name": "Y-0202AI000 · 1000BASE-ZX",
+      "description": "1000BASE-ZX: 1.25G, SFP, LC, 1550nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-ZX",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "80km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-0202BI000": {
+      "name": "Y-0202BI000 · 1000BASE-ZX",
+      "description": "1000BASE-ZX: 1.25G, SFP, LC, 1550nm, reach 100km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-ZX",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "100km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-0202CI000": {
+      "name": "Y-0202CI000 · 1000BASE-ZX",
+      "description": "1000BASE-ZX: 1.25G, SFP, LC, 1550nm, reach 120km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1000BASE-ZX",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "120km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-02734I000": {
+      "name": "Y-02734I000 · 1.25G BX10",
+      "description": "1.25G BX10: 1.25G, SFP, LC, 1310/1550nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX10",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "10km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02744I000": {
+      "name": "Y-02744I000 · 1.25G BX10",
+      "description": "1.25G BX10: 1.25G, SFP, LC, 1550/1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX10",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02736I000": {
+      "name": "Y-02736I000 · 1.25G BX20",
+      "description": "1.25G BX20: 1.25G, SFP, LC, 1310/1550nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX20",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02746I000": {
+      "name": "Y-02746I000 · 1.25G BX20",
+      "description": "1.25G BX20: 1.25G, SFP, LC, 1550/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX20",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1310nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02738I000": {
+      "name": "Y-02738I000 · 1.25G BX40",
+      "description": "1.25G BX40: 1.25G, SFP, LC, 1310/1550nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX40",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02748I000": {
+      "name": "Y-02748I000 · 1.25G BX40",
+      "description": "1.25G BX40: 1.25G, SFP, LC, 1550/1310nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX40",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1310nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-02739I000": {
+      "name": "Y-02739I000 · 1.25G BX60",
+      "description": "1.25G BX60: 1.25G, SFP, LC, 1310/1550nm, reach 60km.",
+      "officialUrl": "https://en.yofc.com/view/1500.html",
+      "specs": {
+        "Remark": "1.25G BX60",
+        "Data Rate": "1.25G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "60km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    }
+  }
+}

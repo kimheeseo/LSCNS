@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "100G",
+  "displayName": "100G",
+  "description": "YOFC 100G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1482.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-59770C000": {
+      "name": "Y-59770C000 · 100GBASE-SR4",
+      "description": "100GBASE-SR4: 100G, QSFP28, MPO, 850nm, reach 100m.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100GBASE-SR4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "MPO",
+        "Wavelength": "850nm",
+        "Reach": "100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59683C000": {
+      "name": "Y-59683C000 · 100GBASE-CWDM4",
+      "description": "100GBASE-CWDM4: 100G, QSFP28, LC, CWDM, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100GBASE-CWDM4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "CWDM",
+        "Reach": "2km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59782C000": {
+      "name": "Y-59782C000 · 100GBASE-PSM4",
+      "description": "100GBASE-PSM4: 100G, QSFP28, MPO, 1310nm, reach 500m.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100GBASE-PSM4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "MPO",
+        "Wavelength": "1310nm",
+        "Reach": "500m",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59674C000": {
+      "name": "Y-59674C000 · 100GBASE-LR4",
+      "description": "100GBASE-LR4: 100G, QSFP28, LC, LWDM, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100GBASE-LR4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "LWDM",
+        "Reach": "10km",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59014C000": {
+      "name": "Y-59014C000 · 100G LR1",
+      "description": "100G LR1: 100G, QSFP28, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100G LR1",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-59677C000": {
+      "name": "Y-59677C000 · 100G ER4 lite",
+      "description": "100G ER4 lite: 100G, QSFP28, LC, 1294-1310nm, reach 30km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100G ER4 lite",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1294-1310nm",
+        "Reach": "30km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-59678C000": {
+      "name": "Y-59678C000 · 100G ER4",
+      "description": "100G ER4: 100G, QSFP28, LC, 1294-1310nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100G ER4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1294-1310nm",
+        "Reach": "40km",
+        "Transmitter": "EML",
+        "Receiver": "SOA+PIN"
+      }
+    },
+    "Y-5967AC000": {
+      "name": "Y-5967AC000 · 100G ZR4",
+      "description": "100G ZR4: 100G, QSFP28, LC, 1294-1310nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1482.html",
+      "specs": {
+        "Remark": "100G ZR4",
+        "Data Rate": "100G",
+        "Package": "QSFP28",
+        "Connector": "LC",
+        "Wavelength": "1294-1310nm",
+        "Reach": "80km",
+        "Transmitter": "EML",
+        "Receiver": "SOA+PIN"
+      }
+    }
+  }
+}

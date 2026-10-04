@@ -68,9 +68,9 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-05)
 
-현재 GitHub `product_catalog`에는 PDF가 총 **1064개** 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
+현재 GitHub `product_catalog`에는 PDF가 총 **1021개** 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
 
-Sumitomo Electric은 **44개 제품군 / 44개 공식 PDF**를 업체 → 부품군 → 제품군 구조로 분류했습니다. US Conec MTP® Connectors는 154개 drawing/product group을 **7개 비교 가능한 하위 제품군**으로 분리했습니다.
+Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 제품 폴더에 저장했고, **10개 제품군 / 54개 구조화 제품·구성 행**으로 정리했습니다. US Conec MTP® Connectors는 공식 제품 API 76페이지의 **1,895개 제품 행**을 drawing PDF 파일명 기준 **154개 제품 그룹**으로 묶어 추가했습니다. PDF 원본은 업로드하지 않고 공식 제품/도면 링크와 간략 스펙 메타데이터만 저장했습니다. NVIDIA는 Vera Rubin Platform에 이어 추가 자료 기준으로 **6개 제품군 / 27개 GPU·플랫폼·CPU·네트워킹·전문 GPU reference 제품**을 메타데이터 전용 catalog로 확장했습니다. ZTT의 IT Cabinet / Containerized Data Center / Micro Modular Data Center도 최신 공식 사양표 기준으로 갱신했습니다.
 
 구조화 `catalog.json`이 아직 없는 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다.
 

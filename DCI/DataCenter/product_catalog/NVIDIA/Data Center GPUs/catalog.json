@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Data Center GPUs",
+  "displayName": "Data Center GPUs",
+  "description": "NVIDIA data center GPU accelerators for AI training, inference, HPC, data analytics, visualization, and virtualized workloads.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "sourceUrls": [
+    "https://resources.nvidia.com/en-us-gpu-resources/h100-datasheet-24306",
+    "https://resources.nvidia.com/en-us-gpu-resources/hpc-datasheet-sc23?lx=CPwSfP",
+    "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet?lx=CPwSfP",
+    "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+    "https://resources.nvidia.com/en-us-gpu-resources/l4-tensor-datasheet?lx=CPwSfP",
+    "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/nvidia-a100-datasheet-us-nvidia-1758950-r4-web.pdf",
+    "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_L40S_GPU_Datasheet.pdf"
+  ],
+  "sourceCount": 6,
+  "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
+  "comparisonFields": [
+    "Architecture",
+    "Form Factor",
+    "GPU Memory",
+    "Memory Bandwidth",
+    "Interconnect",
+    "TDP",
+    "Primary Workload",
+    "Source"
+  ],
+  "products": {
+    "nvidia-blackwell-ultra-b300-gpu": {
+      "name": "NVIDIA Blackwell Ultra B300 GPU",
+      "description": "Blackwell Ultra data center GPU used in GB300 NVL72 and HGX B300 platforms, designed for AI reasoning, inference-time scaling, post-training, and large-model training.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet?lx=CPwSfP",
+      "specs": {
+        "Architecture": "Blackwell Ultra",
+        "Form Factor": "GB300 NVL72 GPU or HGX B300 GPU",
+        "GPU Memory": "279 GB HBM3e (GB300 NVL72) | 270 GB HBM3e (HGX B300)",
+        "Memory Bandwidth": "8 TB/s (GB300 NVL72) | 7.7 TB/s (HGX B300)",
+        "FP4 Tensor Core": "20 PFLOPS sparse | 15 PFLOPS dense (GB300); 18 PFLOPS sparse | 14 PFLOPS dense (HGX B300)",
+        "FP8/FP6 Tensor Core": "10 PFLOPS (GB300) | 9 PFLOPS (HGX B300)",
+        "FP16/BF16 Tensor Core": "5 PFLOPS (GB300) | 4.5 PFLOPS (HGX B300)",
+        "TF32 Tensor Core": "2.5 PFLOPS (GB300) | 2.2 PFLOPS (HGX B300)",
+        "FP32": "80 TFLOPS (GB300) | 75 TFLOPS (HGX B300)",
+        "FP64": "1.3 TFLOPS (GB300) | 1.2 TFLOPS (HGX B300)",
+        "Interconnect": "Fifth-generation NVLink 1.8 TB/s; PCIe Gen6 256 GB/s",
+        "TDP": "Configurable up to 1,400 W (GB300) | 1,100 W (HGX B300)",
+        "Primary Workload": "AI reasoning, training, post-training, inference",
+        "Source": "NVIDIA Blackwell Ultra Datasheet"
+      }
+    },
+    "nvidia-h200-tensor-core-gpu": {
+      "name": "NVIDIA H200 Tensor Core GPU",
+      "description": "Hopper-based data center GPU with 141 GB HBM3e and 4.8 TB/s memory bandwidth for generative AI, LLM inference, and HPC workloads.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-datasheet-sc23?lx=CPwSfP",
+      "specs": {
+        "Architecture": "Hopper",
+        "Form Factor": "SXM | PCIe H200 NVL dual-slot air-cooled",
+        "GPU Memory": "141 GB HBM3e",
+        "Memory Bandwidth": "4.8 TB/s",
+        "FP64": "34 TFLOPS SXM | 30 TFLOPS NVL",
+        "FP64 Tensor Core": "67 TFLOPS SXM | 60 TFLOPS NVL",
+        "FP32": "67 TFLOPS SXM | 60 TFLOPS NVL",
+        "TF32 Tensor Core": "989 TFLOPS SXM | 835 TFLOPS NVL",
+        "FP16/BF16 Tensor Core": "1,979 TFLOPS SXM | 1,671 TFLOPS NVL",
+        "FP8 Tensor Core": "3,958 TFLOPS SXM | 3,341 TFLOPS NVL",
+        "Interconnect": "NVLink 900 GB/s; PCIe Gen5 128 GB/s",
+        "TDP": "Up to 700 W SXM | up to 600 W NVL",
+        "Primary Workload": "Generative AI, LLM inference, HPC",
+        "Source": "NVIDIA H200 Tensor Core GPU Datasheet"
+      }
+    },
+    "nvidia-h100-tensor-core-gpu": {
+      "name": "NVIDIA H100 Tensor Core GPU",
+      "description": "Hopper architecture data center GPU for enterprise-to-exascale AI, HPC, confidential computing, MIG partitioning, and NVLink Switch System scale-up.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/h100-datasheet-24306",
+      "specs": {
+        "Architecture": "Hopper",
+        "Form Factor": "SXM | PCIe H100 NVL dual-slot air-cooled",
+        "GPU Memory": "80 GB SXM | 94 GB H100 NVL",
+        "Memory Bandwidth": "3.35 TB/s SXM | 3.9 TB/s H100 NVL",
+        "FP64": "34 TFLOPS SXM | 30 TFLOPS NVL",
+        "FP64 Tensor Core": "67 TFLOPS SXM | 60 TFLOPS NVL",
+        "FP32": "67 TFLOPS SXM | 60 TFLOPS NVL",
+        "TF32 Tensor Core": "989 TFLOPS SXM | 835 TFLOPS NVL",
+        "FP16/BF16 Tensor Core": "1,979 TFLOPS SXM | 1,671 TFLOPS NVL",
+        "FP8 Tensor Core": "3,958 TFLOPS SXM | 3,341 TFLOPS NVL",
+        "Interconnect": "NVLink 900 GB/s SXM | 600 GB/s NVL; PCIe Gen5 128 GB/s",
+        "TDP": "Up to 700 W SXM | 350-400 W NVL",
+        "Primary Workload": "AI training, LLM inference, HPC",
+        "Source": "NVIDIA H100 GPU Datasheet"
+      }
+    },
+    "nvidia-a100-tensor-core-gpu": {
+      "name": "NVIDIA A100 Tensor Core GPU",
+      "description": "Ampere generation data center GPU for AI, data analytics, and HPC, supporting 40 GB and 80 GB PCIe/SXM configurations with up to seven MIG instances.",
+      "officialUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/nvidia-a100-datasheet-us-nvidia-1758950-r4-web.pdf",
+      "specs": {
+        "Architecture": "Ampere",
+        "Form Factor": "PCIe | SXM4",
+        "GPU Memory": "40 GB HBM2 | 80 GB HBM2e",
+        "Memory Bandwidth": "1,555 GB/s (40 GB) | 1,935 GB/s PCIe 80 GB | 2,039 GB/s SXM 80 GB",
+        "FP64": "9.7 TFLOPS",
+        "FP64 Tensor Core": "19.5 TFLOPS",
+        "FP32": "19.5 TFLOPS",
+        "TF32 Tensor Core": "156 TFLOPS | 312 TFLOPS sparse",
+        "FP16/BF16 Tensor Core": "312 TFLOPS | 624 TFLOPS sparse",
+        "INT8 Tensor Core": "624 TOPS | 1,248 TOPS sparse",
+        "Interconnect": "NVLink 600 GB/s; PCIe Gen4 64 GB/s",
+        "TDP": "250 W PCIe 40 GB | 300 W PCIe 80 GB | 400 W SXM",
+        "Primary Workload": "AI, data analytics, HPC",
+        "Source": "NVIDIA A100 Tensor Core GPU Datasheet"
+      }
+    },
+    "nvidia-l40s-gpu": {
+      "name": "NVIDIA L40S GPU",
+      "description": "Ada Lovelace universal data center GPU for generative AI, LLM training and inference, Omniverse, rendering, 3D graphics, streaming, and video workloads.",
+      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_L40S_GPU_Datasheet.pdf",
+      "specs": {
+        "Architecture": "Ada Lovelace",
+        "Form Factor": "Dual-slot PCIe",
+        "GPU Memory": "48 GB GDDR6 with ECC",
+        "Memory Bandwidth": "864 GB/s",
+        "CUDA Cores": "18,176",
+        "Tensor Cores": "568 fourth-generation Tensor Cores",
+        "RT Cores": "142 third-generation RT Cores",
+        "FP32": "91.6 TFLOPS",
+        "TF32 Tensor Core": "183 TFLOPS | 366 TFLOPS sparse",
+        "FP16/BF16 Tensor Core": "362.05 TFLOPS | 733 TFLOPS sparse",
+        "FP8 Tensor Core": "733 TFLOPS | 1,466 TFLOPS sparse",
+        "Interconnect": "PCIe Gen4 x16 64 GB/s; NVLink not supported",
+        "TDP": "350 W",
+        "Primary Workload": "Generative AI, rendering, 3D graphics, video",
+        "Source": "NVIDIA L40S Datasheet"
+      }
+    },
+    "nvidia-l4-tensor-core-gpu": {
+      "name": "NVIDIA L4 Tensor Core GPU",
+      "description": "Low-profile Ada Lovelace data center GPU optimized for AI inference, video, vision AI, graphics, virtualization, and energy-efficient enterprise servers.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/l4-tensor-datasheet?lx=CPwSfP",
+      "specs": {
+        "Architecture": "Ada Lovelace",
+        "Form Factor": "1-slot low-profile PCIe",
+        "GPU Memory": "24 GB",
+        "Memory Bandwidth": "300 GB/s",
+        "FP32": "30.3 TFLOPS",
+        "TF32 Tensor Core": "120 TFLOPS sparse",
+        "FP16/BF16 Tensor Core": "242 TFLOPS sparse",
+        "FP8 Tensor Core": "485 TFLOPS sparse",
+        "INT8 Tensor Core": "485 TOPS sparse",
+        "Video Engines": "2 NVENC | 4 NVDEC | 4 JPEG decoders",
+        "Interconnect": "PCIe Gen4 x16 64 GB/s",
+        "TDP": "72 W",
+        "Primary Workload": "AI inference, video, vision AI, vGPU",
+        "Source": "NVIDIA L4 Tensor Core GPU Datasheet"
+      }
+    }
+  }
+}

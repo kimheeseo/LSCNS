@@ -32,3 +32,14 @@
 .catalog-sheet a{color:#a9d0ff;text-decoration:none;font-weight:700}
 .catalog-sheet .table-family{margin:0}
 @media(max-width:880px){.catalog-products-tools{align-items:stretch;justify-content:stretch}.catalog-view-mode{width:100%}.catalog-view-mode button{flex:1}.catalog-products-tools input{width:100%}}
+
+.catalog-head-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.catalog-refresh.active{background:#173b61;border-color:#79ade8;color:#fff}
+.catalog-korea-panel{margin:0 0 12px;padding:12px;border:1px solid #3c536d;border-radius:10px;background:#0c1b2d}
+.catalog-korea-panel[hidden]{display:none}
+.catalog-korea-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:9px}
+.catalog-korea-head h3{margin:0;color:#edf5fc}.catalog-korea-head p{margin:3px 0 0;font-size:11px;color:#94a9bd}
+.catalog-korea-table td{white-space:normal;min-width:120px;line-height:1.45}.catalog-korea-table td:nth-child(2){min-width:260px}
+.catalog-korea-table td b{display:block;color:#f0f6fc}.catalog-korea-table td small{display:block;margin-top:2px;color:#8fa7bd}
+.catalog-contact-link{font-size:10px;font-weight:600}
+@media(max-width:560px){.catalog-head-actions{width:100%}.catalog-head-actions .catalog-refresh{flex:1}}

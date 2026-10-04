@@ -68,7 +68,7 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-04)
 
-현재 총 **266개 PDF**가 등록되어 있으며, DataCenter Tool은 모든 하위 제품군을 재귀적으로 읽습니다.
+현재 총 **311개 PDF**가 등록되어 있으며, DataCenter Tool은 모든 하위 제품군을 재귀적으로 읽습니다.
 
 - `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
 - `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
@@ -89,6 +89,8 @@ Corning/
 - `Corning/Panel/EDGE™ Panels`: 3 PDFs
 - `Corning/Trunk/EDGE™ Armored Trunk`: 17 PDFs
 - `Corning/Trunk/EDGE™ MTP® Extender Trunk`: 30 PDFs
-- `USConnec/Fiber Optic Cleaners`: 25 PDFs
+- `USConnec/Fiber Optic Cleaners`: 41 PDFs
+- `USConnec/MDC Connectors`: 6 PDFs
+- `USConnec/MMC Connectors`: 23 PDFs
 
 같은 제품군은 `comparisonFields`에 정의한 동일한 스펙 항목/순서로 카드형과 표형에서 비교합니다.

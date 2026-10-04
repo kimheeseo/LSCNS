@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE™ MTP® Extender Trunk",
+  "displayName": "EDGE™ MTP® Extender Trunk",
+  "description": "MTP® pinned-to-non-pinned extender trunks for extending EDGE backbone distance.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/edge-extender-trunk",
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Category",
+    "Fiber Core Diameter"
+  ],
+  "products": {
+    "G899012GPNCDX100F": {
+      "name": "G899012GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 12F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G899012GPNCDX100F"
+    },
+    "G899024GPNCDX100F": {
+      "name": "G899024GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 24F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G899024GPNCDX100F"
+    },
+    "G899036GPNCDX100F": {
+      "name": "G899036GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 36F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G899036GPNCDX100F"
+    },
+    "G899048GPNCDX100F": {
+      "name": "G899048GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 48F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G899048GPNCDX100F"
+    },
+    "G899096GPNCDX100F": {
+      "name": "G899096GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 96F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G899096GPNCDX100F"
+    },
+    "G8990AKGPNCDX100F": {
+      "name": "G8990AKGPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 432F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "432",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G8990AKGPNCDX100F"
+    },
+    "G8990AZGPNCDX100F": {
+      "name": "G8990AZGPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 576F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "576",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G8990AZGPNCDX100F"
+    },
+    "G8990E4GPNCDX100F": {
+      "name": "G8990E4GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 144F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G8990E4GPNCDX100F"
+    },
+    "G8990K2GPNCDX100F": {
+      "name": "G8990K2GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 192F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G8990K2GPNCDX100F"
+    },
+    "G8990U8GPNCDX100F": {
+      "name": "G8990U8GPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 288F, Bend-improved SM (OS2).",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Category": "Bend-improved SM (OS2)",
+        "Fiber Core Diameter": "Not specified (single-mode)"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G8990U8GPNCDX100F"
+    },
+    "G937512QPNCDX100F": {
+      "name": "G937512QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 12F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937512QPNCDX100F"
+    },
+    "G937512TPNCDX100F": {
+      "name": "G937512TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 12F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937512TPNCDX100F"
+    },
+    "G937524QPNCDX100F": {
+      "name": "G937524QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 24F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937524QPNCDX100F"
+    },
+    "G937524TPNCDX100F": {
+      "name": "G937524TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 24F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937524TPNCDX100F"
+    },
+    "G937536QPNCDX100F": {
+      "name": "G937536QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 36F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937536QPNCDX100F"
+    },
+    "G937548QPNCDX100F": {
+      "name": "G937548QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 48F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937548QPNCDX100F"
+    },
+    "G937548TPNCDX100F": {
+      "name": "G937548TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 48F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937548TPNCDX100F"
+    },
+    "G937572QPNCDX100F": {
+      "name": "G937572QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 72F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937572QPNCDX100F"
+    },
+    "G937572TPNCDX100F": {
+      "name": "G937572TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 72F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937572TPNCDX100F"
+    },
+    "G937596QPNCDX100F": {
+      "name": "G937596QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 96F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G937596QPNCDX100F"
+    },
+    "G9375AKQPNCDX100F": {
+      "name": "G9375AKQPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 432F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "432",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375AKQPNCDX100F"
+    },
+    "G9375AZQPNCDX100F": {
+      "name": "G9375AZQPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 576F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "576",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375AZQPNCDX100F"
+    },
+    "G9375E4QPNCDX100F": {
+      "name": "G9375E4QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 144F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375E4QPNCDX100F"
+    },
+    "G9375E4TPNCDX100F": {
+      "name": "G9375E4TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 144F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375E4TPNCDX100F"
+    },
+    "G9375K2QPNCDX100F": {
+      "name": "G9375K2QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 192F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375K2QPNCDX100F"
+    },
+    "G9375K2TPNCDX100F": {
+      "name": "G9375K2TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 192F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375K2TPNCDX100F"
+    },
+    "G9375M6QPNCDX100F": {
+      "name": "G9375M6QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 216F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375M6QPNCDX100F"
+    },
+    "G9375M6TPNCDX100F": {
+      "name": "G9375M6TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 216F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375M6TPNCDX100F"
+    },
+    "G9375U8QPNCDX100F": {
+      "name": "G9375U8QPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 288F, 50 µm MM (OM4).",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Category": "50 µm MM (OM4)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375U8QPNCDX100F"
+    },
+    "G9375U8TPNCDX100F": {
+      "name": "G9375U8TPNCDX100F",
+      "description": "EDGE™ MTP® Extender Trunk, 288F, 50 µm MM (OM3).",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Category": "50 µm MM (OM3)",
+        "Fiber Core Diameter": "50 µm"
+      },
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Cable-Assemblies/Indoor-Cable-Assemblies/Multifiber-Indoor-Cable-Assemblies/EDGE%E2%84%A2-MTP%C2%AE-Extender-Trunk/p/G9375U8TPNCDX100F"
+    }
+  }
+}

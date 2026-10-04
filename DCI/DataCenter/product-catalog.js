@@ -66,9 +66,10 @@
   function shell() {
     return '<section class="panel catalogPanel">' +
       '<div class="catalog-head"><div><h2>업체별 부품 리스트</h2><p>GitHub의 <code>product_catalog</code> 폴더를 기준으로 업체 → 부품군 → 하위 제품군 → 제품 자료를 탐색합니다. 하위 폴더가 여러 단계여도 PDF를 자동 탐색하며, 각 폴더의 <code>catalog.json</code>에 등록된 핵심 사양은 제품 카드에 함께 표시됩니다.</p></div>' +
-      '<button type="button" id="catalogRefresh" class="catalog-refresh">카탈로그 새로고침</button></div>' +
+      '<div class="catalog-head-actions"><button type="button" id="catalogKoreaBtn" class="catalog-refresh" aria-expanded="false">한국 업체 조회</button><button type="button" id="catalogRefresh" class="catalog-refresh">카탈로그 새로고침</button></div></div>' +
       '<div class="catalog-steps"><span class="active">1 업체</span><span>2 부품군</span><span>3 제품·스펙</span></div>' +
       '<div id="catalogNotice" class="catalog-notice">카탈로그를 불러오는 중입니다.</div>' +
+      '<section id="catalogKoreaPanel" class="catalog-korea-panel" hidden><div class="catalog-korea-head"><div><h3>한국 업체</h3><p>공식 웹사이트 공개 연락처 기준 · 2026-10-04 확인</p></div></div><div id="catalogKoreaBody" class="catalog-korea-body"><p class="catalog-empty">업체 정보를 불러오는 중입니다.</p></div></section>' +
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>2. 부품군</h3><span id="catalogCategoryCount">—</span></div><div id="catalogCategories" class="catalog-list"><p class="catalog-empty">업체를 선택하세요.</p></div></section>' +
@@ -76,6 +77,28 @@
       '</div>' +
       '<div class="catalog-foot">폴더 추가만으로 업체·부품군·하위 제품군·PDF 목록이 자동 반영됩니다. 상세 스펙은 해당 제품군 폴더 또는 상위 부품 폴더의 catalog.json으로 관리합니다.</div>' +
     '</section>';
+  }
+
+  async function loadKoreaSuppliers() {
+    const host = $('catalogKoreaBody');
+    if (!host || host.dataset.loaded === 'true') return;
+    try {
+      const response = await fetch('./korea-suppliers.json', {cache:'no-store'});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const data = await response.json();
+      const rows = (data.suppliers || []).map(x =>
+        '<tr><td><b>' + esc(x.company) + '</b><small>' + esc(x.note || '') + '</small></td>' +
+        '<td>' + esc(x.category) + '</td>' +
+        '<td><a href="' + esc(x.website) + '" target="_blank" rel="noopener">공식 URL ↗</a></td>' +
+        '<td>' + (x.email ? '<a href="mailto:' + esc(x.email) + '">' + esc(x.email) + '</a>' : '—') + '</td>' +
+        '<td>' + (x.phone ? '<a href="tel:' + esc(String(x.phone).replace(/[^+0-9]/g,'')) + '">' + esc(x.phone) + '</a>' : '—') +
+        (x.contactUrl ? '<br><a class="catalog-contact-link" href="' + esc(x.contactUrl) + '" target="_blank" rel="noopener">문의 페이지 ↗</a>' : '') + '</td></tr>'
+      ).join('');
+      host.innerHTML = '<div class="catalog-sheet-wrap"><table class="catalog-sheet catalog-korea-table"><thead><tr><th>업체</th><th>주요 분야</th><th>URL</th><th>이메일</th><th>연락처</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+      host.dataset.loaded = 'true';
+    } catch (error) {
+      host.innerHTML = '<p class="catalog-empty">한국 업체 정보를 불러오지 못했습니다: ' + esc(error.message) + '</p>';
+    }
   }
 
   function notice(text, mode) {
@@ -394,7 +417,7 @@
       state.manifest = null;
       const families = [...new Set(entries.map(x => x.group))];
       const specCount = entries.filter(x => x.manifest).length;
-      $('catalogContext').innerHTML = esc(state.company) + ' › ' + esc(category) + ' · ' + entries.length + '개 제품 · ' + families.length + '개 제품군 · <span id="catalogFilterResult">' + entries.length + '개 표시</span>';
+      $('catalogContext').innerHTML = esc(cleanLabel(state.company)) + ' › ' + esc(category) + ' · ' + entries.length + '개 제품 · ' + families.length + '개 제품군 · <span id="catalogFilterResult">' + entries.length + '개 표시</span>';
       renderProducts(entries);
       $('catalogSearch').disabled = !entries.length;
       renderFamilyFilters(entries);
@@ -414,6 +437,15 @@
     $('catalogRefresh').onclick = () => {
       cache.clear();
       loadCompanies(true);
+    };
+    $('catalogKoreaBtn').onclick = async () => {
+      const panel = $('catalogKoreaPanel');
+      const button = $('catalogKoreaBtn');
+      const open = panel.hidden;
+      panel.hidden = !open;
+      button.setAttribute('aria-expanded', String(open));
+      button.classList.toggle('active', open);
+      if (open) await loadKoreaSuppliers();
     };
     $('catalogSearch').oninput = applySearch;
     document.querySelectorAll('[data-catalog-view]').forEach(button => {

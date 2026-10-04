@@ -6,7 +6,7 @@
   const BASE = 'DCI/DataCenter/product_catalog';
   const API = 'https://api.github.com/repos/' + REPO + '/contents/';
   const cache = new Map();
-  const state = { company: '', category: '', products: [], manifest: null };
+  const state = { company: '', category: '', products: [], manifest: null, selectedFamilies: new Set() };
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const pathUrl = path => path.split('/').map(encodeURIComponent).join('/');
@@ -72,7 +72,7 @@
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>2. 부품군</h3><span id="catalogCategoryCount">—</span></div><div id="catalogCategories" class="catalog-list"><p class="catalog-empty">업체를 선택하세요.</p></div></section>' +
-        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
+        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
       '</div>' +
       '<div class="catalog-foot">폴더 추가만으로 업체·부품군·하위 제품군·PDF 목록이 자동 반영됩니다. 상세 스펙은 해당 제품군 폴더 또는 상위 부품 폴더의 catalog.json으로 관리합니다.</div>' +
     '</section>';
@@ -103,6 +103,7 @@
     state.category = '';
     state.products = [];
     state.manifest = null;
+    resetFamilyFilters();
     $('catalogCategories').innerHTML = '<p class="catalog-empty">업체를 선택하세요.</p>';
     $('catalogProducts').innerHTML = '<p class="catalog-empty">제품 자료를 선택하세요.</p>';
     $('catalogSearch').value = '';
@@ -134,6 +135,7 @@
     state.category = '';
     state.products = [];
     state.manifest = null;
+    resetFamilyFilters();
     setStep(2);
     document.querySelectorAll('#catalogCompanies [data-company]').forEach(el => {
       const selected = el.dataset.company === company;
@@ -202,7 +204,7 @@
       .concat(Object.entries(specs).flat())
       .join(' ').toLowerCase();
 
-    return '<article class="catalog-card" data-search="' + esc(searchText) + '">' +
+    return '<article class="catalog-card" data-family="' + esc(group) + '" data-search="' + esc(searchText) + '">' +
       '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(state.company) + '</span><span class="catalog-family">' + esc(group) + '</span><h4>' + esc(title) + '</h4><code>' + esc(model) + '</code></div><span class="catalog-file-size">' + esc(humanBytes(file.size)) + '</span></div>' +
       (description ? '<p class="catalog-description">' + esc(description) + '</p>' : '') +
       (specRows.length ? '<dl class="catalog-specs">' + specRows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
@@ -212,17 +214,83 @@
       (checked ? '<small class="catalog-checked">사양 확인일 ' + esc(checked) + '</small>' : '') +
     '</article>';
   }
+  function renderFamilyFilters(entries) {
+    const host = $('catalogFamilyFilters');
+    if (!host) return;
+    const counts = new Map();
+    entries.forEach(entry => counts.set(entry.group, (counts.get(entry.group) || 0) + 1));
+    const families = [...counts.keys()].sort((a,b) => a.localeCompare(b));
+    state.selectedFamilies.clear();
+    if (families.length <= 1) {
+      host.hidden = true;
+      host.innerHTML = '';
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML =
+      '<div class="catalog-filter-title"><b>제품군 필터</b><span>공통 분류별로 제품을 좁혀볼 수 있습니다.</span></div>' +
+      '<div class="catalog-filter-checks">' +
+        '<label class="catalog-filter-chip all active"><input type="checkbox" data-family-filter="__all__" checked><span>전체</span><em>' + entries.length + '</em></label>' +
+        families.map(f => '<label class="catalog-filter-chip"><input type="checkbox" data-family-filter="' + esc(f) + '"><span>' + esc(f) + '</span><em>' + counts.get(f) + '</em></label>').join('') +
+      '</div>';
+
+    host.querySelectorAll('[data-family-filter]').forEach(input => {
+      input.onchange = () => {
+        const all = host.querySelector('[data-family-filter="__all__"]');
+        const individual = [...host.querySelectorAll('[data-family-filter]:not([data-family-filter="__all__"])')];
+
+        if (input.dataset.familyFilter === '__all__') {
+          if (input.checked) {
+            state.selectedFamilies.clear();
+            individual.forEach(x => x.checked = false);
+          } else if (!individual.some(x => x.checked)) {
+            input.checked = true;
+          }
+        } else if (input.checked) {
+          all.checked = false;
+          state.selectedFamilies.clear();
+          individual.filter(x => x.checked).forEach(x => state.selectedFamilies.add(x.dataset.familyFilter));
+        } else {
+          state.selectedFamilies.delete(input.dataset.familyFilter);
+          if (!individual.some(x => x.checked)) {
+            all.checked = true;
+            state.selectedFamilies.clear();
+          }
+        }
+
+        host.querySelectorAll('.catalog-filter-chip').forEach(label => {
+          const box = label.querySelector('input');
+          label.classList.toggle('active', !!box.checked);
+        });
+        applySearch();
+      };
+    });
+  }
+
+  function resetFamilyFilters() {
+    state.selectedFamilies.clear();
+    const host = $('catalogFamilyFilters');
+    if (host) {
+      host.hidden = true;
+      host.innerHTML = '';
+    }
+  }
+
   function applySearch() {
     const q = ($('catalogSearch').value || '').trim().toLowerCase();
     const cards = Array.from(document.querySelectorAll('#catalogProducts .catalog-card'));
     let shown = 0;
     cards.forEach(el => {
-      const match = !q || (el.dataset.search || '').includes(q);
+      const searchMatch = !q || (el.dataset.search || '').includes(q);
+      const familyMatch = state.selectedFamilies.size === 0 || state.selectedFamilies.has(el.dataset.family || '');
+      const match = searchMatch && familyMatch;
       el.hidden = !match;
       if (match) shown++;
     });
     const empty = $('catalogSearchEmpty');
     if (empty) empty.hidden = shown !== 0;
+    const result = $('catalogFilterResult');
+    if (result) result.textContent = shown + '개 표시';
   }
 
   async function selectCategory(category) {
@@ -236,6 +304,7 @@
     $('catalogProducts').innerHTML = '<p class="catalog-empty">제품 자료와 스펙을 불러오는 중입니다.</p>';
     $('catalogSearch').value = '';
     $('catalogSearch').disabled = true;
+    resetFamilyFilters();
     $('catalogContext').textContent = state.company + ' › ' + category;
     notice(state.company + ' · ' + category + ' 제품 자료를 불러오는 중입니다.');
 
@@ -247,11 +316,13 @@
       state.manifest = null;
       const families = [...new Set(entries.map(x => x.group))];
       const specCount = entries.filter(x => x.manifest).length;
-      $('catalogContext').textContent = state.company + ' › ' + category + ' · ' + entries.length + '개 제품 · ' + families.length + '개 제품군';
+      $('catalogContext').innerHTML = esc(state.company) + ' › ' + esc(category) + ' · ' + entries.length + '개 제품 · ' + families.length + '개 제품군 · <span id="catalogFilterResult">' + entries.length + '개 표시</span>';
       $('catalogProducts').innerHTML = entries.length ?
         entries.map(card).join('') + '<p id="catalogSearchEmpty" class="catalog-empty" hidden>검색 조건과 일치하는 제품이 없습니다.</p>' :
         '<p class="catalog-empty">이 부품군과 하위 폴더에 등록된 PDF 제품이 없습니다.</p>';
       $('catalogSearch').disabled = !entries.length;
+      renderFamilyFilters(entries);
+      applySearch();
       notice(state.company + ' · ' + category + ' · PDF ' + entries.length + '개 · 제품군 ' + families.length + '개' + (specCount ? ' · 스펙 연결 ' + specCount + '개' : ' · catalog.json 미등록'), specCount ? 'ready' : 'review');
     } catch (error) {
       notice(error.message, 'error');

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "10G XFP",
+  "displayName": "10G XFP",
+  "description": "YOFC 10G XFP optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1488.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-36001I000": {
+      "name": "Y-36001I000 · 10GBASE-SR/SW",
+      "description": "10GBASE-SR/SW: 10G, XFP, LC, 850nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10GBASE-SR/SW",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "850nm",
+        "Reach": "300m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36014I000": {
+      "name": "Y-36014I000 · 10GBASE-LR/LW",
+      "description": "10GBASE-LR/LW: 10G, XFP, LC, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10GBASE-LR/LW",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36028I000": {
+      "name": "Y-36028I000 · 10GBASE-ER/EW",
+      "description": "10GBASE-ER/EW: 10G, XFP, LC, 1550nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10GBASE-ER/EW",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "40km",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-3602AI000": {
+      "name": "Y-3602AI000 · 10GBASE-ZR",
+      "description": "10GBASE-ZR: 10G, XFP, LC, 1550nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10GBASE-ZR",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "80km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-3602BI000": {
+      "name": "Y-3602BI000 · 10GBASE-ZR",
+      "description": "10GBASE-ZR: 10G, XFP, LC, 1550nm, reach 100km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10GBASE-ZR",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "100km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-36694I000": {
+      "name": "Y-36694I000 · 10G BX10",
+      "description": "10G BX10: 10G, XFP, LC, 1270/1330nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX10",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36704I000": {
+      "name": "Y-36704I000 · 10G BX10",
+      "description": "10G BX10: 10G, XFP, LC, 1330/1270nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX10",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1330/1270nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36696I000": {
+      "name": "Y-36696I000 · 10G BX20",
+      "description": "10G BX20: 10G, XFP, LC, 1270/1330nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX20",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36706I000": {
+      "name": "Y-36706I000 · 10G BX20",
+      "description": "10G BX20: 10G, XFP, LC, 1330/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX20",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1330/1270nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36698I000": {
+      "name": "Y-36698I000 · 10G BX40",
+      "description": "10G BX40: 10G, XFP, LC, 1270/1330nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX40",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36708I000": {
+      "name": "Y-36708I000 · 10G BX40",
+      "description": "10G BX40: 10G, XFP, LC, 1330/1270nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX40",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1330/1270nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-36699I000": {
+      "name": "Y-36699I000 · 10G BX60",
+      "description": "10G BX60: 10G, XFP, LC, 1270/1330nm, reach 60km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX60",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1270/1330nm",
+        "Reach": "60km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-36709I000": {
+      "name": "Y-36709I000 · 10G BX60",
+      "description": "10G BX60: 10G, XFP, LC, 1330/1270nm, reach 60km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX60",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1330/1270nm",
+        "Reach": "60km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-3671AI000": {
+      "name": "Y-3671AI000 · 10G BX80",
+      "description": "10G BX80: 10G, XFP, LC, 1490/1550nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX80",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1490/1550nm",
+        "Reach": "80km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-3672AI000": {
+      "name": "Y-3672AI000 · 10G BX80",
+      "description": "10G BX80: 10G, XFP, LC, 1550/1490nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1488.html",
+      "specs": {
+        "Remark": "10G BX80",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1490nm",
+        "Reach": "80km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

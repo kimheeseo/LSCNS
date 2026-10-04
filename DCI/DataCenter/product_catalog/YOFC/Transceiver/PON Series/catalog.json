@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "PON Series",
+  "displayName": "PON Series",
+  "description": "YOFC PON Series optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/2840.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-16796C120": {
+      "name": "Y-16796C120 · XGSPON OLT N1",
+      "description": "XGSPON OLT N1: 10G, SFP+, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "XGSPON OLT N1",
+        "Data Rate": "10G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C128": {
+      "name": "Y-16796C128 · XGSPON OLT N2a",
+      "description": "XGSPON OLT N2a: 10G, SFP+, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "XGSPON OLT N2a",
+        "Data Rate": "10G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C123": {
+      "name": "Y-16796C123 · XGSPON OLT E1",
+      "description": "XGSPON OLT E1: 10G, SFP+, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "XGSPON OLT E1",
+        "Data Rate": "10G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C124": {
+      "name": "Y-16796C124 · Combo XGS&GPON OLT C+",
+      "description": "Combo XGS&GPON OLT C+: 10G/2.5G/10G/1.25G, SFP+, SC, 1577/1490/1270/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "Combo XGS&GPON OLT C+",
+        "Data Rate": "10G/2.5G/10G/1.25G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1490/1270/1310nm",
+        "Reach": "20km",
+        "Transmitter": "EML/DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C125": {
+      "name": "Y-16796C125 · Combo XGS&GPON OLT D",
+      "description": "Combo XGS&GPON OLT D: 10G/2.5G/10G/1.25G, SFP+, SC, 1577/1490/1270/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "Combo XGS&GPON OLT D",
+        "Data Rate": "10G/2.5G/10G/1.25G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1490/1270/1310nm",
+        "Reach": "20km",
+        "Transmitter": "EML/DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C110": {
+      "name": "Y-16796C110 · 10G EPON OLT",
+      "description": "10G EPON OLT: 10G/2.5G/10G/1.25G, SFP+, SC, 1577/1490/1270/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "10G EPON OLT",
+        "Data Rate": "10G/2.5G/10G/1.25G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1490/1270/1310nm",
+        "Reach": "20km",
+        "Transmitter": "EML/DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C112": {
+      "name": "Y-16796C112 · 10G EPON ONU PR30",
+      "description": "10G EPON ONU PR30: 10G, SFP+, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "10G EPON ONU PR30",
+        "Data Rate": "10G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-16796C121": {
+      "name": "Y-16796C121 · XGSPON ONU",
+      "description": "XGSPON ONU: 10G, SFP+, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "XGSPON ONU",
+        "Data Rate": "10G",
+        "Package": "SFP+",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-36796C113": {
+      "name": "Y-36796C113 · 10G EPON ONU",
+      "description": "10G EPON ONU: 10G, XFP, SC, 1577/1270nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "10G EPON ONU",
+        "Data Rate": "10G",
+        "Package": "XFP",
+        "Connector": "SC",
+        "Wavelength": "1577/1270nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-K7816C130": {
+      "name": "Y-K7816C130 · 25G PON OLT Symmetrical",
+      "description": "25G PON OLT Symmetrical: 25G, SFP-DD, SC, 1358/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "25G PON OLT Symmetrical",
+        "Data Rate": "25G",
+        "Package": "SFP-DD",
+        "Connector": "SC",
+        "Wavelength": "1358/1310nm",
+        "Reach": "20km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    },
+    "Y-KFXX6C129": {
+      "name": "Y-KFXX6C129 · 50G PON OLT Asymmetrical",
+      "description": "50G PON OLT Asymmetrical: 50G/25G, SFP-DD, SC, TBD, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/2840.html",
+      "specs": {
+        "Remark": "50G PON OLT Asymmetrical",
+        "Data Rate": "50G/25G",
+        "Package": "SFP-DD",
+        "Connector": "SC",
+        "Wavelength": "TBD",
+        "Reach": "20km",
+        "Transmitter": "EML",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

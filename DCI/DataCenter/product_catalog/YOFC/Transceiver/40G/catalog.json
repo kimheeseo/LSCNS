@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "40G",
+  "displayName": "40G",
+  "description": "YOFC 40G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1483.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-48770C000": {
+      "name": "Y-48770C000 · 40GBASE-SR4",
+      "description": "40GBASE-SR4: 40G, QSFP+, MPO, 850nm, reach 100m.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-SR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "MPO",
+        "Wavelength": "850nm",
+        "Reach": "100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48771C000": {
+      "name": "Y-48771C000 · 40GBASE-eSR4",
+      "description": "40GBASE-eSR4: 40G, QSFP+, MPO, 850nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-eSR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "MPO",
+        "Wavelength": "850nm",
+        "Reach": "300m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48683C000": {
+      "name": "Y-48683C000 · 40GBASE-LR4",
+      "description": "40GBASE-LR4: 40G, QSFP+, LC, CWDM, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-LR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "LC",
+        "Wavelength": "CWDM",
+        "Reach": "2km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48783C000": {
+      "name": "Y-48783C000 · 40GBASE-PIR4",
+      "description": "40GBASE-PIR4: 40G, QSFP+, MPO, 1310nm, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-PIR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "MPO",
+        "Wavelength": "1310nm",
+        "Reach": "2km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48784C000": {
+      "name": "Y-48784C000 · 40GBASE-PLR4",
+      "description": "40GBASE-PLR4: 40G, QSFP+, MPO, 1310nm, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-PLR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "MPO",
+        "Wavelength": "1310nm",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48684C000": {
+      "name": "Y-48684C000 · 40GBASE-LR4",
+      "description": "40GBASE-LR4: 40G, QSFP+, LC, CWDM, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-LR4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "LC",
+        "Wavelength": "CWDM",
+        "Reach": "10km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-48688C000": {
+      "name": "Y-48688C000 · 40GBASE-ER4",
+      "description": "40GBASE-ER4: 40G, QSFP+, LC, CWDM, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1483.html",
+      "specs": {
+        "Remark": "40GBASE-ER4",
+        "Data Rate": "40G",
+        "Package": "QSFP+",
+        "Connector": "LC",
+        "Wavelength": "CWDM",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

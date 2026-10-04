@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "400G",
+  "displayName": "400G",
+  "description": "YOFC 400G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/2834.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-6BA40C000": {
+      "name": "Y-6BA40C000 · 400G SR8",
+      "description": "400G SR8: 400G, QSFP-DD, MPO-16, 850nm, reach 100m.",
+      "officialUrl": "https://en.yofc.com/view/2834.html",
+      "specs": {
+        "Remark": "400G SR8",
+        "Data Rate": "400G",
+        "Package": "QSFP-DD",
+        "Connector": "MPO-16",
+        "Wavelength": "850nm",
+        "Reach": "100m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-6BA62C000": {
+      "name": "Y-6BA62C000 · 400G DR4",
+      "description": "400G DR4: 400G, QSFP-DD, MPO-12, 1310nm, reach 500m.",
+      "officialUrl": "https://en.yofc.com/view/2834.html",
+      "specs": {
+        "Remark": "400G DR4",
+        "Data Rate": "400G",
+        "Package": "QSFP-DD",
+        "Connector": "MPO-12",
+        "Wavelength": "1310nm",
+        "Reach": "500m",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-6BA73C000": {
+      "name": "Y-6BA73C000 · 400G FR4",
+      "description": "400G FR4: 400G, QSFP-DD, LC, CWDM4, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/2834.html",
+      "specs": {
+        "Remark": "400G FR4",
+        "Data Rate": "400G",
+        "Package": "QSFP-DD",
+        "Connector": "LC",
+        "Wavelength": "CWDM4",
+        "Reach": "2km",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-6BA84C000": {
+      "name": "Y-6BA84C000 · 400G LR4",
+      "description": "400G LR4: 400G, QSFP-DD, LC, CWDM4, reach 10km.",
+      "officialUrl": "https://en.yofc.com/view/2834.html",
+      "specs": {
+        "Remark": "400G LR4",
+        "Data Rate": "400G",
+        "Package": "QSFP-DD",
+        "Connector": "LC",
+        "Wavelength": "CWDM4",
+        "Reach": "10km",
+        "Transmitter": "EML",
+        "Receiver": "PIN"
+      }
+    }
+  }
+}

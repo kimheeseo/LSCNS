@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "2.5G",
+  "displayName": "2.5G",
+  "description": "YOFC 2.5G optical transceiver products structured from the user-provided YOFC Optical Transceiver brochure and cross-checked against the official YOFC product page.",
+  "checked": "2026-10-04",
+  "officialUrl": "https://en.yofc.com/view/1497.html",
+  "sourceDocument": "User-provided YOFC Optical Transceiver brochure (10 pages)",
+  "comparisonFields": [
+    "Remark",
+    "Data Rate",
+    "Package",
+    "Connector",
+    "Wavelength",
+    "Reach",
+    "Transmitter",
+    "Receiver"
+  ],
+  "products": {
+    "Y-03001I000": {
+      "name": "Y-03001I000 · 2.5G SR",
+      "description": "2.5G SR: 2.5G, SFP, LC, 850nm, reach 300m.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G SR",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "850nm",
+        "Reach": "300m",
+        "Transmitter": "VCSEL",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03013I000": {
+      "name": "Y-03013I000 · 2.5G LR",
+      "description": "2.5G LR: 2.5G, SFP, LC, 1310nm, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G LR",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "2km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03016I000": {
+      "name": "Y-03016I000 · 2.5G LR",
+      "description": "2.5G LR: 2.5G, SFP, LC, 1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G LR",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03028I000": {
+      "name": "Y-03028I000 · 2.5G ER",
+      "description": "2.5G ER: 2.5G, SFP, LC, 1550nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G ER",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-0302AI000": {
+      "name": "Y-0302AI000 · 2.5G ZR",
+      "description": "2.5G ZR: 2.5G, SFP, LC, 1550nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G ZR",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550nm",
+        "Reach": "80km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-03733I000": {
+      "name": "Y-03733I000 · 2.5G BX2",
+      "description": "2.5G BX2: 2.5G, SFP, LC, 1310/1550nm, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX2",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "2km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03743I000": {
+      "name": "Y-03743I000 · 2.5G BX2",
+      "description": "2.5G BX2: 2.5G, SFP, LC, 1550/1310nm, reach 2km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX2",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1310nm",
+        "Reach": "2km",
+        "Transmitter": "FP",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03736I000": {
+      "name": "Y-03736I000 · 2.5G BX20",
+      "description": "2.5G BX20: 2.5G, SFP, LC, 1310/1550nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX20",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1310/1550nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03746I000": {
+      "name": "Y-03746I000 · 2.5G BX20",
+      "description": "2.5G BX20: 2.5G, SFP, LC, 1550/1310nm, reach 20km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX20",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1310nm",
+        "Reach": "20km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03718I000": {
+      "name": "Y-03718I000 · 2.5G BX40",
+      "description": "2.5G BX40: 2.5G, SFP, LC, 1490/1550nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX40",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1490/1550nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-03728I000": {
+      "name": "Y-03728I000 · 2.5G BX40",
+      "description": "2.5G BX40: 2.5G, SFP, LC, 1550/1490nm, reach 40km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX40",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1490nm",
+        "Reach": "40km",
+        "Transmitter": "DFB",
+        "Receiver": "PIN"
+      }
+    },
+    "Y-0371AI000": {
+      "name": "Y-0371AI000 · 2.5G BX80",
+      "description": "2.5G BX80: 2.5G, SFP, LC, 1490/1550nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX80",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1490/1550nm",
+        "Reach": "80km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    },
+    "Y-0372AI000": {
+      "name": "Y-0372AI000 · 2.5G BX80",
+      "description": "2.5G BX80: 2.5G, SFP, LC, 1550/1490nm, reach 80km.",
+      "officialUrl": "https://en.yofc.com/view/1497.html",
+      "specs": {
+        "Remark": "2.5G BX80",
+        "Data Rate": "2.5G",
+        "Package": "SFP",
+        "Connector": "LC",
+        "Wavelength": "1550/1490nm",
+        "Reach": "80km",
+        "Transmitter": "DFB",
+        "Receiver": "APD"
+      }
+    }
+  }
+}

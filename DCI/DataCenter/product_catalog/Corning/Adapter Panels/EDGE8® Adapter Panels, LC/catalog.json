@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "EDGE8® Adapter Panels, LC",
+  "description": "EDGE8 Base-8 LC adapter panel family",
+  "checked": "2026-10-04",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE8%C2%AE-Adapter-Panels%2C-LC/p/edge8-adapter-panel-lc-nafta-emea",
+  "defaultSpecs": {
+    "Fiber count": "8F",
+    "Adapter type": "LC duplex, shuttered",
+    "Adapters": "4",
+    "Depth": "127 mm",
+    "Platform": "EDGE8 Base-8"
+  },
+  "products": {
+    "EMOD8-CP08-AC": {"name": "EMOD8-CP08-AC", "specs": {"Adapter color": "Black"}},
+    "EMOD8-CP08-AD": {"name": "EMOD8-CP08-AD", "specs": {"Adapter color": "Aqua"}},
+    "EMOD8-CP08-AE": {"name": "EMOD8-CP08-AE", "specs": {"Adapter color": "Blue"}},
+    "EMOD8-CP08-AF": {"name": "EMOD8-CP08-AF", "specs": {"Adapter color": "Green"}},
+    "EMOD8-CP08-DC": {"name": "EMOD8-CP08-DC", "specs": {"Adapter color": "Red"}},
+    "EMOD8-CP08-DD": {"name": "EMOD8-CP08-DD", "specs": {"Adapter color": "Yellow"}},
+    "EMOD8-CP08-DE": {"name": "EMOD8-CP08-DE", "specs": {"Adapter color": "Brown"}},
+    "EMOD8-CP08-DF": {"name": "EMOD8-CP08-DF", "specs": {"Adapter color": "Slate"}},
+    "EMOD8-CP08-DG": {"name": "EMOD8-CP08-DG", "specs": {"Adapter color": "White"}},
+    "EMOD8-CP08-DH": {"name": "EMOD8-CP08-DH", "specs": {"Adapter color": "Orange"}},
+    "EMOD8-CP08-DJ": {"name": "EMOD8-CP08-DJ", "specs": {"Adapter color": "Violet"}},
+    "EMOD8-CP08-DK": {"name": "EMOD8-CP08-DK", "specs": {"Adapter color": "Rose"}}
+  }
+}

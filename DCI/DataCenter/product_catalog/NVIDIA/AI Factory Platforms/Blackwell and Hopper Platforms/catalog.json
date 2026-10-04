@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "AI Factory Platforms",
+  "displayName": "Blackwell and Hopper Platforms",
+  "description": "NVIDIA rack-scale and HGX platform references from the NVIDIA Data Center Products page, Blackwell Ultra datasheet, and Data Center Platform line card.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/data-center/products/",
+    "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet?lx=CPwSfP",
+    "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP"
+  ],
+  "sourceCount": 8,
+  "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
+  "comparisonFields": [
+    "Configuration",
+    "Fast Memory",
+    "Memory Bandwidth",
+    "NVLink Switch Bandwidth",
+    "Networking",
+    "Primary Workload",
+    "Source"
+  ],
+  "products": {
+    "nvidia-gb300-nvl72": {
+      "name": "NVIDIA GB300 NVL72",
+      "description": "Rack-scale platform connecting 36 NVIDIA Grace CPUs and 72 NVIDIA Blackwell Ultra GPUs for AI reasoning, inference, training, and data processing.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+      "specs": {
+        "Configuration": "72 Blackwell Ultra GPUs | 36 Grace CPUs",
+        "CPU Cores": "2,592 Arm Neoverse V2 cores",
+        "Total FP4 Tensor Core": "1,440 PFLOPS sparse | 1,080 PFLOPS dense",
+        "Total FP8/FP6 Tensor Core": "720 PFLOPS",
+        "Fast Memory": "37 TB",
+        "Memory Bandwidth": "576 TB/s",
+        "NVLink Switch Bandwidth": "130 TB/s",
+        "Networking": "Quantum-X800 InfiniBand or Spectrum-X Ethernet with BlueField and SuperNICs",
+        "Primary Workload": "AI reasoning, large-scale inference, training, data processing",
+        "Source": "NVIDIA Blackwell Ultra Datasheet and Data Center Products page"
+      }
+    },
+    "nvidia-hgx-b300": {
+      "name": "NVIDIA HGX B300",
+      "description": "Eight-GPU Blackwell Ultra HGX platform for large-language-model training and high-throughput inter-GPU communication.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/blackwell-ultra-datasheet?lx=CPwSfP",
+      "specs": {
+        "Configuration": "8 Blackwell Ultra GPUs",
+        "Total FP4 Tensor Core": "144 PFLOPS sparse | 108 PFLOPS dense",
+        "Total FP8/FP6 Tensor Core": "72 PFLOPS",
+        "Fast Memory": "2.1 TB",
+        "Memory Bandwidth": "62 TB/s",
+        "NVLink Switch Bandwidth": "14.4 TB/s",
+        "Networking": "Quantum-X800 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "LLM training, post-training, inference",
+        "Source": "NVIDIA Blackwell Ultra Datasheet"
+      }
+    },
+    "nvidia-gb200-nvl72": {
+      "name": "NVIDIA GB200 NVL72",
+      "description": "Rack-scale liquid-cooled platform connecting 36 Grace CPUs and 72 Blackwell GPUs with a 72-GPU NVLink domain for generative AI, data processing, and HPC.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+      "specs": {
+        "Configuration": "72 Blackwell GPUs | 36 Grace CPUs",
+        "Fast Memory": "Official product page summary; see GB200 datasheet for full table",
+        "Memory Bandwidth": "See linked NVIDIA product materials",
+        "NVLink Switch Bandwidth": "72-GPU NVLink domain",
+        "Networking": "Quantum-X800 or Spectrum-X class networking per line card",
+        "Primary Workload": "Generative AI, data processing, HPC, LLM inference",
+        "Source": "NVIDIA Data Center Products page and Data Center Platform line card"
+      }
+    },
+    "nvidia-gb200-nvl4": {
+      "name": "NVIDIA GB200 NVL4",
+      "description": "Blackwell/Grace platform listed in NVIDIA data center compute portfolio for scale-out AI and HPC deployments.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+      "specs": {
+        "Configuration": "GB200 NVL4 platform",
+        "Fast Memory": "See NVIDIA platform datasheet",
+        "Memory Bandwidth": "See NVIDIA platform datasheet",
+        "NVLink Switch Bandwidth": "NVLink platform",
+        "Networking": "Quantum-2 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "Inference, data analytics, HPC/scientific AI",
+        "Source": "NVIDIA Data Center Platform Line Card"
+      }
+    },
+    "nvidia-gh200-nvl2-nvl4": {
+      "name": "NVIDIA GH200 NVL2 / NVL4",
+      "description": "Grace Hopper platform combining Grace CPU and Hopper GPU with NVLink-C2C coherent memory for AI and HPC.",
+      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_GH200_Grace_Hopper_Superchip_Datasheet.pdf",
+      "specs": {
+        "Configuration": "Grace Hopper Superchip platform, NVL2/NVL4 variants in line card",
+        "Fast Memory": "Up to 624 GB fast-access memory per GH200 Superchip",
+        "Memory Bandwidth": "Up to 4 TB/s HBM3 or 4.9 TB/s HBM3e plus Grace CPU memory bandwidth",
+        "NVLink Switch Bandwidth": "NVLink-C2C 900 GB/s coherent memory bandwidth",
+        "Networking": "Quantum-2 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "AI, data analytics, HPC, memory-intensive workloads",
+        "Source": "GH200 Datasheet and Data Center Platform Line Card"
+      }
+    },
+    "nvidia-hgx-b200": {
+      "name": "NVIDIA HGX B200",
+      "description": "Blackwell HGX platform listed in NVIDIA data center compute portfolio for AI training, post-training, inference, and HPC/scientific AI.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+      "specs": {
+        "Configuration": "HGX B200 platform",
+        "Fast Memory": "See NVIDIA Blackwell platform materials",
+        "Memory Bandwidth": "See NVIDIA Blackwell platform materials",
+        "NVLink Switch Bandwidth": "NVLink platform",
+        "Networking": "Quantum-X800 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "Pretraining, post-training, test-time inference, HPC/scientific AI",
+        "Source": "NVIDIA Data Center Platform Line Card"
+      }
+    },
+    "nvidia-hgx-h200": {
+      "name": "NVIDIA HGX H200",
+      "description": "HGX platform using NVIDIA H200 GPUs for AI and HPC systems with Quantum-2 or Spectrum-X networking options.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-datasheet-sc23?lx=CPwSfP",
+      "specs": {
+        "Configuration": "HGX H200 partner and NVIDIA-Certified Systems with 4 or 8 GPUs",
+        "Fast Memory": "141 GB HBM3e per GPU",
+        "Memory Bandwidth": "4.8 TB/s per GPU",
+        "NVLink Switch Bandwidth": "H200 NVLink-based platform",
+        "Networking": "Quantum-2 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "Generative AI, LLM inference, HPC",
+        "Source": "NVIDIA H200 Datasheet and Data Center Platform Line Card"
+      }
+    },
+    "nvidia-h200-nvl": {
+      "name": "NVIDIA H200 NVL",
+      "description": "PCIe H200 NVL enterprise platform for lower-power air-cooled racks with up to four GPUs connected by NVIDIA NVLink.",
+      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-datasheet-sc23?lx=CPwSfP",
+      "specs": {
+        "Configuration": "Up to four H200 NVL GPUs connected by NVLink; systems with up to 8 GPUs",
+        "Fast Memory": "141 GB HBM3e per GPU",
+        "Memory Bandwidth": "4.8 TB/s per GPU",
+        "NVLink Switch Bandwidth": "2- or 4-way NVLink bridge: 900 GB/s per GPU",
+        "Networking": "Quantum-2 InfiniBand or Spectrum-X Ethernet",
+        "Primary Workload": "Enterprise AI and HPC in air-cooled rack designs",
+        "Source": "NVIDIA H200 Datasheet and Data Center Platform Line Card"
+      }
+    }
+  }
+}

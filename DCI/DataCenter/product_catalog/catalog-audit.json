@@ -16,7 +16,7 @@
     "pdfCount": 0,
     "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
   },
-  "note": "Catalog inventory regenerated from the current repository tree. Sumitomo Electric now contains 30 classified PDF-backed product groups across three user-supplied batches; US Conec MTP remains metadata-only.",
+  "note": "Catalog inventory regenerated from the current repository tree. Sumitomo Electric now contains 30 classified PDF-backed product groups across three user-supplied batches; US Conec MTP remains metadata-only. SENKO connector catalogs added as metadata-only Store API records for VSFF, MPO/MT, SC/LC, Field, and Legacy connectors.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -418,5 +418,19 @@
       "pdfCount": 9,
       "structuredMetadata": true
     }
-  ]
+  ],
+  "senkoConnectors": {
+    "structured": true,
+    "storageMode": "metadata only; no PDF files uploaded",
+    "productGroups": 5,
+    "productRows": 112,
+    "groups": {
+      "VSFF Connectors": 45,
+      "MPO-MT Connectors": 24,
+      "SC-LC Connectors": 32,
+      "Field Connectors": 5,
+      "Legacy Connectors": 6
+    },
+    "sourceApi": "https://www.senko.com/wp-json/wc/store/v1/products"
+  }
 }

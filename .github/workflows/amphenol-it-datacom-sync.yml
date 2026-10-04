@@ -28,7 +28,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install scraper dependencies
-        run: python -m pip install --disable-pip-version-check curl_cffi beautifulsoup4
+        run: python -m pip install --disable-pip-version-check requests
 
       - name: Sync all official Amphenol IT Datacom products
         run: python DCI/DataCenter/scripts/sync_amphenol_it_datacom.py

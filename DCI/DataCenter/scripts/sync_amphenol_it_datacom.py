@@ -12,124 +12,150 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
-from curl_cffi import requests
-from bs4 import BeautifulSoup
+import requests
 
-BASE = "https://staging.amphenol.com/markets/it-datacom"
-OFFICIAL_BASE = "https://www.amphenol.com/markets/it-datacom"
+BASE = "https://www.amphenol.com/markets/it-datacom"
+OFFICIAL_BASE = BASE
+READER = "https://r.jina.ai/"
 PAGE_SIZE = 50
 ROOT = Path("DCI/DataCenter/product_catalog")
 AMPHENOL_ROOT = ROOT / "Amphenol"
 INDEX_PATH = ROOT / "bom-catalog-index.json"
 CHECKED = "2026-10-05"
 
-session = requests.Session(impersonate="chrome")
+session = requests.Session()
 session.headers.update({
-    "User-Agent": "Mozilla/5.0 (compatible; LSCNS-DataCenter-Catalog/1.0; +https://github.com/kimheeseo/LSCNS)",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "LSCNS-DataCenter-Catalog/1.0",
+    "Accept": "text/plain,*/*;q=0.8",
+    "X-No-Cache": "true",
+    "X-Cache-Tolerance": "0",
 })
 
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
 
 def fetch(url: str) -> str:
+    reader_url = READER + url
     last = None
     for attempt in range(5):
         try:
-            r = session.get(url, timeout=60, allow_redirects=True)
+            r = session.get(reader_url, timeout=120)
             r.raise_for_status()
-            if "IT Datacom" not in r.text:
-                raise RuntimeError("Unexpected Amphenol response")
-            return r.text
+            text = r.text
+            if "IT Datacom" not in text:
+                raise RuntimeError("Unexpected Reader response")
+            return text
         except Exception as exc:
             last = exc
-            time.sleep(2 + attempt * 2)
-    raise RuntimeError(f"Failed to fetch {url}: {last}")
+            time.sleep(3 + attempt * 3)
+    raise RuntimeError(f"Failed to fetch {url} through Jina Reader: {last}")
 
-def advertised_total(html: str) -> int:
-    text = BeautifulSoup(html, "html.parser").get_text(" ", strip=True)
+def advertised_total(text: str) -> int:
     m = re.search(r"Showing\s+\d+\s+to\s+\d+\s+of\s+([\d,]+)\s+items", text, re.I)
     if not m:
         raise RuntimeError("Could not find Amphenol advertised item count")
     return int(m.group(1).replace(",", ""))
 
-def card_for_image(img, title: str):
-    node = img
-    fallback = None
-    for _ in range(10):
-        node = getattr(node, "parent", None)
-        if node is None:
-            break
-        try:
-            imgs = node.find_all("img", alt=re.compile(r"^Product\s+", re.I))
-            text = clean_text(node.get_text(" ", strip=True))
-        except Exception:
-            continue
-        if len(imgs) == 1 and title.lower() in text.lower():
-            fallback = node
-            if len(text) >= len(title) + 35:
-                return node
-    return fallback or img.parent
+def _clean_md_title(line: str) -> str:
+    line = clean_text(line)
+    line = re.sub(r"^#+\s*", "", line)
+    line = re.sub(r"^[-*]\s+", "", line)
+    line = re.sub(r"^\*\*(.*?)\*\*$", r"\1", line)
+    line = re.sub(r"\s*\[[^\]]*\]\([^)]*\)\s*$", "", line)
+    return clean_text(line)
 
-def infer_business(card) -> tuple[str, str]:
-    candidates = []
-    for a in card.find_all("a", href=True):
-        label = clean_text(a.get_text(" ", strip=True))
-        href = urljoin(BASE, a.get("href", ""))
-        host = urlparse(href).netloc.lower()
-        if not label or "blob.core.windows.net" in host:
-            continue
-        if label in {"X", "1", "2", "3", "4", "5", "6", "7", "8", "9"}:
-            continue
-        if "amphenol" in label.lower() or "positronic" in label.lower() or "sv microwave" in label.lower() or "lutze" in label.lower() or "eby" in label.lower() or "piher" in label.lower():
-            candidates.append((label, href))
-    return candidates[-1] if candidates else ("Amphenol", BASE)
-
-def extract_description(card, title: str, business: str) -> str:
-    # Prefer paragraph-like blocks; otherwise use the compact card text.
-    blocks = []
-    for tag in card.find_all(["p", "div"]):
-        text = clean_text(tag.get_text(" ", strip=True))
-        if len(text) < 25 or text == title or text == business:
-            continue
-        if title in text and len(text) > 1200:
-            continue
-        blocks.append(text)
-    if blocks:
-        blocks.sort(key=lambda x: (title.lower() in x.lower(), len(x)))
-        text = blocks[-1]
-    else:
-        text = clean_text(card.get_text(" ", strip=True))
-    text = re.sub(re.escape(title), "", text, count=1, flags=re.I).strip(" -–—|:")
-    if business:
-        text = re.sub(r"\s*" + re.escape(business) + r"\s*$", "", text, flags=re.I)
-    text = clean_text(text)
-    return text[:1200]
-
-def parse_page(html: str, page: int) -> list[dict]:
-    soup = BeautifulSoup(html, "html.parser")
-    page_url = f"{BASE}?PageSize={PAGE_SIZE}&pagenumber={page}"
+def parse_page(text: str, page: int) -> list[dict]:
+    page_url = f"{OFFICIAL_BASE}?PageSize={PAGE_SIZE}&pagenumber={page}"
+    lines = [clean_text(x) for x in text.splitlines()]
     rows = []
-    for img in soup.find_all("img"):
-        alt = clean_text(img.get("alt", ""))
-        m = re.match(r"^Product\s+(.+)$", alt, re.I)
-        if not m:
+    seen = Counter()
+
+    # Reader preserves product image alt text as "Image: Product <name>" or markdown image alt.
+    candidates = []
+    for i, line in enumerate(lines):
+        if not line:
             continue
-        title = clean_text(m.group(1))
-        if not title:
-            continue
-        card = card_for_image(img, title)
-        business, business_url = infer_business(card)
-        description = extract_description(card, title, business)
+        m = re.search(r"(?:Image:\s*Product\s+|!\[[^\]]*?Product\s+)(.+?)(?:\]\([^)]*\)|\]$|$)", line, re.I)
+        if m:
+            title = _clean_md_title(m.group(1))
+            if title:
+                candidates.append((i, title))
+
+    # Some official listing rows have no image. Recover them from blocks between separators/business links.
+    # Candidate product titles are non-navigation lines immediately followed by description text and before an
+    # Amphenol business line. We only add these if the image-based count is short for the page.
+    expected = PAGE_SIZE
+    if page * PAGE_SIZE > advertised_total(text):
+        expected = advertised_total(text) - (page - 1) * PAGE_SIZE
+
+    for i, title in candidates:
+        key = title.casefold()
+        seen[key] += 1
+        # Description: first substantive non-navigation line after the repeated title/image line.
+        desc = ""
+        business = "Amphenol"
+        for j in range(i + 1, min(len(lines), i + 14)):
+            x = _clean_md_title(lines[j])
+            if not x or x == title or x.startswith("http") or "Image: Product" in x:
+                continue
+            if re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)", x, re.I):
+                business = x[:160]
+                continue
+            if "Showing " in x or x in {"X", "Products", "Markets", "Businesses", "Sustainability", "Investors"}:
+                continue
+            if len(x) >= 18 and not desc:
+                desc = x[:1200]
         rows.append({
             "name": title,
-            "description": description,
+            "description": desc or "Official Amphenol IT Datacom listing product.",
             "business": business,
-            "businessUrl": business_url,
+            "businessUrl": OFFICIAL_BASE,
             "sourcePage": page,
             "sourceUrl": page_url,
         })
+
+    if len(rows) < expected:
+        # Block fallback. Reader separates most products with horizontal rules. Parse likely title + description pairs.
+        blocks = re.split(r"\n\s*(?:\* \* \*|---+)\s*\n", text)
+        existing = Counter(r["name"].casefold() for r in rows)
+        for block in blocks:
+            blines = [_clean_md_title(x) for x in block.splitlines() if clean_text(x)]
+            if len(blines) < 2:
+                continue
+            # Remove obvious page/navigation prose and markdown images.
+            blines = [x for x in blines if x and "Image: Product" not in x and not x.startswith("![") and "Showing " not in x]
+            if len(blines) < 2:
+                continue
+            # Product name is generally the first short standalone line in a product block.
+            title = None
+            for x in blines[:6]:
+                if x in {"IT Datacom","Products","Markets","Businesses","Sustainability","Investors"}:
+                    continue
+                if len(x) <= 180 and not x.startswith("With our industry") and not x.startswith("Our primary"):
+                    title = x
+                    break
+            if not title or existing[title.casefold()] > 0:
+                continue
+            # Require a later Amphenol-business marker to avoid navigation/footer blocks.
+            business = next((x for x in blines if re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)", x, re.I)), None)
+            if not business:
+                continue
+            desc = next((x for x in blines[1:] if x != title and x != business and len(x) >= 18), "")
+            rows.append({
+                "name": title,
+                "description": desc[:1200] or "Official Amphenol IT Datacom listing product.",
+                "business": business[:160],
+                "businessUrl": OFFICIAL_BASE,
+                "sourcePage": page,
+                "sourceUrl": page_url,
+            })
+            existing[title.casefold()] += 1
+            if len(rows) >= expected:
+                break
+
+    if len(rows) != expected:
+        preview = [r["name"] for r in rows[:5]]
+        raise RuntimeError(f"Page {page}: parsed {len(rows)} products, expected {expected}; preview={preview}")
     return rows
 
 def classify(name: str, description: str) -> str:

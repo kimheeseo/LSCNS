@@ -68,6 +68,46 @@ Corning/
 
 ## 현재 카탈로그 인벤토리 (2026-10-05)
 
-이번 메타데이터 커밋 직전 `product_catalog`에는 PDF **1030개** / 구조화 `catalog.json` **69개**가 있습니다.
+현재 GitHub `product_catalog`에는 PDF **1040개**, 구조화된 `catalog.json` **80개**가 있습니다. 모든 PDF는 업체별 부품 리스트의 재귀 탐색 대상입니다.
 
-이번 업데이트에서 Sumitomo Electric 신규 10개 제품군과 US Conec MT Ferrules를 구조화했습니다. Sumitomo 첨부 PDF 10개는 전용 동기화 workflow가 공식 SEL 문서를 각 제품 폴더에 저장하며, 동기화 완료 후 카탈로그 audit를 다시 계산합니다.
+Sumitomo Electric은 두 차례 첨부 자료를 기준으로 **20개 PDF / 20개 구조화 제품군**이 저장되어 있습니다. 이번 추가분에는 SWK Cable Assemblies, PrecisionFlex Empty/Flex/Pre-Terminated Patch Panels, FSPWM-12T, Cable Breakout Kits for Ribbons, FTC-GP4/GP8, FTWM-04L, 6912 Fiber Transition Module이 포함됩니다.
+
+US Conec에는 공식 MT Ferrules 페이지 및 Product Catalog를 근거로 `MT Ferrules` 제품군이 추가되었습니다.
+
+구조화 `catalog.json`이 아직 없는 PDF 제품군은 **34개 폴더 / 739개 PDF**입니다.
+
+### 구조화 메타데이터 재검토 필요
+- `Corning/Accessories/EDGE™ Port Replication Housing Accessory`: 3 PDFs
+- `Corning/Accessories/EDGE™ Solutions_Rack Accessory`: 8 PDFs
+- `Corning/Accessories/MTP PRO Accessories`: 6 PDFs
+- `Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip`: 10 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Figure-8 Loose Tube, Gel-Free Cable`: 62 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology`: 8 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology`: 9 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology`: 10 PDFs
+- `Corning/Cable/Loose Tube/ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology`: 60 PDFs
+- `Corning/Cable/Loose Tube/SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable`: 44 PDFs
+- `Corning/Cable/Loose Tube/SOLO® ADSS Short-Span, Loose Tube, Gel-Filled Cable`: 42 PDFs
+- `Corning/Cable/Outdoor Duct Cables/ALTOS® Loose Tube, Gel-Free Cable`: 149 PDFs
+- `Corning/Connector/MMC`: 1 PDFs
+- `Corning/Harness/EDGE™ Conversion Harness`: 3 PDFs
+- `Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness`: 44 PDFs
+- `Corning/Harness/EDGE™ Solutions 24 F Y Harness`: 11 PDFs
+- `Corning/Harness/EDGE™ Solutions 2x3 Conversion Harness`: 1 PDFs
+- `Corning/Harness/EDGE™ Staggered Harness`: 29 PDFs
+- `Corning/Module/EDGE™ 4x4 Mesh Module`: 2 PDFs
+- `Corning/Module/EDGE™ Base-8 Module`: 2 PDFs
+- `Corning/Module/EDGE™ Bidi Tap Module`: 2 PDFs
+- `Corning/Module/EDGE™ Conversion Modules`: 4 PDFs
+- `Corning/Module/EDGE™ Module, Ultra Low Loss`: 9 PDFs
+- `Corning/Module/EDGE™ Module`: 11 PDFs
+- `Corning/Module/EDGE™ Tap Module`: 22 PDFs
+- `Corning/Module/Fiber to the Desk Module`: 8 PDFs
+- `Corning/ODF/EDGE™ Solutions_ODF`: 5 PDFs
+- `Corning/Panel/Adapter Panels/EDGE™ Adapter Panel, MTP®`: 8 PDFs
+- `Corning/Panel/CCH Panel/CCH Panel, FC Adapters`: 6 PDFs
+- `Corning/Panel/CCH Panel/CCH Panel, SC Adapters`: 30 PDFs
+- `Corning/Panel/EDGE™ Panels`: 3 PDFs
+- `Corning/Trunk/EDGE™ Hybrid Trunk`: 21 PDFs
+- `Corning/Trunk/EDGE™ Indoor Ribbon Trunk`: 1 PDFs
+- `Corning/Trunk/EDGE™ MTP® Trunk`: 105 PDFs

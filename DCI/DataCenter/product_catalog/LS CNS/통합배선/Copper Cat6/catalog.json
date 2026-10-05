@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "company": "LS Cable & System",
+  "category": "Copper Cable / Cat6 RJ45",
+  "displayName": "LS Simple™ Copper · Cat.6 / RJ45",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.lssimple.com/kr/product/category1.asp?cate1=201",
+  "scope": "LS Simple 공식 공개 페이지 기준 데이터센터/구내통신용 대표 Cat.6 copper 및 RJ45 연결 제품. 정확한 발주 SKU·색상·길이·난연 등급은 프로젝트별 확인.",
+  "storageMode": "official URL metadata only; existing LS Simple PDFs retained in parent folder",
+  "products": {
+    "uutp-cat6-cable": {
+      "name": "LS Simple™ U/UTP Cat.6 Cable",
+      "description": "Giga-bit 수평배선용 Category 6 U/UTP copper cable.",
+      "officialUrl": "https://www.lssimple.com/kr/product/category3.asp?cate1=201&cate2=213&cate3=218",
+      "checked": "2026-10-05",
+      "confidence": "높음 (LS Simple 공식 페이지); 세부 발주 SKU/난연 등급 검증 필요",
+      "specs": {
+        "Standard": "Category 6 · ANSI/TIA-568-C.2 / ISO/IEC 11801",
+        "Data Rate": "1GBASE-T 계획 기준",
+        "Bandwidth": "250 MHz class",
+        "Cable Construction": "U/UTP · 4-pair",
+        "Cable Diameter": "공식 페이지 6.0 mm급 표기",
+        "Connector": "RJ45 compatible termination",
+        "Use": "데이터센터 관리망/구조화 수평배선",
+        "확인 상태": "제품군 공식 확인 · 세부 SKU/CM·CMP/길이 검증 필요"
+      }
+    },
+    "cat6-patch-cord": {
+      "name": "LS Simple™ Unshielded Cat.6 RJ45 Patch Cord",
+      "description": "Category 6 채널용 RJ45 패치 코드 제품군.",
+      "officialUrl": "https://www.lssimple.co.kr/en/product/category3.asp?cate3=213",
+      "checked": "2026-10-05",
+      "confidence": "높음 (LS Simple 공식 페이지); 길이/색상/발주 코드 검증 필요",
+      "specs": {
+        "Standard": "Category 6 · ANSI/TIA-568-C.2",
+        "Data Rate": "1GBASE-T 계획 기준",
+        "Connector": "RJ45 / RJ45",
+        "Wiring": "T568A or T568B",
+        "Use": "rack/patch-panel/management network patching",
+        "Length": "제품군 · 개별 길이 SKU 확인",
+        "확인 상태": "제품군 공식 확인 · 개별 길이/색상/SKU 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "cat6-rj45-modular-plug": {
+      "name": "LS Simple™ Unshielded Cat.6 RJ45 Modular Plug",
+      "description": "UTP Category 6 cable용 8P8C RJ45 modular plug.",
+      "officialUrl": "https://www.lssimple.com/kr/product/category3.asp?cate1=&cate2=&cate3=286",
+      "checked": "2026-10-05",
+      "confidence": "높음 (LS Simple 공식 페이지); 실제 cable OD/도체 규격과 조립 공구 검증 필요",
+      "specs": {
+        "Standard": "Category 6 · FCC CFR 47 Part 68.5",
+        "Connector": "RJ45 8P8C modular plug",
+        "Cable Compatibility": "LS UTP Category 6",
+        "Use": "현장 종단/patch cord connector",
+        "확인 상태": "제품군 공식 확인 · 케이블 호환/발주 SKU 검증 필요"
+      }
+    },
+    "cat6a-slim-cable": {
+      "name": "LS Cable & System Ultra-slim Cat.6A LAN Cable",
+      "description": "데이터센터 고밀도 포설을 겨냥한 10G급 초슬림 Cat.6A LAN cable.",
+      "officialUrl": "https://news.lscns.com/ls%EC%A0%84%EC%84%A0-%EB%AF%B8%EA%B5%AD%ED%96%A5-%EC%B4%88%EC%8A%AC%EB%A6%BC-%ED%86%B5%EC%8B%A0-%EC%BC%80%EC%9D%B4%EB%B8%94-%EC%B6%9C%EC%8B%9C/",
+      "checked": "2026-10-05",
+      "confidence": "높음 (LS전선 공식 뉴스룸); 현재 판매 SKU/지역 인증 확인 필요",
+      "specs": {
+        "Standard": "Category 6A",
+        "Data Rate": "10GBASE-T",
+        "Cable Diameter": "6 mm",
+        "Use": "IDC/데이터센터 고밀도 LAN",
+        "Connector": "RJ45 compatible termination",
+        "확인 상태": "공식 발표 제품 · 현재 SKU/난연/인증 확인 필요"
+      },
+      "referenceOnly": true
+    }
+  },
+  "comparisonFields": [
+    "Standard",
+    "Data Rate",
+    "Bandwidth",
+    "Cable Construction",
+    "Cable Diameter",
+    "Connector",
+    "Wiring",
+    "Cable Compatibility",
+    "Use",
+    "Length",
+    "확인 상태"
+  ]
+}

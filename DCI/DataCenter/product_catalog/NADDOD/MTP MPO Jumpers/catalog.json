@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "MTP MPO Jumpers",
+  "displayName": "MTP®/MPO Jumpers",
+  "description": "NADDOD high-density MPO/MTP jumper assemblies for data centers, AI clusters, telecom rooms and equipment interconnects.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collections/mtp-or-mpo-trunks",
+  "sourceUrls": [
+    "https://www.naddod.com/collections/mtp-or-mpo-trunks"
+  ],
+  "sourceCount": 31,
+  "storageMode": "metadata only; official product links are referenced directly",
+  "comparisonFields": [
+    "Model",
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Polarity",
+    "Length",
+    "Insertion Loss",
+    "Source"
+  ],
+  "products": {
+    "s2mpoa12fb-25m": {
+      "name": "S2MPOA12FB · 25m MPO-12 APC OS2 12F Type B Jumper",
+      "description": "NVIDIA/Mellanox-compatible single-mode MPO-12 female jumper.",
+      "officialUrl": "https://www.naddod.com/products/34572.html",
+      "specs": {
+        "Model": "S2MPOA12FB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "12",
+        "Polarity": "Type B",
+        "Length": "25m",
+        "Jacket": "LSZH",
+        "Insertion Loss": "≤0.35 dB",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH"
+      }
+    },
+    "m4mpoa12fb-20m": {
+      "name": "M4MPOA12FB · 20m MPO-12 APC OM4 12F Type B Jumper",
+      "description": "Multimode OM4 MPO-12 female high-density jumper.",
+      "officialUrl": "https://www.naddod.com/products/101436.html",
+      "specs": {
+        "Model": "M4MPOA12FB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "12",
+        "Polarity": "Type B",
+        "Length": "20m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "m4mpoa8fb-30m": {
+      "name": "M4MPOA8FB · 30m MPO-8 APC OM4 8F Type B Jumper",
+      "description": "OM4 MPO-8 female jumper for high-speed AI cluster links.",
+      "officialUrl": "https://www.naddod.com/products/104171.html",
+      "specs": {
+        "Model": "M4MPOA8FB",
+        "Connector": "MPO-8/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "30m",
+        "Jacket": "LSZH",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": "LSZH"
+      }
+    },
+    "m4mpoa16f-1m": {
+      "name": "M4MPOA16F · 1m MPO-16 APC OM4 16F Jumper",
+      "description": "OM4 16-fiber MPO jumper for high-density 800G-class connectivity.",
+      "officialUrl": "https://www.naddod.com/products/34673.html",
+      "specs": {
+        "Model": "M4MPOA16F",
+        "Connector": "MPO-16/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "16",
+        "Length": "1m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "s2mpoa16f-1m": {
+      "name": "S2MPOA16F · 1m MPO-16 APC OS2 16F Type B Jumper",
+      "description": "OS2 16-fiber MPO jumper listed for 800G network connection.",
+      "officialUrl": "https://www.naddod.com/products/34603.html",
+      "specs": {
+        "Model": "S2MPOA16F",
+        "Connector": "MPO-16/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "m4mpou12fb-40m": {
+      "name": "M4MPOU12FB · 40m MPO-12 UPC OM4 12F Type B Jumper",
+      "description": "OM4 MPO-12 UPC female jumper.",
+      "officialUrl": "https://www.naddod.com/products/102327.html",
+      "specs": {
+        "Model": "M4MPOU12FB",
+        "Connector": "MPO-12/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "12",
+        "Polarity": "Type B",
+        "Length": "40m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/UPC",
+        "Cable Jacket": "—"
+      }
+    },
+    "s2mpoa12fa-1m": {
+      "name": "S2MPOA12FA · 1m MPO-12 APC OS2 12F Type A Jumper",
+      "description": "OS2 MPO-12 female Type A jumper.",
+      "officialUrl": "https://www.naddod.com/products/34575.html",
+      "specs": {
+        "Model": "S2MPOA12FA",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "12",
+        "Polarity": "Type A",
+        "Length": "1m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "m4mtpa16f-1m": {
+      "name": "M4MTPA16F · 1m MTP®-16 APC OM4 16F Type B Jumper",
+      "description": "US Conec MTP 16-fiber OM4 jumper.",
+      "officialUrl": "https://www.naddod.com/products/34533.html",
+      "specs": {
+        "Model": "M4MTPA16F",
+        "Connector": "MTP-16/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MTP-16/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "om5-12f-mpo-jumper-family": {
+      "name": "NADDOD OM5 MPO-12 12F Jumper Family",
+      "description": "OM5 50/125 μm MTP/MPO jumper family; exact gender, polish, polarity and length are selected on the official collection page.",
+      "officialUrl": "https://www.naddod.com/collections/mtp-or-mpo-trunks",
+      "referenceOnly": true,
+      "specs": {
+        "Connector": "MPO-12",
+        "Fiber Type": "OM5",
+        "Fiber Count": "12",
+        "Source": "NADDOD MTP/MPO Jumpers collection",
+        "Fiber Mode": "OM5",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": "—"
+      }
+    },
+    "24f-mpo-jumper-family": {
+      "name": "NADDOD MPO 24F Jumper Family",
+      "description": "24-fiber MPO jumper family for high-density cabling; exact optical mode and termination are configuration dependent.",
+      "officialUrl": "https://www.naddod.com/collections/mtp-or-mpo-trunks",
+      "referenceOnly": true,
+      "specs": {
+        "Connector": "MPO",
+        "Fiber Count": "24",
+        "Source": "NADDOD MTP/MPO Jumpers collection",
+        "Fiber Mode": "—",
+        "Connector Type": "MPO",
+        "Cable Jacket": "—"
+      }
+    }
+  }
+}

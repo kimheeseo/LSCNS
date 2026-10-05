@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "High Fiber Count MPO Trunk Cables",
+  "displayName": "High-Fiber Count Trunk Cable Solutions",
+  "description": "Pre-terminated high-fiber-count MPO trunk cable assemblies for high-density data center and AI cluster backbone cabling.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collections/mtp-mpo-trunk-cables",
+  "sourceUrls": [
+    "https://www.naddod.com/collections/mtp-mpo-trunk-cables"
+  ],
+  "sourceCount": 20,
+  "storageMode": "metadata only; official product links are referenced directly",
+  "comparisonFields": [
+    "Model",
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Polarity",
+    "Length",
+    "Source"
+  ],
+  "products": {
+    "mf-s192mpofab-7m": {
+      "name": "MF-S192MPOFAB · 192F OS2 16×MPO-12 APC Female Trunk Cable",
+      "description": "7m pre-terminated Type B single-mode high-fiber-count trunk.",
+      "officialUrl": "https://www.naddod.com/products/104712.html",
+      "specs": {
+        "Model": "MF-S192MPOFAB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "192",
+        "Polarity": "Type B",
+        "Length": "7m",
+        "Jacket": "LSZH/OFNP",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
+      }
+    },
+    "mf-m192mpofab-7m": {
+      "name": "MF-M192MPOFAB · 192F OM4 16×MPO-12 APC Female Trunk Cable",
+      "description": "7m pre-terminated Type B multimode high-fiber-count trunk.",
+      "officialUrl": "https://www.naddod.com/products/104678.html",
+      "specs": {
+        "Model": "MF-M192MPOFAB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "192",
+        "Polarity": "Type B",
+        "Length": "7m",
+        "Jacket": "LSZH/OFNP",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
+      }
+    },
+    "mf-m192mpomab-5m": {
+      "name": "MF-M192MPOMAB · 192F OM4 16×MPO-12 APC Male Trunk Cable",
+      "description": "5m pre-terminated OM4 Type B male-to-male trunk.",
+      "officialUrl": "https://www.naddod.com/products/103568.html",
+      "specs": {
+        "Model": "MF-M192MPOMAB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Male",
+        "Fiber Type": "OM4",
+        "Fiber Count": "192",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH/OFNP",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
+      }
+    },
+    "mf-s192mpomab-5m": {
+      "name": "MF-S192MPOMAB · 192F OS2 16×MPO-12 APC Male Trunk Cable",
+      "description": "5m pre-terminated OS2 Type B male-to-male trunk.",
+      "officialUrl": "https://www.naddod.com/products/103602.html",
+      "specs": {
+        "Model": "MF-S192MPOMAB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Male",
+        "Fiber Type": "OS2",
+        "Fiber Count": "192",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH/OFNP",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
+      }
+    },
+    "mf-m48mpomub-5m": {
+      "name": "MF-M48MPOMUB · 48F OM4 4×MPO-12 UPC Male Trunk Cable",
+      "description": "5m 48-fiber pre-terminated OM4 Type B trunk.",
+      "officialUrl": "https://www.naddod.com/products/102842.html",
+      "specs": {
+        "Model": "MF-M48MPOMUB",
+        "Connector": "MPO-12/UPC",
+        "Gender": "Male",
+        "Fiber Type": "OM4",
+        "Fiber Count": "48",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/UPC",
+        "Cable Jacket": "—"
+      }
+    },
+    "mf-s96mpofab-5m": {
+      "name": "MF-S96MPOFAB · 96F OS2 8×MPO-12 APC Female Trunk Cable",
+      "description": "5m 96-fiber pre-terminated OS2 Type B trunk.",
+      "officialUrl": "https://www.naddod.com/products/105486.html",
+      "specs": {
+        "Model": "MF-S96MPOFAB",
+        "Connector": "MPO-12/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "96",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH/OFNP",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
+      }
+    },
+    "mf-m16x8mpofab-5m": {
+      "name": "MF-M16x8MPOFAB · 128F OM4 16×MPO-8 APC Female Trunk Cable",
+      "description": "5m 128-fiber pre-terminated OM4 Type B trunk.",
+      "officialUrl": "https://www.naddod.com/products/104609.html",
+      "specs": {
+        "Model": "MF-M16x8MPOFAB",
+        "Connector": "MPO-8/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "128",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": "—"
+      }
+    },
+    "72f-mpo12-trunk-family": {
+      "name": "NADDOD 72F 6×MPO-12 High-Fiber Trunk Cable Family",
+      "description": "72-fiber MPO trunk family available in OS2/OM4 with configuration-dependent polish, gender and length.",
+      "officialUrl": "https://www.naddod.com/collections/mtp-mpo-trunk-cables",
+      "referenceOnly": true,
+      "specs": {
+        "Connector": "MPO-12",
+        "Fiber Count": "72",
+        "Polarity": "Type B",
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "—",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": "—"
+      }
+    },
+    "144f-mpo12-trunk-family": {
+      "name": "NADDOD 144F 12×MPO-12 High-Fiber Trunk Cable Family",
+      "description": "144-fiber MPO trunk family for high-density backbone cabling.",
+      "officialUrl": "https://www.naddod.com/collections/mtp-mpo-trunk-cables",
+      "referenceOnly": true,
+      "specs": {
+        "Connector": "MPO-12",
+        "Fiber Count": "144",
+        "Polarity": "Type B",
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "—",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": "—"
+      }
+    },
+    "192f-24x8-trunk-family": {
+      "name": "NADDOD 192F 24×MPO-8 High-Fiber Trunk Cable Family",
+      "description": "192-fiber MPO-8 high-density trunk family.",
+      "officialUrl": "https://www.naddod.com/collections/mtp-mpo-trunk-cables",
+      "referenceOnly": true,
+      "specs": {
+        "Connector": "MPO-8",
+        "Fiber Count": "192",
+        "Polarity": "Type B",
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "—",
+        "Connector Type": "MPO-8",
+        "Cable Jacket": "—"
+      }
+    }
+  }
+}

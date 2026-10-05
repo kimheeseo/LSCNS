@@ -3,7 +3,7 @@
   const M=window.DCBomCatalog, $=id=>document.getElementById(id);
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=x=>x==null?'미산정':Number(x).toLocaleString('ko-KR',{maximumFractionDigits:2});
-  const link=(p,label)=>'<strong>'+esc(label)+'</strong> · '+esc(p.vendor+' · '+p.name)+' · <a target="_blank" rel="noopener" href="'+esc(p.source)+'">추천 링크</a>';
+  const link=(p,label)=>'<strong>'+esc(label)+'</strong> · '+esc(p.vendor+' · '+p.name)+' · <a target="_blank" rel="noopener" href="'+esc(p.source)+'">제품 링크</a>';
   let current=null, revision=0, data=null, vendor='', search='', ready=Promise.resolve();
   function rowsFor(r,a) {
     if(a) {
@@ -47,7 +47,22 @@
       });
       const facilityRows=['UPS','Generator','Transformer'].map(item=>({item,segment:'Facility Power / '+item,installed:null,purchase:null,unit:'대',referenceOnly:true,
         spec:fmt(r.summary.facilityKw/1000)+' MW 시설부하 기준 · '+item+' 용량/수량·N+1/2N·전압/주파수·현장 조건 별도 sizing',candidates:[]}));
-      return [...bomRows,...moduleRows,...refRows,...facilityRows];
+      const hasTransceiver=bomRows.some(b=>/트랜시버/.test(String(b.item||'')));
+      const transceiverRows=hasTransceiver?[]:(()=>{
+        const ratio=(()=>{
+          const q=bomRows.find(b=>Number(b.installed)>0&&Number(b.purchase)>=Number(b.installed));
+          return q?Number(q.purchase)/Number(q.installed):1;
+        })();
+        return (a.selections||[]).filter(s=>s.network!=='management'&&Number(s.speed)>0&&Number(s.links)>0).map(s=>{
+          const installed=2*Number(s.links);
+          const purchase=Math.ceil(installed*ratio);
+          const uncertainty=20;
+          return {item:'플러그형 트랜시버 (광 대안)',segment:(s.network||'network')+' / '+(s.tier||'link')+' / '+(s.distanceClass||''),installed,purchase,low:Math.floor(purchase*(1-uncertainty/100)),high:Math.ceil(purchase*(1+uncertainty/100)),unit:'개',referenceOnly:true,transceiver:true,
+            spec:Number(s.speed||0)+'G · '+(s.protocol||'네트워크')+' · 현재 '+(s.media||'직접연결')+' 대신 SMF/MMF 플러그형 광링크 적용 시 양단 트랜시버 수량 · 현재 케이블과 중복 구매 금지',
+            requirement:{speed:Number(s.speed||0)||undefined,protocol:s.protocol||''},candidates:[]};
+        });
+      })();
+      return [...bomRows,...transceiverRows,...moduleRows,...refRows,...facilityRows];
     }
     const rows=r.productRequirements?.length?r.productRequirements:r.bom?.map(b=>({...b,profile:r.optical?.[b.segment]?.profile,installed:b.installedQty??b.qty,purchase:b.qty,candidates:[]}))||[];
     return rows.map(b=>({...b,candidates:[]}));
@@ -70,12 +85,16 @@
     const {rows,r}=current;
     const shown=rows.filter(x=>!search||[x.item,x.segment,x.spec].join(' ').toLowerCase().includes(search.toLowerCase())).map(x=>({...x,candidates:x.candidates.filter(p=>!vendor||p.vendor===vendor)}));
     const vendors=[...new Set(data.products.map(x=>x.vendor))].sort((a,b)=>a.localeCompare(b));
-    h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p id="bom-catalog-status" role="status">업로드 카탈로그 '+data.catalogs.length+'개 · 제품 '+data.products.length+'개 · GitHub '+esc(data.revision.slice(0,7))+' 기준'+(data.snapshot?' · 배포 스냅샷':'')+(data.errors.length?' · 일부 조회 실패 '+data.errors.length+'개':' · 동기화 완료')+'</p><p>현재 설계 조건에 맞는 제품을 최대 3개 추천합니다. 가장 적합한 제품 1개와 추가 후보 2개를 제품 링크와 함께 표시합니다. 가격: 산정 불가.</p><div class="cap-actions"><label>후보 업체 <select id="bom-catalog-vendor"><option value="">전체 업체</option>'+vendors.map(v=>'<option'+(vendor===v?' selected':'')+'>'+esc(v)+'</option>').join('')+'</select></label><label>품목 / 규격 검색 <input id="bom-item-search" type="search" value="'+esc(search)+'"></label><button type="button" id="bom-catalog-refresh">제품 목록 동기화</button><button type="button" id="exportProductCsv">제품 요구규격 CSV</button></div><div class="tableWrap"><table id="bom-live-table"><thead><tr><th>구간 / 품목</th><th>설치 / 구매 범위</th><th>요구 규격</th><th>추천 제품 · 링크</th></tr></thead><tbody>'+shown.map(x=>'<tr><td>'+esc(x.segment||'설계 참고')+'<br>'+esc(x.item)+(x.referenceOnly?'<small style="display:block">참고 · 중복 구매 제외</small>':'')+'</td><td>'+fmt(x.installed)+' / '+(x.low!=null?fmt(x.low)+'–'+fmt(x.high):fmt(x.purchase))+' '+esc(x.unit||'')+(x.phases.length?'<small style="display:block">Phase '+x.phases.join(', ')+' 합계</small>':'')+'</td><td>'+esc(x.spec||[x.profile?.media,x.profile?.connector].filter(Boolean).join(' · '))+(x.lengthM!=null?'<br>'+fmt(x.lengthM)+'m':'')+'</td><td>'+(x.candidates.length?x.candidates.slice(0,3).map((p,i)=>link(p,i===0?'가장 적합한 제품':'추가 후보')).join('<br>'):'추천 제품 없음')+'</td></tr>').join('')+'</tbody></table></div>'+(data.errors.length?'<details><summary>조회 실패 파일</summary>'+data.errors.map(x=>'<p>'+esc(x.path+': '+x.error)+'</p>').join('')+'</details>':'');
+    h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p id="bom-catalog-status" role="status">업로드 카탈로그 '+data.catalogs.length+'개 · 제품 '+data.products.length+'개 · GitHub '+esc(data.revision.slice(0,7))+' 기준'+(data.snapshot?' · 배포 스냅샷':'')+(data.errors.length?' · 일부 조회 실패 '+data.errors.length+'개':' · 동기화 완료')+'</p><p>현재 설계 조건에 맞는 제품을 최대 3개 추천합니다. 가장 적합한 제품 1개와 추가 후보 2개를 제품 링크와 함께 표시합니다. 가격: 산정 불가.</p><div class="cap-actions"><label>후보 업체 <select id="bom-catalog-vendor"><option value="">전체 업체</option>'+vendors.map(v=>'<option'+(vendor===v?' selected':'')+'>'+esc(v)+'</option>').join('')+'</select></label><label>품목 / 규격 검색 <input id="bom-item-search" type="search" value="'+esc(search)+'"></label><button type="button" id="bom-catalog-refresh">제품 목록 동기화</button><button type="button" id="exportProductCsv">제품 요구규격 CSV</button></div><div class="tableWrap"><table id="bom-live-table"><thead><tr><th>구간 / 품목</th><th>설치 / 구매 범위</th><th>요구 규격</th><th>추천 제품 · 링크</th></tr></thead><tbody>'+shown.map((x,rowIndex)=>'<tr><td>'+esc(x.segment||'설계 참고')+'<br>'+esc(x.item)+(x.referenceOnly?'<small style="display:block">참고 · 중복 구매 제외</small>':'')+'</td><td>'+fmt(x.installed)+' / '+(x.low!=null?fmt(x.low)+'–'+fmt(x.high):fmt(x.purchase))+' '+esc(x.unit||'')+(x.phases.length?'<small style="display:block">Phase '+x.phases.join(', ')+' 합계</small>':'')+'</td><td>'+esc(x.spec||[x.profile?.media,x.profile?.connector].filter(Boolean).join(' · '))+(x.lengthM!=null?'<br>'+fmt(x.lengthM)+'m':'')+'</td><td>'+(x.candidates.length?(link(x.candidates[0],'가장 적합한 제품')+(x.candidates.length>1?'<div style="margin-top:6px"><button type="button" class="bom-candidate-toggle" data-target="bom-candidates-'+rowIndex+'">추천 후보</button><div id="bom-candidates-'+rowIndex+'" hidden style="margin-top:6px">'+x.candidates.slice(1,3).map(p=>link(p,'추가 후보')).join('<br>')+'</div></div>':'')):'추천 제품 없음')+'</td></tr>').join('')+'</tbody></table></div>'+(data.errors.length?'<details><summary>조회 실패 파일</summary>'+data.errors.map(x=>'<p>'+esc(x.path+': '+x.error)+'</p>').join('')+'</details>':'');
     $('bom-item-search').oninput=e=>{search=e.target.value;};
     $('bom-item-search').onchange=e=>{search=e.target.value;paint();$('bom-item-search').focus();};
     $('bom-catalog-vendor').onchange=e=>{vendor=e.target.value;paint();};
     $('bom-catalog-refresh').onclick=()=>refresh(true);
     $('exportProductCsv').onclick=()=>downloadCsv();
+    h.querySelectorAll('.bom-candidate-toggle').forEach(btn=>btn.onclick=()=>{
+      const box=document.getElementById(btn.dataset.target);if(!box)return;
+      box.hidden=!box.hidden;btn.textContent=box.hidden?'추천 후보':'추천 후보 닫기';
+    });
     r.catalogRows=rows;r.catalogSnapshot={revision:data.revision,catalogs:data.catalogs.length,products:data.products.length,errors:data.errors};
   }
   async function refresh(force=false) {

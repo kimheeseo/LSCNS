@@ -3,7 +3,38 @@
   const M=window.DCBomCatalog, $=id=>document.getElementById(id);
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=x=>x==null?'미산정':Number(x).toLocaleString('ko-KR',{maximumFractionDigits:2});
-  const link=(p,label)=>'<strong>'+esc(label)+'</strong> · '+esc(p.vendor+' · '+p.name)+' · <a target="_blank" rel="noopener" href="'+esc(p.source)+'">제품 링크</a>';
+  const isLsVendor=p=>/LS\s*CABLE\s*&\s*SYSTEM|LS전선|LS CNS/i.test(String(p?.vendor||''));
+  const productName=p=>{
+    if(/COMMSCOPE/i.test(String(p?.vendor||''))){
+      const s=p?.specs||{}, part=String(s['Part Number']||p?.id||'').trim();
+      const type=String(s['Product Type']||p?.category||'').trim();
+      return [part,type].filter(Boolean).join(' · ')||String(p?.name||'');
+    }
+    return String(p?.name||'');
+  };
+  const link=(p,label)=>'<strong>'+esc(label)+'</strong> · '+esc(p.vendor+' · '+productName(p))+' · <a target="_blank" rel="noopener" href="'+esc(p.source)+'">제품 링크</a>';
+  function diversifyCandidates(list){
+    const seen=new Set(), uniq=[];
+    for(const p of list||[]){
+      const key=[p.vendor,p.id,p.source].join('|');
+      if(!seen.has(key)){seen.add(key);uniq.push(p);}
+    }
+    if(uniq.length<2)return uniq;
+    const first=uniq[0], top=[first], used=new Set([first]);
+    const nearEnough=p=>Number(p?.score??-999)>=Number(first?.score??0)-10;
+    const ls=uniq.slice(1).find(p=>isLsVendor(p)&&nearEnough(p)&&p.evidence!=='품목 분류 일치');
+    if(!isLsVendor(first)&&ls){top.push(ls);used.add(ls);}
+    const different=uniq.slice(1).find(p=>p.vendor!==first.vendor&&nearEnough(p)&&!used.has(p))
+      ||uniq.slice(1).find(p=>p.vendor!==first.vendor&&!used.has(p));
+    if(top.length<3&&different){top.push(different);used.add(different);}
+    for(const p of uniq){if(top.length>=3)break;if(!used.has(p)){top.push(p);used.add(p);}}
+    const remaining=uniq.filter(p=>!used.has(p));
+    const extra=[], extraVendors=new Set(top.map(p=>p.vendor));
+    for(const p of remaining){if(extra.length>=2)break;if(!extraVendors.has(p.vendor)){extra.push(p);extraVendors.add(p.vendor);}}
+    for(const p of remaining){if(extra.length>=2)break;if(!extra.includes(p))extra.push(p);}
+    const head=[...top,...extra];
+    return [...head,...remaining.filter(p=>!extra.includes(p))];
+  }
   let current=null, revision=0, data=null, vendor='', search='', ready=Promise.resolve();
   function rowsFor(r,a) {
     if(a) {
@@ -83,7 +114,7 @@
   function paint() {
     const h=host();if(!h||!current)return;
     const {rows,r}=current;
-    const shown=rows.filter(x=>!search||[x.item,x.segment,x.spec].join(' ').toLowerCase().includes(search.toLowerCase())).map(x=>({...x,candidates:x.candidates.filter(p=>!vendor||p.vendor===vendor)}));
+    const shown=rows.filter(x=>!search||[x.item,x.segment,x.spec].join(' ').toLowerCase().includes(search.toLowerCase())).map(x=>({...x,candidates:diversifyCandidates(x.candidates.filter(p=>!vendor||p.vendor===vendor))}));
     const vendors=[...new Set(data.products.map(x=>x.vendor))].sort((a,b)=>a.localeCompare(b));
     h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p id="bom-catalog-status" role="status">업로드 카탈로그 '+data.catalogs.length+'개 · 제품 '+data.products.length+'개 · GitHub '+esc(data.revision.slice(0,7))+' 기준'+(data.snapshot?' · 배포 스냅샷':'')+(data.errors.length?' · 일부 조회 실패 '+data.errors.length+'개':' · 동기화 완료')+'</p><p>현재 설계 조건에 맞는 제품을 기본 3개 표시합니다. 가장 적합한 제품 1개와 적합 후보 2개를 바로 보여주며, 추천 후보 버튼을 누르면 유사 제품을 포함해 최대 5개까지 확인할 수 있습니다. 가격: 산정 불가.</p><div class="cap-actions"><label>후보 업체 <select id="bom-catalog-vendor"><option value="">전체 업체</option>'+vendors.map(v=>'<option'+(vendor===v?' selected':'')+'>'+esc(v)+'</option>').join('')+'</select></label><label>품목 / 규격 검색 <input id="bom-item-search" type="search" value="'+esc(search)+'"></label><button type="button" id="bom-catalog-refresh">제품 목록 동기화</button><button type="button" id="exportProductCsv">제품 요구규격 CSV</button></div><div class="tableWrap"><table id="bom-live-table"><thead><tr><th>구간 / 품목</th><th>설치 / 구매 범위</th><th>요구 규격</th><th>추천 제품 · 링크</th></tr></thead><tbody>'+shown.map((x,rowIndex)=>'<tr><td>'+esc(x.segment||'설계 참고')+'<br>'+esc(x.item)+(x.referenceOnly?'<small style="display:block">참고 · 중복 구매 제외</small>':'')+'</td><td>'+fmt(x.installed)+' / '+(x.low!=null?fmt(x.low)+'–'+fmt(x.high):fmt(x.purchase))+' '+esc(x.unit||'')+(x.phases.length?'<small style="display:block">Phase '+x.phases.join(', ')+' 합계</small>':'')+'</td><td>'+esc(x.spec||[x.profile?.media,x.profile?.connector].filter(Boolean).join(' · '))+(x.lengthM!=null?'<br>'+fmt(x.lengthM)+'m':'')+'</td><td>'+(x.candidates.length?(link(x.candidates[0],'가장 적합한 제품')+(x.candidates.slice(1,3).length?'<br>'+x.candidates.slice(1,3).map(p=>link(p,'적합 후보')).join('<br>'):'')+(x.candidates.length>3?'<div style="margin-top:6px"><button type="button" class="bom-candidate-toggle" data-target="bom-candidates-'+rowIndex+'">추천 후보</button><div id="bom-candidates-'+rowIndex+'" hidden style="margin-top:6px">'+x.candidates.slice(3,5).map(p=>link(p,'유사 제품')).join('<br>')+'</div></div>':'')):'추천 제품 없음')+'</td></tr>').join('')+'</tbody></table></div>'+(data.errors.length?'<details><summary>조회 실패 파일</summary>'+data.errors.map(x=>'<p>'+esc(x.path+': '+x.error)+'</p>').join('')+'</details>':'');
     $('bom-item-search').oninput=e=>{search=e.target.value;};
@@ -102,11 +133,11 @@
     current.rows=[];current.r.catalogRows=[];current.r.catalogCandidates=[];
     if(current.r.productRequirements)for(const row of current.r.productRequirements)row.candidates=[];
     const token=++revision,h=host();if(h)h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p id="bom-catalog-status" role="status">업로드된 전체 카탈로그를 동기화하는 중…</p>';
-    ready=(async()=>{try{const loaded=await M.load(force);if(token!==revision)return;data=loaded;const raw=rowsFor(current.r,current.a);for(const x of raw)x.candidates=M.match(x,data.products);current.rows=aggregate(raw);if(current.a){current.r.catalogCandidates=current.rows.map(x=>({segment:x.segment||x.item,spec:x.spec||'',candidates:x.candidates}));}else if(current.r.productRequirements){for(let i=0;i<current.r.productRequirements.length;i++)current.r.productRequirements[i].candidates=raw[i].candidates;}paint();}catch(e){if(token!==revision)return;current.r.catalogRows=[];if(h)h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p role="alert">'+esc(e.message)+' · 제품 연결 미완료. 이전 후보를 재사용하지 않습니다.</p><button id="bom-catalog-retry">다시 동기화</button>';if($('bom-catalog-retry'))$('bom-catalog-retry').onclick=()=>refresh(true);}})();
+    ready=(async()=>{try{const loaded=await M.load(force);if(token!==revision)return;data=loaded;const raw=rowsFor(current.r,current.a);for(const x of raw)x.candidates=diversifyCandidates(M.match(x,data.products));current.rows=aggregate(raw);if(current.a){current.r.catalogCandidates=current.rows.map(x=>({segment:x.segment||x.item,spec:x.spec||'',candidates:x.candidates}));}else if(current.r.productRequirements){for(let i=0;i<current.r.productRequirements.length;i++)current.r.productRequirements[i].candidates=raw[i].candidates;}paint();}catch(e){if(token!==revision)return;current.r.catalogRows=[];if(h)h.innerHTML='<h2>설계 제품·케이블 품목 리스트</h2><p role="alert">'+esc(e.message)+' · 제품 연결 미완료. 이전 후보를 재사용하지 않습니다.</p><button id="bom-catalog-retry">다시 동기화</button>';if($('bom-catalog-retry'))$('bom-catalog-retry').onclick=()=>refresh(true);}})();
     return ready;
   }
   const headers=['구간','품목','설치','구매 기준','하한','상한','단위','요구 규격','추천 구분','벤더','제품','공식 URL','카탈로그 경로','카탈로그 Git SHA'];
-  function exportRows() {return (current?.rows||[]).flatMap(x=>{const cs=x.candidates.length?x.candidates.slice(0,5):[{}];return cs.map((p,i)=>[x.segment||'',x.item,x.installed??'',x.purchase??'',x.low??'',x.high??'',x.unit,x.spec||x.profile?.media||'',p.name?(i===0?'가장 적합한 제품':i<3?'적합 후보':'유사 제품'):'추천 제품 없음',p.vendor||'',p.name||'',p.source||'',p.path||'',data?.revision||'']);});}
+  function exportRows() {return (current?.rows||[]).flatMap(x=>{const cs=x.candidates.length?diversifyCandidates(x.candidates).slice(0,5):[{}];return cs.map((p,i)=>[x.segment||'',x.item,x.installed??'',x.purchase??'',x.low??'',x.high??'',x.unit,x.spec||x.profile?.media||'',p.name?(i===0?'가장 적합한 제품':i<3?'적합 후보':'유사 제품'):'추천 제품 없음',p.vendor||'',p.name||'',p.source||'',p.path||'',data?.revision||'']);});}
   async function downloadCsv() {await ready;if(!current?.rows)return;const csv=[headers,...exportRows()].map(row=>row.map(v=>'"'+String(v??'').replace(/^([=+@-])/,'\t$1').replace(/"/g,'""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='datacenter-catalog-product-requirements.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
   document.addEventListener('dc:capacity-bom',e=>{current={r:e.detail.r,a:e.detail.a,rows:[]};refresh();});
   document.addEventListener('dc:design',e=>{if(window.DCCapacityDesign)return;current=e.detail?.usable?{r:e.detail,a:null,rows:[]}:null;requestAnimationFrame(()=>{if(current)refresh();else{const h=$('bom-live-products');if(h)h.remove();}});});

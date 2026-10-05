@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology",
+  "description": "Corning ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 10,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "012ZUC-T3F22D20": {
+      "name": "012ZUC-T3F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 12F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/012ZUC-T3F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "012ZUC-T4F22D20": {
+      "name": "012ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 12F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/012ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "024ZUC-T3F22D20": {
+      "name": "024ZUC-T3F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 24F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/024ZUC-T3F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "024ZUC-T4F22D20": {
+      "name": "024ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 24F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/024ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "036ZUC-T3F22D20": {
+      "name": "036ZUC-T3F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 36F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/036ZUC-T3F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "036ZUC-T4F22D20": {
+      "name": "036ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 36F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/036ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "048ZUC-T4F22D20": {
+      "name": "048ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 48F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/048ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "060ZUC-T4F22D20": {
+      "name": "060ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 60F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/060ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "072ZUC-T3F22D20": {
+      "name": "072ZUC-T3F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 72F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/072ZUC-T3F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "072ZUC-T4F22D20": {
+      "name": "072ZUC-T4F22D20",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology · 72F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cables%20with%20FastAccess%C2%AE%20Technology/072ZUC-T4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Single-jacket, single-armored loose tube",
+        "Armoring": "Yes"
+      }
+    }
+  }
+}

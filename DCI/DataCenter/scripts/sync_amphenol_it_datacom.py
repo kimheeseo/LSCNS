@@ -98,6 +98,9 @@ def application(desc):
 def scrape_page(page):
     url=f"{BASE}?pagenumber={page}"
     r=session.get(url,timeout=45)
+    if r.status_code==403:
+        proxy="https://r.jina.ai/http://www.amphenol.com/markets/it-datacom?pagenumber="+str(page)
+        r=session.get(proxy,timeout=60,headers={"X-Return-Format":"html"})
     r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser")
     count_text=compact(soup.get_text(" ",strip=True))

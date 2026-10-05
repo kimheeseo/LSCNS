@@ -15,6 +15,21 @@
   function table(headers, rows) { return '<div class="tableWrap cap-table"><table><thead><tr>' + headers.map(x => '<th>' + esc(x) + '</th>').join('') + '</tr></thead><tbody>' + rows.map(r => '<tr>' + r.map(x => '<td' + (/^[\d,.\s/–±%]+(?:MW|kW|G)?$/.test(String(x).split('<br>')[0]) ? ' class="cap-number"' : '') + '>' + x + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>'; }
   function field(id, label, type = 'number', value = '', extra = '') {return '<label><span>' + esc(label) + '</span><input id="' + id + '" type="' + type + '" value="' + esc(value) + '" ' + extra + '></label>';}
   function select(id, label, items) {return '<label><span>' + label + '</span><select id="' + id + '">' + items.map(([v, t]) => '<option value="' + v + '">' + t + '</option>').join('') + '</select></label>';}
+  function fillPowerDefaults(resetRack = false, resetPue = false) {
+    const workloadPath = 'workloadPresets.' + $('cap-workload').value;
+    const equipmentId = $('cap-equipment').value;
+    const equipment = customPresets[equipmentId] || config.equipmentPresets[equipmentId];
+    const valueAt = path => overrides[path] ?? path.split('.').reduce((value, part) => value[part], config).value;
+    let textRackKw;
+    try {textRackKw = M.parseScale($('cap-scale').value, $('cap-kind').value, config.units).rackKw;} catch {}
+    const rackPath = equipment.rackScale ? 'equipmentPresets.' + equipmentId + '.rackKw' : workloadPath + '.rackKw';
+    const rackValue = textRackKw ?? (equipment.rackScale && customPresets[equipmentId] ? overrides[rackPath] ?? equipment.rackKw.value : valueAt(rackPath));
+    for (const [id, value, reset] of [['cap-rack', rackValue, resetRack], ['cap-pue', valueAt(workloadPath + '.pue'), resetPue]]) {
+      const input = $(id);
+      if (reset || input.dataset.presetDefault === 'true' || input.value === '') {input.value = value; input.dataset.presetDefault = 'true';}
+    }
+  }
+  function powerInput(id) {return $(id).dataset.presetDefault === 'true' ? undefined : number(id);}
   function buildInput() {
     const form = document.querySelector('.formPanel');
     const launch = document.createElement('div'); launch.className = 'cap-launch';
@@ -24,7 +39,7 @@
     section.innerHTML = '<div class="cap-mode" role="group" aria-label="용량 설계 입력 모드"><button type="button" id="cap-quick" aria-pressed="true">빠른 견적</button><button type="button" id="cap-detail" aria-pressed="false">상세 설계</button></div>' +
       '<div class="cap-fields">' + field('cap-scale', '고객 요구 규모', 'text', 'GPU 10,000개', 'placeholder="15GW / 랙 2,000개, 랙당 10kW"') + select('cap-kind', '입력 단위', [['auto', '문장에서 자동 판별'], ['MW', 'MW'], ['GW', 'GW'], ['gpu', 'GPU 수'], ['racks', '랙 수'], ['servers', '서버 수']]) +
       select('cap-basis', '전력 입력 기준', [['it', 'IT 부하'], ['facility', '시설 전체 전력']]) + '<label><span>용도 프리셋</span><select id="cap-workload">' + options(config.workloadPresets, config.defaults.workload) + '</select></label><label><span>장비 프리셋</span><select id="cap-equipment">' + options(config.equipmentPresets, 'generic8') + '</select></label>' +
-      field('cap-rack', '랙당 IT 부하 kW · 빈칸은 기본값', 'number', '', 'min="0.001" step="any" placeholder="프리셋 기본값"') + field('cap-pue', '목표 PUE · 빈칸은 기본값', 'number', '', 'min="1" step="any" placeholder="프리셋 기본값"') + '</div><p id="cap-preview" class="muted" aria-live="polite"></p>' +
+      field('cap-rack', '랙당 IT 부하 kW', 'number', '', 'min="0.001" step="any"') + field('cap-pue', '목표 PUE', 'number', '', 'min="1" step="any"') + '</div><p class="muted">용도·장비의 계획 기본값입니다. 실제 조건에 맞게 수정할 수 있습니다.</p><p id="cap-preview" class="muted" aria-live="polite"></p>' +
       '<details id="cap-advanced"><summary>제약조건·가정 편집</summary><div class="cap-fields">' + select('cap-tier', '요구 Tier', [['unspecified', '미정'], ['Tier I', 'Tier I'], ['Tier II', 'Tier II'], ['Tier III', 'Tier III'], ['Tier IV', 'Tier IV']]) +
       field('cap-power-limit', '전력 인입 한도 MW · 시설 전력', 'number', '', 'min="0.001" step="any"') + field('cap-site-area', '부지 면적 m²', 'number', '', 'min="1" step="any"') + field('cap-buildings', '건물 수 · 빈칸은 자동', 'number', '', 'min="1" step="1"') +
       select('cap-speed', '컴퓨트 링크 속도', [['', '프리셋 기본값'], ['400', '400G'], ['800', '800G'], ['1600', '1.6T · 검증 필요']]) + select('cap-media', '선호 매체', [['auto', '자동'], ['DAC', 'DAC'], ['AOC', 'AOC'], ['MMF', 'MMF'], ['SMF', 'SMF']]) +
@@ -37,19 +52,21 @@
       '<details><summary>전체 설정 JSON 편집 · 매체 규격 포함</summary><textarea id="cap-config-json" aria-label="전체 설정 JSON" spellcheck="false"></textarea><button type="button" id="cap-config-apply">설정 적용</button></details></details>' +
       '<button type="button" id="cap-run" class="primary">설계안 계산</button><p id="cap-error" class="error" role="alert"></p>';
     launch.after(section);
+    fillPowerDefaults(true, true);
     $('capacityButton').onclick = () => {activate(true); recompute();};
     $('capacityLegacy').onclick = () => activate(false);
     $('cap-run').onclick = recompute;
     $('cap-quick').onclick = () => detailMode(false);
     $('cap-detail').onclick = () => detailMode(true);
     $('cap-advanced').addEventListener('toggle', () => {$('cap-quick').setAttribute('aria-pressed', String(!$('cap-advanced').open)); $('cap-detail').setAttribute('aria-pressed', String($('cap-advanced').open));});
-    $('cap-workload').addEventListener('change', () => {$('cap-equipment').value = config.workloadPresets[$('cap-workload').value].equipment; $('cap-rack').value = ''; $('cap-pue').value = ''; renderCoefficients();});
-    $('cap-equipment').addEventListener('change', () => {$('cap-rack').value = ''; renderCoefficients();});
+    $('cap-workload').addEventListener('change', () => {$('cap-equipment').value = config.workloadPresets[$('cap-workload').value].equipment; fillPowerDefaults(true, true); renderCoefficients();});
+    $('cap-equipment').addEventListener('change', () => {fillPowerDefaults(true); renderCoefficients();});
     $('cap-coefficient-group').onchange = renderCoefficients;
     section.addEventListener('input', event => {
       if (event.target.id === 'cap-config-json' || event.target.id === 'cap-preset-name' || event.target.type === 'file') return;
+      if (event.target.id === 'cap-rack' || event.target.id === 'cap-pue') event.target.dataset.presetDefault = 'false';
       if (event.target.id === 'cap-scale') {
-        try {const parsed = M.parseScale(event.target.value, $('cap-kind').value, config.units); if (parsed.detectedEquipment) {$('cap-equipment').value = parsed.detectedEquipment; $('cap-rack').value = ''; renderCoefficients();}}
+        try {const parsed = M.parseScale(event.target.value, $('cap-kind').value, config.units); if (parsed.detectedEquipment && parsed.detectedEquipment !== $('cap-equipment').value) {$('cap-equipment').value = parsed.detectedEquipment; fillPowerDefaults(true); renderCoefficients();} else fillPowerDefaults();}
         catch {}
       }
       if (event.target.dataset.coefficient) {
@@ -59,6 +76,7 @@
           overrides[original.path] = typeof original.value === 'number' ? Number(event.target.value) : typeof original.value === 'boolean' ? event.target.value === 'true' : typeof original.value === 'object' ? JSON.parse(event.target.value) : event.target.value;
           const network = original.path.match(/^networks\.(compute|storage|management|dci)\.redundancy$/);
           if (network) $('cap-dual-' + network[1]).value = String(overrides[original.path]);
+          fillPowerDefaults();
         }
         catch (error) {invalidate(error); return;}
       }
@@ -95,8 +113,8 @@
       event.target.value = '';
     };
     $('cap-config-json').value = JSON.stringify(config, null, 2);
-    $('cap-config-apply').onclick = () => {try {const next = JSON.parse($('cap-config-json').value); M.calculate(readInput(), next); config = next; catalogCache = null; renderCoefficients(); recompute();} catch (error) {invalidate(error);}};
-    $('cap-reset').onclick = () => {overrides = {}; phaseDefinitions = []; $('cap-rack').value = ''; $('cap-pue').value = ''; renderCoefficients(); renderPhases(); recompute();};
+    $('cap-config-apply').onclick = () => {try {const next = JSON.parse($('cap-config-json').value); M.calculate(readInput(), next); config = next; catalogCache = null; fillPowerDefaults(); renderCoefficients(); recompute();} catch (error) {invalidate(error);}};
+    $('cap-reset').onclick = () => {overrides = {}; phaseDefinitions = []; fillPowerDefaults(true, true); renderCoefficients(); renderPhases(); recompute();};
     renderCoefficients(); renderPhases();
   }
   function detailMode(show) {$('cap-advanced').open = show;}
@@ -115,12 +133,14 @@
       return '<label class="cap-coefficient"><span>' + esc(labels[x.path.split('.').at(-1)] || x.path.split('.').at(-1)) + ' <small>' + esc(x.unit) + '</small></span><input data-coefficient="' + esc(x.path) + '" type="' + (typeof x.value === 'number' ? 'number' : 'text') + '" step="any" value="' + esc(typeof v === 'object' ? JSON.stringify(v) : v) + '"><small>' + esc(Object.hasOwn(overrides, x.path) ? '사용자 수정 · 검증 필요' : x.status + ' · 신뢰도 ' + x.confidence) + ' · ' + esc(x.source) + '</small></label>';
     }).join('');
   }
-  function readInput() {return {scaleText: $('cap-scale').value, scaleKind: $('cap-kind').value, powerBasis: $('cap-basis').value, workload: $('cap-workload').value, equipment: $('cap-equipment').value, rackKw: number('cap-rack'), pue: number('cap-pue'), tier: $('cap-tier').value, powerLimitMw: number('cap-power-limit'), siteAreaM2: number('cap-site-area'), buildings: number('cap-buildings'), speed: number('cap-speed'), media: $('cap-media').value, cooling: $('cap-cooling').value || undefined, topology: $('cap-topology').value || undefined, protocol: $('cap-protocol').value || undefined, cpo: $('cap-cpo').checked, budget: $('cap-budget').value, redundancy: Object.fromEntries(['compute', 'storage', 'management', 'dci'].map(k => [k, Number($('cap-dual-' + k).value)])), phases: phaseDefinitions, overrides, customPresets};}
+  function readInput() {return {scaleText: $('cap-scale').value, scaleKind: $('cap-kind').value, powerBasis: $('cap-basis').value, workload: $('cap-workload').value, equipment: $('cap-equipment').value, rackKw: powerInput('cap-rack'), pue: powerInput('cap-pue'), tier: $('cap-tier').value, powerLimitMw: number('cap-power-limit'), siteAreaM2: number('cap-site-area'), buildings: number('cap-buildings'), speed: number('cap-speed'), media: $('cap-media').value, cooling: $('cap-cooling').value || undefined, topology: $('cap-topology').value || undefined, protocol: $('cap-protocol').value || undefined, cpo: $('cap-cpo').checked, budget: $('cap-budget').value, redundancy: Object.fromEntries(['compute', 'storage', 'management', 'dci'].map(k => [k, Number($('cap-dual-' + k).value)])), phases: phaseDefinitions, overrides, customPresets};}
   function restoreInput(input) {
     $('cap-equipment').innerHTML = options({...config.equipmentPresets, ...customPresets}, input.equipment || 'generic8');
     const mapping = {scaleText: 'scale', scaleKind: 'kind', powerBasis: 'basis', workload: 'workload', equipment: 'equipment', rackKw: 'rack', pue: 'pue', tier: 'tier', powerLimitMw: 'power-limit', siteAreaM2: 'site-area', buildings: 'buildings', speed: 'speed', media: 'media', cooling: 'cooling', topology: 'topology', protocol: 'protocol', budget: 'budget'};
     for (const [k, id] of Object.entries(mapping)) if (input[k] != null) $('cap-' + id).value = input[k];
     $('cap-cpo').checked = !!input.cpo;
+    for (const [key, id] of [['rackKw', 'cap-rack'], ['pue', 'cap-pue']]) $(id).dataset.presetDefault = String(input[key] == null);
+    fillPowerDefaults();
     for (const [k, v] of Object.entries(input.redundancy || {})) if ($('cap-dual-' + k)) $('cap-dual-' + k).value = v;
   }
   function activate(enabled) {

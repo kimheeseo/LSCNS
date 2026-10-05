@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "checked": "2026-10-05",
   "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트, Amphenol 665 포함)",
-  "totalStructuredCatalogs": 249,
+  "totalStructuredCatalogs": 286,
   "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. Amphenol IT Datacom 665개 제품도 역할별 색인에 포함하며, 속도·거리·connector·fiber/base·전력 조건을 만족하는 후보를 우선 표시하고 불충분 조건은 RFQ로 유지한다.",
   "roles": {
     "compute": [

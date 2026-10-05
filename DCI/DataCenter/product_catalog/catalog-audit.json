@@ -15,7 +15,7 @@
     "pdfCount": 0,
     "storageMode": "metadata only; drawing PDFs are linked through officialUrl/drawingUrl fields"
   },
-  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed. NVIDIA Vera Rubin AI Factory Platform catalog added from attached NVIDIA datasheet as metadata-only product specs. NVIDIA data center GPU/platform/networking catalog expanded with supplied NVIDIA resource links. Fujikura optic-product and Amphenol IT Datacom catalogs added as metadata-only product specs.",
+  "note": "US Conec MTP Connectors added from 76-page official product API as metadata-only catalog; products are grouped by identical drawing PDF filename. Sumitomo Electric source PDFs synced successfully into classified product folders; ZTT IT cabinet/containerized/micro-modular catalogs refreshed. NVIDIA Vera Rubin AI Factory Platform catalog added from attached NVIDIA datasheet as metadata-only product specs. NVIDIA data center GPU/platform/networking catalog expanded with supplied NVIDIA resource links. Fujikura optic-product and Amphenol IT Datacom catalogs added as metadata-only product specs. Amphenol official IT Datacom listing fully synchronized at 665/665 products and linked into BOM role index.",
   "folders": [
     {
       "folder": "Corning/Accessories/EDGE™ Port Replication Housing Accessory",
@@ -405,17 +405,19 @@
     ]
   },
   "amphenolItDatacom": {
-    "productGroups": 3,
-    "productRows": 34,
-    "visibleCatalogItemsCaptured": 34,
-    "reportedCatalogItems": 668,
-    "reportedPages": 34,
-    "pdfCount": 0,
-    "storageMode": "metadata only; official market pages are referenced but PDFs are not uploaded",
     "officialUrl": "https://www.amphenol.com/markets/it-datacom",
-    "sourcePages": [
-      "https://www.amphenol.com/markets/it-datacom",
-      "https://www.amphenol.com/markets/it-datacom?pagenumber=2"
+    "sourceTotal": 665,
+    "parsedTotal": 665,
+    "productGroups": 15,
+    "masterCatalog": "Amphenol/All IT Datacom Products/catalog.json",
+    "storageMode": "metadata only; official listing URLs and Amphenol business URLs retained",
+    "bomRoles": [
+      "optic",
+      "trunk",
+      "patchCord",
+      "connector",
+      "adapter",
+      "power"
     ]
   }
 }

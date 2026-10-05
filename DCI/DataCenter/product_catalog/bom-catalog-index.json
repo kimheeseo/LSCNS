@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "checked": "2026-10-05",
-  "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트)",
-  "totalStructuredCatalogs": 143,
-  "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. 인터페이스, 심수, fiber type, connector, 거리/속도, polarity/gender/jacket 조건을 점수화하며, 조건이 불충분하거나 제품군만 확인되는 경우 RFQ로 유지한다.",
+  "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트, Amphenol 665 포함)",
+  "totalStructuredCatalogs": 144,
+  "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. Amphenol IT Datacom 665개 제품도 역할별 색인에 포함하며, 속도·거리·connector·fiber/base·전력 조건을 만족하는 후보를 우선 표시하고 불충분 조건은 RFQ로 유지한다.",
   "roles": {
     "compute": [
       "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms/catalog.json",

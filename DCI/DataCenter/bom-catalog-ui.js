@@ -22,8 +22,19 @@
       const moduleRows=a.bom.filter(b=>b.item==='패치패널').map(b=>{
         const selection=a.selections.find(x=>x.network===b.network&&x.tier+' / '+x.distanceClass===b.segment);
         const fiber=selection?.fiberType||selection?.fiber||b.media||'';
-        return {item:'광 Module / Cassette',segment:b.network+' / '+b.segment,installed:null,purchase:null,unit:'개',referenceOnly:true,
-          spec:'패치패널 내부 모듈 · '+fiber+' · LC Duplex ↔ MTP/MPO 후보 · 패널 slot/극성/loss budget 확정 후 수량 결정',
+        const connector=String(selection?.connector||'');
+        const lcPath=/\bLC\b/i.test(connector);
+        const group=a.bom.find(x=>x.item==='커넥터 종단 그룹'&&x.network===b.network&&x.segment===b.segment);
+        const terminations=Number(group?.installedQty||0);
+        const moduleCapacity=6; // Corning EDGE 12F module = 6 LC duplex adapter positions
+        const installed=lcPath&&terminations?Math.ceil(terminations/moduleCapacity):0;
+        const spareRatio=b.installedQty?Number(b.purchaseQty||b.installedQty)/Number(b.installedQty):1;
+        const purchase=installed?Math.ceil(installed*spareRatio):0;
+        const uncertainty=Number(b.uncertaintyPct||0);
+        return {item:'광 Module / Cassette',segment:b.network+' / '+b.segment,installed,purchase,low:installed?Math.max(0,Math.floor(purchase*(1-uncertainty/100))):0,high:installed?Math.ceil(purchase*(1+uncertainty/100)):0,unit:'개',referenceOnly:true,
+          spec:lcPath
+            ? '12F EDGE module 계획 · '+fiber+' · 6×LC duplex/module · MTP/MPO rear · 현재 종단 '+terminations+'그룹 기준 · 실제 housing slot/극성/loss budget 확인'
+            : '현재 '+(connector||'MTP/MPO')+' 직접 경로에서는 LC conversion module 0개 · LC breakout 대안 적용 시 '+fiber+' EDGE module 후보 검토',
           requirement:{fiberType:fiber},candidates:[]};
       });
       const refRows=r.references.map(x=>{

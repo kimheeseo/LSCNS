@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "company": "LS CNS",
+  "company": "LS Cable & System",
   "category": "광통신",
   "displayName": "광통신",
   "description": "LS전선 광통신 카탈로그 자료. 화면 제목은 PDF 파일명 대신 업무용 짧은 명칭으로 표시합니다.",
   "checked": "2026-10-05",
-  "officialUrl": "https://www.lscns.co.kr/",
+  "officialUrl": "https://www.lscns.com/",
   "comparisonFields": [
     "자료 구분",
     "발행 연도"

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Component Accessories",
+  "displayName": "MTP PRO Accessories",
+  "description": "Corning MTP PRO Accessories products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 6,
+  "comparisonFields": [
+    "Product Type"
+  ],
+  "products": {
+    "MTPPRO-PEX-MME-NOPINS": {
+      "name": "MTPPRO-PEX-MME-NOPINS",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-PEX-MME-NOPINS_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    },
+    "MTPPRO-PEX-MME-PINS": {
+      "name": "MTPPRO-PEX-MME-PINS",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-PEX-MME-PINS_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    },
+    "MTPPRO-PEX-SME-NOPINS": {
+      "name": "MTPPRO-PEX-SME-NOPINS",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-PEX-SME-NOPINS_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    },
+    "MTPPRO-PEX-SME-PINS": {
+      "name": "MTPPRO-PEX-SME-PINS",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-PEX-SME-PINS_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    },
+    "MTPPRO-TOOL": {
+      "name": "MTPPRO-TOOL",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-TOOL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    },
+    "MTPPRO-Tool_NAFTA_": {
+      "name": "MTPPRO-Tool_NAFTA_",
+      "description": "MTP PRO Accessories",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/MTP%20PRO%20Accessories/MTPPRO-Tool_NAFTA__AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "MTP PRO Accessories"
+      }
+    }
+  }
+}

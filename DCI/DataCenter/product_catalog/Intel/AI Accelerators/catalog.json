@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "company": "Intel",
+  "category": "AI Accelerators",
+  "displayName": "AI 가속기 · Gaudi",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "요청 제품 및 대표 서버/랙 인프라. 전체 업체 SKU 목록을 의미하지 않음.",
+  "products": {
+    "gaudi-3": {
+      "name": "Intel Gaudi 3",
+      "description": "생성형 AI 학습·추론용 가속기. 통합 RoCE 포트는 scale-up과 scale-out에 사용되므로 외부 케이블 수량으로 전부 환산하지 않습니다.",
+      "officialUrl": "https://docs.habana.ai/en/latest/Gaudi_Overview/Gaudi_Architecture.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://docs.habana.ai/en/latest/Gaudi_Overview/Gaudi_Architecture.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "메모리": "128 GB HBM2e",
+        "메모리 대역폭": "3.7 TB/s",
+        "연산": "64 TPC · 8 MME · FP8/BF16 1.8 PFLOPS",
+        "통합 네트워크": "24 × 200Gb/s RoCE RDMA NIC 포트",
+        "시스템 전력": "서버 SKU별 검증 필요",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "gaudi-2": {
+      "name": "Intel Gaudi 2",
+      "description": "AI 학습 및 추론용 Gaudi 가속기. 내부 직접 연결과 외부 Ethernet 패브릭 포트를 구분해야 합니다.",
+      "officialUrl": "https://docs.habana.ai/en/latest/Gaudi_Overview/Gaudi_Architecture.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://docs.habana.ai/en/latest/Gaudi_Overview/Gaudi_Architecture.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "메모리": "96 GB HBM2e",
+        "메모리 대역폭": "2.45 TB/s",
+        "SRAM": "48 MB",
+        "통합 네트워크": "24 × 100Gb/s RoCE v2 · 합계 2.4 Tb/s",
+        "시스템 전력": "서버 SKU별 검증 필요",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    }
+  }
+}

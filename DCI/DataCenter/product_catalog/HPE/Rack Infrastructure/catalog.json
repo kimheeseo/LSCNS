@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "HPE",
+  "category": "Rack Infrastructure",
+  "displayName": "랙 인프라 · Cray EX",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "cray-ex": {
+      "name": "HPE Cray EX Supercomputer Infrastructure",
+      "description": "HPC·AI용 고밀도 blade/cabinet 인프라. 일반 19인치 RU 랙과 별도의 설치·냉각·배선 설계가 필요합니다.",
+      "officialUrl": "https://buy.hpe.com/ca/en/compute/cray-systems/cray-supercomputer/hpe-cray-supercomputers/p/1012927320",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://buy.hpe.com/ca/en/compute/cray-systems/cray-supercomputer/hpe-cray-supercomputers/p/1012927320"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "기록 단위": "제품군 / liquid-cooled cabinet",
+        "폼팩터": "고밀도 blade cabinet · 표준 RU 직접 환산 제외",
+        "냉각": "컴포넌트 Direct Liquid Cooling",
+        "용도": "Exascale HPC / 대규모 AI",
+        "노드 / 인터커넥트": "플랫폼·blade·fabric 구성별 RFQ",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

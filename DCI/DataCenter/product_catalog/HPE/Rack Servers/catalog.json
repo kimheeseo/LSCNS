@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "company": "HPE",
+  "category": "Rack Servers",
+  "displayName": "범용 랙 서버 · ProLiant",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "dl380-gen12": {
+      "name": "HPE ProLiant Compute DL380 Gen12",
+      "description": "AI-ready 범용 랙 서버. 기본 출하 SKU와 최대 구성은 다르며 서버당 NIC·GPU·PSU 옵션을 별도 확인합니다.",
+      "officialUrl": "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-compute-dl380-gen12/p/1014865653",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-compute-dl380-gen12/p/1014865653"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "2U",
+        "CPU": "Intel Xeon 6 · 최대 2소켓",
+        "메모리": "32 DIMM · 최대 8 TB DDR5 (구성별)",
+        "용도": "가상화 / 데이터베이스 / AI 추론 / 범용 IT",
+        "관리": "HPE iLO / Compute Ops Management",
+        "PSU 참고": "구성별 Flex Slot 전원공급장치 선택 · 실제 IT 소비전력 별도",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    },
+    "dl385-gen11": {
+      "name": "HPE ProLiant DL385 Gen11",
+      "description": "AMD EPYC 기반 범용 2U 랙 서버. GPU·드라이브·전원·NIC 지원은 구성 및 세대별 QuickSpecs로 확인해야 합니다.",
+      "officialUrl": "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-dl385-gen11/p/1014689137",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-dl385-gen11/p/1014689137"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "2U",
+        "CPU": "AMD EPYC 9004/9005 · 최대 2소켓 (SKU별)",
+        "메모리": "DDR5 ECC · 용량/속도 SKU별 확인",
+        "용도": "가상화 / 소프트웨어 정의 스토리지 / AI·클라우드",
+        "관리": "HPE iLO / Compute Ops Management",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

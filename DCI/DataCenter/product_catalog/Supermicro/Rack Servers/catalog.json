@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "company": "Supermicro",
+  "category": "Rack Servers",
+  "displayName": "범용 랙 서버 · Hyper",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "as-2126hs-tn": {
+      "name": "Supermicro AS-2126HS-TN",
+      "description": "범용 클라우드·가상화용 Hyper 서버. EPYC 9005/9004 선택에 따라 메모리 속도가 달라집니다.",
+      "officialUrl": "https://www.supermicro.com/en/products/system/hyper/2u/as-2126hs-tn",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.supermicro.com/en/products/system/hyper/2u/as-2126hs-tn"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "2U",
+        "CPU": "AMD EPYC 9005/9004 · 2소켓",
+        "CPU 코어": "최대 합계 384코어 / 768스레드 (구성 조건)",
+        "메모리": "24 DIMM · 최대 6 TB · 9005:6400 / 9004:4800 MT/s",
+        "스토리지": "최대 24 × 2.5인치 NVMe/SAS/SATA",
+        "네트워크": "AIOM NIC 선택 · 전용 1GbE BMC RJ45",
+        "GPU 확장": "최대 3 double-width · OEM 호환성 확인",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

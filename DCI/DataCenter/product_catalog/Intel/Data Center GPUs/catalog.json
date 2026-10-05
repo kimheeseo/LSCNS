@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "company": "Intel",
+  "category": "Data Center GPUs",
+  "displayName": "데이터센터 GPU · Flex",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "요청 제품 및 대표 서버/랙 인프라. 전체 업체 SKU 목록을 의미하지 않음.",
+  "products": {
+    "flex-140": {
+      "name": "Intel Data Center GPU Flex 140",
+      "description": "미디어 처리·클라우드 그래픽·AI 추론용 Xe-HPG GPU. TBP는 카드 전력이며 서버 전체 IT 전력과 다릅니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/230020/intel-data-center-gpu-flex-140/specifications.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.intel.com/content/www/us/en/products/sku/230020/intel-data-center-gpu-flex-140/specifications.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "메모리": "12 GB GDDR6",
+        "메모리 대역폭": "336 GB/s",
+        "Xe 코어": 16,
+        "카드 TBP": "75 W",
+        "호스트 연결": "PCIe 4.0 ×8",
+        "미디어": "H.264 / H.265 / AV1 encode·decode",
+        "소프트웨어": "oneAPI / OpenVINO",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "flex-170": {
+      "name": "Intel Data Center GPU Flex 170",
+      "description": "미디어 처리·클라우드 그래픽·AI 추론용 Xe-HPG GPU. TBP는 카드 전력이며 서버 전체 IT 전력과 다릅니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/230019/intel-data-center-gpu-flex-170/specifications.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.intel.com/content/www/us/en/products/sku/230019/intel-data-center-gpu-flex-170/specifications.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "메모리": "16 GB GDDR6",
+        "메모리 대역폭": "576 GB/s",
+        "Xe 코어": 32,
+        "카드 TBP": "150 W",
+        "호스트 연결": "PCIe 4.0 ×16",
+        "미디어": "H.264 / H.265 / AV1 encode·decode",
+        "소프트웨어": "oneAPI / OpenVINO",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "flex-170v": {
+      "name": "Intel Data Center GPU Flex 170V",
+      "description": "미디어 처리·클라우드 그래픽·AI 추론용 Xe-HPG GPU. TBP는 카드 전력이며 서버 전체 IT 전력과 다릅니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/240233/intel-data-center-gpu-flex-170v/specifications.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.intel.com/content/www/us/en/products/sku/240233/intel-data-center-gpu-flex-170v/specifications.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "메모리": "16 GB GDDR6",
+        "메모리 대역폭": "576 GB/s",
+        "Xe 코어": 32,
+        "카드 TBP": "150 W",
+        "호스트 연결": "PCIe 4.0 ×16",
+        "미디어": "H.264 / H.265 / AV1 encode·decode",
+        "소프트웨어": "oneAPI / OpenVINO",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "company": "Qualcomm",
+  "category": "AI Accelerators",
+  "displayName": "AI 가속기 · Cloud AI / Dragonfly",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "요청 제품 및 대표 서버/랙 인프라. 전체 업체 SKU 목록을 의미하지 않음.",
+  "products": {
+    "cloud-ai100-ultra": {
+      "name": "Qualcomm Cloud AI 100 Ultra",
+      "description": "생성형 AI와 LLM을 위한 추론 가속 카드. 카드와 랙 단위 수치를 구분합니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "AI 코어": "64 / card",
+        "온다이 SRAM": "최대 576 MB / card",
+        "용도": "클라우드·온프레미스 AI 추론",
+        "출하 상태": "공식 페이지 Buy Now 표기 · OEM 구성 RFQ",
+        "전력/외부 포트": "확정 카드 SKU·서버 데이터시트 검증 필요",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-ai200": {
+      "name": "Qualcomm Dragonfly AI200",
+      "description": "대용량 LPDDR 기반 랙 규모 AI 추론 플랫폼. 140 kW는 공식 랙 thermal design power이며 칩 전력이 아닙니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai200",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai200"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "카드 메모리": "768 GB LPDDR",
+        "랙 카드 수": "56",
+        "랙 메모리": "43 TB",
+        "랙 메모리 대역폭": "0.414 PB/s (LPDDR5x 조건)",
+        "랙 형식": "Single Wide ORv3",
+        "Scale-up": "PCIe 6.0",
+        "Scale-out": "Ethernet with RoCE",
+        "냉각": "DLC / Air Cooling 옵션 (OEM 구성 확인)",
+        "랙 Thermal Design Power": "140 kW",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-ai250": {
+      "name": "Qualcomm Dragonfly AI250",
+      "description": "HBC Gen 1 기반 추론 플랫폼. effective bandwidth는 Qualcomm의 HBC 조건 수치로 원시 DRAM 대역폭과 구분합니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai250",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai250"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "랙 카드 수": "56",
+        "랙 메모리": "43 TB",
+        "유효 대역폭": "7.455 PB/s with HBC Gen 1",
+        "랙 형식": "Single Wide ORv3",
+        "Scale-up": "PCIe 6.0",
+        "Scale-out": "Ethernet with RoCE",
+        "냉각": "DLC / Air Cooling 옵션 (OEM 구성 확인)",
+        "랙 Thermal Design Power": "140 kW",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-ai300": {
+      "name": "Qualcomm Dragonfly AI300",
+      "description": "3세대 랙 수준 AI 추론 플랫폼. 차세대 near-memory computing과 분리형 추론 배치를 지향합니다. 미공개 정량 사양은 추정하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai300",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai300"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "세대": "3세대 Dragonfly AI 추론 플랫폼",
+        "설계 방향": "Near-memory computing · scale-up/scale-out 확장",
+        "배치": "Disaggregated inference",
+        "메모리 / 전력 / 포트 수": "공개 확정 정량 사양 검증 필요",
+        "제품 상태": "공식 제품 페이지 등록 · 출시/공급 일정 RFQ",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      },
+      "referenceOnly": true
+    }
+  }
+}

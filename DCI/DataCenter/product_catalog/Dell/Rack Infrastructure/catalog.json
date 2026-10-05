@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "company": "Dell",
+  "category": "Rack Infrastructure",
+  "displayName": "랙 인프라 · Integrated Rack",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "ir7000": {
+      "name": "Dell Integrated Rack 7000 (IR7000)",
+      "description": "고밀도 CPU/GPU용 통합 랙 인프라. ORv3 21인치 규격으로 일반 19인치 랙과 혼동하면 안 됩니다.",
+      "officialUrl": "https://www.dell.com/en-us/blog/leading-the-charge-dells-ocp-solutions-propel-ai-innovation",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.dell.com/en-us/blog/leading-the-charge-dells-ocp-solutions-propel-ai-innovation"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "랙 규격": "21인치 · OCP Open Rack Version 3 (ORv3)",
+        "냉각": "Direct Liquid Cooling",
+        "전력": "확장 가능한 power management · 현장 인입/전력 RFQ",
+        "플랫폼": "Integrated Rack Scalable Systems · XE9712 / M7725 연계",
+        "설계 범위": "랙·냉각·전력·서버 통합 참고 · 배선/OEM 구성 별도",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

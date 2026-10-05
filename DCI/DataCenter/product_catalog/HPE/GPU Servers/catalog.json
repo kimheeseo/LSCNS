@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "company": "HPE",
+  "category": "GPU Servers",
+  "displayName": "GPU 서버 · ProLiant Compute XD",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "xd685": {
+      "name": "HPE ProLiant Compute XD685",
+      "description": "GPU 학습·튜닝용 모듈형 서버. 섀시 높이와 냉각 방식은 구성 옵션으로 선택되며 서로 혼합해 단정하지 않습니다.",
+      "officialUrl": "https://buy.hpe.com/kr/ko/compute/rack-servers/proliant-compute-xd600-servers/hpe-proliant-compute-xd685-direct-liquid-cooling-server/p/s4r96a",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://buy.hpe.com/kr/ko/compute/rack-servers/proliant-compute-xd600-servers/hpe-proliant-compute-xd685-direct-liquid-cooling-server/p/s4r96a"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "DLC 5U / 공랭 6U (구성별)",
+        "CPU": "5th Gen AMD EPYC · 2개",
+        "가속기": "8 × NVIDIA HGX B300/B200/H200 또는 AMD Instinct MI355X (구성별)",
+        "메모리": "24 DDR5-6400 RDIMM · CPU당 12채널 · ECC",
+        "냉각": "DLC 모든 GPU 옵션; H200 공랭 옵션",
+        "관리": "HPE iLO 6 / Performance Cluster Manager",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

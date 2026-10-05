@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "company": "Qualcomm",
+  "category": "Connectivity DSPs",
+  "displayName": "연결 DSP · 광 / Coherent-lite / AEC",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "요청 제품 및 대표 서버/랙 인프라. 전체 업체 SKU 목록을 의미하지 않음.",
+  "products": {
+    "dragonfly-o100": {
+      "name": "Qualcomm Dragonfly O100",
+      "description": "4nm CMOS 광 트랜시버 DSP retimer. EML 및 SiPho용 통합 드라이버 지원. DSP 칩으로, 완제품 광모듈·케이블 구매 수량과 중복 합산하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o100",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o100"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "구분": "광 DSP",
+        "Lane / 파장 속도": "100G/lane",
+        "지원 링크 응용": "400G / 800G",
+        "변조": "PAM4",
+        "제품 단위": "DSP IC · 완제품 트랜시버/AEC 아님",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-o200": {
+      "name": "Qualcomm Dragonfly O200",
+      "description": "1.6T 광모듈용 DSP retimer. IEEE 802.3dj IFS 및 KP4 FEC 지원. DSP 칩으로, 완제품 광모듈·케이블 구매 수량과 중복 합산하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o200",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o200"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "구분": "광 DSP",
+        "Lane / 파장 속도": "200G/lane",
+        "지원 링크 응용": "1.6T",
+        "변조": "PAM4",
+        "제품 단위": "DSP IC · 완제품 트랜시버/AEC 아님",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-co400": {
+      "name": "Qualcomm Dragonfly CO400",
+      "description": "5nm CMOS Coherent-lite DSP. O-band 800G-LR2, 최대 20km 응용. 실제 모듈 광손실·reach 검증 필요. DSP 칩으로, 완제품 광모듈·케이블 구매 수량과 중복 합산하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-co400",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-co400"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "구분": "Coherent-lite 광 DSP",
+        "Lane / 파장 속도": "400G/wavelength",
+        "지원 링크 응용": "800G (2 × 400G)",
+        "변조": "DP-16QAM",
+        "제품 단위": "DSP IC · 완제품 트랜시버/AEC 아님",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-cu100": {
+      "name": "Qualcomm Dragonfly CU100",
+      "description": "AEC와 보드 전기 연결용 DSP retimer. Medium Reach 지원; 완제품 케이블 길이는 OEM 검증 필요. DSP 칩으로, 완제품 광모듈·케이블 구매 수량과 중복 합산하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu100",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu100"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "구분": "전기 DSP / AEC",
+        "Lane / 파장 속도": "100G/lane",
+        "지원 링크 응용": "800G",
+        "변조": "PAM4",
+        "제품 단위": "DSP IC · 완제품 트랜시버/AEC 아님",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    },
+    "dragonfly-cu200": {
+      "name": "Qualcomm Dragonfly CU200",
+      "description": "3nm CMOS AEC DSP retimer. 8 × 212.5 Gb/s retimer 동작 지원; 실제 케이블 길이는 OEM 검증 필요. DSP 칩으로, 완제품 광모듈·케이블 구매 수량과 중복 합산하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu200",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu200"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "구분": "전기 DSP / AEC",
+        "Lane / 파장 속도": "200G/lane",
+        "지원 링크 응용": "1.6T",
+        "변조": "PAM4",
+        "제품 단위": "DSP IC · 완제품 트랜시버/AEC 아님",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      }
+    }
+  }
+}

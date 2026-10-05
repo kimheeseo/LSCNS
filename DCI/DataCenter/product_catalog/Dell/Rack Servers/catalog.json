@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "company": "Dell",
+  "category": "Rack Servers",
+  "displayName": "범용 랙 서버 · PowerEdge R",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "r770": {
+      "name": "Dell PowerEdge R770",
+      "description": "Intel Xeon 6 기반 범용 랙 서버. 코어 종류와 NIC·스토리지·냉각 옵션은 시스템 SKU별 확인이 필요합니다.",
+      "officialUrl": "https://www.dell.com/support/product-details/en-us/product/poweredge-R770/resources/manuals",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.dell.com/support/product-details/en-us/product/poweredge-R770/resources/manuals"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "2U",
+        "CPU": "Intel Xeon 6 · 2개 · 최대 144 E-core 또는 86 P-core/CPU (매뉴얼 기준)",
+        "메모리": "32 DIMM · DDR5",
+        "관리": "iDRAC10 / OpenManage",
+        "전원": "AC/DC PSU 2개 (옵션별)",
+        "설계 용도": "클라우드 / 가상화 / 데이터센터 범용 컴퓨트",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    },
+    "r7725": {
+      "name": "Dell PowerEdge R7725",
+      "description": "AMD EPYC 9005 기반 고밀도 범용 랙 서버. 기본 판매 SKU와 최대 지원 구성은 구분합니다.",
+      "officialUrl": "https://www.dell.com/ko-kr/shop/ipovw/poweredge-r7725",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.dell.com/ko-kr/shop/ipovw/poweredge-r7725"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "2U",
+        "CPU": "5th Gen AMD EPYC 9005 · 2소켓 · 최대 192코어/CPU",
+        "메모리": "DDR5 RDIMM · 최대 6400 MT/s (SKU별)",
+        "스토리지": "SAS/SATA/NVMe/E3.S 구성 옵션",
+        "설계 용도": "가상화 / 클라우드 / AI 지원 / 소프트웨어 정의 인프라",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

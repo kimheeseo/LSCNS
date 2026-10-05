@@ -113,3 +113,9 @@ Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 �
 ## CPU 업체 추가 · 2026-10-05
 
 Intel Xeon 대표 4개, AMD EPYC 대표 3개, Qualcomm Centriq 과거 서버 제품 3개를 각 업체의 `CPU/catalog.json`에 등록했습니다. 공식 URL·코어·전력·메모리·확인 상태를 제공합니다. PDF 업로드는 하지 않습니다. Centriq의 현재 공급/지원은 검증 필요이며 신규 서버 BOM 자동 추천에서 제외됩니다. CPU TDP는 서버 전체 IT 부하와 별개입니다.
+
+## 가속기·CPU 제품군·서버 인프라 확장 (2026-10-05)
+
+Intel Gaudi 2/3와 Flex 140/170/170V(5개), Qualcomm AI 가속기 4종·연결 DSP 5종·Dragonfly C1000(10개), AMD EPYC 9006/9005/9004 제품군(3개), Supermicro(4개), HPE(4개), Dell(5개)를 추가했습니다. 총 신규 31개 항목, 신규 카탈로그 14개입니다. AMD 제품군은 기존 개별 CPU SKU와 별도 분류합니다. Qualcomm Centriq 과거 참고 3종은 보존합니다.
+
+서버 인프라는 대표 제품을 등록하며 전체 SKU 목록을 의미하지 않습니다. 서버/랙 참고 수량과 케이블 BOM을 구분합니다. DSP 레인 속도와 전체 속도, 전원/냉각 용량과 실제 IT 부하를 구분합니다. 모든 제품은 공식 URL·확인일·근거와 검증 필요 사항을 포함하며 PDF 업로드는 없습니다.

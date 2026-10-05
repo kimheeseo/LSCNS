@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "company": "Dell",
+  "category": "GPU Servers",
+  "displayName": "GPU 서버 · PowerEdge XE",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "xe9680": {
+      "name": "Dell PowerEdge XE9680",
+      "description": "AI/HPC용 8가속기 서버. NVIDIA·AMD·Intel 가속기 구성은 대안이며 한 서버에 동시에 모두 탑재된 것으로 해석하지 않습니다.",
+      "officialUrl": "https://www.dell.com/en-ca/shop/ipovw/poweredge-xe9680",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.dell.com/en-ca/shop/ipovw/poweredge-xe9680"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "6U",
+        "CPU": "2소켓 Intel Xeon Scalable (선택 세대 확인)",
+        "가속기": "8 × NVIDIA H100/H200 또는 AMD MI300X 또는 Intel Gaudi 3 (구성별)",
+        "냉각": "공랭 기반 · OEM 구성 검증",
+        "네트워크": "가속기별 fabric 및 NIC 옵션 별도 확인",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    },
+    "xe9680l": {
+      "name": "Dell PowerEdge XE9680L",
+      "description": "직접 액체 냉각을 사용하는 8-GPU 서버. H200/B200 구성과 전원 옵션은 별도 구매 조건입니다.",
+      "officialUrl": "https://www.dell.com/ko-kr/shop/ipovw/poweredge-xe9680l",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.dell.com/ko-kr/shop/ipovw/poweredge-xe9680l"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "4U",
+        "CPU": "5th Gen Intel Xeon Scalable · 2개 · CPU당 최대 64코어",
+        "가속기": "8 × HGX H200 141 GB 또는 HGX B200 180 GB",
+        "메모리": "32 DDR5 DIMM · 최대 4 TB RDIMM · 1DPC 최대 5600 MT/s",
+        "냉각": "CPU / GPU / NVLink Switch 액체 냉각",
+        "PSU 참고": "2800 W Titanium, B200 3000 W Titanium 옵션 · PSU 정격",
+        "관리": "iDRAC9 / OpenManage",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

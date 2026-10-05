@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "company": "Supermicro",
+  "category": "GPU Servers",
+  "displayName": "GPU 서버 · HGX",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "대표 서버/랙 인프라. 전체 SKU 목록이 아님.",
+  "products": {
+    "sys-821ge-tnhr": {
+      "name": "Supermicro SYS-821GE-TNHR",
+      "description": "HGX H100/H200 8-GPU 기반 AI/HPC 서버. GPU 종류와 NIC·광모듈 구성은 구매 SKU에서 확인해야 합니다.",
+      "officialUrl": "https://www.supermicro.com/en/products/system/gpu/8u/sys-821ge-tnhr",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.supermicro.com/en/products/system/gpu/8u/sys-821ge-tnhr"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "8U",
+        "CPU": "5th/4th Gen Intel Xeon Scalable · 2소켓",
+        "가속기": "NVIDIA HGX H100/H200 · 8 GPU",
+        "메모리": "32 DIMM · 최대 8 TB ECC DDR5 · 최대 5600 MT/s",
+        "확장": "PCIe Gen5 ×16 · NIC 구성 선택",
+        "냉각": "공랭",
+        "PSU 참고": "6 × 3000 W (4+2), 옵션 8 × 3000 W (4+4) · PSU 정격",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    },
+    "sys-a21ge-nbrt": {
+      "name": "Supermicro SYS-A21GE-NBRT",
+      "description": "NVIDIA HGX B200 기반 공랭 AI 서버. 공식 시스템 데이터시트에 기재된 구성을 참고합니다.",
+      "officialUrl": "https://www.supermicro.com/en/products/system/datasheet/sys-a21ge-nbrt",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.supermicro.com/en/products/system/datasheet/sys-a21ge-nbrt"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "높이": "10U",
+        "CPU": "5th/4th Gen Intel Xeon Scalable · 2소켓",
+        "가속기": "NVIDIA HGX B200 · 8 GPU · 180 GB/GPU",
+        "GPU 내부 연결": "NVLink / NVSwitch",
+        "메모리": "32 DIMM · 최대 8 TB (2DPC), 최대 4 TB (1DPC)",
+        "호스트 연결": "PCIe 5.0 ×16 CPU-to-GPU",
+        "냉각": "공랭",
+        "설계 참고": "서버/랙 인프라 참고 수량 · 광케이블 BOM과 별도",
+        "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
+        "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
+      }
+    }
+  }
+}

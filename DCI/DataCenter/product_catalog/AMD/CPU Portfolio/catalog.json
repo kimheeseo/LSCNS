@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "company": "AMD",
+  "category": "CPU Portfolio",
+  "displayName": "CPU 포트폴리오 · 9006 / 9005 / 9004",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official product URLs; PDFs are not uploaded",
+  "scope": "요청 제품 및 대표 서버/랙 인프라. 전체 업체 SKU 목록을 의미하지 않음.",
+  "products": {
+    "epyc-9006-series": {
+      "name": "AMD EPYC 9006 Series Server CPUs",
+      "description": "Agentic AI, AI host node, 범용 데이터센터 CPU. SP7/SP8 플랫폼 및 SKU별 조건 확인이 필요합니다. 공식 제품군 수치는 단일 SKU 확정값이 아닙니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/9006-series.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.amd.com/en/products/processors/server/epyc/9006-series.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "기록 단위": "제품군 / Family · 개별 SKU 아님",
+        "CPU 코어": "최대 256코어 / 512스레드",
+        "아키텍처": "Zen 6 / Zen 6c",
+        "I/O": "PCIe Gen6 (SKU/플랫폼별 확인)",
+        "전력 용어": "Default CPU Power 사용 · 과거 TDP와 구분",
+        "상태": "공식 공개 사양 Subject to Change · 출하/SKU 확인 필요",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "epyc-9005-series": {
+      "name": "AMD EPYC 9005 Series Server CPUs",
+      "description": "클라우드 및 엔터프라이즈 AI용 5세대 EPYC 제품군. 개별 EPYC 9965 사양은 CPU 카테고리에서 조회할 수 있습니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/9005-series.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.amd.com/en/products/processors/server/epyc/9005-series.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "기록 단위": "제품군 / Family · 개별 SKU 아님",
+        "CPU 코어": "최대 192코어",
+        "아키텍처": "Zen 5 / Zen 5c",
+        "전력": "TDP·OEM 조건은 개별 SKU별 확인",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "epyc-9004-series": {
+      "name": "AMD EPYC 9004 Series Server CPUs",
+      "description": "온프레미스·클라우드·엔터프라이즈 워크로드용 4세대 EPYC 제품군. Genoa·Bergamo·3D V-Cache SKU는 사양이 다릅니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/9004-series.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.amd.com/en/products/processors/server/epyc/9004-series.html"
+      ],
+      "confidence": "높음 (공식 공개 자료)",
+      "specs": {
+        "기록 단위": "제품군 / Family · 개별 SKU 아님",
+        "CPU 코어": "최대 128코어",
+        "아키텍처": "Zen 4 / Zen 4c",
+        "전력": "TDP·OEM 조건은 개별 SKU별 확인",
+        "확인 상태": "공식 공개 자료 확인 · 구성/SKU/공급 검증 필요"
+      },
+      "referenceOnly": true
+    }
+  }
+}

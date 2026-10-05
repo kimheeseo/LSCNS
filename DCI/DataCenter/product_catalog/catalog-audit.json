@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-05",
   "pdfCount": 1021,
-  "structuredCatalogFiles": 85,
+  "structuredCatalogFiles": 99,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
@@ -386,6 +386,90 @@
       "folder": "Qualcomm/CPU",
       "pdfCount": 0,
       "structuredMetadata": true
+    },
+    {
+      "folder": "Intel/AI Accelerators",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Intel/Data Center GPUs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 3
+    },
+    {
+      "folder": "Qualcomm/AI Accelerators",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
+    },
+    {
+      "folder": "Qualcomm/Connectivity DSPs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 5
+    },
+    {
+      "folder": "AMD/CPU Portfolio",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 3
+    },
+    {
+      "folder": "Supermicro/GPU Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Supermicro/Rack Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Supermicro/Rack Infrastructure",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "HPE/GPU Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "HPE/Rack Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "HPE/Rack Infrastructure",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Dell/GPU Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Dell/Rack Servers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Dell/Rack Infrastructure",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
     }
   ],
   "nvidiaDataCenter": {
@@ -437,14 +521,68 @@
   },
   "cpuVendors": {
     "checked": "2026-10-05",
-    "productRows": 10,
+    "productRows": 11,
     "vendors": {
       "Intel": 4,
       "AMD": 3,
-      "Qualcomm": 3
+      "Qualcomm": 4
     },
-    "qualcommStatus": "Centriq 2017 historical server products; current supply/support verification required",
+    "qualcommStatus": "Dragonfly C1000 official design features; SKU/supply verification required. Centriq retained as historical reference.",
     "pdfCount": 0,
     "storageMode": "official URL metadata only"
+  },
+  "acceleratorServerExpansion": {
+    "checked": "2026-10-05",
+    "newProductRows": 31,
+    "newCatalogFiles": 14,
+    "updatedCatalogFiles": 1,
+    "vendorNewRows": {
+      "Intel": 5,
+      "Qualcomm": 10,
+      "AMD": 3,
+      "Supermicro": 4,
+      "HPE": 4,
+      "Dell": 5
+    },
+    "scope": "Requested accelerators and CPU families, representative server/rack infrastructure; not an exhaustive SKU inventory",
+    "pdfCount": 0,
+    "sourceUrls": [
+      "https://docs.habana.ai/en/latest/Gaudi_Overview/Gaudi_Architecture.html",
+      "https://www.intel.com/content/www/us/en/products/sku/230020/intel-data-center-gpu-flex-140/specifications.html",
+      "https://www.intel.com/content/www/us/en/products/sku/230019/intel-data-center-gpu-flex-170/specifications.html",
+      "https://www.intel.com/content/www/us/en/products/sku/240233/intel-data-center-gpu-flex-170v/specifications.html",
+      "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai200",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai250",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai300",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o100",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-o200",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-co400",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu100",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-cu200",
+      "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-c1000",
+      "https://www.amd.com/en/products/processors/server/epyc/9006-series.html",
+      "https://www.amd.com/en/products/processors/server/epyc/9005-series.html",
+      "https://www.amd.com/en/products/processors/server/epyc/9004-series.html",
+      "https://www.supermicro.com/en/products/system/gpu/8u/sys-821ge-tnhr",
+      "https://www.supermicro.com/en/products/system/datasheet/sys-a21ge-nbrt",
+      "https://www.supermicro.com/en/products/system/hyper/2u/as-2126hs-tn",
+      "https://www.supermicro.com/en/solutions/ai-supercluster",
+      "https://buy.hpe.com/kr/ko/compute/rack-servers/proliant-compute-xd600-servers/hpe-proliant-compute-xd685-direct-liquid-cooling-server/p/s4r96a",
+      "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-compute-dl380-gen12/p/1014865653",
+      "https://buy.hpe.com/us/en/compute/rack-servers/proliant-dl300-servers/hpe-proliant-dl385-gen11/p/1014689137",
+      "https://buy.hpe.com/ca/en/compute/cray-systems/cray-supercomputer/hpe-cray-supercomputers/p/1012927320",
+      "https://www.dell.com/en-ca/shop/ipovw/poweredge-xe9680",
+      "https://www.dell.com/ko-kr/shop/ipovw/poweredge-xe9680l",
+      "https://www.dell.com/support/product-details/en-us/product/poweredge-R770/resources/manuals",
+      "https://www.dell.com/ko-kr/shop/ipovw/poweredge-r7725",
+      "https://www.dell.com/en-us/blog/leading-the-charge-dells-ocp-solutions-propel-ai-innovation"
+    ],
+    "rules": [
+      "DSP lane rates separated from aggregate connection rates",
+      "CPU/GPU TDP, PSU and CDU ratings are not actual server/rack IT power",
+      "Unconfirmed SKU, availability and NIC configuration require verification",
+      "Server infrastructure is design reference, not automatic optical BOM mapping"
+    ]
   }
 }

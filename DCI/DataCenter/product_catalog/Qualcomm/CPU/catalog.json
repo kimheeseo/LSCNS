@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "company": "Qualcomm",
   "category": "CPU",
-  "displayName": "CPU · Centriq 서버 (과거 제품 참고)",
+  "displayName": "CPU · Dragonfly C1000 / Centriq 과거 참고",
   "checked": "2026-10-05",
   "storageMode": "metadata only; official URLs; no PDF upload",
   "comparisonFields": [
@@ -62,6 +62,23 @@
         "확인 상태": "과거 공식 자료 확인 · 현재 공급/지원 검증 필요",
         "CPU TDP": "SKU별 확정 수치 미등록 · 검증 필요",
         "메모리": "SKU별 확정 사양 미등록 · 검증 필요"
+      }
+    },
+    "dragonfly-c1000": {
+      "name": "Qualcomm Dragonfly C1000 CPU",
+      "description": "데이터센터용 Oryon 서버 CPU. 에이전틱 AI·AI head node·범용 서버용 chiplet 설계입니다. 공개 설계 목표와 실제 양산 SKU 사양을 구분합니다.",
+      "officialUrl": "https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-c1000",
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 설계 특징)",
+      "referenceOnly": true,
+      "specs": {
+        "제품군": "Dragonfly · 데이터센터 서버 CPU",
+        "아키텍처": "Custom Qualcomm Oryon 서버 코어 · multi-chiplet",
+        "CPU 코어": "250+ (공식 설계 특징; 확정 SKU별 검증 필요)",
+        "클록": ">5 GHz (공식 설계 특징; 확정 SKU별 검증 필요)",
+        "I/O": "PCIe Gen 7, >2 TB/s connectivity 및 CXL (공식 설계 특징)",
+        "CPU 전력 / 소켓 / 메모리 용량": "공개 확정 SKU 사양 검증 필요",
+        "확인 상태": "공식 제품 페이지 등록 · OEM/SKU/공급 일정 RFQ"
       }
     }
   }

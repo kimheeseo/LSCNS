@@ -4,7 +4,7 @@
   "category": "Fiber Cable Assemblies - Trunk Assemblies",
   "displayName": "Trunk Assemblies · Part 06",
   "description": "CommScope fiber cable assembly SKUs generated from the uploaded product-list workbook.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
   "sourceUrls": [
     "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/"
@@ -29,7 +29,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 192-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpqxtn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpqxtn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPQXTN",
         "Part Name": "",
@@ -52,7 +52,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQXUCTK",
         "Part Name": "",
@@ -75,7 +75,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 48-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTH",
         "Part Name": "",
@@ -98,7 +98,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqxuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqxuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQXUCTM",
         "Part Name": "",
@@ -121,7 +121,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly,64-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxuctu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxuctu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQXUCTU",
         "Part Name": "",
@@ -144,7 +144,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQXUCTL",
         "Part Name": "",
@@ -167,7 +167,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXQXTR",
         "Part Name": "",
@@ -190,7 +190,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQPUCTM",
         "Part Name": "",
@@ -213,7 +213,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 32-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPQXTS",
         "Part Name": "",
@@ -236,7 +236,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxt8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxt8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQPQXT8",
         "Part Name": "",
@@ -259,7 +259,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly,32-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXQXTS",
         "Part Name": "",
@@ -282,7 +282,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 192-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQPUCTN",
         "Part Name": "",
@@ -305,7 +305,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 96-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTL",
         "Part Name": "",
@@ -328,7 +328,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 96-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQPUCTL",
         "Part Name": "",
@@ -351,7 +351,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxtf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxtf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQPQXTF",
         "Part Name": "",
@@ -374,7 +374,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 192-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqxuctn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQXUCTN",
         "Part Name": "",
@@ -397,7 +397,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 96-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXQXTL",
         "Part Name": "",
@@ -420,7 +420,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTM",
         "Part Name": "",
@@ -443,7 +443,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQPUCTM",
         "Part Name": "",
@@ -466,7 +466,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQPQXTH",
         "Part Name": "",
@@ -489,7 +489,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXQXTM",
         "Part Name": "",
@@ -512,7 +512,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 192-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTN",
         "Part Name": "",
@@ -535,7 +535,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 48-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJVQXQXTH",
         "Part Name": "",
@@ -558,7 +558,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxtk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxtk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQPQXTK",
         "Part Name": "",
@@ -581,7 +581,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTR",
         "Part Name": "",
@@ -604,7 +604,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 32-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQPUCTS",
         "Part Name": "",
@@ -627,7 +627,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpucth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpucth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPUCTH",
         "Part Name": "",
@@ -650,7 +650,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXQXTR",
         "Part Name": "",
@@ -673,7 +673,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 48-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxucth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxucth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXUCTH",
         "Part Name": "",
@@ -696,7 +696,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 64-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqpuctu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQPUCTU",
         "Part Name": "",
@@ -719,7 +719,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 32-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQPUCTS",
         "Part Name": "",
@@ -742,7 +742,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 8-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxt8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxt8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQPQXT8",
         "Part Name": "",
@@ -765,7 +765,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPUCTL",
         "Part Name": "",
@@ -788,7 +788,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly,32-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPQXTS",
         "Part Name": "",
@@ -811,7 +811,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXQXTR",
         "Part Name": "",
@@ -834,7 +834,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly,32-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXQXTS",
         "Part Name": "",
@@ -857,7 +857,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTF",
         "Part Name": "",
@@ -880,7 +880,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 64-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxqxtu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXQXTU",
         "Part Name": "",
@@ -903,7 +903,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPUCTM",
         "Part Name": "",
@@ -926,7 +926,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTH",
         "Part Name": "",
@@ -949,7 +949,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 8-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuct8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuct8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCT8",
         "Part Name": "",
@@ -972,7 +972,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 64-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxqxtu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxqxtu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXQXTU",
         "Part Name": "",
@@ -995,7 +995,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTK",
         "Part Name": "",
@@ -1018,7 +1018,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 16-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpuctr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPUCTR",
         "Part Name": "",
@@ -1041,7 +1041,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 24-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCTF",
         "Part Name": "",
@@ -1064,7 +1064,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTL",
         "Part Name": "",
@@ -1087,7 +1087,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 32-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqpucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQPUCTS",
         "Part Name": "",
@@ -1110,7 +1110,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 24-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxuctf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxuctf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXUCTF",
         "Part Name": "",
@@ -1133,7 +1133,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJVQXQXTM",
         "Part Name": "",
@@ -1156,7 +1156,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 72-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXUCTK",
         "Part Name": "",
@@ -1179,7 +1179,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 64-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqpuctu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQPUCTU",
         "Part Name": "",
@@ -1202,7 +1202,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 24-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPUCTF",
         "Part Name": "",
@@ -1225,7 +1225,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTM",
         "Part Name": "",
@@ -1248,7 +1248,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 48-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxucth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxucth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXUCTH",
         "Part Name": "",
@@ -1271,7 +1271,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 8-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxt8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxt8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQXQXT8",
         "Part Name": "",
@@ -1294,7 +1294,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQPQXTM",
         "Part Name": "",
@@ -1317,7 +1317,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 48-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpucth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpucth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPUCTH",
         "Part Name": "",
@@ -1340,7 +1340,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 72-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxuctk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxuctk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXUCTK",
         "Part Name": "",
@@ -1363,7 +1363,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 192-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQPQXTN",
         "Part Name": "",
@@ -1386,7 +1386,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJVQXQXTR",
         "Part Name": "",
@@ -1409,7 +1409,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 192-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTN",
         "Part Name": "",
@@ -1432,7 +1432,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCTM",
         "Part Name": "",
@@ -1455,7 +1455,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXUCTM",
         "Part Name": "",
@@ -1478,7 +1478,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 32-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQPQXTS",
         "Part Name": "",
@@ -1501,7 +1501,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 16-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/uggqxqxtr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGGQXQXTR",
         "Part Name": "",
@@ -1524,7 +1524,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 64-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxtu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpqxtu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQPQXTU",
         "Part Name": "",
@@ -1547,7 +1547,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 192-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxuctn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXUCTN",
         "Part Name": "",
@@ -1570,7 +1570,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 192-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCTN",
         "Part Name": "",
@@ -1593,7 +1593,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQXQXTH",
         "Part Name": "",
@@ -1616,7 +1616,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 16-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxuctr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCTR",
         "Part Name": "",
@@ -1639,7 +1639,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 144-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPUCTM",
         "Part Name": "",
@@ -1662,7 +1662,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxtk/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxtk/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQXQXTK",
         "Part Name": "",
@@ -1685,7 +1685,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 64-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtu/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqpqxtu/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQPQXTU",
         "Part Name": "",
@@ -1708,7 +1708,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 96-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxtl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxtl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQXQXTL",
         "Part Name": "",
@@ -1731,7 +1731,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Non-Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 32-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugxqpqxts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGXQPQXTS",
         "Part Name": "",
@@ -1754,7 +1754,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 24-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpuctf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqpuctf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQPUCTF",
         "Part Name": "",
@@ -1777,7 +1777,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly,32-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3xqxucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3XQXUCTS",
         "Part Name": "",
@@ -1800,7 +1800,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly,32-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujgqxucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJGQXUCTS",
         "Part Name": "",
@@ -1823,7 +1823,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxtl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ugvqxqxtl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UGVQXQXTL",
         "Part Name": "",
@@ -1846,7 +1846,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 24-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxuctf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxuctf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJVQXUCTF",
         "Part Name": "",
@@ -1869,7 +1869,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8  (Pinned) to MPO8  (Pinned), Fiber Trunk Cable Assembly, 144-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxtm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujxqxqxtm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJXQXQXTM",
         "Part Name": "",
@@ -1892,7 +1892,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly,32-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxucts/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3vqxucts/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3VQXUCTS",
         "Part Name": "",
@@ -1915,7 +1915,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8  (Non-Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 16-Fiber, LZSH B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctr/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/u3gqpuctr/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U3GQPUCTR",
         "Part Name": "",
@@ -1938,7 +1938,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8  (Pinned) to unconnectorized, Fiber Trunk Cable Assembly, 48-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxucth/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/ujvqxucth/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UJVQXUCTH",
         "Part Name": "",
@@ -1961,7 +1961,7 @@
       "description": "Low Tolerance length Singlemode MPO (Female) to MPO (Female) trunk, 24-Fiber, Low Smoke Zero Halogen, 325MT",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760206516/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760206516/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760206516",
         "Part Name": "",
@@ -1984,7 +1984,7 @@
       "description": "Low Tolerance length Singlemode MPO (Female) to MPO (Female) trunk, 24-Fiber, Low Smoke Zero Halogen, 225MT",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760235102/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760235102/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760235102",
         "Part Name": "",
@@ -2007,7 +2007,7 @@
       "description": "Low Tolerance length Singlemode MPO (Male) to MPO (Male) trunk, 24-Fiber, Low Smoke Zero Halogen B2ca, 290MT",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760249633/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/trunk-assemblies/760249633/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760249633",
         "Part Name": "",

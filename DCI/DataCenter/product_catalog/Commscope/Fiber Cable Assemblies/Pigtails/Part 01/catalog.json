@@ -4,7 +4,7 @@
   "category": "Fiber Cable Assemblies - Pigtails",
   "displayName": "Pigtails · Part 01",
   "description": "CommScope fiber cable assembly SKUs generated from the uploaded product-list workbook.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
   "sourceUrls": [
     "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/"
@@ -29,7 +29,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-003/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-003/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-003",
         "Part Name": "OCP-L1-15DASEN-XX-(12)-AP",
@@ -52,7 +52,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, Singlemode, LC/APC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-004/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-004/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-004",
         "Part Name": "OCP-L2-15DASEN-XX-(12)-AP",
@@ -75,7 +75,7 @@
       "description": "Fiber Optic Pigtail, 12 fibers, Singlemode, LSH/APC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760246010/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760246010/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760246010",
         "Part Name": "OCP-EC-02MASEN-XX-(12COL)",
@@ -98,7 +98,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LSZH, 0.9 mm diameter, Grade B, LSH/APC to Stub, white, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251755/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251755/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251755",
         "Part Name": "OCP-EC-02MASEN-XX",
@@ -121,7 +121,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 2 m, Kit of 100 pigtails",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760253156/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760253156/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253156",
         "Part Name": "OCP-L1-02MASEN-XX-(100)",
@@ -144,7 +144,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/UPC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160634-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160634-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160634-2",
         "Part Name": "OCP-S1-02MASEN-XX-(12COL)",
@@ -167,7 +167,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/9-1920523-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/9-1920523-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-1920523-1",
         "Part Name": "OCP-S2-15DASEN-XX",
@@ -190,7 +190,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/UPC to Stub, 0.9 mm diameter, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0932-000/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0932-000/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CC0932-000",
         "Part Name": "OCP-S1-02MASEN-XX",
@@ -213,7 +213,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0871-000/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0871-000/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CC0871-000",
         "Part Name": "OCP-L1-02MASEN-XX",
@@ -236,7 +236,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, OM4, SC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-007/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-007/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-007",
         "Part Name": "OCP-S5-15DGSEN-XX-AP",
@@ -259,7 +259,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, Singlemode, SC/APC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-002/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-002/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-002",
         "Part Name": "OCP-S2-15DASEN-XX-(12)-AP",
@@ -282,7 +282,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Multimode, OM4, LC/PC to Stub, 0.9 mm diameter, 12 fibers, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760249511/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760249511/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760249511",
         "Part Name": "OCP-L5-02MGLEN-XX-(12COL/D)",
@@ -305,7 +305,7 @@
       "description": "OCP Series Singlemode Fiber Optic Pigtail",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/ocp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/ocp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "OCP",
         "Part Name": "",
@@ -328,7 +328,7 @@
       "description": "Singlemode LC/UPC Keyed Yellow to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl2uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl2uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL2UC0C",
         "Part Name": "",
@@ -351,7 +351,7 @@
       "description": "Singlemode LC/UPC Keyed Brown to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl7uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl7uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL7UC0C",
         "Part Name": "",
@@ -374,7 +374,7 @@
       "description": "Singlemode LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLCUC0A",
         "Part Name": "",
@@ -397,7 +397,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, yellow, 6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1920618-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1920618-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1920618-6",
         "Part Name": "OCP-L2-06MASIA-XX",
@@ -420,7 +420,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, yellow, 6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160669-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160669-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160669-6",
         "Part Name": "OCP-S2-06MASCA-XX",
@@ -443,7 +443,7 @@
       "description": "Fiber Optic Pigtail, 12 fibers, Singlemode, LC/UPC to Stub, 0.9 mm diameter, multicolor, 2m, loose buffered cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1-2056006-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1-2056006-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2056006-1",
         "Part Name": "OCP-L1-02MALEN-XX-(12COL)",
@@ -466,7 +466,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, Singlemode, SC/UPC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-001/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-001/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-001",
         "Part Name": "OCP-S1-15DASEN-XX-AP",
@@ -489,7 +489,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, Singlemode, SC/APC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-002/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-002/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-002",
         "Part Name": "OCP-S2-15DASEN-XX-AP",
@@ -512,7 +512,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, OM4, SC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-007/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-007/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-007",
         "Part Name": "OCP-S5-15DGSEN-XX-(12)-AP",
@@ -535,7 +535,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6536880-2",
         "Part Name": "",
@@ -558,7 +558,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 2 m, loose buffered cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760252457/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760252457/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760252457",
         "Part Name": "OCP-LF-02MALEN-XX-WH",
@@ -581,7 +581,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 2 m, loose buffered cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760258539/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760258539/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760258539",
         "Part Name": "OCP-SH-02MALEN-XX-WH/D",
@@ -604,7 +604,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 2 m, loose buffered cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760249505/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760249505/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760249505",
         "Part Name": "OCP-S2-02MALEN-XX-WH",
@@ -627,7 +627,7 @@
       "description": "LazrSPEED® 550 WideBand LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/favlcuc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/favlcuc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAVLCUC0C",
         "Part Name": "",
@@ -650,7 +650,7 @@
       "description": "Singlemode LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLCUC0B",
         "Part Name": "",
@@ -673,7 +673,7 @@
       "description": "Singlemode LC/UPC Keyed Aqua  to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl8uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl8uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL8UC0C",
         "Part Name": "",
@@ -696,7 +696,7 @@
       "description": "Singlemode SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSCUC0B",
         "Part Name": "",
@@ -719,7 +719,7 @@
       "description": "Singlemode SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSCUC0C",
         "Part Name": "",
@@ -742,7 +742,7 @@
       "description": "Singlemode LC/UPC Keyed Green to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl4uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl4uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL4UC0C",
         "Part Name": "",
@@ -765,7 +765,7 @@
       "description": "TeraSPEED® LC APC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLAUC01",
         "Part Name": "",
@@ -788,7 +788,7 @@
       "description": "TeraSPEED® SC APC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSAUC01",
         "Part Name": "",
@@ -811,7 +811,7 @@
       "description": "Singlemode LC APC to Unconnectorized, 0.9 mm Tight Buffer Fiber Pigtail, 6-fiber Kit, Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLAUC0A",
         "Part Name": "",
@@ -834,7 +834,7 @@
       "description": "OM4 LC/UPC Keyed Yellow to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl2uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl2uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL2UC0C",
         "Part Name": "",
@@ -857,7 +857,7 @@
       "description": "OM4 LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXLCUC0C",
         "Part Name": "",
@@ -880,7 +880,7 @@
       "description": "OM4 LC/UPC Keyed Slate  to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl6uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl6uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL6UC0C",
         "Part Name": "",
@@ -903,7 +903,7 @@
       "description": "Singlemode SC APC to Unconnectorized, 0.9 mm Tight Buffer Fiber Pigtail, 6-fiber Kit, Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSAUC0A",
         "Part Name": "",
@@ -926,7 +926,7 @@
       "description": "Singlemode LC APC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLAUC0B",
         "Part Name": "",
@@ -949,7 +949,7 @@
       "description": "Singlemode LC APC to Unconnectorized, 0.9 mm Tight Buffer Fiber Pigtail, 12-fiber Kit, Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlauc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLAUC0C",
         "Part Name": "",
@@ -972,7 +972,7 @@
       "description": "OM4 LC/UPC Keyed Blue to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl3uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl3uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL3UC0C",
         "Part Name": "",
@@ -995,7 +995,7 @@
       "description": "OM4 LC/UPC Keyed Brown to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl7uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl7uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL7UC0C",
         "Part Name": "",
@@ -1018,7 +1018,7 @@
       "description": "Singlemode SC APC to Unconnectorized, 0.9 mm Tight Buffer Fiber Pigtail, 12-fiber Kit, Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSAUC0C",
         "Part Name": "",
@@ -1041,7 +1041,7 @@
       "description": "Singlemode LC/UPC Keyed Slate  to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl6uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl6uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL6UC0C",
         "Part Name": "",
@@ -1064,7 +1064,7 @@
       "description": "OM4 LC/UPC Keyed Green to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl4uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl4uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL4UC0C",
         "Part Name": "",
@@ -1087,7 +1087,7 @@
       "description": "OM4 SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXSCUC0A",
         "Part Name": "",
@@ -1110,7 +1110,7 @@
       "description": "OM4 LC/UPC Keyed Red to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl1uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl1uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL1UC11",
         "Part Name": "",
@@ -1133,7 +1133,7 @@
       "description": "OM4 LC/UPC Keyed Yellow to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl2uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl2uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL2UC11",
         "Part Name": "",
@@ -1156,7 +1156,7 @@
       "description": "OM4 LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxlcuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxlcuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXLCUC11",
         "Part Name": "",
@@ -1179,7 +1179,7 @@
       "description": "OM4 LC/UPC Keyed Blue to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl3uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl3uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL3UC11",
         "Part Name": "",
@@ -1202,7 +1202,7 @@
       "description": "OM4 LC/UPC Keyed Green to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl4uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl4uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL4UC11",
         "Part Name": "",
@@ -1225,7 +1225,7 @@
       "description": "OM4 LC/UPC Keyed Orange to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl5uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl5uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL5UC11",
         "Part Name": "",
@@ -1248,7 +1248,7 @@
       "description": "TeraSPEED® LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwlcuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwlcuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBWLCUC11",
         "Part Name": "",
@@ -1271,7 +1271,7 @@
       "description": "Fiber Optic Pigtail, OS2, LC/APC-stub, 12F soft wall 900 μm buffered fiber, 3 m, yellow, 12\" breakout",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0M/0-M003M",
         "Part Name": "",
@@ -1294,7 +1294,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 12 fibers, LC/UPC to Stub, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0K/0-M003M",
         "Part Name": "",
@@ -1317,7 +1317,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 12 fibers, SC/UPC to stub, yellow, 5 ft",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0E/0-M005F",
         "Part Name": "",
@@ -1340,7 +1340,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 6 fibers, SC/APC to Stub, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0E/0-P030M",
         "Part Name": "",
@@ -1363,7 +1363,7 @@
       "description": "TeraSPEED® LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/ubwlcuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/ubwlcuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UBWLCUC11",
         "Part Name": "",
@@ -1386,7 +1386,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-003/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-003/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-003",
         "Part Name": "OCP-L1-15DASEN-XX-AP",
@@ -1409,7 +1409,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, Singlemode, LC/APC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-004/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-004/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-004",
         "Part Name": "OCP-L2-15DASEN-XX-AP",
@@ -1432,7 +1432,7 @@
       "description": "Fiber Optic Pigtail, Single fiber white color, OM4, LC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-008/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0108-008/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0108-008",
         "Part Name": "OCP-L5-15DGSEN-XX-AP",
@@ -1455,7 +1455,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, OM4, LC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-008/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-008/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-008",
         "Part Name": "OCP-L5-15DGSEN-XX-(12)-AP",
@@ -1478,7 +1478,7 @@
       "description": "Fiber Optic Pigtail, Singlemode, LC/UPC to Stub, 0.9 mm Semi-Tight, white",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6536880",
         "Part Name": "",
@@ -1501,7 +1501,7 @@
       "description": "Low Loss Singlemode SC/UPC to Stub, Fiber Pigtail, Simplex 0.9mm, Unrated",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSCUC01",
         "Part Name": "",
@@ -1524,7 +1524,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 12 fibers, LC/UPC to Stub, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0K/0-M002M",
         "Part Name": "",
@@ -1547,7 +1547,7 @@
       "description": "Fiber Optic Pigtail, OS2, LC/UPC-stub, 12F soft wall, 900 μm buff. fiber, 12 \" breakouts, 6.17 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-0K/0-M006.17M",
         "Part Name": "",
@@ -1570,7 +1570,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 12 fibers, SC/UPC to stub, yellow, 5 ft",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-07/0-M005F",
         "Part Name": "",
@@ -1593,7 +1593,7 @@
       "description": "Fiber Optic Pigtail, Multi-fiber, Singlemode, 12 fibers, SC/UPC to stub, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPM-07/0-M005M",
         "Part Name": "",
@@ -1616,7 +1616,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, 0.9 mm diameter, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1-2055334-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/1-2055334-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2055334-0",
         "Part Name": "OCP-L2-02MASEN-XX-YE",
@@ -1639,7 +1639,7 @@
       "description": "Singlemode LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLCUC0C",
         "Part Name": "",
@@ -1662,7 +1662,7 @@
       "description": "Singlemode LC/UPC Keyed Blue to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl3uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl3uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL3UC0C",
         "Part Name": "",
@@ -1685,7 +1685,7 @@
       "description": "OM4 LC/UPC Keyed Red to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl1uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl1uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL1UC0C",
         "Part Name": "",
@@ -1708,7 +1708,7 @@
       "description": "Singlemode LC/UPC Keyed Rose to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl9uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl9uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL9UC0C",
         "Part Name": "",
@@ -1731,7 +1731,7 @@
       "description": "OM4 LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXLCUC0B",
         "Part Name": "",
@@ -1754,7 +1754,7 @@
       "description": "Singlemode LC/UPC Keyed Orange to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl5uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawl5uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWL5UC0C",
         "Part Name": "",
@@ -1777,7 +1777,7 @@
       "description": "Singlemode SC APC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawsauc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSAUC0B",
         "Part Name": "",
@@ -1800,7 +1800,7 @@
       "description": "TeraSPEED® LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawlcuc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWLCUC01",
         "Part Name": "",
@@ -1823,7 +1823,7 @@
       "description": "LazrSPEED® 550 SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXSCUC01",
         "Part Name": "",
@@ -1846,7 +1846,7 @@
       "description": "OM4 LC/UPC Keyed Aqua  to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl8uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl8uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL8UC0C",
         "Part Name": "",
@@ -1869,7 +1869,7 @@
       "description": "TeraSPEED® SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwscuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwscuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBWSCUC11",
         "Part Name": "",
@@ -1892,7 +1892,7 @@
       "description": "OM4 LC/UPC Keyed Orange to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl5uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl5uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL5UC0C",
         "Part Name": "",
@@ -1915,7 +1915,7 @@
       "description": "OM4 SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Red - Aqua (7-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0b/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0b/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXSCUC0B",
         "Part Name": "",
@@ -1938,7 +1938,7 @@
       "description": "OM4 LC/UPC Keyed Rose to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl9uc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxl9uc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXL9UC0C",
         "Part Name": "",
@@ -1961,7 +1961,7 @@
       "description": "OM4 LC/UPC Keyed Rose to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl9uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl9uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL9UC11",
         "Part Name": "",
@@ -1984,7 +1984,7 @@
       "description": "OM4 SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 12-Fiber Kit Blue - Aqua (1-12)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0c/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxscuc0c/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXSCUC0C",
         "Part Name": "",
@@ -2007,7 +2007,7 @@
       "description": "OM4 LC/UPC to Unconnectorized,0.9mm Tight Buffer Simplex Fiber Pigtail",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc01/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc01/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXLCUC01",
         "Part Name": "",
@@ -2030,7 +2030,7 @@
       "description": "OM4 LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/faxlcuc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAXLCUC0A",
         "Part Name": "",
@@ -2053,7 +2053,7 @@
       "description": "LazrSPEED® 550 WideBand LC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbvlcuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbvlcuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBVLCUC11",
         "Part Name": "",
@@ -2076,7 +2076,7 @@
       "description": "LazrSPEED® 550 SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxscuc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxscuc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXSCUC11",
         "Part Name": "",
@@ -2099,7 +2099,7 @@
       "description": "TeraSPEED® LC APC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwlauc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwlauc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBWLAUC11",
         "Part Name": "",
@@ -2122,7 +2122,7 @@
       "description": "OM4 LC/UPC Keyed Slate  to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl6uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl6uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL6UC11",
         "Part Name": "",
@@ -2145,7 +2145,7 @@
       "description": "OM4 LC/UPC Keyed Brown to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl7uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl7uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL7UC11",
         "Part Name": "",
@@ -2168,7 +2168,7 @@
       "description": "OM4 LC/UPC Keyed Aqua  to Unconnectorized, Fiber Pigtail Simplex, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl8uc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbxl8uc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBXL8UC11",
         "Part Name": "",
@@ -2191,7 +2191,7 @@
       "description": "TeraSPEED® SC APC to Unconnectorized, Fiber Pigtail, 0.9 mm SBJ",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwsauc11/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fbwsauc11/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FBWSAUC11",
         "Part Name": "",
@@ -2214,7 +2214,7 @@
       "description": "Singlemode SC/UPC to Unconnectorized, Fiber Pigtail, 0.9 mm Tight Buffer, 6-Fiber Kit Blue - White (1-6)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0a/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/fawscuc0a/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FAWSCUC0A",
         "Part Name": "",
@@ -2237,7 +2237,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160662-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160662-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160662-3",
         "Part Name": "OCP-S3-03MASEN-XX",
@@ -2260,7 +2260,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160742-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160742-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160742-2",
         "Part Name": "OCP-L2-02MASEN-XX-(12COL)",
@@ -2283,7 +2283,7 @@
       "description": "Fiber Optic Pigtail, 12 color kit, Singlemode, SC/UPC to Stub, 0.9 mm diameter, 1.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-001/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/eh0194-001/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "EH0194-001",
         "Part Name": "OCP-S1-15DASEN-XX-(12)-AP",
@@ -2306,7 +2306,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, 0.9 mm diameter, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0872-000/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc0872-000/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CC0872-000",
         "Part Name": "OCP-L2-02MASEN-XX",
@@ -2329,7 +2329,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, yellow, 6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc2247-000/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc2247-000/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CC2247-000",
         "Part Name": "OCP-L1-06MASIA-XX",
@@ -2352,7 +2352,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/UPC to Stub, 0.9 mm diameter, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc2979-000/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/cc2979-000/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CC2979-000",
         "Part Name": "OCP-S1-03MASEN-XX",
@@ -2375,7 +2375,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/6536880-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6536880-1",
         "Part Name": "",
@@ -2398,7 +2398,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/UPC to Stub, 0.9 mm diameter, 2 m, Kit of 100 pigtails",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760253157/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760253157/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253157",
         "Part Name": "OCP-S1-02MASEN-XX-(100)",
@@ -2421,7 +2421,7 @@
       "description": "Fiber Optic Pigtail, 12 fibers, Singlemode, LC/UPC to Stub, 0.9 mm diameter, multicolor, 2m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760246159/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760246159/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760246159",
         "Part Name": "OCP-L1-02MASEN-XX-(12COL)",
@@ -2444,7 +2444,7 @@
       "description": "Fiber Optic Pigtail, 12 fibers, Singlemode, LC/UPC to Stub, 0.9 mm diameter, multicolor, 2m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760242789/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760242789/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760242789",
         "Part Name": "OCP-LF-02MASEN-XX-(12COL)",
@@ -2467,7 +2467,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/UPC to Stub, 0.9 mm diameter, 2 m, semi-tight cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160852-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160852-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160852-2",
         "Part Name": "OCP-LF-02MASEN-XX",
@@ -2490,7 +2490,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, 0.9 mm diameter, multicolor, 8 fibers, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760242776/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760242776/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760242776",
         "Part Name": "OCP-LG-02MASEN-XX-(8COL)",
@@ -2513,7 +2513,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/UPC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160937-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160937-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160937-1",
         "Part Name": "OCP-SF-02MASEN-XX-(12COL)",
@@ -2536,7 +2536,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160620-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160620-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160620-2",
         "Part Name": "OCP-SG-02MASEN-XX",
@@ -2559,7 +2559,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760243059/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760243059/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760243059",
         "Part Name": "OCP-SH-02MASEN-XX-(12COL)",
@@ -2582,7 +2582,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, SC/APC to Stub, 0.9 mm diameter, 2 m, semi-tight cable",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760243038/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760243038/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760243038",
         "Part Name": "OCP-SH-02MASEN-XX",
@@ -2605,7 +2605,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LC/APC to Stub, 0.9 mm diameter, multicolor, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160938-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/2160938-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160938-1",
         "Part Name": "OCP-LG-02MASEN-XX-(12COL)",
@@ -2628,7 +2628,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LSZH, 2.4 mm diameter, tuned, Grade B, LSH/APC to Stub, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251757/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251757/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251757",
         "Part Name": "OCP-EC-02MASCA-XX",
@@ -2651,7 +2651,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LSZH, 2.4 mm diameter, tuned, Grade B, LSH/APC to Stub, yellow, 6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251756/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760251756/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251756",
         "Part Name": "OCP-EC-06MASCA-XX",
@@ -2674,7 +2674,7 @@
       "description": "Fiber Optic Pigtail, Simplex, Singlemode, LSZH, 1.8 mm diameter, tuned, Grade B, LSH/APC to Stub, yellow, 26 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760250062/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/pigtails/760250062/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250062",
         "Part Name": "OCP-EC-26DASQI-XX",

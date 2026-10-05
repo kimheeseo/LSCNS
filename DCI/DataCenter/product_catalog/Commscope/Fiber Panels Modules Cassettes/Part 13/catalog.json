@@ -4,7 +4,7 @@
   "category": "Fiber Panels Modules Cassettes",
   "displayName": "Fiber Panels Modules Cassettes · Part 13",
   "description": "CommScope products generated from the current official downloadable Product List Excel.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
   "sourceUrls": [
     "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/"
@@ -27,7 +27,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x12 duplex LC Propel module on End A to 2x12 on End B, 24 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJXDLCLCF",
         "Part Name": "",
@@ -53,7 +53,7 @@
       "description": "Propel 2RU fixed tray open fiber panel, accepts Propel components, providing up to 96 duplex LC ports, 96 MPO ports or 192 SN ports (384f)",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254908",
         "Part Name": "PPL-2U-HD-FX-OPEN",
@@ -79,7 +79,7 @@
       "description": "ReadyPATCH® ULL Multimode OM5 MPO-12 Distribution Module, 12 duplex LC non-keyed orange adapters to 2X12f MPO/UPC non-pinned, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256502",
         "Part Name": "RP-MOD-024-WB-MPO-LC02-BEU-OR",
@@ -105,7 +105,7 @@
       "description": "ReadyPATCH® ULL Singlemode MPO-12 Distribution Module, 6 duplex LC non-keyed yellow adapters to 1X12f MPO/UPC non-pinned, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256512",
         "Part Name": "RP-MOD-012-TS-MPO-LCO2-BEU-YL",
@@ -131,7 +131,7 @@
       "description": "ReadyPATCH® ULL Singlemode MPO-12 Distribution Module, 6 duplex LC non-keyed red adapters to 1X12f MPO/UPC non-pinned, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256513",
         "Part Name": "RP-MOD-012-TS-MPO-LCO2-BEU-RD",
@@ -157,7 +157,7 @@
       "description": "ReadyPATCH® ULL Singlemode MPO-12 Distribution Module, 6 duplex LC non-keyed orange adapters to 1X12f MPO/UPC non-pinned, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256514",
         "Part Name": "RP-MOD-012-TS-MPO-LCO2-BEU-OR",
@@ -183,7 +183,7 @@
       "description": "ReadyPATCH® ULL Singlemode MPO-12 Distribution Module, 6 duplex LC non-keyed blue adapters to 1X12f MPO/UPC non-pinned, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256515",
         "Part Name": "RP-MOD-012-TS-MPO-LCO2-BEU-BL",
@@ -209,7 +209,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCQXS",
         "Part Name": "",
@@ -235,7 +235,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex LC Propel module on End A to 1x16 on End B, 16 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCLCR",
         "Part Name": "",
@@ -261,7 +261,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 24x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 288 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VDLCMXP",
         "Part Name": "",
@@ -287,7 +287,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 16 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCRZR",
         "Part Name": "",
@@ -313,7 +313,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLC2PH",
         "Part Name": "",
@@ -339,7 +339,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex LC Propel module on End A to 2x16 on End B, 32 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCLCS",
         "Part Name": "",
@@ -365,7 +365,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 24x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 192 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCQXN",
         "Part Name": "",
@@ -391,7 +391,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex SN Propel module on End A to 4x16 on End B, 64 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRPU",
         "Part Name": "",
@@ -417,7 +417,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 24 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2PF",
         "Part Name": "",
@@ -443,7 +443,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex LC Propel module on End A to 2x16 on End B, 32 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCLCS",
         "Part Name": "",
@@ -469,7 +469,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex LC Propel module on End A to 4x16 on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCLCU",
         "Part Name": "",
@@ -495,7 +495,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCRZM",
         "Part Name": "",
@@ -521,7 +521,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 48 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2PH",
         "Part Name": "",
@@ -547,7 +547,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x8 duplex LC Propel module on End A to Stub on End B, 8 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUC8",
         "Part Name": "",
@@ -573,7 +573,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 24 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQVFLC2PF",
         "Part Name": "",
@@ -599,7 +599,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCQXS",
         "Part Name": "",
@@ -625,7 +625,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 24 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQVFLC2XF",
         "Part Name": "",
@@ -651,7 +651,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 72 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2PK",
         "Part Name": "",
@@ -677,7 +677,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLC2PM",
         "Part Name": "",
@@ -703,7 +703,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x8 duplex LC Propel module on End A to Stub on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCF",
         "Part Name": "",
@@ -729,7 +729,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x16 duplex LC Propel module on End A to Stub on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCUCH",
         "Part Name": "",
@@ -755,7 +755,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex SN Propel module on End A to 9x16 on End B, 144 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXM",
         "Part Name": "",
@@ -781,7 +781,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 128 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCRZQ",
         "Part Name": "",
@@ -807,7 +807,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 64 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCQXU",
         "Part Name": "",
@@ -833,7 +833,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 96 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2PL",
         "Part Name": "",
@@ -859,7 +859,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x8 duplex LC Propel module on End A to Stub on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCH",
         "Part Name": "",
@@ -885,7 +885,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 16x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 192 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGDLCMXN",
         "Part Name": "",
@@ -911,7 +911,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex SN Propel module on End A to 12x16 on End B, 192 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXN",
         "Part Name": "",
@@ -937,7 +937,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 64 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXRLCRZU",
         "Part Name": "",
@@ -963,7 +963,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x8 duplex LC Propel module on End A to Stub on End B, 72 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCK",
         "Part Name": "",
@@ -989,7 +989,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2PM",
         "Part Name": "",
@@ -1015,7 +1015,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x16 duplex LC Propel module on End A to Stub on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCUCM",
         "Part Name": "",
@@ -1041,7 +1041,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex SN Propel module on End A to 8x16 on End B, 128 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXQ",
         "Part Name": "",
@@ -1067,7 +1067,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 8 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQG8LCQP8",
         "Part Name": "",
@@ -1093,7 +1093,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x16 duplex LC Propel module on End A to 1x16 on End B, 16 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQVRLCLCR",
         "Part Name": "",
@@ -1119,7 +1119,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x8 duplex LC Propel module on End A to Stub on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCL",
         "Part Name": "",
@@ -1145,7 +1145,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x8 duplex LC Propel module on End A to Stub on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCUCF",
         "Part Name": "",
@@ -1171,7 +1171,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 24 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2XF",
         "Part Name": "",
@@ -1197,7 +1197,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x16 duplex LC Propel module on End A to Stub on End B, 192 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCUCN",
         "Part Name": "",
@@ -1223,7 +1223,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex SN Propel module on End A to 1x16 on End B, 16 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXR",
         "Part Name": "",
@@ -1249,7 +1249,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 64 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCRZU",
         "Part Name": "",
@@ -1275,7 +1275,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 16 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQVRLCRVR",
         "Part Name": "",
@@ -1301,7 +1301,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCUCQ",
         "Part Name": "",
@@ -1327,7 +1327,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLC2XL",
         "Part Name": "",
@@ -1353,7 +1353,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 16 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCRPR",
         "Part Name": "",
@@ -1379,7 +1379,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQGDLCMPD",
         "Part Name": "",
@@ -1405,7 +1405,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex SN Propel module on End A to 2x16 on End B, 32 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXS",
         "Part Name": "",
@@ -1431,7 +1431,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLC2XM",
         "Part Name": "",
@@ -1457,7 +1457,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 24x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 192 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJX8LCQXN",
         "Part Name": "",
@@ -1483,7 +1483,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJXRLCUCQ",
         "Part Name": "",
@@ -1509,7 +1509,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCRVU",
         "Part Name": "",
@@ -1535,7 +1535,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex SN Propel module on End A to 1x16 on End B, 16 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGRSNSNR",
         "Part Name": "",
@@ -1561,7 +1561,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x12 duplex LC Propel module on End A to Stub on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVDLCUCH",
         "Part Name": "",
@@ -1587,7 +1587,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex SN Propel module on End A to 12x16 on End B, 192 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3GRSNRXN",
         "Part Name": "",
@@ -1613,7 +1613,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 18x8 duplex LC Propel module on End A to Stub on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGX8LCUCM",
         "Part Name": "",
@@ -1639,7 +1639,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 24 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLC2XF",
         "Part Name": "",
@@ -1665,7 +1665,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCRZH",
         "Part Name": "",
@@ -1691,7 +1691,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to Stub on End B, 32 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJXRLCUCS",
         "Part Name": "",
@@ -1717,7 +1717,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GFLC2PM",
         "Part Name": "",
@@ -1743,7 +1743,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex SN Propel module on End A to 4x16 on End B, 64 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGRSNSNU",
         "Part Name": "",
@@ -1769,7 +1769,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 72 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLC2PK",
         "Part Name": "",
@@ -1795,7 +1795,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 64 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJX8LCQXU",
         "Part Name": "",
@@ -1821,7 +1821,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex SN Propel module on End A to 8x16 on End B, 128 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3GRSNRXQ",
         "Part Name": "",
@@ -1847,7 +1847,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 48 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFLC2PH",
         "Part Name": "",
@@ -1873,7 +1873,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLC2XH",
         "Part Name": "",
@@ -1899,7 +1899,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to Stub on End B, 64 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJXRLCUCU",
         "Part Name": "",
@@ -1925,7 +1925,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x8 duplex LC Propel module on End A to Stub on End B, 16 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGX8LCUCR",
         "Part Name": "",
@@ -1951,7 +1951,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 72 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFLC2PK",
         "Part Name": "",
@@ -1977,7 +1977,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 72 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLC2XK",
         "Part Name": "",
@@ -2003,7 +2003,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 96 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLC2PL",
         "Part Name": "",
@@ -2029,7 +2029,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex SN Propel module on End A to 2x16 on End B, 32 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3GRSNRXS",
         "Part Name": "",
@@ -2055,7 +2055,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLC2XL",
         "Part Name": "",
@@ -2081,7 +2081,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x16 duplex SN Propel module on End A to 6x16 on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGRSNUCL",
         "Part Name": "",
@@ -2107,7 +2107,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLC2PM",
         "Part Name": "",
@@ -2133,7 +2133,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 72 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GFLC2XK",
         "Part Name": "",
@@ -2159,7 +2159,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x4 duplex LC Propel module on End A to 1x4 duplex LC Propel Module on End B, 8 fiber Plenum patch cord cable, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQG8LCLC8",
         "Part Name": "",
@@ -2185,7 +2185,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLC2XM",
         "Part Name": "",
@@ -2211,7 +2211,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x8 duplex LC Propel module on End A to Stub on End B, 64 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGX8LCUCU",
         "Part Name": "",
@@ -2237,7 +2237,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex SN Propel module on End A to 4x16 on End B, 64 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3GRSNRXU",
         "Part Name": "",
@@ -2263,7 +2263,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFLC2PM",
         "Part Name": "",
@@ -2289,7 +2289,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCRZQ",
         "Part Name": "",
@@ -2315,7 +2315,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex SN Propel module on End A to 9x16 on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGRSNUCM",
         "Part Name": "",
@@ -2341,7 +2341,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 16 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGXRLCRZR",
         "Part Name": "",
@@ -2367,7 +2367,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 96 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GFLC2XL",
         "Part Name": "",
@@ -2393,7 +2393,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 16 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCRZR",
         "Part Name": "",
@@ -2419,7 +2419,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 48 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMPH",
         "Part Name": "",
@@ -2445,7 +2445,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 32 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGXRLCRZS",
         "Part Name": "",
@@ -2471,7 +2471,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x2f duplex LC Propel module on End A to 2x24 on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLCLCH",
         "Part Name": "",
@@ -2497,7 +2497,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 32 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCRZS",
         "Part Name": "",
@@ -2523,7 +2523,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVFLC2PH",
         "Part Name": "",
@@ -2549,7 +2549,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 24 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3V8LCQPF",
         "Part Name": "",
@@ -2575,7 +2575,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 64 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGXRLCRZU",
         "Part Name": "",
@@ -2601,7 +2601,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to 3x24 on End B, 72 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLCLCK",
         "Part Name": "",
@@ -2627,7 +2627,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x12 duplex LC Propel module on End A to 3x12 on End B, 36 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXDLCLCG",
         "Part Name": "",
@@ -2653,7 +2653,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 72 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFLC2XK",
         "Part Name": "",
@@ -2679,7 +2679,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 96 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMPL",
         "Part Name": "",
@@ -2705,7 +2705,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x16 duplex LC Propel module on End A to Stub on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCUCH",
         "Part Name": "",
@@ -2731,7 +2731,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12 on End B, 12 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQGDLCLCD",
         "Part Name": "",
@@ -2757,7 +2757,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVFLC2PL",
         "Part Name": "",
@@ -2783,7 +2783,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 144 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMPM",
         "Part Name": "",
@@ -2809,7 +2809,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 72 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3V8LCQPK",
         "Part Name": "",
@@ -2835,7 +2835,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 6x24 on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLCLCM",
         "Part Name": "",
@@ -2861,7 +2861,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x12 duplex LC Propel module on End A to 4x12 on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXDLCLCH",
         "Part Name": "",
@@ -2887,7 +2887,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 96 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3V8LCQPL",
         "Part Name": "",
@@ -2913,7 +2913,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 16x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 192 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMPN",
         "Part Name": "",
@@ -2939,7 +2939,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVFLC2PM",
         "Part Name": "",
@@ -2965,7 +2965,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 6x24 on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GFLCLCM",
         "Part Name": "",
@@ -2991,7 +2991,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 24x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 288 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMPP",
         "Part Name": "",
@@ -3017,7 +3017,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x2f duplex LC Propel module on End A to 2x24 on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLCLCH",
         "Part Name": "",
@@ -3043,7 +3043,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 72 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJG8LCQPK",
         "Part Name": "",
@@ -3069,7 +3069,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to Stub on End B, 12 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQGDLCUCD",
         "Part Name": "",
@@ -3095,7 +3095,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x8 duplex LC Propel module on End A to 1x8 on End B, 8 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCLC8",
         "Part Name": "",
@@ -3121,7 +3121,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x16 duplex LC Propel module on End A to Stub on End B, 192 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCUCN",
         "Part Name": "",
@@ -3147,7 +3147,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 24x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 192 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3V8LCQPN",
         "Part Name": "",
@@ -3173,7 +3173,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVFLC2XH",
         "Part Name": "",
@@ -3199,7 +3199,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x12 duplex LC Propel module on End A to 12x12 on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXDLCLCM",
         "Part Name": "",
@@ -3225,7 +3225,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCUCQ",
         "Part Name": "",
@@ -3251,7 +3251,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x8 duplex LC Propel module on End A to 3x8 on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCLCF",
         "Part Name": "",
@@ -3277,7 +3277,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x2f duplex LC Propel module on End A to 4x24 on End B, 96 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLCLCL",
         "Part Name": "",
@@ -3303,7 +3303,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 18x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 144 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJG8LCQPM",
         "Part Name": "",
@@ -3329,7 +3329,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex LC Propel module on End A to Stub on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLCUCL",
         "Part Name": "",
@@ -3355,7 +3355,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x2f duplex LC Propel module on End A to 6x24 on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VFLCLCM",
         "Part Name": "",
@@ -3381,7 +3381,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex SN Propel module on End A to 4x24 on End B, 96 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFSN2PL",
         "Part Name": "",
@@ -3407,7 +3407,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x24 duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 24 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQGFLC2XF",
         "Part Name": "",
@@ -3433,7 +3433,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVFLC2XL",
         "Part Name": "",
@@ -3459,7 +3459,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex LC Propel module on End A to Stub on End B, 72 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GFLCUCK",
         "Part Name": "",
@@ -3485,7 +3485,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to Stub on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFLCUCM",
         "Part Name": "",
@@ -3511,7 +3511,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 36 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJXDLCMXG",
         "Part Name": "",
@@ -3537,7 +3537,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 8x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 64 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3V8LCQPU",
         "Part Name": "",
@@ -3563,7 +3563,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to Stub on End B, 32 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCUCS",
         "Part Name": "",
@@ -3589,7 +3589,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x2f duplex SN Propel module on End A to 1x24 on End B, 24 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGFSN2PF",
         "Part Name": "",
@@ -3615,7 +3615,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 16 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJG8LCQPR",
         "Part Name": "",
@@ -3641,7 +3641,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x2f duplex SN Propel module on End A to 1x24 on End B, 24 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGFSN2XF",
         "Part Name": "",
@@ -3667,7 +3667,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to Stub on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3XRLCUCU",
         "Part Name": "",
@@ -3693,7 +3693,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 32 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCRPS",
         "Part Name": "",
@@ -3719,7 +3719,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCRPQ",
         "Part Name": "",
@@ -3745,7 +3745,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x16 duplex LC Propel module on End A to Stub on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCUCL",
         "Part Name": "",
@@ -3771,7 +3771,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex SN Propel module on End A to 4x16 on End B, 64 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGGRSNRXU",
         "Part Name": "",
@@ -3797,7 +3797,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24 on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLCLCF",
         "Part Name": "",
@@ -3823,7 +3823,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x8 duplex LC Propel module on End A to Stub on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCUCL",
         "Part Name": "",
@@ -3849,7 +3849,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x8 duplex LC Propel module on End A to Stub on End B, 16 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCR",
         "Part Name": "",
@@ -3875,7 +3875,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 96 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFLC2PL",
         "Part Name": "",
@@ -3901,7 +3901,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x4 duplex LC Propel module on End A to 1x4 duplex LC Propel Module on End B, 8 fiber Plenum patch cord cable, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQX8LCLC8",
         "Part Name": "",
@@ -3927,7 +3927,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x16 duplex LC Propel module on End A to Stub on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3VRLCUCU",
         "Part Name": "",
@@ -3953,7 +3953,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 8 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQP8",
         "Part Name": "",
@@ -3979,7 +3979,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 144 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VFLC2XM",
         "Part Name": "",
@@ -4005,7 +4005,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x2f duplex LC Propel module on End A to 2x24 on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLCLCH",
         "Part Name": "",
@@ -4031,7 +4031,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 18x8 duplex LC Propel module on End A to Stub on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCUCM",
         "Part Name": "",
@@ -4057,7 +4057,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x8 duplex LC Propel module on End A to Stub on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGV8LCUCS",
         "Part Name": "",
@@ -4083,7 +4083,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x2f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 144 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFLC2PM",
         "Part Name": "",
@@ -4109,7 +4109,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQGDLCMXD",
         "Part Name": "",
@@ -4135,7 +4135,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x4 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 8 fiber Plenum patch cord cable, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQX8LCQP8",
         "Part Name": "",
@@ -4161,7 +4161,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x8 duplex LC Propel module on End A to 1x8 on End B, 8 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCLC8",
         "Part Name": "",
@@ -4187,7 +4187,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 3x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 48 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRVH",
         "Part Name": "",
@@ -4213,7 +4213,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCRPU",
         "Part Name": "",
@@ -4239,7 +4239,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCRXL",
         "Part Name": "",
@@ -4265,7 +4265,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCUCQ",
         "Part Name": "",
@@ -4291,7 +4291,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x4 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 8 fiber Plenum patch cord cable, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQX8LCQX8",
         "Part Name": "",
@@ -4317,7 +4317,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x2f duplex LC Propel module on End A to 4x24 on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLCLCL",
         "Part Name": "",
@@ -4343,7 +4343,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12 on End B, 12 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCLCD",
         "Part Name": "",
@@ -4369,7 +4369,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCRXH",
         "Part Name": "",
@@ -4395,7 +4395,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x16 duplex LC Propel module on End A to Stub on End B, 16 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCUCR",
         "Part Name": "",
@@ -4421,7 +4421,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 72 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQPK",
         "Part Name": "",
@@ -4447,7 +4447,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x4 duplex LC Propel module on End A to Stub on End B, 8 fiber Plenum patch cord cable, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQX8LCUC8",
         "Part Name": "",
@@ -4473,7 +4473,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 9x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 144 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRVM",
         "Part Name": "",
@@ -4499,7 +4499,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x8 duplex LC Propel module on End A to 6x8 on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCLCH",
         "Part Name": "",
@@ -4525,7 +4525,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x8 duplex LC Propel module on End A to Stub on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGG8LCUCS",
         "Part Name": "",
@@ -4551,7 +4551,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x12 duplex LC Propel module on End A to 2x12 on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCLCF",
         "Part Name": "",
@@ -4577,7 +4577,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 192 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCRXN",
         "Part Name": "",
@@ -4603,7 +4603,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x2f duplex SN Propel module on End A to 1x24 on End B, 24 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQGFSN2PF",
         "Part Name": "",
@@ -4629,7 +4629,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 96 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQPL",
         "Part Name": "",
@@ -4655,7 +4655,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 9x8 duplex LC Propel module on End A to 9x8 on End B, 72 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCLCK",
         "Part Name": "",
@@ -4681,7 +4681,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCRXM",
         "Part Name": "",
@@ -4707,7 +4707,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 96 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFLC2XL",
         "Part Name": "",
@@ -4733,7 +4733,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x16 duplex LC Propel module on End A to Stub on End B, 64 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJVRLCUCU",
         "Part Name": "",
@@ -4759,7 +4759,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 18x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 144 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQPM",
         "Part Name": "",
@@ -4785,7 +4785,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12 on End B, 12 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCLCD",
         "Part Name": "",
@@ -4811,7 +4811,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 16 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQGRLCRPR",
         "Part Name": "",
@@ -4837,7 +4837,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCRXQ",
         "Part Name": "",
@@ -4863,7 +4863,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x12 duplex LC Propel module on End A to 6x12 on End B, 72 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCLCK",
         "Part Name": "",
@@ -4889,7 +4889,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x2f duplex SN Propel module on End A to 1x24 on End B, 24 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFSN2PF",
         "Part Name": "",
@@ -4915,7 +4915,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x8 duplex LC Propel module on End A to 3x8 on End B, 24 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCF",
         "Part Name": "",
@@ -4941,7 +4941,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x2f duplex SN Propel module on End A to 2x24 on End B, 48 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFSN2PH",
         "Part Name": "",
@@ -4967,7 +4967,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Singlemode on End B, 64 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCRXU",
         "Part Name": "",
@@ -4993,7 +4993,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x8 duplex LC Propel module on End A to 6x8 on End B, 48 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCH",
         "Part Name": "",
@@ -5019,7 +5019,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 64 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRVU",
         "Part Name": "",
@@ -5045,7 +5045,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x24f duplex LC Propel module on End A to Stub on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXFLCUCM",
         "Part Name": "",
@@ -5071,7 +5071,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 9x8 duplex LC Propel module on End A to 9x8 on End B, 72 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCK",
         "Part Name": "",
@@ -5097,7 +5097,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex SN Propel module on End A to 1x16 on End B, 16 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQGRSNRXR",
         "Part Name": "",
@@ -5123,7 +5123,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x16 duplex LC Propel module on End A to Stub on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCUCL",
         "Part Name": "",
@@ -5149,7 +5149,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x12 duplex LC Propel module on End A to 6x12 on End B, 72 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCLCK",
         "Part Name": "",
@@ -5175,7 +5175,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 16x12 duplex LC Propel module on End A to 16x12 on End B, 192 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCLCN",
         "Part Name": "",
@@ -5201,7 +5201,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x8 duplex LC Propel module on End A to 12x8 on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCL",
         "Part Name": "",
@@ -5227,7 +5227,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 8 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQX8",
         "Part Name": "",
@@ -5253,7 +5253,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 96 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRZL",
         "Part Name": "",
@@ -5279,7 +5279,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x24 duplex LC Propel module on End A to 1x24 on End B, 24 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQXFLCLCF",
         "Part Name": "",
@@ -5305,7 +5305,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x16 duplex LC Propel module on End A to 6x16 on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCLCL",
         "Part Name": "",
@@ -5331,7 +5331,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x16 duplex LC Propel module on End A to Stub on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCH",
         "Part Name": "",
@@ -5357,7 +5357,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex LC Propel module on End A to Stub on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCUCM",
         "Part Name": "",
@@ -5383,7 +5383,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 24x12 duplex LC Propel module on End A to 24x12 on End B, 288 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCLCP",
         "Part Name": "",
@@ -5409,7 +5409,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 18x8 duplex LC Propel module on End A to 18x8 on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCM",
         "Part Name": "",
@@ -5435,7 +5435,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex LC Propel module on End A to Stub on End B, 192 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCUCN",
         "Part Name": "",
@@ -5461,7 +5461,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 9x16 duplex LC Propel module on End A to 9x16 on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCLCM",
         "Part Name": "",
@@ -5487,7 +5487,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 6x16 duplex LC Propel module on End A to Stub on End B, 96 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCL",
         "Part Name": "",
@@ -5513,7 +5513,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCMPD",
         "Part Name": "",
@@ -5539,7 +5539,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 24 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCQPF",
         "Part Name": "",
@@ -5565,7 +5565,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 6x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 48 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQXH",
         "Part Name": "",
@@ -5591,7 +5591,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQVDLCMPD",
         "Part Name": "",
@@ -5617,7 +5617,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex LC Propel module on End A to Stub on End B, 144 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCM",
         "Part Name": "",
@@ -5643,7 +5643,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 2x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCMPF",
         "Part Name": "",
@@ -5669,7 +5669,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 192 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRZN",
         "Part Name": "",
@@ -5695,7 +5695,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRLCUCQ",
         "Part Name": "",
@@ -5721,7 +5721,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCQPH",
         "Part Name": "",
@@ -5747,7 +5747,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x16 duplex LC Propel module on End A to 8x16 on End B, 128 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCLCQ",
         "Part Name": "",
@@ -5773,7 +5773,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex LC Propel module on End A to Stub on End B, 192 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCN",
         "Part Name": "",
@@ -5799,7 +5799,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 128 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRZQ",
         "Part Name": "",
@@ -5825,7 +5825,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQVDLCMXD",
         "Part Name": "",
@@ -5851,7 +5851,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 24x12 duplex LC Propel module on End A to 24x12 on End B, 288 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCLCP",
         "Part Name": "",
@@ -5877,7 +5877,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 3x2f duplex SN Propel module on End A to 3x24 on End B, 72 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFSN2XK",
         "Part Name": "",
@@ -5903,7 +5903,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x8 duplex LC Propel module on End A to 4x8 on End B, 32 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCS",
         "Part Name": "",
@@ -5929,7 +5929,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 12x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 96 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQXL",
         "Part Name": "",
@@ -5955,7 +5955,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex LC Propel module on End A to Stub on End B, 128 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCQ",
         "Part Name": "",
@@ -5981,7 +5981,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x2f duplex SN Propel module on End A to 4x24 on End B, 96 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGFSN2XL",
         "Part Name": "",
@@ -6007,7 +6007,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x8 duplex LC Propel module on End A to 8x8 on End B, 64 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCLCU",
         "Part Name": "",
@@ -6033,7 +6033,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 96 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCQPL",
         "Part Name": "",
@@ -6059,7 +6059,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 18x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 144 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQXM",
         "Part Name": "",
@@ -6085,7 +6085,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to 2x16 on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCLCS",
         "Part Name": "",
@@ -6111,7 +6111,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x16 duplex LC Propel module on End A to Stub on End B, 16 fiber Plenum Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUQXRLCUCR",
         "Part Name": "",
@@ -6137,7 +6137,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 24 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMPF",
         "Part Name": "",
@@ -6163,7 +6163,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 24x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 192 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGV8LCQXN",
         "Part Name": "",
@@ -6189,7 +6189,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to 4x16 on End B, 64 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCLCU",
         "Part Name": "",
@@ -6215,7 +6215,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 24 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCQPF",
         "Part Name": "",
@@ -6241,7 +6241,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 2x16 duplex LC Propel module on End A to Stub on End B, 32 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRLCUCS",
         "Part Name": "",
@@ -6267,7 +6267,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC pinned Multimode on End B, 64 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3VRLCRZU",
         "Part Name": "",
@@ -6293,7 +6293,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 3x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCRVH",
         "Part Name": "",
@@ -6319,7 +6319,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/APC non-pinned on End B, 8 fiber LSZH Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLURG8LCQP8",
         "Part Name": "",
@@ -6345,7 +6345,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 4x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMPH",
         "Part Name": "",
@@ -6371,7 +6371,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/APC pinned on End B, 8 fiber LSZH Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLURG8LCQX8",
         "Part Name": "",
@@ -6397,7 +6397,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 9x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 144 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGRLCRPM",
         "Part Name": "",
@@ -6423,7 +6423,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex SN Propel module on End A to 12x16 on End B, 192 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRSNRPN",
         "Part Name": "",
@@ -6449,7 +6449,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 8 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQX8LCQX8",
         "Part Name": "",
@@ -6475,7 +6475,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber Plenum Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAGVDLCMPD",
         "Part Name": "",
@@ -6501,7 +6501,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 24x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 288 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCMPP",
         "Part Name": "",
@@ -6527,7 +6527,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 48 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3X8LCQPH",
         "Part Name": "",
@@ -6553,7 +6553,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 96 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCQPL",
         "Part Name": "",
@@ -6579,7 +6579,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 96 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMPL",
         "Part Name": "",
@@ -6605,7 +6605,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 64 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCQPU",
         "Part Name": "",
@@ -6631,7 +6631,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 12x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 192 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCRVN",
         "Part Name": "",
@@ -6657,7 +6657,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQXDLCMPD",
         "Part Name": "",
@@ -6683,7 +6683,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex SN Propel module on End A to 8x16 on End B, 128 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRSNRPQ",
         "Part Name": "",
@@ -6709,7 +6709,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 12 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCMXD",
         "Part Name": "",
@@ -6735,7 +6735,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 9x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 72 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3X8LCQPK",
         "Part Name": "",
@@ -6761,7 +6761,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 144 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMPM",
         "Part Name": "",
@@ -6787,7 +6787,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 128 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGRLCRPQ",
         "Part Name": "",
@@ -6813,7 +6813,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 8x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 128 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCRVQ",
         "Part Name": "",
@@ -6839,7 +6839,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 12x16 duplex SN Propel module on End A to 12x16 on End B, 192 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRSNRPN",
         "Part Name": "",
@@ -6865,7 +6865,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 18x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 144 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCQPM",
         "Part Name": "",
@@ -6891,7 +6891,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex SN Propel module on End A to 1x16 on End B, 16 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJGRSNRPR",
         "Part Name": "",
@@ -6917,7 +6917,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 12 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQXDLCMXD",
         "Part Name": "",
@@ -6943,7 +6943,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Singlemode on End B, 16 fiber LSZH Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAJGRLCRPR",
         "Part Name": "",
@@ -6969,7 +6969,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC non-pinned on End B, 24 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQXFLC2PF",
         "Part Name": "",
@@ -6995,7 +6995,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 6x8 duplex LC Propel module on End A to 1x8f MPO/UPC pinned on End B, 48 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3X8LCQXH",
         "Part Name": "",
@@ -7021,7 +7021,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 32 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCRVS",
         "Part Name": "",
@@ -7047,7 +7047,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 18x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 144 fiber B2ca Trunk, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLA3X8LCQPM",
         "Part Name": "",
@@ -7073,7 +7073,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 24x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 288 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMPP",
         "Part Name": "",
@@ -7099,7 +7099,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x16 duplex SN Propel module on End A to 1x16 on End B, 16 fiber B2ca Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLU3GRSNRPR",
         "Part Name": "",
@@ -7125,7 +7125,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 1x24f duplex LC Propel module on End A to 1x24f MPO/UPC pinned on End B, 24 fiber Plenum Patchcord, Method A",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLAQXFLC2XF",
         "Part Name": "",
@@ -7151,7 +7151,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC non-pinned on End B, 12 fiber LSZH Patchcord, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLURGDLCMPD",
         "Part Name": "",
@@ -7177,7 +7177,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 2x8 duplex LC Propel module on End A to 1x8f MPO/UPC non-pinned on End B, 16 fiber LSZH Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUJX8LCQPR",
         "Part Name": "",
@@ -7203,7 +7203,7 @@
       "description": "Propel ULL Multimode OM4 Cabled Module, 4x16 duplex LC Propel module on End A to 1x16f MPO/APC non-pinned Multimode on End B, 64 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGXRLCRVU",
         "Part Name": "",
@@ -7229,7 +7229,7 @@
       "description": "Propel ULL Multimode OM5 Cabled Module, 4x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 48 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGVDLCMXH",
         "Part Name": "",
@@ -7255,7 +7255,7 @@
       "description": "Propel ULL Singlemode Cabled Module, 1x12 duplex LC Propel module on End A to 1x12f MPO/UPC pinned on End B, 12 fiber Plenum Trunk, Method B Enhanced",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "PPLUGGDLCMXD",
         "Part Name": "",
@@ -7281,7 +7281,7 @@
       "description": "FIST® Transportation Tubing 30m OD 5mm ID 4mm  cream color",
       "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
       "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "863018-000",
         "Part Name": "FIST-TUBE-5MM-30",

@@ -4,7 +4,7 @@
   "category": "Fiber Cable Assemblies - Patch Cords",
   "displayName": "Patch Cords · Part 03",
   "description": "CommScope fiber cable assembly SKUs generated from the uploaded product-list workbook.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
   "sourceUrls": [
     "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/"
@@ -29,7 +29,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/APC 9°, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920838-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920838-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1920838-2",
         "Part Name": "OCJ-L1-02MASHA-S3",
@@ -52,7 +52,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/APC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2055582-1",
         "Part Name": "OCJ-L1-01MASHA-S2",
@@ -75,7 +75,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/APC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2055582-3",
         "Part Name": "OCJ-L1-03MASHA-S2",
@@ -98,7 +98,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/APC, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055582-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2055582-5",
         "Part Name": "OCJ-L1-05MASHA-S2",
@@ -121,7 +121,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055442-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055442-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2055442-2",
         "Part Name": "OCJ-L1-02MASHA-S1",
@@ -144,7 +144,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251530/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251530/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251530",
         "Part Name": "OCJ-L1-02MASIA-L2",
@@ -167,7 +167,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/APC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254676/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254676/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254676",
         "Part Name": "OCJ-L1-03MASIA-L2",
@@ -190,7 +190,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 10 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760245621/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760245621/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760245621",
         "Part Name": "OCJ-L1-10MASIA-L1",
@@ -213,7 +213,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760245908/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760245908/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760245908",
         "Part Name": "OCJ-L1-15MASIA-L1",
@@ -236,7 +236,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/460158649/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/460158649/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "460158649",
         "Part Name": "OCJ-L1-30MASIA-L1",
@@ -259,7 +259,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to LC/APC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248794/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248794/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760248794",
         "Part Name": "OCJ-L2-01MASIA-L2",
@@ -282,7 +282,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2056004-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2056004-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2056004-2",
         "Part Name": "OCJ-LG-02MASHA-LG",
@@ -305,7 +305,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 4 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2056004-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2056004-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2056004-4",
         "Part Name": "OCJ-LG-04MASHA-LG",
@@ -328,7 +328,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248887/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248887/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760248887",
         "Part Name": "OCJ-LG-05MASHA-LG",
@@ -351,7 +351,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 10 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248889/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248889/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760248889",
         "Part Name": "OCJ-LG-10MASHA-LG",
@@ -374,7 +374,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248891/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760248891/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760248891",
         "Part Name": "OCJ-LG-15MASHA-LG",
@@ -397,7 +397,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to LC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2161003-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2161003-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2161003-2",
         "Part Name": "OCJ-LG-02MASIA-LG",
@@ -420,7 +420,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to LC/APC, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2161003-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2161003-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2161003-5",
         "Part Name": "OCJ-LG-05MASIA-LG",
@@ -443,7 +443,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to LC/APC, yellow, 10 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2161003-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2161003-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2161003-0",
         "Part Name": "OCJ-LG-10MASIA-LG",
@@ -466,7 +466,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to LC/APC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252386/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252386/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760252386",
         "Part Name": "OCJ-LG-30MASIA-LG",
@@ -489,7 +489,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to SC/APC, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160485-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160485-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160485-5",
         "Part Name": "OCJ-LG-05MASIA-SG",
@@ -512,7 +512,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/APC to SC/APC 9°, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760242835/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760242835/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760242835",
         "Part Name": "OCJ-LG-01MASIA-SH",
@@ -535,7 +535,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/APC to LC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920720-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920720-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1920720-2",
         "Part Name": "OCJ-L2-02MASHA-L2",
@@ -558,7 +558,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to LC/UPC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252179/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252179/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760252179",
         "Part Name": "OCJ-LF-01MASHA-LF",
@@ -581,7 +581,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to LC/UPC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254256/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254256/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254256",
         "Part Name": "OCJ-LF-03MASHA-LF",
@@ -604,7 +604,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250501/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250501/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250501",
         "Part Name": "OCJ-LF-02MASIA-LF",
@@ -627,7 +627,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 20 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250505/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250505/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250505",
         "Part Name": "OCJ-LF-20MASIA-LF",
@@ -650,7 +650,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to LC/UPC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250498/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250498/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250498",
         "Part Name": "OCJ-LF-30MASIA-LF",
@@ -673,7 +673,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC to LC/UPC, yellow, 4 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254432/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254432/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254432",
         "Part Name": "OCJ-LF-04MASIA-SG",
@@ -696,7 +696,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LC/UPC to SC/APC 9°, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254253/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254253/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254253",
         "Part Name": "OCJ-LF-03MASIA-SH",
@@ -719,7 +719,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253382/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253382/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253382",
         "Part Name": "OCJ-LF-03MASHA-SF",
@@ -742,7 +742,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 10 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252490/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760252490/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760252490",
         "Part Name": "OCJ-LF-10MASHA-SF",
@@ -765,7 +765,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to LC/UPC, yellow, 4 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254484/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254484/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254484",
         "Part Name": "OCJ-LF-04MASIA-SF",
@@ -788,7 +788,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC to SC/APC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160832-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160832-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160832-3",
         "Part Name": "OCJ-SG-03MASIA-SG",
@@ -811,7 +811,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC to SC/APC, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250822/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250822/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250822",
         "Part Name": "OCJ-SG-15MASIA-SG",
@@ -834,7 +834,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC to SC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250366/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250366/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250366",
         "Part Name": "OCJ-SG-02MHSIA-SG",
@@ -857,7 +857,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC to SC/APC, yellow, 25 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2055025-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2055025-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2055025-5",
         "Part Name": "OCJ-S2-25MASHA-S2",
@@ -880,7 +880,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, SC/APC to SC/APC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250392/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760250392/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760250392",
         "Part Name": "OCJ-S2-30MASHA-S2",
@@ -903,7 +903,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC 9° to SC/APC 9°, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254255/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254255/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254255",
         "Part Name": "OCJ-SH-03MASIA-SH",
@@ -926,7 +926,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC 9° to SC/APC 9°, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254252/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254252/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254252",
         "Part Name": "OCJ-SH-02MASIA-SH",
@@ -949,7 +949,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/APC 9° to SC/APC 9°, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055554-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2055554-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2055554-1",
         "Part Name": "OCJ-S3-01MASIA-S3",
@@ -972,7 +972,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to SC/APC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760239117/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760239117/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760239117",
         "Part Name": "OCJ-SF-01MASIA-SG",
@@ -995,7 +995,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to SC/APC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160872-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160872-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160872-3",
         "Part Name": "OCJ-SF-03MASIA-SG",
@@ -1018,7 +1018,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to SC/APC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160363-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160363-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160363-1",
         "Part Name": "OCJ-S1-01MASIA-S2",
@@ -1041,7 +1041,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to SC/APC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160363-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160363-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160363-2",
         "Part Name": "OCJ-S1-02MASIA-S2",
@@ -1064,7 +1064,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, SC/UPC to SC/APC, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254921/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254921/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254921",
         "Part Name": "OCJ-S1-03MASIA-S2",
@@ -1087,7 +1087,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 1 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253384/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253384/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253384",
         "Part Name": "OCJ-S1-01MASHA-L1",
@@ -1110,7 +1110,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253712/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253712/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253712",
         "Part Name": "OCJ-S1-02MASHA-L1",
@@ -1133,7 +1133,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, SC/UPC to SC/APC, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2055083-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2055083-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2055083-5",
         "Part Name": "OCJ-S1-15MASHA-S2",
@@ -1156,7 +1156,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, SC/UPC to SC/APC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2055083-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2055083-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2055083-0",
         "Part Name": "OCJ-S1-30MASHA-S2",
@@ -1179,7 +1179,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, SC/UPC to SC/UPC, yellow, 5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253275/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760253275/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760253275",
         "Part Name": "OCJ-SF-05MASHA-SF",
@@ -1202,7 +1202,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, SC/UPC to SC/UPC, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920604-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1920604-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1920604-2",
         "Part Name": "OCJ-S1-02MASHA-S1",
@@ -1225,7 +1225,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 4.5 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-6536501-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-6536501-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-6536501-4",
         "Part Name": "",
@@ -1248,7 +1248,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 3.5 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-6536501-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-6536501-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-6536501-3",
         "Part Name": "",
@@ -1271,7 +1271,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSH/APC to LC/UPC, 1.8 mm diameter, yellow, 1m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760256098/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760256098/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760256098",
         "Part Name": "OCJ-EC-01MASIA-LF",
@@ -1294,7 +1294,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSH/APC to LC/UPC, 1.8 mm diameter, yellow, 2m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254331/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254331/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254331",
         "Part Name": "OCJ-EC-02MASIA-LF",
@@ -1317,7 +1317,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSH/APC to LC/UPC, 1.8 mm diameter, yellow, 3m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254332/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760254332/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760254332",
         "Part Name": "OCJ-EC-03MASIA-LF",
@@ -1340,7 +1340,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 0.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-0",
         "Part Name": "",
@@ -1363,7 +1363,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 90 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105028-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105028-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105028-0",
         "Part Name": "",
@@ -1386,7 +1386,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 3.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-3",
         "Part Name": "",
@@ -1409,7 +1409,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 7.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-7/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-7/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-7",
         "Part Name": "",
@@ -1432,7 +1432,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, SC/APC-SC/APC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-eeyz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-eeyz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCA-EEYZ",
         "Part Name": "",
@@ -1455,7 +1455,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, LC/UPC-LC/UPC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-kkyz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-kkyz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCA-KKYZ",
         "Part Name": "",
@@ -1478,7 +1478,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, LC/APC-LC/APC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-mmyz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpca-mmyz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCA-MMYZ",
         "Part Name": "",
@@ -1501,7 +1501,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, LC/APC-LC/APC, yellow. tuned",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-33yz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-33yz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCE-33YZ",
         "Part Name": "",
@@ -1524,7 +1524,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, LC/UPC-LC/UPC, yellow, tuned",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-44yz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-44yz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCE-44YZ",
         "Part Name": "",
@@ -1547,7 +1547,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, SC/APC-SC/APC, yellow. tuned",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-55yz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-55yz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCE-55YZ",
         "Part Name": "",
@@ -1570,7 +1570,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, SC/UPC-SC/UPC, yellow. tuned",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-66yz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpce-66yz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCE-66YZ",
         "Part Name": "",
@@ -1593,7 +1593,7 @@
       "description": "Fiber Optic Patch Cord, duplex, singlemode, 1.2 mm OFNP jacket, SC/UPC-SC/UPC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-77yp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-77yp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCC-77YP",
         "Part Name": "",
@@ -1616,7 +1616,7 @@
       "description": "Fiber Optic Patch Cord, duplex, singlemode, 1.2 mm OFNP jacket, SC/APC-SC/APC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-eeyp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-eeyp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCC-EEYP",
         "Part Name": "",
@@ -1639,7 +1639,7 @@
       "description": "Fiber Optic Patch Cord, duplex, singlemode, 1.2 mm OFNP jacket, LC/UPC-LC/UPC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-kkyp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-kkyp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCC-KKYP",
         "Part Name": "",
@@ -1662,7 +1662,7 @@
       "description": "Fiber Optic Patch Cord, duplex, singlemode, 1.2 mm OFNP jacket, LC/APC-LC/APC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-mmyp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-mmyp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCC-MMYP",
         "Part Name": "",
@@ -1685,7 +1685,7 @@
       "description": "Fiber Optic Patch Cord, duplex, singlemode, 1.2 mm OFNP jacket, LC/UPC-LC/APC, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-kmyp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpcc-kmyp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCC-KMYP",
         "Part Name": "",
@@ -1708,7 +1708,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSZH, 2.4 mm diameter, LSH/APC to LSH/APC, tuned, grade B, yellow, 2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251765/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251765/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251765",
         "Part Name": "OCJ-EC-02MASCA-EC",
@@ -1731,7 +1731,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSZH, 2.4 mm diameter, LSH/APC to LSH/APC, tuned, grade B, yellow, 3 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251764/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251764/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251764",
         "Part Name": "OCJ-EC-03MASCA-EC",
@@ -1754,7 +1754,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSZH, 2.4 mm diameter, LSH/APC to LSH/APC, tuned, grade B, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251760/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251760/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251760",
         "Part Name": "OCJ-EC-15MASCA-EC",
@@ -1777,7 +1777,7 @@
       "description": "Fiber Optic Patch Cord, Simplex, Singlemode, LSZH, 2.4 mm diameter, LSH/APC to LSH/APC, tuned, grade B, yellow, 25 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251758/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/760251758/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760251758",
         "Part Name": "OCJ-EC-25MASCA-EC",
@@ -1800,7 +1800,7 @@
       "description": "Fiber Optic Patch Cord, singlemode, 1.2 mm LSZH jacket, duplex, SC/APC-SC/APC, yellow. tuned",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpch-55yz/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/fpch-55yz/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FPCH-55YZ",
         "Part Name": "",
@@ -1823,7 +1823,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 0.6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160544-6",
         "Part Name": "",
@@ -1846,7 +1846,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 0.7 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-7/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-7/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160544-7",
         "Part Name": "",
@@ -1869,7 +1869,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 0.9 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2160544-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2160544-9",
         "Part Name": "",
@@ -1892,7 +1892,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 2.0 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2160544-0",
         "Part Name": "",
@@ -1915,7 +1915,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 2.2 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2160544-2",
         "Part Name": "",
@@ -1938,7 +1938,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 2.4 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160544-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2160544-4",
         "Part Name": "",
@@ -1961,7 +1961,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 3.7 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160544-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160544-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2160544-9",
         "Part Name": "",
@@ -1984,7 +1984,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 11 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2160046-1",
         "Part Name": "",
@@ -2007,7 +2007,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 17 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-7/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-7/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2160046-7",
         "Part Name": "",
@@ -2030,7 +2030,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 19 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2160046-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2160046-9",
         "Part Name": "",
@@ -2053,7 +2053,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 26 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160046-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160046-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2160046-6",
         "Part Name": "",
@@ -2076,7 +2076,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 28 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160046-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2160046-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2160046-8",
         "Part Name": "",
@@ -2099,7 +2099,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 34 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2160046-4",
         "Part Name": "",
@@ -2122,7 +2122,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 36 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2160046-6",
         "Part Name": "",
@@ -2145,7 +2145,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 37 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-7/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-7/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2160046-7",
         "Part Name": "",
@@ -2168,7 +2168,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 39 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2160046-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2160046-9",
         "Part Name": "",
@@ -2191,7 +2191,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 41 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2160046-1",
         "Part Name": "",
@@ -2214,7 +2214,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 42 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2160046-2",
         "Part Name": "",
@@ -2237,7 +2237,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 44 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2160046-4",
         "Part Name": "",
@@ -2260,7 +2260,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 46 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2160046-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2160046-6",
         "Part Name": "",
@@ -2283,7 +2283,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 52 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2160046-2",
         "Part Name": "",
@@ -2306,7 +2306,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 53 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2160046-3",
         "Part Name": "",
@@ -2329,7 +2329,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 56 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2160046-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2160046-6",
         "Part Name": "",
@@ -2352,7 +2352,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 61 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6-2160046-1",
         "Part Name": "",
@@ -2375,7 +2375,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 63 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6-2160046-3",
         "Part Name": "",
@@ -2398,7 +2398,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 64 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2160046-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6-2160046-4",
         "Part Name": "",
@@ -2421,7 +2421,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 4.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-4",
         "Part Name": "",
@@ -2444,7 +2444,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 6.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-6",
         "Part Name": "",
@@ -2467,7 +2467,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 8.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-8",
         "Part Name": "",
@@ -2490,7 +2490,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 9.5 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2160046-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2160046-9",
         "Part Name": "",
@@ -2513,7 +2513,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 200 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2160046-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2160046-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2160046-9",
         "Part Name": "",
@@ -2536,7 +2536,7 @@
       "description": "Fiber Optic Patch Cord, OM4, LC duplex to LC duplex, 1.8 mm LSZH, 2.5 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2160046-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2160046-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2160046-5",
         "Part Name": "",
@@ -2559,7 +2559,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OM4, SC/UPC to SC/UPC, LSZH & OFNR, aqua, 6 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105093-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105093-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2105093-6",
         "Part Name": "",
@@ -2582,7 +2582,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OS2, SC/UPC to SC/UPC, LSZH & OFNR, yellow, 20 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105092-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105092-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2105092-0",
         "Part Name": "",
@@ -2605,7 +2605,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OS2, SC/UPC to SC/UPC, LSZH & OFNR, yellow, 35 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105092-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105092-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105092-5",
         "Part Name": "",
@@ -2628,7 +2628,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OS2, SC/UPC to SC/UPC, LSZH & OFNR, yellow, 40 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2105092-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2105092-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2105092-0",
         "Part Name": "",
@@ -2651,7 +2651,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OS2, SC/UPC to SC/UPC, LSZH & OFNR, yellow, 70 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105092-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105092-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "7-2105092-0",
         "Part Name": "",
@@ -2674,7 +2674,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, OS2, SC/UPC to SC/UPC, LSZH & OFNR, yellow, 100 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105092-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105092-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105092-4",
         "Part Name": "",
@@ -2697,7 +2697,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 25 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105067-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105067-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2105067-5",
         "Part Name": "",
@@ -2720,7 +2720,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105067-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105067-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105067-0",
         "Part Name": "",
@@ -2743,7 +2743,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 35 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105067-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105067-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105067-5",
         "Part Name": "",
@@ -2766,7 +2766,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, aqua, 50 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105067-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105067-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2105067-0",
         "Part Name": "",
@@ -2789,7 +2789,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to SC/UPC, aqua, 8 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105067-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105067-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2105067-8",
         "Part Name": "",
@@ -2812,7 +2812,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 11 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105061-1",
         "Part Name": "",
@@ -2835,7 +2835,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 13 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105061-3",
         "Part Name": "",
@@ -2858,7 +2858,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 17 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-7/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-7/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105061-7",
         "Part Name": "",
@@ -2881,7 +2881,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 18 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105061-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105061-8",
         "Part Name": "",
@@ -2904,7 +2904,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 4 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105061-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105061-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2105061-4",
         "Part Name": "",
@@ -2927,7 +2927,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 90 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105061-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105061-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105061-0",
         "Part Name": "",
@@ -2950,7 +2950,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 9 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105061-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2105061-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2105061-9",
         "Part Name": "",
@@ -2973,7 +2973,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 23 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105061-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105061-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2105061-3",
         "Part Name": "",
@@ -2996,7 +2996,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 24 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105061-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/2-2105061-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-2105061-4",
         "Part Name": "",
@@ -3019,7 +3019,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 38 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105061-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105061-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105061-8",
         "Part Name": "",
@@ -3042,7 +3042,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 39 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105061-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105061-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105061-9",
         "Part Name": "",
@@ -3065,7 +3065,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Multimode, LC/UPC to LC/UPC, LSZH & OFNR, aqua, 80 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105061-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105061-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2105061-0",
         "Part Name": "",
@@ -3088,7 +3088,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/SC duplex, 1.8 mm LSZH & OFNR, 50 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105032-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105032-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2105032-0",
         "Part Name": "",
@@ -3111,7 +3111,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 70 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105032-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105032-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "7-2105032-0",
         "Part Name": "",
@@ -3134,7 +3134,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 85 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105032-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105032-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2105032-5",
         "Part Name": "",
@@ -3157,7 +3157,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to SC/UPC, yellow, 100 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105032-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105032-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105032-4",
         "Part Name": "",
@@ -3180,7 +3180,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 11 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-1/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-1/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105028-1",
         "Part Name": "",
@@ -3203,7 +3203,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 13 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105028-3",
         "Part Name": "",
@@ -3226,7 +3226,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 16 m, yellow",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-6/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/1-2105028-6/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1-2105028-6",
         "Part Name": "",
@@ -3249,7 +3249,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to LC/UPC, yellow, 100 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105028-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105028-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105028-4",
         "Part Name": "",
@@ -3272,7 +3272,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 32 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105028-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105028-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105028-2",
         "Part Name": "",
@@ -3295,7 +3295,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 39 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105028-9/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/3-2105028-9/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "3-2105028-9",
         "Part Name": "",
@@ -3318,7 +3318,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 65 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2105028-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2105028-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6-2105028-5",
         "Part Name": "",
@@ -3341,7 +3341,7 @@
       "description": "Fiber Optic Patch Cord, Duplex, Singlemode, LC/UPC to LC/UPC, yellow, 42 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2105028-2/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/4-2105028-2/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "4-2105028-2",
         "Part Name": "",
@@ -3364,7 +3364,7 @@
       "description": "Fiber Optic Patch Cord, OS2, LC/LC duplex, 1.8 mm LSZH & OFNR, 55 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105028-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/5-2105028-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "5-2105028-5",
         "Part Name": "",
@@ -3387,7 +3387,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 90 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105027-0",
         "Part Name": "",
@@ -3410,7 +3410,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 98 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-3/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-3/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105027-3",
         "Part Name": "",
@@ -3433,7 +3433,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 115 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/9-2105027-8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "9-2105027-8",
         "Part Name": "",
@@ -3456,7 +3456,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 75 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105027-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/7-2105027-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "7-2105027-5",
         "Part Name": "",
@@ -3479,7 +3479,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 80 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105027-0/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105027-0/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2105027-0",
         "Part Name": "",
@@ -3502,7 +3502,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 84 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105027-4/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/8-2105027-4/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "8-2105027-4",
         "Part Name": "",
@@ -3525,7 +3525,7 @@
       "description": "Fiber Optic Patch Cord, OM3, LC/LC duplex, 1.8 mm LSZH & OFNR, 65 m, aqua",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2105027-5/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/patch-cords/6-2105027-5/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "6-2105027-5",
         "Part Name": "",

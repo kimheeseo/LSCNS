@@ -4,7 +4,7 @@
   "category": "Copper Twisted Pair Cable Assemblies",
   "displayName": "Twisted Pair Cable Assemblies · Part 03",
   "description": "CommScope products generated from the current official downloadable Product List Excel.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
   "sourceUrls": [
     "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/"
@@ -29,7 +29,7 @@
       "description": "RJ45 Patch Cord, category 6, red, 25 ft",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "2-1989797-5",
         "Part Name": "",
@@ -54,7 +54,7 @@
       "description": "Copper Patch Cord, PAL Coax plug to 1-pair plug, category 7A, S/FTP, LZSH, green, 5 m",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1711659-5",
         "Part Name": "",
@@ -79,7 +79,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 1.5 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760235592",
         "Part Name": "CCA-CAT6A-PLENUM-WHITE-N018",
@@ -104,7 +104,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAAB",
         "Part Name": "IP6A-06PUTP-O1S-O1S",
@@ -129,7 +129,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAJG",
         "Part Name": "IP6A-24PUTP-O1S-PG2H",
@@ -154,7 +154,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAAC",
         "Part Name": "IP6A-08PUTP-O1S-O1S",
@@ -179,7 +179,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAXG",
         "Part Name": "IP6A-24PUTP-O1S-BLUNT",
@@ -204,7 +204,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to single row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABGG",
         "Part Name": "IP6A-24PUTP-O2S-PG1S",
@@ -229,7 +229,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAARB",
         "Part Name": "IP6A-06PUTP-O1S-1100E",
@@ -254,7 +254,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAASD",
         "Part Name": "IP6A-12PUTP-O1S-1LK12",
@@ -279,7 +279,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABAC",
         "Part Name": "IP6A-08PUTP-O2S-O1S",
@@ -304,7 +304,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAABB",
         "Part Name": "IP6A-06PUTP-O1S-O2S",
@@ -329,7 +329,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABJG",
         "Part Name": "IP6A-24PUTP-O2S-PG2H",
@@ -354,7 +354,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABAD",
         "Part Name": "IP6A-12PUTP-O2S-O1S",
@@ -379,7 +379,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row OneLink 2x4, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAATC",
         "Part Name": "IP6A-08PUTP-O1S-1LK08",
@@ -404,7 +404,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABAG",
         "Part Name": "IP6A-24PUTP-O2S-O1S",
@@ -429,7 +429,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABXB",
         "Part Name": "IP6A-06PUTP-O2S-BLUNT",
@@ -454,7 +454,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CACJG",
         "Part Name": "IP6A-24PUTP-O2H-PG2H",
@@ -479,7 +479,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density RJ45 plug to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGRG",
         "Part Name": "IP6A-24PUTP-PG1S-1100E",
@@ -504,7 +504,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABBB",
         "Part Name": "IP6A-06PUTP-O2S-O2S",
@@ -529,7 +529,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density RJ45 plug to single row standard density RJ45 plug, 4 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGGA",
         "Part Name": "IP6A-04PUTP-PG1S-PG1S",
@@ -554,7 +554,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to unterminated, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABXC",
         "Part Name": "IP6A-08PUTP-O2S-BLUNT",
@@ -579,7 +579,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAABG",
         "Part Name": "IP6A-24PUTP-O1S-O2S",
@@ -604,7 +604,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABRB",
         "Part Name": "IP6A-06PUTP-O2S-1100E",
@@ -629,7 +629,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, RJ45 to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGSD",
         "Part Name": "IP6A-12PUTP-PLUG-1LK12",
@@ -654,7 +654,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density RJ45 plug to 360 1100 Evolve module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAHRD",
         "Part Name": "IP6A-12PUTP-PG2S-1100E",
@@ -679,7 +679,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAXB",
         "Part Name": "IP6A-06PUTP-O1S-BLUNT",
@@ -704,7 +704,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABXD",
         "Part Name": "IP6A-12PUTP-O2S-BLUNT",
@@ -729,7 +729,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABSD",
         "Part Name": "IP6A-12PUTP-O2S-1LK12",
@@ -754,7 +754,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row standard density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABBD",
         "Part Name": "IP6A-12PUTP-O2S-O2S",
@@ -779,7 +779,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density outlet to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAAHG",
         "Part Name": "IP6A-24PUTP-O1S-PG2S",
@@ -804,7 +804,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABBG",
         "Part Name": "IP6A-24PUTP-O2S-O2S",
@@ -829,7 +829,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGXB",
         "Part Name": "IP6A-06PUTP-PG1S-BLUNT",
@@ -854,7 +854,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to 1100 module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANND",
         "Part Name": "IP6A-12PUTP-1100L-1100L",
@@ -879,7 +879,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABXG",
         "Part Name": "IP6A-24PUTP-O2S-BLUNT",
@@ -904,7 +904,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density RJ45 plug to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAHSD",
         "Part Name": "IP6A-12PUTP-PG2S-1LK12",
@@ -929,7 +929,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to unterminated, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANXF",
         "Part Name": "IP6A-18PUTP-1100L-BLUNT",
@@ -954,7 +954,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARSD",
         "Part Name": "IP6A-12PUTP-1100E-1LK12",
@@ -979,7 +979,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGXD",
         "Part Name": "IP6A-12PUTP-PG1S-BLUNT",
@@ -1004,7 +1004,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to 1100 module, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANNF",
         "Part Name": "IP6A-18PUTP-1100L-1100L",
@@ -1029,7 +1029,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CACCB",
         "Part Name": "IP6A-06PUTP-O2H-O2H",
@@ -1054,7 +1054,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x4, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABTC",
         "Part Name": "IP6A-08PUTP-O2S-1LK08",
@@ -1079,7 +1079,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, single row standard density RJ45 plug to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAGNB",
         "Part Name": "IP6A-06PUTP-PG1S-1100L",
@@ -1104,7 +1104,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to 1100 module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANNG",
         "Part Name": "IP6A-24PUTP-1100L-1100L",
@@ -1129,7 +1129,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density RJ45 plug to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAHXG",
         "Part Name": "IP6A-24PUTP-PG2S-BLUNT",
@@ -1154,7 +1154,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x4, 16 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CABTE",
         "Part Name": "IP6A-16PUTP-O2S-1LK08",
@@ -1179,7 +1179,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANRB",
         "Part Name": "IP6A-06PUTP-1100L-1100E",
@@ -1204,7 +1204,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density RJ45 plug to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAHHG",
         "Part Name": "IP6A-24PUTP-PG2S-PG2S",
@@ -1229,7 +1229,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density outlet to dual row standard density outlet, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CACCF",
         "Part Name": "IP6A-18PUTP-O2H-O2H",
@@ -1254,7 +1254,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARXF",
         "Part Name": "IP6A-18PUTP-1100E-BLUNT",
@@ -1279,7 +1279,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to 1100 module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARND",
         "Part Name": "IP6A-12PUTP-1100E-1100L",
@@ -1304,7 +1304,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to 360 1100 Evolve module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANRD",
         "Part Name": "IP6A-12PUTP-1100L-1100E",
@@ -1329,7 +1329,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density outlet to dual row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CACCG",
         "Part Name": "IP6A-24PUTP-O2H-O2H",
@@ -1354,7 +1354,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density RJ45 plug to 1100 module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAJNG",
         "Part Name": "IP6A-24PUTP-PG2H-1100L",
@@ -1379,7 +1379,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARXG",
         "Part Name": "IP6A-24PUTP-1100E-BLUNT",
@@ -1404,7 +1404,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row standard density RJ45 plug to 1100 module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAHNG",
         "Part Name": "IP6A-24PUTP-PG2S-1100L",
@@ -1429,7 +1429,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density RJ45 plug to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAJRG",
         "Part Name": "IP6A-24PUTP-PG2H-1100E",
@@ -1454,7 +1454,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBANB",
         "Part Name": "IP6A-06RUTP-O1S-1100L",
@@ -1479,7 +1479,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density outlet to single row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CACGG",
         "Part Name": "IP6A-24PUTP-O2H-PG1S",
@@ -1504,7 +1504,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, dual row high density RJ45 plug to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CAJXG",
         "Part Name": "IP6A-24PUTP-PG2H-BLUNT",
@@ -1529,7 +1529,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 1100 module to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CANXD",
         "Part Name": "IP6A-12PUTP-1100L-BLUNT",
@@ -1554,7 +1554,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBAAB",
         "Part Name": "IP6A-06RUTP-O1S-O1S",
@@ -1579,7 +1579,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to unterminated, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBXC",
         "Part Name": "IP6A-08RUTP-O2S-BLUNT",
@@ -1604,7 +1604,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBNB",
         "Part Name": "IP6A-06RUTP-O2S-1100L",
@@ -1629,7 +1629,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, RJ 45 to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGRG",
         "Part Name": "IP6A-24RUTP-PLUG-1100E",
@@ -1654,7 +1654,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBCCB",
         "Part Name": "IP6A-06RUTP-O2H-O2H",
@@ -1679,7 +1679,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBRB",
         "Part Name": "IP6A-06RUTP-O2S-1100E",
@@ -1704,7 +1704,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to 360 1100 Evolve module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARRD",
         "Part Name": "IP6A-12PUTP-1100E-1100E",
@@ -1729,7 +1729,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBAD",
         "Part Name": "IP6A-12RUTP-O2S-O1S",
@@ -1754,7 +1754,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 4 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGXA",
         "Part Name": "IP6A-04RUTP-PG1S-BLUNT",
@@ -1779,7 +1779,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBCCF",
         "Part Name": "IP6A-18RUTP-O2H-O2H",
@@ -1804,7 +1804,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBAG",
         "Part Name": "IP6A-24RUTP-O2S-O1S",
@@ -1829,7 +1829,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGXB",
         "Part Name": "IP6A-06RUTP-PG1S-BLUNT",
@@ -1854,7 +1854,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CARRG",
         "Part Name": "IP6A-24PUTP-1100E-1100E",
@@ -1879,7 +1879,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBSD",
         "Part Name": "IP6A-12RUTP-O2S-1LK12",
@@ -1904,7 +1904,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGXD",
         "Part Name": "IP6A-12RUTP-PG1S-BLUNT",
@@ -1929,7 +1929,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to single row standard density RJ45 plug, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGGD",
         "Part Name": "IP6A-12RUTP-PG1S-PG1S",
@@ -1954,7 +1954,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density RJ45 plug to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBHHG",
         "Part Name": "IP6A-24RUTP-PG2S-PG2S",
@@ -1979,7 +1979,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density RJ45 plug to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBHSD",
         "Part Name": "IP6A-12RUTP-PG2S-1LK12",
@@ -2004,7 +2004,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x4, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBBTC",
         "Part Name": "IP6A-08RUTP-O2S-1LK08",
@@ -2029,7 +2029,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density RJ45 plug to 1100 module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBHND",
         "Part Name": "IP6A-12RUTP-PG2S-1100L",
@@ -2054,7 +2054,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGNB",
         "Part Name": "IP6A-06RUTP-PG1S-1100L",
@@ -2079,7 +2079,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBAXD",
         "Part Name": "IP6A-12RUTP-O1S-BLUNT",
@@ -2104,7 +2104,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBABC",
         "Part Name": "IP6A-08RUTP-O1S-O2S",
@@ -2129,7 +2129,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density RJ45 plug to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBJJG",
         "Part Name": "IP6A-24RUTP-PG2H-PG2H",
@@ -2154,7 +2154,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBABD",
         "Part Name": "IP6A-12RUTP-O1S-O2S",
@@ -2179,7 +2179,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density RJ45 plug to 1100 module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBJNG",
         "Part Name": "IP6A-24RUTP-PG2H-1100L",
@@ -2204,7 +2204,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBABG",
         "Part Name": "IP6A-24RUTP-O1S-O2S",
@@ -2229,7 +2229,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 1100 module to unterminated, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBNXF",
         "Part Name": "IP6A-18RUTP-1100L-BLUNT",
@@ -2254,7 +2254,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to 1100 module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGNG",
         "Part Name": "IP6A-24RUTP-PG1S-1100L",
@@ -2279,7 +2279,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density RJ45 plug to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBJRG",
         "Part Name": "IP6A-24RUTP-PG2H-1100E",
@@ -2304,7 +2304,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density outlet to single row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBAGG",
         "Part Name": "IP6A-24RUTP-O1S-PG1S",
@@ -2329,7 +2329,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 1100 module to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBNXG",
         "Part Name": "IP6A-24RUTP-1100L-BLUNT",
@@ -2354,7 +2354,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 1100 module to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBNNB",
         "Part Name": "IP6A-06RUTP-1100L-1100L",
@@ -2379,7 +2379,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 360 1100 Evolve module to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBRNB",
         "Part Name": "IP6A-06RUTP-1100E-1100L",
@@ -2404,7 +2404,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAAB",
         "Part Name": "IP6A-06LUTP-O1S-O1S",
@@ -2429,7 +2429,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row standard density outlet to single row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBAHG",
         "Part Name": "IP6A-24RUTP-O1S-PG2S",
@@ -2454,7 +2454,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, single row standard density RJ45 plug to 360 1100 Evolve module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBGRD",
         "Part Name": "IP6A-12RUTP-PG1S-1100E",
@@ -2479,7 +2479,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 1100 module to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBNRB",
         "Part Name": "IP6A-06RUTP-1100L-1100E",
@@ -2504,7 +2504,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAJG",
         "Part Name": "IP6A-24LUTP-O1S-PG2H",
@@ -2529,7 +2529,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAAD",
         "Part Name": "IP6A-12LUTP-O1S-O1S",
@@ -2554,7 +2554,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBRXB",
         "Part Name": "IP6A-06RUTP-1100E-BLUNT",
@@ -2579,7 +2579,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 1100 module to 360 1100 Evolve module, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBNRF",
         "Part Name": "IP6A-18RUTP-1100L-1100E",
@@ -2604,7 +2604,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAXD",
         "Part Name": "IP6A-12LUTP-O1S-BLUNT",
@@ -2629,7 +2629,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAAG",
         "Part Name": "IP6A-24LUTP-O1S-O1S",
@@ -2654,7 +2654,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAXG",
         "Part Name": "IP6A-24LUTP-O1S-BLUNT",
@@ -2679,7 +2679,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCASD",
         "Part Name": "IP6A-12LUTP-O1S-1LK12",
@@ -2704,7 +2704,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 18 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBRXF",
         "Part Name": "IP6A-18RUTP-1100E-BLUNT",
@@ -2729,7 +2729,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to single row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBAB",
         "Part Name": "IP6A-06LUTP-O2S-O1S",
@@ -2754,7 +2754,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density outlet to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBCHG",
         "Part Name": "IP6A-24RUTP-O2H-PG2S",
@@ -2779,7 +2779,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCABC",
         "Part Name": "IP6A-08LUTP-O1S-O2S",
@@ -2804,7 +2804,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to dual row OneLink 2x4, 16 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCATE",
         "Part Name": "IP6A-16LUTP-O1S-1LK08",
@@ -2829,7 +2829,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to RJ45, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBGG",
         "Part Name": "IP6A-24LUTP-O2S-PLUG",
@@ -2854,7 +2854,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to dual row standard density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCABG",
         "Part Name": "IP6A-24LUTP-O1S-O2S",
@@ -2879,7 +2879,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to unterminated, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAXB",
         "Part Name": "IP6A-06LUTP-O1S-BLUNT",
@@ -2904,7 +2904,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to unterminated, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBXC",
         "Part Name": "IP6A-08LUTP-O2S-BLUNT",
@@ -2929,7 +2929,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBJG",
         "Part Name": "IP6A-24LUTP-O2S-PG2H",
@@ -2954,7 +2954,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density outlet to unterminated, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCAXC",
         "Part Name": "IP6A-08LUTP-O1S-BLUNT",
@@ -2979,7 +2979,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to unterminated, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBXD",
         "Part Name": "IP6A-12LUTP-O2S-BLUNT",
@@ -3004,7 +3004,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row standard density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBBB",
         "Part Name": "IP6A-06LUTP-O2S-O2S",
@@ -3029,7 +3029,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to 1100 module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBNB",
         "Part Name": "IP6A-06LUTP-O2S-1100L",
@@ -3054,7 +3054,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCJG",
         "Part Name": "IP6A-24LUTP-O2H-PG2H",
@@ -3079,7 +3079,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row OneLink 2x4 to unterminated, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBTXC",
         "Part Name": "IP6A-08RUTP-1LK08-BLUNT",
@@ -3104,7 +3104,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCSD",
         "Part Name": "IP6A-12LUTP-O2H-1LK12",
@@ -3129,7 +3129,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCCB",
         "Part Name": "IP6A-06LUTP-O2H-O2H",
@@ -3154,7 +3154,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, RJ45 to 360 1100 Evolve module, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGRB",
         "Part Name": "IP6A-06LUTP-PLUG-1100E",
@@ -3179,7 +3179,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row standard density outlet, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBBC",
         "Part Name": "IP6A-08LUTP-O2S-O2S",
@@ -3204,7 +3204,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCCD",
         "Part Name": "IP6A-12LUTP-O2H-O2H",
@@ -3229,7 +3229,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, RJ45 to 360 1100 Evolve module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGRD",
         "Part Name": "IP6A-12LUTP-PLUG-1100E",
@@ -3254,7 +3254,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBSD",
         "Part Name": "IP6A-12LUTP-O2S-1LK12",
@@ -3279,7 +3279,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density RJ45 plug to 360 1100 Evolve module, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGRG",
         "Part Name": "IP6A-24LUTP-PG1S-1100E",
@@ -3304,7 +3304,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density RJ45 plug to single row standard density RJ45 plug, 6 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGGB",
         "Part Name": "IP6A-06LUTP-PG1S-PG1S",
@@ -3329,7 +3329,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row high density outlet, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCCG",
         "Part Name": "IP6A-24LUTP-O2H-O2H",
@@ -3354,7 +3354,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density RJ45 plug to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCHHG",
         "Part Name": "IP6A-24LUTP-PG2S-PG2S",
@@ -3379,7 +3379,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, RJ45 to dual row OneLink 2x6, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGSD",
         "Part Name": "IP6A-12LUTP-PLUG-1LK12",
@@ -3404,7 +3404,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x4, 8 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBTC",
         "Part Name": "IP6A-08LUTP-O2S-1LK08",
@@ -3429,7 +3429,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to single row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCGG",
         "Part Name": "IP6A-24LUTP-O2H-PG1S",
@@ -3454,7 +3454,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Riser Preterminated Copper Cable, dual row high density outlet to dual row high density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CBCJG",
         "Part Name": "IP6A-24RUTP-O2H-PG2H",
@@ -3479,7 +3479,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density outlet to dual row standard density RJ45 plug, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCCHG",
         "Part Name": "IP6A-24LUTP-O2H-PG2S",
@@ -3504,7 +3504,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row high density RJ45 plug to unterminated, 24 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCJXG",
         "Part Name": "IP6A-24LUTP-PG2H-BLUNT",
@@ -3529,7 +3529,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density outlet to dual row OneLink 2x4, 16 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCBTE",
         "Part Name": "IP6A-16LUTP-O2S-1LK08",
@@ -3554,7 +3554,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, dual row standard density RJ45 plug to 1100 module, 12 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCHND",
         "Part Name": "IP6A-12LUTP-PG2S-1100L",
@@ -3579,7 +3579,7 @@
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP LSZH Preterminated Copper Cable, single row standard density RJ45 plug to unterminated, 4 links",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CCGXA",
         "Part Name": "IP6A-04LUTP-PG1S-BLUNT",
@@ -3604,7 +3604,7 @@
       "description": "RJ45 Patch Cord, category 6, red",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1989797",
         "Part Name": "",
@@ -3629,7 +3629,7 @@
       "description": "RJ45 Patch Cord, category 6, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1989801",
         "Part Name": "",
@@ -3654,7 +3654,7 @@
       "description": "Field Term Anti-Snag Clip, Gray (50ea/pkg)",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244095",
         "Part Name": "FT-ASC-GY-50",
@@ -3679,7 +3679,7 @@
       "description": "Field Term Anti-Snag Clip, Red (50 ea/pkg)",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244098",
         "Part Name": "FT-ASC-RD-50",
@@ -3704,7 +3704,7 @@
       "description": "Field Term Anti-Snag Clip, Yellow (50 ea/pkg)",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244099",
         "Part Name": "FT-ASC-YL-50",
@@ -3729,7 +3729,7 @@
       "description": "Field Term Anti-Snag Clip, Green (50 ea/pkg)",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244100",
         "Part Name": "FT-ASC-GN-50",
@@ -3754,7 +3754,7 @@
       "description": "Unshielded Ceiling Connector Assembly (CCA) without cordage, Black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244061",
         "Part Name": "CCA-BK",
@@ -3779,7 +3779,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 18 in, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-88N018",
         "Part Name": "CCA-CAT6-WH-18IN",
@@ -3804,7 +3804,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 15 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-88F015",
         "Part Name": "CCA-CAT6-WH-15FT",
@@ -3829,7 +3829,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 20 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-88F020",
         "Part Name": "CCA-CAT6-WH-20FT",
@@ -3854,7 +3854,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 40 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-88F040",
         "Part Name": "CCA-CAT6-WH-40FT",
@@ -3879,7 +3879,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 50 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-88F050",
         "Part Name": "CCA-CAT6-WH-50FT",
@@ -3904,7 +3904,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 18 in, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88N018",
         "Part Name": "CCA-CAT6A-WH-18IN",
@@ -3929,7 +3929,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 3 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F003",
         "Part Name": "CCA-CAT6A-WH-3FT",
@@ -3954,7 +3954,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 7 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F007",
         "Part Name": "CCA-CAT6A-WH-7FT",
@@ -3979,7 +3979,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 15 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F015",
         "Part Name": "CCA-CAT6A-WH-15FT",
@@ -4004,7 +4004,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 20 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F020",
         "Part Name": "CCA-CAT6A-WH-20FT",
@@ -4029,7 +4029,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 25 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F025",
         "Part Name": "CCA-CAT6A-WH-25FT",
@@ -4054,7 +4054,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 30 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F030",
         "Part Name": "CCA-CAT6A-WH-30FT",
@@ -4079,7 +4079,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum , RJ45 to Ceiling connector, 50 ft, white",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-88F050",
         "Part Name": "CCA-CAT6A-WH-50FT",
@@ -4104,7 +4104,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 18 in, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11N018",
         "Part Name": "CCA-CAT6-BK-18IN",
@@ -4129,7 +4129,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 2 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F002",
         "Part Name": "CCA-CAT6-BK-2FT",
@@ -4154,7 +4154,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 3 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F003",
         "Part Name": "CCA-CAT6-BK-3FT",
@@ -4179,7 +4179,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 7 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F007",
         "Part Name": "CCA-CAT6-BK-7FT",
@@ -4204,7 +4204,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 11 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F011",
         "Part Name": "CCA-CAT6-BK-11FT",
@@ -4229,7 +4229,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 15 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F015",
         "Part Name": "CCA-CAT6-BK-15FT",
@@ -4254,7 +4254,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 25 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F025",
         "Part Name": "CCA-CAT6-BK-25FT",
@@ -4279,7 +4279,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 30 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F030",
         "Part Name": "CCA-CAT6-BK-30FT",
@@ -4304,7 +4304,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 40 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F040",
         "Part Name": "CCA-CAT6-BK-40FT",
@@ -4329,7 +4329,7 @@
       "description": "CommScope® Category 6 U/UTP Cord, Plenum, RJ45 to Ceiling connector, 50 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO13JX2-11F050",
         "Part Name": "CCA-CAT6-BK-50FT",
@@ -4354,7 +4354,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 11 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-11F011",
         "Part Name": "CCA-CAT6A-BK-11FT",
@@ -4379,7 +4379,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 20 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-11F020",
         "Part Name": "CCA-CAT6A-BK-20FT",
@@ -4404,7 +4404,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 30 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-11F030",
         "Part Name": "CCA-CAT6A-BK-30FT",
@@ -4429,7 +4429,7 @@
       "description": "CommScope® Category 6A U/UTP Cord, Plenum, RJ45 to Ceiling connector, 50 ft, black",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "CO1SJO2-11F050",
         "Part Name": "CCA-CAT6A-BK-50FT",

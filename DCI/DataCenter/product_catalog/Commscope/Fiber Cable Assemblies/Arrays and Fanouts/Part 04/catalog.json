@@ -4,7 +4,7 @@
   "category": "Fiber Cable Assemblies - Arrays and Fanouts",
   "displayName": "Arrays and Fanouts · Part 04",
   "description": "CommScope fiber cable assembly SKUs generated from the uploaded product-list workbook.",
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/",
   "sourceUrls": [
     "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/"
@@ -29,7 +29,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCD",
         "Part Name": "",
@@ -52,7 +52,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Uniboot Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLUCM",
         "Part Name": "",
@@ -75,7 +75,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm  Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmxsccf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmxsccf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMXSCCF",
         "Part Name": "",
@@ -98,7 +98,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLCCL",
         "Part Name": "",
@@ -121,7 +121,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCF",
         "Part Name": "",
@@ -144,7 +144,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® SC/UPC to SC/UPC Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungscsccm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungscsccm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGSCSCCM",
         "Part Name": "",
@@ -167,7 +167,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to SC/UPC Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPSCCD",
         "Part Name": "",
@@ -190,7 +190,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLCCM",
         "Part Name": "",
@@ -213,7 +213,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® SC/APC to SC/APC Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungsasack/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungsasack/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGSASACK",
         "Part Name": "",
@@ -236,7 +236,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 48-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvluluch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvluluch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCH",
         "Part Name": "",
@@ -259,7 +259,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC to LC/UPC Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclccf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclccf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLCLCCF",
         "Part Name": "",
@@ -282,7 +282,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmxscck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmxscck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMXSCCK",
         "Part Name": "",
@@ -305,7 +305,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® SC/APC to SC/APC Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungsasacl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungsasacl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGSASACL",
         "Part Name": "",
@@ -328,7 +328,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to SC/UPC Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPSCCG",
         "Part Name": "",
@@ -351,7 +351,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvluluck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvluluck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCK",
         "Part Name": "",
@@ -374,7 +374,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC to LC/UPC Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclccg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclccg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLCLCCG",
         "Part Name": "",
@@ -397,7 +397,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLUCG",
         "Part Name": "",
@@ -420,7 +420,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplccd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLCCD",
         "Part Name": "",
@@ -443,7 +443,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC to LC/UPC Ruggedized fanout Cable, 48-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclcch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlclcch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLCLCCH",
         "Part Name": "",
@@ -466,7 +466,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCL",
         "Part Name": "",
@@ -489,7 +489,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to LC/UPC Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXLCCM",
         "Part Name": "",
@@ -512,7 +512,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® SC/UPC to SC/UPC Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungscsccd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungscsccd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGSCSCCD",
         "Part Name": "",
@@ -535,7 +535,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvlulucm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVLULUCM",
         "Part Name": "",
@@ -558,7 +558,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxsccf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxsccf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXSCCF",
         "Part Name": "",
@@ -581,7 +581,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Uniboot Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpluck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpluck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLUCK",
         "Part Name": "",
@@ -604,7 +604,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxsccg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxsccg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXSCCG",
         "Part Name": "",
@@ -627,7 +627,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to LC/UPC Uniboot Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmplucl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPLUCL",
         "Part Name": "",
@@ -650,7 +650,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNXLULUCD",
         "Part Name": "",
@@ -673,7 +673,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to LC/UPC Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXLCCF",
         "Part Name": "",
@@ -696,7 +696,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 SC/UPC to SC/UPC Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvscsccl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvscsccl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVSCSCCL",
         "Part Name": "",
@@ -719,7 +719,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to SC/UPC Ruggedized fanout Cable, 96-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPSCCL",
         "Part Name": "",
@@ -742,7 +742,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 48-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxscch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxscch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXSCCH",
         "Part Name": "",
@@ -765,7 +765,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXLUCG",
         "Part Name": "",
@@ -788,7 +788,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNXLULUCF",
         "Part Name": "",
@@ -811,7 +811,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 SC/UPC to SC/UPC Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvscsccm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvscsccm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVSCSCCM",
         "Part Name": "",
@@ -834,7 +834,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to LC/UPC Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxlccg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXLCCG",
         "Part Name": "",
@@ -857,7 +857,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Pinned) to SC/UPC Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxscck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmxscck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMXSCCK",
         "Part Name": "",
@@ -880,7 +880,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 OM5 MPO(Unpinned) to SC/UPC Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unvmpsccm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNVMPSCCM",
         "Part Name": "",
@@ -903,7 +903,7 @@
       "description": "Ultra Low Loss ULL  LazrSPEED® 550 LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/unxlulucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNXLULUCG",
         "Part Name": "",
@@ -926,7 +926,7 @@
       "description": "Singlemode LC/APC to LC/APC 72-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlalaak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlalaak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLALAAK",
         "Part Name": "",
@@ -949,7 +949,7 @@
       "description": "Singlemode LC/UPC to LC/UPC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCLCAF",
         "Part Name": "",
@@ -972,7 +972,7 @@
       "description": "Singlemode LC/UPC to LC/UPC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 36-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcag/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcag/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCLCAG",
         "Part Name": "",
@@ -995,7 +995,7 @@
       "description": "Singlemode LC/UPC to LC/UPC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCLCAH",
         "Part Name": "",
@@ -1018,7 +1018,7 @@
       "description": "Singlemode LC/UPC to LC/UPC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlclcak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCLCAK",
         "Part Name": "",
@@ -1041,7 +1041,7 @@
       "description": "Singlemode LC/UPC to SC/APC 48-Fiber, InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcsaah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcsaah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCSAAH",
         "Part Name": "",
@@ -1064,7 +1064,7 @@
       "description": "SingleMode LC/APC to SC/APC, Ruggedized Fiber Fanout Cable Assembly, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLASAAF",
         "Part Name": "",
@@ -1087,7 +1087,7 @@
       "description": "Singlemode LC/UPC to SC/UPC 12-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcscad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcscad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCSCAD",
         "Part Name": "",
@@ -1110,7 +1110,7 @@
       "description": "SingleMode LC/APC to SC/APC, Ruggedized Fiber Fanout Cable Assembly, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLASAAH",
         "Part Name": "",
@@ -1133,7 +1133,7 @@
       "description": "SingleMode LC/APC to SC/APC, Ruggedized Fiber Fanout Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlasaak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLASAAK",
         "Part Name": "",
@@ -1156,7 +1156,7 @@
       "description": "Singlemode LC/UPC to Unconnectorized 36-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcucag/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcucag/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCUCAG",
         "Part Name": "",
@@ -1179,7 +1179,7 @@
       "description": "SingleMode LC/UPC to SC/APC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcsaad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcsaad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCSAAD",
         "Part Name": "",
@@ -1202,7 +1202,7 @@
       "description": "Singlemode LC/UPC to Unconnectorized 48-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcucah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwlcucah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWLCUCAH",
         "Part Name": "",
@@ -1225,7 +1225,7 @@
       "description": "Singlemode MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPLCAF",
         "Part Name": "",
@@ -1248,7 +1248,7 @@
       "description": "Singlemode MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 36-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcag/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcag/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPLCAG",
         "Part Name": "",
@@ -1271,7 +1271,7 @@
       "description": "Singlemode MPO (Pinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMXLCAK",
         "Part Name": "",
@@ -1294,7 +1294,7 @@
       "description": "Singlemode MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPLCAK",
         "Part Name": "",
@@ -1317,7 +1317,7 @@
       "description": "Singlemode MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcal/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcal/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPLCAL",
         "Part Name": "",
@@ -1340,7 +1340,7 @@
       "description": "Singlemode MPO (Pinned) to SC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxscad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxscad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMXSCAD",
         "Part Name": "",
@@ -1363,7 +1363,7 @@
       "description": "Singlemode MPO (Unpinned) to Unconnectorized, InstaPATCH® 360 Ruggedized Fanout Cable, 24-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmpucaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmpucaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPUCAF",
         "Part Name": "",
@@ -1386,7 +1386,7 @@
       "description": "Singlemode MPO (Unpinned) to SC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmpscah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmpscah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPSCAH",
         "Part Name": "",
@@ -1409,7 +1409,7 @@
       "description": "Singlemode MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmplcad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMPLCAD",
         "Part Name": "",
@@ -1432,7 +1432,7 @@
       "description": "Singlemode MPO (Pinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMXLCAD",
         "Part Name": "",
@@ -1455,7 +1455,7 @@
       "description": "Singlemode MPO (Pinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 48-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwmxlcah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWMXLCAH",
         "Part Name": "",
@@ -1478,7 +1478,7 @@
       "description": "Singlemode SC/UPC to SC/UPC 12-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwscscad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwscscad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWSCSCAD",
         "Part Name": "",
@@ -1501,7 +1501,7 @@
       "description": "SingleMode SC/APC to SC/APC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 72-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwsasaak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwsasaak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWSASAAK",
         "Part Name": "",
@@ -1524,7 +1524,7 @@
       "description": "Singlemode SC/UPC to SC/UPC 72-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwscscak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flwscscak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLWSCSCAK",
         "Part Name": "",
@@ -1547,7 +1547,7 @@
       "description": "OM4 LC/UPC to LC/UPC 24-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLXLCLCAF",
         "Part Name": "",
@@ -1570,7 +1570,7 @@
       "description": "OM4 LC/UPC to LC/UPC 36-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcag/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcag/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLXLCLCAG",
         "Part Name": "",
@@ -1593,7 +1593,7 @@
       "description": "OM4 LC/UPC to LC/UPC 48-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/flxlclcah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FLXLCLCAH",
         "Part Name": "",
@@ -1616,7 +1616,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/APC to LC/APC Ruggedized fanout Cable, 12-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglalacd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglalacd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLALACD",
         "Part Name": "",
@@ -1639,7 +1639,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/UPC to LC/UPC Ruggedized fanout Cable, 48-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglclcch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglclcch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLCLCCH",
         "Part Name": "",
@@ -1662,7 +1662,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/UPC G B to LC/UPC G B Ruggedized fanout Cable, 144-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglflfcm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglflfcm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLFLFCM",
         "Part Name": "",
@@ -1685,7 +1685,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/UPC to LC/UPC Ruggedized fanout Cable, 96-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglclccl/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglclccl/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLCLCCL",
         "Part Name": "",
@@ -1708,7 +1708,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/APC G B to LC/APC G B Ruggedized fanout Cable, 12-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglglgcd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglglgcd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLGLGCD",
         "Part Name": "",
@@ -1731,7 +1731,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/APC to LC/APC Ruggedized fanout Cable, 48-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglalach/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglalach/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLALACH",
         "Part Name": "",
@@ -1754,7 +1754,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/UPC Uniboot to LC/UPC Uniboot Ruggedized fanout Cable, 48-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgluluch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgluluch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLULUCH",
         "Part Name": "",
@@ -1777,7 +1777,7 @@
       "description": "Ultra Low Loss ULL  TeraSPEED® LC/APC G B to LC/APC G B Ruggedized fanout Cable, 36-Fiber, Plenum, 12 fiber PmP 2.0 mm Dca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglglgcg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulglglgcg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGLGLGCG",
         "Part Name": "",
@@ -1800,7 +1800,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 1X2, MPO16 Multimode APC (Pinned) to MPO8 Multimode APC (Non-Pinned), 16-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urvrzqv7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urvrzqv7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URVRZQV7R",
         "Part Name": "",
@@ -1823,7 +1823,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 2X3, MPO24 (Non-Pinned) to MPO16 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2prpbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2prpbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2PRPBH",
         "Part Name": "",
@@ -1846,7 +1846,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 1X2, MPO24 (Non-Pinned - QSFP) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2eqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2eqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2EQP7R",
         "Part Name": "",
@@ -1869,7 +1869,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO16 (Non-Pinned) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrpmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrpmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQGRPMPAH",
         "Part Name": "",
@@ -1892,7 +1892,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 2X3, MPO24 (Pinned) to  MPO24 (Non-Pinned-QSFP-DD), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2x2dbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2x2dbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2X2DBH",
         "Part Name": "",
@@ -1915,7 +1915,7 @@
       "description": "Ultra Low Loss (ULL) OM5 , 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP-DD), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2p2dbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2p2dbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2P2DBH",
         "Part Name": "",
@@ -1938,7 +1938,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 2X3, MPO24 (Pinned) to  MPO16 Multimode APC (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urx2xrvbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urx2xrvbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URX2XRVBH",
         "Part Name": "",
@@ -1961,7 +1961,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 2X3, MPO24 (Pinned) to  MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2x2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2x2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2X2EBH",
         "Part Name": "",
@@ -1984,7 +1984,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO24 (Non-Pinned - QSFP-DD) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2DMPAH",
         "Part Name": "",
@@ -2007,7 +2007,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 3X4, MPO24 (Non-Pinned - QSFP) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2emxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2emxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URV2EMXAH",
         "Part Name": "",
@@ -2030,7 +2030,7 @@
       "description": "Ultra Low Loss (ULL) OM5 , 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2p2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2p2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2P2EBH",
         "Part Name": "",
@@ -2053,7 +2053,7 @@
       "description": "Ultra Low Loss (ULL) OM4 ,1X2, MPO24 (Non-Pinned - QSFP) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2eqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2eqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQX2EQP7R",
         "Part Name": "",
@@ -2076,7 +2076,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 1X2, MPO16 (Non-Pinned) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrpqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrpqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQGRPQP7R",
         "Part Name": "",
@@ -2099,7 +2099,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO24 (Non-Pinned - QSFP) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2emxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2emxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQG2EMXAH",
         "Part Name": "",
@@ -2122,7 +2122,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 3X4, MPO16 Multimode APC (Non-Pinned) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXRVMPAH",
         "Part Name": "",
@@ -2145,7 +2145,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 2X3, MPO24 (Non-Pinned) to MPO16 Multimode APC (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2prvbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2prvbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2PRVBH",
         "Part Name": "",
@@ -2168,7 +2168,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO24 (Non-Pinned - QSFP-DD) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dmxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dmxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2DMXAH",
         "Part Name": "",
@@ -2191,7 +2191,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 1X2, MPO16 (Pinned) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrxqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgrxqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQGRXQP7R",
         "Part Name": "",
@@ -2214,7 +2214,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO16 (Non-Pinned) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URGRPMPAH",
         "Part Name": "",
@@ -2237,7 +2237,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 1X2, MPO24 (Non-Pinned - QSFP) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2eqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2eqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQG2EQP7R",
         "Part Name": "",
@@ -2260,7 +2260,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 1X2, MPO24 (Non-Pinned - QSFP-DD) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2dqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2DQP7R",
         "Part Name": "",
@@ -2283,7 +2283,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 3X4, MPO24 (Non-Pinned - QSFP-DD) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array ,Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2DMPAH",
         "Part Name": "",
@@ -2306,7 +2306,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO16 (Non-Pinned) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpmxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpmxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URGRPMXAH",
         "Part Name": "",
@@ -2329,7 +2329,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 2X3, MPO24 (Non-Pinned) to MPO16 Multimode APC (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2prvbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2prvbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQX2PRVBH",
         "Part Name": "",
@@ -2352,7 +2352,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO24 (Non-Pinned - QSFP) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2empah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2empah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2EMPAH",
         "Part Name": "",
@@ -2375,7 +2375,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 2X3, MPO24 (Pinned) to  MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2x2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2x2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2X2EBH",
         "Part Name": "",
@@ -2398,7 +2398,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 1X2, MPO16 Multimode APC (Non-Pinned) to MPO8 Multimode APC (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvrvqv7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvrvqv7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQVRVQV7R",
         "Part Name": "",
@@ -2421,7 +2421,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 3X4, MPO16 Multimode APC (Non-Pinned) to MPO12 (Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvmxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvmxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXRVMXAH",
         "Part Name": "",
@@ -2444,7 +2444,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 1X2, MPO16 (Non-Pinned) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgrpqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URGRPQP7R",
         "Part Name": "",
@@ -2467,7 +2467,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 3X4, MPO24 (Non-Pinned - QSFP-DD) to MPO12 (Pinned), 48-Fiber, Conversion Array ,Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dmxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dmxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2DMXAH",
         "Part Name": "",
@@ -2490,7 +2490,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 3X4, MPO16 Multimode APC (Non-Pinned) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrvmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrvmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URXRVMPAH",
         "Part Name": "",
@@ -2513,7 +2513,7 @@
       "description": "Ultra Low Loss (ULL) OM5 , 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP-DD), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2p2dbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2p2dbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URV2P2DBH",
         "Part Name": "",
@@ -2536,7 +2536,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2p2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqg2p2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQG2P2EBH",
         "Part Name": "",
@@ -2559,7 +2559,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 2X3, MPO24 (Pinned) to  MPO16 Multimode APC (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2xrvbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2xrvbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2XRVBH",
         "Part Name": "",
@@ -2582,7 +2582,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 3X4, MPO24 (Non-Pinned - QSFP) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2emxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2emxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2EMXAH",
         "Part Name": "",
@@ -2605,7 +2605,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 1X2, MPO16 Multimode APC (Non-Pinned) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urvrvqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urvrvqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URVRVQP7R",
         "Part Name": "",
@@ -2628,7 +2628,7 @@
       "description": "Ultra Low Loss (ULL) OM5 ,1X2, MPO24 (Non-Pinned - QSFP-DD) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2dqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2DQP7R",
         "Part Name": "",
@@ -2651,7 +2651,7 @@
       "description": "Ultra Low Loss (ULL) OM5 , 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2p2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urv2p2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URV2P2EBH",
         "Part Name": "",
@@ -2674,7 +2674,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 2X3, MPO24 (Pinned) to  MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2x2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2x2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQX2X2EBH",
         "Part Name": "",
@@ -2697,7 +2697,7 @@
       "description": "Ultra Low Loss (ULL) OM5, 3X4, MPO24 (Non-Pinned - QSFP) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2empah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqv2empah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQV2EMPAH",
         "Part Name": "",
@@ -2720,7 +2720,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 3X4, MPO16 Multimode APC (Non-Pinned) to MPO12 (Pinned), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrvmxah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrvmxah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URXRVMXAH",
         "Part Name": "",
@@ -2743,7 +2743,7 @@
       "description": "Ultra Low Loss (ULL) OM4 , 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urx2p2ebh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urx2p2ebh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URX2P2EBH",
         "Part Name": "",
@@ -2766,7 +2766,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 3X4, MPO24 (Non-Pinned - QSFP-DD) to MPO12 (Non-Pinned), 48-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2dmpah/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqx2dmpah/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQX2DMPAH",
         "Part Name": "",
@@ -2789,7 +2789,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode G.657.A2, 2X3, MPO24 (Non-Pinned) to MPO24 (Non-Pinned-QSFP-DD), 48-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2p2dbh/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urg2p2dbh/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URG2P2DBH",
         "Part Name": "",
@@ -2812,7 +2812,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 1X2, MPO16 Multimode APC (Non-Pinned) to MPO8 Multimode APC (Non-Pinned), 16-Fiber, Conversion Array, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvqv7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxrvqv7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXRVQV7R",
         "Part Name": "",
@@ -2835,7 +2835,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 1X2, MPO16 Multimode APC (Pinned) to MPO8 (Non-Pinned), 16-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrzqp7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrzqp7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URXRZQP7R",
         "Part Name": "",
@@ -2858,7 +2858,7 @@
       "description": "Ultra Low Loss (ULL) OM4, 1X2, MPO16 Multimode APC (Pinned) to MPO8 Multimode APC (Non-Pinned), 16-Fiber, Conversion Array, LSZH",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrzqv7r/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urxrzqv7r/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URXRZQV7R",
         "Part Name": "",
@@ -2881,7 +2881,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO8 (Non-Pinned) to unconnectorized, Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgqpucf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqgqpucf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQGQPUCF8",
         "Part Name": "",
@@ -2904,7 +2904,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot, Fiber Array Cable Assembly, 12-Fiber, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgmwluud/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgmwluud/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URGMWLUUD",
         "Part Name": "",
@@ -2927,7 +2927,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 24-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCF",
         "Part Name": "",
@@ -2950,7 +2950,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCG",
         "Part Name": "",
@@ -2973,7 +2973,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 48-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwluch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwluch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCH",
         "Part Name": "",
@@ -2996,7 +2996,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 72-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwluck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwluck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCK",
         "Part Name": "",
@@ -3019,7 +3019,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 144-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucm/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucm/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCM",
         "Part Name": "",
@@ -3042,7 +3042,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 12-Fiber, LSZH, 12 fiber PmP 2.0 mm /B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/u4gmwlucd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "U4GMWLUCD",
         "Part Name": "",
@@ -3065,7 +3065,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 12-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCD",
         "Part Name": "",
@@ -3088,7 +3088,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCG",
         "Part Name": "",
@@ -3111,7 +3111,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 48-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwluch/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwluch/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCH",
         "Part Name": "",
@@ -3134,7 +3134,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 72-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwluck/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwluck/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCK",
         "Part Name": "",
@@ -3157,7 +3157,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 288-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucp/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucp/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCP",
         "Part Name": "",
@@ -3180,7 +3180,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 192-Fiber, Plenum, 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ulgmwlucn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "ULGMWLUCN",
         "Part Name": "",
@@ -3203,7 +3203,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 12-Fiber, Dual Rated (OFNR/LSZH), 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMWLUCD",
         "Part Name": "",
@@ -3226,7 +3226,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 24-Fiber, Dual Rated (OFNR/LSZH), 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMWLUCF",
         "Part Name": "",
@@ -3249,7 +3249,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 36-Fiber, Dual Rated (OFNR/LSZH), 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucg/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucg/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMWLUCG",
         "Part Name": "",
@@ -3272,7 +3272,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode MPO12 (Non-Pinned) Push Pull to LC/UPC Uniboot Ruggedized fanout Cable, 192-Fiber, Dual Rated (OFNR/LSZH), 12 fiber PmP 2.0 mm",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucn/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/ungmwlucn/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UNGMWLUCN",
         "Part Name": "",
@@ -3295,7 +3295,7 @@
       "description": "Ultra Low Loss (ULL) Singlemode, 2X3, MPO12 (Non-Pinned) Push Pull to MPO8 (Non-Pinned) Push Pull, 24-Fiber, Conversion Array, Dual Rated (OFNR/LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgmwqwhf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/urgmwqwhf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "URGMWQWHF",
         "Part Name": "",
@@ -3318,7 +3318,7 @@
       "description": "OM4 MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 24-Fiber, Low Smoke Zero Halogen B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xmplcaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xmplcaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XMPLCAF",
         "Part Name": "",
@@ -3341,7 +3341,7 @@
       "description": "SingleMode LC/UPC to LC/UPC, InstaPATCH® 360 Ruggedized Fiber Fanout Cable Assembly, 12-Fiber, Low Smoke Zero Halogen (LSZH)",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4wlclcad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4wlclcad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4WLCLCAD",
         "Part Name": "",
@@ -3364,7 +3364,7 @@
       "description": "OM4 LC/UPC to LC/UPC 12-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XLCLCAD",
         "Part Name": "",
@@ -3387,7 +3387,7 @@
       "description": "OM4 LC/UPC to LC/UPC 24-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XLCLCAF",
         "Part Name": "",
@@ -3410,7 +3410,7 @@
       "description": "OM4 LC/UPC to LC/UPC 36-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcag/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcag/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XLCLCAG",
         "Part Name": "",
@@ -3433,7 +3433,7 @@
       "description": "OM4 MPO (Unpinned) to SC/UPC, InstaPATCH® 360 Ruggedized Fanout Cable, 12-Fiber, Low Smoke Zero Halogen B2ca",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xmpscad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xmpscad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XMPSCAD",
         "Part Name": "",
@@ -3456,7 +3456,7 @@
       "description": "OM4 SC/UPC to SC/UPC 12-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscad/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscad/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XSCSCAD",
         "Part Name": "",
@@ -3479,7 +3479,7 @@
       "description": "OM4 LC/UPC to LC/UPC 72-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xlclcak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XLCLCAK",
         "Part Name": "",
@@ -3502,7 +3502,7 @@
       "description": "OM4 SC/UPC to SC/UPC 24-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscaf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscaf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XSCSCAF",
         "Part Name": "",
@@ -3525,7 +3525,7 @@
       "description": "OM4 SC/UPC to SC/UPC 72-Fiber InstaPATCH® 360 Ruggedized Fanout Cable, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscak/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/f4xscscak/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "F4XSCSCAK",
         "Part Name": "",
@@ -3548,7 +3548,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8 (Non-Pinned) to MPO8 (Non-Pinned), Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqpqpf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqpqpf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQVQPQPF8",
         "Part Name": "",
@@ -3571,7 +3571,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8 (Non-Pinned) to MPO8 (Pinned), Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqpqxf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqpqxf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQVQPQXF8",
         "Part Name": "",
@@ -3594,7 +3594,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8 (Pinned) to LC/UPC Uniboot, Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqxluf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqxluf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQVQXLUF8",
         "Part Name": "",
@@ -3617,7 +3617,7 @@
       "description": "Ultra Low Loss (ULL) OM5 MPO8 (Pinned) to MPO8 (Pinned), Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqxqxf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqvqxqxf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQVQXQXF8",
         "Part Name": "",
@@ -3640,7 +3640,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8 (Non-Pinned) to LC/UPC Uniboot, Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqpluf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqpluf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXQPLUF8",
         "Part Name": "",
@@ -3663,7 +3663,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8 (Non-Pinned) to unconnectorized, Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqpucf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqpucf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXQPUCF8",
         "Part Name": "",
@@ -3686,7 +3686,7 @@
       "description": "Ultra Low Loss (ULL) OM4 MPO8 (pinned) to Unconnectorized, Fiber Array Cable Assembly, 8-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqxucf8/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/uqxqxucf8/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "UQXQXUCF8",
         "Part Name": "",
@@ -3709,7 +3709,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to SC/UPC, yellow, 16 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1430074/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1430074/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1430074",
         "Part Name": "FPM-07/7-AN016M-VE/45",
@@ -3732,7 +3732,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to SC/UPC, yellow, 24 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1431989/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1431989/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1431989",
         "Part Name": "FPM-07/7-AN024M-VE/45",
@@ -3755,7 +3755,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to SC/UPC, yellow, 28 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1433611/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1433611/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1433611",
         "Part Name": "FPM-07/7-AN028M-39/25",
@@ -3778,7 +3778,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 14 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442667/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442667/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442667",
         "Part Name": "FPM-0M/E-AT014M-VB/60",
@@ -3801,7 +3801,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 20 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442670/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442670/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442670",
         "Part Name": "FPM-0M/E-AT020M-VB/60",
@@ -3824,7 +3824,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 14 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1441958/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1441958/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1441958",
         "Part Name": "FPM-07/K-AN014M-60/39",
@@ -3847,7 +3847,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 22 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442672/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442672/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442672",
         "Part Name": "FPM-0M/E-AT022M-VB/60",
@@ -3870,7 +3870,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 24 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442673/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442673/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442673",
         "Part Name": "FPM-0M/E-AT024M-VB/60",
@@ -3893,7 +3893,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 12 fibers, SC/UPC to SC/UPC, yellow, 16 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442129/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442129/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442129",
         "Part Name": "FPM-07/7-AF016M-39/25",
@@ -3916,7 +3916,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 18 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442625/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442625/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442625",
         "Part Name": "FPM-0M/E-AT018M-VB/60",
@@ -3939,7 +3939,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 26 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442675/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442675/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442675",
         "Part Name": "FPM-0M/E-AT026M-VB/60",
@@ -3962,7 +3962,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, LC/APC to SC/APC, yellow, 13 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442666/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1442666/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1442666",
         "Part Name": "FPM-0M/E-AT013M-VB/60",
@@ -3985,7 +3985,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 10 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1454876/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1454876/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1454876",
         "Part Name": "FPM-07/K-AN010M-25/39",
@@ -4008,7 +4008,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 13 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1454878/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1454878/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1454878",
         "Part Name": "FPM-07/K-AN013M-25/39",
@@ -4031,7 +4031,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, LC/APC to SC/APC, yellow, 28 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1452152/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1452152/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1452152",
         "Part Name": "FPM-0M/E-AN028M-VB/60",
@@ -4054,7 +4054,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, SC/UPC to SC/UPC, yellow, 25 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1461665/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1461665/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1461665",
         "Part Name": "FPM-07/7-AT025M-39/25",
@@ -4077,7 +4077,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, LC/APC to SC/APC, yellow, 16 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463287/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463287/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1463287",
         "Part Name": "FPM-0M/E-AN016M-VB/60",
@@ -4100,7 +4100,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 16 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465228/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465228/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1465228",
         "Part Name": "FPM-07/K-AN016M-60/39",
@@ -4123,7 +4123,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, LC/APC to SC/APC, yellow, 13 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463989/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463989/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1463989",
         "Part Name": "FPM-0M/E-AN013M-VB/60",
@@ -4146,7 +4146,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 2 fibers, SC/UPC to LC/UPC, yellow, 35 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464156/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464156/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1464156",
         "Part Name": "FPM-07/K-AC035M-25/39",
@@ -4169,7 +4169,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 46 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465375/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465375/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1465375",
         "Part Name": "FPM-07/K-AN046M-25/39",
@@ -4192,7 +4192,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 24 fibers, SC/UPC to SC/UPC, yellow, 15 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463756/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1463756/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1463756",
         "Part Name": "FPM-07/7-AT015M-39/25",
@@ -4215,7 +4215,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 30 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464256/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464256/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1464256",
         "Part Name": "FPM-07/K-AN030M-60/39",
@@ -4238,7 +4238,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 2 fibers, SC/UPC to LC/UPC, yellow, 20 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465517/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1465517/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1465517",
         "Part Name": "FPM-07/K-AC020M-25/39",
@@ -4261,7 +4261,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 14 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464788/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1464788/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1464788",
         "Part Name": "FPM-07/K-AN014M-25/39",
@@ -4284,7 +4284,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 40 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1466146/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1466146/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1466146",
         "Part Name": "FPM-07/K-AN040M-25/39",
@@ -4307,7 +4307,7 @@
       "description": "Fiber Optic Patch Cord, Multi-fiber, Singlemode, 4 fibers, SC/UPC to LC/UPC, yellow, 32 m",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1467557/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/1467557/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "1467557",
         "Part Name": "FPM-07/K-AN032M-25/39",
@@ -4330,7 +4330,7 @@
       "description": "Multi Distribution Break Out Cable Singlemode MPO/8 equipment unpinned to SC/APC, 8 fibers, LSZH, 16 meters",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244863/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244863/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244863",
         "Part Name": "MDB-H08YQQ00016KSG7K2L MPO8F-SC",
@@ -4353,7 +4353,7 @@
       "description": "Multi Distribution Break Out Cable Singlemode MPO/8 equipment unpinned to SC/APC, 8 fibers, LSZH, 24 meters",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244867/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244867/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244867",
         "Part Name": "MDB-H08YQQ00024KSG7K2L MPO8F-SC",
@@ -4376,7 +4376,7 @@
       "description": "Multi Distribution Break Out Cable Singlemode MPO/8 equipment unpinned to SC/APC, 8 fibers, LSZH, 26 meters",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244868/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244868/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244868",
         "Part Name": "MDB-H08YQQ00026KSG7K2L MPO8F-SC",
@@ -4399,7 +4399,7 @@
       "description": "Multi Distribution Break Out Cable Singlemode MPO/8 equipment unpinned to SC/APC, 8 fibers, LSZH, 40 meters",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244910/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244910/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244910",
         "Part Name": "MDB-H08YQQ00040KSG7K2L MPO8F-SC",
@@ -4422,7 +4422,7 @@
       "description": "Multi Distribution Break Out Cable Singlemode MPO/8 equipment unpinned to SC/APC, 8 fibers, LSZH, 8 meters",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244901/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/760244901/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "760244901",
         "Part Name": "MDB-H08YQQ00008KSG7K2L MPO8F-SC",
@@ -4445,7 +4445,7 @@
       "description": "Singlemode MPO (Unpinned) to MPO (Pinned), InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmpmxgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmpmxgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMPMXGD",
         "Part Name": "",
@@ -4468,7 +4468,7 @@
       "description": "Singlemode MPO (Unpinned) to SC/UPC, InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmpscgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmpscgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMPSCGD",
         "Part Name": "",
@@ -4491,7 +4491,7 @@
       "description": "LazrSPEED® 550 OM4, MPO/12(Unpinned) to MPO/12(Pinned), 24-Fiber, Plenum array cord",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmpmxhf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmpmxhf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMPMXHF",
         "Part Name": "",
@@ -4514,7 +4514,7 @@
       "description": "Singlemode MPO (Pinned) to MPO (Pinned), InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmxmxgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmxmxgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMXMXGD",
         "Part Name": "",
@@ -4537,7 +4537,7 @@
       "description": "OM4 MPO (Unpinned) to LC/UPC, InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmplcgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmplcgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMPLCGD",
         "Part Name": "",
@@ -4560,7 +4560,7 @@
       "description": "Singlemode MPO (Equipment) to MPO (Unpinned), InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmqmpgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmqmpgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMQMPGD",
         "Part Name": "",
@@ -4583,7 +4583,7 @@
       "description": "Singlemode MPO (Pinned) to SC/UPC, InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmxscgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmxscgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMXSCGD",
         "Part Name": "",
@@ -4606,7 +4606,7 @@
       "description": "LazrSPEED® 550 OM4, MPO/12(Pinned) to MPO/12(Pinned), 24-Fiber, Plenum array cord",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxmxhf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxmxhf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMXMXHF",
         "Part Name": "",
@@ -4629,7 +4629,7 @@
       "description": "OM4 MPO (Pinned) to SC/UPC, InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxscgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxscgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMXSCGD",
         "Part Name": "",
@@ -4652,7 +4652,7 @@
       "description": "Singlemode MPO (Equipment) to MPO (Pinned), InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmqmxgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqwmqmxgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQWMQMXGD",
         "Part Name": "",
@@ -4675,7 +4675,7 @@
       "description": "OM4 MPO (Pinned) to MPO (Pinned), InstaPATCH® 360 Array Cord, 12-Fiber, Plenum",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxmxgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmxmxgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMXMXGD",
         "Part Name": "",
@@ -4698,7 +4698,7 @@
       "description": "LazrSPEED® 550 OM4, MPO/12(Unpinned) to MPO/12(Unpinned), 24-Fiber, Plenum array cord",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmpmphf/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/fqxmpmphf/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FQXMPMPHF",
         "Part Name": "",
@@ -4721,7 +4721,7 @@
       "description": "Singlemode MPO (Unpinned) to SC/UPC, InstaPATCH® 360 Array Cord, 12-Fiber, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/frwmpscgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/frwmpscgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FRWMPSCGD",
         "Part Name": "",
@@ -4744,7 +4744,7 @@
       "description": "OM5 MPO (Unpinned) to MPO (Unpinned), InstaPATCH® 360 Array Cord, 12-Fiber, Low Smoke Zero Halogen",
       "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/frvmpmpgd/",
       "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-cable-assemblies/arrays-and-fanouts/frvmpmpgd/",
-      "checked": "2026-10-05",
+      "checked": "2026-10-06",
       "specs": {
         "Part Number": "FRVMPMPGD",
         "Part Name": "",

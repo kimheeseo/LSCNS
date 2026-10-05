@@ -1,15 +1,9 @@
 (() => {
   'use strict';
 
-  const REPO = 'kimheeseo/LSCNS';
-  const REF = 'main';
-  const BASE = 'DCI/DataCenter/product_catalog';
-  const API = 'https://api.github.com/repos/' + REPO + '/contents/';
-  const cache = new Map();
   const state = { company: '', category: '', products: [], manifest: null, selectedFamilies: new Set(), viewMode: 'cards' };
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const pathUrl = path => path.split('/').map(encodeURIComponent).join('/');
   const humanBytes = value => {
     const n = Number(value) || 0;
     if (n < 1024) return n + ' B';

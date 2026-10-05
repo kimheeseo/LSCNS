@@ -12,7 +12,7 @@
     try { localStorage.setItem(key, JSON.stringify({active, config, input: readInput(), overrides, customPresets, phases: phaseDefinitions})); } catch (e) { console.warn('Capacity settings not saved', e); }
   }
   function options(object, current) { return Object.entries(object).map(([id, v]) => '<option value="' + esc(id) + '"' + (id === current ? ' selected' : '') + '>' + esc(v.name) + '</option>').join(''); }
-  function table(headers, rows) { return '<div class="tableWrap cap-table"><table><thead><tr>' + headers.map(x => '<th>' + esc(x) + '</th>').join('') + '</tr></thead><tbody>' + rows.map(r => '<tr>' + r.map(x => '<td' + (/^[\d,.]+(?: MW| kW)?$/.test(String(x)) ? ' class="cap-number"' : '') + '>' + x + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>'; }
+  function table(headers, rows) { return '<div class="tableWrap cap-table"><table><thead><tr>' + headers.map(x => '<th>' + esc(x) + '</th>').join('') + '</tr></thead><tbody>' + rows.map(r => '<tr>' + r.map(x => '<td' + (/^[\d,.\s/–±%]+(?:MW|kW|G)?$/.test(String(x).split('<br>')[0]) ? ' class="cap-number"' : '') + '>' + x + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>'; }
   function field(id, label, type = 'number', value = '', extra = '') {return '<label><span>' + esc(label) + '</span><input id="' + id + '" type="' + type + '" value="' + esc(value) + '" ' + extra + '></label>';}
   function select(id, label, items) {return '<label><span>' + label + '</span><select id="' + id + '">' + items.map(([v, t]) => '<option value="' + v + '">' + t + '</option>').join('') + '</select></label>';}
   function buildInput() {

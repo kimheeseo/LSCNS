@@ -1,0 +1,26 @@
+{
+  "company": "Vertiv",
+  "category": "Liquid Cooling",
+  "displayName": "Vertiv Liquid Cooling",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-cooling/",
+  "products": {
+    "CoolChip CDU 121": {
+      "name": "CoolChip CDU 121",
+      "description": "100 kW+ in-rack CDU, redundant pumps and filtration.",
+      "officialUrl": "https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-cooling/vertiv-coolchip-cdu-121/",
+      "specs": {
+        "Cooling Capacity": "100 kW+",
+        "Cooling Type": "Liquid-to-liquid CDU"
+      }
+    },
+    "CoolPhase CDU": {
+      "name": "CoolPhase CDU",
+      "description": "Liquid-to-refrigerant CDU for direct-to-chip and rear-door cooling.",
+      "officialUrl": "https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-cooling/vertiv-coolphase-cdu/",
+      "specs": {
+        "Cooling Type": "Liquid-to-refrigerant CDU"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "company": "Motivair",
+  "category": "Liquid Cooling",
+  "displayName": "Motivair Liquid Cooling",
+  "checked": "2026-10-05",
+  "officialUrl": "https://motivaircorp.com/liquid-cooling/",
+  "products": {
+    "MCDU-50": {
+      "name": "MCDU-50",
+      "description": "CDU page referencing NVIDIA GB200; portfolio 105 kW–2.3 MW.",
+      "officialUrl": "https://motivaircorp.com/products/mcdu-50/",
+      "specs": {
+        "Application": "AI / GB200 reference",
+        "Cooling Capacity": "105 kW–2.3 MW portfolio"
+      }
+    },
+    "WCDU": {
+      "name": "WCDU",
+      "description": "Integrated pumps and heat exchanger hybrid liquid/air solution.",
+      "officialUrl": "https://motivaircorp.com/products/wcdu/",
+      "specs": {
+        "Cooling Type": "Hybrid liquid / air"
+      }
+    },
+    "Manifold": {
+      "name": "Liquid Cooling Manifold",
+      "description": "Rack liquid distribution manifold; port count and quick disconnects require verification.",
+      "officialUrl": "https://motivaircorp.com/products/manifolds/",
+      "referenceOnly": true,
+      "specs": {
+        "Component Type": "Liquid cooling manifold"
+      }
+    }
+  }
+}

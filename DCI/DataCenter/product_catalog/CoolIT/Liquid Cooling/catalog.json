@@ -1,0 +1,28 @@
+{
+  "company": "CoolIT",
+  "category": "Liquid Cooling",
+  "displayName": "CoolIT Liquid Cooling",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.coolitsystems.com/cdus",
+  "products": {
+    "AHx180": {
+      "name": "AHx180",
+      "description": "180 kW liquid-to-air CDU; 1.5 LPM/kW and 2-rack footprint.",
+      "officialUrl": "https://www.coolitsystems.com/ahx180",
+      "specs": {
+        "Cooling Capacity": "180 kW",
+        "Flow": "1.5 LPM/kW",
+        "Cooling Type": "Liquid-to-air CDU"
+      }
+    },
+    "CHx2000": {
+      "name": "CHx2000",
+      "description": "Row-based CDU for AI clusters, >2 MW class.",
+      "officialUrl": "https://www.coolitsystems.com/chx2000",
+      "specs": {
+        "Cooling Capacity": ">2 MW class",
+        "Cooling Type": "Row-based CDU"
+      }
+    }
+  }
+}

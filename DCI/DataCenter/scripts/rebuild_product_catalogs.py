@@ -68,11 +68,11 @@ def first_match(patterns,s,flags=re.I):
         if m: return m.group(1) if m.lastindex else m.group(0)
     return ""
 def parse_fiber_count(desc,ptype=""):
+    m=re.search(r"(\d+)\s*x\s*(\d+)\s*fiber\s*MPO",desc,re.I)
+    if m:return str(int(m.group(1))*int(m.group(2)))
     for p in [r"(\d+)\s*[- ]?\s*Fiber\b",r"(\d+)\s*fibers?\b",r"(\d+)\s*color kit"]:
         m=re.search(p,desc,re.I)
         if m:return m.group(1)
-    m=re.search(r"(\d+)\s*x\s*(\d+)\s*fiber\s*MPO",desc,re.I)
-    if m:return str(int(m.group(1))*int(m.group(2)))
     if "duplex" in ptype.lower():return "2"
     if "simplex" in ptype.lower():return "1"
     return ""
@@ -86,11 +86,18 @@ def parse_connectors(desc):
     pat=re.compile(r"(MPO(?:-?\d+)?(?:/(?:APC|UPC))?(?:\s*\((?:Non-Pinned|Pinned)\))?|MTP(?:-?\d+)?(?:/(?:APC|UPC))?|LC/(?:UPC|APC)|SC/(?:UPC|APC)(?:\s*9°)?|LSH/(?:UPC|APC)|MDC(?:/(?:UPC|APC))?|MMC(?:/(?:UPC|APC))?|SN(?:/(?:UPC|APC))?)",re.I)
     vals=[]
     for m in pat.finditer(desc):
-        v=re.sub(r"\s+"," ",m.group(1)).strip()
+        v=re.sub(r"\s*\((?:Non-Pinned|Pinned)\)","",m.group(1),flags=re.I)
+        v=re.sub(r"\b(MPO|MTP)(\d+)\b",r"\1-\2",v,flags=re.I)
+        v=re.sub(r"\s+"," ",v).strip()
         if v.lower() not in [x.lower() for x in vals]: vals.append(v)
     return " / ".join(vals[:2])
+def parse_gender(desc):
+    if re.search(r"Non-Pinned",desc,re.I):return "Female"
+    if re.search(r"\bPinned\b",desc,re.I):return "Male"
+    return ""
 def parse_jacket(desc):
-    return first_match([r"\b(LZSH\s*B2ca)\b",r"\b(LSZH(?:/OFNR)?)\b",r"\b(OFNP)\b",r"\b(OFNR)\b",r"\b(Plenum)\b",r"\b(Riser)\b",r"\b(Low Smoke Zero Halogen)\b"],desc)
+    v=first_match([r"\b(LZSH\s*B2ca)\b",r"\b(LSZH(?:/OFNR)?)\b",r"\b(OFNP)\b",r"\b(OFNR)\b",r"\b(Plenum)\b",r"\b(Riser)\b",r"\b(Low Smoke Zero Halogen)\b"],desc)
+    return re.sub(r"^LZSH", "LSZH", v, flags=re.I) if v else ""
 def parse_length(desc):
     ms=list(re.finditer(r"(\d+(?:\.\d+)?)\s*(m|ft)\b",desc,re.I))
     return (ms[-1].group(1)+" "+ms[-1].group(2)) if ms else ""
@@ -129,9 +136,9 @@ def build_commscope():
         part=r.get("Part Number") or r.get("Part Name")
         if not part:continue
         desc=r.get("Description","");ptype=r.get("Product Type","");family=re.sub(r"^Variant of\s+","",r.get("Part Indicator",""),flags=re.I).strip().upper();src=pdf_map.get(family)
-        fc=parse_fiber_count(desc,ptype);fm=parse_fiber_mode(desc);co=parse_connectors(desc)
+        fc=parse_fiber_count(desc,ptype);fm=parse_fiber_mode(desc);co=parse_connectors(desc);gender=parse_gender(desc)
         specs={"Part Number":part,"Part Name":r.get("Part Name",""),"Product Type":ptype,"Product Brand":r.get("Product Brand",""),"Product Series":r.get("Product Series",""),
-               "Fiber Count":fc or "—","Fiber Mode":fm or "—","Fiber Type":fm or "—","Connector Type":co or "—","Connector":co or "—",
+               "Fiber Count":fc or "—","Fiber Mode":fm or "—","Fiber Type":fm or "—","Connector Type":co or "—","Connector":co or "—","Gender":gender or "—",
                "Port Count":first_match([r"(\d+)-port"],desc) or "—","Source Family":family or "—"}
         if src:specs["Source PDF"]=src.name
         odf_products[part]={"name":" · ".join(x for x in [part,r.get("Part Name"),ptype] if x),"description":desc,
@@ -190,15 +197,15 @@ def build_commscope():
             for r in chunk:
                 part=r.get("Part Number") or r.get("Part Name")
                 if not part:continue
-                desc=r.get("Description","");ptype=r.get("Product Type","");fc=parse_fiber_count(desc,ptype);fm=parse_fiber_mode(desc);co=parse_connectors(desc);jacket=parse_jacket(desc);ln=parse_length(desc);url=product_url_fa(part,segment)
+                desc=r.get("Description","");ptype=r.get("Product Type","");fc=parse_fiber_count(desc,ptype);fm=parse_fiber_mode(desc);co=parse_connectors(desc);gender=parse_gender(desc);jacket=parse_jacket(desc);ln=parse_length(desc);url=product_url_fa(part,segment)
                 specs={"Part Number":part,"Part Name":r.get("Part Name",""),"Product Type":ptype,"Product Brand":r.get("Product Brand",""),"Product Series":r.get("Product Series",""),
-                       "Fiber Count":fc or "—","Fiber Mode":fm or "—","Fiber Type":fm or "—","Connector Type":co or "—","Connector":co or "—",
+                       "Fiber Count":fc or "—","Fiber Mode":fm or "—","Fiber Type":fm or "—","Connector Type":co or "—","Connector":co or "—","Gender":gender or "—",
                        "Cable Jacket":jacket or "—","Jacket":jacket or "—","Length":ln or "—"}
                 products[part]={"name":" · ".join(x for x in [part,r.get("Part Name"),ptype] if x),"description":desc,"officialUrl":url,"businessUrl":url,"checked":CHECKED,"specs":specs}
             n=chunk_idx//400+1
             write_json(COM/"Fiber Cable Assemblies"/family/f"Part {n:02d}"/"catalog.json",{"schemaVersion":1,"company":"CommScope","category":"Fiber Cable Assemblies - "+family,
               "displayName":family+f" · Part {n:02d}","description":"CommScope fiber cable assembly SKUs generated from the uploaded product-list workbook.","checked":CHECKED,"officialUrl":FA_URL,
-              "sourceUrls":[FA_URL],"sourceFiles":["Fiber Cable Assemblies.xlsx"],"comparisonFields":["Product Type","Product Brand","Product Series","Fiber Count","Fiber Mode","Connector Type","Cable Jacket","Length"],"products":products})
+              "sourceUrls":[FA_URL],"sourceFiles":["Fiber Cable Assemblies.xlsx"],"comparisonFields":["Product Type","Product Brand","Product Series","Fiber Count","Fiber Mode","Connector Type","Gender","Cable Jacket","Length"],"products":products})
 
     (COM/"readme.md").write_text(f"# CommScope Data Center Product Catalog\n\nGenerated from the uploaded CommScope product-list workbooks and official CommScope product pages.\n\n- ODF / FACT / NG4access: {len(odf_products)} structured products\n- Propel / XFrame: {prop_count} structured panel/frame entries\n- FiberGuide: {len(fg)} products\n- Fiber Cable Assemblies: {len(fa)} products\n- Cable fields: Fiber Count / Fiber Mode / Connector Type / Cable Jacket\n- Source PDFs under ODF remain unchanged and are linked by family where applicable.\n- PPL labeling template rule: one lane corresponds to two MPO ports or two duplex LC pairs.\n\nOfficial sources:\n- {PROPEL_URL}\n- {ODF_URL}\n- {FG_URL}\n- {FA_URL}\n",encoding="utf-8")
 

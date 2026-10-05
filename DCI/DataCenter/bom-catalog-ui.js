@@ -49,11 +49,18 @@
         spec:fmt(r.summary.facilityKw/1000)+' MW 시설부하 기준 · '+item+' 용량/수량·N+1/2N·전압/주파수·현장 조건 별도 sizing',candidates:[]}));
       const hasTransceiver=bomRows.some(b=>/트랜시버/.test(String(b.item||'')));
       const transceiverRows=hasTransceiver?[]:(()=>{
-        const s=[...(a.selections||[])].filter(x=>x.network!=='management'&&Number(x.speed)>0).sort((x,y)=>Number(y.speed||0)-Number(x.speed||0))[0];
-        if(!s)return[];
-        return [{item:'플러그형 트랜시버 (광 대안)',segment:(s.network||'network')+' / '+(s.tier||'link')+' / '+(s.distanceClass||''),installed:0,purchase:0,low:0,high:0,unit:'개',referenceOnly:true,transceiver:true,
-          spec:Number(s.speed||0)+'G · '+(s.protocol||'네트워크')+' · 현재 '+(s.media||'직접연결')+' 선택에서는 별도 트랜시버 0개 · SMF/MMF 대안 선택 시 링크 양단 계상',
-          requirement:{speed:Number(s.speed||0)||undefined,protocol:s.protocol||''},candidates:[]}];
+        const ratio=(()=>{
+          const q=bomRows.find(b=>Number(b.installed)>0&&Number(b.purchase)>=Number(b.installed));
+          return q?Number(q.purchase)/Number(q.installed):1;
+        })();
+        return (a.selections||[]).filter(s=>s.network!=='management'&&Number(s.speed)>0&&Number(s.links)>0).map(s=>{
+          const installed=2*Number(s.links);
+          const purchase=Math.ceil(installed*ratio);
+          const uncertainty=20;
+          return {item:'플러그형 트랜시버 (광 대안)',segment:(s.network||'network')+' / '+(s.tier||'link')+' / '+(s.distanceClass||''),installed,purchase,low:Math.floor(purchase*(1-uncertainty/100)),high:Math.ceil(purchase*(1+uncertainty/100)),unit:'개',referenceOnly:true,transceiver:true,
+            spec:Number(s.speed||0)+'G · '+(s.protocol||'네트워크')+' · 현재 '+(s.media||'직접연결')+' 대신 SMF/MMF 플러그형 광링크 적용 시 양단 트랜시버 수량 · 현재 케이블과 중복 구매 금지',
+            requirement:{speed:Number(s.speed||0)||undefined,protocol:s.protocol||''},candidates:[]};
+        });
       })();
       return [...bomRows,...transceiverRows,...moduleRows,...refRows,...facilityRows];
     }

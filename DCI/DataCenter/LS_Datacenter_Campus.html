@@ -49,6 +49,8 @@ const info={
  security:['Physical Security','NOC / SAFETY','출입통제, CCTV, 방문자 관리 등 물리 보안을 담당합니다.'],
  fire:['Fire Suppression','NOC / SAFETY','감지기와 가스계 소화설비 등으로 화재를 조기에 감지하고 확산을 억제합니다.'],
  maintenance:['Maintenance / Spare','NOC / SAFETY','예비품, 공구, 유지보수 작업을 지원하는 운영 구역입니다.'],
+ dci:['Carrier / DCI Entry','NETWORK / MMR','외부 통신사업자와 다른 데이터센터에서 들어오는 광 회선의 인입 지점입니다. 장거리 DCI는 일반적으로 SMF/DWDM 계열을 사용합니다.'],
+ leaf:['Leaf Switch','NETWORK / MMR','서버/NIC와 직접 연결되는 Fabric 하위 계층입니다. 여러 Spine과 연결해 경로 이중화와 East-West 통신을 제공합니다.'],
  busway:['Overhead Busway','DATA HALL','랙 상부에서 전력을 분배하는 버스웨이 계통입니다. 탭오프 장치를 통해 각 랙 PDU로 전력을 전달합니다.'],
  cabletray:['Overhead Cable Tray','DATA HALL','광·구리 통신 케이블을 전력 계통과 분리해 정리하는 상부 케이블 경로입니다.'],
  crah:['CRAH / In-row Cooling','DATA HALL','White Space의 열을 회수하고 차가운 공기를 Cold Aisle로 공급하는 대표적인 냉각 장치입니다.'],
@@ -103,12 +105,16 @@ obj(m,4,11,7,4,'cooler','plantpump','PUMP / HX');
 obj(m,14,11,6,4,'cooler','cooling','CDU');
 for(let x=10;x<=13;x++){m.grid[19][x]='exit';m.doors[x+',19']=['campus',18,12,'down'];}
 
-m=base('networkroom','floor');fill(m,2,2,20,16,'walk');
-obj(m,2,4,5,4,'racks','mmr','MMR');
-obj(m,9,4,5,4,'racks','odf','ODF');
-obj(m,16,4,5,4,'racks','core','CORE');
-obj(m,5,11,6,4,'racks','spine','SPINE');
-obj(m,14,11,5,4,'racks','network','LEAF / OPTICS');
+m=base('networkroom','floor');fill(m,1,1,22,18,'walk');
+obj(m,1,3,4,3,'racks','dci','CARRIER');
+obj(m,6,3,4,3,'racks','mmr','MMR');
+obj(m,11,3,4,3,'racks','odf','ODF');
+obj(m,17,3,5,3,'racks','core','CORE');
+obj(m,4,9,6,3,'racks','spine','SPINE A');
+obj(m,14,9,6,3,'racks','spine','SPINE B');
+obj(m,3,14,5,3,'racks','leaf','LEAF A');
+obj(m,10,14,5,3,'racks','leaf','LEAF B');
+obj(m,17,14,5,3,'racks','network','LEAF C');
 for(let x=10;x<=13;x++){m.grid[19][x]='exit';m.doors[x+',19']=['white',11,2,'down'];}
 
 m=base('ops','floor');fill(m,2,2,20,16,'walk');
@@ -170,7 +176,19 @@ function drawObj(o){if(o.type==='building'||o.type==='utility')building(o);else 
 function hero(){let x=p.x*T,y=p.y*T;if(move){x+=(move.x-p.x)*T*move.f;y+=(move.y-p.y)*T*move.f}x=Math.round(x);y=Math.round(y)-4;let step=move?Math.floor(move.f*3)%2:0;rect(x+3,y+18,11,2,'#758061');rect(x+4,y+2,8,3,'#443e38');rect(x+3,y+4,10,5,'#9a4c35');rect(x+4,y+3,7,3,'#d67945');rect(x+3,y+7,11,2,'#523e32');rect(x+4,y+9,8,5,'#efd099');if(p.dir==='up'){rect(x+4,y+9,8,3,'#574735')}else{if(p.dir!=='right')rect(x+5,y+10,1,2,'#383e36');if(p.dir!=='left')rect(x+10,y+10,1,2,'#383e36')}
  rect(x+3,y+14,10,4,'#4c6970');rect(x+1,y+14,2,3,'#e4bc88');rect(x+13,y+14,2,3,'#e4bc88');rect(x+4,y+17,3,3-step,'#3b4544');rect(x+9,y+17,3,2+step,'#3b4544');if(p.dir==='up'){rect(x+6,y+13,5,5,'#cfad60');rect(x+7,y+14,3,2,'#f0cd80')}}
 function target(){let [dx,dy]=dirs[p.dir],x=p.x+dx,y=p.y+dy;return maps[zone].objects.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h)}
-function draw(){for(let y=0;y<H;y++)for(let x=0;x<W;x++)tile(maps[zone].grid[y][x],x,y);maps[zone].objects.forEach(drawObj);if(zone==='campus'){text('LS DATACENTER',192,244,'#657046',7);text('CAMPUS',192,255,'#657046',7)}else {const zt={utility:'UTILITY POWER + BACKUP',coolingplant:'COOLING WATER + HEAT REJECTION',gray:'UPS + DISTRIBUTION',white:'COMPUTE + CONNECT',networkroom:'CARRIER + OPTICAL FABRIC',ops:'OPERATIONS + SAFETY'}[zone]||'FACILITY';text(names[zone].replace(/^\d+ · /,''),192,25,'#465f4e',7);text(zt,192,239,'#66715d',6);text('▼ BACK / FAST TRAVEL',192,295,'#465f4e',7)}hero();let o=target();if(o&&o.id&&!move){rect(p.x*T+5,p.y*T-12,7,8,'#fff2b8');text('!',p.x*T+8.5,p.y*T-5,'#846d3d',7)}if(fade>0)rect(0,0,384,320,'rgba(238,230,194,'+(fade/240)+')')}
+function networkOverlay(){
+ if(zone!=='networkroom')return;
+ const seg=(x1,y1,x2,y2,color,w=2,dash=false)=>{ctx.save();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.setLineDash(dash?[5,4]:[]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()};
+ // Carrier → MMR → ODF → Core
+ seg(5*T,4.5*T,6*T,4.5*T,'#557f91',3);seg(10*T,4.5*T,11*T,4.5*T,'#557f91',3);seg(15*T,4.5*T,17*T,4.5*T,'#557f91',3);
+ // Core → dual Spine
+ seg(19*T,6*T,7*T,9*T,'#557f91',2);seg(19*T,6*T,17*T,9*T,'#557f91',2);
+ // Full-mesh style Spine → Leafs
+ [[7,10.5],[17,10.5]].forEach(s=>[[5.5,14],[12.5,14],[19.5,14]].forEach(l=>seg(s[0]*T,s[1]*T,l[0]*T,l[1]*T,'#5f8d5e',2)));
+ // reach guide
+ rect(6,278,372,31,'rgba(245,242,220,.92)');text('DCI: SMF/DWDM · Core↔Spine: SMF · Spine↔Leaf: MMF/SMF · Leaf↔Server: DAC/AEC/AOC',192,292,'#345b55',6);
+}
+function draw(){for(let y=0;y<H;y++)for(let x=0;x<W;x++)tile(maps[zone].grid[y][x],x,y);networkOverlay();maps[zone].objects.forEach(drawObj);if(zone==='campus'){text('LS DATACENTER',192,244,'#657046',7);text('CAMPUS',192,255,'#657046',7)}else {const zt={utility:'UTILITY POWER + BACKUP',coolingplant:'COOLING WATER + HEAT REJECTION',gray:'UPS + DISTRIBUTION',white:'COMPUTE + CONNECT',networkroom:'CARRIER + OPTICAL FABRIC',ops:'OPERATIONS + SAFETY'}[zone]||'FACILITY';text(names[zone].replace(/^\d+ · /,''),192,25,'#465f4e',7);text(zt,192,239,'#66715d',6);text('▼ BACK / FAST TRAVEL',192,295,'#465f4e',7)}hero();let o=target();if(o&&o.id&&!move){rect(p.x*T+5,p.y*T-12,7,8,'#fff2b8');text('!',p.x*T+8.5,p.y*T-5,'#846d3d',7)}if(fade>0)rect(0,0,384,320,'rgba(238,230,194,'+(fade/240)+')')}
 function progress(){ const totalDiscoveries=Object.keys(info).length;$('count').textContent=visited.size+' / '+totalDiscoveries;$('progress').style.width=(Math.min(visited.size,totalDiscoveries)/totalDiscoveries*100)+'%';if(visited.size>=totalDiscoveries)$('objective').textContent='탐험 완료! 데이터센터 주요 설비를 모두 발견했습니다.'}
 function enter(z,x,y,d='up'){zone=z;p={x,y,dir:d};move=null;keys=[];fade=240;$('dialogBox').hidden=true;hideDiagram();renderLabels();$('zoneLabel').textContent=names[z];document.querySelectorAll('[data-zone]').forEach(b=>b.classList.toggle('active',b.dataset.zone===z));$('objective').textContent={campus:'건물과 외부 Utility/Cooling 진입점을 찾아보세요.',utility:'Transformer·ATS·Generator·연료 계통을 조사하세요.',coolingplant:'Cooling Tower·Chiller·Pump·CDU 흐름을 조사하세요.',gray:'UPS·Battery·PDU 전력 계통을 살피세요.',white:'랙·Containment와 양옆 Network/NOC 출입구를 찾아보세요.',networkroom:'Carrier → MMR → ODF → Core/Spine 경로를 조사하세요.',ops:'NOC·보안·소방·유지보수 구역을 조사하세요.'}[z]||'설비를 조사하세요.';progress();near()}
 function near(){let o=target();$('nearTitle').textContent=o?.id?'A · '+info[o.id][0]:'탐험 안내';$('nearText').textContent=o?.id?'지금 바라보는 설비의 역할을 확인하세요.':zone==='campus'?'본관·Utility Yard·Cooling Plant 출입구를 찾아보세요.':'설비 옆에서 설비 방향을 보고 A를 누르세요.'}
@@ -215,7 +233,9 @@ const diagramData={
  spine:{kind:'networkchain',caption:'Spine은 여러 Leaf와 다대다로 연결되어 East-West 트래픽의 상위 Fabric을 구성합니다.',basis:'Leaf–Spine Clos 논리 연결을 물리 광배선과 함께 표현했습니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']},
  security:{kind:'opschain',caption:'출입통제·CCTV·방문자 관리 등 Physical Security는 데이터센터 운영 안전의 기본 계층입니다.',basis:'운영·보안 기능을 Data Hall 외곽 지원구역으로 재배치했습니다.',sources:['v60-system-engineering.js']},
  fire:{kind:'opschain',caption:'Fire Suppression은 화재 조기 감지와 확산 억제를 담당하며 IT 장비 보호와 인명 안전을 함께 고려합니다.',basis:'화재 감지·가스계 소화 설비를 운영 안전 흐름으로 단순화했습니다.',sources:['v60-system-engineering.js']},
- maintenance:{kind:'opschain',caption:'Maintenance/Spare 구역은 예비품과 공구를 보관하고 계획 정비·장애 대응을 지원합니다.',basis:'운영 지원 기능을 교육용 탐방 구역에 포함했습니다.',sources:['v60-system-engineering.js']}
+ maintenance:{kind:'opschain',caption:'Maintenance/Spare 구역은 예비품과 공구를 보관하고 계획 정비·장애 대응을 지원합니다.',basis:'운영 지원 기능을 교육용 탐방 구역에 포함했습니다.',sources:['v60-system-engineering.js']},
+ dci:{kind:'networkchain',caption:'외부 Carrier/DCI 광회선은 MMR과 ODF를 거쳐 Core/Spine Fabric으로 진입합니다. 장거리 구간은 SMF/DWDM 계열이 일반적입니다.',basis:'DCI→MMR→ODF→Core→Spine 경로를 교육용으로 재구성했습니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']},
+ leaf:{kind:'networkchain',caption:'Leaf는 Server/NIC에 직접 연결되고 여러 Spine과 다대다로 연결되어 Clos Fabric을 구성합니다.',basis:'Leaf–Spine Clos 토폴로지와 랙 광배선 연결을 반영했습니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']}
 };
 const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const referenceData={
@@ -250,7 +270,9 @@ const referenceData={
  spine:{title:'Spine Fabric',caption:'스위치와 광패치 구성 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
  security:{title:'운영·보안 공간 참고',caption:'데이터센터 운영 공간과 설비 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
  fire:{title:'시설 안전 참고',caption:'데이터센터 설비와 안전 구역 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
- maintenance:{title:'운영·유지보수 참고',caption:'랙과 운영 지원 공간의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'}
+ maintenance:{title:'운영·유지보수 참고',caption:'랙과 운영 지원 공간의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ dci:{title:'Carrier / DCI 광 인입',caption:'광케이블·패치 패널·스위치가 연결되는 네트워크 랙 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ leaf:{title:'Leaf–Spine Fabric',caption:'네트워크 스위치와 서버 랙의 광연결 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'}
 };
 function referenceFor(id){return referenceData[id]||referenceData.sign}
 function setPhotoCard(id){const r=referenceFor(id);$('photoImage').src=r.image;$('photoImage').alt=r.title;$('photoCaption').textContent=r.caption;$('photoSource').textContent='첨부 참고 이미지 · '+r.title;$('photoCard').hidden=false}
@@ -328,7 +350,7 @@ function hideDiagram(){selectedDiagram=null;$('diagramCard').hidden=true;hidePho
 function showDiagram(id){selectedDiagram=id;$('diagramFigure').innerHTML=diagramSVG(id);$('diagramCaption').textContent='상세 그림 · '+diagramData[id].caption;$('diagramSource').innerHTML=sourceHTML(id);$('diagramSource').hidden=false;$('diagramCard').hidden=false;setPhotoCard(id);$('dialogBox').classList.add('investigation');$('dialogBox').scrollTop=0;keys=[]}
 function openLarge(id){keys=[];$('largeTitle').textContent=info[id][0]+' · 상세 그림';$('largeFigure').innerHTML=diagramSVG(id).replaceAll('arr-','large-arr-');$('largeCaption').textContent=diagramData[id].caption;setLargePhoto(id);$('largeSource').innerHTML=sourceHTML(id);$('diagramModal').showModal()}
 $('expandDiagram').onclick=()=>selectedDiagram&&openLarge(selectedDiagram);$('closeDiagram').onclick=()=>$('diagramModal').close();$('closeInvestigation').onclick=()=>{$('dialogBox').hidden=true;keys=[]};$('diagramModal').addEventListener('close',()=>{keys=[];hideLargePhoto()});$('concept').onclick=()=>{$('conceptModal').showModal();keys=[]};$('closeConcept').onclick=()=>$('conceptModal').close();$('conceptModal').addEventListener('close',()=>keys=[]);
-function renderLabels(){let labels=[];const add=(s,x,y,cl='')=>labels.push(`<span class="map-label ${cl}" style="left:${x/384*100}%;top:${y/320*100}%">${escapeHtml(s)}</span>`);for(const o of maps[zone].objects){if(!o.label)continue;let name=o.label;if(o.type==='building')name='LS DataCenter';if(o.label==='POWER')name='Power';if(o.label==='GENERATOR')name='Generator';if(o.label==='COOLING')name='Cooling';if(o.label==='PUMP / CDU')name='Pump / CDU';if(o.label==='UPS / BATTERY')name='UPS / Battery';if(o.label==='MONITOR')name='Monitor';if(o.label==='COMPUTE')name='Compute';if(o.label==='NETWORK')name='Network';if(o.label==='STORAGE')name='Storage';add(name,(o.x+o.w/2)*16,o.y*16+(o.type==='building'||o.type==='utility'?17:-5),o.type==='building'?'main':'')}
+function renderLabels(){let labels=[];const add=(s,x,y,cl='')=>labels.push(`<span class="map-label ${cl}" style="left:${x/384*100}%;top:${y/320*100}%">${escapeHtml(s)}</span>`);for(const o of maps[zone].objects){if(!o.label)continue;let name=o.label;if(o.type==='building')name='LS DataCenter';if(o.label==='POWER')name='Power';if(o.label==='GENERATOR')name='Generator';if(o.label==='COOLING')name='Cooling';if(o.label==='PUMP / CDU')name='Pump / CDU';if(o.label==='UPS / BATTERY')name='UPS / Battery';if(o.label==='MONITOR')name='Monitor';if(o.label==='COMPUTE')name='Compute';if(o.label==='NETWORK')name='Network';if(o.label==='STORAGE')name='Storage';if(o.label.startsWith('LEAF'))name=o.label.replace('LEAF','Leaf');if(o.label.startsWith('SPINE'))name=o.label.replace('SPINE','Spine');if(o.label==='CARRIER')name='Carrier / DCI';add(name,(o.x+o.w/2)*16,o.y*16+(o.type==='building'||o.type==='utility'?17:-5),o.type==='building'?'main':'')}
  if(zone==='campus')add('LS CAMPUS',192,246,'route-label');else{add(names[zone].replace(/^\d+ · /,''),192,29,'route-label');add('FAST TRAVEL / EXIT',192,295,'route-label')}$('mapLabels').innerHTML=labels.join('')}
 
 let last=0;function loop(t){clock=t;update(Math.min(40,t-last));last=t;draw();requestAnimationFrame(loop)}enter('campus',11,17);requestAnimationFrame(loop);

@@ -226,6 +226,13 @@
     return products[model] || products[file.name] || {};
   }
 
+  function shortCommScopeTitle(meta, model, specs) {
+    const full = meta.name || model;
+    const part = String(specs['Part Number'] || '').trim() || String(full).split('·')[0].trim() || model;
+    const type = String(specs['Product Type'] || '').trim();
+    return [part, type].filter(Boolean).join(' · ') || full;
+  }
+
   function entryData(entry) {
     const file = entry.file;
     const manifest = entry.manifest;
@@ -234,11 +241,12 @@
     const meta = productMeta(manifest, file, rawModel);
     const model = meta.characteristicsOnly ? 'Characteristics' : (meta.displayModel || rawModel);
     const specs = specObject(manifest, meta);
-    const title = meta.name || model;
+    const fullTitle = meta.name || model;
+    const title = /COMMSCOPE/i.test(String(state.company||manifest?.company||'')) ? shortCommScopeTitle(meta, model, specs) : fullTitle;
     const description = meta.description || (manifest && manifest.productDescription) || '';
     const officialUrl = meta.officialUrl || (manifest && manifest.officialUrl) || '';
     const checked = meta.checked || (manifest && manifest.checked) || '';
-    const searchText = [title, model, file.name, state.company, state.category, group, description]
+    const searchText = [title, fullTitle, model, file.name, state.company, state.category, group, description]
       .concat(Object.entries(specs).flat()).join(' ').toLowerCase();
     return {file, manifest, group, model, specs, title, description, officialUrl, checked, searchText};
   }

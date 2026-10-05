@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Module",
+  "displayName": "EDGE™ Module · LC Duplex ↔ MTP®",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.corning.com/optical-communications/worldwide/en/home/Resources/product-drawings/modules.html",
+  "scope": "Data Center용 EDGE module 대표 12F SKU. 실제 설계에는 fiber category·polarity·loss budget·housing slot을 함께 확인.",
+  "products": {
+    "ECM-UM12-05-93Q": {
+      "name": "ECM-UM12-05-93Q · EDGE™ Module OM4",
+      "description": "12F OM4, shuttered LC duplex front to pinned MTP back, universal polarity.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Module/p/ECM-UM12-05-93Q",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OM4",
+        "Fiber Count": "12",
+        "Connector": "LC Duplex / MTP (pinned)",
+        "Polarity": "Universal",
+        "Insertion Loss Max": "0.5 dB",
+        "Application": "Data Center",
+        "Module Capacity": "6 LC duplex adapters / 12F",
+        "확인 상태": "공식 Corning eCatalog 확인"
+      }
+    },
+    "ECM-UM12-05-93T": {
+      "name": "ECM-UM12-05-93T · EDGE™ Module OM3",
+      "description": "12F OM3, shuttered LC duplex front to pinned MTP back, universal polarity.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Module/p/ECM-UM12-05-93T",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OM3",
+        "Fiber Count": "12",
+        "Connector": "LC Duplex / MTP (pinned)",
+        "Polarity": "Universal",
+        "Insertion Loss Max": "0.5 dB",
+        "Application": "Data Center",
+        "Module Capacity": "6 LC duplex adapters / 12F",
+        "확인 상태": "공식 Corning eCatalog 확인"
+      }
+    },
+    "ECM-UM12-04-89G": {
+      "name": "ECM-UM12-04-89G · EDGE™ Module OS2",
+      "description": "12F bend-improved OS2, shuttered LC duplex front to pinned MTP back, universal polarity.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Module/p/ECM-UM12-04-89G",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OS2",
+        "Fiber Count": "12",
+        "Connector": "LC Duplex / MTP (pinned)",
+        "Polarity": "Universal",
+        "Insertion Loss Max": "1.0 dB",
+        "Application": "Data Center",
+        "Module Capacity": "6 LC duplex adapters / 12F",
+        "확인 상태": "공식 Corning eCatalog 확인"
+      }
+    }
+  },
+  "comparisonFields": [
+    "Fiber Type",
+    "Fiber Count",
+    "Connector",
+    "Polarity",
+    "Insertion Loss Max",
+    "Module Capacity",
+    "Application",
+    "확인 상태"
+  ]
+}

@@ -96,8 +96,12 @@ def parse_gender(desc):
     if re.search(r"\bPinned\b",desc,re.I):return "Male"
     return ""
 def parse_jacket(desc):
-    v=first_match([r"\b(LZSH\s*B2ca)\b",r"\b(LSZH(?:/OFNR)?)\b",r"\b(OFNP)\b",r"\b(OFNR)\b",r"\b(Plenum)\b",r"\b(Riser)\b",r"\b(Low Smoke Zero Halogen)\b"],desc)
-    return re.sub(r"^LZSH", "LSZH", v, flags=re.I) if v else ""
+    v=first_match([r"\b(ULSZH(?:\s*B2ca)?)\b",r"\b(LZSH(?:\s*B2ca)?)\b",r"\b(LSZH(?:/OFNR|\s*B2ca)?)\b",r"\b(Low Smoke Zero Halogen)\b",r"\b(OFNP)\b",r"\b(OFNR)\b",r"\b(Plenum)\b",r"\b(Riser)\b",r"\b(HDPE)\b",r"\b(Polyethylene|PE)\b",r"\b(PVC)\b"],desc)
+    if not v:return ""
+    if re.match(r"^(?:U?LZSH|Low Smoke Zero Halogen)",v,re.I):
+        suffix=" B2ca" if re.search(r"B2ca",v,re.I) else ""
+        return "LSZH"+suffix
+    return v
 def parse_length(desc):
     ms=list(re.finditer(r"(\d+(?:\.\d+)?)\s*(m|ft)\b",desc,re.I))
     return (ms[-1].group(1)+" "+ms[-1].group(2)) if ms else ""

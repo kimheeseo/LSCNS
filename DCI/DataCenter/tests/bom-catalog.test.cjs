@@ -31,4 +31,6 @@ test('product-name data rate excludes mismatched AOCs and battery racks are not 
  assert.equal(M.match({item:'IT 랙'},products).length,0);assert.equal(products[0].source,'https://example.com/aoc');
  const r={item:'플러그형 트랜시버',requirement:{speed:400,lengthM:100,standard:'400GBASE-DR4',connector:'MPO-12/APC',package:'QSFP-DD',protocol:'Ethernet'}};
  assert.equal(M.match(r,optical).length,1);
+ const sas=M.normalize({company:'Example',products:{sas:{name:'Mini-SAS HD Active Optical Cable (AOC)',officialUrl:'https://example.com/sas'},sub:{name:'Sub-rack SC-APC Complete',officialUrl:'https://example.com/sub'}}},'Example/catalog.json');
+ assert.equal(M.match({item:'연결 케이블',media:'AOC',requirement:{speed:400,protocol:'InfiniBand'}},sas).length,0);assert.equal(M.match({item:'IT 랙'},sas).length,0);
 });

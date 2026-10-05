@@ -7,7 +7,7 @@
   function kind(x) {
     const t = clean([x.category, x.path, x.item, x.name].join(' '));
     if (/BATTERY RACK|BATTERY CABINET/.test(t)) return 'battery';
-    if (/TERMINATION BOX|SUB.?RACK.*ODF|PANEL RACK MOUNT/.test(t)) return 'panel';
+    if (/TERMINATION BOX|SUB.?RACK|PANEL RACK MOUNT/.test(t)) return 'panel';
     if (/FUSECONNECT/.test(t)) return 'connector';
     if (/MDC\/MMC CABLING|MPO CABLING SYSTEM/.test(t)) return 'patch';
     if (/ACTIVE ELECTRICAL|\bAEC\b/.test(t)) return 'aec';
@@ -48,6 +48,7 @@
       p.fiber = field(s, ['Fiber Type', 'Fiber Category', '광섬유', 'Fiber']);
       p.fibers = field(s, ['Fiber Count', '심수']);
       p.protocol = field(s, ['Protocol', '프로토콜']);
+      if(!p.protocol){const protocol=p.name.match(/InfiniBand|Ethernet|PCIe(?:\s+Gen\d)?|(?:Mini-)?SAS|NVLink/i);if(protocol)p.protocol=/SAS/i.test(protocol[0])?'SAS':protocol[0];}
       p.polarity = field(s, ['Polarity', '극성']); p.gender = field(s, ['Gender']);
       p.jacket = field(s, ['Jacket', '난연 등급', 'Flame Rating']);
       return p;

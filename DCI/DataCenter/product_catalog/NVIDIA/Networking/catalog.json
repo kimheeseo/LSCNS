@@ -3,82 +3,320 @@
   "company": "NVIDIA",
   "category": "Networking",
   "displayName": "Networking",
-  "description": "NVIDIA data center networking products and platform networking references used with AI factory and GPU compute systems.",
+  "description": "NVIDIA AI data center networking portfolio: Quantum InfiniBand, Spectrum/Spectrum-X Ethernet, ConnectX/SuperNIC, BlueField DPU, and LinkX interconnect/transceiver families.",
   "checked": "2026-10-05",
-  "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/",
   "sourceUrls": [
-    "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Infiniband_ConnectX-7_Advanced_Networking.pdf",
-    "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
-    "https://www.nvidia.com/ko-kr/data-center/products/"
+    "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+    "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+    "https://www.nvidia.com/ko-kr/networking/spectrumx/",
+    "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
+    "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
+    "https://www.nvidia.com/ko-kr/networking/interconnect/"
   ],
-  "sourceCount": 4,
+  "sourceCount": 8,
   "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
   "comparisonFields": [
+    "Product Family",
     "Protocol",
     "Speed",
     "Ports",
-    "Host Interface",
+    "Form Factor",
+    "Reach",
     "Used With",
     "Primary Workload",
     "Source"
   ],
   "products": {
+    "nvidia-quantum-x800-infiniband-switch": {
+      "name": "NVIDIA Quantum-X800 InfiniBand Switch",
+      "description": "End-to-end 800 Gb/s InfiniBand switching for large AI and HPC fabrics.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
+      "specs": {
+        "Product Family": "Quantum-X800",
+        "Protocol": "InfiniBand",
+        "Speed": "800 Gb/s per port",
+        "Ports": "144",
+        "Primary Workload": "Large-scale AI factories and HPC",
+        "Source": "NVIDIA Quantum-X800 official page"
+      }
+    },
+    "nvidia-quantum-2-infiniband-switch-family": {
+      "name": "NVIDIA Quantum-2 InfiniBand Switch Family",
+      "description": "NDR-generation InfiniBand switch family for AI, HPC and hyperscale cloud infrastructure.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "specs": {
+        "Product Family": "Quantum-2",
+        "Protocol": "InfiniBand",
+        "Speed": "400 Gb/s",
+        "Primary Workload": "AI, HPC, hyperscale cloud",
+        "Source": "NVIDIA Quantum InfiniBand switches official page"
+      }
+    },
+    "nvidia-skyway-infiniband-ethernet-gateway": {
+      "name": "NVIDIA Skyway InfiniBand-Ethernet Gateway",
+      "description": "Gateway appliance connecting InfiniBand and Ethernet environments.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "specs": {
+        "Product Family": "Skyway",
+        "Protocol": "InfiniBand to Ethernet gateway",
+        "Speed": "1.6 Tb/s aggregate",
+        "Ports": "8 x 100/200 Gb/s on each InfiniBand and Ethernet side",
+        "Primary Workload": "Cross-fabric connectivity",
+        "Source": "NVIDIA Quantum InfiniBand switches official page"
+      }
+    },
+    "nvidia-metrox-3-xc": {
+      "name": "NVIDIA MetroX-3 XC System",
+      "description": "Long-reach InfiniBand extension system for remote data center and storage connectivity.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "specs": {
+        "Product Family": "MetroX-3 XC",
+        "Protocol": "InfiniBand extension",
+        "Reach": "up to 40 km",
+        "Primary Workload": "Remote data center / storage interconnect",
+        "Source": "NVIDIA Quantum InfiniBand switches official page"
+      }
+    },
+    "nvidia-connectx-9-supernic": {
+      "name": "NVIDIA ConnectX-9 SuperNIC",
+      "description": "Next-generation Ethernet SuperNIC for gigascale AI factories.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+      "specs": {
+        "Product Family": "ConnectX-9 SuperNIC",
+        "Protocol": "Ethernet",
+        "Speed": "up to 1.6 Tb/s",
+        "Primary Workload": "Gigascale AI factories",
+        "Source": "NVIDIA Ethernet SuperNIC official page"
+      }
+    },
+    "nvidia-connectx-8-supernic": {
+      "name": "NVIDIA ConnectX-8 SuperNIC",
+      "description": "High-performance SuperNIC for large AI compute fabrics.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+      "specs": {
+        "Product Family": "ConnectX-8 SuperNIC",
+        "Protocol": "Ethernet",
+        "Speed": "up to 800 Gb/s total network bandwidth",
+        "Primary Workload": "Generative AI and large-scale compute fabrics",
+        "Source": "NVIDIA Ethernet SuperNIC official page"
+      }
+    },
+    "nvidia-bluefield-3-supernic": {
+      "name": "NVIDIA BlueField-3 SuperNIC",
+      "description": "Network accelerator designed for hyperscale AI workloads and secure cloud multitenancy.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+      "specs": {
+        "Product Family": "BlueField-3 SuperNIC",
+        "Protocol": "Ethernet",
+        "Speed": "up to 400 Gb/s",
+        "Primary Workload": "Hyperscale AI and cloud multitenancy",
+        "Source": "NVIDIA Ethernet SuperNIC official page"
+      }
+    },
     "nvidia-connectx-7-400g-adapters": {
-      "name": "NVIDIA ConnectX-7 400G Adapters",
-      "description": "RDMA network adapters supporting InfiniBand and Ethernet up to 400 Gb/s for AI, scientific computing, hyperscale cloud, storage, security, and enterprise data center networking.",
-      "officialUrl": "https://www.amax.com/wp-content/uploads/2026/09/NVIDIA_Infiniband_ConnectX-7_Advanced_Networking.pdf",
+      "name": "NVIDIA ConnectX-7 25/50/100/200/400G NIC",
+      "description": "ConnectX-7 network adapter family for accelerated networking, storage and security.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
       "specs": {
+        "Product Family": "ConnectX-7",
         "Protocol": "InfiniBand and Ethernet",
-        "InfiniBand Speeds": "NDR 400 Gb/s, HDR 200 Gb/s, EDR 100 Gb/s",
-        "Ethernet Speeds": "400GbE, 200GbE, 100GbE, 50GbE, 25GbE, 10GbE",
-        "Ports": "1 / 2 / 4",
-        "Host Interface": "PCIe Gen5 up to x32 lanes",
-        "Form Factors": "PCIe HHHL, FHHL, OCP 3.0 TSFF, SFF",
-        "Interface Technologies": "NRZ 10G/25G; PAM4 50G/100G",
-        "Primary Workload": "AI/HPC networking, RDMA, storage, security, cloud data center",
-        "Source": "NVIDIA ConnectX-7 Datasheet"
+        "Speed": "25/50/100/200/400 Gb/s",
+        "Ports": "up to 4",
+        "Primary Workload": "Cloud, telecom, AI and enterprise",
+        "Source": "NVIDIA Ethernet adapters official page"
       }
     },
-    "nvidia-quantum-x800-infiniband": {
-      "name": "NVIDIA Quantum-X800 InfiniBand",
-      "description": "AI factory networking option listed for GB300 NVL72, GB200 NVL72, HGX B300, and HGX B200 platforms with BlueField DPUs and ConnectX SuperNICs.",
-      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+    "nvidia-connectx-6-dx": {
+      "name": "NVIDIA ConnectX-6 Dx 25/50/100/200G NIC",
+      "description": "Ethernet NIC with hardware offload and inline security acceleration.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
       "specs": {
-        "Protocol": "InfiniBand",
-        "Speed": "X800 generation fabric reference",
-        "Ports": "Platform dependent",
-        "Host Interface": "Used with BlueField DPUs and ConnectX SuperNICs",
-        "Used With": "GB300 NVL72, GB200 NVL72, HGX B300, HGX B200",
-        "Primary Workload": "Scale-out AI factories and high-performance GPU clusters",
-        "Source": "NVIDIA Data Center Platform Line Card"
+        "Product Family": "ConnectX-6 Dx",
+        "Protocol": "Ethernet",
+        "Speed": "25/50/100/200 Gb/s",
+        "Ports": "up to 2 at 25/50/100G or 1 at 200G",
+        "Host Interface": "PCIe 4.0",
+        "Primary Workload": "Cloud and secure data center networking",
+        "Source": "NVIDIA Ethernet adapters official page"
       }
     },
-    "nvidia-quantum-2-infiniband": {
-      "name": "NVIDIA Quantum-2 InfiniBand",
-      "description": "NVIDIA platform networking option listed for GB200 NVL4, GH200 NVL2/NVL4, HGX H200, H200 NVL, RTX PRO, L40S, and L4 systems with BlueField-3 DPUs and ConnectX-7 NICs.",
-      "officialUrl": "https://resources.nvidia.com/en-us-gpu-resources/hpc-line-card-data-center-gpu?lx=CPwSfP",
+    "nvidia-connectx-6-lx": {
+      "name": "NVIDIA ConnectX-6 Lx 25/50G NIC",
+      "description": "Cost-efficient Ethernet NIC family for enterprise, cloud, edge and telecom workloads.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
       "specs": {
-        "Protocol": "InfiniBand",
-        "Speed": "Quantum-2 fabric reference",
-        "Ports": "Platform dependent",
-        "Host Interface": "BlueField-3 DPUs and ConnectX-7 NICs",
-        "Used With": "GB200 NVL4, GH200 NVL2/NVL4, HGX H200, H200 NVL, RTX PRO, L40S, L4",
-        "Primary Workload": "AI, HPC, inference, virtualization, and GPU server networking",
-        "Source": "NVIDIA Data Center Platform Line Card"
+        "Product Family": "ConnectX-6 Lx",
+        "Protocol": "Ethernet",
+        "Speed": "25/50 Gb/s",
+        "Ports": "up to 2 at 25GbE or 1 at 50GbE",
+        "Primary Workload": "Enterprise, cloud, edge and telecom",
+        "Source": "NVIDIA Ethernet adapters official page"
+      }
+    },
+    "nvidia-spectrum-6-sn6000": {
+      "name": "NVIDIA Spectrum-6 SN6000 Series Ethernet Switch",
+      "description": "Next-generation Spectrum Ethernet switch family using co-packaged optics for AI factories.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "specs": {
+        "Product Family": "Spectrum-6 SN6000",
+        "Protocol": "Ethernet",
+        "Speed": "Product dependent; next-generation Spectrum-6",
+        "Primary Workload": "AI factory scale-out",
+        "Source": "NVIDIA Ethernet switching official page"
+      }
+    },
+    "nvidia-spectrum-4-sn5000": {
+      "name": "NVIDIA Spectrum-4 SN5000 Series Ethernet Switch",
+      "description": "AI-focused Spectrum-4 Ethernet switching family.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "specs": {
+        "Product Family": "Spectrum-4 SN5000",
+        "Protocol": "Ethernet",
+        "Speed": "up to 800 Gb/s",
+        "Primary Workload": "Cloud-scale GPU compute and AI",
+        "Source": "NVIDIA Ethernet switching official page"
+      }
+    },
+    "nvidia-spectrum-3-sn4000": {
+      "name": "NVIDIA Spectrum-3 SN4000 Series Ethernet Switch",
+      "description": "Cloud-scale Ethernet switching family for distributed data center applications.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "specs": {
+        "Product Family": "Spectrum-3 SN4000",
+        "Protocol": "Ethernet",
+        "Speed": "up to 400 Gb/s",
+        "Primary Workload": "Scale-out distributed data centers",
+        "Source": "NVIDIA Ethernet switching official page"
+      }
+    },
+    "nvidia-spectrum-2-sn3000": {
+      "name": "NVIDIA Spectrum-2 SN3000 Series Ethernet Switch",
+      "description": "Leaf/spine Ethernet switching family with flexible port density.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "specs": {
+        "Product Family": "Spectrum-2 SN3000",
+        "Protocol": "Ethernet",
+        "Speed": "up to 200 Gb/s per port",
+        "Primary Workload": "Leaf-spine data center networking",
+        "Source": "NVIDIA Ethernet switching official page"
+      }
+    },
+    "nvidia-spectrum-sn2000": {
+      "name": "NVIDIA Spectrum SN2000 Series Ethernet Switch",
+      "description": "Ethernet switching family for hyperconverged and software-defined storage environments.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "specs": {
+        "Product Family": "Spectrum SN2000",
+        "Protocol": "Ethernet",
+        "Speed": "up to 100 Gb/s",
+        "Primary Workload": "Hyperconverged infrastructure and software-defined storage",
+        "Source": "NVIDIA Ethernet switching official page"
       }
     },
     "nvidia-spectrum-x-ethernet": {
-      "name": "NVIDIA Spectrum-X Ethernet",
-      "description": "Ethernet networking platform for AI factories, listed with NVIDIA compute platforms and designed to connect data center compute fabrics and scale across AI data centers.",
-      "officialUrl": "https://www.nvidia.com/ko-kr/data-center/products/",
+      "name": "NVIDIA Spectrum-X Ethernet Platform",
+      "description": "AI Ethernet networking platform combining Spectrum-X switches and Ethernet SuperNICs.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/spectrumx/",
       "specs": {
+        "Product Family": "Spectrum-X",
+        "Protocol": "Ethernet / RoCE",
+        "Used With": "Spectrum-X Ethernet switches and SuperNICs",
+        "Primary Workload": "AI cloud and multi-data-center scale-out",
+        "Source": "NVIDIA Spectrum-X official page"
+      }
+    },
+    "nvidia-bluefield-4-dpu": {
+      "name": "NVIDIA BlueField-4 DPU",
+      "description": "Infrastructure platform for networking, storage and cybersecurity acceleration in gigascale AI factories.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
+      "specs": {
+        "Product Family": "BlueField-4",
+        "Protocol": "Data center infrastructure / Ethernet",
+        "Speed": "800 Gb/s platform connectivity",
+        "Primary Workload": "AI networking, storage and cybersecurity",
+        "Source": "NVIDIA BlueField official page"
+      }
+    },
+    "nvidia-bluefield-4-stx": {
+      "name": "NVIDIA BlueField-4 STX Storage Processor",
+      "description": "Vera CPU-based storage processor for AI-native data movement and in-silicon security.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
+      "specs": {
+        "Product Family": "BlueField-4 STX",
+        "Protocol": "AI storage infrastructure",
+        "Primary Workload": "AI-native storage and context memory",
+        "Source": "NVIDIA BlueField official page"
+      }
+    },
+    "nvidia-bluefield-3-dpu": {
+      "name": "NVIDIA BlueField-3 DPU",
+      "description": "Infrastructure computing platform for line-rate networking, storage and cybersecurity workloads.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
+      "specs": {
+        "Product Family": "BlueField-3",
+        "Protocol": "Ethernet / infrastructure offload",
+        "Speed": "400 Gb/s",
+        "Primary Workload": "AI, hybrid cloud, HPC and 5G infrastructure",
+        "Source": "NVIDIA BlueField official page"
+      }
+    },
+    "nvidia-linkx-400g-osfp-transceiver-family": {
+      "name": "NVIDIA LinkX 400G OSFP Optical Transceiver Family",
+      "description": "OSFP interconnect family for Quantum-2 and Spectrum-4 environments; includes multimode and single-mode optical transceiver options.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/interconnect/",
+      "specs": {
+        "Product Family": "LinkX",
+        "Protocol": "InfiniBand and Ethernet",
+        "Speed": "400 Gb/s",
+        "Package": "OSFP",
+        "Reach": "MMF up to 50 m; SMF 100 m / 500 m / 2 km options",
+        "Used With": "Quantum-2, Spectrum-4 SN5600, ConnectX-7, BlueField-3",
+        "Source": "NVIDIA LinkX official page"
+      }
+    },
+    "nvidia-linkx-400g-qsfp-dd-transceiver-family": {
+      "name": "NVIDIA LinkX 400G QSFP-DD Optical Transceiver Family",
+      "description": "QSFP-DD Ethernet interconnect family for Spectrum switching and ConnectX/BlueField connectivity.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/interconnect/",
+      "specs": {
+        "Product Family": "LinkX",
         "Protocol": "Ethernet",
-        "Speed": "Spectrum-X platform reference",
-        "Ports": "Platform dependent",
-        "Host Interface": "Spectrum-X Ethernet switch and SuperNICs plus BlueField DPUs",
-        "Used With": "GB300/GB200, GH200, HGX, RTX PRO, L40S, L4 platform references",
-        "Primary Workload": "AI factory Ethernet fabric and multi-data-center scale-out",
-        "Source": "NVIDIA Data Center Products page and Data Center Platform Line Card"
+        "Speed": "400 Gb/s",
+        "Package": "QSFP-DD",
+        "Reach": "MMF up to 100 m; SMF 500 m / 2 km / 10 km options",
+        "Used With": "Spectrum-4 SN5400, Spectrum-3 SN4000, ConnectX-6/7, BlueField-2/3",
+        "Source": "NVIDIA LinkX official page"
+      }
+    },
+    "nvidia-linkx-200g-qsfp56-transceiver-family": {
+      "name": "NVIDIA LinkX 200G QSFP56 Optical Transceiver Family",
+      "description": "QSFP56 InfiniBand and Ethernet interconnect family.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/interconnect/",
+      "specs": {
+        "Product Family": "LinkX",
+        "Protocol": "InfiniBand and Ethernet",
+        "Speed": "200 Gb/s",
+        "Package": "QSFP56",
+        "Reach": "MMF up to 100 m; SMF up to 2 km",
+        "Used With": "Quantum, Spectrum-2/3/4, ConnectX-6/7, BlueField-2/3",
+        "Source": "NVIDIA LinkX official page"
+      }
+    },
+    "nvidia-linkx-100g-qsfp28-transceiver-family": {
+      "name": "NVIDIA LinkX 100G QSFP28 Optical Transceiver Family",
+      "description": "QSFP28 InfiniBand and Ethernet interconnect family.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/interconnect/",
+      "specs": {
+        "Product Family": "LinkX",
+        "Protocol": "InfiniBand and Ethernet",
+        "Speed": "100 Gb/s",
+        "Package": "QSFP28",
+        "Reach": "MMF up to 100 m; SMF 500 m / 2 km / 10 km / 40 km options",
+        "Used With": "EDR InfiniBand, Spectrum-1/2/3/4, ConnectX-6/7, BlueField-2/3",
+        "Source": "NVIDIA LinkX official page"
       }
     }
   }

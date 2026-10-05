@@ -1,0 +1,2554 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® Loose Tube, Gel-Free Cable",
+  "description": "Corning ALTOS® Loose Tube, Gel-Free Cable products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 149,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "006EU4-T4100D20": {
+      "name": "006EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006EU4-T4101D20": {
+      "name": "006EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006KU4-T4130D20": {
+      "name": "006KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4131D20": {
+      "name": "006TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4180D20": {
+      "name": "006TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4190D20": {
+      "name": "006TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 6F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/006TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012DU4-T4101D20": {
+      "name": "012DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T3100D20": {
+      "name": "012EU4-T3100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012EU4-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T4100D20": {
+      "name": "012EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T4101D20": {
+      "name": "012EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012FU4-T4101D20": {
+      "name": "012FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012KU4-T4130D20": {
+      "name": "012KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012PU4-T4119D20": {
+      "name": "012PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4131D20": {
+      "name": "012TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4180D20": {
+      "name": "012TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4190D20": {
+      "name": "012TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012ZU4-T4122D20": {
+      "name": "012ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 12F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/012ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024DU4-T4101D20": {
+      "name": "024DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EU4-T4100D20": {
+      "name": "024EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EU4-T4101D20": {
+      "name": "024EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024FU4-T4101D20": {
+      "name": "024FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024KU4-T4130D20": {
+      "name": "024KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024PU4-T4119D20": {
+      "name": "024PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4131D20": {
+      "name": "024TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4180D20": {
+      "name": "024TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4190D20": {
+      "name": "024TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024ZU4-T4122D20": {
+      "name": "024ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 24F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/024ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036DU4-T4101D20": {
+      "name": "036DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EU4-T4100D20": {
+      "name": "036EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EU4-T4101D20": {
+      "name": "036EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036FU4-T4101D20": {
+      "name": "036FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036KU4-T4130D20": {
+      "name": "036KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036PU4-T4119D20": {
+      "name": "036PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4131D20": {
+      "name": "036TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4180D20": {
+      "name": "036TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4190D20": {
+      "name": "036TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036ZU4-T4122D20": {
+      "name": "036ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 36F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/036ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EU4-T4100D20": {
+      "name": "048EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EU4-T4101D20": {
+      "name": "048EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048FU4-T4101D20": {
+      "name": "048FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048KU4-T4130D20": {
+      "name": "048KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048PU4-T4119D20": {
+      "name": "048PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TU4-T4131D20": {
+      "name": "048TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TU4-T4180D20": {
+      "name": "048TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TU4-T4190D20": {
+      "name": "048TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048ZU4-T4122D20": {
+      "name": "048ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 48F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/048ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060EU4-T4100D20": {
+      "name": "060EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060EU4-T4101D20": {
+      "name": "060EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060KU4-T4130D20": {
+      "name": "060KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TU4-T4131D20": {
+      "name": "060TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TU4-T4180D20": {
+      "name": "060TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TU4-T4190D20": {
+      "name": "060TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 60F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/060TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072DU4-T4101D20": {
+      "name": "072DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072EU4-T4100D20": {
+      "name": "072EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072EU4-T4101D20": {
+      "name": "072EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072FU4-T4101D20": {
+      "name": "072FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072KU4-T4130D20": {
+      "name": "072KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072PU4-T4119D20": {
+      "name": "072PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TU4-T4131D20": {
+      "name": "072TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TU4-T4180D20": {
+      "name": "072TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TU4-T4190D20": {
+      "name": "072TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072ZU4-T4122D20": {
+      "name": "072ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 72F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/072ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084EU4-T4100D20": {
+      "name": "084EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084EU4-T4101D20": {
+      "name": "084EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084KU4-T4130D20": {
+      "name": "084KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084TU4-T4131D20": {
+      "name": "084TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084TU4-T4180D20": {
+      "name": "084TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "084TU4-T4190D20": {
+      "name": "084TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 84F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/084TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "84",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096DU4-T4101D20": {
+      "name": "096DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EU4-T3100D20": {
+      "name": "096EU4-T3100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096EU4-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EU4-T4100D20": {
+      "name": "096EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EU4-T4101D20": {
+      "name": "096EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096FU4-T4101D20": {
+      "name": "096FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096KU4-T4130D20": {
+      "name": "096KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096PU4-T4119D20": {
+      "name": "096PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TU4-T4131D20": {
+      "name": "096TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TU4-T4180D20": {
+      "name": "096TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TU4-T4190D20": {
+      "name": "096TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096ZU4-T4122D20": {
+      "name": "096ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 96F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/096ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108EU4-T4100D20": {
+      "name": "108EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108EU4-T4101D20": {
+      "name": "108EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108KU4-T4130D20": {
+      "name": "108KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108TU4-T4131D20": {
+      "name": "108TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108TU4-T4180D20": {
+      "name": "108TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "108TU4-T4190D20": {
+      "name": "108TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 108F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/108TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "108",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120EU4-T4100D20": {
+      "name": "120EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120EU4-T4101D20": {
+      "name": "120EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120KU4-T4130D20": {
+      "name": "120KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120TU4-T4131D20": {
+      "name": "120TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120TU4-T4180D20": {
+      "name": "120TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120TU4-T4190D20": {
+      "name": "120TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 120F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/120TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144DU4-T4101D20": {
+      "name": "144DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EU4-T3100D20": {
+      "name": "144EU4-T3100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144EU4-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EU4-T4100D20": {
+      "name": "144EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EU4-T4101D20": {
+      "name": "144EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144FU4-T4101D20": {
+      "name": "144FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144KU4-T4130D20": {
+      "name": "144KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144PU4-T4119D20": {
+      "name": "144PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TU4-T4131D20": {
+      "name": "144TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TU4-T4180D20": {
+      "name": "144TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TU4-T4190D20": {
+      "name": "144TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144ZU4-T4122D20": {
+      "name": "144ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 144F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/144ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156EU4-T4100D20": {
+      "name": "156EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156EU4-T4101D20": {
+      "name": "156EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156KU4-T4130D20": {
+      "name": "156KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156TU4-T4131D20": {
+      "name": "156TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156TU4-T4180D20": {
+      "name": "156TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "156TU4-T4190D20": {
+      "name": "156TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 156F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/156TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "156",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192EU4-T4100D20": {
+      "name": "192EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192EU4-T4101D20": {
+      "name": "192EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192KU4-T4130D20": {
+      "name": "192KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192TU4-T4131D20": {
+      "name": "192TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192TU4-T4180D20": {
+      "name": "192TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192TU4-T4190D20": {
+      "name": "192TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 192F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/192TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216DU4-T4101D20": {
+      "name": "216DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216EU4-T4100D20": {
+      "name": "216EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216EU4-T4101D20": {
+      "name": "216EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216FU4-T4101D20": {
+      "name": "216FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216KU4-T4130D20": {
+      "name": "216KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216PU4-T4119D20": {
+      "name": "216PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216TU4-T4131D20": {
+      "name": "216TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216TU4-T4180D20": {
+      "name": "216TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216TU4-T4190D20": {
+      "name": "216TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216ZU4-T4122D20": {
+      "name": "216ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 216F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/216ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228EU4-T4100D20": {
+      "name": "228EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228EU4-T4101D20": {
+      "name": "228EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228KU4-T4130D20": {
+      "name": "228KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228TU4-T4131D20": {
+      "name": "228TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228TU4-T4180D20": {
+      "name": "228TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "228TU4-T4190D20": {
+      "name": "228TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 228F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/228TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "228",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240EU4-T4100D20": {
+      "name": "240EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240EU4-T4101D20": {
+      "name": "240EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240KU4-T4130D20": {
+      "name": "240KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240TU4-T4131D20": {
+      "name": "240TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240TU4-T4180D20": {
+      "name": "240TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "240TU4-T4190D20": {
+      "name": "240TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 240F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/240TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "240",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288DU4-T4101D20": {
+      "name": "288DU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288DU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288EU4-T3100D20": {
+      "name": "288EU4-T3100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288EU4-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288EU4-T4100D20": {
+      "name": "288EU4-T4100D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288EU4-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288EU4-T4101D20": {
+      "name": "288EU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288EU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288FU4-T4101D20": {
+      "name": "288FU4-T4101D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288FU4-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288KU4-T4130D20": {
+      "name": "288KU4-T4130D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288KU4-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288PU4-T4119D20": {
+      "name": "288PU4-T4119D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288PU4-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288TU4-T4131D20": {
+      "name": "288TU4-T4131D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288TU4-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288TU4-T4180D20": {
+      "name": "288TU4-T4180D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288TU4-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288TU4-T4190D20": {
+      "name": "288TU4-T4190D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288TU4-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288ZU4-T4122D20": {
+      "name": "288ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 288F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/288ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "360ZU4-T4122D20": {
+      "name": "360ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 360F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/360ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "360",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    },
+    "432ZU4-T4122D20": {
+      "name": "432ZU4-T4122D20",
+      "description": "ALTOS® Loose Tube, Gel-Free Cable · 432F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Outdoor%20Duct%20Cables/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%20Cable/432ZU4-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "432",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Outdoor duct loose tube",
+        "Armoring": "No"
+      }
+    }
+  }
+}

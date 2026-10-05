@@ -27,6 +27,15 @@
     const different=uniq.slice(1).find(p=>p.vendor!==first.vendor&&nearEnough(p)&&!used.has(p))
       ||uniq.slice(1).find(p=>p.vendor!==first.vendor&&!used.has(p));
     if(top.length<3&&different){top.push(different);used.add(different);}
+    const topVendors=()=>new Set(top.map(p=>p.vendor));
+    for(const p of uniq){
+      if(top.length>=3)break;
+      if(!used.has(p)&&!topVendors().has(p.vendor)){top.push(p);used.add(p);}
+    }
+    for(const p of uniq){
+      if(top.length>=3)break;
+      if(!used.has(p)&&!(isLsVendor(first)&&isLsVendor(p))){top.push(p);used.add(p);}
+    }
     for(const p of uniq){if(top.length>=3)break;if(!used.has(p)){top.push(p);used.add(p);}}
     const remaining=uniq.filter(p=>!used.has(p));
     const extra=[], extraVendors=new Set(top.map(p=>p.vendor));

@@ -48,7 +48,12 @@ const info={
  spine:['Spine Switch','NETWORK / MMR','Leaf 스위치와 고속 다대다로 연결되어 데이터센터 Fabric의 상위 계층을 구성합니다.'],
  security:['Physical Security','NOC / SAFETY','출입통제, CCTV, 방문자 관리 등 물리 보안을 담당합니다.'],
  fire:['Fire Suppression','NOC / SAFETY','감지기와 가스계 소화설비 등으로 화재를 조기에 감지하고 확산을 억제합니다.'],
- maintenance:['Maintenance / Spare','NOC / SAFETY','예비품, 공구, 유지보수 작업을 지원하는 운영 구역입니다.']};
+ maintenance:['Maintenance / Spare','NOC / SAFETY','예비품, 공구, 유지보수 작업을 지원하는 운영 구역입니다.'],
+ busway:['Overhead Busway','DATA HALL','랙 상부에서 전력을 분배하는 버스웨이 계통입니다. 탭오프 장치를 통해 각 랙 PDU로 전력을 전달합니다.'],
+ cabletray:['Overhead Cable Tray','DATA HALL','광·구리 통신 케이블을 전력 계통과 분리해 정리하는 상부 케이블 경로입니다.'],
+ crah:['CRAH / In-row Cooling','DATA HALL','White Space의 열을 회수하고 차가운 공기를 Cold Aisle로 공급하는 대표적인 냉각 장치입니다.'],
+ containment:['Hot / Cold Aisle Containment','DATA HALL','차가운 공급 공기와 뜨거운 배기 공기의 혼합을 줄여 냉각 효율을 높이는 차폐 구조입니다.'],
+ rackpdu:['Rack PDU · A/B Feed','DATA HALL','랙 내부 IT 장비에 A/B 이중 전원을 분배합니다. 실제 이중화는 서버 PSU 구성과 상위 전원 경로까지 함께 검토해야 합니다.']};
 const maps={};
 function base(id,tile){maps[id]={grid:Array.from({length:H},(_,y)=>Array.from({length:W},(_,x)=>x===0||y===0||x===W-1||y===H-1?(id==='campus'?'tree':'wall'):tile)),objects:[],doors:{}};return maps[id]}
 function fill(m,x,y,w,h,v){for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)m.grid[j][i]=v}
@@ -61,8 +66,24 @@ m.grid[10][11]=m.grid[10][12]='door';m.doors['11,10']=m.doors['12,10']=['gray',1
 m=base('gray','floor');fill(m,10,1,4,18,'walk');obj(m,2,3,5,3,'ups','ups','UPS / BATTERY');obj(m,17,3,5,3,'power','power','PDU');obj(m,2,10,5,3,'cooler','cooling','PUMP / CDU');obj(m,17,10,5,3,'console','noc','MONITOR');
 for(let y=2;y<18;y++){m.grid[y][9]='stripe';m.grid[y][14]='stripe'}
 for(let x=10;x<=13;x++){m.grid[0][x]='gate';m.doors[x+',0']=['white',11,17,'up'];m.grid[19][x]='exit';m.doors[x+',19']=['campus',11,11,'down']}
-m=base('white','white');fill(m,10,1,4,18,'walk');fill(m,2,3,7,1,'hot');fill(m,2,7,7,2,'cold');fill(m,2,12,7,1,'hot');fill(m,15,3,7,1,'hot');fill(m,15,7,7,2,'cold');fill(m,15,12,7,1,'hot');
-obj(m,2,4,7,3,'racks','server','COMPUTE');obj(m,2,9,7,3,'racks','server','COMPUTE');obj(m,15,4,7,3,'racks','network','NETWORK');obj(m,15,9,7,3,'racks','storage','STORAGE');obj(m,17,15,1,1,'sign','aisle','');
+m=base('white','white');
+fill(m,10,1,4,18,'walk');
+fill(m,2,2,7,1,'hot');fill(m,2,6,7,2,'cold');fill(m,2,11,7,2,'cold');fill(m,2,15,7,1,'hot');
+fill(m,15,2,7,1,'hot');fill(m,15,6,7,2,'cold');fill(m,15,11,7,2,'cold');fill(m,15,15,7,1,'hot');
+obj(m,2,3,7,3,'racks','server','GPU ROW A');
+obj(m,2,8,7,3,'racks','server','GPU ROW B');
+obj(m,2,13,7,2,'racks','storage','STORAGE');
+obj(m,15,3,7,3,'racks','network','NETWORK A');
+obj(m,15,8,7,3,'racks','server','COMPUTE B');
+obj(m,15,13,7,2,'racks','server','COMPUTE C');
+obj(m,2,17,4,2,'crah','crah','CRAH');
+obj(m,18,17,4,2,'crah','crah','CRAH');
+obj(m,7,17,3,2,'power','rackpdu','RACK PDU');
+obj(m,14,17,3,2,'power','rackpdu','RACK PDU');
+obj(m,10,3,4,2,'busway','busway','BUSWAY');
+obj(m,10,8,4,2,'tray','cabletray','CABLE TRAY');
+obj(m,10,13,4,2,'containment','containment','AISLE');
+obj(m,9,16,1,1,'sign','aisle','');
 for(let x=10;x<=13;x++){m.grid[19][x]='exit';m.doors[x+',19']=['gray',11,1,'down']}
 
 // v2 anatomy zones
@@ -120,7 +141,7 @@ let zone='campus',p={x:11,y:17,dir:'up'},move=null,fade=0,clock=0,keys=[],visite
 const dirs={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]},keymap={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'};
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),w,h)}
 function text(s,x,y,c='#f7f2d3',size=7){if(!['!','▼'].includes(s))return;ctx.fillStyle=c;ctx.font='bold '+size+'px monospace';ctx.textAlign='center';ctx.fillText(s,x,y)}
-function tile(t,x,y){const px=x*T,py=y*T;let c=zone==='campus'?'#b6c079':zone==='gray'?'#b4b6a8':'#e6e5cb';rect(px,py,16,16,c);
+function tile(t,x,y){const px=x*T,py=y*T;let c=zone==='campus'?'#b6c079':zone==='gray'?'#b4b6a8':zone==='white'?'#d9ddd0':'#e6e5cb';rect(px,py,16,16,c);
  if(t==='grass'||t==='flowers'||t==='tree'){rect(px+2,py+3,2,1,'#879556');rect(px+3,py+2,1,3,'#879556');rect(px+11,py+11,3,1,'#cbd28e');rect(px+12,py+10,1,3,'#cbd28e')}
  if(t==='tree'){rect(px+6,py+11,5,5,'#70634a');rect(px+2,py+4,13,9,'#3c5644');rect(px+4,py+1,9,13,'#526948');rect(px+5,py+1,6,4,'#bcc986');rect(px+3,py+5,5,4,'#8b9e62');rect(px+7,py+10,6,3,'#6c824e');rect(px+1,py+14,13,2,'#798e53')}
  if(t==='flowers'){for(let a=3;a<15;a+=7){rect(px+a,py+5,3,5,'#637c4b');rect(px+a-1,py+4,5,3,'#ede6a0');rect(px+a+1,py+4,1,1,'#ac7849')}}
@@ -137,6 +158,10 @@ function building(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;rect(x+3,y+h-1,w,4,'#7c
 function machine(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;rect(x+3,y+4,w,h,'#727e68');rect(x,y,w,h,'#3e514b');rect(x+2,y+2,w-4,h-5,'#9cae9f');rect(x+2,y+2,w-4,7,'#cdd5b7');
  if(o.type==='racks'){for(let xx=3;xx<w-8;xx+=16){rect(x+xx,y+2,13,h-4,'#334e4a');for(let yy=7;yy<h-6;yy+=7){rect(x+xx+2,y+yy,9,5,'#637a6c');rect(x+xx+3,y+yy+1,4,1,'#98a58a');rect(x+xx+9,y+yy+1,1,2,(Math.floor(clock/450)+xx+yy)%3?'#d3d98e':'#7cb0aa')}}}
  else if(o.type==='cooler'){for(let xx=5;xx<w-12;xx+=25){rect(x+xx,y+13,21,22,'#526e63');rect(x+xx+2,y+15,17,18,'#b5c5aa');rect(x+xx+8,y+16,3,15,'#647e73');rect(x+xx+3,y+22,15,3,'#647e73');if(Math.floor(clock/200)%2) {rect(x+xx+5,y+18,11,3,'#7a9482');rect(x+xx+5,y+27,11,3,'#7a9482')}}}
+ else if(o.type==='crah'){rect(x+4,y+7,w-8,h-10,'#486e75');for(let xx=8;xx<w-8;xx+=13){rect(x+xx,y+10,9,h-17,'#a9c8c4');rect(x+xx+2,y+12,5,h-21,'#6b9291')}rect(x+6,y+h-6,w-12,3,'#80aeb0')}
+ else if(o.type==='busway'){rect(x+3,y+9,w-6,8,'#8b5e3c');rect(x+5,y+11,w-10,4,'#d3a15c');for(let xx=10;xx<w-6;xx+=16)rect(x+xx,y+16,3,8,'#5d4a35')}
+ else if(o.type==='tray'){rect(x+3,y+9,w-6,9,'#63727a');for(let xx=5;xx<w-5;xx+=8)rect(x+xx,y+10,2,7,'#aab6ba');rect(x+4,y+12,w-8,2,'#405f6b')}
+ else if(o.type==='containment'){rect(x+3,y+5,w-6,h-7,'#b8c8c2');rect(x+5,y+7,w-10,h-11,'#e4ebe3');for(let xx=7;xx<w-7;xx+=12)rect(x+xx,y+7,2,h-11,'#879c94');rect(x+4,y+4,w-8,3,'#6d8078')}
  else if(o.type==='console'){rect(x+6,y+12,w-12,23,'#3e5e5a');for(let xx=10;xx<w-10;xx+=22){rect(x+xx,y+15,17,16,'#91b7a1');rect(x+xx+3,y+24,2,4,'#446f5d');rect(x+xx+7,y+20,2,8,'#446f5d');rect(x+xx+11,y+17,2,11,'#446f5d')}}
  else{for(let xx=5;xx<w-9;xx+=18){rect(x+xx,y+12,14,h-16,'#637c70');for(let yy=17;yy<h-8;yy+=5)rect(x+xx+2,y+yy,10,2,'#a9baa0');rect(x+xx+10,y+13,2,2,'#e6cc7a')}}
  if(o.label){rect(x,y-9,w,8,'#e1e2bb');text(o.label,x+w/2,y-2,'#445d4b',6)}

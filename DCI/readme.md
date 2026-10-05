@@ -6,9 +6,9 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 
 - [▶ DataCenter Tool](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/)
 - [LS Datacenter Campus · Gold Pixel Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html?reset=1)
-- [CPO Supply Chain](https://kimheeseo.github.io/LSCNS/DCI/CPO/)
+- [CPO Supply Chain](https://kimheeseo.github.io/cpo-supply-chain/)
 
-> 화면은 **GitHub Pages**에서 실행되고, DataCenter 핵심 계산·BOM 제품 매칭은 Private backend에서 실행됩니다. CPO는 기존 GitHub Pages 배포 구조를 유지합니다.
+> DataCenter 화면은 **LSCNS GitHub Pages**에서 실행되고 핵심 계산·BOM 제품 매칭은 Private backend에서 실행됩니다. CPO는 별도 `cpo-supply-chain` GitHub Pages에서 관리합니다.
 
 ## 주요 기능
 
@@ -21,7 +21,7 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 ## Repository
 
 - `DataCenter/` — 공개 UI / 시각화 / runtime assets. 핵심 계산 엔진과 제품 매칭 source는 private `kimheeseo/others`에서 관리
-- `CPO/` — CPO Supply Chain
+- CPO Supply Chain — 별도 repository: `kimheeseo/cpo-supply-chain`
 - `current_version/` — 현재 개발 버전
 - `updates/` — 날짜별 업데이트 이력
 

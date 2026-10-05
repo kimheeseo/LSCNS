@@ -6,7 +6,12 @@
   const link=p=>'<a target="_blank" rel="noopener" href="'+esc(p.source)+'">'+esc(p.vendor+' · '+p.name)+'</a><small style="display:block">'+esc(p.status+' / '+p.matchBasis)+'</small>';
   let current=null, revision=0, data=null, vendor='', search='', ready=Promise.resolve();
   function rowsFor(r,a) {
-    if(a) return [...a.bom.map(b=>({...b,segment:b.network+' / '+b.segment,installed:b.installedQty,purchase:b.purchaseQty,candidates:[]})),...r.references.map(x=>({item:x.item,installed:x.qty,purchase:null,unit:x.unit,referenceOnly:true,spec:x.note,candidates:[]})),...['UPS','Generator','Transformer'].map(item=>({item,installed:null,purchase:null,unit:'대',referenceOnly:true,spec:'개별 설비 용량/수량·이중화·현장 조건 별도 설계',candidates:[]}))];
+    if(a) return [...a.bom.map(b=>{
+      const selection=a.selections.find(x=>x.network===b.network&&x.tier+' / '+x.distanceClass===b.segment);
+      const requirement=b.requirement||(selection?{connector:selection.connector,fiberType:selection.fiberType,protocol:selection.protocol}:undefined);
+      const fibers=/패치리드|광 케이블/.test(b.item)?selection?.installedFibers:undefined;
+      return {...b,requirement,fibers,segment:b.network+' / '+b.segment,installed:b.installedQty,purchase:b.purchaseQty,candidates:[]};
+    }),...r.references.map(x=>({item:x.item,installed:x.qty,purchase:null,unit:x.unit,referenceOnly:true,spec:x.note,candidates:[]})),...['UPS','Generator','Transformer'].map(item=>({item,installed:null,purchase:null,unit:'대',referenceOnly:true,spec:'개별 설비 용량/수량·이중화·현장 조건 별도 설계',candidates:[]}))];
     const rows=r.productRequirements?.length?r.productRequirements:r.bom?.map(b=>({...b,profile:r.optical?.[b.segment]?.profile,installed:b.installedQty??b.qty,purchase:b.qty,candidates:[]}))||[];
     return rows.map(b=>({...b,candidates:[]}));
   }

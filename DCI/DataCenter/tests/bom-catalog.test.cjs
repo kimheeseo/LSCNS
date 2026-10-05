@@ -34,3 +34,11 @@ test('product-name data rate excludes mismatched AOCs and battery racks are not 
  const sas=M.normalize({company:'Example',products:{sas:{name:'Mini-SAS HD Active Optical Cable (AOC)',officialUrl:'https://example.com/sas'},sub:{name:'Sub-rack SC-APC Complete',officialUrl:'https://example.com/sub'}}},'Example/catalog.json');
  assert.equal(M.match({item:'연결 케이블',media:'AOC',requirement:{speed:400,protocol:'InfiniBand'}},sas).length,0);assert.equal(M.match({item:'IT 랙'},sas).length,0);
 });
+
+test('optical requirements exclude electrical connectors and power panels; named SR8 conflicts with FR4',()=>{
+ const products=M.normalize({company:'Example',products:{dvi:{name:'DVI Connector',officialUrl:'https://example.com/dvi'},power:{name:'Circuit Breaker Panel',officialUrl:'https://example.com/power'},rf:{name:'RF Cable Assembly',officialUrl:'https://example.com/rf'},sr8:{name:'400G QSFP-DD SR8 Optical Transceiver',officialUrl:'https://example.com/sr8'}}},'Example/All IT Datacom Products/catalog.json');
+ assert.equal(M.match({item:'커넥터',requirement:{connector:'MPO-16'}},products).length,0);
+ assert.equal(M.match({item:'패치패널',media:'SMF'},products).length,0);
+ assert.equal(M.match({item:'광 케이블',media:'SMF'},products).length,0);
+ assert.equal(M.match({item:'트랜시버',requirement:{speed:400,standard:'FR4'}},products).length,0);
+});

@@ -42,15 +42,17 @@
       p.speed = field(s, ['Data Rate', '총 속도', '속도', 'Speed', 'Bandwidth']) || (rates(p.name).length ? p.name : '');
       p.length = field(s, ['길이', 'Reach', '거리', 'Length', 'Cable Length']);
       p.connector = field(s, ['Connector', '커넥터', 'Optical Interface', 'Interface']);
+      if(!p.connector){const connectorName=p.name.match(/\b(MPO(?:-?\d+)?|MTP(?:-?\d+)?|MDC|MMC|LC|SC|SN-MT)\b/i);if(connectorName)p.connector=connectorName[0];}
       p.package = field(s, ['Package', '폼팩터', 'Form Factor', '포트']);
       p.standard = field(s, ['광 규격', 'Standard', 'Remark', '규격', 'Standards / Notes']);
-      if (!/DR\d|FR\d|LR\d|SR\d|ER\d|BASE-|\bLX\b|\bSX\b|\bZR\b/i.test(p.standard)) p.standard='';
+      if (!/DR\d|FR\d|LR\d|SR\d|ER\d|BASE-|\bLX\b|\bSX\b|\bZR\b/i.test(p.standard)) p.standard=(p.name.match(/\b(?:\d+GBASE-)?(?:DR\d|FR\d|LR\d|SR\d|ER\d|ZR)\b/i)||[''])[0];
       p.fiber = field(s, ['Fiber Type', 'Fiber Category', '광섬유', 'Fiber']);
       p.fibers = field(s, ['Fiber Count', '심수']);
       p.protocol = field(s, ['Protocol', '프로토콜']);
       if(!p.protocol){const protocol=p.name.match(/InfiniBand|Ethernet|PCIe(?:\s+Gen\d)?|(?:Mini-)?SAS|NVLink/i);if(protocol)p.protocol=/SAS/i.test(protocol[0])?'SAS':protocol[0];}
       p.polarity = field(s, ['Polarity', '극성']); p.gender = field(s, ['Gender']);
       p.jacket = field(s, ['Jacket', '난연 등급', 'Flame Rating']);
+      p.optical=/FIBER|FIBRE|OPTIC|MPO|MTP|MDC|MMC|SENKO|CORNING|US.?CONEC|\bLC\b|\bSC\b/i.test([p.name,p.category,p.path,p.fiber,p.connector].join(' '));
       return p;
     }).filter(p => /^https?:\/\//i.test(p.source));
   }
@@ -72,6 +74,8 @@
     return products.flatMap(p => {
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
       if (!compatibleKinds.includes(p.kind) || type === 'other' || type === 'component') return [];
+      const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber;
+      if(opticalItem&&['fiber','patch','trunk','connector','adapter','panel'].includes(type)&&!p.optical)return [];
       const confirmed = [], missing = []; let conflict = false;
       const check = (name, need, have, predicate) => {if (!need || /^(REVIEW|PROJECT|N\/A|未)/.test(clean(need))) return; if (!have || /검증 필요|미공개|미정|RFQ|확인 필요/.test(text(have))) missing.push(name); else if (predicate(need, have)) confirmed.push(name); else conflict = true;};
       if (['transceiver','dac','aec','aoc'].includes(type)) {

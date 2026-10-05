@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "InfiniBand XDR NDR HDR",
+  "displayName": "InfiniBand XDR/NDR/HDR Products",
+  "description": "NADDOD InfiniBand XDR/NDR/HDR Products product families for data-center and AI infrastructure applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/special/naddod-infiniband-products-family",
+  "sourceUrls": [
+    "https://www.naddod.com/special/naddod-infiniband-products-family"
+  ],
+  "sourceCount": 6,
+  "storageMode": "official product-family metadata; exact SKU/configuration must be confirmed from NADDOD page",
+  "comparisonFields": [
+    "Model",
+    "Protocol",
+    "Speed",
+    "Form Factor",
+    "Connector",
+    "Fiber Type",
+    "Source"
+  ],
+  "products": {
+    "xdr-1.6t-osfp224": {
+      "name": "1.6T OSFP224 XDR Transceiver Family",
+      "description": "1.6T XDR InfiniBand optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/special/naddod-infiniband-products-family",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand transceiver",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "1.6T",
+        "Form Factor": "OSFP224",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "ndr-800g-osfp": {
+      "name": "800G IB OSFP Transceiver Family",
+      "description": "800G InfiniBand NDR optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/special/naddod-infiniband-products-family",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand transceiver",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "800G",
+        "Form Factor": "OSFP",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "ndr-400g-sr4": {
+      "name": "400G SR4 OSFP NDR Optical Transceiver",
+      "description": "400G SR4 OSFP NDR optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/products/101490.html",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand transceiver",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "400G",
+        "Form Factor": "OSFP",
+        "Connector": "MPO-12/APC",
+        "Fiber Type": "MMF",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "hdr-200g-qsfp56": {
+      "name": "200G QSFP56 HDR Transceiver Family",
+      "description": "200G InfiniBand HDR optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/special/naddod-infiniband-products-family",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand transceiver",
+        "Protocol": "InfiniBand HDR",
+        "Speed": "200G",
+        "Form Factor": "QSFP56",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "hdr-200g-aoc": {
+      "name": "200G QSFP56 HDR AOC Family",
+      "description": "200G InfiniBand HDR active optical cable family.",
+      "officialUrl": "https://www.naddod.com/products/32638.html",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand AOC",
+        "Protocol": "InfiniBand HDR",
+        "Speed": "200G",
+        "Form Factor": "QSFP56",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "hdr-200g-dac": {
+      "name": "200G QSFP56 HDR DAC Family",
+      "description": "200G InfiniBand HDR passive direct attach copper cable family.",
+      "officialUrl": "https://www.naddod.com/products/32656.html",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand DAC",
+        "Protocol": "InfiniBand HDR",
+        "Speed": "200G",
+        "Form Factor": "QSFP56",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    }
+  }
+}

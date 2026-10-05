@@ -1,11 +1,22 @@
 # NADDOD
 
-NADDOD의 데이터센터용 고밀도 MTP®/MPO 케이블 제품을 BOM 추천용 구조화 카탈로그로 정리합니다.
+NADDOD 데이터센터 제품을 BOM 후보와 업체별 부품 리스트에 연결합니다.
 
-## 등록 제품군
+## 제품군
 
 - MTP®/MPO Jumpers
 - MTP®/MPO Harnesses
 - High-Fiber Count MPO Trunk Cable Solutions
+- Optical Transceivers: 1.6T/800G/400G/200G/100G/25G 및 DCI
+- AOC, DAC, ACC & AEC Cables
+- Rack Mount Fiber Enclosures
+- InfiniBand XDR/NDR/HDR
+- Switches & NICs: DPU, SuperNIC, InfiniBand/Ethernet switch, ConnectX adapter
 
-공식 NADDOD 제품 페이지에서 확인되는 connector, fiber mode, fiber count, polarity, length, jacket 및 대표 SKU를 기록합니다. 가격/재고는 변동 가능하므로 BOM에는 제품 식별과 규격 추천 용도로만 사용합니다.
+## BOM 반영 기준
+
+제품군·속도·폼팩터·프로토콜·커넥터·광섬유·심수·길이·극성·외피 정보를 후보 매칭에 사용합니다. 제품군 페이지에만 공개된 항목은 관련 제품 후보로 표시하며, 정확 SKU·호환성·현장 구성은 공식 페이지와 RFQ로 확인합니다.
+
+- 공식 출처: NADDOD 제품/제품군 페이지
+- 확인일: 2026-10-05
+- 가격·재고: BOM 산정값으로 사용하지 않음

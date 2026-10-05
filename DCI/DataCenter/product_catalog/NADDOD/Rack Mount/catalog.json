@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "Rack Mount",
+  "displayName": "Rack Mount Fiber Enclosures",
+  "description": "NADDOD Rack Mount Fiber Enclosures product families for data-center and AI infrastructure applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collections/rack-mount",
+  "sourceUrls": [
+    "https://www.naddod.com/collections/rack-mount"
+  ],
+  "sourceCount": 1,
+  "storageMode": "official product-family metadata; exact SKU/configuration must be confirmed from NADDOD page",
+  "comparisonFields": [
+    "Model",
+    "Rack Units",
+    "Product Type",
+    "Fiber Count",
+    "Connector",
+    "Source"
+  ],
+  "products": {
+    "fen-1u4sd": {
+      "name": "FEN-1U4SD · 1U Rack Mount Enclosure Unloaded Sliding Drawer",
+      "description": "1U sliding rack-mount enclosure providing up to 1,152 fibers with MTP/MPO-24.",
+      "officialUrl": "https://www.naddod.com/products/105610.html",
+      "referenceOnly": false,
+      "specs": {
+        "Model": "FEN-1U4SD",
+        "Rack Units": "1U",
+        "Product Type": "Sliding enclosure",
+        "Fiber Count": "Up to 1,152",
+        "Connector": "MTP/MPO-24",
+        "Source": "NADDOD official product page"
+      }
+    }
+  }
+}

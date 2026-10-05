@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "Optical Transceivers",
+  "displayName": "Optical Transceivers",
+  "description": "NADDOD Optical Transceivers product families for data-center and AI infrastructure applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+  "sourceUrls": [
+    "https://www.naddod.com/collection/optical-transceivers"
+  ],
+  "sourceCount": 8,
+  "storageMode": "official product-family metadata; exact SKU/configuration must be confirmed from NADDOD page",
+  "comparisonFields": [
+    "Model",
+    "Speed",
+    "Form Factor",
+    "Protocol",
+    "Reach",
+    "Connector",
+    "Source"
+  ],
+  "products": {
+    "1600g-osfp224": {
+      "name": "1.6T OSFP224 Transceiver Family",
+      "description": "1.6T OSFP224 optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "1.6T",
+        "Form Factor": "OSFP224",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-osfp-qsfpdd": {
+      "name": "800G OSFP/QSFP-DD Transceiver Family",
+      "description": "800G OSFP and QSFP-DD optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "800G",
+        "Form Factor": "OSFP/QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "400g-osfp-qsfp112-qsfpdd": {
+      "name": "400G OSFP/QSFP112/QSFP-DD Module Family",
+      "description": "400G optical module family for data-center links.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "400G",
+        "Form Factor": "OSFP/QSFP112/QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "200g-qsfp56-qsfp112-qsfpdd": {
+      "name": "200G QSFP56/QSFP112/QSFP-DD Family",
+      "description": "200G optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "200G",
+        "Form Factor": "QSFP56/QSFP112/QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "100g-qsfp28-qsfp56": {
+      "name": "100G QSFP28/QSFP56 Family",
+      "description": "100G optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "100G",
+        "Form Factor": "QSFP28/QSFP56",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "25g-sfp28": {
+      "name": "25G SFP28 Family",
+      "description": "25G SFP28 optical transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Optical transceiver",
+        "Protocol": "—",
+        "Speed": "25G",
+        "Form Factor": "SFP28",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-dci": {
+      "name": "800G OSFP/QSFP-DD DCI Family",
+      "description": "800G data-center interconnect transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DCI transceiver",
+        "Protocol": "—",
+        "Speed": "800G",
+        "Form Factor": "OSFP/QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "400g-dci": {
+      "name": "400G QSFP-DD DCI Family",
+      "description": "400G data-center interconnect transceiver family.",
+      "officialUrl": "https://www.naddod.com/collection/optical-transceivers",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DCI transceiver",
+        "Protocol": "—",
+        "Speed": "400G",
+        "Form Factor": "QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    }
+  }
+}

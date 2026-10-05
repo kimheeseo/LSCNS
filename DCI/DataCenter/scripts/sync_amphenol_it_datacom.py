@@ -9,6 +9,18 @@ BASE="https://www.amphenol.com/markets/it-datacom"
 ROOT=Path("DCI/DataCenter/product_catalog/Amphenol")
 EXPECTED=665
 CHECKED="2026-10-05"
+STATIC_NO_IMAGE={
+  3:[
+    {"name":"AdvancedTCA","description":"Dedicated interface between backplanes and boards capable of providing dual redundant power, system management and high voltage auxiliary circuits to each slot within the platform. The connector’s outstanding blind mating capability can be used to align the board during insertion.","business":"Positronic","businessUrl":"https://www.connectpositronic.com/"}
+  ],
+  8:[
+    {"name":"Cool Express Link™ EDSFF E3 1C & 2C PCIe® Gen 5/6 Orthogonal Cable Connectors","description":"The Amphenol Cool Express Link™ is a range of EDSFF E3 Hybrid Orthogonal Press-fit PCIe® Gen 5/6 Cable Connectors that supports low latency, high bandwidth, and high throughput data transmission for existing and next-gen storage and CXL 3.1 applications. Engineered for high-performance computing, artificial intelligence and machine learning applications requiring advanced enterprise storage.","business":"Amphenol Communications Solutions","businessUrl":"https://www.amphenol-cs.com/"},
+    {"name":"CoolPower® HD Right-Angle Cable-to-Board Connector","description":"Amphenol CoolPower® HD Right-Angle Connector is a 90-degree, versatile pin-and-socket solution designed to deliver high-density power output in a compact, low-profile housing for modern power requirements.","business":"Amphenol Communications Solutions","businessUrl":"https://www.amphenol-cs.com/"}
+  ],
+  29:[
+    {"name":"RFS Technologies Professional Services","description":"RFS Technologies has extensive experience working with customers across diverse environments. Design services are available nationwide with certified design engineers using network design tools including iBwave, Ranplan, Planet, NDAC Planner, and ATOLL.","business":"RFS Technologies","businessUrl":"https://www.rfstechnologies.com/"}
+  ]
+}
 session=requests.Session()
 session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; LSCNS-DataCenter-Catalog/1.0)"})
 
@@ -100,7 +112,15 @@ def scrape_page(page):
     r=session.get(url,timeout=45)
     if r.status_code==403:
         proxy="https://r.jina.ai/http://www.amphenol.com/markets/it-datacom?pagenumber="+str(page)
-        r=session.get(proxy,timeout=60,headers={"X-Return-Format":"html"})
+        last=None
+        for attempt in range(5):
+            last=session.get(proxy,timeout=60,headers={"X-Return-Format":"html"})
+            if last.status_code==200:
+                break
+            if last.status_code not in (429,500,502,503,504):
+                break
+            time.sleep(3*(attempt+1))
+        r=last
     r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser")
     count_text=compact(soup.get_text(" ",strip=True))
@@ -108,10 +128,9 @@ def scrape_page(page):
     if m and int(m.group(1))!=EXPECTED:
         raise RuntimeError(f"Official source total changed: {m.group(1)}")
     products=[]
-    seen_names=set()
     for img in soup.find_all("img",alt=re.compile(r"^Product\s+",re.I)):
         name=compact(re.sub(r"^Product\s+","",img.get("alt",""),flags=re.I))
-        if not name or name in seen_names: continue
+        if not name: continue
         card=smallest_product_card(img)
         strings=[compact(x) for x in card.stripped_strings]
         anchors=card.find_all("a",href=True)
@@ -131,7 +150,8 @@ def scrape_page(page):
         desc=re.sub(r"\s*Showing\s+\d+\s+to\s+\d+\s+of\s+\d+\s+items.*$","",desc,flags=re.I)
         if len(desc)>1600: desc=desc[:1600].rsplit(" ",1)[0]+"…"
         products.append({"name":name,"description":desc,"business":business or "Amphenol","businessUrl":business_url,"sourcePage":page,"officialUrl":url})
-        seen_names.add(name)
+    for extra in STATIC_NO_IMAGE.get(page,[]):
+        products.append({**extra,"sourcePage":page,"officialUrl":url})
     return products
 
 def main():
@@ -139,10 +159,8 @@ def main():
     for p in range(1,35):
         batch=scrape_page(p)
         print(f"page {p}: {len(batch)}")
-        if len(batch) < (5 if p==34 else 20):
-            print("PARTIAL_NAMES",p,json.dumps([x["name"] for x in batch],ensure_ascii=False))
         rows.extend(batch)
-        time.sleep(.25)
+        time.sleep(1.25)
     # Exact de-duplication by name; official listing is expected to have 665 unique visible products.
     dedup={}
     for x in rows:

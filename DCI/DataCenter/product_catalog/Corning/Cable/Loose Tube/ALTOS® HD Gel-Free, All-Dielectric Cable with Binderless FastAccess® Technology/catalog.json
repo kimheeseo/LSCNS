@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology",
+  "description": "Corning ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 8,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "096EU4-Y4F00D20": {
+      "name": "096EU4-Y4F00D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/096EU4-Y4F00D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096ZU4-Y4F22D20": {
+      "name": "096ZU4-Y4F22D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 96F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/096ZU4-Y4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "120EU4-Y4F00D20": {
+      "name": "120EU4-Y4F00D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 120F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/120EU4-Y4F00D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "120",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EU4-Y4F00D20": {
+      "name": "144EU4-Y4F00D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/144EU4-Y4F00D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144ZU4-Y4F22D20": {
+      "name": "144ZU4-Y4F22D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 144F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/144ZU4-Y4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216ZU4-Y3F22D20": {
+      "name": "216ZU4-Y3F22D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 216F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/216ZU4-Y3F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216ZU4-Y4F22D20": {
+      "name": "216ZU4-Y4F22D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 216F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/216ZU4-Y4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288ZU4-Y4F22D20": {
+      "name": "288ZU4-Y4F22D20",
+      "description": "ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology · 288F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20HD%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20Binderless%20FastAccess%C2%AE%20Technology/288ZU4-Y4F22D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "High-density all-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    }
+  }
+}

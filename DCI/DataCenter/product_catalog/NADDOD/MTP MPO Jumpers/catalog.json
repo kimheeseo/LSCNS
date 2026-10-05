@@ -13,12 +13,12 @@
   "storageMode": "metadata only; official product links are referenced directly",
   "comparisonFields": [
     "Model",
-    "Connector",
-    "Fiber Type",
     "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
     "Polarity",
     "Length",
-    "Jacket",
     "Insertion Loss",
     "Source"
   ],
@@ -37,7 +37,10 @@
         "Length": "25m",
         "Jacket": "LSZH",
         "Insertion Loss": "≤0.35 dB",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH"
       }
     },
     "m4mpoa12fb-20m": {
@@ -52,7 +55,10 @@
         "Fiber Count": "12",
         "Polarity": "Type B",
         "Length": "20m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mpoa8fb-30m": {
@@ -68,7 +74,10 @@
         "Polarity": "Type B",
         "Length": "30m",
         "Jacket": "LSZH",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": "LSZH"
       }
     },
     "m4mpoa16f-1m": {
@@ -82,7 +91,10 @@
         "Fiber Type": "OM4",
         "Fiber Count": "16",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": ""
       }
     },
     "s2mpoa16f-1m": {
@@ -97,7 +109,10 @@
         "Fiber Count": "16",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mpou12fb-40m": {
@@ -112,7 +127,10 @@
         "Fiber Count": "12",
         "Polarity": "Type B",
         "Length": "40m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/UPC",
+        "Cable Jacket": ""
       }
     },
     "s2mpoa12fa-1m": {
@@ -127,7 +145,10 @@
         "Fiber Count": "12",
         "Polarity": "Type A",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mtpa16f-1m": {
@@ -142,7 +163,10 @@
         "Fiber Count": "16",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MTP-16/APC",
+        "Cable Jacket": ""
       }
     },
     "om5-12f-mpo-jumper-family": {
@@ -154,7 +178,10 @@
         "Connector": "MPO-12",
         "Fiber Type": "OM5",
         "Fiber Count": "12",
-        "Source": "NADDOD MTP/MPO Jumpers collection"
+        "Source": "NADDOD MTP/MPO Jumpers collection",
+        "Fiber Mode": "OM5",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": ""
       }
     },
     "24f-mpo-jumper-family": {
@@ -165,7 +192,10 @@
       "specs": {
         "Connector": "MPO",
         "Fiber Count": "24",
-        "Source": "NADDOD MTP/MPO Jumpers collection"
+        "Source": "NADDOD MTP/MPO Jumpers collection",
+        "Fiber Mode": "",
+        "Connector Type": "MPO",
+        "Cable Jacket": ""
       }
     }
   }

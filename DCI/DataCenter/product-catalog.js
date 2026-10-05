@@ -17,58 +17,78 @@
     return (n / 1024 / 1024).toFixed(1) + ' MB';
   };
 
-  async function api(path, force) {
-    if (!force && cache.has(path)) return cache.get(path);
-    const response = await fetch(API + pathUrl(path) + '?ref=' + encodeURIComponent(REF), {
-      headers: {Accept: 'application/vnd.github+json'},
-      cache: 'no-store'
+  let catalogIndex = null;
+
+  const staticUrl = path => new URL(
+    'product_catalog/' + path.split('/').map(encodeURIComponent).join('/'),
+    location.href
+  ).toString();
+
+  async function loadCatalogIndex(force) {
+    if (catalogIndex && !force) return catalogIndex;
+    const url = new URL('product_catalog/catalog-manifest.json', location.href);
+    if (force) url.searchParams.set('refresh', Date.now());
+    const response = await fetch(url, {cache:'no-store'});
+    if (!response.ok) throw new Error('배포 카탈로그 목록을 불러오지 못했습니다. HTTP ' + response.status);
+    const manifest = await response.json();
+    if (!manifest || !Array.isArray(manifest.paths)) throw new Error('배포 카탈로그 목록 형식이 올바르지 않습니다.');
+    catalogIndex = manifest;
+    return catalogIndex;
+  }
+
+  function catalogPathParts(path) {
+    return String(path || '').split('/').filter(Boolean);
+  }
+
+  function pathsFor(company, category) {
+    const paths = (catalogIndex && catalogIndex.paths) || [];
+    return paths.filter(path => {
+      const parts = catalogPathParts(path);
+      if (company && parts[0] !== company) return false;
+      if (category && parts[1] !== category) return false;
+      return /catalog\.json$/i.test(path);
     });
-    if (!response.ok) {
-      if (response.status === 403) throw new Error('GitHub API 조회 한도에 도달했습니다. 잠시 후 새로고침해 주세요.');
-      if (response.status === 404) throw new Error('product_catalog 폴더를 찾지 못했습니다.');
-      throw new Error('제품 카탈로그를 불러오지 못했습니다. HTTP ' + response.status);
-    }
-    const data = await response.json();
-    cache.set(path, data);
-    return data;
   }
 
-  async function loadManifest(items) {
-    const item = (items || []).find(x => x.type === 'file' && x.name.toLowerCase() === 'catalog.json');
-    if (!item || !item.download_url) return null;
-    try {
-      const response = await fetch(item.download_url + (item.download_url.includes('?') ? '&' : '?') + 'catalogVersion=' + encodeURIComponent(item.sha || REF), {cache:'no-store'});
-      if (!response.ok) return null;
-      return await response.json();
-    } catch (_) {
-      return null;
-    }
+  async function fetchCatalog(path, force) {
+    const url = new URL(staticUrl(path));
+    if (force) url.searchParams.set('refresh', Date.now());
+    const response = await fetch(url, {cache:'no-store'});
+    if (!response.ok) throw new Error('제품 카탈로그를 불러오지 못했습니다. HTTP ' + response.status);
+    return response.json();
   }
 
-  async function walkProducts(path, relative, inheritedManifest, depth) {
-    const level = Number(depth) || 0;
-    if (level > 5) return [];
-    const items = await api(path);
-    const localManifest = await loadManifest(items);
-    const manifest = localManifest || inheritedManifest || null;
-    const group = (localManifest && localManifest.displayName) || (inheritedManifest && inheritedManifest.displayName) || relative || state.category;
-    const direct = (items || [])
-      .filter(x => x.type === 'file' && /\.pdf$/i.test(x.name))
-      .map(file => ({file, manifest, group}));
-    const pdfModels = new Set(direct.map(entry => modelFromFile(entry.file.name)));
-    const virtual = localManifest ? Object.entries(localManifest.products || {})
-      .filter(([key, meta]) => meta && (meta.officialUrl || meta.url) && !pdfModels.has(modelFromFile(key)))
-      .map(([key, meta]) => ({
-        file: {name:key, size:0, html_url:meta.officialUrl || meta.url, virtual:true},
-        manifest: localManifest,
-        group
-      })) : [];
-    const dirs = (items || []).filter(x => x.type === 'dir').sort((a,b) => a.name.localeCompare(b.name));
-    if (!dirs.length) return direct.concat(virtual);
-    const nested = await Promise.all(dirs.map(dir =>
-      walkProducts(path + '/' + dir.name, relative ? relative + ' › ' + dir.name : dir.name, manifest, level + 1)
-    ));
-    return direct.concat(virtual, ...nested);
+  async function walkProducts(company, category, force) {
+    await loadCatalogIndex(force);
+    const paths = pathsFor(company, category);
+    let cursor = 0;
+    const entries = [];
+    const errors = [];
+    await Promise.all(Array.from({length:6}, async () => {
+      while (cursor < paths.length) {
+        const path = paths[cursor++];
+        try {
+          const manifest = await fetchCatalog(path, force);
+          const parts = catalogPathParts(path);
+          const relativeParts = parts.slice(2, -1);
+          const group = manifest.displayName || relativeParts.join(' › ') || category;
+          Object.entries(manifest.products || {}).forEach(([key, meta]) => {
+            if (!meta) return;
+            const href = meta.businessUrl || meta.officialUrl || meta.url || manifest.officialUrl || '';
+            entries.push({
+              file: {name:key, size:0, html_url:href, virtual:true},
+              manifest,
+              group,
+              catalogPath:path
+            });
+          });
+        } catch (error) {
+          errors.push({path, error:error.message});
+        }
+      }
+    }));
+    if (!entries.length && errors.length) throw new Error('제품 카탈로그 정적 파일을 불러오지 못했습니다.');
+    return {entries, errors};
   }
 
   function shell() {
@@ -149,10 +169,12 @@
     $('catalogContext').textContent = '부품군을 선택하면 등록된 PDF·공식 URL 제품이 표시됩니다.';
 
     try {
-      const items = await api(BASE, force);
-      const companies = (items || []).filter(x => x.type === 'dir').sort((a,b) => a.name.localeCompare(b.name));
+      await loadCatalogIndex(force);
+      const companies = [...new Set((catalogIndex.paths || []).map(path => catalogPathParts(path)[0]).filter(Boolean))]
+        .sort((a,b) => a.localeCompare(b))
+        .map(name => ({name}));
       $('catalogCompanyCount').textContent = companies.length + '개';
-      $('catalogCompanies').innerHTML = companies.length ? companies.map(x => button(x.name, 'company', false)).join('') : '<p class="catalog-empty">등록된 업체 폴더가 없습니다.</p>';
+      $('catalogCompanies').innerHTML = companies.length ? companies.map(x => button(x.name, 'company', false)).join('') : '<p class="catalog-empty">등록된 업체가 없습니다.</p>';
       $('catalogCategoryCount').textContent = '—';
       notice(companies.length + '개 업체가 등록되어 있습니다. 업체를 선택하세요.', 'ready');
       bindCompanyButtons();
@@ -188,10 +210,12 @@
     notice(company + ' 카탈로그를 불러오는 중입니다.');
 
     try {
-      const items = await api(BASE + '/' + company);
-      const categories = (items || []).filter(x => x.type === 'dir').sort((a,b) => a.name.localeCompare(b.name));
+      await loadCatalogIndex(false);
+      const categories = [...new Set(pathsFor(company, '').map(path => catalogPathParts(path)[1]).filter(Boolean))]
+        .sort((a,b) => a.localeCompare(b))
+        .map(name => ({name}));
       $('catalogCategoryCount').textContent = categories.length + '개';
-      $('catalogCategories').innerHTML = categories.length ? categories.map(x => button(x.name, 'category', false)).join('') : '<p class="catalog-empty">등록된 부품군 폴더가 없습니다.</p>';
+      $('catalogCategories').innerHTML = categories.length ? categories.map(x => button(x.name, 'category', false)).join('') : '<p class="catalog-empty">등록된 부품군이 없습니다.</p>';
       notice(company + ' · ' + categories.length + '개 부품군', 'ready');
       document.querySelectorAll('#catalogCategories [data-category]').forEach(el => {
         el.onclick = () => selectCategory(el.dataset.category);
@@ -432,8 +456,8 @@
     notice(state.company + ' · ' + category + ' 제품 자료를 불러오는 중입니다.');
 
     try {
-      const path = BASE + '/' + state.company + '/' + category;
-      const entries = await walkProducts(path, '', null, 0);
+      const loaded = await walkProducts(state.company, category, false);
+      const entries = loaded.entries;
       entries.sort((a,b) => a.group.localeCompare(b.group) || a.file.name.localeCompare(b.file.name));
       state.products = entries;
       state.manifest = null;
@@ -446,7 +470,7 @@
       $('catalogSearch').disabled = !entries.length;
       renderFamilyFilters(entries);
       applySearch();
-      notice(state.company + ' · ' + category + ' · PDF ' + pdfOnlyCount + '개 · 공식 URL ' + urlOnlyCount + '개 · 제품군 ' + families.length + '개' + (specCount ? ' · 스펙 연결 ' + specCount + '개' : ' · catalog.json 미등록'), specCount ? 'ready' : 'review');
+      notice(state.company + ' · ' + category + ' · 제품 ' + entries.length + '개 · 제품군 ' + families.length + '개 · 정적 카탈로그 조회' + (loaded.errors.length ? ' · 일부 파일 실패 ' + loaded.errors.length + '개' : ''), loaded.errors.length ? 'review' : 'ready');
     } catch (error) {
       notice(error.message, 'error');
       $('catalogProducts').innerHTML = '<p class="catalog-empty">제품 자료를 불러오지 못했습니다.</p>';
@@ -459,7 +483,7 @@
     view.dataset.catalogMounted = 'true';
     view.innerHTML = shell();
     $('catalogRefresh').onclick = () => {
-      cache.clear();
+      catalogIndex = null;
       document.dispatchEvent(new CustomEvent("dc:catalog-refresh"));
       loadCompanies(true);
     };

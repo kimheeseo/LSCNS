@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "company": "Panduit",
+  "category": "Copper Data Cables",
+  "displayName": "Copper Cable (동 데이터 케이블)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "pup6av04bu-g": {
+      "name": "TX6A PUP6AV04BU-G",
+      "description": "네트워크 배선용 Cat6A 동 케이블. 포설/패치 코드와 고속 Twinax 케이블을 구분합니다.",
+      "officialUrl": "https://www.panduit.com/content/dam/panduit/ja/products/media/8/58/258/9258/110069258.pdf",
+      "sourceUrls": [
+        "https://www.panduit.com/content/dam/panduit/ja/products/media/8/58/258/9258/110069258.pdf"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "규격": "Category 6A",
+        "난연 등급": "Plenum (CMP)",
+        "비고": "케이블 길이·단자·PoE·채널 구성 및 현지 난연 규정 확인",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "netkey-cat6a": {
+      "name": "NetKey Cat6A UTP Patch Cords",
+      "description": "서버 관리망 및 구조화 배선용 Cat6A UTP 패치 코드 제품군.",
+      "officialUrl": "https://www.panduit.com/en/products/copper-systems/copper-patch-cords/copper-patch-cords.html",
+      "sourceUrls": [
+        "https://www.panduit.com/en/products/copper-systems/copper-patch-cords/copper-patch-cords.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "규격": "Category 6A UTP",
+        "특징": "Tangle-Free Latch",
+        "비고": "개별 길이·색상·제품 코드 및 채널 호환 확인",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "규격",
+    "난연 등급",
+    "비고",
+    "확인 상태",
+    "특징"
+  ]
+}

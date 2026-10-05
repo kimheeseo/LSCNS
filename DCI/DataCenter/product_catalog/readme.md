@@ -134,3 +134,10 @@ Intel Gaudi 2/3와 Flex 140/170/170V(5개), Qualcomm AI 가속기 4종·연결 D
 - Arista: 4개 항목
 
 신규 업체 10개, 제품군 폴더 12개, 대표 제품/제품군 54개 항목입니다. Coherent/AOI는 트랜시버, Lumentum/Credo/Broadcom/MACOM/Marvell은 광칩·광원·PIC·DSP·TIA/드라이버, Juniper/Cisco/Arista는 데이터센터 Ethernet 스위치로 분류했습니다. 미공개 SKU와 공급/호환은 검증 필요로 표시합니다. 시연 제품·제품군은 referenceOnly로 구분합니다. 광칩을 완성 트랜시버 BOM에 중복 합산하지 않으며 자동 호환성 매핑은 추가하지 않았습니다. PDF 원본은 업로드하지 않습니다.
+
+
+## 전력 설비·랙·배선 확장 (2026-10-05)
+
+24개 대표 제품/제품군, 11개 신규 카탈로그입니다. UPS·발전기·랙·변압기·케이블 관리·Cat6A/DAC 동 케이블·AEC를 분류했습니다. Schneider Electric, Eaton, Cummins, Caterpillar, Hitachi Energy, Panduit 업체를 추가하고 기존 Amphenol/Credo에 배선 분류를 확장했습니다.
+
+UPS 배터리/이중화, 발전기 DCC/Standby, 변압기 kVA·전압·보호 협조는 현장 설계 검증이 필요합니다. 랙 크기/하중은 IT kW가 아닙니다. AEC·DAC·ACC·AOC를 구분하고 광모듈 중복 합산을 피합니다. 카탈로그 등록이며 신규 설비의 자동 수량 계산/제품 호환 매핑은 포함하지 않습니다. PDF 업로드와 근거 없는 가격 추가는 없습니다.

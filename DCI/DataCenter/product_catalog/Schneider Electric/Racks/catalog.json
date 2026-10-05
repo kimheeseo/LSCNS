@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "company": "Schneider Electric",
+  "category": "Racks",
+  "displayName": "Rack (서버 랙)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "ar3300": {
+      "name": "APC NetShelter SX AR3300",
+      "description": "서버 및 네트워크 장비용 42U 인클로저. 케이블/PDU 공간과 장비 깊이를 확인합니다.",
+      "officialUrl": "https://www.se.com/kr/ko/product/AR3300/apc-%EC%84%9C%EB%B2%84-%EB%9E%99-%EC%9D%B8%ED%81%B4%EB%A1%9C%EC%A0%80-netshelter-sx-42u-%EA%B2%80%EC%A0%95%EC%83%89-1991h-x-600w-x-1200d-mm/",
+      "sourceUrls": [
+        "https://www.se.com/kr/ko/product/AR3300/apc-%EC%84%9C%EB%B2%84-%EB%9E%99-%EC%9D%B8%ED%81%B4%EB%A1%9C%EC%A0%80-netshelter-sx-42u-%EA%B2%80%EC%A0%95%EC%83%89-1991h-x-600w-x-1200d-mm/"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "높이": "42U",
+        "외형 H×W×D": "1991 × 600 × 1200 mm",
+        "비고": "정적/동적 하중·레일·냉각·장비 깊이 확인; 랙당 IT kW 정격 아님",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "ar3100b2": {
+      "name": "APC NetShelter SX Gen 2 AR3100B2",
+      "description": "측면 패널을 포함한 42U 서버 랙.",
+      "officialUrl": "https://shop.se.com/pro/us/en/product/apc-netshelter-sx-server-rack-gen-2-42u-1991h-x-600w-x-1070d-mm-with-sides-black-taa/",
+      "sourceUrls": [
+        "https://shop.se.com/pro/us/en/product/apc-netshelter-sx-server-rack-gen-2-42u-1991h-x-600w-x-1070d-mm-with-sides-black-taa/"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "높이": "42U",
+        "외형 H×W×D": "1991 × 600 × 1070 mm",
+        "구성": "Black / with sides / TAA (미국 페이지)",
+        "비고": "하중·레일·장비 깊이·냉각 및 한국 공급 확인",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "높이",
+    "외형 H×W×D",
+    "비고",
+    "확인 상태",
+    "구성"
+  ]
+}

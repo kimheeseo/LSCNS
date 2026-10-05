@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-05",
   "pdfCount": 1021,
-  "structuredCatalogFiles": 111,
+  "structuredCatalogFiles": 122,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
@@ -542,6 +542,72 @@
       "pdfCount": 0,
       "structuredMetadata": true,
       "productRows": 4
+    },
+    {
+      "folder": "Schneider Electric/UPS",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Eaton/UPS",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 3
+    },
+    {
+      "folder": "Cummins/Generators",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Caterpillar/Generators",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Schneider Electric/Racks",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Hitachi Energy/Transformers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Panduit/Cable Management",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 3
+    },
+    {
+      "folder": "Panduit/Copper Data Cables",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Amphenol/Copper DAC",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
+    },
+    {
+      "folder": "Amphenol/Active Electrical Cables",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 5
+    },
+    {
+      "folder": "Credo/Active Electrical Cables",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 2
     }
   ],
   "nvidiaDataCenter": {
@@ -725,6 +791,50 @@
       "Coherent 400G DR4 product page distance 2km preserved as vendor specification, not generic IEEE DR4 reach",
       "Optical components are separate from complete module procurement BOM",
       "Switch unidirectional and bidirectional throughput bases are explicitly distinguished"
+    ]
+  },
+  "powerRackCablingExpansion": {
+    "checked": "2026-10-05",
+    "newCatalogFiles": 11,
+    "productRows": 24,
+    "newVendors": 6,
+    "vendors": {
+      "Schneider Electric": 3,
+      "Eaton": 3,
+      "Cummins": 1,
+      "Caterpillar": 1,
+      "Hitachi Energy": 2,
+      "Panduit": 5,
+      "Amphenol": 7,
+      "Credo": 2
+    },
+    "scope": "Representative official products/product families; not exhaustive SKU inventory",
+    "pdfCount": 0,
+    "storageMode": "official URL metadata only",
+    "sourceUrls": [
+      "https://productinfo.se.com/galaxyvxl_iec/viewer?docidentity=TechnicalSpecificationsGalaxyVXLFor-5E78E4EA&extension=xml&lang=en",
+      "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html",
+      "https://selfscreening.cummins.com/en-kr/generators/products/c3000d6e",
+      "https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html",
+      "https://www.se.com/kr/ko/product/AR3300/apc-%EC%84%9C%EB%B2%84-%EB%9E%99-%EC%9D%B8%ED%81%B4%EB%A1%9C%EC%A0%80-netshelter-sx-42u-%EA%B2%80%EC%A0%95%EC%83%89-1991h-x-600w-x-1200d-mm/",
+      "https://shop.se.com/pro/us/en/product/apc-netshelter-sx-server-rack-gen-2-42u-1991h-x-600w-x-1070d-mm-with-sides-black-taa/",
+      "https://www.hitachienergy.com/products-and-solutions/transformers/by-customer-segment/transformers-for-data-centers",
+      "https://www.panduit.com/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "https://www.panduit.com/content/dam/panduit/en/products/media/0/80/580/0580/111810580.pdf",
+      "https://mkt.panduit.com/wire-basket-cable-tray-solution.html",
+      "https://www.panduit.com/content/dam/panduit/ja/products/media/8/58/258/9258/110069258.pdf",
+      "https://www.panduit.com/en/products/copper-systems/copper-patch-cords/copper-patch-cords.html",
+      "https://www.amphenol-cs.com/cables/direct-attach-copper-cables.html",
+      "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-HiWire-AECs-to-Support-400G-AIML-Backend-Networks-03-19-2024/default.aspx",
+      "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-New-HiWire-Shift-AECs-to-Support-400G-Q112-Network-Ports-for-Growing-AIML-Backend-Networks-in-China-09-10-2024/default.aspx"
+    ],
+    "validationNotes": [
+      "UPS US 480V regional specifications explicitly marked",
+      "Generator DCC/Standby and kW/kVA separated",
+      "Rack dimensions are not rack IT power",
+      "Transformer rating requires order-specific engineering",
+      "AEC/DAC not automatically matched to optical BOM; integrated electronics are not optical transceivers"
     ]
   }
 }

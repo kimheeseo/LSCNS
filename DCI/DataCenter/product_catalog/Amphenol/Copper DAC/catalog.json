@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "Copper DAC",
+  "displayName": "Copper Cable (DAC)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "osfp-dac": {
+      "name": "OSFP Passive DAC",
+      "description": "데이터센터 단거리 서버/스위치 연결용 수동 Twinax 동 케이블 제품군.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/direct-attach-copper-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/direct-attach-copper-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "매체": "Passive DAC",
+        "포트": "OSFP",
+        "속도": "200G/400G/800G/1.6T 제품군",
+        "길이": "112G/lane 수동 구성 최대 2m (공식 제품군 설명)",
+        "비고": "속도별 도달거리·SKU·브레이크아웃·호스트/FEC 호환 확인; 광모듈 별도 추가하지 않음",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "qsfpdd-dac": {
+      "name": "QSFP-DD Passive DAC",
+      "description": "데이터센터 단거리 서버/스위치 연결용 수동 Twinax 동 케이블 제품군.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/direct-attach-copper-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/direct-attach-copper-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "매체": "Passive DAC",
+        "포트": "QSFP-DD",
+        "속도": "200G/400G/800G 제품군",
+        "길이": "112G/lane 수동 구성 최대 2m (공식 제품군 설명)",
+        "비고": "속도별 도달거리·SKU·브레이크아웃·호스트/FEC 호환 확인; 광모듈 별도 추가하지 않음",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "매체",
+    "포트",
+    "속도",
+    "길이",
+    "비고",
+    "확인 상태"
+  ]
+}

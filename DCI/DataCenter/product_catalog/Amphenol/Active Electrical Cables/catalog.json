@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "company": "Amphenol",
+  "category": "Active Electrical Cables",
+  "displayName": "AEC (Active Electrical Cable)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "NJMMNK-0301": {
+      "name": "NJMMNK-0301 OSFP AEC",
+      "description": "리타이머를 내장한 고속 동 케이블. 광 AOC 및 선형 ACC와 구분합니다.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/active-electrical-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "매체": "AEC (Retimer-based copper)",
+        "포트": "OSFP",
+        "레인 속도": "112G/lane (집계 속도와 구분)",
+        "길이": "1m",
+        "선경": "32AWG",
+        "리타이머": "Marvell",
+        "비고": "호스트/FEC/펌웨어·집계 속도 확인; 양단 광 트랜시버 중복 계산 제외",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "NJMMNK-0302": {
+      "name": "NJMMNK-0302 OSFP AEC",
+      "description": "리타이머를 내장한 고속 동 케이블. 광 AOC 및 선형 ACC와 구분합니다.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/active-electrical-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "매체": "AEC (Retimer-based copper)",
+        "포트": "OSFP",
+        "레인 속도": "112G/lane (집계 속도와 구분)",
+        "길이": "2m",
+        "선경": "32AWG",
+        "리타이머": "Marvell",
+        "비고": "호스트/FEC/펌웨어·집계 속도 확인; 양단 광 트랜시버 중복 계산 제외",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "NJMMNK-0303": {
+      "name": "NJMMNK-0303 OSFP AEC",
+      "description": "리타이머를 내장한 고속 동 케이블. 광 AOC 및 선형 ACC와 구분합니다.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/active-electrical-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "매체": "AEC (Retimer-based copper)",
+        "포트": "OSFP",
+        "레인 속도": "112G/lane (집계 속도와 구분)",
+        "길이": "3m",
+        "선경": "32AWG",
+        "리타이머": "Marvell",
+        "비고": "호스트/FEC/펌웨어·집계 속도 확인; 양단 광 트랜시버 중복 계산 제외",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "NEUUSH-0103": {
+      "name": "NEUUSH-0103 OSFP-XD PCIe AEC",
+      "description": "PCIe Gen5용 리타이머 동 케이블. Ethernet 케이블과 분리해 선택합니다.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/active-electrical-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "매체": "AEC",
+        "포트": "OSFP-XD",
+        "프로토콜": "PCIe Gen5",
+        "길이": "3m",
+        "선경": "27AWG",
+        "리타이머": "Broadcom",
+        "비고": "PCIe 구성/핀맵·호스트 호환 확인; Ethernet 속도로 환산하지 않음",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "NEUUSH-0105": {
+      "name": "NEUUSH-0105 OSFP-XD PCIe AEC",
+      "description": "PCIe Gen5용 리타이머 동 케이블. Ethernet 케이블과 분리해 선택합니다.",
+      "officialUrl": "https://www.amphenol-cs.com/cables/active-electrical-cables.html",
+      "sourceUrls": [
+        "https://www.amphenol-cs.com/cables/active-electrical-cables.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "매체": "AEC",
+        "포트": "OSFP-XD",
+        "프로토콜": "PCIe Gen5",
+        "길이": "5m",
+        "선경": "27AWG",
+        "리타이머": "Broadcom",
+        "비고": "PCIe 구성/핀맵·호스트 호환 확인; Ethernet 속도로 환산하지 않음",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "매체",
+    "포트",
+    "레인 속도",
+    "길이",
+    "선경",
+    "리타이머",
+    "비고",
+    "확인 상태",
+    "프로토콜"
+  ]
+}

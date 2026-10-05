@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "company": "Hitachi Energy",
+  "category": "Transformers",
+  "displayName": "Transformer (변압기)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "dry": {
+      "name": "Data Center Dry-Type Transformers",
+      "description": "데이터센터 수전 및 배전용 주문 사양 변압기 제품군.",
+      "officialUrl": "https://www.hitachienergy.com/products-and-solutions/transformers/by-customer-segment/transformers-for-data-centers",
+      "sourceUrls": [
+        "https://www.hitachienergy.com/products-and-solutions/transformers/by-customer-segment/transformers-for-data-centers"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "형식": "건식",
+        "정격": "kVA/MVA·1차/2차 전압 주문 사양 확인",
+        "비고": "kVA와 kW 구분; 손실·고조파·보호 협조·단락/돌입 전류·접지 검토",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "liquid": {
+      "name": "Data Center Liquid-Filled Transformers",
+      "description": "데이터센터 수전 및 배전용 주문 사양 변압기 제품군.",
+      "officialUrl": "https://www.hitachienergy.com/products-and-solutions/transformers/by-customer-segment/transformers-for-data-centers",
+      "sourceUrls": [
+        "https://www.hitachienergy.com/products-and-solutions/transformers/by-customer-segment/transformers-for-data-centers"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "형식": "액체 충전식",
+        "정격": "kVA/MVA·1차/2차 전압 주문 사양 확인",
+        "비고": "kVA와 kW 구분; 손실·고조파·보호 협조·단락/돌입 전류·접지 검토",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "형식",
+    "정격",
+    "비고",
+    "확인 상태"
+  ]
+}

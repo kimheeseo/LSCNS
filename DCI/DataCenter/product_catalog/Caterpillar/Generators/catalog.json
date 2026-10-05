@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "company": "Caterpillar",
+  "category": "Generators",
+  "displayName": "Generator (발전기)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "c175-20-60hz": {
+      "name": "Cat C175-20 (60 Hz)",
+      "description": "미션 크리티컬 설비용 대형 디젤 발전기 제품군.",
+      "officialUrl": "https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html",
+      "sourceUrls": [
+        "https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "주파수": "60 Hz",
+        "출력 범위": "3150–4000 ekW",
+        "운전 등급": "Continuous / Standby / Prime 구성별 확인",
+        "비고": "SKU별 등급·배출 기준·현장 디레이팅 검증 필요",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "주파수",
+    "출력 범위",
+    "운전 등급",
+    "비고",
+    "확인 상태"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "company": "Credo",
+  "category": "Active Electrical Cables",
+  "displayName": "AEC (Active Electrical Cable)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "hiwire-400g": {
+      "name": "HiWire 400G AI/ML AEC",
+      "description": "AI/ML 백엔드 네트워크용 능동 전기 케이블 제품군.",
+      "officialUrl": "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-HiWire-AECs-to-Support-400G-AIML-Backend-Networks-03-19-2024/default.aspx",
+      "sourceUrls": [
+        "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-HiWire-AECs-to-Support-400G-AIML-Backend-Networks-03-19-2024/default.aspx"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "매체": "AEC (능동 동 케이블)",
+        "속도": "400G",
+        "비고": "커넥터·길이·SKU·호스트/FEC 호환 검증 필요; 광모듈 중복 합산 제외",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "hiwire-shift-q112": {
+      "name": "HiWire Shift 400G Q112 AEC",
+      "description": "400G Q112 포트 연결을 위한 HiWire Shift AEC 제품군.",
+      "officialUrl": "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-New-HiWire-Shift-AECs-to-Support-400G-Q112-Network-Ports-for-Growing-AIML-Backend-Networks-in-China-09-10-2024/default.aspx",
+      "sourceUrls": [
+        "https://investors.credosemi.com/news-events/news/news-details/2024/Credo-Introduces-New-HiWire-Shift-AECs-to-Support-400G-Q112-Network-Ports-for-Growing-AIML-Backend-Networks-in-China-09-10-2024/default.aspx"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "매체": "AEC",
+        "속도": "400G",
+        "포트": "Q112",
+        "비고": "양단 포트·길이·제품 코드·공급 및 호환 확인",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "매체",
+    "속도",
+    "비고",
+    "확인 상태",
+    "포트"
+  ]
+}

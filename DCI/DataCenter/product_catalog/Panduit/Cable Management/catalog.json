@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "company": "Panduit",
+  "category": "Cable Management",
+  "displayName": "Cable Management (케이블 관리)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "fiberrunner": {
+      "name": "FiberRunner Cable Routing System",
+      "description": "데이터센터 광 및 고성능 동 케이블의 경로 관리·보호 시스템.",
+      "officialUrl": "https://www.panduit.com/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "sourceUrls": [
+        "https://www.panduit.com/en/products/featured-products/fiberrunner-cable-routing-system.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "용도": "광/동 케이블 경로 분리 및 보호",
+        "구성": "채널·피팅·브래킷 등 SKU 선택",
+        "비고": "충전율·굽힘 반경·지지 간격·실제 경로 길이 확인",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "patchrunner-pr2vd06": {
+      "name": "PatchRunner 2 PR2VD06",
+      "description": "EIA 랙 사이의 고밀도 수직 케이블 관리용 제품.",
+      "officialUrl": "https://www.panduit.com/content/dam/panduit/en/products/media/0/80/580/0580/111810580.pdf",
+      "sourceUrls": [
+        "https://www.panduit.com/content/dam/panduit/en/products/media/0/80/580/0580/111810580.pdf"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "폭": "6 in",
+        "형식": "수직 케이블 매니저",
+        "특징": "케이블 굽힘 반경 관리",
+        "비고": "랙 높이·양면/단면·액세서리 구성 확인",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    },
+    "wire-basket": {
+      "name": "Wire Basket Cable Tray",
+      "description": "동 데이터 케이블을 포함하는 경로 구축용 와이어 바스켓 솔루션.",
+      "officialUrl": "https://mkt.panduit.com/wire-basket-cable-tray-solution.html",
+      "sourceUrls": [
+        "https://mkt.panduit.com/wire-basket-cable-tray-solution.html"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "형식": "와이어 바스켓 트레이 제품군",
+        "비고": "폭/높이·하중·접지·지지 간격·경로 확인",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "용도",
+    "구성",
+    "비고",
+    "확인 상태",
+    "폭",
+    "형식",
+    "특징"
+  ]
+}

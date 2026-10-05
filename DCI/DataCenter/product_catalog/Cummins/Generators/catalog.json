@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "company": "Cummins",
+  "category": "Generators",
+  "displayName": "Generator (발전기)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "c3000d6e": {
+      "name": "Cummins C3000D6E",
+      "description": "QSK95-G9 디젤 비상/상용 발전기. DCC와 Standby 용량을 구분합니다.",
+      "officialUrl": "https://selfscreening.cummins.com/en-kr/generators/products/c3000d6e",
+      "sourceUrls": [
+        "https://selfscreening.cummins.com/en-kr/generators/products/c3000d6e"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": false,
+      "specs": {
+        "주파수": "60 Hz",
+        "DCC": "2750 kW / 3438 kVA",
+        "Standby": "3000 kW / 3750 kVA",
+        "Continuous": "2500 kW / 3125 kVA",
+        "비고": "고도·온도·연료 저장·부하 수용·병렬 구성 확인",
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "주파수",
+    "DCC",
+    "Standby",
+    "Continuous",
+    "비고",
+    "확인 상태"
+  ]
+}

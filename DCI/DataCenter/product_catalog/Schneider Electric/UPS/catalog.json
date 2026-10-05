@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "company": "Schneider Electric",
+  "category": "UPS",
+  "displayName": "UPS (무정전 전원장치)",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "official URL metadata only; no PDF upload",
+  "products": {
+    "galaxy-vxl": {
+      "name": "Galaxy VXL",
+      "description": "데이터센터용 모듈형 3상 UPS. 설치 모듈 수와 이중화 조건에 따라 유효 용량을 확인합니다.",
+      "officialUrl": "https://productinfo.se.com/galaxyvxl_iec/viewer?docidentity=TechnicalSpecificationsGalaxyVXLFor-5E78E4EA&extension=xml&lang=en",
+      "sourceUrls": [
+        "https://productinfo.se.com/galaxyvxl_iec/viewer?docidentity=TechnicalSpecificationsGalaxyVXLFor-5E78E4EA&extension=xml&lang=en"
+      ],
+      "checked": "2026-10-05",
+      "confidence": "높음 (공식 공개 자료); 공급·호환·현장 조건 검증 필요",
+      "referenceOnly": true,
+      "specs": {
+        "정격": "500–1250 kW 제품군",
+        "전압": "380/400/415 V",
+        "입력 주파수 범위": "40–70 Hz",
+        "비고": "배터리 자율운전 시간·N+1/2N·한국 전압/주파수 구성 별도 검토",
+        "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "정격",
+    "전압",
+    "입력 주파수 범위",
+    "비고",
+    "확인 상태"
+  ]
+}

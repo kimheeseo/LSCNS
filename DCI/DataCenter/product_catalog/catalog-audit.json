@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-05",
   "pdfCount": 1021,
-  "structuredCatalogFiles": 99,
+  "structuredCatalogFiles": 111,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
@@ -470,6 +470,78 @@
       "pdfCount": 0,
       "structuredMetadata": true,
       "productRows": 1
+    },
+    {
+      "folder": "Coherent/Optical Transceivers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 6
+    },
+    {
+      "folder": "AOI/Optical Transceivers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 6
+    },
+    {
+      "folder": "Lumentum/Optical Chips and Lasers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
+    },
+    {
+      "folder": "Lumentum/CPO Light Sources",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 1
+    },
+    {
+      "folder": "Credo/Optical DSPs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 8
+    },
+    {
+      "folder": "Credo/Silicon Photonics PICs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
+    },
+    {
+      "folder": "Broadcom/Optical PHYs and DSPs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
+    },
+    {
+      "folder": "MACOM/Optical TIAs and Drivers",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 5
+    },
+    {
+      "folder": "Marvell/Optical DSPs",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 5
+    },
+    {
+      "folder": "Juniper/Data Center Switches",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
+    },
+    {
+      "folder": "Cisco/Data Center Switches",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 3
+    },
+    {
+      "folder": "Arista/Data Center Switches",
+      "pdfCount": 0,
+      "structuredMetadata": true,
+      "productRows": 4
     }
   ],
   "nvidiaDataCenter": {
@@ -583,6 +655,76 @@
       "CPU/GPU TDP, PSU and CDU ratings are not actual server/rack IT power",
       "Unconfirmed SKU, availability and NIC configuration require verification",
       "Server infrastructure is design reference, not automatic optical BOM mapping"
+    ]
+  },
+  "opticalChipSwitchExpansion": {
+    "checked": "2026-10-05",
+    "newVendors": 10,
+    "newCatalogFiles": 12,
+    "productRows": 54,
+    "vendors": {
+      "Coherent": 6,
+      "AOI": 6,
+      "Lumentum": 5,
+      "Credo": 12,
+      "Broadcom": 4,
+      "MACOM": 5,
+      "Marvell": 5,
+      "Juniper": 4,
+      "Cisco": 3,
+      "Arista": 4
+    },
+    "pdfCount": 0,
+    "scope": "Representative official products and explicitly marked product families; not exhaustive SKU inventory",
+    "storageMode": "official URL metadata only",
+    "sourceUrls": [
+      "https://www.coherent.com/networking/transceivers/datacom/FTCD4533E3PCM",
+      "https://www.coherent.com/networking/transceivers/datacom/FTCD4313E3PCL",
+      "https://www.coherent.com/networking/transceivers/datacom/FTCD4323E3PCL",
+      "https://www.coherent.com/networking/transceivers/datacom/FTCE4516E1PXM",
+      "https://www.coherent.com/networking/transceivers/datacom/FTCE4527E1PxM",
+      "https://www.coherent.com/news/press-releases/coherent-demonstrates-two-advanced-transceiver-modules",
+      "https://ao-inc.com/products/optical-transceivers/",
+      "https://ao-inc.com/assets/resources-element-files/English/800G_OSFP_DR8_datasheet.pdf",
+      "https://www.lumentum.com/en/products/data-center/modulated-lasers/emls",
+      "https://www.lumentum.com/en/products/eml-200g-pam4-cwdm-laser",
+      "https://www.lumentum.com/en/products/1311-nm-continuous-wave-cw-laser-a6-series",
+      "https://www.lumentum.com/en/products/cwdm-continuous-wave-cw-laser-a8-series",
+      "https://www.lumentum.com/products/external-laser-source-els-module-ultra-high-power-laser",
+      "https://credosemi.com/products/optical-dsp/cardinal-1650/",
+      "https://credosemi.com/products/optical-dsp/",
+      "https://credosemi.com/products/optical-dsp/cardinal-802/",
+      "https://credosemi.com/products/optical-dsp/cardinal-800/",
+      "https://credosemi.com/products/optical-dsp/robin-852/",
+      "https://credosemi.com/products/optical-dsp/robin-850/",
+      "https://credosemi.com/products/optical-dsp/robin-802/",
+      "https://credosemi.com/products/optical-dsp/robin-800/",
+      "https://credosemi.com/products/optical-dsp/robin-400/",
+      "https://credosemi.com/products/silicon-photonics/kfir200/",
+      "https://credosemi.com/products/silicon-photonics/kfir/",
+      "https://credosemi.com/products/silicon-photonics/",
+      "https://credosemi.com/products/silicon-photonics/tamar/",
+      "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87800",
+      "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87803",
+      "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83820",
+      "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83822",
+      "https://www.macom.com/pure-drive-linear-architecture",
+      "https://www.marvell.com/products/pam-dsp.html",
+      "https://apps.juniper.net/hct/product/QFX5240-64OD/hwspecs",
+      "https://apps.juniper.net/hct/product/QFX5240-64QD/hwspecs",
+      "https://www.juniper.net/gb/en/products/switches/qfx-series/qfx5220-switch-datasheet.html",
+      "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sg2-switch-ds.html",
+      "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sp2r-switches-ds.html",
+      "https://www.cisco.com/c/dam/en/us/products/collateral/networking/switches/nexus-9000-series-switches/nexus-9300-gx2-series-fixed-switches-ds.pdf",
+      "https://www.arista.com/en/products/7060x6-series",
+      "https://www.arista.com/en/products/7060x5-series",
+      "https://www.arista.com/en/products/7800r4-series"
+    ],
+    "validationNotes": [
+      "AOI 800G OSFP DR8 wavelength inconsistency (1311/1331 nm) flagged",
+      "Coherent 400G DR4 product page distance 2km preserved as vendor specification, not generic IEEE DR4 reach",
+      "Optical components are separate from complete module procurement BOM",
+      "Switch unidirectional and bidirectional throughput bases are explicitly distinguished"
     ]
   }
 }

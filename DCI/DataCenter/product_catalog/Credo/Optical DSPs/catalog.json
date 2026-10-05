@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "company": "Credo",
+  "category": "Optical DSPs",
+  "displayName": "광칩 · PAM4 DSP",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "cardinal-1650": {
+      "name": "Credo Cardinal 1650",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/cardinal-1650/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/cardinal-1650/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "8:8",
+        "Host / Line 레인 속도": "200G / 200G",
+        "모듈 적용": "1.6T SR8/DR8/FR8 · 800G SR4/DR4/FR4",
+        "패키지": "Bare Die",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "cardinal-802": {
+      "name": "Credo Cardinal 802",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/cardinal-802/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/cardinal-802/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "4:4",
+        "Host / Line 레인 속도": "200G / 200G",
+        "모듈 적용": "800G DR4/FR4/LR4 · 1.6T 모듈 구성은 복수 DSP 여부 확인",
+        "패키지": "Bare Die",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "cardinal-800": {
+      "name": "Credo Cardinal 800",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/cardinal-800/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/cardinal-800/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "4:4",
+        "Host / Line 레인 속도": "200G / 200G",
+        "모듈 적용": "800G SR4/DR4/FR4/LR4 · 1.6T 모듈 구성은 복수 DSP 여부 확인",
+        "패키지": "Bare Die",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "robin-852": {
+      "name": "Credo Robin 852",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/robin-852/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/robin-852/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "8:8",
+        "Host / Line 레인 속도": "100G / 100G",
+        "모듈 적용": "800G DR8 · 2×400G DR4/FR4",
+        "패키지": "11 × 9 mm",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "robin-850": {
+      "name": "Credo Robin 850",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/robin-850/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/robin-850/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "8:8",
+        "Host / Line 레인 속도": "100G / 100G",
+        "모듈 적용": "800G SR8/DR8 · 2×400G SR4/DR4/FR4",
+        "패키지": "11 × 9 mm",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "robin-802": {
+      "name": "Credo Robin 802",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/robin-802/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/robin-802/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "8:8",
+        "Host / Line 레인 속도": "100G / 100G",
+        "모듈 적용": "800G DR8 · 2×400G DR4/FR4",
+        "패키지": "11 × 9 mm",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "robin-800": {
+      "name": "Credo Robin 800",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/robin-800/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/robin-800/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "8:8",
+        "Host / Line 레인 속도": "100G / 100G",
+        "모듈 적용": "800G SR8/DR8 · 2×400G SR4/DR4/FR4",
+        "패키지": "11 × 9 mm",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "robin-400": {
+      "name": "Credo Robin 400",
+      "description": "광모듈 내부의 신호 처리용 DSP. 레인당 속도와 완성 모듈 총 속도를 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/optical-dsp/robin-400/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/optical-dsp/robin-400/",
+        "https://credosemi.com/products/optical-dsp/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP",
+        "Host:Line 레인 구성": "4:4",
+        "Host / Line 레인 속도": "100G / 100G",
+        "모듈 적용": "400G VR4/SR4/DR4/FR4/LR4",
+        "패키지": "11 × 5 mm",
+        "동작 온도": "0–85 °C",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  }
+}

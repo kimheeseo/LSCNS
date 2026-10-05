@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "company": "MACOM",
+  "category": "Optical TIAs and Drivers",
+  "displayName": "광칩 · TIA / 레이저 드라이버",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "mald-39435": {
+      "name": "MACOM MALD-39435",
+      "description": "PURE DRIVE LPO용 광 프런트엔드 IC. 레인 처리량은 완성 모듈 판매 규격과 구분합니다.",
+      "officialUrl": "https://www.macom.com/pure-drive-linear-architecture",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.macom.com/pure-drive-linear-architecture"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "VCSEL Driver",
+        "레인 구성": "4×100G",
+        "매체 적용": "MMF",
+        "인터페이스": "250 µm pad spacing · wirebond",
+        "아키텍처": "Linear Pluggable Optics (LPO)",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "mata-39534": {
+      "name": "MACOM MATA-39534",
+      "description": "PURE DRIVE LPO용 광 프런트엔드 IC. 레인 처리량은 완성 모듈 판매 규격과 구분합니다.",
+      "officialUrl": "https://www.macom.com/pure-drive-linear-architecture",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.macom.com/pure-drive-linear-architecture"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "TIA",
+        "레인 구성": "4×100G",
+        "매체 적용": "MMF",
+        "인터페이스": "250 µm detector pad spacing · wirebond",
+        "아키텍처": "Linear Pluggable Optics (LPO)",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "mald-39076": {
+      "name": "MACOM MALD-39076",
+      "description": "PURE DRIVE LPO용 광 프런트엔드 IC. 레인 처리량은 완성 모듈 판매 규격과 구분합니다.",
+      "officialUrl": "https://www.macom.com/pure-drive-linear-architecture",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.macom.com/pure-drive-linear-architecture"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "EML/SiP Driver",
+        "레인 구성": "4×100G",
+        "매체 적용": "SMF",
+        "인터페이스": "선택 AGC · flip chip",
+        "아키텍처": "Linear Pluggable Optics (LPO)",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "mata-39134": {
+      "name": "MACOM MATA-39134",
+      "description": "PURE DRIVE LPO용 광 프런트엔드 IC. 레인 처리량은 완성 모듈 판매 규격과 구분합니다.",
+      "officialUrl": "https://www.macom.com/pure-drive-linear-architecture",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.macom.com/pure-drive-linear-architecture"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "TIA",
+        "레인 구성": "4×100G",
+        "매체 적용": "SMF",
+        "인터페이스": "500 µm detector pad spacing · wirebond",
+        "아키텍처": "Linear Pluggable Optics (LPO)",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "maom-005408": {
+      "name": "MACOM MAOM-005408",
+      "description": "PURE DRIVE LPO용 광 프런트엔드 IC. 레인 처리량은 완성 모듈 판매 규격과 구분합니다.",
+      "officialUrl": "https://www.macom.com/pure-drive-linear-architecture",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.macom.com/pure-drive-linear-architecture"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "SiPh Driver",
+        "레인 구성": "4×106Gbps PAM4",
+        "매체 적용": "SMF",
+        "인터페이스": "625 µm RF pitch · SiPh modulator wirebond",
+        "아키텍처": "Linear Pluggable Optics (LPO)",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "레인 구성",
+    "매체 적용",
+    "인터페이스",
+    "아키텍처",
+    "BOM 적용",
+    "확인 상태"
+  ]
+}

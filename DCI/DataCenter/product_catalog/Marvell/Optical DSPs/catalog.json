@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "company": "Marvell",
+  "category": "Optical DSPs",
+  "displayName": "광칩 · PAM4 DSP",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "ara": {
+      "name": "Marvell Ara",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.marvell.com/products/pam-dsp.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP · 제품군",
+        "공개 P/N": "MV-CD83x",
+        "모듈 / 인터페이스 속도": "1.6T",
+        "특징": "Ethernet / InfiniBand",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "nova": {
+      "name": "Marvell Nova",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.marvell.com/products/pam-dsp.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP · 제품군",
+        "공개 P/N": "MV-CD43x",
+        "모듈 / 인터페이스 속도": "1.6T / 800G",
+        "특징": "Ethernet / InfiniBand",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "spica": {
+      "name": "Marvell Spica / Spica Gen2",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.marvell.com/products/pam-dsp.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP · 제품군",
+        "공개 P/N": "MV-CD822",
+        "모듈 / 인터페이스 속도": "800G",
+        "특징": "Ethernet / InfiniBand",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "perseus": {
+      "name": "Marvell Perseus",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.marvell.com/products/pam-dsp.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP · 제품군",
+        "공개 P/N": "MV-CD422",
+        "모듈 / 인터페이스 속도": "400G / 800G",
+        "특징": "통합 TIA·레이저 드라이버 · short reach",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "alcor": {
+      "name": "Marvell Alcor",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.marvell.com/products/pam-dsp.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PAM4 DSP · 제품군",
+        "공개 P/N": "IN010C25",
+        "모듈 / 인터페이스 속도": "100G per wavelength",
+        "특징": "25G→100G 파장당 인터페이스 변환",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "공개 P/N",
+    "모듈 / 인터페이스 속도",
+    "특징",
+    "BOM 적용",
+    "확인 상태"
+  ]
+}

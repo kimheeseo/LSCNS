@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "company": "Cisco",
+  "category": "Data Center Switches",
+  "displayName": "스위치 · Nexus",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "n9364e-sg2": {
+      "name": "Cisco Nexus N9364E-SG2",
+      "description": "데이터센터 Ethernet fabric 스위치. 처리량은 단방향 포트 합과 양방향 제조사 표기를 병기합니다.",
+      "officialUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sg2-switch-ds.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sg2-switch-ds.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "2RU",
+        "네트워크 포트": "64 × 800G (QSFP-DD / OSFP SKU)",
+        "처리량 기준": "51.2 Tb/s 단방향 포트 합 / 102.4 Tb/s 양방향",
+        "버퍼": "256 MB on-die",
+        "운영체제": "NX-OS · ACI/기능 지원은 모델·릴리스별 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "n9364e-sp2r": {
+      "name": "Cisco Nexus N9364E-SP2R",
+      "description": "데이터센터 Ethernet fabric 스위치. 처리량은 단방향 포트 합과 양방향 제조사 표기를 병기합니다.",
+      "officialUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sp2r-switches-ds.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9364e-sp2r-switches-ds.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "3RU",
+        "네트워크 포트": "64 × 800G (QSFP-DD / OSFP SKU)",
+        "처리량 기준": "51.2 Tb/s 단방향 포트 합 / 102.4 Tb/s 양방향",
+        "버퍼": "144 MB on-die + 16 GB HBM",
+        "운영체제": "NX-OS · ACI/기능 지원은 모델·릴리스별 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "n9332d-gx2b": {
+      "name": "Cisco Nexus N9332D-GX2B",
+      "description": "데이터센터 Ethernet fabric 스위치. 처리량은 단방향 포트 합과 양방향 제조사 표기를 병기합니다.",
+      "officialUrl": "https://www.cisco.com/c/dam/en/us/products/collateral/networking/switches/nexus-9000-series-switches/nexus-9300-gx2-series-fixed-switches-ds.pdf",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.cisco.com/c/dam/en/us/products/collateral/networking/switches/nexus-9000-series-switches/nexus-9300-gx2-series-fixed-switches-ds.pdf"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "1RU",
+        "네트워크 포트": "32 × 400G QSFP-DD + 2 × 1/10G SFP+",
+        "처리량 기준": "12.8 Tb/s 단방향 고속 포트 합 / 25.6 Tb/s 양방향",
+        "버퍼": "SKU별 확인",
+        "운영체제": "NX-OS · ACI/기능 지원은 모델·릴리스별 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "높이",
+    "네트워크 포트",
+    "처리량 기준",
+    "버퍼",
+    "운영체제",
+    "전력",
+    "설계 적용",
+    "확인 상태"
+  ]
+}

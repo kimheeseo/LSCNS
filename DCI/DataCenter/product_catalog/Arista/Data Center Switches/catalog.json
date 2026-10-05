@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "company": "Arista",
+  "category": "Data Center Switches",
+  "displayName": "스위치 · Etherlink / EOS",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "7060x6-64pe": {
+      "name": "Arista 7060X6-64PE",
+      "description": "AI·클라우드 Ethernet leaf/spine용 플랫폼. 모듈식 7800R4는 제품군 참고입니다.",
+      "officialUrl": "https://www.arista.com/en/products/7060x6-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.arista.com/en/products/7060x6-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "2RU",
+        "네트워크 포트": "64 × 800G OSFP800 / 최대 128 × 400G",
+        "처리량 기준": "51.2 Tb/s 단방향 포트 합",
+        "버퍼": "165 MB",
+        "운영체제": "Arista EOS · CloudVision",
+        "혼잡 제어": "모델/릴리스별 RDMA 혼잡 제어 지원 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "7060x6-32pe": {
+      "name": "Arista 7060X6-32PE",
+      "description": "AI·클라우드 Ethernet leaf/spine용 플랫폼. 모듈식 7800R4는 제품군 참고입니다.",
+      "officialUrl": "https://www.arista.com/en/products/7060x6-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.arista.com/en/products/7060x6-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "1RU",
+        "네트워크 포트": "32 × 800G OSFP800 / 최대 64 × 400G",
+        "처리량 기준": "25.6 Tb/s 단방향 포트 합",
+        "버퍼": "84 MB",
+        "운영체제": "Arista EOS · CloudVision",
+        "혼잡 제어": "모델/릴리스별 RDMA 혼잡 제어 지원 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "7060dx5-32": {
+      "name": "Arista 7060DX5-32",
+      "description": "AI·클라우드 Ethernet leaf/spine용 플랫폼. 모듈식 7800R4는 제품군 참고입니다.",
+      "officialUrl": "https://www.arista.com/en/products/7060x5-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.arista.com/en/products/7060x5-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "1RU",
+        "네트워크 포트": "32 × 400G QSFP-DD / 최대 128 × 100G",
+        "처리량 기준": "12.8 Tb/s 단방향 포트 합",
+        "버퍼": "57 MB",
+        "운영체제": "Arista EOS · CloudVision",
+        "혼잡 제어": "모델/릴리스별 RDMA 혼잡 제어 지원 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "7800r4-series": {
+      "name": "Arista 7800R4 Series",
+      "description": "AI·클라우드 Ethernet leaf/spine용 플랫폼. 모듈식 7800R4는 제품군 참고입니다.",
+      "officialUrl": "https://www.arista.com/en/products/7800r4-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.arista.com/en/products/7800r4-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "섀시별 검증 필요",
+        "네트워크 포트": "800G / 400G · 섀시·라인카드별 수량 확인",
+        "처리량 기준": "섀시·라인카드별 검증 필요",
+        "버퍼": "Deep buffer · 구성별 확인",
+        "운영체제": "Arista EOS · CloudVision",
+        "혼잡 제어": "모델/릴리스별 RDMA 혼잡 제어 지원 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    }
+  },
+  "comparisonFields": [
+    "높이",
+    "네트워크 포트",
+    "처리량 기준",
+    "버퍼",
+    "운영체제",
+    "혼잡 제어",
+    "전력",
+    "설계 적용",
+    "확인 상태"
+  ]
+}

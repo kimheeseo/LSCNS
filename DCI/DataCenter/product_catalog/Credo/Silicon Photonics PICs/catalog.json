@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "company": "Credo",
+  "category": "Silicon Photonics PICs",
+  "displayName": "광칩 · SiPh PIC",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "kfir200": {
+      "name": "Credo Kfir200 PIC",
+      "description": "외부 CW 레이저를 사용하는 실리콘 포토닉스 PIC. 완성 모듈과 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/silicon-photonics/kfir200/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/silicon-photonics/kfir200/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PIC 칩",
+        "총 광 레인 속도": "1.6T",
+        "광 레인": "8×200G",
+        "광 인터페이스": "DR8",
+        "광원": "External CW laser",
+        "적용": "FRO / LRO / LPO 모듈 설계 참고",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "kfir": {
+      "name": "Credo Kfir PIC",
+      "description": "외부 CW 레이저를 사용하는 실리콘 포토닉스 PIC. 완성 모듈과 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/silicon-photonics/kfir/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/silicon-photonics/kfir/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PIC 칩",
+        "총 광 레인 속도": "800G",
+        "광 레인": "8×100G",
+        "광 인터페이스": "DR8",
+        "광원": "External CW laser",
+        "적용": "FRO / LRO / LPO 모듈 설계 참고",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "tamar200": {
+      "name": "Credo Tamar200 PIC",
+      "description": "외부 CW 레이저를 사용하는 실리콘 포토닉스 PIC. 완성 모듈과 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/silicon-photonics/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/silicon-photonics/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PIC 칩",
+        "총 광 레인 속도": "1.6T",
+        "광 레인": "8×200G",
+        "광 인터페이스": "2×FR4",
+        "광원": "External CW laser",
+        "적용": "FRO / LRO / LPO 모듈 설계 참고",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "tamar": {
+      "name": "Credo Tamar PIC",
+      "description": "외부 CW 레이저를 사용하는 실리콘 포토닉스 PIC. 완성 모듈과 구분합니다.",
+      "officialUrl": "https://credosemi.com/products/silicon-photonics/tamar/",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://credosemi.com/products/silicon-photonics/tamar/"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "PIC 칩",
+        "총 광 레인 속도": "800G",
+        "광 레인": "8×100G",
+        "광 인터페이스": "2×FR4 (최대 2 km 적용)",
+        "광원": "External CW laser",
+        "적용": "FRO / LRO / LPO 모듈 설계 참고",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "총 광 레인 속도",
+    "광 레인",
+    "광 인터페이스",
+    "광원",
+    "적용",
+    "BOM 적용",
+    "확인 상태"
+  ]
+}

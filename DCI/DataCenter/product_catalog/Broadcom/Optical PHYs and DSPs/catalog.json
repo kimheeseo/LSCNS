@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "company": "Broadcom",
+  "category": "Optical PHYs and DSPs",
+  "displayName": "광칩 · PAM4 PHY / DSP",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "bcm87800": {
+      "name": "Broadcom BCM87800",
+      "description": "데이터센터 광모듈 내부의 PAM4 PHY/DSP. ASIC과 모듈의 속도·레인 구성을 구분합니다.",
+      "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87800",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87800"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "Optical PHY / DSP",
+        "공정": "7 nm",
+        "PHY 용량": "800GbE",
+        "레인 속도": "8 × 106Gb/s PAM4",
+        "모듈 적용": "DR8 / 2×FR4",
+        "레이저 드라이버": "SKU별 확인",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "bcm87803": {
+      "name": "Broadcom BCM87803",
+      "description": "데이터센터 광모듈 내부의 PAM4 PHY/DSP. ASIC과 모듈의 속도·레인 구성을 구분합니다.",
+      "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87803",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm87803"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "Optical PHY / DSP",
+        "공정": "7 nm",
+        "PHY 용량": "800GbE",
+        "레인 속도": "8 × 112Gb/s PAM4",
+        "모듈 적용": "DR8 / 2×FR4",
+        "레이저 드라이버": "SKU별 확인",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "bcm83820": {
+      "name": "Broadcom BCM83820",
+      "description": "데이터센터 광모듈 내부의 PAM4 PHY/DSP. ASIC과 모듈의 속도·레인 구성을 구분합니다.",
+      "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83820",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83820"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "Optical PHY / DSP",
+        "공정": "3 nm",
+        "PHY 용량": "800GbE gearbox (8:4)",
+        "레인 속도": "200G/lane",
+        "모듈 적용": "800G DR4 / FR4",
+        "레이저 드라이버": "통합 레이저 드라이버",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "bcm83822": {
+      "name": "Broadcom BCM83822",
+      "description": "데이터센터 광모듈 내부의 PAM4 PHY/DSP. ASIC과 모듈의 속도·레인 구성을 구분합니다.",
+      "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83822",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.broadcom.com/products/ethernet-connectivity/phy-and-poe/optical/bcm83822"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "Optical PHY / DSP",
+        "공정": "3 nm",
+        "PHY 용량": "800GbE gearbox (8:4)",
+        "레인 속도": "200G/lane",
+        "모듈 적용": "800G DR4 / FR4",
+        "레이저 드라이버": "통합 레이저 드라이버",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "공정",
+    "PHY 용량",
+    "레인 속도",
+    "모듈 적용",
+    "레이저 드라이버",
+    "BOM 적용",
+    "확인 상태"
+  ]
+}

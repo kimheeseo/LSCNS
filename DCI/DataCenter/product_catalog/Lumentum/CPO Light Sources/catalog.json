@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "company": "Lumentum",
+  "category": "CPO Light Sources",
+  "displayName": "CPO · 외부 광원",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "elsfp": {
+      "name": "Lumentum ELSFP · Ultra-High-Power ELS Module",
+      "description": "CPO 광엔진에 공유 광원을 공급하는 외부 레이저 모듈입니다. 데이터 트랜시버와 구분합니다.",
+      "officialUrl": "https://www.lumentum.com/products/external-laser-source-els-module-ultra-high-power-laser",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.lumentum.com/products/external-laser-source-els-module-ultra-high-power-laser"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "외부 광원 모듈",
+        "적용": "AI·클라우드 CPO · 공유 CW 광원",
+        "관리": "교체 가능한 외부 광원",
+        "출력 / 파이버 / 포트": "SKU별 검증 필요",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "적용",
+    "관리",
+    "출력 / 파이버 / 포트",
+    "BOM 적용",
+    "확인 상태"
+  ]
+}

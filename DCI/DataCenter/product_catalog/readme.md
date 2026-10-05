@@ -119,3 +119,18 @@ Intel Xeon 대표 4개, AMD EPYC 대표 3개, Qualcomm Centriq 과거 서버 제
 Intel Gaudi 2/3와 Flex 140/170/170V(5개), Qualcomm AI 가속기 4종·연결 DSP 5종·Dragonfly C1000(10개), AMD EPYC 9006/9005/9004 제품군(3개), Supermicro(4개), HPE(4개), Dell(5개)를 추가했습니다. 총 신규 31개 항목, 신규 카탈로그 14개입니다. AMD 제품군은 기존 개별 CPU SKU와 별도 분류합니다. Qualcomm Centriq 과거 참고 3종은 보존합니다.
 
 서버 인프라는 대표 제품을 등록하며 전체 SKU 목록을 의미하지 않습니다. 서버/랙 참고 수량과 케이블 BOM을 구분합니다. DSP 레인 속도와 전체 속도, 전원/냉각 용량과 실제 IT 부하를 구분합니다. 모든 제품은 공식 URL·확인일·근거와 검증 필요 사항을 포함하며 PDF 업로드는 없습니다.
+
+## 트랜시버·광칩·스위치 확장 (2026-10-05)
+
+- Coherent: 6개 항목
+- AOI: 6개 항목
+- Lumentum: 5개 항목
+- Credo: 12개 항목
+- Broadcom: 4개 항목
+- MACOM: 5개 항목
+- Marvell: 5개 항목
+- Juniper: 4개 항목
+- Cisco: 3개 항목
+- Arista: 4개 항목
+
+신규 업체 10개, 제품군 폴더 12개, 대표 제품/제품군 54개 항목입니다. Coherent/AOI는 트랜시버, Lumentum/Credo/Broadcom/MACOM/Marvell은 광칩·광원·PIC·DSP·TIA/드라이버, Juniper/Cisco/Arista는 데이터센터 Ethernet 스위치로 분류했습니다. 미공개 SKU와 공급/호환은 검증 필요로 표시합니다. 시연 제품·제품군은 referenceOnly로 구분합니다. 광칩을 완성 트랜시버 BOM에 중복 합산하지 않으며 자동 호환성 매핑은 추가하지 않았습니다. PDF 원본은 업로드하지 않습니다.

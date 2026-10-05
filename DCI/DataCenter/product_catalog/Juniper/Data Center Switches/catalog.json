@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "company": "Juniper",
+  "category": "Data Center Switches",
+  "displayName": "스위치 · QFX",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "qfx5240-64od": {
+      "name": "Juniper QFX5240-64OD",
+      "description": "AI·클라우드 leaf/spine용 Ethernet 스위치. Juniper를 HPE 서버와 별도 업체로 표시합니다.",
+      "officialUrl": "https://apps.juniper.net/hct/product/QFX5240-64OD/hwspecs",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://apps.juniper.net/hct/product/QFX5240-64OD/hwspecs"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "2U",
+        "네트워크 포트": "64 × OSFP800 + 2 × SFP+",
+        "처리량 기준": "51.2 Tb/s 단방향 (QFX5240 family)",
+        "운영체제": "Junos OS Evolved",
+        "패브릭": "RoCEv2 / EVPN-VXLAN · 세부 기능/릴리스 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "qfx5240-64qd": {
+      "name": "Juniper QFX5240-64QD",
+      "description": "AI·클라우드 leaf/spine용 Ethernet 스위치. Juniper를 HPE 서버와 별도 업체로 표시합니다.",
+      "officialUrl": "https://apps.juniper.net/hct/product/QFX5240-64QD/hwspecs",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://apps.juniper.net/hct/product/QFX5240-64QD/hwspecs"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "2U",
+        "네트워크 포트": "64 × QSFP-DD800 + 2 × SFP+",
+        "처리량 기준": "51.2 Tb/s 단방향 (QFX5240 family)",
+        "운영체제": "Junos OS Evolved",
+        "패브릭": "RoCEv2 / EVPN-VXLAN · 세부 기능/릴리스 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "qfx5220-32cd": {
+      "name": "Juniper QFX5220-32CD",
+      "description": "AI·클라우드 leaf/spine용 Ethernet 스위치. Juniper를 HPE 서버와 별도 업체로 표시합니다.",
+      "officialUrl": "https://www.juniper.net/gb/en/products/switches/qfx-series/qfx5220-switch-datasheet.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.juniper.net/gb/en/products/switches/qfx-series/qfx5220-switch-datasheet.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "1U",
+        "네트워크 포트": "32 × 400GbE",
+        "처리량 기준": "12.8 Tb/s 단방향 / 25.6 Tb/s 양방향",
+        "운영체제": "Junos OS Evolved",
+        "패브릭": "RoCEv2 / EVPN-VXLAN · 세부 기능/릴리스 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "qfx5220-128c": {
+      "name": "Juniper QFX5220-128C",
+      "description": "AI·클라우드 leaf/spine용 Ethernet 스위치. Juniper를 HPE 서버와 별도 업체로 표시합니다.",
+      "officialUrl": "https://www.juniper.net/gb/en/products/switches/qfx-series/qfx5220-switch-datasheet.html",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.juniper.net/gb/en/products/switches/qfx-series/qfx5220-switch-datasheet.html"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "높이": "4U",
+        "네트워크 포트": "128 × 100GbE QSFP28",
+        "처리량 기준": "12.8 Tb/s 단방향 / 25.6 Tb/s 양방향",
+        "운영체제": "Junos OS Evolved",
+        "패브릭": "RoCEv2 / EVPN-VXLAN · 세부 기능/릴리스 확인",
+        "전력": "실제 구성 소비전력 검증 필요 · PSU 정격과 구분",
+        "설계 적용": "Ethernet 패브릭 참고 · breakout/FEC/광모듈/소프트웨어 호환성 별도 확인",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "높이",
+    "네트워크 포트",
+    "처리량 기준",
+    "운영체제",
+    "패브릭",
+    "전력",
+    "설계 적용",
+    "확인 상태"
+  ]
+}

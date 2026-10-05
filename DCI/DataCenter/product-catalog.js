@@ -37,7 +37,7 @@
     const item = (items || []).find(x => x.type === 'file' && x.name.toLowerCase() === 'catalog.json');
     if (!item || !item.download_url) return null;
     try {
-      const response = await fetch(item.download_url, {cache:'no-store'});
+      const response = await fetch(item.download_url + (item.download_url.includes('?') ? '&' : '?') + 'catalogVersion=' + encodeURIComponent(item.sha || REF), {cache:'no-store'});
       if (!response.ok) return null;
       return await response.json();
     } catch (_) {
@@ -81,7 +81,7 @@
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>2. 부품군</h3><span id="catalogCategoryCount">—</span></div><div id="catalogCategories" class="catalog-list"><p class="catalog-empty">업체를 선택하세요.</p></div></section>' +
-        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF 제품이 표시됩니다.</p></div><div class="catalog-products-tools"><div id="catalogViewMode" class="catalog-view-mode" role="group" aria-label="제품 정리 방식"><button type="button" data-catalog-view="cards" class="active" aria-pressed="true">카드형</button><button type="button" data-catalog-view="table" aria-pressed="false">표형</button></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
+        '<section class="catalog-products-column"><div class="catalog-products-head"><div><h3>3. 제품·간략 스펙</h3><p id="catalogContext">부품군을 선택하면 등록된 PDF·공식 URL 제품이 표시됩니다.</p></div><div class="catalog-products-tools"><div id="catalogViewMode" class="catalog-view-mode" role="group" aria-label="제품 정리 방식"><button type="button" data-catalog-view="cards" class="active" aria-pressed="true">카드형</button><button type="button" data-catalog-view="table" aria-pressed="false">표형</button></div><input id="catalogSearch" type="search" placeholder="제품명 / 모델 / 사양 검색" disabled></div></div><div id="catalogFamilyFilters" class="catalog-family-filters" hidden></div><div id="catalogProducts" class="catalog-products"><p class="catalog-empty">제품 자료를 선택하세요.</p></div></section>' +
       '</div>' +
       '<div class="catalog-foot">폴더 추가만으로 업체·부품군·하위 제품군·PDF/URL 제품 목록이 자동 반영됩니다. 상세 스펙은 해당 제품군 폴더 또는 상위 부품 폴더의 catalog.json으로 관리합니다.</div>' +
     '</section>';
@@ -146,7 +146,7 @@
     $('catalogProducts').innerHTML = '<p class="catalog-empty">제품 자료를 선택하세요.</p>';
     $('catalogSearch').value = '';
     $('catalogSearch').disabled = true;
-    $('catalogContext').textContent = '부품군을 선택하면 등록된 PDF 제품이 표시됩니다.';
+    $('catalogContext').textContent = '부품군을 선택하면 등록된 PDF·공식 URL 제품이 표시됩니다.';
 
     try {
       const items = await api(BASE, force);
@@ -438,7 +438,7 @@
       $('catalogSearch').disabled = !entries.length;
       renderFamilyFilters(entries);
       applySearch();
-      notice(state.company + ' · ' + category + ' · PDF ' + entries.length + '개 · 제품군 ' + families.length + '개' + (specCount ? ' · 스펙 연결 ' + specCount + '개' : ' · catalog.json 미등록'), specCount ? 'ready' : 'review');
+      notice(state.company + ' · ' + category + ' · PDF ' + pdfOnlyCount + '개 · 공식 URL ' + urlOnlyCount + '개 · 제품군 ' + families.length + '개' + (specCount ? ' · 스펙 연결 ' + specCount + '개' : ' · catalog.json 미등록'), specCount ? 'ready' : 'review');
     } catch (error) {
       notice(error.message, 'error');
       $('catalogProducts').innerHTML = '<p class="catalog-empty">제품 자료를 불러오지 못했습니다.</p>';

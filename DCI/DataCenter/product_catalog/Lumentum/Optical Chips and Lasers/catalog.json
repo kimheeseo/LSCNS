@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "company": "Lumentum",
+  "category": "Optical Chips and Lasers",
+  "displayName": "광칩 · EML / CW 레이저",
+  "checked": "2026-10-05",
+  "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
+  "storageMode": "metadata only; official product URLs; no PDF upload",
+  "products": {
+    "100g-eml": {
+      "name": "Lumentum 100G EML Family",
+      "description": "데이터센터 광모듈 송신부에 사용하는 InP EML 제품군입니다.",
+      "officialUrl": "https://www.lumentum.com/en/products/data-center/modulated-lasers/emls",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.lumentum.com/en/products/data-center/modulated-lasers/emls"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "레이저 칩 · 제품군",
+        "레인 속도": "100G/lane",
+        "기술": "DFB 레이저 + 전계흡수 변조기",
+        "적용": "400G/800G DR4·FR4 계열 모듈 설계 참고",
+        "파장 / 출력": "SKU별 검증 필요",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      },
+      "referenceOnly": true
+    },
+    "200g-eml": {
+      "name": "Lumentum 200G PAM4 CWDM EML",
+      "description": "고밀도 데이터센터 광연결을 위한 200G EML입니다. 총 모듈 속도와 레이저 레인 속도를 구분합니다.",
+      "officialUrl": "https://www.lumentum.com/en/products/eml-200g-pam4-cwdm-laser",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.lumentum.com/en/products/eml-200g-pam4-cwdm-laser"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "레이저 칩",
+        "레인 속도": "200G/lane PAM4",
+        "기술": "EML · CWDM",
+        "출력 / 전력": "SKU별 검증 필요",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "a6-cw": {
+      "name": "Lumentum A6 CW Laser · HL13A6CPxx-L2",
+      "description": "실리콘 포토닉스 송신부의 연속파 광원 제품군입니다.",
+      "officialUrl": "https://www.lumentum.com/en/products/1311-nm-continuous-wave-cw-laser-a6-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.lumentum.com/en/products/1311-nm-continuous-wave-cw-laser-a6-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "CW 레이저",
+        "파장": "1311 nm",
+        "광 출력": ">70 mW",
+        "적용": "400G DR4 · 800G DR8 SiPh 광원",
+        "옵션": "비냉각 동작 · 선택 SOA",
+        "전력 구분": "광 출력은 전기 소비전력과 별개",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    },
+    "a8-cw": {
+      "name": "Lumentum A8 CW Laser · HL13A8CPxx-Ln",
+      "description": "SiPh 트랜시버·CPO 광원용 CWDM 연속파 레이저 제품군입니다.",
+      "officialUrl": "https://www.lumentum.com/en/products/cwdm-continuous-wave-cw-laser-a8-series",
+      "checked": "2026-10-05",
+      "sourceUrls": [
+        "https://www.lumentum.com/en/products/cwdm-continuous-wave-cw-laser-a8-series"
+      ],
+      "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
+      "specs": {
+        "부품 수준": "CW 레이저",
+        "파장": "1271 / 1291 / 1311 / 1331 nm",
+        "광 출력": ">100 mW @1311 nm; >70 mW across grid",
+        "옵션": "비냉각 · 선택 SOA",
+        "전력 구분": "광 출력은 전기 소비전력과 별개",
+        "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
+        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+      }
+    }
+  },
+  "comparisonFields": [
+    "부품 수준",
+    "레인 속도",
+    "기술",
+    "적용",
+    "파장 / 출력",
+    "BOM 적용",
+    "확인 상태",
+    "출력 / 전력",
+    "파장",
+    "광 출력",
+    "옵션",
+    "전력 구분"
+  ]
+}

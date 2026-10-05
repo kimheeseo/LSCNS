@@ -3,25 +3,34 @@
   "company": "Amphenol",
   "category": "Rugged Circular and D-Sub",
   "displayName": "Rugged Circular and D-Sub",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Rugged Circular and D-Sub. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Rugged Circular and D-Sub. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33"
   ],
-  "sourceCount": 50,
+  "sourceCount": 47,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,652 +41,613 @@
   "products": {
     "100-truly-backward-compatible-mpronto-12-m12-push-pull-connector": {
       "name": "100% Truly Backward Compatible: MPronto-12 M12 Push-Pull Connector",
-      "description": "1.0-2.3 Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW MPronto-12 Push-Pull Connectors are the world's first truly backward compatible to all M12*1.0 threaded sockets of any manufacturer. Support all M12 codes, the number of contacts is up to 17 pins. Meets IP69K, saves more than 80% of installation time【Video: https://www.youtube.com/watch?v=OCGOYVrbl0k】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://amphenolltw.com/product-info/MPronto-12M12PushPull/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW MPronto-12 Push-Pull Connectors are the world's first truly backward compatible to all M12*1.0 threaded sockets of any manufacturer. Support all M1",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.2"
       }
     },
-    "4-3-10-connector-series": {
-      "name": "4.3-10 Connector Series",
-      "description": "44 Series™ Circular",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers a full range of 4.3-10 connectors and adapters, which are engineered for the wireless market and are ideal for applications requiring low pas",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
-    "44-seriestm-circular": {
+    "44-series-circular": {
       "name": "44 Series™ Circular",
       "description": "Available in 1, 2, 3, 4, 5 and 6 position 44 Series™ Thermoplastic Rubber Circular Connectors meet the demand for reliable and versatile connectivity solutions that exhibit outstanding durability, resisting a range of environmental factors including water, fuel, lubricants, ozone, and road salt, and is vibration-resistant and field-proven for indoor/outdoor, rugged applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-sine.com/44-series",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
-    "alternative-to-m12-ultra-high-density-x-lok-push-lock-connector": {
-      "name": "Alternative to M12 - Ultra High-Density X-Lok Push-Lock Connector",
-      "description": "Alternative to M8 | X-Lok Push Lock Micro Size Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s X-Lok Micro Size connectors compatible with the M8 panel cutout, offer an advanced secure solution for signal, and data transmission. Featuring a",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "alternative-to-m8-x-lok-push-lock-micro-size-connector": {
-      "name": "Alternative to M8 | X-Lok Push Lock Micro Size Connector",
-      "description": "Amphe-309 Pin and Sleeve",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s X-Lok Micro Size connectors compatible with the M8 panel cutout, offer an advanced secure solution for signal, and data transmission. Featuring a",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Sine Systems",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "amphe-309-pin-and-sleeve": {
       "name": "Amphe-309 Pin and Sleeve",
       "description": "Pin & Sleeve IEC 60309 UL listed. The Amphe-309 consists of both IP44 (splash-proof) and IP67 (Water Proof) devices from 16 A up to 125 A, from a simple plug to customer-specified combination units. The series range covers all clock positions in use for low profile, watertight, and Heavy Duty solutions. EC 603 09-1 & 2, EN 60 309-1 & 2, BS 4343-2 1992, and UL 1682 & 1686.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenolenergy.com/amphe-309",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 125 a · 16 a · 125 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Energy Technologies",
+        "Source Page": "IT Datacom p.4"
       }
     },
     "asgtc-q": {
       "name": "ASGTC-Q",
-      "description": "ASGTC-Quadrax is a special circular bayonet coupling connector for data line transmission in RMT application, It's IP67 protection and with a self-locking system specially designed in order to get heavy duty application, Q-contacts with the protection of copper body and multipoints band in female contact to provide to 360º shielding.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "uadrax is a special circular bayonet coupling connector for data line transmission in RMT application, It's IP67 protection and with a self-locking system specially designed in order to get heavy duty application, Q-contacts with the protection of copper body and multipoints band in female contact to provide to 360º shielding.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "http://www.amphenolpcd.com.cn/products/i-68/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "ceramic-injection-molding": {
-      "name": "Ceramic Injection Molding",
-      "description": "Ceres Circular Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW Ceres Connectors are environmentally sealed, up to IP68, rugged, and cost-effective, available in plastic and metal. Our Ceres provides a comprehen",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol PCD Shenzhen",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "ceres-circular-connector": {
       "name": "Ceres Circular Connector",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW Ceres Connectors are environmentally sealed, up to IP68, rugged, and cost-effective, available in plastic and metal. Our Ceres provides a comprehensive size range and variety of mating styles such as screw, lock bayonet, and push-lock to meet various harsh environments and are suitable for power and data applications【Quick guide: https://amphenolltw.com/down.php?supp_download=92】.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenolltw.com/product-info/Ceres/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CFP2 series offers a 104 position, 0.6mm pitch connector designed to be compatible with 100Gb/s Form Factor Pluggable (CFP) Multi-Source Agreement fo",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "clga-chip-to-board-socket": {
+      "name": "cLGA® Chip-to-Board Socket",
+      "description": "HIGH PERFORMANCE, LOW COST CHIP-TO-BOARD APPLICATION The Amphenol cLGA® land grid array socket system was designed to bring conventional connector material construction to high performance, low cost chip-to-board applications. Gold over nickel-plated copper alloy spring contacts guarantee long-term connector performance, contact retention and ruggedness.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/clga.html",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "combo-d": {
+      "name": "Combo-D",
+      "description": "Positronic Combo-D connectors are a combination of signal and power and are part of the D-sub family. Combo-D connectors are used in military, communications, space, industrial, and medical applications. These connectors are available in various performance levels for the best cost/performance ratio.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.connectpositronic.com/en/d-sub/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "digital-visual-interface-dvi-connectors": {
+      "name": "(Digital Visual Interface) DVI Connectors",
+      "description": "Amphenol LTW DVI Connectors feature a 1.5A current rating, a ≤20mΩ contact resistance, and a ≥1000MΩ @ 500VDC insulation resistance rating. The DVI has a copper alloy, gold-plated contacts and steel, nickel-plated shell. It offers the durability of 100 cycles and an IP68 rating. Operate in the -20°C to +80°C temperature range【Quick Guide: https://amphenolltw.com/down.php?supp_download=94】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://amphenolltw.com/product-info/DVI/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "d-sub-accessories": {
       "name": "D-Sub Accessories",
-      "description": "In addition to a wide variety of D-Sub connectors, we offer a large assortment of Backshells, Locking Systems and Mounting Hardware. We also offer blind mate options, EMI covers, Sealing Options, and custom options to fit many different application requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's D-Sub Accessories complement their D-sub offering by accounting for the moderate to severe mechanical stresses encountered, and preventing risks like pulling up and accidental mismating. The range of derived accessories include plastic or metalized plastic hoods, EMI/RFI shielded two-part metal hoods, various cable clamps, locking devices, metal and plastic dust caps, and brackets .",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-accessories.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub Accessories complement their D-sub offering by accounting for the moderate to severe mechanical stresses encountered, and preventing risks like",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
-    "d-sub-accessories--2": {
+    "d-sub-accessories-2": {
       "name": "D-Sub Accessories",
       "description": "In addition to a wide variety of D-Sub connectors, we offer a large assortment of Backshells, Locking Systems and Mounting Hardware. We also offer blind mate options, EMI covers, Sealing Options, and custom options to fit many different application requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.connectpositronic.com/wp-content/uploads/2021/11/M016_RevB_2111_DsubAccessories.pdf",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CIT D-Sub & Micro-D filter connectors meet all the requirements of MIL-PRF-24308 and MIL-PRF-83513 while providing filtering in accordance with the att",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "d-sub-micro-d-connectors": {
       "name": "D-Sub & Micro D Connectors",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CIT D-Sub & Micro-D filter connectors meet all the requirements of MIL-PRF-24308 and MIL-PRF-83513 while providing filtering in accordance with the attenuation curves noted herein. MIL-PRF-24308 connectors (Standard density and Hi-density) and MIL-PRF-83513 are manufactured in all layouts offering maximum contact density in a minimum of space.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://amphenolcdi.com/d-sub-micro-d-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=27",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "24308 a · 83513 w · 83513 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CIT D-Sub & Micro-D filter connectors meet all the requirements of MIL-PRF-24308 and MIL-PRF-83513 while providing filtering in accordance with the att",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "d-sub-cable-connectors": {
-      "name": "D-Sub Cable Connectors",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW D-Sub connectors are developed in 5 different standard housing fit for standard/high-density pin contact & sealed for ingress protection up to IP68",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "d-sub-connectors": {
       "name": "D-Sub Connectors",
-      "description": "Dsub Custom Specials",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW D-Sub connectors are developed in 5 different standard housing fit for standard/high-density pin contact & sealed for ingress protection up to IP68. The features are connectors interface meet ANSI / B93.55M-1981, Idiot-proof alignment key design【Quick Guide: https://amphenolltw.com/down.php?supp_download=93】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://amphenolltw.com/product-info/D-Sub/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW D-Sub connectors are developed in 5 different standard housing fit for standard/high-density pin contact & sealed for ingress protection up to IP68",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "dsub-custom-specials": {
+      "name": "Dsub Custom Specials",
+      "description": "DSUB CONNECTORS FOR CUSTOM APPLICATIONS Amphenol has proven capability to work with customers and develop special product extensions to meet their custom applications. This can be to meet special polarization requirements, fitment to their special panel cabinets, extra standoff to meet the height requirements, assemblies for cable application, etc.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dsub-custom-specials.html",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-dual-port-connectors": {
       "name": "D-Sub Dual Port Connectors",
       "description": "DUAL PORT D-SUBMINIATURE CONNECTORS Contact thickness options of gold flash, 15µ\", and 30µ\" Up to 500 mating cycles Various pin counts to choose from Stacked configuration",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-dual-port.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub Economy Range Board-Mount Connectors are proven solutions designed to meet less demanding applications while meeting all their design requireme",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "d-sub-economy-range-board-mount-connectors": {
-      "name": "D-Sub Economy Range Board-Mount Connectors",
-      "description": "D-Sub High Density Board-Mount Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub High Density Board-Mount Connectors, based on the compact-D form factor, complete your board and system designs by providing high-density and h",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-high-density-board-mount-connectors": {
       "name": "D-Sub High Density Board-Mount Connectors",
-      "description": "D-Sub High Density Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's D-Sub High Density Board-Mount Connectors, based on the compact-D form factor, complete your board and system designs by providing high-density and high-speed interfaces. The high-speed, power, assembly and mechanical packaging expertise, aids in getting the signals out of the box at optimal cost and performance, while accommodating up to 78 positions in standard shell sizes.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-high-density-board-mount.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub High Density Board-Mount Connectors, based on the compact-D form factor, complete your board and system designs by providing high-density and h",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-high-density-connectors": {
       "name": "D-Sub High Density Connectors",
       "description": "HIGH DENSITY D-SUBMINIATURE CONNECTORS Available in various sizes up to 78 positions Endures temperatures up to 260°C High density terminations include rear release crimp and solder cups for cable side, and Dip straight or R/A for board side Tray packing available as standard and tube on request",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-high-density.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-microtca-connectors": {
       "name": "D-Sub MicroTCA Connectors",
-      "description": "D-Subminiature High Power Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's D-Sub MicroTCA Connectors are power module I/O interconnects for 48V applications designed in accordance with TCA specifications. The concept is based on the single-shell Delta D design, and power contacts handle up to 24A. PCB connectors are proposed in traditional Solder-to-board and Pin-in-Paste versions for optimized applied cost. The connector's compact footprint allows for more space ...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-microtca.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub MicroTCA Connectors are power module I/O interconnects for 48V applications designed in accordance with TCA specifications. The concept is base",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "d-subminiature-high-power-series": {
-      "name": "D-Subminiature High Power Series",
-      "description": "75A HIGH POWER CONTACTS WITH CRIMP, SOLDER BUCKET, AND PCB TERMINATIONS Amphenol's D-Subminiature connectors are part of an industry standard for applications requiring robust and reliable connectors. These proven D-Subminiature connectors are one of the most popular Input/Output interconnects, addressing a wide variety of applications in Telecommunications, Data, Consumer, Industrial...",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Telecom / Industrial",
-        "Amphenol Business": "Amphenol's D-Sub Pin-in-Paste Connectors are now available in Pin-in-Paste (Through Hole Reflow) versions in standard and compact form factors. Pin-in-Paste tec",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-pin-in-paste-connectors": {
       "name": "D-Sub Pin-in-Paste Connectors",
-      "description": "D-Sub Power Board-Mount Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's D-Sub Pin-in-Paste Connectors are now available in Pin-in-Paste (Through Hole Reflow) versions in standard and compact form factors. Pin-in-Paste technology (PiP) allows the use of Through Hole product in SMT manufacturing processes. The connectors use high temperature thermoplastic that can withstand reflow soldering temperatures up to 260°C to facilitate PiP soldering.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-pin-in-paste.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub Power Board-Mount Connectors features full power and mixed power versions specifically developed for power applications in industrial and telec",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-power-board-mount-connectors": {
       "name": "D-Sub Power Board-Mount Connectors",
-      "description": "D-Sub Press-Fit Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's D-Sub Power Board-Mount Connectors features full power and mixed power versions specifically developed for power applications in industrial and telecom market segment. Board connectors feature preloaded power contacts from 10A to 40A with up to 8 contacts in full power versions. Cable crimp and solder power contacts features colour code plastic clips for easy wire gauge identification.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-power-board-mount.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI offers Standard density and Mixed power connectors in press fit termination. In SMT (Surface Mount Technology) manufacturing process, this Press-fi",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "d-sub-press-fit-connectors": {
-      "name": "D-Sub Press-Fit Connectors",
-      "description": "ULTRA SLIM D-SUB CONNECTORS Amphenol has expanded the D-Sub connectors with a modified ultra slim body with contact alignment in a single row. These are available both in SMT termination suitable for reflow soldering and solder tail version for standard wave soldering. These connectors also feature solderable retention pegs that absorb vibration.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI offers Standard density and Mixed power connectors in press fit termination. In SMT (Surface Mount Technology) manufacturing process, this Press-fi",
-        "Source Page": "IT Datacom p.5"
+        "Key Spec": "10a · 40a · 8 contacts",
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-slimline": {
       "name": "D-Sub Slimline",
       "description": "ULTRA SLIM D-SUB CONNECTORS Amphenol has expanded the D-Sub connectors with a modified ultra slim body with contact alignment in a single row. These are available both in SMT termination suitable for reflow soldering and solder tail version for standard wave soldering. These connectors also feature solderable retention pegs that absorb vibration.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-slimline.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-smt-connectors": {
       "name": "D-Sub SMT Connectors",
       "description": "D-Sub connectors are now available with Surface Mount Termination (SMT) in standard form factors. The connectors use high-temperature thermoplastic that can withstand reflow soldering temperatures up to 260°C to facilitate SMT soldering. The products are UL recognized and lead-free.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-smt.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-standard-board-mount-connectors": {
       "name": "D-Sub Standard Board Mount Connectors",
       "description": "The standard density D-Subminiature series are widely used for numerous applications in many market segments. Amphenol offers Delta-D (single shell design) and Frugal-D (two shell design) under this category. Standard density D-subminiature PCB mount connectors available in straight and angled version. They come with a large number of mounting options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-standard-board-mount.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "d-sub-standard-density-connectors": {
       "name": "D-Sub Standard Density Connectors",
       "description": "STANDARD DENSITY D-SUBMINIATURE CONNECTORS Current rating for stamped and formed signal pin is 3A and 7.5A for machined signal pin Dip and PF board termination, and various cable termination such as IDC, wire wrap, solder cup, wire screwed and crimping Tray standard packing and tube is per request Contact resistance less than 20mOhm High reliability machined and commercial stamped contacts are avail",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-standard-density.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's NFD17 D-Subminiature connectors complement our extensive I/O connector product line. This line of connectors offers many superior features, high perf",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "ffiltrered-arinc-600-connectors": {
-      "name": "Ffiltrered ARINC 600 Connectors",
-      "description": "Fiber Demarcation Box Gen 3 (FD3)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI filtrered ARINC 600 connectors feature the complete line of layouts and meet the applicable performance and environmental portions of the ARINC spe",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "field-replaceable-panel-connectors": {
-      "name": "Field Replaceable Panel Connectors",
-      "description": "Filter D-Sub Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Field Replaceable Panel Connectors are designed for high-performance RF applications, offering easy maintenance, secure panel mounting, and excepti",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
     "filter-d-sub-connectors": {
       "name": "Filter D-Sub Connectors",
       "description": "FCE17 D-Sub Filter Connectors provide filtering of unwanted EMI, protecting the integrity of data signals in a mechanically stress-isolated design to ensure that capacitive elements survive shock and vibration. Improved EMI controls outperform the same filter components on a PCB.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-filter-fce17.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "grounding-blocks": {
-      "name": "Grounding Blocks",
-      "description": "Guided M8 Metric Circular Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof Guided M8 connectors are designed with unique alignment keys saving the risk of damaged contacts and developed with comprehensive prod",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "guided-m8-metric-circular-connectors": {
       "name": "Guided M8 Metric Circular Connectors",
-      "description": "Hall-Effect Gear Tooth Speed and Direction Sensor",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's waterproof Guided M8 connectors are designed with unique alignment keys saving the risk of damaged contacts and developed with comprehensive product configurations following IEC standard, delivering secure & reliable data/power transmission for industrial harsh applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "hall-effect-gear-tooth-speed-and-direction-sensor": {
+      "name": "Hall-Effect Gear Tooth Speed and Direction Sensor",
+      "description": "Piher Sensing Systems' flange mount gear tooth speed and direction sensors provide precise, reliable speed and direction measurement for demanding environments. The touchless, rugged design ensures long-term reliability. Key features include: \"Plug and play\" operation, wide operating temperature range, fast and near-zero speed sensing, compact and rugged design and IP67 sealing.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.piher.net/products/speed-sensors/hall-effect-speed-sensor/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Piher Sensing Systems' flange mount gear tooth speed and direction sensors provide precise, reliable speed and direction measurement for demanding environments.",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "heavy-duty-m12-connectors-for-high-temperature-ultra-reliable-applications": {
       "name": "Heavy Duty M12 Connectors - For high-temperature, ultra-reliable applications",
-      "description": "Heavy Duty Shielded M20 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW presents the robust M12 high-temperature connector, the HDM12. Engineered for commercial applications with elevated vibration and challenging environmental conditions, the HDM12 excels in heavy-duty and harsh surroundings. Compliant with IEC 61076-2-101 and SAE J2839 standards, the HDM12 connectors emerge as the ideal solution for ultra-rugged applications prevalent in markets.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://amphenolltw.com/news-events/durable-m12-connectors-for-industrial-automation.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s Heavy Duty Shielded M20 is designed by following IEC standards and offers rugged & reliable solutions in specific markets and applications with s",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "heavy-duty-shielded-m20-connectors": {
       "name": "Heavy Duty Shielded M20 Connectors",
-      "description": "High Density D-Sub",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW’s Heavy Duty Shielded M20 is designed by following IEC standards and offers rugged & reliable solutions in specific markets and applications with signal transmission up to 5A / 250V and power up to 10A/20A & 250V/300V. Features: IP68, Salt spray 500h, Current rating up to 40A, Shielded design for reliable data transmission, Sealing nut with cable cover to ensure better cable holding",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://amphenolltw.com/product-info/HeavyDutyShielded/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "up to 5a · up to 10a · up to 40a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "high-density-d-sub": {
+      "name": "High Density D-Sub",
+      "description": "Positronic offers a variety of standard and high-density D-subs, as well as accessories and ComboD-sub connectors. Highly reliable with precision-machined contacts, our connectors meet various industrial and military performance levels for applications from basic power supplies to advanced weapon systems and flight. Explore our design features including package size, contact, and mating variants.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.connectpositronic.com/family/high-density/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "hs-lok-push-lock-connectors": {
+      "name": "HS-Lok Push-Lock Connectors",
+      "description": "Amphenol LTW's HS-Lok Push-Lock Connectors provide IP68 protection and are rated to UL-F1 UV resistance, making them ideal for indoor or outdoor wet locations. HS-Lok features audible feedback and guided key design, ensuring error-proof and easy assembly for blind mating. The HS-Lok is UL2238 and UL50e compliant and rated up to 5A【Quick Guide: https://amphenolltw.com/down.php?supp_download=98】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://amphenolltw.com/product-info/HS-Lok/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "up to 5a · 2238 a · 5a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "led-light-guide": {
+      "name": "LED Light Guide",
+      "description": "Amphenol LTW LED Light Guide feature plastic or metal connector body material with IP67 waterproof protection and LED color options in red, blue, green, white, yellow, and red / green. These robust receptacles with an LED offer a 4V operating voltage, 80mW to 120mW maximum power dissipation, and 100mA peak forward current【Quick guide: https://amphenolltw.com/down.php?supp_download=99】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://amphenolltw.com/product-info/LEDLightGuide/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Positronic offers a variety of standard and high-density D-subs, as well as accessories and ComboD-sub connectors. Highly reliable with precision-machined conta",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "m10-5-metric-circular-connectors": {
       "name": "M10.5 Metric Circular Connectors",
-      "description": "M12 Snap-On & Screw has been designed for railway and industrial automation applications. Crimping contacts and inserting the rubber case are both easy and convenient. Rated current from 0.5 to 4 A, 30 to 250V. • Both snap on & screw locking types are available • Quick mating • 360° shielding. • A/D/X Code available • Sealing, IP67 • Fire protection acc. to EN45545-2 R22 HL3.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's waterproof M10.5 connectors are designed in various product configurations and deliver secure & reliable data/power transmission for industrial harsh applications. With a compact design, it's ideal to fulfill miniature interconnection requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol LTW's waterproof M10.5 connectors are designed in various product configurations and deliver secure & reliable data/power transmission for industrial h",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "m12": {
       "name": "M12",
-      "description": "M12 Snap-On & Screw has been designed for railway and industrial automation applications. Crimping contacts and inserting the rubber case are both easy and convenient. Rated current from 0.5 to 4 A, 30 to 250V. • Both snap on & screw locking types are available • Quick mating • 360° shielding. • A/D/X Code available • Sealing, IP67 • Fire protection acc. to EN45545-2 R22 HL3.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Snap-On & Screw has been designed for railway and industrial automation applications. Crimping contacts and inserting the rubber case are both easy and convenient. Rated current from 0.5 to 4 A, 30 to 250V. • Both snap on & screw locking types are available • Quick mating • 360° shielding. • A/D/X Code available • Sealing, IP67 • Fire protection acc. to EN45545-2 R22 HL3.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "http://www.amphenolpcd.com.cn/products/i-36/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol LTW's distributor boxes are designed in multiple ports with different connector or cable terminations. The embedded LED indicators provide you an overv",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol PCD Shenzhen",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "m12-metric-circular-connectors": {
       "name": "M12 Metric Circular Connectors",
-      "description": "M12 On-Site IDC Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's waterproof M12 connectors are designed in various coding options with comprehensive product configurations according to IEC standards, delivering secure & reliable data/power transmission for industrial harsh applications. ALTW's MPronto M12 push-pull connectors are truly backward compitable to all IEC M12*1.0【Quick Guide: https://amphenolltw.com/down.php?supp_download=100】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M12 IDC connector facilitates swift termination without the need to strip wire insulation, promoting a dependable connection and increased effici",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m12-on-site-idc-connector": {
       "name": "M12 On-Site IDC Connector",
-      "description": "M12 SMT/DIP Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's M12 IDC connector facilitates swift termination without the need to strip wire insulation, promoting a dependable connection and increased efficiency during on-site field installation. Supports for 10 Gbps data transmission and boasting an IP68 waterproof rating【Video: https://www.youtube.com/watch?v=bmKLQCc_8w8】【Quick Guide: https://amphenolltw.com/down.php?cn=news_content&id=117】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/news-events/m12-idc-connectors-for-high-speed-data-transmission.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "10 gbps · 68 w · 8w",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M12 SMT/DIP connectors are designed in various coding options for surface mounting termination and make it cost-effective by delivering secure & ",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "m12-smt-dip-connectors": {
-      "name": "M12 SMT/DIP Connectors",
-      "description": "M12 Unicode Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW offers M12 Unitcode Connector. The M12 connectors support a rated current of 4A. Assembly Style: DIP 90°",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "m12-unicode-connector": {
-      "name": "M12 Unicode Connector",
-      "description": "M23 Metric Circular Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M23 connectors are designed according to IEC standard and ideal to fulfill watertight, vibration resistant, and EMC protection in industrial hars",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m23-metric-circular-connectors": {
       "name": "M23 Metric Circular Connectors",
-      "description": "M5 Metric Circular Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's M23 connectors are designed according to IEC standard and ideal to fulfill watertight, vibration resistant, and EMC protection in industrial harsh applications. Developed in receptacle, field installable and overmolded cable (upon request) to satisfy industrial inconnection demand.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M5 Connectors operates in 1A/60V and equipped up to IP69K to withstand harsh environment situations where a secure and reliable signal transfer i",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m5-metric-circular-connector": {
       "name": "M5 Metric Circular Connector",
-      "description": "M83522 MIL-ST Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's M5 Connectors operates in 1A/60V and equipped up to IP69K to withstand harsh environment situations where a secure and reliable signal transfer is needed most. These screw locking threaded connectors meet the IEC 61076-2-105 standard and are available in preassembly overmolded straight, right angle, and receptacles from 3 to 4 contacts, , with upgrade option to 6 pins upon request.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/M-Series.M5/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M5 Connectors operates in 1A/60V and equipped up to IP69K to withstand harsh environment situations where a secure and reliable signal transfer i",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m83522-mil-st-connector": {
       "name": "M83522 MIL-ST Connector",
       "description": "The M83522 connector is qualified for military applications and features a higher spring force than commercial ST connectors, allowing it to meet the shock requirements of MIL-DTL-83522. COTS ST connectors provide the same robustness with a spring force more consistent with commercial ST connectors, enabling them to connect effectively with other ST connectors and ancillary electronics.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "http://www.fibersystems.com/products/st-connectors-for-military-and-industrial-use",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof M8 connectors are designed in various coding options with comprehensive product configurations according to IEC standard, delivering s",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m8-metric-circular-connectors": {
       "name": "M8 Metric Circular Connectors",
-      "description": "M8 SMT/DIP Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's waterproof M8 connectors are designed in various coding options with comprehensive product configurations according to IEC standard, delivering secure & reliable data/power transmission for industrial harsh applications. ALTW's proprietary UHD design (ultra high desity, up to 13 pins) optimizes the utilization of pin contact in limited housing space.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M8 SMT/DIP connectors are designed for surface mounting termination and make it cost-effective by delivering secure & reliable data/power transmi",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "m8-smt-dip-connectors": {
-      "name": "M8 SMT/DIP Connectors",
-      "description": "Magnetic Jack (RJMG) - 1x1",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Rugged Circular and D-Sub",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's M8 SMT/DIP connectors are designed for surface mounting termination and make it cost-effective by delivering secure & reliable data/power transmi",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "mil-dtl-24308-connectors": {
       "name": "MIL-DTL-24308 Connectors",
-      "description": "MIL-HD2 Next-Gen SOSA™/VITA 91 Aligned Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Positronic M24308 connectors are an important designation for ensuring quality, high reliability. It meets and often exceeds, the requirements under the M24308 specification. Our connectors have gone through rigorous testing to certify quality and performance. You can find them used in communications, information technology, aircraft, missiles, and related ground support systems and satellites.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.connectpositronic.com/en/m24308/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Positronic M24308 connectors are an important designation for ensuring quality, high reliability. It meets and often exceeds, the requirements under the M24308 ",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.20"
       }
     },
-    "mil-hd2-next-gen-sosatm-vita-91-aligned-connector-series": {
-      "name": "MIL-HD2 Next-Gen SOSA™/VITA 91 Aligned Connector Series",
-      "description": "Developed in alignment with The Open Group Sensor Open Systems Architecture™ (SOSA) technical standard, MIL-HD2 provides developers with a readily available, robust open architecture solution for tighter card pitches and chassis designs where space requirements and density are critical.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "m-series-metric-circular-connector": {
+      "name": "M Series Metric Circular Connector",
+      "description": "Amphenol LTW provides a comprehensive product range of M series, including M5, M8, Guided M8, M10.5, M12, 7/8\", M20 and M23. We also have push pull version, MPronto-12, The Mpronto-12 M12 push pull connectors are the World’s First truly backward compatible to all female M12*1.0 sockets made by different manufacturers. 【Quick guide: https://amphenolltw.com/down.php?supp_download=100】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.23"
       }
     },
-    "modular-jack-rugged": {
-      "name": "Modular Jack - Rugged",
-      "description": "Rugged RJ Panel Mount connector IP67 Sealing. Ruggedized RJ connectors with die-cast housings and IP67 sealing for Harsh Environment applications, provide reliable performance in extreme conditions for the most demanding applications and mate with standard RJ plugs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "optik-d": {
+      "name": "Optik-D",
+      "description": "\"The Optik-D™ fibre-optic connector solution is for designers who need to terminate optical cable in harsh or challenging environments. It is an ARINC 801 conforming fibre-optic connector designed to be used with the Positronic Combo D-Subminiature family. Optik-D is more cost-effective than D38999 or ARINC 600-based systems and is compatible with ARINC 801 products from other manufacturers.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.connectpositronic.com/series/cbf/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "pressure-relief-vent-spring-loaded-and-piercing-type": {
+      "name": "Pressure Relief Vent (spring-loaded and piercing type)",
+      "description": "Amphenol LTW provides M4, M5, M16, M20, M32 and M40 Over-pressure Relief Vents. The Vents act as specialized safeguards in emergencies involving sudden pressure surges, mitigating the risk of potential explosions. Feature: Hydrophobic & Oleophobic membranes types. Up to IP69K【Quick guide: https://amphenolltw.com/down.php?supp_download=103】【Video: https://youtu.be/dke5JH_B2A0】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://amphenolltw.com/product-info/Vent/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "rbl-series-push-lock-with-latch-connector": {
+      "name": "RBL Series Push Lock with Latch Connector",
+      "description": "Amphenol LTW RBL Connectors are IP67-rated waterproof circular connectors with current ratings up to 20A. Operating temperature range of up to -40°C to +105°C and a durability of 250 cycles. RBL Connectors provide maximum contact resistance of 10mΩ and minimum insulation resistance of 100MΩ at 500VDC【Quick Guide: https://amphenolltw.com/down.php?supp_download=104】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://amphenolltw.com/product-info/RBL/",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "standard-density-d-sub": {
       "name": "Standard Density D-Sub",
-      "description": "Standard Gang Mating Hardware",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Positronic offers a variety of standard and high-density D-subs, as well as accessories and ComboD-sub connectors. Highly reliable with precision-machined contacts, our connectors meet various industrial and military performance levels for applications from basic power supplies to advanced weapon systems and flight. Explore our design features including package size, contact, and mating variants.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.connectpositronic.com/family/standard-density/",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s ganged RF cable assemblies are designed to mate directly with readily available COTS multiport connectors, enabling a single, push-on interface t",
-        "Source Page": "IT Datacom p.13"
+        "Application": "Industrial",
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "vita-tools": {
-      "name": "VITA Tools",
-      "description": "Waterproof Interconnects (IP67 & IP68 Rating)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "strain-relief-boots": {
+      "name": "Strain Relief Boots",
+      "description": "Our Strain Relief Boots provide protection and reinforcement for rugged applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/accessories/strain-relief-boots.html",
       "specs": {
         "Product Type": "Rugged Circular and D-Sub",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave offers a wide range of IP67 and IP68 waterproof interconnect products designed to withstand rigorous environments and harsh elements. SV's",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
+      }
+    },
+    "waterproof-interconnects-ip67-ip68-rating": {
+      "name": "Waterproof Interconnects (IP67 & IP68 Rating)",
+      "description": "Amphenol SV Microwave offers a wide range of IP67 and IP68 waterproof interconnect products designed to withstand rigorous environments and harsh elements. SV's waterproof adapters include hermetically sealed connectors to 1 x 10-8 cc/sec, making them ideal for high-pressure, vacuum applications, and the prevention of liquid or gas leakage.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/waterproof-interconnects-ip67-ip68-rating?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=43",
+      "specs": {
+        "Product Type": "Rugged Circular and D-Sub",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     }
   }

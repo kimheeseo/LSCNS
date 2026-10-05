@@ -1,8 +1,7 @@
-# Amphenol High-Speed Board Connectors
+# High-Speed Board Connectors
 
-- Official market: https://www.amphenol.com/markets/it-datacom
-- Products in this tool category: 54
-- Official IT Datacom total at sync: 665
-- Reviewed: 2026-10-05
+Official source: https://www.amphenol.com/markets/it-datacom
 
-Product names and descriptions are sourced from Amphenol's official IT Datacom market listing. The category grouping is a DataCenter Tool classification for comparison/BOM use.
+Classified products: 57
+Official IT Datacom total: 665
+Updated: 2026-10-05

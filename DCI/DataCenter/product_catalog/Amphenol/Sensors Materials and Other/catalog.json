@@ -3,27 +3,30 @@
   "company": "Amphenol",
   "category": "Sensors Materials and Other",
   "displayName": "Sensors Materials and Other",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Sensors Materials and Other. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Sensors Materials and Other. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=31"
   ],
-  "sourceCount": 58,
+  "sourceCount": 22,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,758 +35,290 @@
     "Source Page"
   ],
   "products": {
-    "atpc-medium-voltage-cable": {
-      "name": "ATPC Medium Voltage Cable",
-      "description": "ATPC Type MV designed to meet UL Standard 1072 and comply with industry standards ICEA S-93-639, S-94-649 and AEIC CS-8. Available in single conductor and three conductors plus ground. Voltage options from 5kV up to 35kV. Copper or aluminum conductors, NL-EPR, TR-XLPE or XLPE insulation with 100%/133%/173% insulation levels, copper tape shield or concentric neutrals. Jacket PVC, XPLE, LLDPE",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "0nanon-ball-land-grid-array-socket-system-for-0-0315-80mm-adapters": {
+      "name": "0nanon Ball & Land Grid Array Socket System for 0.0315 [.80mm] Adapters",
+      "description": "BGA sockets; which are high density and have superior electrical performance: Thermal Performance: Operating Temperature Range: -55 to 140C; Glass Transition Temperature Range: 150 to 200C; Electrical Performance: Maximum Voltage: 75 VAC / 100 VDC; Maximum Current: 1 Amperes per contact Contact Resistance: Dry Circuit: .01ΩMax. @ .01 Amps/5VDC Insulation Resistance, @ 500VDC: 10,000 MOhms Min.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://onanon.com/products/boardconnect/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof USB connectors are IP67 / IP68 rated and designed with standard Type A/B interfaces in various product configurations -- plastic/metal",
+        "Amphenol Business": "Amphenol Onanon",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0nanon-ball-land-grid-array-socket-system-for-1mm-1-27mm-adapters": {
+      "name": "0nanon Ball & Land Grid Array Socket System for 1mm & 1.27mm Adapters",
+      "description": "BGA sockets; which are high density and have superior electrical performance: Thermal Performance: Operating Temperature Range: -55 to 140C; Glass Transition Temperature Range: 150 to 200C; Electrical Performance: Maximum Voltage: 75 VAC / 100 VDC; Maximum Current: 1 Amperes per contact Contact Resistance: Dry Circuit: .01ΩMax. @ .01 Amps/5VDC Insulation Resistance, @ 500VDC: 10,000 MOhms Min.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://onanon.com/products/boardconnect/",
+      "specs": {
+        "Product Type": "Sensors Materials and Other",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Onanon",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "1ru-circuit-breakers": {
+      "name": "1RU Circuit Breakers",
+      "description": "Engineered for use in 1RU circuit breaker panels, these single-pole standard delay circuit breakers provide reliable circuit protection for DC applications from 5A to 60A. In addition to providing conventional overcurrent protection, each breaker can be used as an on-off switch.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://amphenol-ns.com/Product/rvdsfpid/852/rvdsfpvid/2901",
+      "specs": {
+        "Product Type": "Sensors Materials and Other",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Network Solutions",
         "Source Page": "IT Datacom p.2"
       }
     },
-    "c2storage-bulk-fiber-storage-tray": {
-      "name": "C2Storage: Bulk Fiber Storage Tray",
-      "description": "Fiber cable entry and exit gates have a front-facing door that opens to make it easier to get fibers in and out of the tray. The gates are several times larger than those in legacy slack storage trays, producing an industry-leading 96 1.6mm fiber cable capacity. The routing arcs within the tray have movable fingers, which greatly facilitates accessing the fibers during and after installation.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "cfp2": {
-      "name": "CFP2",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "breathable-vent": {
+      "name": "Breathable Vent",
+      "description": "Amphenol LTW provides a comprehensive product range of Breathable Vent. The Vents help control pressure release within safe operating limits, specifically designed to balance internal and external pressures. Range: M6, M8, M10, Fit-In Plastic/Metal (Oil Filtration), M12, M14, M24, M32 & Rectangular【Quick Guide: https://amphenolltw.com/down.php?supp_download=103】Video: https://youtu.be/dke5JH_B2A0",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenolltw.com/product-info/Vent/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CFP4 series offers a 56 position, 0.6mm pitch connector, and is used in multi-hundred Gb/s systems. Rated for 25Gb/s per channel with resonance dampe",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.7"
       }
     },
-    "cfp4": {
-      "name": "CFP4",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "ceramic-injection-molding": {
+      "name": "Ceramic Injection Molding",
+      "description": "Amphenol's CIM process uses ceramic zirconium to provide a scratch and wear-resistant surface to components such as mobile phone camera decoration and side keys. The CIM material provides additional durability and strength to your products. We have applied our Metal Injection Molding (MIM) experience of large volume runs to CIM to create a hi-tech material process.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-mcp.com/ceramic-injection-molding-cim/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CFP8 interconnect system has 124 contacts per port, with a 0.5mm contact pitch and 16 high-speed channels. It is rated for 28Gb/s per channel with re",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Mobile Consumer Products",
+        "Source Page": "IT Datacom p.7"
       }
     },
-    "com-hpc-0-635mm-pitch-400-pin-open-pin-field-array": {
-      "name": "COM-HPC 0.635mm pitch 400 pin Open-Pin-Field Array",
-      "description": "400POS 0.635MM PITCH COM-HPC Amphenol has developed a pair of 400pos 0.635mm COM-HPC which support 5mm and 10mm stack heights. COM-HPC is a PICMG sponsored open standard for a family of high performance computer modules targeting the embedded computer space. We have developed a pair of 400pos 0.635mm COM-HPC which support 5mm and 10mm stack heights.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "HPC",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "cryo-semi-rigid-assemblies": {
-      "name": "Cryo Semi Rigid Assemblies",
-      "description": "CSG/CSL/CSF Cable Glands",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "cryo-seal-hermetic-connector-series": {
+      "name": "Cryo-Seal Hermetic Connector Series",
+      "description": "The Cryo-Seal Hermetic connector series is designed for extreme low-temperature environments. They are built to retain contact-to-contact sealing in temperatures as low as -319 °F (-195° C). Temperatures falling below -85 °F (-65 °C) typically leaves one at risk of losing the pin-to-pin environmental seal and/or having cracked elastomeric components leading to electrical shorting.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://amphenol-aerospace.com/products/cryo-seal-hermetic-connector-series",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's Cable Glands are applied in conjunction with cable or wiring for power or electrical purpose. The Cable Glands are attached to the end equipment ",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Aerospace Operations",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "csg-csl-csf-cable-glands": {
+      "name": "CSG/CSL/CSF Cable Glands",
+      "description": "Amphenol LTW's Cable Glands are applied in conjunction with cable or wiring for power or electrical purpose. The Cable Glands are attached to the end equipment and act as a sealing of the terminating housing to ensure the protection of electrical equipment and enclosures. Available in different sizes, materials【Quick guide: https://amphenolltw.com/down.php?supp_download=90】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://amphenolltw.com/product-info/CableGland/",
+      "specs": {
+        "Product Type": "Sensors Materials and Other",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "current-sensors": {
       "name": "Current Sensors",
-      "description": "Custom Flex Cables",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Piher Sensing Systems designs and manufacturers current sensors based on contactless technology for accurate measurement of currents in automotive battery management and motor control applications. Piher’s precision current sensors improve motor or solenoid control applications and grid monitoring addressing the needs of both Tier 1 suppliers and OEMs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.piher.net/products/current-sensors/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Flex Cable Assemblies provide value-added solutions to challenging interconnect problems where a flexible solution is desirable. Amphenol flex cables",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.9"
       }
     },
-    "data-guide-cable-specialty-cables": {
-      "name": "Data Guide Cable Specialty Cables",
-      "description": "Data Guide Cable is a quality manufacturer of specialty electronic and electrical cable products for a variety of applications. Major markets serviced include instrumentation, data communications, robotics, broadcast/studio, computer, utility, shipboard, and factory automation among others. The main focus is manufacturing products in compliance with USA specific standards such as NEC, UL, NFPA, ABS, MSHA,",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "econostik-2-54mm": {
+      "name": "EconoStik™ 2.54mm",
+      "description": "is an economical range of 2.54mm unshrouded header. It is available in single-row and double-row with vertical through-hole, right-angle through-hole, and vertical SMT terminations. EconoStik™ 2.54mm is a standard 0.64mm square header with high-temperature resin and 1μ\" gold plating in contact and tail. It supports up to 50 mating cycles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/econostik-254mm.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
-    "discrete-magnetic-series": {
-      "name": "Discrete Magnetic Series",
-      "description": "SUPPORTS 10/100T, 1GT, 2.5G, 5G, AND 10G TRANSMISSION SPEEDS WITH 2 & 4 PAIR POE UP TO 140W The Discrete Magnetic Series can offer a variety of products that can support 10/100T, 1GT, 2.5G, 5G & 10G transmission speed. It supports 2 & 4 pair PoE up to 140W. Configurations of both through-hole and SMT type are available for soldering process application.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "extremeport-flash-connector": {
+      "name": "ExtremePort™ Flash Connector",
+      "description": "Amphenol introduces the next-generation OverPass™ solution - ExtremePort™ Flash. The 0.60mm pitch connector comes with an extremely low profile design capable of transmitting a high-speed signal up to 56G PAM4, and allows much greater signal path lengths while maintaining SI performance when compared to conventional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-flash.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "embedded-phase-tuner": {
-      "name": "Embedded Phase Tuner",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's EMC Shields are widely used in applications that require electromagnetic isolation of board-level components. They are provided in a wide variety of ",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "expressport-qsfp": {
-      "name": "ExpressPort® QSFP+",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExpressPort® SFP+ interconnect system provides data transfer speeds of up to 16Gb/s. The design of the ExpressPort® SFP+ connector minimizes impedanc",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "expressport-sfp": {
-      "name": "ExpressPort® SFP+",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s Extremeport-Flash is an extreme low mating height, easy-to-release high-speed cable solution. We designed 95ohm Flash mainly to support near chip (un",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeport-flash": {
-      "name": "Extremeport-Flash",
-      "description": "Extremeport-MCIO(Mini Cooledge IO)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Mini Cooledge IO(MCIO) is a high-speed, small mechanical size cable solution. Amphenol MCIO product is now being specified in the SFF group and the p",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeport-mcio-mini-cooledge-io": {
-      "name": "Extremeport-MCIO(Mini Cooledge IO)",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s Extremeport-Swift is an extreme low profile(mating height<9mm), robust mechanical, and excellent SI performance cable solution. The cable assembly an",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeporttm-qsfp": {
-      "name": "ExtremePort™ QSFP+",
-      "description": "ExtremePort™ SFP112G",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ SFP112G interconnect system is comprised of a 20-position hot swappable I/O connector enclosed in a metal cage mounted to a host PCB. It",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-sfp112g": {
-      "name": "ExtremePort™ SFP112G",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ SFP+ interconnect system is comprised of a 20-position hot-swappable I/O connector enclosed in a metal cage mounted to a host PCB.It sup",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-z-link": {
+    "extremeport-z-link": {
       "name": "ExtremePort™ Z-Link",
-      "description": "Extremeport-Z-Link(Gen Z)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol introduces the SFF-TA-1002 standard solution - ExtremePort™ Z-Link, which is a 0.60mm pitch connector that comes with a slim form factor design, capable of transmitting a high-speed signal up to 56G PAM4, and allowing much greater signal path lengths while maintaining SI performance when compared to conventional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-z-link.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s Extremeport Z-Link(Gen Z ) Connector is a scalable connector and connector interface compliant to SNIA: SFF-TA-1002. Z-Link can support PCIe Gen5, an",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
     "fiber-splice-box-fsb": {
       "name": "Fiber Splice Box (FSB)",
       "description": "The FSB series of indoor wall mount enclosures are designed for centralized splice-only applications. These boxes are well suited as optical cable splice collection points for DAS (Distribution Antenna Systems), MTU (Multi-Tenant Unit), commercial business applications, and MDU (Multi-Dwelling Unit) residential fiber network applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenol-ns.com/Fiber-Splice-Boxes",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol CDI Field Replaceable Panel Connectors are designed for high-performance RF applications, offering easy maintenance, secure panel mounting, and excepti",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "flexible-printed-circuit-assembly": {
-      "name": "Flexible Printed Circuit Assembly",
-      "description": "FlexTrax Cable Manager",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BergStak®, MezzoStak®, Conan®, ComboStak® and PowerStak® are industry proven board-to-board solutions. To enlarge the advantages of these recognized ",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "flextrax-cable-manager": {
-      "name": "FlexTrax Cable Manager",
-      "description": "FlexTrax combines the flexibility of split tubes with greater ease of access than slotted duct, significantly reducing the potential to pinch or bend a fiber compared to current vertical cable management methods. Users can purchase FlexTrax as needed for the application based on the estimated length required. Installation is simple and dynamic, allowing users to customize their solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s FLOS & FLOS+ Push-Pull or Break-Away Connectors are designed to offer a reliable connection for data, signal, and power transmissions in indoor a",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "gas-and-moisture-sensors": {
       "name": "Gas and Moisture Sensors",
       "description": "SGX Sensortech has been designing and manufacturing gas and air quality sensors and modules for over 50 years. We offer a wide range of gas sensor detection technology, catalytic, infrared, metal oxide, and electrochemical, along with a sensor portfolio offering flammable and toxic gas solutions for automotive and industrial air quality applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.sgxsensortech.com/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol's GbX connector platform is a differential connector that provides flexible and low-cost design solutions for lower-speed applications while providing ",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "gig-array": {
-      "name": "GIG-Array®",
-      "description": "Ideal for power distribution to LEDs on connectivity panels, lower amperage network elements, and other traditional equipment, GMT fuses provide fast-acting DC power circuit protection up to 20A.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol's GIG-Array® connectors are designed to meet the needs of applications up to 10Gb/s requiring up to 296 signal pins per connector. Amphenol as a BGA co",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "gmt-fuses": {
-      "name": "GMT Fuses",
-      "description": "Ideal for power distribution to LEDs on connectivity panels, lower amperage network elements, and other traditional equipment, GMT fuses provide fast-acting DC power circuit protection up to 20A.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol CDI Grounding Blocks are essential components for protecting RF systems from electrical surges and ensuring reliable signal performance. Designed to pr",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "hall-effect-gear-tooth-speed-and-direction-sensor": {
-      "name": "Hall-Effect Gear Tooth Speed and Direction Sensor",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Piher Sensing Systems' flange mount gear tooth speed and direction sensors provide precise, reliable speed and direction measurement for demanding environments.",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "SGX Sensortech",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "hcso-1w-open-loop-current-sensor": {
       "name": "HCSO-1W Open Loop Current Sensor",
       "description": "The HCSO-1W sensor simplifies current measurement (AC/DC) for batteries, chargers & motors. It clamps directly on cables, reducing installation steps & errors. Based on Hall effect tech, it offers accurate readings & various current ranges. Easy to install & calibrate, making it cost-effective for manufacturers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.piher.net/products/current-sensors/hcso-1w/",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.16"
       }
     },
-    "indoor-battery-racks-bay-rack": {
-      "name": "Indoor Battery Racks - Bay Rack",
-      "description": "Indoor Battery Racks are bay rack style, Zone 4 seismic compliant (GR-487 certified) battery rack systems supporting 200Ah VRLA or 180Ah Ni-Cd batteries. Multiple configurations, from 2 to 5 battery trays, are available with optional integrated Power Plant kits. Each tray includes a 100 amp breaker and alarm safety features.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "indoor-connectors-and-adapters": {
+      "name": "Indoor Connectors and Adapters",
+      "description": "Amphenol offers a vast array of indoor connectors and adapters that are produced with high-quality material and meet EIA/TIA and IEC standards and RoHS compliant. Available in a wide variety of footprints, fiber capacity, fiber types, and colors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-fiberoptics.com/connectors",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "indoor-battery-racks-modular": {
-      "name": "Indoor Battery Racks - Modular",
-      "description": "Modular, seismic Zone 4 rated (GR-487 certified) battery rack systems designed to fit the footprint of Ni-Cd batteries. In addition to several standard configurations, there are also single tray options that can be built on-site.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol offers a vast array of indoor connectors and adapters that are produced with high-quality material and meet EIA/TIA and IEC standards and RoHS complian",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "infinity": {
-      "name": "Infinity",
-      "description": "High power interface with a wide variety of features providing solutions for system design challenges created by increasing power consumption.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "infinx-splice": {
-      "name": "InfinX Splice",
-      "description": "InfinX Splice™ is the latest innovation from Amphenol Network Solutions designed to reduce the time and complexity of splicing high density rollable ribbon fiber cables. With fiber cable strand counts growing, and conduit space shrinking, rollable ribbon fiber is increasingly the choice of data center operators and Hyperscale network operators to address their growing bandwidth requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Data center / Networking",
-        "Amphenol Business": "SV Microwave's In-Series Adapters offer top-tier connectivity within specific connector series, covering a range of connector series such as SMA, 2.92mm, 2.4mm,",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "inside-plant-passives-isp": {
-      "name": "Inside Plant Passives (ISP)",
-      "description": "The product family includes optical muxes for DWDM and CWDM applications, co-existence modules, splitters, and optical TAPs for network monitoring.These optical circuits can be packaged in different forms, such as LGX style cassettes and C2 AOMs, to provide customers with maximum flexibility on the installation platform and component density required to service a wide range of applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "led-light-guide": {
-      "name": "LED Light Guide",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW LED Light Guide feature plastic or metal connector body material with IP67 waterproof protection and LED color options in red, blue, green, white, ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Fiber Optic Products",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "liquid-cooling-leakage-detection-sensor-cable": {
       "name": "Liquid Cooling Leakage Detection Sensor Cable",
       "description": "Low cost solution for detecting leaks from coolants in liquid cooled data center Proven technology for systems using liquid cooling plates Can be installed at the pipeline connection or at the lowest point in the system chassis Prevents device short circuits and corrosion; secures system performance and reliability",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/custom-sensor-cable-assemblies.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "modular-jack-right-angle-high-speed": {
-      "name": "Modular Jack - Right Angle - High Speed",
-      "description": "Our Right Angle High-Speed line of modular jacks (1 to 10Gb/s) meet Cat5e, Cat6, and Cat6A specification performance levels per EIA-568-C.2. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "mil-hd2-next-gen-sosa-vita-91-aligned-connector-series": {
+      "name": "MIL-HD2 Next-Gen SOSA™/VITA 91 Aligned Connector Series",
+      "description": "Developed in alignment with The Open Group Sensor Open Systems Architecture™ (SOSA) technical standard, MIL-HD2 provides developers with a readily available, robust open architecture solution for tighter card pitches and chassis designs where space requirements and density are critical.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://amphenol-aerospace.com/products/mil-hd2",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "modular-jack-right-angle-standard-speed": {
-      "name": "Modular Jack - Right Angle - Standard Speed",
-      "description": "Our Right Angle Standard Speed line of modular jacks (< 1Gb/s) are Cat3 and Cat5 compliant. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI Basics Modular Jacks include single and multi-port solutions that are widely used in Telecom, Data, Networking and Home Entertainment markets for v",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "modular-jack-vertical-high-speed": {
-      "name": "Modular Jack - Vertical - High Speed",
-      "description": "Our Vertical High-Speed line of modular jacks (1 to 10Gb/s) meet Cat5e, Cat6, and Cat6A specification performance levels per EIA-568-C.2. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "modular-jack-vertical-standard-speed": {
-      "name": "Modular Jack - Vertical - Standard Speed",
-      "description": "Our Vertical Standard Speed line of modular jacks (< 1Gb/s) are Cat3 and Cat5 compliant. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW provides a comprehensive product range of M series, including M5, M8, Guided M8, M10.5, M12, 7/8\", M20 and M23. We also have push pull version, MPr",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "nrgbdfb-xlw-1000a-battery-distribution-fuse-bay": {
-      "name": "nrgBDFB-XLW 1000A Battery Distribution Fuse Bay",
-      "description": "The nrgBDFB-XLW 1000A Battery Distribution Fuse Bay includes up to eight panels per bay with each panel supporting a single feed with a maximum input rating of 1000A. Each panel contains 20 circuit positions for either bullet-style breakers or TFD fuse holders and features -48V operating voltage to fit in legacy and next-generation network applications with advanced circuit-level monitoring.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "octistm-optical-solutions": {
-      "name": "OCTIS™ - Optical Solutions",
-      "description": "OCTIS offers a range of optical solutions meeting ever increasing bandwidth requirements. SFP version is interoperable with all types of SFP/SFP+ ports and suitable for high data rate applications over long lengths. QSFP version offers enhanced bandwidth (4X SFP/SFP+).",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "olst-technology-optimized-local-surface-treatment": {
-      "name": "OLST Technology (Optimized Local Surface Treatment)",
-      "description": "OLST Technology (Optimized Local Surface Treatment) combines the advantages of light metals – low weight, easy workability, etc. – with the advantages of copper, such as corrosion resistance, the property of being soldered, special features for electrical purposes.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Aerospace Operations",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "outside-plant-passives-osp": {
       "name": "Outside Plant Passives (OSP)",
-      "description": "Optical passives ranging from 4 to 40 channel counts.They can be configured with optional express, upgrade, and test ports to support a variety of applications.The packaging comes in two forms, the HiDT (channel counts 8 or less) and the OSP AOM (channel counts 12 and higher), both providing stable optical performance across a wide operating temperature range for OSP deployment.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Optical passives ranging from 4 to 40 channel counts. They can be configured with optional express, upgrade, and test ports to support a variety of applications. The packaging comes in two forms, the HiDT (channel counts 8 or less) and the OSP AOM (channel counts 12 and higher), both providing stable optical performance across a wide operating temperature range for OSP deployment.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Optical-Passives",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's OverPass™ cable system offers a broad range of capabilities that allow our customers to efficiently transmit high-speed signals from near an ASIC to ",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "pcba-customised": {
-      "name": "PCBA (Customised)",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "panelmate-family": {
+      "name": "PanelMate™ Family",
+      "description": "Amphenol Sine Systems’ PanelMate™ Family of receptacles are engineered with a one-piece, sealed, flanged design for rapid and secure mounting. Their durable, high-temperature, silicone, facial seal provides a barrier of protection from lubricating oils, hydraulic fluids and fossil fuels to withstand the challenges and complexities of harsh environment applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-sine.com/panelmate-series",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's PCB connectors deliver high-speed signal integrity and easy integration onto printed circuit boards. They are designed to minimize signal distort",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Sine Systems",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "precision-test-cables": {
-      "name": "Precision Test Cables",
-      "description": "Pressure Relief Vent (spring-loaded and piercing type)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "position-sensors": {
+      "name": "Position Sensors",
+      "description": "Piher provides high-accuracy position sensors engineered for harsh environments. Utilizing resistive, Hall-effect and inductive technologies, these automotive-qualified sensors eliminate physical wear to ensure long-term reliability. The product portfolio includes arc, linear, and rotary sensors for precise measurement and control in demanding industrial and vehicle applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.piher.net/products/contactless-position-sensors/",
+      "specs": {
+        "Product Type": "Sensors Materials and Other",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "sd-memory-card-connector": {
+      "name": "SD Memory Card Connector",
+      "description": "FCI Basics SD Memory Card Connector is tailor-made for the Car Multimedia Device market serving the dashboard and vehicular entertainment applications. This top-mount solution is highly durable, shockproof, and is able to withstand vibrations and high temperatures found in the automotive environment. The connector is shielded, comes with write protection, and is RoHS compliant.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sd-memory-card.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW provides M4, M5, M16, M20, M32 and M40 Over-pressure Relief Vents. The Vents act as specialized safeguards in emergencies involving sudden pressure",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
-    "pressure-relief-vent-spring-loaded-and-piercing-type": {
-      "name": "Pressure Relief Vent (spring-loaded and piercing type)",
-      "description": "Printed PCB Thick Film Resistors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "spring-contacts": {
+      "name": "Spring Contacts",
+      "description": "Amphenol’s spring contacts are widely used in low-profile consumer and automotive applications to enable signal transmission, provide power and grounding. They are provided in a wide variety of heights and material options to accommodate the requirements of different applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/spring-contacts.html",
       "specs": {
         "Product Type": "Sensors Materials and Other",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Piher’s Printed PCB Thick Film Resistors integrate resistive elements, switches, potentiometer tracks, and conductors onto various PCB substrates. Utilizing adv",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "printed-pcb-thick-film-resistors": {
-      "name": "Printed PCB Thick Film Resistors",
-      "description": "PRM Series™ Panel Rack Mount",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Sine Systems’ PRM Series™ (Panel Rack Mount) Connectors, available in both Plugs and Receptacles, are a quick-connect power connector solution for use ",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "prm-seriestm-panel-rack-mount": {
-      "name": "PRM Series™ Panel Rack Mount",
-      "description": "Protective caps are available for many of our products, with options for chains and mounting hardware.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Sine Systems’ PRM Series™ (Panel Rack Mount) Connectors, available in both Plugs and Receptacles, are a quick-connect power connector solution for use ",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "protective-caps": {
-      "name": "Protective Caps",
-      "description": "Protective caps are available for many of our products, with options for chains and mounting hardware.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "right-angle-pcb-multiports": {
-      "name": "Right Angle PCB Multiports",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol has developed variant riser card high-speed cable solutions for different system architecture designs to optimize system space layout. Meanwhile, AST s",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "rfs-technologies-professional-services": {
-      "name": "RFS Technologies Professional Services",
-      "description": "RFS Technologies has extensive experience working with a diverse range of customers across various environments. Our design services are available nationwide, supported by a team of certified design engineers proficient in network design using iBwave, Ranplan, Planet, NDAC Planner, and ATOLL. We are highly mobilized and ready to work wherever needed.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "split-pair-quadrax-contacts": {
-      "name": "Split Pair Quadrax Contacts",
-      "description": "With better crosstalk performance, this contact allows a higher data rate than Cat 5E.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s spring contacts are widely used in low-profile consumer and automotive applications to enable signal transmission, provide power and grounding. They ",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "standard-gang-mating-hardware": {
-      "name": "Standard Gang Mating Hardware",
-      "description": "Strain Relief Boots",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s ganged RF cable assemblies are designed to mate directly with readily available COTS multiport connectors, enabling a single, push-on interface t",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "strain-relief-boots": {
-      "name": "Strain Relief Boots",
-      "description": "Our Strain Relief Boots provide protection and reinforcement for rugged applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "summit-rack": {
-      "name": "Summit Rack",
-      "description": "The Summit Rack can be mounted on ladder racks or wire baskets above the active equipment. The 19\" spacing allows the installation of different panels, such as C2E, C2X, LCX, or patch plates, and is available in 3RU and 5RU configurations.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Surface Mount PCB Connectors provide reliable RF signal transmission with a compact, low-profile design for direct PCB integration. These connector",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "tee-series-adapters": {
-      "name": "Tee-Series Adapters",
-      "description": "Termination Components",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's termination components are essential elements in RF and microwave systems, designed to absorb and dissipate signals effectively. Terminations pre",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "tpa-fuses": {
-      "name": "TPA Fuses",
-      "description": "With ratings up to 50A, TPA fuses enable the management of high-density/high-capacity equipment such as routers, DSLAMs, and powered SONET equipment.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "ultraporttm-qsfp": {
-      "name": "UltraPort™ QSFP+",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's UltraPort™ SFP+ interconnect system comprises of a 20-position hot-swappable I/O connector enclosed in a metal cage mounted to a host PCB. It support",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "ultraporttm-sfp": {
-      "name": "UltraPort™ SFP+",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Basics universal contact is a single-piece SMT contact that provides an electrical connection between a device and a PCB with no higher than 2A curre",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "xa-series": {
-      "name": "XA Series",
-      "description": "Pitch: 6.35mm/8.60mm Poles: 1P-12P Voltage Rating: 300V/600V Current Rating: 30A/30A Wire Range: 10-24 AWG Wire Strip Length: 11-12mm Withstanding Voltage: 2.0KV/2.2KV",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.14"
-      }
-    },
-    "xcede-hd": {
-      "name": "XCede® HD",
-      "description": "XCede® HD product leverages the same core technologies as standard XCede® series. Providing a robust solution for tighter card pitches and chassis designs where space requirements and density are critical. XCede® HD product family includes XCede® HD, XCede® HD Plus and XCede® HD2 supporting various data rate up to 56Gb/s with backward compatibility.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Sensors Materials and Other",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.31"
       }
     }
   }

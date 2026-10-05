@@ -3,23 +3,24 @@
   "company": "Amphenol",
   "category": "Fiber Optic Connectivity",
   "displayName": "Fiber Optic Connectivity",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Fiber Optic Connectivity. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Fiber Optic Connectivity. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=34"
   ],
-  "sourceCount": 20,
+  "sourceCount": 19,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -31,261 +32,248 @@
     "109-series-connectors": {
       "name": "109 Series Connectors®",
       "description": "AFSI’s line of 109 series hermaphroditic connectors offers the ultimate in flexibility and is a direct replacement for the TAC4. The 109 connector line meets or exceeds the pertinent requirements of SMPTE standard 358M on harsh environment multi-channel fiber optic connectors suitable for deployment in demanding outdoor broadcast applications, including HDTV signal transmission.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "http://www.fibersystems.com/products/109-series-connectors",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "apc-8010": {
       "name": "APC 8010",
       "description": "The APC 8010 is the perfect machine for every fiber optic production. High reproducibility with all connector geometries ensures high productivity during production. This is made possible by a permanent pressure control, which is adjusted to the connector type and quantity.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-po.de/en/fiber-optic-components/polishing-technology/APC8010",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Filtered ARINC 404 filter connectors feature the complete line of standard ARINC layouts and meet the applicable performance and environmental port",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Precision Optics",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "c2e-high-density-fiber-distribution-panel": {
       "name": "C2E High Density Fiber Distribution Panel",
       "description": "The C2E chassis provides a Data Center solution that is dense, modular and tray based. It is offered as either a dedicated Base-8 solution using the C2 Base-8 modules for MPO or MTP breakout modules, or a dedicated Base-12 version.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/C2E-HIgh-Density/rvdsfcatid/400",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "cascade-1ru-bulkhead-panel": {
       "name": "Cascade 1RU Bulkhead Panel",
       "description": "The Cascade Panel is a 1RU chassis with spaces for 4x custom patch plates at a total density of 96 LCs in a single rack unit. The Cascade Panel has a sliding tray that brings the adapters forward, allowing for easier access when performing moves, adds, or changes. Its simple, streamlined design provides a balance of density and usability when connecting multiple LC or MPO connections.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenol-ns.com/Product/cascade-panel",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDFP cable assemblies are designed to meet emerging data center and high-performance computing application needs for high density cabling interconnect ",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "f2x-fiber-optic-building-entry-point": {
       "name": "F2X Fiber Optic Building Entry Point",
       "description": "The building entry point (BEP) enables easy connection of buildings to your fiber optic network. The BEP can accommodate different numbers of fibers according to your needs. With the patented F2X® solution you are able to connect and measure FTTX installations faster.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://pulse.sachsenkabel.de/features/f2x",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fiber-optic": {
       "name": "Fiber Optic",
-      "description": "Fiber Optic Data Center Trunk Cable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's offers a variety of Fiber Optics adapters that allow terminating fiber optics cables to be coupled together. Available in LC & SC type for your outdoor application for your high-speed transmission requirement【Quick Guide: https://amphenolltw.com/down.php?supp_download=95】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenolltw.com/product-info/FiberOptic/",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Data center",
-        "Amphenol Business": "Amphenol LTW's offers a variety of Fiber Optics adapters that allow terminating fiber optics cables to be coupled together. Available in LC & SC type for your o",
-        "Source Page": "IT Datacom p.6"
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fiber-optic-data-center-trunk-cable": {
       "name": "Fiber Optic Data Center Trunk Cable",
       "description": "Trunk cables are used for fixed cabling between network cabinets. Pre-assembled with URM, MPO, or MDC it's application-independent and system-oriented. Especially the URM connector fits perfectly into Base8 cabling systems which are suitable for current and future transmission standards. Smart fixing of the trunk cable in distribution technology due to the integrated cable gland on the divider.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://pulse.sachsenkabel.de/config/vnext/trunk?dc=1",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.14"
+      }
+    },
+    "fiber-optic-fanout-cable": {
+      "name": "Fiber Optic Fanout Cable",
+      "description": "Fanout cables are used for fixed cabling between network cabinets, mainly for breakout applications. System-oriented connector combinations make them application-independent and suitable for all Ethernet and Fibre Channel applications. Usually, 8-fold, 12-fold and 24-fold fanout cable assembled with MPO connectors one side and any common connector type on the other side could be provided.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://sachsenkabel.de/en/products/multi-fiber_cable",
+      "specs": {
+        "Product Type": "Fiber Optic Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fiber-optic-splice-module-twin-with-angled-cable-strain-relief": {
       "name": "Fiber Optic Splice Module Twin with Angled Cable Strain Relief",
       "description": "The splice module is designed to fit the 3U subrack and is used to integrate unassembled cables into the network. Equipped with pre-assembled pigtails and a splice cassette it offers an uncomplicated possibility for cable installation. With the angled cable support the fibers are guided perfectly without risk of breaking.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://sachsenkabel.de/en/products/Subracks_and_modules",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fiber-optic-subrack-19-3u": {
       "name": "Fiber Optic Subrack, 19\", 3U",
       "description": "The subrack is suitable for accommodating up to 12x7TE or 16x5TE modules. Due to the modular design, the system is well scalable, and mixed configurations, as well as extensions, can be easily realized. Rear-mountable trunk head holders provide space for the safe and quick installation of incoming cables.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://pulse.sachsenkabel.de/catalog/i/Rechenzentren?materialgroup=Baugruppentr%C3%A4ger%20und%20Module",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "flos-flos-push-pull-or-break-away-connectors": {
-      "name": "FLOS & FLOS+ Push-Pull or Break-Away Connectors",
-      "description": "FS12 Pierside 12-Channel Fiber Optic Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Fiber Optic Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s FLOS & FLOS+ Push-Pull or Break-Away Connectors are designed to offer a reliable connection for data, signal, and power transmissions in indoor a",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fs12-pierside-12-channel-fiber-optic-connector": {
       "name": "FS12 Pierside 12-Channel Fiber Optic Connector",
       "description": "The AFSI FS12 fiber optic connector is for harsh environment, broadcast, and pierside applications with a design that provides flexibility for current and future Navy communication requirements both afloat and ashore It is also ideal for high fiber count tactical broadcast networks with removable termini, it enables quick connector reconfiguration and field maintainability.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "http://www.fibersystems.com/products/fs12-pierside-12-channel-fiber-optic-connector",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "fs34": {
       "name": "FS34",
       "description": "These connectors are precision machined to stringent tolerances and designed to provide superior optical performance in extreme environmental conditions. FS34 offers rugged military and industrial multichannel fiber optic connectors with a captivation system developed by AFSI and Quickloc™ backshells.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "http://www.fibersystems.com/products/fs34/?portfolioCats=48",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "hybrid-distribution-panel-hyp": {
       "name": "Hybrid Distribution Panel HypΣ",
       "description": "The Hybrid Distribution Panel enables the combination of copper and fiber optic cabling on just 1 height unit (U). The modular components and full accessibility from the front and rear make the system ideal for highly flexible data center and network infrastructures.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://sachsenkabel.de/en/products/Subracks_and_modules/Hype",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center / Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "hybrid-patchbox-19": {
+      "name": "Hybrid Patchbox - 19\"",
+      "description": "The 19” Hybrid Patchbox is suitable for fixed installations with a one-piece front panel to accommodate up to 8 URM P8-connectors and 12 RJ45 Keystone-Modules. Alternative SC- or LC-connectors are applicable. Optimized packing density is provided by combining fiber optic and copper cables. Backside cable inlets for screwed cable glands 2 x M32 and 4 x M25 as well as M6 grounding bolt are included.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://sachsenkabel.de/en/products/19_distribution_technology",
+      "specs": {
+        "Product Type": "Fiber Optic Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Sachsenkabel",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "lcx-bulkhead-style-panel": {
       "name": "LCX Bulkhead-Style Panel",
       "description": "The LCX Series features bulkhead-style, LGX-compatible fiber optic patch panels. The LCX gives you cost-effective patch and splitter capabilities in an industry-standard footprint. The series can host up to 288 terminations in a standard configuration that fits existing frame layouts and new builds.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/LCX-Standard-Density",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "linctm-fiber-panel": {
+    "linc-fiber-panel": {
       "name": "LiNC™ Fiber Panel",
       "description": "The LiNC panel, patent-pending, is a revolutionary rapid-deployment multi-fiber end-to-end solution. It can easily lower fiber congestion, and it eliminates the need to store extra trunk cables or figuring out slack storage solutions. Four spools are built into the high-density chassis, and with the option of ready-to-use 12/24F MPO breakout modules integrated, you have up to 200",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/Fiber-Products/LiNC",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "mtach-miniature-2-channel-fiber-optic-connector": {
       "name": "mTACh Miniature 2-Channel Fiber Optic Connector",
       "description": "AFSI offers a high-performance, dual-channel hermaphroditic fiber optic connector, ideally suited for the energy, broadcast, and military markets. The mTACh connector is rugged yet compact. It is designed for use in tight spaces yet durable enough for applications requiring multiple mating cycles and harsh environments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "http://www.fibersystems.com/products/mtach-miniature-2-channel-fiber-optic-connector",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation product - Multi-Trak™. The 0.60mm pitch connector come with a slim form factor design, capable of transmitting high-spee",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "optik-d": {
-      "name": "Optik-D",
-      "description": "\"The Optik-D™ fibre-optic connector solution is for designers who need to terminate optical cable in harsh or challenging environments. It is an ARINC 801 conforming fibre-optic connector designed to be used with the Positronic Combo D-Subminiature family. Optik-D is more cost-effective than D38999 or ARINC 600-based systems and is compatible with ARINC 801 products from other manufacturers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Fiber Optic Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's OSFP interconnect system has 60 contacts per port, with a 0.6mm contact pitch and 8 high-speed channels. The OSFP footprint is optimized for signal i",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "termination-tools-for-rf-connectors": {
-      "name": "Termination Tools for RF Connectors",
-      "description": "TFOCA-III® Fiber Optic Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Fiber Optic Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers a full line of termination tooling to meet your specific production requirements. All tools meet Amphenol’s stringent design and quality requ",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.23"
       }
     },
     "tfoca-iii-fiber-optic-connectors": {
       "name": "TFOCA-III® Fiber Optic Connectors",
       "description": "The TFOCA-III® series of 6 & 24-channel fiber optic connectors are ideal for environmentally harsh conditions. The TFOCA-III® design utilizes the latest technology in fiber optic connectivity by incorporating industry-standard physical contact ceramic ferrules and alignment sleeves.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "http://www.fibersystems.com/products/tfoca-iii-fiber-optic-connectors/?portfolioCats=47",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Fiber Systems International (AFSI) offers the ARCH Series TFOCA-II®Ruggedized Media Converter to provide optical-electrical (O-E) and electrical-optica",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "wavetrax-fiber-raceway": {
       "name": "WaveTrax Fiber Raceway",
-      "description": "WaveTrax®, the Amphenol Network Solutions fiber raceway system, is designed to help engineers deliver reliable fiber optic network performance.Reduce your cost of ownership with the full line of WaveTrax products, including troughs, elbows, cross and T sections, off-ramps, and articulating links - easily installed so you are up and running quickly!",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "WaveTrax®, the Amphenol Network Solutions fiber raceway system, is designed to help engineers deliver reliable fiber optic network performance. Reduce your cost of ownership with the full line of WaveTrax products, including troughs, elbows, cross and T sections, off-ramps, and articulating links - easily installed so you are up and running quickly!",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=34",
+      "businessUrl": "https://amphenol-ns.com/ANS-Products/Cable-Management/WaveTrax/rvdsfcatid/50",
       "specs": {
         "Product Type": "Fiber Optic Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol's wire-to-board fan connectors come with Blind-Mate Interface. The 1.25mm pitch wire-to-board connectors meet a maximum of 2.8A/pin current carrying ca",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.34"
       }
     }
   }

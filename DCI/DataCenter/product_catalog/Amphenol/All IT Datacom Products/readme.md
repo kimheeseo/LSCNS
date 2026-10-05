@@ -1,7 +1,7 @@
-# Wire-to-Board and FFC-FPC
+# All IT Datacom Products
 
 Official source: https://www.amphenol.com/markets/it-datacom
 
-Classified products: 26
-Official IT Datacom total: 665
+Products: 665 / 665
+
 Updated: 2026-10-05

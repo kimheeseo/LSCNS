@@ -3,18 +3,22 @@
   "company": "Amphenol",
   "category": "Memory and Card Edge Connectors",
   "displayName": "Memory and Card Edge Connectors",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Memory and Card Edge Connectors. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Memory and Card Edge Connectors. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26"
   ],
-  "sourceCount": 15,
+  "sourceCount": 24,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -23,199 +27,316 @@
     "Source Page"
   ],
   "products": {
-    "ddr2-so-dimm-memory-module-sockets": {
-      "name": "DDR2 SO-DIMM Memory Module Sockets",
-      "description": "DDR2 SO-DIMM sockets are designed to accept modules that conform to JEDEC MO-224. The sockets come with a small form factor which allows fitting into smaller chassis, aiding the development of smaller & lighter notebooks. It comes in two voltage options with different key-ID to prevent incorrect mating. It operates at a higher speed & bandwidth lowers power consumption.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "112g-pam4-mini-cool-edge-0-60mm-card-edge-connectors": {
+      "name": "112G PAM4 Mini Cool Edge 0.60mm Card Edge Connectors",
+      "description": "Mini Cool Edge is a 0.60mm high-density, high-speed card edge connector for new-generation small form factor systems. The fine-pitch solutions in vertical orientation are now available for a complete interconnect solution. Mini Cool Edge 0.60mm meets SFF-TA-1002, OCP NIC 3.0 specifications and networking applications. Common applications include Network Interface Card, Add-In Card, and GPU link.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/112g-pam4-mini-cool-edge-060-card-edge.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "automotive-grade-pci-express-gen-5-card-edge-connectors": {
+      "name": "Automotive Grade PCI Express® Gen 5 Card Edge Connectors",
+      "description": "EXTEND DIFFERENTIAL SIGNALING TO 32GT/S FOR NEXT-GENERATION SYSTEMS PCIe® Gen 5 straddle mount connectors outperform the industry standards with higher speed along with complying to USCAR. The optimized series supports backwards mating and is footprint compatible with PCIe® 4/3/2/1.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/automotive-pcie-gen5.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "cool-edge-1-00mm-pcie-connectors": {
+      "name": "Cool Edge 1.00mm PCIe Connectors",
+      "description": "Cool Edge PCIe® connectors bring high-speed PCIe® support into a one-piece card edge package with 16GT/s Gen 4 and 32GT/s Gen 5 capabilities. Slim connector design saves space on the motherboard while facilitating other higher-density applications. These connectors come with a simple housing design with an overall reduced footprint, providing additional benefits over standard PCIe® CEM solutions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cool-edge-1-00mm-pcie.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "16gt/s · 32gt/s · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "cool-edge-1-00-mm-pcie-gen-6-connectors": {
+      "name": "Cool Edge 1.00 mm PCIe® Gen 6 Connectors",
+      "description": "Cool Edge PCIe® connectors bring high-speed PCIe® support into a one-piece card edge package with 64 GT/s Gen 6 capabilities. Slim connector design saves space on the motherboard while facilitating other higherdensity applications. These connectors come with a simple housing design with an overall reduced footprint, providing additional benefits over standard PCIe® CEM solutions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cool-edge-1-00mm-pcie-gen6.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "ddr2-so-dimm-memory-module-sockets": {
+      "name": "DDR2 SO-DIMM Memory Module Sockets",
+      "description": "DDR2 SO-DIMM sockets are designed to accept modules that conform to JEDEC MO-224. The sockets come with a small form factor which allows fitting into smaller chassis, aiding the development of smaller & lighter notebooks. It comes in two voltage options with different key-ID to prevent incorrect mating. It operates at a higher speed & bandwidth lowers power consumption.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/so-dimm.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr3-memory-module-sockets": {
       "name": "DDR3 Memory Module Sockets",
       "description": "DDR3 vertical DIMM sockets are designed to accept 240 position DDR3 memory modules that conform to JEDEC M0-269. Low-resistance contacts support the use of RDIMM (registered DIMM), which helps to further reduce power consumption in data center hardware.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr3.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr4-memory-module-sockets": {
       "name": "DDR4 Memory Module Sockets",
       "description": "Vertical DDR4 DIMM sockets from Amphenol provide 288 contacts on 0.85mm pitch and are designed to accept DDR4 memory modules that conform to JEDEC MO-309. The DDR4 series complies with the new interface standard JEDEC POD12. It allows a module seating plane of 2.40mm and supports module variants in UDIMM, RDIMM, and LRDIMM.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr4.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr4-so-dimm-memory-module-sockets": {
       "name": "DDR4 SO-DIMM Memory Module Sockets",
       "description": "HIGH-SPEED HIGH-DENSITY SO-DIMM SOCKETS DDR4 SO-DIMM connectors deliver high-speed and bandwidth. Being half the size of regular DIMMs, they lower power consumption and promote better thermal management. Different key positions aid alignment and prevent mismating. 260 position SO-DIMM connectors are available in 4.00mm, 5.20mm, 8.00mm, 9.20mm height, in standard or reverse options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr4-so-dimm.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr4-ultra-low-profile-memory-module-sockets": {
       "name": "DDR4 Ultra Low Profile Memory Module Sockets",
       "description": "DDR4 Ultra Low Profile (ULP) vertical DIMM sockets provide 288 contacts on 0.85mm pitch. It facilitates convenient memory expansion in servers, workstations, desktop PCs, and embedded applications in communications and industrial equipment. With an ultra-low module seating height of 1.1mm and connector height of 13.1mm, it reduces the overall profile of the connector.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr4-ultra-low-profile.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Server / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr5-lpddr5-camm2-connector": {
       "name": "DDR5/LPDDR5 CAMM2 Connector",
       "description": "COMPLIES TO JEDEC SO-032 SPEC The DDR5/LPDDR5 CAMM2 connector follows JEDEC standards with 644 pins/666 pins, has a pitch of 1.00x1.38mm, and a connector height of 1.0mm. It provides dual channel memory which could support higher bandwidth and can catch up all DDR5 capacities needed. This connector is developed to support lower-power DDR5 memory and does not require ground shielding.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr5-lpddr5-camm2.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "ddr5-memory-module-sockets-smt": {
       "name": "DDR5 Memory Module Sockets (SMT)",
       "description": "COMPLIES TO NEW INTERFACE STANDARD JEDEC SO-023D AND JEDEC SO-023 The new DDR5 connector with only 287 terminals addresses the resonance from the floating RFU pin 220 which resulted in a margin delta. Both RDIMM and UDIMM versions of the new DDR5 socket are tooled and available.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr5-memory-module-sockets-smt.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "ddr5-socamm-connector": {
       "name": "DDR5 SOCAMM Connector",
       "description": "LATEST MEMORY FORM FACTOR FOR AI SERVERS The LP DDR5 Small Outline Compression Attached Memory Module (SOCAMM) is designed specifically for server and data center applications. It utilizes a compression connector interface and offers all the advantages of LPCAMM DDR5 in a more optimized form factor, making it ideal for high-performance computing (HPC) and artificial intelligence (AI) servers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr5-socamm.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Data center / Server / HPC / AI",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Application": "Data center / AI/HPC / Server",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "ddr5-so-dimm-connectors": {
       "name": "DDR5 SO-DIMM Connectors",
       "description": "HIGH SPEED HIGH DENSITY SO-DIMM SOCKETS DDR5 SO-DIMM connectors deliver high-speed and bandwidth. Being half the size of regular DIMMs, they lower power consumption and promote better thermal management. 262 positions SO-DIMM connector are available in various height options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ddr5-so-dimm.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "hpce-high-power-card-edge-connector": {
-      "name": "HPCE® High Power Card Edge Connector",
-      "description": "The High Power Card Edge (HPCE®) connector is a next-generation power card edge connector for demanding applications requiring high linear current density and low power loss. HPCE offers a low profile height (7.50mm) and is based on very cost-effective and highly reliable stamped-and-formed power contact technology similar to other power solutions from Amphenol.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Memory and Card Edge Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "micro-cool-edge-nf1-ngsff-0-50mm-connectors": {
       "name": "Micro Cool Edge NF1/NGSFF 0.50mm Connectors",
       "description": "Micro Cool Edge NF1/NGSFF 0.50mm is a new small form factor card edge connector designed for enterprise and data center SSD (Solid State Drive) servers. It supports NF1/NGSFF (Next Generation Small Form Factor) which can double storage capacity and enable front side service within server systems compared to the M.2 standard.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-cool-edge-nf1-ngsff-0-50mm.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center / Server / Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
-    "microsd-express-connector": {
-      "name": "microSD Express Connector",
-      "description": "Micro-TCA Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pcie-gen-4-m-2-1a-card-edge-connectors": {
+      "name": "PCIe® Gen 4 M.2 1A Card Edge Connectors",
+      "description": "Amphenol's PCIe® Gen 4 M.2 1A connectors provide 67 contacts on 0.50mm pitch and signal transmission speed of 16Gb/s. It occupies less board space, offers more connector height options. It is designed for PCIe® 4.0 1A applications, making it suitable for tablets, laptops and low profile storage and server applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-m2-gen4-1a.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "16gb/s · 1a · 67 contacts",
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "pcie-m-2-gen-3-and-gen-4-card-edge-connectors": {
+      "name": "PCIe® M.2 Gen 3 and Gen 4 Card Edge Connectors",
+      "description": "Amphenol's PCIe® M.2 Gen 3 and Gen 4 connectors provide 67 contacts on 0.50mm pitch. It occupies less board space, offers more connector height options, and supports higher data rates compared to PCIe® Mini Card connector. It is designed for PCIe® 3.0, USB 3.0, and SATA 3.0 applications, making it suitable for tablets, laptops, and low-profile storage and server applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-m2.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "3 a · 0 a · 67 contacts",
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "pcie-m-2-gen-5-card-edge-connectors": {
+      "name": "PCIe® M.2 Gen 5 Card Edge Connectors",
+      "description": "Amphenol's PCIe® M.2 Gen 5 Connectors provide 67 contacts on 0.50mm pitch. It occupies less board space, offers more connector height options, and supports higher data rates compared to PCIe® Mini Card connector. It is designed for PCIe® Gen 5, making it suitable for tablets, laptops, and low-profile storage and server applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-m2-gen5.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "pci-express-directattached-cem-card-edge-connectors": {
+      "name": "PCI Express® DirectAttached™ CEM Card Edge Connectors",
+      "description": "Amphenol's 1.0mm pitch DirectAttached™ CEM (DA CEM) is a hybrid card edge solution with high-speed signal pins designed to directly attach to the cable to eliminate PCB trace loss and press-fit termination type power pins for better rework. Amphenol has tooled Gen 5 DA CEM with configurations available for X8 and X16, at 32GT/s data rate to meet PCIe® Gen 5.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-directattached-cem-card-edge.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "32gt/s · 8 a · 1.0mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "pci-express-flip-cem-card-edge-connectors": {
+      "name": "PCI Express® Flip CEM Card Edge Connectors",
+      "description": "The PCIe® Gen 5 Flip CEM is a new 1.0mm pitch vertical card edge connector that follows PCIe® standard mating interface. It is designed with a different footprint because the contacts are “JJ” type or “LL” contacts which provide maximum savings of up to 19.5% in keepout area. The current Flip CEM supports 32GT/s (Gen 5) and the mating side supports backward compatibility with PCIe® 4/3/2/1 card.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pci-express-flip-cem-card-edge.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol is the first in the industry to offer card sockets for both microSD Express and Micro SD cards (UHS-I). The 17 pin microSD Express connector is capable",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
-    "micro-tca-card-edge-connectors": {
-      "name": "Micro-TCA Card Edge Connectors",
-      "description": "FULLY COMPLIANT CONNECTOR FOR ADVANCED MC™ MODULES MicroTCA (μTCA) vertical card edge connectors provide 170 contacts on a 0.75mm pitch and enable Advanced MC™ modules to be plugged directly into a backplane. MicroTCA card edge connectors' conventional press-fit or surface mount assembly processes and connector designs require no costly hardware, resulting in low total applied cost.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pci-express-gen-3-card-edge-connectors": {
+      "name": "PCI Express® Gen 3 Card Edge Connectors",
+      "description": "Amphenol's 1.00mm pitch, vertical card edge connectors enable PCI Express® (PCIe®) signaling from 2.5Gb/s (Gen 1) and 5Gb/s (Gen 2) up to 8Gb/s (Gen 3) per differential signal pair. A modular design of these connectors allows standard pin counts like 36, 64, 98, 164, and 280.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pci-express-card-edge.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "up to 8gb/s · 2.5gb/s · 5gb/s",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "pci-express-gen-4-and-gen-5-card-edge-connectors": {
+      "name": "PCI Express® Gen 4 and Gen 5 Card Edge Connectors",
+      "description": "PCIe® Gen 4 and Gen 5 connectors outperform industry-standard PCIe® 4.0 and 5.0 (Proposed) requiring higher speed performance. The optimized series supports backward mating and is footprint compatible with PCIe 3/2/1. Amphenol's expansive range of vertical PCIe® Gen 4 and Gen 5 connectors will include options for SMT, through-hole solder, press-fit (PF), and straddle mount terminations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen4-gen5-card-edge.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
-    "position-sensors": {
-      "name": "Position Sensors",
-      "description": "The Power Card Edge connectors are a cost-effective system that can be used for DC power output from embedded AC/DC power supplies or for power distribution between boards within an enclosure. The narrow connector body helps maximize airflow for increased cooling and is well-suited for use in 1U rack-mount servers or on power distribution boards inside 1U redundant power supply assemblies.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pci-express-gen-6-cem-card-edge-connectors": {
+      "name": "PCI Express® Gen 6 CEM Card Edge Connectors",
+      "description": "Amphenol PCIe® Gen 6 connectors exceed industry standard PCIe® 6.0 performance requirements. These 1.00mm pitch, vertical card edge connectors enable all generations of PCI Express® signaling in desktop PCs, workstations, and servers, Industrial PCs, embedded systems, routers, automotive infotainment systems, and respirators.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen6-card-edge.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Piher provides high-accuracy position sensors engineered for harsh environments. Utilizing resistive, Hall-effect and inductive technologies, these automotive-q",
-        "Source Page": "IT Datacom p.11"
+        "Application": "Server / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
-    "power-card-edge": {
-      "name": "Power Card Edge",
-      "description": "The Power Card Edge connectors are a cost-effective system that can be used for DC power output from embedded AC/DC power supplies or for power distribution between boards within an enclosure. The narrow connector body helps maximize airflow for increased cooling and is well-suited for use in 1U rack-mount servers or on power distribution boards inside 1U redundant power supply assemblies.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pci-express-gen-6-directattached-cem-card-edge-connectors": {
+      "name": "PCI Express® Gen 6 DirectAttached™ CEM Card Edge Connectors",
+      "description": "The PCI Express® Gen 6 DirectAttached™ CEM Card Edge Connectors from Amphenol offer superior performance for next-generation systems. The 1.0mm pitch DirectAttached™ CEM (DA CEM) is a hybrid card edge solution with high-speed signal pins designed to directly attach to the cable, limiting PCB trace loss and features press-fit termination power pins for improved rework.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen6-directattached-cem-card-edge.html",
       "specs": {
         "Product Type": "Memory and Card Edge Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol LTW's Power Series is rated up to IP68, providing a current rating range up to 80A in a variety of shell sizes. In design, the Ecomate® program meets t",
-        "Source Page": "IT Datacom p.11"
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "pci-express-gen-6-flip-cem-card-edge-connectors": {
+      "name": "PCI Express® Gen 6 Flip CEM Card Edge Connectors",
+      "description": "The PCI Express® Gen 6 Flip CEM Card Edge Connectors offer a new 1.0mm pitch vertical card edge connector designed in line with PCIe® mating interface standards. Unique to this model are the “JJ” and “LL” contact types, which allow for a 19.5% keep-out area savings. Capable of supporting 64GT/s (Gen 6), its backward-compatible design ensures compatibility with PCIe® 5/4/3/2/1 cards.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pci-express-gen6-flip-cem-card-edge.html",
+      "specs": {
+        "Product Type": "Memory and Card Edge Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     }
   }

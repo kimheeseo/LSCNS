@@ -3,15 +3,23 @@
   "company": "Amphenol",
   "category": "Power Distribution Panels",
   "displayName": "Power Distribution Panels",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Power Distribution Panels. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Power Distribution Panels. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28"
   ],
-  "sourceCount": 2,
+  "sourceCount": 22,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -20,30 +28,290 @@
     "Source Page"
   ],
   "products": {
-    "1ru-325a-dual-feed-8-8-circuit-breaker-panel": {
-      "name": "1RU 325A Dual-Feed, 8/8 Circuit Breaker Panel",
-      "description": "The 300CB08/nrg300CB08 circuit breaker panels are 325A dual-feed and provide 8/8 breaker positions. Engineered into a standard 1RU footprint, each circuit supports up to 60A breakers in each position, providing ample capacity for distribution to a broad range of components. Advanced circuit-level monitoring features are available as an option.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "barklip-bk1000-hd-i-o-1ou-cable-connector": {
+      "name": "BarKlip® BK1000 HD I/O 1OU Cable Connector",
+      "description": "HIGH POWER OCP-COMPATIBLE CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK1000 HD I/O power cable assemblies feature an OCP-compatible design, compliant with ORv3 power distribution architecture standards. Barklip® BK1000 HD IO can distribute up to 1000A per contact, load and return, and up to 2000A total. Designed similarly to other ORv3 busbar connectors",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk1000-hd-io-10u.html",
       "specs": {
         "Product Type": "Power Distribution Panels",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 1000a · up to 2000a · 1000a per contact",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
-    "1ru-circuit-breakers": {
-      "name": "1RU Circuit Breakers",
-      "description": "Engineered for use in 1RU circuit breaker panels, these single-pole standard delay circuit breakers provide reliable circuit protection for DC applications from 5A to 60A. In addition to providing conventional overcurrent protection, each breaker can be used as an on-off switch.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "barklip-bk1200-hd-i-o-1ou-cable-connector": {
+      "name": "BarKlip® BK1200 HD I/O 1OU Cable Connector",
+      "description": "HIGH POWER OCP-COMPATIBLE CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK1200 HD I/O power cable assemblies feature an OCP-compatible design, compliant with ORv3 power distribution architecture standards. Barklip® BK1200 HD I/O can distribute up to 1250A per contact, load and return, and up to 2500A total.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk1200-hd-io-10u.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "up to 1250a · up to 2500a · 1250a per contact",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "barklip-bk600-i-o": {
+      "name": "BarKlip® BK600 I/O",
+      "description": "OCP-COMPATIBLE POWER CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK600 I/O power cable assemblies feature an OCP-compatible design compliant with ORv3 power distribution architecture standards. Barklip® BK600 I/O can distribute up to 700A between busbars, cables, and circuit boards.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk600.html",
       "specs": {
         "Product Type": "Power Distribution Panels",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol QSFP DD to QSFP DD 200G Active Optical Cable assemblies increase the number of lanes from 4 to 8 and double the port density as compared to 100G QSFP28",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "barklip-xp-connectors": {
+      "name": "BarKlip® XP Connectors",
+      "description": "HIGH POWER AND LOW RESISTANCE BUSBAR CONNECTOR Amphenol's BarKlip® XP connectors feature independent points of contact that provide overall lower resistance and greater overall efficiency. BarKlip® XP series is capable of distributing anywhere from 150 to 1000A of power to busbar power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-xp.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "gmt-fuses": {
+      "name": "GMT Fuses",
+      "description": "Ideal for power distribution to LEDs on connectivity panels, lower amperage network elements, and other traditional equipment, GMT fuses provide fast-acting DC power circuit protection up to 20A.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://amphenol-ns.com/Product/rvdsfpid/343/rvdsfpvid/1587",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "hci-connector-system": {
+      "name": "HCI® Connector System",
+      "description": "The HCI® connector system anticipates the continued trend toward increased system power demands that are driving the need for increased power density. The HCI® connector system is designed to address requirements that extend beyond the capability of Amphenol's proven PwrBlade® connector system, the industry standard for DC power supply interfaces and power distribution.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hci-connector-system.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "ipc-m120-connectors": {
+      "name": "IPC-M120 Connectors",
+      "description": "Amphenol's IPC-M120 is a reliable, mid-range connector within the IPC product series. The power connector is designed to house two separate 2AWG (33.6mm2) contacts rated up to 115A per contact. IPC-M120 is the ideal connector solution for battery interconnects, eMobility charging, and other DC power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ipc-m120.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "up to 115a · 2a · 115a per contact",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
+      }
+    },
+    "ipc-m175-connectors": {
+      "name": "IPC-M175 Connectors",
+      "description": "Amphenol's IPC-M175 displays formidable power through a sleek design in the IPC product series. The power connector is designed to house two separate 1/0 (53.5mm2) contacts rated up to 175A per contact. IPC-M175 is the ideal connector solution for battery interconnects, e-Mobility charging, and other DC power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ipc-m175.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
+      }
+    },
+    "ipc-m350-connectors": {
+      "name": "IPC-M350 Connectors",
+      "description": "Amphenol's IPC-M350 power connector is the largest and most powerful connector in the IPC-M product series. IPC-M350 is capable of housing two separate 350MCM (185mm2) contacts rated for up to 500A (UL rated). IPC-M350 is an ideal connector solution for battery interconnects, eMobility charging, and other DC power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ipc-m350.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
+      }
+    },
+    "ipc-m50-connectors": {
+      "name": "IPC-M50 Connectors",
+      "description": "Amphenol's IPC-M50 power connector is designed to house two separate 6AWG contacts rated up to 50A per contact. IPC-M50 is the ideal connector solution for battery interconnects, eMobility charging, and other DC power distribution applications. IPC-M50 features the smallest profile in Amphenol's IPC product line adequate for wire sizes from 12AWG - 6AWG.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ipc-m50.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "up to 50a · 6a · 50a per contact",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
+      }
+    },
+    "minitek-pwr-picpwr-ocp-connector-system": {
+      "name": "Minitek® Pwr PICPWR OCP® Connector System",
+      "description": "Amphenol introduces the new PICPWR OCP® connector system. This new introduction PICPWR 2x6+12SB or 2x3+6SB auxiliary power connector and cable assembly supports the 864W (2x6) / 486W (2x3) power distribution within the HPM and to/from peripheral subsystems to HPM or peripheral subsystems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-picpwr-ocp.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
+      }
+    },
+    "ocp-48v-barklip-bk150-io": {
+      "name": "OCP 48V BarKlip® BK150 IO",
+      "description": "OCP 48V COMPATIBLE POWER CABLE ASSEMBLY FOR OPEN COMPUTE IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant Barklip® BK150 power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards and provide a convenient method of distributing up to 150A per contact between busbars, cables, and circuit boards.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ocp-48v-barklip-bk150.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "ocp-48v-barklip-bk220-i-o": {
+      "name": "OCP 48V BarKlip® BK220 I/O",
+      "description": "OCP-COMPATIBLE ORV3 POWER ASSEMBLY CONNECTOR FOR IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant BarKlip® BK220 power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards. The connector system supports up to 220A per contact between busbars, cables, and circuit boards.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ocp-48v-barklip-bk220.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "ocp-48v-barklip-bk350-i-o": {
+      "name": "OCP 48V BarKlip® BK350 I/O",
+      "description": "OCP-COMPATIBLE ORV3 POWER ASSEMBLY CONNECTOR FOR IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant BarKlip® BK350 I/O power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards. The connector system supports up to 360A per contact between busbars, cables, and circuit boards.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ocp-48v-barklip-bk350.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "ocp-48v-barklip-bk500-io": {
+      "name": "OCP 48V BarKlip® BK500 IO",
+      "description": "Amphenol's OCP 48V compliant Barklip® BK500 IO power cable assemblies are designed to meet OCP V3 power distribution architecture standards and provide a convenient method of distributing up to 500A per contact between busbars, cables, and circuit boards. The connector system features two individual power circuits and two newly added secondary chassis grounding contacts.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ocp-48v-barklip-bk500.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "ocp-orv3-ac-input-connector-and-cable-assemblies": {
+      "name": "OCP ORv3 AC Input Connector and Cable Assemblies",
+      "description": "DESIGNED FOR OCP'S V3 UNIVERSAL INPUT POWER DISTRIBUTION ARCHITECTURE STANDARDS Amphenol's OCP-compliant AC Input Connectors and Cable Assemblies are designed to meet OCP's V3 Universal Input power distribution architecture standards and provide a convenient method of routing power directly from the busway to the power shelf within the V3 rack.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ocp-orv3-ac-input.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "power-card-edge": {
+      "name": "Power Card Edge",
+      "description": "The Power Card Edge connectors are a cost-effective system that can be used for DC power output from embedded AC/DC power supplies or for power distribution between boards within an enclosure. The narrow connector body helps maximize airflow for increased cooling and is well-suited for use in 1U rack-mount servers or on power distribution boards inside 1U redundant power supply assemblies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/power-card-edge.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "pwrblade-connector": {
+      "name": "PwrBlade+® Connector",
+      "description": "The PwrBlade+® connector is a next-generation AC/DC power distribution connector system for demanding applications requiring higher linear current density and low power loss. It is capable of 192A/linear inch with eight adjacent high power contacts energized simultaneously and 0.7m power contact resistance after environmental exposure.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-plus.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwrblade-cable-assembly": {
+      "name": "PwrBlade® Cable Assembly",
+      "description": "The PwrBlade® cable connectors are designed to mate to PwrBlade® R/A or vertical board-mounted headers. By expanding beyond BTB applications, designers can now connect power supplies and power distribution sub-assemblies in a wider range of applications. The combination of cable connection capability with Amphenol's proven PwrBlade BTB system provides a universal power distribution connector.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-cable-assembly.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwrblade-connector-2": {
+      "name": "PwrBlade® Connector",
+      "description": "The PwrBlade® power distribution connector system from Amphenol includes power and signal contacts to provide power distribution and power control in a single connector. Options for either vertical or right-angle versions of PCB-mount headers and receptacles deliver support for coplanar, backplane, or mezzanine connections.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwrblok-connectors": {
+      "name": "PwrBlok® Connectors",
+      "description": "PwrBlok® connectors provide a high current power interconnection with a quick connect/disconnect function for space-constrained board-to-board, board-to-busbar, and busbar-to-busbar power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblok.html",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "resin-busbars": {
+      "name": "Resin Busbars",
+      "description": "Easy and fast to manufacture, available in copper or in aluminum versions, this busbar provides an alternative to film insulated busbars for power distribution applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.auxel.com/products-services/auxel-optima/resin/",
+      "specs": {
+        "Product Type": "Power Distribution Panels",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Auxel",
+        "Source Page": "IT Datacom p.28"
       }
     }
   }

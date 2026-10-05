@@ -3,21 +3,30 @@
   "company": "Amphenol",
   "category": "Optical Transceivers and AOC",
   "displayName": "Optical Transceivers and AOC",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Optical Transceivers and AOC. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Optical Transceivers and AOC. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32"
   ],
-  "sourceCount": 31,
+  "sourceCount": 59,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -28,405 +37,769 @@
   "products": {
     "100gb-s-qsfp28-active-optical-cables-aoc": {
       "name": "100Gb/s QSFP28 Active Optical Cables (AOC)",
-      "description": "100Gb/s QSFP28 Transceivers",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's XGIGA 100G QSFP28 optical modules include SR4, AOC, AOC break out, CWDM4, LR4, ER4 Lite, ER4 and ZR4 series, which adopt LC or MPO optical ports and are compatible with IEEE802.3bm, SFF-8636 and other standards; With low power consumption and small size, it is mainly used in 100G data center internal network, data center interconnection, metropolitan area network and other environments",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/100g-qsfp28-active-optical-cables.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 100G QSFP28 optical modules include SR4, AOC, AOC break out, CWDM4, LR4, ER4 Lite, ER4 and ZR4 series, which adopt LC or MPO optical ports and are co",
+        "Application": "Data center / Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "100gb-s-qsfp28-transceivers": {
       "name": "100Gb/s QSFP28 Transceivers",
-      "description": "100G CFP Transceivers",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's 100G QSFP28 optical modules include SR4, AOC, AOC break out, CWDM4, LR4, ER4 Lite, ER4 and ZR4 series, which adopt LC or MPO optical ports and are compatible with IEEE802.3bm, SFF-8636 and other standards; With low power consumption and small size, it is mainly used in 100G data center internal network, data center interconnection, metropolitan area network and other environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/100g-qsfp28-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol 100G CFP/CFP2/CFP4 series optical transceivers support from 10km to 40km reach, adopt LC interface, compatible with IEEE802.3ba, MSA, and other standar",
+        "Application": "Data center / Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "100g-cfp-transceivers": {
       "name": "100G CFP Transceivers",
-      "description": "100G QSFP28 Active Optical Cable (AOC)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol 100G CFP/CFP2/CFP4 series optical transceivers support from 10km to 40km reach, adopt LC interface, compatible with IEEE802.3ba, MSA, and other standards. It has the characteristics of low power consumption, dual rate, and high speed. It is widely applied in large data centers, telecom, and other environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cfp-100g-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol 100G CFP/CFP2/CFP4 series optical transceivers support from 10km to 40km reach, adopt LC interface, compatible with IEEE802.3ba, MSA, and other standar",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Data center / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "100g-qsfp28-active-optical-cable-aoc": {
       "name": "100G QSFP28 Active Optical Cable (AOC)",
       "description": "COST-EFFICIENT, HIGH PERFORMANCE, PLUG AND PLAY INTERCONNECT SOLUTIONS Amphenol's 100G QSFP28 to QSFP28 Active Optical Cable assemblies are a reliable, cost and power-efficient, integrated solution which is ideal for high-density signal transmission typically seen in most storage, data centers, and high-performance computing applications with fiber cable length up to 100meters.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp28-active-optical-cable.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Data center / Storage / HPC",
-        "Amphenol Business": "Amphenol-BSI 100G VPX Backplane is based on the OpenVPX65 BKP3-CEN08-15.2.16-n profile. We have used our experience from 30 years developing 100G backplane syst",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Data center / AI/HPC / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "10g-sfp-active-optical-cables-aoc": {
       "name": "10G SFP+ Active Optical Cables (AOC)",
       "description": "DESIGNED FOR USE IN 10GB/S DATA RATE LINKS. COMPLIANT WITH 10G ETHERNET AND CPRI Amphenol's 10G SFP+ optical modules include SFP+ AOC. They are compliant with SFP+ MSA, SFF-8431 and SFF-8472, and are mainly used in Telecom, Wireless, InfiniBand, and Fiber Channel. The transceiver is RoHS compliant and per Directive 2011/65/EU.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/10g-sfp-plus-active-optical-cables.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "10g-sfp-transceivers": {
       "name": "10G SFP+ Transceivers",
       "description": "DESIGNED FOR USE IN 10GB/S DATA RATE LINKS. COMPLIANT WITH 10G ETHERNET AND CPRI Amphenol's 10G SFP+ optical modules include SFP+ AOC. They are compliant with SFP+ MSA, SFF-8431 and SFF-8472, and are mainly used in Telecom, Wireless, InfiniBand, and Fiber Channel. The transceiver is RoHS compliant and per Directive 2011/65/EU.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/10g-sfp-plus-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Telecom",
-        "Amphenol Business": "Amphenol's XFP 10G optical transceivers include SR, LR, ER, ZR and support duplex, bidi, cwdm, and dwdm solutions. They adopt a LC interface and are compatible ",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "10g-xfp-transceivers": {
       "name": "10G XFP Transceivers",
-      "description": "112G PAM4 Mini Cool Edge 0.60mm Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's XFP 10G optical transceivers include SR, LR, ER, ZR and support duplex, bidi, cwdm, and dwdm solutions. They adopt a LC interface and are compatible with IEEE802.3ae, XFP MSA and other standards. XFP 10G optical transceivers have the characteristics of low power consumption, small size, and high speed.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/xfp-10g-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's XFP 10G optical transceivers include SR, LR, ER, ZR and support duplex, bidi, cwdm, and dwdm solutions. They adopt a LC interface and are compatible ",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "1-25g-sfp-transceivers": {
       "name": "1.25G SFP Transceivers",
-      "description": "16G FC Transceivers",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's SFP optical transceivers include 1.25Gb and 2.5Gb series. They support Duplex, BiDi, CWDM, and DWDM applications, and can reach various distances from 500m to 80km. These transceivers adopt an LC interface and are compatible with IEEE802.3ba, SFF 8472, SFP MSA, and other standards. They are characterized by low power consumption, small size, and high reliability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SFP optical transceivers include 1.25Gb and 2.5Gb series. They support Duplex, BiDi, CWDM, and DWDM applications, and can reach various distances fro",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "16g-fc-transceivers": {
       "name": "16G FC Transceivers",
       "description": "14.025GB/S TRANSCEIVERS DESIGNED FOR MULTIMODE TRANSMISSION OVER FIBRE CHANNEL Power dissipation of <1W Up to 14.025Gb/s data rates Maximum link length of 35m on 50/125µm MMF and 100m on M5E MMF (50/125µm OM3) FC-PI-6 compliant Electrically hot-pluggable 2- wire interface with integrated Digital Diagnostic Monitoring Low power with <1W Up to 28.05Gb/s Data Links",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/16g-fc-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 14.025gb/s · up to 28.05gb/s · 14.025gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "1-6t-osfp-transceivers": {
       "name": "1.6T OSFP Transceivers",
       "description": "HIGH-SPEED OSFP TRANSCEIVER FOR 800G/1.6T WITH 200G PER LANE Amphenol's 200G/lane optical modules support DR4, FR4, 2×DR4, 2×FR4, AOC, and breakout AOC configurations with LC or MPO ports - ideal for 800G/1.6T ethernet applications. Fully compliant with OSFP MSA, IEEE 802.3, and OIF-CMIS standards, and RoHS compliant per EU directives 2011/65 and 2015/863.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/1-6t-osfp-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "200g-qsfp-dd-active-optical-cable-aoc": {
       "name": "200G QSFP DD Active Optical Cable (AOC)",
-      "description": "25G/28G SFP28 Transceivers",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol QSFP DD to QSFP DD 200G Active Optical Cable assemblies increase the number of lanes from 4 to 8 and double the port density as compared to 100G QSFP28 AOC. The QSFP DD AOCs operate up to 25Gb/s NRZ modulation and provide solutions up to 200Gb/s aggregate bandwidth, supporting 100meters over parallel multimode fiber.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-dd-200g-active-optical-cable.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 25gb/s · up to 200gb/s · 25gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol 25G SFP28 optical transceiver includes SR, LR Lite, LR, ER, etc, adopt LC interface and compatible with IEEE802.3by, IEEE802.3cc, SFF-8472 and other st",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "25g-28g-sfp28-transceivers": {
       "name": "25G/28G SFP28 Transceivers",
-      "description": "25G SFP28 Active Optical Cables (AOC)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol 25G SFP28 optical transceiver includes SR, LR Lite, LR, ER, etc, adopt LC interface and compatible with IEEE802.3by, IEEE802.3cc, SFF-8472 and other standards. They have the characteristics of low power consumption, high speed and high reliability. These products are mainly applied in 25G Ethernet, CPRI10 and other environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp28-25g-28g-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol 25G SFP28 optical transceiver includes SR, LR Lite, LR, ER, etc, adopt LC interface and compatible with IEEE802.3by, IEEE802.3cc, SFF-8472 and other st",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "25g-sfp28-active-optical-cables-aoc": {
       "name": "25G SFP28 Active Optical Cables (AOC)",
       "description": "25GB/S DATA RATE LINKS. COMPLIANT WITH 25G ETHERNET AND CPRI10. Amphenol's 25G SFP28 optical modules include AOC, which are compatible with IEEE802.3by and IEEE802.3cc. They are compliant with SFP28 MSA, SFF-8431 and SFF-8432, it is mainly used in 25G data center internal network, wireless, metropolitan area network and other environments. The transceiver is RoHS compliant and per Directive 2011/65/EU",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/25g-sfp28-active-optical-cables.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center / Networking / Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "300g-cxp2-active-optical-cable-aoc": {
       "name": "300G CXP2 Active Optical Cable (AOC)",
       "description": "HIGH DENSITY, EXCELLENT PERFORMANCE AND RELIABILITY Amphenol's 300G CXP2 to CXP2 Active Optical Cable is a natural choice for optical cabling in data center/high-performance computing hardware applications, providing a cost-effective plug-and-play cabling solution. The CXP2 form factor delivers the highest hardware faceplate port density among existing SFF industry standards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cxp2-active-optical-cable.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Data center / HPC",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Data center / AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "32g-fc-transceivers": {
       "name": "32G FC Transceivers",
       "description": "The 32G FC SW transceivers are designed to be used in Fibre Channel links up to 28.05 Gb/s data rate over multimode fiber. They are compliant with FC-PI-6a, SFF-8472 Rev 12.2c, and compatible with SFF-8432b and applicable portions of SFF-8431 Rev. 4.1d. These transceivers are RoHS compliant and per Directive 2011/65/EUe.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/32g-fc-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 28.05 gb/s · 28.05 gb/s · 6a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "400g-qsfp-dd-sr8-transceivers": {
       "name": "400G QSFP-DD SR8 Transceivers",
       "description": "This optical transceiver comes with a maximum link length of 100m on OM4 multimode fiber, and is capable of a 400Gb/s data rate with each channel transmitting up to 53.125Gb/s. The module also features outstanding BER and high sensitivity because of reliable design and excellent coupling efficiency. It is compliant with IEEE 802.3cm, QSFP DD CIMS 4.0 and QSFP DD Hardware 5.1.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/400g-qsfp-dd-sr8.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "400Gb/s · 53.125Gb/s · QSFP-DD · QSFP",
+        "Key Spec": "up to 53.125gb/s · 400gb/s · 53.125gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol provides a series of 40G QSFP+optical module, including SR4, eSR4, IR4, LR4, ER4 lite, AOC and AOC breakout series. This series of products adopts LC o",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "40gb-s-qsfp-active-optical-cables-aoc": {
       "name": "40Gb/s QSFP+ Active Optical Cables (AOC)",
-      "description": "40Gb/s QSFP+ Transceiver",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol provides a series of 40G QSFP+optical module, including SR4, eSR4, IR4, LR4, ER4 lite, AOC and AOC breakout series. This series of products adopts LC or MPO optical port and is compatible with IEEE802.3bm, SFF-8436 and other standards; It has the characteristics of low power consumption, small size, high speed, and is applied to large data centers, campus networks, metropolitan area network.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/40g-qsfp-plus-active-optical-cables.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol provides a series of 40G QSFP+optical module products, including SR4, eSR4, IR4, LR4, ER4 lite, AOC and AOC breakout series. This series of products ad",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Data center / Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "40gb-s-qsfp-transceiver": {
       "name": "40Gb/s QSFP+ Transceiver",
-      "description": "4.3-10 Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol provides a series of 40G QSFP+optical module products, including SR4, eSR4, IR4, LR4, ER4 lite, AOC and AOC breakout series. This series of products adopts LC or MPO optical port and is compatible with IEEE802.3bm, SFF-8436 and other standards; It has the characteristics of low power consumption, small size, high speed, and is applied to large data centers, campus networks, metropolitan area networ",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/40g-qsfp-plus-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers a full range of 4.3-10 connectors and adapters, which are engineered for the wireless market and are ideal for applications requiring low pas",
-        "Source Page": "IT Datacom p.1"
+        "Application": "Data center / Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "50g-sfp56-lr-transceivers": {
       "name": "50G SFP56 LR Transceivers",
       "description": "SUPPORTS 53.12Gb/s DATA RATE & LOW POWER The module is compliant with IEEE 802.3 cd, SFF-8472 Rev 12.4, and compatible with SFF-8432 and applicable portions of SFF-8431 Rev. 4.1. - Supports 53.125Gb/s data rate - 1.8W maximum power consumption with established link - Up to 10km on 9/125μm SMF - Operating temperature range: -40°C to 85°C - Electrically hot-pluggable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/50g-sfp56-lr-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "53.12gb/s · 53.125gb/s · 8432 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "50g-sfp56-sr-transceivers": {
       "name": "50G SFP56 SR Transceivers",
       "description": "SUPPORTS 53.125Gb/s DATA RATE & LOW POWER The module is compatible with IEEE 802.3 cd 50G SR. Maximum link length of 70m on OM3 multimode fiber or 100m on OM4 multimode fiber. - Low power - 1.5W - Mature COB technology - Outstanding BER and sensitivity - Supports 53.125Gb/s data rate - Electrically hot-pluggable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/50g-sfp-sr-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "64g-fc-transceivers": {
       "name": "64G FC Transceivers",
       "description": "SUPPORTS 57.8GB/S DATA RATE & LOW POWER The module is compatible with 64G FC-PI-7. - Low power - 1.5W - Mature COB technology - Outstanding BER and sensitivity - Supports 57.8Gb/s data rate - Electrically hot-pluggable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/64g-fc-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "800gb-s-osfp-transceivers": {
       "name": "800Gb/s OSFP Transceivers",
       "description": "DESIGNED FOR USE IN 800GB/S DATA RATE LINKS. COMPLIANT WITH OSFP MSA, IEEE802.3, OIFCMIS Amphenol's 800G OSFP optical modules include 2xDR4(plus), 2xFR4(plus), 2xLR4, AOC, and AOC breakout series, which adopt LC or MPO optical ports and are compatible with IEEE802.3, OIF-CMIS and other standards. It is mainly used in 800G Ethernet applications and other environments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/800g-osfp-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "800Gb/s · OSFP · LC · MPO",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "800gb-s-qsfp-dd-transceivers": {
       "name": "800Gb/s QSFP-DD Transceivers",
       "description": "DESIGNED FOR USE IN 800GB/S DATA RATE LINKS. COMPLIANT WITH QSFP-DD MSA, IEEE802.3, OIF-CMIS Amphenol's 800G QSFP-DD optical modules include 2xFR4(plus), 2xLR4, AOC, and AOC break-out series, which adopt LC or MPO optical ports and are compatible with IEEE802.3, OIF-CMIS, and other standards. It is mainly used in 800G Ethernet applications and other environments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/800g-qsfp-dd-transceivers.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
-        "Key Spec": "800Gb/s · QSFP-DD · LC · MPO",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "advanced-optical-modules-aoms": {
       "name": "Advanced Optical Modules (AOMs)",
       "description": "From a dedicated Base-8 architecture to a standard 12 or 24 fiber system, Amphenol Network Solutions' Advanced Optical Modules (AOMs) offer the complete solution. Our AOM portfolio is easily configurable and adaptable to create a solution that meets your network needs. Modules are deployed in the C2X or C2E chassis.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/C2-AOMs/rvdsfcatid/372",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "c2x-fiber-distribution-panel": {
       "name": "C2X Fiber Distribution Panel",
       "description": "The C2X chassis' supports multiple patch, patch/splice, and pre-terminated fiber configurations available in either bulkhead or cassette solutions. C2X tray-based option accepts C2 AOMs (Advanced Optical Modules) for patch, patch/splice, as well as splitters, MPO breakouts, and WDMs. C2X is available in 1, 2, 3, or 4RU and supports vast fiber counts.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/C2X-Medium-Density/rvdsfcatid/376",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s Cable Joiner was designed and developed for simple, quick and reliable cable interconnections. It is available in several options to meet various",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "cfp2": {
+      "name": "CFP2",
+      "description": "Amphenol's CFP2 series offers a 104 position, 0.6mm pitch connector designed to be compatible with 100Gb/s Form Factor Pluggable (CFP) Multi-Source Agreement for Ethernet and other applications. Rated for 25Gb/s per channel with resonance dampening for improved signal integrity, CFP2 has up to 60% lower power consumption versus CFP.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cfp2.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "100gb/s · 25gb/s · 104 position",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "cfp4": {
+      "name": "CFP4",
+      "description": "Amphenol's CFP4 series offers a 56 position, 0.6mm pitch connector, and is used in multi-hundred Gb/s systems. Rated for 25Gb/s per channel with resonance dampening for improved signal integrity, CFP4 has up to 60% lower power consumption versus CFP. The CFP4 series includes a plug connector on the mating interface to improve accuracy and aid in delivering high-speed performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cfp4.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "25gb/s · 56 position · 0.6mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "cfp8": {
+      "name": "CFP8",
+      "description": "Amphenol's CFP8 interconnect system has 124 contacts per port, with a 0.5mm contact pitch and 16 high-speed channels. It is rated for 28Gb/s per channel with resonance dampening for improved signal integrity. It is comprised of insert molding assemblies for top side contacts and Press-Fit cage assemblies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cfp8.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "dsfp-56g-pam4-smt-connector": {
+      "name": "DSFP 56G PAM4 SMT Connector",
+      "description": "DSFP SMT Connectors offer dual high-speed lanes operating at 28Gb/s NRZ and 56Gb/s PAM-4 for a 50G & 100G aggregated bandwidth solution. It has additional 2 pins compared to the SFP/SFP+ family, which enables it to have a second high-speed channel with an identical connector form factor. The DSFP shares the same unique mating interface and EMI cage dimensions as the whole range of SFP/SFP+ cages.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dsfp-56g-pam4-smt.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
+      }
+    },
+    "dsfp-cable-assemblies": {
+      "name": "DSFP Cable Assemblies",
+      "description": "Amphenol's DSFP cable assemblies are designed to support applications for Ethernet and Fibre Channel. The Amphenol DSFP products offer an ultra-high-performance, cost effective solution for 10G/25G/50G speed applications in switched fabric I/O, switches, routers, data storage arrays, and high-performance computer (HPC) clusters. The Small Form Factor Pluggable (SFP) interface supports a variety of commun...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dsfp-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
+      }
+    },
+    "eqsfp": {
+      "name": "eQSFP",
+      "description": "The eQSFP interconnect system is comprised of a 38 position 0.8mm pitch SMT connector, and a press-fit cage. With four channels of data in one pluggable, the system interface is capable of transferring data up to 28 Gbps/Channel and replacing up to 4 standard SFP+ receptacles. Supporting standards include Gigabit Ethernet, InfiniBand, and SONET/SDH with different data rate options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/eqsfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 28 gbps · 28 gbps · 38 position",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
+      }
+    },
+    "expressport-qsfp": {
+      "name": "ExpressPort® QSFP+",
+      "description": "Amphenol's ExpressPort® QSFP+ interconnect system is comprised of a 38 position 0.8mm pitch SMT connector, & a press-fit cage. With four channels of data in one pluggable, the system interface is capable of transferring data up to 16Gb/s per Channel, & replacing up to 4 standard SFP+ receptacles. These features result in greater port density & overall cost savings over traditional SFP+ products.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/expressport-qsfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 16gb/s · 16gb/s · 38 position",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "expressport-sfp": {
+      "name": "ExpressPort® SFP+",
+      "description": "Amphenol's ExpressPort® SFP+ interconnect system provides data transfer speeds of up to 16Gb/s. The design of the ExpressPort® SFP+ connector minimizes impedance discontinuities & reflections at high data rates & provides a 10-20dB improvement in Near-End Crosstalk. ExpressPort® SFP+ cage construction features EMI shielding available in the form of metal spring fingers or elastomeric gaskets.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/expressport-sfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-qsfp-112g": {
+      "name": "ExtremePort™ QSFP 112G",
+      "description": "BACKWARDS PLUG COMPATIBLE AND SUPERIOR SIGNAL INTEGRITY Amphenol's ExtremePort™ QSFP 112G interconnect system is comprised of a 38position, 0.8mm pitch connector built for use in high speed serial applications. Each port offers 4 channels which increases port density, frees up board real estate and delivers a cost optimized solution. The ExtremePort™ QSFP 112G connector supports next generation 400G appli",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-qsfp-112g.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-qsfp-dd-112g-connectors": {
+      "name": "ExtremePort™ QSFP DD 112G Connectors",
+      "description": "Amphenol's ExtremePort™ QSFP DD 112G interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high-speed serial applications. Each port supports up to 800Gb/s in aggregate over an 8 x 112Gb/s electrical interface. The cage and connector design provides backward compatibility to QSFP56...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-qsfp-dd-112g.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 800gb/s · 800gb/s · 112gb/s",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-qsfp-dd-224g-connectors": {
+      "name": "ExtremePort™ QSFP-DD 224G Connectors",
+      "description": "EXTREMEPORT™ QSFP-DD 224G INTERCONNECT SYSTEM Amphenol's ExtremePort™ QSFP-DD 224G interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high-speed serial applications. Each port supports up to 1.6Tb/s in aggregate over an 8 x 224Gb/s electrical interface. The cage and connector design provides backwards compatibility to QSFP modules which can be inserted into a QSFP-DD",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-qsfp-dd-224g.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "224gb/s · 76 position · 0.8mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-qsfp": {
+      "name": "ExtremePort™ QSFP+",
+      "description": "Amphenol's ExtremePort™ QSFP+ interconnect system is comprised of a 38-position, 0.8mm pitch connector built for use in high-speed serial applications. Each port offers 4 channels to increase port density which allows for more board real estate and cost-optimized solutions. The ExtremePort™ QSFP+ connector supports next-generation 200G+ applications and transmits up to 56Gb/s PAM4 per channel.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-qsfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 56gb/s · 56gb/s · 0.8mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-sfp112g": {
+      "name": "ExtremePort™ SFP112G",
+      "description": "Amphenol's ExtremePort™ SFP112G interconnect system is comprised of a 20-position hot swappable I/O connector enclosed in a metal cage mounted to a host PCB. It supports up to 112Gb/s PAM4 aggregate bandwidth with a backward compatibility for next generation Ethernet and Fibre Channel applications. The ExtremePort™ SFP112G connector shares the same unique mating interface and EMI cage dimensions as the SFP+",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-sfp112g.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 112gb/s · 112gb/s · 4 a",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-sfp": {
+      "name": "ExtremePort™ SFP+",
+      "description": "Amphenol's ExtremePort™ SFP+ interconnect system is comprised of a 20-position hot-swappable I/O connector enclosed in a metal cage mounted to a host PCB.It supports up to 56Gb/s PAM4 aggregate bandwidth with backward compatibility for next-gen Ethernet & Fibre Channel applications. ExtremePort™ SFP+ connector shares the same unique mating interface & EMI cage dimensions as the SFP+ form factor.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-sfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 56gb/s · 56gb/s · 4 a",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
     "fiber-demarcation-box-gen-3-fd3": {
       "name": "Fiber Demarcation Box Gen 3 (FD3)",
       "description": "The FD3 offers a lightweight aluminum housing with enhancements to cable ports, tie-down brackets and seals, layered fiber routing, various connector port types, and increased capacity, as well as door lock options. Splice trays are configurable to accommodate discrete passive components, such as splitters and WDM filters, as well as High-Density optical modules.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenol-ns.com/FD3",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "hyperx-optical-distribution-frame-odf": {
       "name": "HyperX Optical Distribution Frame (ODF)",
       "description": "The Amphenol Network Solutions HyperX is a high-density interconnect or cross-connect ODF with up to 3,456 terminations. HyperX is a modular solution with an open architecture, allowing you to scale your network as needed when incorporating Amphenol Network Solutions C2 Advanced Optical Modules (AOMs) within C2X chassis.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Fiber-Distribution/HyperX-ODF/rvdsfcatid/395",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "leap-on-board-transceiver": {
       "name": "Leap® On-Board Transceiver",
       "description": "SMALL, FAST AND POWER-EFFICIENT Amphenol's 300Gb/s Leap®High-Speed Optical Module is faster, smaller, and more cost and power-efficient than most conventional data center interconnects.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/leap-on-board-transceiver.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center",
-        "Amphenol Business": "Amphenol LTW LED Light Guide feature plastic or metal connector body material with IP67 waterproof protection and LED color options in red, blue, green, white, ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "mini-sas-hd-active-optical-cable-aoc": {
       "name": "Mini-SAS HD Active Optical Cable (AOC)",
-      "description": "Mini-SAS HD Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's Mini-SAS HD Active Optical Cable is fully compliant with SAS 2.1 and SAS 3.0 industry standards as well as the SFF-8636 interface standard. Used primarily for external Enterprise storage applications, this cable is part of Amphenol's comprehensive Mini-SAS HD product offerings that address all board connector and cabling applications, from 1 to 100 meters.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas-hd-active-optical-cable.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
+      }
+    },
+    "octis-optical-solutions": {
+      "name": "OCTIS™ - Optical Solutions",
+      "description": "OCTIS offers a range of optical solutions meeting ever increasing bandwidth requirements. SFP version is interoperable with all types of SFP/SFP+ ports and suitable for high data rate applications over long lengths. QSFP version offers enhanced bandwidth (4X SFP/SFP+).",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/octis-optical-solutions.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 12G / 24G Mini-SAS HD product is the next generation SAS storage interface addressing multichannel bandwidth requirements of 12Gb/s or 24Gb/s while m",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
-    "octistm-power-connectors-and-cable-assemblies": {
+    "octis-power-connectors-and-cable-assemblies": {
       "name": "OCTIS™ - Power Connectors and Cable Assemblies",
       "description": "OCTIS™ I/O connectors and cable assemblies using Amphenol's PwrProfile® interface promote high power transmission in outdoor and harsh environments like Remote Radio Units and small/macro cells. It offers lightning protection, EMI shielding, and is field-installable. The transceiver is held outside the telecom box helping to save on board space and bettering the thermal distribution prospects.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/octis-power.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "pcie-over-optics-linear-pluggable-optics-lpo": {
       "name": "PCIe Over Optics- Linear Pluggable Optics (LPO)",
       "description": "QSFP-DD Linear Pluggable Optics. Type II QSFP-DD Form Factor. PCIe Gen 5.0 protocol. 8 Channel full-duplex transceiver. Lengths up to 50m OM4. Power dissipation < 5W",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/linear-pluggable-optics.html",
       "specs": {
         "Product Type": "Optical Transceivers and AOC",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's PCIe® Gen 4 M.2 1A connectors provide 67 contacts on 0.50mm pitch and signal transmission speed of 16Gb/s. It occupies less board space, offers more ",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "qsfp-cable-assemblies": {
+      "name": "QSFP Cable Assemblies",
+      "description": "Amphenol's QSFP copper cable assemblies are designed to meet data center, networking and high-performance computing application needs for high density cabling interconnect systems capable of data rates from 10G/Lane to 112G/Lane transmission rates.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Data center / AI/HPC / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qsfp-dd": {
+      "name": "QSFP DD",
+      "description": "Amphenol's QSFP DD interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high speed serial applications. Each port supports up to 400Gb/s in aggregate over an 8 x 50Gb/s electrical interface. The cage and connector design provides backwards compatibility to QSFP28 modules which can be inserted into a QSFP DD port and connected to 4 of the 8 electrical channels.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-dd.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 400gb/s · 400gb/s · 50gb/s",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qsfp-dd-cable-assemblies": {
+      "name": "QSFP DD Cable Assemblies",
+      "description": "200G / 400G / 800G SOLUTIONS Amphenol's QSFP DD (Double Density) copper cable assemblies double the number of channels from 4 to 8 lanes when compared to the existing QSFP cabling systems, enabling more bandwidth within the same mechanical envelope.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-dd-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qsfp-dd-overpass-assemblies": {
+      "name": "QSFP DD OverPass™ Assemblies",
+      "description": "56G AND 112G DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT QSFP DD OverPass™ products remove high speed signaling from the PCB and create an eight channel direct lower loss interconnection between the ASIC site and the external QSFP DD IO port by overpassing the PCB. This helps to enable 56G and 112G hardware system designs and a technology for future 224G systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-dd-overpass.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qsfp-overpass-assemblies": {
+      "name": "QSFP OverPass™ Assemblies",
+      "description": "28G AND 56G DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT QSFP OverPass™ products remove the high speed signaling from the PCB and create a four channel direct lower loss interconnection from the ASIC site to the external IO port by overpassing the PCB. This helps to enable 28G and 56G hardware system designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-overpass.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qsfp-cable-assemblies-2": {
+      "name": "QSFP+ Cable Assemblies",
+      "description": "Amphenol's QSFP (Quad Small Form-factor Pluggable) connector, cage and cable assemblies are designed to meet emerging data center and high performance computing application needs for a high density cabling interconnect system capable of delivering aggregate data bandwidths of 40Gb/s & 56 Gb/s & 112 Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/qsfp-plus-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "40gb/s · 56 gb/s · 112 gb/s",
+        "Application": "Data center / AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "sfp": {
+      "name": "SFP",
+      "description": "Amphenol's SFP product family supports applications for up to 6 Gbps per channel. The connector accepts multiple transceivers per INF-8074i and combines, transmits, and receives functions in a low-cost, compact format. The assemblies are designed to maximize valuable space on the PCB.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "sfp-cable-assemblies": {
+      "name": "SFP Cable Assemblies",
+      "description": "Amphenol's SFP cable assemblies are designed to support applications for Ethernet and Fibre Channel. The Amphenol SFP products offer an ultra-high-performance, cost-effective solution for 10G/25G/50G/100G speed applications in switched fabric I/O, switches, routers, data storage arrays, and high-performance computer (HPC) clusters.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "sfp-dd-dac-cable-assemblies": {
+      "name": "SFP-DD DAC Cable Assemblies",
+      "description": "Amphenol's SFP-DD cable assemblies are designed to support applications for Ethernet. The Amphenol SFP-DD products offer an ultra-high-performance, cost-effective solution for 100G aggregate speed applications in switches, routers, data storage arrays, and high-performance computer (HPC) clusters.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp-dd-dac-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "sfp-overpass-assemblies": {
+      "name": "SFP OverPass™ Assemblies",
+      "description": "DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT SFP OverPass™ products remove high speed signaling from the PCB and create a direct connection between the ASIC site and the external IO port by overpassing the PCB. This helps to enable 28G and 56G hardware system designs. This results in lower over signal loss, PCB design complexity and reduces PCB costs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sfp-overpass.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "tfoca-ii-ruggedized-media-converter-arch-series": {
+      "name": "TFOCA-II® Ruggedized Media Converter (ARCH Series)",
+      "description": "Amphenol Fiber Systems International (AFSI) offers the ARCH Series TFOCA-II® Ruggedized Media Converter to provide optical-electrical (O-E) and electrical-optical (E-O) conversion for harsh environments. This stand-alone unit features ruggedized optical transceivers integrated into a compact housing with 10/100/1000 Ethernet electrical interfaces.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "http://www.fibersystems.com/products/tfoca-ii-ruggedized-media-converter",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol FSI",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "ultraport-qsfp": {
+      "name": "UltraPort™ QSFP+",
+      "description": "Amphenol's UltraPort™ QSFP+ interconnect system comprises a 38-position, 0.8mm pitch connector built for use in high-speed serial applications. Each port offers 4 channels to increase port density which allows more board real estate and cost-optimized solutions. The UltraPort™ QSFP+ connector supports next-generation 100G+ applications and transmits up to 28 Gb/s per channel.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ultraport-qsfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "up to 28 gb/s · 28 gb/s · 0.8mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "ultraport-sfp": {
+      "name": "UltraPort™ SFP+",
+      "description": "Amphenol's UltraPort™ SFP+ interconnect system comprises of a 20-position hot-swappable I/O connector enclosed in a metal cage mounted to a host PCB. It supports 28Gb/s applications with backward compatibility for next-generation Ethernet and Fibre Channel applications. UltraPort™ SFP+ connector shares the same unique mating interface and EMI cage dimensions as the SFP+ form factor.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ultraport-sfp.html",
+      "specs": {
+        "Product Type": "Optical Transceivers and AOC",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     }
   }

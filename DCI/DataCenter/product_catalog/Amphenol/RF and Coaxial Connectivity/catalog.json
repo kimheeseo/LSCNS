@@ -3,24 +3,34 @@
   "company": "Amphenol",
   "category": "RF and Coaxial Connectivity",
   "displayName": "RF and Coaxial Connectivity",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: RF and Coaxial Connectivity. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: RF and Coaxial Connectivity. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33"
   ],
-  "sourceCount": 41,
+  "sourceCount": 45,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -29,537 +39,589 @@
     "Source Page"
   ],
   "products": {
-    "amphe-phase": {
-      "name": "Amphe-Phase",
-      "description": "Amphe-Phase is a High Current Single pin connector with a smart design to keep performance and safety as a top priority keeping the solution price competitive. Finger Proof Protection against electric shock (IP2X) on both sides of Source and Drain and have a bayonet mechanical locking system requiring a key to unlock for additional safety.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "4-3-10-connector-series": {
+      "name": "4.3-10 Connector Series",
+      "description": "Amphenol RF offers a full range of 4.3-10 connectors and adapters, which are engineered for the wireless market and are ideal for applications requiring low passive intermodulation, or PIM.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenolrf.com/connectors/4-3-10-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Application": "Telecom",
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.3"
       }
     },
     "between-series-adapters": {
       "name": "Between-Series Adapters",
       "description": "Designed with RF performance in mind, SV Microwave's between-series adapters ensure optimal signal integrity and performance. Between-series adapters support transitions between various connector series, accommodating the diverse needs of RF and microwave systems, all while maintaining a compact footprint.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.svmicrowave.com/between-series?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=217",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s Between-Series Flange Mount Adapters are engineered to deliver outstanding reliability and durability in demanding test and measurement environme",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "between-series-flange-mount-adapters": {
       "name": "Between-Series Flange Mount Adapters",
-      "description": "Between-Series RF Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave’s Between-Series Flange Mount Adapters are engineered to deliver outstanding reliability and durability in demanding test and measurement environments. Performing up to 65 GHz, these adapters provide an exceptionally secure, high-integrity RF connection. Offering a versatile range of configurations, including SMA, SMP, and SMPM, alongside our proprietary Threaded SMPM and QuarterBack® techs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.svmicrowave.com/between-series-flange-mount-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=214",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Between-Series RF Adapters ensure dependable cross-compatibility between RF systems, delivering high-performance solutions for mission-critical app",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "between-series-rf-adapters": {
       "name": "Between-Series RF Adapters",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI Between-Series RF Adapters ensure dependable cross-compatibility between RF systems, delivering high-performance solutions for mission-critical applications. Ideal for aerospace, military, space, and industrial environments, these adapters feature low insertion loss, strong shielding against interference, and precision-machined construction for long-term durability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://amphenolcdi.com/between-series-rf-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=19",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Blind Mate MCIO is designed for high speed and high density. It can support PCIe Gen5, and is scalable to PCIe Gen6. We designed Blind Mate MCIO with",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "blind-mate-x-lok-push-lock-connector": {
-      "name": "Blind Mate - X-Lok Push-Lock Connector",
-      "description": "BMB RF Interconnects",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s latest product line offers a comprehensive range of RF interconnects, including standard and bulkhead cable connectors for a variety of cable typ",
-        "Source Page": "IT Datacom p.3"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "candlestick-panel-connectors": {
       "name": "Candlestick Panel Connectors",
       "description": "Engineered with precision machining and high-quality materials, these connectors ensure superior shielding, low insertion loss, and resistance to harsh environmental conditions. The candlestick design allows for optimized connectivity and easy integration into panel-mounted RF applications, making them ideal for mission-critical systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenolcdi.com/candlestick-rf-panel-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=14",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "cfp8": {
-      "name": "CFP8",
-      "description": "With performance speeds up to 25 Gbps+, Chameleon meets the demand for faster, smaller, and more compact connector solutions. With stack heights from 6mm to 10mm in 1mm increments, pin counts from 40 to 500+, and pair counts from 16 to 160, Chameleon provides you with a ready platform to easily change and adapt to your design requirement.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CFP8 interconnect system has 124 contacts per port, with a 0.5mm contact pitch and 16 high-speed channels. It is rated for 28Gb/s per channel with re",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "chameleon": {
-      "name": "Chameleon®",
-      "description": "With performance speeds up to 25 Gbps+, Chameleon meets the demand for faster, smaller, and more compact connector solutions. With stack heights from 6mm to 10mm in 1mm increments, pin counts from 40 to 500+, and pair counts from 16 to 160, Chameleon provides you with a ready platform to easily change and adapt to your design requirement.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "coaxial-fixed-attenuators": {
       "name": "Coaxial Fixed Attenuators",
-      "description": "Size 8 coaxial inserts for DIN and D-Sub applications. Available for common flexible coaxial cables.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol RF attenuators are designed to offer flat attenuation over the designated frequency range and feature a microwave grade resistor that consistently reduces power. Hex flats on the body allow this attenuator to be easily torqued to the mating connector.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenolrf.com/attenuators.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF attenuators are designed to offer flat attenuation over the designated frequency range and feature a microwave grade resistor that consistently redu",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "coaxial-inserts": {
       "name": "Coaxial Inserts",
       "description": "Size 8 coaxial inserts for DIN and D-Sub applications. Available for common flexible coaxial cables.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenolrf.com/connectors/coaxial-inserts.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Positronic Combo-D connectors are a combination of signal and power and are part of the D-sub family. Combo-D connectors are used in military, communications, s",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "compression-connectors": {
       "name": "Compression Connectors",
       "description": "SINGLE-PIECE COMPRESSION TYPE SURFACE MOUNT CONNECTORS Amphenol Communications Solutions offers compression-type surface mount connectors to provide power and signal connection between either two PCB modules or one PCB and an electrical module. The single-piece small footprint solution brings cost and space savings to the design of smaller and more economical consumer electronic devices.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/compression-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Conan® 1.00mm is a mezzanine connector designed for industrial applications and harsh environments. Conan® 1.00mm provides a mechanically secure, hig",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "d-sub-hybrid-connectors": {
       "name": "D-Sub Hybrid Connectors",
       "description": "HYBRID D-SUBMINIATURE CONNECTORS Mating interface according to MIL C24308 Current rating of 7.5A for signal and 40A max. for power Endures temperatures up to 260°C Contact resistance less than 5mOhms Up to 18 configurations of Signal, Power, and Coax contacts Machined signal contacts are fixed in the insulator",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-hybrid.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub MicroTCA Connectors are power module I/O interconnects for 48V applications designed in accordance with TCA specifications. The concept is base",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "edge-mount-pcb-connectors": {
+      "name": "Edge Mount PCB Connectors",
+      "description": "Amphenol CDI Edge Mount PCB Connectors provide high-performance RF signal transmission with a secure and space-efficient PCB mounting design. Engineered for aerospace, military, space, and industrial applications, these connectors offer low insertion loss, excellent impedance control, and superior shielding to ensure reliable connectivity in high-frequency environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://amphenolcdi.com/edge-mount-pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=25",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "ez-1200-nmc-2": {
       "name": "EZ-1200-NMC-2",
-      "description": "EZ-1200-NMC-2 is a Type N male (plug), straight EZ connector for LMR®-1200 cables. It features crimp-style outer contacts, spring finger inner contacts, and a no-braid trim to prevent FOD. BeCu pins ensure strong contact in cold, high-vibration conditions. Durable and weatherproof, it meets MIL-C-39012 specs and is ideal for long, high-power, low-loss RF cable runs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "is a Type N male (plug), straight EZ connector for LMR®-1200 cables. It features crimp-style outer contacts, spring finger inner contacts, and a no-braid trim to prevent FOD. BeCu pins ensure strong contact in cold, high-vibration conditions. Durable and weatherproof, it meets MIL-C-39012 specs and is ideal for long, high-power, low-loss RF cable runs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://timesmicrowave.com/connectors/ez-1200-nmc-2-coax-connectors/",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Times Microwave Systems",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "ez-195-qm-x": {
       "name": "EZ-195-QM-X",
-      "description": "EZ-195-QM-X is a QMA male (plug), straight EZ connector for LMR®-195 cables. It features crimp-style outer contacts, spring finger inner contacts, and a no-braid trim to eliminate FOD. BeCu pins ensure strong contact in cold, high-vibration conditions. The QMA’s snap-on coupling enables quick installs, dense packaging, and low RF leakage—ideal for high-performance systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "is a QMA male (plug), straight EZ connector for LMR®-195 cables. It features crimp-style outer contacts, spring finger inner contacts, and a no-braid trim to eliminate FOD. BeCu pins ensure strong contact in cold, high-vibration conditions. The QMA’s snap-on coupling enables quick installs, dense packaging, and low RF leakage—ideal for high-performance systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://timesmicrowave.com/connectors/ez-195-qm-x-coax-connectors/",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Times Microwave Systems",
+        "Source Page": "IT Datacom p.14"
       }
     },
-    "high-density-d-sub": {
-      "name": "High Density D-Sub",
-      "description": "High Performance RF Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "field-replaceable-panel-connectors": {
+      "name": "Field Replaceable Panel Connectors",
+      "description": "Amphenol CDI Field Replaceable Panel Connectors are designed for high-performance RF applications, offering easy maintenance, secure panel mounting, and exceptional signal integrity. These connectors enable quick and efficient replacement without the need for extensive rework, making them ideal for aerospace, military, space, and industrial applications where system uptime is critical.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenolcdi.com/field-replaceable-rf-panel-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=13",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.14"
+      }
+    },
+    "filter-rf-connectors": {
+      "name": "Filter RF Connectors",
+      "description": "Amphenol's BNC RF connectors provide optimum capacitive decoupling between the connector body and the mounting panel, by harmlessly dissipating EMI (Electromagnetic Interference) on the coaxial shield to the chassis ground through capacitors, while not affecting the DC and power supply frequencies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/filter-rf-bnc.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave has released a line of high-performance adapters capable of excellent signal performance up to 65 GHz. These between-series adapters are configured",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.14"
+      }
+    },
+    "grounding-blocks": {
+      "name": "Grounding Blocks",
+      "description": "Amphenol CDI Grounding Blocks are essential components for protecting RF systems from electrical surges and ensuring reliable signal performance. Designed to provide a low-resistance path to ground, these blocks help prevent damage caused by static discharge, lightning strikes, and power surges.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://amphenolcdi.com/low-profile-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=37",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "high-performance-rf-adapters": {
+      "name": "High Performance RF Adapters",
+      "description": "SV Microwave has released a line of high-performance adapters capable of excellent signal performance up to 65 GHz. These between-series adapters are configured with a reliable, easily-calibrated, and consistent threaded interface on one end and a convenient high-density push-on interface on the other, making them ideal for various applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.svmicrowave.com/high-performance-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=130",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "high-speed-edge-launch-pcb-connectors": {
+      "name": "High Speed Edge Launch PCB Connectors",
+      "description": "Amphenol SV Microwave offers a complete line of extreme frequency (DC - 100 GHz) coaxial / RF edge launch PCB connectors that meet the need for high-performing, highly reliable precision connectors. Current RF test connector configurations include single and multiport 2.92 mm, 2.4 mm, 1.85 mm, SMA, SMP, SMPM, and SMPS variations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.svmicrowave.com/high-speed-edge-launch-pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=47",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "ib-086": {
       "name": "IB-086",
       "description": "InstaBend® -086 cable is a flexible, coaxial microwave assembly designed for interconnects between RF circuit cards, modules and enclosure panels. The cable can be bent very closely behind the connector, simplifying cable routing.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://timesmicrowave.com/cables/ib-086-coax-cables/",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Times Microwave Systems",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "in-series-adapters": {
       "name": "In-Series Adapters",
-      "description": "In-Series RF Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's In-Series Adapters offer top-tier connectivity within specific connector series, covering a range of connector series such as SMA, 2.92mm, 2.4mm, 1.85mm, SMP, SMPM, and SMPS. These adapters offer unparalleled performance and reliability. One notable In-Series product is SV’s bulkhead hermetic adapter, providing a robust solution that eliminates ingress from harsh elements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.svmicrowave.com/in-series?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=218",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI In-Series RF Adapters provide a seamless connection between identical RF connector types, ensuring consistent signal integrity and minimal loss. De",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "in-series-rf-adapters": {
-      "name": "In-Series RF Adapters",
-      "description": "Inside Plant Passives (ISP)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI In-Series RF Adapters provide a seamless connection between identical RF connector types, ensuring consistent signal integrity and minimal loss. De",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "litetouch-solderless-pcb-connectors": {
       "name": "LiteTouch Solderless PCB Connectors",
       "description": "SV now offers a complete line of high frequency coaxial / surface mount PCB connectors that meet the industry need for high performing, highly reliable solderless connectors for precision thin substrate mounting. As frequencies increase and board substrates become thinner, the standard solderless PCB compression mount connectors can create undesirable results on thin (< .010”) dielectric PCB.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.svmicrowave.com/litetouch-solderless-pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=46",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "mcx-connector-series": {
       "name": "MCX Connector Series",
       "description": "The MCX (Micro Coaxial) series is a 50 Ω series with broadband capability ranging from DC to 6 GHz. In addition, the MCX series features secure, fast and easy snap-on/ snap-off coupling.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenolrf.com/connectors/mcx-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "n-type-connector-series": {
       "name": "N-Type Connector Series",
       "description": "N-Type connectors are designed to satisfy the need for a durable, weatherproof, medium-size RF connector with consistent performance through 11 GHz. Our N-Type connectors feature threaded coupling mechanisms and are fully interchangeable with N-Type connectors made to the MIL-C-39012 specification. These connectors are used in all systems where excellent RF and mechanical performance is critical.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenolrf.com/connectors/n-type-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "panel-mount-connectors": {
+      "name": "Panel Mount Connectors",
+      "description": "SV Microwave's panel mount connectors are designed for robust and dependable RF connections. They are built to endure harsh environmental conditions and provide excellent durability during mating. These connectors are perfect for applications that require panel mounting, ensuring a secure RF connection in demanding environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.svmicrowave.com/panel?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=216",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.25"
+      }
+    },
+    "precision-test-cables": {
+      "name": "Precision Test Cables",
+      "description": "Amphenol RF offers pre-configured RF test cables designed for high-performance applications requiring minimal insertion and return loss. They are ideal for test and measurement applications and each assembly is tested to ensure electrical and mechanical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenolrf.com/cable-assemblies/precision-test-cables.html",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "push-on-rf-adapters": {
       "name": "Push-On RF Adapters",
       "description": "Ideal for aerospace, military, space, and industrial applications, these adapters offer low insertion loss, strong shielding against interference, and mechanical durability. Their push-on design allows for easy installation and removal, making them perfect for high-density systems and applications requiring frequent connections.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://amphenolcdi.com/push-on-rf-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=17",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol CDI Push-On RF Cable Connectors provide fast and reliable connections for high-frequency applications. Designed for ease of use, these connectors elimi",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pwrblade-minimezz-connector-series": {
-      "name": "PwrBlade® MiniMezz Connector Series",
-      "description": "The PwrBlade® Mini connector series introduces enhanced features to our existing PwrBlade® products in a smaller profile. PwrBlade® MiniMezz is available in stack heights ranging from 8mm - 20mm with options for power & signal contacts. It also has blind-mate guides that allow for ±0.80mm of gatherability for blind-mate applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "qma-connector-series": {
       "name": "QMA Connector Series",
       "description": "The QMA connector is a quick disconnect version of the SMA connector and shares the same internal construction, which allows the connector to have excellent performance up to 6 GHz.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenolrf.com/connectors/qma-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF’s QN connector is a quick disconnect version of the N-Type connector with similar internal construction, which enables fast and easy matings with mi",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.28"
+      }
+    },
+    "qn-connectors": {
+      "name": "QN Connectors",
+      "description": "Amphenol RF’s QN connector is a quick disconnect version of the N-Type connector with similar internal construction, which enables fast and easy matings with minimum space requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenolrf.com/connectors/qn-connectors.html",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "radio-frequency-connectors-rf-connectors": {
       "name": "(Radio Frequency Connectors) RF Connectors",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's RF connector (radio frequency connector) is an electrical connector designed to work at radio frequencies in the multi-megahertz range. RF connectors are typically used with coaxial cables and are designed to maintain the shielding that the coaxial design offers. Available in SMA【Quick guide: https://amphenolltw.com/down.php?supp_download=105】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://amphenolltw.com/product-info/RF/",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's RF connector (radio frequency connector) is an electrical connector designed to work at radio frequencies in the multi-megahertz range. RF connec",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "rbl-series-push-lock-with-latch-connector": {
-      "name": "RBL Series Push Lock with Latch Connector",
-      "description": "Elevate your RF connector handling experience with SV Microwaves advanced removal tools, crafted for precision and efficiency. From the 3mm Bullet Removal Tool to the SMPM Male Shroud Driver, each product is designed with ergonomic handles to ensure user comfort in confined spaces. SV Microwaves' comprehensive inventory includes specialized tools for various connector types, including SMP, SMPM, and SMPS.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW RBL Connectors are IP67-rated waterproof circular connectors with current ratings up to 20A. Operating temperature range of up to -40°C to +105°C a",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "removal-tools": {
       "name": "Removal Tools",
       "description": "Elevate your RF connector handling experience with SV Microwaves advanced removal tools, crafted for precision and efficiency. From the 3mm Bullet Removal Tool to the SMPM Male Shroud Driver, each product is designed with ergonomic handles to ensure user comfort in confined spaces. SV Microwaves' comprehensive inventory includes specialized tools for various connector types, including SMP, SMPM, and SMPS.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.svmicrowave.com/tools?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=225",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI Basics Battery Connectors consist of spring and blade types, available in 2.0/2.5/3.0/3.6/4.6mm pitch, with 2 to 10 positions supporting up to 10A.",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "rf-and-microwave-short": {
       "name": "RF and Microwave Short",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave offers a range of shorts designed for RF and microwave applications. These components short the signal path to ground and can help protect a system from electrostatic discharge. With precision design, customizable options, and compatibility with various connectors, reliable solutions for maintaining optimal performance in microwave systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.svmicrowave.com/short?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=223",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s attenuators are quality RF and microwave components engineered to reduce power without compromising signal integrity. Supporting a wide frequency",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "rf-attenuators": {
       "name": "RF Attenuators",
-      "description": "RF Cable Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave’s attenuators are quality RF and microwave components engineered to reduce power without compromising signal integrity. Supporting a wide frequency range of up to 40 GHz and available in various attenuation (dB) values, these attenuators are ideal for telecommunications, aerospace, and defense applications. With exceptional performance and compatibility with different connectors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.svmicrowave.com/attenuator?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=222",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a comprehensive range of cable connectors designed for optimal RF performance. SV’s cable connectors are designed to work with a wide array ",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "rf-cable-connectors": {
-      "name": "RF Cable Connectors",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "RFS Technologies Professional Services",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Telecom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "rf-jumpers": {
       "name": "RF Jumpers",
-      "description": "Right Angle PCB Multiports",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI RF Jumpers are designed for high-performance signal transmission, providing reliable connectivity with minimal signal loss. Engineered for aerospace, military, space, and industrial applications, these jumpers offer exceptional electrical performance, durability, and flexibility to meet the demands of mission-critical RF systems. Available in a variety of configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://amphenolcdi.com/rf-jumpers?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=12",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "RFS Technologies has extensive experience working with a diverse range of customers across various environments. Our design services are available nationwide, s",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "sim-card-connectors": {
-      "name": "SIM Card Connectors",
-      "description": "FCI Basics SIM Card connectors are 6- to 8-pin connectors primarily used as SIM card readers in smartphones and other mobile devices. These are designed for full SIM, mini SIM, and micro SIM \"Plug-in\" applications with hinges and covers for secure card retention. The SMT connectors are space-saving and low-profile.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sma-and-rp-sma-connector-series": {
       "name": "SMA and RP-SMA Connector Series",
       "description": "Using a threaded interface, SMA 50 Ohm connectors are semi-precision units that provide excellent electrical performance from DC to 18 GHz and outstanding mechanical durability.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/connectors/sma-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "smart-card-connectors": {
-      "name": "Smart Card Connectors",
-      "description": "FCI Basics Smart Card connectors are 8- or 16-pin connectors primarily used as full-size smart card readers. These are deployed in health, social security, ID cards, and credit card \"chip-and-pin\" schemes. These products also account for durability with a very large number of mating cycles.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "RF and Coaxial Connectivity",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "smp-and-smpm-edge-lock-pcb-connectors": {
       "name": "SMP and SMPM Edge Lock PCB Connectors",
-      "description": "SMP Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave’s newly expanded Edge Lock PCB Connector introduces small form, push-on SMP and SMPM connectors. Designed for high-frequency performance up to 65 GHz, these edge launch connectors deliver minimal Insertion Loss and low reflections without burdensome assembly techniques for reflow. Their fixture-less, conical-leg design ensures secure PCB edge retention.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/smp-and-smpm-edge-lock-pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=170",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s newly expanded Edge Lock PCB Connector introduces small form, push-on SMP and SMPM connectors. Designed for high-frequency performance up to 65 G",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "smp-connector-series": {
       "name": "SMP Connector Series",
       "description": "The SMP interface is a subminiature interface in the same scale as MMCX connectors but offers a frequency range of DC to 40 GHz. It is commonly used in miniaturized high frequency coaxial modules and is offered in both push-on and snap-on mating styles.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/connectors/smp-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "smpm-smps-vita-67-3-rf-terminations": {
       "name": "SMPM/SMPS VITA 67.3 RF Terminations",
       "description": "This line of VITA 67.3 contact terminations prevents RF signals from reflecting back and causing damage to your embedded system. Now available for both SMPM and SMPS series. SV Microwave’s VITA product line is the latest addition to the RF / coaxial section of the VPX platform.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/smpm-vita-673-rf-terminations?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=1",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s newest spring loaded bullet product line employs an SMPS RF interface to maximize density and high frequency in applications up to 32 GHz. These ",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
+      }
+    },
+    "smps-spring-bullets": {
+      "name": "SMPS Spring Bullets",
+      "description": "SV Microwave’s newest spring loaded bullet product line employs an SMPS RF interface to maximize density and high frequency in applications up to 32 GHz. These spring loaded bullets have been designed for repeatable RF performance under all states of compression by solving axial and radial misalignment issues when fully mated.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/smps-spring-bullets?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=123",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
+      }
+    },
+    "solder-pot-panel-connectors": {
+      "name": "Solder Pot Panel Connectors",
+      "description": "Amphenol CDI Solder Pot Panel Connectors are designed for secure and reliable RF signal transmission, offering a robust solder termination for optimal electrical performance. These panel-mount connectors provide low-loss connectivity in aerospace, military, space, and industrial applications, ensuring superior durability and long-term reliability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://amphenolcdi.com/solder-pot-rf-panel-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=15",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.31"
+      }
+    },
+    "surface-mount-pcb-connectors": {
+      "name": "Surface Mount PCB Connectors",
+      "description": "Amphenol CDI Surface Mount PCB Connectors provide reliable RF signal transmission with a compact, low-profile design for direct PCB integration. These connectors offer excellent electrical performance, making them ideal for aerospace, military, space, and industrial applications where board space and high-frequency integrity are critical.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://amphenolcdi.com/surface-mount-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=23",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "termination-components": {
       "name": "Termination Components",
-      "description": "Termination Tools for RF Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's termination components are essential elements in RF and microwave systems, designed to absorb and dissipate signals effectively. Terminations prevent signal reflections and maintain impedance matching, contributing to signal integrity. SV Microwave offers a variety of termination components with different power handling capabilities, frequency ranges, and connector options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/termination?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=224",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers a full line of termination tooling to meet your specific production requirements. All tools meet Amphenol’s stringent design and quality requ",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "threaded-cable-connectors": {
-      "name": "Threaded Cable Connectors",
-      "description": "Threaded RF Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "termination-tools-for-rf-connectors": {
+      "name": "Termination Tools for RF Connectors",
+      "description": "Amphenol RF offers a full line of termination tooling to meet your specific production requirements. All tools meet Amphenol’s stringent design and quality requirements and provide a consistent and reliable crimp each and every time, thereby ensuring the integrity of the connector termination.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenolrf.com/tools.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Threaded RF Adapters provide secure, vibration-resistant connections for high-frequency signal transmission. Designed for aerospace, military, spac",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "threaded-rf-adapters": {
       "name": "Threaded RF Adapters",
-      "description": "Thru-Hole PCB Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI Threaded RF Adapters provide secure, vibration-resistant connections for high-frequency signal transmission. Designed for aerospace, military, space, and industrial applications, these adapters ensure low insertion loss, excellent shielding, and long-term reliability in demanding environments.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolcdi.com/threaded-rf-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=16",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "two-hole-flange-adapters": {
+      "name": "Two Hole Flange Adapters",
+      "description": "Amphenol SV Microwave released 2-hole in-, and between-series flange mount adapters. These offerings include in-series threaded (SMA / 2.92mm / 2.4mm) as well as between-series push-on (SMP / SMPM) to threaded (2.92mm / 2.4mm) options. Additionally, these new adapters come with two screws for fast and easy installation. With so many configurations available, there is a solution f",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.svmicrowave.com/two-hole-flange-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=23",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Threaded RF Adapters provide secure, vibration-resistant connections for high-frequency signal transmission. Designed for aerospace, military, spac",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "uhf-connector-series": {
       "name": "UHF Connector Series",
       "description": "Originally intended for use as a video connector in radar applications, UHF coaxial connectors are general purpose units developed for use in low frequency systems from 0.6 - 300 MHz.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenolrf.com/connectors/uhf-connectors.html",
       "specs": {
         "Product Type": "RF and Coaxial Connectivity",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "vita-contacts-and-connectors": {
+      "name": "VITA Contacts and Connectors",
+      "description": "SV Microwave offers a range of VITA 67.1, 67.2, and 67.3 contacts and connectors. We offer female and male contacts and connectors in all three VITA 67 series: SMPM, SMPS, and NanoRF. A select range of these connectors and contacts is SOSA aligned as well.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-contacts-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=66",
+      "specs": {
+        "Product Type": "RF and Coaxial Connectivity",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     }
   }

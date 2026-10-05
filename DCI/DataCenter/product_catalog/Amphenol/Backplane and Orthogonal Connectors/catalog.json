@@ -3,25 +3,34 @@
   "company": "Amphenol",
   "category": "Backplane and Orthogonal Connectors",
   "displayName": "Backplane and Orthogonal Connectors",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Backplane and Orthogonal Connectors. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Backplane and Orthogonal Connectors. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=34"
   ],
-  "sourceCount": 39,
+  "sourceCount": 49,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,509 +41,639 @@
   "products": {
     "100g-vpx-backplane": {
       "name": "100G VPX Backplane",
-      "description": "1.00mm FFC/FPC Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol-BSI 100G VPX Backplane is based on the OpenVPX65 BKP3-CEN08-15.2.16-n profile. We have used our experience from 30 years developing 100G backplane systems to the IT/Datacom market. Next-generation VPX interconnects allow the signal transition path to expand to 100G bandwidth through a traditional copper backplane. Backplane assembly and test in the production environment are critical.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://amphenol-bsi.com/wp-content/uploads/2020/04/KC10060004-Datasheet-v01.pdf",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 1.00mm pitch flex connectors utilize 1.00mm contact spacing to terminate displays and support complex board-to-board connections. These connectors ar",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
-    "airmax-vs2-high-speed-backplane-connector": {
-      "name": "AirMax VS2® High-Speed Backplane Connector",
-      "description": "AirMax VS2® connectors provide a migration path from AirMax VS®for speeds up to 20Gb/s, providing a margin of safety for typical 802.3ap system performance with the flexibility of an open pin field design. The connectors leverage AirMax VS®and VSe®design features and technology to achieve improved signal integrity and mechanical attributes compared to AirMax VS®connectors.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vse-high-speed-backplane-connector": {
-      "name": "AirMax VSe® High-Speed Backplane Connector",
-      "description": "HIGH SPEED HARDMETRIC CONNECTOR FOR BACKPLANE WITH ENHANCED PERFORMANCE AirMax VSe® connectors address the industry needs for high bandwidth applications requiring a scalable migration path to 25Gb/s data rate. AirMax® technology delivers signal densities up to 63.5 differential pairs per inch when using a 5-pair connector system.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vs-85ohms-high-speed-backplane-connector": {
-      "name": "AirMax VS® 85Ohms High-Speed Backplane Connector",
-      "description": "HIGH SPEED HARDMETRIC CONNECTOR FOR BACKPLANE SUPPORTING INTEL® QPI AirMax VS®85Ohms connectors are optimized to minimize impedance discontinuities and signal loss in 85Ohms channels. The connectors' mating interfaces also satisfy demands for backward compatibility to legacy 100 Ohms product interfaces ensuring a smooth transition to next-generation designs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vs-coplanar-high-speed-backplane-connector": {
-      "name": "AirMax VS® Coplanar High-Speed Backplane Connector",
-      "description": "AirMax VS® coplanar connectors permit mating 2 boards in the same plane. This is very useful for many applications, one base card can mate to many IO cards to cost effectively offer different system IO options. ATCA systems, Zone 3 connectors directly connect front and rear cards, bypassing the backplane, effectively doubling the electronic capabilities of each slot within the system.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vs-high-speed-backplane-connector": {
-      "name": "AirMax VS® High-Speed Backplane Connector",
-      "description": "AirMax VS® connectors use innovative edge-coupling and air dielectric between adjacent conductors to deliver insertion loss and crosstalk. The AirMax VS®connectors address a broad range of system architectures, including backplane, mid-plane, coplanar, mid-plane orthogonal, cabled backplane, and mezzanine applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vs-orthogonal-high-speed-backplane-connector": {
-      "name": "AirMax VS® Orthogonal High-Speed Backplane Connector",
-      "description": "AirMax VS®Orthogonal mid-plane interface features two back-to-back AirMax VS®headers oriented at 90 degrees to each other. The headers connect 16 differential signal pairs through shared vias in the mid-plane, providing a direct, high-speed connection while eliminating traces on the mid-plane. The AirMax VS®Orthogonal mid-plane interconnects can support differential signaling at up to 20Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "airmax-vsx": {
-      "name": "AirMax VSX®",
-      "description": "Alternative to M12 - Ultra High-Density X-Lok Push-Lock Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s 33-pin Ultra High-Density (UHD) X-Lok Metal Mini Size push-lock connector boasts a compact design and high contact density, providing space effic",
+        "Amphenol Business": "Amphenol Backplane Assembly & System Integration",
         "Source Page": "IT Datacom p.2"
       }
     },
     "advancedtca": {
       "name": "AdvancedTCA",
       "description": "Dedicated interface between backplanes and boards capable of providing dual redundant power, system management and high voltage auxiliary circuits to each slot within the platform. The connector’s outstanding blind mating capability can be used to align the board during insertion.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.connectpositronic.com/",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.3"
       }
     },
-    "cots-products-customizations": {
-      "name": "COTS Products Customizations",
-      "description": "Crossbow allows designers to take advantage of all the benefits associated with orthogonal mid-plane architectures as the differential pairs on each side of the mid-plane share vias creating a straight pass-through connection. This shared via approach combined with the Crossbow footprint, eliminates most electrical problems associated with the typical backplane via stub.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "airmax-vs2-high-speed-backplane-connector": {
+      "name": "AirMax VS2® High-Speed Backplane Connector",
+      "description": "AirMax VS2® connectors provide a migration path from AirMax VS® for speeds up to 20Gb/s, providing a margin of safety for typical 802.3ap system performance with the flexibility of an open pin field design. The connectors leverage AirMax VS® and VSe® design features and technology to achieve improved signal integrity and mechanical attributes compared to AirMax VS® connectors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs2.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 20gb/s · 20gb/s · 3a",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a flexible approach to customizing our COTS products to meet unique customer needs. Our applications and design engineering teams routinely ",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.4"
       }
     },
-    "crossbowtm": {
+    "airmax-vse-high-speed-backplane-connector": {
+      "name": "AirMax VSe® High-Speed Backplane Connector",
+      "description": "HIGH SPEED HARDMETRIC CONNECTOR FOR BACKPLANE WITH ENHANCED PERFORMANCE AirMax VSe® connectors address the industry needs for high bandwidth applications requiring a scalable migration path to 25Gb/s data rate. AirMax® technology delivers signal densities up to 63.5 differential pairs per inch when using a 5-pair connector system.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vse.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vs-85ohms-high-speed-backplane-connector": {
+      "name": "AirMax VS® 85Ohms High-Speed Backplane Connector",
+      "description": "HIGH SPEED HARDMETRIC CONNECTOR FOR BACKPLANE SUPPORTING INTEL® QPI AirMax VS® 85Ohms connectors are optimized to minimize impedance discontinuities and signal loss in 85Ohms channels. The connectors' mating interfaces also satisfy demands for backward compatibility to legacy 100 Ohms product interfaces ensuring a smooth transition to next-generation designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs-85-ohms.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vs-connectors-for-compactpci-serial-system": {
+      "name": "AirMax VS® Connectors for CompactPCI® Serial System",
+      "description": "AirMax® high speed signal connectors meet the dimensional and electrical requirements described in CompactPCI® Serial (PICMG CPCI-S.0) specification. It moves CompactPCI® architecture to high speed serial interconnects to add greater support for serial point to point fabrics like PCI Express®, SATA, Ethernet and USB in the classic CompactPCI® form factor with mechanics fully compliant to IEC 1101.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs-connectors-for-compactpci.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vs-coplanar-high-speed-backplane-connector": {
+      "name": "AirMax VS® Coplanar High-Speed Backplane Connector",
+      "description": "AirMax VS® coplanar connectors permit mating 2 boards in the same plane. This is very useful for many applications, one base card can mate to many IO cards to cost effectively offer different system IO options. ATCA systems, Zone 3 connectors directly connect front and rear cards, bypassing the backplane, effectively doubling the electronic capabilities of each slot within the system.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs-coplanar.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vs-high-speed-backplane-connector": {
+      "name": "AirMax VS® High-Speed Backplane Connector",
+      "description": "AirMax VS® connectors use innovative edge-coupling and air dielectric between adjacent conductors to deliver insertion loss and crosstalk. The AirMax VS® connectors address a broad range of system architectures, including backplane, mid-plane, coplanar, mid-plane orthogonal, cabled backplane, and mezzanine applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vs-orthogonal-high-speed-backplane-connector": {
+      "name": "AirMax VS® Orthogonal High-Speed Backplane Connector",
+      "description": "AirMax VS® Orthogonal mid-plane interface features two back-to-back AirMax VS® headers oriented at 90 degrees to each other. The headers connect 16 differential signal pairs through shared vias in the mid-plane, providing a direct, high-speed connection while eliminating traces on the mid-plane. The AirMax VS® Orthogonal mid-plane interconnects can support differential signaling at up to 20Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs-orthogonal.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "airmax-vsx": {
+      "name": "AirMax VSX®",
+      "description": "Amphenol's AirMax VSX® connectors are high speed, high density, 2.00mm pitch connectors that support 56Gb/s PAM4 performance. Innovative design reduces crosstalk and reaches excellent SI performance. AirMax VSX provides a migration path to 56Gb/s PAM4 with backward mating compatibility with traditional AirMax VS®, AirMax VS2® and AirMax VSe® series. Industry leading robustness with field proved components.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vsx.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "56gb/s · 4 w · 2.00mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "bulkhead-to-vita-inside-the-box-cable-assemblies": {
+      "name": "Bulkhead to VITA Inside-The-Box Cable Assemblies",
+      "description": "SV Microwave's new IP67 Bulkhead-to-VITA 67.3 cable assemblies provide a robust, inside-the-box solution for routing RF signals in embedded systems applications. These 12-inch assemblies are provide a secure, sealed transition from a box’s exterior to its internal backplane.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.svmicrowave.com/bulkhead-to-vita-inside-the-box-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=229",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "cool-express-link-edsff-e3-1c-2c-pcie-gen-5-6-orthogonal-cable-connectors": {
+      "name": "Cool Express Link™ EDSFF E3 1C & 2C PCIe® Gen 5/6 Orthogonal Cable Connectors",
+      "description": "The Amphenol Cool Express Link™ is a range of EDSFF E3 Hybrid Orthogonal Press-fit PCIe® Gen 5/6 Cable Connectors that supports low latency, high bandwidth, and high throughput data transmission for existing and next-gen storage and CXL 3.1 applications. Engineered for high-performance computing, artificial intelligence and machine learning applications requiring advanced enterprise storage.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "crossbow": {
       "name": "Crossbow™",
       "description": "Crossbow allows designers to take advantage of all the benefits associated with orthogonal mid-plane architectures as the differential pairs on each side of the mid-plane share vias creating a straight pass-through connection. This shared via approach combined with the Crossbow footprint, eliminates most electrical problems associated with the typical backplane via stub.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/crossbow.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "din-41612-headers-and-receptacles": {
       "name": "DIN 41612 Headers and Receptacles",
       "description": "DIN 41612 connector systems are the most popular backplane interconnect systems in IEC 603-2 specifications due to the widespread standard adoption, easy availability, cost-effectiveness, and durability. The product design for Board-to-Board and I/O solutions involve both standard mount and reverse mount mating combination.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/din-headers-receptacles.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
+      }
+    },
+    "edsff-e1-e3-high-speed-cable-assembly": {
+      "name": "EDSFF E1/E3 High-Speed Cable Assembly",
+      "description": "EDSFF ORTHOGONAL CABLE ASSEMBLY WITH DIFFERENTIAL SIGNALING TO 32GT/S NRZ FOR NEXT-GENERATION SYSTEMS Amphenol's EDSFF E1/E3 high-speed cable assembly transmits power and high-speed signals via a cable that directly connects to the main PC board supporting EDSFF E1/E3 SSD and CXL or other modules.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/edsff-e1-e3-high-speed.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "elite": {
       "name": "Elite®",
       "description": "ULTRA-HIGH DENSITY BACKPLANE INTERCONNECT SOLUTION Ultra-High density 56+ Gbp/s PAM4 interconnect platform utilizing proven press-fit technology and a single wafer design optimized for traditional backplane, direct orthogonal, and cable design solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/elite.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave streamlines this with our innovative Embedded Phase Tuner. This component allows customers to independently adjust the phase of cable assemblies wi",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
-    "euro-style-terminal-blocks": {
-      "name": "Euro Style Terminal Blocks",
-      "description": "EXAMAX2® 112Gb/s Backplane Cable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "examax2-112gb-s-backplane-cable": {
+      "name": "EXAMAX2® 112Gb/s Backplane Cable",
+      "description": "EXAMAX2® Cable Backplane Systems offer high density cable assemblies for both internal and external applications that are capable of delivering high speed performance of 112Gb/s per channel. EXAMAX2® cable applications include internal OverPass™ cables, external I/O cables, cabled midplane and cabled backplane",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax2-cable-assembly.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "EBY offers a complete selection of industry standard Euro Style Terminal Blocks - which may be customized to your needs - support a broad range of wire-to-board",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "examax2-112gb-s-high-speed-backplane-connector": {
       "name": "ExaMAX2® 112Gb/s High-Speed Backplane Connector",
       "description": "The ExaMAX2® backplane connector system supports 112Gb/s PAM4 industry specifications. It maintains mating interface compatibility with previous ExaMAX products to allow cost/performance flexibility for designers. The mating interface and connector design are optimized to support the demanding electrical and mechanical requirements of 112G systems. ExaMAX2 delivers industry-leading SI performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax2-high-speed-backplane.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "examax-high-speed-backplane-connector-system": {
       "name": "ExaMAX+® High Speed Backplane Connector System",
       "description": "The ExaMAX+® backplane connector system is designed to meet 56Gb/s PAM4 industry specifications with plenty of SI margin while maintaining mating interface compatibility with previous ExaMAX® products. The optimized connector design delivers superior signal integrity performance resulting in lower crosstalk noise and higher insertion loss-to-crosstalk ratio.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax-plus-high-speed-backplane.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
+      }
+    },
+    "examax-56gb-s-backplane-cable": {
+      "name": "ExaMAX® 56Gb/s Backplane Cable",
+      "description": "The ExaMAX® I/O system offers cable assemblies and I/O connector solutions for both internal and external applications. ExaMAX® I/O products are capable of delivering high-speed performance of 25 Gb/s per channel with a path to 40 Gb/s and higher. The ExaMAX® I/O system delivers superior linear board signal density and meets the performance requirements of the OIF-CEI-25G-LR industry standard.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax-io-and-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "examax-56gb-s-high-speed-backplane-connector": {
       "name": "ExaMAX® 56Gb/s High-Speed Backplane Connector",
       "description": "ExaMAX® backplane connector system is designed for higher bandwidth applications from 25Gb/s to 56Gb/s. The optimized connector design delivers superior signal integrity performance resulting in low crosstalk noise and low insertion. Each signal wafer incorporates an innovative one-piece, embossed ground structure to improve crosstalk performance through 56Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax-56gbs-high-speed-backplane.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "examax-56gb-s-high-speed-orthogonal-connector": {
       "name": "ExaMAX® 56Gb/s High-Speed Orthogonal Connector",
       "description": "The ExaMAX® high-speed orthogonal connector system is designed to enable superior 25Gb/s electrical performance and provide a path to 56Gb/s in anticipation of further increases in bandwidth requirements. The 6-Pair orthogonal right-angle header connector solution further expands the range of applications supported by the ExaMAX® connector system.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax-56gbs-high-speed-orthogonal.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
     "examax-vs-high-speed-backplane-connector": {
       "name": "ExaMAX® VS High-Speed Backplane Connector",
-      "description": "The ExaMAX®VS backplane system is a scalable, cost-optimized connector system designed for higher bandwidth applications up to 25Gb/s. The high-performance connector system provides both mechanical robustness and superior signal integrity, minimizing channel performance variation for every differential pair.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "The ExaMAX® VS backplane system is a scalable, cost-optimized connector system designed for higher bandwidth applications up to 25Gb/s. The high-performance connector system provides both mechanical robustness and superior signal integrity, minimizing channel performance variation for every differential pair.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examax-vs-high-speed-backplane.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "high-performance-rf-adapters": {
-      "name": "High Performance RF Adapters",
-      "description": "High Speed Backplane (Customised)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "hd-express": {
+      "name": "HD Express®",
+      "description": "PCIE® GEN 6 BACKPLANE INTERCONNECT SYSTEM The HD Express® is a high-density, high-performance interconnect system designed to meet and exceed PCIe® Gen 6 electrical and mechanical requirements for high-end 85Ω architectures.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hd-express.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol BSI (ABSI) are the trusted technology leader for more than 30 years in the Backplane & Midplane business. We design, build and test customised Backplan",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "high-speed-backplane-customised": {
       "name": "High Speed Backplane (Customised)",
-      "description": "High Speed Edge Launch PCB Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol BSI (ABSI) are the trusted technology leader for more than 30 years in the Backplane & Midplane business. We design, build and test customised Backplane & Midplane solutions for most of the global leaders in IT Datacom and Telecoms technology systems. We have products performing to 56gb/s today in the production environment with speeds up to 112 Gb/s PAM4 in development.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://amphenol-bsi.com/custom-backplanes/high-speed-backplanes-midplanes/",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave offers a complete line of extreme frequency (DC - 100 GHz) coaxial / RF edge launch PCB connectors that meet the need for high-performing,",
-        "Source Page": "IT Datacom p.7"
+        "Key Spec": "up to 112 gb/s · 56gb/s · 112 gb/s",
+        "Application": "Telecom",
+        "Amphenol Business": "Amphenol Backplane Assembly & System Integration",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "metral-board-connectors": {
       "name": "Metral® Board Connectors",
       "description": "FCI Basics Metral® product offers the broadest range of backplane connector solutions which includes RA and vertical for both header and receptacle series. The connectors are designed in accordance with IEC 61076-4-104 and Telcordia GR-1217- CORE. Metral® backplane connectors meet Futurebus+ standards to support applications in data, industrial and instrumentation, medical and telecom markets.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/metral-board.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "metral-hdxs-io-connector": {
       "name": "Metral® HDXS IO Connector",
       "description": "Metral® HDXS is designed with minimum guaranteed clearance and creepage distances to comply to ANSI requirements of resistibility to overvoltages of up to 2500V. It is ideal for use in ADSL/VDSL as well as for harsh environments and other demanding telecom applications requiring high density cable-to-board interface.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/metral-hdxs-io.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom",
-        "Amphenol Business": "Amphenol’s FCI Basics Metral® 1000 Series is a high-speed 2mm backplane connector system consisting of right-angle receptacles and vertical headers. The 1000 Se",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "metral-high-speed-1000-series-backplane-connectors": {
       "name": "Metral® High Speed 1000 Series Backplane Connectors",
-      "description": "Metral® High Speed 2000 Series Backplane Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol’s FCI Basics Metral® 1000 Series is a high-speed 2mm backplane connector system consisting of right-angle receptacles and vertical headers. The 1000 Series features a unique stripline structure in the receptacle and outer ground shields in the header. The stripline structure allows improved signal performance when routed in either a single-ended or a differential pair configuration.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/metral-high-speed-1000-series.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s FCI Basics Metral® 2000 Series is a high-speed 2mm backplane connector system of vertical headers. The 2000 Series features a unique stripline struct",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "metral-high-speed-2000-series-backplane-connectors": {
       "name": "Metral® High Speed 2000 Series Backplane Connectors",
-      "description": "Metral® High Speed 4000 Series Backplane Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol’s FCI Basics Metral® 2000 Series is a high-speed 2mm backplane connector system of vertical headers. The 2000 Series features a unique stripline structure that allows having improved signal performance when routed in either a single-ended or a differential pair configuration.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/metral-high-speed-2000-series.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s FCI Basics Metral® 4000 Series is a high-speed 2mm backplane connector system consisting of right-angle receptacles and vertical headers. The 4000 Se",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "metral-high-speed-4000-series-backplane-connector": {
       "name": "Metral® High Speed 4000 Series Backplane Connector",
-      "description": "Mezzostak® 0.50mm Pitch 5.2mm Stacked Height",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol’s FCI Basics Metral® 4000 Series is a high-speed 2mm backplane connector system consisting of right-angle receptacles and vertical headers. The 4000 Series features a unique stripline structure in both the receptacle and header. Compared to the Metral® 1000 and 2000 Series, Metral® 4000 receptacle connectors employ a modified receptacle contact geometry optimized for 100Ω differential signals.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/metral-high-speed-4000-series.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s FCI Basics Metral® 4000 Series is a high-speed 2mm backplane connector system consisting of right-angle receptacles and vertical headers. The 4000 Se",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
+      }
+    },
+    "micro-tca-card-edge-connectors": {
+      "name": "Micro-TCA Card Edge Connectors",
+      "description": "FULLY COMPLIANT CONNECTOR FOR ADVANCED MC™ MODULES MicroTCA (μTCA) vertical card edge connectors provide 170 contacts on a 0.75mm pitch and enable Advanced MC™ modules to be plugged directly into a backplane. MicroTCA card edge connectors' conventional press-fit or surface mount assembly processes and connector designs require no costly hardware, resulting in low total applied cost.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-tca-card-edge.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "millipacs-accessories": {
       "name": "Millipacs® Accessories",
       "description": "FCI Basics offers a wide range of accessories compatible with 2mm Hard Metric (HM) series Millipacs® connectors. Millipacs® series accessories increase the usability and flexibility of the connector systems. They include shrouds, guiding systems, coding keys, power contacts.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-accessories.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "millipacs-power-hybrid-connectors": {
       "name": "Millipacs® Power & Hybrid Connectors",
       "description": "FCI Basics Millipacs® is a 2.00mm modular board to board or cable to board Interconnection system in Hardmetric configuration designed in accordance with IEC 917 and IEC 61076-4- 101. FCI Basics offers Millipacs® Hard Metric Hybrid connectors in standard signal modules of type L, M, N, D, E with signal pins, integrated guide pins, and power/coax contacts.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-power-hybrid.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "millipacs-r-a-headers": {
       "name": "Millipacs® R/A Headers",
       "description": "Millipacs® is a 2.00mm modular board to board or cable to board Interconnection system in Hardmetric configuration designed in accordance with IEC 917 and IEC 61076-4-101 and Telcordia GR-1217-CORE standards. Millipacs® Right angle headers features hot plugging application with different mating sequences and are suitable for both Coplanar and Backplane mating.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-ra-headers.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "millipacs-r-a-receptacles": {
       "name": "Millipacs® R/A Receptacles",
       "description": "FCI Basics Millipacs® is a 2.00mm modular, BTB & CTB Interconnection System in Hard Metric (HM) configuration designed in accordance with IEC 917, IEC 61076- 4-101, and Telcordia GR-1217-CORE standards. These connectors are enriched with additional options for higher speed, shielding, High operating temperature (175°C), higher current rating (3A/pin), and low smoke low halogen compatibility.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-ra-receptacles.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "millipacs-vertical-headers": {
       "name": "Millipacs® Vertical Headers",
       "description": "FCI Basics Millipacs® is a 2.00mm modular BTB or CTB Interconnection system in a hard metric configuration designed in accordance with IEC 917 and IEC 61076-4-101 and Telcordia GR-1217-CORE standards. These connectors are enriched with additional options for higher operating temperature (175°C), current rating (3A+/pin), low smoke low halogen (LSLH) materials, touch-proof / dust-free caps.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-vertical-headers.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "917 a · 101 a · 3a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "millipacs-vertical-receptacles": {
       "name": "Millipacs® Vertical Receptacles",
       "description": "Millipacs® HM vertical receptacles are offered in standard 5 and 8 row signal modules and up to maximum of 200 signal contacts. Vertical receptacle module, when mated to a standard straight header are suitable for parallel Board-to-Board applications. Vertical receptacle can also be used in backplane in the place of vertical header and mated with right angle header on the daughter card.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-vertical-receptacles.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 3.5mm diameter miniature jack connector is a family of connectors used for analog signals, primarily audio. Available in 3 to 5 contacts, the connect",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
+      }
+    },
+    "nanorf-modules-sosa-aligned": {
+      "name": "NanoRF Modules, SOSA Aligned",
+      "description": "SV Microwave expands its VITA connector portfolio with a new line of Backplane and Plug-In modules designed for the NanoRF connector system and fully aligned to the latest SOSA technical standard. Engineered for modern embedded computing platforms, these modules deliver ultra-high density, high-frequency RF performance and seamless modular interoperability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.svmicrowave.com/nanorf-modules-sosa-aligned?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=192",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "octis-signal-connectors-and-cable-assemblies-metral-hdxs": {
+      "name": "OCTIS™ - Signal Connectors and Cable Assemblies (Metral® HDXS)",
+      "description": "OCTIS™ I/O connectors and cable assemblies using Amphenol's Metral® HDXS interface promote signal and PoE++ transmission over Cat 5e and 6 cables in outdoor and harsh environments like Broadband Wireless Access. It offers lightning protection, EMI shielding, and is field-installable.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/octis-signal-connector-poe.html",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "paladin-112gb-s-backplane-cable": {
       "name": "Paladin® 112Gb/s Backplane Cable",
       "description": "Cable Backplane Systems is part of Amphenol's Highspeed Backplane Product business, dedicated to developing and manufacturing cabled backplane solutions for next-generation system architectures. Our customers are leading providers of data center switches and routers, enterprise servers, and high-performance computers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/paladin-cabled-backplane.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Data center / Server",
-        "Amphenol Business": "AMPHENOL'S GAME-CHANGING 112Gb/s BACKPLANE INTERCONNECT TECHNOLOGY. Paladin's® revolutionary architecture sets the benchmark for signal integrity performance in",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "paladin-112gb-s-backplane-connector": {
       "name": "Paladin® 112Gb/s Backplane Connector",
-      "description": "Paladin® HD 224Gb/s Backplane Interconnect System",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "AMPHENOL'S GAME-CHANGING 112Gb/s BACKPLANE INTERCONNECT TECHNOLOGY. Paladin's® revolutionary architecture sets the benchmark for signal integrity performance in backplane interconnects. Exhibiting smooth linear transmission beyond 40GHz, the lowest crosstalk in the market, and consistent SI performance over its entire mating range.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/paladin.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "AMPHENOL'S GAME-CHANGING 112Gb/s BACKPLANE INTERCONNECT TECHNOLOGY. Paladin's® revolutionary architecture sets the benchmark for signal integrity performance in",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "paladin-hd-224gb-s-backplane-interconnect-system": {
       "name": "Paladin® HD 224Gb/s Backplane Interconnect System",
       "description": "INDUSTRY LEADING DENSITY AND PERFORMANCE – YOUR PATH TO 224GB/S The Paladin® HD interconnect system provides world class bandwidth from 112Gb/s to 224Gb/s with industry leading density, supporting up to 144 differential pairs orthogonally within 1U spacing. Paladin® HD's unique mating interface allows for consistent performance in a de-mated condition, critical for next generation systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/paladin-hd.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Sine Systems’ PanelMate™ Family of receptacles are engineered with a one-piece, sealed, flanged design for rapid and secure mounting. Their durable, hi",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "pwrblade-connector": {
-      "name": "PwrBlade® Connector",
-      "description": "The PwrBlade® power distribution connector system from Amphenol includes power and signal contacts to provide power distribution and power control in a single connector. Options for either vertical or right-angle versions of PCB-mount headers and receptacles deliver support for coplanar, backplane, or mezzanine connections.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pci-express-gen-5-directattached-cable-riser": {
+      "name": "PCI Express® Gen 5 DirectAttached™ Cable Riser",
+      "description": "Amphenol's PCIe® DirectAttached™ cable riser solution with PCIe® DirectAttaced™ CEM connector on one end of the cable allows the flexibility of a different connection on the other end of the cable, accommodating different PCB form factors such as MCIO, Multi-trak™, SlimSAS™, EDSFF, OCP NIC 3.0, Gen Z, or Backplane connectors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen5-directattached-cable-riser.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "sca-2-connectors": {
       "name": "SCA-2 Connectors",
       "description": "SCA-2 connectors consist of headers and receptacles that enable the hard disk drive to backplane interface in enterprise storage systems. The header resides on the HDD while the receptacle is attached to the backplane. 40pos SCA-2 receptacles are designed to accept Fibre Channel drives, while 80pos receptacle accepts SCSI drives.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sca-2.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "vita-adapters": {
+      "name": "VITA Adapters",
+      "description": "SV Microwave has recently added adapters to our VITA product line. Our NanoRF VITA 67.3 Adapters provide direct access to individual NanoRF pin (Backplane) and socket (Plug-In) contacts. Designed to support the test, calibration, and optimization of embedded systems using SV’s NanoRF VITA 67.3 Contacts.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=220",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
+      }
+    },
+    "vita-cable-assemblies": {
+      "name": "VITA Cable Assemblies",
+      "description": "SV Microwave’s VITA product line has been extended to include cable assemblies in common lengths and cable diameters, featuring SV’s high-density VITA SMPM/SMPS 67.1, 67.2, and 67.3 cable connectors. SV can also terminate your VITA backplane cables to a variety of multiport I/O panel solutions. The VITA line enables an open VPX world, offering options such as VITA 67.1, 67.2, and 67.3.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=67",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "vita-modules-and-blocks": {
       "name": "VITA Modules and Blocks",
       "description": "In an embedded system application, there are two halves to any VITA module: the Plug-In Card and the Backplane. SV Microwave offers a variety of VITA 66.5, 67.1,67.2, and VITA 67.3 Plug-In and Backplane modules and blocks in SMPM, SMPS, and NanoRF interfaces.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-modules?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=221",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave has a suite of VITA 67.3 tools that simplify the process of installing and removing contacts or cable assemblies. These tools can be used for both ",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
+      }
+    },
+    "vita-tools": {
+      "name": "VITA Tools",
+      "description": "SV Microwave has a suite of VITA 67.3 tools that simplify the process of installing and removing contacts or cable assemblies. These tools can be used for both the plug-in card and the backplane, and are available in SMPM and SMPS interfaces.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-tools?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=145",
+      "specs": {
+        "Product Type": "Backplane and Orthogonal Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "xcede-backplane-connector": {
       "name": "XCede® Backplane Connector",
       "description": "DESIGNED TO SUPPORT 56G DATA RATE REQUIREMENTS The Xcede® product family allows for scalable data rates up to 56Gb/s with minimal cost. The flexibility of the design and available configurations allow for a complete solution for all system architectures.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=34",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/xcede.html",
       "specs": {
         "Product Type": "Backplane and Orthogonal Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.34"
       }
     }
   }

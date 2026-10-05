@@ -3,26 +3,35 @@
   "company": "Amphenol",
   "category": "Power Connectors and Busbar",
   "displayName": "Power Connectors and Busbar",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Power Connectors and Busbar. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Power Connectors and Busbar. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30"
   ],
-  "sourceCount": 48,
+  "sourceCount": 65,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -31,628 +40,849 @@
     "Source Page"
   ],
   "products": {
-    "3000w-energyedgetm-x-treme": {
+    "3000w-energyedge-x-treme": {
       "name": "3000W EnergyEdge™ X-treme",
-      "description": "3000W EnergyEdge™ X-treme Card Edge series offers the highest linear density available in the market. This product features twice as many contact points allowing for a 25% improvement in linear current density when compared to existing card edge products. X-treme's revolutionary dual contact design pushes the boundaries of card edge technology beyond 3000W to power modern system architectures.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Card Edge series offers the highest linear density available in the market. This product features twice as many contact points allowing for a 25% improvement in linear current density when compared to existing card edge products. X-treme's revolutionary dual contact design pushes the boundaries of card edge technology beyond 3000W to power modern system architectures.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/energyedge-x-treme.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
       }
     },
     "airmax-power-connectors": {
       "name": "AirMax® Power Connectors",
       "description": "Hard Metric High Power connectors are a perfect complement to Amphenol's ExaMAX®, AirMax®, ZipLine®, and Millipacs® signal connectors. These power connectors mount alongside their signal counterparts and are used in applications where bulk current is delivered by backplane or midplane to power-consuming components on a mating daughter card.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
       }
     },
     "airmax-vs-sbb-high-speed-backplane-connector": {
       "name": "AirMax VS® SBB High-Speed Backplane Connector",
       "description": "AirMax VS® high-speed signal connectors, guide modules, and power connectors meet the dimensional and electrical requirements for the Storage Bridge Bay Mid-plane Interface (SBBMI) to connect bridge/controller cards to the mid-plane in a drive enclosure. It comes with high-speed serial data rates that can scale from 2.5Gb/s to 12.5Gb/s without requiring the redesign of a basic platform.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/airmax-vs-sbb.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol's AirMax VSX® connectors are high speed, high density, 2.00mm pitch connectors that support 56Gb/s PAM4 performance. Innovative design reduces crosstal",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
       }
     },
-    "amphe-pdtm": {
+    "amphe-pd": {
       "name": "Amphe-PD™",
       "description": "This series, utilizing RADSOK® socket contact technology, is a general duty, touch-proof, thermoplastic rectangular with integrated latch push-pull coupling high power connector. Two poles per connector and up to 120 amps possible with a standard operating temperature from -55°C to +125°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-industrial.com/amphe-pd-power-bus-connectors",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.4"
       }
     },
     "amphe-prb": {
       "name": "Amphe-PRB",
       "description": "This series, utilizing RADSOK® socket contact technology, is an IP67 rated, thermoplastic reverse bayonet coupling, high power connector. With over six insert arrangements ranging from 3 to 5 contacts per connector and up to 70 amps possible with a standard operating temperature from -40°C to +100°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-industrial.com/amphe-prb",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 70 a · 70 a · 5 contacts",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-bk100-i-o": {
       "name": "BarKlip® BK100 I/O",
-      "description": "BarKlip® BK1200 HD I/O 1OU Cable Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's BarKlip® BK100 I/O provides a convenient method of distributing up to 100A between busbars, cables and circuit boards. It features 12 fully independent cantilevered beams, providing a true compliant spring to adjust for variations in busbar alignment and surface finish. The ultrasonically welded connection between the wire and contact increases the efficiency and reliability of current transition",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk100-io.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BarKlip® BK100 I/O provides a convenient method of distributing up to 100A between busbars, cables and circuit boards. It features 12 fully independe",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-bk150-connector": {
       "name": "BarKlip® BK150 Connector",
       "description": "The BarKlip® BK150 connector features 10 independent conducting beams that maintain contact with the mating busbar in common misaligned positions, therefore significantly lowering overall resistance. BarKlip® BK150's contacts include a stainless- steel helper spring to ensure that proper mating force is maintained and contact resistance is minimized throughout the life of the connection.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk150.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-bk200-i-o": {
       "name": "BarKlip® BK200 I/O",
       "description": "BarKlip®BK200 I/O provides a convenient method of distributing up to 200A between busbars, cables and circuit boards. It features 14 fully independent cantilevered beams, providing a true compliant spring to adjust for variations in busbar alignment and surface finish. The ultrasonically welded connection between the wire and contact increases the efficiency and reliability of current transition.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk200-io.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-bk300-connector": {
       "name": "BarKlip® BK300 Connector",
       "description": "The BarKlip® BK300 connector features 14 independent conducting beams that maintain contact with the mating busbar. BK300's contacts are plated with Amphenol's proprietary silver-based AGT® plating technology to further reduce contact resistance and eliminate fretting corrosion commonly found in tin-plated connectors.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk300.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BarKlip® BK450 connector is designed to mate directly with a 3.18mm single pole busbar and provides a convenient method of distributing up to 450A be",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-bk450-connector": {
       "name": "BarKlip® BK450 Connector",
-      "description": "BarKlip® BK600 I/O",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's BarKlip® BK450 connector is designed to mate directly with a 3.18mm single pole busbar and provides a convenient method of distributing up to 450A between busbars. The connector system features 36 independent points of gold-plated contact beams ensuring high current carrying capability and low contact resistance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-bk450.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BarKlip® BK450 connector is designed to mate directly with a 3.18mm single pole busbar and provides a convenient method of distributing up to 450A be",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-xp200-connector": {
       "name": "BarKlip® XP200 Connector",
       "description": "HIGH POWER AND LOW RESISTANCE 3.00MM BUSBAR CONNECTOR Amphenol's BarKlip® XP200 connector provides a convenient method of distributing up to 200A directly to a 3.00mm mating busbar. The connector system features an integrated guide system that provides protection to the contacts during mating and un-mating.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-xp200.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "barklip-xp300-connector": {
       "name": "BarKlip® XP300 Connector",
       "description": "HIGH POWER AND LOW RESISTANCE 3.00MM BUSBAR CONNECTOR Amphenol's BarKlip® XP300 connector is designed to mate directly with 3.00mm single pole busbars and provides a convenient method of distributing up to 300A between vertical and horizontal busbars. The connector features 16 independent points of conducting beams ensuring high reliability and ultra-low contact resistance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/barklip-xp300.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "barklip-xp-connectors": {
-      "name": "BarKlip® XP Connectors",
-      "description": "HIGH POWER AND LOW RESISTANCE BUSBAR CONNECTOR Amphenol's BarKlip® XP connectors feature independent points of contact that provide overall lower resistance and greater overall efficiency. BarKlip® XP series is capable of distributing anywhere from 150 to 1000A of power to busbar power distribution applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "barrier-strip-terminal-blocks": {
-      "name": "Barrier Strip Terminal Blocks",
-      "description": "Battery Connector for Cordless Power Tools/Vacuum Cleaner",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "EBY-Amphenol offers a complete selection of industry-standard barrier strip terminal blocks, customizable to meet your needs. Our barrier strip terminal blocks ",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.5"
       }
     },
     "battery-connector-for-cordless-power-tools-vacuum-cleaner": {
       "name": "Battery Connector for Cordless Power Tools/Vacuum Cleaner",
       "description": "CUSTOMIZABLE HIGH DURABILITY, HIGH CURRENT RATING, CORDLESS POWER TOOLS The Power Tools Battery connector offers ideal power solution in terms of high current and high durability, better performance in terms of IP protection and overall connector life. The termination for the same can be optimized as per the working requirement.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/battery-connectors-cordless-power-tools-vacuum-cleaner.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "combostak-0-50mm-powerstak-2-00mm-board-to-board-connector": {
+      "name": "ComboStak® 0.50mm & PowerStak® 2.00mm Board-to-Board Connector",
+      "description": "HYBRID AND HIGH SPEED SOLUTION The ComboStak® 0.50 mm BTB connectors are compact, hybrid (signal and power) board-to-board connectors. ComboStak® 0.50 mm combines existing, BergStak® 0.5mm pitch HS signal pins with 2.00mm pitch power blades. ComboStak® 0.50 mm provides high signal and current density with a wide range of stack heights.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/combostak-0-50mm-powerstak-2-00mm-btb.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "combostak-0-80mm-powerstak-2-00mm-board-to-board-connectors": {
+      "name": "ComboStak® 0.80mm & PowerStak® 2.00mm Board-to-Board Connectors",
+      "description": "HYBRID AND MEDIUM POWER SOLUTION ComboStak® and PowerStak® are compact, hybrid (signal and power) and power board-to-board connectors. ComboStak® combines existing, BergStak® 0.8mm pitch signal pins with 2.00mm pitch power blades. PowerStak® is the power only version. Both ComboStak® and PowerStak® provide high signal and current density with a wide range of stack heights.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/combostak-0-80mm-powerstak-2-00mm-btb.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "cool-edge-0-80mm-hybrid-power-signal-connectors": {
+      "name": "Cool Edge 0.80mm Hybrid Power & Signal Connectors",
+      "description": "Cool Edge Hybrid Power and Signal connectors provide a one-piece high speed and high power card-edge package. These versatile solutions address multiple standards like PCIe, SAS, SATA, and offer multiple BTB configurations such as mezzanine, coplanar, and midplane/backplane. Moreover, the connectors are designed as Open Pin Field and are hot-plug capable.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cool-edge-0-80mm.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "coolpower-sdm-connectors": {
+      "name": "CoolPower® SDM Connectors",
+      "description": "CoolPower® Slim Drawer Mini (SDM) Connectors offer a high level of mating configuration flexibility, current density, and a thin profile making it ideal for compact board-to-board power interconnects. The CoolPower® SDM series is available with two or four power lines and boasts up to 318A per linear inch in a footprint of only 5.6mm x 14mm.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/coolpower-sdm.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
+      }
+    },
+    "cool-stack-0-80mm-hybrid-power-signal-connectors": {
+      "name": "Cool Stack 0.80mm Hybrid Power & Signal Connectors",
+      "description": "Cool Stack Hybrid Power and Signal connectors provide one-piece high speed and high power solutions while addressing multiple networking standards like PCIe, and SAS/SATA. It offers a maximum current rating of 16A per power pin, which aids in supporting applications with medium power requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cool-stack-0-80mm-hybrid-power-signal.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "din-power": {
       "name": "DIN Power",
       "description": "DIN 41612 CONNECTORS WITH MEDIUM AND HIGH POWER CONTACTS Amphenol has consolidated the DIN 41612 series manufacturing, adding the DIN Power range, thereby offering Power connectors along with the wide range of standard DIN connectors. The DIN Power connectors are preferred in applications that require particularly robust connectors or higher currents up to 15 A.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/din-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
+      }
+    },
+    "d-subminiature-high-power-series": {
+      "name": "D-Subminiature High Power Series",
+      "description": "75A HIGH POWER CONTACTS WITH CRIMP, SOLDER BUCKET, AND PCB TERMINATIONS Amphenol's D-Subminiature connectors are part of an industry standard for applications requiring robust and reliable connectors. These proven D-Subminiature connectors are one of the most popular Input/Output interconnects, addressing a wide variety of applications in Telecommunications, Data, Consumer, Industrial...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-high-power.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "d-sub-press-fit-connectors": {
+      "name": "D-Sub Press-Fit Connectors",
+      "description": "Amphenol FCI offers Standard density and Mixed power connectors in press fit termination. In SMT (Surface Mount Technology) manufacturing process, this Press-fit series connectors help to save the cost of an additional wave soldering. The \"eye of the needle\" termination combined with a special flat rock design (easy application by pressure on insulator) make this product line very attractive.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-pressfit.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "duraswap-concentric-connectors": {
+      "name": "DURASWAP™ Concentric Connectors",
+      "description": "HIGHLY DURABLE SWAPPABLE DOCKING CONNECTOR The swappable custom battery connector solutions with cable assemblies are offered in 2 power & 6 signal configurations. These connectors can carry a continuous current up to 100A with 10,000 mating cycles. They are IP67-rated in mated condition and can be mated in two directions (bi-directional mating).",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/duraswap-concentric.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
+      }
+    },
+    "duraswap-connectors": {
+      "name": "DuraSwap™ Connectors",
+      "description": "HIGHLY DURABLE SWAPPABLE DOCKING CONNECTOR The swappable custom battery connector solutions with cable assemblies are offered in 2 power & 6 signal configurations. These connectors can carry a continuous current of 15A-70A with 10,000 mating cycles and IP67 rated in mated and unmated condition",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/duraswap.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "ehpce-enhanced-high-power-card-edge-connector": {
       "name": "eHPCE® Enhanced High Power Card Edge Connector",
       "description": "CLASSIC HPCE® WITH ENHANCED PERFORMANCE eHPCE® connector offers a 15% increase in power density with the same footprint as classic HPCE®. The all-new power contact design offers lower contact resistance and higher current carrying capacity compared to classic HPCE® connectors. eHPCE® connectors are designed to extend the life of power supplies using card edge output power connectors.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ehpce-enhanced-high-power-card-edge.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "gbx": {
-      "name": "GbX®",
-      "description": "The GFSH series is a mixed density power connector, ideal for applications that require blind mating in a small package. Multiple contact sizes facilitate the mixing of AC/DC input, signal and DC distributed output in a single package.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's GbX connector platform is a differential connector that provides flexible and low-cost design solutions for lower-speed applications while providing ",
-        "Source Page": "IT Datacom p.6"
+        "Application": "AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "gfsh": {
       "name": "GFSH",
       "description": "The GFSH series is a mixed density power connector, ideal for applications that require blind mating in a small package. Multiple contact sizes facilitate the mixing of AC/DC input, signal and DC distributed output in a single package.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.connectpositronic.com/series/gfsh/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "gg": {
       "name": "GG",
       "description": "The GG is a unique connector series for two reasons. First, it boasts the ability to carry the most power in a single package. Second, it is a modular connector with a fixed envelope. GG connector is an extreme power connector capable of up to 200 amps per contact.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.connectpositronic.com/en/modular-connectors/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's GIG-Array® connectors are designed to meet the needs of applications up to 10Gb/s requiring up to 296 signal pins per connector. Amphenol as a BGA co",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "hci-high-power-connector": {
       "name": "HCI® High Power Connector",
       "description": "The HCI® High Power backplane/midplane connector series addresses applications demanding additional power at the interface between a daughter card and a backplane or midplane in chassis-based equipment platforms. HCI High Power modules are rated for up to 113A per contact without exceeding a 30°C temperature rise in still air.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hci-high-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "hcsp-3bs-three-phase-open-loop-current-sensor": {
       "name": "HCSP-3BS Three-Phase Open-Loop Current Sensor",
       "description": "The Piher HCSP-3BS is an automotive-grade, three-phase open-loop current sensor engineered for EV traction inverters and battery management systems. Utilizing Hall-effect technology, it measures up to ±1,200 A with galvanic separation. The compact, busbar-mounted design features press-fit contacts and compatibility with Infineon HybridPack modules for precise, non-intrusive motor control.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.piher.net/products/current-sensors/hcsp-3bs/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "hpce-board-to-board-connector": {
+      "name": "HPCE® Board to Board Connector",
+      "description": "The HPCE® BTB is a board-to-board high power connector for demanding applications requiring high linear current density and small connector size. It is part of Amphenol's HPCE® series family together with HPCE and HPCE cable assembly. HPCE® BTB is ideal for next-generation 1U/2U servers, storage enclosures, telecommunications equipment, and datacom/ networking equipment.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hpce-board-to-board.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC / Server / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "hpce-cable-assembly": {
+      "name": "HPCE® Cable Assembly",
+      "description": "The HPCE® cable assembly is a next-generation power cable assembly for demanding applications requiring high linear current density and low power loss. It offers both one-piece (cable to card edge) and two-piece (cable to header) solutions. Both have a low profile height (7.5mm) and are based on very cost-effective and highly reliable stamped-and-formed power contact.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hpce-cable-assembly.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "hpce-high-power-card-edge-connector": {
+      "name": "HPCE® High Power Card Edge Connector",
+      "description": "The High Power Card Edge (HPCE®) connector is a next-generation power card edge connector for demanding applications requiring high linear current density and low power loss. HPCE offers a low profile height (7.50mm) and is based on very cost-effective and highly reliable stamped-and-formed power contact technology similar to other power solutions from Amphenol.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hpce-high-power-card-edge.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "hpce-mezzanine-connector": {
+      "name": "HPCE® Mezzanine Connector",
+      "description": "The HPCE® Mezzanine is a next-generation power board-to-board for demanding applications requiring variable stack heights and high linear current density. It offers both receptacle and recommended PCB Bridge. Both are based on very cost-effective and highly reliable stamped-and-formed power contact technology similar to other power solutions from Amphenol.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hpce-mezzanine.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
+      }
+    },
+    "infinity": {
+      "name": "Infinity",
+      "description": "High power interface with a wide variety of features providing solutions for system design challenges created by increasing power consumption.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.connectpositronic.com/family/infinity/",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "low-inductive-laminated-busbars": {
       "name": "Low Inductive Laminated Busbars",
       "description": "In power conversion systems, low inductance interconnects allow lower commutation losses and increased switching frequency. Amphenol Auxel dedicated project management teams and engineers design and manufacture custom state-of-the-art Laminated Busbars.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.auxel.com/products-services/auxel-laminated-busbars/standard/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Auxel",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "micro-power-3-0": {
       "name": "Micro Power 3.0",
-      "description": "Micro Power 3.0 connector system is a 3.00mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating up to 6.5A per pin and a wire gauge range from 30AWG-20AWG. It is available in 2 to 24 circuits for dual rows and 2 to12 circuits for a single row. Scoop-proof housings prevent mismating between header and receptacle.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connector system is a 3.00mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating up to 6.5A per pin and a wire gauge range from 30AWG-20AWG. It is available in 2 to 24 circuits for dual rows and 2 to12 circuits for a single row. Scoop-proof housings prevent mismating between header and receptacle.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-power-3-g881.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 6.5a · 5a · 30a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "micro-power-plus-3-0": {
       "name": "Micro Power Plus 3.0",
-      "description": "Micro Power Plus 3.0 connector system, is a 3.00mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating of up to 12.5A per pin and wire gauge range from 30AWG-16AWG. It is available in 2 to 24 circuits for dual row and 2 to12 circuits for single rows.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connector system, is a 3.00mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating of up to 12.5A per pin and wire gauge range from 30AWG-16AWG. It is available in 2 to 24 circuits for dual row and 2 to12 circuits for single rows.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-power-plus-3-g88mp.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 12.5a · 5a · 30a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "micro-power-super": {
       "name": "Micro Power Super",
-      "description": "Micro Power Super series is a 3.00mm pitch power connector designed for flexible wire-to-board applications, based on different wire gauges and circuits. It provides a maximum current rating of 17A/pin and accommodates a wire gauge of 16AWG and 15AWG. It is foolproof against mismating among different circuits. This series is available for 2 to 24 circuits for dual rows.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "series is a 3.00mm pitch power connector designed for flexible wire-to-board applications, based on different wire gauges and circuits. It provides a maximum current rating of 17A/pin and accommodates a wire gauge of 16AWG and 15AWG. It is foolproof against mismating among different circuits. This series is available for 2 to 24 circuits for dual rows.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-power-super.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "17a · 16a · 15a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "mini-cool-edge-io": {
-      "name": "Mini Cool Edge IO",
-      "description": "Mini Power 4.2 connector system is a 4.20mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating up to 9A per pin and wire gauge range from 28AWG-16AWG. It is available in 2 to 24 circuits for dual row. The boardlock option ensures a strong retention force.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - Mini Cool Edge IO. The 0.60mm pitch connector come with a slim form factor design, capable of trans",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "mini-power-4-2": {
       "name": "Mini Power 4.2",
-      "description": "Mini Power 4.2 connector system is a 4.20mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating up to 9A per pin and wire gauge range from 28AWG-16AWG. It is available in 2 to 24 circuits for dual row. The boardlock option ensures a strong retention force.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connector system is a 4.20mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating up to 9A per pin and wire gauge range from 28AWG-16AWG. It is available in 2 to 24 circuits for dual row. The boardlock option ensures a strong retention force.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-power-4-2-g87.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 9a · 9a · 28a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-power-plus-4-2": {
       "name": "Mini Power Plus 4.2",
-      "description": "Mini Power Plus 4.2 connector system is a 4.20mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating of up to 13A per pin and a wire gauge range from 20AWG-16AWG. It is available in 2 to 24 circuits for dual row. The boardlock option ensures a strong retention force.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connector system is a 4.20mm pitch power connector designed for wire-to-board applications. It is mainly used for power applications and supports a current rating of up to 13A per pin and a wire gauge range from 20AWG-16AWG. It is available in 2 to 24 circuits for dual row. The boardlock option ensures a strong retention force.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-power-plus-4-2-g87mp.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 13a · 13a · 20a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-power-super": {
       "name": "Mini Power Super",
       "description": "Mini power super series is a 4.20mm pitch power connector designed for flexible wire-to-board applications based on different wire gauges and circuits. It provides a maximum current rating of 20A/pin and accommodates a wire gauge of 16AWG and 14AWG. It is foolproof against mismating among different circuits. This series is available in 2 to 24 circuits for dual row.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-power-super.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "20a · 16a · 14a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's external Mini-SAS cable assembly solutions address the current and legacy storage industry's demand for a reliable, compact, high-speed serial I/O su",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
-    "pcb-connectors": {
-      "name": "PCB Connectors",
-      "description": "The Compact Power connector series was developed with the PCI Industrial Computer Manufacturers Group (PICMG) as the power interface for plug-in power supplies or other chassis mount applications. It delivers high current through a small package and three levels of sequential mating.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "minitek-pwr-cem-5-pcie-connector-system": {
+      "name": "Minitek® Pwr CEM-5 PCIe® Connector System",
+      "description": "Amphenol introduces the Gen 5, Minitek® 12VHPWR connector system. This new introduction CEM 5.0 PCI Express® 12V-2x6 auxiliary power connector and cable assembly support the 600W GPU cards. The 12V-2x6 auxiliary power connector is not designed to mate with legacy PCI Express® 2x3 and 2x4 12V Auxiliary Power connectors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-cem-5-pcie.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "6 a · 600w · 3 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
+      }
+    },
+    "ocp-orv3": {
+      "name": "OCP ORv3",
+      "description": "Designed based on three decades of experience developing power connectors for specific applications. For use in power shelves, servers, or any other aspect of OCP power management. Extended efforts include offering turn-key AC whip cable assemblies to ORV3 specifications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.connectpositronic.com/en/ocp-power-connectors/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "SV Microwave's PCB connectors deliver high-speed signal integrity and easy integration onto printed circuit boards. They are designed to minimize signal distort",
-        "Source Page": "IT Datacom p.10"
+        "Application": "Server",
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "pci": {
       "name": "PCI",
       "description": "The Compact Power connector series was developed with the PCI Industrial Computer Manufacturers Group (PICMG) as the power interface for plug-in power supplies or other chassis mount applications. It delivers high current through a small package and three levels of sequential mating.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.connectpositronic.com/family/compact-power/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "pcs": {
       "name": "PCS",
       "description": "The PCS Series are versatile, high-current, mixed density connectors with low contact resistance. It remains an industry-leading power connector in the market. Options for one, two, or three contact rows provide flexibility in selection and high conductivity contacts are available to maximize current density. Other options - sequential mating, integrated locking latch, and press-fit contacts.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.connectpositronic.com/family/power-connection-system/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "power-connector": {
       "name": "Power Connector",
-      "description": "Power USB Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW's Power Series is rated up to IP68, providing a current rating range up to 80A in a variety of shell sizes. In design, the Ecomate® program meets the high requirements for applications in industrial technology. Easy operation, reduced dimensions and a more robust design are only a few of the features of the series【Quick Guide: https://amphenolltw.com/down.php?supp_download=102】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://amphenolltw.com/product-info/Power/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's Power Series is rated up to IP68, providing a current rating range up to 80A in a variety of shell sizes. In design, the Ecomate® program meets t",
-        "Source Page": "IT Datacom p.11"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "power-usb-connector": {
       "name": "Power USB Connector",
       "description": "FCI Basics Power USB Connector enables additional power delivery to 5V, 12V, or 24V peripheral devices connected using USB 2.0 cable links. When compared to a standard USB connector, this USB+Power connector interface includes four additional contacts each rated at 5A/contact, to supplement the connector's current-carrying capability. This eliminates the need for a separate power cable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/power-usb.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers pre-configured RF test cables designed for high-performance applications requiring minimal insertion and return loss. They are ideal for test",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
-    "pwrblok-connectors": {
-      "name": "PwrBlok® Connectors",
-      "description": "PwrBlok® connectors provide a high current power interconnection with a quick connect/disconnect function for space-constrained board-to-board, board-to-busbar, and busbar-to-busbar power distribution applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "prm-series-panel-rack-mount": {
+      "name": "PRM Series™ Panel Rack Mount",
+      "description": "Amphenol Sine Systems’ PRM Series™ (Panel Rack Mount) Connectors, available in both Plugs and Receptacles, are a quick-connect power connector solution for use in panel rack mount network applications. Our quick-connect design enables denser installations, faster deployments, and upgrades.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-sine.com/prm-series-panel-rack-mount",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Sine Systems",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "pwrblade-mini-cable-to-board-connector": {
+      "name": "PwrBlade® Mini Cable-to-Board Connector",
+      "description": "PwrBlade® Mini Cable-to-Board strengthens the PwrBlade® cable portfolio even further. Mini cable-toboard serves as an I/O cable configuration to meet the ever-increasing demand for higher current density in low profile applications. Mini cable-to-board is capable of carrying up to 25A/contact (50A/column) with 4 adjacent contacts powered.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-mini-cable-to-board.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "up to 25a · 25a · 50a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwrblade-ultra-connector-system": {
+      "name": "PwrBlade® ULTRA Connector System",
+      "description": "PwrBlade® ULTRA's design offers an overall height reduction of 24% to reduce airflow impedance in high-density power supplies. Three contact choices are available; High Power, Low Power, and Signal. Ultra-high conductivity materials and new highly conductive plating, combine to produce an ultra-low resistance of just 0.4mΩ at end-of-life conditions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-ultra-connector-system.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwrblade-ultra-hd-btb-connector-system": {
+      "name": "PwrBlade® ULTRA HD+ BTB Connector System",
+      "description": "HIGH POWER BOARD-TO-BOARD CONNECTOR SYSTEM Amphenol's new, PwrBlade® ULTRA HD+ connector series features an enhanced high-power contact design capable of providing up to 100A per contact (per 4 adjacent contacts) and high-density signal options with up to 6 signal pins per column.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-ultra-hd-plus-btb-connector.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "up to 100a · 100a per contact · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrlopro": {
       "name": "PwrLoPro®",
-      "description": "PwrLoPro® connectors are a family of board-to-board power connectors designed to deliver more current with lower profile height and less board space. This high-density and low-profile connector is developed to meet next-generation of 1U applications, telecommunications switches, high-end servers, and hot-pluggable power suppliers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connectors are a family of board-to-board power connectors designed to deliver more current with lower profile height and less board space. This high-density and low-profile connector is developed to meet next-generation of 1U applications, telecommunications switches, high-end servers, and hot-pluggable power suppliers.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrlopro.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "Server / Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrmax-g2-power-connector": {
       "name": "PwrMAX® G2 Power Connector",
       "description": "PwrMAX® G2 is the highest density blind-mate power and signal connector available. PwrMAX® G2 series carries up to 100A per contact and features design improvements to reduce board space depth, while also improving the blind mate gatherability. The depth on board has been reduced from 32.4mm to 27.4mm with an overall space savings of 18%.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrmax-g2-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrmax-ortho-power-connector": {
       "name": "PwrMAX® Ortho Power Connector",
       "description": "100 A ORTHOGONAL APPLICATION POWER CONNECTOR The PwrMAX® Ortho power connector offers a compact means for connecting up to 100A DC power in a PCB edge-to-PCB edge application. The blind mate connector offers low resistance to satisfy modern orthogonal systems architectures.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrmax-ortho-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 100a · 100 a · 100a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrmax-power-connector": {
       "name": "PwrMAX® Power Connector",
       "description": "HIGH-DENSITY POWER AND SIGNAL CONNECTOR SYSTEM The PwrMAX® connector family offers a compact means for connecting up to 100A DC power in modern system architectures requiring high density and high current. Configurations include coplanar, backplane, mezzanine, and orthogonal.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrmax-power.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
-    "radsok-pgytm": {
+    "pwr-profile": {
+      "name": "Pwr Profile+®",
+      "description": "LOW PROFILE, HIGH CURRENT DENSITY CABLE ASSEMBLY Pwr Profile+® I/O addresses applications requiring additional power density in space-constrained, chassis-based equipment platforms. The innovative power contact design has a lower profile for cable-to-board applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwr-profile-plus.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwr-profile-2": {
+      "name": "Pwr Profile®",
+      "description": "LOW PROFILE, HIGH CURRENT DENSITY CABLE ASSEMBLY Pwr Profile® I/O addresses applications requiring additional power density in space-constrained, chassis-based equipment platforms. The innovative power contact design has a lower profile for cable-to-board applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwr-profile.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "pwr-twinblade-cable-assemblies": {
+      "name": "Pwr TwinBlade® Cable Assemblies",
+      "description": "The Pwr TwinBlade® cable system is designed to support applications that demand the supply of high power. The Pwr TwinBlade® connectors employ a proven contact system in a touch-proof design that is capable of supporting currents of up to 100A per contact. The new sensing contacts can be used to eliminate the potential for damage from hot-plug conditions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwr-twinblade-cable-assemblies.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
+      }
+    },
+    "radsok-pgy": {
       "name": "RADSOK® PGY™",
       "description": "This series, utilizing RADSOK® socket contact technology for right angle power-to-board application, compact footprint, metal square, press-fit high power connector. With five sizes ranging from 2.4mm, 3.0mm, 3.6mm, 4.8mm, and 5.7mm contact sizes and up to 120 amps possible with a standard operating temperature from -40°C to +125°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-industrial.com/pgy",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.28"
       }
     },
-    "radsok-powerbloktm": {
+    "radsok-powerblok": {
       "name": "RADSOK® PowerBlok™",
       "description": "This series, utilizing RADSOK® socket contact technology for power-to-board backplane application, compact footprint, thermoplastic square, press-fit high power connector. With three sizes ranging from 2.4mm, 3.0mm, and 3.6mm contact sizes and up to 70 amps possible with a standard operating temperature from -40°C to +125°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-industrial.com/powerblok",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.28"
       }
     },
-    "radsok-powerbloktm-wtb": {
+    "radsok-powerblok-wtb": {
       "name": "RADSOK® PowerBlok™ WTB",
       "description": "This series, utilizing RADSOK® socket contact technology for power-to-board two-point contact terminals application, low profile compact footprint, metal square, press-fit high power connector. With two sizes, 2.4mm and 3.6mm contacts and up to 70 amps possible with a standard operating temperature from -40°C to +105°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-industrial.com/powerblok-wtb",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.28"
       }
     },
-    "radsok-smt-radserttm": {
+    "radsok-smt-radsert": {
       "name": "RADSOK® SMT RADSERT™",
       "description": "This series, utilizing RADSOK® socket contact technology for board-to-board mezzanine application, compact footprint, metal circular, press-fit high power connector. With five sizes ranging from 2.4mm, 3.0mm, 3.6mm, 4.8mm, and 6.0mm contact sizes and up to 120 amps possible with a standard operating temperature from -40°C to +125°C.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-industrial.com/radsert",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW RBL Connectors are IP67-rated waterproof circular connectors with current ratings up to 20A. Operating temperature range of up to -40°C to +105°C a",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Industrial Operations",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "replaceable-battery-connectors": {
       "name": "Replaceable Battery Connectors",
-      "description": "Easy and fast to manufacture, available in copper or in aluminum versions, this busbar provides an alternative to film insulated busbars for power distribution applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol FCI Basics Battery Connectors consist of spring and blade types, available in 2.0/2.5/3.0/3.6/4.6mm pitch, with 2 to 10 positions supporting up to 10A. These connectors have been widely adopted across applications like smart home devices, e-cigarettes, household appliances medical devices, rugged handhelds, and more.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/replaceable-battery-connectors.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 10a · 10a · 10 positions",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI Basics Battery Connectors consist of spring and blade types, available in 2.0/2.5/3.0/3.6/4.6mm pitch, with 2 to 10 positions supporting up to 10A.",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "resin-busbars": {
-      "name": "Resin Busbars",
-      "description": "Easy and fast to manufacture, available in copper or in aluminum versions, this busbar provides an alternative to film insulated busbars for power distribution applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Power Connectors and Busbar",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a range of shorts designed for RF and microwave applications. These components short the signal path to ground and can help protect a system",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
       }
     },
     "scorpion-modular": {
       "name": "Scorpion Modular",
       "description": "Design your own connector with our Scorpion series! The Scorpion modular connector can be configured as a power connector, a signal connector, or both, and it offers nearly limitless combinations. Perfect to achieve that ideal blend of size, weight, and power (SWaP). Add options for blind mating, float mount, panel mount, and cable connector options, as well as integral locking systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.connectpositronic.com/en/modular-connectors/",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Positronic",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "sheerpwr-circular-connector": {
       "name": "SheerPwr® Circular Connector",
       "description": "SheerPwr® Circular is a high-current, low-resistance interface, designed for applications connecting busbars-to-busbars/boards & BTB. It uses a robust and compliant power contact, assembled in a circular orientation. This forms a power socket, designed to mate with traditional machined pins, which provides repeated low resistance, high misalignment tolerance & high current carrying capabilities.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sheerpwr-circular.html",
       "specs": {
         "Product Type": "Power Connectors and Busbar",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "slim-cool-edge-0-65mm-hybrid-power-signal-connectors": {
+      "name": "Slim Cool Edge 0.65mm Hybrid Power & Signal Connectors",
+      "description": "Slim Cool Edge Hybrid Power & Signal connectors provide a one-piece high speed and high power card-edge package. These connectors offer cost-competitive and high-density solutions. These versatile solutions based on a 0.65mm signal pitch design offer multiple BTB configurations like right angle, mezzanine, and coplanar. The connectors are designed as Open Pin Field & are hot-plug capable.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/slim-cool-edge-0-65mm.html",
+      "specs": {
+        "Product Type": "Power Connectors and Busbar",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     }
   }

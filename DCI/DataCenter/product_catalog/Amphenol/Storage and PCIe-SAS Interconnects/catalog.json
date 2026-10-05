@@ -3,27 +3,27 @@
   "company": "Amphenol",
   "category": "Storage and PCIe-SAS Interconnects",
   "displayName": "Storage and PCIe-SAS Interconnects",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Storage and PCIe-SAS Interconnects. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Storage and PCIe-SAS Interconnects. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33"
   ],
-  "sourceCount": 57,
+  "sourceCount": 30,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,745 +32,394 @@
     "Source Page"
   ],
   "products": {
-    "112g-pam4-mini-cool-edge-0-60mm-card-edge-connectors": {
-      "name": "112G PAM4 Mini Cool Edge 0.60mm Card Edge Connectors",
-      "description": "Mini Cool Edge is a 0.60mm high-density, high-speed card edge connector for new-generation small form factor systems. The fine-pitch solutions in vertical orientation are now available for a complete interconnect solution. Mini Cool Edge 0.60mm meets SFF-TA-1002, OCP NIC 3.0 specifications and networking applications. Common applications include Network Interface Card, Add-In Card, and GPU link.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking / AI",
-        "Amphenol Business": "Amphenol's SFP optical transceivers include 1.25Gb and 2.5Gb series. They support Duplex, BiDi, CWDM, and DWDM applications, and can reach various distances fro",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
-    "airmax-vs-connectors-for-compactpci-serial-system": {
-      "name": "AirMax VS® Connectors for CompactPCI® Serial System",
-      "description": "AirMax® high speed signal connectors meet the dimensional and electrical requirements described in CompactPCI® Serial (PICMG CPCI-S.0) specification. It moves CompactPCI® architecture to high speed serial interconnects to add greater support for serial point to point fabrics like PCI Express®, SATA, Ethernet and USB in the classic CompactPCI® form factor with mechanics fully compliant to IEC 1101.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "blind-mate-mcio": {
+      "name": "Blind Mate MCIO",
+      "description": "Amphenol's Blind Mate MCIO is designed for high speed and high density. It can support PCIe Gen5, and is scalable to PCIe Gen6. We designed Blind Mate MCIO with a guide pin to prevent damages during plug in and plug out. Blind mate MCIO has a robust mechanical design, and the connector can be fixed by a screw-on panel.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=276",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "a-type-b-type-usb-connectors": {
-      "name": "A-Type & B-Type USB Connectors",
-      "description": "Automotive Grade PCI Express® Gen 5 Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof USB connectors are IP67 / IP68 rated and designed with standard Type A/B interfaces in various product configurations -- plastic/metal",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "automotive-grade-pci-express-gen-5-card-edge-connectors": {
-      "name": "Automotive Grade PCI Express® Gen 5 Card Edge Connectors",
-      "description": "EXTEND DIFFERENTIAL SIGNALING TO 32GT/S FOR NEXT-GENERATION SYSTEMS PCIe® Gen 5 straddle mount connectors outperform the industry standards with higher speed along with complying to USCAR. The optimized series supports backwards mating and is footprint compatible with PCIe® 4/3/2/1.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "bergstak-hstm-0-50mm-mezzanine-connector": {
-      "name": "BergStak HS™ 0.50mm Mezzanine Connector",
-      "description": "FLEXIBLE SOLUTION FOR HIGH-SPEED APPLICATIONS Amphenol's FCI Basics BergStak HS™ connector family is known for its fast data transmission, high signal quality, and time-proven reliability under extended periods of application. BergStak HS™ 0.50mm connector family with 0.50mm pitch enables high-speed data applications with up to PCIe® Gen 5 32Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "bergstak-hstm-0-80mm-board-to-board-connector": {
-      "name": "BergStak HS™ 0.80mm Board-to-Board Connector",
-      "description": "FLEXIBLE SOLUTION FOR HIGH-SPEED APPLICATION FCI Basics BergStak HS™ connector family is known for its fast data transmission, high signal quality, and time-proven reliability under extended periods of application. BergStak HS™ 0.80mm connector family with 0.80mm pitch enables high-speed data applications with up to PCIe® Gen 5 32Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "bergstak-tm-0-80mm-mezzanine-connector": {
-      "name": "BergStak+™ 0.80mm Mezzanine Connector",
-      "description": "BergStak+™ 0.80mm is designed to be the next generation PCIe 4.0 compliant mezzanine connector system. It is compatible with the existing BergStak® 0.80mm product recommended by the OCP. It guarantees to support up to 16Gb/s performance. Customers can upgrade its board-to-board performance from PCIe 3.0 to PCIe 4.0 while leveraging BergStak+™'s backward compatibility and same footprint feature.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "cool-edge-0-80mm-hybrid-power-signal-connectors": {
-      "name": "Cool Edge 0.80mm Hybrid Power & Signal Connectors",
-      "description": "Cool Edge Hybrid Power and Signal connectors provide a one-piece high speed and high power card-edge package. These versatile solutions address multiple standards like PCIe, SAS, SATA, and offer multiple BTB configurations such as mezzanine, coplanar, and midplane/backplane. Moreover, the connectors are designed as Open Pin Field and are hot-plug capable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "cool-edge-1-00mm-pcie-connectors": {
-      "name": "Cool Edge 1.00mm PCIe Connectors",
-      "description": "Cool Edge PCIe® connectors bring high-speed PCIe® support into a one-piece card edge package with 16GT/s Gen 4 and 32GT/s Gen 5 capabilities. Slim connector design saves space on the motherboard while facilitating other higher-density applications. These connectors come with a simple housing design with an overall reduced footprint, providing additional benefits over standard PCIe® CEM solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "cool-edge-1-00-mm-pcie-gen-6-connectors": {
-      "name": "Cool Edge 1.00 mm PCIe® Gen 6 Connectors",
-      "description": "Cool Edge PCIe® connectors bring high-speed PCIe® support into a one-piece card edge package with 64 GT/s Gen 6 capabilities. Slim connector design saves space on the motherboard while facilitating other higherdensity applications. These connectors come with a simple housing design with an overall reduced footprint, providing additional benefits over standard PCIe® CEM solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CoolPower® HD Right-Angle Connector is a 90-degree, versatile pin-and-socket solution designed to deliver highdensity power output in a compact, low-",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "cool-stack-0-80mm-hybrid-power-signal-connectors": {
-      "name": "Cool Stack 0.80mm Hybrid Power & Signal Connectors",
-      "description": "Cool Stack Hybrid Power and Signal connectors provide one-piece high speed and high power solutions while addressing multiple networking standards like PCIe, and SAS/SATA. It offers a maximum current rating of 16A per power pin, which aids in supporting applications with medium power requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol CDI’s Core Cryo™ product family is engineered to deliver exceptional performance in magnetically sensitive and ultra‑low‑temperature environments, usin",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "densistaktm-1034-pin-open-pin-field-board-to-board-connector": {
-      "name": "DensiStak™ 1034 pin Open-Pin-Field Board-to-Board Connector",
-      "description": "HIGH DENSITY / HIGH SPEED / DUAL-BEAM CONTACT / USCAR-2 COMPLIANT BOARD-TO-BOARD CONNECTOR Amphenol FCI Basics DensiStak™ connector is designed with its 11 rows 1000+ high density pin count, high speed up to PCIe® Gen 4 with 16Gb/s. Reliable dual-beam contact system, compact size with pitch 0.80mm x 1.25mm, USCAR-2 compliant, and optional shields",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW DVI Connectors feature a 1.5A current rating, a ≤20mΩ contact resistance, and a ≥1000MΩ @ 500VDC insulation resistance rating. The DVI has a copper",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "cool-express-linktm-edsff-e3-1c-2c-pcie-gen-5-6-orthogonal-cable-connectors": {
-      "name": "Cool Express Link™ EDSFF E3 1C & 2C PCIe® Gen 5/6 Orthogonal Cable Connectors",
-      "description": "The Amphenol Cool Express Link™ is a range of EDSFF E3 Hybrid Orthogonal Press-fit PCIe® Gen 5/6 Cable Connectors that supports low latency, high bandwidth, and high throughput data transmission for existing and next-gen storage and CXL 3.1 applications. Engineered for use in high-performance computing applications in artificial intelligence and machine learning that require advanced enterprise storage...",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Storage / HPC / AI",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "edge-mount-pcb-connectors": {
-      "name": "Edge Mount PCB Connectors",
-      "description": "EDSFF Board Site Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - EDSFF Board Site Connector. The 0.60mm pitch connector comes with a slim form factor design, capabl",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeporttm-swift-connectors": {
-      "name": "ExtremePort™ Swift Connectors",
-      "description": "In order to provide higher speed and smaller size solution on networking equipment and server, Amphenol has developed ExtremePort™ Swift connector which is used in application of PCIe® Gen5 signal NRZ 32GT/s, UPI 2.0 24GT/s, 24Gb/s SAS signal. With 0.6mm contact pitch, ExtremePort™ Swift solutions are smaller than mainstream connectors in current market to save space in end device.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "32GT/s · 24GT/s · 24Gb/s · PCIe® Gen5",
-        "Application": "Server / Networking",
-        "Amphenol Business": "Amphenol introduces the SFF-TA-1002 standard solution - ExtremePort™ Z-Link, which is a 0.60mm pitch connector that comes with a slim form factor design, capabl",
+        "Amphenol Business": "Assembletech",
         "Source Page": "IT Datacom p.6"
       }
     },
-    "hd-express": {
-      "name": "HD Express®",
-      "description": "PCIE® GEN 6 BACKPLANE INTERCONNECT SYSTEM The HD Express® is a high-density, high-performance interconnect system designed to meet and exceed PCIe® Gen 6 electrical and mechanical requirements for high-end 85Ω architectures.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "edsff-board-site-connector": {
+      "name": "EDSFF Board Site Connector",
+      "description": "Amphenol introduces the next-generation OverPass™ solution - EDSFF Board Site Connector. The 0.60mm pitch connector comes with a slim form factor design, capable of transmitting a highspeed signal up to PCIe® Gen 5 and PCIe® Gen 6 and allowing much greater signal path lengths while maintaining SI performance compared to conventional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/edsff-board-site-connector.html",
+      "specs": {
+        "Product Type": "Storage and PCIe-SAS Interconnects",
+        "Key Spec": "5 a · 6 a · 0.60mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
+      }
+    },
+    "extremeport-mcio-mini-cooledge-io": {
+      "name": "Extremeport-MCIO(Mini Cooledge IO)",
+      "description": "Amphenol's Mini Cooledge IO(MCIO) is a high-speed, small mechanical size cable solution. Amphenol MCIO product is now being specified in the SFF group and the project number is SFF-TA-1016. MCIO cable can support PCIe Gen5, and is scalable to PCIe Gen6 and 112G PAM4. We developed 85ohm and 95ohm solutions to support different applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=233",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "hyper-cool-edge-connectors-sff-ta-1037-pmm-connector": {
-      "name": "Hyper Cool Edge Connectors (SFF-TA-1037 PMM connector)",
-      "description": "MEETS SFF-TA-1037 SPECIFICATION Amphenol's Hyper Cool Edge system supports the Pluggable Multi-purpose Module (SFF-TA-1034) with high-speed, sideband, and power",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "extremeport-swift-connectors": {
+      "name": "ExtremePort™ Swift Connectors",
+      "description": "In order to provide higher speed and smaller size solution on networking equipment and server, Amphenol has developed ExtremePort™ Swift connector which is used in application of PCIe® Gen5 signal NRZ 32GT/s, UPI 2.0 24GT/s, 24Gb/s SAS signal. With 0.6mm contact pitch, ExtremePort™ Swift solutions are smaller than mainstream connectors in current market to save space in end device.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-swift.html",
+      "specs": {
+        "Product Type": "Storage and PCIe-SAS Interconnects",
+        "Key Spec": "32gt/s · 24gt/s · 24gb/s",
+        "Application": "Server / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
+      }
+    },
+    "extremeport-z-link-gen-z": {
+      "name": "Extremeport-Z-Link(Gen Z)",
+      "description": "Amphenol’s Extremeport Z-Link(Gen Z ) Connector is a scalable connector and connector interface compliant to SNIA: SFF-TA-1002. Z-Link can support PCIe Gen5, and is scalable to PCIe Gen6 and 112G PAM4. Z-Link can support high speed and power in one connector, and we developed 1C, 2C, 4C, and 4C+ connectors to support customers' different applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=237",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.14"
       }
     },
-    "lynxtm-qd-56gb-s-pcie-gen-5-differential-signaling-connector": {
+    "lynx-qd-56gb-s-pcie-gen-5-differential-signaling-connector": {
       "name": "Lynx™ QD 56Gb/s PCIe® Gen 5 Differential Signaling Connector",
       "description": "Optimized for differential pair signaling, Lynx™ QD sets a new standard for density and flexibility that offers an innovative, high-performance interconnect with PCIe® Gen 5 support. Lynx™ QD supports data rates of 56 Gb/s PAM4 and provides a 4-row differential signaling structure, in a compact 2-row footprint.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/lynx-qd.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof M10.5 connectors are designed in various product configurations and deliver secure & reliable data/power transmission for industrial h",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "mini-cool-edge-0-60mm-connectors": {
-      "name": "Mini Cool Edge 0.60mm Connectors",
-      "description": "Mini Cool Edge is a 0.60mm high density, high-speed card edge connector for a new generation small form factor system. These fine pitch solutions offer multiple BTB applications like a right angle, mezzanine, and coplanar and support cable interconnect options. Mini Cool Edge 0.60mm meets SFF TA-1002, Gen Z, EDSFF and OCP NIC 3.0 specifications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "microsd-express-connector": {
+      "name": "microSD Express Connector",
+      "description": "Amphenol is the first in the industry to offer card sockets for both microSD Express and Micro SD cards (UHS-I). The 17 pin microSD Express connector is capable of achieving high speeds up to 985MB/s and meeting PCIe® 3.0 requirements. The connector enables microSD Express platform to reach its full potential; making microSD Express card possible to serve as a removable Solid State Drive (SSD).",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-sd-express.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - Mini Cool Edge IO. The 0.60mm pitch connector come with a slim form factor design, capable of trans",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
-    "mini-sas-connectors": {
-      "name": "Mini-SAS Connectors",
-      "description": "The SAS 2.1 standard meets SAS-3 next generation speed and density requirements that provides faster data transmission and more bandwidth for end users. The lowprofile system provides 4X and 8X cable-plug options, and the external I/O connectors include eight sideband signals per 4X port, 1x4 configuration for up to 192Gb/s of total bandwidth.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "mini-cool-edge-io": {
+      "name": "Mini Cool Edge IO",
+      "description": "Amphenol introduces the next-generation OverPass™ solution - Mini Cool Edge IO. The 0.60mm pitch connector come with a slim form factor design, capable of transmitting high-speed signal up to 64G PAM4/PCIe® Gen 4/PCIe® Gen 5/PCIe® Gen 6, and allowing much greater signal path lengths while maintaining SI performance when compared to conventional pcb routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-cool-edge-io.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's external mini-SAS / SATA connector, cage, and cable assembly system solution addresses the storage industry's demand for more compact, high-speed ser",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-sas-hd": {
       "name": "Mini-SAS HD",
       "description": "The SAS 2.1 standard meets SAS-3 next generation speed and density requirements that provides faster data transmission and more bandwidth for end users. The lowprofile system provides 4X and 8X cable-plug options, and the external I/O connectors include eight sideband signals per 4X port, 1x4 configuration for up to 192Gb/s of total bandwidth.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minisas-hd.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Mini-SAS HD Active Optical Cable is fully compliant with SAS 2.1 and SAS 3.0 industry standards as well as the SFF-8636 interface standard. Used prim",
-        "Source Page": "IT Datacom p.9"
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-sas-hd-internal": {
       "name": "Mini-SAS HD Internal",
       "description": "NEXT-GENERATION SAS STORAGE INTERFACE Amphenol Mini-SAS High-Density connector system is the next-generation SAS system that provides faster data rates and more bandwidth. It provides double the port density of current Mini-SAS connectors with 1x1, 1x2, and 1x4 port options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas-hd-internal-g40h.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-sas-series": {
       "name": "Mini SAS Series",
       "description": "UPGRADED VERSION CAN SUPPORT SAS 3.0 ELECTRICAL PERFORMANCE SPEC (12GB/S DATA RATE) Fully compliant with SFF-8087 specification provide interface for higher speed up to 6Gb/s data rate per channel (meet SAS 2.0 electrical performance spec). Upgraded version can support SAS 3.0 electrical performance spec (12Gb/s data rate).",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol has developed a product series of MiniStak high-density and high-speed board-to-board connectors on a 0.6mm pitch, performing to PCIe Gen5 SI with road",
-        "Source Page": "IT Datacom p.9"
+        "Key Spec": "up to 6gb/s · 12gb/s · 6gb/s",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
-    "minitek-pwr-cem-5-pcie-connector-system": {
-      "name": "Minitek® Pwr CEM-5 PCIe® Connector System",
-      "description": "Minitek® Pwr PICPWR OCP® Connector System",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "multi-trak": {
+      "name": "Multi-Trak™",
+      "description": "Amphenol introduces the next-generation product - Multi-Trak™. The 0.60mm pitch connector come with a slim form factor design, capable of transmitting high-speed signal up to 56G PAM4 PCIe® Gen 5 and target to meet 64G PAM4 PCIe® Gen 6 and allowing much greater signal path lengths while maintaining SI performance when compared to conventional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/multi-trak.html",
+      "specs": {
+        "Product Type": "Storage and PCIe-SAS Interconnects",
+        "Key Spec": "5 a · 6 a · 0.60mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "mxm-3-0-4-0-connectors": {
+      "name": "MXM 3.0/4.0 Connectors",
+      "description": "Amphenol's MXM connector is a high-density PCIe® solution that supports next-generation server system architectures. These are non-proprietary, industry standard sockets. This helps to upgrade the graphics processor in a device, without changing the whole system or relying on proprietary vendor upgrades.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mxm.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the new PICPWR OCP® connector system. This new introduction PICPWR 2x6+12SB or 2x3+6SB auxiliary power connector and cable assembly supports",
-        "Source Page": "IT Datacom p.9"
+        "Application": "Server",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "mxm-3-0-connectors": {
+      "name": "MXM 3.0 Connectors",
+      "description": "Amphenol's MXM connector is a high-density PCIe® solution that supports next-generation server system architectures. These are non-proprietary, industry-standard sockets. With 0.50mm pitch and 314 contacts, the MXM 3.0 connector supports 16 lanes of PCI Express® signal performance with smaller board space.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mxm-3-0.html",
+      "specs": {
+        "Product Type": "Storage and PCIe-SAS Interconnects",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
     "oculink-connector": {
       "name": "OCuLink Connector",
       "description": "G14 Series OCuLink connectors are internal and external Small Form Factor PCIe connectors and cables optimized for the client and mobile market segments, while suitable for various datacom, consumer, and industrial applications. The OCulink standard, which is 85Ω version, accommodates SAS 4.0 (24Gb/s) and PCIe 4.0 (16Gb/s) signaling needs and enables optical and copper technology to coexist.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/oculink.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pcie-gen-4-m-2-1a-card-edge-connectors": {
-      "name": "PCIe® Gen 4 M.2 1A Card Edge Connectors",
-      "description": "PCIe® Gen 6 Mini Cool Edge 0.60mm Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's PCIe® Gen 4 M.2 1A connectors provide 67 contacts on 0.50mm pitch and signal transmission speed of 16Gb/s. It occupies less board space, offers more ",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pcie-gen-6-mini-cool-edge-0-60mm-card-edge-connectors": {
-      "name": "PCIe® Gen 6 Mini Cool Edge 0.60mm Card Edge Connectors",
-      "description": "Mini Cool Edge is a 0.60mm high-density, high-speed card edge connector for new-generation small form factor systems. This fine-pitch solution offers multiple BTB applications like right-angle, mezzanine, and coplanar connectors. Cable options are available for a complete interconnect solution.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - Mini Cool Edge IO. The 0.60mm pitch connector comes with a slim form factor design, capable of tran",
-        "Source Page": "IT Datacom p.10"
+        "Application": "Storage / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "pcie-gen-6-mini-cool-edge-io-connector": {
       "name": "PCIe® Gen 6 Mini Cool Edge IO Connector",
-      "description": "PCIe® Gen 7 Mini Cool Edge IO Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol introduces the next-generation OverPass™ solution - Mini Cool Edge IO. The 0.60mm pitch connector comes with a slim form factor design, capable of transmitting high-speed signals up to 64G PAM4/PCIe® Gen 6 and allowing much greater signal path lengths while maintaining SI performance when compared to conventional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen-6-mini-cool-edge-io.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution: the Mini Cool Edge IO. This connector features a 0.60mm pitch and a slim form factor design, and is ",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "pcie-gen-7-mini-cool-edge-io-connector": {
       "name": "PCIe® Gen 7 Mini Cool Edge IO Connector",
-      "description": "PCIe® M.2 Gen 3 and Gen 4 Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol introduces the next-generation OverPass™ solution: the Mini Cool Edge IO. This connector features a 0.60mm pitch and a slim form factor design, and is capable of transmitting high-speed signals of up to 128G PAM4/PCIe® Gen 7. It allows for significantly longer signal path lengths while maintaining superior signal integrity (SI) performance compared to traditional PCB routing methods.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen-7-mini-cool-edge-io.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's PCIe® M.2 Gen 3 and Gen 4 connectors provide 67 contacts on 0.50mm pitch. It occupies less board space, offers more connector height options, and sup",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pcie-m-2-gen-3-and-gen-4-card-edge-connectors": {
-      "name": "PCIe® M.2 Gen 3 and Gen 4 Card Edge Connectors",
-      "description": "PCIe® M.2 Gen 5 Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's PCIe® M.2 Gen 5 Connectors provide 67 contacts on 0.50mm pitch. It occupies less board space, offers more connector height options, and supports high",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pcie-m-2-gen-5-card-edge-connectors": {
-      "name": "PCIe® M.2 Gen 5 Card Edge Connectors",
-      "description": "PCI Express® DirectAttached™ CEM Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 1.0mm pitch DirectAttached™ CEM (DA CEM) is a hybrid card edge solution with high-speed signal pins designed to directly attach to the cable to elimi",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pci-express-directattachedtm-cem-card-edge-connectors": {
-      "name": "PCI Express® DirectAttached™ CEM Card Edge Connectors",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 1.0mm pitch DirectAttached™ CEM (DA CEM) is a hybrid card edge solution with high-speed signal pins designed to directly attach to the cable to elimi",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "pci-express-flip-cem-card-edge-connectors": {
-      "name": "PCI Express® Flip CEM Card Edge Connectors",
-      "description": "The PCIe® Gen 5 Flip CEM is a new 1.0mm pitch vertical card edge connector that follows PCIe® standard mating interface. It is designed with a different footprint because the contacts are “JJ” type or “LL” contacts which provide maximum savings of up to 19.5% in keepout area. The current Flip CEM supports 32GT/s (Gen 5) and the mating side supports backward compatibility with PCIe® 4/3/2/1 card.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 1.00mm pitch, vertical card edge connectors enable PCI Express® (PCIe®) signaling from 2.5Gb/s (Gen 1) and 5Gb/s (Gen 2) up to 8Gb/s (Gen 3) per diff",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-3-card-edge-connectors": {
-      "name": "PCI Express® Gen 3 Card Edge Connectors",
-      "description": "PCI Express® Gen 4 and Gen 5 Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 1.00mm pitch, vertical card edge connectors enable PCI Express® (PCIe®) signaling from 2.5Gb/s (Gen 1) and 5Gb/s (Gen 2) up to 8Gb/s (Gen 3) per diff",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-4-and-gen-5-card-edge-connectors": {
-      "name": "PCI Express® Gen 4 and Gen 5 Card Edge Connectors",
-      "description": "PCIe® Gen 4 and Gen 5 connectors outperform industry-standard PCIe® 4.0 and 5.0 (Proposed) requiring higher speed performance. The optimized series supports backward mating and is footprint compatible with PCIe 3/2/1. Amphenol's expansive range of vertical PCIe® Gen 4 and Gen 5 connectors will include options for SMT, through-hole solder, press-fit (PF), and straddle mount terminations.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's PCIe® DirectAttached™ cable riser solution with PCIe® DirectAttaced™ CEM connector on one end of the cable allows the flexibility of a different conn",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-5-directattachedtm-cable-riser": {
-      "name": "PCI Express® Gen 5 DirectAttached™ Cable Riser",
-      "description": "PCI Express® Gen 6 CEM Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol PCIe® Gen 6 connectors exceed industry standard PCIe® 6.0 performance requirements. These 1.00mm pitch, vertical card edge connectors enable all genera",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-6-cem-card-edge-connectors": {
-      "name": "PCI Express® Gen 6 CEM Card Edge Connectors",
-      "description": "PCI Express® Gen 6 DirectAttached™ CEM Card Edge Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol PCIe® Gen 6 connectors exceed industry standard PCIe® 6.0 performance requirements. These 1.00mm pitch, vertical card edge connectors enable all genera",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-6-directattachedtm-cem-card-edge-connectors": {
-      "name": "PCI Express® Gen 6 DirectAttached™ CEM Card Edge Connectors",
-      "description": "The PCI Express® Gen 6 DirectAttached™ CEM Card Edge Connectors from Amphenol offer superior performance for next-generation systems. The 1.0mm pitch DirectAttached™ CEM (DA CEM) is a hybrid card edge solution with high-speed signal pins designed to directly attach to the cable, limiting PCB trace loss and features press-fit termination power pins for improved rework.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pci-express-gen-6-flip-cem-card-edge-connectors": {
-      "name": "PCI Express® Gen 6 Flip CEM Card Edge Connectors",
-      "description": "The PCI Express® Gen 6 Flip CEM Card Edge Connectors offer a new 1.0mm pitch vertical card edge connector designed in line with PCIe® mating interface standards. Unique to this model are the “JJ” and “LL” contact types, which allow for a 19.5% keep-out area savings. Capable of supporting 64GT/s (Gen 6), its backward-compatible design ensures compatibility with PCIe® 5/4/3/2/1 cards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "rotaconnect-rotatable-board-to-board-connector": {
-      "name": "Rotaconnect® Rotatable Board-to-Board Connector",
-      "description": "R-SATA connector is the primary internal storage interconnect for desktop and mobile PCs, connecting the system to peripherals such as hard drives, solid-state drives, optical drives, and removable magnetic media drives. The R-SATA supports SATA 3.0 protocol, delivering 6.25 Gb/s data rates & beyond. Amphenol’s R-SATA connector utilizes a Micro-Hyperboloid contact with proven performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Storage",
-        "Amphenol Business": "Amphenol extends the RotaConnect® Board-to-Board (BTB) range with a pegged version. The locating pegs aid simple placement. This eliminates the hold-down and he",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "r-sata": {
       "name": "R-SATA",
-      "description": "R-SATA connector is the primary internal storage interconnect for desktop and mobile PCs, connecting the system to peripherals such as hard drives, solid-state drives, optical drives, and removable magnetic media drives. The R-SATA supports SATA 3.0 protocol, delivering 6.25 Gb/s data rates & beyond. Amphenol’s R-SATA connector utilizes a Micro-Hyperboloid contact with proven performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connector is the primary internal storage interconnect for desktop and mobile PCs, connecting the system to peripherals such as hard drives, solid-state drives, optical drives, and removable magnetic media drives. The R-SATA supports SATA 3.0 protocol, delivering 6.25 Gb/s data rates & beyond. Amphenol’s R-SATA connector utilizes a Micro-Hyperboloid contact with proven performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-aerospace.com/Products/R-SATA",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Aerospace Operations",
+        "Source Page": "IT Datacom p.29"
       }
     },
-    "r-sata--2": {
+    "r-sata-2": {
       "name": "R-SATA",
       "description": "The Rugged R-SATA style connector is perfectly suited as the primary internal storage interconnect for desktop and mobile PCs, connecting the system to peripherals such as hard drives, solid-state drives, optical drives, and removable magnetic media drives. The R-SATA supports SATA 3.0 protocol, delivering 6.25 Gb/s data rates & beyond.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-socapex.com/products/pcb-connectors/high-performance-pcb-connectors/r-sata",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "rugged-usb-type-c": {
-      "name": "Rugged USB Type C",
-      "description": "SAS 3.0 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MUSBR series USB Type C Connectors serve many markets and applications across the globe including Automotive, Communications, Consumer, Data, Industr",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol SOCAPEX",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-3-0-connectors": {
       "name": "SAS 3.0 Connectors",
       "description": "SAS 3.0 connectors for next-generation servers with 12Gb/s speeds. The 29-position receptacle and plug connectors feature hot-plugging and blind-mating, connector misalignment compensation, and a PCB retention mechanism for robust SMT attachment. It is SATA compliant and meets a wide range of vertical and R/A configurations for usage across server and storage equipment, HDDs, and HDD carriers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/serial-attached-scsi-sas-3-0.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Server / Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-4-0-connectors": {
       "name": "SAS 4.0 Connectors",
       "description": "SAS 4.0 connectors for next-generation servers with 24Gb/s speeds. The 29-position receptacle & plug connectors feature hot-plugging & blind-mating, connector misalignment compensation, and a PCB retention mechanism for robust SMT attachment. It is SATA compliant and meets a wide range of vertical and R/A configurations for usage across server and storage equipment, HDDs, HDD carriers, and SSDs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/serial-attached-scsi-sas-4-0.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Server / Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-pcie-3-0-u-2-connectors": {
       "name": "SAS/PCIe 3.0 (U.2) Connectors",
       "description": "SAS/PCIe 3.0 connectors are designed for next-generation servers with 12Gb/s speeds. The 68-position, SAS/PCIe receptacle, and header enable high-speed Serial Attached SCSI (SAS) hard disk drive (HDD) interface as well as Peripheral Component Express (PCIe)-based devices. These connectors are backward compatible with 6Gb/s SAS, SATA, and 3Gb/s SFF8482 connectors.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sas-pci-express.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Key Spec": "12gb/s · 6gb/s · 3gb/s",
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-pcie-4-0-u-2-u-3-connectors": {
       "name": "SAS/PCIe 4.0 (U.2&U.3) Connectors",
       "description": "SAS/PCIe® 4.0 (U.2 & U.3) connectors come with 16GT/s (PCIe® lanes) or 24Gb/s (SAS lanes) speeds to meet the demands of next-generation servers. The 68-position, SAS/PCIe® receptacle and header enable implementation of high-speed SAS hard disk drive (HDD) interface as well as PCIe®-based devices. The molded guidepost allows the device plug and receptacle to self-align during the mating process.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sas-pcie-4-u2-u3.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-pcie-5-0-u-2-u-3-connectors": {
       "name": "SAS/PCIe® 5.0 (U.2 & U.3) Connectors",
       "description": "SAS/PCIe 5.0 (U.2 & U.3) connectors come with 32GT/s (PCIe lanes) and 24Gb/s (SAS lanes) speeds to meet the demands of next-generation servers. The 68-position, SAS/PCIe receptacle and header enable implementation of high-speed Serial Attached SCSI (SAS) hard disk drive (HDD) interface as well as Peripheral Component Express (PCIe)-based devices.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sas-pcie-5-u2-u3.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "sas-pcie-6-0-u-2-sff8639-connectors": {
       "name": "SAS/PCIe® 6.0 (U.2/SFF8639 ) Connectors",
       "description": "SAS/PCIe® 6.0 (U.2) connectors come with 64Gb/s PAM4 (PCIe® lanes) and 24Gb/s (SAS lanes) speeds to meet the demands of next-generation servers. The 68-position, SAS/PCIe® receptacle and plug enable implementation of high-speed Serial Attached SCSI (SAS) hard disk drive (HDD) interface as well as Peripheral Component Express (PCIe®)-based devices.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sas-pcie-6-u2.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol offers a wide range of high-performance SATA connectors. They are designed to support up to 12Gb/s, enabling the implementation of low cost, high speed",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "sata-serial-ata-connectors": {
       "name": "SATA (Serial ATA) Connectors",
-      "description": "SCA-2 connectors consist of headers and receptacles that enable the hard disk drive to backplane interface in enterprise storage systems. The header resides on the HDD while the receptacle is attached to the backplane. 40pos SCA-2 receptacles are designed to accept Fibre Channel drives, while 80pos receptacle accepts SCSI drives.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol offers a wide range of high-performance SATA connectors. They are designed to support up to 12Gb/s, enabling the implementation of low cost, high speed, high capacity hard disk drive (HDD). The connectors are SATA compliant and meet a wide range of vertical and right-angle configurations for usage across server and storage equipment, HDDs, and HDD carriers.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sata.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Storage",
-        "Amphenol Business": "Amphenol offers a wide range of high-performance SATA connectors. They are designed to support up to 12Gb/s, enabling the implementation of low cost, high speed",
-        "Source Page": "IT Datacom p.12"
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "sd-express": {
       "name": "SD Express",
-      "description": "SD Express offers the fastest data transfer rates up to 985MB/s adhering to PCIe® Gen 3 x1 lane interface and NVMe application protocol. Meeting SD 7.0 specifications, these connectors come with a pin detection function, which offers enhanced protection and establishes a better read function when the memory card is inserted.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "slim-cool-edge-0-65mm-hybrid-power-signal-gen-6-connectors": {
-      "name": "Slim Cool Edge 0.65mm Hybrid Power & Signal Gen 6 Connectors",
-      "description": "PROVEN, HIGH SPEED, NEXT-GENERATION SAS-4 INTERFACE SlimSAS™ connectors address issues in next-generation storage devices such as bulk cable form factor restrictions and the introduction of multi-lane storage devices. SlimSAS™ connector is a 0.60mm pitch interconnect system that offers superior signal integrity performance over standard Mini-SAS solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "offers the fastest data transfer rates up to 985MB/s adhering to PCIe® Gen 3 x1 lane interface and NVMe application protocol. Meeting SD 7.0 specifications, these connectors come with a pin detection function, which offers enhanced protection and establishes a better read function when the memory card is inserted.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sd-express.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol's new Slim Cool Edge Gen 6 64G PAM4 Hybrid Power and Signal connectors offer a compact, one-piece card-edge solution for high-speed and high-power appl",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
-    "slimsastm": {
+    "slimsas": {
       "name": "SlimSAS™",
       "description": "PROVEN, HIGH SPEED, NEXT-GENERATION SAS-4 INTERFACE SlimSAS™ connectors address issues in next-generation storage devices such as bulk cable form factor restrictions and the introduction of multi-lane storage devices. SlimSAS™ connector is a 0.60mm pitch interconnect system that offers superior signal integrity performance over standard Mini-SAS solutions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/slimsas-u10.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
-    "slimsastm-low-profile-connectors-u10-series": {
+    "slimsas-low-profile-connectors-u10-series": {
       "name": "SlimSAS™ Low Profile Connectors - U10 Series",
       "description": "In order to provide higher speed and smaller size solution on networking equipment and server, Amphenol has developed SlimSAS™ low profile connector which is used in application of UPI1.0, 11.2GT/s, 24Gb/s SAS signal or 16GT/s PCIe® signal. With 0.60mm contact pitch, Low Profile (LP) SlimSAS™ solutions are smaller than mainstream connectors in current market to save space in end devices.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/slimsas-low-profile-u10.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server / Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "ultraport-lp-slimsas": {
-      "name": "Ultraport-LP SlimSAS",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SlimSAS is a high-speed and robust cable assembly solution, and supports multiple industry applications such as PCIe, SAS, OpenCAPI, UPI1.0, OCP, NVM",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "ultraport-slimsas": {
-      "name": "Ultraport-SlimSAS",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's UltraPort™ QSFP+ interconnect system comprises a 38-position, 0.8mm pitch connector built for use in high-speed serial applications. Each port offers",
-        "Source Page": "IT Datacom p.13"
+        "Key Spec": "11.2gt/s · 24gb/s · 16gt/s",
+        "Application": "Server / Storage / Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "usb-4-gen-3-type-c": {
       "name": "USB 4 Gen 3 Type C",
       "description": "USB 4 compatible with the TBT4 (Thunderbolt™ 4) interface combines power charging, PCIe® data transfer, DP video, and audio capability in one Type C connector. Ideal application in PCs, tablets, VR / AR headsets, gaming consoles, docking stations, SSDs, peripherals (Monitor/ Display, Projector…), etc. - USB4 Gen 3 (40Gb/s) certified - Power rating up to 240W - High-speed transmission up to 40Gb/s",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-4-gen-3-type-c.html",
       "specs": {
         "Product Type": "Storage and PCIe-SAS Interconnects",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 240w · up to 40gb/s · 40gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's USB4 is the most recent update of the USB specification and supports a range of higher video resolutions, high data bandwidth, power. The bandwidth c",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     }
   }

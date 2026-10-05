@@ -3,27 +3,44 @@
   "company": "Amphenol",
   "category": "Terminal Blocks and General Interconnect",
   "displayName": "Terminal Blocks and General Interconnect",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Terminal Blocks and General Interconnect. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Terminal Blocks and General Interconnect. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=34"
   ],
-  "sourceCount": 83,
+  "sourceCount": 93,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,1083 +49,1213 @@
     "Source Page"
   ],
   "products": {
-    "0nanon-ball-land-grid-array-socket-system-for-0-0315-80mm-adapters": {
-      "name": "0nanon Ball & Land Grid Array Socket System for 0.0315 [.80mm] Adapters",
-      "description": "BGA sockets; which are high density and have superior electrical performance: Thermal Performance: Operating Temperature Range: -55 to 140C; Glass Transition Temperature Range: 150 to 200C; Electrical Performance: Maximum Voltage: 75 VAC / 100 VDC; Maximum Current: 1 Amperes per contact Contact Resistance: Dry Circuit: .01ΩMax. @ .01 Amps/5VDC Insulation Resistance, @ 500VDC: 10,000 MOhms Min.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
-    "0nanon-ball-land-grid-array-socket-system-for-1mm-1-27mm-adapters": {
-      "name": "0nanon Ball & Land Grid Array Socket System for 1mm & 1.27mm Adapters",
-      "description": "BGA sockets; which are high density and have superior electrical performance: Thermal Performance: Operating Temperature Range: -55 to 140C; Glass Transition Temperature Range: 150 to 200C; Electrical Performance: Maximum Voltage: 75 VAC / 100 VDC; Maximum Current: 1 Amperes per contact Contact Resistance: Dry Circuit: .01ΩMax. @ .01 Amps/5VDC Insulation Resistance, @ 500VDC: 10,000 MOhms Min.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's XGIGA 100G QSFP28 optical modules include SR4, AOC, AOC break out, CWDM4, LR4, ER4 Lite, ER4 and ZR4 series, which adopt LC or MPO optical ports and ",
-        "Source Page": "IT Datacom p.1"
-      }
-    },
     "1-0-2-3-connector-series": {
       "name": "1.0-2.3 Connector Series",
       "description": "The 1.0/2.3 connector series features a compact design for dense connector packing which makes them ideal for applications where space limitation is a factor. The Amphenol version features a patented ultra-slim push-pull coupling system which allows quick installation and ensures positive locking and high retention.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenolrf.com/connectors/1-0-2-3-connectors.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.1"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "1ru-325a-dual-feed-8-8-circuit-breaker-panel": {
+      "name": "1RU 325A Dual-Feed, 8/8 Circuit Breaker Panel",
+      "description": "The 300CB08/nrg300CB08 circuit breaker panels are 325A dual-feed and provide 8/8 breaker positions. Engineered into a standard 1RU footprint, each circuit supports up to 60A breakers in each position, providing ample capacity for distribution to a broad range of components. Advanced circuit-level monitoring features are available as an option.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://amphenol-ns.com/Product/rvdsfpid/699/rvdsfpvid/2554",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "up to 60a · 325a · 60a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "alternative-to-m12-ultra-high-density-x-lok-push-lock-connector": {
+      "name": "Alternative to M12 - Ultra High-Density X-Lok Push-Lock Connector",
+      "description": "Amphenol LTW’s 33-pin Ultra High-Density (UHD) X-Lok Metal Mini Size push-lock connector boasts a compact design and high contact density, providing space efficiency and enhanced data transmission. This connector serves as an excellent alternative to traditional M12 solutions【Video: https://www.youtube.com/watch?v=7gU_zye2zIw】【Quck guide: https://amphenolltw.com/down.php?supp_download=112】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://amphenolltw.com/product-info/X-Lok/X-Lok.UltraHighDensity/",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "alternative-to-m8-x-lok-push-lock-micro-size-connector": {
+      "name": "Alternative to M8 | X-Lok Push Lock Micro Size Connector",
+      "description": "Amphenol LTW’s X-Lok Micro Size connectors compatible with the M8 panel cutout, offer an advanced secure solution for signal, and data transmission. Featuring a spring-loaded push lock mechanism, ensure intuitive, fast, reliable connections with audible feedback, minimizes mating failures【Video: https://youtu.be/63FoeMHT9mM】【Quick Guide: https://amphenolltw.com/down.php?cn=news_content&id=151】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://amphenolltw.com/news-events/XLok-PushLock-Micro-Size-Connector.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "amphe-phase": {
+      "name": "Amphe-Phase",
+      "description": "is a High Current Single pin connector with a smart design to keep performance and safety as a top priority keeping the solution price competitive. Finger Proof Protection against electric shock (IP2X) on both sides of Source and Drain and have a bayonet mechanical locking system requiring a key to unlock for additional safety.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.amphenolenergy.com/amphe-phase",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Energy Technologies",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "arinc-404-filter-connectors": {
+      "name": "ARINC 404 Filter Connectors",
+      "description": "Amphenol CDI Filtered ARINC 404 filter connectors feature the complete line of standard ARINC layouts and meet the applicable performance and environmental portions of the ARINC and SAE specifications. These connectors provide the key interface for rack and panel avionics equipment. As with all avionics boxes, signal integrity is paramount and filtering is a must.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://amphenolcdi.com/arinc-404-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=28",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "atpc-medium-voltage-cable": {
+      "name": "ATPC Medium Voltage Cable",
+      "description": "ATPC Type MV designed to meet UL Standard 1072 and comply with industry standards ICEA S-93-639, S-94-649 and AEIC CS-8. Available in single conductor and three conductors plus ground. Voltage options from 5kV up to 35kV. Copper or aluminum conductors, NL-EPR, TR-XLPE or XLPE insulation with 100%/133%/173% insulation levels, copper tape shield or concentric neutrals. Jacket PVC, XPLE, LLDPE",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.tpcwire.com/products/wire-cable/medium-voltage-cables/atpc-medium-voltage-cables",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "TPC Wire & Cable",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "bergstak-secure-connector": {
+      "name": "BergStak® Secure Connector",
+      "description": "The BergStak® Secure connector family contains one-time-use and multi-times-use solutions to support customers' different needs on connection security. The family now contains variants with 3-row and 4-row contacts with 37 columns per row, and it can be extended in both (10)row and (100)column direction based on customer requirements, to fulfill high pin count/high signal density requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-secure.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstik-2-54mm": {
       "name": "BergStik® 2.54mm",
       "description": "BergStik® FCI Basics 2.54mm unshrouded headers are available in SMT, THT, press-fit, stacking, and PIP versions. Designed in single and double row, they are available in straight or right angle options, from 2 to 72 positions. Featuring a \"breakaway\" design, each connector can be cut or broken into lengths to suit the application profile with a maximum current rating of 3A per contact.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstik-254mm-btb.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
-    "blind-mate-mcio": {
-      "name": "Blind Mate MCIO",
-      "description": "Blind Mate - X-Lok Push-Lock Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "blind-mate-x-lok-push-lock-connector": {
+      "name": "Blind Mate - X-Lok Push-Lock Connector",
+      "description": "Amphenol LTW’s X-Lok Connectors are presented in various sizes for power, signal and hybrid applications for fast, simple and reliable connections. Featuring a push lock mechanism for intuitive mating with audible and tactile feedback. The X-Lok provides less mating failure & quicker installation than traditional threaded solutions【Quick guide: https://amphenolltw.com/down.php?supp_download=112】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://amphenolltw.com/product-info/X-Lok/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s X-Lok Connectors are presented in various sizes for power, signal and hybrid applications for fast, simple and reliable connections. Featuring a ",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.6"
       }
     },
-    "boltracktm-connector": {
+    "boltrack-connector": {
       "name": "Boltrack™ Connector",
       "description": "FCI Basics Boltrack™ connector promotes signal and PoE++ transmission over Cat 5e and 6 cables in a wide range of datacom and industrial applications. It offers lightning protection, EMI shielding, and is field-installable. Boltrack™ connector comes in a 4-pair right-angle board receptacle and cable plug mating combination. The connector can resist voltages up to 2,500V.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/boltrack-connector.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol LTW provides a comprehensive product range of Breathable Vent. The Vents help control pressure release within safe operating limits, specifically desig",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
+      }
+    },
+    "c2storage-bulk-fiber-storage-tray": {
+      "name": "C2Storage: Bulk Fiber Storage Tray",
+      "description": "Fiber cable entry and exit gates have a front-facing door that opens to make it easier to get fibers in and out of the tray. The gates are several times larger than those in legacy slack storage trays, producing an industry-leading 96 1.6mm fiber cable capacity. The routing arcs within the tray have movable fingers, which greatly facilitates accessing the fibers during and after installation.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenol-ns.com/Product/c2storage-fiber-tray",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "cable-joiner-ficx-connectors": {
       "name": "Cable Joiner & FICX Connectors",
-      "description": "Candlestick Panel Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW’s Cable Joiner was designed and developed for simple, quick and reliable cable interconnections. It is available in several options to meet various cable O.D. and wire sizes. It also meets the latest requirements for locking protection【Quick guide: https://amphenolltw.com/down.php?supp_download=91】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenolltw.com/product-info/CableJoiner/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s Cable Joiner was designed and developed for simple, quick and reliable cable interconnections. It is available in several options to meet various",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.7"
       }
     },
-    "clga-chip-to-board-socket": {
-      "name": "cLGA® Chip-to-Board Socket",
-      "description": "HIGH PERFORMANCE, LOW COST CHIP-TO-BOARD APPLICATION The Amphenol cLGA® land grid array socket system was designed to bring conventional connector material construction to high performance, low cost chip-to-board applications. Gold over nickel-plated copper alloy spring contacts guarantee long-term connector performance, contact retention and ruggedness.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "compact-combo-connectors": {
+      "name": "Compact Combo Connectors",
+      "description": "SIGNAL & HYBRID SOLUTIONS FOR BTB, WTW, AND WTB Solutions offer optimized space, high reliability with adequate creepage and clearance distances for power and allows easy to mate/crimp and cable management. The connector system offers hybrid solutions choice of signal and power loading with an active latching feature.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/compact-combo.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF attenuators are designed to offer flat attenuation over the designated frequency range and feature a microwave grade resistor that consistently redu",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "conan-1-00mm-connector": {
-      "name": "Conan® 1.00mm Connector",
-      "description": "Conan® Lite 1.00mm Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Conan® 1.00mm is a mezzanine connector designed for industrial applications and harsh environments. Conan® 1.00mm provides a mechanically secure, hig",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "coolpower-hd-vertical-cable-to-board-connector": {
       "name": "CoolPower® HD Vertical Cable-to-Board Connector",
-      "description": "CoolPower® SDM Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's CoolPower® HD Vertical Connector Series is a versatile pin-and-socket solution that delivers high-density power output in a compact, low-profile housing. This makes it an ideal solution for addressing the increasing demands of modern power consumption. The CoolPower® HD series supports a wide range of pin diameters, including 5.7mm, 6.0mm, 8.0mm, and 9.1mm, and offers exceptional ...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/coolpower-hd-vertical-ctb.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CoolPower® HD Vertical Connector Series is a versatile pin-and-socket solution that delivers high-density power output in a compact, low-profile hous",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "coolpower-slim-drawer": {
       "name": "CoolPower® Slim Drawer",
-      "description": "Cool Stack 0.80mm Hybrid Power & Signal Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's CoolPower® Slim Drawer Series is configurable to accommodate various combinations of power and signal contacts and a number of mounting and termination options. CoolPower® Slim Drawer can deliver up to 60A per pin and provides an ultra-low end-of-life contact resistance of just 0.4mΩ. Additional features include blind-mating, sequential mating, and true hotplug capabilities.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/coolpower-slim-drawer.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CoolPower® Slim Drawer Series is configurable to accommodate various combinations of power and signal contacts and a number of mounting and terminati",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
-    "cryo-seal-hermetic-connector-series": {
-      "name": "Cryo-Seal Hermetic Connector Series",
-      "description": "The Cryo-Seal Hermetic connector series is designed for extreme low-temperature environments. They are built to retain contact-to-contact sealing in temperatures as low as -319 °F (-195° C). Temperatures falling below -85 °F (-65 °C) typically leaves one at risk of losing the pin-to-pin environmental seal and/or having cracked elastomeric components leading to electrical shorting.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "coolpower-hd-right-angle-cable-to-board-connector": {
+      "name": "CoolPower® HD Right-Angle Cable-to-Board Connector",
+      "description": "Amphenol CoolPower® HD Right-Angle Connector is a 90-degree, versatile pin-and-socket solution designed to deliver high-density power output in a compact, low-profile housing for modern power requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI’s cryogenic semi‑rigid cable assemblies are engineered for precision, stability, and ultra‑low‑temperature performance, delivering reliable signal ",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
-    "custom-flex-cables": {
-      "name": "Custom Flex Cables",
-      "description": "Custom Terminal Blocks",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "cots-products-customizations": {
+      "name": "COTS Products Customizations",
+      "description": "SV Microwave offers a flexible approach to customizing our COTS products to meet unique customer needs. Our applications and design engineering teams routinely make minor adjustments to standard parts-such as lengthening flanges, adjusting retention features, or altering PCB connector lengths—to support specific design requirements. Below are some examples.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.svmicrowave.com/cots-products-customizations?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=215",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Flex Cable Assemblies provide value-added solutions to challenging interconnect problems where a flexible solution is desirable. Amphenol flex cables",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "cstack-flex-cables": {
+      "name": "cStack™ Flex Cables",
+      "description": "Amphenol's cStack™ flexible circuit assemblies are designed for applications where flexibility, space, weight, and performance are critical. They are available in standard and custom flex circuit and connector designs. cStack™ Flex is a compression-based interconnect utilizing Amphenol's cStack™ interposer terminated to a multi-layer impedance-controlled flexible circuit in a compact footprint.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cstack-flex-cables.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "custom-terminal-blocks": {
       "name": "Custom Terminal Blocks",
       "description": "Since 1945, EBY Electro has been the go-to for custom wire connectors, building a legacy of excellence and service. Our expert team is with you every step of the way, from innovative component design to seamless delivery and warehousing solutions. Experience the EBY Electro difference today!",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.ebyelectro.com/custom-terminal-blocks.asp",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CXP passive copper cable assemblies are designed to meet the high bandwidth capacity demands being requested by data centers and high-performance com",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "EBY Electro",
+        "Source Page": "IT Datacom p.9"
       }
     },
-    "densimatetm-1-25mm-double-row": {
-      "name": "DensiMate™ 1.25mm Double Row",
-      "description": "Ideal for miniature applications, the DensiMate™ connector system provides highly reliable performance, which meets industrial automation and IT/Datacom challenges. With wire gauge range from 30AWG-26AWG, these connectors are available in double row, vertical SMT, and right angle SMT configurations. DensiMate™ comes with an active latch to provide enhanced contact reliability.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "data-guide-cable-specialty-cables": {
+      "name": "Data Guide Cable Specialty Cables",
+      "description": "Data Guide Cable is a quality manufacturer of specialty electronic and electrical cable products for a variety of applications. Major markets serviced include instrumentation, data communications, robotics, broadcast/studio, computer, utility, shipboard, and factory automation among others. The main focus is manufacturing products in compliance with USA specific standards such as NEC, UL, NFPA, ABS, MSHA,",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol.com/markets/www.dataguidecable.com",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "LUTZE Inc.",
+        "Source Page": "IT Datacom p.9"
       }
     },
-    "digital-visual-interface-dvi-connectors": {
-      "name": "(Digital Visual Interface) DVI Connectors",
-      "description": "DIN 41612 Accessories",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "densilink-overpass-assemblies": {
+      "name": "DensiLink® OverPass™ Assemblies",
+      "description": "112G DOUBLE ENDED HIGH PERFORMANCE CABLING INTERCONNECT DensiLink® OverPass™ products remove high speed signaling from the PCB and create a double ended, high performance cabling interconnect. These cables support 56G and 112G signaling in hardware system designs as well as technology for future 224G signaling systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/densilink-overpass.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW DVI Connectors feature a 1.5A current rating, a ≤20mΩ contact resistance, and a ≥1000MΩ @ 500VDC insulation resistance rating. The DVI has a copper",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
+      }
+    },
+    "densimate-1-25mm-double-row": {
+      "name": "DensiMate™ 1.25mm Double Row",
+      "description": "Ideal for miniature applications, the DensiMate™ connector system provides highly reliable performance, which meets industrial automation and IT/Datacom challenges. With wire gauge range from 30AWG-26AWG, these connectors are available in double row, vertical SMT, and right angle SMT configurations. DensiMate™ comes with an active latch to provide enhanced contact reliability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/densimate-1-25mm-double-row.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "din-41612-accessories": {
       "name": "DIN 41612 Accessories",
       "description": "ACCESSORIES FOR HARSH ENVIRONMENT CONNECTOR APPLICATIONS SHROUDS LATCHES AND THEIR FRAMES DIN POLARIZING KEY HOOD/COVER SET",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/din-accessories.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
-    "dsfp-56g-pam4-smt-connector": {
-      "name": "DSFP 56G PAM4 SMT Connector",
-      "description": "DSFP SMT Connectors offer dual high-speed lanes operating at 28Gb/s NRZ and 56Gb/s PAM-4 for a 50G & 100G aggregated bandwidth solution. It has additional 2 pins compared to the SFP/SFP+ family, which enables it to have a second high-speed channel with an identical connector form factor. The DSFP shares the same unique mating interface and EMI cage dimensions as the whole range of SFP/SFP+ cages.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "discrete-magnetic-series": {
+      "name": "Discrete Magnetic Series",
+      "description": "SUPPORTS 10/100T, 1GT, 2.5G, 5G, AND 10G TRANSMISSION SPEEDS WITH 2 & 4 PAIR POE UP TO 140W The Discrete Magnetic Series can offer a variety of products that can support 10/100T, 1GT, 2.5G, 5G & 10G transmission speed. It supports 2 & 4 pair PoE up to 140W. Configurations of both through-hole and SMT type are available for soldering process application.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/discrete-magnetic.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's DSFP cable assemblies are designed to support applications for Ethernet and Fibre Channel. The Amphenol DSFP products offer an ultra-high-performance",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
-    "coolpower-hd-right-angle-cable-to-board-connector": {
-      "name": "CoolPower® HD Right-Angle Cable-to-Board Connector",
-      "description": "Amphenol's CoolPower® HD Right-Angle Connector is a 90-degree, versatile pin-and-socket solution designed to deliver highdensity power output in a compact, low-profile housing. This makes it an ideal solution for addressing the increasing demands of modern power consumption. The CoolPower® HD series supports a wide range of pin diameters, including 5.7mm, 6.0mm, 8.0mm, and 9.1mm, and ....",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "dubox-2-54mm": {
+      "name": "Dubox® 2.54mm",
+      "description": "The Dubox®, connector family offers an extensive range of through-hole and surface-mount part options. It is available in single or double-row in both straight and right angle orientations from 2 to 50 positions, with a maximum current rating of 3A per individual contact. This cost-efficient solution offers high reliability in electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dubox-254mm.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
-    "dsub-custom-specials": {
-      "name": "Dsub Custom Specials",
-      "description": "DSUB CONNECTORS FOR CUSTOM APPLICATIONS Amphenol has proven capability to work with customers and develop special product extensions to meet their custom applications. This can be to meet special polarization requirements, fitment to their special panel cabinets, extra standoff to meet the height requirements, assemblies for cable application, etc.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "dubox-2-54mm-crimp-to-wire": {
+      "name": "Dubox® 2.54mm Crimp to Wire",
+      "description": "The Dubox®, connector families offer an extensive range of through-hole and surface-mount part options, including single or double-row in either straight or right-angle orientation from 2 to 50 positions, with a current rating of 3A (maximum) per individual contact. The Dubox® contact has a pre-stressed, dual-beam design to enable low insertion force, 4-wall contact design for signal protection.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dubox-254mm-crimp-to-wire.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "econostiktm-2-54mm": {
-      "name": "EconoStik™ 2.54mm",
-      "description": "EconoStik™ 2.54mm is an economical range of 2.54mm unshrouded header. It is available in single-row and double-row with vertical through-hole, right-angle through-hole, and vertical SMT terminations. EconoStik™ 2.54mm is a standard 0.64mm square header with high-temperature resin and 1μ\" gold plating in contact and tail. It supports up to 50 mating cycles.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Edge Mount PCB Connectors provide high-performance RF signal transmission with a secure and space-efficient PCB mounting design. Engineered for aer",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "emc-shields": {
       "name": "EMC Shields",
-      "description": "EMI Gasket Bulkhead Connectors and Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's EMC Shields are widely used in applications that require electromagnetic isolation of board-level components. They are provided in a wide variety of profiles and sizes to accommodate mother/daughter board configurations. Amphenol EMC Shields also commonly known as EMI shields and RFI shields, is a popular solution for minimizing crosstalk and susceptibility.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/emc-shields.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave has just released a series of SMA and 2.92mm cable connectors and adapters with built-in electromagnetic interference (EMI) shielding. These interc",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.12"
       }
     },
-    "extremeport-swift": {
-      "name": "Extremeport-Swift",
-      "description": "ExtremePort™ Flash Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - ExtremePort™ Flash. The 0.60mm pitch connector comes with an extremely low profile design capable o",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeporttm-flash-connector": {
-      "name": "ExtremePort™ Flash Connector",
-      "description": "ExtremePort™ OSFP 112G Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - ExtremePort™ Flash. The 0.60mm pitch connector comes with an extremely low profile design capable o",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeporttm-osfp-112g-connectors": {
+    "extremeport-osfp-112g-connectors": {
       "name": "ExtremePort™ OSFP 112G Connectors",
       "description": "112GB/S PAM-4 WITH UP TO 800GB/S AGGREGATED BANDWIDTH Amphenol's ExtremePort™ OSFP 112G interconnect system is comprised of a 60 position, 0.60mm pitch connector designed for high-speed serial applications. Each port supports up to 800Gb/s in aggregate over an 8 x 112Gb/s electrical interface. The OSFP footprint is optimized for signal integrity performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-osfp-112g.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "112GB/S · 800GB/S · 0.60mm pitch · OSFP",
+        "Key Spec": "up to 800gb/s · 112gb/s · 800gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "extremeporttm-osfp-224g-connectors": {
+    "extremeport-osfp-224g-connectors": {
       "name": "ExtremePort™ OSFP 224G Connectors",
       "description": "EXTREMEPORT™ OSFP 224G INTERCONNECT SYSTEM Amphenol's ExtremePort™ OSFP 224G interconnect system is comprised of a 60 position, 0.6mm pitch connector built for use in high-speed serial applications. Each port supports up to 1.6Tb/s in aggregate over an 8x224Gb/s electrical interface. The OSFP footprint is optimized for signal integrity performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-osfp-224g.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "224gb/s · 60 position · 0.6mm pitch",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "extremeporttm-osfp-xd-112g-connectors": {
+    "extremeport-osfp-xd-112g-connectors": {
       "name": "ExtremePort™ OSFP-XD 112G Connectors",
       "description": "EXTREMEPORT™ OSFP-XD 112G INTERCONNECT SYSTEM Amphenol's ExtremePort™ OSFP-XD 112G interconnect system is comprised of a 120-position, 0.6mm pitch connector built for use in high-speed serial applications. Each port supports up to 1.6Tb/s in aggregate over a 16 x 112Gb/s electrical interface. The OSFP-XD footprint is optimized for signal integrity performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "1.6Tb/s · 112Gb/s · 0.6mm pitch · OSFP",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-qsfp-112g": {
-      "name": "ExtremePort™ QSFP 112G",
-      "description": "BACKWARDS PLUG COMPATIBLE AND SUPERIOR SIGNAL INTEGRITY Amphenol's ExtremePort™ QSFP 112G interconnect system is comprised of a 38position, 0.8mm pitch connector built for use in high speed serial applications. Each port offers 4 channels which increases port density, frees up board real estate and delivers a cost optimized solution. The ExtremePort™ QSFP 112G connector supports next generation 400G appli",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/extremeport-osfp-xd-112g.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ QSFP DD 112G interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high-speed serial applications. E",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-qsfp-dd-112g-connectors": {
-      "name": "ExtremePort™ QSFP DD 112G Connectors",
-      "description": "ExtremePort™ QSFP-DD 224G Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ QSFP DD 112G interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high-speed serial applications. E",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-qsfp-dd-224g-connectors": {
-      "name": "ExtremePort™ QSFP-DD 224G Connectors",
-      "description": "EXTREMEPORT™ QSFP-DD 224G INTERCONNECT SYSTEM Amphenol's ExtremePort™ QSFP-DD 224G interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high-speed serial applications. Each port supports up to 1.6Tb/s in aggregate over an 8 x 224Gb/s electrical interface. The cage and connector design provides backwards compatibility to QSFP modules which can be inserted into a QSFP-DD",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "1.6Tb/s · 224Gb/s · 0.8mm pitch · QSFP-DD",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ QSFP+ interconnect system is comprised of a 38-position, 0.8mm pitch connector built for use in high-speed serial applications. Each por",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "extremeporttm-sfp": {
-      "name": "ExtremePort™ SFP+",
-      "description": "ExtremePort™ Swift Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExtremePort™ SFP+ interconnect system is comprised of a 20-position hot-swappable I/O connector enclosed in a metal cage mounted to a host PCB.It sup",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
     "fan-connector-card-to-wire": {
       "name": "Fan Connector Card-to-Wire",
       "description": "CTW (Card-to-Wire) fan module connector comes with a flexible design for card-to-wire power applications used in fan modules. It allows different wire gauges ranging from 28AWG - 22AWG. The connector provides a maximum current rating of 4A/pin.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ctw-fan-module-connector.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "28a · 22a · 4a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.14"
+      }
+    },
+    "ffiltrered-arinc-600-connectors": {
+      "name": "Ffiltrered ARINC 600 Connectors",
+      "description": "Amphenol CDI filtrered ARINC 600 connectors feature the complete line of layouts and meet the applicable performance and environmental portions of the ARINC specifications. Following the ARINC document, Amphenol CDI offers receptacle shell sizes 1, 2 and 3. Size 1 shells are a 3 gang style, housing the narrower 11.1mm inserts. Size 2 and size 3 shells use the standard 26.34mm wide inserts.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenolcdi.com/arinc-600?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=29",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Flat Flexible Cable (FFC) Jumpers are available in a wide range of standard cable lengths to meet the wide range of flexible interconnect requirement",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fiber-demarcation-enhanced-access-box-fde": {
       "name": "Fiber Demarcation Enhanced Access Box (FDE)",
       "description": "The FDE enclosure has a low profile, side-by-side door design that provides an ideal environment for splicing and patching in indoor wall-mount applications. An integrated access door on the customer side of the enclosure provides a generous opening for a cleaning tool to reach the optical connectors, resulting in a more craft-friendly design.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://amphenol-ns.com/Fiber-Demarcation-Enhanced-Access-Box",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's offers a variety of Fiber Optics adapters that allow terminating fiber optics cables to be coupled together. Available in LC & SC type for your o",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "filter-micro-ribbon-connectors": {
       "name": "Filter Micro-Ribbon Connectors",
       "description": "FCE57 Micro-Ribbon Filter connectors combine filtering and connectivity by having the capability to filter unwanted EMI while providing the required data connectivity. Also, enhanced EMI Control/EMC Compliance on the connector outperforms that of the same filter components on a PCB.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-ribbon-filter-fce57.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BNC RF connectors provide optimum capacitive decoupling between the connector body and the mounting panel, by harmlessly dissipating EMI (Electromagn",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.14"
       }
     },
-    "hci-connector-system": {
-      "name": "HCI® Connector System",
-      "description": "The HCI® connector system anticipates the continued trend toward increased system power demands that are driving the need for increased power density. The HCI® connector system is designed to address requirements that extend beyond the capability of Amphenol's proven PwrBlade® connector system, the industry standard for DC power supply interfaces and power distribution.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "flextrax-cable-manager": {
+      "name": "FlexTrax Cable Manager",
+      "description": "FlexTrax combines the flexibility of split tubes with greater ease of access than slotted duct, significantly reducing the potential to pinch or bend a fiber compared to current vertical cable management methods. Users can purchase FlexTrax as needed for the application based on the estimated length required. Installation is simple and dynamic, allowing users to customize their solutions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://amphenol-ns.com/ANS-Products/Cable-Management/FlexTrax/rvdsfcatid/412",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.15"
       }
     },
-    "high-speed-edge-launch-pcb-connectors": {
-      "name": "High Speed Edge Launch PCB Connectors",
-      "description": "HPCE® Board to Board Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "flos-flos-push-pull-or-break-away-connectors": {
+      "name": "FLOS & FLOS+ Push-Pull or Break-Away Connectors",
+      "description": "Amphenol LTW’s FLOS & FLOS+ Push-Pull or Break-Away Connectors are designed to offer a reliable connection for data, signal, and power transmissions in indoor and outdoor environments . These connectors feature a corrosion-resistant coating, excellent 360° shielding but also cost-effective price in the market【Quick Guide: https://amphenolltw.com/down.php?supp_download=96】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://amphenolltw.com/product-info/FLOS/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave offers a complete line of extreme frequency (DC - 100 GHz) coaxial / RF edge launch PCB connectors that meet the need for high-performing,",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.15"
       }
     },
-    "hs-lok-push-lock-connectors": {
-      "name": "HS-Lok Push-Lock Connectors",
-      "description": "Hybrid Distribution Panel HypΣ",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "gbx": {
+      "name": "GbX®",
+      "description": "Amphenol's GbX connector platform is a differential connector that provides flexible and low-cost design solutions for lower-speed applications while providing backward mate compatible upgrades to allow for up to 14 Gbps.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/gbx.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's HS-Lok Push-Lock Connectors provide IP68 protection and are rated to UL-F1 UV resistance, making them ideal for indoor or outdoor wet locations. ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.15"
       }
     },
-    "indoor-connectors-and-adapters": {
-      "name": "Indoor Connectors and Adapters",
-      "description": "Industrial RJ Plug and Cables",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "hyper-cool-edge-connectors-sff-ta-1037-pmm-connector": {
+      "name": "Hyper Cool Edge Connectors (SFF-TA-1037 PMM connector)",
+      "description": "MEETS SFF-TA-1037 SPECIFICATION Amphenol's Hyper Cool Edge system supports the Pluggable Multi-purpose Module (SFF-TA-1034) with high-speed, sideband, and power",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hyper-cool-edge.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "indoor-battery-racks-bay-rack": {
+      "name": "Indoor Battery Racks - Bay Rack",
+      "description": "Indoor Battery Racks are bay rack style, Zone 4 seismic compliant (GR-487 certified) battery rack systems supporting 200Ah VRLA or 180Ah Ni-Cd batteries. Multiple configurations, from 2 to 5 battery trays, are available with optional integrated Power Plant kits. Each tray includes a 100 amp breaker and alarm safety features.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.charlesindustries.com/product/indoor-battery-racks-bay-rack-cibr-r/",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "200a · 180a · 100 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Charles Industries",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "indoor-battery-racks-modular": {
+      "name": "Indoor Battery Racks - Modular",
+      "description": "Modular, seismic Zone 4 rated (GR-487 certified) battery rack systems designed to fit the footprint of Ni-Cd batteries. In addition to several standard configurations, there are also single tray options that can be built on-site.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.charlesindustries.com/product/indoor-battery-racks-modular-cibr-m/",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Charles Industries",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "infinx-splice": {
+      "name": "InfinX Splice",
+      "description": "™ is the latest innovation from Amphenol Network Solutions designed to reduce the time and complexity of splicing high density rollable ribbon fiber cables. With fiber cable strand counts growing, and conduit space shrinking, rollable ribbon fiber is increasingly the choice of data center operators and Hyperscale network operators to address their growing bandwidth requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://amphenol-ns.com/Products/InfinX-Splice",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Data center / Networking",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "inside-plant-passives-isp": {
+      "name": "Inside Plant Passives (ISP)",
+      "description": "The product family includes optical muxes for DWDM and CWDM applications, co-existence modules, splitters, and optical TAPs for network monitoring. These optical circuits can be packaged in different forms, such as LGX style cassettes and C2 AOMs, to provide customers with maximum flexibility on the installation platform and component density required to service a wide range of applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://amphenol-ns.com/Our-Products/Optical-Passives",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "interposer-assembly-card": {
+      "name": "Interposer Assembly Card",
+      "description": "FR4 INTERPOSER ASSEMBLY CARD This is a value-added business. We provide a one-stop solution that includes the making of connectors and the SMT processes. This business model improves supply chain management. And, this product range supports Storage, Consumer, and Communication applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/interposer-assembly-card.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
+      }
+    },
+    "lynx-25gb-s-low-profile-high-density-open-pin-field-connector": {
+      "name": "Lynx™ 25Gb/s Low Profile, High Density Open-Pin-Field Connector",
+      "description": "The Lynx™ connector is a flexible 0.6mm pitch solution designed for high speed and density differential or single-ended signaling BTB applications. Lynx™ has a robust contact design tolerant of misalignment, enables a reliable connection, and supports blind mating. This connector provides designers with a readily available 85Ω solution to meet a wide variety of application needs, including PCI.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/lynx.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
+      }
+    },
+    "m12-distribution-boxes": {
+      "name": "M12 Distribution Boxes",
+      "description": "Amphenol LTW's distributor boxes are designed in multiple ports with different connector or cable terminations. The embedded LED indicators provide you an overview data, signal or power delivery, especially in industrial automation applications【Quick Guide: https://amphenolltw.com/down.php?cn=news_content&id=120 】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://amphenolltw.com/news-events/efficient-m8-distribution-connectors-for-systems.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol offers a vast array of indoor connectors and adapters that are produced with high-quality material and meet EIA/TIA and IEC standards and RoHS complian",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "ipc-m120-connectors": {
-      "name": "IPC-M120 Connectors",
-      "description": "IPC-M175 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "m12-smt-dip-connectors": {
+      "name": "M12 SMT/DIP Connectors",
+      "description": "Amphenol LTW's M12 SMT/DIP connectors are designed in various coding options for surface mounting termination and make it cost-effective by delivering secure & reliable data/power transmission for limited space applications. It's ideal for an automated pick and place process with tape & reel packages.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's IPC-M175 displays formidable power through a sleek design in the IPC product series. The power connector is designed to house two separate 1/0 (53.5m",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
-    "ipc-m175-connectors": {
-      "name": "IPC-M175 Connectors",
-      "description": "IPC-M350 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "m12-unicode-connector": {
+      "name": "M12 Unicode Connector",
+      "description": "Amphenol LTW offers M12 Unitcode Connector. The M12 connectors support a rated current of 4A. Assembly Style: DIP 90°",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/M12.Unicode/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's IPC-M350 power connector is the largest and most powerful connector in the IPC-M product series. IPC-M350 is capable of housing two separate 350MCM (",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
-    "ipc-m350-connectors": {
-      "name": "IPC-M350 Connectors",
-      "description": "IPC-M50 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "m8-smt-dip-connectors": {
+      "name": "M8 SMT/DIP Connectors",
+      "description": "Amphenol LTW's M8 SMT/DIP connectors are designed for surface mounting termination and make it cost-effective by delivering secure & reliable data/power transmission for limited space applications. It's ideal for automated pick and place process with tape & reel package.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/product-info/Metric+Circular+Connector/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's IPC-M50 power connector is designed to house two separate 6AWG contacts rated up to 50A per contact. IPC-M50 is the ideal connector solution for batt",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
-    "ipc-m50-connectors": {
-      "name": "IPC-M50 Connectors",
-      "description": "ix Industrial™ IP20 Connectors & Cables",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "magneto-lok-connector": {
+      "name": "Magneto-Lok Connector",
+      "description": "Amphenol LTW's Magneto-Lok series offers a low-profile, self-aligning magnetic connection with 360°rotation and quick disconnect at any angle. Available in both receptacle and overmolded versions. With insulation resistance of 100 MΩ, voltage ratings up to 12Vdc / 24Vdc, and a vibration resistance 10 ~ 55 Hz, it ensures reliable performance for up to 10,000 mating cycles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/news-events/Magneto-Lok-Series.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "Amphenol's IPC-M50 power connector is designed to house two separate 6AWG contacts rated up to 50A per contact. IPC-M50 is the ideal connector solution for batt",
-        "Source Page": "IT Datacom p.7"
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
+      }
+    },
+    "micro-linkover-overpass-assemblies": {
+      "name": "micro-LinkOVER™ OverPass™ Assemblies",
+      "description": "micro-LinkOVER™ OverPass™ products remove high speed signaling from the PCB and create a double ended, high performance cabling interconnect by overpassing the PCB. These cables support 56G and 112G signaling in hardware system designs as well as a technology for future 224G signaling systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-linkover-overpass.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "micro-sd-and-sd-card-sockets": {
       "name": "Micro SD and SD Card Sockets",
       "description": "MEMORY CARD CONNECTORS WITH SUPPORT FOR UHS-I AND UHS-II Micro SD and SD card sockets are user-friendly and ideal for use in portable devices such as digital cameras and mobile phones. They are also suitable for server applications as well as automotive devices, notebooks, and servers.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-sd-sd-card-sockets.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "Server",
-        "Amphenol Business": "Amphenol is the first in the industry to offer card sockets for both microSD Express and Micro SD cards (UHS-I). The 17 pin microSD Express connector is capable",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "miniature-jack-connector": {
       "name": "Miniature Jack Connector",
-      "description": "Mini Cool Edge 0.60mm Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's 3.5mm diameter miniature jack connector is a family of connectors used for analog signals, primarily audio. Available in 3 to 5 contacts, the connector comes with an innovative contact design for robustness and high mating cycles. This solution is used for composite video & audio output in consumer electronics devices such as digital cameras, camcorders, and portable DVD players.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/miniature-jack.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 3.5mm diameter miniature jack connector is a family of connectors used for analog signals, primarily audio. Available in 3 to 5 contacts, the connect",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "minitek127-1-27mm-cable-to-board-connector-system": {
       "name": "Minitek127® 1.27mm Cable-to-Board Connector System",
       "description": "Minitek127® cable-to-board series are 1.27mm pitch insulation-displacement connector, position ranges from 6 to 100 positions. Family comprehensive offer includes straight and right angle, surface mount and through mount, eject and w/o eject headers in different plating variations (gold flash / 0.25µm gold / 0.76µm gold).",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek127-127mm-wire-to-board.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
+      }
+    },
+    "minitek-2-00mm": {
+      "name": "Minitek® 2.00mm",
+      "description": "Minitek® is Amphenol ICC's brand for BTB and wire/cable to board connectors in 2.00mm pitch. It is a fully modular system enabling all types of connections between PCBs, wires, and flat cables. Its 2mm spacing allows up to 38% space saving compared to traditional modular systems. It is available in vertical and horizontal configurations both in single and double row with 2 to 25 positions per row.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-200mm.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-2-00mm-blind-mate-interface-bmi-connectors": {
       "name": "Minitek® 2.00mm Blind Mate Interface (BMI) Connectors",
       "description": "FCI Basics Minitek® 2.00mm Blind Mate Interface (BMI) is a flexible and comprehensive solution designed for application with a current rating of up to 2A per circuit. It allows misalignment and provides floating for easy blind-mate connections. BMI option is available in a dual row with 8 or 12 circuits. These connectors provide an ideal solution for panel-to-board applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-2-00mm-bmi.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-pwr-3-0-bmi-connector-system": {
       "name": "Minitek® Pwr 3.0 BMI Connector System",
       "description": "Minitek® Pwr 3.0 BMI is a flexible and comprehensive solution designed for power application with current rating up to 8.5A per circuit. It is available in 4 to 24 circuits in dual row with Right angle and vertical options. Both WTB and WTW solutions are supported in this 3mm BMI product family.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-30-bmi.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-pwr-3-0-connector-system": {
       "name": "Minitek® Pwr 3.0 Connector System",
       "description": "COMPACT, ROBUST AND VERSATILE Minitek® Pwr 3.0 is a flexible and comprehensive solution designed for power application with current rating up to 5A per circuit. It is available in 2 to 24 circuits for dual row and 2 to 12 circuits for single row.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-30.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-pwr-4-2-bmi-connector-system": {
       "name": "Minitek® Pwr 4.2 BMI Connector System",
       "description": "ROBUST AND VERSATILE SELFALIGNING CONNECTOR Minitek® Pwr 4.2 BMI is a flexible and comprehensive solution designed for power application with current rating up to 9A per circuit. It is available in 24 circuits for dual row.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-42-bmi.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-pwr-4-2-connector-system": {
       "name": "Minitek® Pwr 4.2 Connector System",
       "description": "COMPACT, ROBUST AND VERSATILE Minitek® Pwr 4.2mm is a flexible and comprehensive solution designed for power application with current rating up to 9A per circuit. It is available in 2 to 24 circuits for dual row and 3 to 5 circuits for single row.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-42.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-pwr-4-2-tpa-connector-system": {
       "name": "Minitek® Pwr 4.2 TPA Connector System",
       "description": "COMPREHENSIVE SOLUTION FOR POWER APPLICATIONS WITH TPA FCI Basics Minitek® Pwr 4.2 TPA connector system ensures that the terminal is fully seated in the housing and that the terminal will not back out of the housing during mating or when in use. AFCI TPA aligners are optional and can be used as an add-on part.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-pwr-42-tpa.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
-    "minitek-pwr-picpwr-ocp-connector-system": {
-      "name": "Minitek® Pwr PICPWR OCP® Connector System",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "nanorf-vita-67-3-connector-system": {
+      "name": "NanoRF VITA 67.3 Connector System",
+      "description": "SV Microwave, a longstanding participant in the VITA community and active member of the electro-mechanical and hardware working groups, is now officially licensed to offer NanoRF modules and contacts. This addition to our VITA modular interconnect system underscores our commitment to staying at the forefront of VITA technologies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.svmicrowave.com/nanorf-vita-673-connector-system?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=117",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Mini USB Type B design offers customized design. Mini USB 2.0 connector takes up only about 1/8 of the space of standard USB-B, five circuits, with one",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.23"
       }
     },
-    "multi-traktm": {
-      "name": "Multi-Trak™",
-      "description": "MXM 3.0/4.0 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "nrgbdfb-xlw-1000a-battery-distribution-fuse-bay": {
+      "name": "nrgBDFB-XLW 1000A Battery Distribution Fuse Bay",
+      "description": "The nrgBDFB-XLW 1000A Battery Distribution Fuse Bay includes up to eight panels per bay with each panel supporting a single feed with a maximum input rating of 1000A. Each panel contains 20 circuit positions for either bullet-style breakers or TFD fuse holders and features -48V operating voltage to fit in legacy and next-generation network applications with advanced circuit-level monitoring.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://amphenol-ns.com/Product/nrgbdfb-xl/rvdsfcatid/344",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "olst-technology-optimized-local-surface-treatment": {
+      "name": "OLST Technology (Optimized Local Surface Treatment)",
+      "description": "combines the advantages of light metals – low weight, easy workability, etc. – with the advantages of copper, such as corrosion resistance, the property of being soldered, special features for electrical purposes.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.auxel.com/products-services/auxel-optima/optimized-local-surface-treatment/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MXM connector is a high-density PCIe® solution that supports next-generation server system architectures. These are non-proprietary, industry standar",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Auxel",
+        "Source Page": "IT Datacom p.24"
       }
     },
-    "mxm-3-0-4-0-connectors": {
-      "name": "MXM 3.0/4.0 Connectors",
-      "description": "MXM 3.0 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "osfp": {
+      "name": "OSFP",
+      "description": "Amphenol's OSFP interconnect system has 60 contacts per port, with a 0.6mm contact pitch and 8 high-speed channels. The OSFP footprint is optimized for signal integrity performance and built for use in high-speed serial applications. The connector is enhanced for low crosstalk and has ground commoning for resonance dampening. It is also designed for 1U applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/osfp-connector-cage.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MXM connector is a high-density PCIe® solution that supports next-generation server system architectures. These are non-proprietary, industry-standar",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
-    "mxm-3-0-connectors": {
-      "name": "MXM 3.0 Connectors",
-      "description": "NanoRF Modules, SOSA Aligned",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "osfp-overpass-assemblies": {
+      "name": "OSFP OverPass™ Assemblies",
+      "description": "DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT OSFP OverPass™ products remove high speed signaling from the PCB and create an eight channel direct lower loss interconnection between the ASIC site and the external OSFP IO port by overpassing the PCB. This helps to enable 56G and 112G hardware system designs and a technology for future 224G systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/osfp-overpass.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave expands its VITA connector portfolio with a new line of Backplane and Plug-In modules designed for the NanoRF connector system and fully aligned to",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
-    "nanorf-modules-sosa-aligned": {
-      "name": "NanoRF Modules, SOSA Aligned",
-      "description": "NanoRF VITA 67.3 Connector System",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "overpass-cable-system": {
+      "name": "OverPass™ Cable System",
+      "description": "Amphenol's OverPass™ cable system offers a broad range of capabilities that allow our customers to efficiently transmit high-speed signals from near an ASIC to anywhere in their system.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/overpass-cable-system.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave, a longstanding participant in the VITA community and active member of the electro-mechanical and hardware working groups, is now officially licens",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "panelmatetm-family": {
-      "name": "PanelMate™ Family",
-      "description": "Panel Mount Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pcba-customised": {
+      "name": "PCBA (Customised)",
+      "description": "Amphenol BSI (ABSI) is providing customised PCBA solutions to the market leaders in the Automotive, Medical, Mobile Device, and IT Datacom sectors. With investments in SMT and Visual/Electrical Test equipment, ABSI operations can facilitate volumes from 10k per year up to 1.5m on a single part number. Passive Assemblies Examples: Display & I/O Boards,",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://amphenol-bsi.com/passive-assemblies/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's panel mount connectors are designed for robust and dependable RF connections. They are built to endure harsh environmental conditions and provide",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Backplane Assembly & System Integration",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "pwrblade-cable-connectors": {
-      "name": "PwrBlade+® Cable Connectors",
-      "description": "PwrBlade+® cable connectors offer flexibility to meet a wide variety of customer needs. The connectors come in both Cable-To-Cable and Cable-To-Board solutions. The PwrBlade+® cable provides a flexible, low-cost solution in applications such as telecommunication switches, high-end servers, and hot-swappable power supplies.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server / Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pwrblade-connector": {
-      "name": "PwrBlade+® Connector",
-      "description": "The PwrBlade+® connector is a next-generation AC/DC power distribution connector system for demanding applications requiring higher linear current density and low power loss. It is capable of 192A/linear inch with eight adjacent high power contacts energized simultaneously and 0.7m power contact resistance after environmental exposure.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pcb-connectors": {
+      "name": "PCB Connectors",
+      "description": "SV Microwave's PCB connectors deliver high-speed signal integrity and easy integration onto printed circuit boards. They are designed to minimize signal distortion and ensure consistent electrical performance. These connectors are available in solderless and soldered attachment styles, with configurations in edge launch and surface mount to suit various applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.svmicrowave.com/pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=146",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.25"
       }
     },
-    "pwrblade-mini-cable-to-board-connector": {
-      "name": "PwrBlade® Mini Cable-to-Board Connector",
-      "description": "PwrBlade® Mini Cable-to-Board strengthens the PwrBlade® cable portfolio even further. Mini cable-toboard serves as an I/O cable configuration to meet the ever-increasing demand for higher current density in low profile applications. Mini cable-to-board is capable of carrying up to 25A/contact (50A/column) with 4 adjacent contacts powered.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "printed-pcb-thick-film-resistors": {
+      "name": "Printed PCB Thick Film Resistors",
+      "description": "Piher’s Printed PCB Thick Film Resistors integrate resistive elements, switches, potentiometer tracks, and conductors onto various PCB substrates. Utilizing advanced thick-film technology, they offer customizable, low-profile solutions with high reliability and precision, suitable for diverse applications in automotive, industrial, and consumer electronics.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.piher.net/products/contacting-position-sensors/resistive-rotary-position-sensors/printed-pcb-resistors/",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Piher Sensing Systems",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "protective-caps": {
+      "name": "Protective Caps",
+      "description": "Protective caps are available for many of our products, with options for chains and mounting hardware.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenolrf.com/accessories/protective-caps.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pwrblade-ultra-connector-system": {
-      "name": "PwrBlade® ULTRA Connector System",
-      "description": "PwrBlade® ULTRA's design offers an overall height reduction of 24% to reduce airflow impedance in high-density power supplies. Three contact choices are available; High Power, Low Power, and Signal. Ultra-high conductivity materials and new highly conductive plating, combine to produce an ultra-low resistance of just 0.4mΩ at end-of-life conditions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "pwrmax-i-o-cable-connector-system": {
-      "name": "PwrMAX® I/O Cable Connector System",
-      "description": "PwrMAX® I/O is the highest density power and signal cable connector available. It is capable of carrying up to 50A/Contact (100A/column) with 12 adjacent contacts powered. A range of 6AWG - 8AWG wire options are available for power contacts and 22AWG for signal contacts. This connector series also offers slide-to-lock or squeeze-to-release latching options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.26"
       }
     },
     "quickie-idc-cable-to-board-connector-system": {
       "name": "Quickie® IDC Cable-to-Board Connector System",
       "description": "FCI Basics Quickie® is a complete solution for flat cable-to-board connections using 2.54mm pitch IDC technology. The highly durable and cost-saving connectors come with specialized features in polarization, plating, and structure. Headers are low profile and come in shrouded versions with or without eject latches. Receptacles have strain relief covers for precise alignment.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=28",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/quickie-idc.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's RF connector (radio frequency connector) is an electrical connector designed to work at radio frequencies in the multi-megahertz range. RF connec",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.28"
       }
     },
-    "riser-card-cable": {
-      "name": "Riser Card Cable",
-      "description": "RJ11 Modular Jack Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "rfs-technologies-professional-services": {
+      "name": "RFS Technologies Professional Services",
+      "description": "RFS Technologies has extensive experience working with customers across diverse environments. Design services are available nationwide with certified design engineers using network design tools including iBwave, Ranplan, Planet, NDAC Planner, and ATOLL.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.rfstechnologies.com/",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "RFS Technologies",
+        "Source Page": "IT Datacom p.29"
+      }
+    },
+    "sim-card-connectors": {
+      "name": "SIM Card Connectors",
+      "description": "FCI Basics SIM Card connectors are 6- to 8-pin connectors primarily used as SIM card readers in smartphones and other mobile devices. These are designed for full SIM, mini SIM, and micro SIM \"Plug-in\" applications with hinges and covers for secure card retention. The SMT connectors are space-saving and low-profile.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sim-card.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol has developed variant riser card high-speed cable solutions for different system architecture designs to optimize system space layout. Meanwhile, AST s",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "rj11-modular-jack-connector": {
-      "name": "RJ11 Modular Jack Connector",
-      "description": "FCI Basics RJ11 is the most commonly recognized registered jack. It is used as a standardized telecommunication network interface, for connecting voice and data equipment to a telecommunications carrier in single-line telephones. FCI Basics RJ11 is designed to meet Category 3 (Cat 3) cable performance. Cat 3 cable features a 10Mb/s transfer rate and supports a transmission speed of 16MHz.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking / Telecom",
-        "Amphenol Business": "Amphenol LTW's RJ45 series connectors meet the Ethernet/IP RJ45 requirements and standards. Support Cat5e & Cat6a data transmission speed & IP67 waterproof rati",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "sd-memory-card-connector": {
-      "name": "SD Memory Card Connector",
-      "description": "FCI Basics SD Memory Card Connector is tailor-made for the Car Multimedia Device market serving the dashboard and vehicular entertainment applications. This top-mount solution is highly durable, shockproof, and is able to withstand vibrations and high temperatures found in the automotive environment. The connector is shielded, comes with write protection, and is RoHS compliant.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SFP product family supports applications for up to 6 Gbps per channel. The connector accepts multiple transceivers per INF-8074i and combines, transm",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "sim-card-sockets": {
       "name": "SIM Card Sockets",
       "description": "SIM COMPLIANT FOR 2FF AND 3FF Amphenol is a leader in SIM card sockets. These connectors save space and are user-friendly. The push-push eject feature ensures smooth extraction of the card. It is ideal for use in switches, wifi routers, and mobile phones.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/sim-card-sockets.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s Single Pair Ethernet mechanical interfaces are all designed and made according to IEEE 802.3bp standard offering 5 mechanical mating interfaces a",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
+      }
+    },
+    "smart-card-connectors": {
+      "name": "Smart Card Connectors",
+      "description": "FCI Basics Smart Card connectors are 8- or 16-pin connectors primarily used as full-size smart card readers. These are deployed in health, social security, ID cards, and credit card \"chip-and-pin\" schemes. These products also account for durability with a very large number of mating cycles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/smart-card.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "smc-connector-series": {
       "name": "SMC Connector Series",
       "description": "The SMC interface features threaded coupling with 10-32 threads and is available in 50 and 75 Ohm configurations. SMC connectors offer broadband performance with low reflection DC to 10 GHz and are primarily used in telecommunications and instrumentation applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/connectors/smc-connectors.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom",
-        "Amphenol Business": "SV Microwave’s newly expanded Edge Lock PCB Connector introduces small form, push-on SMP and SMPM connectors. Designed for high-frequency performance up to 65 G",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "smz-connectors": {
       "name": "SMZ Connectors",
       "description": "SMZ connector features the 75 ohm impedance and are ideal for instrumentation applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/connectors/smz-connectors.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Solder Pot Panel Connectors are designed for secure and reliable RF signal transmission, offering a robust solder termination for optimal electrica",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "solder-pot-panel-connectors": {
-      "name": "Solder Pot Panel Connectors",
-      "description": "Split Pair Quadrax Contacts",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "split-pair-quadrax-contacts": {
+      "name": "Split Pair Quadrax Contacts",
+      "description": "With better crosstalk performance, this contact allows a higher data rate than Cat 5E.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenol-socapex.com/en/products/contacts/high-speed-contacts/split-pair-quadrax-contacts",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Solder Pot Panel Connectors are designed for secure and reliable RF signal transmission, offering a robust solder termination for optimal electrica",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "spring-contacts": {
-      "name": "Spring Contacts",
-      "description": "SSMC connectors are ideal for limited-space applications that require the security of a threaded coupling mechanism. They are best used with semi-rigid cables or miniature flexible cables in demanding applications up to 12.4 GHz.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Terminal Blocks and General Interconnect",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol’s spring contacts are widely used in low-profile consumer and automotive applications to enable signal transmission, provide power and grounding. They ",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol SOCAPEX",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "ssmc-connectors": {
       "name": "SSMC Connectors",
       "description": "SSMC connectors are ideal for limited-space applications that require the security of a threaded coupling mechanism. They are best used with semi-rigid cables or miniature flexible cables in demanding applications up to 12.4 GHz.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.amphenolrf.com/connectors/ssmc-connectors.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Positronic offers a variety of standard and high-density D-subs, as well as accessories and ComboD-sub connectors. Highly reliable with precision-machined conta",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "surface-mount-pcb-connectors": {
-      "name": "Surface Mount PCB Connectors",
-      "description": "Tee-Series Adapters",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "summit-rack": {
+      "name": "Summit Rack",
+      "description": "The Summit Rack can be mounted on ladder racks or wire baskets above the active equipment. The 19\" spacing allows the installation of different panels, such as C2E, C2X, LCX, or patch plates, and is available in 3RU and 5RU configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://amphenol-ns.com/Product/overhead-rack-solutions/overhead-wire-basket-solution-3ru",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's TEE-Series adapters are crafted to facilitate tee connections, allowing for multiple signal paths. This series is designed to accommodate applica",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "tfoca-ii-ruggedized-media-converter-arch-series": {
-      "name": "TFOCA-II® Ruggedized Media Converter (ARCH Series)",
-      "description": "Threaded Cable Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "tee-series-adapters": {
+      "name": "Tee-Series Adapters",
+      "description": "SV Microwave's TEE-Series adapters are crafted to facilitate tee connections, allowing for multiple signal paths. This series is designed to accommodate applications where signal splitting or combining is essential. Offering a range of connector options, our TEE-Series adapters ensure efficient signal distribution while maintaining high-quality electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/tee-series?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=219",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI Threaded Cable Connectors provide secure, vibration-resistant connections for high-frequency RF applications. Designed for aerospace, military, spa",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
       }
     },
     "thru-hole-pcb-connectors": {
       "name": "Thru-Hole PCB Connectors",
       "description": "With precision-machined contacts and a thru-hole soldering design, these connectors ensure excellent impedance control, low insertion loss, and enhanced durability. Their robust construction allows for strong retention to the PCB, providing a long-lasting and stable connection in high-frequency environments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolcdi.com/thru-hole-pcb-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=24",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "tpa-fuses": {
+      "name": "TPA Fuses",
+      "description": "With ratings up to 50A, TPA fuses enable the management of high-density/high-capacity equipment such as routers, DSLAMs, and powered SONET equipment.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenol-ns.com/Product/rvdsfpid/346/rvdsfpvid/1549",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Network Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "twinmate-2-54-mm-pcb-receptacles": {
       "name": "TwinMate® 2.54 mm PCB Receptacles",
       "description": "The TwinMate® 2.54 mm connectors set a new standard in tuning fork contact design. With an optimized and refined structure, they minimize stress on Solder Tail headers while maintaining reliable electrical performance that meets industry standards. Next-generation tuning fork design: Reduces solder tail wear and extends lifecycle.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/twinmate-2-54mm-pcb-receptacles.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave released 2-hole in-, and between-series flange mount adapters. These offerings include in-series threaded (SMA / 2.92mm / 2.4mm) as well a",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     },
-    "two-hole-flange-adapters": {
-      "name": "Two Hole Flange Adapters",
-      "description": "UHF Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "ultrapass-overpass-assemblies": {
+      "name": "UltraPass™ OverPass™ Assemblies",
+      "description": "224G CONNECTION DIRECTLY FROM CHIP SITE TO EXTERNAL PORTS UltraPass™ enables arrayed connector layouts for near-chip and on-package IO solutions, providing the highest differential pair count interconnect offering in the market.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ultrapass-overpass.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave released 2-hole in-, and between-series flange mount adapters. These offerings include in-series threaded (SMA / 2.92mm / 2.4mm) as well a",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "universal-contact": {
       "name": "Universal Contact",
-      "description": "(UQDB) Liquid Cooling Connector - SnapQDB",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's Basics universal contact is a single-piece SMT contact that provides an electrical connection between a device and a PCB with no higher than 2A current rating. The universal contact is stamped and formed terminal, incorporating pre-load and anti-lift features available in free height ranging from 1.2mm to 4.1mm, and the deflection range is from 0.6mm to 1.8mm.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/universal-contact.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQDB (UQDB) connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds OC",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "uqdb-liquid-cooling-connector-snapqdb": {
       "name": "(UQDB) Liquid Cooling Connector - SnapQDB",
-      "description": "(UQD G-Thread) Liquid Cooling Connector - SnapQD G-Thread",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQDB (UQDB) connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds OCP UQDB requirements, drip-free quick disconnects for high-performance liquid cooling connectivity【Quick Guide: https://amphenolltw.com/down.php?supp_download=116】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolltw.com/product-info/SnapQDLiquidCoolingConnector/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQD G-Thread connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds O",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "uqd-g-thread-liquid-cooling-connector-snapqd-g-thread": {
       "name": "(UQD G-Thread) Liquid Cooling Connector - SnapQD G-Thread",
-      "description": "(UQD) Liquid Cooling Connector - SnapQD",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQD G-Thread connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds OCP UQD requirements, drip-free quick disconnects for high-performance liquid cooling connectivity【Quick Guide: https://amphenolltw.com/down.php?supp_download=116】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolltw.com/product-info/SnapQDLiquidCoolingConnector/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQD connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds OCP UQD re",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "uqd-liquid-cooling-connector-snapqd": {
       "name": "(UQD) Liquid Cooling Connector - SnapQD",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW is a proud OCP Solution Provider. Our SnapQD connectors are listed on the Open Compute Marketplace, offering reliable, meets and exceeds OCP UQD requirements, drip-free quick disconnects for high-performance liquid cooling connectivity【Quick Guide: https://amphenolltw.com/down.php?supp_download=116】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolltw.com/product-info/SnapQDLiquidCoolingConnector/",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol USB 2.0 Connector was developed to integrate a variety of existing PC I/O ports into a single interface with hot-plugging and automatic configuration c",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.32"
       }
     },
-    "vhdm-hsdtm": {
+    "vhdm-hsd": {
       "name": "VHDM-HSD™",
-      "description": "VHDM-HSD™ is a shielded, high-density, high-speed press-fit connector system optimized for differential pair architectures. The flexible, modular design of the product allows for the differential performance of our VHDM-HSD™ connector to be combined on the same rear organizer as the VHDM® connector which is a single-ended solution.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "is a shielded, high-density, high-speed press-fit connector system optimized for differential pair architectures. The flexible, modular design of the product allows for the differential performance of our VHDM-HSD™ connector to be combined on the same rear organizer as the VHDM® connector which is a single-ended solution.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/vhdm-hsd.html",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
-    "wtb-bmi-fan-connectors": {
-      "name": "WTB BMI Fan Connectors",
+    "xa-series": {
+      "name": "XA Series",
       "description": "Pitch: 6.35mm/8.60mm Poles: 1P-12P Voltage Rating: 300V/600V Current Rating: 30A/30A Wire Range: 10-24 AWG Wire Strip Length: 11-12mm Withstanding Voltage: 2.0KV/2.2KV",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=34",
+      "businessUrl": "https://www.anytek.com.cn/en/search.aspx?prokeytype=1&search=xa",
       "specs": {
         "Product Type": "Terminal Blocks and General Interconnect",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's wire-to-board fan connectors come with Blind-Mate Interface. The 1.25mm pitch wire-to-board connectors meet a maximum of 2.8A/pin current carrying ca",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Anytek",
+        "Source Page": "IT Datacom p.34"
+      }
+    },
+    "xcede-hd": {
+      "name": "XCede® HD",
+      "description": "product leverages the same core technologies as standard XCede® series. Providing a robust solution for tighter card pitches and chassis designs where space requirements and density are critical. XCede® HD product family includes XCede® HD, XCede® HD Plus and XCede® HD2 supporting various data rate up to 56Gb/s with backward compatibility.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=34",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/xcede-hd.html",
+      "specs": {
+        "Product Type": "Terminal Blocks and General Interconnect",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.34"
       }
     }
   }

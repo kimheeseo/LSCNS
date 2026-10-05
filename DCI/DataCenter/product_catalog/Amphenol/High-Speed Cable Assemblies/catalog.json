@@ -3,27 +3,38 @@
   "company": "Amphenol",
   "category": "High-Speed Cable Assemblies",
   "displayName": "High-Speed Cable Assemblies",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: High-Speed Cable Assemblies. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: High-Speed Cable Assemblies. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33"
   ],
-  "sourceCount": 87,
+  "sourceCount": 51,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,1135 +43,667 @@
     "Source Page"
   ],
   "products": {
-    "arinc-404-filter-connectors": {
-      "name": "ARINC 404 Filter Connectors",
-      "description": "Armored RF Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a range of armored RF cable assemblies designed to excel in challenging conditions, especially in applications like ground vehicle communica",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
     "armored-rf-cable-assemblies": {
       "name": "Armored RF Cable Assemblies",
-      "description": "ASGTC-Quadrax is a special circular bayonet coupling connector for data line transmission in RMT application, It's IP67 protection and with a self-locking system specially designed in order to get heavy duty application, Q-contacts with the protection of copper body and multipoints band in female contact to provide to 360º shielding.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave offers a range of armored RF cable assemblies designed to excel in challenging conditions, especially in applications like ground vehicle communications systems. Cable assemblies are available in both fully and partially armored configurations, these can deliver outstanding resistance to corrosion and crushing.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://www.svmicrowave.com/armored-rf-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=_84",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a range of armored RF cable assemblies designed to excel in challenging conditions, especially in applications like ground vehicle communica",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.5"
       }
     },
-    "barklip-bk1000-hd-i-o-1ou-cable-connector": {
-      "name": "BarKlip® BK1000 HD I/O 1OU Cable Connector",
-      "description": "HIGH POWER OCP-COMPATIBLE CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK1000 HD I/O power cable assemblies feature an OCP-compatible design, compliant with ORv3 power distribution architecture standards. Barklip® BK1000 HD IO can distribute up to 1000A per contact, load and return, and up to 2000A total. Designed similarly to other ORv3 busbar connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "bmb-rf-interconnects": {
+      "name": "BMB RF Interconnects",
+      "description": "SV Microwave’s latest product line offers a comprehensive range of RF interconnects, including standard and bulkhead cable connectors for a variety of cable types and PCB connectors ideal for use in board-to-board solutions, with connectors in both Full Detent and Smooth Bore options, as well as a bullet. This product line is rated to work up to 22 GHz, ensuring reliable and high-performance RF solutions.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.svmicrowave.com/bmb-rf-interconnects?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=125",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BarKlip® BK100 I/O provides a convenient method of distributing up to 100A between busbars, cables and circuit boards. It features 12 fully independe",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "barklip-bk1200-hd-i-o-1ou-cable-connector": {
-      "name": "BarKlip® BK1200 HD I/O 1OU Cable Connector",
-      "description": "HIGH POWER OCP-COMPATIBLE CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK1200 HD I/O power cable assemblies feature an OCP-compatible design, compliant with ORv3 power distribution architecture standards. Barklip® BK1200 HD I/O can distribute up to 1250A per contact, load and return, and up to 2500A total.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "barklip-bk600-i-o": {
-      "name": "BarKlip® BK600 I/O",
-      "description": "OCP-COMPATIBLE POWER CABLE ASSEMBLY COMPLIANT WITH OPEN COMPUTE POWER DISTRIBUTION ARCHITECTURE Amphenol's BarKlip® BK600 I/O power cable assemblies feature an OCP-compatible design compliant with ORv3 power distribution architecture standards. Barklip® BK600 I/O can distribute up to 700A between busbars, cables, and circuit boards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
-      }
-    },
-    "breathable-vent": {
-      "name": "Breathable Vent",
-      "description": "Bulkhead to VITA Inside-The-Box Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's new IP67 Bulkhead-to-VITA 67.3 cable assemblies provide a robust, inside-the-box solution for routing RF signals in embedded systems applications",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "bulkhead-to-vita-inside-the-box-cable-assemblies": {
-      "name": "Bulkhead to VITA Inside-The-Box Cable Assemblies",
-      "description": "C2E High Density Fiber Distribution Panel",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's new IP67 Bulkhead-to-VITA 67.3 cable assemblies provide a robust, inside-the-box solution for routing RF signals in embedded systems applications",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "cdfp-cable-assemblies": {
       "name": "CDFP Cable Assemblies",
-      "description": "Ceramic Injection Molding",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDFP cable assemblies are designed to meet emerging data center and high-performance computing application needs for high density cabling interconnect systems capable of delivering 32GT/s per lane (Gen 5.0). CDFP has 16 lanes, capable to deliver 64Gbps. This interconnect system is fully compliant with existing industry standard specifications SFF-TA-1032.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cdfp-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CIM process uses ceramic zirconium to provide a scratch and wear-resistant surface to components such as mobile phone camera decoration and side keys",
-        "Source Page": "IT Datacom p.3"
+        "Application": "Data center / AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
       }
     },
     "conformable-rf-cable-assemblies": {
       "name": "Conformable RF Cable Assemblies",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's conformable cable assemblies feature hand-formable cable that retains its shape after being placed into specific bends providing a balance between bending capability and high-frequency performance up to 40 GHz. These cable assemblies, recognized for their customizable features, are useful for prototyping and development.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.svmicrowave.com/conformable?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=27",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's conformable cable assemblies feature hand-formable cable that retains its shape after being placed into specific bends providing a balance betwee",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "core-cryo-cable-assemblies": {
       "name": "Core Cryo Cable Assemblies",
-      "description": "CoreHC RF Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI’s Core Cryo™ product family is engineered to deliver exceptional performance in magnetically sensitive and ultra‑low‑temperature environments, using fully non‑magnetic materials to ensure compatibility with quantum computing systems, precision sensors, mixed‑signal electronics, and advanced medical or scientific instrumentation.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://amphenolcdi.com/core-cryo?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=3",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI CoreHC™ is a high-performance, solderless ganged coaxial solution designed for direct PCB attachment. Featuring a 2.5mm pitch signal-to-signal conf",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "corehc-rf-cable-assemblies": {
       "name": "CoreHC RF Cable Assemblies",
-      "description": "COTS Products Customizations",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI CoreHC™ is a high-performance, solderless ganged coaxial solution designed for direct PCB attachment. Featuring a 2.5mm pitch signal-to-signal configuration, it enables engineers to maximize space savings while reducing PCB size and cost. The DC-70GHz connector minimizes trace lengths, optimizing insertion loss and ensuring superior performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://amphenolcdi.com/corehc-rf-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=11",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a flexible approach to customizing our COTS products to meet unique customer needs. Our applications and design engineering teams routinely ",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "cryo-semi-rigid-assemblies": {
+      "name": "Cryo Semi Rigid Assemblies",
+      "description": "Amphenol CDI’s cryogenic semi‑rigid cable assemblies are engineered for precision, stability, and ultra‑low‑temperature performance, delivering reliable signal integrity for quantum computing, scientific instrumentation, aerospace, and advanced electronic systems. Built with robust materials, rugged construction, and flexible configuration options—including customizable connectors, lengths, etc.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://amphenolcdi.com/cryo-semi-rigid-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=4",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.9"
+      }
+    },
+    "custom-flex-cables": {
+      "name": "Custom Flex Cables",
+      "description": "Amphenol's Flex Cable Assemblies provide value-added solutions to challenging interconnect problems where a flexible solution is desirable. Amphenol flex cables can be engineered to use any mezzanine connector in the Amphenol portfolio to meet unique signal integrity, mechanical, power, and environmental requirements.Amphenol flex cables are qualified in a wide range of commercial and military...",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/custom-flex-cables.html",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "cxp-passive-copper-cable-assemblies-120g-168g-300g": {
       "name": "CXP Passive Copper Cable Assemblies 120G/168G/300G",
-      "description": "Data Guide Cable Specialty Cables",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's CXP passive copper cable assemblies are designed to meet the high bandwidth capacity demands being requested by data centers and high-performance computing applications. The CXP copper cables are a high-density cabling interconnect system capable of delivering aggregate data bandwidths of 120Gb/s and 168 Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cxp-passive-copper-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CXP passive copper cable assemblies are designed to meet the high bandwidth capacity demands being requested by data centers and high-performance com",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "densilink-overpasstm-assemblies": {
-      "name": "DensiLink® OverPass™ Assemblies",
-      "description": "112G DOUBLE ENDED HIGH PERFORMANCE CABLING INTERCONNECT DensiLink® OverPass™ products remove high speed signaling from the PCB and create a double ended, high performance cabling interconnect. These cables support 56G and 112G signaling in hardware system designs as well as technology for future 224G signaling systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Application": "Data center / AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "din-idc-cable-connectors-and-cable-assemblies": {
       "name": "DIN IDC Cable Connectors and Cable Assemblies",
       "description": "FCI Basics DIN IDC cable connectors are available in 4 connector sizes as 96, 42, 21 and 9 positions. Available in wire sizes 30AWG to 24AWG, their unique insulation displacement design grants the lowest installed cost for users. Standard accessories are also offered to make up a fully modular system. This robust and standardized solution is widely used in Industrial and Instrumentation markets.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/din-idc-cable-connectors-and-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "21 a · 30a · 24a",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "double-density-cool-edge-0-80mm-connectors-and-cable-assemblies": {
       "name": "Double Density Cool Edge 0.80mm Connectors and Cable Assemblies",
       "description": "The 0.80mm pitch Double Density Cool Edge connectors and cable assemblies offer a compact design with 2 rows of contacts. This highly configurable single piece connector can accommodate both high speed and low speed signal and power. This hybrid connector reduces more than half of the PCB footprint when compared to 1.00mm PCIe Cool Edge. It supports PCIe Gen 5 and is designed for multiple Add-In-Card...",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/dd-cool-edge-0-80mm.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
-    "dsfp-cable-assemblies": {
-      "name": "DSFP Cable Assemblies",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "d-sub-cable-connectors": {
+      "name": "D-Sub Cable Connectors",
+      "description": "Amphenol's D-Subminiature (D-Sub) connectors are part of an industry standard for applications requiring robust and reliable connectors. These proven D-Sub connectors are one of the most popular Input/Output interconnects, addressing a wide variety of applications in telecommunications, data, consumer, industrial, military, instrumentation and medical.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-cable.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's D-Sub Accessories complement their D-sub offering by accounting for the moderate to severe mechanical stresses encountered, and preventing risks like",
-        "Source Page": "IT Datacom p.4"
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
-    "duraswaptm-concentric-connectors": {
-      "name": "DURASWAP™ Concentric Connectors",
-      "description": "HIGHLY DURABLE SWAPPABLE DOCKING CONNECTOR The swappable custom battery connector solutions with cable assemblies are offered in 2 power & 6 signal configurations. These connectors can carry a continuous current up to 100A with 10,000 mating cycles. They are IP67-rated in mated condition and can be mated in two directions (bi-directional mating).",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "d-sub-economy-range-board-mount-connectors": {
+      "name": "D-Sub Economy Range Board-Mount Connectors",
+      "description": "Amphenol's D-Sub Economy Range Board-Mount Connectors are proven solutions designed to meet less demanding applications while meeting all their design requirements. These connectors have a guaranteed durability of 50 mating cycles. Board connectors are available in straight and right angle versions, while cable connectors are available in solder bucket and crimp styles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-economy-range-board-mount.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
-    "duraswaptm-connectors": {
-      "name": "DuraSwap™ Connectors",
-      "description": "HIGHLY DURABLE SWAPPABLE DOCKING CONNECTOR The swappable custom battery connector solutions with cable assemblies are offered in 2 power & 6 signal configurations. These connectors can carry a continuous current of 15A-70A with 10,000 mating cycles and IP67 rated in mated and unmated condition",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "embedded-phase-tuner": {
+      "name": "Embedded Phase Tuner",
+      "description": "SV Microwave streamlines this with our innovative Embedded Phase Tuner. This component allows customers to independently adjust the phase of cable assemblies without external vendor involvement. The Embedded Phase Tuner operates by adjusting the transmission line length using a threaded coupling nut, simplifying the process.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.svmicrowave.com/embedded-phase-tuner?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=132",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.12"
       }
     },
-    "edsff-board-site-connector": {
-      "name": "EDSFF Board Site Connector",
-      "description": "EDSFF E1/E3 High-Speed Cable Assembly",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "emi-gasket-bulkhead-connectors-and-adapters": {
+      "name": "EMI Gasket Bulkhead Connectors and Adapters",
+      "description": "SV Microwave has just released a series of SMA and 2.92mm cable connectors and adapters with built-in electromagnetic interference (EMI) shielding. These interconnects feature a gasket that improves EMI shielding over similar products, resulting in minimal to no electromagnetic interference.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.svmicrowave.com/emi-gasket-bulkhead-connectors-and-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=17",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol introduces the next-generation OverPass™ solution - EDSFF Board Site Connector. The 0.60mm pitch connector comes with a slim form factor design, capabl",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.12"
       }
     },
-    "edsff-e1-e3-high-speed-cable-assembly": {
-      "name": "EDSFF E1/E3 High-Speed Cable Assembly",
-      "description": "EDSFF ORTHOGONAL CABLE ASSEMBLY WITH DIFFERENTIAL SIGNALING TO 32GT/S NRZ FOR NEXT-GENERATION SYSTEMS Amphenol's EDSFF E1/E3 high-speed cable assembly transmits power and high-speed signals via a cable that directly connects to the main PC board supporting EDSFF E1/E3 SSD and CXL or other modules.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "extremeport-flash": {
+      "name": "Extremeport-Flash",
+      "description": "Amphenol’s Extremeport-Flash is an extreme low mating height, easy-to-release high-speed cable solution. We designed 95ohm Flash mainly to support near chip (under heat sink) to IO application, and the mating height is lower than 5mm. Flash can support 56G PAM4, and scalable to 112G PAM4 application, and plug is with pull tab design feature for easy release.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=240",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "examax2-112gb-s-backplane-cable": {
-      "name": "EXAMAX2® 112Gb/s Backplane Cable",
-      "description": "EXAMAX2® Cable Backplane Systems offer high density cable assemblies for both internal and external applications that are capable of delivering high speed performance of 112Gb/s per channel. EXAMAX2® cable applications include internal OverPass™ cables, external I/O cables, cabled midplane and cabled backplane",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "extremeport-swift": {
+      "name": "Extremeport-Swift",
+      "description": "Amphenol’s Extremeport-Swift is an extreme low profile(mating height<9mm), robust mechanical, and excellent SI performance cable solution. The cable assembly and connector can support PCIe Gen5, and the SI performance is scalable to PCIe Gen6 and 112G PAM4. We can provide straight, right angle, and side exit plug types with 38pin, 74pin, and 124pin to support customers to optimize system layout.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=241",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "examax-56gb-s-backplane-cable": {
-      "name": "ExaMAX® 56Gb/s Backplane Cable",
-      "description": "The ExaMAX® I/O system offers cable assemblies and I/O connector solutions for both internal and external applications. ExaMAX® I/O products are capable of delivering high-speed performance of 25 Gb/s per channel with a path to 40 Gb/s and higher. The ExaMAX® I/O system delivers superior linear board signal density and meets the performance requirements of the OIF-CEI-25G-LR industry standard.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "extremeport-z-link-gen-z": {
-      "name": "Extremeport-Z-Link(Gen Z)",
-      "description": "Extreme RF Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave offers a complete line of fixed length, high-frequency Ø.047\" and Ø.085\" cable assemblies in series: SMA, 2.92mm, 2.4mm, 1.85mm, SMP, & SM",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.13"
       }
     },
     "extreme-rf-cable-assemblies": {
       "name": "Extreme RF Cable Assemblies",
-      "description": "EZ-1200-NMC-2 is a Type N male (plug), straight EZ connector for LMR®-1200 cables. It features crimp-style outer contacts, spring finger inner contacts, and a no-braid trim to prevent FOD. BeCu pins ensure strong contact in cold, high-vibration conditions. Durable and weatherproof, it meets MIL-C-39012 specs and is ideal for long, high-power, low-loss RF cable runs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol SV Microwave offers a complete line of fixed length, high-frequency Ø.047\" and Ø.085\" cable assemblies in series: SMA, 2.92mm, 2.4mm, 1.85mm, SMP, & SMPM. These assemblies feature low solder wicking, and the high flexibility allows for tight bends behind the cable ferrule. Our low loss is your gain!",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=14",
+      "businessUrl": "https://www.svmicrowave.com/extreme-rf-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=13",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol SV Microwave offers a complete line of fixed length, high-frequency Ø.047\" and Ø.085\" cable assemblies in series: SMA, 2.92mm, 2.4mm, 1.85mm, SMP, & SM",
-        "Source Page": "IT Datacom p.6"
-      }
-    },
-    "fiber-optic-fanout-cable": {
-      "name": "Fiber Optic Fanout Cable",
-      "description": "Fanout cables are used for fixed cabling between network cabinets, mainly for breakout applications. System-oriented connector combinations make them application-independent and suitable for all Ethernet and Fibre Channel applications. Usually, 8-fold, 12-fold and 24-fold fanout cable assembled with MPO connectors one side and any common connector type on the other side could be provided.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Networking",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.14"
       }
     },
     "fixed-length-cable-assemblies": {
       "name": "Fixed Length Cable Assemblies",
-      "description": "Flexible Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol RF offers a full line of pre-assembled, fixed-length cable assemblies. Fixed length assemblies are offered in all of our most popular connector series and are available in over 1400 standard configurations and lengths.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenolrf.com/cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's flexible cable assemblies are designed to provide versatility in routing, making them suitable for applications where space constraints or comple",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "flexible-cable-assemblies": {
       "name": "Flexible Cable Assemblies",
-      "description": "Flexible Printed Circuit Assembly",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=6",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's flexible cable assemblies are designed to provide versatility in routing, making them suitable for applications where space constraints or complex layouts are present. SV offers cable assemblies in a variety of diameters from common RF sizes like Ø.047”, Ø.085”, Ø.141”, and more. SV’s Ø.047” cable assemblies come in both standard and super flexible cable types.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.svmicrowave.com/flexible-cable-assembly?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=136",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's BergStak®, MezzoStak®, Conan®, ComboStak® and PowerStak® are industry proven board-to-board solutions. To enlarge the advantages of these recognized ",
-        "Source Page": "IT Datacom p.6"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.15"
       }
     },
-    "hpce-board-to-board-connector": {
-      "name": "HPCE® Board to Board Connector",
-      "description": "The HPCE® BTB is a board-to-board high power connector for demanding applications requiring high linear current density and small connector size. It is part of Amphenol's HPCE® series family together with HPCE and HPCE cable assembly. HPCE® BTB is ideal for next-generation 1U/2U servers, storage enclosures, telecommunications equipment, and datacom/ networking equipment.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server / Storage / Networking / Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "hpce-cable-assembly": {
-      "name": "HPCE® Cable Assembly",
-      "description": "The HPCE® cable assembly is a next-generation power cable assembly for demanding applications requiring high linear current density and low power loss. It offers both one-piece (cable to card edge) and two-piece (cable to header) solutions. Both have a low profile height (7.5mm) and are based on very cost-effective and highly reliable stamped-and-formed power contact.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "in-series-rf-adapters": {
+      "name": "In-Series RF Adapters",
+      "description": "Amphenol CDI In-Series RF Adapters provide a seamless connection between identical RF connector types, ensuring consistent signal integrity and minimal loss. Designed for high-frequency applications, these adapters offer a reliable solution for extending cable assemblies, adapting system layouts, or modifying connector interfaces while maintaining optimal electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://amphenolcdi.com/in-series-rf-adapters?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=18",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "hybrid-patchbox-19": {
-      "name": "Hybrid Patchbox - 19\"",
-      "description": "The 19” Hybrid Patchbox is suitable for fixed installations with a one-piece front panel to accommodate up to 8 URM P8-connectors and 12 RJ45 Keystone-Modules. Alternative SC- or LC-connectors are applicable. Optimized packing density is provided by combining fiber optic and copper cables. Backside cable inlets for screwed cable glands 2 x M32 and 4 x M25 as well as M6 grounding bolt are included.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "m12-distribution-boxes": {
-      "name": "M12 Distribution Boxes",
-      "description": "M12 Highly Flexible Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW provides highly flexible cables for constant moving applications. Ideal for modern automated manufacturing systems. The key features as below: Reco",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "m12-highly-flexible-cable-assemblies": {
       "name": "M12 Highly Flexible Cable Assemblies",
-      "description": "M12 Metric Circular Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW provides highly flexible cables for constant moving applications. Ideal for modern automated manufacturing systems. The key features as below: Recommended connectors series: M8, M12, X-LOK, Ceres, USB, RJ45; Bending Standard: TÜV 2 PFG 2577 Class II; Flexing Test: 6 Million Cycles (S≤4mm²); 90° Bending Test: 1 Million Cycles; Cableveyor Test: 5 Million Cycles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://amphenolltw.com/news-events/reliable-high-flexible-cables-for-industrial-use.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's waterproof M12 connectors are designed in various coding options with comprehensive product configurations according to IEC standards, delivering",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "magneto-lok-connector": {
-      "name": "Magneto-Lok Connector",
-      "description": "M-CRPS +54V Connectors & Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's M-CRPS (+54V) Connectors and Cable Assemblies are designed to meet the Open Compute Project's M-CRPS power supply input specifications, providing rob",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "m-crps-54v-connectors-cable-assemblies": {
       "name": "M-CRPS +54V Connectors & Cable Assemblies",
-      "description": "MCX Connector Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's M-CRPS (+54V) Connectors and Cable Assemblies are designed to meet the Open Compute Project's M-CRPS power supply input specifications, providing robust performance and flexibility. Capable of delivering up to 40A per contact, these connectors support 8AWG - 12AWG wire sizes, enabling standardized DC-MHS rack and power architecture while maintaining design adaptability.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/m-crps-54v-connectors-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 40a · 40a per contact · 8a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's M-CRPS (+54V) Connectors and Cable Assemblies are designed to meet the Open Compute Project's M-CRPS power supply input specifications, providing rob",
-        "Source Page": "IT Datacom p.8"
-      }
-    },
-    "micro-linkovertm-overpasstm-assemblies": {
-      "name": "micro-LinkOVER™ OverPass™ Assemblies",
-      "description": "micro-LinkOVER™ OverPass™ products remove high speed signaling from the PCB and create a double ended, high performance cabling interconnect by overpassing the PCB. These cables support 56G and 112G signaling in hardware system designs as well as a technology for future 224G signaling systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "mini-sas-cable-assemblies": {
       "name": "Mini-SAS Cable Assemblies",
-      "description": "Mini-SAS Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's external Mini-SAS cable assembly solutions address the current and legacy storage industry's demand for a reliable, compact, high-speed serial I/O supporting SAS 2.1. The Mini-SAS I/O system provides a cost-effective, high-speed solution that meets the bandwidth requirements of current and legacy applications of servers and external storage systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's external mini-SAS / SATA connector, cage, and cable assembly system solution addresses the storage industry's demand for more compact, high-speed ser",
-        "Source Page": "IT Datacom p.9"
+        "Application": "Server / Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
+      }
+    },
+    "mini-sas-connectors": {
+      "name": "Mini-SAS Connectors",
+      "description": "Amphenol's external mini-SAS / SATA connector, cage, and cable assembly system solution addresses the storage industry's demand for more compact, high-speed serial I/O interfaces that also support evolving signal speed requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas-connectors.html",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "mini-sas-hd-cable-assemblies": {
       "name": "Mini-SAS HD Cable Assemblies",
-      "description": "Mini-SAS HD Internal",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's 12G / 24G Mini-SAS HD product is the next generation SAS storage interface addressing multichannel bandwidth requirements of 12Gb/s or 24Gb/s while meeting or exceeding SAS 3.0/4.0 specifications. The Mini-SAS HD product provides greater port density (11mm port-to-port) versus the legacy Mini-SAS HD 2.0 product (19.01mm port-to-port).",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-sas-hd-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 12G / 24G Mini-SAS HD product is the next generation SAS storage interface addressing multichannel bandwidth requirements of 12Gb/s or 24Gb/s while m",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "mini-usb-micro-usb-connectors": {
-      "name": "Mini USB & Micro USB Connectors",
-      "description": "Modular Cable Assemblies - RJE1Y Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW Waterproof Mini & Micro-USB 2.0 SWIFT Connectors are IP67 / IP68 stand-alone connectors suitable for miniature connector requirements or wearable a",
-        "Source Page": "IT Datacom p.9"
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "modular-cable-assemblies-rje1y-series": {
       "name": "Modular Cable Assemblies - RJE1Y Series",
       "description": "RJE1Y cable assemblies are offered in a variety of colors, lengths, and boot styles with speeds up to 25 Gigabit Ethernet. The RJ45 plugs have injection-molded kinks to protect the cable and wire. There are three main strain relief styles: non-booted, bubble boot, and latch boot. The boot offers protection to the locking tab on the RJ45 plug which prevents it from being damaged.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/modular-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "nexlev-12-5gb-s-high-density-bga-mezzanine-connector": {
-      "name": "NeXLev® 12.5Gb/s High Density BGA Mezzanine Connector",
-      "description": "Non-Magnetic RF Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s latest addition to its Non-Magnetic product family introduces high-performance cable assemblies engineered for magnetically sensitive environment",
-        "Source Page": "IT Datacom p.10"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
     "non-magnetic-rf-cable-assemblies": {
       "name": "Non-Magnetic RF Cable Assemblies",
-      "description": "nrgBDFB-XLW 1000A Battery Distribution Fuse Bay",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave’s latest addition to its Non-Magnetic product family introduces high-performance cable assemblies engineered for magnetically sensitive environments. These compact 6\" assemblies pair trusted SMA and SMPM interfaces with Ø.047\" or Ø.085\" flexible cables to deliver low-loss, high-frequency performance in a ready-to-use format. Ideal for applications in quantum computing, test and measurement.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.svmicrowave.com/non-magnetic-rf-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=184",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s latest addition to its Non-Magnetic product family introduces high-performance cable assemblies engineered for magnetically sensitive environment",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.23"
       }
     },
-    "ocp-48v-barklip-bk150-io": {
-      "name": "OCP 48V BarKlip® BK150 IO",
-      "description": "OCP 48V COMPATIBLE POWER CABLE ASSEMBLY FOR OPEN COMPUTE IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant Barklip® BK150 power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards and provide a convenient method of distributing up to 150A per contact between busbars, cables, and circuit boards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "ocp-48v-barklip-bk220-i-o": {
-      "name": "OCP 48V BarKlip® BK220 I/O",
-      "description": "OCP-COMPATIBLE ORV3 POWER ASSEMBLY CONNECTOR FOR IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant BarKlip® BK220 power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards. The connector system supports up to 220A per contact between busbars, cables, and circuit boards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "ocp-48v-barklip-bk350-i-o": {
-      "name": "OCP 48V BarKlip® BK350 I/O",
-      "description": "OCP-COMPATIBLE ORV3 POWER ASSEMBLY CONNECTOR FOR IT GEAR POWER DISTRIBUTION ARCHITECTURE Amphenol's OCP 48V compliant BarKlip® BK350 I/O power cable assemblies are designed to meet OCP V3 IT Gear power distribution architecture standards. The connector system supports up to 360A per contact between busbars, cables, and circuit boards.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's OCP 48V compliant Barklip® BK500 IO power cable assemblies are designed to meet OCP V3 power distribution architecture standards and provide a conven",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "ocp-48v-barklip-bk500-io": {
-      "name": "OCP 48V BarKlip® BK500 IO",
-      "description": "Designed based on three decades of experience developing power connectors for specific applications. For use in power shelves, servers, or any other aspect of OCP power management. Extended efforts include offering turn-key AC whip cable assemblies to ORV3 specifications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol's OCP 48V compliant Barklip® BK500 IO power cable assemblies are designed to meet OCP V3 power distribution architecture standards and provide a conven",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "ocp-orv3": {
-      "name": "OCP ORv3",
-      "description": "Designed based on three decades of experience developing power connectors for specific applications. For use in power shelves, servers, or any other aspect of OCP power management. Extended efforts include offering turn-key AC whip cable assemblies to ORV3 specifications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Server",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "ocp-orv3-ac-input-connector-and-cable-assemblies": {
-      "name": "OCP ORv3 AC Input Connector and Cable Assemblies",
-      "description": "DESIGNED FOR OCP'S V3 UNIVERSAL INPUT POWER DISTRIBUTION ARCHITECTURE STANDARDS Amphenol's OCP-compliant AC Input Connectors and Cable Assemblies are designed to meet OCP's V3 Universal Input power distribution architecture standards and provide a convenient method of routing power directly from the busway to the power shelf within the V3 rack.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "octistm-hybrid-connectors-and-cable-assemblies": {
+    "octis-hybrid-connectors-and-cable-assemblies": {
       "name": "OCTIS™ - Hybrid Connectors and Cable Assemblies",
       "description": "OCTIS™ I/O connectors and cable assemblies on a hybrid interface promote bother signal and power transmission over Cat 5e cable in outdoor and harsh environments like Remote Radio Units and small/macro cells. It offers lightning protection, EMI shielding, and is field-installable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/octis-hybrid-power-signal-combo.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
-    "octistm-rj45-connectors-and-cable-assemblies": {
+    "octis-rj45-connectors-and-cable-assemblies": {
       "name": "OCTIS™ - RJ45 Connectors and Cable Assemblies",
       "description": "OCTIS™ I/O connectors and cable assemblies using the RJ45 standard interface promote Ethernet-friendly signal transmission in outdoor and harsh environments like Remote Radio Units and small/macro cells. It offers lightning protection, EMI shielding, and is field-installable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/octis-rj45.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "octistm-signal-connectors-and-cable-assemblies-metral-hdxs": {
-      "name": "OCTIS™ - Signal Connectors and Cable Assemblies (Metral® HDXS)",
-      "description": "OCTIS™ I/O connectors and cable assemblies using Amphenol's Metral® HDXS interface promote signal and PoE++ transmission over Cat 5e and 6 cables in outdoor and harsh environments like Broadband Wireless Access. It offers lightning protection, EMI shielding, and is field-installable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Telecom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "omni-path-copper-cable-assemblies-100g": {
       "name": "Omni-Path Copper Cable Assemblies 100G",
       "description": "The Omni-Path verified DAC copper cables, are offered to address the needs of the majority of the inter-cabinet & short-reach intra-cabinet cable connections while minimizing cable bulk & cable routing issues, up to 4 meters using 30AWG cable. Longer-length cables up to 6 meters also maximize the length of copper. These longer cables use 26AWG high-performance bulk cable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/omni-path-direct-attach-copper-cables.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "osfp": {
-      "name": "OSFP",
-      "description": "OSFP Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's OSFP interconnect system has 60 contacts per port, with a 0.6mm contact pitch and 8 high-speed channels. The OSFP footprint is optimized for signal i",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "osfp-cable-assemblies": {
       "name": "OSFP Cable Assemblies",
       "description": "mphenol is leading the industry in OSFP cable development. Our Electronics Products ʻProduct of the Yearʼ award-winning OSFP (Octal Small Form Factor Pluggable) cable assemblies are compatible with 25G/lane channel NRZ up to 224G/lane channel PAM4 signaling protocols that allow the cables to deliver aggregate bandwidths of 200G, 400G, 800G, and 1.6T per cable assembly.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/osfp-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "osfp-overpasstm-assemblies": {
-      "name": "OSFP OverPass™ Assemblies",
-      "description": "DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT OSFP OverPass™ products remove high speed signaling from the PCB and create an eight channel direct lower loss interconnection between the ASIC site and the external OSFP IO port by overpassing the PCB. This helps to enable 56G and 112G hardware system designs and a technology for future 224G systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol is at the forefront of OSFP-XD (Octal Small Form Factor Pluggable eXtra Dense) cable development, setting new industry standards with our innovative de",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
       }
     },
     "osfp-xd-copper-cable-assemblies": {
       "name": "OSFP-XD Copper Cable Assemblies",
-      "description": "Outside Plant Passives (OSP)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol is at the forefront of OSFP-XD (Octal Small Form Factor Pluggable eXtra Dense) cable development, setting new industry standards with our innovative designs. Our advanced OSFP-XD cable assemblies are designed to meet the rigorous demands of both PCIe® Gen 5 and Ethernet protocols, providing a future-proof solution with unparalleled bandwidth capabilities.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/osfp-xd-cable-assemblies.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol is at the forefront of OSFP-XD (Octal Small Form Factor Pluggable eXtra Dense) cable development, setting new industry standards with our innovative de",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "overpasstm-cable-system": {
-      "name": "OverPass™ Cable System",
-      "description": "Paladin® 112Gb/s Backplane Cable",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's OverPass™ cable system offers a broad range of capabilities that allow our customers to efficiently transmit high-speed signals from near an ASIC to ",
-        "Source Page": "IT Datacom p.10"
-      }
-    },
-    "panel-mount-connectors": {
-      "name": "Panel Mount Connectors",
-      "description": "Panel-Mounted Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's new IP68-rated panel-mounted cable assemblies provide a rugged, high-performance solution for routing RF signals from an external, sealed interfa",
-        "Source Page": "IT Datacom p.10"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "panel-mounted-cable-assemblies": {
       "name": "Panel-Mounted Cable Assemblies",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's new IP68-rated panel-mounted cable assemblies provide a rugged, high-performance solution for routing RF signals from an external, sealed interface to a high-density internal connection. Designed with an IP68-rated SMA female bulkhead on one end, these assemblies provide an environmental seal against dust and water ingress at the panel.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.svmicrowave.com/panel-mounted-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=230",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol BSI (ABSI) is providing customised PCBA solutions to the market leaders in the Automotive, Medical, Mobile Device, and IT Datacom sectors. With investm",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "perma-tap-power-cable-assembly": {
       "name": "Perma-Tap® Power Cable Assembly",
       "description": "Perma-Tap® power cable assembly saves space and reduces cost. The wires can be cut, stripped, and terminated to customer-specific lengths. The connector is press-fit to a PCB to provide a compact and secure power delivery solution. A permanent connection between a cable and a PCB with only one connector.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/perma-tap-power-cable-assembly.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Piher provides high-accuracy position sensors engineered for harsh environments. Utilizing resistive, Hall-effect and inductive technologies, these automotive-q",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.26"
       }
     },
-    "pwrblade-cable-assembly": {
-      "name": "PwrBlade® Cable Assembly",
-      "description": "The PwrBlade® cable connectors are designed to mate to PwrBlade® R/A or vertical board-mounted headers. By expanding beyond BTB applications, designers can now connect power supplies and power distribution sub-assemblies in a wider range of applications. The combination of cable connection capability with Amphenol's proven PwrBlade BTB system provides a universal power distribution connector.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "push-on-rf-cable-connectors": {
+      "name": "Push-On RF Cable Connectors",
+      "description": "Amphenol CDI Push-On RF Cable Connectors provide fast and reliable connections for high-frequency applications. Designed for ease of use, these connectors eliminate the need for threading, allowing for quick, tool-free mating while maintaining excellent electrical performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=26",
+      "businessUrl": "https://amphenolcdi.com/push-on-rf-cable-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=21",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.26"
+      }
+    },
+    "pwrblade-cable-connectors": {
+      "name": "PwrBlade+® Cable Connectors",
+      "description": "PwrBlade+® cable connectors offer flexibility to meet a wide variety of customer needs. The connectors come in both Cable-To-Cable and Cable-To-Board solutions. The PwrBlade+® cable provides a flexible, low-cost solution in applications such as telecommunication switches, high-end servers, and hot-swappable power supplies.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-plus-cable.html",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Server / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrblade-ultra-hd-cable-assembly": {
       "name": "PwrBlade® ULTRA HD+ Cable Assembly",
       "description": "HIGH-POWER CABLE-TO-BOARD CONNECTOR SYSTEM Amphenol's PwrBlade® ULTRA HD+ Cable-to-Board serves as a high-power I/O cable configuration in a low-profile design. The connector features an enhanced contact design capable of providing up to 84A per contact (per 4 adjacent contacts) and high-density signal options with up to 6 signal pins per column.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-ultra-hd-plus-cable-assembly.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 84a · 84a per contact · 4 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
-    "pwr-profile": {
-      "name": "Pwr Profile+®",
-      "description": "LOW PROFILE, HIGH CURRENT DENSITY CABLE ASSEMBLY Pwr Profile+® I/O addresses applications requiring additional power density in space-constrained, chassis-based equipment platforms. The innovative power contact design has a lower profile for cable-to-board applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pwrmax-i-o-cable-connector-system": {
+      "name": "PwrMAX® I/O Cable Connector System",
+      "description": "PwrMAX® I/O is the highest density power and signal cable connector available. It is capable of carrying up to 50A/Contact (100A/column) with 12 adjacent contacts powered. A range of 6AWG - 8AWG wire options are available for power contacts and 22AWG for signal contacts. This connector series also offers slide-to-lock or squeeze-to-release latching options.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrmax-io-cable.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 50a · 50a · 100a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
-    "pwr-profile--2": {
-      "name": "Pwr Profile®",
-      "description": "LOW PROFILE, HIGH CURRENT DENSITY CABLE ASSEMBLY Pwr Profile® I/O addresses applications requiring additional power density in space-constrained, chassis-based equipment platforms. The innovative power contact design has a lower profile for cable-to-board applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "rf-cable-connectors": {
+      "name": "RF Cable Connectors",
+      "description": "SV Microwave offers a comprehensive range of cable connectors designed for optimal RF performance. SV’s cable connectors are designed to work with a wide array of both flexible and custom semi-rigid cable types, both inside and out of the box.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.svmicrowave.com/cable-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=147",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.29"
       }
     },
-    "pwr-twinblade-cable-assemblies": {
-      "name": "Pwr TwinBlade® Cable Assemblies",
-      "description": "The Pwr TwinBlade® cable system is designed to support applications that demand the supply of high power. The Pwr TwinBlade® connectors employ a proven contact system in a touch-proof design that is capable of supporting currents of up to 100A per contact. The new sensing contacts can be used to eliminate the potential for damage from hot-plug conditions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "right-angle-pcb-multiports": {
+      "name": "Right Angle PCB Multiports",
+      "description": "SV Microwave's Right Angle PCB Multiport connectors provide a direct solution for RF applications with severe vertical space constraints. The right angle design allows for tight cable routing in low-profile environments without exceeding the cable assembly's minimum bend radius or compromising signal integrity. Available in 2-port and 4-port configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.svmicrowave.com/right-angle-pcb-multiports?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=228",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.29"
       }
     },
-    "qn-connectors": {
-      "name": "QN Connectors",
-      "description": "QSFP Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "riser-card-cable": {
+      "name": "Riser Card Cable",
+      "description": "Amphenol has developed variant riser card high-speed cable solutions for different system architecture designs to optimize system space layout. Meanwhile, AST solution can provide an entire riser card solution with more value-added PCBA design and assembly. We designed a riser card cable solution mainly to support PCIe Gen5 application, and it's scalable to PCIe Gen6.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=279",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's QSFP copper cable assemblies are designed to meet data center, networking and high-performance computing application needs for high density cabling i",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-cable-assemblies": {
-      "name": "QSFP Cable Assemblies",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's QSFP DD interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high speed serial applications. Each port supports ",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-dd": {
-      "name": "QSFP DD",
-      "description": "QSFP DD Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's QSFP DD interconnect system is comprised of a 76 position, 0.8mm pitch connector built for use in high speed serial applications. Each port supports ",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-dd-cable-assemblies": {
-      "name": "QSFP DD Cable Assemblies",
-      "description": "200G / 400G / 800G SOLUTIONS Amphenol's QSFP DD (Double Density) copper cable assemblies double the number of channels from 4 to 8 lanes when compared to the existing QSFP cabling systems, enabling more bandwidth within the same mechanical envelope.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-dd-overpasstm-assemblies": {
-      "name": "QSFP DD OverPass™ Assemblies",
-      "description": "56G AND 112G DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT QSFP DD OverPass™ products remove high speed signaling from the PCB and create an eight channel direct lower loss interconnection between the ASIC site and the external QSFP DD IO port by overpassing the PCB. This helps to enable 56G and 112G hardware system designs and a technology for future 224G systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-overpasstm-assemblies": {
-      "name": "QSFP OverPass™ Assemblies",
-      "description": "28G AND 56G DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT QSFP OverPass™ products remove the high speed signaling from the PCB and create a four channel direct lower loss interconnection from the ASIC site to the external IO port by overpassing the PCB. This helps to enable 28G and 56G hardware system designs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's QSFP (Quad Small Form-factor Pluggable) connector, cage and cable assemblies are designed to meet emerging data center and high performance computing",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "qsfp-cable-assemblies--2": {
-      "name": "QSFP+ Cable Assemblies",
-      "description": "Quickie® IDC Cable-to-Board Connector System",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's QSFP (Quad Small Form-factor Pluggable) connector, cage and cable assemblies are designed to meet emerging data center and high performance computing",
-        "Source Page": "IT Datacom p.11"
-      }
-    },
-    "sfp": {
-      "name": "SFP",
-      "description": "SFP Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SFP cable assemblies are designed to support applications for Ethernet and Fibre Channel. The Amphenol SFP products offer an ultra-high-performance, ",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "sfp-cable-assemblies": {
-      "name": "SFP Cable Assemblies",
-      "description": "SFP-DD DAC Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SFP-DD cable assemblies are designed to support applications for Ethernet. The Amphenol SFP-DD products offer an ultra-high-performance, cost-effecti",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "sfp-dd-dac-cable-assemblies": {
-      "name": "SFP-DD DAC Cable Assemblies",
-      "description": "SFP OverPass™ Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's SFP-DD cable assemblies are designed to support applications for Ethernet. The Amphenol SFP-DD products offer an ultra-high-performance, cost-effecti",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "sfp-overpasstm-assemblies": {
-      "name": "SFP OverPass™ Assemblies",
-      "description": "DIRECT HIGH SPEED CONNECTION FROM CHIP SITE TO IO PORT SFP OverPass™ products remove high speed signaling from the PCB and create a direct connection between the ASIC site and the external IO port by overpassing the PCB. This helps to enable 28G and 56G hardware system designs. This results in lower over signal loss, PCB design complexity and reduces PCB costs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "single-pair-ethernet": {
-      "name": "Single Pair Ethernet",
-      "description": "Single Pair Ethernet (SPE) IP20 Connectors and Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW’s Single Pair Ethernet mechanical interfaces are all designed and made according to IEEE 802.3bp standard offering 5 mechanical mating interfaces a",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "single-pair-ethernet-spe-ip20-connectors-and-cable-assemblies": {
       "name": "Single Pair Ethernet (SPE) IP20 Connectors and Cable Assemblies",
       "description": "Single Pair Ethernet (SPE) connectors for Industrial applications bring direct Ethernet connectivity to peripheral devices like sensors, actuators, and vision system cameras that operate at speeds up to 1Gb/s. SPE eliminates slow expensive and complex Fieldbus protocols and connections by simplifying and standardizing existing and new industrial network systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/single-pair-ethernet-ip20.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
-      }
-    },
-    "smps-spring-bullets": {
-      "name": "SMPS Spring Bullets",
-      "description": "SMPS VITA 67.3 Gen2 Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's VITA 67.3 Gen2 product line now includes a new range of flexible cable assemblies, designed to provide robust, high-performance RF signal routing",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "smps-vita-67-3-gen2-cable-assemblies": {
       "name": "SMPS VITA 67.3 Gen2 Cable Assemblies",
-      "description": "SMZ connector features the 75 ohm impedance and are ideal for instrumentation applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave's VITA 67.3 Gen2 product line now includes a new range of flexible cable assemblies, designed to provide robust, high-performance RF signal routing within embedded systems. Expanding on our innovative VITA 67.3 interconnects, these assemblies feature popular right angle SMPM and SMPS connectors terminated to our VITA 67.3 Gen2 Plug-in Contacts.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/smps-vita-673-gen2-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=227",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's VITA 67.3 Gen2 product line now includes a new range of flexible cable assemblies, designed to provide robust, high-performance RF signal routing",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "ultrapasstm-overpasstm-assemblies": {
-      "name": "UltraPass™ OverPass™ Assemblies",
-      "description": "224G CONNECTION DIRECTLY FROM CHIP SITE TO EXTERNAL PORTS UltraPass™ enables arrayed connector layouts for near-chip and on-package IO solutions, providing the highest differential pair count interconnect offering in the market.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "standard-gang-mating-hardware": {
+      "name": "Standard Gang Mating Hardware",
+      "description": "SV Microwave’s ganged RF cable assemblies are designed to mate directly with readily available COTS multiport connectors, enabling a single, push-on interface that simplifies installation without compromising RF performance.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=31",
+      "businessUrl": "https://www.svmicrowave.com/standard-gang-mating-hardware?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=210",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LP SlimSAS is a high-speed cable solution with low mating height, and it's a qualified cable solution by UPI1.0. LP SlimSAS can support PCIe Gen5, and ",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.31"
       }
     },
-    "usb4-type-c-cables": {
-      "name": "USB4 Type C Cables",
-      "description": "USB Type C Connector and Cable Assembly",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "threaded-cable-connectors": {
+      "name": "Threaded Cable Connectors",
+      "description": "Amphenol CDI Threaded Cable Connectors provide secure, vibration-resistant connections for high-frequency RF applications. Designed for aerospace, military, space, and industrial environments, these connectors ensure reliable signal integrity, low insertion loss, and strong shielding against interference.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://amphenolcdi.com/threaded-rf-cable-connectors?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=20",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI USB Type-C connector is a compact, reversible interface that enables high-speed data transfer and power delivery. Ensures quick and seamless file t",
-        "Source Page": "IT Datacom p.13"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "ultraport-lp-slimsas": {
+      "name": "Ultraport-LP SlimSAS",
+      "description": "Amphenol LP SlimSAS is a high-speed cable solution with low mating height, and it's a qualified cable solution by UPI1.0. LP SlimSAS can support PCIe Gen5, and its footprint is compatible with standard SlimSAS. Amphenol developed 38pin, 74pin and 124pin LP SlimSAS with straight, right-angle, and side exit plug types to provide customers a flexible system layout.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=213",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage",
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.32"
+      }
+    },
+    "ultraport-slimsas": {
+      "name": "Ultraport-SlimSAS",
+      "description": "Amphenol's SlimSAS is a high-speed and robust cable assembly solution, and supports multiple industry applications such as PCIe, SAS, OpenCAPI, UPI1.0, OCP, NVME, and Ethernet. Amphenol has developed a scoop-proof connector solution with a pull tab. Amphenol develops a 38pin and 74pin solution and has been specified in the SFF group(SFF-8654).",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=159",
+      "specs": {
+        "Product Type": "High-Speed Cable Assemblies",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Storage / Networking",
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "usb-type-c-connector-and-cable-assembly": {
       "name": "USB Type C Connector and Cable Assembly",
-      "description": "VHDM-HSD™ is a shielded, high-density, high-speed press-fit connector system optimized for differential pair architectures. The flexible, modular design of the product allows for the differential performance of our VHDM-HSD™ connector to be combined on the same rear organizer as the VHDM® connector which is a single-ended solution.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol FCI USB Type-C connector is a compact, reversible interface that enables high-speed data transfer and power delivery. Ensures quick and seamless file transfers and multimedia streaming. It can be plugged in either way, eliminating the hassle of trying to align the connector correctly. It supports scalable power delivery up to 240W and speed up to 40Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-type-c-connector-cable.html",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 240w · up to 40gb/s · 40gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI USB Type-C connector is a compact, reversible interface that enables high-speed data transfer and power delivery. Ensures quick and seamless file t",
-        "Source Page": "IT Datacom p.13"
-      }
-    },
-    "vita-adapters": {
-      "name": "VITA Adapters",
-      "description": "VITA Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave’s VITA product line has been extended to include cable assemblies in common lengths and cable diameters, featuring SV’s high-density VITA SMPM/SMPS",
-        "Source Page": "IT Datacom p.14"
-      }
-    },
-    "vita-cable-assemblies": {
-      "name": "VITA Cable Assemblies",
-      "description": "VITA Contacts and Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave offers a range of VITA 67.1, 67.2, and 67.3 contacts and connectors. We offer female and male contacts and connectors in all three VITA 67 series: ",
-        "Source Page": "IT Datacom p.14"
-      }
-    },
-    "vita-contacts-and-connectors": {
-      "name": "VITA Contacts and Connectors",
-      "description": "VITA Custom Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Cable Assemblies",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave designs and manufactures high-performance VITA 67 cable assemblies. We offer both custom lengths (factory direct) and standard-lengths (via our fra",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "vita-custom-cable-assemblies": {
       "name": "VITA Custom Cable Assemblies",
-      "description": "VITA/D38999 RF Cable Assemblies",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "SV Microwave designs and manufactures high-performance VITA 67 cable assemblies. We offer both custom lengths (factory direct) and standard-lengths (via our franchised distribution partners). With engineering and manufacturing facilities in West Palm Beach, FL and Mesa, AZ, we support discrete and harness configurations for VITA coaxial interfaces, including SMPM, SMPS, and NanoRF.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vita-custom-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=188",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave designs and manufactures high-performance VITA 67 cable assemblies. We offer both custom lengths (factory direct) and standard-lengths (via our fra",
-        "Source Page": "IT Datacom p.14"
+        "Application": "Industrial",
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "vita-d38999-rf-cable-assemblies": {
       "name": "VITA/D38999 RF Cable Assemblies",
       "description": "SV’s newest fixed-length RF cable assemblies allow you to expand the use of the standard D38999 circular connector to incorporate microwave transmission lines. These assemblies are available in VITA 67.3 SMPM, SMPS, and NanoRF series and terminate into various D38999 BMB, SMPM, and SMPS interfaces and their respective size 8, 12, and 16 contacts.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.svmicrowave.com/vitad38999-rf-cable-assemblies?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=npi_amphenol&utm_id=126",
       "specs": {
         "Product Type": "High-Speed Cable Assemblies",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "SV Microwave",
+        "Source Page": "IT Datacom p.33"
       }
     }
   }

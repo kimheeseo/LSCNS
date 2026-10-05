@@ -1,0 +1,23 @@
+{
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.amphenol.com/markets/it-datacom",
+  "sourceTotal": 665,
+  "parsedTotal": 665,
+  "categoryCounts": {
+    "Optical Transceivers and AOC": 59,
+    "Fiber Optic Connectivity": 19,
+    "High-Speed Cable Assemblies": 51,
+    "High-Speed Board Connectors": 57,
+    "Backplane and Orthogonal Connectors": 49,
+    "Memory and Card Edge Connectors": 24,
+    "Storage and PCIe-SAS Interconnects": 30,
+    "Ethernet USB and External I-O": 56,
+    "Wire-to-Board and FFC-FPC": 26,
+    "Power Connectors and Busbar": 65,
+    "Power Distribution Panels": 22,
+    "RF and Coaxial Connectivity": 45,
+    "Rugged Circular and D-Sub": 47,
+    "Terminal Blocks and General Interconnect": 93,
+    "Sensors Materials and Other": 22
+  }
+}

@@ -3,25 +3,35 @@
   "company": "Amphenol",
   "category": "High-Speed Board Connectors",
   "displayName": "High-Speed Board Connectors",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: High-Speed Board Connectors. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: High-Speed Board Connectors. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30"
   ],
-  "sourceCount": 54,
+  "sourceCount": 57,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -32,704 +42,743 @@
   "products": {
     "0-35mm-micro-board-to-board-0-60mm-stack-height-103-series": {
       "name": "0.35mm Micro Board-to-Board 0.60mm Stack Height - 103 Series",
-      "description": "0.35mm Micro Board-to-Board 1.00mm Stack Height - 101 Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's 103 series are 0.35mm pitch micro board-to-board connectors designed for high-density applications. They support an extreme low profile 0.60mm stack height and a high current rating up to 5A. These connectors are offered in 4 to 60 positions. These meet USB 3.1 Gen 2 signal transmission rates and are ideal for consumer applications such as mobile phone, smart watch, smart glasses and VR/AR device",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-35mm-micro-board-to-board-103.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 5a · 5a · 60 positions",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 103 series are 0.35mm pitch micro board-to-board connectors designed for high-density applications. They support an extreme low profile 0.60mm stack ",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-35mm-micro-board-to-board-1-00mm-stack-height-101-series": {
       "name": "0.35mm Micro Board-to-Board 1.00mm Stack Height - 101 Series",
       "description": "HIGH-DENSITY MICRO BOARD-TO-BOARD Amphenol's 101 series are 0.35mm pitch micro board-to-board connectors designed for high-density applications. They support extreme low profile 1.00mm stack height. These miniaturized connectors feature SMT terminations and are ideal for consumer applications such as mobile phones, smartwatches, smart glasses, and VR/AR devices.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-35mm-micro-board-to-board-101.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 0.40mm Fine Pitch 3.0mm Stacked Height Board-to-Board connectors are suitable for a wide range of high-reliability applications and demanding environ",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-40mm-fine-pitch-3-0mm-stacked-height-board-to-board": {
       "name": "0.40mm Fine Pitch 3.0mm Stacked Height Board-to-Board",
-      "description": "0.40mm Fine Pitch Floating Board-to-Board",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's 0.40mm Fine Pitch 3.0mm Stacked Height Board-to-Board connectors are suitable for a wide range of high-reliability applications and demanding environments. Its unique connector design allows the rotation angle after fully mated at 0.7° and X&Y axis mating misalignment of 0.3mm. This pair of connectors comes with data rates up to 6Gbs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-40mm-fine-pitch-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 0.40mm Fine Pitch 3.0mm Stacked Height Board-to-Board connectors are suitable for a wide range of high-reliability applications and demanding environ",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-40mm-fine-pitch-floating-board-to-board": {
       "name": "0.40mm Fine Pitch Floating Board-to-Board",
       "description": "HIGH-SPEED FINE PITCH FLOATING BOARD-TO-BOARD CONNECTORS This fine pitch 0.40mm 4mm stacked height 80pos floating board-to-board connectors are suitable for a wide range of high-reliability applications and demanding environments. Its unique connector design gives a floating range of ±0.20mm in X and Y directions. With data rates up to 6Gb/s these connectors meet high transmission requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-40mm-fine-pitch-floating-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-50mm-board-to-board": {
       "name": "0.50mm Board-to-Board",
       "description": "0.50MM PITCH, 85Ω BOARD-TO-BOARD SOLUTION Amphenol high-speed board-to-board connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacking heights and pin counts are offered to provide maximum design flexibility. Amphenol 0.50mm pitch connector design is suitable for high-performance applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-50mm-btb-g831m.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's 0.50mm pitch flex connectors utilize 0.50mm contact spacing to terminate mobile devices across a variety of applications. These connectors are offere",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.1"
+      }
+    },
+    "0-50mm-ffc-fpc-connectors-sfv-sfvl-vll-opu-series": {
+      "name": "0.50mm FFC/FPC Connectors-SFV/SFVL/VLL/OPU Series",
+      "description": "FCI Basic 0.50mm pitch flex connectors provide an economical way to connect displays and support flexible board to board connections. These connectors are available in both Right-Angle and Vertical configurations with Surface Mount mounting styles, and offer ZIF (zero insertion force) cable styles with optional cable lock function for extra cable retention.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/050mm-flex-connectors.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-60mm-board-to-board-85": {
       "name": "0.60mm Board-to-Board 85Ω",
-      "description": "0.80mm Board-to-Board 100Ω",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacking heights & pin counts is offered to provide maximum design flexibility. With superior signal integrity (SI) performance, this 0.60mm pitch connector design is suitable for high-performance applications & meets PCIe Gen 3, 8GT/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-60mm-board-to-board-85ohm-g830ma.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacki",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-80mm-board-to-board-100": {
       "name": "0.80mm Board-to-Board 100Ω",
-      "description": "0.80mm Board-to-Board 85Ω",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacking heights & pin counts is offered to provide maximum design flexibility. With superior signal integrity (SI) performance, this 0.80mm pitch connector design is suitable for high-performance applications & meets SAS 3.0, 12GT/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-80mm-board-to-board-100ohm-g832mc.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacki",
+        "Application": "Storage",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-80mm-board-to-board-85": {
       "name": "0.80mm Board-to-Board 85Ω",
-      "description": "0.80mm Board-to-Board Connectors - B401/B402 Series",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacking heights & pin counts is offered to provide maximum design flexibility. With superior signal integrity (SI) performance, this 0.80mm pitch connector design is suitable for high-performance applications & meets PCIe Gen 3, 8GT/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-80mm-board-to-board-85ohm-g832mb.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol high-speed BTB connectors provide high contact force reliability ensuring strong connectivity, forced insertions, and removals. A broad range of stacki",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-80mm-board-to-board-connectors-b401-b402-series": {
       "name": "0.80mm Board-to-Board Connectors - B401/B402 Series",
       "description": "HIGH DENSITY VERTICAL BOARD-TO-BOARD CONNECTORS Amphenol's B401/B402 series is 0.80mm pitch board-to-board connectors designed for high-density applications. They support stack heights up to 10mm and 100 positions. These connectors feature surface mount terminations and are available in a comprehensive range to satisfy different customer requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-80mm-board-to-board-b401-b402.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's B406/B407/B410 series is 0.80mm pitch floating board-to-board connectors that support stack height up to 23mm and positions from 30 to 120. Its uniqu",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
     "0-80mm-floating-board-to-board-connectors-b406-b407-b410-series": {
       "name": "0.80mm Floating Board-to-Board Connectors - B406/B407/B410 Series",
-      "description": "![Image 17: Product 0nanon Ball & Land Grid Array Socket System for 0.0315 [.80mm] Adapters](https://aphstprime.blob.core.windows.net/images-products/0nanon-ball-and-land-grid-array-socket-system-for-0-0315-[-80mm]-adapters-Thumbnail.png)",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=1",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's B406/B407/B410 series is 0.80mm pitch floating board-to-board connectors that support stack height up to 23mm and positions from 30 to 120. Its unique connector design has a floating range of ±0.50mm in the X, Y, and Z directions which makes it resistant to vibration. It also supports speed performance up to 2.5Gb/s to meet high transmission requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=1",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/0-80mm-floating-board-to-board-b406-b407-b410.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 2.5gb/s · 2.5gb/s · 0.80mm pitch",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's B406/B407/B410 series is 0.80mm pitch floating board-to-board connectors that support stack height up to 23mm and positions from 30 to 120. Its uniqu",
+        "Amphenol Business": "Amphenol Communications Solutions",
         "Source Page": "IT Datacom p.1"
       }
     },
-    "agilbricktm-1-27mm-board-to-board-header-g802": {
+    "1-00mm-ffc-fpc-connectors": {
+      "name": "1.00mm FFC/FPC Connectors",
+      "description": "Amphenol's 1.00mm pitch flex connectors utilize 1.00mm contact spacing to terminate displays and support complex board-to-board connections. These connectors are offered with top and bottom contact positions in both ZIF (Zero Insertion Force) and Non-ZIF cable terminations. The connector series comes with a wide height range of 2.00mm to 5.04mm with 3 to 34 contact positions in both vertical and right angle",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=2",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/1-00mm-ffc-fpc-connectors.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.2"
+      }
+    },
+    "agilbrick-1-27mm-board-to-board-header-g802": {
       "name": "AgilBrick™ 1.27mm Board-to-Board Header G802",
-      "description": "AgilBrick™ 1.27mm Board-to-Board Header G802 Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/agilbrick-1-27mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
-    "agilbricktm-2-00mm-board-to-board-header-g825": {
+    "agilbrick-2-00mm-board-to-board-header-g825": {
       "name": "AgilBrick™ 2.00mm Board-to-Board Header G825",
-      "description": "AgilBrick™ 2.00mm Board-to-Board Header G825 Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/agilbrick-2-00mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
-    "agilbricktm-2-54mm-board-to-board-header-g800": {
+    "agilbrick-2-54mm-board-to-board-header-g800": {
       "name": "AgilBrick™ 2.54mm Board-to-Board Header G800",
-      "description": "AgilBrick™ 2.54mm Board-to-Board Header G800 Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Series offers a cost-effective solution with a flexible structure and 1 to 4 A current rating. These headers from Amphenol can be customized to meet various customer requirements. It comes in customizable pin length, including contact pin and solder tail, which makes it an ideal choice for several applications and specific designs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=3",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/agilbrick-2-54mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.3"
       }
     },
-    "agillinktm-2-00mm-wire-to-board-header": {
+    "agillink-2-00mm-wire-to-board-header": {
       "name": "AgilLink™ 2.00mm Wire-to-Board Header",
-      "description": "AgilLink™ 2.00mm Wire-to-Board Header G823 Series is the most common solution for transferring power and signal. It can mate with both wire-to-board and board-to-board applications. This series can carry a maximum current rating of 4A. Amphenol offers a comprehensive range of these headers including, V/T DIP, V/T SMT, R/A DIP to meet various customer requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=2",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "G823 Series is the most common solution for transferring power and signal. It can mate with both wire-to-board and board-to-board applications. This series can carry a maximum current rating of 4A. Amphenol offers a comprehensive range of these headers including, V/T DIP, V/T SMT, R/A DIP to meet various customer requirements.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=4",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/agillink-2-00mm-wire-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.2"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.4"
+      }
+    },
+    "bergstak-hs-0-50mm-mezzanine-connector": {
+      "name": "BergStak HS™ 0.50mm Mezzanine Connector",
+      "description": "FLEXIBLE SOLUTION FOR HIGH-SPEED APPLICATIONS Amphenol's FCI Basics BergStak HS™ connector family is known for its fast data transmission, high signal quality, and time-proven reliability under extended periods of application. BergStak HS™ 0.50mm connector family with 0.50mm pitch enables high-speed data applications with up to PCIe® Gen 5 32Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-hs-050mm-mezzanine.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "bergstak-hs-0-80mm-board-to-board-connector": {
+      "name": "BergStak HS™ 0.80mm Board-to-Board Connector",
+      "description": "FLEXIBLE SOLUTION FOR HIGH-SPEED APPLICATION FCI Basics BergStak HS™ connector family is known for its fast data transmission, high signal quality, and time-proven reliability under extended periods of application. BergStak HS™ 0.80mm connector family with 0.80mm pitch enables high-speed data applications with up to PCIe® Gen 5 32Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-hs-0-80mm-board-to-board.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
+      }
+    },
+    "bergstak-0-80mm-mezzanine-connector": {
+      "name": "BergStak+™ 0.80mm Mezzanine Connector",
+      "description": "BergStak+™ 0.80mm is designed to be the next generation PCIe 4.0 compliant mezzanine connector system. It is compatible with the existing BergStak® 0.80mm product recommended by the OCP. It guarantees to support up to 16Gb/s performance. Customers can upgrade its board-to-board performance from PCIe 3.0 to PCIe 4.0 while leveraging BergStak+™'s backward compatibility and same footprint feature.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-plus-080mm-mezzanine.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "up to 16gb/s · 16gb/s · 0 w",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-0-40mm-connector": {
       "name": "BergStak® 0.40mm Connector",
       "description": "The BergStak® 0.40mm board-to-board connectors are in 0.4mm pitch with double row contacts, the family now supports stack height of 1.50/2.0/3.0/3.5/4.0mm and position ranges in 10-100 positions (10/20/24/30/34/40/50/60/70/80/90/100). The lock feature on contacts works together with shock-absorbing ribs on the housing to make it suitable for high-vibration applications and friendly for FPC applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-0-40mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-0-50mm-self-alignment-board-to-board-connector": {
       "name": "BergStak® 0.50mm Self-Alignment Board-to-Board Connector",
       "description": "FINE PITCH SOLUTION WITH SELF-ALIGNMENT FEATURE FCI Basics BergStak® 0.50mm self-alignment connectors come with a stack height of 3mm and 50 positions extendable across 20 to 60 positions in increments of 10. It has a unique self-alignment feature that supports blind mating.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-0-50mm-self-alignment-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-0-635mm-connector": {
       "name": "BergStak® 0.635mm Connector",
       "description": "MICRO PITCH LOW PROFILE HIGH SPEED BOARD-TO-BOARD CONNECTOR BergStak® 0.635mm pitch is a compact board-to-board connector with low stack height of 3.00mm. Available in 80 and 140 positions it support applications which require high pin counts and low profile connection. BergStak® 0.635mm supports signal speeds up to 8Gb/s with an open-pin-field, providing design flexibility.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-0-635mm.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 8gb/s · 8gb/s · 80 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-0-80mm-pitch": {
       "name": "BergStak® 0.80mm Pitch",
       "description": "FLEXIBLE SOLUTION FOR HIGH DENSITY APPLICATIONS Amphenol's BergStak® 0.8 mm is a flexible solution designed for high-speed and high-density, parallel board-to-board connector systems with 16 PCB stack heights in 10 sizes up to 200 positions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-080mm-pitch.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-0-80mm-shielded-board-to-board-connector": {
       "name": "BergStak® 0.80mm Shielded Board-to-Board Connector",
       "description": "FCI Basics BergStak® 0.80mm connector family is known for its fast data transmission, high signal quality, and time-proven reliability under extended periods of application. Bergstak® shielded connector with 0.80mm pitch supports high-speed data applications up to 10Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-0-80mm-shielded-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 10gb/s · 10gb/s · 0.80mm pitch",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "bergstak-fx10-0-50mm-board-to-board-connector": {
       "name": "BergStak® FX10 0.50mm Board-to-Board Connector",
       "description": "FCI Basics BergStak® product range is expanded to include 0.50mm BergStak® FX10 board-to-board connector known for its fast data transmission and high signal quality. This connector is offered in 144 positions and is available in 4.30mm and 6.00mm stack height options. Position is extendable up to 168 positions. BergStak® FX10 supports speed performance up to 15Gb/s+ and is available in vertical SMT",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/bergstak-fx10-0-50mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 15gb/s · 15gb/s · 144 positions",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "bergstak-secure-connector": {
-      "name": "BergStak® Secure Connector",
-      "description": "The BergStak® Secure connector family contains one-time-use and multi-times-use solutions to support customers' different needs on connection security. The family now contains variants with 3-row and 4-row contacts with 37 columns per row, and it can be extended in both (10)row and (100)column direction based on customer requirements, to fulfill high pin count/high signal density requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
-      }
-    },
-    "bmb-rf-interconnects": {
-      "name": "BMB RF Interconnects",
-      "description": "Board-to-Board RF Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol RF offers a variety of board-to-board solutions engineered to maximize radial and axial float, eliminating the need for cables between the boards and s",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "board-to-board-rf-connectors": {
       "name": "Board-to-Board RF Connectors",
-      "description": "Board-to-Board Solutions",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol RF offers a variety of board-to-board solutions engineered to maximize radial and axial float, eliminating the need for cables between the boards and simplifying designs to eliminate assembly errors.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=6",
+      "businessUrl": "https://www.amphenolrf.com/board-to-board-rf-connectors",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI offers reliable, high‑performance board‑to‑board interconnect solutions engineered for secure PCB‑to‑PCB connections in demanding applications. Bui",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol RF",
+        "Source Page": "IT Datacom p.6"
       }
     },
     "board-to-board-solutions": {
       "name": "Board-to-Board Solutions",
-      "description": "Boltrack™ Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol CDI offers reliable, high‑performance board‑to‑board interconnect solutions engineered for secure PCB‑to‑PCB connections in demanding applications. Built with precision and durability in mind, these connectors support stable signal integrity, robust mechanical alignment, and long‑term performance across aerospace, defense, industrial, and communication systems.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://amphenolcdi.com/board-to-board-solutions?utm_source=amphenol_website&utm_medium=amphenol_products&utm_campaign=cdi_products_in_amphenol&utm_id=22",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol CDI offers reliable, high‑performance board‑to‑board interconnect solutions engineered for secure PCB‑to‑PCB connections in demanding applications. Bui",
-        "Source Page": "IT Datacom p.3"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol CDI",
+        "Source Page": "IT Datacom p.7"
       }
     },
-    "combostak-0-50mm-powerstak-2-00mm-board-to-board-connector": {
-      "name": "ComboStak® 0.50mm & PowerStak® 2.00mm Board-to-Board Connector",
-      "description": "HYBRID AND HIGH SPEED SOLUTION The ComboStak® 0.50 mm BTB connectors are compact, hybrid (signal and power) board-to-board connectors. ComboStak® 0.50 mm combines existing, BergStak® 0.5mm pitch HS signal pins with 2.00mm pitch power blades. ComboStak® 0.50 mm provides high signal and current density with a wide range of stack heights.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "chameleon": {
+      "name": "Chameleon®",
+      "description": "With performance speeds up to 25 Gbps+, Chameleon meets the demand for faster, smaller, and more compact connector solutions. With stack heights from 6mm to 10mm in 1mm increments, pin counts from 40 to 500+, and pair counts from 16 to 160, Chameleon provides you with a ready platform to easily change and adapt to your design requirement.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=7",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/chameleon.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.7"
       }
     },
-    "combostak-0-80mm-powerstak-2-00mm-board-to-board-connectors": {
-      "name": "ComboStak® 0.80mm & PowerStak® 2.00mm Board-to-Board Connectors",
-      "description": "HYBRID AND MEDIUM POWER SOLUTION ComboStak® and PowerStak® are compact, hybrid (signal and power) and power board-to-board connectors. ComboStak® combines existing, BergStak® 0.8mm pitch signal pins with 2.00mm pitch power blades. PowerStak® is the power only version. Both ComboStak® and PowerStak® provide high signal and current density with a wide range of stack heights.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "com-hpc-0-635mm-pitch-400-pin-open-pin-field-array": {
+      "name": "COM-HPC 0.635mm pitch 400 pin Open-Pin-Field Array",
+      "description": "400POS 0.635MM PITCH COM-HPC Amphenol has developed a pair of 400pos 0.635mm COM-HPC which support 5mm and 10mm stack heights. COM-HPC is a PICMG sponsored open standard for a family of high performance computer modules targeting the embedded computer space. We have developed a pair of 400pos 0.635mm COM-HPC which support 5mm and 10mm stack heights.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/com-hpc.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Application": "AI/HPC",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
-    "compact-combo-connectors": {
-      "name": "Compact Combo Connectors",
-      "description": "SIGNAL & HYBRID SOLUTIONS FOR BTB, WTW, AND WTB Solutions offer optimized space, high reliability with adequate creepage and clearance distances for power and allows easy to mate/crimp and cable management. The connector system offers hybrid solutions choice of signal and power loading with an active latching feature.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "conan-1-00mm-connector": {
+      "name": "Conan® 1.00mm Connector",
+      "description": "Amphenol's Conan® 1.00mm is a mezzanine connector designed for industrial applications and harsh environments. Conan® 1.00mm provides a mechanically secure, high-density electrical interface between parallel printed circuit boards. Its unique design with an audible 'click' sound enhances the security and ease of use. The polarization ensures proper alignment during blind mating.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/conan-100mm.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.3"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
     "conan-lite-1-00mm-connector": {
       "name": "Conan® Lite 1.00mm Connector",
       "description": "Conan® Lite 1.00mm connectors come with a robust metal down feature that helps in establishing a reliable connection with the PCB in both parallel and perpendicular board-to-board applications. These connectors also feature an audible \"click\" sound ensuring mating in place. Conan® Lite vertical headers, receptacles and right angle headers are offered in 9-69 positions.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=3",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=8",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/conan-lite-1-00mm.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave's conformable cable assemblies feature hand-formable cable that retains its shape after being placed into specific bends providing a balance betwee",
-        "Source Page": "IT Datacom p.3"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.8"
       }
     },
-    "coolpower-sdm-connectors": {
-      "name": "CoolPower® SDM Connectors",
-      "description": "CoolPower® Slim Drawer Mini (SDM) Connectors offer a high level of mating configuration flexibility, current density, and a thin profile making it ideal for compact board-to-board power interconnects. The CoolPower® SDM series is available with two or four power lines and boasts up to 318A per linear inch in a footprint of only 5.6mm x 14mm.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's CoolPower® Slim Drawer Series is configurable to accommodate various combinations of power and signal contacts and a number of mounting and terminati",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "csg-csl-csf-cable-glands": {
-      "name": "CSG/CSL/CSF Cable Glands",
-      "description": "cStack™ 25Gb/s Compression-mount Mezzanine Interposer",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's Cable Glands are applied in conjunction with cable or wiring for power or electrical purpose. The Cable Glands are attached to the end equipment ",
-        "Source Page": "IT Datacom p.4"
-      }
-    },
-    "cstacktm-25gb-s-compression-mount-mezzanine-interposer": {
+    "cstack-25gb-s-compression-mount-mezzanine-interposer": {
       "name": "cStack™ 25Gb/s Compression-mount Mezzanine Interposer",
       "description": "The Amphenol cStack™ high speed solder-less interconnect solution provides limitless flexibility for board-to-board mezzanine applications and board-to-board stackable and coplanar applications when terminated to a flex circuit. With offerings in 1mm to 5mm housing heights and multiple sizes, Amphenol's cStack™ connector provides a solution for any application where space is tight and speed and...",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/cstack.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's cStack™ flexible circuit assemblies are designed for applications where flexibility, space, weight, and performance are critical. They are available ",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.9"
       }
     },
-    "cstacktm-flex-cables": {
-      "name": "cStack™ Flex Cables",
-      "description": "C-Type USB Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "densistak-1034-pin-open-pin-field-board-to-board-connector": {
+      "name": "DensiStak™ 1034 pin Open-Pin-Field Board-to-Board Connector",
+      "description": "HIGH DENSITY / HIGH SPEED / DUAL-BEAM CONTACT / USCAR-2 COMPLIANT BOARD-TO-BOARD CONNECTOR Amphenol FCI Basics DensiStak™ connector is designed with its 11 rows 1000+ high density pin count, high speed up to PCIe® Gen 4 with 16Gb/s. Reliable dual-beam contact system, compact size with pitch 0.80mm x 1.25mm, USCAR-2 compliant, and optional shields",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/densistak-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW offers a comprehensive range of rugged USB Type-C connectors delivering a high data transmission rate of up to 10 Gbps and superior power charging ",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "examezz-56gb-s-high-speed-hermaphroditic-bga-mezzanine-connector": {
       "name": "ExaMEZZ® 56Gb/s High Speed, Hermaphroditic BGA Mezzanine Connector",
       "description": "The ExaMEZZ® connector is designed to enable superior 25Gb/s electrical performance and provide a path to 56Gb/s in anticipation of further increases in bandwidth requirements and high-speed signaling. ExaMEZZ® connectors feature a revolutionary beam-on-beam contact interface that minimizes the residual stub for improved signal integrity performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=13",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/examezz-56gbs-high-speed-mezzanine.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's ExpressPort® QSFP+ interconnect system is comprised of a 38 position 0.8mm pitch SMT connector, & a press-fit cage. With four channels of data in one",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.13"
       }
     },
-    "hpce-mezzanine-connector": {
-      "name": "HPCE® Mezzanine Connector",
-      "description": "The HPCE® Mezzanine is a next-generation power board-to-board for demanding applications requiring variable stack heights and high linear current density. It offers both receptacle and recommended PCB Bridge. Both are based on very cost-effective and highly reliable stamped-and-formed power contact technology similar to other power solutions from Amphenol.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "fitmate-1-25mm": {
+      "name": "FitMate™ 1.25mm",
+      "description": "Designed for fine pitch wire-to-board applications, Amphenol's FitMate™ 1.25mm is the ideal solution for devices that require compact connectors without sacrificing overall quality. With wire gauge range from 32AWG-28AWG, these connectors are available in single/double row, vertical/right angle, without (only single row) and with active latch, SMT/DIP configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/fitmate-1-25mm.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's HS-Lok Push-Lock Connectors provide IP68 protection and are rated to UL-F1 UV resistance, making them ideal for indoor or outdoor wet locations. ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "fitmate-1-5mm": {
+      "name": "FitMate™ 1.5mm",
+      "description": "Designed for fine pitch wire-to-board applications, Amphenol's FitMate™ 1.5mm is the ideal solution for devices that require connectors with robust features and compact design. With wire gauge range from 26AWG-24AWG, these connectors are available in single row/double row, vertical/right angle, SMT configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/fitmate-1-50mm.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "flexible-printed-circuit-assembly": {
+      "name": "Flexible Printed Circuit Assembly",
+      "description": "Amphenol's BergStak®, MezzoStak®, Conan®, ComboStak® and PowerStak® are industry proven board-to-board solutions. To enlarge the advantages of these recognized board-to-board solutions, we have expanded our offering with Flexible Printed Circuit (FPC) assemblies, which provide design flexibility to customers.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/flexible-printed-circuit-assembly.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.15"
+      }
+    },
+    "gig-array": {
+      "name": "GIG-Array®",
+      "description": "Amphenol's GIG-Array® connectors are designed to meet the needs of applications up to 10Gb/s requiring up to 296 signal pins per connector. Amphenol as a BGA connector innovator assures expertise and reliability in the GIG-Array® BGA design with a combination of multiple stack heights (15mm to 40mm) and sizes (104 signals to 296 signals) utilizing a 100Ω differential matched impedance design.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=15",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/gig-array.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.15"
       }
     },
     "infinx-25g-high-density-bga-mezzanine-connector": {
       "name": "InfinX® 25G+ High Density BGA Mezzanine Connector",
       "description": "The InfinX® high-speed mezzanine connector solution is designed to meet the needs of 25+Gb/s applications. Available in 4- and 6-Pair configurations, InfinX is your best choice for high-speed board-to-board applications. InfinX supports from 10mm to 42mm stack heights and provides unparalleled reliability and signal integrity with its patented Resonance Dampening Technology.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/infinx.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "interposer-assembly-card": {
-      "name": "Interposer Assembly Card",
-      "description": "FR4 INTERPOSER ASSEMBLY CARD This is a value-added business. We provide a one-stop solution that includes the making of connectors and the SMT processes. This business model improves supply chain management. And, this product range supports Storage, Consumer, and Communication applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Storage",
-        "Amphenol Business": "Amphenol's MRU series of USB 2.0 & 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. These connectors have all-plastic c",
-        "Source Page": "IT Datacom p.7"
-      }
-    },
-    "lynxtm-25gb-s-low-profile-high-density-open-pin-field-connector": {
-      "name": "Lynx™ 25Gb/s Low Profile, High Density Open-Pin-Field Connector",
-      "description": "The Lynx™ connector is a flexible 0.6mm pitch solution designed for high speed and density differential or single-ended signaling BTB applications. Lynx™ has a robust contact design tolerant of misalignment, enables a reliable connection, and supports blind mating. This connector provides designers with a readily available 85Ω solution to meet a wide variety of application needs, including PCI.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "meg-array-32gb-s-high-density-bga-connector": {
       "name": "MEG-Array® 32Gb/s High Density BGA Connector",
       "description": "The MEG-Array® Mezzanine Connector provides the high density and high-speed benefits of a large array supported by the reliability and low costs of standard surface mount PCB assembly. 1.27x1.27mm array of discrete circuit contacts allows flexible ground distribution to optimize high-speed signal integrity at speeds up to 32Gb/s. MEG-Array® is offered in a variety of PCB mezzanine stack heights",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/meg-array.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "mezzostak-0-50mm-pitch-5-2mm-stacked-height": {
       "name": "Mezzostak® 0.50mm Pitch 5.2mm Stacked Height",
       "description": "Mezzostak® 0.50mm is a robust fine-pitch mezzanine connector suitable for a wide range of high-reliability applications and demanding environments. The innovative hermaphroditic design of these connectors provides a precise mating interface with extra housing guidance. Mezzostak® 0.50mm mezzanine connectors are available in 120 positions with other position options provided on request.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mezzostak-0-50mm-pitch-5-2mm-stacked-height.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "mezzostak-0-5mm-mezzanine-connectors": {
       "name": "Mezzostak® 0.5mm Mezzanine Connectors",
       "description": "Mezzostak® is a robust 0.5mm fine pitch mezzanine connector suitable for a wide range of high-reliability applications and demanding environments. The hermaphroditic design of these connectors provides a precise mating interface with extra housing guidance. Mezzostak® 0.5mm are available in two versions, which offer a choice between supplemental PCB hold-downs and pegs for short overall length.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mezzostak-050mm-mezzanine.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "millipacs-mezzanine": {
       "name": "Millipacs® Mezzanine",
       "description": "FCI Basics Millipacs® Vertical header and receptacle mating combination offer a range of stack heights between 15mm and 25mm for low speed and 10Gb/s mezzanine applications. Millipacs® connector interfaces provide high reliability and robustness making them suitable for the most demanding applications in aerospace, industrial, and also traditional telecom segments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/millipacs-mezzanine.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
-    "ministak-high-density-high-speed-0-6mm-board-to-board-connector": {
-      "name": "MiniStak High Density High Speed 0.6mm Board-to-Board Connector",
-      "description": "Minitek127® 1.27mm Board-to-Board",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "mini-cool-edge-0-60mm-connectors": {
+      "name": "Mini Cool Edge 0.60mm Connectors",
+      "description": "Mini Cool Edge is a 0.60mm high density, high-speed card edge connector for a new generation small form factor system. These fine pitch solutions offer multiple BTB applications like a right angle, mezzanine, and coplanar and support cable interconnect options. Mini Cool Edge 0.60mm meets SFF TA-1002, Gen Z, EDSFF and OCP NIC 3.0 specifications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-cool-edge-0-60mm.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol has developed a product series of MiniStak high-density and high-speed board-to-board connectors on a 0.6mm pitch, performing to PCIe Gen5 SI with road",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
+      }
+    },
+    "ministak-high-density-high-speed-0-6mm-board-to-board-connector": {
+      "name": "MiniStak High Density High Speed 0.6mm Board-to-Board Connector",
+      "description": "Amphenol has developed a product series of MiniStak high-density and high-speed board-to-board connectors on a 0.6mm pitch, performing to PCIe Gen5 SI with road map to PCIe Gen6. It supports stack heights of 5.0mm, 7.5mm, and 10.0mm. These connectors support the operating current rating at 0.5A per signal contact and 1.1A per power contact.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ministak-hd-hs-060mm-btb.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "5a · 1a · 0.6mm pitch",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
     "minitek127-1-27mm-board-to-board": {
       "name": "Minitek127® 1.27mm Board-to-Board",
       "description": "Minitek127® board-to-board series are 1.27mm pitch connector, position ranges from 4 to 100 positions. Family comprehensive offer includes straight and right angle, surface mount and through mount, shrouded and unshrouded headers in different plating variations (gold flash / 0.25μm gold / 0.76μm gold).",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=21",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek127-127mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.21"
       }
     },
-    "minitek-2-00mm": {
-      "name": "Minitek® 2.00mm",
-      "description": "Minitek® is Amphenol ICC's brand for BTB and wire/cable to board connectors in 2.00mm pitch. It is a fully modular system enabling all types of connections between PCBs, wires, and flat cables. Its 2mm spacing allows up to 38% space saving compared to traditional modular systems. It is available in vertical and horizontal configurations both in single and double row with 2 to 25 positions per row.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "minitek-1-00mm-wire-to-board-connector-system": {
+      "name": "Minitek® 1.00mm Wire-to-Board Connector System",
+      "description": "FCI Basics Minitek® 1.00mm connector system is the ideal solution for devices that require compact and low-profile connectors. These connectors are designed for fine pitch wire-to-board application with wire gauge range from 32AWG-28AWG. Minitek® 1.00mm solution includes single row vertical surface mount and right angle surface mount configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-1-00mm-wtb.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "minitek-microspeed-1-00mm-board-to-board-connector": {
       "name": "Minitek® MicroSpeed 1.00mm Board-to-Board Connector",
       "description": "FCI Basics Minitek® MicroSpeed connector family with 1.00mm pitch supports high-speed data applications with up to 25Gb/s. These connectors feature a shielded design that provides superior EMC performance and significantly improved electromagnetic compatibility. The poka-yoke polarization prevents visual mismating, which makes it ideal for use in industrial environments.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/minitek-microspeed-1-00mm-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 25gb/s · 25gb/s · 1.00mm pitch",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
-    "m-series-metric-circular-connector": {
-      "name": "M Series Metric Circular Connector",
-      "description": "M-Series™ 112Gb/s PAM4 BGA Mezzanine Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW provides a comprehensive product range of M series, including M5, M8, Guided M8, M10.5, M12, 7/8\", M20 and M23. We also have push pull version, MPr",
-        "Source Page": "IT Datacom p.9"
-      }
-    },
-    "m-seriestm-112gb-s-pam4-bga-mezzanine-connector": {
+    "m-series-112gb-s-pam4-bga-mezzanine-connector": {
       "name": "M-Series™ 112Gb/s PAM4 BGA Mezzanine Connector",
       "description": "56GB/S-112GB/S HIGH-SPEED MEZZANINE BGA CONNECTOR SYSTEM Leveraging well-established technologies, including an industry-leading Ball Grid Array (BGA) design, this connector offers a superior self-aligning and self-leveling solution. It incorporates a next-generation differential pair contact design, enabling exceptional performance of up to 56Gb/s NRZ and 112Gb/s PAM4.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/m-series.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 56gb/s · 56gb/s · 112gb/s",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
-    "m-seriestm-vr-56gb-s-pam4-bga-mezzanine-connector": {
+    "m-series-vr-56gb-s-pam4-bga-mezzanine-connector": {
       "name": "M-Series™ VR 56Gb/s PAM4 BGA Mezzanine Connector",
       "description": "Leveraging proven technologies, including an industry-leading BGA design, this connector system offers a solution that provides superior self-aligning and self-leveling capabilities. This product incorporates a next-generation differential pair contact design, enabling impressive performance of up to 56Gb/s for both PAM4 and NRZ applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/m-series-vr.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 56gb/s · 56gb/s · 4 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
-    "nanorf-vita-67-3-connector-system": {
-      "name": "NanoRF VITA 67.3 Connector System",
-      "description": "NeXLev® 12.5Gb/s High Density BGA Mezzanine Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "nexlev-12-5gb-s-high-density-bga-mezzanine-connector": {
+      "name": "NeXLev® 12.5Gb/s High Density BGA Mezzanine Connector",
+      "description": "Amphenol's NeXLev® is an established and proven high-density parallel board-to-board connector solution to meet current bandwidth demands in many mezzanine applications. NeXLev delivers a robust, market-proven connector in a small footprint. NeXLev connectors contain either 10, 20, or 30 wafers, with each wafer containing 10 real signal contacts. NeXLev features data rates up to 12.5Gb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/nexlev.html",
+      "specs": {
+        "Product Type": "High-Speed Board Connectors",
+        "Key Spec": "up to 12.5gb/s · 12.5gb/s · 30 w",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "pcie-gen-6-mini-cool-edge-0-60mm-card-edge-connectors": {
+      "name": "PCIe® Gen 6 Mini Cool Edge 0.60mm Card Edge Connectors",
+      "description": "Mini Cool Edge is a 0.60mm high-density, high-speed card edge connector for new-generation small form factor systems. This fine-pitch solution offers multiple BTB applications like right-angle, mezzanine, and coplanar connectors. Cable options are available for a complete interconnect solution.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=25",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pcie-gen-6-mini-cool-edge-060-card-edge.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's NeXLev® is an established and proven high-density parallel board-to-board connector solution to meet current bandwidth demands in many mezzanine appl",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.25"
       }
     },
     "pv-wire-to-board-and-wire-to-wire-connector-system": {
       "name": "PV® Wire-to-Board and Wire-to-Wire Connector System",
       "description": "VERSATILE DESIGN FOR DEMANDING APPLICATIONS Amphenol's PV® solution is a versatile and modular system able to meet all the board-to-board, board-to-wire, and wire-to-wire applications where high density outstanding electrical and mechanical performances are required.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pv-crimp.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
     "pwrblade-mini-board-to-board-connector": {
       "name": "PwrBlade® Mini Board-to-Board Connector",
       "description": "PwrBlade® Mini Board-to-Board connector enhances Amphenol's existing PwrBlade® product line with the smallest profile to date. PwrBlade® Mini has an 8.10mm height above board, making it the lowest height power and signal board-to-board connector in the PwrBlade® portfolio. PwrBlade® Mini has a very low end-of-life contact resistance less than 2.0mΩ after testing",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-mini-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
-    "pwrblade-ultra-hd-btb-connector-system": {
-      "name": "PwrBlade® ULTRA HD+ BTB Connector System",
-      "description": "HIGH POWER BOARD-TO-BOARD CONNECTOR SYSTEM Amphenol's new, PwrBlade® ULTRA HD+ connector series features an enhanced high-power contact design capable of providing up to 100A per contact (per 4 adjacent contacts) and high-density signal options with up to 6 signal pins per column.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=11",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "pwrblade-minimezz-connector-series": {
+      "name": "PwrBlade® MiniMezz Connector Series",
+      "description": "The PwrBlade® Mini connector series introduces enhanced features to our existing PwrBlade® products in a smaller profile. PwrBlade® MiniMezz is available in stack heights ranging from 8mm - 20mm with options for power & signal contacts. It also has blind-mate guides that allow for ±0.80mm of gatherability for blind-mate applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=27",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/pwrblade-minimezz.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.11"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.27"
       }
     },
-    "rj45-waterproof-connector-high-speed-modular-connector": {
-      "name": "RJ45 Waterproof Connector - High Speed Modular Connector",
-      "description": "Rotaconnect® Rotatable Board-to-Board Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "rotaconnect-rotatable-board-to-board-connector": {
+      "name": "Rotaconnect® Rotatable Board-to-Board Connector",
+      "description": "Amphenol extends the RotaConnect® Board-to-Board (BTB) range with a pegged version. The locating pegs aid simple placement. This eliminates the hold-down and hence will help customer save the space between connectors on the PCB. The hermaphroditic “mates to itself” design enables mating at any angle between +90° and -60°, enabling the connectors to be placed anywhere on the PCB.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rotaconnect-rotatable-board-to-board.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol extends the RotaConnect® Board-to-Board (BTB) range with a pegged version. The locating pegs aid simple placement. This eliminates the hold-down and he",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
-    "slim-cool-edge-0-65mm-hybrid-power-signal-connectors": {
-      "name": "Slim Cool Edge 0.65mm Hybrid Power & Signal Connectors",
-      "description": "Slim Cool Edge Hybrid Power & Signal connectors provide a one-piece high speed and high power card-edge package. These connectors offer cost-competitive and high-density solutions. These versatile solutions based on a 0.65mm signal pitch design offer multiple BTB configurations like right angle, mezzanine, and coplanar. The connectors are designed as Open Pin Field & are hot-plug capable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "slim-cool-edge-0-65mm-hybrid-power-signal-gen-6-connectors": {
+      "name": "Slim Cool Edge 0.65mm Hybrid Power & Signal Gen 6 Connectors",
+      "description": "Amphenol's new Slim Cool Edge Gen 6 64G PAM4 Hybrid Power and Signal connectors offer a compact, one-piece card-edge solution for high-speed and high-power applications. These connectors provide a cost-effective and high-density alternative, featuring a versatile 0.65mm signal pitch design that supports multiple board-toboard (BTB) configurations.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/slim-cool-edge-0-65mm-hybrid-gen6.html",
       "specs": {
         "Product Type": "High-Speed Board Connectors",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's new Slim Cool Edge Gen 6 64G PAM4 Hybrid Power and Signal connectors offer a compact, one-piece card-edge solution for high-speed and high-power appl",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     }
   }

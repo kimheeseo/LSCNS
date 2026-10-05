@@ -3,23 +3,31 @@
   "company": "Amphenol",
   "category": "Ethernet USB and External I-O",
   "displayName": "Ethernet USB and External I-O",
-  "description": "Amphenol IT Datacom products classified for the DataCenter Tool: Ethernet USB and External I-O. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
+  "description": "Amphenol IT Datacom official products classified for the DataCenter Tool: Ethernet USB and External I-O. Product names/descriptions come from the official listing.",
   "checked": "2026-10-05",
   "officialUrl": "https://www.amphenol.com/markets/it-datacom",
   "sourceUrls": [
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-    "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9"
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+    "https://www.amphenol.com/markets/it-datacom?pagenumber=33"
   ],
-  "sourceCount": 46,
+  "sourceCount": 56,
   "sourceTotal": 665,
-  "storageMode": "metadata only; official listing URLs retained",
+  "storageMode": "metadata only; official listing and Amphenol business URLs retained",
   "comparisonFields": [
     "Product Type",
     "Key Spec",
@@ -28,602 +36,732 @@
     "Source Page"
   ],
   "products": {
-    "c-type-usb-connector": {
-      "name": "C-Type USB Connector",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "a-type-b-type-usb-connectors": {
+      "name": "A-Type & B-Type USB Connectors",
+      "description": "Amphenol LTW's waterproof USB connectors are IP67 / IP68 rated and designed with standard Type A/B interfaces in various product configurations -- plastic/metal, screw/bayonet locking, receptacle, receptacle with cables, overmolded cable, and field-installable demands for industrial applications【Quick Guide: https://amphenolltw.com/down.php?supp_download=111】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=5",
+      "businessUrl": "https://amphenolltw.com/product-info/USB/",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Piher Sensing Systems designs and manufacturers current sensors based on contactless technology for accurate measurement of currents in automotive battery manag",
-        "Source Page": "IT Datacom p.4"
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.5"
+      }
+    },
+    "c-type-usb-connector": {
+      "name": "C-Type USB Connector",
+      "description": "Amphenol LTW offers a comprehensive range of rugged USB Type-C connectors delivering a high data transmission rate of up to 10 Gbps and superior power charging up to 5A current. Designed in various form factors with multiple termination options make it ideal to fulfill industrial harsh application【Quick Guide: https://amphenolltw.com/down.php?supp_download=111】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=9",
+      "businessUrl": "https://amphenolltw.com/product-info/USB/",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "up to 10 gbps · up to 5a · 10 gbps",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.9"
       }
     },
     "displayport": {
       "name": "DisplayPort",
       "description": "HIGH-PERFORMANCE DIGITAL AUDIO/VIDEO INTERCONNECT SOLUTION Amphenol DisplayPort connector system is a scalable solution that transmits 1, 2, or 4 lanes of High-Definition video at 2.7Gb/s per lane up to a maximum of 10.8Gb/s. DisplayPort also allows flexible allocation of available bandwidth between audio and video.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/displayport-g46.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "displayport-2-1-connector": {
       "name": "DisplayPort 2.1 Connector",
       "description": "DISPLAYPORT SUPER HIGH RESOLUTION VIDEO/AUDIO INTERCONNECT SOLUTION Amphenol DisplayPort is a scalable system capable of delivering 1, 2, or 4 lanes of high-definition video at a maximum of 20Gb/s per lane. DisplayPort also supports 16K superior resolution with 80Gb/s bandwidth.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=4",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=10",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/displayport-2-1.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.4"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.10"
       }
     },
     "d-sub-high-performance-board-mount-connectors": {
       "name": "D-Sub High Performance Board-Mount Connectors",
       "description": "FCI Basics HDMI™ (High-Definition Multimedia Interface) is smaller, user-friendly version of DVI for high definition audio-video transfer in consumer entertainment devices. Backward-compatible with DVI, the connector system supports uncompressed video and audio data transmission at 5Gb/s along a single cable.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/high-performance-d-sub-power-board-mount.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
       }
     },
-    "ecomate-aquariustm": {
+    "d-sub-standard-density-connectors-nfd17-series": {
+      "name": "D-Sub Standard Density Connectors - NFD17 Series",
+      "description": "Amphenol's NFD17 D-Subminiature connectors complement our extensive I/O connector product line. This line of connectors offers many superior features, high performance level and low installation cost. These proven D-Subminiature connectors are one of the most popular Input/Output interconnects, addressing a wide variety of applications in Telecommunications, Data, Consumer Industrial, Instrumentation and Me",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=11",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/d-sub-standard-density-nfd17.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.11"
+      }
+    },
+    "ecomate-aquarius": {
       "name": "ecomate® Aquarius™",
       "description": "Available in a variety of shell sizes and insert arrangements for Power, Mixed Power/Signal, Coax, and RJ45 layouts. Amphenol Sine Systems’ ecomate® Aquarius Waterproof Connectors provide an IP67/69K waterproof rating when in a mated condition for industrial applications and incorporates the latest technology in high impact thermoplastic design, offering many advantages.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=12",
+      "businessUrl": "https://www.amphenol-sine.com/ecomate-aquarius-waterproof",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "emi-gasket-bulkhead-connectors-and-adapters": {
-      "name": "EMI Gasket Bulkhead Connectors and Adapters",
-      "description": "The eQSFP interconnect system is comprised of a 38 position 0.8mm pitch SMT connector, and a press-fit cage. With four channels of data in one pluggable, the system interface is capable of transferring data up to 28 Gbps/Channel and replacing up to 4 standard SFP+ receptacles. Supporting standards include Gigabit Ethernet, InfiniBand, and SONET/SDH with different data rate options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "SV Microwave has just released a series of SMA and 2.92mm cable connectors and adapters with built-in electromagnetic interference (EMI) shielding. These interc",
-        "Source Page": "IT Datacom p.5"
-      }
-    },
-    "eqsfp": {
-      "name": "eQSFP",
-      "description": "The eQSFP interconnect system is comprised of a 38 position 0.8mm pitch SMT connector, and a press-fit cage. With four channels of data in one pluggable, the system interface is capable of transferring data up to 28 Gbps/Channel and replacing up to 4 standard SFP+ receptacles. Supporting standards include Gigabit Ethernet, InfiniBand, and SONET/SDH with different data rate options.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=5",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
-      "specs": {
-        "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "EBY offers a complete selection of industry standard Euro Style Terminal Blocks - which may be customized to your needs - support a broad range of wire-to-board",
-        "Source Page": "IT Datacom p.5"
+        "Amphenol Business": "Amphenol Sine Systems",
+        "Source Page": "IT Datacom p.12"
       }
     },
     "hdmi": {
       "name": "HDMI",
       "description": "HIGH-PERFORMANCE DIGITAL AUDIO/VIDEO INTERCONNECT SOLUTION Amphenol HDMI supports standard or high-definition video, plus multi-channel digital audio on a connector. It transmits all ATSC HDTV standards and supports 8-channel digital audio. With 18Gb/s of bandwidth, HDMI can accommodate the future enhancements and requirements of audio/video equipment.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hdmi-g45.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "hdmi-2-1-a-connector-system-g45aa-series": {
       "name": "HDMI 2.1 A Connector System - G45AA Series",
       "description": "HIGH PERFORMANCE DIGITAL AUDIO/VIDEO INTERCONNECT SOLUTION HDMI2.1 enhancements from Amphenol improve picture and sound quality and usability. HDMI 2.1 also includes reduced tearing enhances clarity with Variable Refresh Rate (VRR) and supports higher frame rates for smoother video, but it also allows variable frame rates.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/hdmi-2-1-a-connector.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's HDMI 2.1 supports a range of higher video resolutions and refresh rates including 8K@60 HZ and 4K@120HZ, and resolutions up to 10K. Dynamic HDR forma",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "hdmi-2-1-cables": {
       "name": "HDMI 2.1 Cables",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's HDMI 2.1 supports a range of higher video resolutions and refresh rates including 8K@60 HZ and 4K@120HZ, and resolutions up to 10K. Dynamic HDR formats are also supported, and bandwidth capability is increased up to 48Gbps. Amphenol's HDMI2.1 cable has passed the certification, and the mechanical interface is compatible with HDMI2.0 and HDMI1.4.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=256",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 48gbps · 48gbps · 0 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW creates high-quality waterproof HDMI cables for today's high-definition media. Our HDMI family product offering is customizable to fit customer-spe",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "hdmi-connectors": {
       "name": "HDMI Connectors",
-      "description": "Heavy Duty M12 Connectors - For high-temperature, ultra-reliable applications",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol LTW creates high-quality waterproof HDMI cables for today's high-definition media. Our HDMI family product offering is customizable to fit customer-specific configurations. The features are push lock with latch or screw thread, IP67, contact density of up to 19 contacts, -20°C to 80°C temperature range【Quick Guide: https://amphenolltw.com/down.php?supp_download=97】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=16",
+      "businessUrl": "https://amphenolltw.com/product-info/HDMI/",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW presents the robust M12 high-temperature connector, the HDM12. Engineered for commercial applications with elevated vibration and challenging envir",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.16"
       }
     },
     "industrial-rj-plug-and-cables": {
       "name": "Industrial RJ Plug and Cables",
       "description": "Industrial Ethernet connectors and cables enable IoT connectivity for Ethernet and other Industrial protocols through all levels of operations from the enterprise/cloud to the sensors/actuators on the factory floor. The Industrial RJ series of modular ethernet plugs and cables provide CAT6A performance per ANSI/TIA-568.2-D.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/industrial-rj-plug.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Application": "Data center / Networking / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "ip67-all-plastic-latching-usb-type-a": {
       "name": "IP67 All-Plastic Latching USB Type A",
-      "description": "IP67 Latching HDMI Plug Cables & Receptacles",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MRU series of USB 2.0 & 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. These connectors have all-plastic construction with Bayonet Coupling and Jam-Nut mounted panel receptacles.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ip67-all-plastic-latching-usb-type-a.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MRH series of HDMI Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. MRH plug cables are terminated to IP20 HDMI ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "ip67-latching-hdmi-plug-cables-receptacles": {
       "name": "IP67 Latching HDMI Plug Cables & Receptacles",
-      "description": "IP67 Latching RJ45 Plugs & Jacks",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MRH series of HDMI Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. MRH plug cables are terminated to IP20 HDMI Type A plugs. Plug housings are available with metal/plastic construction and metal thumb Latch coupling, or allmetal construction with Bayonet Coupling.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ip67-latching-hdmi-plug-cables-receptacles.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MRH series of HDMI Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. MRH plug cables are terminated to IP20 HDMI ",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "ip67-latching-rj45-plugs-jacks": {
       "name": "IP67 Latching RJ45 Plugs & Jacks",
       "description": "MRK plug housings are designed to be used with user-supplied standard RJ45 cable-mounted plugs. Plug housings are available with metal/plastic construction and Metal Thumb Latch Coupling, or all-metal construction with Bayonet Coupling. The mating receptacles feature an integrated RJ45 Jack and matching IP20 RJ45 jack on the termination side, and a square mounting flange with 4 screw mount holes.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ip67-latching-rj45-plugs-jacks.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MRU series of USB 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. These connectors have metal body with met",
-        "Source Page": "IT Datacom p.7"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "ip67-metal-bayonet-latching-usb-type-a": {
       "name": "IP67 Metal Bayonet Latching USB Type A",
-      "description": "IP67 Thumb Latching USB Type A",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MRU series of USB 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. These connectors have metal body with metal bayonet coupling and 4 hole screw mount rectangular flange receptacles, designed to provide solutions for a variety of environments and applications, including Industrial, Telecommunications, DataCom, Medical, Energy, Transportation, etc",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=17",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ip67-metal-bayonet-latching-usb-type-a.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MRU series of USB 2.0 & 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. This series of connectors and cable",
-        "Source Page": "IT Datacom p.7"
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.17"
       }
     },
     "ip67-thumb-latching-usb-type-a": {
       "name": "IP67 Thumb Latching USB Type A",
-      "description": "IPC-M120 Connectors",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MRU series of USB 2.0 & 3.0 Type A Connectors and Cables provide IP67 protection for Cable-to-Panel applications. This series of connectors and cables are designed to provide solutions for a variety of environments and applications, including Industrial, Telecommunications, DataCom, Medical, Energy, Transportation, etc",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ip67-thumb-latching-usb-type-a.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's IPC-M120 is a reliable, mid-range connector within the IPC product series. The power connector is designed to house two separate 2AWG (33.6mm2) conta",
-        "Source Page": "IT Datacom p.7"
+        "Application": "Telecom / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "ix-industrialtm-ip20-connectors-cables": {
+    "ix-industrial-ip20-connectors-cables": {
       "name": "ix Industrial™ IP20 Connectors & Cables",
       "description": "ix Industrial™ connectors enable IoT connectivity for Ethernet and other Industrial protocols through all levels of an operation from the Enterprise/Cloud to the sensors/actuators at the factory floor. These 10mm pitch connectors featuring 2-point metal latches are just 25% of the size of an RJ45 connector, and as such allow much greater port density and mating security.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ix-industrial-ip20.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Application": "Data center / Networking / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
-    "ix-industrialtm-magnetics-connector": {
+    "ix-industrial-magnetics-connector": {
       "name": "ix Industrial™ Magnetics Connector",
       "description": "ix Industrial™ connectors enable IoT connectivity for Ethernet and other Industrial protocols through all levels of an operation from the Enterprise/Cloud to the sensors/actuators on the factory floor. ix Mag Series connectors offer CAT6A performance for up to 10Gb/s Ethernet communication, support PoE++ up to 90W as defined by IEEE 802.3bt, and shield for excellent EMC immunity.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=7",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/ix-industrial-magnetics.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
-        "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.7"
+        "Key Spec": "up to 10gb/s · up to 90w · 10gb/s",
+        "Application": "Data center / Networking / Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "lusb-lockable-usb-connector-series": {
       "name": "LUSB (Lockable USB) Connector Series",
       "description": "LOCKABLE AND HIGHLY RELIABLE RUGGED USB SOLUTION Amphenol's LUSB series Lockable USB Connectors serve many markets and applications across the globe including Automotive, Communications, Consumer, Data, Industrial, and Medical.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=18",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/lockable-usb-connector.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.18"
       }
     },
     "magnetic-jack-rjmg-1x1": {
       "name": "Magnetic Jack (RJMG) - 1x1",
       "description": "RJMG series offers a wide variety of fully RoHS compliant Magnetic Modular Jacks for RJ45. Both right angle and vertical through-hole types are offered in a single port with tab-up and tab-down options. This series comes with LED options and is compatible with Power over Ethernet (PoE). RJMG series is offered with both shielded and EMI options, which provides enhanced protection.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj-magnetic-1x1.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "magnetic-jack-rjmg-1xn": {
       "name": "Magnetic Jack (RJMG) - 1xN",
       "description": "RJMG series offers a wide variety of fully RoHS compliant Magnetic Modular Jacks for RJ45. The right-angle through-hole type is offered in a 1xN (1x2, 1x4 through1x8) port with tab-up and tab-down options. This series comes with LED options and is compatible with Power over Ethernet (PoE). RJMG series is offered with both shielded and EMI options, which provides enhanced protection.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj-magnetic-1xn.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "magnetic-jack-rjmg-2xn": {
       "name": "Magnetic Jack (RJMG) - 2xN",
       "description": "RJMG series offers a wide variety of fully RoHS compliant Magnetic Modular Jacks for RJ45. The right angle and through-hole type are offered in 2xN (2x1, 2x2, 2x4, 2x6, and 2x8) port with tab-up and tab-down options. This series comes with LED options and is compatible with Power over Ethernet (PoE). RJMG series is offered with both shielded and EMI options, which provides enhanced protection.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj-magnetic-2xn.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "magnetic-jack-rjmg-stacked": {
       "name": "Magnetic Jack (RJMG) - Stacked",
       "description": "RJMG series offers a wide variety of fully RoHS compliant Magnetic Modular Jacks for RJ45. The right angle through hole type is offered in RJMG Stacked USB 2.0/3.0. This series comes with LED options and is compatible with Power over Ethernet. RJMG series is offered with both shielded and EMI options, which provides enhanced protection. Gold plating option is also available for the contact area.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=19",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj-magnetic-stacked.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW's Magneto-Lok series offers a low-profile, self-aligning magnetic connection with 360°rotation and quick disconnect at any angle. Available in both",
-        "Source Page": "IT Datacom p.8"
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.19"
       }
     },
     "micro-usb-2-0": {
       "name": "Micro USB 2.0",
-      "description": "Micro USB 2.0 connectors have power contacts of 1.8A and 3A current for fast charging. The plastic tongue and two-layer shells design ensure high reliability and prevent connector damage. Amphenol offers customized designs to suit various customer requirements. These connectors also offer high-speed signal stability of up to 480Mb/s transmission.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "connectors have power contacts of 1.8A and 3A current for fast charging. The plastic tongue and two-layer shells design ensure high reliability and prevent connector damage. Amphenol offers customized designs to suit various customer requirements. These connectors also offer high-speed signal stability of up to 480Mb/s transmission.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-usb-usb-2-0-gmcb05.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "micro-usb-2-0-connector": {
       "name": "Micro USB 2.0 Connector",
       "description": "FCI Basics Micro USB 2.0 connectors deliver a data transfer rate up to 480Mb/s and are characterized by their high-speed signal stability. This smaller version of the Mini USB 2.0 connector while complying with the physical, electrical, and environmental standards of the micro form factor, supports 1.8A and 3A currents for fast charging.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/micro-usb-20.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "micro-usb-3-1-gen-1": {
       "name": "Micro USB 3.1 GEN 1",
       "description": "USB 3.1 Gen 1 now operates with full-duplex signaling over two differential pairs, improving host-directed simultaneous-bidirectional communication. USB 3.1 Micro offers a 5Gb/s signaling rate offering a 10x performance increase over Hi-Speed USB 2.0. SuperSpeed USB is backward compatible with USB 2.0 and will provide optimized power efficiency.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=8",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=20",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-1-micro-gsb343.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Positronic M24308 connectors are an important designation for ensuring quality, high reliability. It meets and often exceeds, the requirements under the M24308 ",
-        "Source Page": "IT Datacom p.8"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.20"
       }
     },
     "mini-usb-2-0": {
       "name": "Mini USB 2.0",
-      "description": "Mini USB 2.0 Connector",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol Mini USB Type B design offers customized design. Mini USB 2.0 connector takes up only about 1/8 of the space of standard USB-B, five circuits, with one circuit reserved for future use in host identification between devices. These portable devices are used for consumer applications and charging. These are available in both SMT and through-hole receptacles available.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-usb-usb-2-0-gmsb052-gmsb053.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol Mini USB Type B design offers customized design. Mini USB 2.0 connector takes up only about 1/8 of the space of standard USB-B, five circuits, with one",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
       }
     },
     "mini-usb-2-0-connector": {
       "name": "Mini USB 2.0 Connector",
       "description": "FCI Basics Mini USB 2.0 connector delivers a data transfer rate of up to 480Mb/s. The connector takes up only about 1/8 of the space of a standard USB Type B interface, and has five circuits, with one circuit reserved for future use in host identification between devices. Amphenol offers customized designs of the Type B connector to suit various customer requirements.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=22",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/mini-usb-20.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol LTW Waterproof Mini & Micro-USB 2.0 SWIFT Connectors are IP67 / IP68 stand-alone connectors suitable for miniature connector requirements or wearable a",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.22"
+      }
+    },
+    "mini-usb-micro-usb-connectors": {
+      "name": "Mini USB & Micro USB Connectors",
+      "description": "Amphenol LTW Waterproof Mini & Micro-USB 2.0 SWIFT Connectors are IP67 / IP68 stand-alone connectors suitable for miniature connector requirements or wearable applications【Quick Guide: https://amphenolltw.com/down.php?supp_download=111】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://amphenolltw.com/product-info/USB/",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "modular-jack-right-angle-high-speed": {
+      "name": "Modular Jack - Right Angle - High Speed",
+      "description": "Our Right Angle High-Speed line of modular jacks (1 to 10Gb/s) meet Cat5e, Cat6, and Cat6A specification performance levels per EIA-568-C.2. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/modular-jack-right-angle-high-speed.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "10gb/s · 6a · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "modular-jack-right-angle-standard-speed": {
+      "name": "Modular Jack - Right Angle - Standard Speed",
+      "description": "Our Right Angle Standard Speed line of modular jacks (< 1Gb/s) are Cat3 and Cat5 compliant. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/modular-jack-right-angle-standard.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "1gb/s · 3 a · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
     "modular-jack-rj45": {
       "name": "Modular Jack - RJ45",
-      "description": "Modular Jack - Rugged",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=9",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol FCI Basics Modular Jacks include single and multi-port solutions that are widely used in Telecom, Data, Networking and Home Entertainment markets for various applications. The product features a simple, flexible and low profile design for LAN application, in particular, the Network Interface Card.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj45-modular-jack.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "modular-jack-rugged": {
+      "name": "Modular Jack - Rugged",
+      "description": "Rugged RJ Panel Mount connector IP67 Sealing. Ruggedized RJ connectors with die-cast housings and IP67 sealing for Harsh Environment applications, provide reliable performance in extreme conditions for the most demanding applications and mate with standard RJ plugs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-modular-jack.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol FCI Basics Modular Jacks include single and multi-port solutions that are widely used in Telecom, Data, Networking and Home Entertainment markets for v",
-        "Source Page": "IT Datacom p.9"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "modular-jack-vertical-high-speed": {
+      "name": "Modular Jack - Vertical - High Speed",
+      "description": "Our Vertical High-Speed line of modular jacks (1 to 10Gb/s) meet Cat5e, Cat6, and Cat6A specification performance levels per EIA-568-C.2. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/modular-jack-vertical-high-speed.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "10gb/s · 6a · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
+      }
+    },
+    "modular-jack-vertical-standard-speed": {
+      "name": "Modular Jack - Vertical - Standard Speed",
+      "description": "Our Vertical Standard Speed line of modular jacks (< 1Gb/s) are Cat3 and Cat5 compliant. All modular jacks support PoE Types 1 to 4 and are RoHS and IEC 60603-7 compliant.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=23",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/modular-jack-vertical-standard.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "1gb/s · 3 a · 4 a",
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.23"
       }
     },
     "oneg-series-rj45-high-speed-connectors-rje7h": {
       "name": "OneG Series RJ45 High-Speed Connectors - RJE7H",
       "description": "The RJE7H series of 1x1 Tab Down CAT5e jack connectors is one of the top-selling OneG series connectors from Amphenol. With a low profile, no-shield, and no-LED the connector aims to extend the application capability to suit a wide range of Communications, Storage, Consumer, Home, Industrial, and Medical markets.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=10",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=24",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/oneg-rj45-high-speed.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.10"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.24"
+      }
+    },
+    "rj11-modular-jack-connector": {
+      "name": "RJ11 Modular Jack Connector",
+      "description": "FCI Basics RJ11 is the most commonly recognized registered jack. It is used as a standardized telecommunication network interface, for connecting voice and data equipment to a telecommunications carrier in single-line telephones. FCI Basics RJ11 is designed to meet Category 3 (Cat 3) cable performance. Cat 3 cable features a 10Mb/s transfer rate and supports a transmission speed of 16MHz.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rj11-modular-jack.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking / Telecom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
+      }
+    },
+    "rj45-waterproof-connector-high-speed-modular-connector": {
+      "name": "RJ45 Waterproof Connector - High Speed Modular Connector",
+      "description": "Amphenol LTW's RJ45 series connectors meet the Ethernet/IP RJ45 requirements and standards. Support Cat5e & Cat6a data transmission speed & IP67 waterproof rating, our RJ45 connectors are suitable for industrial Ethernet applications【Video: https://www.youtube.com/watch?v=p8pMSaeDNmE】【 Quick Guide: https://amphenolltw.com/down.php?supp_download=106】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://amphenolltw.com/product-info/RJ/",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking / Industrial",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "rugged-hdmi": {
       "name": "Rugged HDMI",
       "description": "RUGGED HDMI PANEL MOUNT CONNECTOR IP67 SEALING Rugged HDMI receptacles with die-cast housings and IP67 sealing for Harsh Environment applications, provide reliable performance in extreme conditions for the most demanding applications and mate with standard connectors.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-hdmi.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MRU series of USB 2.0 Type A connectors provide IP67 protection for enclosures per IEC 60529. With data rates up to 480Mb/s, the connector series is ",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "rugged-mru-series-usb-2-0": {
       "name": "Rugged MRU Series USB 2.0",
-      "description": "Official Amphenol IT Datacom listing product.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MRU series of USB 2.0 Type A connectors provide IP67 protection for enclosures per IEC 60529. With data rates up to 480Mb/s, the connector series is designed to provide a standard USB interface for enclosures exposed to harsh environments. While these connectors are offered as mating pairs, the receptacles can also mate with any other standard USB 2.0 plug.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-mru-usb-2-0.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's MUSBR series USB Connectors is a line of Generation 2 ruggedized USB connectors with die-cast housings and IP67 sealing, designed for Harsh Environme",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "rugged-usb-2-0": {
       "name": "Rugged USB 2.0",
-      "description": "RUGGED USB CONNECTOR FOR HARSH ENVIRONMENT APPLICATION Amphenol's Product Line of Rugged USB3.0 connectors serve many markets and applications across the globe including Medical, Industrial, Telecommunication, DataComm, etc.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's MUSBR series USB Connectors is a line of Generation 2 ruggedized USB connectors with die-cast housings and IP67 sealing, designed for Harsh Environment applications. Rugged series provide reliable performance in extreme conditions for the most demanding applications and mate with standard USB plugs.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-usb-2-0.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Telecom / Industrial",
-        "Amphenol Business": "Amphenol's MUSBR series USB Connectors is a line of Generation 2 ruggedized USB connectors with die-cast housings and IP67 sealing, designed for Harsh Environme",
-        "Source Page": "IT Datacom p.12"
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
       }
     },
     "rugged-usb-3-0": {
       "name": "Rugged USB 3.0",
       "description": "RUGGED USB CONNECTOR FOR HARSH ENVIRONMENT APPLICATION Amphenol's Product Line of Rugged USB3.0 connectors serve many markets and applications across the globe including Medical, Industrial, Telecommunication, DataComm, etc.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-usb-3-0.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Telecom / Industrial",
-        "Amphenol Business": "Amphenol's MUSBR series USB Type C Connectors serve many markets and applications across the globe including Automotive, Communications, Consumer, Data, Industr",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
+      }
+    },
+    "rugged-usb-type-c": {
+      "name": "Rugged USB Type C",
+      "description": "Amphenol's MUSBR series USB Type C Connectors serve many markets and applications across the globe including Automotive, Communications, Consumer, Data, Industrial and Medical. MUSBR series is a line of Generation 2 ruggedized USB Type C connectors with die cast housings and IP67 sealing, designed for Harsh Environment applications.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=29",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/rugged-usb-type-c.html",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Industrial",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.29"
+      }
+    },
+    "single-pair-ethernet": {
+      "name": "Single Pair Ethernet",
+      "description": "Amphenol LTW’s Single Pair Ethernet mechanical interfaces are all designed and made according to IEEE 802.3bp standard offering 5 mechanical mating interfaces all IP67 up and above giving you the freedom to choose the interconnects suitable to your needs. The SPE Connectors interface integrated in M5, M8, M12, FLOS and X-Lok【Quick Guide: https://amphenolltw.com/down.php?supp_download=107】",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://amphenolltw.com/product-info/SinglePairEthernet/",
+      "specs": {
+        "Product Type": "Ethernet USB and External I-O",
+        "Key Spec": "See official IT Datacom description",
+        "Application": "Networking",
+        "Amphenol Business": "Amphenol LTW",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "single-pair-ethernet-spe-ip67-circular-push-pull-connectors-and-cables": {
       "name": "Single Pair Ethernet (SPE) IP67 Circular Push-Pull Connectors and Cables",
       "description": "Single Pair Ethernet (SPE) connectors for Industrial applications bring direct Ethernet connectivity to peripheral devices like sensors, actuators, and vision system cameras that operate at speeds up to 1Gb/s. SPE eliminates slow expensive and complex fieldbus protocols and connections by simplifying and standardizing existing and new industrial network systems.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=12",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=30",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/single-pair-ethernet-ip67.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Networking / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.12"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.30"
       }
     },
     "usb-2-0": {
       "name": "USB 2.0",
-      "description": "FCI Basics USB 2.0 connector delivers a data rate of up to 480Mb/s. The Universal Serial Bus interface is ideal for use in connecting removable storage devices into automotive multimedia systems but extends its functionality across a variety of domains in consumer, datacom, and industrial applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol USB 2.0 Connector was developed to integrate a variety of existing PC I/O ports into a single interface with hot-plugging and automatic configuration capabilities. It enables increased bandwidth to enhance serial I/O throughput for a wide range of peripherals. USB 2.0 connectors offer a stable signal data transmission up to 480Mb/s.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=32",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-2-0-gsb1x-gsb2x.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
-        "Application": "Storage / Industrial",
-        "Amphenol Business": "Amphenol USB 2.0 Connector was developed to integrate a variety of existing PC I/O ports into a single interface with hot-plugging and automatic configuration c",
-        "Source Page": "IT Datacom p.13"
+        "Application": "IT Datacom",
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.32"
       }
     },
     "usb-2-0-connector": {
       "name": "USB 2.0 Connector",
       "description": "FCI Basics USB 2.0 connector delivers a data rate of up to 480Mb/s. The Universal Serial Bus interface is ideal for use in connecting removable storage devices into automotive multimedia systems but extends its functionality across a variety of domains in consumer, datacom, and industrial applications.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-20.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "Storage / Industrial",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "usb-3-1-gen-1": {
       "name": "USB 3.1 GEN 1",
       "description": "SuperSpeed USB will deliver 10x the data transfer rate of Hi-Speed USB, as well as improved power efficiency. With 5Gb/s signally rate, SuperSpeed USB 3.1 has a Sync-N-Go technology that minimizes user wait time. No device polling and lower active and idle power requirements are other significant features of these connectors. SuperSpeed USB is backward compatible with USB 2.0.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-1-gen1-gsb31x-gsb32x.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "usb-3-1-gen-2": {
       "name": "USB 3.1 GEN 2",
       "description": "COMPLIANT TO USB 3.1 SPECIFICATIONS; IDEAL FOR SERVER APPLICATIONS Amphenol USB 3.1 Gen 2 Connector operates with full-duplex signaling over two differential pairs, improving host-directed simultaneous bidirectional communication. It supports scalable power delivery up to 100W and performance speed up to 10Gb/s.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-1-gen2-gsb4x.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 100w · up to 10gb/s · 10gb/s",
         "Application": "Server",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "usb-3-2-gen-1-type-a-standard-reverse-receptacle": {
       "name": "USB 3.2 GEN 1 Type A Standard / Reverse Receptacle",
       "description": "As SuperSpeed USB, this upgraded interface offers a number of enhanced features. USB3.2 GEN 1 now operates with full-duplex signaling over two differential pairs, improving host-directed simultaneous-by-directional communication. Over 10X performance increase over USB 2.0 Backward compatible with USB 2.0 High-speed 5Gb/s transmission Optimized Power Efficiency Fast Sync-N-Go",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-2-gen1-type-a.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "usb-3-2-gen-1-type-micro-b-receptacle": {
       "name": "USB 3.2 GEN 1 Type Micro B Receptacle",
       "description": "As SuperSpeed USB, this upgraded interface offers a number of enhanced features. USB 3.0 (USB 3.1 GEN 1) now operates with full-duplex signaling over two differential pairs, improving host-directed simultaneous-by-directional communication. Over 10X performance increase over USB 2.0 Backward compatible with USB 2.0 High-speed 5Gb/s transmission Optimized Power Efficiency Fast Sync-N-Go",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-2-gen1-type-micro-b.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "usb-3-2-gen-2-type-a-b-micro-receptacle-plug": {
       "name": "USB 3.2 GEN 2 Type A/B/Micro Receptacle & Plug",
       "description": "As SuperSpeed USB 3.2 GEN 2, this upgraded interface offers a number of enhanced features. USB 3.2 GEN 2 now operates with full-duplex signaling over two differential pairs, improving host-directed simultaneous-by-directional communication. Delivers 10 Gb/s USB data rate, 2x super speed USB 5Gb/s data rate Improved efficient data transfer and I/O power efficiency",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=13",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/usb-3-2-gen2-type-a-b-micro.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.13"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
-    "waterproof-interconnects-ip67-ip68-rating": {
-      "name": "Waterproof Interconnects (IP67 & IP68 Rating)",
-      "description": "Waterproof Micro USB 2.0",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+    "usb4-type-c-cables": {
+      "name": "USB4 Type C Cables",
+      "description": "Amphenol's USB4 is the most recent update of the USB specification and supports a range of higher video resolutions, high data bandwidth, power. The bandwidth capability is increased up to 40Gbps in two lanes. Amphenol's USB4 cable has passed the certification of USB4 Gen3 spec, and the TID number is 4266. The mechanical interface is compatible with USB3.2 and Type C.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "http://www.amphenol-ast.com/V3/en/overview.aspx?classId=258",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 40gbps · 40gbps · 2 a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Waterproof Micro USB 2.0 comes with full shielding that protects against Electromagnetic Interference (EMI), Radio-Frequency Interference (RFI), and ",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Assembletech",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "waterproof-micro-usb-2-0": {
       "name": "Waterproof Micro USB 2.0",
-      "description": "Waterproof USB Type C",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "description": "Amphenol's Waterproof Micro USB 2.0 comes with full shielding that protects against Electromagnetic Interference (EMI), Radio-Frequency Interference (RFI), and Electromagnetic Discharge (ESD). The USB connector supports fast charging with 1.8A power contacts and is capable to support up to 3A for customized needs. These halogen-free connectors meet IPX4 industry ratings.",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/waterproof-micro-usb-2-0-gmcba05.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
-        "Key Spec": "See official IT Datacom description",
+        "Key Spec": "up to 3a · 8a · 3a",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol's Waterproof Micro USB 2.0 comes with full shielding that protects against Electromagnetic Interference (EMI), Radio-Frequency Interference (RFI), and ",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     },
     "waterproof-usb-type-c": {
       "name": "Waterproof USB Type C",
       "description": "WITH IPX8 AND SUPPORTS USB 2.0,USB 3.2 GEN 1,USB 3.2 GEN 2 AND USB 4 The usability of Waterproof Type C is with strong IP performance and unique IP technology to ensure each part meets the high quality of waterproof performance.",
-      "officialUrl": "https://www.amphenol.com/markets/it-datacom?PageSize=50&pagenumber=14",
-      "businessUrl": "https://www.amphenol.com/markets/it-datacom",
+      "officialUrl": "https://www.amphenol.com/markets/it-datacom?pagenumber=33",
+      "businessUrl": "https://www.amphenol-cs.com/product-series/waterproof-usb-type-c.html",
       "specs": {
         "Product Type": "Ethernet USB and External I-O",
         "Key Spec": "See official IT Datacom description",
         "Application": "IT Datacom",
-        "Amphenol Business": "Amphenol",
-        "Source Page": "IT Datacom p.14"
+        "Amphenol Business": "Amphenol Communications Solutions",
+        "Source Page": "IT Datacom p.33"
       }
     }
   }

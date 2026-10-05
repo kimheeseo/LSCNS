@@ -13,13 +13,13 @@
   "storageMode": "metadata only; official product links are referenced directly",
   "comparisonFields": [
     "Model",
-    "Connector",
-    "Breakout",
-    "Fiber Type",
     "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Breakout",
     "Polarity",
     "Length",
-    "Jacket",
     "Source"
   ],
   "products": {
@@ -36,7 +36,10 @@
         "Fiber Count": "16",
         "Polarity": "Type B",
         "Length": "10m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mpoa2x4f-50m": {
@@ -52,7 +55,10 @@
         "Fiber Count": "8",
         "Polarity": "Type B",
         "Length": "50m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": ""
       }
     },
     "s2mpoa2x4f-5m": {
@@ -69,7 +75,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": "LSZH"
       }
     },
     "s2mpoalcu8fb-1m": {
@@ -85,7 +94,10 @@
         "Fiber Count": "8",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mtpulcu8fb-1m": {
@@ -103,7 +115,10 @@
         "Length": "1m",
         "Jacket": "LSZH/OFNR",
         "Insertion Loss": "≤0.35 dB (MTP), ≤0.25 dB (LC)",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MTP-8/UPC",
+        "Cable Jacket": "LSZH/OFNR"
       }
     },
     "s2mtpalcu8fb-1m": {
@@ -119,7 +134,10 @@
         "Fiber Count": "8",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MTP-8/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mtpalcu16f-1m": {
@@ -135,7 +153,10 @@
         "Fiber Count": "16",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MTP-16/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mpoaa2x8f-5m": {
@@ -151,7 +172,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": "LSZH"
       }
     },
     "s2mpoa2x8f-5m": {
@@ -167,7 +191,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": "LSZH"
       }
     },
     "s2mpoamdcu8fb-1m": {
@@ -183,7 +210,10 @@
         "Fiber Count": "8",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": ""
       }
     },
     "m4mpoulcu8fb-1m": {
@@ -199,7 +229,10 @@
         "Fiber Count": "8",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/UPC",
+        "Cable Jacket": ""
       }
     },
     "s2mpoalcu16f-1m": {
@@ -215,7 +248,10 @@
         "Fiber Count": "16",
         "Polarity": "Type B",
         "Length": "1m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-16/APC",
+        "Cable Jacket": ""
       }
     }
   }

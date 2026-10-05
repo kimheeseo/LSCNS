@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const nativeFetch = window.fetch.bind(window);
+  const DESIGN_API = 'https://datacenter-api-function-production.up.railway.app';
   const jsonResponse = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'Content-Type': 'application/json; charset=utf-8' } });
   const text = value => value == null ? '' : typeof value === 'string' ? value : JSON.stringify(value);
   const flatten = (value, prefix = '', rows = [], depth = 0) => {
@@ -45,8 +46,9 @@
     const raw = typeof input === 'string' ? input : input.url;
     const url = new URL(raw, location.href);
     if (url.pathname.endsWith('/api/design')) {
-      try { return jsonResponse(DCBOMEngine.design(JSON.parse(init.body || '{}'))); }
-      catch (error) { return jsonResponse({ status: 'REVIEW', error: error.message }, 400); }
+      const headers = new Headers(init.headers || {});
+      if (!headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
+      return nativeFetch(DESIGN_API + '/api/design', { ...init, headers, mode: 'cors', cache: 'no-store' });
     }
     if (url.pathname.endsWith('/api/export-xlsx')) {
       try {

@@ -1,4 +1,5 @@
 name: Sync Amphenol IT Datacom catalog
+# refresh 2026-10-05 10:24 KST
 
 on:
   workflow_dispatch:

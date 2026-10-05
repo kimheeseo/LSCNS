@@ -9,6 +9,8 @@
     if (/BATTERY RACK|BATTERY CABINET/.test(t)) return 'battery';
     if (/TERMINATION BOX|SUB.?RACK|PANEL RACK MOUNT/.test(t)) return 'panel';
     if (/FUSECONNECT/.test(t)) return 'connector';
+    if (/RJ45.*MODULAR PLUG|MODULAR PLUG.*RJ45/.test(t)) return 'connector';
+    if (/(EDGE.*MODULE|FIBER.*MODULE|FIBRE.*MODULE|광.*모듈|CASSETTE)/.test(t) && !/TRANSCEIVER|OPTICAL MODULE/.test(t)) return 'module';
     if (/MDC\/MMC CABLING|MPO CABLING SYSTEM/.test(t)) return 'patch';
     if (/ACTIVE ELECTRICAL|\bAEC\b/.test(t)) return 'aec';
     if (/ACTIVE OPTICAL|\bAOC\b/.test(t) && !/TRANSCEIVERS AND AOC/.test(t)) return 'aoc';
@@ -63,7 +65,7 @@
   function match(row, products) {
     const q = row.requirement || row.profile || {}, media = clean(row.media || q.media), itemKind = kind(row);
     let type = itemKind;
-    if (row.transceiver || row.unit === 'module') type = 'transceiver';
+    if (row.transceiver || (row.unit === 'module' && /TRANSCEIVER|광모듈|PLUGGABLE/.test(clean(row.item)))) type = 'transceiver';
     else if (row.cable || /CABLE|케이블/.test(clean(row.item))) {
       if (/\bAEC\b/.test(media)) type = 'aec'; else if (/\bDAC\b/.test(media)) type = 'dac'; else if (/\bAOC\b/.test(media)) type = 'aoc';
       else if (/COPPER|RJ45|BASE-T/.test(media + ' ' + clean(q.connector))) type = 'copper';
@@ -75,8 +77,8 @@
     return products.flatMap(p => {
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
       if (!compatibleKinds.includes(p.kind) || type === 'other' || type === 'component') return [];
-      const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber;
-      if(opticalItem&&['fiber','patch','trunk','connector','adapter','panel'].includes(type)&&!p.optical)return [];
+      const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber||type==='module';
+      if(opticalItem&&['fiber','patch','trunk','connector','adapter','panel','module'].includes(type)&&!p.optical)return [];
       const confirmed = [], missing = []; let conflict = false;
       const check = (name, need, have, predicate) => {if (!need || /^(REVIEW|PROJECT|N\/A|未)/.test(clean(need))) return; if (!have || /검증 필요|미공개|미정|RFQ|확인 필요/.test(text(have))) missing.push(name); else if (predicate(need, have)) confirmed.push(name); else conflict = true;};
       if (['transceiver','dac','aec','aoc'].includes(type)) {
@@ -86,7 +88,7 @@
         check('프로토콜', required.protocol, p.protocol, (a,b) => clean(b).includes(clean(a)));
       }
       if (type === 'transceiver') check('광 규격', required.standard, p.standard, (a,b) => comparable(a,b) || comparable(clean(a).replace(/^\d+G(?:BASE-)?/,''),clean(b).replace(/^\d+G(?:BASE-)?/,'')));
-      if (['transceiver','fiber','patch','trunk','connector','adapter','copper'].includes(type)) {
+      if (['transceiver','fiber','patch','trunk','connector','adapter','module','copper'].includes(type)) {
         check('커넥터', required.connector, p.connector, (a,b) => {
           const left=connector(a),right=connector(b);
           if(left.split('/')[0]===right.split('/')[0]&&(!left.includes('/')||!right.includes('/'))){missing.push('커넥터 연마/핀');return true;}
@@ -105,7 +107,7 @@
       if (type === 'transceiver' && !required.package) missing.push('요구 폼팩터');
       if (type === 'transceiver' && !required.connector) missing.push('요구 커넥터');
       if (['ups','generator','transformer','rack','server','switch','nic','management','panel'].includes(type)) missing.push('용량/구성·현장 적합성');
-      if (['patch','fiber','trunk','connector','adapter','copper'].includes(type)) missing.push('길이·극성·핀·현장 구성 최종 확인');
+      if (['patch','fiber','trunk','connector','adapter','module','copper'].includes(type)) missing.push(type === 'module' ? 'housing slot·극성·loss budget 최종 확인' : '길이·극성·핀·현장 구성 최종 확인');
       if (p.referenceOnly) missing.push('제품군/SKU 확인');
       const status = missing.length ? '관련 제품 · 검증 필요' : '규격 후보 · 장비 호환 검증 필요';
       return [{...p, evidence: confirmed.length ? '일치: ' + confirmed.join('·') : '품목 분류 일치', matchBasis: (confirmed.length ? '일치: ' + confirmed.join('·') + '; ' : '') + (missing.length ? '미확정: ' + [...new Set(missing)].join('·') : 'host/FEC/광손실·극성 확인 필요'), status, score: confirmed.length * 10 - missing.length}];

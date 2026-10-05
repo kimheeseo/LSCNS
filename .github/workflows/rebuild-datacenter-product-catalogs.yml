@@ -6,9 +6,8 @@ on:
     paths:
       - ".github/workflows/rebuild-datacenter-product-catalogs.yml"
       - "DCI/DataCenter/scripts/rebuild_product_catalogs.py"
-      - "DCI/DataCenter/product_catalog/Commscope/*.xlsx"
-      - "DCI/DataCenter/product_catalog/Commscope/**/*.pdf"
-      - "DCI/DataCenter/product_catalog/Corning/**/*.pdf"
+      - "DCI/DataCenter/product_catalog/**/*.xlsx"
+      - "DCI/DataCenter/product_catalog/**/*.pdf"
   workflow_dispatch:
 
 permissions:

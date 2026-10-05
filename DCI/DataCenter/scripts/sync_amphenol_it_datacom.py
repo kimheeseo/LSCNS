@@ -138,7 +138,9 @@ def main():
     rows=[]
     for p in range(1,35):
         batch=scrape_page(p)
-        print(f"page {p}: {len(batch)}")\n        if len(batch) < (5 if p==34 else 20): print("PARTIAL_NAMES",p,json.dumps([x["name"] for x in batch],ensure_ascii=False))
+        print(f"page {p}: {len(batch)}")
+        if len(batch) < (5 if p==34 else 20):
+            print("PARTIAL_NAMES",p,json.dumps([x["name"] for x in batch],ensure_ascii=False))
         rows.extend(batch)
         time.sleep(.25)
     # Exact de-duplication by name; official listing is expected to have 665 unique visible products.

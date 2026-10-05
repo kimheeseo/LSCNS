@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "EDGE™ 4x4 Mesh Module",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 2,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "EMM-MM32-9393Q": {
+      "name": "EMM-MM32-9393Q · EDGE™ 4x4 Mesh Module",
+      "description": "EDGE™ 4x4 Mesh Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%204x4%20Mesh%20Module/EMM-MM32-9393Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%204x4%20Mesh%20Module/EMM-MM32-9393Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "32",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "EMM-SM32-8989G": {
+      "name": "EMM-SM32-8989G · EDGE™ 4x4 Mesh Module",
+      "description": "EDGE™ 4x4 Mesh Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%204x4%20Mesh%20Module/EMM-SM32-8989G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%204x4%20Mesh%20Module/EMM-SM32-8989G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "32",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    }
+  }
+}

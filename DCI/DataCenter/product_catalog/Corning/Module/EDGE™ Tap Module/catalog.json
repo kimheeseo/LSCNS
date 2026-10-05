@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "EDGE™ Tap Module",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 22,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "ETM-5A-G-DMX": {
+      "name": "ETM-5A-G-DMX · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-G-DMX_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-G-DMX_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5A-G": {
+      "name": "ETM-5A-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5A-Q": {
+      "name": "ETM-5A-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5A-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5B-G-S": {
+      "name": "ETM-5B-G-S · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-G-S_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-G-S_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5B-G": {
+      "name": "ETM-5B-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5B-Q": {
+      "name": "ETM-5B-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5B-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5C-G-R": {
+      "name": "ETM-5C-G-R · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-G-R_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-G-R_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5C-G": {
+      "name": "ETM-5C-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5C-Q-R": {
+      "name": "ETM-5C-Q-R · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-Q-R_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-Q-R_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5C-Q": {
+      "name": "ETM-5C-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-5C-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7A-G-DMX": {
+      "name": "ETM-7A-G-DMX · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-G-DMX_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-G-DMX_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7A-G": {
+      "name": "ETM-7A-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7A-Q": {
+      "name": "ETM-7A-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7A-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7B-G-S": {
+      "name": "ETM-7B-G-S · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-G-S_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-G-S_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7B-G": {
+      "name": "ETM-7B-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7B-Q-S": {
+      "name": "ETM-7B-Q-S · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-Q-S_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-Q-S_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7B-Q": {
+      "name": "ETM-7B-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7B-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7C-G-R": {
+      "name": "ETM-7C-G-R · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-G-R_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-G-R_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7C-G": {
+      "name": "ETM-7C-G · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-G_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7C-Q-2X3": {
+      "name": "ETM-7C-Q-2X3 · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q-2X3_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q-2X3_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7C-Q-R": {
+      "name": "ETM-7C-Q-R · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q-R_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q-R_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-7C-Q": {
+      "name": "ETM-7C-Q · EDGE™ Tap Module",
+      "description": "EDGE™ Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Tap%20Module/ETM-7C-Q_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    }
+  }
+}

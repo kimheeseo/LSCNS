@@ -1,0 +1,2037 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 112,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "006EUC-T4100D20": {
+      "name": "006EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006EUC-T4101D20": {
+      "name": "006EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006JUC-T4101D20": {
+      "name": "006JUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006JUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006JUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "Multimode",
+        "Fiber Type": "Multimode",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006KUC-T4130D20": {
+      "name": "006KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006TUC-T4131D20": {
+      "name": "006TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006TUC-T4180D20": {
+      "name": "006TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "006TUC-T4190D20": {
+      "name": "006TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/006TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012DUC-T4101D20": {
+      "name": "012DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012EUC-T3100D20": {
+      "name": "012EUC-T3100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T3100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012EUC-T4100D20": {
+      "name": "012EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012EUC-T4101D20": {
+      "name": "012EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012FUC-T4101D20": {
+      "name": "012FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012KUC-T4130D20": {
+      "name": "012KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012PUC-T4119D20": {
+      "name": "012PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012TUC-T4131D20": {
+      "name": "012TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012TUC-T4180D20": {
+      "name": "012TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012TUC-T4190D20": {
+      "name": "012TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "012ZUC-T4122D20": {
+      "name": "012ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/012ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024DUC-T4101D20": {
+      "name": "024DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024EUC-T4100D20": {
+      "name": "024EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024EUC-T4101D20": {
+      "name": "024EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024FUC-T4101D20": {
+      "name": "024FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024KUC-T4130D20": {
+      "name": "024KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024PUC-T4119D20": {
+      "name": "024PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024TUC-T4131D20": {
+      "name": "024TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024TUC-T4180D20": {
+      "name": "024TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024TUC-T4190D20": {
+      "name": "024TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "024ZUC-T4122D20": {
+      "name": "024ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/024ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036EUC-T4100D20": {
+      "name": "036EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036EUC-T4101D20": {
+      "name": "036EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036FUC-T4101D20": {
+      "name": "036FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036KUC-T4130D20": {
+      "name": "036KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036PUC-T4119D20": {
+      "name": "036PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036TUC-T4131D20": {
+      "name": "036TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036TUC-T4180D20": {
+      "name": "036TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036TUC-T4190D20": {
+      "name": "036TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "036ZUC-T4122D20": {
+      "name": "036ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/036ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048DUC-T4101D20": {
+      "name": "048DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048EUC-T4100D20": {
+      "name": "048EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048EUC-T4101D20": {
+      "name": "048EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048FUC-T4101D20": {
+      "name": "048FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048KUC-T4130D20": {
+      "name": "048KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048PUC-T4119D20": {
+      "name": "048PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048TUC-T4131D20": {
+      "name": "048TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048TUC-T4180D20": {
+      "name": "048TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048TUC-T4190D20": {
+      "name": "048TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "048ZUC-T4122D20": {
+      "name": "048ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/048ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060EUC-T4100D20": {
+      "name": "060EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060EUC-T4101D20": {
+      "name": "060EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060KUC-T4130D20": {
+      "name": "060KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060TUC-T4131D20": {
+      "name": "060TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060TUC-T4180D20": {
+      "name": "060TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "060TUC-T4190D20": {
+      "name": "060TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/060TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072DUC-T4101D20": {
+      "name": "072DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072EUC-T4100D20": {
+      "name": "072EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072EUC-T4101D20": {
+      "name": "072EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072FUC-T4101D20": {
+      "name": "072FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072KUC-T4130D20": {
+      "name": "072KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072PUC-T4119D20": {
+      "name": "072PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072TUC-T4131D20": {
+      "name": "072TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072TUC-T4180D20": {
+      "name": "072TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072TUC-T4190D20": {
+      "name": "072TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "072ZUC-T4122D20": {
+      "name": "072ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/072ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096EUC-T3100D20": {
+      "name": "096EUC-T3100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T3100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096EUC-T4100D20": {
+      "name": "096EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096EUC-T4101D20": {
+      "name": "096EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096FUC-T4101D20": {
+      "name": "096FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096KUC-T4130D20": {
+      "name": "096KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096PUC-T4119D20": {
+      "name": "096PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096TUC-T4131D20": {
+      "name": "096TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096TUC-T4180D20": {
+      "name": "096TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096TUC-T4190D20": {
+      "name": "096TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "096ZUC-T4122D20": {
+      "name": "096ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/096ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144DUC-T4101D20": {
+      "name": "144DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144EUC-T3100D20": {
+      "name": "144EUC-T3100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T3100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144EUC-T4100D20": {
+      "name": "144EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144EUC-T4101D20": {
+      "name": "144EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144FUC-T4101D20": {
+      "name": "144FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144KUC-T4130D20": {
+      "name": "144KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144PUC-T4119D20": {
+      "name": "144PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144TUC-T4131D20": {
+      "name": "144TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144TUC-T4180D20": {
+      "name": "144TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144TUC-T4190D20": {
+      "name": "144TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "144ZUC-T4122D20": {
+      "name": "144ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/144ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192EUC-T4100D20": {
+      "name": "192EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192EUC-T4101D20": {
+      "name": "192EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192KUC-T4130D20": {
+      "name": "192KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192TUC-T4131D20": {
+      "name": "192TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192TUC-T4180D20": {
+      "name": "192TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "192TUC-T4190D20": {
+      "name": "192TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/192TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216DUC-T4101D20": {
+      "name": "216DUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216DUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216DUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216EUC-T4100D20": {
+      "name": "216EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216EUC-T4101D20": {
+      "name": "216EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216FUC-T4101D20": {
+      "name": "216FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216KUC-T4130D20": {
+      "name": "216KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216PUC-T4119D20": {
+      "name": "216PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216TUC-T4131D20": {
+      "name": "216TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "16",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216TUC-T4180D20": {
+      "name": "216TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "16",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216TUC-T4190D20": {
+      "name": "216TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "16",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "216ZUC-T4122D20": {
+      "name": "216ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/216ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288EUC-T3100D20": {
+      "name": "288EUC-T3100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T3100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T3100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288EUC-T4100D20": {
+      "name": "288EUC-T4100D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T4100D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T4100D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288EUC-T4101D20": {
+      "name": "288EUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288EUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288FUC-T4101D20": {
+      "name": "288FUC-T4101D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288FUC-T4101D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288FUC-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288KUC-T4130D20": {
+      "name": "288KUC-T4130D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288KUC-T4130D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288KUC-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288PUC-T4119D20": {
+      "name": "288PUC-T4119D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288PUC-T4119D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288PUC-T4119D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288TUC-T4131D20": {
+      "name": "288TUC-T4131D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4131D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288TUC-T4180D20": {
+      "name": "288TUC-T4180D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4180D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4180D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288TUC-T4190D20": {
+      "name": "288TUC-T4190D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4190D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288TUC-T4190D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "288ZUC-T4122D20": {
+      "name": "288ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/288ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "360ZUC-T4122D20": {
+      "name": "360ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/360ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/360ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "360",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    },
+    "432ZUC-T4122D20": {
+      "name": "432ZUC-T4122D20 · ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "description": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/432ZUC-T4122D20_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Lite%20Loose%20Tube%2C%20Gel-Free%2C%20Single-Jacket%2C%20Single-Armored%20Cable/432ZUC-T4122D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "432",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable",
+        "Armoring": "Yes"
+      }
+    }
+  }
+}

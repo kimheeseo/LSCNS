@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Patch Panel",
+  "displayName": "EDGE™ Adapter Panel, MTP®",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 8,
+  "comparisonFields": [
+    "Product Type",
+    "Connector Type"
+  ],
+  "products": {
+    "EDGE-CP24-90": {
+      "name": "EDGE-CP24-90 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-90_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-90_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP24-E3": {
+      "name": "EDGE-CP24-E3 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-E3_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-E3_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP24-Q6": {
+      "name": "EDGE-CP24-Q6 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-Q6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP24-Q6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP48-90": {
+      "name": "EDGE-CP48-90 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-90_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-90_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP48-E3": {
+      "name": "EDGE-CP48-E3 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-E3_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-E3_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP48-Q6": {
+      "name": "EDGE-CP48-Q6 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-Q6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP48-Q6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP64-M1": {
+      "name": "EDGE-CP64-M1 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP64-M1_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP64-M1_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    },
+    "EDGE-CP64-M3": {
+      "name": "EDGE-CP64-M3 · EDGE™ Adapter Panel, MTP®",
+      "description": "EDGE™ Adapter Panel, MTP®",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP64-M3_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/Adapter%20Panels/EDGE%E2%84%A2%20Adapter%20Panel%2C%20MTP%C2%AE/EDGE-CP64-M3_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Adapter Panel, MTP®",
+        "Connector Type": "MTP",
+        "Connector": "MTP"
+      }
+    }
+  }
+}

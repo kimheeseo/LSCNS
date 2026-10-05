@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Patch Panel",
+  "displayName": "CCH Panel, SC Adapters",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 30,
+  "comparisonFields": [
+    "Product Type",
+    "Connector Type"
+  ],
+  "products": {
+    "CCH-CP06-3C": {
+      "name": "CCH-CP06-3C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-3C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-3C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-56": {
+      "name": "CCH-CP06-56 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-56_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-56_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-59": {
+      "name": "CCH-CP06-59 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-59_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-59_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-6C": {
+      "name": "CCH-CP06-6C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-6C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-6C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-91": {
+      "name": "CCH-CP06-91 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-91_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-91_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-D9": {
+      "name": "CCH-CP06-D9 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-D9_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-D9_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-E6": {
+      "name": "CCH-CP06-E6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-E6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-E6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-E7": {
+      "name": "CCH-CP06-E7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-E7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-E7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-G6": {
+      "name": "CCH-CP06-G6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-G6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-G6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP06-G7": {
+      "name": "CCH-CP06-G7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-G7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP06-G7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-3C": {
+      "name": "CCH-CP08-3C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-3C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-3C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-56": {
+      "name": "CCH-CP08-56 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-56_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-56_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-59": {
+      "name": "CCH-CP08-59 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-59_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-59_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-6C": {
+      "name": "CCH-CP08-6C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-6C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-6C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-91": {
+      "name": "CCH-CP08-91 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-91_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-91_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-D9": {
+      "name": "CCH-CP08-D9 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-D9_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-D9_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-E6": {
+      "name": "CCH-CP08-E6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-E6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-E6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-E7": {
+      "name": "CCH-CP08-E7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-E7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-E7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-G6": {
+      "name": "CCH-CP08-G6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-G6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-G6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP08-G7": {
+      "name": "CCH-CP08-G7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-G7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP08-G7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-3C": {
+      "name": "CCH-CP12-3C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-3C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-3C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-56": {
+      "name": "CCH-CP12-56 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-56_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-56_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-59": {
+      "name": "CCH-CP12-59 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-59_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-59_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-6C": {
+      "name": "CCH-CP12-6C · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-6C_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-6C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-91": {
+      "name": "CCH-CP12-91 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-91_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-91_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-D9": {
+      "name": "CCH-CP12-D9 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-D9_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-D9_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-E6": {
+      "name": "CCH-CP12-E6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-E6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-E6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-E7": {
+      "name": "CCH-CP12-E7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-E7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-E7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-G6": {
+      "name": "CCH-CP12-G6 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-G6_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-G6_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    },
+    "CCH-CP12-G7": {
+      "name": "CCH-CP12-G7 · CCH Panel, SC Adapters",
+      "description": "CCH Panel, SC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-G7_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20SC%20Adapters/CCH-CP12-G7_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, SC Adapters",
+        "Connector Type": "SC",
+        "Connector": "SC"
+      }
+    }
+  }
+}

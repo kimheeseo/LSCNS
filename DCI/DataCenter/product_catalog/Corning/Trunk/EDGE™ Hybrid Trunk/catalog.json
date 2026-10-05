@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Trunk",
+  "displayName": "EDGE™ Hybrid Trunk",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 21,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "G757912QPNDLW100F": {
+      "name": "G757912QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757912QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757912QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757912TPNDLW100F": {
+      "name": "G757912TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757912TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757912TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757924QPNDLW100F": {
+      "name": "G757924QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757924QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757924QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757924TPNDLW100F": {
+      "name": "G757924TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757924TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757924TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757936QPNDLW100F": {
+      "name": "G757936QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757936QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757936QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757936TPNDLW100F": {
+      "name": "G757936TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757936TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757936TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757948QPNDLW100F": {
+      "name": "G757948QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757948QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757948QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757948TPNDLW100F": {
+      "name": "G757948TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757948TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757948TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757972QPNDLW100F": {
+      "name": "G757972QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757972QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757972QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757972TPNDLW100F": {
+      "name": "G757972TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757972TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757972TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757996QPNDLW100F": {
+      "name": "G757996QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757996QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757996QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757996TPNDLW100F": {
+      "name": "G757996TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757996TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G757996TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7579E4QPNDLW100F": {
+      "name": "G7579E4QPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G7579E4QPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G7579E4QPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7579E4TPNDLW100F": {
+      "name": "G7579E4TPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G7579E4TPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G7579E4TPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907812GPNDLW100F": {
+      "name": "G907812GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907812GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907812GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907824GPNDLW100F": {
+      "name": "G907824GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907824GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907824GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907836GPNDLW100F": {
+      "name": "G907836GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907836GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907836GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907848GPNDLW100F": {
+      "name": "G907848GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907848GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907848GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907872GPNDLW100F": {
+      "name": "G907872GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907872GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907872GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G907896GPNDLW100F": {
+      "name": "G907896GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907896GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G907896GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9078E4GPNDLW100F": {
+      "name": "G9078E4GPNDLW100F · EDGE™ Hybrid Trunk",
+      "description": "EDGE™ Hybrid Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G9078E4GPNDLW100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Hybrid%20Trunk/G9078E4GPNDLW100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    }
+  }
+}

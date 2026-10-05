@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "EDGE™ Module, Ultra Low Loss",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 9,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "ECM-RM12-04-89G-ULL": {
+      "name": "ECM-RM12-04-89G-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-04-89G-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-04-89G-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-RM12-05-93Q-ULL": {
+      "name": "ECM-RM12-05-93Q-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-05-93Q-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-05-93Q-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-RM12-05-93T-ULL": {
+      "name": "ECM-RM12-05-93T-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-05-93T-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-05-93T-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-RM12-18-89G-ULL": {
+      "name": "ECM-RM12-18-89G-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-18-89G-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-RM12-18-89G-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-UM12-04-89G-ULL": {
+      "name": "ECM-UM12-04-89G-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-04-89G-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-04-89G-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-UM12-05-93Q-ULL-VI": {
+      "name": "ECM-UM12-05-93Q-ULL-VI · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93Q-ULL-VI_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93Q-ULL-VI_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-UM12-05-93Q-ULL": {
+      "name": "ECM-UM12-05-93Q-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93Q-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93Q-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-UM12-05-93T-ULL": {
+      "name": "ECM-UM12-05-93T-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93T-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-05-93T-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM-UM12-18-89G-ULL": {
+      "name": "ECM-UM12-18-89G-ULL · EDGE™ Module, Ultra Low Loss",
+      "description": "EDGE™ Module, Ultra Low Loss",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-18-89G-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Module%2C%20Ultra%20Low%20Loss/ECM-UM12-18-89G-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    }
+  }
+}

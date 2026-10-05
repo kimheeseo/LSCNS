@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Connector",
+  "displayName": "MMC",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 1,
+  "comparisonFields": [
+    "Product Type",
+    "Connector Type"
+  ],
+  "products": {
+    "LAN-3344-AEN": {
+      "name": "LAN-3344-AEN · MMC",
+      "description": "MMC",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Connector/MMC/LAN-3344-AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Connector/MMC/LAN-3344-AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "MMC",
+        "Connector Type": "MMC",
+        "Connector": "MMC"
+      }
+    }
+  }
+}

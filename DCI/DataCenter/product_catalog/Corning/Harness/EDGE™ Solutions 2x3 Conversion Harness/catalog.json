@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Harness",
+  "displayName": "EDGE™ Solutions 2x3 Conversion Harness",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 1,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "H937524QLZ-KKA003M": {
+      "name": "H937524QLZ-KKA003M · EDGE™ Solutions 2x3 Conversion Harness",
+      "description": "EDGE™ Solutions 2x3 Conversion Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Solutions%202x3%20Conversion%20Harness/H937524QLZ-KKA003M_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Solutions%202x3%20Conversion%20Harness/H937524QLZ-KKA003M_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "003M"
+      }
+    }
+  }
+}

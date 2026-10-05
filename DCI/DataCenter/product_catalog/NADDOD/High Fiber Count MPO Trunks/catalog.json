@@ -13,12 +13,12 @@
   "storageMode": "metadata only; official product links are referenced directly",
   "comparisonFields": [
     "Model",
-    "Connector",
-    "Fiber Type",
     "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
     "Polarity",
     "Length",
-    "Jacket",
     "Source"
   ],
   "products": {
@@ -35,7 +35,10 @@
         "Polarity": "Type B",
         "Length": "7m",
         "Jacket": "LSZH/OFNP",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
       }
     },
     "mf-m192mpofab-7m": {
@@ -51,7 +54,10 @@
         "Polarity": "Type B",
         "Length": "7m",
         "Jacket": "LSZH/OFNP",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
       }
     },
     "mf-m192mpomab-5m": {
@@ -67,7 +73,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH/OFNP",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
       }
     },
     "mf-s192mpomab-5m": {
@@ -83,7 +92,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH/OFNP",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
       }
     },
     "mf-m48mpomub-5m": {
@@ -98,7 +110,10 @@
         "Fiber Count": "48",
         "Polarity": "Type B",
         "Length": "5m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-12/UPC",
+        "Cable Jacket": ""
       }
     },
     "mf-s96mpofab-5m": {
@@ -114,7 +129,10 @@
         "Polarity": "Type B",
         "Length": "5m",
         "Jacket": "LSZH/OFNP",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OS2",
+        "Connector Type": "MPO-12/APC",
+        "Cable Jacket": "LSZH/OFNP"
       }
     },
     "mf-m16x8mpofab-5m": {
@@ -129,7 +147,10 @@
         "Fiber Count": "128",
         "Polarity": "Type B",
         "Length": "5m",
-        "Source": "NADDOD official product page"
+        "Source": "NADDOD official product page",
+        "Fiber Mode": "OM4",
+        "Connector Type": "MPO-8/APC",
+        "Cable Jacket": ""
       }
     },
     "72f-mpo12-trunk-family": {
@@ -141,7 +162,10 @@
         "Connector": "MPO-12",
         "Fiber Count": "72",
         "Polarity": "Type B",
-        "Source": "NADDOD High-Fiber Count Trunk collection"
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": ""
       }
     },
     "144f-mpo12-trunk-family": {
@@ -153,7 +177,10 @@
         "Connector": "MPO-12",
         "Fiber Count": "144",
         "Polarity": "Type B",
-        "Source": "NADDOD High-Fiber Count Trunk collection"
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "",
+        "Connector Type": "MPO-12",
+        "Cable Jacket": ""
       }
     },
     "192f-24x8-trunk-family": {
@@ -165,7 +192,10 @@
         "Connector": "MPO-8",
         "Fiber Count": "192",
         "Polarity": "Type B",
-        "Source": "NADDOD High-Fiber Count Trunk collection"
+        "Source": "NADDOD High-Fiber Count Trunk collection",
+        "Fiber Mode": "",
+        "Connector Type": "MPO-8",
+        "Cable Jacket": ""
       }
     }
   }

@@ -2043,8 +2043,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },

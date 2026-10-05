@@ -343,8 +343,8 @@
         "Shielding": "S/FTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "3 m"
       }
@@ -368,8 +368,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "1 m"
       }
@@ -1043,8 +1043,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "15 m"
       }
@@ -2768,8 +2768,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3093,8 +3093,8 @@
         "Shielding": "F/UTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3118,8 +3118,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3143,8 +3143,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3243,8 +3243,8 @@
         "Shielding": "F/UTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3443,8 +3443,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3518,8 +3518,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3543,8 +3543,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3793,8 +3793,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3918,8 +3918,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3943,8 +3943,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4118,8 +4118,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4143,8 +4143,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4268,8 +4268,8 @@
         "Shielding": "—",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4393,8 +4393,8 @@
         "Shielding": "S/FTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5568,8 +5568,8 @@
         "Shielding": "S/FTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "0.5 m"
       }
@@ -5593,8 +5593,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "10 m"
       }
@@ -9693,8 +9693,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "2 m"
       }
@@ -9718,8 +9718,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "3 m"
       }
@@ -9743,8 +9743,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "5 m"
       }
@@ -9768,8 +9768,8 @@
         "Shielding": "—",
         "Connector Type": "RJ45",
         "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PVC",
+        "Jacket": "PVC",
         "Flame Rating": "—",
         "Length": "6 m"
       }

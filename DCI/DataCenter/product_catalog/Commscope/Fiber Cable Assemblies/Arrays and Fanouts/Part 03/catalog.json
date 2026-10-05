@@ -157,8 +157,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4136,8 +4136,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4297,8 +4297,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4343,8 +4343,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4458,8 +4458,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4688,8 +4688,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4711,8 +4711,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4734,8 +4734,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4803,8 +4803,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4849,8 +4849,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4872,8 +4872,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4895,8 +4895,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4918,8 +4918,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4941,8 +4941,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4964,8 +4964,8 @@
         "Connector Type": "MPO-24 / LC/UPC",
         "Connector": "MPO-24 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5033,8 +5033,8 @@
         "Connector Type": "MPO-24 / MPO-12",
         "Connector": "MPO-24 / MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5056,8 +5056,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5079,8 +5079,8 @@
         "Connector Type": "MPO-24 / MPO-8",
         "Connector": "MPO-24 / MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5125,8 +5125,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5148,8 +5148,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5171,8 +5171,8 @@
         "Connector Type": "MPO-8 / MPO-12",
         "Connector": "MPO-8 / MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5217,8 +5217,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5240,8 +5240,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5286,8 +5286,8 @@
         "Connector Type": "MPO-24 / LC/UPC",
         "Connector": "MPO-24 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5309,8 +5309,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5332,8 +5332,8 @@
         "Connector Type": "MPO-8 / MPO-12",
         "Connector": "MPO-8 / MPO-12",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5355,8 +5355,8 @@
         "Connector Type": "MPO-24 / LC/UPC",
         "Connector": "MPO-24 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5378,8 +5378,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5401,8 +5401,8 @@
         "Connector Type": "MPO-24 / MPO-8",
         "Connector": "MPO-24 / MPO-8",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5424,8 +5424,8 @@
         "Connector Type": "MPO-24 / MPO-12",
         "Connector": "MPO-24 / MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5447,8 +5447,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5470,8 +5470,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5516,8 +5516,8 @@
         "Connector Type": "MPO-8 / MPO-12",
         "Connector": "MPO-8 / MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5539,8 +5539,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5907,8 +5907,8 @@
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5976,8 +5976,8 @@
         "Connector Type": "LC/UPC / SC/UPC",
         "Connector": "LC/UPC / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -5999,8 +5999,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6045,8 +6045,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6091,8 +6091,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6114,8 +6114,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6137,8 +6137,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6160,8 +6160,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6183,8 +6183,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6252,8 +6252,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6275,8 +6275,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6298,8 +6298,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6321,8 +6321,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6344,8 +6344,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6367,8 +6367,8 @@
         "Connector Type": "LC/UPC / SC/UPC",
         "Connector": "LC/UPC / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6390,8 +6390,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6413,8 +6413,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6436,8 +6436,8 @@
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6459,8 +6459,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6505,8 +6505,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -6528,8 +6528,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8000,8 +8000,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8069,8 +8069,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8253,8 +8253,8 @@
         "Connector Type": "MPO-12 / LC/UPC",
         "Connector": "MPO-12 / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },

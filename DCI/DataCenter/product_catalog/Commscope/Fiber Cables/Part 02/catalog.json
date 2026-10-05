@@ -114,8 +114,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -1290,8 +1290,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1938,8 +1938,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -2010,8 +2010,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -2082,8 +2082,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -2106,8 +2106,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -2346,8 +2346,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -2370,8 +2370,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4386,8 +4386,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -4410,8 +4410,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -4458,8 +4458,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -4506,8 +4506,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -4530,8 +4530,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Cca",
         "Length": "—"
       }
@@ -4578,8 +4578,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4698,8 +4698,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4722,8 +4722,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4866,8 +4866,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5058,8 +5058,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5082,8 +5082,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5154,8 +5154,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Cca",
         "Length": "—"
       }
@@ -5442,8 +5442,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5514,8 +5514,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5538,8 +5538,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5634,8 +5634,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5706,8 +5706,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Cca",
         "Length": "—"
       }
@@ -5850,8 +5850,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Cca",
         "Length": "—"
       }
@@ -5922,8 +5922,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -5946,8 +5946,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -6042,8 +6042,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -6066,8 +6066,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6090,8 +6090,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -8130,8 +8130,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -8202,8 +8202,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -8346,8 +8346,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -8370,8 +8370,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Cca",
         "Length": "—"
       }
@@ -8394,8 +8394,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -8418,8 +8418,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Riser",
-        "Jacket": "Riser",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }

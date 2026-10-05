@@ -1974,8 +1974,8 @@
         "Connector Type": "MPO",
         "Connector": "MPO",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -1997,8 +1997,8 @@
         "Connector Type": "MPO",
         "Connector": "MPO",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -2020,8 +2020,8 @@
         "Connector Type": "MPO",
         "Connector": "MPO",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     }

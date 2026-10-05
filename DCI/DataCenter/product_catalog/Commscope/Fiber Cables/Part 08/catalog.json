@@ -210,8 +210,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -234,8 +234,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -810,8 +810,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -954,8 +954,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -978,8 +978,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1002,8 +1002,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1026,8 +1026,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1050,8 +1050,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1074,8 +1074,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1098,8 +1098,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1362,8 +1362,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1386,8 +1386,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1410,8 +1410,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "2000 m"
       }
@@ -1434,8 +1434,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1458,8 +1458,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1506,8 +1506,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -1530,8 +1530,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -1770,8 +1770,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -1986,8 +1986,8 @@
         "Fiber Type": "—",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -2298,8 +2298,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -2394,8 +2394,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -2418,8 +2418,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -3330,8 +3330,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3354,8 +3354,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3378,8 +3378,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3498,8 +3498,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3522,8 +3522,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -3546,8 +3546,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4746,8 +4746,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4770,8 +4770,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4794,8 +4794,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4818,8 +4818,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4842,8 +4842,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4866,8 +4866,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4962,8 +4962,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -4986,8 +4986,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5010,8 +5010,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5034,8 +5034,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5058,8 +5058,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -5082,8 +5082,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -5106,8 +5106,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -5322,8 +5322,8 @@
         "Fiber Type": "OS2",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5418,8 +5418,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -5442,8 +5442,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "1000 m"
       }
@@ -5562,8 +5562,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5730,8 +5730,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5754,8 +5754,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5778,8 +5778,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5802,8 +5802,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -5826,8 +5826,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6066,8 +6066,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6714,8 +6714,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6738,8 +6738,8 @@
         "Fiber Type": "OM4",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6810,8 +6810,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6834,8 +6834,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -6858,8 +6858,8 @@
         "Fiber Type": "OM5",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "PE",
+        "Jacket": "PE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -7098,8 +7098,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -7122,8 +7122,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -7170,8 +7170,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "500 m"
       }
@@ -7194,8 +7194,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "500 m"
       }
@@ -8778,8 +8778,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -9042,8 +9042,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -9234,8 +9234,8 @@
         "Fiber Type": "OM3",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "Dca",
         "Length": "—"
       }
@@ -9306,8 +9306,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -9330,8 +9330,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -9402,8 +9402,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -9426,8 +9426,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }
@@ -9474,8 +9474,8 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "Unterminated",
         "Connector": "Unterminated",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "HDPE",
+        "Jacket": "HDPE",
         "Flame Rating": "—",
         "Length": "—"
       }

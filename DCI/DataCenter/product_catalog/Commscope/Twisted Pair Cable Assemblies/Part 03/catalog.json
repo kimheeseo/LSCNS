@@ -68,8 +68,8 @@
         "Shielding": "S/FTP",
         "Connector Type": "—",
         "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Flame Rating": "—",
         "Length": "5 m"
       }

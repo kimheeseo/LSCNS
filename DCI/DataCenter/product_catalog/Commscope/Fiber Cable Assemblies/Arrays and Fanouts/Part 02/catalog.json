@@ -42,8 +42,8 @@
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -939,8 +939,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4458,8 +4458,8 @@
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4849,8 +4849,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -4987,8 +4987,8 @@
         "Connector Type": "MPO-12",
         "Connector": "MPO-12",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8161,8 +8161,8 @@
         "Connector Type": "MPO-24",
         "Connector": "MPO-24",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8575,8 +8575,8 @@
         "Connector Type": "MPO-8",
         "Connector": "MPO-8",
         "Gender": "—",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },
@@ -8690,8 +8690,8 @@
         "Connector Type": "MPO-8 / LC/UPC",
         "Connector": "MPO-8 / LC/UPC",
         "Gender": "Male",
-        "Cable Jacket": "Low Smoke Zero Halogen",
-        "Jacket": "Low Smoke Zero Halogen",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
         "Length": "—"
       }
     },

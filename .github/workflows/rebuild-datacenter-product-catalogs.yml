@@ -1,0 +1,50 @@
+name: Rebuild DataCenter Product Catalogs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/rebuild-datacenter-product-catalogs.yml"
+      - "DCI/DataCenter/scripts/rebuild_product_catalogs.py"
+      - "DCI/DataCenter/product_catalog/Commscope/*.xlsx"
+      - "DCI/DataCenter/product_catalog/Commscope/**/*.pdf"
+      - "DCI/DataCenter/product_catalog/Corning/**/*.pdf"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: datacenter-product-catalog-rebuild
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Generate structured catalogs
+        run: python DCI/DataCenter/scripts/rebuild_product_catalogs.py
+      - name: Commit generated catalogs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DCI/DataCenter/product_catalog
+          if git diff --cached --quiet; then
+            echo "No catalog changes"
+          else
+            git commit -m "Rebuild DataCenter product catalogs"
+          fi
+          REV="$(git rev-parse HEAD)"
+          python DCI/DataCenter/scripts/rebuild_product_catalogs.py --manifest-only "$REV"
+          git add DCI/DataCenter/product_catalog/catalog-manifest.json DCI/DataCenter/product_catalog/bom-catalog-index.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh DataCenter catalog manifest"
+          fi
+          git push origin HEAD:main

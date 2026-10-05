@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "MTP MPO Harnesses",
+  "displayName": "MTP®/MPO Harnesses",
+  "description": "NADDOD MPO/MTP breakout and harness assemblies from high-density MPO/MTP interfaces to MPO, LC or MDC endpoints.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collections/mtp-or-mpo-harnesses",
+  "sourceUrls": [
+    "https://www.naddod.com/collections/mtp-or-mpo-harnesses"
+  ],
+  "sourceCount": 15,
+  "storageMode": "metadata only; official product links are referenced directly",
+  "comparisonFields": [
+    "Model",
+    "Connector",
+    "Breakout",
+    "Fiber Type",
+    "Fiber Count",
+    "Polarity",
+    "Length",
+    "Jacket",
+    "Source"
+  ],
+  "products": {
+    "m4mpoa2x8f-10m": {
+      "name": "M4MPOA2x8F · 10m MPO-16 to 2×MPO-8 OM4 Type B Harness",
+      "description": "OM4 elite breakout from one MPO-16 APC female to two MPO-8 UPC female legs.",
+      "officialUrl": "https://www.naddod.com/products/101801.html",
+      "specs": {
+        "Model": "M4MPOA2x8F",
+        "Connector": "MPO-16/APC",
+        "Breakout": "2x MPO-8/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "10m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "m4mpoa2x4f-50m": {
+      "name": "M4MPOA2x4F · 50m MPO-8 to 2×MPO-4 OM4 Type B Harness",
+      "description": "OM4 breakout for Mellanox-compatible high-density links.",
+      "officialUrl": "https://www.naddod.com/products/101797.html",
+      "specs": {
+        "Model": "M4MPOA2x4F",
+        "Connector": "MPO-8/APC",
+        "Breakout": "2x MPO-4/APC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "50m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mpoa2x4f-5m": {
+      "name": "S2MPOA2x4F · 5m MPO-8 to 2×MPO-4 OS2 Type B Harness",
+      "description": "Single-mode elite MPO breakout cable.",
+      "officialUrl": "https://www.naddod.com/products/102613.html",
+      "specs": {
+        "Model": "S2MPOA2x4F",
+        "Connector": "MPO-8/APC",
+        "Breakout": "2x MPO-4/APC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mpoalcu8fb-1m": {
+      "name": "S2MPOALCU8FB · 1m MPO-8 to 4×LC Duplex OS2 Type B Harness",
+      "description": "OS2 MPO-8 APC female to four LC duplex UPC breakout harness.",
+      "officialUrl": "https://www.naddod.com/products/34351.html",
+      "specs": {
+        "Model": "S2MPOALCU8FB",
+        "Connector": "MPO-8/APC",
+        "Breakout": "4x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "m4mtpulcu8fb-1m": {
+      "name": "M4MTPULCU8FB · 1m MTP®-8 to 4×LC Duplex OM4 Type B Harness",
+      "description": "OM4 MTP-8 UPC female to four LC duplex UPC harness.",
+      "officialUrl": "https://www.naddod.com/products/34323.html",
+      "specs": {
+        "Model": "M4MTPULCU8FB",
+        "Connector": "MTP-8/UPC",
+        "Breakout": "4x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Jacket": "LSZH/OFNR",
+        "Insertion Loss": "≤0.35 dB (MTP), ≤0.25 dB (LC)",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mtpalcu8fb-1m": {
+      "name": "S2MTPALCU8FB · 1m MTP®-8 to 4×LC Duplex OS2 Type B Harness",
+      "description": "OS2 MTP-8 APC female to four LC duplex UPC breakout harness.",
+      "officialUrl": "https://www.naddod.com/products/34281.html",
+      "specs": {
+        "Model": "S2MTPALCU8FB",
+        "Connector": "MTP-8/APC",
+        "Breakout": "4x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "m4mtpalcu16f-1m": {
+      "name": "M4MTPALCU16F · 1m MTP®-16 to 8×LC Duplex OM4 16F Harness",
+      "description": "OM4 16-fiber MTP-16 APC female breakout to eight LC duplex UPC interfaces.",
+      "officialUrl": "https://www.naddod.com/products/34337.html",
+      "specs": {
+        "Model": "M4MTPALCU16F",
+        "Connector": "MTP-16/APC",
+        "Breakout": "8x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "m4mpoaa2x8f-5m": {
+      "name": "M4MPOAA2x8F · 5m MPO-16 to 2×MPO-8 APC OM4 Type B Harness",
+      "description": "OM4 LSZH breakout for AI and storage clusters.",
+      "officialUrl": "https://www.naddod.com/products/104305.html",
+      "specs": {
+        "Model": "M4MPOAA2x8F",
+        "Connector": "MPO-16/APC",
+        "Breakout": "2x MPO-8/APC",
+        "Fiber Type": "OM4",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mpoa2x8f-5m": {
+      "name": "S2MPOA2x8F · 5m MPO-16 to 2×MPO-8 APC OS2 Type B Harness",
+      "description": "OS2 LSZH breakout for AI and storage clusters.",
+      "officialUrl": "https://www.naddod.com/products/104323.html",
+      "specs": {
+        "Model": "S2MPOA2x8F",
+        "Connector": "MPO-16/APC",
+        "Breakout": "2x MPO-8/APC",
+        "Fiber Type": "OS2",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "5m",
+        "Jacket": "LSZH",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mpoamdcu8fb-1m": {
+      "name": "S2MPOAMDCU8FB · 1m MPO-8 to 4×MDC Duplex OS2 Type B Harness",
+      "description": "OS2 MPO-8 APC female to four MDC duplex UPC interfaces.",
+      "officialUrl": "https://www.naddod.com/products/34365.html",
+      "specs": {
+        "Model": "S2MPOAMDCU8FB",
+        "Connector": "MPO-8/APC",
+        "Breakout": "4x MDC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "m4mpoulcu8fb-1m": {
+      "name": "M4MPOULCU8FB · 1m MPO-8 to 4×LC Duplex OM4 Type B Harness",
+      "description": "OM4 MPO-8 UPC female to four LC duplex UPC harness.",
+      "officialUrl": "https://www.naddod.com/products/34393.html",
+      "specs": {
+        "Model": "M4MPOULCU8FB",
+        "Connector": "MPO-8/UPC",
+        "Breakout": "4x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OM4",
+        "Fiber Count": "8",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    },
+    "s2mpoalcu16f-1m": {
+      "name": "S2MPOALCU16F · 1m MPO-16 to 8×LC Duplex OS2 16F Harness",
+      "description": "OS2 MPO-16 APC female to eight LC duplex UPC breakout harness.",
+      "officialUrl": "https://www.naddod.com/products/34379.html",
+      "specs": {
+        "Model": "S2MPOALCU16F",
+        "Connector": "MPO-16/APC",
+        "Breakout": "8x LC Duplex/UPC",
+        "Gender": "Female",
+        "Fiber Type": "OS2",
+        "Fiber Count": "16",
+        "Polarity": "Type B",
+        "Length": "1m",
+        "Source": "NADDOD official product page"
+      }
+    }
+  }
+}

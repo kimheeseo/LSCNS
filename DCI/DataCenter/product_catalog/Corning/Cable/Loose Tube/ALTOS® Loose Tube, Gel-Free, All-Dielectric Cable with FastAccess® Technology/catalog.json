@@ -1,0 +1,1041 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology",
+  "description": "Corning ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 60,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "002EU4-T4700D20": {
+      "name": "002EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002EU4-T4701D20": {
+      "name": "002EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002KU4-T4730D20": {
+      "name": "002KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002TU4-T4731D20": {
+      "name": "002TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002TU4-T4780D20": {
+      "name": "002TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002TU4-T4790D20": {
+      "name": "002TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "002ZU4-T4722D20": {
+      "name": "002ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 2F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/002ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "2",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004EU4-T4700D20": {
+      "name": "004EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004EU4-T4701D20": {
+      "name": "004EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004KU4-T4730D20": {
+      "name": "004KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004TU4-T4731D20": {
+      "name": "004TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004TU4-T4780D20": {
+      "name": "004TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004TU4-T4790D20": {
+      "name": "004TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "004ZU4-T4722D20": {
+      "name": "004ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 4F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/004ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "4",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006EU4-T4700D20": {
+      "name": "006EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006EU4-T4701D20": {
+      "name": "006EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006KU4-T4730D20": {
+      "name": "006KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4731D20": {
+      "name": "006TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4780D20": {
+      "name": "006TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006TU4-T4790D20": {
+      "name": "006TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "006ZU4-T4722D20": {
+      "name": "006ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 6F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/006ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "6",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012DU4-T4701D20": {
+      "name": "012DU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012DU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T3700D20": {
+      "name": "012EU4-T3700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012EU4-T3700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T4700D20": {
+      "name": "012EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EU4-T4701D20": {
+      "name": "012EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012FU4-T4701D20": {
+      "name": "012FU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012FU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012KU4-T4730D20": {
+      "name": "012KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012PU4-T4719D20": {
+      "name": "012PU4-T4719D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012PU4-T4719D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4731D20": {
+      "name": "012TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4780D20": {
+      "name": "012TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TU4-T4790D20": {
+      "name": "012TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012ZU4-T4722D20": {
+      "name": "012ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 12F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/012ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024DU4-T4701D20": {
+      "name": "024DU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024DU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EU4-T4700D20": {
+      "name": "024EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EU4-T4701D20": {
+      "name": "024EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024FU4-T4701D20": {
+      "name": "024FU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024FU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024KU4-T4730D20": {
+      "name": "024KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024PU4-T4719D20": {
+      "name": "024PU4-T4719D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024PU4-T4719D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4731D20": {
+      "name": "024TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4780D20": {
+      "name": "024TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TU4-T4790D20": {
+      "name": "024TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024ZU4-T4722D20": {
+      "name": "024ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 24F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/024ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036DU4-T4701D20": {
+      "name": "036DU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036DU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EU4-T4700D20": {
+      "name": "036EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EU4-T4701D20": {
+      "name": "036EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036FU4-T4701D20": {
+      "name": "036FU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036FU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036KU4-T4730D20": {
+      "name": "036KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036PU4-T4719D20": {
+      "name": "036PU4-T4719D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036PU4-T4719D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4731D20": {
+      "name": "036TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4780D20": {
+      "name": "036TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TU4-T4790D20": {
+      "name": "036TU4-T4790D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036TU4-T4790D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036ZU4-T4722D20": {
+      "name": "036ZU4-T4722D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 36F · OS2 (SMF-28 Ultra) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/036ZU4-T4722D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2 (SMF-28 Ultra)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048DU4-T4701D20": {
+      "name": "048DU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OS2 (TXF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048DU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (TXF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EU4-T4700D20": {
+      "name": "048EU4-T4700D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048EU4-T4700D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EU4-T4701D20": {
+      "name": "048EU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048EU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048FU4-T4701D20": {
+      "name": "048FU4-T4701D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OS2 (LEAF) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048FU4-T4701D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (LEAF)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048KU4-T4730D20": {
+      "name": "048KU4-T4730D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048KU4-T4730D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048PU4-T4719D20": {
+      "name": "048PU4-T4719D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OS2 (SMF-28 ULL) · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048PU4-T4719D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2 (SMF-28 ULL)",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TU4-T4731D20": {
+      "name": "048TU4-T4731D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048TU4-T4731D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TU4-T4780D20": {
+      "name": "048TU4-T4780D20",
+      "description": "ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology · 48F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Loose%20Tube%2C%20Gel-Free%2C%20All-Dielectric%20Cable%20with%20FastAccess%C2%AE%20Technology/048TU4-T4780D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "All-dielectric gel-free loose tube",
+        "Armoring": "No"
+      }
+    }
+  }
+}

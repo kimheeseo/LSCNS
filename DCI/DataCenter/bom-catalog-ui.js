@@ -16,7 +16,9 @@
   function host() {
     const view=$('view-bom');if(!view)return null;
     let h=$('bom-live-products');if(!h){h=document.createElement('section');h.id='bom-live-products';h.className='panel';view.prepend(h);}
-    h.classList.toggle('cap-content',!!current?.a);
+    // Keep a separate host: capacity rendering locates its own .cap-content.
+    h.classList.remove('cap-content');
+    h.style.setProperty('display','block','important');
     // Both modes use this one product table. Hide the old static shortlist.
     const old=$('design-products');if(old)old.hidden=true;
     return h;

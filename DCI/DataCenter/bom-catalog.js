@@ -88,9 +88,10 @@
         check('프로토콜', required.protocol, p.protocol, (a,b) => clean(b).includes(clean(a)));
       }
       if (type === 'transceiver') check('광 규격', required.standard, p.standard, (a,b) => comparable(a,b) || comparable(clean(a).replace(/^\d+G(?:BASE-)?/,''),clean(b).replace(/^\d+G(?:BASE-)?/,'')));
-      if (['transceiver','fiber','patch','trunk','connector','adapter','module','copper'].includes(type)) {
+      if (['transceiver','fiber','patch','trunk','connector','adapter','panel','module','copper'].includes(type)) {
         check('커넥터', required.connector, p.connector, (a,b) => {
           const left=connector(a),right=connector(b);
+          if(left.includes('RJ45')&&right.includes('RJ45')) return true;
           if(left.split('/')[0]===right.split('/')[0]&&(!left.includes('/')||!right.includes('/'))){missing.push('커넥터 연마/핀');return true;}
           return left===right;
         });

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CAT = ROOT / "product_catalog"
 COM = CAT / "Commscope"
 COR = CAT / "Corning"
-CHECKED = "2026-10-05"
+CHECKED = "2026-10-06"
 
 ODF_URL = "https://www.commscope.com/network-type/data-centers/optical-distribution-frames-odf/"
 PROPEL_URL = "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/"
@@ -471,6 +471,26 @@ def build_extended_commscope():
         lines+=["",f"- Baseline structured products before extended lists: {len(baseline)}",f"- Extended unique products added: {sum(counts.values())}","- Duplicate Part Numbers are retained only once across CommScope catalogs.","- Discontinued products remain searchable in the product list but are excluded from BOM candidate matching.",""]
         summary.write_text(old+"\n"+"\n".join(lines),encoding="utf-8")
 
+def audit_pdf_coverage():
+    pdfs=sorted(CAT.rglob("*.pdf"))
+    catalog_dirs={p.parent.resolve() for p in CAT.rglob("catalog.json")}
+    missing=[p for p in pdfs if p.parent.resolve() not in catalog_dirs]
+    by_vendor={}
+    for p in pdfs:
+        rel=p.relative_to(CAT)
+        vendor=rel.parts[0] if rel.parts else "Other"
+        by_vendor[vendor]=by_vendor.get(vendor,0)+1
+    write_json(CAT/"catalog-audit.json",{
+        "checked":CHECKED,
+        "pdfCount":len(pdfs),
+        "catalogCount":len(list(CAT.rglob("catalog.json"))),
+        "uncatalogedPdfCount":len(missing),
+        "pdfByVendor":dict(sorted(by_vendor.items())),
+        "uncatalogedPdfPaths":[str(p.relative_to(CAT)).replace("\\","/") for p in missing]
+    })
+    print("PDF audit",len(pdfs),"PDFs,",len(missing),"without folder catalog")
+    return len(missing)
+
 def refresh_indexes(revision=""):
     catalogs=sorted(str(p.relative_to(CAT)).replace("\\\\","/") for p in CAT.rglob("catalog.json"))
     manifest=CAT/"catalog-manifest.json";obj={}
@@ -489,4 +509,4 @@ def refresh_indexes(revision=""):
 if __name__=="__main__":
     if len(sys.argv)>=3 and sys.argv[1]=="--manifest-only":
         print("manifest catalogs",refresh_indexes(sys.argv[2]));raise SystemExit
-    build_commscope();build_extended_commscope();build_corning_missing();print("generated catalogs",len(list(CAT.rglob("catalog.json"))))
+    build_commscope();build_extended_commscope();build_corning_missing();audit_pdf_coverage();print("generated catalogs",len(list(CAT.rglob("catalog.json"))))

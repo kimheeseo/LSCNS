@@ -6,12 +6,38 @@
   const link=p=>'<a target="_blank" rel="noopener" href="'+esc(p.source)+'">'+esc(p.vendor+' · '+p.name)+'</a><small style="display:block">'+esc(p.status+' / '+p.matchBasis)+'</small>';
   let current=null, revision=0, data=null, vendor='', search='', ready=Promise.resolve();
   function rowsFor(r,a) {
-    if(a) return [...a.bom.map(b=>{
-      const selection=a.selections.find(x=>x.network===b.network&&x.tier+' / '+x.distanceClass===b.segment);
-      const requirement=b.requirement||(selection?{connector:selection.connector,fiberType:selection.fiberType,protocol:selection.protocol}:undefined);
-      const fibers=/패치리드|광 케이블/.test(b.item)?selection?.installedFibers:undefined;
-      return {...b,requirement,fibers,segment:b.network+' / '+b.segment,installed:b.installedQty,purchase:b.purchaseQty,candidates:[]};
-    }),...r.references.map(x=>({item:x.item,installed:x.qty,purchase:null,unit:x.unit,referenceOnly:true,spec:x.note,candidates:[]})),...['UPS','Generator','Transformer'].map(item=>({item,installed:null,purchase:null,unit:'대',referenceOnly:true,spec:'개별 설비 용량/수량·이중화·현장 조건 별도 설계',candidates:[]}))];
+    if(a) {
+      const compute=(r.networks||[]).filter(x=>x.network==='compute');
+      const computeProtocol=compute[0]?.protocol||'';
+      const computeSpeed=compute[0]?.speed||'';
+      const rackRu=r.assumptions?.find(x=>x.path?.endsWith('.rackLimitRu'))?.value;
+      const bomRows=a.bom.map(b=>{
+        const selection=a.selections.find(x=>x.network===b.network&&x.tier+' / '+x.distanceClass===b.segment);
+        let requirement=b.requirement||(selection?{connector:selection.connector,fiberType:selection.fiberType||selection.fiber,protocol:selection.protocol}:undefined);
+        // Patch panels are selected by fiber family first; exact adapter layout is finalized with the module/cassette.
+        if(b.item==='패치패널') requirement={fiberType:selection?.fiberType||selection?.fiber||''};
+        const fibers=/패치리드|광 케이블/.test(b.item)?selection?.installedFibers:undefined;
+        return {...b,requirement,fibers,segment:b.network+' / '+b.segment,installed:b.installedQty,purchase:b.purchaseQty,candidates:[]};
+      });
+      const moduleRows=a.bom.filter(b=>b.item==='패치패널').map(b=>{
+        const selection=a.selections.find(x=>x.network===b.network&&x.tier+' / '+x.distanceClass===b.segment);
+        const fiber=selection?.fiberType||selection?.fiber||b.media||'';
+        return {item:'광 Module / Cassette',segment:b.network+' / '+b.segment,installed:null,purchase:null,unit:'개',referenceOnly:true,
+          spec:'패치패널 내부 모듈 · '+fiber+' · LC Duplex ↔ MTP/MPO 후보 · 패널 slot/극성/loss budget 확정 후 수량 결정',
+          requirement:{fiberType:fiber},candidates:[]};
+      });
+      const refRows=r.references.map(x=>{
+        let spec=x.note||'', requirement;
+        if(x.item==='IT 랙') spec='IT rack enclosure · '+(rackRu?rackRu+'U · ':'')+r.summary.rackKw+' kW/rack 계획값(장비 정격과 구분)';
+        if(x.item==='Leaf'){spec='Leaf switch · '+computeSpeed+'G · '+computeProtocol+' · down/up 포트 구성 검증';requirement={protocol:computeProtocol};}
+        if(x.item==='Spine'){spec='Spine switch · '+computeSpeed+'G · '+computeProtocol+' · fabric/core 포트 구성 검증';requirement={protocol:computeProtocol};}
+        if(x.item==='Super-spine'){spec='Core/Super-spine switch · '+computeSpeed+'G · '+computeProtocol+' · core fabric 포트 구성 검증';requirement={protocol:computeProtocol};}
+        return {item:x.item,segment:'설계 참고 / '+x.item,installed:x.qty,purchase:null,unit:x.unit,referenceOnly:true,spec,requirement,candidates:[]};
+      });
+      const facilityRows=['UPS','Generator','Transformer'].map(item=>({item,segment:'Facility Power / '+item,installed:null,purchase:null,unit:'대',referenceOnly:true,
+        spec:fmt(r.summary.facilityKw/1000)+' MW 시설부하 기준 · '+item+' 용량/수량·N+1/2N·전압/주파수·현장 조건 별도 sizing',candidates:[]}));
+      return [...bomRows,...moduleRows,...refRows,...facilityRows];
+    }
     const rows=r.productRequirements?.length?r.productRequirements:r.bom?.map(b=>({...b,profile:r.optical?.[b.segment]?.profile,installed:b.installedQty??b.qty,purchase:b.qty,candidates:[]}))||[];
     return rows.map(b=>({...b,candidates:[]}));
   }

@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "AOC DAC ACC AEC Cables",
+  "displayName": "AOC, DAC, ACC & AEC",
+  "description": "NADDOD AOC, DAC, ACC & AEC product families for data-center and AI infrastructure applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+  "sourceUrls": [
+    "https://www.naddod.com/collection/dac-and-aoc-cables"
+  ],
+  "sourceCount": 9,
+  "storageMode": "official product-family metadata; exact SKU/configuration must be confirmed from NADDOD page",
+  "comparisonFields": [
+    "Model",
+    "Speed",
+    "Cable Type",
+    "Form Factor",
+    "Length",
+    "Connector",
+    "Source"
+  ],
+  "products": {
+    "400g-qsfpdd-aoc": {
+      "name": "400G QSFP-DD AOC Family",
+      "description": "400G active optical cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "AOC",
+        "Protocol": "—",
+        "Speed": "400G",
+        "Form Factor": "QSFP-DD",
+        "Connector": "QSFP-DD",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "200g-qsfp56-aoc": {
+      "name": "200G QSFP56 AOC Family",
+      "description": "200G active optical cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "AOC",
+        "Protocol": "—",
+        "Speed": "200G",
+        "Form Factor": "QSFP56",
+        "Connector": "QSFP56",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "400g-breakout-aoc": {
+      "name": "400G Breakout AOC Family",
+      "description": "400G breakout active optical cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Breakout AOC",
+        "Protocol": "—",
+        "Speed": "400G",
+        "Form Factor": "QSFP-DD to breakout",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "1.6t-osfp224-dac": {
+      "name": "1.6T OSFP224 DAC Family",
+      "description": "1.6T direct attach copper cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DAC",
+        "Protocol": "—",
+        "Speed": "1.6T",
+        "Form Factor": "OSFP224",
+        "Connector": "OSFP224",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-osfp-dac": {
+      "name": "800G OSFP DAC Family",
+      "description": "800G direct attach copper cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DAC",
+        "Protocol": "—",
+        "Speed": "800G",
+        "Form Factor": "OSFP",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "400g-qsfpdd-dac": {
+      "name": "400G QSFP-DD DAC Family",
+      "description": "400G direct attach copper cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DAC",
+        "Protocol": "—",
+        "Speed": "400G",
+        "Form Factor": "QSFP-DD",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "1.6t-osfp224-acc": {
+      "name": "1.6T OSFP224 ACC Family",
+      "description": "1.6T active copper cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "ACC",
+        "Protocol": "—",
+        "Speed": "1.6T",
+        "Form Factor": "OSFP224",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-osfp-acc": {
+      "name": "800G OSFP ACC Family",
+      "description": "800G active copper cable family.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "ACC",
+        "Protocol": "—",
+        "Speed": "800G",
+        "Form Factor": "OSFP",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-aec": {
+      "name": "800G AEC Family",
+      "description": "800G active electrical cable family; detailed product configuration is selected on official page.",
+      "officialUrl": "https://www.naddod.com/collection/dac-and-aoc-cables",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "AEC",
+        "Protocol": "—",
+        "Speed": "800G",
+        "Form Factor": "OSFP/QSFP",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    }
+  }
+}

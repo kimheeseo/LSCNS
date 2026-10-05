@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "company": "NADDOD",
+  "category": "Switches & NICs",
+  "displayName": "Switches & NICs",
+  "description": "NADDOD Switches & NICs product families for data-center and AI infrastructure applications.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://www.naddod.com/collection/networking",
+  "sourceUrls": [
+    "https://www.naddod.com/collection/networking"
+  ],
+  "sourceCount": 9,
+  "storageMode": "official product-family metadata; exact SKU/configuration must be confirmed from NADDOD page",
+  "comparisonFields": [
+    "Model",
+    "Category",
+    "Protocol",
+    "Speed",
+    "Form Factor",
+    "Port Count",
+    "Source"
+  ],
+  "products": {
+    "bluefield3-dpu": {
+      "name": "NVIDIA BlueField-3 DPU Family",
+      "description": "BlueField-3 data processing unit family listed by NADDOD.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "DPU",
+        "Protocol": "Ethernet/InfiniBand",
+        "Speed": "—",
+        "Form Factor": "DPU",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "bluefield3-supernic": {
+      "name": "NVIDIA BlueField-3 SuperNIC Family",
+      "description": "BlueField-3 SuperNIC family listed by NADDOD.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "SuperNIC",
+        "Protocol": "Ethernet/InfiniBand",
+        "Speed": "—",
+        "Form Factor": "SuperNIC",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "quantum-x800": {
+      "name": "NVIDIA Quantum-X800 InfiniBand Switch Family",
+      "description": "Quantum-X800 InfiniBand switch family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand switch",
+        "Protocol": "InfiniBand",
+        "Speed": "800G",
+        "Form Factor": "Switch",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "qm9700": {
+      "name": "NVIDIA Quantum-2 QM9700 Switch Family",
+      "description": "Quantum-2 QM9700 InfiniBand switch family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "InfiniBand switch",
+        "Protocol": "InfiniBand",
+        "Speed": "—",
+        "Form Factor": "Switch",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "connectx-7": {
+      "name": "NVIDIA ConnectX-7 Adapter Family",
+      "description": "ConnectX-7 networking adapter/NIC family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "NIC",
+        "Protocol": "Ethernet/InfiniBand",
+        "Speed": "400G",
+        "Form Factor": "Adapter/NIC",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "connectx-8": {
+      "name": "NVIDIA ConnectX-8 Adapter Family",
+      "description": "ConnectX-8 networking adapter/NIC family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "NIC",
+        "Protocol": "Ethernet/InfiniBand",
+        "Speed": "—",
+        "Form Factor": "Adapter/NIC",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "1.6t-ai-switch": {
+      "name": "1.6T AI Data Center Switch Family",
+      "description": "1.6T AI data-center switch family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Ethernet switch",
+        "Protocol": "Ethernet",
+        "Speed": "1.6T",
+        "Form Factor": "Switch",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "800g-ai-switch": {
+      "name": "800G AI Data Center Switch Family",
+      "description": "800G AI data-center switch family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Ethernet switch",
+        "Protocol": "Ethernet",
+        "Speed": "800G",
+        "Form Factor": "Switch",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    },
+    "400g-ai-switch": {
+      "name": "400G AI Data Center Switch Family",
+      "description": "400G AI data-center switch family.",
+      "officialUrl": "https://www.naddod.com/collection/networking",
+      "referenceOnly": false,
+      "specs": {
+        "Category": "Ethernet switch",
+        "Protocol": "Ethernet",
+        "Speed": "400G",
+        "Form Factor": "Switch",
+        "Connector": "—",
+        "Fiber Type": "—",
+        "Fiber Count": "—",
+        "Length": "—",
+        "Jacket": "—",
+        "Source": "NADDOD official product/category page"
+      }
+    }
+  }
+}

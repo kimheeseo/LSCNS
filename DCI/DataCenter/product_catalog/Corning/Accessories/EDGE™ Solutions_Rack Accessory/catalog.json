@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Component Accessories",
+  "displayName": "EDGE™ Solutions_Rack Accessory",
+  "description": "Corning EDGE™ Solutions_Rack Accessory products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 8,
+  "comparisonFields": [
+    "Product Type"
+  ],
+  "products": {
+    "BCE-KIT-SPLT": {
+      "name": "BCE-KIT-SPLT",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/BCE-KIT-SPLT_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "BCE-KIT": {
+      "name": "BCE-KIT",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/BCE-KIT_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "EDGE-BRP-01U-DB": {
+      "name": "EDGE-BRP-01U-DB",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/EDGE-BRP-01U-DB_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "EDGE-HM-03U": {
+      "name": "EDGE-HM-03U",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/EDGE-HM-03U_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "EDGE-SMH-XPDR": {
+      "name": "EDGE-SMH-XPDR",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/EDGE-SMH-XPDR_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "PF4PRBKTSTRDQ": {
+      "name": "PF4PRBKTSTRDQ",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/PF4PRBKTSTRDQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "PF4PRBLTCVR19DQ": {
+      "name": "PF4PRBLTCVR19DQ",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/PF4PRBLTCVR19DQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    },
+    "RMB-CASS-12C": {
+      "name": "RMB-CASS-12C",
+      "description": "EDGE™ Solutions_Rack Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Solutions_Rack%20Accessory/RMB-CASS-12C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Solutions_Rack Accessory"
+      }
+    }
+  }
+}

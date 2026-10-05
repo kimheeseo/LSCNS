@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Component Accessories",
+  "displayName": "EDGE™ Port Replication Housing Accessory",
+  "description": "Corning EDGE™ Port Replication Housing Accessory products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 3,
+  "comparisonFields": [
+    "Product Type"
+  ],
+  "products": {
+    "EDGE-BLNK-PRH": {
+      "name": "EDGE-BLNK-PRH",
+      "description": "EDGE™ Port Replication Housing Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Port%20Replication%20Housing%20Accessory/EDGE-BLNK-PRH_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Port Replication Housing Accessory"
+      }
+    },
+    "EDGE-CP8B-PRH": {
+      "name": "EDGE-CP8B-PRH",
+      "description": "EDGE™ Port Replication Housing Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Port%20Replication%20Housing%20Accessory/EDGE-CP8B-PRH_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Port Replication Housing Accessory"
+      }
+    },
+    "EDGE-CPCVR-PRH": {
+      "name": "EDGE-CPCVR-PRH",
+      "description": "EDGE™ Port Replication Housing Accessory",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/EDGE%E2%84%A2%20Port%20Replication%20Housing%20Accessory/EDGE-CPCVR-PRH_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "EDGE™ Port Replication Housing Accessory"
+      }
+    }
+  }
+}

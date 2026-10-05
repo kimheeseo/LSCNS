@@ -1,0 +1,769 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable",
+  "description": "Corning SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 44,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "012EN4-T4M01A20": {
+      "name": "012EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/012EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012KN4-T4M30A20": {
+      "name": "012KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 12F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/012KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TN4-T4M31A20": {
+      "name": "012TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 12F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/012TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TN4-T4M80A20": {
+      "name": "012TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 12F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/012TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TN4-T4M90A20": {
+      "name": "012TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 12F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/012TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EN4-T3M01A20": {
+      "name": "024EN4-T3M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024EN4-T3M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EN4-T4M01A20": {
+      "name": "024EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024KN4-T4M30A20": {
+      "name": "024KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TN4-T4M31A20": {
+      "name": "024TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TN4-T4M80A20": {
+      "name": "024TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TN4-T4M90A20": {
+      "name": "024TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 24F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/024TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EN4-T4M01A20": {
+      "name": "036EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/036EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036KN4-T4M30A20": {
+      "name": "036KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 36F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/036KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TN4-T4M31A20": {
+      "name": "036TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 36F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/036TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TN4-T4M80A20": {
+      "name": "036TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 36F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/036TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TN4-T4M90A20": {
+      "name": "036TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 36F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/036TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EN4-T4M01A20": {
+      "name": "048EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/048EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048KN4-T4M30A20": {
+      "name": "048KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 48F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/048KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TN4-T4M31A20": {
+      "name": "048TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 48F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/048TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TN4-T4M80A20": {
+      "name": "048TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 48F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/048TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TN4-T4M90A20": {
+      "name": "048TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 48F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/048TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060EN4-T4M01A20": {
+      "name": "060EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 60F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/060EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060KN4-T4M30A20": {
+      "name": "060KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 60F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/060KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TN4-T4M31A20": {
+      "name": "060TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 60F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/060TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TN4-T4M80A20": {
+      "name": "060TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 60F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/060TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TN4-T4M90A20": {
+      "name": "060TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 60F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/060TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072EN4-T4M01A20": {
+      "name": "072EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 72F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/072EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072KN4-T4M30A20": {
+      "name": "072KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 72F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/072KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TN4-T4M31A20": {
+      "name": "072TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 72F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/072TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TN4-T4M80A20": {
+      "name": "072TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 72F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/072TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TN4-T4M90A20": {
+      "name": "072TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 72F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/072TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EN4-T3M01A20": {
+      "name": "096EN4-T3M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096EN4-T3M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EN4-T4M00A20": {
+      "name": "096EN4-T4M00A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096EN4-T4M00A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EN4-T4M01A20": {
+      "name": "096EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096KN4-T4M30A20": {
+      "name": "096KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TN4-T4M31A20": {
+      "name": "096TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TN4-T4M80A20": {
+      "name": "096TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TN4-T4M90A20": {
+      "name": "096TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 96F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/096TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EN4-T3M01A20": {
+      "name": "144EN4-T3M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144EN4-T3M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EN4-T4M01A20": {
+      "name": "144EN4-T4M01A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144EN4-T4M01A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144KN4-T4M30A20": {
+      "name": "144KN4-T4M30A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144KN4-T4M30A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TN4-T4M31A20": {
+      "name": "144TN4-T4M31A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144TN4-T4M31A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TN4-T4M80A20": {
+      "name": "144TN4-T4M80A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OM3 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144TN4-T4M80A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TN4-T4M90A20": {
+      "name": "144TN4-T4M90A20",
+      "description": "SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable · 144F · OM4 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/SOLO%C2%AE%20ADSS%20Medium-Span%2C%20Loose%20Tube%2C%20Gel-Filled%20Cable/144TN4-T4M90A20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "ADSS medium-span loose tube",
+        "Armoring": "No"
+      }
+    }
+  }
+}

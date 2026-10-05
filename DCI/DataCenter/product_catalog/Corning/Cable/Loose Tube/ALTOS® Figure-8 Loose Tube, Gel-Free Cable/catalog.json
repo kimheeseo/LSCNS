@@ -1,0 +1,1075 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Cable",
+  "displayName": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable",
+  "description": "Corning ALTOS® Figure-8 Loose Tube, Gel-Free Cable products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 62,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Cable Construction",
+    "Armoring"
+  ],
+  "products": {
+    "012EUA-T4101D20": {
+      "name": "012EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012EUB-T4101D20": {
+      "name": "012EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "012KUA-T4130D20": {
+      "name": "012KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012KUB-T4130D20": {
+      "name": "012KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "012TUA-T4131D20": {
+      "name": "012TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "012TUB-T4131D20": {
+      "name": "012TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 12F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/012TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "024EUA-T4101D20": {
+      "name": "024EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/024EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024EUB-T4101D20": {
+      "name": "024EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 24F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/024EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "024KUA-T4130D20": {
+      "name": "024KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 24F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/024KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TUA-T4131D20": {
+      "name": "024TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 24F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/024TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "024TUB-T4131D20": {
+      "name": "024TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 24F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/024TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "036EUA-T4101D20": {
+      "name": "036EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036EUB-T4101D20": {
+      "name": "036EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "036KUA-T4130D20": {
+      "name": "036KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036KUB-T4130D20": {
+      "name": "036KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "036TUA-T4131D20": {
+      "name": "036TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "036TUB-T4131D20": {
+      "name": "036TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 36F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/036TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "048EUA-T4101D20": {
+      "name": "048EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048EUB-T4101D20": {
+      "name": "048EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "048KUA-T4130D20": {
+      "name": "048KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048KUB-T4130D20": {
+      "name": "048KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "048TUA-T4131D20": {
+      "name": "048TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "048TUB-T4131D20": {
+      "name": "048TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 48F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/048TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "060EUA-T4101D20": {
+      "name": "060EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060EUB-T4101D20": {
+      "name": "060EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "060KUA-T4130D20": {
+      "name": "060KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060KUB-T4130D20": {
+      "name": "060KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "060TUA-T4131D20": {
+      "name": "060TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "060TUB-T4131D20": {
+      "name": "060TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 60F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/060TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "60",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "072EUA-T4101D20": {
+      "name": "072EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072EUB-T4101D20": {
+      "name": "072EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "072KUA-T4130D20": {
+      "name": "072KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072KUB-T4130D20": {
+      "name": "072KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "072TUA-T4131D20": {
+      "name": "072TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "072TUB-T4131D20": {
+      "name": "072TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 72F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/072TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "096EUA-T4101D20": {
+      "name": "096EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096EUB-T4101D20": {
+      "name": "096EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "096KUA-T4130D20": {
+      "name": "096KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096KUB-T4130D20": {
+      "name": "096KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "096TUA-T4131D20": {
+      "name": "096TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "096TUB-T4131D20": {
+      "name": "096TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 96F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/096TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "144EUA-T4101D20": {
+      "name": "144EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144EUB-T4101D20": {
+      "name": "144EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "144KUA-T4130D20": {
+      "name": "144KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144KUB-T4130D20": {
+      "name": "144KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "144TUA-T4131D20": {
+      "name": "144TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "144TUB-T4131D20": {
+      "name": "144TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 144F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/144TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "192EUA-T4101D20": {
+      "name": "192EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192EUB-T4101D20": {
+      "name": "192EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "192KUA-T4130D20": {
+      "name": "192KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192KUB-T4130D20": {
+      "name": "192KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "192TUA-T4131D20": {
+      "name": "192TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "192TUB-T4131D20": {
+      "name": "192TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 192F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/192TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "192",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "216EUA-T4101D20": {
+      "name": "216EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216EUB-T4101D20": {
+      "name": "216EUB-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216EUB-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "216KUA-T4130D20": {
+      "name": "216KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216KUB-T4130D20": {
+      "name": "216KUB-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216KUB-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "216TUA-T4131D20": {
+      "name": "216TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "216TUB-T4131D20": {
+      "name": "216TUB-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 216F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/216TUB-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "216",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "Yes"
+      }
+    },
+    "288EUA-T4101D20": {
+      "name": "288EUA-T4101D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 288F · OS2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/288EUA-T4101D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288KUA-T4130D20": {
+      "name": "288KUA-T4130D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 288F · OM1 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/288KUA-T4130D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM1",
+        "Fiber Type": "OM1",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    },
+    "288TUA-T4131D20": {
+      "name": "288TUA-T4131D20",
+      "description": "ALTOS® Figure-8 Loose Tube, Gel-Free Cable · 288F · OM2 · Unterminated",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Cable/Loose%20Tube/ALTOS%C2%AE%20Figure-8%20Loose%20Tube%2C%20Gel-Free%20Cable/288TUA-T4131D20_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "288",
+        "Fiber Mode": "OM2",
+        "Fiber Type": "OM2",
+        "Connector Type": "Unterminated",
+        "Connector": "Unterminated",
+        "Cable Jacket": "Polyethylene (PE)",
+        "Jacket": "Polyethylene (PE)",
+        "Cable Construction": "Self-supporting Figure-8 loose tube",
+        "Armoring": "No"
+      }
+    }
+  }
+}

@@ -31,10 +31,11 @@
     const nodes=wb.addWorksheet('6_Port Nodes');nodes.addRow(['Endpoint','Role','Logical capacity','Logical / cage','Server ports','Leaf-spine ports','Core ports']);addRows(nodes,(payload.design?.portAudit?.nodes||[]).map(x=>[x.id,x.role,x.capacity,x.logicalPerCage,x.used.server,x.used.leafSpine,x.used.core]));
     const routes=wb.addWorksheet('7_Link Routes');routes.addRow(['Segment','Endpoint A','Endpoint B','Installed logical links']);addRows(routes,(payload.design?.portAudit?.routes||[]).map(x=>[x.segment,x.a,x.b,x.links]));
     const procurement=wb.addWorksheet('8_Product Requirements');procurement.addRow(['Category','Item','Segment','Installed','Purchase','Unit','Length m','Cable fibers','Active fibers/link','Connector','Base','Groups','Polarity','Gender','Jacket','Candidate family','Source']);addRows(procurement,(payload.design?.productRequirements||[]).map(q=>[q.category,q.item,q.segment,q.installed,q.purchase,q.unit,q.lengthM,q.fibers,q.activeFibers,q.profile?.connector,q.profile?.base,q.profile?.connectorGroups,q.polarity,q.gender,q.jacket,q.candidates.map(c=>c.vendor+' '+c.name).join(' | '),q.candidates.map(c=>c.source).join(' | ')]));
+    const live=wb.addWorksheet('12_BOM_Products');live.addRow(window.DCBomCatalogUI?.headers||['Products']);addRows(live,window.DCBomCatalogUI?.exportRows()||[]);
     const power=wb.addWorksheet('9_Power Proof');power.addRow(['Field','Value']);addRows(power,flatten(payload.design?.powerProof||{}));
     const handover=wb.addWorksheet('10_Cabling Handover');handover.addRow(['Item','Qty','Unit','Basis']);addRows(handover,(payload.design?.cablingHandover||[]).map(q=>[q.item,q.qty,q.unit,q.basis]));
     const events=wb.addWorksheet('11_Official Events');events.addRow(['Company','Title','Start','End','Type','Location','Timezone','Time','Checked','Official source']);addRows(events,(window.DCOfficialEvents?.entries||[]).map(q=>[q.company,q.title,q.start,q.end,q.type,q.location,q.timezone,q.time,q.checked,q.source]));
-    for (const ws of [req, result, generic, receipt, audit, nodes, routes,procurement,power,handover,events]) {
+    for (const ws of [req, result, generic, receipt, audit, nodes, routes,procurement,power,handover,events,live]) {
       ws.views = [{ state: 'frozen', ySplit: 1 }];
       ws.columns = Array.from({ length: Math.max(2, ws.columnCount) }, () => ({ width: 36 }));
       ws.getRow(1).font = { bold: true };

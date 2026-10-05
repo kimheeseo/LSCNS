@@ -452,6 +452,7 @@
     view.innerHTML = shell();
     $('catalogRefresh').onclick = () => {
       cache.clear();
+      document.dispatchEvent(new CustomEvent("dc:catalog-refresh"));
       loadCompanies(true);
     };
     $('catalogKoreaBtn').onclick = async () => {

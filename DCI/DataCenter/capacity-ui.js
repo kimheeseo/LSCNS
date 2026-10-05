@@ -157,6 +157,7 @@
   }
   function invalidate(error) {
     $('cap-error').textContent = error.message; latest = null; window.DCCapacityDesign = null;
+    document.dispatchEvent(new CustomEvent('dc:capacity-invalid'));
     $('cap-preview').textContent = '입력 수정 필요';
     if (active) {for (const id of ['result', 'optical', 'power', 'bom', 'evidence']) content(id).innerHTML = '<p class="error">' + esc(error.message) + '</p><p class="muted">입력 수정 후 다시 계산합니다. 이전 결과는 내보내지 않습니다.</p>'; $('capacity-assumptions').innerHTML = '<b>유효한 설계 계산 대기</b>';}
   }
@@ -241,35 +242,39 @@
     content('bom').innerHTML = '<div class="cap-heading"><h2>' + esc(a.name) + ' · BOM</h2><div class="cap-actions"><button type="button" id="cap-csv">CSV</button><button type="button" id="cap-xlsx">Excel</button></div></div><p class="muted">비용: 산정 불가 · 가격 자료 미등록 · ±' + esc(a.bom[0]?.uncertaintyPct ?? 0) + '%는 계획 수량 범위입니다.</p>' + bomTable(a.bom.filter(x => !x.referenceOnly)) + '<h3>설계 참고 수량</h3>' + table(['품목', '수량', '단위', '비고'], r.references.map(x => [esc(x.item), fmt(x.qty), esc(x.unit), esc(x.note)])) + '<h3>종단·CPO 참고 · 중복 구매 제외</h3>' + bomTable(a.bom.filter(x => x.referenceOnly));
     $('cap-csv').onclick = exportCsv; $('cap-xlsx').onclick = exportXlsx;
     content('evidence').innerHTML = '<h2>규격 기반 제품 후보 / 검증</h2><p>필수 속도·규격·패키지·커넥터·거리 근거가 모두 확인된 광모듈만 후보로 연결합니다. SKU 확정에는 host/FEC/광손실·극성 검증이 필요합니다.</p><div id="cap-candidates" aria-live="polite">관련 카탈로그 조회 중…</div><h3>계산 검증</h3>' + table(['검증 항목', '결과'], Object.entries(r.validation).map(([k, v]) => [esc(k), v ? '통과' : '실패'])) + '<h3>논리 토폴로지 집계</h3>' + table(['망', '프로토콜', '서버 endpoint', 'Leaf', 'Spine', 'Leaf-Spine 링크', 'Spine-Core 링크'], ['compute', 'storage', 'management'].map(k => {const xs = r.networks.filter(x => x.network === k), total = f => xs.reduce((n, x) => n + x[f], 0); return [names[k], esc(xs[0]?.protocol || '없음'), fmt(total('endpoints')), fmt(total('leaf')), fmt(total('spine')), fmt(total('fabricLinks')), fmt(total('coreLinks'))];}));
+    document.dispatchEvent(new CustomEvent('dc:capacity-bom', {detail: {r, a}}));
     loadCandidates(a, token);
   }
   async function loadCandidates(a, token) {
     try {
-      catalogCache ||= Promise.all(config.catalogPaths.map(async path => {try {const res = await fetch(new URL(path, location.href)); if (!res.ok) throw Error('HTTP ' + res.status); return {path, catalog: await res.json()};} catch (e) {return {path, error: e.message};}}));
-      const catalogs = await catalogCache;
+      const snapshot = await window.DCBomCatalog.load();
+      const catalogs = snapshot.catalogs;
       if (token !== renderToken || !latest) return;
       const rows = [], evidenceRows = [];
       for (const bom of a.bom.filter(x => x.transceiver)) {
-        const candidates = catalogs.filter(x => x.catalog).flatMap(x => M.matchCatalog(bom.requirement, x.catalog));
+        const candidates = window.DCBomCatalog.match(bom, snapshot.products).filter(c => c.status.startsWith('규격 후보'));
         evidenceRows.push({segment: names[bom.network] + ' / ' + bom.segment, spec: bom.spec, candidates});
         rows.push([esc(names[bom.network] + ' / ' + bom.segment), esc(bom.spec), candidates.length ? candidates.slice(0, 3).map(c => '<a href="' + esc(c.source) + '" target="_blank" rel="noopener">' + esc(c.vendor + ' · ' + c.name) + '</a><br><small>' + esc(c.evidence + ' · ' + c.status) + '</small>').join('<br>') : '검증 가능한 후보 없음 · RFQ']);
       }
       if ($('cap-candidates')) $('cap-candidates').innerHTML = table(['구간', '요구 규격', '카탈로그 후보 / 근거'], rows) + '<p class="muted">케이블·커넥터·패널은 정확한 길이·극성·핀·용량 정보 미확정 시 규격만 표시합니다.</p>' + catalogs.filter(x => x.error).map(x => '<p class="error">' + esc(x.path + ': ' + x.error) + '</p>').join('');
-      latest.catalogCandidates = evidenceRows;
+      // The shared BOM table owns export candidates for all item types.
     } catch (error) {if (token === renderToken && $('cap-candidates')) $('cap-candidates').textContent = '카탈로그 조회 실패: ' + error.message;}
   }
   function download(name, content, type) {const url = URL.createObjectURL(new Blob([content], {type})), anchor = document.createElement('a'); anchor.href = url; anchor.download = name; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}
   function exportRows() {return selected().bom.map(x => [selected().name, names[x.network], x.phase, x.segment, x.item, x.media, x.spec, x.installedQty, x.spareQty, x.purchaseQty, x.low, x.high, x.uncertaintyPct, x.unit, x.referenceOnly ? '설계 참고' : '구매 계획', x.note]);}
   const bomHeaders = ['설계안', '네트워크', 'Phase', '구간', '품목', '매체', '규격', '설치', '예비품', '구매 기준', '하한', '상한', '±%', '단위', '범위', '비고'];
-  function exportCsv() {
+  async function exportCsv() {
     if (!latest) return;
+    await window.DCBomCatalogUI.ready;
     const rows = [bomHeaders, ...exportRows(), [], ['중간 계산', '값'], ...Object.entries(latest.summary), [], ['대안', '케이블 조수 기준', '광모듈 기준', '패널 기준', '트레이 m 기준', '비용'], ...latest.alternatives.map(a => [a.name, a.totals.cables, a.totals.transceivers, a.totals.panels, a.totals.trayM, '산정 불가']), [], ['Phase', '블록', '랙', '서버', 'GPU', 'IT kW', '링크'], ...latest.phaseRows.map(p => [p.phase, p.blocks, p.racks, p.servers, p.gpus, p.itKw, p.links]), [], ['사용 가정', '값', '단위', '입력 출처', '근거', '신뢰도', '상태'], ...latest.assumptions.map(x => [x.path, typeof x.value === 'object' ? JSON.stringify(x.value) : x.value, x.unit, x.origin, x.source, x.confidence, x.status]), [], ['검토 사항'], ...latest.warnings.map(x => [x]), [], ['다음 확인 질문'], ...latest.questions.map(x => [x])];
+    rows.push([], window.DCBomCatalogUI.headers, ...window.DCBomCatalogUI.exportRows());
     const csv = rows.map(r => r.map(x => {const text = String(x ?? ''); return '"' + (/^[=+@-]/.test(text) && typeof x !== 'number' ? "'" : '') + text.replace(/"/g, '""') + '"';}).join(',')).join('\r\n');
     download('DC-Capacity-BOM-v8-' + alternativeId + '.csv', '\uFEFF' + csv, 'text/csv;charset=utf-8');
   }
   async function exportXlsx() {
     if (!latest) return;
     try {
+      await window.DCBomCatalogUI.ready;
       const wb = new ExcelJS.Workbook(); wb.creator = 'DataCenter Capacity Designer';
       const add = (name, headers, rows) => {const ws = wb.addWorksheet(name); ws.addRow(headers); ws.addRows(rows); ws.views = [{state: 'frozen', ySplit: 1}]; ws.getRow(1).font = {bold: true}; ws.columns = headers.map(() => ({width: 24})); ws.eachRow(row => row.eachCell(cell => {cell.alignment = {wrapText: true, vertical: 'top'};}));};
       add('1_Requirements', ['입력', '값'], Object.entries(latest.input).map(([k, v]) => [k, typeof v === 'object' ? JSON.stringify(v) : v ?? '프리셋 기본값']));
@@ -282,6 +287,7 @@
       add('8_DCI', ['건물', 'Phase', '링크', '사용심선', '설치심선', '케이블 조수', 'WDM 채널', '토폴로지'], latest.dci.rows.map(x => [x.building, x.phase, x.links, x.activeFibers, x.installedFibers, x.cableCount, x.channels, x.topology]));
       add('9_References', ['품목', '수량', '단위', '비고'], latest.references.map(x => [x.item, x.qty, x.unit, x.note]));
       add('10_Review', ['종류', '내용'], [...latest.warnings.map(x => ['검토 사항', x]), ...latest.questions.map(x => ['다음 확인 질문', x]), ...Object.entries(latest.validation).map(([k, v]) => ['계산 보존 검증', k + ': ' + v])]);
+      add('12_BOM_Products', window.DCBomCatalogUI.headers, window.DCBomCatalogUI.exportRows());
       add('11_Catalog_Candidates', ['구간', '요구 규격', '벤더', '후보', '근거', 'URL', '상태'], (latest.catalogCandidates || []).flatMap(x => x.candidates.length ? x.candidates.map(c => [x.segment, x.spec, c.vendor, c.name, c.evidence, c.source, c.status]) : [[x.segment, x.spec, '', '', '', '', '검증 가능한 후보 없음 / RFQ']]));
       for (const a of latest.alternatives) add('BOM_' + a.id, bomHeaders, a.bom.map(x => [a.name, names[x.network], x.phase, x.segment, x.item, x.media, x.spec, x.installedQty, x.spareQty, x.purchaseQty, x.low, x.high, x.uncertaintyPct, x.unit, x.referenceOnly ? '설계 참고' : '구매 계획', x.note]));
       download('DC-Capacity-BOM-v8-' + alternativeId + '.xlsx', await wb.xlsx.writeBuffer(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

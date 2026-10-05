@@ -420,6 +420,20 @@ def write_extended_category(name,rows,official_url,source_names):
           "comparisonFields":fields,"products":products})
     return len(rows)
 
+COPPER_MODULE_SUPPLEMENT=[
+ {"Part Number":"64512077-10","Part Name":"6451 2 077-10","Description":"LSA-PLUS® Test Cord, 2 pole, 2 banana sockets, 0.19 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper test cord","Status":"Archived source workbook"},
+ {"Part Number":"64512072-00","Part Name":"6451 2 072-00","Description":"LSA-PLUS® Patch Cord, 4 pole, 2 plugs, 1 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"64512072-02","Part Name":"6451 2 072-02","Description":"LSA-PLUS® Patch Cord, 4 pole, 2 plugs, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"64512073-02","Part Name":"6451 2 073-02","Description":"LSA-PLUS® Patch Cord, 2 pole, open ended, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"64512074-02","Part Name":"6451 2 074-02","Description":"LSA-PLUS® Patch Cord, 2 pole, 2 plugs, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"66242340-09","Part Name":"6624 2 340-09","Description":"LSA-PLUS® Test Cord, LSA-PLUS to Banana socket, 0.2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper test cord","Status":"Archived source workbook"},
+ {"Part Number":"66242040-02","Part Name":"6624 2 040-02","Description":"LSA-PLUS® Test Cord, LSA-PLUS plug to Banana socket, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper test cord","Status":"Archived source workbook"},
+ {"Part Number":"66242040-09","Part Name":"6624 2 040-09","Description":"LSA-PLUS® Test Cord, LSA-PLUS to Banana socket, 0.2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper test cord","Status":"Archived source workbook"},
+ {"Part Number":"66242541-02","Part Name":"6624 2 541-02","Description":"LSA-PLUS® Patch Cord, 2/4-4S plugs, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"66242801-02","Part Name":"6624 2 801-02","Description":"LSA-PLUS® Patch Cord, 2/4, 4 pole plugs, 2 m","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"},
+ {"Part Number":"66472000-07","Part Name":"6647 2 000-07","Description":"LSA-PLUS® Patch Cord, LSA-PLUS to LSA-PLUS, 1-pair, white, 7 ft","Product Brand":"LSA-PLUS®","Product Series":"LSA-PLUS","Product Type":"Copper patch cord","Status":"Archived source workbook"}
+]
+
 def build_extended_commscope():
     baseline=set()
     for p in [COM/"ODF",COM/"Propel Panels",COM/"FiberGuide",COM/"Fiber Cable Assemblies"]:
@@ -430,7 +444,7 @@ def build_extended_commscope():
         for name in COMMSCOPE_EXPORTS:exports[name]=current_export_rows(tmp,name)
         fiber=union_rows(exports["Fiber Cables Data Center"],exports["Fiber Optic Cables"])
         cable_assemblies=exports["Cable Assemblies"]
-        copper_module=[r for r in cable_assemblies if txt(r.get("Product Type")).lower() in ("copper patch cord","copper test cord")]
+        copper_module=union_rows([r for r in cable_assemblies if txt(r.get("Product Type")).lower() in ("copper patch cord","copper test cord")],COPPER_MODULE_SUPPLEMENT)
         ordered=[
           ("Fiber Cables",fiber,COMMSCOPE_EXPORTS["Fiber Optic Cables"][1],["Fiber Cables.xlsx","Fiber Optic Cables.xlsx"]),
           ("Fiber Panels Modules Cassettes",exports["Fiber Panels Modules Cassettes"],COMMSCOPE_EXPORTS["Fiber Panels Modules Cassettes"][1],["Fiber Panels, Modules & Cassettes.xlsx"]),

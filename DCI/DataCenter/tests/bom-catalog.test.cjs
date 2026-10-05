@@ -42,3 +42,9 @@ test('optical requirements exclude electrical connectors and power panels; named
  assert.equal(M.match({item:'광 케이블',media:'SMF'},products).length,0);
  assert.equal(M.match({item:'트랜시버',requirement:{speed:400,standard:'FR4'}},products).length,0);
 });
+
+test('mixed Products category does not become duct; transceiver clips and CFP are excluded',()=>{
+ const p=M.normalize({company:'Example',category:'All IT Datacom Products',products:{b:{name:'Board-to-Board',officialUrl:'https://example.com/b'},c:{name:'SN Gang Clip for Transceivers',officialUrl:'https://example.com/c'},t:{name:'100G CFP Transceivers',officialUrl:'https://example.com/t'}}},'Example/All IT Datacom Products/catalog.json');
+ assert.equal(M.match({item:'트레이/덕트 계획 길이'},p).length,0);
+ assert.equal(M.match({item:'트랜시버',requirement:{speed:100,package:'QSFP28'}},p).length,0);
+});

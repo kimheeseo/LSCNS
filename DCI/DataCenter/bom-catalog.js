@@ -16,7 +16,8 @@
     if (/TRANSFORMER|변압기/.test(t)) return 'transformer';
     if (/GENERATOR|발전기/.test(t)) return 'generator';
     if (/\bUPS\b|무정전/.test(t)) return 'ups';
-    if (/CABLE MANAGEMENT|CABLE MANAGER|TRAY|DUCT|FIBERRUNNER|PATCHRUNNER|트레이|덕트|케이블 관리/.test(t)) return 'management';
+    if (/CABLE MANAGEMENT|CABLE MANAGER|\bTRAYS?\b|\bDUCTS?\b|FIBERRUNNER|PATCHRUNNER|트레이|덕트|케이블 관리/.test(t)) return 'management';
+    if (/GANG CLIP|MODULAR JACK|RJ45 PLUG|RJ45.*PLUGS.*JACKS/.test(t)) return 'component';
     if (/TRANSCEIVER|OPTICAL MODULE|광모듈|트랜시버/.test(t)) return 'transceiver';
     if (/CLEAN|FERRULE|DSP|\bPIC\b|TIA|LASER|OPTICAL CHIP/.test(t)) return 'component';
     if (/ADAPTER|어댑터/.test(t) && !/CONNECTX|NETWORK ADAPTER/.test(t)) return 'adapter';
@@ -43,7 +44,7 @@
       p.length = field(s, ['길이', 'Reach', '거리', 'Length', 'Cable Length']);
       p.connector = field(s, ['Connector', '커넥터', 'Optical Interface', 'Interface']);
       if(!p.connector){const connectorName=p.name.match(/\b(MPO(?:-?\d+)?|MTP(?:-?\d+)?|MDC|MMC|LC|SC|SN-MT)\b/i);if(connectorName)p.connector=connectorName[0];}
-      p.package = field(s, ['Package', '폼팩터', 'Form Factor', '포트']);
+      p.package = field(s, ['Package', '폼팩터', 'Form Factor', '포트']) || (p.name.match(/\b(?:QSFP-DD|QSFP28|QSFP56|OSFP-XD|OSFP|CFP\d?|SFP\+?)\b/i)||[''])[0];
       p.standard = field(s, ['광 규격', 'Standard', 'Remark', '규격', 'Standards / Notes']);
       if (!/DR\d|FR\d|LR\d|SR\d|ER\d|BASE-|\bLX\b|\bSX\b|\bZR\b/i.test(p.standard)) p.standard=(p.name.match(/\b(?:\d+GBASE-)?(?:DR\d|FR\d|LR\d|SR\d|ER\d|ZR)\b/i)||[''])[0];
       p.fiber = field(s, ['Fiber Type', 'Fiber Category', '광섬유', 'Fiber']);

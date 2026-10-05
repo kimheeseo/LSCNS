@@ -58,7 +58,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-12/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mpoa8fb-30m": {
@@ -94,7 +94,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "s2mpoa16f-1m": {
@@ -112,7 +112,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MPO-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mpou12fb-40m": {
@@ -130,7 +130,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-12/UPC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "s2mpoa12fa-1m": {
@@ -148,7 +148,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MPO-12/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mtpa16f-1m": {
@@ -166,7 +166,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MTP-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "om5-12f-mpo-jumper-family": {
@@ -181,7 +181,7 @@
         "Source": "NADDOD MTP/MPO Jumpers collection",
         "Fiber Mode": "OM5",
         "Connector Type": "MPO-12",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "24f-mpo-jumper-family": {
@@ -193,9 +193,9 @@
         "Connector": "MPO",
         "Fiber Count": "24",
         "Source": "NADDOD MTP/MPO Jumpers collection",
-        "Fiber Mode": "",
+        "Fiber Mode": "—",
         "Connector Type": "MPO",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     }
   }

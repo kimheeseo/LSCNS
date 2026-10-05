@@ -195,7 +195,27 @@ const diagramData={
  server:{kind:'server',caption:'랙 안의 GPU 서버는 전력·냉각을 받아 연산하고 NIC와 Leaf 스위치를 통해 데이터를 주고받습니다.',basis:'Rack Digital Twin의 GPU Server, Leaf Switch, Fiber Patch Panel, PDU-A/B, Cold Plate 구성을 재구성했습니다.',sources:['v53-rack-cooling.js','v48-architecture.js']},
  network:{kind:'network',caption:'서버 NIC → Leaf → Spine으로 이어지는 대표적인 Clos 연결입니다. 광 패치·트렁크는 포트 사이의 물리 연결을 구성합니다.',basis:'툴의 Compute–Leaf–Spine 논리도와 Structured Cabling 구성을 반영했습니다. 실제 포트·광심 수 산출 결과는 아닙니다.',sources:['app.js','v70-diagram-rework.js']},
  storage:{kind:'storage',caption:'서버가 스토리지 네트워크를 통해 데이터를 읽고 씁니다. Ethernet 또는 Fibre Channel을 선택하는 개념입니다.',basis:'툴의 Storage capacity / protocol / endpoint ports와 Rack Storage 계층을 재구성했습니다.',sources:['index.html','app.js']},
- aisle:{kind:'aisle',caption:'공급 공기는 랙 전면으로 들어가 열을 흡수하고, 후면의 뜨거운 공기는 냉각 장치로 돌아갑니다. 차폐는 두 기류의 혼합을 줄입니다.',basis:'툴의 Air Cooling / CRAH·HVAC 도식에 Cold·Hot Aisle 차폐 개념을 더한 공랭 예시입니다.',sources:['app.js','v60-system-engineering.js']}
+ aisle:{kind:'aisle',caption:'공급 공기는 랙 전면으로 들어가 열을 흡수하고, 후면의 뜨거운 공기는 냉각 장치로 돌아갑니다. 차폐는 두 기류의 혼합을 줄입니다.',basis:'툴의 Air Cooling / CRAH·HVAC 도식에 Cold·Hot Aisle 차폐 개념을 더한 공랭 예시입니다.',sources:['app.js','v60-system-engineering.js']},
+ transformer:{kind:'powerchain',caption:'Utility 전력은 Transformer에서 전압을 변환한 뒤 Switchgear·ATS·UPS·PDU/Busway를 거쳐 Rack으로 공급됩니다.',basis:'데이터센터 전력 계통의 대표 흐름을 교육용으로 단순화했습니다.',sources:['index.html','v48-architecture.js','v60-system-engineering.js']},
+ switchgear:{kind:'powerchain',caption:'Switchgear는 수전 계통을 보호·분기하며 Transformer와 ATS/UPS 계통 사이의 주요 보호·차단 지점이 됩니다.',basis:'대표 수배전 계통과 보호·분기 기능을 교육용으로 재구성했습니다.',sources:['v60-system-engineering.js']},
+ ats:{kind:'powerchain',caption:'ATS는 상용전원 장애 시 Generator 계통으로 절체해 UPS 이후 부하의 전력 연속성을 지원합니다.',basis:'Generator·UPS·배전 옵션을 연결한 대표 절체 흐름입니다.',sources:['index.html','v60-system-engineering.js']},
+ fuel:{kind:'powerchain',caption:'Generator는 저장 연료를 사용해 비상 전원을 공급하며, UPS가 발전기 기동·절체 구간의 순간 공백을 보완합니다.',basis:'비상 발전기와 UPS 역할을 시간 순서로 단순화한 교육용 흐름입니다.',sources:['v60-system-engineering.js']},
+ rackpdu:{kind:'powerchain',caption:'PDU/Busway에서 분기된 전력은 Rack PDU A/B를 통해 서버 이중 PSU에 공급됩니다.',basis:'Rack PDU A/B와 dual power cord 구조를 반영했습니다.',sources:['app.js','v53-rack-cooling.js']},
+ busway:{kind:'powerchain',caption:'Overhead Busway는 전기실의 저압 배전 전력을 Data Hall 상부에서 각 Rack PDU로 분기합니다.',basis:'Data Hall 전력 분배를 단순화해 Busway→Rack PDU 흐름으로 표시합니다.',sources:['v48-architecture.js','v60-system-engineering.js']},
+ tower:{kind:'coolingchain',caption:'Cooling Tower/Dry Cooler는 Chiller 또는 열교환 계통에서 전달된 열을 외기로 방출합니다.',basis:'시설 1차 냉각수 루프의 외부 열 방출 단계를 교육용으로 재구성했습니다.',sources:['v53-rack-cooling.js','v62-cooling-realistic.js']},
+ water:{kind:'coolingchain',caption:'Water Storage는 냉각계통의 보충수·운영 여유를 지원하며 구성 여부는 시설 냉각 방식에 따라 달라집니다.',basis:'수랭식 데이터센터의 보조 설비를 개념적으로 포함했습니다.',sources:['v62-cooling-realistic.js']},
+ plantchiller:{kind:'coolingchain',caption:'Chiller는 시설 냉수를 만들어 Pump/HX와 CRAH/CDU 계통으로 전달합니다.',basis:'시설수 1차 루프와 IT 2차 루프의 대표 관계를 재구성했습니다.',sources:['v53-rack-cooling.js','v62-cooling-realistic.js']},
+ plantpump:{kind:'coolingchain',caption:'Pump와 Heat Exchanger는 유량을 확보하고 서로 다른 냉각수 루프 사이에서 열을 전달합니다.',basis:'CDU와 시설 냉각수 루프의 펌프·열교환 기능을 단순화했습니다.',sources:['v53-rack-cooling.js','v62-cooling-realistic.js']},
+ crah:{kind:'coolingchain',caption:'CRAH/In-row 장치는 Data Hall의 더운 공기를 회수해 냉각하고 Cold Aisle로 다시 공급합니다.',basis:'공랭식 CRAH/HVAC와 Containment 구조를 결합한 교육용 흐름입니다.',sources:['app.js','v60-system-engineering.js']},
+ cabletray:{kind:'network',caption:'Overhead Cable Tray는 Leaf/Spine/ODF 사이의 광·구리 케이블 경로를 전력 케이블과 분리해 정리합니다.',basis:'Structured Cabling과 rack-to-rack 물리 경로를 교육용으로 단순화했습니다.',sources:['app.js','v70-diagram-rework.js']},
+ containment:{kind:'aisle',caption:'Containment는 Cold Aisle 공급 공기와 Hot Aisle 배기 공기의 혼합을 줄여 냉각 효율을 높입니다.',basis:'Cold/Hot Aisle 차폐 개념을 Data Hall 레이아웃에 연결했습니다.',sources:['app.js','v60-system-engineering.js']},
+ mmr:{kind:'networkchain',caption:'Carrier 광케이블은 MMR에서 ODF/Cross-connect를 거쳐 Core/Router와 Spine Fabric으로 연결됩니다.',basis:'Carrier entry와 데이터센터 내부 광배선의 대표 연결 흐름입니다.',sources:['app.js','v70-diagram-rework.js']},
+ odf:{kind:'networkchain',caption:'ODF는 외부 Carrier/Backbone과 내부 Trunk/Patch를 정리·분배하는 광 배선 허브입니다.',basis:'Structured Cabling의 ODF·Patch Panel·Trunk 관계를 재구성했습니다.',sources:['app.js','product-catalog.js']},
+ core:{kind:'networkchain',caption:'Core/Router는 외부 WAN/DCI와 Spine 계층을 연결하는 상위 네트워크 경계입니다.',basis:'Core/Super-spine과 DCI 연결을 교육용으로 단순화했습니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']},
+ spine:{kind:'networkchain',caption:'Spine은 여러 Leaf와 다대다로 연결되어 East-West 트래픽의 상위 Fabric을 구성합니다.',basis:'Leaf–Spine Clos 논리 연결을 물리 광배선과 함께 표현했습니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']},
+ security:{kind:'opschain',caption:'출입통제·CCTV·방문자 관리 등 Physical Security는 데이터센터 운영 안전의 기본 계층입니다.',basis:'운영·보안 기능을 Data Hall 외곽 지원구역으로 재배치했습니다.',sources:['v60-system-engineering.js']},
+ fire:{kind:'opschain',caption:'Fire Suppression은 화재 조기 감지와 확산 억제를 담당하며 IT 장비 보호와 인명 안전을 함께 고려합니다.',basis:'화재 감지·가스계 소화 설비를 운영 안전 흐름으로 단순화했습니다.',sources:['v60-system-engineering.js']},
+ maintenance:{kind:'opschain',caption:'Maintenance/Spare 구역은 예비품과 공구를 보관하고 계획 정비·장애 대응을 지원합니다.',basis:'운영 지원 기능을 교육용 탐방 구역에 포함했습니다.',sources:['v60-system-engineering.js']}
 };
 const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const referenceData={
@@ -210,7 +230,27 @@ const referenceData={
  server:{title:'실제 서버 랙 참고',caption:'실제 데이터센터에서 사용되는 오픈 랙 형태의 서버 시스템 참고 이미지입니다.',image:'./assets/campus-tour/rack-real-photo.webp'},
  network:{title:'네트워크·패치 패널 랙',caption:'스위치, 패치 패널, 케이블 관리, 서버가 함께 있는 랙 구성 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
  storage:{title:'랙 정면·후면 구성',caption:'서버/스토리지 장비의 전면 및 후면 배치와 U 위치를 비교할 수 있는 참고 이미지입니다.',image:'./assets/campus-tour/rack-front-back.webp'},
- aisle:{title:'데이터센터 랙과 기류 관리',caption:'데이터센터 랙 배치와 Cold Aisle/Hot Aisle 기류 관리의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'}
+ aisle:{title:'데이터센터 랙과 기류 관리',caption:'데이터센터 랙 배치와 Cold Aisle/Hot Aisle 기류 관리의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ transformer:{title:'전력 인입·배전 참고',caption:'Transformer에서 UPS/PDU까지 이어지는 데이터센터 전력 계통 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ switchgear:{title:'전력 분배 참고',caption:'수배전·PDU 계통과 랙 전원 배치를 이해하기 위한 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ ats:{title:'비상전원 절체 참고',caption:'UPS·Generator와 연계되는 비상전원 구조 참고 이미지입니다.',image:'./assets/campus-tour/inside-server-rack.webp'},
+ fuel:{title:'Generator 지원 참고',caption:'비상전원 설비와 데이터센터 전력 지원 구조 참고 이미지입니다.',image:'./assets/campus-tour/inside-server-rack.webp'},
+ rackpdu:{title:'Rack PDU 구성',caption:'랙 내부 전원 분배와 PDU 배치를 보여주는 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ busway:{title:'Overhead 전력 분배',caption:'랙 상부 전력·케이블 경로를 이해하기 위한 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
+ tower:{title:'데이터센터 냉각 설비',caption:'외부 열 방출과 Data Hall 냉각 계통의 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
+ water:{title:'냉각수 계통 참고',caption:'시설 냉각수와 랙 냉각 경로를 이해하기 위한 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
+ plantchiller:{title:'Chiller Plant',caption:'시설 냉각수에서 랙 냉각으로 이어지는 경로 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
+ plantpump:{title:'Pump / CDU 계통',caption:'펌프·열교환·CDU가 포함된 액체냉각 구조 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
+ crah:{title:'CRAH / Air Cooling',caption:'랙 Row와 공랭 기류 관리 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ cabletray:{title:'광배선·케이블 관리',caption:'랙 상부 광배선과 패치 패널 구조 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ containment:{title:'Hot / Cold Aisle',caption:'랙 Row와 차폐 구조의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ mmr:{title:'MMR / Optical Distribution',caption:'ODF·패치 패널·스위치가 연결되는 네트워크 랙 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ odf:{title:'ODF / Fiber Distribution',caption:'패치 패널과 광케이블 관리 구조 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ core:{title:'Core / Spine Network',caption:'데이터센터 네트워크 랙과 스위치 연결 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ spine:{title:'Spine Fabric',caption:'스위치와 광패치 구성 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ security:{title:'운영·보안 공간 참고',caption:'데이터센터 운영 공간과 설비 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ fire:{title:'시설 안전 참고',caption:'데이터센터 설비와 안전 구역 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
+ maintenance:{title:'운영·유지보수 참고',caption:'랙과 운영 지원 공간의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'}
 };
 function referenceFor(id){return referenceData[id]||referenceData.sign}
 function setPhotoCard(id){const r=referenceFor(id);$('photoImage').src=r.image;$('photoImage').alt=r.title;$('photoCaption').textContent=r.caption;$('photoSource').textContent='첨부 참고 이미지 · '+r.title;$('photoCard').hidden=false}
@@ -243,6 +283,32 @@ if(kind==='campus'){
  box(475,82,213,64,'Rack Manifold','공급 / 환수 분배',blue);box(475,239,213,64,'GPU / CPU','Cold Plate',red);
  path('M182 123 L240 123',blue);path('M246 190 L187 190',red);path('M412 121 L469 121',blue);path('M491 146 L491 233',blue);path('M667 239 L667 152',red);path('M475 160 L440 160 L440 198 L418 198',red);txt('QD',512,197,14,blue);txt('QD',645,197,14,red);
  if(kind==='chiller'){path('M103 98 L103 66',red);txt('외기로 방열 ↑',104,332,16,red)}else txt('파랑: 공급  /  빨강: 환수',170,334,14);
+}else if(kind==='powerchain'){
+ txt('DATA CENTER POWER PATH',360,28,18,gold);
+ box(18,78,108,65,'Utility','Grid',gold);box(145,78,108,65,'Transformer','MV/LV',gold);box(272,78,108,65,'Switchgear','Protection',gold);box(399,78,108,65,'ATS','Auto Transfer',gold);box(526,78,108,65,'UPS','Battery',gold);
+ box(272,226,108,65,'PDU','Distribution',gold);box(399,226,108,65,'Busway','Tap-off',gold);box(526,226,108,65,'Rack PDU','A/B Feed',gold);box(18,226,108,65,'Generator','Backup',red);
+ line(126,110,140,110,gold);line(253,110,267,110,gold);line(380,110,394,110,gold);line(507,110,521,110,gold);
+ path('M72 226 L72 176 L452 176 L452 149',red,true);path('M580 143 L580 190 L326 190 L326 221',gold);line(380,258,394,258,gold);line(507,258,521,258,gold);
+ txt('정상: Utility → Transformer → Switchgear → ATS → UPS',350,330,14);txt('비상: Generator → ATS · UPS는 절체 공백 보완',350,350,14,red);
+}else if(kind==='coolingchain'){
+ txt('DATA CENTER COOLING PATH',360,28,18,blue);
+ box(18,80,120,68,'Rack / GPU','Heat Load',red);box(158,80,120,68,'CDU / CRAH','IT Cooling',green);box(298,80,120,68,'Pump / HX','Heat Transfer',blue);box(438,80,120,68,'Chiller','Facility Water',blue);box(578,80,120,68,'Tower / Dry','Heat Reject',blue);
+ line(138,114,153,114,red);line(278,114,293,114,red);line(418,114,433,114,red);line(558,114,573,114,red);
+ path('M638 148 L638 245 L218 245 L218 154',blue);txt('공급수',423,238,14,blue);txt('환수/열 이동',423,108,14,red);
+ box(250,275,220,50,'Water Storage / Make-up','설계에 따라 선택',green);
+ path('M360 275 L360 251',green,true);
+}else if(kind==='networkchain'){
+ txt('CARRIER TO AI FABRIC',360,28,18,blue);
+ box(18,92,105,62,'Carrier / DCI','WAN',blue);box(145,92,105,62,'MMR','Meet-Me',green);box(272,92,105,62,'ODF','Cross-connect',green);box(399,92,105,62,'Core','Router',blue);box(526,92,105,62,'Spine','Fabric',blue);
+ box(272,240,105,62,'Leaf','ToR / EoR',blue);box(526,240,105,62,'Server NIC','Compute',green);
+ line(123,123,140,123);line(250,123,267,123);line(377,123,394,123);line(504,123,521,123);
+ path('M578 154 L578 190 L324 190 L324 235',blue);line(377,271,521,271,blue);txt('광 Trunk / Patch / Transceiver',450,215,14,blue);
+}else if(kind==='opschain'){
+ txt('OPERATIONS & SAFETY',360,28,18,green);
+ box(35,80,150,68,'NOC / BMS','Monitoring',green);box(215,80,150,68,'Security','Access / CCTV',green);box(395,80,150,68,'Fire','Detect / Suppress',red);box(575,80,110,68,'Spare','Maintenance',gold);
+ box(245,232,230,72,'Data Hall','IT Service',blue);
+ path('M110 148 L110 188 L290 188 L290 227',green,true);path('M290 148 L290 227',green,true);path('M470 148 L470 188 L430 188 L430 227',red,true);path('M630 148 L630 205 L475 205 L475 248',gold,true);
+ txt('운영 정보 · 물리 보안 · 화재 안전 · 유지보수',360,338,14);
 }else if(kind==='noc'){
  box(25,50,165,62,'전력 상태','IT Power / PDU',gold);box(25,145,165,62,'냉각 상태','온도 / 유량',blue);box(25,240,165,62,'네트워크','장비 / 링크',green);box(284,128,183,100,'운영 모니터링','상태 수집 / 표시',green);box(545,128,155,100,'운영자','점검 / 조치',green);path('M190 81 L235 81 L235 151 L278 151',gold,true);line(190,176,278,176);path('M190 271 L235 271 L235 201 L278 201',green,true);line(467,178,539,178,green);txt('점선: 상태 정보 연결 개념',360,333,14);
 }else if(kind==='server'){

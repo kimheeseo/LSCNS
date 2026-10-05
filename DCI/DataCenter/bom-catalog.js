@@ -6,6 +6,10 @@
   const field = (s, keys) => keys.map(k => s[k]).find(x => x != null && text(x) !== '—') || '';
   function kind(x) {
     const t = clean([x.category, x.path, x.item, x.name].join(' '));
+    if (/BATTERY RACK|BATTERY CABINET/.test(t)) return 'battery';
+    if (/TERMINATION BOX|SUB.?RACK.*ODF|PANEL RACK MOUNT/.test(t)) return 'panel';
+    if (/FUSECONNECT/.test(t)) return 'connector';
+    if (/MDC\/MMC CABLING|MPO CABLING SYSTEM/.test(t)) return 'patch';
     if (/ACTIVE ELECTRICAL|\bAEC\b/.test(t)) return 'aec';
     if (/ACTIVE OPTICAL|\bAOC\b/.test(t) && !/TRANSCEIVERS AND AOC/.test(t)) return 'aoc';
     if (/\bDAC\b|DIRECT ATTACH/.test(t)) return 'dac';
@@ -31,15 +35,16 @@
   function normalize(catalog, path) {
     return Object.entries(catalog.products || {}).map(([id, meta]) => {
       const s = {...catalog.defaultSpecs, ...meta.specs};
-      const p = {id, path, vendor: catalog.company || path.split('/')[0], category: catalog.category || '', name: meta.name || id, description: meta.description || '', specs: s, source: meta.officialUrl || meta.url || catalog.officialUrl || '', checked: meta.checked || catalog.checked || '', referenceOnly: !!meta.referenceOnly};
+      const p = {id, path, vendor: catalog.company || path.split('/')[0], category: catalog.category || '', name: meta.name || id, description: meta.description || '', specs: s, source: meta.businessUrl || meta.officialUrl || meta.url || catalog.officialUrl || '', checked: meta.checked || catalog.checked || '', referenceOnly: !!meta.referenceOnly};
       // A mixed folder must be classified by the actual product, not by its parent label.
       p.kind = kind({...p, category: '', path: ''});
-      if (p.kind === 'other') p.kind = kind(p);
-      p.speed = field(s, ['Data Rate', '총 속도', '속도', 'Speed', 'Bandwidth']);
+      if (p.kind === 'other' && !/Optical Connectivity and Rack Enclosures/i.test(p.category)) p.kind = kind(p);
+      p.speed = field(s, ['Data Rate', '총 속도', '속도', 'Speed', 'Bandwidth']) || (rates(p.name).length ? p.name : '');
       p.length = field(s, ['길이', 'Reach', '거리', 'Length', 'Cable Length']);
       p.connector = field(s, ['Connector', '커넥터', 'Optical Interface', 'Interface']);
       p.package = field(s, ['Package', '폼팩터', 'Form Factor', '포트']);
       p.standard = field(s, ['광 규격', 'Standard', 'Remark', '규격', 'Standards / Notes']);
+      if (!/DR\d|FR\d|LR\d|SR\d|ER\d|BASE-|\bLX\b|\bSX\b|\bZR\b/i.test(p.standard)) p.standard='';
       p.fiber = field(s, ['Fiber Type', 'Fiber Category', '광섬유', 'Fiber']);
       p.fibers = field(s, ['Fiber Count', '심수']);
       p.protocol = field(s, ['Protocol', '프로토콜']);
@@ -61,6 +66,7 @@
       else if (type === 'other') type = 'patch';
     }
     const required = {speed: Number(q.speed || rates(row.spec || q.media)[0]) || null, length: Number(row.lengthM ?? q.lengthM) || null, connector: q.connector || '', package: q.package || '', standard: q.standard || '', fiber: q.fiberType || q.fiber || '', fibers: row.fibers || 0, protocol: q.protocol || '', polarity: row.polarity || '', gender: row.gender || '', jacket: row.jacket || ''};
+    if (/integrated|未|미확정/i.test(required.package)) required.package='';
     const comparable = (a, b) => clean(a).replace(/BASE-/g, '').replace(/[\s_]/g, '') === clean(b).replace(/BASE-/g, '').replace(/[\s_]/g, '');
     return products.flatMap(p => {
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
@@ -73,7 +79,7 @@
         check('폼팩터', required.package, p.package, comparable);
         check('프로토콜', required.protocol, p.protocol, (a,b) => clean(b).includes(clean(a)));
       }
-      if (type === 'transceiver') check('광 규격', required.standard, p.standard, (a,b) => comparable(a,b));
+      if (type === 'transceiver') check('광 규격', required.standard, p.standard, (a,b) => comparable(a,b) || comparable(clean(a).replace(/^\d+G(?:BASE-)?/,''),clean(b).replace(/^\d+G(?:BASE-)?/,'')));
       if (['transceiver','fiber','patch','trunk','connector','adapter','copper'].includes(type)) {
         check('커넥터', required.connector, p.connector, (a,b) => {
           const left=connector(a),right=connector(b);

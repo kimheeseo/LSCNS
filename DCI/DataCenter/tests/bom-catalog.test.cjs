@@ -25,3 +25,10 @@ test('full catalog loader discovers new paths at each revision, reports errors a
  global.fetch=async url=>{let v;if(url.includes('/git/ref/'))v={object:{sha:revision}};else if(url.includes('/contents/'))v=[{name:'product_catalog',sha:revision}];else if(url.includes('/git/trees/'))v={truncated:false,tree:[{type:'blob',path:'new-vendor/new-category/catalog.json'}]};else{if(fail)return{ok:false,status:503};v={company:'Added vendor',category:'UPS',products:{new:{name:'UPS '+revision,officialUrl:'https://example.com/ups',specs:{}}}};}return{ok:true,json:async()=>v};};
  try{let first=await M.load(true);assert.equal(first.products[0].name,'UPS one');revision='two';let second=await M.load(true);assert.equal(second.products[0].name,'UPS two');assert.equal(second.revision,'two');fail=true;let failed=await M.load(true);assert.equal(failed.errors.length,1);assert.equal(failed.products.length,0);fail=false;assert.equal((await M.load(true)).errors.length,0);}finally{global.fetch=original;}
 });
+test('product-name data rate excludes mismatched AOCs and battery racks are not IT racks',()=>{
+ const products=M.normalize({company:'Example',category:'All IT Datacom Products',products:{low:{name:'100G QSFP28 Active Optical Cable (AOC)',businessUrl:'https://example.com/aoc',officialUrl:'https://example.com/list',specs:{}},battery:{name:'Indoor Battery Racks - Bay Rack',officialUrl:'https://example.com/battery'},panel:{name:'Rack Termination Box',officialUrl:'https://example.com/panel'}}},'Example/All IT Datacom Products/catalog.json');
+ assert.equal(M.match({item:'연결 케이블',media:'AOC',requirement:{speed:400}},products).length,0);
+ assert.equal(M.match({item:'IT 랙'},products).length,0);assert.equal(products[0].source,'https://example.com/aoc');
+ const r={item:'플러그형 트랜시버',requirement:{speed:400,lengthM:100,standard:'400GBASE-DR4',connector:'MPO-12/APC',package:'QSFP-DD',protocol:'Ethernet'}};
+ assert.equal(M.match(r,optical).length,1);
+});

@@ -55,6 +55,8 @@
       if(!p.protocol){const protocol=p.name.match(/InfiniBand|Ethernet|PCIe(?:\s+Gen\d)?|(?:Mini-)?SAS|NVLink/i);if(protocol)p.protocol=/SAS/i.test(protocol[0])?'SAS':protocol[0];}
       p.polarity = field(s, ['Polarity', '극성']); p.gender = field(s, ['Gender']);
       p.jacket = field(s, ['Jacket', '난연 등급', 'Flame Rating']);
+      p.status = field(s, ['Status', 'Lifecycle', 'Product Status']);
+      p.discontinued = /DISCONTINUED|OBSOLETE|END OF LIFE|\bEOL\b/i.test(text(p.status));
       p.optical=/FIBER|FIBRE|OPTIC|MPO|MTP|MDC|MMC|SENKO|CORNING|US.?CONEC|\bLC\b|\bSC\b/i.test([p.name,p.category,p.path,p.fiber,p.connector].join(' '));
       return p;
     }).filter(p => /^https?:\/\//i.test(p.source));
@@ -75,6 +77,7 @@
     if (/integrated|未|미확정/i.test(required.package)) required.package='';
     const comparable = (a, b) => clean(a).replace(/BASE-/g, '').replace(/[\s_]/g, '') === clean(b).replace(/BASE-/g, '').replace(/[\s_]/g, '');
     return products.flatMap(p => {
+      if (p.discontinued) return [];
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
       if (!compatibleKinds.includes(p.kind) || type === 'other' || type === 'component') return [];
       const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber||type==='module';

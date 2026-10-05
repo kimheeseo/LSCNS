@@ -2,6 +2,9 @@
   'use strict';
 
   const state = { company: '', category: '', products: [], manifest: null, selectedFamilies: new Set(), viewMode: 'cards' };
+  const tourParams = new URLSearchParams(location.search);
+  const tourFocus = (tourParams.get('tourFocus') || '').trim();
+  let tourSuggestionsApplied = false;
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const humanBytes = value => {
@@ -91,6 +94,7 @@
       '<div class="catalog-head-actions"><button type="button" id="catalogKoreaBtn" class="catalog-refresh" aria-expanded="false">한국 업체·대리점 조회</button><button type="button" id="catalogRefresh" class="catalog-refresh">카탈로그 새로고침</button></div></div>' +
       '<div class="catalog-steps"><span class="active">1 업체</span><span>2 부품군</span><span>3 제품·스펙</span></div>' +
       '<div id="catalogNotice" class="catalog-notice">카탈로그를 불러오는 중입니다.</div>' +
+      '<div id="catalogTourFocus" class="catalog-tour-focus" hidden><b>Gold Tour 연결</b><span id="catalogTourFocusText"></span><div id="catalogTourSuggestions" class="catalog-tour-suggestions"></div></div>' +
       '<section id="catalogKoreaPanel" class="catalog-korea-panel" hidden><div class="catalog-korea-head"><div><h3>한국 업체·대리점 / 국내 문의처</h3><p>업체별 부품 리스트 제조사의 한국 법인·공급 파트너·공식 문의 경로 포함 · 2026-10-06 확인</p></div></div><div id="catalogKoreaBody" class="catalog-korea-body"><p class="catalog-empty">업체 정보를 불러오는 중입니다.</p></div></section>' +
       '<div class="catalog-layout">' +
         '<section class="catalog-column"><div class="catalog-column-head"><h3>1. 업체</h3><span id="catalogCompanyCount">—</span></div><div id="catalogCompanies" class="catalog-list"></div></section>' +
@@ -148,6 +152,66 @@
       '<span>' + esc(shown) + '</span><b>›</b></button>';
   }
 
+  function tourTerms(){
+    if(!tourFocus)return [];
+    const base=tourFocus.toLowerCase().split(/[^a-z0-9가-힣.+/-]+/).filter(x=>x.length>=2);
+    const aliases={
+      odf:['odf','fiber panel','panel','module'],
+      fiber:['fiber','optical','trunk','patch'],
+      trunk:['trunk','cable assembl'],
+      patch:['patch','cable assembl'],
+      transceiver:['transceiver','networking','optical'],
+      switch:['networking','switch'],
+      pdu:['pdu','power'],
+      busway:['busway','power'],
+      cable:['cable'],
+      copper:['copper','twisted pair'],
+      cat6:['cat6','twisted pair'],
+      rack:['rack','panel'],
+      ups:['ups','power'],
+      transformer:['transformer','power']
+    };
+    const out=[...base];
+    base.forEach(t=>{(aliases[t]||[]).forEach(a=>out.push(a))});
+    return [...new Set(out)];
+  }
+
+  function buildTourSuggestions(){
+    const host=$('catalogTourFocus'),textEl=$('catalogTourFocusText'),list=$('catalogTourSuggestions');
+    if(!host||!list||!tourFocus||!catalogIndex?.paths?.length)return [];
+    const terms=tourTerms(), scored=new Map();
+    for(const path of catalogIndex.paths){
+      const parts=catalogPathParts(path), company=parts[0], category=parts[1];
+      if(!company||!category)continue;
+      const hay=(company+' '+category+' '+parts.slice(2,-1).join(' ')).toLowerCase();
+      let score=0;
+      for(const t of terms)if(hay.includes(t))score+=t.length>=5?3:1;
+      if(!score)continue;
+      const key=company+'|'+category, prev=scored.get(key);
+      if(!prev||score>prev.score)scored.set(key,{company,category,score});
+    }
+    const suggestions=[...scored.values()].sort((a,b)=>b.score-a.score||a.company.localeCompare(b.company)).slice(0,8);
+    host.hidden=false;textEl.textContent=' · '+tourFocus;
+    list.innerHTML=suggestions.length?suggestions.map((s,i)=>'<button type="button" data-tour-company="'+esc(s.company)+'" data-tour-category="'+esc(s.category)+'"'+(i===0?' class="primary"':'')+'>'+esc(cleanLabel(s.company))+' · '+esc(s.category)+'</button>').join(''):'관련 제품군을 자동 식별하지 못했습니다. 업체/부품군을 직접 선택하세요.';
+    list.querySelectorAll('[data-tour-company]').forEach(btn=>btn.onclick=async()=>{
+      await selectCompany(btn.dataset.tourCompany);
+      await selectCategory(btn.dataset.tourCategory);
+      $('catalogProducts')?.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    return suggestions;
+  }
+
+  async function applyTourFocusOnce(){
+    if(tourSuggestionsApplied||!tourFocus)return;
+    tourSuggestionsApplied=true;
+    const suggestions=buildTourSuggestions();
+    if(tourParams.get('openCatalog')==='1'&&suggestions[0]){
+      await selectCompany(suggestions[0].company);
+      await selectCategory(suggestions[0].category);
+      requestAnimationFrame(()=>$('catalogProducts')?.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
+  }
+
   async function loadCompanies(force) {
     notice('업체 목록을 불러오는 중입니다.');
     setStep(1);
@@ -172,6 +236,7 @@
       $('catalogCategoryCount').textContent = '—';
       notice(companies.length + '개 업체가 등록되어 있습니다. 업체를 선택하세요.', 'ready');
       bindCompanyButtons();
+      await applyTourFocusOnce();
     } catch (error) {
       notice(error.message, 'error');
       $('catalogCompanies').innerHTML = '<a class="catalog-fallback" href="https://github.com/kimheeseo/LSCNS/tree/main/DCI/DataCenter/product_catalog" target="_blank" rel="noopener">GitHub product_catalog 열기 ↗</a>';

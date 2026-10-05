@@ -18,7 +18,8 @@
       "specs": {
         "자료 구분": "통합배선",
         "발행 연도": "2024"
-      }
+      },
+      "displayModel": "24_LSsimple 통합배선"
     },
     "LS DataCenterSolution_En_200722": {
       "name": "20_DataCenter Solution",
@@ -27,7 +28,8 @@
       "specs": {
         "자료 구분": "데이터센터 솔루션",
         "발행 연도": "2020"
-      }
+      },
+      "displayModel": "20_DataCenter Solution"
     },
     "LS SimpleWin(IntelligentManagementSystem)_Kr_200804": {
       "name": "20_SimpleWin 배선관리",
@@ -36,7 +38,8 @@
       "specs": {
         "자료 구분": "지능형 배선관리",
         "발행 연도": "2020"
-      }
+      },
+      "displayModel": "20_SimpleWin 배선관리"
     },
     "LS Simple지명원_200722": {
       "name": "20_LS Simple 지명원",
@@ -45,7 +48,8 @@
       "specs": {
         "자료 구분": "통합배선 지명원",
         "발행 연도": "2020"
-      }
+      },
+      "displayModel": "20_LS Simple 지명원"
     }
   }
 }

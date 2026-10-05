@@ -232,7 +232,7 @@
     const group = entry.group || state.category;
     const rawModel = modelFromFile(file.name);
     const meta = productMeta(manifest, file, rawModel);
-    const model = meta.characteristicsOnly ? 'Characteristics' : rawModel;
+    const model = meta.characteristicsOnly ? 'Characteristics' : (meta.displayModel || rawModel);
     const specs = specObject(manifest, meta);
     const title = meta.name || model;
     const description = meta.description || (manifest && manifest.productDescription) || '';

@@ -1,456 +1,217 @@
 #!/usr/bin/env python3
-from __future__ import annotations
-
-import hashlib
-import json
-import math
-import re
-import shutil
-import time
-import unicodedata
-from collections import Counter, defaultdict
+import json, re, time, html, hashlib
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
-
+from urllib.parse import urljoin
 import requests
+from bs4 import BeautifulSoup
 
-BASE = "https://www.amphenol.com/markets/it-datacom"
-OFFICIAL_BASE = BASE
-READER = "https://r.jina.ai/"
-PAGE_SIZE = 50
-ROOT = Path("DCI/DataCenter/product_catalog")
-AMPHENOL_ROOT = ROOT / "Amphenol"
-INDEX_PATH = ROOT / "bom-catalog-index.json"
-CHECKED = "2026-10-05"
+BASE="https://www.amphenol.com/markets/it-datacom"
+ROOT=Path("DCI/DataCenter/product_catalog/Amphenol")
+EXPECTED=665
+CHECKED="2026-10-05"
+session=requests.Session()
+session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; LSCNS-DataCenter-Catalog/1.0)"})
 
-session = requests.Session()
-session.headers.update({
-    "User-Agent": "LSCNS-DataCenter-Catalog/1.0",
-    "Accept": "text/plain,*/*;q=0.8",
-    "X-No-Cache": "true",
-    "X-Cache-Tolerance": "0",
-})
+CATEGORIES=[
+ "Optical Transceivers and AOC",
+ "Fiber Optic Connectivity",
+ "High-Speed Cable Assemblies",
+ "High-Speed Board Connectors",
+ "Backplane and Orthogonal Connectors",
+ "Memory and Card Edge Connectors",
+ "Storage and PCIe-SAS Interconnects",
+ "Ethernet USB and External I-O",
+ "Wire-to-Board and FFC-FPC",
+ "Power Connectors and Busbar",
+ "Power Distribution Panels",
+ "RF and Coaxial Connectivity",
+ "Rugged Circular and D-Sub",
+ "Terminal Blocks and General Interconnect",
+ "Sensors Materials and Other",
+]
 
-def clean_text(value: str) -> str:
-    return re.sub(r"\s+", " ", value or "").strip()
+def compact(s):
+    return re.sub(r"\s+"," ",html.unescape(str(s or ""))).strip()
 
-def fetch(url: str) -> str:
-    reader_url = READER + url
-    last = None
-    for attempt in range(5):
-        try:
-            r = session.get(reader_url, timeout=120)
-            r.raise_for_status()
-            text = r.text
-            if "IT Datacom" not in text:
-                raise RuntimeError("Unexpected Reader response")
-            return text
-        except Exception as exc:
-            last = exc
-            time.sleep(3 + attempt * 3)
-    raise RuntimeError(f"Failed to fetch {url} through Jina Reader: {last}")
+def slug(s):
+    x=compact(s).lower()
+    x=re.sub(r"[®™©]","",x)
+    x=re.sub(r"[^a-z0-9]+","-",x).strip("-")
+    return x[:110] or hashlib.sha1(s.encode()).hexdigest()[:12]
 
-def advertised_total(text: str) -> int:
-    m = re.search(r"Showing\s+\d+\s+to\s+\d+\s+of\s+([\d,]+)\s+items", text, re.I)
-    if not m:
-        raise RuntimeError("Could not find Amphenol advertised item count")
-    return int(m.group(1).replace(",", ""))
+def smallest_product_card(img):
+    chosen=None
+    for parent in img.parents:
+        if getattr(parent,"name",None) in ("body","html"): break
+        imgs=parent.find_all("img",alt=re.compile(r"^Product\s+",re.I))
+        if len(imgs)==1:
+            txt=compact(parent.get_text(" ",strip=True))
+            if len(txt)>20: chosen=parent
+        elif len(imgs)>1:
+            break
+    return chosen or img.parent
 
-def _clean_md_title(line: str) -> str:
-    line = clean_text(line)
-    line = re.sub(r"^#+\s*", "", line)
-    line = re.sub(r"^[-*]\s+", "", line)
-    line = re.sub(r"^\*\*(.*?)\*\*$", r"\1", line)
-    # Preserve markdown link labels (especially the Amphenol business name) while dropping URLs.
-    line = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", line)
-    line = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", line)
-    return clean_text(line)
+def classify(name,desc):
+    t=(" "+name+" "+desc+" ").lower()
+    if re.search(r"\b(transceiver|active optical cable|\baoc\b|cfp\d*|qsfp\d*|sfp\+?|optical module)",t): return "Optical Transceivers and AOC"
+    if re.search(r"fiber optic|optical fiber|fibre optic|\bmpo\b|\bmtp\b|\bmt ferrule|\blc connector|\bsc connector|expanded beam",t): return "Fiber Optic Connectivity"
+    if re.search(r"power distribution|power shelf|power panel|\bpdu\b|distribution panel",t): return "Power Distribution Panels"
+    if re.search(r"busbar|bus bar|power connector|barklip|energyedge|power edge|high power|current density|battery connector",t): return "Power Connectors and Busbar"
+    if re.search(r"backplane|orthogonal|airmax|examax|metral|hard metric",t): return "Backplane and Orthogonal Connectors"
+    if re.search(r"cable assembl|direct attach|\bdac\b|twinax|high.?speed cable|cable connector",t): return "High-Speed Cable Assemblies"
+    if re.search(r"board.?to.?board|mezzanine|floating board|fine pitch|micro board|stack height",t): return "High-Speed Board Connectors"
+    if re.search(r"dimm|ddr[345]|memory connector|card edge|edge card",t): return "Memory and Card Edge Connectors"
+    if re.search(r"pcie|pci express|nvme|sas\b|sata\b|storage connector|u\.2|u\.3|edsff",t): return "Storage and PCIe-SAS Interconnects"
+    if re.search(r"ethernet|rj45|usb|hdmi|displayport|external i.?o|input.?output|modular jack",t): return "Ethernet USB and External I-O"
+    if re.search(r"ffc|fpc|flex connector|wire.?to.?board|board.?to.?wire|wire.?to.?wire",t): return "Wire-to-Board and FFC-FPC"
+    if re.search(r"\brf\b|coax|sma\b|smp\b|smpm|bnc\b|n.?type|mcx|mmcx|ssma|tnc\b",t): return "RF and Coaxial Connectivity"
+    if re.search(r"d.?sub|circular|mil.?d|rugged|ip6[5-9]|bayonet connector",t): return "Rugged Circular and D-Sub"
+    if re.search(r"sensor|thermistor|temperature|pressure|humidity|material|vent|antenna",t): return "Sensors Materials and Other"
+    return "Terminal Blocks and General Interconnect"
 
-def parse_page(text: str, page: int) -> list[dict]:
-    page_url = f"{OFFICIAL_BASE}?PageSize={PAGE_SIZE}&pagenumber={page}"
-    lines = [clean_text(x) for x in text.splitlines()]
-    rows = []
-    seen = Counter()
-
-    # Reader preserves product image alt text as "Image: Product <name>" or markdown image alt.
-    candidates = []
-    for i, line in enumerate(lines):
-        if not line:
-            continue
-        m = re.search(r"(?:Image:\s*Product\s+|!\[[^\]]*?Product\s+)(.+?)(?:\]\([^)]*\)|\]$|$)", line, re.I)
-        if m:
-            title = _clean_md_title(m.group(1))
-            if title:
-                candidates.append((i, title))
-
-    # Some official listing rows have no image. Recover them from blocks between separators/business links.
-    # Candidate product titles are non-navigation lines immediately followed by description text and before an
-    # Amphenol business line. We only add these if the image-based count is short for the page.
-    expected = PAGE_SIZE
-    if page * PAGE_SIZE > advertised_total(text):
-        expected = advertised_total(text) - (page - 1) * PAGE_SIZE
-
-    for i, title in candidates:
-        key = title.casefold()
-        seen[key] += 1
-        # Description: first substantive non-navigation line after the repeated title/image line.
-        desc = ""
-        business = "Amphenol"
-        for j in range(i + 1, min(len(lines), i + 14)):
-            x = _clean_md_title(lines[j])
-            if not x or x == title or x.startswith("http") or "Image: Product" in x:
-                continue
-            if re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)", x, re.I):
-                business = x[:160]
-                continue
-            if "Showing " in x or x in {"X", "Products", "Markets", "Businesses", "Sustainability", "Investors"}:
-                continue
-            if len(x) >= 18 and not desc:
-                desc = x[:1200]
-        rows.append({
-            "name": title,
-            "description": desc or "Official Amphenol IT Datacom listing product.",
-            "business": business,
-            "businessUrl": OFFICIAL_BASE,
-            "sourcePage": page,
-            "sourceUrl": page_url,
-        })
-
-    if len(rows) < expected and candidates:
-        # Some official rows intentionally have no image. Between two image rows, Reader emits:
-        # current-title, current-description, [image-less-title, image-less-description]...
-        existing = Counter(r["name"].casefold() for r in rows)
-        showing_idx = next((i for i, line in enumerate(lines) if re.search(r"Showing\\s+\\d+\\s+to\\s+\\d+\\s+of", line, re.I)), len(lines))
-        for pos, (img_idx, img_title) in enumerate(candidates):
-            next_idx = candidates[pos + 1][0] if pos + 1 < len(candidates) else showing_idx
-            segment = []
-            for raw in lines[img_idx + 1:next_idx]:
-                x = _clean_md_title(raw)
-                if not x or x.startswith("http") or "Image: Product" in x or "Showing " in x:
-                    continue
-                segment.append(x)
-            # Locate the repeated title then skip its own description.
-            try:
-                title_pos = next(i for i, x in enumerate(segment) if x.casefold() == img_title.casefold())
-            except StopIteration:
-                continue
-            remainder = segment[title_pos + 2:]
-            k = 0
-            while k + 1 < len(remainder):
-                title = remainder[k]
-                desc = remainder[k + 1]
-                # A genuine image-less product appears as a short standalone title followed by substantive prose.
-                if (8 <= len(title) <= 200 and len(desc) >= 24 and
-                    title.casefold() not in existing and
-                    not re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)$", title, re.I)):
-                    rows.append({
-                        "name": title,
-                        "description": desc[:1200],
-                        "business": "Amphenol",
-                        "businessUrl": OFFICIAL_BASE,
-                        "sourcePage": page,
-                        "sourceUrl": page_url,
-                    })
-                    existing[title.casefold()] += 1
-                k += 2
-                if len(rows) >= expected:
-                    break
-            if len(rows) >= expected:
-                break
-
-    if len(rows) < expected:
-        # Block fallback. Reader separates most products with horizontal rules. Parse likely title + description pairs.
-        blocks = re.split(r"\n\s*(?:\* \* \*|---+)\s*\n", text)
-        existing = Counter(r["name"].casefold() for r in rows)
-        for block in blocks:
-            blines = [_clean_md_title(x) for x in block.splitlines() if clean_text(x)]
-            if len(blines) < 2:
-                continue
-            # Remove obvious page/navigation prose and markdown images.
-            blines = [x for x in blines if x and "Image: Product" not in x and not x.startswith("![") and "Showing " not in x]
-            if len(blines) < 2:
-                continue
-            # Product name is generally the first short standalone line in a product block.
-            title = None
-            for x in blines[:6]:
-                if x in {"IT Datacom","Products","Markets","Businesses","Sustainability","Investors"}:
-                    continue
-                if len(x) <= 180 and not x.startswith("With our industry") and not x.startswith("Our primary"):
-                    title = x
-                    break
-            if not title or existing[title.casefold()] > 0:
-                continue
-            # Require a later Amphenol-business marker to avoid navigation/footer blocks.
-            business = next((x for x in blines if re.search(r"^(Amphenol|SV Microwave|Positronic|LUTZE|TPC Wire|EBY|Piher|Assembletech|RFS Technologies)", x, re.I)), None)
-            if not business:
-                continue
-            desc = next((x for x in blines[1:] if x != title and x != business and len(x) >= 18), "")
-            rows.append({
-                "name": title,
-                "description": desc[:1200] or "Official Amphenol IT Datacom listing product.",
-                "business": business[:160],
-                "businessUrl": OFFICIAL_BASE,
-                "sourcePage": page,
-                "sourceUrl": page_url,
-            })
-            existing[title.casefold()] += 1
-            if len(rows) >= expected:
-                break
-
-    if len(rows) != expected:
-        preview = [r["name"] for r in rows[:5]]
-        print(f"DIAGNOSTIC_PAGE_{page}_ROWS=" + json.dumps([r["name"] for r in rows], ensure_ascii=False))
-        print(f"DIAGNOSTIC_PAGE_{page}_START")
-        print(text)
-        print(f"DIAGNOSTIC_PAGE_{page}_END")
-        raise RuntimeError(f"Page {page}: parsed {len(rows)} products, expected {expected}; preview={preview}")
-    return rows
-
-def classify(name: str, description: str) -> str:
-    s = (name + " " + description).lower()
-    checks = [
-        ("Optical Transceivers and AOC", r"transceiver|active optical|\baoc\b|optical module"),
-        ("Power Distribution Panels", r"fuse panel|circuit breaker panel|power distribution panel|breaker panel"),
-        ("High-Speed Cable Assemblies", r"cable assembl|\bdac\b|direct attach|overpass|omni-path|copper cable"),
-        ("Power Connectors and Busbar", r"barklip|busbar|power connector|energyedge|radsok|battery connector|power cable|power edge"),
-        ("Storage and PCIe-SAS Interconnects", r"pcie|pci express|\bsas\b|oculink|slimsas|minisas|sata|edsff|u\.2|u\.3|sff-"),
-        ("Memory and Card Edge Connectors", r"memory module|\bdimm\b|so-dimm|camm|ddr\d|lpddr|card edge"),
-        ("Backplane and Orthogonal Connectors", r"backplane|orthogonal|crossbow|metral|airmax|hard metric"),
-        ("High-Speed Board Connectors", r"board-to-board|mezzanine|bergstak|cstack|interposer|btb"),
-        ("Wire-to-Board and FFC-FPC", r"ffc|fpc|wire-to-board|wire to board|agillink|dubox"),
-        ("Fiber Optic Connectivity", r"fiber optic|fibre optic|\bmtp\b|\bmpo\b|\blc\b connector|optik"),
-        ("Ethernet USB and External I-O", r"rj45|ethernet|\busb\b|displayport|hdmi|external i/o|type-c"),
-        ("RF and Coaxial Connectivity", r"\brf\b|coax|sma|smpm?|n-type|bnc|tnc|vna|microwave"),
-        ("Rugged Circular and D-Sub", r"circular|\bm12\b|\bm8\b|d-sub|micro-d|arinc|mil-|ip67|ip68|ip69"),
-        ("Terminal Blocks and General Interconnect", r"terminal block|barrier strip|header|receptacle|socket|connector"),
+def key_spec(desc):
+    pats=[
+      r"up to\s+\d+(?:\.\d+)?\s*(?:gb/?s|gbps|gt/?s|a|w|kw|ghz)",
+      r"\d+(?:\.\d+)?\s*(?:gb/?s|gbps|gt/?s|ghz)",
+      r"\d+\s*(?:a|w|kw)\s*(?:per\s+contact)?",
+      r"\d+(?:/\d+)?\s*(?:fiber|fibre|position|contact)s?",
+      r"\d+(?:\.\d+)?\s*mm\s*pitch",
     ]
-    for label, pattern in checks:
-        if re.search(pattern, s, re.I):
-            return label
-    return "Sensors Materials and Other"
-
-def extract_key_spec(name: str, desc: str) -> str:
-    text = name + " " + desc
-    specs = []
-    patterns = [
-        r"\b\d+(?:\.\d+)?\s*(?:Tb/s|Gb/s|Gbps|GT/s|GHz)\b",
-        r"\bPCIe(?:®)?\s*Gen\s*\d(?:\.\d)?\b",
-        r"\b(?:up to\s*)?\d+(?:\.\d+)?\s*A\b",
-        r"\b\d+(?:\.\d+)?\s*mm\s*pitch\b",
-        r"\b\d+\s*(?:F|fiber|fibers)\b",
-        r"\b(?:OSFP|QSFP(?:28|-DD)?|SFP\+?|MPO|MTP|LC|RJ45|USB(?:\s*Type-?C)?)\b",
-    ]
-    for pattern in patterns:
-        for match in re.findall(pattern, text, re.I):
-            value = clean_text(match if isinstance(match, str) else " ".join(match))
-            if value and value.lower() not in {x.lower() for x in specs}:
-                specs.append(value)
-            if len(specs) >= 4:
-                return " · ".join(specs)
+    low=desc.lower()
+    vals=[]
+    for p in pats:
+        for m in re.finditer(p,low,re.I):
+            v=compact(m.group(0))
+            if v not in vals: vals.append(v)
+            if len(vals)>=3: return " · ".join(vals)
     return "See official IT Datacom description"
 
-def infer_application(desc: str) -> str:
-    s = desc.lower()
-    labels = []
-    for label, pattern in [
-        ("Data center", r"data center|datacenter"),
-        ("Server", r"server"),
-        ("Storage", r"storage"),
-        ("Networking", r"network"),
-        ("HPC", r"high-performance computing|\bhpc\b"),
-        ("Telecom", r"telecom|wireless"),
-        ("Industrial", r"industrial"),
-        ("AI", r"artificial intelligence|\bai\b|gpu"),
-    ]:
-        if re.search(pattern, s):
-            labels.append(label)
-    return " / ".join(labels[:4]) if labels else "IT Datacom"
+def application(desc):
+    t=desc.lower(); a=[]
+    rules=[("Data center",r"data center|datacenter|cloud"),("AI/HPC",r"\bai\b|hpc|high.performance computing"),
+           ("Server",r"server"),("Storage",r"storage|nvme|sas|sata"),("Networking",r"network|ethernet|infiniband"),
+           ("Telecom",r"telecom|wireless|metro"),("Industrial",r"industrial|robot|factory")]
+    for label,p in rules:
+        if re.search(p,t): a.append(label)
+    return " / ".join(a[:4]) if a else "IT Datacom"
 
-def slugify(name: str) -> str:
-    s = unicodedata.normalize("NFKD", name)
-    s = s.encode("ascii", "ignore").decode("ascii").lower()
-    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
-    if not s:
-        s = "product-" + hashlib.sha1(name.encode("utf-8")).hexdigest()[:10]
-    return s[:96]
-
-def write_catalogs(items: list[dict], total: int):
-    if AMPHENOL_ROOT.exists():
-        shutil.rmtree(AMPHENOL_ROOT)
-    AMPHENOL_ROOT.mkdir(parents=True, exist_ok=True)
-
-    grouped = defaultdict(list)
-    for row in items:
-        row["category"] = classify(row["name"], row["description"])
-        row["keySpec"] = extract_key_spec(row["name"], row["description"])
-        row["application"] = infer_application(row["description"])
-        grouped[row["category"]].append(row)
-
-    source_rows = []
-    for category in sorted(grouped):
-        rows = grouped[category]
-        folder = AMPHENOL_ROOT / category
-        folder.mkdir(parents=True, exist_ok=True)
-        products = {}
-        used = Counter()
-        source_urls = []
-        for idx, row in enumerate(rows, 1):
-            key = slugify(row["name"])
-            used[key] += 1
-            if used[key] > 1:
-                key = f"{key}--{used[key]}"
-            source_urls.append(row["sourceUrl"])
-            products[key] = {
-                "name": row["name"],
-                "description": row["description"],
-                "officialUrl": row["sourceUrl"],
-                "businessUrl": row["businessUrl"],
-                "specs": {
-                    "Product Type": category,
-                    "Key Spec": row["keySpec"],
-                    "Application": row["application"],
-                    "Amphenol Business": row["business"],
-                    "Source Page": f"IT Datacom p.{row['sourcePage']}",
-                },
-            }
-            source_rows.append({
-                "name": row["name"],
-                "category": category,
-                "business": row["business"],
-                "description": row["description"],
-                "sourcePage": row["sourcePage"],
-                "sourceUrl": row["sourceUrl"],
-            })
-        manifest = {
-            "schemaVersion": 1,
-            "company": "Amphenol",
-            "category": category,
-            "displayName": category,
-            "description": f"Amphenol IT Datacom products classified for the DataCenter Tool: {category}. Classification is tool-side; product names/descriptions come from the official IT Datacom listing.",
-            "checked": CHECKED,
-            "officialUrl": OFFICIAL_BASE,
-            "sourceUrls": sorted(set(source_urls)),
-            "sourceCount": len(rows),
-            "sourceTotal": total,
-            "storageMode": "metadata only; official listing URLs retained",
-            "comparisonFields": ["Product Type", "Key Spec", "Application", "Amphenol Business", "Source Page"],
-            "products": products,
-        }
-        (folder / "catalog.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        (folder / "readme.md").write_text(
-            f"# Amphenol {category}\n\n"
-            f"- Official market: {BASE}\n"
-            f"- Products in this tool category: {len(rows)}\n"
-            f"- Official IT Datacom total at sync: {total}\n"
-            f"- Reviewed: {CHECKED}\n\n"
-            "Product names and descriptions are sourced from Amphenol's official IT Datacom market listing. "
-            "The category grouping is a DataCenter Tool classification for comparison/BOM use.\n",
-            encoding="utf-8",
-        )
-
-    root_summary = {
-        "schemaVersion": 1,
-        "company": "Amphenol",
-        "officialUrl": OFFICIAL_BASE,
-        "checked": CHECKED,
-        "sourceTotal": total,
-        "parsedTotal": len(items),
-        "categoryCounts": dict(sorted(Counter(x["category"] for x in items).items())),
-        "products": source_rows,
-    }
-    (AMPHENOL_ROOT / "it-datacom-source.json").write_text(
-        json.dumps(root_summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    (AMPHENOL_ROOT / "readme.md").write_text(
-        "# Amphenol IT Datacom\n\n"
-        f"Official source: {BASE}\n\n"
-        f"All {total} products visible in the official IT Datacom listing were synchronized on {CHECKED}. "
-        "Products are split into DataCenter Tool comparison categories; source product names/descriptions are retained.\n",
-        encoding="utf-8",
-    )
-    return grouped
-
-def update_bom_index(grouped):
-    if not INDEX_PATH.exists():
-        return
-    data = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
-    roles = data.setdefault("roles", {})
-    # Remove prior Amphenol paths, then add the newly generated categories by BOM role.
-    for role in list(roles):
-        roles[role] = [p for p in roles[role] if not p.startswith("Amphenol/")]
-
-    role_map = {
-        "Optical Transceivers and AOC": ["optic"],
-        "High-Speed Cable Assemblies": ["trunk", "patchCord"],
-        "Fiber Optic Connectivity": ["connector", "adapter", "patchCord"],
-        "High-Speed Board Connectors": ["connector"],
-        "High-Speed I-O Connectors": ["connector"],
-        "Storage and PCIe-SAS Interconnects": ["connector"],
-        "Memory and Card Edge Connectors": ["connector"],
-        "Backplane and Orthogonal Connectors": ["connector"],
-        "Wire-to-Board and FFC-FPC": ["connector"],
-        "Ethernet USB and External I-O": ["connector"],
-        "RF and Coaxial Connectivity": ["connector"],
-        "Rugged Circular and D-Sub": ["connector"],
-        "Terminal Blocks and General Interconnect": ["connector"],
-        "Power Connectors and Busbar": ["power"],
-        "Power Distribution Panels": ["power"],
-    }
-    for category in grouped:
-        rel = f"Amphenol/{category}/catalog.json"
-        for role in role_map.get(category, []):
-            roles.setdefault(role, []).append(rel)
-    for role in roles:
-        roles[role] = sorted(set(roles[role]))
-    data["checked"] = CHECKED
-    data["source"] = "DCI/DataCenter/product_catalog (업체별 부품 리스트)"
-    data["totalStructuredCatalogs"] = len(list(ROOT.rglob("catalog.json")))
-    data["amphenolItDatacom"] = {
-        "officialUrl": OFFICIAL_BASE,
-        "sourceTotal": sum(len(v) for v in grouped.values()),
-        "categoryCount": len(grouped),
-        "mode": "All official IT Datacom listing products indexed; tool-side category classification",
-    }
-    INDEX_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def scrape_page(page):
+    url=f"{BASE}?pagenumber={page}"
+    r=session.get(url,timeout=45)
+    r.raise_for_status()
+    soup=BeautifulSoup(r.text,"html.parser")
+    count_text=compact(soup.get_text(" ",strip=True))
+    m=re.search(r"Showing\s+\d+\s+to\s+\d+\s+of\s+(\d+)\s+items",count_text,re.I)
+    if m and int(m.group(1))!=EXPECTED:
+        raise RuntimeError(f"Official source total changed: {m.group(1)}")
+    products=[]
+    seen_names=set()
+    for img in soup.find_all("img",alt=re.compile(r"^Product\s+",re.I)):
+        name=compact(re.sub(r"^Product\s+","",img.get("alt",""),flags=re.I))
+        if not name or name in seen_names: continue
+        card=smallest_product_card(img)
+        strings=[compact(x) for x in card.stripped_strings]
+        anchors=card.find_all("a",href=True)
+        business=""
+        business_url=""
+        for a in anchors:
+            txt=compact(a.get_text(" ",strip=True))
+            href=urljoin(url,a.get("href"))
+            if txt and txt!=name and "amphenol.com/markets/it-datacom" not in href:
+                business=txt; business_url=href
+        clean=[]
+        for x in strings:
+            if not x or x==name or x==business or x.lower().startswith("image: product"): continue
+            if x not in clean: clean.append(x)
+        desc=compact(" ".join(clean))
+        if desc.startswith(name): desc=compact(desc[len(name):])
+        desc=re.sub(r"\s*Showing\s+\d+\s+to\s+\d+\s+of\s+\d+\s+items.*$","",desc,flags=re.I)
+        if len(desc)>1600: desc=desc[:1600].rsplit(" ",1)[0]+"…"
+        products.append({"name":name,"description":desc,"business":business or "Amphenol","businessUrl":business_url,"sourcePage":page,"officialUrl":url})
+        seen_names.add(name)
+    return products
 
 def main():
-    first_url = f"{BASE}?PageSize={PAGE_SIZE}&pagenumber=1"
-    first_html = fetch(first_url)
-    total = advertised_total(first_html)
-    pages = math.ceil(total / PAGE_SIZE)
+    rows=[]
+    for p in range(1,35):
+        batch=scrape_page(p)
+        print(f"page {p}: {len(batch)}")
+        rows.extend(batch)
+        time.sleep(.25)
+    # Exact de-duplication by name; official listing is expected to have 665 unique visible products.
+    dedup={}
+    for x in rows:
+        if x["name"] not in dedup: dedup[x["name"]]=x
+        else:
+            # Keep a deterministic suffixed key later if the official listing contains same title with differing text.
+            if x["description"]!=dedup[x["name"]]["description"]:
+                dedup[x["name"]+" [p"+str(x["sourcePage"])+"]"]=x
+    rows=list(dedup.values())
+    if len(rows)!=EXPECTED:
+        raise RuntimeError(f"Expected {EXPECTED} unique products, parsed {len(rows)}. Refusing partial catalog update.")
 
-    items = []
-    for page in range(1, pages + 1):
-        html = first_html if page == 1 else fetch(f"{BASE}?PageSize={PAGE_SIZE}&pagenumber={page}")
-        rows = parse_page(html, page)
-        if not rows:
-            raise RuntimeError(f"No products parsed from page {page}")
-        items.extend(rows)
-        time.sleep(0.25)
+    grouped={k:[] for k in CATEGORIES}
+    for x in rows:
+        x["category"]=classify(x["name"],x["description"])
+        grouped[x["category"]].append(x)
 
-    # Preserve source listing cardinality. Exact name duplicates receive stable suffixed keys later.
-    if len(items) != total:
-        # Fallback to canonical 20-item pagination in case the site ignores PageSize=50.
-        items = []
-        page_size = 20
-        pages = math.ceil(total / page_size)
-        for page in range(1, pages + 1):
-            html = fetch(f"{BASE}?PageSize={page_size}&pagenumber={page}")
-            rows = parse_page(html, page)
-            if not rows:
-                raise RuntimeError(f"No products parsed from fallback page {page}")
-            items.extend(rows)
-            time.sleep(0.25)
-    if len(items) != total:
-        raise RuntimeError(f"Parsed {len(items)} products but Amphenol advertises {total}; refusing partial catalog")
+    ROOT.mkdir(parents=True,exist_ok=True)
+    all_products={}
+    used=set()
+    def add_product(target,x):
+        base=slug(x["name"]); k=base; n=2
+        while k in used:
+            k=f"{base}-{n}"; n+=1
+        used.add(k)
+        target[k]={
+          "name":x["name"],
+          "description":x["description"],
+          "officialUrl":x["officialUrl"],
+          "businessUrl":x["businessUrl"],
+          "specs":{
+            "Product Type":x["category"],
+            "Key Spec":key_spec(x["description"]),
+            "Application":application(x["description"]),
+            "Amphenol Business":x["business"],
+            "Source Page":f"IT Datacom p.{x['sourcePage']}"
+          }
+        }
 
-    grouped = write_catalogs(items, total)
-    update_bom_index(grouped)
-    print(json.dumps({
-        "officialTotal": total,
-        "parsed": len(items),
-        "categories": {k: len(v) for k, v in sorted(grouped.items())},
-    }, ensure_ascii=False, indent=2))
+    # Master: all 665 products.
+    used=set()
+    for x in rows:add_product(all_products,x)
+    master_dir=ROOT/"All IT Datacom Products"; master_dir.mkdir(exist_ok=True)
+    master={
+      "schemaVersion":1,"company":"Amphenol","category":"All IT Datacom Products","displayName":"All IT Datacom Products",
+      "description":"All 665 products currently shown on the official Amphenol IT Datacom market listing. Product text is source-derived; DataCenter Tool category labels are tool-side classification.",
+      "checked":CHECKED,"officialUrl":BASE,"sourceCount":len(rows),"sourceTotal":EXPECTED,
+      "storageMode":"metadata only; official listing and Amphenol business URLs retained",
+      "comparisonFields":["Product Type","Key Spec","Application","Amphenol Business","Source Page"],"products":all_products}
+    (master_dir/"catalog.json").write_text(json.dumps(master,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (master_dir/"readme.md").write_text(f"# All IT Datacom Products\n\nOfficial source: {BASE}\n\nProducts: {len(rows)} / {EXPECTED}\n\nUpdated: {CHECKED}\n",encoding="utf-8")
 
-if __name__ == "__main__":
+    # Classified views.
+    for cat,items in grouped.items():
+        d=ROOT/cat; d.mkdir(parents=True,exist_ok=True)
+        products={}; used=set()
+        for x in items:add_product(products,x)
+        pages=sorted({x["sourcePage"] for x in items})
+        manifest={
+          "schemaVersion":1,"company":"Amphenol","category":cat,"displayName":cat,
+          "description":f"Amphenol IT Datacom official products classified for the DataCenter Tool: {cat}. Product names/descriptions come from the official listing.",
+          "checked":CHECKED,"officialUrl":BASE,
+          "sourceUrls":[f"{BASE}?pagenumber={p}" for p in pages],
+          "sourceCount":len(items),"sourceTotal":EXPECTED,
+          "storageMode":"metadata only; official listing and Amphenol business URLs retained",
+          "comparisonFields":["Product Type","Key Spec","Application","Amphenol Business","Source Page"],
+          "products":products}
+        (d/"catalog.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        (d/"readme.md").write_text(f"# {cat}\n\nOfficial source: {BASE}\n\nClassified products: {len(items)}\nOfficial IT Datacom total: {EXPECTED}\nUpdated: {CHECKED}\n",encoding="utf-8")
+
+    summary={"checked":CHECKED,"officialUrl":BASE,"sourceTotal":EXPECTED,"parsedTotal":len(rows),
+             "categoryCounts":{k:len(v) for k,v in grouped.items()}}
+    (ROOT/"catalog-summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps(summary,ensure_ascii=False,indent=2))
+
+if __name__=="__main__":
     main()

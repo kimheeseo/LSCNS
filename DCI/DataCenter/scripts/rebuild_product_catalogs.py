@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json, os, re, shutil, sys, zipfile
+import json, os, re, shutil, sys, zipfile, tempfile, subprocess, urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import quote
@@ -263,6 +263,196 @@ def build_corning_missing():
         write_json(p/"catalog.json",{"schemaVersion":1,"company":"Corning","category":category,"displayName":family,"description":"Structured metadata generated from uploaded Corning product specification PDFs.","checked":CHECKED,
           "officialUrl":CORNING_URL,"sourceType":"Uploaded Corning product specification PDFs","pdfCount":len(pdfs),"comparisonFields":cfields,"products":products})
 
+
+# Current CommScope product-list exports. These are the same Excel exports exposed by
+# the official product/category pages, so the catalog can be refreshed without
+# manually committing a new binary workbook each time.
+COMMSCOPE_EXPORTS={
+ "Cable Management":("https://www.commscope.com/product-type/cable-management/download/?id=1073742080","https://www.commscope.com/product-type/cable-management/"),
+ "Fiber Optic Cables":("https://www.commscope.com/product-type/cables/fiber-cables/download/?id=1073742104","https://www.commscope.com/product-type/cables/fiber-cables/"),
+ "Fiber Cables Data Center":("https://www.commscope.com/network-type/data-centers/fiber-cables/download/?id=1073742311","https://www.commscope.com/network-type/data-centers/fiber-cables/"),
+ "Building Entrance Solutions":("https://www.commscope.com/network-type/data-centers/building-entrance-solutions/download/?id=1073742322","https://www.commscope.com/network-type/data-centers/building-entrance-solutions/"),
+ "Fiber Panels Modules Cassettes":("https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/download/?id=1073742159","https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/"),
+ "Twisted Pair Cable Assemblies":("https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/download/?id=1073742068","https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/"),
+ "Coaxial Cables":("https://www.commscope.com/product-type/cables/coaxial-cables/download/?id=1073742101","https://www.commscope.com/product-type/cables/coaxial-cables/"),
+ "Twisted Pair Cables":("https://www.commscope.com/product-type/cables/twisted-pair-cables/download/?id=1073742111","https://www.commscope.com/product-type/cables/twisted-pair-cables/"),
+ "Cable Assemblies":("https://www.commscope.com/product-type/cable-assemblies/download/?id=1073742060","https://www.commscope.com/product-type/cable-assemblies/"),
+ "Copper Panels Modules Cassettes":("https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/download/?id=1073742170","https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/")
+}
+
+def download_xlsx(url,dest):
+    ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
+    req=urllib.request.Request(url,headers={"User-Agent":ua,"Accept":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/octet-stream,*/*","Referer":"https://www.commscope.com/"})
+    try:
+        with urllib.request.urlopen(req,timeout=45) as r:
+            data=r.read()
+        if data[:2]==b"PK" and len(data)>2000:
+            Path(dest).write_bytes(data);return True
+    except Exception as e:
+        print("urllib download failed",url,e)
+    try:
+        subprocess.run(["curl","-L","--fail","--retry","2","--max-time","60","-A",ua,"-H","Referer: https://www.commscope.com/","-o",str(dest),url],check=True)
+        data=Path(dest).read_bytes()
+        if data[:2]==b"PK" and len(data)>2000:return True
+    except Exception as e:
+        print("curl download failed",url,e)
+    if Path(dest).exists():Path(dest).unlink()
+    return False
+
+def current_export_rows(tmp,name):
+    url,_=COMMSCOPE_EXPORTS[name];dest=Path(tmp)/(re.sub(r"[^A-Za-z0-9]+","_",name)+".xlsx")
+    if not download_xlsx(url,dest):
+        print("WARN: no current export for",name);return []
+    rows=xlsx_rows(dest)
+    print("downloaded",name,len(rows))
+    return rows
+
+def catalog_part_numbers(folder):
+    ids=set()
+    if not folder.exists():return ids
+    for p in folder.rglob("catalog.json"):
+        try:
+            data=json.loads(p.read_text(encoding="utf-8"))
+            for key,meta in (data.get("products") or {}).items():
+                ids.add(txt((meta.get("specs") or {}).get("Part Number")) or txt(key))
+        except Exception as e:print("catalog read warning",p,e)
+    return ids
+
+def row_part(r):return txt(r.get("Part Number")) or txt(r.get("Part Name"))
+def dedupe_rows(rows,used):
+    out=[];seen=set()
+    for r in rows:
+        p=row_part(r)
+        if not p or p in used or p in seen:continue
+        seen.add(p);used.add(p);out.append(r)
+    return out
+def union_rows(*groups):
+    d={}
+    for rows in groups:
+        for r in rows:
+            p=row_part(r)
+            if p and p not in d:d[p]=r
+    return list(d.values())
+
+def copper_category(desc):
+    m=re.search(r"\bCat(?:egory)?\s*(5e|6A|6|7A|7|8)\b",desc,re.I)
+    return ("Cat"+m.group(1)) if m else "—"
+def pair_count(desc):
+    m=re.search(r"\b(\d+)\s*(?:pair|pairs)\b",desc,re.I);return m.group(1) if m else "—"
+def awg(desc):
+    m=re.search(r"\b(\d+)\s*AWG\b",desc,re.I);return m.group(1)+" AWG" if m else "—"
+def shielding(desc):
+    m=re.search(r"\b(U/UTP|F/UTP|S/FTP|U/FTP|F/FTP|SF/UTP)\b",desc,re.I);return m.group(1).upper() if m else "—"
+def generic_connector(desc):
+    c=parse_connectors(desc)
+    if c:return c
+    if re.search(r"\bRJ45\b",desc,re.I):return "RJ45"
+    if re.search(r"\bLSA[- ]?PLUS\b",desc,re.I):return "LSA-PLUS"
+    if re.search(r"\bBNC\b",desc,re.I):return "BNC"
+    if re.search(r"\bF[- ]?type\b",desc,re.I):return "F-Type"
+    return "—"
+def port_count(desc):
+    m=re.search(r"\b(\d+)[- ]?port\b",desc,re.I);return m.group(1) if m else "—"
+def rack_units(desc):
+    m=re.search(r"\b(\d+(?:\.\d+)?)\s*(?:RU|U)\b",desc,re.I);return (m.group(1)+"U") if m else "—"
+def flame_rating(desc):
+    m=re.search(r"\b(B2ca|Bca|Cca|Dca|Eca)\b",desc,re.I);return m.group(1) if m else "—"
+def impedance(desc):
+    m=re.search(r"\b(\d+)\s*(?:ohm|Ω)\b",desc,re.I);return m.group(1)+" Ohm" if m else "—"
+def row_base_specs(r):
+    return {"Part Number":row_part(r),"Part Name":txt(r.get("Part Name")),"Product Type":txt(r.get("Product Type")) or "—",
+            "Product Brand":txt(r.get("Product Brand")) or "—","Product Series":txt(r.get("Product Series")) or "—",
+            "Status":txt(r.get("Status")) or "—"}
+
+def extended_specs(r,kind):
+    desc=txt(r.get("Description"));ptype=txt(r.get("Product Type"));s=row_base_specs(r)
+    if kind in ("fiber","fiber_panel","entrance"):
+        fc=parse_fiber_count(desc,ptype);fm=parse_fiber_mode(desc);co=generic_connector(desc)
+        if kind=="fiber" and co=="—":co="Unterminated"
+        s.update({"Fiber Count":fc or "—","Fiber Mode":fm or "—","Fiber Type":fm or "—","Connector Type":co,"Connector":co,
+                  "Cable Jacket":parse_jacket(desc) or "—","Jacket":parse_jacket(desc) or "—","Flame Rating":flame_rating(desc),
+                  "Length":parse_length(desc) or "—"})
+        if kind=="fiber_panel":s.update({"Port Count":port_count(desc),"Rack Units":rack_units(desc)})
+    elif kind in ("twisted","twisted_assembly","copper_assembly","copper_panel"):
+        co=generic_connector(desc);j=parse_jacket(desc) or "—"
+        s.update({"Category":copper_category(desc),"Pair Count":pair_count(desc),"AWG":awg(desc),"Shielding":shielding(desc),
+                  "Connector Type":co,"Connector":co,"Cable Jacket":j,"Jacket":j,"Flame Rating":flame_rating(desc),
+                  "Length":parse_length(desc) or "—"})
+        if kind=="copper_panel":s.update({"Port Count":port_count(desc),"Rack Units":rack_units(desc)})
+    elif kind=="coax":
+        j=parse_jacket(desc) or "—";co=generic_connector(desc)
+        s.update({"Impedance":impedance(desc),"Connector Type":co,"Connector":co,"Cable Jacket":j,"Jacket":j,
+                  "Flame Rating":flame_rating(desc),"Length":parse_length(desc) or "—"})
+    elif kind=="management":
+        s.update({"System Dimensions":parse_dimensions(desc) or "—","Length":parse_length(desc) or "—","Color":parse_color(desc) or "—"})
+    return s
+
+EXTENDED_CONFIG={
+ "Fiber Cables":("Fiber Optic Cable","fiber",["Product Type","Product Brand","Fiber Count","Fiber Mode","Connector Type","Cable Jacket","Flame Rating","Length"]),
+ "Fiber Panels Modules Cassettes":("Fiber Panels Modules Cassettes","fiber_panel",["Product Type","Product Brand","Fiber Count","Fiber Mode","Connector Type","Port Count","Rack Units"]),
+ "Building Entrance Solutions":("Fiber Building Entrance Solutions","entrance",["Product Type","Product Brand","Fiber Count","Fiber Mode","Connector Type"]),
+ "Cable Management":("Cable Management","management",["Product Type","Product Brand","System Dimensions","Length","Color"]),
+ "Twisted Pair Cable Assemblies":("Copper Twisted Pair Cable Assemblies","twisted_assembly",["Product Type","Product Brand","Category","Pair Count","AWG","Shielding","Connector Type","Cable Jacket","Length"]),
+ "Twisted Pair Cables":("Copper Twisted Pair Cables","twisted",["Product Type","Product Brand","Category","Pair Count","AWG","Shielding","Cable Jacket","Flame Rating","Length"]),
+ "Copper Module Cable Assemblies":("Copper Cable Assemblies","copper_assembly",["Product Type","Product Brand","Category","Pair Count","AWG","Shielding","Connector Type","Cable Jacket","Length"]),
+ "Copper Panels Modules Cassettes":("Copper Panels Modules Cassettes","copper_panel",["Product Type","Product Brand","Category","Connector Type","Port Count","Rack Units"]),
+ "Coaxial Cables":("Copper Coaxial Cables","coax",["Product Type","Product Brand","Impedance","Connector Type","Cable Jacket","Length"])
+}
+
+def write_extended_category(name,rows,official_url,source_names):
+    category,kind,fields=EXTENDED_CONFIG[name];folder=COM/name
+    if folder.exists():shutil.rmtree(folder)
+    for i in range(0,len(rows),400):
+        chunk=rows[i:i+400];products={}
+        for r in chunk:
+            part=row_part(r);desc=txt(r.get("Description"));ptype=txt(r.get("Product Type"))
+            specs=extended_specs(r,kind)
+            products[part]={"name":" · ".join(x for x in [part,txt(r.get("Part Name")),ptype] if x),"description":desc,
+                            "officialUrl":official_url,"businessUrl":official_url,"checked":CHECKED,"specs":specs}
+        n=i//400+1
+        write_json(folder/f"Part {n:02d}"/"catalog.json",{"schemaVersion":1,"company":"CommScope","category":category,
+          "displayName":name+f" · Part {n:02d}","description":"CommScope products generated from the current official downloadable Product List Excel.",
+          "checked":CHECKED,"officialUrl":official_url,"sourceUrls":[official_url],"sourceFiles":source_names,
+          "comparisonFields":fields,"products":products})
+    return len(rows)
+
+def build_extended_commscope():
+    baseline=set()
+    for p in [COM/"ODF",COM/"Propel Panels",COM/"FiberGuide",COM/"Fiber Cable Assemblies"]:
+        baseline.update(catalog_part_numbers(p))
+    used=set(baseline)
+    with tempfile.TemporaryDirectory() as tmp:
+        exports={}
+        for name in COMMSCOPE_EXPORTS:exports[name]=current_export_rows(tmp,name)
+        fiber=union_rows(exports["Fiber Cables Data Center"],exports["Fiber Optic Cables"])
+        cable_assemblies=exports["Cable Assemblies"]
+        copper_module=[r for r in cable_assemblies if txt(r.get("Product Type")).lower() in ("copper patch cord","copper test cord")]
+        ordered=[
+          ("Fiber Cables",fiber,COMMSCOPE_EXPORTS["Fiber Optic Cables"][1],["Fiber Cables.xlsx","Fiber Optic Cables.xlsx"]),
+          ("Fiber Panels Modules Cassettes",exports["Fiber Panels Modules Cassettes"],COMMSCOPE_EXPORTS["Fiber Panels Modules Cassettes"][1],["Fiber Panels, Modules & Cassettes.xlsx"]),
+          ("Building Entrance Solutions",exports["Building Entrance Solutions"],COMMSCOPE_EXPORTS["Building Entrance Solutions"][1],["Building Entrance Solutions.xlsx"]),
+          ("Cable Management",exports["Cable Management"],COMMSCOPE_EXPORTS["Cable Management"][1],["Cable Management.xlsx"]),
+          ("Twisted Pair Cable Assemblies",exports["Twisted Pair Cable Assemblies"],COMMSCOPE_EXPORTS["Twisted Pair Cable Assemblies"][1],["Twisted Pair Cable Assemblies.xlsx"]),
+          ("Twisted Pair Cables",exports["Twisted Pair Cables"],COMMSCOPE_EXPORTS["Twisted Pair Cables"][1],["Twisted Pair Cables.xlsx"]),
+          ("Copper Module Cable Assemblies",copper_module,COMMSCOPE_EXPORTS["Cable Assemblies"][1],["Copper Module Cable Assemblies.xlsx"]),
+          ("Copper Panels Modules Cassettes",exports["Copper Panels Modules Cassettes"],COMMSCOPE_EXPORTS["Copper Panels Modules Cassettes"][1],["Copper Panels, Modules & Cassettes.xlsx"]),
+          ("Coaxial Cables",exports["Coaxial Cables"],COMMSCOPE_EXPORTS["Coaxial Cables"][1],["Coaxial Cables.xlsx"])
+        ]
+        counts={}
+        for name,rows,url,sources in ordered:
+            if not rows:
+                print("SKIP empty official export",name);continue
+            clean=dedupe_rows(rows,used);counts[name]=write_extended_category(name,clean,url,sources)
+        print("extended CommScope unique products",sum(counts.values()),counts)
+        summary=COM/"readme.md"
+        old=summary.read_text(encoding="utf-8") if summary.exists() else "# CommScope Data Center Product Catalog\n"
+        old=re.sub(r"\n## Extended current product lists[\s\S]*$","",old).rstrip()
+        lines=["","## Extended current product lists",""]
+        for name in EXTENDED_CONFIG:
+            if name in counts:lines.append(f"- {name}: {counts[name]} unique products")
+        lines+=["",f"- Baseline structured products before extended lists: {len(baseline)}",f"- Extended unique products added: {sum(counts.values())}","- Duplicate Part Numbers are retained only once across CommScope catalogs.","- Discontinued products remain searchable in the product list but are excluded from BOM candidate matching.",""]
+        summary.write_text(old+"\n"+"\n".join(lines),encoding="utf-8")
+
 def refresh_indexes(revision=""):
     catalogs=sorted(str(p.relative_to(CAT)).replace("\\\\","/") for p in CAT.rglob("catalog.json"))
     manifest=CAT/"catalog-manifest.json";obj={}
@@ -281,4 +471,4 @@ def refresh_indexes(revision=""):
 if __name__=="__main__":
     if len(sys.argv)>=3 and sys.argv[1]=="--manifest-only":
         print("manifest catalogs",refresh_indexes(sys.argv[2]));raise SystemExit
-    build_commscope();build_corning_missing();print("generated catalogs",len(list(CAT.rglob("catalog.json"))))
+    build_commscope();build_extended_commscope();build_corning_missing();print("generated catalogs",len(list(CAT.rglob("catalog.json"))))

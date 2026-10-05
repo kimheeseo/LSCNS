@@ -19,6 +19,7 @@
     "Fiber Count",
     "Fiber Mode",
     "Connector Type",
+    "Gender",
     "Cable Jacket",
     "Length"
   ],
@@ -40,6 +41,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -62,6 +64,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -82,8 +85,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "—",
         "Fiber Type": "—",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -106,6 +110,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -128,6 +133,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -150,6 +156,7 @@
         "Fiber Type": "—",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -172,6 +179,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -194,6 +202,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -216,6 +225,7 @@
         "Fiber Type": "—",
         "Connector Type": "SC/APC",
         "Connector": "SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -238,6 +248,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -260,6 +271,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -280,8 +292,9 @@
         "Fiber Count": "72",
         "Fiber Mode": "—",
         "Fiber Type": "—",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -304,6 +317,7 @@
         "Fiber Type": "—",
         "Connector Type": "SC/APC",
         "Connector": "SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -326,6 +340,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -348,6 +363,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -370,6 +386,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -392,6 +409,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -414,6 +432,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -436,6 +455,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -458,6 +478,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -478,8 +499,9 @@
         "Fiber Count": "144",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / LC/UPC",
-        "Connector": "MPO(Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -502,6 +524,7 @@
         "Fiber Type": "—",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -524,6 +547,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -544,8 +568,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -568,6 +593,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -588,8 +614,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -612,6 +639,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -634,6 +662,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -654,8 +683,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / LC/UPC",
-        "Connector": "MPO(Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -678,6 +708,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -700,6 +731,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -720,8 +752,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -742,8 +775,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / LC/UPC",
-        "Connector": "MPO(Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -766,6 +800,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -788,6 +823,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -808,8 +844,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / LC/UPC",
-        "Connector": "MPO(Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -830,8 +867,9 @@
         "Fiber Count": "72",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO(Pinned) / SC/UPC",
-        "Connector": "MPO(Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -854,6 +892,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -876,6 +915,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -898,6 +938,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -920,6 +961,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -942,6 +984,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -964,6 +1007,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -986,6 +1030,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1008,6 +1053,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC / SC/APC",
         "Connector": "LC/UPC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1030,6 +1076,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1052,6 +1099,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC / SC/UPC",
         "Connector": "LC/UPC / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1074,6 +1122,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1096,6 +1145,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1118,6 +1168,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1140,6 +1191,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC / SC/APC",
         "Connector": "LC/UPC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1162,6 +1214,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1184,6 +1237,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1206,6 +1260,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1226,8 +1281,9 @@
         "Fiber Count": "72",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned) / LC/UPC",
-        "Connector": "MPO (Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1250,6 +1306,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1272,6 +1329,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1292,8 +1350,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned) / SC/UPC",
-        "Connector": "MPO (Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1316,6 +1375,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1338,6 +1398,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1360,6 +1421,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1380,8 +1442,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned) / LC/UPC",
-        "Connector": "MPO (Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1402,8 +1465,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned) / LC/UPC",
-        "Connector": "MPO (Pinned) / LC/UPC",
+        "Connector Type": "MPO / LC/UPC",
+        "Connector": "MPO / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1426,6 +1490,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1448,6 +1513,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/APC",
         "Connector": "SC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1470,6 +1536,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1492,6 +1559,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1514,6 +1582,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1536,6 +1605,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1558,6 +1628,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1580,6 +1651,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1602,6 +1674,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1624,6 +1697,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1646,6 +1720,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1668,6 +1743,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1690,6 +1766,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1712,6 +1789,7 @@
         "Fiber Type": "—",
         "Connector Type": "LC/APC",
         "Connector": "LC/APC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1732,8 +1810,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO16 / MPO8",
-        "Connector": "MPO16 / MPO8",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1754,8 +1833,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO16 (Non-Pinned)",
-        "Connector": "MPO24 (Non-Pinned) / MPO16 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-16",
+        "Connector": "MPO-24 / MPO-16",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1776,8 +1856,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO8 (Non-Pinned)",
-        "Connector": "MPO24 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-8",
+        "Connector": "MPO-24 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1798,8 +1879,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Non-Pinned) / MPO12 (Non-Pinned)",
-        "Connector": "MPO16 (Non-Pinned) / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1820,8 +1902,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 (Pinned) / MPO24",
-        "Connector": "MPO24 (Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1842,8 +1925,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1864,8 +1948,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 (Pinned) / MPO16",
-        "Connector": "MPO24 (Pinned) / MPO16",
+        "Connector Type": "MPO-24 / MPO-16",
+        "Connector": "MPO-24 / MPO-16",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1886,8 +1971,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 (Pinned) / MPO24",
-        "Connector": "MPO24 (Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1908,8 +1994,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO12 (Non-Pinned)",
-        "Connector": "MPO24 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1930,8 +2017,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO12 (Pinned)",
-        "Connector": "MPO24 / MPO12 (Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -1952,8 +2040,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1974,8 +2063,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 / MPO8 (Non-Pinned)",
-        "Connector": "MPO24 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-8",
+        "Connector": "MPO-24 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -1996,8 +2086,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Non-Pinned) / MPO8 (Non-Pinned)",
-        "Connector": "MPO16 (Non-Pinned) / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2018,8 +2109,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO12 (Pinned)",
-        "Connector": "MPO24 / MPO12 (Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2040,8 +2132,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO12 (Non-Pinned)",
-        "Connector": "MPO16 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2062,8 +2155,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO16",
-        "Connector": "MPO24 (Non-Pinned) / MPO16",
+        "Connector Type": "MPO-24 / MPO-16",
+        "Connector": "MPO-24 / MPO-16",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2084,8 +2178,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO12 (Pinned)",
-        "Connector": "MPO24 / MPO12 (Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2106,8 +2201,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Pinned) / MPO8 (Non-Pinned)",
-        "Connector": "MPO16 (Pinned) / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2128,8 +2224,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Non-Pinned) / MPO12 (Non-Pinned)",
-        "Connector": "MPO16 (Non-Pinned) / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2150,8 +2247,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO8 (Non-Pinned)",
-        "Connector": "MPO24 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-8",
+        "Connector": "MPO-24 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2172,8 +2270,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO8 (Non-Pinned)",
-        "Connector": "MPO24 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-8",
+        "Connector": "MPO-24 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2194,8 +2293,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO12 (Non-Pinned)",
-        "Connector": "MPO24 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2216,8 +2316,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Non-Pinned) / MPO12 (Pinned)",
-        "Connector": "MPO16 (Non-Pinned) / MPO12 (Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2238,8 +2339,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO16",
-        "Connector": "MPO24 (Non-Pinned) / MPO16",
+        "Connector Type": "MPO-24 / MPO-16",
+        "Connector": "MPO-24 / MPO-16",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2260,8 +2362,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO12 (Non-Pinned)",
-        "Connector": "MPO24 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2282,8 +2385,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Pinned) / MPO24",
-        "Connector": "MPO24 (Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2304,8 +2408,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO16 / MPO8",
-        "Connector": "MPO16 / MPO8",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2326,8 +2431,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO12 (Pinned)",
-        "Connector": "MPO16 / MPO12 (Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2348,8 +2454,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO16 (Non-Pinned) / MPO8 (Non-Pinned)",
-        "Connector": "MPO16 (Non-Pinned) / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2370,8 +2477,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO12 (Pinned)",
-        "Connector": "MPO24 / MPO12 (Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2392,8 +2500,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO12 (Non-Pinned)",
-        "Connector": "MPO16 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2414,8 +2523,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2436,8 +2546,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2458,8 +2569,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Pinned) / MPO16",
-        "Connector": "MPO24 (Pinned) / MPO16",
+        "Connector Type": "MPO-24 / MPO-16",
+        "Connector": "MPO-24 / MPO-16",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2480,8 +2592,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 / MPO12 (Pinned)",
-        "Connector": "MPO24 / MPO12 (Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2502,8 +2615,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO16 / MPO8 (Non-Pinned)",
-        "Connector": "MPO16 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2524,8 +2638,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO8 (Non-Pinned)",
-        "Connector": "MPO24 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-8",
+        "Connector": "MPO-24 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2546,8 +2661,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2568,8 +2684,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 (Pinned) / MPO24",
-        "Connector": "MPO24 (Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2590,8 +2707,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO24 / MPO12 (Non-Pinned)",
-        "Connector": "MPO24 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2612,8 +2730,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO12 (Pinned)",
-        "Connector": "MPO16 / MPO12 (Pinned)",
+        "Connector Type": "MPO-16 / MPO-12",
+        "Connector": "MPO-16 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2634,8 +2753,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2656,8 +2776,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO24 / MPO12 (Non-Pinned)",
-        "Connector": "MPO24 / MPO12 (Non-Pinned)",
+        "Connector Type": "MPO-24 / MPO-12",
+        "Connector": "MPO-24 / MPO-12",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2678,8 +2799,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO24 (Non-Pinned) / MPO24",
-        "Connector": "MPO24 (Non-Pinned) / MPO24",
+        "Connector Type": "MPO-24",
+        "Connector": "MPO-24",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2700,8 +2822,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO8",
-        "Connector": "MPO16 / MPO8",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2722,8 +2845,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO8 (Non-Pinned)",
-        "Connector": "MPO16 / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2744,8 +2868,9 @@
         "Fiber Count": "16",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO16 / MPO8",
-        "Connector": "MPO16 / MPO8",
+        "Connector Type": "MPO-16 / MPO-8",
+        "Connector": "MPO-16 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2766,8 +2891,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO8 (Non-Pinned)",
-        "Connector": "MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2788,8 +2914,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2810,8 +2937,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2832,8 +2960,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2854,8 +2983,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2876,8 +3006,9 @@
         "Fiber Count": "72",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2898,8 +3029,9 @@
         "Fiber Count": "144",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2920,8 +3052,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -2942,8 +3075,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2964,8 +3098,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -2986,8 +3121,9 @@
         "Fiber Count": "48",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3008,8 +3144,9 @@
         "Fiber Count": "72",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3030,8 +3167,9 @@
         "Fiber Count": "288",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3052,8 +3190,9 @@
         "Fiber Count": "192",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3074,8 +3213,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3096,8 +3236,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3118,8 +3259,9 @@
         "Fiber Count": "36",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3140,8 +3282,9 @@
         "Fiber Count": "192",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO12 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-12 / LC/UPC",
+        "Connector": "MPO-12 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3162,8 +3305,9 @@
         "Fiber Count": "24",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO12 (Non-Pinned) / MPO8 (Non-Pinned)",
-        "Connector": "MPO12 (Non-Pinned) / MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-12 / MPO-8",
+        "Connector": "MPO-12 / MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3186,6 +3330,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3208,6 +3353,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -3230,6 +3376,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3252,6 +3399,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3274,6 +3422,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3296,6 +3445,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3318,6 +3468,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3340,6 +3491,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "LC/UPC",
         "Connector": "LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3362,6 +3514,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3384,6 +3537,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -3404,8 +3558,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO8 (Non-Pinned)",
-        "Connector": "MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3426,8 +3581,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO8 (Non-Pinned) / MPO8 (Pinned)",
-        "Connector": "MPO8 (Non-Pinned) / MPO8 (Pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3448,8 +3604,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO8 (Pinned) / LC/UPC",
-        "Connector": "MPO8 (Pinned) / LC/UPC",
+        "Connector Type": "MPO-8 / LC/UPC",
+        "Connector": "MPO-8 / LC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3470,8 +3627,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM5",
         "Fiber Type": "OM5",
-        "Connector Type": "MPO8 (Pinned)",
-        "Connector": "MPO8 (Pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3492,8 +3650,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO8 (Non-Pinned) / LC/UPC",
-        "Connector": "MPO8 (Non-Pinned) / LC/UPC",
+        "Connector Type": "MPO-8 / LC/UPC",
+        "Connector": "MPO-8 / LC/UPC",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3514,8 +3673,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO8 (Non-Pinned)",
-        "Connector": "MPO8 (Non-Pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Female",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3536,8 +3696,9 @@
         "Fiber Count": "8",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO8 (pinned)",
-        "Connector": "MPO8 (pinned)",
+        "Connector Type": "MPO-8",
+        "Connector": "MPO-8",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -3560,6 +3721,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "16 m"
@@ -3582,6 +3744,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "24 m"
@@ -3604,6 +3767,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "28 m"
@@ -3626,6 +3790,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "14 m"
@@ -3648,6 +3813,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "20 m"
@@ -3670,6 +3836,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "14 m"
@@ -3692,6 +3859,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "22 m"
@@ -3714,6 +3882,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "24 m"
@@ -3736,6 +3905,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "16 m"
@@ -3758,6 +3928,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "18 m"
@@ -3780,6 +3951,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "26 m"
@@ -3802,6 +3974,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "13 m"
@@ -3824,6 +3997,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "10 m"
@@ -3846,6 +4020,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "13 m"
@@ -3868,6 +4043,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "28 m"
@@ -3890,6 +4066,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "25 m"
@@ -3912,6 +4089,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "16 m"
@@ -3934,6 +4112,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "16 m"
@@ -3956,6 +4135,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "LC/APC / SC/APC",
         "Connector": "LC/APC / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "13 m"
@@ -3978,6 +4158,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "35 m"
@@ -4000,6 +4181,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "46 m"
@@ -4022,6 +4204,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC",
         "Connector": "SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "15 m"
@@ -4044,6 +4227,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "30 m"
@@ -4066,6 +4250,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "20 m"
@@ -4088,6 +4273,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "14 m"
@@ -4110,6 +4296,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "40 m"
@@ -4132,6 +4319,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "SC/UPC / LC/UPC",
         "Connector": "SC/UPC / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "—",
         "Jacket": "—",
         "Length": "32 m"
@@ -4154,6 +4342,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/APC",
         "Connector": "MPO / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -4176,6 +4365,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/APC",
         "Connector": "MPO / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -4198,6 +4388,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/APC",
         "Connector": "MPO / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -4220,6 +4411,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/APC",
         "Connector": "MPO / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -4242,6 +4434,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/APC",
         "Connector": "MPO / SC/APC",
+        "Gender": "—",
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Length": "—"
@@ -4262,8 +4455,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO / MPO (Pinned)",
-        "Connector": "MPO / MPO (Pinned)",
+        "Connector Type": "MPO",
+        "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4286,6 +4480,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4308,6 +4503,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4328,8 +4524,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned)",
-        "Connector": "MPO (Pinned)",
+        "Connector Type": "MPO",
+        "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4352,6 +4549,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO / LC/UPC",
         "Connector": "MPO / LC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4374,6 +4572,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4394,8 +4593,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO (Pinned) / SC/UPC",
-        "Connector": "MPO (Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4418,6 +4618,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4438,8 +4639,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO (Pinned) / SC/UPC",
-        "Connector": "MPO (Pinned) / SC/UPC",
+        "Connector Type": "MPO / SC/UPC",
+        "Connector": "MPO / SC/UPC",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4460,8 +4662,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "Singlemode",
         "Fiber Type": "Singlemode",
-        "Connector Type": "MPO / MPO (Pinned)",
-        "Connector": "MPO / MPO (Pinned)",
+        "Connector Type": "MPO",
+        "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4482,8 +4685,9 @@
         "Fiber Count": "12",
         "Fiber Mode": "OM4",
         "Fiber Type": "OM4",
-        "Connector Type": "MPO (Pinned)",
-        "Connector": "MPO (Pinned)",
+        "Connector Type": "MPO",
+        "Connector": "MPO",
+        "Gender": "Male",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4506,6 +4710,7 @@
         "Fiber Type": "OM4",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "—",
         "Cable Jacket": "Plenum",
         "Jacket": "Plenum",
         "Length": "—"
@@ -4528,6 +4733,7 @@
         "Fiber Type": "Singlemode",
         "Connector Type": "MPO / SC/UPC",
         "Connector": "MPO / SC/UPC",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"
@@ -4550,6 +4756,7 @@
         "Fiber Type": "OM5",
         "Connector Type": "MPO",
         "Connector": "MPO",
+        "Gender": "—",
         "Cable Jacket": "Low Smoke Zero Halogen",
         "Jacket": "Low Smoke Zero Halogen",
         "Length": "—"

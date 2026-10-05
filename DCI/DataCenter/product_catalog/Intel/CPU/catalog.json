@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "company": "Intel",
+  "category": "CPU",
+  "displayName": "CPU · 서버 프로세서",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "제품군",
+    "CPU 코어",
+    "스레드",
+    "기본 / 최대 클록",
+    "캐시",
+    "CPU TDP",
+    "메모리",
+    "PCIe",
+    "소켓 / 구성",
+    "출시",
+    "확인 상태"
+  ],
+  "products": {
+    "6990e-plus": {
+      "name": "Intel Xeon 6990E+",
+      "description": "Xeon 6+ E-core 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/246074/intel-xeon-6990e-processor-576m-cache-2-20-ghz/specifications.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "Xeon 6+ E-core",
+        "CPU 코어": 288,
+        "스레드": 288,
+        "기본 / 최대 클록": "2.2 / 3.2 GHz",
+        "캐시": "576 MB",
+        "CPU TDP": "450 W",
+        "메모리": "DDR5-8000 · 12채널",
+        "PCIe": "PCIe 5.0 ×96",
+        "소켓 / 구성": "FCLGA7529 · 2S",
+        "출시": "Q2 2026",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    },
+    "6980p": {
+      "name": "Intel Xeon 6980P",
+      "description": "Xeon 6 P-core 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/240777/intel-xeon-6980p-processor-504m-cache-2-00-ghz/specifications.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "Xeon 6 P-core",
+        "CPU 코어": 128,
+        "스레드": 256,
+        "기본 / 최대 클록": "2.0 / 3.9 GHz",
+        "캐시": "504 MB",
+        "CPU TDP": "500 W",
+        "메모리": "DDR5-6400 / MRDIMM-8800 · 12채널",
+        "PCIe": "PCIe 5.0 ×96",
+        "소켓 / 구성": "FCLGA7529 · 2S",
+        "출시": "Q3 2024",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    },
+    "6780e": {
+      "name": "Intel Xeon 6780E",
+      "description": "Xeon 6 E-core 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/240362/intel-xeon-6780e-processor-108m-cache-2-20-ghz/specifications.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "Xeon 6 E-core",
+        "CPU 코어": 144,
+        "스레드": 144,
+        "기본 / 최대 클록": "2.2 / 3.0 GHz",
+        "캐시": "108 MB",
+        "CPU TDP": "330 W",
+        "메모리": "DDR5-6400 · 8채널",
+        "PCIe": "PCIe 5.0 ×88",
+        "소켓 / 구성": "FCLGA4710 · 2S",
+        "출시": "Q2 2024",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    },
+    "8592-plus": {
+      "name": "Intel Xeon Platinum 8592+",
+      "description": "5th Gen Xeon Scalable 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/237261/intel-xeon-platinum-8592-processor-320m-cache-1-90-ghz/specifications.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "5th Gen Xeon Scalable",
+        "CPU 코어": 64,
+        "스레드": 128,
+        "기본 / 최대 클록": "1.9 / 3.9 GHz",
+        "캐시": "320 MB",
+        "CPU TDP": "350 W",
+        "메모리": "DDR5-5600 · 8채널",
+        "PCIe": "PCIe 5.0 ×80",
+        "소켓 / 구성": "FCLGA4677 · 2S",
+        "출시": "Q4 2023",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    }
+  }
+}

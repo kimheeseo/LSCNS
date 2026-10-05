@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "company": "AMD",
+  "category": "CPU",
+  "displayName": "CPU · 서버 프로세서",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "제품군",
+    "CPU 코어",
+    "스레드",
+    "기본 / 최대 클록",
+    "캐시",
+    "CPU TDP",
+    "메모리",
+    "PCIe",
+    "소켓 / 구성",
+    "출시",
+    "확인 상태"
+  ],
+  "products": {
+    "9654": {
+      "name": "AMD EPYC 9654",
+      "description": "EPYC 9004 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "EPYC 9004",
+        "CPU 코어": 96,
+        "스레드": 192,
+        "기본 / 최대 클록": "2.4 / 최대 3.7 GHz",
+        "캐시": "384 MB",
+        "CPU TDP": "360 W (cTDP 320–400 W)",
+        "메모리": "DDR5 최대 4800 MT/s · 12채널",
+        "PCIe": "PCIe 5.0 ×128",
+        "소켓 / 구성": "SP5 · 1P/2P",
+        "출시": "2022-11-10",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    },
+    "9965": {
+      "name": "AMD EPYC 9965",
+      "description": "EPYC 9005 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "EPYC 9005",
+        "CPU 코어": 192,
+        "스레드": 384,
+        "기본 / 최대 클록": "2.25 / 최대 3.7 GHz",
+        "캐시": "384 MB",
+        "CPU TDP": "500 W (cTDP 450–500 W)",
+        "메모리": "DDR5 최대 6400 MT/s · 12채널",
+        "PCIe": "PCIe 5.0 ×128",
+        "소켓 / 구성": "SP5 · 1P/2P",
+        "출시": "2024-10-10",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    },
+    "8534p": {
+      "name": "AMD EPYC 8534P",
+      "description": "EPYC 8004 서버 CPU. CPU TDP는 서버 전체 IT 소비전력과 다릅니다. 메모리 속도·PCIe 가용 레인·장비 호환성은 OEM 플랫폼에서 확인해야 합니다.",
+      "officialUrl": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-8534p.html",
+      "checked": "2026-10-05",
+      "confidence": "높음",
+      "specs": {
+        "제품군": "EPYC 8004",
+        "CPU 코어": 64,
+        "스레드": 128,
+        "기본 / 최대 클록": "2.3 / 최대 3.1 GHz",
+        "캐시": "128 MB",
+        "CPU TDP": "200 W (cTDP 155–225 W)",
+        "메모리": "DDR5 최대 4800 MT/s · 6채널",
+        "PCIe": "PCIe 5.0 ×96",
+        "소켓 / 구성": "SP6 · 1P",
+        "출시": "2023-09-18",
+        "확인 상태": "공식 SKU 사양 확인 · 공급/OEM 적합성 검증 필요"
+      }
+    }
+  }
+}

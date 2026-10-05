@@ -109,3 +109,7 @@ Sumitomo Electric은 첨부 10개 자료와 대응하는 공식 SEL PDF를 각 �
 - `Corning/Trunk/EDGE™ Hybrid Trunk`: 21 PDFs
 - `Corning/Trunk/EDGE™ Indoor Ribbon Trunk`: 1 PDFs
 - `Corning/Trunk/EDGE™ MTP® Trunk`: 105 PDFs
+
+## CPU 업체 추가 · 2026-10-05
+
+Intel Xeon 대표 4개, AMD EPYC 대표 3개, Qualcomm Centriq 과거 서버 제품 3개를 각 업체의 `CPU/catalog.json`에 등록했습니다. 공식 URL·코어·전력·메모리·확인 상태를 제공합니다. PDF 업로드는 하지 않습니다. Centriq의 현재 공급/지원은 검증 필요이며 신규 서버 BOM 자동 추천에서 제외됩니다. CPU TDP는 서버 전체 IT 부하와 별개입니다.

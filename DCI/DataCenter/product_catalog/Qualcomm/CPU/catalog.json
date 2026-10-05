@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "company": "Qualcomm",
+  "category": "CPU",
+  "displayName": "CPU · Centriq 서버 (과거 제품 참고)",
+  "checked": "2026-10-05",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "제품군",
+    "CPU 코어",
+    "아키텍처",
+    "출시",
+    "확인 상태"
+  ],
+  "products": {
+    "centriq-2460": {
+      "name": "Qualcomm Centriq 2460",
+      "description": "2017년 공식 출시자료에 기록된 클라우드 서버 CPU. 과거 제품 참고이며 현재 공급·지원 상태는 검증 필요합니다. 현재 구매 가능한 서버 CPU로 자동 추천하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/news/onq/2017/11/qualcomm-centriq-2400-worlds-first-10nm-server-processor",
+      "checked": "2026-10-05",
+      "confidence": "높음 (출시 당시 코어 수); 낮음 (현재 공급)",
+      "referenceOnly": true,
+      "specs": {
+        "제품군": "Centriq 2400 · 과거 서버 제품",
+        "CPU 코어": 48,
+        "아키텍처": "Armv8 기반 Qualcomm Falkor · 10nm",
+        "출시": "2017-11-07",
+        "확인 상태": "과거 공식 자료 확인 · 현재 공급/지원 검증 필요",
+        "CPU TDP": "SKU별 확정 수치 미등록 · 검증 필요",
+        "메모리": "SKU별 확정 사양 미등록 · 검증 필요"
+      }
+    },
+    "centriq-2452": {
+      "name": "Qualcomm Centriq 2452",
+      "description": "2017년 공식 출시자료에 기록된 클라우드 서버 CPU. 과거 제품 참고이며 현재 공급·지원 상태는 검증 필요합니다. 현재 구매 가능한 서버 CPU로 자동 추천하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/news/onq/2017/11/qualcomm-centriq-2400-worlds-first-10nm-server-processor",
+      "checked": "2026-10-05",
+      "confidence": "높음 (출시 당시 코어 수); 낮음 (현재 공급)",
+      "referenceOnly": true,
+      "specs": {
+        "제품군": "Centriq 2400 · 과거 서버 제품",
+        "CPU 코어": 46,
+        "아키텍처": "Armv8 기반 Qualcomm Falkor · 10nm",
+        "출시": "2017-11-07",
+        "확인 상태": "과거 공식 자료 확인 · 현재 공급/지원 검증 필요",
+        "CPU TDP": "SKU별 확정 수치 미등록 · 검증 필요",
+        "메모리": "SKU별 확정 사양 미등록 · 검증 필요"
+      }
+    },
+    "centriq-2434": {
+      "name": "Qualcomm Centriq 2434",
+      "description": "2017년 공식 출시자료에 기록된 클라우드 서버 CPU. 과거 제품 참고이며 현재 공급·지원 상태는 검증 필요합니다. 현재 구매 가능한 서버 CPU로 자동 추천하지 않습니다.",
+      "officialUrl": "https://www.qualcomm.com/news/onq/2017/11/qualcomm-centriq-2400-worlds-first-10nm-server-processor",
+      "checked": "2026-10-05",
+      "confidence": "높음 (출시 당시 코어 수); 낮음 (현재 공급)",
+      "referenceOnly": true,
+      "specs": {
+        "제품군": "Centriq 2400 · 과거 서버 제품",
+        "CPU 코어": 40,
+        "아키텍처": "Armv8 기반 Qualcomm Falkor · 10nm",
+        "출시": "2017-11-07",
+        "확인 상태": "과거 공식 자료 확인 · 현재 공급/지원 검증 필요",
+        "CPU TDP": "SKU별 확정 수치 미등록 · 검증 필요",
+        "메모리": "SKU별 확정 사양 미등록 · 검증 필요"
+      }
+    }
+  }
+}

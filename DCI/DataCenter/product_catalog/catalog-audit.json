@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-05",
   "pdfCount": 1021,
-  "structuredCatalogFiles": 82,
+  "structuredCatalogFiles": 85,
   "pendingStructuredFolders": 34,
   "pendingStructuredPdfs": 739,
   "sumitomoElectric": {
@@ -371,6 +371,21 @@
       "folder": "Amphenol/Power Distribution Panels",
       "pdfCount": 0,
       "structuredMetadata": true
+    },
+    {
+      "folder": "Intel/CPU",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "AMD/CPU",
+      "pdfCount": 0,
+      "structuredMetadata": true
+    },
+    {
+      "folder": "Qualcomm/CPU",
+      "pdfCount": 0,
+      "structuredMetadata": true
     }
   ],
   "nvidiaDataCenter": {
@@ -419,5 +434,17 @@
       "adapter",
       "power"
     ]
+  },
+  "cpuVendors": {
+    "checked": "2026-10-05",
+    "productRows": 10,
+    "vendors": {
+      "Intel": 4,
+      "AMD": 3,
+      "Qualcomm": 3
+    },
+    "qualcommStatus": "Centriq 2017 historical server products; current supply/support verification required",
+    "pdfCount": 0,
+    "storageMode": "official URL metadata only"
   }
 }

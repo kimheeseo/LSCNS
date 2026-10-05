@@ -39,7 +39,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mpoa2x4f-50m": {
@@ -58,7 +58,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-8/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "s2mpoa2x4f-5m": {
@@ -97,7 +97,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MPO-8/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mtpulcu8fb-1m": {
@@ -137,7 +137,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MTP-8/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mtpalcu16f-1m": {
@@ -156,7 +156,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MTP-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mpoaa2x8f-5m": {
@@ -213,7 +213,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MPO-8/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "m4mpoulcu8fb-1m": {
@@ -232,7 +232,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OM4",
         "Connector Type": "MPO-8/UPC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     },
     "s2mpoalcu16f-1m": {
@@ -251,7 +251,7 @@
         "Source": "NADDOD official product page",
         "Fiber Mode": "OS2",
         "Connector Type": "MPO-16/APC",
-        "Cable Jacket": ""
+        "Cable Jacket": "—"
       }
     }
   }

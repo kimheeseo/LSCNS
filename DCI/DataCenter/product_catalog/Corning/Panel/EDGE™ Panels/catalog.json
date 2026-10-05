@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Patch Panel",
+  "displayName": "EDGE™ MTP® Adapter Panel · 72F",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Panels/p/edge-ao-panel?variant=adapter-housing-color-aqua",
+  "scope": "EDGE 72F pass-through MTP panel 대표 SKU. housing compatibility 및 polarity는 실제 구성 검증.",
+  "products": {
+    "EDGE-CP72-U3": {
+      "name": "EDGE-CP72-U3 · 72F MTP Panel OM3/OM4",
+      "description": "72F, 6 × shuttered reversible MTP adapters, multimode OM3/OM4.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/IN/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Panels/p/EDGE-CP72-U3",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OM3/OM4",
+        "Fiber Count": "72",
+        "Connector": "MTP/MPO",
+        "Adapter Count": "6",
+        "Panel Type": "pass-through adapter panel",
+        "Application": "Data Center",
+        "확인 상태": "공식 Corning eCatalog 확인"
+      }
+    },
+    "EDGE-CP72-U1": {
+      "name": "EDGE-CP72-U1 · 72F MTP Panel OS2",
+      "description": "72F, 6 × shuttered reversible MTP adapters, single-mode OS2.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/generate-product-specsheet/EDGE-CP72-U1.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OS2",
+        "Fiber Count": "72",
+        "Connector": "MTP/MPO",
+        "Adapter Count": "6",
+        "Panel Type": "pass-through adapter panel",
+        "Application": "Data Center",
+        "확인 상태": "공식 Corning product spec 확인"
+      }
+    },
+    "EDGE-CP72-U8": {
+      "name": "EDGE-CP72-U8 · 72F MTP Panel OM3/OM4 Violet",
+      "description": "72F, 6 × shuttered MTP adapters, multimode OM3/OM4, violet.",
+      "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/Fiber-Optic-Hardware/Panels-Modules-and-Cassettes/EDGE%E2%84%A2-Panels/p/EDGE-CP72-U8",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Type": "OM3/OM4",
+        "Fiber Count": "72",
+        "Connector": "MTP/MPO",
+        "Adapter Count": "6",
+        "Panel Type": "pass-through adapter panel",
+        "Application": "Data Center",
+        "확인 상태": "공식 Corning eCatalog 확인"
+      }
+    }
+  },
+  "comparisonFields": [
+    "Fiber Type",
+    "Fiber Count",
+    "Connector",
+    "Adapter Count",
+    "Panel Type",
+    "Application",
+    "확인 상태"
+  ]
+}

@@ -125,22 +125,22 @@
     const generation = epoch;
     const json = async url => {const r = await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('카탈로그 HTTP '+r.status);return r.json();};
     pending = (async () => {
-      let revision,paths,snapshot=false;
-      try {
+      let revision,paths,snapshot=false,browserBase=null;
+      if(typeof location!=='undefined'){
+        const manifest=await json(new URL('product_catalog/catalog-manifest.json',location.href));
+        if(!Array.isArray(manifest.paths))throw Error('배포 카탈로그 목록 오류');
+        revision=manifest.revision||'main';paths=manifest.paths.map(path=>({path}));snapshot=true;
+        browserBase=new URL('product_catalog/',location.href);
+      }else{
         const ref=await json(api+'/git/ref/heads/main');revision=ref.object.sha;
         const folder=(await json(api+'/contents/DCI/DataCenter?ref='+revision)).find(x=>x.name==='product_catalog');
         if(!folder)throw Error('product_catalog 폴더 없음');
         const tree=await json(api+'/git/trees/'+folder.sha+'?recursive=1');
         if(tree.truncated)throw Error('카탈로그 파일 목록이 불완전합니다.');
         paths=tree.tree.filter(x=>x.type==='blob'&&/(^|\/)catalog\.json$/i.test(x.path));
-      } catch(error) {
-        if(typeof location==='undefined')throw error;
-        const manifest=await json(new URL('product_catalog/catalog-manifest.json',location.href));
-        if(!manifest.revision||!Array.isArray(manifest.paths))throw Error('배포 카탈로그 목록 오류');
-        revision=manifest.revision;paths=manifest.paths.map(path=>({path}));snapshot=true;
       }
       const result={revision,snapshot,loadedAt:Date.now(),catalogs:[],products:[],errors:[]};let cursor=0;
-      await Promise.all(Array.from({length:6},async()=>{while(cursor<paths.length){const path=paths[cursor++].path;try{const catalog=await json('https://raw.githubusercontent.com/'+REPO+'/'+revision+'/'+BASE+'/'+path.split('/').map(encodeURIComponent).join('/'));result.catalogs.push({path,catalog});result.products.push(...normalize(catalog,path));}catch(e){result.errors.push({path,error:e.message});}}}));
+      await Promise.all(Array.from({length:6},async()=>{while(cursor<paths.length){const path=paths[cursor++].path;try{const catalogUrl=browserBase?new URL(path.split('/').map(encodeURIComponent).join('/'),browserBase):'https://raw.githubusercontent.com/'+REPO+'/'+revision+'/'+BASE+'/'+path.split('/').map(encodeURIComponent).join('/');const catalog=await json(catalogUrl);result.catalogs.push({path,catalog});result.products.push(...normalize(catalog,path));}catch(e){result.errors.push({path,error:e.message});}}}));
       const unique = new Map();for(const p of result.products){const k=p.vendor+'\0'+p.source+'\0'+p.id;if(!unique.has(k))unique.set(k,p);}result.products=[...unique.values()];
       if (generation === epoch) {cached=result;pending=null;}
       return result;

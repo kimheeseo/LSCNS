@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Component Accessories",
+  "displayName": "Reverse Polarity LC UniBoot, Duplex Clip",
+  "description": "Corning Reverse Polarity LC UniBoot, Duplex Clip products structured from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 10,
+  "comparisonFields": [
+    "Product Type"
+  ],
+  "products": {
+    "TRIGGER-BP-U-A": {
+      "name": "TRIGGER-BP-U-A",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-A_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-B": {
+      "name": "TRIGGER-BP-U-B",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-B_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-C": {
+      "name": "TRIGGER-BP-U-C",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-C_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-E": {
+      "name": "TRIGGER-BP-U-E",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-E_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-G": {
+      "name": "TRIGGER-BP-U-G",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-G_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-K": {
+      "name": "TRIGGER-BP-U-K",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-K_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-N": {
+      "name": "TRIGGER-BP-U-N",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-N_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-R": {
+      "name": "TRIGGER-BP-U-R",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-R_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-V": {
+      "name": "TRIGGER-BP-U-V",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-V_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    },
+    "TRIGGER-BP-U-Y": {
+      "name": "TRIGGER-BP-U-Y",
+      "description": "Reverse Polarity LC UniBoot, Duplex Clip",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Accessories/Reverse%20Polarity%20LC%20UniBoot%2C%20Duplex%20Clip/TRIGGER-BP-U-Y_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Connector Type": "—",
+        "Connector": "—",
+        "Product Type": "Reverse Polarity LC UniBoot, Duplex Clip"
+      }
+    }
+  }
+}

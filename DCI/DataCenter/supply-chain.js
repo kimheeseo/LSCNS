@@ -49,6 +49,12 @@ const RELATED_VENDORS={
 };
 
 const VERIFIED_DC_PRODUCTS={
+  compute:[
+    {vendor:'Huawei',product:'Atlas 900 A3 SuperPoD',role:'Ascend 910 NPU AI supernode',spec:'Up to 384 NPU · 128 GB/NPU · up to 3.2 TB/s memory bandwidth · liquid-cooled compute cabinets',url:'https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod'},
+    {vendor:'AMD',product:'Instinct MI350X / MI355X',role:'Physical AI/HPC accelerator',spec:'288 GB HBM3E · 8 TB/s · OEM/server platform validation required',url:'https://www.amd.com/en/products/accelerators/instinct/mi350.html'},
+    {vendor:'Intel',product:'Gaudi 3',role:'AI training / inference accelerator',spec:'128 GB HBM2e · standard Ethernet scale-out',url:'https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html'},
+    {vendor:'Qualcomm',product:'Dragonfly AI200',role:'Rack-scale inference accelerator',spec:'768 GB/card · 56 cards/rack · 140 kW DLC rack',url:'https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai200'}
+  ],
   power:[
     {vendor:'LS ELECTRIC',product:'500 kVA UPS platform',role:'Korea · data-center UPS / MW parallel system reference',spec:'500 kVA unit · 5 units = 2.5 MW development system · 440 Vac · online · exact SKU RFQ',url:'https://nahpdev.ls-electric.com/markets/data-center'},
     {vendor:'MPOWERSYS',product:'MPS-3000 Series',role:'Korea · 3-phase True Online UPS',spec:'10–500 kVA · double conversion · input/output isolation transformer',url:'https://www.mpowersys.co.kr/bbs/page.php?hid=ups_mps03'},
@@ -62,6 +68,13 @@ const VERIFIED_DC_PRODUCTS={
     {vendor:'Siemens',product:'SIVACON S8',role:'LV power-distribution switchboard',spec:'IEC 61439-2 · data center / critical infrastructure',url:'https://www.siemens.com/en-us/products/sivacon/s8/'},
     {vendor:'Caterpillar',product:'C175-20',role:'Mission-critical / data-center generator',spec:'3150–4000 ekW · 60 Hz',url:'https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html'},
     {vendor:'Cummins',product:'QSK95 generator platform',role:'Data Center Continuous generator platform',spec:'C3500D5 example: 2500 kW DCC',url:'https://www.cummins.com/en-na/generators/products/qsk95'}
+  ],
+  optical:[
+    {vendor:'HYC',product:'MPO Breakout Cable',role:'CIOE/OFC high-density breakout',spec:'8/12/16/24F · OM2/OM3/OM4/OM5 · low-loss IL ≤0.35 dB · -25~70 °C',url:'https://cn.hyc-system.com/Product/index_273/3308'},
+    {vendor:'HYC',product:'MPO/MTP Branch Harness',role:'Data-center high-density harness',spec:'Multi-fiber main cable + sub-cables + breakout body + connectors · configurable',url:'https://cn.hyc-system.com/Product/index_273/1217'},
+    {vendor:'Shenzhen IH Optics',product:'Data Center MPO/MTP Wiring System',role:'CIOE 2026 trunk / fan-out',spec:'MPO/MTP trunk + fan-out cable · panels · cassettes · LC · AOC/DAC · detailed specs RFQ',url:'https://exhibitors.cioe.cn/jtycn/cpen37839.html'},
+    {vendor:'Hangzhou Zsine',product:'SM/MM MPO Optical Cable',role:'CIOE 2026 pre-terminated MPO',spec:'8–144 cores · 10G–400G · factory pre-terminated/tested · optional pulling grip',url:'https://exhibitors.cioe.cn/jtycn/cpen23025.html'},
+    {vendor:'SHIJIA Photons',product:'MPO/MTP/MMC Assemblies & Fiber Shuffle',role:'OFC 2026 AI data-center interconnect',spec:'MPO/MTP/MMC assemblies · Fiber Shuffle · high-fiber-count cable up to 3,456F',url:'https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/'}
   ],
   cooling:[
     {vendor:'Vertiv',product:'Liebert XDU450',role:'Coolant Distribution Unit',spec:'453 kW nominal · up to 975 kW max',url:'https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-solutions/liebert-xdu450-coolant-distribution-unit/'},

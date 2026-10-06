@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "company": "Green Power Technology",
+  "country": "Korea",
+  "category": "UPS",
+  "displayName": "UPS · Green Power Technology",
+  "description": "Domestic KS/KC-certified UPS products manufactured in Korea.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.greenups.co.kr/products-green.html",
+  "comparisonFields": [
+    "Product family",
+    "Phase",
+    "Capacity",
+    "Certification",
+    "Applications",
+    "Manufacturing",
+    "Status"
+  ],
+  "products": {
+    "green-ups-domestic": {
+      "name": "GREEN UPS",
+      "officialUrl": "https://www.greenups.co.kr/products-green.html",
+      "confidence": "높음",
+      "description": "Domestic high-efficiency UPS family for data centers, industrial control, telecom, medical, rail and marine use.",
+      "specs": {
+        "Product family": "GREEN UPS",
+        "Phase": "Single-phase / three-phase",
+        "Capacity": "Single-phase 5–20 kVA · three-phase 10–75 kVA",
+        "Certification": "KS / KC stated by manufacturer",
+        "Applications": "Data center / industrial / telecom / medical / rail / marine",
+        "Manufacturing": "In-house domestic manufacturing",
+        "Status": "Model-level efficiency/runtime and battery configuration RFQ"
+      }
+    }
+  }
+}

@@ -4,6 +4,34 @@
   const ROWS = [
     {
       category: 'AI Accelerator Alternative',
+      item: 'Huawei Atlas 900 A3 SuperPoD · Ascend 910 NPU',
+      qty: 'Reference',
+      unit: 'platform',
+      basis: 'Physical AI infrastructure candidate · Huawei-specific SuperPoD, power, liquid cooling and networking design required'
+    },
+    {
+      category: 'AI Accelerator Alternative',
+      item: 'Intel Gaudi 3',
+      qty: 'Reference',
+      unit: 'candidate',
+      basis: 'Physical accelerator candidate · 128 GB HBM2e · Ethernet scale-out · OEM/platform validation required'
+    },
+    {
+      category: 'AI Accelerator Alternative',
+      item: 'Qualcomm Dragonfly AI200',
+      qty: 'Reference',
+      unit: 'rack/candidate',
+      basis: 'Inference-focused accelerator · 768 GB/card · 56-card / 140 kW rack reference · platform validation required'
+    },
+    {
+      category: 'AI Accelerator Alternative',
+      item: 'Biren BR100 family',
+      qty: 'Reference',
+      unit: 'candidate',
+      basis: 'Regional accelerator supplier reference · availability, compliance and platform specifications require RFQ'
+    },
+    {
+      category: 'AI Accelerator Alternative',
       item: 'AMD Instinct MI350X / MI355X',
       qty: 'Reference',
       unit: 'candidate',
@@ -53,7 +81,7 @@
       const note = document.createElement('p');
       note.id = 'compute-alt-note';
       note.className = 'muted';
-      note.textContent = 'AMD/TPU 항목은 비교·조달 검토용 Reference입니다. 검증된 AMD/TPU 서버 시스템 프로파일이 추가되기 전까지 현재 NVIDIA 기반 rack/power/network 계산값은 변경하지 않습니다.';
+      note.textContent = 'AMD/Huawei/Intel/Qualcomm/Biren/TPU 항목은 비교·조달 검토용 Reference입니다. 검증된 vendor-specific 서버·rack 프로파일이 추가되기 전까지 현재 NVIDIA 기반 rack/power/network 계산값은 임의로 변경하지 않습니다.';
       panel.appendChild(note);
     }
 

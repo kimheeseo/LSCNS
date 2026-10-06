@@ -18,30 +18,30 @@ const I18N={
 };
 
 const VENDORS=[
-  'NVIDIA','AMD','Google Cloud','Google','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
-  'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','CommScope','Molex','Amphenol','Panduit','Belden',
-  'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','Huawei','Siemens','Generac','Caterpillar','CAT',
+  'NVIDIA','AMD','Huawei','Qualcomm','Google Cloud','Google','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
+  'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','CommScope','Molex','Amphenol','Panduit','Belden','HYC','IH Optics','SHIJIA Photons','Hangzhou Zsine',
+  'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','LS ELECTRIC','MPOWERSYS','XEONICS','Green Power Technology','Siemens','Generac','Caterpillar','CAT',
   'Pure Storage','NetApp','IBM','Micron','Samsung','Solidigm','Kioxia','Western Digital',
   'Mitsubishi Electric','MPS','Hitachi','Rolls-Royce','Atlas Copco','EnerSys','Cummins','Munters','STULZ','Carrier','Trane','Modine',
   'Fortinet','Palo Alto Networks','Palo Alto','Bosch','Securitas','Oracle','Fujitsu','Emerson','Asetek'
 ];
 const CATEGORY_RULES=[
   ['cpu',/server\s*CPU|\bCPU\b|Xeon|EPYC|Grace CPU|AmpereOne|processor/i],
-  ['compute',/\bGPU\b|\bTPU\b|Ironwood|Trillium|Google Cloud|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|MI300|MI350|MI355|Instinct|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
+  ['compute',/\bGPU\b|\bNPU\b|\bTPU\b|Ascend|Atlas 900|Gaudi|AI200|AI250|Dragonfly|BR100|Ironwood|Trillium|Google Cloud|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|MI300|MI350|MI355|Instinct|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
   ['network',/switch|leaf|spine|core|fabric|NIC|DPU|ConnectX|BlueField|Spectrum|QFX|Nexus|Arista|Juniper|Cisco|Broadcom|Tomahawk|InfiniBand|Ethernet/i],
-  ['optical',/optic|transceiver|fiber|fibre|cable|trunk|patch|MPO|MTP|LC\b|OSFP|QSFP|AOC|DAC|AEC|DR4|FR4|SR8|Corning|Sumitomo|LS Cable|YOFC|Hengtong|Lightera|Fujikura|Credo|CommScope|Molex|Amphenol|Panduit|Belden/i],
-  ['power',/UPS|PDU|power|generator|transformer|busway|breaker|switchgear|Schneider|APC|Vertiv|Eaton|Legrand|ABB|Delta|Generac|Caterpillar|\bCAT\b/i],
+  ['optical',/optic|transceiver|fiber|fibre|cable|trunk|patch|breakout|harness|fan.?out|Fiber Shuffle|MPO|MTP|MMC|LC\b|OSFP|QSFP|AOC|DAC|AEC|DR4|FR4|SR8|Corning|Sumitomo|LS Cable|YOFC|Hengtong|Lightera|Fujikura|Credo|CommScope|Molex|Amphenol|Panduit|Belden|HYC|IH Optics|SHIJIA|Zsine/i],
+  ['power',/UPS|PDU|power|generator|transformer|busway|breaker|switchgear|Schneider|APC|Vertiv|Eaton|Legrand|ABB|Delta|LS ELECTRIC|MPOWERSYS|XEONICS|Green Power|Generac|Caterpillar|\bCAT\b/i],
   ['cooling',/cooling|CDU|RDHx|chiller|HVAC|liquid|rear.?door|coolant|CRAC|CRAH|Vertiv|Schneider|Rittal|Munters|STULZ|Carrier|Trane|Modine|Emerson|Asetek/i],
   ['rack',/\brack\b|cabinet|enclosure|rail|cable manager|rack PDU|Rittal|Legrand/i],
   ['storage',/storage|NVMe|SSD|HDD|RAID|Pure Storage|NetApp|Solidigm|Kioxia|Micron|Western Digital/i],
   ['facility',/security|fire|camera|access control|BMS|building automation|monitoring|sensor|Siemens|Fortinet|Palo Alto|Palo Alto Networks|Bosch|Securitas/i]
 ];
 const RELATED_VENDORS={
-  compute:['NVIDIA','AMD','Google Cloud','Intel','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
+  compute:['NVIDIA','AMD','Huawei','Intel','Qualcomm','Google Cloud','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
   cpu:['Intel','AMD','NVIDIA','Ampere Computing'],
   network:['NVIDIA Networking','Cisco','Arista Networks','Juniper Networks','Broadcom','Marvell','HPE Aruba Networking'],
-  optical:['Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Fujikura','Furukawa Electric','Lightera','LS Cable & System','Hengtong','YOFC','CommScope','Molex','Amphenol','Panduit','Belden'],
-  power:['Schneider Electric','Vertiv','Eaton','ABB','Siemens','Legrand','Mitsubishi Electric','Cummins','Caterpillar'],
+  optical:['Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Fujikura','Furukawa Electric','Lightera','LS Cable & System','Hengtong','YOFC','HYC','IH Optics','SHIJIA Photons','Hangzhou Zsine','CommScope','Molex','Amphenol','Panduit','Belden'],
+  power:['LS ELECTRIC','MPOWERSYS','XEONICS','Green Power Technology','Schneider Electric','Vertiv','Eaton','ABB','Siemens','Legrand','Mitsubishi Electric','Cummins','Caterpillar'],
   cooling:['Vertiv','Schneider Electric','Carrier','Trane','Munters','STULZ','Modine','Rittal','Asetek'],
   rack:['Rittal','Legrand','Vertiv','Eaton','Schneider Electric','HPE','Dell Technologies','Supermicro','Fujitsu'],
   storage:['Pure Storage','NetApp','Dell Technologies','HPE','IBM','Micron','Samsung','Kioxia','Solidigm','Western Digital'],
@@ -50,6 +50,10 @@ const RELATED_VENDORS={
 
 const VERIFIED_DC_PRODUCTS={
   power:[
+    {vendor:'LS ELECTRIC',product:'500 kVA UPS platform',role:'Korea · data-center UPS / MW parallel system reference',spec:'500 kVA unit · 5 units = 2.5 MW development system · 440 Vac · online · exact SKU RFQ',url:'https://nahpdev.ls-electric.com/markets/data-center'},
+    {vendor:'MPOWERSYS',product:'MPS-3000 Series',role:'Korea · 3-phase True Online UPS',spec:'10–500 kVA · double conversion · input/output isolation transformer',url:'https://www.mpowersys.co.kr/bbs/page.php?hid=ups_mps03'},
+    {vendor:'XEONICS',product:'XPS-NTI',role:'Korea · ALL-IGBT UPS',spec:'3-phase 10–500 kVA family · direct production',url:'https://www.xeonics.co.kr/50'},
+    {vendor:'Green Power Technology',product:'GREEN UPS',role:'Korea · domestic high-efficiency UPS',spec:'1-phase 5–20 kVA · 3-phase 10–75 kVA · KS/KC stated',url:'https://www.greenups.co.kr/products-green.html'},
     {vendor:'Schneider Electric',product:'Galaxy VXL',role:'3-phase UPS · AI / large data center',spec:'500–1250 kW (400 V)',url:'https://www.se.com/kr/ko/product-range/209756733-galaxy-vxl/'},
     {vendor:'Eaton',product:'9395X UPS',role:'Hyperscale / colocation UPS',spec:'1.0–1.7 MVA · 97.5% online efficiency',url:'https://www.eaton.com/gb/en-gb/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395x-ups.html'},
     {vendor:'ABB',product:'MegaFlex DPA',role:'High-density data-center UPS',spec:'250–1500 kW',url:'https://new.abb.com/ups/ups-and-power-conditioning/megaflex'},

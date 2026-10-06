@@ -40,7 +40,7 @@
     box.id = ID;
     box.setAttribute('role', 'note');
     box.innerHTML =
-      '<p class="bom-contact-title">본 툴은 데이터센터 BOM 설계 툴입니다.</p>' +
+      '<p class="bom-contact-title">본 툴은 DC BOM Design Tool입니다.</p>' +
       '<p class="bom-contact-line">관련 문의사항은 <a href="mailto:harrykim9463@gmail.com">harrykim9463@gmail.com</a>으로 연락해 주세요.</p>';
 
     panel.appendChild(box);

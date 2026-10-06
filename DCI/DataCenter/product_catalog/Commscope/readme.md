@@ -32,3 +32,20 @@ Official sources:
 - Extended unique products added: 12149
 - Duplicate Part Numbers are retained only once across CommScope catalogs.
 - Discontinued products remain searchable in the product list but are excluded from BOM candidate matching.
+
+## Fiber Panels, Modules & Cassettes
+
+The CommScope fiber component catalog is indexed from the official product-list workbook and grouped into the following requested families. Each family is searchable through the Data Center BOM/product catalog by its `Product Type`.
+
+1. Fiber Patch Trays
+2. Fiber Panels
+3. Fiber Splitter & WDM Panels
+4. Fiber Splice Trays & Wallets
+5. Fiber Cassettes
+6. Fiber Modules
+7. Fiber Adapter Packs
+8. Fiber Splitter & WDM Modules
+9. Fiber Cabled Modules
+10. Accessories
+
+Source: https://www.commscope.com/product-type/frames-panels-cassettes-modules/fiber-panels-modules-cassettes/

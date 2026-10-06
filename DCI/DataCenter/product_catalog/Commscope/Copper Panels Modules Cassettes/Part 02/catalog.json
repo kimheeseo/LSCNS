@@ -21,6 +21,60 @@
     "Rack Units"
   ],
   "products": {
+    "760207274": {
+      "name": "760207274 · CPP-UDDM-M-1U-24 · RJ45 patch panel",
+      "description": "Unshielded Discrete Distribution Module Panel, M-series, 1U, 24 port, Black",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760207274",
+        "Part Name": "CPP-UDDM-M-1U-24",
+        "Product Type": "RJ45 patch panel",
+        "Product Brand": "—",
+        "Product Series": "M Series",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "24",
+        "Rack Units": "1U"
+      }
+    },
+    "760242560": {
+      "name": "760242560 · CPP-6A-UDDM-SL-1U-24 · RJ45 patch panel",
+      "description": "Unshielded Discrete Distribution Module Panel, Cat 6A, SL, 1U, 24 port, Black",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760242560",
+        "Part Name": "CPP-6A-UDDM-SL-1U-24",
+        "Product Type": "RJ45 patch panel",
+        "Product Brand": "—",
+        "Product Series": "NA",
+        "Status": "—",
+        "Category": "Cat6A",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "24",
+        "Rack Units": "1U"
+      }
+    },
     "760242561": {
       "name": "760242561 · CPPA-6A-UDDM-SL-1U-24 · RJ45 patch panel",
       "description": "Unshielded Angled  Discrete Distribution Module Panel, Cat 6A, SL, 1U, 24 port, Black",
@@ -450,33 +504,6 @@
         "Flame Rating": "—",
         "Length": "—",
         "Port Count": "48",
-        "Rack Units": "1U"
-      }
-    },
-    "760235092": {
-      "name": "760235092 · M2400-1U-VCM · RJ45 patch panel",
-      "description": "M2400 1U Modular Panel for 12\" VCM, 24 port  (MGS600 / MGS400 / MPS100 / UNJ10GT / UNJ600T / UNJ10G / UNJ600 / UNJ500), Black",
-      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "760235092",
-        "Part Name": "M2400-1U-VCM",
-        "Product Type": "RJ45 patch panel",
-        "Product Brand": "—",
-        "Product Series": "M Series",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—",
-        "Port Count": "24",
         "Rack Units": "1U"
       }
     }

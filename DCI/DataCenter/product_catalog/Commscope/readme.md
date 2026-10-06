@@ -18,17 +18,17 @@ Official sources:
 
 ## Extended current product lists
 
-- Fiber Cables: 3353 unique products
-- Fiber Panels Modules Cassettes: 5080 unique products
-- Building Entrance Solutions: 905 unique products
+- Fiber Cables: 3259 unique products
+- Fiber Panels Modules Cassettes: 4724 unique products
+- Building Entrance Solutions: 906 unique products
 - Cable Management: 447 unique products
 - Twisted Pair Cable Assemblies: 977 unique products
-- Twisted Pair Cables: 1135 unique products
+- Twisted Pair Cables: 1260 unique products
 - Copper Module Cable Assemblies: 22 unique products
-- Copper Panels Modules Cassettes: 417 unique products
+- Copper Panels Modules Cassettes: 418 unique products
 - Coaxial Cables: 136 unique products
 
 - Baseline structured products before extended lists: 6078
-- Extended unique products added: 12472
+- Extended unique products added: 12149
 - Duplicate Part Numbers are retained only once across CommScope catalogs.
 - Discontinued products remain searchable in the product list but are excluded from BOM candidate matching.

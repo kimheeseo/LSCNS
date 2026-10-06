@@ -1,13 +1,13 @@
 {
   "checked": "2026-10-06",
-  "pdfCount": 1212,
-  "catalogCount": 286,
+  "pdfCount": 1220,
+  "catalogCount": 303,
   "uncatalogedPdfCount": 0,
   "pdfByVendor": {
     "Commscope": 18,
     "Corning": 1057,
     "Furukawa Electric": 3,
-    "LS CNS": 6,
+    "LS CNS": 14,
     "Sumitomo Electric": 44,
     "USConnec": 84
   },

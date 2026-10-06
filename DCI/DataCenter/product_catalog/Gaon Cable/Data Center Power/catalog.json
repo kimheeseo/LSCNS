@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "company": "Gaon Cable",
+  "country": "Korea",
+  "category": "Data Center Power",
+  "displayName": "Data Center Power · Gaon Cable",
+  "description": "Gaon Cable AI data-center power infrastructure references. Exact project cable sizes and bus ratings remain engineering/RFQ items.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.gaoncable.com/en",
+  "sourceUrls": [
+    "https://www.gaoncable.com/en/pr_center/news/6e5167505372446a7953396548413370493631416563746b7751555631523374",
+    "https://www.gaoncable.com/en/pr_center/news/6e5167505372446a79532f46623636743464584657425178384f6d6870585458",
+    "https://gaoncable.com/en/pr_center/news/6e5167505372446a79533958657556646d536258376172544a4a567045366762",
+    "https://www.gaoncable.com/en/pr_center/news/524d6d62417a4a5939332b5051516d522f79685742475373346870306a774855"
+  ],
+  "comparisonFields": [
+    "Product family",
+    "Data-center role",
+    "Deployment evidence",
+    "Certification",
+    "Voltage / current",
+    "Status"
+  ],
+  "products": {
+    "mv-power-cable-ai-dc": {
+      "name": "Gaon Cable MV Power Cable for AI Data Center Grids",
+      "officialUrl": "https://www.gaoncable.com/en/pr_center/news/6e5167505372446a7953396548413370493631416563746b7751555631523374",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Medium-voltage power cable",
+        "Data-center role": "Utility / substation to AI data-center power grid",
+        "Deployment evidence": "US AI data-center grid supply announced June 2026",
+        "Certification": "Project / market dependent",
+        "Voltage / current": "Project-specific · RFQ",
+        "Status": "Physical procurement candidate · exact cable construction required"
+      }
+    },
+    "cable-bus": {
+      "name": "Gaon Cable Cable Bus for AI Data Centers",
+      "officialUrl": "https://gaoncable.com/en/pr_center/news/6e5167505372446a79533958657556646d536258376172544a4a567045366762",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Cable Bus",
+        "Data-center role": "High-capacity power transmission / distribution",
+        "Deployment evidence": "Developed for North American AI data-center market",
+        "Certification": "CSA safety certification stated by manufacturer",
+        "Voltage / current": "Exact rating RFQ",
+        "Status": "Data-center power-distribution candidate"
+      }
+    },
+    "busduct-lscus": {
+      "name": "Gaon Cable / LSCUS Data Center Busduct",
+      "officialUrl": "https://www.gaoncable.com/en/pr_center/news/6e5167505372446a79532f46623636743464584657425178384f6d6870585458",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Busduct",
+        "Data-center role": "Internal high-capacity rack / facility power distribution",
+        "Deployment evidence": "US generative-AI / hyperscale AI data-center contracts",
+        "Certification": "Project / market dependent",
+        "Voltage / current": "Project-specific · RFQ",
+        "Status": "Data-center supply reference"
+      }
+    },
+    "ehv-grid-cable": {
+      "name": "Gaon Cable EHV Grid Cable for Data Center Power Infrastructure",
+      "officialUrl": "https://www.gaoncable.com/en/pr_center/news/524d6d62417a4a593933385932557168586e6e6f50326351676e714b67493842",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Extra-high-voltage cable",
+        "Data-center role": "Upstream high-capacity transmission",
+        "Deployment evidence": "AI data-center / large-load grid demand",
+        "Voltage / current": "154 kV product family referenced; project-specific design",
+        "Status": "Upstream infrastructure · project engineering required"
+      }
+    }
+  }
+}

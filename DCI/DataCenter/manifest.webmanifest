@@ -1,7 +1,7 @@
 {
-  "name": "LS전선 데이터센터 BOM 설계",
+  "name": "DC BOM Design Tool",
   "short_name": "DC BOM",
-  "description": "데이터센터 네트워크·광배선·전력·냉각·BOM 설계 도구",
+  "description": "Data center network, optical cabling, power, cooling and BOM design tool",
   "id": "./",
   "start_url": "./?source=pwa",
   "scope": "./",

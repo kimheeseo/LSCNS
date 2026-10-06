@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Patch Panel",
+  "displayName": "CCH Panel, FC Adapters",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 6,
+  "comparisonFields": [
+    "Product Type",
+    "Connector Type"
+  ],
+  "products": {
+    "CCH-CP06-11": {
+      "name": "CCH-CP06-11 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP06-11_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP06-11_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    },
+    "CCH-CP06-21": {
+      "name": "CCH-CP06-21 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP06-21_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP06-21_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    },
+    "CCH-CP08-11": {
+      "name": "CCH-CP08-11 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP08-11_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP08-11_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    },
+    "CCH-CP08-21": {
+      "name": "CCH-CP08-21 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP08-21_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP08-21_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    },
+    "CCH-CP12-11": {
+      "name": "CCH-CP12-11 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP12-11_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP12-11_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    },
+    "CCH-CP12-21": {
+      "name": "CCH-CP12-21 · CCH Panel, FC Adapters",
+      "description": "CCH Panel, FC Adapters",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP12-21_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Panel/CCH%20Panel/CCH%20Panel%2C%20FC%20Adapters/CCH-CP12-21_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "CCH Panel, FC Adapters",
+        "Connector Type": "FC",
+        "Connector": "FC"
+      }
+    }
+  }
+}

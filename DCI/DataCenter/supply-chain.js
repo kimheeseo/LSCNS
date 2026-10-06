@@ -18,30 +18,30 @@ const I18N={
 };
 
 const VENDORS=[
-  'NVIDIA','AMD','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
-  'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','CommScope','Molex','Amphenol','Panduit','Belden',
-  'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','Huawei','Siemens','Generac','Caterpillar','CAT',
+  'NVIDIA','AMD','Huawei','Qualcomm','Google Cloud','Google','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
+  'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','Furukawa Electric','FITEL','Draka','Prysmian','Nexans','CommScope','Molex','Amphenol','Panduit','Belden','HYC','IH Optics','SHIJIA Photons','Hangzhou Zsine',
+  'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','LS ELECTRIC','MPOWERSYS','XEONICS','Green Power Technology','Gaon Cable','Taihan Cable & Solution','Taihan','Siemens','Generac','Caterpillar','CAT',
   'Pure Storage','NetApp','IBM','Micron','Samsung','Solidigm','Kioxia','Western Digital',
   'Mitsubishi Electric','MPS','Hitachi','Rolls-Royce','Atlas Copco','EnerSys','Cummins','Munters','STULZ','Carrier','Trane','Modine',
   'Fortinet','Palo Alto Networks','Palo Alto','Bosch','Securitas','Oracle','Fujitsu','Emerson','Asetek'
 ];
 const CATEGORY_RULES=[
   ['cpu',/server\s*CPU|\bCPU\b|Xeon|EPYC|Grace CPU|AmpereOne|processor/i],
-  ['compute',/\bGPU\b|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
+  ['compute',/\bGPU\b|\bNPU\b|\bTPU\b|Ascend|Atlas 900|Gaudi|AI200|AI250|Dragonfly|BR100|Ironwood|Trillium|Google Cloud|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|MI300|MI350|MI355|Instinct|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
   ['network',/switch|leaf|spine|core|fabric|NIC|DPU|ConnectX|BlueField|Spectrum|QFX|Nexus|Arista|Juniper|Cisco|Broadcom|Tomahawk|InfiniBand|Ethernet/i],
-  ['optical',/optic|transceiver|fiber|fibre|cable|trunk|patch|MPO|MTP|LC\b|OSFP|QSFP|AOC|DAC|AEC|DR4|FR4|SR8|Corning|Sumitomo|LS Cable|YOFC|Hengtong|Lightera|Fujikura|Credo|CommScope|Molex|Amphenol|Panduit|Belden/i],
-  ['power',/UPS|PDU|power|generator|transformer|busway|breaker|switchgear|Schneider|APC|Vertiv|Eaton|Legrand|ABB|Delta|Generac|Caterpillar|\bCAT\b/i],
+  ['optical',/optic|transceiver|fiber|fibre|cable|trunk|patch|breakout|harness|fan.?out|Fiber Shuffle|MPO|MTP|MMC|LC\b|OSFP|QSFP|AOC|DAC|AEC|DR4|FR4|SR8|Corning|Sumitomo|LS Cable|YOFC|Hengtong|Lightera|Fujikura|Furukawa|FITEL|fusion splicer|90S\+|90R|S179\+|S124M16|S185|Draka|Prysmian|Nexans|Credo|CommScope|Molex|Amphenol|Panduit|Belden|HYC|IH Optics|SHIJIA|Zsine/i],
+  ['power',/UPS|PDU|power|generator|transformer|busway|breaker|switchgear|Schneider|APC|Vertiv|Eaton|Legrand|ABB|Delta|LS ELECTRIC|MPOWERSYS|XEONICS|Green Power|Gaon Cable|Taihan|busduct|cable bus|MV cable|EHV cable|Generac|Caterpillar|\bCAT\b/i],
   ['cooling',/cooling|CDU|RDHx|chiller|HVAC|liquid|rear.?door|coolant|CRAC|CRAH|Vertiv|Schneider|Rittal|Munters|STULZ|Carrier|Trane|Modine|Emerson|Asetek/i],
   ['rack',/\brack\b|cabinet|enclosure|rail|cable manager|rack PDU|Rittal|Legrand/i],
   ['storage',/storage|NVMe|SSD|HDD|RAID|Pure Storage|NetApp|Solidigm|Kioxia|Micron|Western Digital/i],
   ['facility',/security|fire|camera|access control|BMS|building automation|monitoring|sensor|Siemens|Fortinet|Palo Alto|Palo Alto Networks|Bosch|Securitas/i]
 ];
 const RELATED_VENDORS={
-  compute:['NVIDIA','AMD','Intel','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
+  compute:['NVIDIA','AMD','Huawei','Intel','Qualcomm','Google Cloud','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
   cpu:['Intel','AMD','NVIDIA','Ampere Computing'],
   network:['NVIDIA Networking','Cisco','Arista Networks','Juniper Networks','Broadcom','Marvell','HPE Aruba Networking'],
-  optical:['Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Fujikura','Furukawa Electric','Lightera','LS Cable & System','Hengtong','YOFC','CommScope','Molex','Amphenol','Panduit','Belden'],
-  power:['Schneider Electric','Vertiv','Eaton','ABB','Siemens','Legrand','Mitsubishi Electric','Cummins','Caterpillar'],
+  optical:['Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Fujikura','Furukawa Electric','Lightera','Draka / Prysmian','Nexans','LS Cable & System','Hengtong','YOFC','HYC','IH Optics','SHIJIA Photons','Hangzhou Zsine','CommScope','Molex','Amphenol','Panduit','Belden'],
+  power:['LS ELECTRIC','MPOWERSYS','XEONICS','Green Power Technology','Gaon Cable','Taihan Cable & Solution','Schneider Electric','Vertiv','Eaton','ABB','Siemens','Legrand','Mitsubishi Electric','Cummins','Caterpillar'],
   cooling:['Vertiv','Schneider Electric','Carrier','Trane','Munters','STULZ','Modine','Rittal','Asetek'],
   rack:['Rittal','Legrand','Vertiv','Eaton','Schneider Electric','HPE','Dell Technologies','Supermicro','Fujitsu'],
   storage:['Pure Storage','NetApp','Dell Technologies','HPE','IBM','Micron','Samsung','Kioxia','Solidigm','Western Digital'],
@@ -49,7 +49,19 @@ const RELATED_VENDORS={
 };
 
 const VERIFIED_DC_PRODUCTS={
+  compute:[
+    {vendor:'Huawei',product:'Atlas 900 A3 SuperPoD',role:'Ascend 910 NPU AI supernode',spec:'Up to 384 NPU · 128 GB/NPU · up to 3.2 TB/s memory bandwidth · liquid-cooled compute cabinets',url:'https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod'},
+    {vendor:'AMD',product:'Instinct MI350X / MI355X',role:'Physical AI/HPC accelerator',spec:'288 GB HBM3E · 8 TB/s · OEM/server platform validation required',url:'https://www.amd.com/en/products/accelerators/instinct/mi350.html'},
+    {vendor:'Intel',product:'Gaudi 3',role:'AI training / inference accelerator',spec:'128 GB HBM2e · standard Ethernet scale-out',url:'https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html'},
+    {vendor:'Qualcomm',product:'Dragonfly AI200',role:'Rack-scale inference accelerator',spec:'768 GB/card · 56 cards/rack · 140 kW DLC rack',url:'https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai200'}
+  ],
   power:[
+    {vendor:'Gaon Cable',product:'AI Data Center Power Portfolio',role:'Korea · MV cable / Cable Bus / Busduct / EHV grid',spec:'US AI-data-center MV cable supply · CSA-certified cable bus · LSCUS busduct deployments · exact ratings RFQ',url:'https://www.gaoncable.com/en'},
+    {vendor:'Taihan Cable & Solution',product:'Data Center Integrated Power Solution',role:'Korea · EHV / MV / LV cable + busduct',spec:'Project-tailored power infrastructure · PET/epoxy busduct portfolio · design-to-installation integration',url:'https://www.taihan.com/en/solutions/dataCenter'},
+    {vendor:'LS ELECTRIC',product:'500 kVA UPS platform',role:'Korea · data-center UPS / MW parallel system reference',spec:'500 kVA unit · 5 units = 2.5 MW development system · 440 Vac · online · exact SKU RFQ',url:'https://nahpdev.ls-electric.com/markets/data-center'},
+    {vendor:'MPOWERSYS',product:'MPS-3000 Series',role:'Korea · 3-phase True Online UPS',spec:'10–500 kVA · double conversion · input/output isolation transformer',url:'https://www.mpowersys.co.kr/bbs/page.php?hid=ups_mps03'},
+    {vendor:'XEONICS',product:'XPS-NTI',role:'Korea · ALL-IGBT UPS',spec:'3-phase 10–500 kVA family · direct production',url:'https://www.xeonics.co.kr/50'},
+    {vendor:'Green Power Technology',product:'GREEN UPS',role:'Korea · domestic high-efficiency UPS',spec:'1-phase 5–20 kVA · 3-phase 10–75 kVA · KS/KC stated',url:'https://www.greenups.co.kr/products-green.html'},
     {vendor:'Schneider Electric',product:'Galaxy VXL',role:'3-phase UPS · AI / large data center',spec:'500–1250 kW (400 V)',url:'https://www.se.com/kr/ko/product-range/209756733-galaxy-vxl/'},
     {vendor:'Eaton',product:'9395X UPS',role:'Hyperscale / colocation UPS',spec:'1.0–1.7 MVA · 97.5% online efficiency',url:'https://www.eaton.com/gb/en-gb/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395x-ups.html'},
     {vendor:'ABB',product:'MegaFlex DPA',role:'High-density data-center UPS',spec:'250–1500 kW',url:'https://new.abb.com/ups/ups-and-power-conditioning/megaflex'},
@@ -58,6 +70,19 @@ const VERIFIED_DC_PRODUCTS={
     {vendor:'Siemens',product:'SIVACON S8',role:'LV power-distribution switchboard',spec:'IEC 61439-2 · data center / critical infrastructure',url:'https://www.siemens.com/en-us/products/sivacon/s8/'},
     {vendor:'Caterpillar',product:'C175-20',role:'Mission-critical / data-center generator',spec:'3150–4000 ekW · 60 Hz',url:'https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/1000028913.html'},
     {vendor:'Cummins',product:'QSK95 generator platform',role:'Data Center Continuous generator platform',spec:'C3500D5 example: 2500 kW DCC',url:'https://www.cummins.com/en-na/generators/products/qsk95'}
+  ],
+  optical:[
+    {vendor:'Draka / Prysmian',product:'UCFUTURE M10',role:'Data-center high-density optical raceway cable',spec:'24F standard · 16F option · Ø5.3 mm · MPO/MTP · Cca-s1a-d1-a1',url:'https://www.prysmian.com/sites/www.prysmian.com/files/media/documents/M10_e_0.pdf'},
+    {vendor:'Draka / Prysmian',product:'UCFIBRE D02b',role:'Data-center backbone / mini break-out cable',spec:'Up to 24F · ES9 tight buffer · FireRes LSHF-FR · duct/tray installation',url:'https://www.prysmian.com/en/en_multimedia_datacom_draka-ucfibre_indoor_tight_UCFIBRETM_I_Di_N_LSHF-FR_ES9_D02b.html'},
+    {vendor:'Nexans',product:'LANmark-OF ENSPACE UHD',role:'Ultra-high-density data-center optical patching',spec:'Up to 144 LC or 72 MTP ports per 1U · 1U/2U/4U panels',url:'https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-patch-panels/LANmark-OF37292.html'},
+    {vendor:'Nexans',product:'LANmark-OF Micro-Bundle Indoor',role:'Data-center indoor backbone cable',spec:'12/24/48/96F · LSZH · IEC 60332-1/-3 · splice/pigtail termination',url:'https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-cables/LANmark-OF37249.html'},
+    {vendor:'Fujikura',product:'90S+ / 90R',role:'Fusion-splicing installation tools',spec:'90S+: core alignment single-fiber · 90R: mass/ribbon up to 16F',url:'https://www.fusionsplicer.fujikura.com/products/'},
+    {vendor:'Furukawa Electric / FITEL',product:'S179+ / S124M16 / S185EDV',role:'Fusion-splicing installation & specialty-fiber tools',spec:'S179+ core alignment · S124M16 up to 16F ribbon · S185EDV supports PMF/MCF/LDF',url:'https://www.furukawaelectric.com/splicer/en/technical/'},
+    {vendor:'HYC',product:'MPO Breakout Cable',role:'CIOE/OFC high-density breakout',spec:'8/12/16/24F · OM2/OM3/OM4/OM5 · low-loss IL ≤0.35 dB · -25~70 °C',url:'https://cn.hyc-system.com/Product/index_273/3308'},
+    {vendor:'HYC',product:'MPO/MTP Branch Harness',role:'Data-center high-density harness',spec:'Multi-fiber main cable + sub-cables + breakout body + connectors · configurable',url:'https://cn.hyc-system.com/Product/index_273/1217'},
+    {vendor:'Shenzhen IH Optics',product:'Data Center MPO/MTP Wiring System',role:'CIOE 2026 trunk / fan-out',spec:'MPO/MTP trunk + fan-out cable · panels · cassettes · LC · AOC/DAC · detailed specs RFQ',url:'https://exhibitors.cioe.cn/jtycn/cpen37839.html'},
+    {vendor:'Hangzhou Zsine',product:'SM/MM MPO Optical Cable',role:'CIOE 2026 pre-terminated MPO',spec:'8–144 cores · 10G–400G · factory pre-terminated/tested · optional pulling grip',url:'https://exhibitors.cioe.cn/jtycn/cpen23025.html'},
+    {vendor:'SHIJIA Photons',product:'MPO/MTP/MMC Assemblies & Fiber Shuffle',role:'OFC 2026 AI data-center interconnect',spec:'MPO/MTP/MMC assemblies · Fiber Shuffle · high-fiber-count cable up to 3,456F',url:'https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/'}
   ],
   cooling:[
     {vendor:'Vertiv',product:'Liebert XDU450',role:'Coolant Distribution Unit',spec:'453 kW nominal · up to 975 kW max',url:'https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-solutions/liebert-xdu450-coolant-distribution-unit/'},

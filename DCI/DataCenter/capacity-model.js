@@ -362,6 +362,10 @@
         const layers = Math.max(1, ceil(averageCables * Math.PI * (c('cableDiameterMm') / 2) ** 2 / (numeric('coefficients.trayAreaMm2', 0.0000001) * numeric('coefficients.trayFill', 0.0000001, false, 1))));
         add({network: 'shared', phase: group.phase, tier: 'route', distanceClass: 'row/hall'}, '트레이/덕트 계획 길이', '경로', '공유 경로 · 평균 점유 기반 ' + layers + ' 병렬단면', baseRouteM * layers, 'm', '평균 OD·경로로 산정; 이중 경로 분리·굽힘·국소 점유 검증 필요');
       }
+      // CPU가 서버 내부에 포함되더라도, BOM/견적 검토에서 누락되지 않도록
+      // 별도 계획 행으로 표시합니다. 정확한 CPU SKU·소켓·TDP는 OEM 확정 전 RFQ입니다.
+      const cpuSpec = equipmentId === 'genericCpu' ? 'CPU-only 서버 · CPU SKU 미확정' : '호스트 CPU · OEM/SKU 미확정';
+      add({network: 'compute', phase: 1, tier: 'compute', distanceClass: 'server'}, 'CPU / Host Processor', 'Compute', cpuSpec, servers, '개', '서버당 1개 계획 수량. 실제 소켓 수·CPU 모델·TDP·가격은 서버 OEM/견적서로 확정 필요', {computeComponent: 'cpu', referenceOnly: true});
       const qty = item => sum(bom.filter(x => x.item === item).map(x => x.purchaseQty));
       return {...definition, bom, selections, totals: {cables: sum(bom.filter(x => x.cable).map(x => x.purchaseQty)), cableM: sum(bom.filter(x => x.cable).map(x => x.purchaseQty * x.lengthM)), transceivers: qty('플러그형 트랜시버'), panels: qty('패치패널'), connectorGroups: qty('커넥터 종단 그룹'), trayM: qty('트레이/덕트 계획 길이'), rfqLinks: qty('연결 매체 RFQ')}, priceStatus: '산정 불가'};
     }

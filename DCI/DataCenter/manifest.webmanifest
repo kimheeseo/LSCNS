@@ -1,0 +1,41 @@
+{
+  "name": "DC BOM Design Tool",
+  "short_name": "DC BOM",
+  "description": "Data center network, optical cabling, power, cooling and BOM design tool",
+  "id": "./",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08101f",
+  "theme_color": "#08101f",
+  "lang": "ko-KR",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icons/dc-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/dc-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "DataCenter BOM",
+      "short_name": "BOM",
+      "url": "./?source=pwa#top",
+      "icons": [
+        {
+          "src": "./icons/dc-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "company": "CommScope",
+  "category": "Fiber Patch Panel",
+  "displayName": "Propel® Panels / XFrame",
+  "description": "Propel panel portfolio including PPL sliding/fixed panels and XFrame products. Labeling rule is derived from the uploaded PPL labeling template.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+  "sourceUrls": [
+    "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/"
+  ],
+  "sourceFiles": [
+    "Propel-1U-2U-4U-Labeling-Template.xlsx",
+    "CS_PROPEL-PANELS_external.pdf"
+  ],
+  "comparisonFields": [
+    "Rack Units",
+    "Shelf Movement",
+    "Max Duplex LC Ports",
+    "Max MPO Ports",
+    "Max SN Ports",
+    "Maximum Fiber Count",
+    "Supported Fiber Counts",
+    "Color"
+  ],
+  "products": {
+    "760252002": {
+      "name": "760252002 · PPL-1U · Fiber patch panel",
+      "description": "Propel 1RU sliding fiber panel; up to 72 duplex LC, 72 MPO or 144 SN ports (288f).",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252002/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252002/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760252002",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "1",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "72",
+        "Max MPO Ports": "72",
+        "Max SN Ports": "144",
+        "Maximum Fiber Count": "288",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760252003": {
+      "name": "760252003 · PPL-2U · Fiber patch panel",
+      "description": "Propel 2RU sliding fiber panel; up to 144 duplex LC, 144 MPO or 288 SN ports (576f).",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252003/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252003/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760252003",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "2",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "144",
+        "Max MPO Ports": "144",
+        "Max SN Ports": "288",
+        "Maximum Fiber Count": "576",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760252004": {
+      "name": "760252004 · PPL-4U · Fiber patch panel",
+      "description": "Propel 4RU sliding fiber panel; up to 288 duplex LC, 288 MPO or 576 SN ports (1152f).",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252004/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel/item760252004/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760252004",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "4",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "288",
+        "Max MPO Ports": "288",
+        "Max SN Ports": "576",
+        "Maximum Fiber Count": "1152",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760255953": {
+      "name": "760255953 · PPL-1U-W · Fiber patch panel",
+      "description": "Propel 1RU sliding fiber panel; up to 72 duplex LC, 72 MPO or 144 SN ports (288f).",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760255953",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "1",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "72",
+        "Max MPO Ports": "72",
+        "Max SN Ports": "144",
+        "Maximum Fiber Count": "288",
+        "Color": "White",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760255954": {
+      "name": "760255954 · PPL-2U-W · Fiber patch panel",
+      "description": "Propel 2RU sliding fiber panel; up to 144 duplex LC, 144 MPO or 288 SN ports (576f).",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760255954",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "2",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "144",
+        "Max MPO Ports": "144",
+        "Max SN Ports": "288",
+        "Maximum Fiber Count": "576",
+        "Color": "White",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760255955": {
+      "name": "760255955 · PPL-4U-W · Fiber patch panel",
+      "description": "Propel 4RU sliding fiber panel; up to 288 duplex LC, 288 MPO or 576 SN ports (1152f).",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760255955",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "4",
+        "Shelf Movement": "Sliding",
+        "Max Duplex LC Ports": "288",
+        "Max MPO Ports": "288",
+        "Max SN Ports": "576",
+        "Maximum Fiber Count": "1152",
+        "Color": "White",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760253796": {
+      "name": "760253796 · PPL-1U-HD-FX · Fiber patch panel",
+      "description": "Propel 1RU fixed fiber panel; up to 48 duplex LC, 48 MPO or 96 SN ports (192f).",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/item760253796/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/item760253796/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760253796",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "1",
+        "Shelf Movement": "Fixed",
+        "Max Duplex LC Ports": "48",
+        "Max MPO Ports": "48",
+        "Max SN Ports": "96",
+        "Maximum Fiber Count": "192",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760253797": {
+      "name": "760253797 · PPL-2U-HD-FX · Fiber patch panel",
+      "description": "Propel 2RU fixed fiber panel; up to 96 duplex LC, 96 MPO or 192 SN ports (384f).",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel-ppl-panels/item760253797/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/fiber-panels-and-modules/propel-ppl-panels/item760253797/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760253797",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "2",
+        "Shelf Movement": "Fixed",
+        "Max Duplex LC Ports": "96",
+        "Max MPO Ports": "96",
+        "Max SN Ports": "192",
+        "Maximum Fiber Count": "384",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760259115": {
+      "name": "760259115 · PPL-1U-ANG-FX · Fiber patch panel",
+      "description": "Propel 1RU fixed fiber panel; up to 72 duplex LC, 72 MPO or 144 SN ports (288f).",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259115",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "1",
+        "Shelf Movement": "Fixed",
+        "Max Duplex LC Ports": "72",
+        "Max MPO Ports": "72",
+        "Max SN Ports": "144",
+        "Maximum Fiber Count": "288",
+        "Color": "Gray",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258357": {
+      "name": "760258357 · PPL-FA-5U-VCM · Fiber patch panel",
+      "description": "Propel 5RU front access fiber panel with cable trough for Propel XFrame. Accepts 24, 16 fiber or 48, 8 fiber Propel ULL modules, splice cassettes or 8 port/4 port adapter packs",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258357",
+        "Part Name": "PPL-FA-5U-VCM",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "5",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258349": {
+      "name": "760258349 · PPL-FRAME-KT-WDRS · Frame",
+      "description": "Propel XFrame with Doors. Includes Frame components with spools, back panels & 2 locking doors with keys; no side panels, 40RU",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258349",
+        "Part Name": "PPL-FRAME-KT-WDRS",
+        "Product Type": "Frame",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "40",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258368": {
+      "name": "760258368 · PPL-FRAME-TROUGH-KT · Jumper trough",
+      "description": "Propel XFrame Top Trough",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258368",
+        "Part Name": "PPL-FRAME-TROUGH-KT",
+        "Product Type": "Jumper trough",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258348": {
+      "name": "760258348 · PPL-FRAME-SPLC-KT · Splice kit",
+      "description": "Propel XFrame Splicing Kit",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258348",
+        "Part Name": "PPL-FRAME-SPLC-KT",
+        "Product Type": "Splice kit",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "PROPEL-XFRAME-ACCESSORIES": {
+      "name": "PROPEL-XFRAME-ACCESSORIES · Propel XFrame",
+      "description": "Propel XFrame Accessories",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "PROPEL-XFRAME-ACCESSORIES",
+        "Part Name": "",
+        "Product Type": "Propel XFrame",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258354": {
+      "name": "760258354 · PPL-FA-3U-HCM · Fiber patch panel",
+      "description": "Propel 3RU front access fiber panel for Propel XFrame. Accepts 24, 12 fiber Propel ULL modules, splice cassettes or 6 port adapter packs",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258354",
+        "Part Name": "PPL-FA-3U-HCM",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "3",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258355": {
+      "name": "760258355 · PPL-FA-4U-VCM · Fiber patch panel",
+      "description": "Propel 4RU front access fiber panel with cable trough for Propel XFrame. Accepts 24, 12 fiber Propel ULL modules, splice cassettes or 6 port adapter packs",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258355",
+        "Part Name": "PPL-FA-4U-VCM",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "4",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258356": {
+      "name": "760258356 · PPL-FA-4U-HCM · Fiber patch panel",
+      "description": "Propel 4RU front access fiber panel for Propel XFrame.  Accepts 24, 16 fiber or 48, 8 fiber Propel ULL modules, splice cassettes or 8 port/4 port adapter packs",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258356",
+        "Part Name": "PPL-FA-4U-HCM",
+        "Product Type": "Fiber patch panel",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "4",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258350": {
+      "name": "760258350 · PPL-FRAME-KT · Frame",
+      "description": "Propel XFrame without Doors. Includes Frame components with spools & back panels; no doors or side panels, 40RU",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258350",
+        "Part Name": "PPL-FRAME-KT",
+        "Product Type": "Frame",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "40",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "PROPEL-XFRAME-PANELS": {
+      "name": "PROPEL-XFRAME-PANELS · Propel XFrame",
+      "description": "Front access fiber panels for Propel XFrame",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "PROPEL-XFRAME-PANELS",
+        "Part Name": "",
+        "Product Type": "Propel XFrame",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "PROPEL-XFRAME": {
+      "name": "PROPEL-XFRAME · Frame",
+      "description": "Propel XFrame data center fiber frame for cross-connect or interconnect applications",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "PROPEL-XFRAME",
+        "Part Name": "",
+        "Product Type": "Frame",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760263942": {
+      "name": "760263942 · PPL-FRAME-DOOR-KIT · Door kit",
+      "description": "Propel XFrame Doors (set of 2 doors for 1 frame)",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760263942",
+        "Part Name": "PPL-FRAME-DOOR-KIT",
+        "Product Type": "Door kit",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    },
+    "760258367": {
+      "name": "760258367 · PPL-FRAME-SDPNL-KT · Side panel kit",
+      "description": "Propel XFrame Side Panel Kit (set of two panels)",
+      "officialUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "businessUrl": "https://www.commscope.com/network-type/central-officeheadend/fiber-panels-and-modules/propel/propel-panels/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760258367",
+        "Part Name": "PPL-FRAME-SDPNL-KT",
+        "Product Type": "Side panel kit",
+        "Product Brand": "Propel",
+        "Product Series": "PPL",
+        "Rack Units": "—",
+        "Supported Fiber Counts": "8 / 12 / 16 / 24 (model dependent)",
+        "Labeling": "1 lane = 2 MPO ports or 2 duplex LC pairs"
+      }
+    }
+  }
+}

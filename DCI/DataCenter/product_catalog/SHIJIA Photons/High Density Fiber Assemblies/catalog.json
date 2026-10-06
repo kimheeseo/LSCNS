@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "SHIJIA Photons",
+  "country": "China",
+  "category": "High Density Fiber Assemblies",
+  "displayName": "Breakout / Harness · SHIJIA Photons",
+  "description": "High-density passive optical interconnects showcased at OFC 2026.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/",
+  "comparisonFields": [
+    "Product family",
+    "Interfaces",
+    "Fiber count",
+    "Application",
+    "Exhibition",
+    "Status"
+  ],
+  "products": {
+    "mpo-mtp-mmc-assemblies": {
+      "name": "MPO/MTP/MMC Fiber Optic Assemblies",
+      "officialUrl": "https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "High-density fiber optic assemblies",
+        "Interfaces": "MPO / MTP / MMC",
+        "Fiber count": "Assembly-specific · high-fiber-count portfolio",
+        "Application": "AI data center / 800G / 1.6T interconnect",
+        "Exhibition": "OFC 2026 · Booth 2411",
+        "Status": "Detailed ordering matrix and IL/RL RFQ"
+      }
+    },
+    "fiber-shuffle": {
+      "name": "SHIJIA Fiber Shuffle",
+      "officialUrl": "https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Fiber Shuffle",
+        "Interfaces": "High-density optical routing",
+        "Application": "AI data center / CPO / optical interconnect",
+        "Exhibition": "OFC 2026",
+        "Status": "Routing matrix, channel count and form factor RFQ"
+      }
+    },
+    "high-fiber-count-cable": {
+      "name": "SHIJIA High-Fiber-Count Optical Cable",
+      "officialUrl": "https://sjphotons.com/2026/03/23/ofc-2026-concluded-successfully-shijia-photons-global-partners-leveraging-light-to-explore-new-possibilities-in-the-ai-era/",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "High-fiber-count optical cable",
+        "Fiber count": "Up to 3,456 cores",
+        "Application": "AI data center",
+        "Exhibition": "OFC 2026",
+        "Status": "Cable construction / flame rating / attenuation RFQ"
+      }
+    }
+  }
+}

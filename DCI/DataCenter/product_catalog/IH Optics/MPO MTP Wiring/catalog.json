@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Shenzhen IH Optics Co., Ltd.",
+  "country": "China",
+  "category": "MPO MTP Wiring",
+  "displayName": "Breakout / Harness · IH Optics",
+  "description": "CIOE 2026 exhibitor data-center MPO/MTP wiring products. Detailed IL/RL and ordering codes require RFQ.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://exhibitors.cioe.cn/jtycn/zsen87229.html",
+  "sourceUrls": [
+    "https://exhibitors.cioe.cn/jtycn/zsen87229.html",
+    "https://exhibitors.cioe.cn/jtycn/cpen37839.html"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Assembly types",
+    "Related components",
+    "Application",
+    "Exhibition",
+    "Status"
+  ],
+  "products": {
+    "datacenter-mpo-mtp-system": {
+      "name": "IH Optics Data Center MPO/MTP Wiring System",
+      "officialUrl": "https://exhibitors.cioe.cn/jtycn/cpen37839.html",
+      "confidence": "중간",
+      "specs": {
+        "Product": "MPO/MTP wiring system",
+        "Assembly types": "Trunk cable · fan-out cable",
+        "Related components": "Adapters · high-density patch panels · cassettes · LC patch cords · SFP/QSFP · AOC/DAC",
+        "Application": "Data center",
+        "Exhibition": "CIOE 2026",
+        "Status": "Product family verified; detailed optical specs / SKU RFQ"
+      }
+    }
+  }
+}

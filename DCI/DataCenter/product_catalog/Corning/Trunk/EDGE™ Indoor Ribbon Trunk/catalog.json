@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Trunk",
+  "displayName": "EDGE™ Indoor Ribbon Trunk",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 1,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "A0090U8GQJ0BP100F": {
+      "name": "A0090U8GQJ0BP100F · EDGE™ Indoor Ribbon Trunk",
+      "description": "EDGE™ Indoor Ribbon Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Indoor%20Ribbon%20Trunk/A0090U8GQJ0BP100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20Indoor%20Ribbon%20Trunk/A0090U8GQJ0BP100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    }
+  }
+}

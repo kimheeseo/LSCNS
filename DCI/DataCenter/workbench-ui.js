@@ -4,6 +4,9 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const labels = {targetGPU:'요구 GPU 수',systemId:'서버 프로파일',topology:'네트워크 토폴로지',fabricProtocol:'Fabric 프로토콜',procurementTier:'조달 정책',podLeafLimit:'Pod당 Leaf 상한',targetPodEgress:'Pod 업링크 비율 목표',rackRU:'랙 높이 (RU)',rackPowerKw:'랙 전력 한도 (kW)',rackCoolingKw:'랙 냉각 한도 (kW)',coolingMode:'냉각 방식',serverDistanceM:'서버–Leaf 거리 (m)',leafSpineDistanceM:'Leaf–Spine 거리 (m)',serverCabling:'서버–Leaf 배선',leafSpineCabling:'Leaf–Spine 배선',trunkFiberCount:'트렁크 규격 (심수)',sparePct:'예비 수량 (%)'};
   const names = [['result','설계 결과'],['optical','광배선'],['power','전력·냉각'],['bom','BOM·견적'],['evidence','근거·검토'],['events','공식 행사'],['catalog','업체별 부품 리스트']];
+  const tourParams = new URLSearchParams(location.search);
+  const tourOpenCatalog = tourParams.get('openCatalog') === '1';
+  const tourFocus = tourParams.get('tourFocus') || '';
   let panels = {}, allRoutes = [], page = 0, latest;
   function build() {
     const main = document.querySelector('main.grid'), form = document.querySelector('.formPanel'), result = document.querySelector('.resultPanel');
@@ -39,6 +42,14 @@
     for(const id of ['serverDistanceM','leafSpineDistanceM'])$(id)?.closest('label')?.insertAdjacentHTML('beforeend','<small class="fieldHelp">트레이 경로를 입력하세요. 아래 포설 여유와 양단 여유를 더한 유효 길이로 산정합니다.</small>');
     nav.querySelector('.jumpInput').onclick=()=>{ $('targetGPU').focus({preventScroll:true});form.scrollIntoView({behavior:'smooth',block:'start'}); };
     nav.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>activate(b.dataset.view));
+    if(tourParams.get('from')==='gold-tour'){
+      const back=document.createElement('a');back.className='tourReturnLink';back.href='./LS_Datacenter_Campus.html';back.textContent='← Gold Tour';back.title='Gold DataCenter Campus로 돌아가기';nav.append(back);
+    }
+    if(tourOpenCatalog){
+      activate('catalog');
+      requestAnimationFrame(()=>panels.catalog?.scrollIntoView({behavior:'smooth',block:'start'}));
+      if(tourFocus)document.body.dataset.tourFocus=tourFocus;
+    }
     $('schedulePrev').onclick=()=>{page=Math.max(0,page-1);renderSchedule()};$('scheduleNext').onclick=()=>{page=Math.min(Math.ceil(allRoutes.length/80)-1,page+1);renderSchedule()};
     $('exportWorkbook').onclick=exportWorkbook;
     document.addEventListener('dc:design',e=>requestAnimationFrame(()=>render(e.detail||window.DCDesign)));

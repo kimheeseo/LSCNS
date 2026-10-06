@@ -1,0 +1,870 @@
+{
+  "schemaVersion": 1,
+  "company": "CommScope",
+  "category": "Cable Management",
+  "displayName": "Cable Management · Part 02",
+  "description": "CommScope products generated from the current official downloadable Product List Excel.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+  "sourceUrls": [
+    "https://www.commscope.com/product-type/cable-management/"
+  ],
+  "sourceFiles": [
+    "Cable Management.xlsx"
+  ],
+  "comparisonFields": [
+    "Product Type",
+    "Product Brand",
+    "System Dimensions",
+    "Length",
+    "Color"
+  ],
+  "products": {
+    "1375162-1": {
+      "name": "1375162-1 · Horizontal cable management",
+      "description": "Cable Management Panel, horizontal, 1U, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375162-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1375162-2": {
+      "name": "1375162-2 · Horizontal cable management",
+      "description": "Cable Management Panel, horizontal, 1U, single-sided, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375162-2",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1375163-1": {
+      "name": "1375163-1 · Horizontal cable management",
+      "description": "Cable Management Panel, 2U, horizontal",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375163-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1375164-1": {
+      "name": "1375164-1 · Vertical cable management",
+      "description": "Cable Management Panel, 2U, vertical, double-sided, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375164-1",
+        "Part Name": "",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1375165-1": {
+      "name": "1375165-1 · Cable management hardware",
+      "description": "Vertical Finger Duct Panel, 2U, side mount",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375165-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1375158-1": {
+      "name": "1375158-1 · Horizontal cable management",
+      "description": "Cable Management Panel, horizontal, 2U, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1375158-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1427632-1": {
+      "name": "1427632-1 · Horizontal cable management",
+      "description": "Horizontal Cable Management Assembly, with printed logo, 1U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1427632-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "3199122": {
+      "name": "3199122 · 075G(TD)110PP200ROPE · Empty conduit",
+      "description": "Toneable ConQuest® Empty Conduit, 3/4 in, SDR 11, gray, with pull line",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "3199122",
+        "Part Name": "075G(TD)110PP200ROPE",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "gray"
+      }
+    },
+    "3299116": {
+      "name": "3299116 · 100T(TD)135WP1250TAPE · Empty conduit",
+      "description": "Toneable ConQuest® Empty Conduit, 1 in, SDR 13.5, terracotta, with pull tape",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "3299116",
+        "Part Name": "100T(TD)135WP1250TAPE",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "3399101": {
+      "name": "3399101 · 125T(TD)135 EMPTY DUCT · Empty conduit",
+      "description": "Toneable ConQuest® Empty Conduit, 1 1/4 in, SDR 13.5, terracotta",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "3399101",
+        "Part Name": "125T(TD)135 EMPTY DUCT",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "3499105": {
+      "name": "3499105 · 150T(TD)135WP1250TAPE · Empty conduit",
+      "description": "Toneable ConQuest® Empty Conduit, 1 1/2 in, SDR 13.5, terracotta, with pull tape",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "3499105",
+        "Part Name": "150T(TD)135WP1250TAPE",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "360000015": {
+      "name": "360000015 · Empty conduit",
+      "description": "E2O® Empty Conduit, 12.7 mm/10 mm, plenum, opaque white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "360000015",
+        "Part Name": "",
+        "Product Type": "Empty conduit",
+        "Product Brand": "E₂O®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "360000016": {
+      "name": "360000016 · Empty conduit",
+      "description": "E2O® Empty Conduit, 8.5 mm/ 6 mm, Riser, light yellow",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "360000016",
+        "Part Name": "",
+        "Product Type": "Empty conduit",
+        "Product Brand": "E₂O®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "yellow"
+      }
+    },
+    "360000001": {
+      "name": "360000001 · 10/8MB DUCT EMPTY · Empty conduit",
+      "description": "ConQuest® Empty Conduit, 10 mm OD, 8 mm ID, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "360000001",
+        "Part Name": "10/8MB DUCT EMPTY",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "359998400": {
+      "name": "359998400 · Empty conduit",
+      "description": "ConQuest® Empty Conduit, 16 mm, SDR 11, terracotta",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "359998400",
+        "Part Name": "",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "3799139": {
+      "name": "3799139 · 200O(TD)110WP1250TAPE · Empty conduit",
+      "description": "Toneable ConQuest® Empty Conduit, 2 in, SDR 11, orange, with pull tape",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "3799139",
+        "Part Name": "200O(TD)110WP1250TAPE",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "360000013": {
+      "name": "360000013 · Empty conduit",
+      "description": "ConQuest® Empty Conduit, 12.7 mm, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "360000013",
+        "Part Name": "",
+        "Product Type": "Empty conduit",
+        "Product Brand": "ConQuest®",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760260408": {
+      "name": "760260408 · VCM2-SBBK-WH · Cable management hardware",
+      "description": "CableGuide 360™ Standard Backboard Kit, White",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260408",
+        "Part Name": "VCM2-SBBK-WH",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "White"
+      }
+    },
+    "1859160-1": {
+      "name": "1859160-1 · Horizontal cable management",
+      "description": "Cable Management Panel, concave, 1U, black,",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1859160-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1933352-1": {
+      "name": "1933352-1 · Cable management hardware",
+      "description": "Rear Cable Manager Kit, 6 in",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1933352-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "MRJ21™",
+        "Product Series": "MRJ21",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1933530-1": {
+      "name": "1933530-1 · Horizontal cable management",
+      "description": "Horizontal Cable Management Panel, 19 in, 1U, single sided, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1933530-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1933425-1": {
+      "name": "1933425-1 · Horizontal cable management",
+      "description": "Cable Management Kit, 1U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1933425-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1933532-1": {
+      "name": "1933532-1 · Horizontal cable management",
+      "description": "Horizontal Cable Management Assembly, 2U, black, single-sided",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1933532-1",
+        "Part Name": "",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "1933534-1": {
+      "name": "1933534-1 · Cable management hardware",
+      "description": "Vertical Cable Management Panel, double-sided, 6 in, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1933534-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760128850": {
+      "name": "760128850 · HTK-19-DS-2U · Horizontal cable management",
+      "description": "Horizontal Trough Kit, 19 ih rack mountable, double sided, 2 RU",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760128850",
+        "Part Name": "HTK-19-DS-2U",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "760128868": {
+      "name": "760128868 · HTK-19-DS-3U · Horizontal cable management",
+      "description": "Horizontal Trough Kit, 19 in rack mountable, double sided, 3 RU",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760128868",
+        "Part Name": "HTK-19-DS-3U",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1479860-1": {
+      "name": "1479860-1 · Cable management hardware",
+      "description": "Wire Management Cable Support Bar Kit, for 1U panels",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1479860-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1671132-1": {
+      "name": "1671132-1 · In-cabinet accessory",
+      "description": "High-Density Vertical Cable Management Corner Bracket Kit, 1U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1671132-1",
+        "Part Name": "",
+        "Product Type": "In-cabinet accessory",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1671132-2": {
+      "name": "1671132-2 · In-cabinet accessory",
+      "description": "High-Density Vertical Cable Management Corner Bracket Kit, 2U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1671132-2",
+        "Part Name": "",
+        "Product Type": "In-cabinet accessory",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1671495-1": {
+      "name": "1671495-1 · Cable management hardware",
+      "description": "High-Density Front-Loading Cable Manager, 1U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1671495-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1671960-1": {
+      "name": "1671960-1 · Vertical cable management",
+      "description": "Vertical Cable Guide",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1671960-1",
+        "Part Name": "",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1671495-4": {
+      "name": "1671495-4 · Cable management hardware",
+      "description": "High-Density Front-Loading Cable Manager, 4U",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1671495-4",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1711314-1": {
+      "name": "1711314-1 · Cable management hardware",
+      "description": "Cable Manager Kit, 6 in",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1711314-1",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "1711314-3": {
+      "name": "1711314-3 · Cable management hardware",
+      "description": "Cable Manager Kit, 12 in",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "1711314-3",
+        "Part Name": "",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "—"
+      }
+    },
+    "760259816": {
+      "name": "760259816 · HCM2-19-SS-1U-WH · Horizontal cable management",
+      "description": "CableGuide Essential, Horizontal Cable Management Assembly, 1U, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259816",
+        "Part Name": "HCM2-19-SS-1U-WH",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760260765": {
+      "name": "760260765 · VCM-DS-84-6WH-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 6 inch x 84 inch double sided, with twin covers, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260765",
+        "Part Name": "VCM-DS-84-6WH-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760260766": {
+      "name": "760260766 · VCM-DS-84-8WH-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 8 inch x 84 inch double sided, with twin covers, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260766",
+        "Part Name": "VCM-DS-84-8WH-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760260762": {
+      "name": "760260762 · VCM-DS-84-8BK-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 8 inch x 84 inch double sided, with twin covers, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260762",
+        "Part Name": "VCM-DS-84-8BK-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760260759": {
+      "name": "760260759 · VCM-SS-84-6BK-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 6 inch x 84 inch single sided, with twin covers, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260759",
+        "Part Name": "VCM-SS-84-6BK-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760260763": {
+      "name": "760260763 · VCM-SS-84-6WH-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 6 inch x 84 inch single sided, with twin covers, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260763",
+        "Part Name": "VCM-SS-84-6WH-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760260764": {
+      "name": "760260764 · VCM-SS-84-8WH-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 8 inch x 84 inch single sided, with twin covers, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260764",
+        "Part Name": "VCM-SS-84-8WH-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760260760": {
+      "name": "760260760 · VCM-SS-84-8BK-TD · Vertical cable management",
+      "description": "CableGuide Essential, Vertical Cable Management Kit, 8 inch x 84 inch single sided, with twin covers, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260760",
+        "Part Name": "VCM-SS-84-8BK-TD",
+        "Product Type": "Vertical cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259385": {
+      "name": "760259385 · HCM2-19-SS-2U-BK-C · Horizontal cable management",
+      "description": "CableGuide Essential, Horizontal Cable Management Assembly, 2U, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259385",
+        "Part Name": "HCM2-19-SS-2U-BK-C",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259386": {
+      "name": "760259386 · HCM2-19-SS-1U-BK · Horizontal cable management",
+      "description": "CableGuide Essential, Horizontal Cable Management Assembly, 1U, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259386",
+        "Part Name": "HCM2-19-SS-1U-BK",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259387": {
+      "name": "760259387 · HCM2-19-SS-2U-BK · Horizontal cable management",
+      "description": "CableGuide Essential, Horizontal Cable Management Assembly, 2U, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259387",
+        "Part Name": "HCM2-19-SS-2U-BK",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259817": {
+      "name": "760259817 · HCM2-19-SS-2U-WH · Horizontal cable management",
+      "description": "CableGuide Essential, Horizontal Cable Management Assembly, 2U, white",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259817",
+        "Part Name": "HCM2-19-SS-2U-WH",
+        "Product Type": "Horizontal cable management",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "white"
+      }
+    },
+    "760240303": {
+      "name": "760240303 · GLD-SPLKITFRT · Cable management hardware",
+      "description": "Glide® Spool Kit of 3, Black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760240303",
+        "Part Name": "GLD-SPLKITFRT",
+        "Product Type": "Cable management hardware",
+        "Product Brand": "Glide",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "Black"
+      }
+    }
+  }
+}

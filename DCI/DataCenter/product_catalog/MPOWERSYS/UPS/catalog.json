@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "company": "MPOWERSYS",
+  "country": "Korea",
+  "category": "UPS",
+  "displayName": "UPS · MPOWERSYS",
+  "description": "Korean UPS manufacturer product references.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.mpowersys.co.kr/bbs/page.php?hid=ups_all",
+  "comparisonFields": [
+    "Series",
+    "Phase",
+    "Capacity",
+    "Topology",
+    "Control",
+    "Isolation",
+    "Status"
+  ],
+  "products": {
+    "mps-3000": {
+      "name": "MPOWERSYS MPS-3000 Series",
+      "officialUrl": "https://www.mpowersys.co.kr/bbs/page.php?hid=ups_mps03",
+      "confidence": "높음",
+      "description": "Three-phase/three-phase True Online UPS for industrial and data-center power applications.",
+      "specs": {
+        "Series": "MPS-3000",
+        "Phase": "3-phase / 3-phase",
+        "Capacity": "10–500 kVA",
+        "Topology": "True online · double conversion",
+        "Control": "32-bit high-speed DSP · digital control",
+        "Isolation": "Input/output isolation transformer integrated",
+        "Status": "Domestic manufacturer · detailed efficiency/runtime RFQ"
+      }
+    }
+  }
+}

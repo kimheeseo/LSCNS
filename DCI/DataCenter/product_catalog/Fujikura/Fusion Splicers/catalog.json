@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "Fujikura",
+  "country": "Japan",
+  "category": "Fusion Splicers",
+  "displayName": "Fusion Splicers · Fujikura",
+  "description": "Fujikura single-fiber and mass/ribbon fusion splicers applicable to data-center and high-density fiber deployment.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.fusionsplicer.fujikura.com/products/",
+  "sourceUrls": [
+    "https://www.fusionsplicer.fujikura.com/products/core-alignment-fusion-splicer-90s-plus/",
+    "https://www.fusionsplicer.fujikura.com/products/mass-fusion-splicer-90r-kit-series-3/"
+  ],
+  "comparisonFields": [
+    "Model",
+    "Type",
+    "Fiber count",
+    "Alignment",
+    "Typical splice loss",
+    "Splice time",
+    "Ribbon pitch",
+    "Data-center role"
+  ],
+  "products": {
+    "90s-plus": {
+      "name": "Fujikura 90S+ Core Alignment Fusion Splicer",
+      "officialUrl": "https://www.fusionsplicer.fujikura.com/products/core-alignment-fusion-splicer-90s-plus/",
+      "confidence": "높음",
+      "specs": {
+        "Model": "90S+",
+        "Type": "Single-fiber core-alignment fusion splicer",
+        "Fiber count": "1F",
+        "Alignment": "Active core alignment",
+        "Typical splice loss": "G.652 avg. 0.02 dB · G.651 avg. 0.01 dB · G.653/G.655 avg. 0.04 dB · G.657 avg. 0.02 dB",
+        "Splice time": "SM fast avg. 7–9 s",
+        "Cladding diameter": "80–150 µm",
+        "Electrode life": "Approx. 5,000 splices",
+        "Data-center role": "Single-fiber field splicing / backbone termination"
+      }
+    },
+    "90r-series": {
+      "name": "Fujikura 90R Mass Fusion Splicer Series",
+      "officialUrl": "https://www.fusionsplicer.fujikura.com/products/mass-fusion-splicer-90r-kit-series-3/",
+      "confidence": "높음",
+      "specs": {
+        "Model": "90R4 / 90R12 / 90R16",
+        "Type": "Mass / ribbon fusion splicer",
+        "Fiber count": "Single + up to 4F / 12F / 16F ribbon depending model",
+        "Alignment": "V-groove mass fusion",
+        "Typical splice loss": "Fiber/ribbon dependent · refer to model datasheet",
+        "Ribbon pitch": "Replaceable 200 µm / 250 µm spacing V-groove",
+        "Control": "Active Fusion Control · Active Blade Management",
+        "Data-center role": "High-density ribbon / SWR / mass-splice deployment"
+      }
+    }
+  }
+}

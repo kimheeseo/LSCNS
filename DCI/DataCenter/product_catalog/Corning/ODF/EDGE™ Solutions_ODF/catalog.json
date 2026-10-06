@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Patch Panel ODF",
+  "displayName": "EDGE™ Solutions_ODF",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 5,
+  "comparisonFields": [
+    "Product Type",
+    "Connector Type"
+  ],
+  "products": {
+    "PC2TDAFG4XD2A2FA2PADQ": {
+      "name": "PC2TDAFG4XD2A2FA2PADQ · EDGE™ Solutions_ODF",
+      "description": "EDGE™ Solutions_ODF",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG4XD2A2FA2PADQ_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG4XD2A2FA2PADQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Solutions_ODF",
+        "Connector Type": "—",
+        "Connector": "—"
+      }
+    },
+    "PC2TDAFG5LCAA2FA2PADQ": {
+      "name": "PC2TDAFG5LCAA2FA2PADQ · EDGE™ Solutions_ODF",
+      "description": "EDGE™ Solutions_ODF",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG5LCAA2FA2PADQ_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG5LCAA2FA2PADQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Solutions_ODF",
+        "Connector Type": "—",
+        "Connector": "—"
+      }
+    },
+    "PC2TDAFG5RCAB2FA2PADQ": {
+      "name": "PC2TDAFG5RCAB2FA2PADQ · EDGE™ Solutions_ODF",
+      "description": "EDGE™ Solutions_ODF",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG5RCAB2FA2PADQ_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PC2TDAFG5RCAB2FA2PADQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Solutions_ODF",
+        "Connector Type": "—",
+        "Connector": "—"
+      }
+    },
+    "PF2TDAFG5LCANNNN2PADQ": {
+      "name": "PF2TDAFG5LCANNNN2PADQ · EDGE™ Solutions_ODF",
+      "description": "EDGE™ Solutions_ODF",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PF2TDAFG5LCANNNN2PADQ_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PF2TDAFG5LCANNNN2PADQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Solutions_ODF",
+        "Connector Type": "—",
+        "Connector": "—"
+      }
+    },
+    "PF2TDAFG5RCANNNN2PADQ": {
+      "name": "PF2TDAFG5RCANNNN2PADQ · EDGE™ Solutions_ODF",
+      "description": "EDGE™ Solutions_ODF",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PF2TDAFG5RCANNNN2PADQ_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/ODF/EDGE%E2%84%A2%20Solutions_ODF/PF2TDAFG5RCANNNN2PADQ_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Product Type": "EDGE™ Solutions_ODF",
+        "Connector Type": "—",
+        "Connector": "—"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Google Cloud",
+  "category": "Cloud TPU",
+  "displayName": "AI Accelerators · Google Cloud TPU",
+  "description": "Google Cloud TPU capacity references for accelerator architecture comparison. These are cloud resources/reservations, not normal field-purchased hardware BOM items.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://docs.cloud.google.com/tpu/docs/tpu7x",
+  "storageMode": "metadata only; official Google Cloud documentation",
+  "comparisonFields": [
+    "Generation",
+    "Chips per Pod",
+    "Peak BF16 / chip",
+    "Peak FP8 / chip",
+    "HBM / chip",
+    "HBM Bandwidth / chip",
+    "ICI / chip",
+    "DCN / chip",
+    "BOM treatment"
+  ],
+  "products": {
+    "google-tpu7x-ironwood": {
+      "name": "Google Cloud TPU7x (Ironwood)",
+      "description": "Seventh-generation Google Cloud TPU for large-scale training and inference. Treat as cloud accelerator capacity rather than a purchasable rack component.",
+      "officialUrl": "https://docs.cloud.google.com/tpu/docs/tpu7x",
+      "checked": "2026-10-06",
+      "confidence": "높음",
+      "specs": {
+        "Generation": "TPU7x · Ironwood",
+        "Chips per Pod": "9,216",
+        "Peak BF16 / chip": "2,307 TFLOPS",
+        "Peak FP8 / chip": "4,614 TFLOPS",
+        "HBM / chip": "192 GiB",
+        "HBM Bandwidth / chip": "7,380 GB/s",
+        "ICI / chip": "1,200 GB/s bidirectional",
+        "DCN / chip": "100 Gbps",
+        "BOM treatment": "Cloud capacity / reservation reference · not physical procurement"
+      }
+    },
+    "google-tpu-v6e-trillium": {
+      "name": "Google Cloud TPU v6e (Trillium)",
+      "description": "Sixth-generation Cloud TPU optimized for transformer, text-to-image, CNN training, fine-tuning, and serving.",
+      "officialUrl": "https://docs.cloud.google.com/tpu/docs/v6e",
+      "checked": "2026-10-06",
+      "confidence": "높음",
+      "specs": {
+        "Generation": "TPU v6e · Trillium",
+        "Chips per Pod": "256",
+        "Peak BF16 / chip": "918 TFLOPS",
+        "Peak FP8 / chip": "918 TFLOPS",
+        "HBM / chip": "32 GB",
+        "HBM Bandwidth / chip": "1,638 GB/s",
+        "ICI / chip": "800 GB/s bidirectional",
+        "DCN / chip": "100 Gbps",
+        "BOM treatment": "Cloud capacity / reservation reference · not physical procurement"
+      }
+    }
+  }
+}

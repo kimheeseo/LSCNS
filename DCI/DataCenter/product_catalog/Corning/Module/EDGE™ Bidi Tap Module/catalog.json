@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "EDGE™ Bidi Tap Module",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 2,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "ETM-5A-Q-BD": {
+      "name": "ETM-5A-Q-BD · EDGE™ Bidi Tap Module",
+      "description": "EDGE™ Bidi Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Bidi%20Tap%20Module/ETM-5A-Q-BD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Bidi%20Tap%20Module/ETM-5A-Q-BD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    },
+    "ETM-5B-Q-BD": {
+      "name": "ETM-5B-Q-BD · EDGE™ Bidi Tap Module",
+      "description": "EDGE™ Bidi Tap Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Bidi%20Tap%20Module/ETM-5B-Q-BD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Bidi%20Tap%20Module/ETM-5B-Q-BD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "See PDF",
+        "Connector": "See PDF"
+      }
+    }
+  }
+}

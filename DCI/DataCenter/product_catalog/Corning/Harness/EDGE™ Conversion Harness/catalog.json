@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Harness",
+  "displayName": "EDGE™ Conversion Harness",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 3,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "H937524QPH-KJA010F": {
+      "name": "H937524QPH-KJA010F · EDGE™ Conversion Harness",
+      "description": "EDGE™ Conversion Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KJA010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KJA010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937524QPH-KKA010F": {
+      "name": "H937524QPH-KKA010F · EDGE™ Conversion Harness",
+      "description": "EDGE™ Conversion Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KKA010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KKA010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937524QPH-KLA010F": {
+      "name": "H937524QPH-KLA010F · EDGE™ Conversion Harness",
+      "description": "EDGE™ Conversion Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KLA010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Conversion%20Harness/H937524QPH-KLA010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    }
+  }
+}

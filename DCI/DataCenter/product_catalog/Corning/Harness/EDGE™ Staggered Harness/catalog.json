@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Harness",
+  "displayName": "EDGE™ Staggered Harness",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 29,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "H757912QPH-1B010F": {
+      "name": "H757912QPH-1B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-1B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-1B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912QPH-2B010F": {
+      "name": "H757912QPH-2B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-2B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-2B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912QPH-3B010F": {
+      "name": "H757912QPH-3B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-3B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-3B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912QPH-4B010F": {
+      "name": "H757912QPH-4B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-4B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-4B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912QPH-5B010F": {
+      "name": "H757912QPH-5B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-5B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912QPH-5B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912TPH-1B010F": {
+      "name": "H757912TPH-1B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-1B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-1B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912TPH-2B010F": {
+      "name": "H757912TPH-2B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-2B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-2B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912TPH-3B010F": {
+      "name": "H757912TPH-3B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-3B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-3B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912TPH-4B010F": {
+      "name": "H757912TPH-4B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-4B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-4B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H757912TPH-5B010F": {
+      "name": "H757912TPH-5B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-5B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H757912TPH-5B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H897812GPH-1A010F": {
+      "name": "H897812GPH-1A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-1A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-1A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H897812GPH-2A010F": {
+      "name": "H897812GPH-2A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-2A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-2A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H897812GPH-3A010F": {
+      "name": "H897812GPH-3A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-3A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-3A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H897812GPH-4A010F": {
+      "name": "H897812GPH-4A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-4A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-4A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H897812GPH-5A010F": {
+      "name": "H897812GPH-5A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-5A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H897812GPH-5A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H907812GPH-1B010F": {
+      "name": "H907812GPH-1B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-1B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-1B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H907812GPH-2B010F": {
+      "name": "H907812GPH-2B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-2B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-2B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H907812GPH-3B010F": {
+      "name": "H907812GPH-3B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-3B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-3B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H907812GPH-4B010F": {
+      "name": "H907812GPH-4B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-4B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H907812GPH-4B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912QPH-1A010F": {
+      "name": "H937912QPH-1A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-1A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-1A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912QPH-2A010F": {
+      "name": "H937912QPH-2A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-2A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-2A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912QPH-3A010F": {
+      "name": "H937912QPH-3A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-3A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-3A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912QPH-4A010F": {
+      "name": "H937912QPH-4A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-4A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-4A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912QPH-5A010F": {
+      "name": "H937912QPH-5A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-5A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912QPH-5A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912TPH-2A010F": {
+      "name": "H937912TPH-2A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912TPH-2A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912TPH-2A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "H937912TPH-5A010F": {
+      "name": "H937912TPH-5A010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912TPH-5A010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/H937912TPH-5A010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    },
+    "HE77808GLZ-KB003M": {
+      "name": "HE77808GLZ-KB003M · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GLZ-KB003M_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GLZ-KB003M_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "8",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "003M"
+      }
+    },
+    "HE77808GLZ-NB003M": {
+      "name": "HE77808GLZ-NB003M · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GLZ-NB003M_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GLZ-NB003M_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "8",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "003M"
+      }
+    },
+    "HE77808GPH-1B010F": {
+      "name": "HE77808GPH-1B010F · EDGE™ Staggered Harness",
+      "description": "EDGE™ Staggered Harness",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GPH-1B010F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Harness/EDGE%E2%84%A2%20Staggered%20Harness/HE77808GPH-1B010F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "8",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / LC",
+        "Connector": "MTP / LC",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "010F"
+      }
+    }
+  }
+}

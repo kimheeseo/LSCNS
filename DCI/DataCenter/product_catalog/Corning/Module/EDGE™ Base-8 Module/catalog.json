@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "EDGE™ Base-8 Module",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 2,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "ECM12-UM08-04-E8G-ULL": {
+      "name": "ECM12-UM08-04-E8G-ULL · EDGE™ Base-8 Module",
+      "description": "EDGE™ Base-8 Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Base-8%20Module/ECM12-UM08-04-E8G-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Base-8%20Module/ECM12-UM08-04-E8G-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "8",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "ECM12-UM08-05-E6Q-ULL": {
+      "name": "ECM12-UM08-05-E6Q-ULL · EDGE™ Base-8 Module",
+      "description": "EDGE™ Base-8 Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Base-8%20Module/ECM12-UM08-05-E6Q-ULL_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/EDGE%E2%84%A2%20Base-8%20Module/ECM12-UM08-05-E6Q-ULL_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "8",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Module",
+  "displayName": "Fiber to the Desk Module",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 8,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type"
+  ],
+  "products": {
+    "MAM-UM12-04N-89BG-FD": {
+      "name": "MAM-UM12-04N-89BG-FD · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-FD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-FD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-04N-89BG-F": {
+      "name": "MAM-UM12-04N-89BG-F · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-04N-89BG-JD": {
+      "name": "MAM-UM12-04N-89BG-JD · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-JD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-JD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-04N-89BG-J": {
+      "name": "MAM-UM12-04N-89BG-J · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-J_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-04N-89BG-J_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-05A-93AQ-FD": {
+      "name": "MAM-UM12-05A-93AQ-FD · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-FD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-FD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-05A-93AQ-F": {
+      "name": "MAM-UM12-05A-93AQ-F · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-05A-93AQ-JD": {
+      "name": "MAM-UM12-05A-93AQ-JD · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-JD_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-JD_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    },
+    "MAM-UM12-05A-93AQ-J": {
+      "name": "MAM-UM12-05A-93AQ-J · Fiber to the Desk Module",
+      "description": "Fiber to the Desk Module",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-J_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Module/Fiber%20to%20the%20Desk%20Module/MAM-UM12-05A-93AQ-J_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "LC Duplex / MTP",
+        "Connector": "LC Duplex / MTP"
+      }
+    }
+  }
+}

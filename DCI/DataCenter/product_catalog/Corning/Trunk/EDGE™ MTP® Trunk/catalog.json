@@ -1,0 +1,1805 @@
+{
+  "schemaVersion": 1,
+  "company": "Corning",
+  "category": "Fiber Trunk",
+  "displayName": "EDGE™ MTP® Trunk",
+  "description": "Structured metadata generated from uploaded Corning product specification PDFs.",
+  "checked": "2026-10-05",
+  "officialUrl": "https://ecatalog.corning.com/optical-communications/US/en/",
+  "sourceType": "Uploaded Corning product specification PDFs",
+  "pdfCount": 105,
+  "comparisonFields": [
+    "Fiber Count",
+    "Fiber Mode",
+    "Connector Type",
+    "Cable Jacket",
+    "Length"
+  ],
+  "products": {
+    "G757512QPNDDU100F": {
+      "name": "G757512QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757512TPNDDU020F": {
+      "name": "G757512TPNDDU020F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU020F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU020F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "020F"
+      }
+    },
+    "G757512TPNDDU030F": {
+      "name": "G757512TPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G757512TPNDDU040F": {
+      "name": "G757512TPNDDU040F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU040F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU040F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "040F"
+      }
+    },
+    "G757512TPNDDU050F": {
+      "name": "G757512TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G757512TPNDDU060F": {
+      "name": "G757512TPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G757512TPNDDU070F": {
+      "name": "G757512TPNDDU070F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU070F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU070F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "070F"
+      }
+    },
+    "G757512TPNDDU080F": {
+      "name": "G757512TPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G757512TPNDDU090F": {
+      "name": "G757512TPNDDU090F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU090F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU090F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "090F"
+      }
+    },
+    "G757512TPNDDU100F": {
+      "name": "G757512TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757512TPNDDU110F": {
+      "name": "G757512TPNDDU110F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU110F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU110F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "110F"
+      }
+    },
+    "G757512TPNDDU120F": {
+      "name": "G757512TPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G757512TPNDDU130F": {
+      "name": "G757512TPNDDU130F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU130F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU130F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "130F"
+      }
+    },
+    "G757512TPNDDU140F": {
+      "name": "G757512TPNDDU140F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU140F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU140F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "140F"
+      }
+    },
+    "G757512TPNDDU150F": {
+      "name": "G757512TPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G757512TPNDDU200F": {
+      "name": "G757512TPNDDU200F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU200F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU200F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "200F"
+      }
+    },
+    "G757512TPNDDU250F": {
+      "name": "G757512TPNDDU250F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU250F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757512TPNDDU250F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "250F"
+      }
+    },
+    "G757524QPNDDU100F": {
+      "name": "G757524QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757524TPNDDU030F": {
+      "name": "G757524TPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G757524TPNDDU040F": {
+      "name": "G757524TPNDDU040F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU040F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU040F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "040F"
+      }
+    },
+    "G757524TPNDDU050F": {
+      "name": "G757524TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G757524TPNDDU060F": {
+      "name": "G757524TPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G757524TPNDDU070F": {
+      "name": "G757524TPNDDU070F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU070F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU070F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "070F"
+      }
+    },
+    "G757524TPNDDU080F": {
+      "name": "G757524TPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G757524TPNDDU090F": {
+      "name": "G757524TPNDDU090F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU090F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU090F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "090F"
+      }
+    },
+    "G757524TPNDDU100F": {
+      "name": "G757524TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757524TPNDDU110F": {
+      "name": "G757524TPNDDU110F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU110F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU110F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "110F"
+      }
+    },
+    "G757524TPNDDU120F": {
+      "name": "G757524TPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G757524TPNDDU130F": {
+      "name": "G757524TPNDDU130F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU130F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU130F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "130F"
+      }
+    },
+    "G757524TPNDDU140F": {
+      "name": "G757524TPNDDU140F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU140F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU140F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "140F"
+      }
+    },
+    "G757524TPNDDU150F": {
+      "name": "G757524TPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G757524TPNDDU200F": {
+      "name": "G757524TPNDDU200F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU200F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU200F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "200F"
+      }
+    },
+    "G757524TPNDDU250F": {
+      "name": "G757524TPNDDU250F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU250F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757524TPNDDU250F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "250F"
+      }
+    },
+    "G757536QPNDDU100F": {
+      "name": "G757536QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757536QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757536QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757536TPNDDU100F": {
+      "name": "G757536TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757536TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757536TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757548QPNDDU100F": {
+      "name": "G757548QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757548TPNDDU030F": {
+      "name": "G757548TPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G757548TPNDDU050F": {
+      "name": "G757548TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G757548TPNDDU060F": {
+      "name": "G757548TPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G757548TPNDDU080F": {
+      "name": "G757548TPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G757548TPNDDU100F": {
+      "name": "G757548TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757548TPNDDU110F": {
+      "name": "G757548TPNDDU110F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU110F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU110F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "110F"
+      }
+    },
+    "G757548TPNDDU120F": {
+      "name": "G757548TPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757548TPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G757572QPNDDU100F": {
+      "name": "G757572QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757572TPNDDU030F": {
+      "name": "G757572TPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G757572TPNDDU050F": {
+      "name": "G757572TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G757572TPNDDU070F": {
+      "name": "G757572TPNDDU070F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU070F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU070F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "070F"
+      }
+    },
+    "G757572TPNDDU080F": {
+      "name": "G757572TPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G757572TPNDDU100F": {
+      "name": "G757572TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757572TPNDDU150F": {
+      "name": "G757572TPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757572TPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G757596QPNDDU100F": {
+      "name": "G757596QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757596TPNDDU050F": {
+      "name": "G757596TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G757596TPNDDU060F": {
+      "name": "G757596TPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G757596TPNDDU100F": {
+      "name": "G757596TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G757596TPNDDU150F": {
+      "name": "G757596TPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G757596TPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G7575AKQPNDDU100F": {
+      "name": "G7575AKQPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575AKQPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575AKQPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575AZQPNDDU100F": {
+      "name": "G7575AZQPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575AZQPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575AZQPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575E4QPNDDU100F": {
+      "name": "G7575E4QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575E4TPNDDU050F": {
+      "name": "G7575E4TPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G7575E4TPNDDU060F": {
+      "name": "G7575E4TPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G7575E4TPNDDU070F": {
+      "name": "G7575E4TPNDDU070F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU070F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU070F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "070F"
+      }
+    },
+    "G7575E4TPNDDU080F": {
+      "name": "G7575E4TPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G7575E4TPNDDU090F": {
+      "name": "G7575E4TPNDDU090F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU090F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU090F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "090F"
+      }
+    },
+    "G7575E4TPNDDU100F": {
+      "name": "G7575E4TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575E4TPNDDU150F": {
+      "name": "G7575E4TPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575E4TPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G7575K2QPNDDU100F": {
+      "name": "G7575K2QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575K2QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575K2QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575M6QPNDDU100F": {
+      "name": "G7575M6QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575M6QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575M6QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575U8QPNDDU100F": {
+      "name": "G7575U8QPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575U8QPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575U8QPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G7575U8TPNDDU100F": {
+      "name": "G7575U8TPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575U8TPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G7575U8TPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G897848GPNCLZ100F": {
+      "name": "G897848GPNCLZ100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G897848GPNCLZ100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G897848GPNCLZ100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G899072GPNCDX100F": {
+      "name": "G899072GPNCDX100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G899072GPNCDX100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G899072GPNCDX100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G8990M6GPNCDX100F": {
+      "name": "G8990M6GPNCDX100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G8990M6GPNCDX100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G8990M6GPNCDX100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909012GPNDDU030F": {
+      "name": "G909012GPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G909012GPNDDU040F": {
+      "name": "G909012GPNDDU040F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU040F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU040F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "040F"
+      }
+    },
+    "G909012GPNDDU050F": {
+      "name": "G909012GPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G909012GPNDDU060F": {
+      "name": "G909012GPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G909012GPNDDU080F": {
+      "name": "G909012GPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G909012GPNDDU100F": {
+      "name": "G909012GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909012GPNDDU120F": {
+      "name": "G909012GPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G909012GPNDDU150F": {
+      "name": "G909012GPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909012GPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "12",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G909024GPNDDU030F": {
+      "name": "G909024GPNDDU030F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU030F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU030F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "030F"
+      }
+    },
+    "G909024GPNDDU040F": {
+      "name": "G909024GPNDDU040F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU040F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU040F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "040F"
+      }
+    },
+    "G909024GPNDDU050F": {
+      "name": "G909024GPNDDU050F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU050F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU050F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "050F"
+      }
+    },
+    "G909024GPNDDU060F": {
+      "name": "G909024GPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G909024GPNDDU080F": {
+      "name": "G909024GPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G909024GPNDDU100F": {
+      "name": "G909024GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909024GPNDDU120F": {
+      "name": "G909024GPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G909024GPNDDU150F": {
+      "name": "G909024GPNDDU150F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU150F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909024GPNDDU150F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "24",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "150F"
+      }
+    },
+    "G909036GPNDDU100F": {
+      "name": "G909036GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909036GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909036GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909048GPNDDU100F": {
+      "name": "G909048GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909048GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909048GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "48",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909072GPNDDU100F": {
+      "name": "G909072GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909072GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909072GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "72",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G909096GPNDDU100F": {
+      "name": "G909096GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909096GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G909096GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090AKGPNDDU100F": {
+      "name": "G9090AKGPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090AKGPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090AKGPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090AZGPNDDU100F": {
+      "name": "G9090AZGPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090AZGPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090AZGPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090E4GPNDDU060F": {
+      "name": "G9090E4GPNDDU060F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU060F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU060F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "060F"
+      }
+    },
+    "G9090E4GPNDDU080F": {
+      "name": "G9090E4GPNDDU080F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU080F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU080F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "080F"
+      }
+    },
+    "G9090E4GPNDDU100F": {
+      "name": "G9090E4GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090E4GPNDDU120F": {
+      "name": "G9090E4GPNDDU120F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU120F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU120F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "120F"
+      }
+    },
+    "G9090E4GPNDDU140F": {
+      "name": "G9090E4GPNDDU140F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU140F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090E4GPNDDU140F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OS2",
+        "Fiber Type": "OS2",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "140F"
+      }
+    },
+    "G9090K2GPNDDU100F": {
+      "name": "G9090K2GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090K2GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090K2GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090M6GPNDDU100F": {
+      "name": "G9090M6GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090M6GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090M6GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9090U8GPNDDU100F": {
+      "name": "G9090U8GPNDDU100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090U8GPNDDU100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9090U8GPNDDU100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G937936TPNCLZ100F": {
+      "name": "G937936TPNCLZ100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G937936TPNCLZ100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G937936TPNCLZ100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "36",
+        "Fiber Mode": "OM3",
+        "Fiber Type": "OM3",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G937996QPNCLZ100F": {
+      "name": "G937996QPNCLZ100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G937996QPNCLZ100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G937996QPNCLZ100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "96",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    },
+    "G9379E4QPNCLZ100F": {
+      "name": "G9379E4QPNCLZ100F · EDGE™ MTP® Trunk",
+      "description": "EDGE™ MTP® Trunk",
+      "officialUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9379E4QPNCLZ100F_NAFTA_AEN.pdf",
+      "businessUrl": "https://github.com/kimheeseo/LSCNS/blob/main/DCI/DataCenter/product_catalog/Corning/Trunk/EDGE%E2%84%A2%20MTP%C2%AE%20Trunk/G9379E4QPNCLZ100F_NAFTA_AEN.pdf",
+      "checked": "2026-10-05",
+      "specs": {
+        "Fiber Count": "144",
+        "Fiber Mode": "OM4",
+        "Fiber Type": "OM4",
+        "Connector Type": "MTP / MTP",
+        "Connector": "MTP / MTP",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Length": "100F"
+      }
+    }
+  }
+}

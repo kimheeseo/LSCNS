@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-05",
+  "checked": "2026-10-06",
   "description": "국내 업체와 업체별 부품 리스트 제조사의 한국 법인·국내 공급 파트너·공식 문의 경로를 함께 관리합니다. 관계 유형은 공개 근거 수준에 따라 구분합니다.",
   "suppliers": [
     {
@@ -59,14 +59,15 @@
     },
     {
       "manufacturer": "Corning",
-      "company": "Corning Korea Company Ltd.",
+      "company": "Corning Korea Company Ltd. (한국코닝)",
       "relationship": "한국 법인",
-      "category": "Corning 광통신·데이터센터 제품 국내 문의 경로",
-      "website": "https://www.corning.com/worldwide/en/contact-us.html",
-      "contactUrl": "https://www.corning.com/data-center/worldwide/en/home/support-center.html",
-      "email": "",
-      "phone": "+82-2-796-9500",
-      "note": "Corning 공식 Korea / Seoul 법인. Optical Communications 구매·영업 문의는 Corning Support Center 이용"
+      "category": "광섬유 · 광케이블 · 데이터센터 Optical Communications 국내 문의",
+      "website": "https://www.corning.com/kr/ko/about-us/company-profile/corning-in-korea/locations-in-korea.html",
+      "contactUrl": "https://www.corning.com/kr/ko/contact-us.html",
+      "email": "krregion@corning.com",
+      "phone": "02-796-9500",
+      "note": "서울 강남구 테헤란로 152 강남파이낸스센터 5·6층. Corning 공식 Korea location/contact 기준. 데이터센터 광통신 제품은 Corning Optical Communications Support/Where to Buy 경로도 이용.",
+      "sourceUrl": "https://www.corning.com/worldwide/en/contact-us.html"
     },
     {
       "manufacturer": "YOFC",
@@ -122,6 +123,66 @@
       "email": "",
       "phone": "+82-2-3453-4511",
       "note": "Sumitomo Electric 공식 Korea group company. Sumitomo Electric Lightwave 광통신 제품의 국내 공식 대리점 여부는 별도 확인 필요"
+    },
+    {
+      "manufacturer": "Juniper Networks",
+      "company": "Juniper Networks Korea (한국주니퍼네트웍스)",
+      "relationship": "한국 법인 / 직판 문의",
+      "category": "AI 데이터센터 · QFX 스위치 · 라우팅 · 400G/800G 네트워킹 · Optics",
+      "website": "https://www.juniper.net/kr/ko/",
+      "contactUrl": "https://www.juniper.net/kr/ko/how-to-buy/contacts.html",
+      "email": "",
+      "phone": "02-3483-3400",
+      "note": "서울 강남구 테헤란로 아크플레이스 19층. Juniper 공식 Korea 구매 안내의 한국 전화번호 기준.",
+      "sourceUrl": "https://www.juniper.net/kr/ko/how-to-buy/contacts.html"
+    },
+    {
+      "manufacturer": "Juniper Networks",
+      "company": "(주)인성디지탈",
+      "relationship": "Juniper 한국 공식 총판",
+      "category": "Juniper QFX/EX/MX/SRX · AI/Data Center Networking 국내 공급",
+      "website": "https://www.isd.co.kr/",
+      "contactUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html",
+      "email": "junipersalesgroup@isd.co.kr",
+      "phone": "02-2105-4500",
+      "note": "Juniper 한국 공식 파트너 페이지의 ‘총판’ 항목.",
+      "sourceUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html"
+    },
+    {
+      "manufacturer": "Juniper Networks",
+      "company": "시엔스㈜",
+      "relationship": "Juniper 한국 공식 총판",
+      "category": "Juniper QFX/EX/MX/SRX · AI/Data Center Networking 국내 공급",
+      "website": "https://www.sciens21.com/",
+      "contactUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html",
+      "email": "sales@sciens21.com",
+      "phone": "02-513-5418",
+      "note": "Juniper 한국 공식 파트너 페이지의 ‘총판’ 항목.",
+      "sourceUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html"
+    },
+    {
+      "manufacturer": "Juniper Networks",
+      "company": "(주)투케이엠시스템즈",
+      "relationship": "Juniper 한국 공식 총판",
+      "category": "Juniper QFX/EX/MX/SRX · AI/Data Center Networking 국내 공급",
+      "website": "https://twokm.co.kr/",
+      "contactUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html",
+      "email": "twokm@twokm.co.kr",
+      "phone": "02-6951-1990",
+      "note": "Juniper 한국 공식 파트너 페이지의 ‘총판’ 항목.",
+      "sourceUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html"
+    },
+    {
+      "manufacturer": "Juniper Networks",
+      "company": "아이크래프트㈜",
+      "relationship": "Juniper Elite Plus Partner",
+      "category": "Juniper 데이터센터 · 네트워크 구축/통합",
+      "website": "https://www.icraft21.com/",
+      "contactUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html",
+      "email": "contact@icraft21.com",
+      "phone": "02-541-0474",
+      "note": "Juniper 한국 공식 파트너 페이지의 Elite Plus Partner.",
+      "sourceUrl": "https://www.juniper.net/kr/ko/local/partners-korea.html"
     }
   ]
 }

@@ -56,3 +56,9 @@
 .catalog-korea-table td:first-child{min-width:110px}
 .catalog-korea-table td:nth-child(2){min-width:220px}
 .catalog-korea-table td:nth-child(3){min-width:150px}
+
+.catalog-tour-focus{margin:10px 0 14px;padding:12px 14px;border:1px solid #31527f;border-radius:12px;background:#0c1c31;color:#dfeafe}
+.catalog-tour-focus>b{color:#78e0c0}.catalog-tour-focus>span{font-size:12px;color:#a9bad1}
+.catalog-tour-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.catalog-tour-suggestions button{border:1px solid #36577f;background:#132844;color:#dfeafe;border-radius:9px;padding:7px 9px;cursor:pointer;font:inherit;font-size:12px}
+.catalog-tour-suggestions button.primary{border-color:#70c6ad;background:#12362f;color:#dffff4;font-weight:800}

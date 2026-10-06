@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Draka (Prysmian Group)",
+  "country": "Europe",
+  "category": "Data Center Cabling",
+  "displayName": "Data Center Cabling · Draka / Prysmian",
+  "description": "Draka UCFUTURE / UCFIBRE data-center optical cabling products from Prysmian Group.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.prysmian.com/en/markets/digital-solutions/multimedia-and-enterprise-networks/data-centers",
+  "sourceUrls": [
+    "https://www.prysmian.com/en/markets/digital-solutions/multimedia-and-enterprise-networks/data-centers",
+    "https://www.prysmian.com/sites/www.prysmian.com/files/media/documents/M10_e_0.pdf",
+    "https://www.prysmian.com/en/en_multimedia_datacom_draka-ucfibre_indoor_tight_UCFIBRETM_I_Di_N_LSHF-FR_ES9_D02b.html"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Application",
+    "Fiber count",
+    "Connector / termination",
+    "Cable diameter",
+    "Fire class / sheath",
+    "Standards",
+    "BOM role"
+  ],
+  "products": {
+    "ucfuture-m10": {
+      "name": "Draka UCFUTURE M10 Data Centre Cca Cable for Raceways",
+      "officialUrl": "https://www.prysmian.com/sites/www.prysmian.com/files/media/documents/M10_e_0.pdf",
+      "confidence": "높음",
+      "description": "Robust internal data-center raceway cable designed for high-density multi-fiber connectivity.",
+      "specs": {
+        "Product": "UCFUTURE M10",
+        "Application": "Internal data-center raceways",
+        "Fiber count": "24F standard · 16F option",
+        "Connector / termination": "Suitable for MPO / MTP multi-fiber connectors",
+        "Cable diameter": "Ø5.3 mm",
+        "Fire class / sheath": "LSHF-FR · Cca-s1a-d1-a1",
+        "Standards": "EN 50173-5 · IEC 60794-2-20 · ISO/IEC 24764",
+        "BOM role": "Optical trunk / high-density data-center cabling"
+      }
+    },
+    "ucfibre-d02b": {
+      "name": "Draka UCFIBRE D02b Distribution / Mini Break-out Cable",
+      "officialUrl": "https://www.prysmian.com/en/en_multimedia_datacom_draka-ucfibre_indoor_tight_UCFIBRETM_I_Di_N_LSHF-FR_ES9_D02b.html",
+      "confidence": "높음",
+      "description": "Indoor distribution or mini break-out cable suited to LAN/WAN and data-center backbones.",
+      "specs": {
+        "Product": "UCFIBRE D02b",
+        "Application": "Data-center backbone · LAN/WAN backbone",
+        "Fiber count": "Up to 24F",
+        "Connector / termination": "Tight-buffer design · field termination/splicing dependent",
+        "Fire class / sheath": "FireRes® LSHF-FR sheath",
+        "Construction": "ES9 tight buffer · aramid yarn strength members",
+        "Installation": "Ducts / trays · short outdoor runs supported",
+        "BOM role": "Backbone / breakout cable"
+      }
+    }
+  }
+}

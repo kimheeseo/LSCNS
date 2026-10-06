@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric / FITEL (Lightera)",
+  "country": "Japan",
+  "category": "Fusion Splicers",
+  "displayName": "Fusion Splicers · Furukawa FITEL / Lightera",
+  "description": "FITEL fusion splicers manufactured under Lightera and marketed by Furukawa Electric.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.furukawaelectric.com/splicer/en/",
+  "sourceUrls": [
+    "https://www.furukawaelectric.com/splicer/en/product/s179a.html",
+    "https://www.furukawaelectric.com/splicer/en/product/s124m16.html",
+    "https://www.furukawaelectric.com/splicer/en/technical/"
+  ],
+  "comparisonFields": [
+    "Model",
+    "Type",
+    "Fiber count",
+    "Fiber / cladding",
+    "Typical splice loss",
+    "Splice time",
+    "Specialty capability",
+    "Data-center role"
+  ],
+  "products": {
+    "s179-plus": {
+      "name": "FITEL S179+ Core Alignment Fusion Splicer",
+      "officialUrl": "https://www.furukawaelectric.com/splicer/en/product/s179a.html",
+      "confidence": "높음",
+      "specs": {
+        "Model": "S179+",
+        "Type": "Core-alignment single-fiber fusion splicer",
+        "Fiber count": "1F",
+        "Fiber / cladding": "SM/MM/DSF/G.654/NZD/BIF · 80–150 µm cladding",
+        "Typical splice loss": "SM 0.01 dB · MM 0.01 dB · DSF 0.03 dB · NZD 0.04 dB",
+        "Splice time": "6 s semi-auto · heat 9 s reference",
+        "Splice return loss": "≥70 dB",
+        "Battery": "Typical 220 splice/heat cycles",
+        "Data-center role": "Single-fiber / backbone / data-center field splicing"
+      }
+    },
+    "s124m16": {
+      "name": "FITEL S124M16 Ribbon Fusion Splicer",
+      "officialUrl": "https://www.furukawaelectric.com/splicer/en/product/s124m16.html",
+      "confidence": "높음",
+      "specs": {
+        "Model": "S124M16",
+        "Type": "Ribbon fusion splicer",
+        "Fiber count": "Single + up to 16F 200 µm ribbon · up to 12F 250 µm with V-groove change",
+        "Fiber / cladding": "Ribbon / single fiber",
+        "Typical splice loss": "Ribbon/fiber dependent · see brochure",
+        "Splice time": "Model/mode dependent",
+        "Specialty capability": "Interchangeable V-groove · 200/250 µm ribbon pitch · Wi-Fi",
+        "Data-center role": "High-density ribbon cable / mass-splice deployment"
+      }
+    },
+    "s185edv": {
+      "name": "FITEL S185EDV End-View Fusion Splicer",
+      "officialUrl": "https://www.furukawaelectric.com/splicer/en/technical/bd8p6800000000hw-att/s185edv_en.pdf",
+      "confidence": "높음",
+      "specs": {
+        "Model": "S185EDV",
+        "Type": "High-end specialty-fiber end-view fusion splicer",
+        "Fiber count": "1F specialty fiber",
+        "Fiber / cladding": "SM/MM/DS/NZDS/High-Index/EDF/LDF/PMF/MCF · 125–500 µm cladding",
+        "Typical splice loss": "SM G.652 typical 0.014 dB",
+        "Splice time": "SM typical 15 s · PANDA typical 50 s",
+        "Specialty capability": "PMF / MCF / LDF · end-view alignment",
+        "Data-center role": "Specialty fiber / CPO / R&D / advanced interconnect validation"
+      }
+    }
+  }
+}

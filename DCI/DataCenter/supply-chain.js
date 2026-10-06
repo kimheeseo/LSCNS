@@ -18,7 +18,7 @@ const I18N={
 };
 
 const VENDORS=[
-  'NVIDIA','AMD','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
+  'NVIDIA','AMD','Google Cloud','Google','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
   'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','CommScope','Molex','Amphenol','Panduit','Belden',
   'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','Huawei','Siemens','Generac','Caterpillar','CAT',
   'Pure Storage','NetApp','IBM','Micron','Samsung','Solidigm','Kioxia','Western Digital',
@@ -27,7 +27,7 @@ const VENDORS=[
 ];
 const CATEGORY_RULES=[
   ['cpu',/server\s*CPU|\bCPU\b|Xeon|EPYC|Grace CPU|AmpereOne|processor/i],
-  ['compute',/\bGPU\b|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
+  ['compute',/\bGPU\b|\bTPU\b|Ironwood|Trillium|Google Cloud|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|MI300|MI350|MI355|Instinct|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
   ['network',/switch|leaf|spine|core|fabric|NIC|DPU|ConnectX|BlueField|Spectrum|QFX|Nexus|Arista|Juniper|Cisco|Broadcom|Tomahawk|InfiniBand|Ethernet/i],
   ['optical',/optic|transceiver|fiber|fibre|cable|trunk|patch|MPO|MTP|LC\b|OSFP|QSFP|AOC|DAC|AEC|DR4|FR4|SR8|Corning|Sumitomo|LS Cable|YOFC|Hengtong|Lightera|Fujikura|Credo|CommScope|Molex|Amphenol|Panduit|Belden/i],
   ['power',/UPS|PDU|power|generator|transformer|busway|breaker|switchgear|Schneider|APC|Vertiv|Eaton|Legrand|ABB|Delta|Generac|Caterpillar|\bCAT\b/i],
@@ -37,7 +37,7 @@ const CATEGORY_RULES=[
   ['facility',/security|fire|camera|access control|BMS|building automation|monitoring|sensor|Siemens|Fortinet|Palo Alto|Palo Alto Networks|Bosch|Securitas/i]
 ];
 const RELATED_VENDORS={
-  compute:['NVIDIA','AMD','Intel','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
+  compute:['NVIDIA','AMD','Google Cloud','Intel','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
   cpu:['Intel','AMD','NVIDIA','Ampere Computing'],
   network:['NVIDIA Networking','Cisco','Arista Networks','Juniper Networks','Broadcom','Marvell','HPE Aruba Networking'],
   optical:['Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Fujikura','Furukawa Electric','Lightera','LS Cable & System','Hengtong','YOFC','CommScope','Molex','Amphenol','Panduit','Belden'],

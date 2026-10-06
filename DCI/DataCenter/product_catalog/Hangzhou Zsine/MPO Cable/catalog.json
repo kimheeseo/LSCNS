@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Hangzhou Zsine Optoelectronic Technology Co., Ltd.",
+  "country": "China",
+  "category": "MPO Cable",
+  "displayName": "Breakout / Harness · Hangzhou Zsine",
+  "description": "CIOE 2026 MPO pre-terminated cable reference.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://exhibitors.cioe.cn/jtycn/cpen23025.html",
+  "comparisonFields": [
+    "Product",
+    "Fiber count",
+    "Rate",
+    "Termination",
+    "Installation",
+    "Exhibition",
+    "Status"
+  ],
+  "products": {
+    "sm-mm-mpo-cable": {
+      "name": "Single-mode / Multi-mode MPO Optical Cable",
+      "officialUrl": "https://exhibitors.cioe.cn/jtycn/cpen23025.html",
+      "confidence": "중간",
+      "specs": {
+        "Product": "MPO/MTP pre-terminated optical cable",
+        "Fiber count": "8–144 cores",
+        "Rate": "10G–400G application",
+        "Termination": "100% factory pre-terminated and tested",
+        "Installation": "Optional pulling grip",
+        "Exhibition": "CIOE 2026 · Booth 9B026",
+        "Status": "Detailed IL/RL, fiber grade and polarity RFQ"
+      }
+    }
+  }
+}

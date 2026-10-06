@@ -158,7 +158,8 @@
     aoc:'AOC', dac:'DAC', aec:'AEC', copper:'Copper / Cat6',
     connector:'Connector', adapter:'Adapter', module:'Module / Cassette', panel:'Panel / Housing',
     transceiver:'Transceiver', component:'Optical / Electronic Component',
-    switch:'Switch', nic:'NIC / Network Adapter', server:'Server / Compute',
+    switch:'Switch', nic:'NIC / Network Adapter', server:'Server',
+    cpu:'CPU', gpu:'GPU', splicer:'Splicer',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery',
     rack:'Rack', management:'Cable Management', other:'Other'
   };
@@ -166,9 +167,11 @@
     {id:'cable', label:'Cable / Interconnect DB', kinds:['fiber','trunk','patch','aoc','dac','aec','copper']},
     {id:'connectivity', label:'Connector / Panel DB', kinds:['connector','adapter','module','panel']},
     {id:'optics', label:'Optics / Component DB', kinds:['transceiver','component']},
-    {id:'network', label:'Network / Compute DB', kinds:['switch','nic','server']},
+    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server']},
+    {id:'compute', label:'연산장치', kinds:['cpu','gpu']},
     {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery']},
     {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management']},
+    {id:'splicer', label:'Splicer', kinds:['splicer']},
     {id:'other', label:'Other DB', kinds:['other']}
   ];
 
@@ -306,7 +309,10 @@
       cat6:['cat6','twisted pair'],
       rack:['rack','panel'],
       ups:['ups','power'],
-      transformer:['transformer','power']
+      transformer:['transformer','power'],
+      cpu:['cpu','processor','xeon','epyc','grace'],
+      gpu:['gpu','accelerator','nvidia','amd instinct','gaudi','ascend'],
+      splicer:['splicer','fusion','90s','90r','s179','s124','s185']
     };
     const out=[...base];
     base.forEach(t=>{(aliases[t]||[]).forEach(a=>out.push(a))});

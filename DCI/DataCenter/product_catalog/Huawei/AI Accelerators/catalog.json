@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "Huawei",
+  "country": "China",
+  "category": "AI Accelerators",
+  "displayName": "AI Accelerators · Huawei Ascend / Atlas",
+  "description": "Huawei Ascend NPU-based AI infrastructure references. System-level quantities, network design and power/cooling must use the selected Huawei platform design and are not substituted into NVIDIA calculations automatically.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod",
+  "sourceUrls": [
+    "https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod",
+    "https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech"
+  ],
+  "comparisonFields": [
+    "Platform",
+    "Accelerator",
+    "NPU count",
+    "On-chip memory",
+    "Memory bandwidth",
+    "AI compute",
+    "D2D bandwidth",
+    "Cooling",
+    "BOM status"
+  ],
+  "products": {
+    "atlas-900-a3-superpod": {
+      "name": "Huawei Atlas 900 A3 SuperPoD",
+      "description": "Liquid-cooled AI supernode based on Ascend 910 NPUs for large-model training and inference.",
+      "officialUrl": "https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod",
+      "confidence": "높음",
+      "specs": {
+        "Platform": "Atlas 900 A3 SuperPoD",
+        "Accelerator": "Ascend 910 NPU",
+        "NPU count": "Up to 384",
+        "On-chip memory": "Up to 384 × 128 GB",
+        "Memory bandwidth": "Up to 3.2 TB/s per NPU",
+        "AI compute": "Up to 307.2 / 288.7 PFLOPS @ FP16",
+        "D2D bandwidth": "784 GB/s bidirectional",
+        "Cooling": "Liquid-cooled compute cabinets + air-cooled bus cabinets",
+        "BOM status": "Physical AI infrastructure · platform-specific validation required"
+      }
+    },
+    "ascend-roadmap-reference": {
+      "name": "Huawei Ascend 950 series roadmap reference",
+      "description": "Roadmap reference only; do not use as a procurement SKU until a deployable product/platform is selected.",
+      "officialUrl": "https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech",
+      "confidence": "중간",
+      "specs": {
+        "Platform": "Ascend roadmap",
+        "Accelerator": "Ascend 950 series",
+        "AI compute": "1 PFLOPS FP8 / 2 PFLOPS FP4 (series statement)",
+        "D2D bandwidth": "2 TB/s interconnect statement",
+        "BOM status": "Roadmap reference · RFQ / availability verification required"
+      }
+    }
+  }
+}

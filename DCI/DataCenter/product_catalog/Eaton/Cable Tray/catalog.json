@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "company": "Eaton",
+  "country": "USA",
+  "category": "Cable Tray",
+  "displayName": "Cable Tray · Eaton B-Line",
+  "description": "Eaton B-Line KwikRail cable tray reference for data-center cable management.",
+  "checked": "2026-10-07",
+  "officialUrl": "https://www.eaton.com/us/en-us/catalog/support-systems/kwikrail-cable-tray.html",
+  "sourceUrls": [
+    "https://www.eaton.com/us/en-us/catalog/support-systems/kwikrail-cable-tray.html"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Material",
+    "Load class",
+    "Standard length",
+    "Width",
+    "Side rail",
+    "Rung spacing",
+    "Application"
+  ],
+  "products": {
+    "kwikrail": {
+      "name": "Eaton B-Line KwikRail Cable Tray",
+      "description": "Aluminum ladder-style cable tray family used for commercial and data-center cable management.",
+      "officialUrl": "https://www.eaton.com/us/en-us/catalog/support-systems/kwikrail-cable-tray.html",
+      "confidence": "높음",
+      "specs": {
+        "Product": "B-Line KwikRail",
+        "Material": "Aluminum",
+        "Load class": "NEMA 12A / 12B",
+        "Standard length": "12 ft",
+        "Width": "6 / 9 / 12 / 18 / 24 / 30 / 36 in",
+        "Side rail": "4 or 6 in",
+        "Rung spacing": "9 in standard",
+        "Application": "Data centers / commercial / instrumentation pathway"
+      }
+    }
+  }
+}

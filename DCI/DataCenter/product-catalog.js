@@ -161,7 +161,7 @@
     switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU',
     gpu:'GPU / AI Accelerator',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
-    rack:'Rack', management:'Cable Management', cooling:'Cooling', facility:'Data Center Infrastructure',
+    rack:'Rack', management:'Cable Management', cabletray:'Cable Tray', raceway:'Fiber Raceway', cooling:'Cooling', facility:'Data Center Infrastructure',
     splicer:'Splicer', other:'Other'
   };
 
@@ -172,7 +172,7 @@
     {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu']},
     {id:'accelerator', label:'Accelerator DB', kinds:['gpu']},
     {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery','power']},
-    {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cooling','facility']},
+    {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cabletray','raceway','cooling','facility']},
     {id:'splicer', label:'Splicer DB', kinds:['splicer']},
     {id:'other', label:'Other DB', kinds:['other']}
   ];
@@ -207,6 +207,15 @@
       return hit('splicer','fusion-splicing product/tool');
     }
 
+    // Cable pathway split for data-center infrastructure.
+    // Keep this in the DB-map layer so BOM matching remains backward compatible.
+    if (/FIBERGUIDE|FIBERRUNNER|FIBER RACEWAY|FIBRE RACEWAY/.test(t)) {
+      return hit('raceway','fiber raceway');
+    }
+    if (/CABLE TRAY|WIRE BASKET|CABLE RUNWAY|KWIKRAIL|CABLOFIL|G-TRAY|G MINI/.test(t)) {
+      return hit('cabletray','cable tray');
+    }
+
     // Current catalog top-level taxonomy. Map all known catalog families
     // into the eight primary DB groups before product-name fallbacks.
     const topCategory = String(dbPathParts(product)[1] || category || '').toUpperCase();
@@ -229,8 +238,10 @@
       if (topCategory === 'TRANSFORMERS') return hit('transformer','catalog family: transformer');
       return hit('power','catalog family: power');
     }
-    if (/^(CABLE MANAGEMENT|LIQUID COOLING|RACK INFRASTRUCTURE|RACK MOUNT|RACKS|DATA CENTER INFRASTRUCTURE|FIBERGUIDE)$/.test(topCategory)) {
-      if (topCategory === 'CABLE MANAGEMENT' || topCategory === 'FIBERGUIDE') return hit('management','catalog family: cable management');
+    if (/^(CABLE MANAGEMENT|CABLE TRAY|FIBER RACEWAY|LIQUID COOLING|RACK INFRASTRUCTURE|RACK MOUNT|RACKS|DATA CENTER INFRASTRUCTURE|FIBERGUIDE)$/.test(topCategory)) {
+      if (topCategory === 'FIBERGUIDE' || topCategory === 'FIBER RACEWAY') return hit('raceway','catalog family: fiber raceway');
+      if (topCategory === 'CABLE TRAY') return hit('cabletray','catalog family: cable tray');
+      if (topCategory === 'CABLE MANAGEMENT') return hit('management','catalog family: cable management');
       if (topCategory === 'LIQUID COOLING') return hit('cooling','catalog family: cooling');
       if (/RACK/.test(topCategory)) return hit('rack','catalog family: rack');
       return hit('facility','catalog family: infrastructure');
@@ -522,6 +533,8 @@
       copper:['copper','twisted pair'],
       cat6:['cat6','twisted pair'],
       rack:['rack','panel'],
+      cabletray:['cable tray','wire basket','kwikrail','cablofil'],
+      raceway:['fiber raceway','fiberrunner','fiberguide'],
       ups:['ups','power'],
       transformer:['transformer','power'],
       cpu:['cpu','processor','xeon','epyc','grace'],

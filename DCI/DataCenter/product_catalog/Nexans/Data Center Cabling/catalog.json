@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "company": "Nexans",
+  "country": "France",
+  "category": "Data Center Cabling",
+  "displayName": "Data Center Cabling · Nexans LANmark / ENSPACE",
+  "description": "Nexans LANmark-OF / ENSPACE high-density optical cabling products for data centers.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.nexans.com/electrification-solutions/markets/distribution/data-centers/",
+  "sourceUrls": [
+    "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-patch-panels/LANmark-OF37292.html",
+    "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Preterminated-assemblies/LANmark-OF37332.html",
+    "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-cables/LANmark-OF37249.html"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Density / fiber count",
+    "Fiber",
+    "Connector",
+    "Loss / bend radius",
+    "Rack density",
+    "Standard",
+    "BOM role"
+  ],
+  "products": {
+    "enspace-uhd-panel": {
+      "name": "Nexans LANmark-OF ENSPACE UHD Patch Panel",
+      "officialUrl": "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-patch-panels/LANmark-OF37292.html",
+      "confidence": "높음",
+      "specs": {
+        "Product": "ENSPACE UHD Patch Panel",
+        "Density / fiber count": "144 LC or 72 MTP ports per 1U",
+        "Rack density": "1U / 2U / 4U families",
+        "Connector": "LC / MTP module architecture",
+        "Operation": "Individual sliding trays · rear pre-term access",
+        "Standard": "ISO/IEC 11801",
+        "BOM role": "Ultra-high-density patch panel"
+      }
+    },
+    "enspace-patching-assembly": {
+      "name": "Nexans LANmark-OF ENSPACE Patching Assembly",
+      "officialUrl": "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Preterminated-assemblies/LANmark-OF37332.html",
+      "confidence": "높음",
+      "specs": {
+        "Product": "ENSPACE Patching Assembly",
+        "Density / fiber count": "12F / 24F / 48F / 96F",
+        "Fiber": "OM4 or OS2 / G.657.A1 depending model",
+        "Connector": "Factory-terminated LC fan-out / patch-panel side",
+        "Cable": "Small-diameter pre-terminated assembly",
+        "Standard": "ISO/IEC 11801",
+        "BOM role": "Pre-terminated harness / patching assembly"
+      }
+    },
+    "micro-bundle-indoor": {
+      "name": "Nexans LANmark-OF Micro-Bundle Indoor",
+      "officialUrl": "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Fibre-cables/LANmark-OF37249.html",
+      "confidence": "높음",
+      "specs": {
+        "Product": "LANmark-OF Micro-Bundle Indoor",
+        "Density / fiber count": "12 / 24 / 48 / 96F",
+        "Fiber": "All LANmark fiber grades · 12F per micro-bundle",
+        "Connector": "Designed for splice/pigtail termination",
+        "Sheath": "LSZH · all-dielectric",
+        "Fire": "IEC 60332-1 / IEC 60332-3",
+        "BOM role": "Data-center indoor backbone cable"
+      }
+    },
+    "enspace-lc-module": {
+      "name": "Nexans LANmark-OF ENSPACE LC Adaptor Module",
+      "officialUrl": "https://www.nexans.no/en/products/Data-Network-Solutions/Fibre-LAN-Systems/Adaptors-and-modules/LANmark-OF37293.html",
+      "confidence": "높음",
+      "specs": {
+        "Product": "ENSPACE LC Adaptor Module",
+        "Connector": "12 × LC adaptors per module",
+        "Density": "Up to 12 modules / 1U in UHD panel = 144 LC",
+        "Adapter": "Zirconia sleeve · integrated metallic shutters",
+        "Standard": "ISO/IEC 11801",
+        "BOM role": "Optical adapter module"
+      }
+    }
+  }
+}

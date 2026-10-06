@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "checked": "2026-10-06",
   "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트, Amphenol 665 포함)",
-  "totalStructuredCatalogs": 297,
-  "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. NVIDIA/AMD/Huawei/Intel/Qualcomm/Google TPU는 accelerator 성격과 조달 방식을 구분하며, 검증된 시스템 프로파일이 없는 가속기는 Reference/RFQ로 유지한다. UPS는 글로벌 제품과 LS ELECTRIC·MPOWERSYS·XEONICS·Green Power Technology 등 국내 후보를 함께 표시한다. Breakout/Harness는 CIOE/OFC 전시·공식 제품 근거를 우선 색인한다. 상세 전력·효율·IL/RL·호환 조건이 불충분하면 자동 대체하지 않는다.",
+  "totalStructuredCatalogs": 303,
+  "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. Draka/Prysmian 및 Nexans는 데이터센터 광배선 후보, Gaon Cable 및 Taihan은 데이터센터 전력 인프라 후보로 색인한다. Fusion Splicer는 시공/설치 Tool이므로 케이블·광부품 조달 수량에 자동 합산하지 않고 별도 reference/tool role로 유지한다. 상세 규격·프로젝트 전압·전류·길이·호환성이 불충분하면 RFQ/검증 필요 상태를 유지한다.",
   "roles": {
     "compute": [
       "Huawei/AI Accelerators/catalog.json",
@@ -24,6 +24,8 @@
       "NVIDIA/Networking/catalog.json"
     ],
     "optic": [
+      "Draka (Prysmian Group)/Data Center Cabling/catalog.json",
+      "Nexans/Data Center Cabling/catalog.json",
       "Amphenol/Optical Transceivers and AOC/catalog.json",
       "YOFC/Transceiver/1.25G/catalog.json",
       "YOFC/Transceiver/100G/catalog.json",
@@ -39,6 +41,8 @@
       "YOFC/Transceiver/PON Series/catalog.json"
     ],
     "trunk": [
+      "Draka (Prysmian Group)/Data Center Cabling/catalog.json",
+      "Nexans/Data Center Cabling/catalog.json",
       "HYC/Breakout Harness/catalog.json",
       "IH Optics/MPO MTP Wiring/catalog.json",
       "Hangzhou Zsine/MPO Cable/catalog.json",
@@ -52,6 +56,7 @@
       "YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json"
     ],
     "patchCord": [
+      "Nexans/Data Center Cabling/catalog.json",
       "HYC/Breakout Harness/catalog.json",
       "IH Optics/MPO MTP Wiring/catalog.json",
       "Hangzhou Zsine/MPO Cable/catalog.json",
@@ -70,6 +75,7 @@
       "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json"
     ],
     "patch": [
+      "Nexans/Data Center Cabling/catalog.json",
       "Corning/Housing/EDGE™ Housing, FX/catalog.json",
       "Corning/Housing/Pretium® Connector Housing (PCH)/catalog.json",
       "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC/catalog.json",
@@ -158,6 +164,8 @@
       "ZTT/Data Center Infrastructure/IT Cabinet/catalog.json"
     ],
     "power": [
+      "Gaon Cable/Data Center Power/catalog.json",
+      "Taihan Cable & Solution/Data Center Power/catalog.json",
       "LS ELECTRIC/UPS/catalog.json",
       "MPOWERSYS/UPS/catalog.json",
       "XEONICS/UPS/catalog.json",
@@ -183,13 +191,22 @@
       "Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness/catalog.json",
       "Corning/Harness/EDGE™ Staggered Harness/catalog.json",
       "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Breakout Kits for High Fiber Count Ribbon Cables/catalog.json"
+    ],
+    "fusionSplicer": [
+      "Fujikura/Fusion Splicers/catalog.json",
+      "Furukawa Electric/Fusion Splicers/catalog.json"
+    ],
+    "installationTool": [
+      "Fujikura/Fusion Splicers/catalog.json",
+      "Furukawa Electric/Fusion Splicers/catalog.json"
     ]
   },
   "intentionallyNotAutoSubstituted": {
     "Rack PDU": "현재 structured catalog에 rack-PDU exact family가 없어 Smart Busbar로 대체하지 않음",
     "CDU": "In-row air conditioner는 CDU와 동일 제품이 아니므로 자동 대체하지 않음",
     "UPS/Generator/Transformer": "현재 structured catalog에 해당 공식 제품군 미등록",
-    "Storage system": "현재 structured catalog에 storage array official family 미등록"
+    "Storage system": "현재 structured catalog에 storage array official family 미등록",
+    "Fusion Splicer": "설치/시공 장비이므로 네트워크 광부품 BOM 수량에 자동 합산하지 않음"
   },
   "amphenolItDatacom": {
     "officialUrl": "https://www.amphenol.com/markets/it-datacom",

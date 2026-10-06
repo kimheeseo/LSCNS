@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "company": "LS ELECTRIC",
+  "country": "Korea",
+  "category": "UPS",
+  "displayName": "UPS · LS ELECTRIC",
+  "description": "LS ELECTRIC data-center UPS references. Public sources confirm UPS coverage and a 500 kVA-unit MW-class AC UPS development/FAT platform; exact commercial model/SKU and pricing require RFQ.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://nahpdev.ls-electric.com/markets/data-center",
+  "sourceUrls": [
+    "https://nahpdev.ls-electric.com/markets/data-center",
+    "https://conf2024s.kipe.or.kr/pdfs/output/PS1.76_%EC%A0%95%EC%9D%B8%EC%84%9D.pdf"
+  ],
+  "comparisonFields": [
+    "Topology",
+    "Unit rating",
+    "Parallel system",
+    "Input / output",
+    "Battery DC",
+    "Frequency",
+    "Data-center status",
+    "Verification"
+  ],
+  "products": {
+    "ls-electric-500kva-ups-platform": {
+      "name": "LS ELECTRIC 500 kVA UPS platform",
+      "description": "500 kVA-class UPS platform referenced in LS ELECTRIC data-center coverage and MW-class AC UPS development work. Exact market SKU is RFQ.",
+      "officialUrl": "https://nahpdev.ls-electric.com/markets/data-center",
+      "confidence": "중간",
+      "specs": {
+        "Topology": "Online AC UPS",
+        "Unit rating": "Up to 500 kVA FAT capacity / 500 kVA development unit",
+        "Parallel system": "5 × 500 kVA → 2.5 MW development system",
+        "Input / output": "440 Vac / 440 Vac",
+        "Battery DC": "408–560 Vdc",
+        "Frequency": "60 Hz",
+        "Data-center status": "Mission-critical / data center coverage",
+        "Verification": "Exact product name, efficiency, footprint, battery runtime and commercial availability require RFQ"
+      }
+    }
+  }
+}

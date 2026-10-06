@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "Taihan Cable & Solution",
+  "country": "Korea",
+  "category": "Data Center Power",
+  "displayName": "Data Center Power · Taihan Cable & Solution",
+  "description": "Taihan integrated data-center power infrastructure: EHV grid, MV/LV cable and busduct.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.taihan.com/en/solutions/dataCenter",
+  "sourceUrls": [
+    "https://www.taihan.com/en/solutions/dataCenter",
+    "https://www.taihan.com/solutions/dataCenter"
+  ],
+  "comparisonFields": [
+    "Product family",
+    "Data-center role",
+    "Technology",
+    "Manufacturing / capacity",
+    "Status"
+  ],
+  "products": {
+    "ehv-power-grid": {
+      "name": "Taihan EHV Cable System for Data Centers",
+      "officialUrl": "https://www.taihan.com/en/solutions/dataCenter",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "EHV cable system",
+        "Data-center role": "Upstream power grid / utility interconnection",
+        "Technology": "Cable + system engineering / construction capability",
+        "Manufacturing / capacity": "Project-specific",
+        "Status": "Integrated data-center power solution"
+      }
+    },
+    "mv-lv-cable": {
+      "name": "Taihan MV / LV Data Center Cable",
+      "officialUrl": "https://www.taihan.com/en/solutions/dataCenter",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Medium- and low-voltage cable",
+        "Data-center role": "Internal / facility power distribution",
+        "Technology": "Project-tailored power cabling",
+        "Manufacturing / capacity": "Project-specific",
+        "Status": "Physical procurement candidate · exact cable spec RFQ"
+      }
+    },
+    "busduct": {
+      "name": "Taihan Data Center Busduct",
+      "officialUrl": "https://www.taihan.com/en/solutions/dataCenter",
+      "confidence": "높음",
+      "specs": {
+        "Product family": "Busduct",
+        "Data-center role": "High-capacity internal power distribution",
+        "Technology": "PET insulation + epoxy-insulated portfolio stated",
+        "Manufacturing / capacity": "Dedicated busduct facility expanded about 3×; epoxy line added",
+        "Status": "Data-center power-distribution candidate"
+      }
+    }
+  }
+}

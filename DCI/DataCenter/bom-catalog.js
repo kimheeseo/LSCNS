@@ -6,6 +6,15 @@
   const field = (s, keys) => keys.map(k => s[k]).find(x => x != null && text(x) !== '—') || '';
   function kind(x) {
     const t = clean([x.category, x.path, x.item, x.name].join(' '));
+
+    // DB-map taxonomy overrides: keep the source catalogs intact, but route
+    // legacy folder names into the user-facing BOM DB groups.
+    if (/FUSION SPLICER|SPLICER SOLUTIONS|\bSPLICERS?\b|90S\+|90R|S179\+|S124M16|S185/.test(t)) return 'splicer';
+    if (/DATA CENTER GPUS?|AI ACCELERATORS?|\bGPU\b|INSTINCT MI\d+|GAUDI\s*3|ASCEND\s*9|DRAGONFLY AI|\bBR100\b/.test(t)) return 'gpu';
+    if (/(^|[\/\s])CPU([\/\s]|$)|SERVER CPU|CPU AND SUPERCHIPS|\bEPYC\b|\bXEON\b|GRACE CPU|AMPEREONE/.test(t)) return 'cpu';
+    if (/RIBBON BREAKOUT\s*&\s*FANOUT KITS?/.test(t)) return 'patch';
+    if (/OPTICAL FIBERS?|POWER CABLE/.test(t)) return 'fiber';
+
     if (/BATTERY RACK|BATTERY CABINET/.test(t)) return 'battery';
     if (/TERMINATION BOX|SUB.?RACK|PANEL RACK MOUNT/.test(t)) return 'panel';
     if (/FUSECONNECT/.test(t)) return 'connector';

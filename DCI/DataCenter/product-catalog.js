@@ -207,6 +207,62 @@
       return hit('splicer','fusion-splicing product/tool');
     }
 
+    // Current catalog top-level taxonomy. Map all known catalog families
+    // into the eight primary DB groups before product-name fallbacks.
+    const topCategory = String(dbPathParts(product)[1] || category || '').toUpperCase();
+    const fullPath = path.toUpperCase();
+
+    if (/^(FUSION SPLICER SOLUTIONS|FUSION SPLICERS|SPLICE TRAYS)$/.test(topCategory)) {
+      return hit('splicer','catalog family: splicer');
+    }
+    if (/^(GPU ACCELERATORS|DATA CENTER GPUS|AI ACCELERATORS|AI FACTORY PLATFORMS|PROFESSIONAL GPUS REFERENCE|GPU SERVERS|CLOUD TPU)$/.test(topCategory)) {
+      return hit('gpu','catalog family: accelerator');
+    }
+    if (/^(CPU|CPU PORTFOLIO|CPU AND SUPERCHIPS|DATA CENTER SWITCHES|NETWORK|NETWORKING|RACK SERVERS|SWITCHES NICS|INFINIBAND XDR NDR HDR)$/.test(topCategory)) {
+      if (/CPU/.test(topCategory)) return hit('cpu','catalog family: CPU');
+      if (/SWITCH|NETWORK|INFINIBAND/.test(topCategory)) return hit('switch','catalog family: network');
+      return hit('server','catalog family: server');
+    }
+    if (/^(UPS|GENERATORS|TRANSFORMERS|DATA CENTER POWER|POWER CONNECTORS AND BUSBAR|POWER DISTRIBUTION PANELS)$/.test(topCategory)) {
+      if (topCategory === 'UPS') return hit('ups','catalog family: UPS');
+      if (topCategory === 'GENERATORS') return hit('generator','catalog family: generator');
+      if (topCategory === 'TRANSFORMERS') return hit('transformer','catalog family: transformer');
+      return hit('power','catalog family: power');
+    }
+    if (/^(CABLE MANAGEMENT|LIQUID COOLING|RACK INFRASTRUCTURE|RACK MOUNT|RACKS|DATA CENTER INFRASTRUCTURE|FIBERGUIDE)$/.test(topCategory)) {
+      if (topCategory === 'CABLE MANAGEMENT' || topCategory === 'FIBERGUIDE') return hit('management','catalog family: cable management');
+      if (topCategory === 'LIQUID COOLING') return hit('cooling','catalog family: cooling');
+      if (/RACK/.test(topCategory)) return hit('rack','catalog family: rack');
+      return hit('facility','catalog family: infrastructure');
+    }
+    if (/^(ACTIVE ELECTRICAL CABLES|COPPER DAC|HIGH-SPEED CABLE ASSEMBLIES|STORAGE AND PCIE-SAS INTERCONNECTS|COAXIAL CABLES|COPPER MODULE CABLE ASSEMBLIES|FIBER CABLE ASSEMBLIES|FIBER CABLES|TWISTED PAIR CABLE ASSEMBLIES|TWISTED PAIR CABLES|CABLE|HARNESS|JUMPER|TRUNK|DATA CENTER CABLING|FIBER OPTIC CABLES|OPTICAL FIBERS|OPTICAL CABLE|POWER CABLE|BREAKOUT HARNESS|MPO CABLE|MPO MTP WIRING|AOC DAC ACC AEC|HIGH FIBER COUNT MPO TRUNKS|MTP MPO HARNESSES|MTP MPO JUMPERS|COPPER DATA CABLES|HIGH DENSITY FIBER ASSEMBLIES|CABLE ASSEMBLIES|RIBBON BREAKOUT & FANOUT KITS|PATCH CORD|광통신|통합배선)$/.test(topCategory)) {
+      if (/COPPER|TWISTED PAIR/.test(topCategory)) return hit('copper','catalog family: copper cable');
+      if (/TRUNK/.test(topCategory)) return hit('trunk','catalog family: trunk');
+      if (topCategory === 'AOC DAC ACC AEC') return hit('aoc','catalog family: active/direct cable');
+      if (/ASSEMBL|HARNESS|JUMPER|PATCH CORD|BREAKOUT|FANOUT|INTERCONNECT/.test(topCategory)) return hit('patch','catalog family: cable assembly');
+      return hit('fiber','catalog family: cable');
+    }
+    if (/^(ALL IT DATACOM PRODUCTS|BACKPLANE AND ORTHOGONAL CONNECTORS|ETHERNET USB AND EXTERNAL I-O|FIBER OPTIC CONNECTIVITY|HIGH-SPEED BOARD CONNECTORS|MEMORY AND CARD EDGE CONNECTORS|RF AND COAXIAL CONNECTIVITY|RUGGED CIRCULAR AND D-SUB|TERMINAL BLOCKS AND GENERAL INTERCONNECT|WIRE-TO-BOARD AND FFC-FPC|COPPER PANELS MODULES CASSETTES|BUILDING ENTRANCE SOLUTIONS|FIBER PANELS MODULES CASSETTES|ODF|PROPEL PANELS|ACCESSORIES|BRACKET|CONNECTOR|HOUSING|MODULE|PANEL|OPTICAL CONNECTIVITY AND RACK ENCLOSURES|OPTICAL CONNECTIVITY|CASSETTES & INTERCONNECT PANELS|ENTRANCE FRAMES|FIBER PANELS & SHELVES|OTHER ENCLOSURES|WALL MOUNT ENCLOSURES|FIELD CONNECTORS|LEGACY CONNECTORS|MPO-MT CONNECTORS|SC-LC CONNECTORS|VSFF CONNECTORS|MDC CONNECTORS|MMC CONNECTORS|MT FERRULES|MTP CONNECTORS)$/.test(topCategory)) {
+      if (/ADAPTER|ADAPTOR/.test(t)) return hit('adapter','catalog family: adapter');
+      if (/MODULE|CASSETTE/.test(topCategory)) return hit('module','catalog family: module/cassette');
+      if (/CONNECTOR|FERRULE|ALL IT DATACOM|BACKPLANE|BOARD|MEMORY|RF AND COAXIAL|RUGGED|TERMINAL|WIRE-TO-BOARD|FIELD|LEGACY|MDC|MMC|MTP|VSFF|SC-LC/.test(topCategory)) return hit('connector','catalog family: connector');
+      return hit('panel','catalog family: panel/housing');
+    }
+    if (/^(OPTICAL TRANSCEIVERS|OPTICAL PHYS AND DSPS|OPTICAL DSPS|SILICON PHOTONICS PICS|OPTICAL COMPONENTS|CPO LIGHT SOURCES|OPTICAL CHIPS AND LASERS|OPTICAL TIAS AND DRIVERS|CONNECTIVITY DSPS|TRANSCEIVER|SENSORS MATERIALS AND OTHER)$/.test(topCategory)) {
+      if (/TRANSCEIVER/.test(topCategory)) return hit('transceiver','catalog family: transceiver');
+      return hit('component','catalog family: optics/component');
+    }
+    if (topCategory === 'SWK™ SERIES') {
+      if (/SWK.*CABLE ASSEMBL/.test(fullPath)) return hit('patch','SWK cable assembly');
+      if (/SWK.*CONNECTOR/.test(fullPath)) return hit('connector','SWK connector');
+      if (/SWK.*PANEL/.test(fullPath)) return hit('panel','SWK panel');
+    }
+    if (topCategory === 'OPTICAL TRANSCEIVERS AND AOC') {
+      if (/AOC/.test(t) && !/TRANSCEIVER/.test(name.toUpperCase())) return hit('aoc','AOC');
+      return hit('transceiver','optical transceiver/AOC family');
+    }
+    if (topCategory === 'PDF SOURCES') return hit('component','legacy optical source catalog');
+
     // 5) Accelerator — GPU/TPU/NPU and dedicated GPU-server / AI platform catalogs.
     if (/GPU SERVERS?|DATA CENTER GPUS?|PROFESSIONAL GPUS?|AI ACCELERATORS?|AI FACTORY PLATFORM|\\bGPU\\b|\\bTPU\\b|\\bNPU\\b|INSTINCT MI\\d+|GAUDI\\s*3|ASCEND\\s*9|ATLAS 900|DRAGONFLY AI|IRONWOOD|TRILLIUM|\\bBR100\\b|BLACKWELL|HOPPER|VERA RUBIN/.test(t)) {
       return hit('gpu','accelerator/GPU/NPU/TPU');

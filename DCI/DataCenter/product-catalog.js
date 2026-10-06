@@ -313,7 +313,7 @@
       if (/GPU|ACCELERATOR|TPU|NPU|AI /.test(t)) return hit('gpu','compute accelerator fallback');
       if (/NETWORK|CONNECTIVITY/.test(t)) return hit('nic','compute/network fallback');
     }
-    if (/DRaka|PRYSMIAN|NEXANS|HYC|IH OPTICS|SHIJIA|ZSINE|NADDOD|BELDEN|PANDUIT/.test(t)) {
+    if (/DRAKA|PRYSMIAN|NEXANS|HYC|IH OPTICS|SHIJIA|ZSINE|NADDOD|BELDEN|PANDUIT/.test(t)) {
       return hit('patch','cable/interconnect vendor');
     }
     if (/SCHNEIDER|EATON|LS ELECTRIC|MPOWERSYS|XEONICS|GREEN POWER|CUMMINS|CATERPILLAR|HITACHI ENERGY/.test(t)) {
@@ -396,11 +396,19 @@
     const groups = dbGroups.map(group => {
       const items = dbProductsForKinds(products, group.kinds);
       const pathCount = new Set(items.map(p => p.path).filter(Boolean)).size;
-      const kindCounts = dbCountMap(items, p => p.kind || 'other');
+      const kindCounts = dbCountMap(items, p => dbKindOf(p));
       return {...group, count:items.length, pathCount, kindCounts};
     });
+    const otherCount = dbProductsForKinds(products, ['other']).length;
+    const otherRate = products.length ? (otherCount / products.length * 100) : 0;
+    window.__dcDbTaxonomySummary = {
+      total: products.length,
+      other: otherCount,
+      otherRate: Number(otherRate.toFixed(2)),
+      groups: Object.fromEntries(groups.map(g => [g.id, g.count]))
+    };
     host.innerHTML =
-      '<div class="catalog-db-hub"><span>전체 제품 DB</span><b>' + products.length.toLocaleString('ko-KR') + '</b><small>' + companyCount + '개 업체 · ' + catalogCount + '개 catalog</small></div>' +
+      '<div class="catalog-db-hub"><span>전체 제품 DB</span><b>' + products.length.toLocaleString('ko-KR') + '</b><small>' + companyCount + '개 업체 · ' + catalogCount + '개 catalog · Other ' + otherRate.toFixed(1) + '%</small></div>' +
       '<div class="catalog-db-branches">' +
       groups.map(group =>
         '<article class="catalog-db-node"><div class="catalog-db-node-head"><div><span>' + esc(group.label) + '</span><b>' + group.count.toLocaleString('ko-KR') + '개</b></div><button type="button" data-db-group="' + esc(group.id) + '">상세</button></div>' +

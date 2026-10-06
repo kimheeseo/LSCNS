@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "company": "AMD",
+  "category": "GPU Accelerators",
+  "displayName": "GPU Accelerators · AMD Instinct",
+  "description": "AMD Instinct data-center AI/HPC accelerators. Board-level values do not replace OEM server/rack power, cooling, networking, or mechanical validation.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.amd.com/en/products/accelerators/instinct/mi350.html",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "Architecture",
+    "Form Factor",
+    "GPU Memory",
+    "Memory Bandwidth",
+    "AI Compute",
+    "Interconnect",
+    "TBP",
+    "Cooling",
+    "Procurement status"
+  ],
+  "products": {
+    "amd-instinct-mi350x": {
+      "name": "AMD Instinct MI350X",
+      "description": "CDNA 4 OAM accelerator for AI training/inference and HPC. Use an OEM-certified 8-GPU platform or server design before converting this board reference into rack quantities.",
+      "officialUrl": "https://www.amd.com/en/products/accelerators/instinct/mi350/mi350x.html",
+      "checked": "2026-10-06",
+      "confidence": "높음",
+      "specs": {
+        "Architecture": "AMD CDNA 4",
+        "Form Factor": "OAM module · PCIe 5.0 x16",
+        "GPU Memory": "288 GB HBM3E",
+        "Memory Bandwidth": "8 TB/s",
+        "AI Compute": "MXFP4 / MXFP6 peak 9.2 PFLOPS",
+        "Interconnect": "7 × Infinity Fabric links · 153 GB/s peak link bandwidth",
+        "TBP": "1000 W",
+        "Cooling": "Passive OAM",
+        "Procurement status": "Physical accelerator · OEM/server platform validation required"
+      }
+    },
+    "amd-instinct-mi355x": {
+      "name": "AMD Instinct MI355X",
+      "description": "High-density CDNA 4 OAM accelerator for AI/HPC. Cooling and rack integration must follow the selected OEM platform.",
+      "officialUrl": "https://www.amd.com/en/products/accelerators/instinct/mi350/mi355x.html",
+      "checked": "2026-10-06",
+      "confidence": "높음",
+      "specs": {
+        "Architecture": "AMD CDNA 4",
+        "Form Factor": "OAM module · PCIe 5.0 x16",
+        "GPU Memory": "288 GB HBM3E",
+        "Memory Bandwidth": "8 TB/s",
+        "AI Compute": "MXFP4 / MXFP6 peak 10.1 PFLOPS",
+        "Interconnect": "7 × Infinity Fabric links · 153 GB/s peak link bandwidth",
+        "TBP": "1400 W",
+        "Cooling": "Passive & Active",
+        "Procurement status": "Physical accelerator · high-density OEM/server cooling validation required"
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "company": "HYC",
+  "country": "China",
+  "category": "Breakout Harness",
+  "displayName": "Breakout / Harness · HYC",
+  "description": "HYC MPO/MTP breakout, harness and high-density interconnect products. HYC exhibited related AI-data-center connectivity at OFC 2026 and CIOE 2026.",
+  "checked": "2026-10-06",
+  "officialUrl": "https://www.hyc-system.com/",
+  "sourceUrls": [
+    "https://www.ofcconference.org/news-media/exhibitor-news/hyc-showcases-multi-core-fiber-and-cpo-interconnect-solutions-at-ofc-2026/",
+    "https://exhibitors.cioe.cn/jtycn/zsen63511.html",
+    "https://cn.hyc-system.com/Product/index_273/3308",
+    "https://cn.hyc-system.com/Product/index_273/1217"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Fiber count",
+    "Connector",
+    "Fiber type",
+    "Insertion loss",
+    "Return loss",
+    "Temperature",
+    "Standard",
+    "Exhibition"
+  ],
+  "products": {
+    "mpo-breakout": {
+      "name": "HYC MPO Breakout Cable",
+      "officialUrl": "https://cn.hyc-system.com/Product/index_273/3308",
+      "confidence": "높음",
+      "specs": {
+        "Product": "MPO Breakout",
+        "Fiber count": "8F / 12F / 16F / 24F",
+        "Connector": "MPO/MTP breakout",
+        "Fiber type": "OM2 / OM3 / OM4 / OM5",
+        "Insertion loss": "≤0.50 dB standard · ≤0.35 dB low-loss",
+        "Return loss": ">20 dB",
+        "Temperature": "-25 to +70 °C",
+        "Standard": "GR-1435 · RoHS",
+        "Exhibition": "HYC exhibited connectivity at OFC 2026 and CIOE 2026"
+      }
+    },
+    "mpo-mtp-branch-harness": {
+      "name": "HYC MPO/MTP Branch Harness",
+      "officialUrl": "https://cn.hyc-system.com/Product/index_273/1217",
+      "confidence": "높음",
+      "description": "High-density branch assembly using multi-fiber main cable, sub-cables, breakout body and connectors.",
+      "specs": {
+        "Product": "MPO/MTP branch cable / harness",
+        "Fiber count": "Customizable",
+        "Connector": "MPO/MTP to branch connectors",
+        "Fiber type": "Configurable",
+        "Insertion loss": "100% factory tested; exact option-dependent values RFQ",
+        "Temperature": "Product-family dependent",
+        "Standard": "Factory IL/RL, polarity, 3D and end-face inspection",
+        "Exhibition": "CIOE 2026 / OFC 2026 HYC connectivity portfolio"
+      }
+    },
+    "preterminated-trunk-breakout": {
+      "name": "HYC MPO Pre-terminated Trunk Breakout",
+      "officialUrl": "https://cn.hyc-system.com/Product/index_273/4322",
+      "confidence": "높음",
+      "specs": {
+        "Product": "Pre-terminated MPO trunk / breakout",
+        "Fiber count": "24F–288F",
+        "Connector": "MPO both ends",
+        "Cable": "Loose-tube structure · pulling protection sleeve",
+        "Application": "Backbone / data center high-density fast deployment",
+        "Exhibition": "HYC high-density connectivity portfolio"
+      }
+    }
+  }
+}

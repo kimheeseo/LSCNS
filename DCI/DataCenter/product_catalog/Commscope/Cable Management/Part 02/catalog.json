@@ -20,78 +20,6 @@
     "Color"
   ],
   "products": {
-    "1375162-1": {
-      "name": "1375162-1 · Horizontal cable management",
-      "description": "Cable Management Panel, horizontal, 1U, black",
-      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "1375162-1",
-        "Part Name": "",
-        "Product Type": "Horizontal cable management",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "System Dimensions": "—",
-        "Length": "—",
-        "Color": "black"
-      }
-    },
-    "1375162-2": {
-      "name": "1375162-2 · Horizontal cable management",
-      "description": "Cable Management Panel, horizontal, 1U, single-sided, black",
-      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "1375162-2",
-        "Part Name": "",
-        "Product Type": "Horizontal cable management",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "System Dimensions": "—",
-        "Length": "—",
-        "Color": "black"
-      }
-    },
-    "1375163-1": {
-      "name": "1375163-1 · Horizontal cable management",
-      "description": "Cable Management Panel, 2U, horizontal",
-      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "1375163-1",
-        "Part Name": "",
-        "Product Type": "Horizontal cable management",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "System Dimensions": "—",
-        "Length": "—",
-        "Color": "—"
-      }
-    },
-    "1375164-1": {
-      "name": "1375164-1 · Vertical cable management",
-      "description": "Cable Management Panel, 2U, vertical, double-sided, black",
-      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "1375164-1",
-        "Part Name": "",
-        "Product Type": "Vertical cable management",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "System Dimensions": "—",
-        "Length": "—",
-        "Color": "black"
-      }
-    },
     "1375165-1": {
       "name": "1375165-1 · Cable management hardware",
       "description": "Vertical Finger Duct Panel, 2U, side mount",
@@ -864,6 +792,78 @@
         "System Dimensions": "—",
         "Length": "—",
         "Color": "Black"
+      }
+    },
+    "760259908": {
+      "name": "760259908 · Elevation kit",
+      "description": "Cable Runway, 3in elevation kit, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259908",
+        "Part Name": "",
+        "Product Type": "Elevation kit",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259909": {
+      "name": "760259909 · Elevation kit",
+      "description": "Cable Runway, 6in elevation kit, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259909",
+        "Part Name": "",
+        "Product Type": "Elevation kit",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760259910": {
+      "name": "760259910 · Elevation kit",
+      "description": "Cable Runway, 12in elevation kit, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760259910",
+        "Part Name": "",
+        "Product Type": "Elevation kit",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
+      }
+    },
+    "760262094": {
+      "name": "760262094 · Mounting plate",
+      "description": "Cable Runway, Mounting Plate Kit for Elevation kit, 18in/24in, black",
+      "officialUrl": "https://www.commscope.com/product-type/cable-management/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-management/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760262094",
+        "Part Name": "",
+        "Product Type": "Mounting plate",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "System Dimensions": "—",
+        "Length": "—",
+        "Color": "black"
       }
     }
   }

@@ -158,20 +158,22 @@
     aoc:'AOC', dac:'DAC', aec:'AEC', copper:'Copper / Cat6',
     connector:'Connector', adapter:'Adapter', module:'Module / Cassette', panel:'Panel / Housing',
     transceiver:'Transceiver', component:'Optical / Electronic Component',
-    switch:'Switch', nic:'NIC / Network Adapter', server:'Server',
-    cpu:'CPU', gpu:'GPU', splicer:'Splicer',
-    ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery',
-    rack:'Rack', management:'Cable Management', other:'Other'
+    switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU',
+    gpu:'GPU / AI Accelerator',
+    ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
+    rack:'Rack', management:'Cable Management', cooling:'Cooling', facility:'Data Center Infrastructure',
+    splicer:'Splicer', other:'Other'
   };
+
   const dbGroups = [
     {id:'cable', label:'Cable / Interconnect DB', kinds:['fiber','trunk','patch','aoc','dac','aec','copper']},
-    {id:'connectivity', label:'Connector / Panel DB', kinds:['connector','adapter','module','panel']},
+    {id:'connectivity', label:'Connector / Panel / Adapter DB', kinds:['connector','adapter','module','panel']},
     {id:'optics', label:'Optics / Component DB', kinds:['transceiver','component']},
-    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server']},
-    {id:'compute', label:'연산장치', kinds:['cpu','gpu']},
-    {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery']},
-    {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management']},
-    {id:'splicer', label:'Splicer', kinds:['splicer']},
+    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu']},
+    {id:'accelerator', label:'Accelerator DB', kinds:['gpu']},
+    {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery','power']},
+    {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cooling','facility']},
+    {id:'splicer', label:'Splicer DB', kinds:['splicer']},
     {id:'other', label:'Other DB', kinds:['other']}
   ];
 
@@ -179,9 +181,213 @@
     return String(product?.path || '').split('/').filter(Boolean);
   }
 
+  const dbTaxonomyCache = new WeakMap();
+
+  function dbTaxonomy(product) {
+    if (product && typeof product === 'object' && dbTaxonomyCache.has(product)) {
+      return dbTaxonomyCache.get(product);
+    }
+
+    const path = String(product?.path || '');
+    const vendor = String(product?.vendor || dbPathParts(product)[0] || '');
+    const category = String(product?.category || '');
+    const name = String(product?.name || '');
+    const description = String(product?.description || '');
+    const t = [path, vendor, category, name, description].join(' ').toUpperCase();
+    const raw = String(product?.kind || 'other');
+
+    const hit = (kind, reason) => {
+      const result = {kind, reason};
+      if (product && typeof product === 'object') dbTaxonomyCache.set(product, result);
+      return result;
+    };
+
+    // 8) Splicer — explicit folder/product family takes priority.
+    if (/FUSION[ _/-]*SPLICER|SPLICER SOLUTIONS|\\bSPLICERS?\\b|90S\\+|90R(?:4|12|16)?|S179\\+|S124M16|S185(?:EDV)?|THERMAL JACKET REMOVER|FIBER PROTECTION SLEEVE/.test(t)) {
+      return hit('splicer','fusion-splicing product/tool');
+    }
+
+    // Current catalog top-level taxonomy. Map all known catalog families
+    // into the eight primary DB groups before product-name fallbacks.
+    const topCategory = String(dbPathParts(product)[1] || category || '').toUpperCase();
+    const fullPath = path.toUpperCase();
+
+    if (/^(FUSION SPLICER SOLUTIONS|FUSION SPLICERS|SPLICE TRAYS)$/.test(topCategory)) {
+      return hit('splicer','catalog family: splicer');
+    }
+    if (/^(GPU ACCELERATORS|DATA CENTER GPUS|AI ACCELERATORS|AI FACTORY PLATFORMS|PROFESSIONAL GPUS REFERENCE|GPU SERVERS|CLOUD TPU)$/.test(topCategory)) {
+      return hit('gpu','catalog family: accelerator');
+    }
+    if (/^(CPU|CPU PORTFOLIO|CPU AND SUPERCHIPS|DATA CENTER SWITCHES|NETWORK|NETWORKING|RACK SERVERS|SWITCHES NICS|INFINIBAND XDR NDR HDR)$/.test(topCategory)) {
+      if (/CPU/.test(topCategory)) return hit('cpu','catalog family: CPU');
+      if (/SWITCH|NETWORK|INFINIBAND/.test(topCategory)) return hit('switch','catalog family: network');
+      return hit('server','catalog family: server');
+    }
+    if (/^(UPS|GENERATORS|TRANSFORMERS|DATA CENTER POWER|POWER CONNECTORS AND BUSBAR|POWER DISTRIBUTION PANELS)$/.test(topCategory)) {
+      if (topCategory === 'UPS') return hit('ups','catalog family: UPS');
+      if (topCategory === 'GENERATORS') return hit('generator','catalog family: generator');
+      if (topCategory === 'TRANSFORMERS') return hit('transformer','catalog family: transformer');
+      return hit('power','catalog family: power');
+    }
+    if (/^(CABLE MANAGEMENT|LIQUID COOLING|RACK INFRASTRUCTURE|RACK MOUNT|RACKS|DATA CENTER INFRASTRUCTURE|FIBERGUIDE)$/.test(topCategory)) {
+      if (topCategory === 'CABLE MANAGEMENT' || topCategory === 'FIBERGUIDE') return hit('management','catalog family: cable management');
+      if (topCategory === 'LIQUID COOLING') return hit('cooling','catalog family: cooling');
+      if (/RACK/.test(topCategory)) return hit('rack','catalog family: rack');
+      return hit('facility','catalog family: infrastructure');
+    }
+    if (/^(ACTIVE ELECTRICAL CABLES|COPPER DAC|HIGH-SPEED CABLE ASSEMBLIES|STORAGE AND PCIE-SAS INTERCONNECTS|COAXIAL CABLES|COPPER MODULE CABLE ASSEMBLIES|FIBER CABLE ASSEMBLIES|FIBER CABLES|TWISTED PAIR CABLE ASSEMBLIES|TWISTED PAIR CABLES|CABLE|HARNESS|JUMPER|TRUNK|DATA CENTER CABLING|FIBER OPTIC CABLES|OPTICAL FIBERS|OPTICAL CABLE|POWER CABLE|BREAKOUT HARNESS|MPO CABLE|MPO MTP WIRING|AOC DAC ACC AEC|HIGH FIBER COUNT MPO TRUNKS|MTP MPO HARNESSES|MTP MPO JUMPERS|COPPER DATA CABLES|HIGH DENSITY FIBER ASSEMBLIES|CABLE ASSEMBLIES|RIBBON BREAKOUT & FANOUT KITS|PATCH CORD|광통신|통합배선)$/.test(topCategory)) {
+      if (/COPPER|TWISTED PAIR/.test(topCategory)) return hit('copper','catalog family: copper cable');
+      if (/TRUNK/.test(topCategory)) return hit('trunk','catalog family: trunk');
+      if (topCategory === 'AOC DAC ACC AEC') return hit('aoc','catalog family: active/direct cable');
+      if (/ASSEMBL|HARNESS|JUMPER|PATCH CORD|BREAKOUT|FANOUT|INTERCONNECT/.test(topCategory)) return hit('patch','catalog family: cable assembly');
+      return hit('fiber','catalog family: cable');
+    }
+    if (/^(ALL IT DATACOM PRODUCTS|BACKPLANE AND ORTHOGONAL CONNECTORS|ETHERNET USB AND EXTERNAL I-O|FIBER OPTIC CONNECTIVITY|HIGH-SPEED BOARD CONNECTORS|MEMORY AND CARD EDGE CONNECTORS|RF AND COAXIAL CONNECTIVITY|RUGGED CIRCULAR AND D-SUB|TERMINAL BLOCKS AND GENERAL INTERCONNECT|WIRE-TO-BOARD AND FFC-FPC|COPPER PANELS MODULES CASSETTES|BUILDING ENTRANCE SOLUTIONS|FIBER PANELS MODULES CASSETTES|ODF|PROPEL PANELS|ACCESSORIES|BRACKET|CONNECTOR|HOUSING|MODULE|PANEL|OPTICAL CONNECTIVITY AND RACK ENCLOSURES|OPTICAL CONNECTIVITY|CASSETTES & INTERCONNECT PANELS|ENTRANCE FRAMES|FIBER PANELS & SHELVES|OTHER ENCLOSURES|WALL MOUNT ENCLOSURES|FIELD CONNECTORS|LEGACY CONNECTORS|MPO-MT CONNECTORS|SC-LC CONNECTORS|VSFF CONNECTORS|MDC CONNECTORS|MMC CONNECTORS|MT FERRULES|MTP CONNECTORS|FIBER OPTIC CLEANERS)$/.test(topCategory)) {
+      if (/ADAPTER|ADAPTOR/.test(t)) return hit('adapter','catalog family: adapter');
+      if (/MODULE|CASSETTE/.test(topCategory)) return hit('module','catalog family: module/cassette');
+      if (/CONNECTOR|FERRULE|ALL IT DATACOM|BACKPLANE|BOARD|MEMORY|RF AND COAXIAL|RUGGED|TERMINAL|WIRE-TO-BOARD|FIELD|LEGACY|MDC|MMC|MTP|VSFF|SC-LC/.test(topCategory)) return hit('connector','catalog family: connector');
+      return hit('panel','catalog family: panel/housing');
+    }
+    if (/^(OPTICAL TRANSCEIVERS|OPTICAL PHYS AND DSPS|OPTICAL DSPS|SILICON PHOTONICS PICS|OPTICAL COMPONENTS|CPO LIGHT SOURCES|OPTICAL CHIPS AND LASERS|OPTICAL TIAS AND DRIVERS|CONNECTIVITY DSPS|TRANSCEIVER|SENSORS MATERIALS AND OTHER)$/.test(topCategory)) {
+      if (/TRANSCEIVER/.test(topCategory)) return hit('transceiver','catalog family: transceiver');
+      return hit('component','catalog family: optics/component');
+    }
+    if (topCategory === 'SWK™ SERIES') {
+      if (/SWK.*CABLE ASSEMBL/.test(fullPath)) return hit('patch','SWK cable assembly');
+      if (/SWK.*CONNECTOR/.test(fullPath)) return hit('connector','SWK connector');
+      if (/SWK.*PANEL/.test(fullPath)) return hit('panel','SWK panel');
+    }
+    if (topCategory === 'OPTICAL TRANSCEIVERS AND AOC') {
+      if (/AOC/.test(t) && !/TRANSCEIVER/.test(name.toUpperCase())) return hit('aoc','AOC');
+      return hit('transceiver','optical transceiver/AOC family');
+    }
+    if (topCategory === 'PDF SOURCES') return hit('component','legacy optical source catalog');
+
+    // 5) Accelerator — GPU/TPU/NPU and dedicated GPU-server / AI platform catalogs.
+    if (/GPU SERVERS?|DATA CENTER GPUS?|PROFESSIONAL GPUS?|AI ACCELERATORS?|AI FACTORY PLATFORM|\\bGPU\\b|\\bTPU\\b|\\bNPU\\b|INSTINCT MI\\d+|GAUDI\\s*3|ASCEND\\s*9|ATLAS 900|DRAGONFLY AI|IRONWOOD|TRILLIUM|\\bBR100\\b|BLACKWELL|HOPPER|VERA RUBIN/.test(t)) {
+      return hit('gpu','accelerator/GPU/NPU/TPU');
+    }
+
+    // 4) CPU belongs to Network / Server rather than Accelerator.
+    if (/(^|[\\/\\s])CPU([\\/\\s]|$)|SERVER CPU|CPU AND SUPERCHIPS|\\bEPYC\\b|\\bXEON\\b|GRACE CPU|AMPEREONE/.test(t)) {
+      return hit('cpu','server CPU');
+    }
+
+    // 1) User-requested cable overrides. Power Cable is deliberately Cable/Interconnect.
+    if (/POWER CABLE|OPTICAL FIBERS?|FIBER CABLES?|FIBRE CABLES?|OPTICAL CABLE|COAXIAL CABLE|TWISTED PAIR CABLE|COPPER DATA CABLE|RIBBON BREAKOUT\\s*&\\s*FANOUT|BREAKOUT HARNESS|MPO MTP WIRING|HIGH DENSITY FIBER ASSEMBL|UCFIBRE|UCFUTURE/.test(t)) {
+      if (/TWISTED PAIR|COPPER|CAT.?[568]/.test(t)) return hit('copper','copper cable');
+      if (/RIBBON BREAKOUT|BREAKOUT|FANOUT|HARNESS|ASSEMBL/.test(t)) return hit('patch','breakout/harness');
+      return hit('fiber','fiber/power cable');
+    }
+
+    // 6) Dedicated power distribution before generic connector/panel words.
+    if (/POWER CONNECTORS?|POWER DISTRIBUTION|BUSBAR|BUSDUCT|CABLE BUS|SWITCHGEAR|\\bPDU\\b|UNINTERRUPTIBLE|\\bUPS\\b|GENERATOR|TRANSFORMER|BATTERY|EHV|MEDIUM.?VOLTAGE|LOW.?VOLTAGE/.test(t)) {
+      if (/\\bUPS\\b|UNINTERRUPTIBLE/.test(t)) return hit('ups','UPS');
+      if (/GENERATOR/.test(t)) return hit('generator','generator');
+      if (/TRANSFORMER/.test(t)) return hit('transformer','transformer');
+      if (/BATTERY/.test(t)) return hit('battery','battery');
+      return hit('power','power distribution');
+    }
+
+    // 7) Rack / physical infrastructure / cooling.
+    if (/LIQUID COOLING|COOLANT|\\bCDU\\b|RDHX|CHILLER|CRAC|CRAH|COOLING|DATA CENTER INFRASTRUCTURE|CABLE MANAGEMENT|CABLE MANAGER|FIBERGUIDE|FIBERRUNNER|PATCHRUNNER|CONTAINMENT|AISLE|IT CABINET|ALL-IN-ONE CABINET|MICRO MODULAR DATA CENTER|CONTAINERIZED DATA CENTER/.test(t)) {
+      if (/COOL|CHILLER|CDU|RDHX|CRAC|CRAH/.test(t)) return hit('cooling','cooling infrastructure');
+      if (/CABLE MANAGEMENT|CABLE MANAGER|FIBERGUIDE|FIBERRUNNER|PATCHRUNNER/.test(t)) return hit('management','cable management');
+      return hit('facility','data-center infrastructure');
+    }
+
+    // Preserve reliable fine-grained BOM kinds where they already exist.
+    if (['fiber','trunk','patch','aoc','dac','aec','copper',
+         'connector','adapter','module','panel',
+         'transceiver','component',
+         'switch','nic','server',
+         'ups','generator','transformer','battery',
+         'rack','management'].includes(raw)) {
+      return hit(raw,'existing BOM kind');
+    }
+
+    // 2) Connector / panel / adapter families.
+    if (/BUILDING ENTRANCE SOLUTIONS|FIBER PANELS?|FIBRE PANELS?|MODULES?[ _/&-]*CASSETTES?|PATCH PANEL|ADAPTER|ADAPTOR|CONNECTOR|FERRULE|ODF|HOUSING|ENCLOSURE|ENTRANCE FRAME|WALL MOUNT|SPLICE TRAY|CASSETTE|TERMINATION BOX|PATCHING FRAME|DISTRIBUTION FRAME/.test(t)) {
+      if (/ADAPTER|ADAPTOR/.test(t)) return hit('adapter','adapter');
+      if (/MODULE|CASSETTE/.test(t)) return hit('module','module/cassette');
+      if (/CONNECTOR|FERRULE/.test(t)) return hit('connector','connector/ferrule');
+      return hit('panel','panel/housing/entrance');
+    }
+
+    // 3) Optics / component.
+    if (/TRANSCEIVER|OPTICAL MODULE|\\bLASER\\b|LASER CHIP|\\bDSP\\b|SILICON PHOTON|\\bPIC\\b|\\bTIA\\b|PHOTODIODE|PHOTONIC|CPO LIGHT SOURCE|OPTICAL PHY|CW-DFB|DFB LASER|CLEANER/.test(t)) {
+      if (/TRANSCEIVER|OPTICAL MODULE/.test(t)) return hit('transceiver','transceiver');
+      return hit('component','optical/electronic component');
+    }
+
+    // 4) Network / Server.
+    if (/NETWORKING|DATA CENTER SWITCH|\\bSWITCH\\b|\\bNIC\\b|SUPERNIC|NETWORK ADAPTER|CONNECTX|BLUEFIELD|QUANTUM|SPECTRUM|LEAF|SPINE|RACK SERVERS?|SERVER PLATFORM|COMPUTE TRAY|PROLIANT|POWEREDGE|SUPERMICRO SYS-/.test(t)) {
+      if (/\\bNIC\\b|SUPERNIC|NETWORK ADAPTER|CONNECTX|BLUEFIELD/.test(t)) return hit('nic','NIC/network adapter');
+      if (/SWITCH|QUANTUM|SPECTRUM|LEAF|SPINE/.test(t)) return hit('switch','network switch');
+      return hit('server','server');
+    }
+
+    // 7) Generic racks / accessories / hardware.
+    if (/\\bRACKS?\\b|RACK INFRASTRUCTURE|SERVER RACK|CABINET|MOUNTING HARDWARE|MOUNTING PLATE|BRACKET|ACCESSORIES|ACCESSORY/.test(t)) {
+      return hit('rack','rack/infrastructure accessory');
+    }
+
+    // Vendor/category fallback for broad catalogs that otherwise create a large Other bucket.
+    if (/COMMSCOPE/.test(t)) {
+      if (/CABLE/.test(t)) return hit('fiber','CommScope cable family');
+      return hit('panel','CommScope connectivity/entrance family');
+    }
+    if (/AMPHENOL/.test(t)) {
+      if (/CABLE|AEC|AOC|DAC|ASSEMBL/.test(t)) return hit('patch','Amphenol interconnect');
+      if (/OPTICAL|TRANSCEIVER|DSP|SILICON/.test(t)) return hit('component','Amphenol optical component');
+      if (/POWER/.test(t)) return hit('power','Amphenol power');
+      return hit('connector','Amphenol IT/datacom interconnect');
+    }
+    if (/CORNING|SENKO|US.?CONEC/.test(t)) return hit('connector','optical connectivity vendor');
+    if (/SUMITOMO ELECTRIC/.test(t)) {
+      if (/CABLE|JUMPER|SWK/.test(t)) return hit('patch','Sumitomo cable/interconnect');
+      return hit('panel','Sumitomo optical connectivity');
+    }
+    if (/FURUKAWA ELECTRIC/.test(t)) {
+      if (/NETWORK/.test(t)) return hit('switch','Furukawa network');
+      if (/CABLE/.test(t)) return hit('fiber','Furukawa cable');
+      return hit('component','Furukawa optical component');
+    }
+    if (/FUJIKURA/.test(t)) {
+      if (/FIBER|FIBRE|CABLE/.test(t)) return hit('fiber','Fujikura fiber/cable');
+      return hit('panel','Fujikura connectivity');
+    }
+    if (/ZTT/.test(t)) {
+      if (/DATA CENTER INFRASTRUCTURE/.test(t)) return hit('facility','ZTT infrastructure');
+      return hit('patch','ZTT optical interconnect');
+    }
+    if (/LS CNS|LS CABLE/.test(t)) return hit('fiber','LS cabling');
+    if (/GAON CABLE|TAIHAN/.test(t)) return hit('power','Korean data-center power');
+    if (/MOTIVAIR|COOLIT|VERTIV|RITTAL/.test(t) && /COOL|RACK|INFRA/.test(t)) return hit('facility','rack/cooling infrastructure');
+    if (/NVIDIA|AMD|INTEL|QUALCOMM|GOOGLE/.test(t)) {
+      if (/CPU|PROCESSOR/.test(t)) return hit('cpu','compute CPU fallback');
+      if (/GPU|ACCELERATOR|TPU|NPU|AI /.test(t)) return hit('gpu','compute accelerator fallback');
+      if (/NETWORK|CONNECTIVITY/.test(t)) return hit('nic','compute/network fallback');
+    }
+    if (/DRAKA|PRYSMIAN|NEXANS|HYC|IH OPTICS|SHIJIA|ZSINE|NADDOD|BELDEN|PANDUIT/.test(t)) {
+      return hit('patch','cable/interconnect vendor');
+    }
+    if (/SCHNEIDER|EATON|LS ELECTRIC|MPOWERSYS|XEONICS|GREEN POWER|CUMMINS|CATERPILLAR|HITACHI ENERGY/.test(t)) {
+      return hit('power','power vendor');
+    }
+    if (/CISCO|ARISTA|JUNIPER|BROADCOM/.test(t)) return hit('switch','network vendor');
+    if (/LUMENTUM|COHERENT|MARVELL|MACOM|AOI|CREDO/.test(t)) return hit('component','optics/component vendor');
+
+    return hit('other','unclassified');
+  }
+
+  function dbKindOf(product) {
+    return dbTaxonomy(product).kind;
+  }
+
   function dbProductsForKinds(products, kinds) {
     const set = new Set(kinds);
-    return products.filter(p => set.has(p.kind || 'other'));
+    return products.filter(p => set.has(dbKindOf(p)));
   }
 
   function dbCountMap(items, keyFn) {
@@ -246,11 +452,19 @@
     const groups = dbGroups.map(group => {
       const items = dbProductsForKinds(products, group.kinds);
       const pathCount = new Set(items.map(p => p.path).filter(Boolean)).size;
-      const kindCounts = dbCountMap(items, p => p.kind || 'other');
+      const kindCounts = dbCountMap(items, p => dbKindOf(p));
       return {...group, count:items.length, pathCount, kindCounts};
     });
+    const otherCount = dbProductsForKinds(products, ['other']).length;
+    const otherRate = products.length ? (otherCount / products.length * 100) : 0;
+    window.__dcDbTaxonomySummary = {
+      total: products.length,
+      other: otherCount,
+      otherRate: Number(otherRate.toFixed(2)),
+      groups: Object.fromEntries(groups.map(g => [g.id, g.count]))
+    };
     host.innerHTML =
-      '<div class="catalog-db-hub"><span>전체 제품 DB</span><b>' + products.length.toLocaleString('ko-KR') + '</b><small>' + companyCount + '개 업체 · ' + catalogCount + '개 catalog</small></div>' +
+      '<div class="catalog-db-hub"><span>전체 제품 DB</span><b>' + products.length.toLocaleString('ko-KR') + '</b><small>' + companyCount + '개 업체 · ' + catalogCount + '개 catalog · Other ' + otherRate.toFixed(1) + '%</small></div>' +
       '<div class="catalog-db-branches">' +
       groups.map(group =>
         '<article class="catalog-db-node"><div class="catalog-db-node-head"><div><span>' + esc(group.label) + '</span><b>' + group.count.toLocaleString('ko-KR') + '개</b></div><button type="button" data-db-group="' + esc(group.id) + '">상세</button></div>' +

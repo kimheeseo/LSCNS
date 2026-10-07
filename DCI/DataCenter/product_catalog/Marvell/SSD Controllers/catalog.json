@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "Marvell",
+  "country": "USA",
+  "category": "SSD Controllers",
+  "displayName": "SSD Controller · Marvell",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.marvell.com/products/ssd-controllers/mv-ss1331-1333.html",
+  "products": {
+    "bravera-sc5": {
+      "name": "Marvell Bravera SC5 · MV-SS1331 / MV-SS1333",
+      "officialUrl": "https://www.marvell.com/products/ssd-controllers/mv-ss1331-1333.html",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center SSD controller",
+        "Interface": "PCIe 5.0 · NVMe 1.4b",
+        "NAND Channels": "8 or 16",
+        "Throughput": "Up to 14 GB/s",
+        "Random Read": "Up to 2M IOPS",
+        "Role": "Cloud / data-center flash SSD controller"
+      }
+    }
+  }
+}

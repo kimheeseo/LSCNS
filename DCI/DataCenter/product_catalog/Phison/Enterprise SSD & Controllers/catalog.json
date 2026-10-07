@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Phison",
+  "country": "Taiwan",
+  "category": "Enterprise SSD & Controllers",
+  "displayName": "Enterprise SSD / Controller · Phison",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.phison.com/solutions/",
+  "products": {
+    "pascari-d206v": {
+      "name": "Phison Pascari D206V",
+      "officialUrl": "https://www.phison.com/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Enterprise data-center SSD",
+        "Interface": "PCIe Gen5",
+        "Capacity": "Up to 245.76 TB",
+        "Role": "AI / cloud / ultra-high-capacity data center storage"
+      }
+    },
+    "ps5020-x1": {
+      "name": "Phison PS5020-X1 Controller",
+      "officialUrl": "https://www.phison.com/solutions/ssd/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Enterprise SSD controller platform",
+        "Interface": "PCIe 4.0",
+        "Form factor": "U.2 / U.3",
+        "Capacity support": "16–30.72 TB reference",
+        "Sequential": "Up to 7400 / 6900 MB/s",
+        "Role": "Enterprise SSD controller"
+      }
+    }
+  }
+}

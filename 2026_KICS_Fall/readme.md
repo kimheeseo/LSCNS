@@ -19,6 +19,31 @@
 
 기본 GN 설정은 **Sobol 표본 2¹⁸개, 시드 1, 코히어런트 누적, 수신 적분점 7개**입니다. 채널·광섬유 조건은 사용자가 입력합니다.
 
+## KICS Fall 2026 실험 입력 조건
+
+아래 사진에 표시된 시스템 조건을 기준으로 GN 계산을 수행합니다. 사진의 Sobol seed 표시는 2이며, 본 실험의 seed sweep은 **seed=1, 2, 3**입니다. 각 seed의 결과를 각각 산출한 뒤 **선형 NLI 전력(W)에서 평균**합니다.
+
+![KICS Fall 2026 GN 계산 입력 조건](./conditions/gn_input_conditions.png)
+
+| 입력 항목 | 적용값 |
+|---|---:|
+| WDM 채널 수 | 50채널 |
+| 심볼률 / 채널 간격 | 95 GBd / 95 GHz |
+| 채널별 launch power | 0 dBm/ch |
+| 스팬 길이 / 스팬 수 | 80 km / 30 spans |
+| 총 전송 거리 | 2,400 km |
+| 파장 | 1550 nm |
+| 비선형 굴절률 n₂ | 2.2 × 10⁻²⁰ m²/W |
+| 감쇠 α / 분산 D | 0.146 dB/km / 22 ps/(nm·km) |
+| 스팬 누적 / 스펙트럼 | Incoherent / 직사각형 |
+| 송수신기 SNR | 18 dB |
+| Sobol 표본 수 | 2¹⁸ |
+| Sobol seed | 1, 2, 3 (각각 계산) |
+| CUT | 24 (코드의 0-based channel index) |
+| NLI 수신 대역 적분점 | 7개 |
+
+> CUT=24는 코드에서 채널 배열의 0-based 인덱스입니다. 그림의 seed=2는 공통 조건을 설명하는 예시이고, seed 평균 계산에서는 seed 1·2·3을 사용합니다. 송수신기 SNR은 GSNR 계산 조건이며 GN 적분으로 얻는 P_NLI 자체에는 직접 더해지지 않습니다.
+
 단위는 주파수 THz, 거리 km, 전력 W(두 편광 합계), 감쇠 dB/km, 분산 ps/(nm·km), gamma 1/(W·km), NLI PSD W/THz, 전송률·용량 Gb/s입니다.
 
 ## 사용 및 적용 범위

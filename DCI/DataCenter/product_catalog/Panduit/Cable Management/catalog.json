@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "company": "Panduit",
   "category": "Cable Management",
-  "displayName": "Cable Management (케이블 관리)",
-  "checked": "2026-10-05",
+  "displayName": "Cable Tray / Fiber Raceway · Panduit",
+  "checked": "2026-10-07",
   "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
   "storageMode": "official URL metadata only; no PDF upload",
   "products": {
@@ -57,6 +57,74 @@
         "비고": "폭/높이·하중·접지·지지 간격·경로 확인",
         "확인 상태": "제품군 참고 · SKU/공급/호환성 검증 필요"
       }
+    },
+    "fiberrunner-fr12x4yl10": {
+      "name": "FiberRunner 12 x 4 Hinged Channel FR12X4YL10",
+      "description": "12 x 4 in overhead FiberRunner channel for protected fiber routing in data centers.",
+      "officialUrl": "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "sourceUrls": [
+        "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html"
+      ],
+      "checked": "2026-10-07",
+      "confidence": "높음",
+      "referenceOnly": true,
+      "specs": {
+        "용도": "Overhead fiber raceway straight channel",
+        "구성": "12 x 4 in hinged channel",
+        "비고": "Tool-less modular FiberRunner system; bend radius / fill ratio design required",
+        "확인 상태": "공식 featured product · project SKU validation"
+      }
+    },
+    "fiberrunner-frbc12x4lyl": {
+      "name": "FiberRunner 12 x 4 QuickLock Coupler FRBC12X4LYL",
+      "description": "QuickLock coupler for joining 12 x 4 in FiberRunner sections.",
+      "officialUrl": "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "sourceUrls": [
+        "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html"
+      ],
+      "checked": "2026-10-07",
+      "confidence": "높음",
+      "referenceOnly": true,
+      "specs": {
+        "용도": "Fiber raceway joining",
+        "구성": "12 x 4 in QuickLock coupler",
+        "비고": "Tool-less raceway connection",
+        "확인 상태": "공식 featured product"
+      }
+    },
+    "fiberrunner-frspj4x4lyl": {
+      "name": "FiberRunner Spill-Over Fitting FRSPJ4X4LYL",
+      "description": "Spill-over fitting for routing fiber from overhead raceway toward racks/cabinets.",
+      "officialUrl": "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "sourceUrls": [
+        "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html"
+      ],
+      "checked": "2026-10-07",
+      "confidence": "높음",
+      "referenceOnly": true,
+      "specs": {
+        "용도": "Raceway-to-rack fiber drop",
+        "구성": "4 x 4 in spill-over fitting",
+        "비고": "Supports controlled transition into cabinets",
+        "확인 상태": "공식 featured product"
+      }
+    },
+    "fiberrunner-frt12x4lyl": {
+      "name": "FiberRunner Horizontal Tee FRT12X4LYL",
+      "description": "Horizontal tee for branching 12 x 4 in FiberRunner pathways.",
+      "officialUrl": "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html",
+      "sourceUrls": [
+        "https://www.panduit.com/asean/en/products/featured-products/fiberrunner-cable-routing-system.html"
+      ],
+      "checked": "2026-10-07",
+      "confidence": "높음",
+      "referenceOnly": true,
+      "specs": {
+        "용도": "Fiber raceway branch",
+        "구성": "12 x 4 in horizontal tee",
+        "비고": "Modular branch pathway",
+        "확인 상태": "공식 featured product"
+      }
     }
   },
   "comparisonFields": [
@@ -67,5 +135,6 @@
     "폭",
     "형식",
     "특징"
-  ]
+  ],
+  "description": "Panduit FiberRunner fiber raceway, PatchRunner and wire-basket cable tray references for data-center cable management."
 }

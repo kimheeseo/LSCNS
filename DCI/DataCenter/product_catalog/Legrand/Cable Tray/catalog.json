@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "company": "Legrand / Cablofil",
+  "country": "USA / France",
+  "category": "Cable Tray",
+  "displayName": "Cable Tray · Legrand Cablofil",
+  "description": "Data-center wire mesh cable tray and pathway accessories from Legrand Cablofil.",
+  "checked": "2026-10-07",
+  "officialUrl": "https://www.legrand.us/cablofil/data-centers",
+  "sourceUrls": [
+    "https://www.legrand.us/cablofil/data-centers",
+    "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/wire-mesh-cable-trays/p/series-wire-mesh-cf",
+    "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/2-deep-wire-mesh-g-tray-and-g-mini/p/series-wire-mesh-cfg"
+  ],
+  "comparisonFields": [
+    "Product",
+    "Type",
+    "Application",
+    "Depth / size",
+    "Construction",
+    "Standards / notes",
+    "BOM role"
+  ],
+  "products": {
+    "cablofil-wire-mesh": {
+      "name": "Cablofil Wire Mesh Cable Tray",
+      "description": "Open wire-mesh pathway for high-density data-center cable routing and future changes.",
+      "officialUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/wire-mesh-cable-trays/p/series-wire-mesh-cf",
+      "confidence": "높음",
+      "specs": {
+        "Product": "Cablofil Wire Mesh Cable Tray",
+        "Type": "Wire mesh cable tray",
+        "Application": "Data center",
+        "Depth / size": "Multiple depths and widths; project selection",
+        "Construction": "Open wire mesh; multiple finishes including electro-zinc and stainless options",
+        "Standards / notes": "NEMA VE-1 / CSA references available by product family",
+        "BOM role": "Overhead cable tray / pathway"
+      }
+    },
+    "cablofil-gtray": {
+      "name": "Cablofil G-Tray / G-Mini",
+      "description": "2-inch deep wire mesh tray family for data-center cable pathway applications.",
+      "officialUrl": "https://www.legrand.us/wire-and-cable-management/cable-tray-and-reels/wire-mesh-trays/2-deep-wire-mesh-g-tray-and-g-mini/p/series-wire-mesh-cfg",
+      "confidence": "높음",
+      "specs": {
+        "Product": "G-Tray / G-Mini",
+        "Type": "2 in deep wire mesh tray",
+        "Application": "Data center",
+        "Depth / size": "2 in deep; multiple widths",
+        "Construction": "Open wire mesh; field-formable bends/tees",
+        "Standards / notes": "Finish options include electro-zinc / black painted",
+        "BOM role": "Rack-row / overhead cable pathway"
+      }
+    },
+    "cablofil-data-center-system": {
+      "name": "Cablofil Data Center Cable Management System",
+      "description": "Wire mesh tray with Cablobend and dropout/splice accessories for high-capacity data centers.",
+      "officialUrl": "https://www.legrand.us/cablofil/data-centers",
+      "confidence": "높음",
+      "specs": {
+        "Product": "Cablofil Data Center System",
+        "Type": "Wire mesh tray + fittings/accessories",
+        "Application": "Large data center",
+        "Depth / size": "Project dependent",
+        "Construction": "Open system for adds/moves/changes",
+        "Standards / notes": "Includes Cablobend, Universal Dropout and splice accessories",
+        "BOM role": "Complete cable tray pathway system"
+      }
+    }
+  }
+}

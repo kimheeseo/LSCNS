@@ -158,7 +158,7 @@
     aoc:'AOC', dac:'DAC', aec:'AEC', copper:'Copper / Cat6',
     connector:'Connector', adapter:'Adapter', module:'Module / Cassette', panel:'Panel / Housing',
     transceiver:'Transceiver', component:'Optical / Electronic Component',
-    switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU',
+    switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU', storage:'Storage / SSD',
     gpu:'GPU / AI Accelerator',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
     rack:'Rack', management:'Cable Management', cabletray:'Cable Tray', raceway:'Fiber Raceway', cooling:'Cooling', facility:'Data Center Infrastructure',
@@ -169,7 +169,7 @@
     {id:'cable', label:'Cable / Interconnect DB', kinds:['fiber','trunk','patch','aoc','dac','aec','copper']},
     {id:'connectivity', label:'Connector / Panel / Adapter DB', kinds:['connector','adapter','module','panel']},
     {id:'optics', label:'Optics / Component DB', kinds:['transceiver','component']},
-    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu']},
+    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu','storage']},
     {id:'accelerator', label:'Accelerator DB', kinds:['gpu']},
     {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery','power']},
     {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cabletray','raceway','cooling','facility']},
@@ -227,7 +227,10 @@
     if (/^(GPU ACCELERATORS|DATA CENTER GPUS|AI ACCELERATORS|AI FACTORY PLATFORMS|PROFESSIONAL GPUS REFERENCE|GPU SERVERS|CLOUD TPU)$/.test(topCategory)) {
       return hit('gpu','catalog family: accelerator');
     }
-    if (/^(CPU|CPU PORTFOLIO|CPU AND SUPERCHIPS|DATA CENTER SWITCHES|NETWORK|NETWORKING|RACK SERVERS|SWITCHES NICS|INFINIBAND XDR NDR HDR)$/.test(topCategory)) {
+    if (/^(ENTERPRISE SSD|DATA CENTER SSD|ENTERPRISE SSD & CONTROLLERS|SSD CONTROLLERS|ENTERPRISE SSD CONTROLLERS)$/.test(topCategory)) {
+      return hit('storage','catalog family: storage / SSD');
+    }
+    if (/^(CPU|CPU PORTFOLIO|CPU AND SUPERCHIPS|DATA CENTER SWITCHES|DATA CENTER SWITCHING|NETWORK|NETWORKING|RACK SERVERS|SWITCHES NICS|INFINIBAND XDR NDR HDR)$/.test(topCategory)) {
       if (/CPU/.test(topCategory)) return hit('cpu','catalog family: CPU');
       if (/SWITCH|NETWORK|INFINIBAND/.test(topCategory)) return hit('switch','catalog family: network');
       return hit('server','catalog family: server');
@@ -259,7 +262,7 @@
       if (/CONNECTOR|FERRULE|ALL IT DATACOM|BACKPLANE|BOARD|MEMORY|RF AND COAXIAL|RUGGED|TERMINAL|WIRE-TO-BOARD|FIELD|LEGACY|MDC|MMC|MTP|VSFF|SC-LC/.test(topCategory)) return hit('connector','catalog family: connector');
       return hit('panel','catalog family: panel/housing');
     }
-    if (/^(OPTICAL TRANSCEIVERS|OPTICAL PHYS AND DSPS|OPTICAL DSPS|SILICON PHOTONICS PICS|OPTICAL COMPONENTS|CPO LIGHT SOURCES|OPTICAL CHIPS AND LASERS|OPTICAL TIAS AND DRIVERS|CONNECTIVITY DSPS|TRANSCEIVER|SENSORS MATERIALS AND OTHER)$/.test(topCategory)) {
+    if (/^(OPTICAL TRANSCEIVERS|DATACOM TRANSCEIVERS|OPTICAL PHYS AND DSPS|OPTICAL DSPS|SILICON PHOTONICS PICS|OPTICAL COMPONENTS|CPO LIGHT SOURCES|OPTICAL CHIPS AND LASERS|OPTICAL TIAS AND DRIVERS|CONNECTIVITY DSPS|TRANSCEIVER|SENSORS MATERIALS AND OTHER)$/.test(topCategory)) {
       if (/TRANSCEIVER/.test(topCategory)) return hit('transceiver','catalog family: transceiver');
       return hit('component','catalog family: optics/component');
     }

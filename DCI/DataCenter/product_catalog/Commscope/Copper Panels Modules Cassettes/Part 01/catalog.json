@@ -1614,33 +1614,6 @@
         "Rack Units": "6U"
       }
     },
-    "760073866": {
-      "name": "760073866 · iP-M4200i-24 · RJ45 patch panel",
-      "description": "iPatch® M4200i 24 Port UTP Intelligent Universal Modular Panel without Modules",
-      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "760073866",
-        "Part Name": "iP-M4200i-24",
-        "Product Type": "RJ45 patch panel",
-        "Product Brand": "iPatch® | imVision®",
-        "Product Series": "NA",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—",
-        "Port Count": "24",
-        "Rack Units": "—"
-      }
-    },
     "760080630": {
       "name": "760080630 · VP360-SIDEPNL · Side panel kit",
       "description": "GigaSPEED X10D® VisiPatch® 360 Side Panel Kit",
@@ -3150,33 +3123,6 @@
         "Flame Rating": "—",
         "Length": "—",
         "Port Count": "24",
-        "Rack Units": "—"
-      }
-    },
-    "760210161": {
-      "name": "760210161 · CPPA-CPANEL-M · Cover",
-      "description": "Angled Panel Cover for  M2400/M4800, Black",
-      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "760210161",
-        "Part Name": "CPPA-CPANEL-M",
-        "Product Type": "Cover",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—",
-        "Port Count": "—",
         "Rack Units": "—"
       }
     },
@@ -5556,6 +5502,33 @@
         "Rack Units": "1U"
       }
     },
+    "760073866": {
+      "name": "760073866 · iP-M4200i-24 · RJ45 patch panel",
+      "description": "iPatch® M4200i 24 Port UTP Intelligent Universal Modular Panel without Modules",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760073866",
+        "Part Name": "iP-M4200i-24",
+        "Product Type": "RJ45 patch panel",
+        "Product Brand": "iPatch® | imVision®",
+        "Product Series": "NA",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "24",
+        "Rack Units": "—"
+      }
+    },
     "760180018": {
       "name": "760180018 · CPP-5E-DM-2U-48 · RJ45 patch panel",
       "description": "Unshielded Distribution Module Panel, Cat 5e, 2U, 48 port, Black",
@@ -6474,33 +6447,6 @@
         "Rack Units": "1U"
       }
     },
-    "760259580": {
-      "name": "760259580 · 360-SMOD-6A-1U-48 · Copper patch panel",
-      "description": "SYSTIMAX 360™ GigaSHIELD X10D® Shielded Modular Panel, Cat 6A, 1U, 48 port, Silver",
-      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "760259580",
-        "Part Name": "360-SMOD-6A-1U-48",
-        "Product Type": "Copper patch panel",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "—",
-        "Category": "Cat6A",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—",
-        "Port Count": "48",
-        "Rack Units": "1U"
-      }
-    },
     "LSA-70141200-11": {
       "name": "LSA-70141200-11 · LSA-7014 1 200-11 · Cable head",
       "description": "LSA-PLUS® Cable Head, cat 3, 200-pair",
@@ -6838,6 +6784,33 @@
         "Product Brand": "UNIPATCH®",
         "Product Series": "—",
         "Status": "Discontinued",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "—",
+        "Rack Units": "—"
+      }
+    },
+    "760260791": {
+      "name": "760260791 · CPP-UDDM-KJ-KIT-4PK · Module",
+      "description": "Unshielded Discrete Distribution Module, Keystone, (4 ea/pkg), Black",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760260791",
+        "Part Name": "CPP-UDDM-KJ-KIT-4PK",
+        "Product Type": "Module",
+        "Product Brand": "—",
+        "Product Series": "KJ Series | UKJ Series",
+        "Status": "—",
         "Category": "—",
         "Pair Count": "—",
         "AWG": "—",
@@ -8310,6 +8283,33 @@
         "Rack Units": "—"
       }
     },
+    "760178368": {
+      "name": "760178368 · CPPA-CPANEL · Cover",
+      "description": "Angled Panel Cover, Black",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760178368",
+        "Part Name": "CPPA-CPANEL",
+        "Product Type": "Cover",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "Discontinued",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "—",
+        "Rack Units": "—"
+      }
+    },
     "760180067": {
       "name": "760180067 · UNPA-6-DM-1U-24 · RJ45 patch panel",
       "description": "Unshielded Angled Distribution Module Panel, Cat 6, 1U, 24 port, Black",
@@ -9741,33 +9741,6 @@
         "Rack Units": "—"
       }
     },
-    "760253471": {
-      "name": "760253471 · CPP-SVS-CL-KIT-4PK · Cable management hardware",
-      "description": "Saddle & Velcro Strap Kit, Clear",
-      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "760253471",
-        "Part Name": "CPP-SVS-CL-KIT-4PK",
-        "Product Type": "Cable management hardware",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—",
-        "Port Count": "—",
-        "Rack Units": "—"
-      }
-    },
     "760253535": {
       "name": "760253535 · M2400A-1U-GS-WH · RJ45 patch panel",
       "description": "M2400 1U Angled Modular Panel, 24 port (MGS600 / MGS400 / MPS100 / UNJ10GT / UNJ600T / UNJ10G / UNJ600 / UNJ500), White",
@@ -10819,6 +10792,33 @@
         "Length": "—",
         "Port Count": "24",
         "Rack Units": "—"
+      }
+    },
+    "760207274": {
+      "name": "760207274 · CPP-UDDM-M-1U-24 · RJ45 patch panel",
+      "description": "Unshielded Discrete Distribution Module Panel, M-series, 1U, 24 port, Black",
+      "officialUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "businessUrl": "https://www.commscope.com/product-type/frames-panels-cassettes-modules/copper-panels-modules-cassettes/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760207274",
+        "Part Name": "CPP-UDDM-M-1U-24",
+        "Product Type": "RJ45 patch panel",
+        "Product Brand": "—",
+        "Product Series": "M Series",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—",
+        "Port Count": "24",
+        "Rack Units": "1U"
       }
     }
   }

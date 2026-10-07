@@ -24,6 +24,31 @@
     "Length"
   ],
   "products": {
+    "CARXD": {
+      "name": "CARXD · IP6A-12PUTP-1100E-BLUNT · Copper trunk cable assembly",
+      "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 12 links",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "CARXD",
+        "Part Name": "IP6A-12PUTP-1100E-BLUNT",
+        "Product Type": "Copper trunk cable assembly",
+        "Product Brand": "GigaSPEED X10D® | InstaPATCH® Cu",
+        "Product Series": "—",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "U/UTP",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "Plenum",
+        "Jacket": "Plenum",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
     "CARNB": {
       "name": "CARNB · IP6A-06PUTP-1100E-1100L · Copper trunk cable assembly",
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to 1100 module, 6 links",
@@ -9997,31 +10022,6 @@
         "Jacket": "—",
         "Flame Rating": "—",
         "Length": "5 m"
-      }
-    },
-    "2134201-2": {
-      "name": "2134201-2 · Twisted pair patch cord",
-      "description": "RJ45 Patch Cord, category 6, U/UTP, with security key, white, 2 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "2134201-2",
-        "Part Name": "",
-        "Product Type": "Twisted pair patch cord",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "Category": "Cat6",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "U/UTP",
-        "Connector Type": "RJ45",
-        "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "2 m"
       }
     }
   }

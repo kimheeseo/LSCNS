@@ -8949,31 +8949,6 @@
         "Length": "—"
       }
     },
-    "UC1BBB2": {
-      "name": "UC1BBB2 · Twisted pair patch cord",
-      "description": "Uniprise® Cat 6 U/UTP RJ45 Patch Cord, Non-Plenum",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "UC1BBB2",
-        "Part Name": "",
-        "Product Type": "Twisted pair patch cord",
-        "Product Brand": "—",
-        "Product Series": "UC",
-        "Status": "—",
-        "Category": "Cat6",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "U/UTP",
-        "Connector Type": "RJ45",
-        "Connector": "RJ45",
-        "Cable Jacket": "Plenum",
-        "Jacket": "Plenum",
-        "Flame Rating": "—",
-        "Length": "—"
-      }
-    },
     "UC1BBC2": {
       "name": "UC1BBC2 · Twisted pair patch cord",
       "description": "Uniprise Category 6 U/UTP Patch Cord, RJ45 to RJ45, 4-pair, Plenum",
@@ -9624,6 +9599,56 @@
         "Length": "50 ft"
       }
     },
+    "UC1BBB2": {
+      "name": "UC1BBB2 · Twisted pair patch cord",
+      "description": "Uniprise® Cat 6 U/UTP RJ45 Patch Cord, Non-Plenum",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "UC1BBB2",
+        "Part Name": "",
+        "Product Type": "Twisted pair patch cord",
+        "Product Brand": "—",
+        "Product Series": "UC",
+        "Status": "—",
+        "Category": "Cat6",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "U/UTP",
+        "Connector Type": "RJ45",
+        "Connector": "RJ45",
+        "Cable Jacket": "Plenum",
+        "Jacket": "Plenum",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
+    "UC1BB52": {
+      "name": "UC1BB52 · Twisted pair patch cord",
+      "description": "Uniprise® Cat 6 U/UTP RJ45 Patch Cord, Non-Plenum",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "UC1BB52",
+        "Part Name": "",
+        "Product Type": "Twisted pair patch cord",
+        "Product Brand": "—",
+        "Product Series": "UC",
+        "Status": "—",
+        "Category": "Cat6",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "U/UTP",
+        "Connector Type": "RJ45",
+        "Connector": "RJ45",
+        "Cable Jacket": "Plenum",
+        "Jacket": "Plenum",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
     "CYRRB": {
       "name": "CYRRB · IP6ASD-06RUTP-1100E-1100E · Copper trunk cable assembly",
       "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP SD Riser Preterminated Copper Cable, 360 1100 Evolve module to 360 1100 Evolve module, 6 links",
@@ -9983,31 +10008,6 @@
       "specs": {
         "Part Number": "CACCD",
         "Part Name": "IP6A-12PUTP-O2H-O2H",
-        "Product Type": "Copper trunk cable assembly",
-        "Product Brand": "GigaSPEED X10D® | InstaPATCH® Cu",
-        "Product Series": "—",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "U/UTP",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "Plenum",
-        "Jacket": "Plenum",
-        "Flame Rating": "—",
-        "Length": "—"
-      }
-    },
-    "CARXD": {
-      "name": "CARXD · IP6A-12PUTP-1100E-BLUNT · Copper trunk cable assembly",
-      "description": "InstaPATCH® Cu GigaSPEED X10D® U/UTP Plenum Preterminated Copper Cable, 360 1100 Evolve module to unterminated, 12 links",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "CARXD",
-        "Part Name": "IP6A-12PUTP-1100E-BLUNT",
         "Product Type": "Copper trunk cable assembly",
         "Product Brand": "GigaSPEED X10D® | InstaPATCH® Cu",
         "Product Series": "—",

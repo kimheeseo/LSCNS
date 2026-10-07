@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "company": "Silicon Motion",
+  "country": "Taiwan",
+  "category": "Enterprise SSD Controllers",
+  "displayName": "Enterprise SSD Controller · Silicon Motion",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.siliconmotion.com/products/enterprise/detail",
+  "products": {
+    "monTitan-sm8366-sm8388": {
+      "name": "Silicon Motion MonTitan · SM8366 / SM8388",
+      "officialUrl": "https://www.siliconmotion.com/products/enterprise/detail",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Enterprise SSD controller platform",
+        "Interface": "PCIe 5.0 · NVMe 2.0",
+        "OCP": "OCP Data Center NVMe support",
+        "Capacity": "Reference designs up to 128 TB",
+        "Sequential": "Over 14 GB/s",
+        "Random Read": "Up to 3.5M IOPS",
+        "Role": "Enterprise / hyperscale SSD controller"
+      }
+    }
+  }
+}

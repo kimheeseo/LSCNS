@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Micron",
+  "country": "USA",
+  "category": "Data Center SSD",
+  "displayName": "Data Center SSD · Micron",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.micron.com/products/storage/ssd/data-center-ssd",
+  "products": {
+    "9550": {
+      "name": "Micron 9550 NVMe SSD",
+      "officialUrl": "https://www.micron.com/products/storage/ssd/data-center-ssd/9550-ssd",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center NVMe SSD",
+        "Interface": "PCIe Gen5",
+        "Sequential Read": "Up to 14.0 GB/s",
+        "Sequential Write": "Up to 10.0 GB/s",
+        "Capacity": "Up to 30.72 TB",
+        "Role": "AI / cloud / database / HPC storage"
+      }
+    },
+    "9650": {
+      "name": "Micron 9650 NVMe SSD",
+      "officialUrl": "https://www.micron.com/products/storage/ssd/data-center-ssd",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center NVMe SSD",
+        "Interface": "PCIe Gen6",
+        "Role": "Next-generation AI / GPU-fed storage",
+        "Status": "Current portfolio reference; exact SKU specs to be checked per deployment"
+      }
+    }
+  }
+}

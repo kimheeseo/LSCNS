@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "KIOXIA",
+  "country": "Japan",
+  "category": "Enterprise SSD",
+  "displayName": "Enterprise SSD · KIOXIA",
+  "checked": "2026-10-08",
+  "officialUrl": "https://kr.kioxia.com/ko-kr/business/ssd/enterprise-ssd.html",
+  "products": {
+    "cm9-series": {
+      "name": "KIOXIA CM9 Series",
+      "officialUrl": "https://kr.kioxia.com/ko-kr/business/ssd/enterprise-ssd.html",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Enterprise NVMe SSD",
+        "Interface": "PCIe 5.0 · NVMe 2.0",
+        "Form factor": "E3.S",
+        "Flash": "BiCS FLASH TLC",
+        "DWPD": "CM9-V 3 DWPD / CM9-R 1 DWPD",
+        "Role": "AI/ML, BI, data warehouse, OLTP, SDS"
+      }
+    }
+  }
+}

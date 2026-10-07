@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "Vertiv",
+  "country": "USA",
+  "category": "UPS",
+  "displayName": "UPS · Vertiv",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/liebert-exl-s1/",
+  "products": {
+    "liebert-exl-s1": {
+      "name": "Vertiv Liebert EXL S1",
+      "officialUrl": "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/liebert-exl-s1/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Three-phase data-center UPS",
+        "Power": "250–1200 kW family",
+        "Voltage": "480 V / regional variants",
+        "Topology": "Online double-conversion",
+        "Role": "Large / hyperscale data center UPS",
+        "Status": "Exact project voltage, battery and redundancy configuration to be validated"
+      }
+    }
+  }
+}

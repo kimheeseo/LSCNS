@@ -396,7 +396,7 @@ obj(m,8,1,8,2,'cooler','chiller','CHILLER BANK');obj(m,2,14,4,2,'utility','secur
 for(const [x,y] of [[1,7],[2,7],[21,7],[22,7],[1,18],[2,18],[21,18],[22,18]])m.grid[y][x]='tree';
 for(const [x,y] of [[4,7],[19,7],[4,18],[19,18]])m.grid[y][x]='plant';
 m.grid[12][11]=m.grid[12][12]='door';m.doors['11,12']=m.doors['12,12']=['gray',11,17,'up'];
-m=base('gray','floor');fill(m,10,1,4,18,'walk');obj(m,2,3,5,3,'ups','ups','UPS / BATTERY');obj(m,17,3,5,3,'power','power','PDU');obj(m,2,10,5,3,'cooler','cooling','PUMP / CDU');obj(m,17,10,5,3,'console','noc','MONITOR');
+m=base('gray','floor');fill(m,10,1,4,18,'walk');obj(m,2,3,5,3,'ups','ups','UPS / BATTERY');obj(m,17,3,5,3,'power','power','PDU');obj(m,2,10,5,3,'cooler','cooling','PUMP / CDU');obj(m,17,10,5,3,'console','noc','MONITOR'); // v4 realistic silhouettes: UPS+battery bank / switchboard PDU / CDU pump skid / NOC monitor wall
 for(let y=2;y<18;y++){m.grid[y][9]='stripe';m.grid[y][14]='stripe'}
 for(let x=10;x<=13;x++){m.grid[0][x]='gate';m.doors[x+',0']=['white',11,17,'up'];m.grid[19][x]='exit';m.doors[x+',19']=['campus',11,13,'down']}
 m=base('white','white');
@@ -515,7 +515,76 @@ function machine(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;rect(x+3,y+4,w,h,'#727e6
  else{for(let xx=5;xx<w-9;xx+=18){rect(x+xx,y+12,14,h-16,'#637c70');for(let yy=17;yy<h-8;yy+=5)rect(x+xx+2,y+yy,10,2,'#a9baa0');rect(x+xx+10,y+13,2,2,'#e6cc7a')}}
  if(o.label){rect(x,y-9,w,8,'#e1e2bb');text(o.label,x+w/2,y-2,'#445d4b',6)}
 }
-function drawObj(o){if(o.type==='building'||o.type==='utility')building(o);else if(o.type==='sign'){let x=o.x*T,y=o.y*T;rect(x+7,y+9,3,7,'#6c5b3e');rect(x+1,y+1,14,10,'#685e47');rect(x+2,y+2,12,7,'#eaddad');rect(x+4,y+4,8,1,'#85754d');rect(x+4,y+6,6,1,'#85754d')}else machine(o)}
+/* Electrical Room v4 — equipment-specific, realistic pixel silhouettes */
+function electricalMachine(o){
+ let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;
+ const frame=(xx,yy,ww,hh,body='#73817c')=>{
+  rect(xx+4,yy+5,ww,hh,'#68746c66');
+  rect(xx,yy,ww,hh,'#334541');
+  rect(xx+2,yy+2,ww-4,hh-5,body);
+  rect(xx+3,yy+3,ww-6,3,'#cbd2c3');
+  rect(xx+3,yy+hh-5,ww-6,2,'#263935');
+ };
+ const led=(xx,yy,on=true)=>{rect(xx,yy,3,3,on?'#9fd37f':'#596a61');rect(xx+1,yy,1,1,on?'#eff7b9':'#8b9a8e')};
+ const vent=(xx,yy,ww,hh)=>{rect(xx,yy,ww,hh,'#40524e');for(let vy=yy+2;vy<yy+hh-1;vy+=4)rect(xx+2,vy,ww-4,1,'#9eaea2')};
+ const pipe=(x1,y1,x2,y2,color,th=3)=>{ctx.save();ctx.strokeStyle=color;ctx.lineWidth=th;ctx.lineCap='square';ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()};
+ rect(x+5,y+h-1,w-6,5,'#3d514836');
+
+ if(o.id==='ups'){
+  // UPS power electronics cabinet + separate battery cabinet bank.
+  frame(x+2,y+4,38,h-7,'#687873');
+  frame(x+43,y+4,w-45,h-7,'#7a8177');
+  rect(x+7,y+10,27,10,'#233937');rect(x+10,y+12,12,5,'#8ab8a2');led(x+27,y+13,true);led(x+31,y+13,false);
+  vent(x+7,y+24,27,h-32);
+  for(let by=y+10;by<y+h-9;by+=8){rect(x+48,by,w-56,6,'#4e605a');rect(x+50,by+1,w-60,4,'#929f91');for(let bx=x+52;bx<x+w-12;bx+=8)rect(bx,by+2,4,2,'#324440')}
+  rect(x+38,y+8,2,h-16,'#222f2d');
+  rect(x+6,y+h-7,29,2,'#c49b45'); // caution strip
+  for(let sx=x+7;sx<x+34;sx+=7)rect(sx,y+h-7,3,2,'#343a31');
+  return;
+ }
+ if(o.id==='power'){
+  // Floor PDU / distribution switchboard: breaker compartments, meter and copper-bus mimic.
+  frame(x+2,y+4,w-4,h-7,'#667872');
+  for(let cx=x+7;cx<x+w-8;cx+=19){rect(cx,y+9,16,h-17,'#40544f');rect(cx+2,y+11,12,7,'#263b38');rect(cx+4,y+12,6,4,'#9ab8a0');led(cx+11,y+13,(cx%2)===1);
+   for(let by=y+22;by<y+h-10;by+=5){rect(cx+3,by,10,3,'#a7b3a5');rect(cx+4,by+1,4,1,'#4e625b')}}
+  rect(x+5,y+h-8,w-10,3,'#a86f38');rect(x+5,y+h-7,w-10,1,'#e2b46a');
+  return;
+ }
+ if(o.id==='cooling'){
+  // CDU/pump skid: heat-exchanger cabinet, dual pumps, gauges and blue/red piping.
+  rect(x+3,y+6,w-6,h-10,'#425954');
+  rect(x+6,y+9,24,h-17,'#869b91');vent(x+9,y+13,18,h-27);
+  // dual circular pump bodies
+  for(const px of [x+43,x+61]){
+   ctx.save();ctx.fillStyle='#536b65';ctx.beginPath();ctx.arc(px,y+27,9,0,Math.PI*2);ctx.fill();ctx.fillStyle='#aab9aa';ctx.beginPath();ctx.arc(px,y+27,5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#3d514d';ctx.fillRect(px-1,y+22,2,10);ctx.fillRect(px-5,y+26,10,2);ctx.restore();
+  }
+  pipe(x+29,y+14,x+w-5,y+14,'#4a91b5',4);pipe(x+29,y+h-10,x+w-5,y+h-10,'#a75b49',4);
+  pipe(x+43,y+14,x+43,y+19,'#4a91b5',3);pipe(x+61,y+14,x+61,y+19,'#4a91b5',3);
+  pipe(x+43,y+35,x+43,y+h-10,'#a75b49',3);pipe(x+61,y+35,x+61,y+h-10,'#a75b49',3);
+  // pressure gauges
+  for(const gx of [x+36,x+68]){ctx.save();ctx.fillStyle='#e4e5cf';ctx.beginPath();ctx.arc(gx,y+9,4,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#334943';ctx.lineWidth=1;ctx.stroke();ctx.restore();rect(gx,y+8,2,1,'#596a62')}
+  return;
+ }
+ if(o.id==='noc'){
+  // Monitoring workstation: one wide display wall + operator console/keyboard.
+  rect(x+5,y+7,w-10,h-13,'#334943');
+  rect(x+9,y+10,w-18,24,'#17282b');
+  rect(x+11,y+12,w-22,20,'#7fa49a');
+  // dashboard panes and trend lines
+  rect(x+13,y+14,16,7,'#c3d5c5');rect(x+31,y+14,16,7,'#adc6bb');rect(x+49,y+14,w-62,7,'#c3d5c5');
+  for(let i=0;i<5;i++){rect(x+14+i*8,y+27-(i%3)*2,5,2,'#466f64')}
+  rect(x+8,y+36,w-16,7,'#526761');rect(x+18,y+38,w-36,2,'#c1c8b6');rect(x+w/2-7,y+44,14,2,'#2e403c');
+  led(x+w-12,y+38,Math.floor(clock/500)%2===0);
+  return;
+ }
+ machine(o);
+}
+function drawObj(o){
+ if(zone==='gray'&&['ups','power','cooling','noc'].includes(o.id)){electricalMachine(o);return}
+ if(o.type==='building'||o.type==='utility')building(o);
+ else if(o.type==='sign'){let x=o.x*T,y=o.y*T;rect(x+7,y+9,3,7,'#6c5b3e');rect(x+1,y+1,14,10,'#685e47');rect(x+2,y+2,12,7,'#eaddad');rect(x+4,y+4,8,1,'#85754d');rect(x+4,y+6,6,1,'#85754d')}
+ else machine(o)
+}
 function hero(){let x=p.x*T,y=p.y*T;if(move){x+=(move.x-p.x)*T*move.f;y+=(move.y-p.y)*T*move.f}x=Math.round(x);y=Math.round(y)-4;let step=move?Math.floor(move.f*3)%2:0;rect(x+3,y+18,11,2,'#758061');rect(x+4,y+2,8,3,'#443e38');rect(x+3,y+4,10,5,'#9a4c35');rect(x+4,y+3,7,3,'#d67945');rect(x+3,y+7,11,2,'#523e32');rect(x+4,y+9,8,5,'#efd099');if(p.dir==='up'){rect(x+4,y+9,8,3,'#574735')}else{if(p.dir!=='right')rect(x+5,y+10,1,2,'#383e36');if(p.dir!=='left')rect(x+10,y+10,1,2,'#383e36')}
  rect(x+3,y+14,10,4,'#4c6970');rect(x+1,y+14,2,3,'#e4bc88');rect(x+13,y+14,2,3,'#e4bc88');rect(x+4,y+17,3,3-step,'#3b4544');rect(x+9,y+17,3,2+step,'#3b4544');if(p.dir==='up'){rect(x+6,y+13,5,5,'#cfad60');rect(x+7,y+14,3,2,'#f0cd80')}}
 function target(){let [dx,dy]=dirs[p.dir],x=p.x+dx,y=p.y+dy;return maps[zone].objects.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h)}

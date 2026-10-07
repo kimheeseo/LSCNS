@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "company": "Flex",
+  "country": "USA",
+  "category": "Data Center Power",
+  "displayName": "Data Center Power · Flex",
+  "checked": "2026-10-08",
+  "officialUrl": "https://flex.com/resources/powering-data-centers-from-grid-to-chip",
+  "products": {
+    "gb200-gb300-power-shelf": {
+      "name": "Flex GB200 / GB300 1RU Power Shelf",
+      "officialUrl": "https://flex.com/resources/power-shelves",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Rack-level power shelf",
+        "Output": "Up to 33 kW total · 6 PSUs",
+        "Form factor": "1RU 19-inch",
+        "Efficiency": "Up to 97.5% peak",
+        "Monitoring": "Redfish via PSC",
+        "Role": "AI server / hyperscale cloud rack power"
+      }
+    },
+    "nvl72-110kw-power-shelf": {
+      "name": "Flex MGX / Vera Rubin NVL72 110 kW Power Shelf",
+      "officialUrl": "https://flex.com/resources/power-shelf-for-nvidia-vera-rubin-nvl72",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Rack-scale AI power shelf",
+        "Output": "Up to 110 kW DC",
+        "PSUs": "Up to 6 hot-pluggable 18.4 kW PSUs",
+        "DC Bus": "52–54 V class",
+        "Monitoring": "Redfish / current sharing",
+        "Role": "High-density AI rack power"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "Delta",
+  "country": "Taiwan",
+  "category": "UPS",
+  "displayName": "UPS · Delta",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.deltapowersolutions.com/ko-kr/mcis/50kw-500kw-three-phase-ups-dph-series-specifications.php",
+  "products": {
+    "modulon-dph-50-500": {
+      "name": "Delta Modulon DPH Series 50–500 kVA",
+      "officialUrl": "https://www.deltapowersolutions.com/ko-kr/mcis/50kw-500kw-three-phase-ups-dph-series-specifications.php",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Modular three-phase UPS",
+        "Power": "50–500 kVA",
+        "Input": "220/380 V, 230/400 V, 240/415 V · 3-phase",
+        "Power modules": "Up to 9 modules by frame",
+        "Role": "Data center / mission-critical UPS",
+        "Status": "Project battery, redundancy and local certification validation required"
+      }
+    }
+  }
+}

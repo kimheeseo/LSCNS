@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "Broadcom",
+  "country": "USA",
+  "category": "Data Center Switching",
+  "displayName": "Data Center Switching · Broadcom",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/switching/strataxgs/bcm78900-series",
+  "products": {
+    "tomahawk-5-bcm78900": {
+      "name": "Broadcom Tomahawk 5 · BCM78900 Series",
+      "officialUrl": "https://www.broadcom.com/products/ethernet-connectivity/switching/strataxgs/bcm78900-series",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center Ethernet switch silicon",
+        "Bandwidth": "51.2 Tb/s",
+        "Port examples": "64 × 800GbE / 128 × 400GbE / 256 × 200GbE",
+        "SerDes": "512 × 100G class",
+        "RoCEv2": "Supported",
+        "Role": "AI/ML and hyperscale leaf/spine switch platform silicon"
+      }
+    }
+  }
+}

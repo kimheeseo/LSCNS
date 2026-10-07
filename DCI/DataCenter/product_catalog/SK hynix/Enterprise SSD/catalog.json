@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "SK hynix",
+  "country": "Korea",
+  "category": "Enterprise SSD",
+  "displayName": "Enterprise SSD · SK hynix",
+  "checked": "2026-10-08",
+  "officialUrl": "https://news.skhynix.com/en/sk-hynix-showcases-full-stack-ai-memory-portfolio-at-2025-ocp-global-summit/",
+  "products": {
+    "ps1010": {
+      "name": "SK hynix PS1010",
+      "officialUrl": "https://news.skhynix.com/en/sk-hynix-develops-peb110-for-data-centers/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center eSSD",
+        "Interface": "PCIe Gen5",
+        "Form factor": "E3.S / U.2-U.3 reference",
+        "NAND": "176-layer 4D NAND reference",
+        "Role": "AI / high-performance data center storage"
+      }
+    },
+    "peb110": {
+      "name": "SK hynix PEB110 E1.S",
+      "officialUrl": "https://news.skhynix.com/en/sk-hynix-develops-peb110-for-data-centers/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Data-center eSSD",
+        "Interface": "PCIe Gen5",
+        "Form factor": "E1.S",
+        "NAND": "238-layer 4D NAND",
+        "Role": "AI / server / high-density storage"
+      }
+    }
+  }
+}

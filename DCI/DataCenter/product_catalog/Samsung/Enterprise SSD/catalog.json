@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "company": "Samsung",
+  "country": "Korea",
+  "category": "Enterprise SSD",
+  "displayName": "Enterprise SSD · Samsung",
+  "checked": "2026-10-08",
+  "officialUrl": "https://semiconductor.samsung.com/ssd/enterprise-ssd/",
+  "products": {
+    "pm1743": {
+      "name": "Samsung PM1743",
+      "officialUrl": "https://semiconductor.samsung.com/ssd/enterprise-ssd/pm1743/",
+      "confidence": "높음",
+      "specs": {
+        "Type": "Enterprise NVMe SSD",
+        "Interface": "PCIe 5.0",
+        "Sequential Read": "Up to 14,000 MB/s",
+        "Availability": "Dual-port support",
+        "Controller": "Samsung proprietary controller",
+        "Role": "AI / enterprise / mission-critical storage"
+      }
+    }
+  }
+}

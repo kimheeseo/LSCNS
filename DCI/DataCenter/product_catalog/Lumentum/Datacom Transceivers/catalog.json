@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "company": "Lumentum",
+  "country": "USA",
+  "category": "Datacom Transceivers",
+  "displayName": "Datacom Transceivers · Lumentum",
+  "checked": "2026-10-08",
+  "officialUrl": "https://www.lumentum.com/en/products/data-center/datacom-transceivers",
+  "products": {
+    "800g-2dr4-osfp": {
+      "name": "Lumentum 800G 2×DR4 OSFP",
+      "officialUrl": "https://www.lumentum.com/en/products/800g-2dr4-osfp-transceiver-module",
+      "confidence": "높음",
+      "specs": {
+        "Data rate": "800 Gb/s",
+        "Form factor": "OSFP",
+        "Optical": "2×DR4",
+        "Reach": "Up to 500 m SMF",
+        "Power": "<15.2 W typical reference",
+        "Connector": "2×MTP-12/APC",
+        "Role": "AI/cloud data-center switch interconnect"
+      }
+    },
+    "1.6t-2dr4-osfp": {
+      "name": "Lumentum 1.6T 2×DR4 OSFP",
+      "officialUrl": "https://www.lumentum.com/en/products/16t-2dr4-osfp-transceiver-module",
+      "confidence": "높음",
+      "specs": {
+        "Data rate": "1.6 Tb/s",
+        "Form factor": "OSFP",
+        "Optical": "2×DR4",
+        "Reach": "Up to 500 m SMF",
+        "Connector": "2×MPO-16/APC",
+        "Role": "Next-generation AI cluster / spine interconnect"
+      }
+    }
+  }
+}

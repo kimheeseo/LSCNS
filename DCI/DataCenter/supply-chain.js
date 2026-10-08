@@ -128,7 +128,7 @@ function verifiedProductHtml(k){
 }
 function relatedHtml(k,used){
   const usedSet=new Set((used||[]).map(x=>(x.vendor||'').toLowerCase()).filter(Boolean));
-  const arr=(RELATED_VENDORS[k]||[]).filter(v=>!usedSet.has(v.toLowerCase()));
+  const arr=(RELATED_VENDORS[k]||[]).map(v=>typeof v==='string'?v:v.vendor).filter(v=>v&&!usedSet.has(v.toLowerCase()));
   const products=verifiedProductHtml(k);
   const companies=arr.length?'<div class="sc-related"><div class="sc-related-title">Related companies <span>참고 업체 · 현재 BOM 미선택</span></div><div class="sc-related-chips">'+arr.map(v=>'<span>'+esc(v)+'</span>').join('')+'</div></div>':'';
   return products+companies;
@@ -267,10 +267,12 @@ function mount(){
 }
 function localize(){const b=document.getElementById('supply-chain-btn');if(b)b.textContent=tr().button;const m=document.getElementById('supply-chain-modal');if(m&&!m.hidden)render()}
 function start(){
-  mount();
+  let tourSupplyOpened=false;
+  const openTourSupply=()=>{if(!tourSupplyOpened&&location.hash==='#supply-chain'&&document.getElementById('supply-chain-btn')){tourSupplyOpened=true;open();}};
+  mount();openTourSupply();
   document.addEventListener('keydown',e=>{const m=document.getElementById('supply-chain-modal');if(!m||m.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const a=[...m.querySelectorAll('button,a[href]')],first=a[0],last=a[a.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   document.addEventListener('dc:design',()=>{localize();enrichProductReceipt();});
-  let attempts=0;const boot=setInterval(()=>{attempts++;const mounted=mount();const enriched=enrichProductReceipt();if((mounted&&enriched)||attempts>24)clearInterval(boot)},500);
+  let attempts=0;const boot=setInterval(()=>{attempts++;const mounted=mount();openTourSupply();const enriched=enrichProductReceipt();if((mounted&&enriched)||attempts>24)clearInterval(boot)},500);
   document.addEventListener('click',e=>{const q=e.target&&e.target.closest&&e.target.closest('[data-lang],[data-language],button,a,[role="button"]');if(q)setTimeout(()=>{localize();enrichProductReceipt()},50)},true);
   document.addEventListener('change',()=>setTimeout(()=>{localize();enrichProductReceipt()},30),true);
 }

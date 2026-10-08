@@ -1,0 +1,20 @@
+{
+  "runtime_seconds": 25.311097263999955,
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "target_used_for_fitting": false,
+  "nominal_core_radius_um": 14.75,
+  "nominal_wall_thickness_um": 0.5,
+  "derived_gap1_um": 6.299999999999997,
+  "derived_gap2_um": 15.05,
+  "three_layer_math_validation_mape_percent": 3.010474835581287,
+  "five_layer_petrovich_mape_percent": 149678.91382338002,
+  "seven_layer_petrovich_mape_percent": 957.258337475434,
+  "ten_percent_target_passed": false,
+  "fifteen_percent_target_passed": false,
+  "all_roots_converged": false,
+  "geometry_sweep_points": 54,
+  "geometry_sweep_nonconverged": 1
+}

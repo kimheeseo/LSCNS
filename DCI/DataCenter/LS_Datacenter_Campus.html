@@ -145,7 +145,11 @@ header{position:relative;background:#f5f3e8;border-bottom:1px solid #c7cbbb;marg
 .rackx-real-patch{top:22px;height:54px}.rackx-real-cassette{position:absolute;left:28px;right:28px;top:84px;height:78px;background:linear-gradient(#374348,#12191b);border:2px solid #0a0f11;z-index:7;overflow:hidden;transition:.28s ease}.rackx-real-cassette.open{height:112px;transform:translateY(8px);box-shadow:0 15px 25px #0008}
 .rackx-real-cassette small{position:absolute;right:7px;bottom:5px;font:6px Arial;color:#9fb0a9}.rackx-cassette-row{position:absolute;left:8px;right:8px;top:27px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.rackx-cassette{height:34px;border:1px solid #57717a;background:linear-gradient(#73898f,#26363c);position:relative;padding:3px}.rackx-cassette em{font:700 6px Arial;color:#d2e4e5;font-style:normal}.rackx-cassette i{display:inline-block;width:8px;height:8px;margin:9px 2px 0 0;background:linear-gradient(#2ee0f1,#06718c);border:1px solid #022e3b;box-shadow:0 0 3px #20d2e8}
 .rackx-real-manager{position:absolute;left:29px;right:29px;top:173px;height:33px;background:linear-gradient(#242c2f,#0f1416);border:2px solid #06090a;z-index:6;display:flex;gap:4px;padding:6px 8px;align-items:flex-end}.rackx-real-manager span{width:28px;height:16px;border:2px solid #48555a;border-top:0}.rackx-real-manager b{position:absolute;left:7px;top:4px;font:700 6px Arial;color:#aab8b4}
-.rackx-real-switch{top:216px;height:70px;background:linear-gradient(#25383e,#10191d 55%,#203138)}.rackx-real-ports{position:absolute;left:9px;right:9px;display:flex;flex-wrap:wrap;gap:4px}.patchports{bottom:8px}.patchports i{width:14px;height:12px;background:linear-gradient(#26cde8,#09657b);border:1px solid #052f3a;box-shadow:0 0 3px #19bcd5}.switchports{bottom:9px}.switchports i{width:8px;height:8px;background:#2b393d;border:1px solid #526467}.switchports i.optic{width:14px;background:linear-gradient(#d7b448,#79611f);border-color:#4b3e17;box-shadow:0 0 3px #e0c15c}
+.rackx-real-switch{top:216px;height:70px;background:linear-gradient(#25383e,#10191d 55%,#203138)}
+.rackx-real-rack.tor-focus .rackx-real-switch{outline:4px solid #ffd84d;box-shadow:0 0 0 2px #6f5511,0 0 24px #ffd84d99,inset 0 1px 0 #98a7ab}
+.rackx-real-rack.tor-focus .rackx-real-switch:after{content:'ToR · 1U';position:absolute;right:7px;top:-25px;background:#ffd84d;color:#26343a;border:2px solid #715a19;padding:3px 7px;font:900 9px Arial;letter-spacing:.04em}
+.rackx-tor-reference{margin:9px 0 0;border:1px solid #9daf9f;background:#eef3e9;padding:7px}.rackx-tor-reference[hidden]{display:none}.rackx-tor-reference img{display:block;width:100%;height:auto;border:1px solid #718079;background:#fff}.rackx-tor-reference figcaption{margin-top:5px;font:700 9px/1.45 Arial;color:#476259}
+.rackx-real-ports{position:absolute;left:9px;right:9px;display:flex;flex-wrap:wrap;gap:4px}.patchports{bottom:8px}.patchports i{width:14px;height:12px;background:linear-gradient(#26cde8,#09657b);border:1px solid #052f3a;box-shadow:0 0 3px #19bcd5}.switchports{bottom:9px}.switchports i{width:8px;height:8px;background:#2b393d;border:1px solid #526467}.switchports i.optic{width:14px;background:linear-gradient(#d7b448,#79611f);border-color:#4b3e17;box-shadow:0 0 3px #e0c15c}
 .rackx-real-fans{position:absolute;right:9px;top:8px;display:flex;gap:3px}.rackx-real-fans i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#56676b 0 20%,#11191b 22% 38%,#738186 40% 46%,#162023 48%)}
 .rackx-server{height:62px}.rackx-server:nth-of-type(10){top:302px}.rackx-server:nth-of-type(11){top:373px}.rackx-server:nth-of-type(12){top:444px}
 .rackx-server-face{position:absolute;left:8px;right:8px;top:23px;bottom:7px;display:flex;gap:5px;align-items:center}.rackx-server-face .mesh{flex:1;height:100%;background:radial-gradient(circle,#6d7a7e 0 1px,#182124 1px 4px);background-size:7px 7px;border:1px solid #0c1113}.rackx-server-face .drive{width:34px;height:19px;background:linear-gradient(#556267,#1b2427);border:1px solid #111}.rackx-server-face .nic{width:27px;height:16px;background:linear-gradient(#313f45,#11191c);border:1px solid #080d0f;box-shadow:inset 0 0 0 3px #136e78}.rackx-server-face .led{width:4px;height:4px;border-radius:50%;background:#78e56b;box-shadow:0 0 4px #7cff6d}
@@ -270,6 +274,10 @@ header{position:relative;background:#f5f3e8;border-bottom:1px solid #c7cbbb;marg
         </div>
       </div>
       <div class="rackx-detail" id="rackxDetail"><b>Rack Overview</b><span>Fiber Raceway / Cable Tray → Rack Top → Patch Panel → Module/Cassette → Optical I/O → Switch → Server NIC의 흐름을 확인하세요.</span></div>
+      <figure class="rackx-tor-reference" id="rackxTorReference" hidden>
+        <img src="./assets/campus-tour/tor-rack-highlight.svg?v=20261008" alt="ToR 스위치가 랙 최상단에 배치되고 Spine Core와 Uplink되는 구조">
+        <figcaption>ToR 구조 · Spine/Core Uplink → 1U ToR → 짧은 DAC/AEC/AOC → 서버 NIC</figcaption>
+      </figure>
       <div class="rackx-legend"><span>노랑 = Fiber Raceway / 광 연결</span><span>회청색 = Cable Tray</span><span>청록 = Switch / Optics</span><span>회색 = Server</span><span>양측 세로 = PDU A/B</span></div>
       <div class="rackx-note">현실적인 형상과 배선 관계를 이해하기 위한 교육용 일러스트입니다. 특정 제조사 제품을 그대로 복제한 이미지는 아니며 실제 RU·포트 수·케이블 색상·냉각/전원 방식은 설계에 따라 달라집니다.</div>
     </aside>
@@ -312,6 +320,7 @@ const rackPartInfo={
 let rackDrawerOpen=false,rackFlowOn=true;
 function rackRoleFor(o){
  const id=o?.id||'';
+ if(id==='tor')return 'ToR RACK';
  if(['network','leaf','spine','core','dci','mmr','odf'].includes(id))return 'NETWORK / OPTICAL RACK';
  if(id==='storage')return 'STORAGE RACK';
  return 'GPU / COMPUTE RACK';
@@ -335,13 +344,22 @@ function openRackExplorer(o){
  $('rackxTitle').textContent=(o?.label||'DATA CENTER RACK')+' · Realistic Rack View';
  $('rackxSubtitle').textContent='상부 Cable Tray / Fiber Raceway → Patch Panel → MPO/LC Cassette → Switch Optics → Server NIC의 실제적인 물리 경로를 확인합니다.';
  $('rackxRoleLabel').dataset.role=role;$('rackxRoleLabel').textContent=role+' · FRONT';
+ const rackEl=$('rackxRack'),torRef=$('rackxTorReference');
+ rackEl?.classList.toggle('tor-focus',o?.id==='tor');
+ if(torRef)torRef.hidden=o?.id!=='tor';
+ if(o?.id==='tor'){
+   $('rackxTitle').textContent='ToR RACK · FRONT VIEW';
+   $('rackxSubtitle').textContent='Spine/Core 광 Uplink → 랙 최상단 1U ToR → 짧은 DAC/AEC/AOC → Server NIC 연결을 강조합니다.';
+ }
  const serverLabels=document.querySelectorAll('#rackxRack .rackx-server .rackx-device-title');
  if(o?.id==='storage')serverLabels.forEach((el,i)=>el.textContent='STORAGE NODE 0'+(i+1));
- else if(['network','leaf','spine','core','dci','mmr','odf'].includes(o?.id)){
+ else if(['tor','network','leaf','spine','core','dci','mmr','odf'].includes(o?.id)){
    serverLabels.forEach((el,i)=>el.textContent=i===0?'NETWORK APPLIANCE':i===1?'OPTICAL / DCI APPLIANCE':'SERVICE / SPARE NODE');
  }else serverLabels.forEach((el,i)=>el.textContent='GPU / COMPUTE SERVER 0'+(i+1));
  document.querySelectorAll('.rackx-part').forEach(b=>b.classList.remove('active'));
- $('rackxDetail').innerHTML='<b>Rack Overview</b><span>현실형 전면 랙에서 Fiber Raceway/Cable Tray → Patch Panel → MPO/MTP Cassette → LC/VSFF Patch → OSFP/QSFP Transceiver → Leaf/ToR Switch → Server NIC의 광 경로를 확인하세요.</span>';
+ $('rackxDetail').innerHTML=o?.id==='tor'
+  ?'<b>ToR · Top of Rack</b><span>ToR 스위치를 랙 최상단 1U에 배치하고, 아래 서버 NIC에는 짧은 DAC/AEC/AOC를 사용합니다. 상위 Spine/Core에는 400G/800G급 광 Uplink를 구성하는 대표적인 랙 구조입니다.</span>'
+  :'<b>Rack Overview</b><span>현실형 전면 랙에서 Fiber Raceway/Cable Tray → Patch Panel → MPO/MTP Cassette → LC/VSFF Patch → OSFP/QSFP Transceiver → Leaf/ToR Switch → Server NIC의 광 경로를 확인하세요.</span>';
  applyRackMode();
  $('rackExplorerModal').showModal();
 }
@@ -356,6 +374,7 @@ const info={
  noc:['운영 · 모니터링','GRAY ZONE','전력·온도·유량과 설비 상태를 모니터링합니다. 여기서는 탐험 편의를 위해 운영 콘솔을 함께 배치했으며, 실제 운영실은 별도 구역일 수 있습니다.'],
  server:['컴퓨트 서버 랙','WHITE ZONE','CPU·GPU 서버가 연산을 수행하는 IT 영역입니다. 전력과 냉각이 안정적으로 공급되어야 하며 랙 간 통신에는 광·구리 케이블을 사용합니다.'],
  network:['네트워크 랙 · 광 연결','WHITE ZONE','스위치와 광 트랜시버가 서버·스토리지 사이의 데이터를 전달합니다. 광케이블과 커넥터는 랙 간 고속 연결을 구성합니다.'],
+ tor:['ToR · Top of Rack','WHITE ZONE','랙 최상단의 ToR 스위치가 랙 내부 서버 NIC를 짧은 DAC/AEC/AOC 또는 광 점퍼로 집선하고, 상위 Spine/Core 계층으로 고속 Uplink를 제공합니다.'],
  storage:['스토리지 랙','WHITE ZONE','데이터를 저장하고 읽어오는 장비입니다. 서버 및 네트워크와 연결되어 서비스에 필요한 데이터를 제공합니다.'],
  aisle:['통로 차폐 · 기류 관리','DATA HALL','Cold Aisle에는 차가운 공기를 공급하고 Hot Aisle에서는 뜨거운 공기를 회수합니다. 차폐는 두 기류의 혼합을 줄입니다. 화살표는 개념적 흐름입니다.'],
  transformer:['변압기','UTILITY YARD','외부 Utility 전원을 데이터센터 배전 전압으로 변환합니다. 실제 설계에서는 이중화와 유지보수 우회 경로를 함께 검토합니다.'],
@@ -406,7 +425,7 @@ fill(m,15,2,7,1,'hot');fill(m,15,6,7,2,'cold');fill(m,15,11,7,2,'cold');fill(m,1
 obj(m,2,3,7,3,'racks','server','GPU ROW A');
 obj(m,2,8,7,3,'racks','server','GPU ROW B');
 obj(m,2,13,7,2,'racks','storage','STORAGE');
-obj(m,15,3,7,3,'racks','network','NETWORK A');
+obj(m,15,3,7,3,'racks','tor','NETWORK A · ToR');
 obj(m,15,8,7,3,'racks','server','COMPUTE B');
 obj(m,15,13,7,2,'racks','server','COMPUTE C');
 obj(m,2,17,4,2,'crah','crah','CRAH');
@@ -504,7 +523,20 @@ function building(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T,main=o.type==='building
  text(o.label,x+w/2,y+21,'#263f45',main?9:7);
 }
 function machine(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;rect(x+3,y+4,w,h,'#727e68');rect(x,y,w,h,'#3e514b');rect(x+2,y+2,w-4,h-5,'#9cae9f');rect(x+2,y+2,w-4,7,'#cdd5b7');
- if(o.type==='racks'){for(let xx=3;xx<w-8;xx+=16){rect(x+xx,y+2,13,h-4,'#334e4a');for(let yy=7;yy<h-6;yy+=7){rect(x+xx+2,y+yy,9,5,'#637a6c');rect(x+xx+3,y+yy+1,4,1,'#98a58a');rect(x+xx+9,y+yy+1,1,2,(Math.floor(clock/450)+xx+yy)%3?'#d3d98e':'#7cb0aa')}}}
+ if(o.type==='racks'){
+  for(let xx=3;xx<w-8;xx+=16){
+   rect(x+xx,y+2,13,h-4,'#334e4a');
+   for(let yy=7;yy<h-6;yy+=7){rect(x+xx+2,y+yy,9,5,'#637a6c');rect(x+xx+3,y+yy+1,4,1,'#98a58a');rect(x+xx+9,y+yy+1,1,2,(Math.floor(clock/450)+xx+yy)%3?'#d3d98e':'#7cb0aa')}
+  }
+  if(o.id==='tor'){
+   const tx=x+3+16*3;
+   ctx.save();ctx.strokeStyle='#e7c33f';ctx.lineWidth=3;ctx.strokeRect(tx-1,y+1,15,h-2);ctx.restore();
+   rect(tx+1,y+4,11,6,'#18272c');
+   for(let px=tx+2;px<tx+11;px+=3)rect(px,y+6,2,2,'#3bc9ef');
+   ctx.save();ctx.fillStyle='#f2d34c';ctx.font='bold 7px Arial';ctx.textAlign='center';ctx.fillText('ToR',tx+6.5,y+16);ctx.restore();
+   ctx.save();ctx.strokeStyle='#47a9db';ctx.lineWidth=1.5;for(let px of [tx+3,tx+7,tx+10]){ctx.beginPath();ctx.moveTo(px,y+10);ctx.lineTo(px,y+h-5);ctx.stroke()}ctx.restore();
+  }
+ }
  else if(o.type==='cooler'){for(let xx=5;xx<w-12;xx+=25){rect(x+xx,y+13,21,22,'#526e63');rect(x+xx+2,y+15,17,18,'#b5c5aa');rect(x+xx+8,y+16,3,15,'#647e73');rect(x+xx+3,y+22,15,3,'#647e73');if(Math.floor(clock/200)%2) {rect(x+xx+5,y+18,11,3,'#7a9482');rect(x+xx+5,y+27,11,3,'#7a9482')}}}
  else if(o.type==='crah'){rect(x+4,y+7,w-8,h-10,'#486e75');for(let xx=8;xx<w-8;xx+=13){rect(x+xx,y+10,9,h-17,'#a9c8c4');rect(x+xx+2,y+12,5,h-21,'#6b9291')}rect(x+6,y+h-6,w-12,3,'#80aeb0')}
  else if(o.type==='busway'){rect(x+3,y+9,w-6,8,'#8b5e3c');rect(x+5,y+11,w-10,4,'#d3a15c');for(let xx=10;xx<w-6;xx+=16)rect(x+xx,y+16,3,8,'#5d4a35')}
@@ -671,6 +703,7 @@ const relatedData={
  cabletray:{items:['Cable Tray','Wire Basket','Cable Runway','Support / Dropout'],ls:['Optical Fiber Cable','Cat.6/6A','High Fiber Count Trunk']},
  fiberraceway:{items:['Fiber Raceway','Straight Channel','Tee / Elbow','Rack Drop / Spill-over'],ls:['Optical Fiber Cable','High Fiber Count Trunk','Patch Cord']},
  network:{items:['Leaf Switch','NIC','Optical Transceiver','Patch Panel','Fiber Trunk'],vendors:['NVIDIA','Broadcom','Arista','Coherent','Lumentum'],ls:['Optical Fiber Cable','MPO/VSFF Cabling','Cat.6/6A']},
+ tor:{items:['1U ToR Switch','Server NIC','DAC/AEC/AOC','400G/800G Uplink','Spine Switch'],vendors:['NVIDIA','Broadcom','Arista','Cisco','Juniper','Coherent','Lumentum'],ls:['Optical Fiber Cable','DAC/AEC/AOC','MPO/VSFF Cabling']},
  dci:{items:['DCI Optics','DWDM SMF','ODF','Router'],ls:['OS2 Fiber','High Fiber Count Cable']},
  mmr:{items:['ODF','Cross-connect','Fiber Trunk','Patch Cord'],ls:['OS2 Fiber','High Fiber Count Trunk','Patch Cord']},
  odf:{items:['ODF','Adapter','Module','Patch Cord','Trunk'],ls:['Optical Fiber Cable','Patch Cord','Trunk']},
@@ -693,6 +726,7 @@ const diagramData={
  noc:{kind:'noc',caption:'전력·냉각·네트워크 상태를 모아 운영자가 확인하는 개념입니다. 이 화면은 실제 센서나 알람 서버에 연결되지 않습니다.',basis:'툴의 Power / Cooling / PUE / Rack Constraint 검토 항목을 운영 관점으로 재구성했습니다. 감시 연결은 교육용 보완입니다.',sources:['v60-system-engineering.js','v48-architecture.js']},
  server:{kind:'server',caption:'랙 안의 GPU 서버는 전력·냉각을 받아 연산하고 NIC와 Leaf 스위치를 통해 데이터를 주고받습니다.',basis:'Rack Digital Twin의 GPU Server, Leaf Switch, Fiber Patch Panel, PDU-A/B, Cold Plate 구성을 재구성했습니다.',sources:['v53-rack-cooling.js','v48-architecture.js']},
  network:{kind:'network',caption:'서버 NIC → Leaf → Spine으로 이어지는 대표적인 Clos 연결입니다. 광 패치·트렁크는 포트 사이의 물리 연결을 구성합니다.',basis:'툴의 Compute–Leaf–Spine 논리도와 Structured Cabling 구성을 반영했습니다. 실제 포트·광심 수 산출 결과는 아닙니다.',sources:['app.js','v70-diagram-rework.js']},
+ tor:{kind:'network',caption:'Spine/Core에서 내려오는 광 Uplink가 랙 최상단 1U ToR에 연결되고, ToR에서 각 서버 NIC까지 짧은 DAC/AEC/AOC 또는 광 점퍼로 fan-out됩니다.',basis:'Top-of-Rack 구조를 교육용으로 단순화했습니다. 실제 포트 수, 링크 속도, oversubscription과 케이블 매체는 설계에 따라 달라집니다.',sources:['fabric-architecture.js','v70-diagram-rework.js']},
  storage:{kind:'storage',caption:'서버가 스토리지 네트워크를 통해 데이터를 읽고 씁니다. Ethernet 또는 Fibre Channel을 선택하는 개념입니다.',basis:'툴의 Storage capacity / protocol / endpoint ports와 Rack Storage 계층을 재구성했습니다.',sources:['index.html','app.js']},
  aisle:{kind:'aisle',caption:'공급 공기는 랙 전면으로 들어가 열을 흡수하고, 후면의 뜨거운 공기는 냉각 장치로 돌아갑니다. 차폐는 두 기류의 혼합을 줄입니다.',basis:'툴의 Air Cooling / CRAH·HVAC 도식에 Cold·Hot Aisle 차폐 개념을 더한 공랭 예시입니다.',sources:['app.js','v60-system-engineering.js']},
  transformer:{kind:'powerchain',caption:'Utility 전력은 Transformer에서 전압을 변환한 뒤 Switchgear·ATS·UPS·PDU/Busway를 거쳐 Rack으로 공급됩니다.',basis:'데이터센터 전력 계통의 대표 흐름을 교육용으로 단순화했습니다.',sources:['index.html','v48-architecture.js','v60-system-engineering.js']},
@@ -725,12 +759,13 @@ const referenceData={
  sub:{title:'전원·랙 구성 참고',caption:'랙 내부 전원과 IT 장비의 대표 배치 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
  gen:{title:'랙 전원 구성 참고',caption:'UPS·PDU 등 랙 전원 보호·분배 구성의 참고 이미지입니다.',image:'./assets/campus-tour/inside-server-rack.webp'},
  chiller:{title:'데이터센터 냉각 아키텍처',caption:'랙 냉각, 냉기 유입, 열기 배출과 액체냉각 계통의 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
- ups:{title:'UPS·PDU 포함 랙 구성',caption:'UPS와 PDU를 포함한 랙 구성요소의 실사화 참고 이미지입니다.',image:'./assets/campus-tour/inside-server-rack.webp'},
+ ups:{title:'현실형 온라인 UPS · 배터리 구성',caption:'실제 데이터센터 UPS 캐비닛을 참고해 정류기·DC Bus·인버터·Static/Bypass·출력·리튬이온 배터리 캐비닛을 현실적인 형태로 재구성한 교육용 그림입니다.',image:'./assets/campus-tour/ups-realistic.svg?v=20261008'},
  power:{title:'PDU·전원 분배 구성',caption:'PDU와 전원 분배를 포함한 데이터센터 랙 구성 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
  cooling:{title:'액체냉각 랙 아키텍처',caption:'콜드 플레이트, 냉각 매니폴드, 팬 모듈과 냉기/열기 흐름을 함께 보여주는 참고 이미지입니다.',image:'./assets/campus-tour/rack-architecture.webp'},
  noc:{title:'데이터센터 랙 운영 참고',caption:'모니터링·네트워크·서버·전원 구성요소가 함께 있는 랙 참고 이미지입니다.',image:'./assets/campus-tour/inside-server-rack.webp'},
  server:{title:'실제 서버 랙 참고',caption:'실제 데이터센터에서 사용되는 오픈 랙 형태의 서버 시스템 참고 이미지입니다.',image:'./assets/campus-tour/rack-real-photo.webp'},
  network:{title:'네트워크·패치 패널 랙',caption:'스위치, 패치 패널, 케이블 관리, 서버가 함께 있는 랙 구성 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
+ tor:{title:'ToR Rack · Top of Rack 구조',caption:'랙 최상단 1U ToR 스위치와 서버 NIC 사이의 짧은 케이블, 상위 Spine/Core 광 Uplink를 강조한 구조입니다.',image:'./assets/campus-tour/tor-rack-highlight.svg?v=20261008'},
  storage:{title:'랙 정면·후면 구성',caption:'서버/스토리지 장비의 전면 및 후면 배치와 U 위치를 비교할 수 있는 참고 이미지입니다.',image:'./assets/campus-tour/rack-front-back.webp'},
  aisle:{title:'데이터센터 랙과 기류 관리',caption:'데이터센터 랙 배치와 Cold Aisle/Hot Aisle 기류 관리의 참고 이미지입니다.',image:'./assets/campus-tour/data-center-racks.webp'},
  transformer:{title:'전력 인입·배전 참고',caption:'Transformer에서 UPS/PDU까지 이어지는 데이터센터 전력 계통 참고 이미지입니다.',image:'./assets/campus-tour/rack-components.webp'},
@@ -853,10 +888,10 @@ function setRelatedCard(id){
 }
 function hideRelatedCard(){$('tourRelated').hidden=true}
 function hideDiagram(){selectedDiagram=null;$('diagramCard').hidden=true;hidePhotoCard();hideRelatedCard();$('diagramSource').hidden=true;$('dialogBox').classList.remove('investigation')}
-function showDiagram(id){selectedDiagram=id;$('diagramFigure').innerHTML=diagramSVG(id);$('diagramCaption').textContent='작동 원리 · '+diagramData[id].caption;$('diagramSource').innerHTML=sourceHTML(id);$('diagramSource').hidden=false;$('diagramCard').hidden=false;hidePhotoCard();setRelatedCard(id);$('dialogBox').classList.add('investigation');$('dialogBox').scrollTop=0;keys=[]}
+function showDiagram(id){selectedDiagram=id;$('diagramFigure').innerHTML=diagramSVG(id);$('diagramCaption').textContent='작동 원리 · '+diagramData[id].caption;$('diagramSource').innerHTML=sourceHTML(id);$('diagramSource').hidden=false;$('diagramCard').hidden=false;if(id==='ups'||id==='tor')setPhotoCard(id);else hidePhotoCard();setRelatedCard(id);$('dialogBox').classList.add('investigation');$('dialogBox').scrollTop=0;keys=[]}
 function openLarge(id){keys=[];$('largeTitle').textContent=info[id][0]+' · 상세 그림';$('largeFigure').innerHTML=diagramSVG(id).replaceAll('arr-','large-arr-');$('largeCaption').textContent=diagramData[id].caption;setLargePhoto(id);$('largeSource').innerHTML=sourceHTML(id);$('diagramModal').showModal()}
 $('expandDiagram').onclick=()=>selectedDiagram&&openLarge(selectedDiagram);$('closeDiagram').onclick=()=>$('diagramModal').close();$('closeInvestigation').onclick=()=>{$('dialogBox').hidden=true;keys=[]};$('diagramModal').addEventListener('close',()=>{keys=[];hideLargePhoto()});$('concept').onclick=()=>{$('conceptModal').showModal();keys=[]};$('closeConcept').onclick=()=>$('conceptModal').close();$('conceptModal').addEventListener('close',()=>keys=[]);
-function renderLabels(){let labels=[];const add=(s,x,y,cl='')=>labels.push(`<span class="map-label ${cl}" style="left:${x/384*100}%;top:${y/320*100}%">${escapeHtml(s)}</span>`);for(const o of maps[zone].objects){if(!o.label)continue;let name=o.label;if(o.type==='building')name='LS DataCenter';if(o.label==='POWER')name='Power';if(o.label==='GENERATOR')name='Generator';if(o.label==='COOLING')name='Cooling';if(o.label==='PUMP / CDU')name='Pump / CDU';if(o.label==='UPS / BATTERY')name='UPS / Battery';if(o.label==='MONITOR')name='Monitor';if(o.label==='COMPUTE')name='Compute';if(o.label==='NETWORK')name='Network';if(o.label==='STORAGE')name='Storage';if(o.label.startsWith('LEAF'))name=o.label.replace('LEAF','Leaf');if(o.label.startsWith('SPINE'))name=o.label.replace('SPINE','Spine');if(o.label==='CARRIER')name='Carrier / DCI';add(name,(o.x+o.w/2)*16,o.y*16+(o.type==='building'||o.type==='utility'?17:-5),o.type==='building'?'main':'')}
+function renderLabels(){let labels=[];const add=(s,x,y,cl='')=>labels.push(`<span class="map-label ${cl}" style="left:${x/384*100}%;top:${y/320*100}%">${escapeHtml(s)}</span>`);for(const o of maps[zone].objects){if(!o.label)continue;let name=o.label;if(o.type==='building')name='LS DataCenter';if(o.label==='POWER')name='Power';if(o.label==='GENERATOR')name='Generator';if(o.label==='COOLING')name='Cooling';if(o.label==='PUMP / CDU')name='Pump / CDU';if(o.label==='UPS / BATTERY')name='UPS / Battery';if(o.label==='MONITOR')name='Monitor';if(o.label==='COMPUTE')name='Compute';if(o.label==='NETWORK')name='Network';if(o.id==='tor')name='NETWORK A · ToR';if(o.label==='STORAGE')name='Storage';if(o.label.startsWith('LEAF'))name=o.label.replace('LEAF','Leaf');if(o.label.startsWith('SPINE'))name=o.label.replace('SPINE','Spine');if(o.label==='CARRIER')name='Carrier / DCI';add(name,(o.x+o.w/2)*16,o.y*16+(o.type==='building'||o.type==='utility'?17:-5),o.type==='building'?'main':'')}
  if(zone==='campus')add('LS CAMPUS',192,246,'route-label');else{add(names[zone].replace(/^\d+ · /,''),192,29,'route-label');add('FAST TRAVEL / EXIT',192,295,'route-label')}$('mapLabels').innerHTML=labels.join('')}
 
 let last=0;function loop(t){clock=t;update(Math.min(40,t-last));last=t;draw();requestAnimationFrame(loop)}enter('campus',11,17);requestAnimationFrame(loop);

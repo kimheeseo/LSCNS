@@ -344,6 +344,8 @@ const rackPartInfo={
 };
 let rackDrawerOpen=false,rackFlowOn=true;
 const dedicatedViews={
+ rack_a:{title:'NETWORK A · Rack A',image:'network-rack-a-reference.webp',description:'NETWORK A의 첫 번째 랙입니다. 첨부한 장비 구성 사진에서 패치 패널, 스위치, 서버, 저장장치와 전원 장치의 배치를 확인합니다.',path:'Rack A · Patch Panel · Switch · Server · Firewall · Storage · Router · UPS / PDU'},
+ rack_b:{title:'NETWORK A · Rack B · Front View',image:'network-rack-b-front.webp',description:'NETWORK A의 두 번째 랙입니다. 정면에서 상부 팬, 드라이브 베이, 인출된 서버 두 대, 네트워크 스위치와 하부 전원부를 확인합니다.',path:'Rack B · FRONT VIEW · Fan Unit · Drive Bays · Slide-out Server / Rails · Network Switch · Power Panel'},
  tor:{title:'ToR Rack · Top of Rack',image:'tor-rack-detail.webp',description:'랙 최상단의 ToR 스위치가 랙 내부 서버 NIC를 짧은 DAC/AEC/AOC로 연결하고, 상위 Spine/Core 계층과 광 Uplink로 연결되는 구조입니다.',path:'Spine/Core Uplink → Fiber Patch Panel → MPO/MTP Cassette → 1U ToR Switch → 짧은 DAC / AEC / AOC → Server NIC'},
  mmr:{title:'MMR · Carrier Interconnection',image:'mmr-carrier-room-v3.webp',description:'외부 통신사업자의 회선이 데이터센터 내부 네트워크로 인계되는 Meet-Me Room입니다.',path:'출입 통제실 · Carrier Handoff · Optical Transport / DWDM · Core / Network · 상부 광케이블 트레이 · 통신 장비 캐비닛'},
  odf:{title:'ODF · Fiber Distribution Frame',image:'odf-fiber-distribution-v3.webp',description:'외부 및 내부 광케이블을 종단·분배·Cross-connect하는 Fiber Distribution Frame입니다.',path:'광케이블 인입 · 수동 광 패치 패널 · Blue / Yellow / Orange 광 점퍼 · Fiber Cross-connect · Carrier Distribution · 광섬유 여장 관리'},
@@ -416,6 +418,8 @@ function openRackExplorer(o){
  $('rackExplorerModal').showModal();
 }
 const info={
+ rack_a:['NETWORK A · Rack A','DATA HALL',dedicatedViews.rack_a.description],
+ rack_b:['NETWORK A · Rack B · Front View','DATA HALL',dedicatedViews.rack_b.description],
  sign:['캠퍼스 안내','CAMPUS','캠퍼스는 데이터센터 건물과 외부 기반시설을 포함합니다. 중앙 LS DC 본관으로 들어가 Gray Zone을 지나 White Zone을 탐험하세요.'],
  sub:['수전·변전 시설','CAMPUS','외부 전력망에서 전력을 받아 변압·배전합니다. 전력은 본관의 UPS와 배전 설비를 거쳐 IT 장비에 공급됩니다.'],
  gen:['비상 발전기','CAMPUS','상용 전원 장애 시 발전기를 가동해 전력을 공급합니다. 발전기가 기동하는 동안에는 UPS가 전력 연속성을 지원합니다.'],
@@ -590,6 +594,7 @@ function machine(o){let x=o.x*T,y=o.y*T,w=o.w*T,h=o.h*T;rect(x+3,y+4,w,h,'#727e6
    for(let yy=7;yy<h-6;yy+=7){rect(x+xx+2,y+yy,9,5,'#637a6c');rect(x+xx+3,y+yy+1,4,1,'#98a58a');rect(x+xx+9,y+yy+1,1,2,(Math.floor(clock/450)+xx+yy)%3?'#d3d98e':'#7cb0aa')}
   }
   if(o.id==='tor'){
+   text('A',x+9,y+h-4,'#fff2b8',6);text('B',x+25,y+h-4,'#fff2b8',6);
    const tx=x+3+16*3;
    ctx.save();ctx.strokeStyle='#e7c33f';ctx.lineWidth=3;ctx.strokeRect(tx-1,y+1,15,h-2);ctx.restore();
    rect(tx+1,y+4,11,6,'#18272c');
@@ -755,7 +760,15 @@ function drawEngineer(){
  rect(x+4,y+17,3,5-step,'#243c50');rect(x+9,y+17,3,4+step,'#243c50');rect(x+3,y+21-step,4,2,'#152a39');rect(x+9,y+20+step,4,2,'#152a39');
  if(e.working){rect(x+10,y+13,4,5,'#d7c28a');rect(x+11,y+14,2,3,'#f7efcf');rect(x+8,y+14+check,4,1,'#f0c28a');rect(x+11,y+14+check,1,2,'#344d58')}
 }
-function target(){let [dx,dy]=dirs[p.dir],x=p.x+dx,y=p.y+dy;return maps[zone].objects.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h)}
+function target(){
+ let [dx,dy]=dirs[p.dir],x=p.x+dx,y=p.y+dy;
+ const o=maps[zone].objects.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h);
+ // The first two physical cabinets have separate inspection illustrations.
+ if(zone==='white'&&o?.id==='tor'&&(x===o.x||x===o.x+1)){
+  const id=x===o.x?'rack_a':'rack_b';return {...o,x,w:1,id,label:x===o.x?'NETWORK A · Rack A':'NETWORK A · Rack B'};
+ }
+ return o;
+}
 function networkOverlay(){
  if(zone==='gray'){
   const path=(points,color)=>{ctx.strokeStyle=color;ctx.lineWidth=3;ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x*T,y*T):ctx.moveTo(x*T,y*T));ctx.stroke()};

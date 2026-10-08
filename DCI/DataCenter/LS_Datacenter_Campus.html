@@ -703,12 +703,17 @@ function drawObj(o){
 }
 function hero(){let x=p.x*T,y=p.y*T;if(move){x+=(move.x-p.x)*T*move.f;y+=(move.y-p.y)*T*move.f}x=Math.round(x);y=Math.round(y)-4;let step=move?Math.floor(move.f*3)%2:0;rect(x+3,y+18,11,2,'#758061');rect(x+4,y+2,8,3,'#443e38');rect(x+3,y+4,10,5,'#9a4c35');rect(x+4,y+3,7,3,'#d67945');rect(x+3,y+7,11,2,'#523e32');rect(x+4,y+9,8,5,'#efd099');if(p.dir==='up'){rect(x+4,y+9,8,3,'#574735')}else{if(p.dir!=='right')rect(x+5,y+10,1,2,'#383e36');if(p.dir!=='left')rect(x+10,y+10,1,2,'#383e36')}
  rect(x+3,y+14,10,4,'#4c6970');rect(x+1,y+14,2,3,'#e4bc88');rect(x+13,y+14,2,3,'#e4bc88');rect(x+4,y+17,3,3-step,'#3b4544');rect(x+9,y+17,3,2+step,'#3b4544');if(p.dir==='up'){rect(x+6,y+13,5,5,'#cfad60');rect(x+7,y+14,3,2,'#f0cd80')}}
-// Indoor engineers patrol one walkable tile every three seconds.
+// Engineers take one random step per second; their entire sprite stays in the aisle.
 const engineers={};
 function engineerTile(x,y){
- const t=maps[zone].grid[y]?.[x];
- return x>0&&x<W-1&&y>1&&y<H-2&&t&&!['block','tree','wall','door'].includes(t)
-   &&!campusDoorWarp(x,y)&&!maps[zone].objects.some(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h);
+ const left=x*T+2,top=y*T-8,right=x*T+14,bottom=y*T+16;
+ if(x<=0||x>=W-1||y<=1||y>=H-2)return false;
+ for(let gy=Math.floor(top/T);gy<=Math.floor((bottom-1)/T);gy++)for(let gx=Math.floor(left/T);gx<=Math.floor((right-1)/T);gx++){
+  const t=maps[zone].grid[gy]?.[gx];
+  if(!t||['block','tree','wall','door'].includes(t)||campusDoorWarp(gx,gy))return false;
+ }
+ // Include the equipment's visible base/shadow, not just its blocked anchor tiles.
+ return !maps[zone].objects.some(o=>left<(o.x+o.w)*T+4&&right>o.x*T&&top<(o.y+o.h)*T+4&&bottom>o.y*T);
 }
 function indoorEngineer(){
  if(!['gray','white','networkroom','ops'].includes(zone))return null;
@@ -717,29 +722,38 @@ function indoorEngineer(){
   for(let y=2;y<H-2;y++)for(let x=1;x<W-1;x++)if(engineerTile(x,y)&&Object.values(dirs).some(([dx,dy])=>engineerTile(x+dx,y+dy)))tiles.push({x,y});
   tiles.sort((a,b)=>(Math.abs(a.x-11)+Math.abs(a.y-14))-(Math.abs(b.x-11)+Math.abs(b.y-14)));
   if(!tiles.length)return null;
-  engineers[zone]={...tiles[0],dir:'down',elapsed:0,move:null,previous:null};
+  engineers[zone]={...tiles[0],dir:'down',elapsed:0,move:null,working:false};
  }
  return engineers[zone];
 }
 function updateEngineer(dt){
  const e=indoorEngineer();if(!e)return;
- if(e.move){e.move.f=Math.min(1,e.move.f+dt/240);if(e.move.f===1){e.previous={x:e.x,y:e.y};e.x=e.move.x;e.y=e.move.y;e.move=null}}
- e.elapsed+=dt;if(e.elapsed<3000||e.move)return;e.elapsed-=3000;
+ if(e.move){
+  if(!engineerTile(e.move.x,e.move.y)){e.move=null;e.elapsed=0;return}
+  e.move.f=Math.min(1,e.move.f+dt/320);
+  if(e.move.f===1){e.x=e.move.x;e.y=e.move.y;e.move=null}
+ }
+ e.working=!e.move&&maps[zone].objects.some(o=>o.id&&Math.hypot(e.x-Math.max(o.x,Math.min(e.x,o.x+o.w-1)),e.y-Math.max(o.y,Math.min(e.y,o.y+o.h-1)))<=2.5);
+ e.elapsed+=dt;if(e.elapsed<1000||e.move)return;e.elapsed%=1000;
  const choices=Object.entries(dirs).map(([dir,[dx,dy]])=>({dir,x:e.x+dx,y:e.y+dy})).filter(c=>engineerTile(c.x,c.y)&&!(c.x===p.x&&c.y===p.y)&&!(move&&c.x===move.x&&c.y===move.y));
- const forward=choices.filter(c=>!e.previous||c.x!==e.previous.x||c.y!==e.previous.y);
- const options=forward.length?forward:choices;
- if(options.length){const c=options[Math.floor(Math.random()*options.length)];e.dir=c.dir;e.move={x:c.x,y:c.y,f:0}}
+ if(choices.length){const c=choices[Math.floor(Math.random()*choices.length)];e.dir=c.dir;e.working=false;e.move={x:c.x,y:c.y,f:0}}
 }
 function drawEngineer(){
  const e=indoorEngineer();if(!e)return;
- let x=e.x*T,y=e.y*T-4;if(e.move){x+=(e.move.x-e.x)*T*e.move.f;y+=(e.move.y-e.y)*T*e.move.f}x=Math.round(x);y=Math.round(y);
- const step=e.move?Math.floor(e.move.f*4)%2:0;
- rect(x+3,y+19,11,2,'#758061');
- rect(x+4,y,8,2,'#162d47');rect(x+2,y+2,12,8,'#172f48');rect(x+4,y+2,8,4,'#925726');rect(x+3,y+5,10,3,'#b17638');
- rect(x+4,y+7,8,6,'#f0c28a');
- if(e.dir==='up'){rect(x+3,y+6,10,6,'#81502b')}else{rect(x+5,y+8,1,3,'#172b42');rect(x+10,y+8,1,3,'#172b42');rect(x+7,y+12,3,1,'#89573c')}
- rect(x+2,y+14,12,5,'#076bb3');rect(x,y+15,2,5,'#114d84');rect(x+14,y+15,2,5,'#114d84');rect(x+6,y+14,4,1,'#f1d3a4');rect(x+9,y+16,3,1,'#e9b944');
- rect(x+3,y+19,4,2-step,'#203749');rect(x+9,y+19,4,1+step,'#203749');
+ let x=e.x*T,y=e.y*T-8;if(e.move){x+=(e.move.x-e.x)*T*e.move.f;y+=(e.move.y-e.y)*T*e.move.f}x=Math.round(x);y=Math.round(y);
+ // Keep floating equipment labels from covering the engineer's legs.
+ const screen=$('game').getBoundingClientRect(),sx=screen.width/(W*T),sy=screen.height/(H*T);
+ document.querySelectorAll('.map-label').forEach(label=>{const r=label.getBoundingClientRect();const overlap=r.left<screen.left+(x+14)*sx&&r.right>screen.left+(x+2)*sx&&r.top<screen.top+(y+24)*sy&&r.bottom>screen.top+y*sy;label.style.visibility=overlap?'hidden':''});
+ const step=e.move?Math.floor(e.move.f*4)%2:0,check=e.working?Math.floor(e.elapsed/180)%2:0;
+ rect(x+3,y+23,10,1,'#758061');
+ // Head, work jacket, separate trouser legs and boots.
+ rect(x+5,y,6,2,'#263a49');rect(x+4,y+2,8,3,'#8e572c');rect(x+5,y+4,6,5,'#f0c28a');
+ if(e.dir==='up'){rect(x+4,y+3,8,5,'#81502b')}else{rect(x+6,y+5,1,2,'#172b42');rect(x+9,y+5,1,2,'#172b42');rect(x+7,y+8,2,1,'#89573c')}
+ rect(x+4,y+10,8,7,'#076bb3');rect(x+6,y+10,4,1,'#f1d3a4');rect(x+9,y+12,2,1,'#e9b944');rect(x+7,y+11,1,5,'#114d84');
+ rect(x+2,y+11+step,2,5,'#114d84');rect(x+2,y+16+step,2,2,'#f0c28a');
+ rect(x+12,y+11-step,2,5,'#114d84');rect(x+12,y+16-step,2,2,'#f0c28a');
+ rect(x+4,y+17,3,5-step,'#243c50');rect(x+9,y+17,3,4+step,'#243c50');rect(x+3,y+21-step,4,2,'#152a39');rect(x+9,y+20+step,4,2,'#152a39');
+ if(e.working){rect(x+10,y+13,4,5,'#d7c28a');rect(x+11,y+14,2,3,'#f7efcf');rect(x+8,y+14+check,4,1,'#f0c28a');rect(x+11,y+14+check,1,2,'#344d58')}
 }
 function target(){let [dx,dy]=dirs[p.dir],x=p.x+dx,y=p.y+dy;return maps[zone].objects.find(o=>x>=o.x&&x<o.x+o.w&&y>=o.y&&y<o.y+o.h)}
 function networkOverlay(){

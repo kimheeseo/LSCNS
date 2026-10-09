@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "company": "Yokogawa",
+  "country": "Japan",
+  "category": "Fiber Test and Monitoring",
+  "displayName": "광섬유 검사 / 모니터링 · Yokogawa",
+  "description": "광경로 설치·유지보수와 원격 감시 제품 참고 목록.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://tmi.yokogawa.com/kr/solutions/products/optical-measuring-instruments/optical-time-domain-reflectometer/aq7277-remote-optical-time-domain-reflectometer/",
+  "comparisonFields": [
+    "장비 유형",
+    "감시 방식",
+    "적용 범위",
+    "주요 기능",
+    "제품 확인 상태",
+    "BOM 정책"
+  ],
+  "products": {
+    "aq7277b": {
+      "name": "Yokogawa AQ7277B Remote OTDR",
+      "officialUrl": "https://tmi.yokogawa.com/kr/solutions/products/optical-measuring-instruments/optical-time-domain-reflectometer/aq7277-remote-optical-time-domain-reflectometer/",
+      "description": "RFTS에 내장해 광경로를 감시하는 모듈형 OTDR입니다. 1650 nm 현용선 감시형과 1550 nm 장거리 측정형을 구분합니다. 기존 AQ7277 판매 종료 모델과 구분해 AQ7277B로 등록합니다.",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": false,
+      "verificationStatus": "official-product-family",
+      "confidence": "공식 제품군 확인",
+      "specs": {
+        "장비 유형": "원격 OTDR 모듈",
+        "감시 방식": "원격/연속 감시 · 시스템 구성 확인",
+        "적용 범위": "RFTS · 현용선 감시 · 장거리 광경로",
+        "제품 확인 상태": "공식 제품/제품군 확인 · 옵션/SKU 확인 필요",
+        "BOM 정책": "설치/운영 장비 참고 · 케이블/광부품 수량 자동 합산 제외",
+        "모델별 파장": "B01: 1650±5 nm · B02: 1550±25 nm",
+        "주요 기능": "LAN/USB 원격 제어 · 알람 출력",
+        "동적 범위": "B02: 50 dB typical · 모델 조건 확인"
+      }
+    }
+  }
+}

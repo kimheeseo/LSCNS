@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "company": "VIAVI",
+  "country": "United States",
+  "category": "Fiber Test and Monitoring",
+  "displayName": "광섬유 검사 / 모니터링 · VIAVI",
+  "description": "광경로 설치·유지보수와 원격 감시 제품 참고 목록.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.viavisolutions.com/en-us/products/onmsi-remote-fiber-test-system-rfts",
+  "comparisonFields": [
+    "장비 유형",
+    "감시 방식",
+    "적용 범위",
+    "주요 기능",
+    "제품 확인 상태",
+    "BOM 정책"
+  ],
+  "products": {
+    "onmsi": {
+      "name": "VIAVI ONMSi Remote Fiber Test System",
+      "officialUrl": "https://www.viavisolutions.com/en-us/products/onmsi-remote-fiber-test-system-rfts",
+      "description": "원격 테스트 헤드와 광스위치를 관리하는 광망 감시 시스템입니다. Core/Metro/Access/PON 광경로 및 DCI 링크의 이상 감시에 사용합니다.",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": false,
+      "verificationStatus": "official-product-family",
+      "confidence": "공식 제품군 확인",
+      "specs": {
+        "장비 유형": "원격 광섬유 감시 시스템 (RFTS)",
+        "감시 방식": "원격/연속 감시 · 시스템 구성 확인",
+        "적용 범위": "Core · Metro · FTTH/PON · DCI",
+        "제품 확인 상태": "공식 제품/제품군 확인 · 옵션/SKU 확인 필요",
+        "BOM 정책": "설치/운영 장비 참고 · 케이블/광부품 수량 자동 합산 제외",
+        "주요 기능": "원격 테스트 헤드 관리 · 고장 감시/분석"
+      }
+    },
+    "fth-5000": {
+      "name": "VIAVI FTH-5000 Compact Fiber Test Head",
+      "officialUrl": "https://www.viavisolutions.com/en-us/products/fth-5000",
+      "description": "광망의 자동 감시를 위한 소형 랙 장착 테스트 헤드입니다. ONMSi와 함께 사용하는 하드웨어 테스트 헤드이며 감시 관리 소프트웨어와 구분합니다.",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": false,
+      "verificationStatus": "official-product-family",
+      "confidence": "공식 제품군 확인",
+      "specs": {
+        "장비 유형": "랙 장착 원격 OTDR 테스트 헤드",
+        "감시 방식": "원격/연속 감시 · 시스템 구성 확인",
+        "적용 범위": "원격 광경로 감시 · DCI/캠퍼스 광망",
+        "제품 확인 상태": "공식 제품/제품군 확인 · 옵션/SKU 확인 필요",
+        "BOM 정책": "설치/운영 장비 참고 · 케이블/광부품 수량 자동 합산 제외",
+        "주요 기능": "원격 OTDR 측정 · 자동 광망 감시"
+      }
+    },
+    "smartotdr": {
+      "name": "VIAVI SmartOTDR Handheld Fiber Tester",
+      "officialUrl": "https://www.viavisolutions.com/en-us/products/smartotdr-handheld-fiber-tester",
+      "description": "현장 OTDR 측정·광손실 검사·단면 검사 및 VFL 기능을 통합하는 휴대형 제품군입니다. 모델별 기능/파장 옵션을 확인합니다.",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": false,
+      "verificationStatus": "official-product-family",
+      "confidence": "공식 제품군 확인",
+      "specs": {
+        "장비 유형": "휴대형 OTDR",
+        "감시 방식": "현장 검사",
+        "적용 범위": "Metro · Access · FTTH/PON · 단일모드 현장 검사",
+        "제품 확인 상태": "공식 제품/제품군 확인 · 옵션/SKU 확인 필요",
+        "BOM 정책": "설치/운영 장비 참고 · 케이블/광부품 수량 자동 합산 제외",
+        "공개 파장 옵션": "1310/1550 nm · 현용선 1625 또는 1650 nm (모델별)",
+        "주요 기능": "자동 분석 · 단면 검사 · 광손실 검사 · VFL"
+      }
+    }
+  }
+}

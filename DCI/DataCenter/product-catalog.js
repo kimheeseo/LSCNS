@@ -162,7 +162,7 @@
     gpu:'GPU / AI Accelerator',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
     rack:'Rack', management:'Cable Management', cabletray:'Cable Tray', raceway:'Fiber Raceway', cooling:'Cooling', facility:'Data Center Infrastructure',
-    splicer:'Splicer', other:'Other'
+    splicer:'Splicer', monitoring:'Fiber Test / Monitoring', other:'Other'
   };
 
   const dbGroups = [
@@ -174,6 +174,7 @@
     {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery','power']},
     {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cabletray','raceway','cooling','facility']},
     {id:'splicer', label:'Splicer DB', kinds:['splicer']},
+    {id:'monitoring', label:'Fiber Test / Monitoring DB', kinds:['monitoring']},
     {id:'other', label:'Other DB', kinds:['other']}
   ];
 
@@ -201,6 +202,8 @@
       if (product && typeof product === 'object') dbTaxonomyCache.set(product, result);
       return result;
     };
+
+    if (/FIBER TEST AND MONITORING|\bOTDR\b|FIBERWATCH|ONMSI|FTH-5000|928-OMS|RTU-4000|RTU-4100/.test(t)) return hit('monitoring','fiber test/monitoring reference equipment');
 
     // 8) Splicer — explicit folder/product family takes priority.
     if (/FUSION[ _/-]*SPLICER|SPLICER SOLUTIONS|\\bSPLICERS?\\b|90S\\+|90R(?:4|12|16)?|S179\\+|S124M16|S185(?:EDV)?|THERMAL JACKET REMOVER|FIBER PROTECTION SLEEVE/.test(t)) {

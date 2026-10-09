@@ -7,6 +7,8 @@
   function kind(x) {
     const t = clean([x.category, x.path, x.item, x.name].join(' '));
 
+    if (/FIBER TEST AND MONITORING|\bOTDR\b|FIBERWATCH|ONMSI|FTH-5000|928-OMS|RTU-4000|RTU-4100/.test(t)) return 'monitoring';
+
     // DB-map taxonomy overrides: keep the source catalogs intact, but route
     // legacy folder names into the user-facing BOM DB groups.
     if (/FUSION SPLICER|SPLICER SOLUTIONS|\bSPLICERS?\b|90S\+|90R|S179\+|S124M16|S185/.test(t)) return 'splicer';
@@ -45,11 +47,11 @@
     return 'other';
   }
   function normalize(catalog, path) {
-    return Object.entries(catalog.products || {}).map(([id, meta]) => {
+    return Object.entries(catalog.products || {}).filter(([, meta]) => !meta.vendorReferenceOnly).map(([id, meta]) => {
       const s = {...catalog.defaultSpecs, ...meta.specs};
       const p = {id, path, vendor: catalog.company || path.split('/')[0], category: catalog.category || '', name: meta.name || id, description: meta.description || '', specs: s, source: meta.businessUrl || meta.officialUrl || meta.url || catalog.officialUrl || '', checked: meta.checked || catalog.checked || '', referenceOnly: !!meta.referenceOnly};
       // A mixed folder must be classified by the actual product, not by its parent label.
-      p.kind = kind({...p, category: '', path: ''});
+      p.kind = /Fiber Test and Monitoring/i.test(p.category) ? 'monitoring' : kind({...p, category: '', path: ''});
       if (p.kind === 'other' && !/Optical Connectivity and Rack Enclosures/i.test(p.category)) p.kind = kind(p);
       p.speed = field(s, ['Data Rate', '총 속도', '속도', 'Speed', 'Bandwidth']) || (rates(p.name).length ? p.name : '');
       p.length = field(s, ['길이', 'Reach', '거리', 'Length', 'Cable Length']);
@@ -87,6 +89,7 @@
     const comparable = (a, b) => clean(a).replace(/BASE-/g, '').replace(/[\s_]/g, '') === clean(b).replace(/BASE-/g, '').replace(/[\s_]/g, '');
     return products.flatMap(p => {
       if (p.discontinued) return [];
+      if (p.kind === 'monitoring') return []; // Installation/operations references never replace cable or equipment BOM lines.
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
       if (!compatibleKinds.includes(p.kind) || type === 'other' || type === 'component') return [];
       const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber||type==='module';

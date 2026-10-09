@@ -1,23 +1,24 @@
 (() => {
 'use strict';
-const VERSION='7.4.20';
+const VERSION='7.4.21';
 let selectedCategory='all',returnFocus;
 const textOf=e=>(e&&(e.innerText||e.textContent)||'').replace(/\s+/g,' ').trim();
 
 const I18N={
   ko:{button:'Supply Chain',title:'BOM Supply Chain · 업체 / 제품 맵',sub:'현재 설계에 실제 사용된 업체·제품·수량을 우선 표시하고, 각 영역별 관련 기업은 별도 참고 목록으로 함께 보여줍니다.',need:'먼저 설계 계산을 실행해 주세요.',center:'현재 BOM',used:'BOM 반영 항목',sources:'제품 / 데이터시트',close:'닫기',refresh:'새로고침',
-      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',facility:'Facility / Security'}},
+      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',monitoring:'Fiber Test / Monitoring',facility:'Facility / Security'}},
   en:{button:'Supply Chain',title:'BOM Supply Chain · Vendor / Product Map',sub:'Shows vendors/products actually used by the current BOM first, plus a separate related-companies reference list for each category.',need:'Run the design calculation first.',center:'Current BOM',used:'BOM items',sources:'Product / datasheet',close:'Close',refresh:'Refresh',
-      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',facility:'Facility / Security'}},
+      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',monitoring:'Fiber Test / Monitoring',facility:'Facility / Security'}},
   ja:{button:'サプライチェーン',title:'BOM サプライチェーン',sub:'現在のGeneric BOM / 製品マッチング結果に実際に含まれる製品をサプライチェーン視点で再構成します。',need:'先に設計計算を実行してください。',center:'現在のBOM',used:'BOM項目',sources:'製品 / データシート',close:'閉じる',refresh:'更新',
-      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',facility:'Facility / Security'}},
+      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',monitoring:'Fiber Test / Monitoring',facility:'Facility / Security'}},
   zh:{button:'供应链',title:'BOM 供应链',sub:'将当前 Generic BOM / 产品匹配结果中实际包含的产品按供应链视角重新整理。',need:'请先执行设计计算。',center:'当前 BOM',used:'BOM 项目',sources:'产品 / 数据表',close:'关闭',refresh:'刷新',
-      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',facility:'Facility / Security'}},
+      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',monitoring:'Fiber Test / Monitoring',facility:'Facility / Security'}},
   de:{button:'Lieferkette',title:'BOM-Lieferkette',sub:'Ordnet die tatsächlich im aktuellen Generic BOM / Produkt-Matching enthaltenen Produkte als Lieferkettenansicht neu.',need:'Bitte zuerst die Designberechnung ausführen.',center:'Aktuelles BOM',used:'BOM-Positionen',sources:'Produkt / Datenblatt',close:'Schließen',refresh:'Aktualisieren',
-      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',facility:'Facility / Security'}}
+      cats:{compute:'GPU / Accelerator',cpu:'Server CPU',network:'Network Fabric',optical:'Optical Connectivity',power:'Power / UPS / PDU',cooling:'Cooling / HVAC',rack:'Rack / Physical',storage:'Storage',monitoring:'Fiber Test / Monitoring',facility:'Facility / Security'}}
 };
 
 const VENDORS=[
+  "NTest","M2 Optics","DSIT Solutions","FS (FiberStore)","Yokogawa","Moog","VIAVI","Anritsu","VeEX",
   'NVIDIA','AMD','Huawei','Qualcomm','Google Cloud','Google','Intel','Biren Technology','Ampere Computing','Juniper','Cisco','Arista','Broadcom','Credo','Lenovo','Supermicro','Dell','HPE','Hewlett Packard Enterprise',
   'Corning','SENKO','US Conec','ZTT','Sumitomo Electric','Sumitomo','LS Cable & System','LS Cable','YOFC','Hengtong','Lightera','Fujikura','Furukawa Electric','FITEL','Draka','Prysmian','Nexans','CommScope','Molex','Amphenol','Panduit','Belden','HYC','IH Optics','SHIJIA Photons','Hangzhou Zsine','Coherent','Lumentum','Marvell',
   'Schneider Electric','Schneider','APC','Vertiv','Eaton','Legrand','ABB','Rittal','Delta','Flex','LS ELECTRIC','MPOWERSYS','XEONICS','Green Power Technology','Gaon Cable','Taihan Cable & Solution','Taihan','Siemens','Generac','Caterpillar','CAT',
@@ -26,6 +27,7 @@ const VENDORS=[
   'Fortinet','Palo Alto Networks','Palo Alto','Bosch','Securitas','Oracle','Fujitsu','Emerson','Asetek'
 ];
 const CATEGORY_RULES=[
+  ['monitoring',/Fiber Test|Monitoring|OTDR|FiberWatch|ONMSi|FTH-5000|928-OMS|RTU-4000|RTU-4100|NTest|M2 Optics|DSIT|Yokogawa|Moog|VIAVI|Anritsu|VeEX/i],
   ['cpu',/server\s*CPU|\bCPU\b|Xeon|EPYC|Grace CPU|AmpereOne|processor/i],
   ['compute',/\bGPU\b|\bNPU\b|\bTPU\b|Ascend|Atlas 900|Gaudi|AI200|AI250|Dragonfly|BR100|Ironwood|Trillium|Google Cloud|DGX|H100|H200|B200|B300|GB200|GB300|NVL72|MI300|MI350|MI355|Instinct|compute|server|accelerator|supermicro|lenovo|dell|hpe|hewlett/i],
   ['network',/switch|leaf|spine|core|fabric|NIC|DPU|ConnectX|BlueField|Spectrum|QFX|Nexus|Arista|Juniper|Cisco|Broadcom|Tomahawk|InfiniBand|Ethernet/i],
@@ -37,6 +39,7 @@ const CATEGORY_RULES=[
   ['facility',/security|fire|camera|access control|BMS|building automation|monitoring|sensor|Siemens|Fortinet|Palo Alto|Palo Alto Networks|Bosch|Securitas/i]
 ];
 const RELATED_VENDORS={
+  monitoring:["Fujikura", "NTest", "M2 Optics", "DSIT Solutions", "FS (FiberStore)", "Yokogawa", "Moog", "VIAVI", "Anritsu", "VeEX"],
   compute:['NVIDIA','AMD','Huawei','Intel','Qualcomm','Google Cloud','Biren Technology','Supermicro','Dell Technologies','HPE','Lenovo','Fujitsu','Oracle','IBM'],
   cpu:['Intel','AMD','NVIDIA','Ampere Computing'],
   network:['NVIDIA Networking','Broadcom','Arista Networks','Cisco','Juniper Networks','Marvell','HPE Aruba Networking'],
@@ -63,6 +66,7 @@ const RELATED_VENDORS={
 };
 
 const VERIFIED_DC_PRODUCTS={
+  monitoring:[{"vendor": "Fujikura", "product": "FlexScan FS200 OTDR", "role": "휴대형 OTDR · 설치/운영 장비 참고", "spec": "FTTH/PON · P2P 단일모드 광망", "url": "https://www.europe.fujikura.com/markets/telecoms/test-and-inspection/flexscan-fs200/"}, {"vendor": "NTest", "product": "FiberWatch Remote Fiber Test System", "role": "원격 광섬유 감시 시스템 (RFTS) · 설치/운영 장비 참고", "spec": "통신망 · DCI/캠퍼스 외부 광경로 · Dark/Live Fiber", "url": "https://www.ntestinc.com/fiberwatch-by-ntest"}, {"vendor": "M2 Optics", "product": "Dark and Lit Fiber Monitoring System", "role": "원격 광섬유 감시 시스템 · 설치/운영 장비 참고", "spec": "P2P · PON · Dark/Lit Fiber", "url": "https://www.m2optics.com/products/fiber-monitoring-systems"}, {"vendor": "FS (FiberStore)", "product": "FS FOTR-201 Handheld OTDR", "role": "휴대형 OTDR · 설치/운영 장비 참고", "spec": "광케이블 설치 · 현장 유지보수", "url": "https://www.fs.com/products/49652.html"}, {"vendor": "FS (FiberStore)", "product": "FS FMT Customized OTDR", "role": "FMT 플러그인 원격 OTDR · 설치/운영 장비 참고", "spec": "WDM/FMT 외부 광경로 · 플랫폼 호환 확인", "url": "https://www.fs.com/products/73281.html"}, {"vendor": "FS (FiberStore)", "product": "FS D7000 OTDR08", "role": "D7000 광경로 감시 모듈 · 설치/운영 장비 참고", "spec": "D7000 전송 플랫폼 광경로", "url": "https://www.fs.com/products/216495.html"}, {"vendor": "Yokogawa", "product": "Yokogawa AQ7277B Remote OTDR", "role": "원격 OTDR 모듈 · 설치/운영 장비 참고", "spec": "RFTS · 현용선 감시 · 장거리 광경로", "url": "https://tmi.yokogawa.com/kr/solutions/products/optical-measuring-instruments/optical-time-domain-reflectometer/aq7277-remote-optical-time-domain-reflectometer/"}, {"vendor": "Moog", "product": "Moog Focal 928-OMS Optical Monitoring System", "role": "산업/해양 광 텔레메트리 감시 · 설치/운영 장비 참고", "spec": "ROV · 해저 제어 · 중요 광 텔레메트리 (DCI 적용 별도 검토)", "url": "https://www.moog.com/products/multiplexers-media-converters/focal-multiplexer-product-line/condition-monitoring/model-928-oms.html"}, {"vendor": "VIAVI", "product": "VIAVI ONMSi Remote Fiber Test System", "role": "원격 광섬유 감시 시스템 (RFTS) · 설치/운영 장비 참고", "spec": "Core · Metro · FTTH/PON · DCI", "url": "https://www.viavisolutions.com/en-us/products/onmsi-remote-fiber-test-system-rfts"}, {"vendor": "VIAVI", "product": "VIAVI FTH-5000 Compact Fiber Test Head", "role": "랙 장착 원격 OTDR 테스트 헤드 · 설치/운영 장비 참고", "spec": "원격 광경로 감시 · DCI/캠퍼스 광망", "url": "https://www.viavisolutions.com/en-us/products/fth-5000"}, {"vendor": "VIAVI", "product": "VIAVI SmartOTDR Handheld Fiber Tester", "role": "휴대형 OTDR · 설치/운영 장비 참고", "spec": "Metro · Access · FTTH/PON · 단일모드 현장 검사", "url": "https://www.viavisolutions.com/en-us/products/smartotdr-handheld-fiber-tester"}, {"vendor": "Anritsu", "product": "Anritsu ACCESS Master MT9085 Series", "role": "휴대형 OTDR / 광손실 시험기 · 설치/운영 장비 참고", "spec": "Core/Metro · 이동통신 광경로 · Access 유지보수", "url": "https://www.anritsu.com/ko-kr/test-measurement/products/mt9085series"}, {"vendor": "VeEX", "product": "VeEX RTU-4000/4100 Remote Fiber Test System", "role": "원격 광섬유 테스트 시스템 (RFTS) · 설치/운영 장비 참고", "spec": "통신망 · 외부 광경로 원격 검사/감시", "url": "https://www.veexinc.com/products/remote-fiber-test-system-rfts-rtu-4000-4100"}],
   compute:[
     {vendor:'Huawei',product:'Atlas 900 A3 SuperPoD',role:'Ascend 910 NPU AI supernode',spec:'Up to 384 NPU · 128 GB/NPU · up to 3.2 TB/s memory bandwidth · liquid-cooled compute cabinets',url:'https://e.huawei.com/cn/products/computing/ascend/atlas-900-a3-superpod'},
     {vendor:'AMD',product:'Instinct MI350X / MI355X',role:'Physical AI/HPC accelerator',spec:'288 GB HBM3E · 8 TB/s · OEM/server platform validation required',url:'https://www.amd.com/en/products/accelerators/instinct/mi350.html'},
@@ -124,7 +128,7 @@ window.__dcBomVerifiedSupplyCatalog=VERIFIED_DC_PRODUCTS;
 function verifiedProductHtml(k){
   const arr=VERIFIED_DC_PRODUCTS[k]||[];
   if(!arr.length)return'';
-  return '<div class="sc-verified"><div class="sc-related-title">Verified DC products <span>공식 데이터센터 용도/사양 확인</span></div>'+
+  return '<div class="sc-verified"><div class="sc-related-title">'+(k==='monitoring'?'Fiber test / monitoring references <span>설치·운영 장비 · 적용 범위 확인</span>':'Verified DC products <span>공식 데이터센터 용도/사양 확인</span>')+'</div>'+
     arr.map(x=>'<div class="sc-vproduct"><div><b>'+esc(x.vendor)+'</b> · '+esc(x.product)+'</div><div class="sc-vrole">'+esc(x.role)+'</div><div class="sc-vspec">'+esc(x.spec)+'</div><a href="'+esc(x.url)+'" target="_blank" rel="noopener">Official product / datasheet</a></div>').join('')+
     '</div>';
 }
@@ -248,7 +252,7 @@ function render(){
   items.forEach(x=>(groups[x.category]||(groups[x.category]=[])).push(x));
   const vendorCount=new Set(items.map(x=>x.vendor).filter(Boolean)).size;
   const center='<section class="sc-center"><div class="sc-center-icon">DC</div><h3>'+t.center+'</h3><div class="sc-center-stat"><b>'+items.length+'</b> '+t.used+'</div><div class="sc-center-stat"><b>'+vendorCount+'</b> Vendors</div></section>';
-  const order=['compute','cpu','network','optical','power','cooling','rack','storage','facility'];
+  const order=['compute','cpu','network','optical','power','cooling','rack','storage','monitoring','facility'];
   const cards=order.filter(k=>selectedCategory==='all'||k===selectedCategory).map(k=>{
     const arr=groups[k]||[];
     const body=(arr.length?arr.map(itemHtml).join(''):'<div class="sc-none">현재 BOM 선택 업체 없음</div>')+relatedHtml(k,arr);

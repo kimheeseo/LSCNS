@@ -1,5 +1,5 @@
 {
-  "revision": "2026-10-09-power-supply-vendor-profiles",
+  "revision": "2026-10-09-fiber-test-monitoring",
   "catalogTree": "generated",
   "paths": [
     "AMD/CPU Portfolio/catalog.json",
@@ -320,6 +320,16 @@
     "ZTT/Data Center Infrastructure/Micro Modular Data Center/catalog.json",
     "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json",
     "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json",
-    "Delta/Data Center Power/catalog.json"
+    "Delta/Data Center Power/catalog.json",
+    "Fujikura/Fiber Test and Monitoring/catalog.json",
+    "NTest/Fiber Test and Monitoring/catalog.json",
+    "M2 Optics/Fiber Test and Monitoring/catalog.json",
+    "DSIT Solutions/Fiber Test and Monitoring/catalog.json",
+    "FS (FiberStore)/Fiber Test and Monitoring/catalog.json",
+    "Yokogawa/Fiber Test and Monitoring/catalog.json",
+    "Moog/Fiber Test and Monitoring/catalog.json",
+    "VIAVI/Fiber Test and Monitoring/catalog.json",
+    "Anritsu/Fiber Test and Monitoring/catalog.json",
+    "VeEX/Fiber Test and Monitoring/catalog.json"
   ]
 }

@@ -48,3 +48,17 @@ test('mixed Products category does not become duct; transceiver clips and CFP ar
  assert.equal(M.match({item:'트레이/덕트 계획 길이'},p).length,0);
  assert.equal(M.match({item:'트랜시버',requirement:{speed:100,package:'QSFP28'}},p).length,0);
 });
+
+test('Fiber monitoring instruments never substitute for cables, modules or network hardware',()=>{
+ const index=JSON.parse(fs.readFileSync(path.join(__dirname,'../product_catalog/bom-catalog-index.json'),'utf8'));
+ const products=index.roles.fiberMonitoring.flatMap(p=>read(p.replace(/\/catalog\.json$/,'')));
+ assert.equal(products.length,13);
+ for(const item of ['광 케이블','패치패널','광 모듈','네트워크 스위치','서버 랙','UPS','OTDR']) {
+  assert.deepEqual(M.match({item},products),[],item);
+ }
+ const fsProducts=products.filter(p=>p.vendor==='FS (FiberStore)');
+ assert.equal(fsProducts.length,3); // A plug-in OTDR must not be matched as a cassette/module.
+});
+test('Unverified DSIT vendor reference is browsable but excluded from structured product selection',()=>{
+ assert.deepEqual(read('DSIT Solutions/Fiber Test and Monitoring'),[]);
+});

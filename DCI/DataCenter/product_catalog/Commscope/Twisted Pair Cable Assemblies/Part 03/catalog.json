@@ -24,31 +24,6 @@
     "Length"
   ],
   "products": {
-    "2134201-2": {
-      "name": "2134201-2 · Twisted pair patch cord",
-      "description": "RJ45 Patch Cord, category 6, U/UTP, with security key, white, 2 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "2134201-2",
-        "Part Name": "",
-        "Product Type": "Twisted pair patch cord",
-        "Product Brand": "—",
-        "Product Series": "—",
-        "Status": "Discontinued",
-        "Category": "Cat6",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "U/UTP",
-        "Connector Type": "RJ45",
-        "Connector": "RJ45",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "2 m"
-      }
-    },
     "2134201-3": {
       "name": "2134201-3 · Twisted pair patch cord",
       "description": "RJ45 Patch Cord, category 6, U/UTP, with security key, white, 3 m",
@@ -4471,6 +4446,31 @@
         "Cable Jacket": "LSZH",
         "Jacket": "LSZH",
         "Flame Rating": "B2ca",
+        "Length": "—"
+      }
+    },
+    "CFKKD": {
+      "name": "CFKKD · IP6A-12LFTP-MGS600S-MGS600S · Copper trunk cable assembly",
+      "description": "InstaPATCH® Cu GigaSPEED X10D® F/UTP LSZH Preterminated Copper Cable, single row standard density outlet to single row standard density outlet, 12 links",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/twisted-pair-cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "CFKKD",
+        "Part Name": "IP6A-12LFTP-MGS600S-MGS600S",
+        "Product Type": "Copper trunk cable assembly",
+        "Product Brand": "GigaSPEED X10D® | InstaPATCH® Cu",
+        "Product Series": "—",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "F/UTP",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "LSZH",
+        "Jacket": "LSZH",
+        "Flame Rating": "—",
         "Length": "—"
       }
     }

@@ -19,9 +19,13 @@
     "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
     "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c",
     "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-7-datasheet",
-    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield"
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/solution-overview-gt",
+    "https://resources.nvidia.com/en-us-networking-ai/networking-ethernet-1",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/bluefield-4-dpu-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/ethernet-datasheet-spectrum-sn6000-switch"
   ],
-  "sourceCount": 8,
+  "sourceCount": 17,
   "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
   "comparisonFields": [
     "Product Family",
@@ -48,7 +52,11 @@
         "Source": "NVIDIA Quantum-X800 official page"
       },
       "datasheetPath": "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
-      "checked": "2026-10-09"
+      "checked": "2026-10-09",
+      "solutionOverviewUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/solution-overview-gt",
+      "referenceDocuments": [
+        "quantum-x800-platform-solution-overview"
+      ]
     },
     "nvidia-quantum-2-infiniband-switch-family": {
       "name": "NVIDIA Quantum-2 InfiniBand Switch Family",
@@ -103,7 +111,10 @@
         "Source": "NVIDIA Ethernet SuperNIC official page"
       },
       "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
-      "checked": "2026-10-09"
+      "checked": "2026-10-09",
+      "referenceDocuments": [
+        "connectx-9-supernic-datasheet"
+      ]
     },
     "nvidia-connectx-8-supernic": {
       "name": "NVIDIA ConnectX-8 SuperNIC",
@@ -185,7 +196,12 @@
         "Speed": "Product dependent; next-generation Spectrum-6",
         "Primary Workload": "AI factory scale-out",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/ethernet-datasheet-spectrum-sn6000-switch",
+      "referenceDocuments": [
+        "spectrum-sn6000-ethernet-switch-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-4-sn5000": {
       "name": "NVIDIA Spectrum-4 SN5000 Series Ethernet Switch",
@@ -251,7 +267,12 @@
         "Used With": "Spectrum-X Ethernet switches and SuperNICs",
         "Primary Workload": "AI cloud and multi-data-center scale-out",
         "Source": "NVIDIA Spectrum-X official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-networking-ai/networking-ethernet-1",
+      "referenceDocuments": [
+        "spectrum-x-ethernet-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-bluefield-4-dpu": {
       "name": "NVIDIA BlueField-4 DPU",
@@ -263,7 +284,12 @@
         "Speed": "800 Gb/s platform connectivity",
         "Primary Workload": "AI networking, storage and cybersecurity",
         "Source": "NVIDIA BlueField official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/bluefield-4-dpu-datasheet",
+      "referenceDocuments": [
+        "bluefield-4-dpu-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-bluefield-4-stx": {
       "name": "NVIDIA BlueField-4 STX Storage Processor",
@@ -288,7 +314,10 @@
         "Source": "NVIDIA BlueField official page"
       },
       "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
-      "checked": "2026-10-09"
+      "checked": "2026-10-09",
+      "referenceDocuments": [
+        "bluefield-3-dpu-datasheet"
+      ]
     },
     "nvidia-linkx-400g-osfp-transceiver-family": {
       "name": "NVIDIA LinkX 400G OSFP Optical Transceiver Family",

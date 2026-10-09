@@ -25,3 +25,7 @@ The web UI reads structured `catalog.json` files from `product_catalog/catalog-m
 - MC6709309 MPO-12 to eight LC connectors is a multimode SR4 splitter; do **not** automatically substitute it for single-mode DR4/FR4 or InfiniBand NDR links.
 - Family-level specs are not necessarily orderable part numbers. Validate port count, product SKU, signal protocol, optics type, reach, firmware and host compatibility before procurement.
 - When adding new PDF-only folders in the future, add matching structured catalog entries and update the manifest paths.
+
+## October 9 resource library extension
+
+Added `Networking/Technical Resources/catalog.json` for ten newly supplied NVIDIA links: Quantum-X800 overview, BlueField-3/4, ConnectX-9, Spectrum-X, SN6000, DSX Air and AI Factory/scale-in technical articles. Product datasheets appear in both their existing Networking product cards and the new technical-resource section. No reference document enters automatic BOM matching.

@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const VERSION='7.4.19';
+const VERSION='7.4.20';
 let selectedCategory='all',returnFocus;
 const textOf=e=>(e&&(e.innerText||e.textContent)||'').replace(/\s+/g,' ').trim();
 
@@ -74,6 +74,8 @@ const VERIFIED_DC_PRODUCTS={
     {vendor:'Eaton',product:'9395XR / 9395X',role:'AI / hyperscale modular UPS',spec:'Up to 1500 kW 9395XR · 9395X 900–1700 kW regional family',url:'https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xr-ups.html'},
     {vendor:'Schneider Electric',product:'Galaxy VXL',role:'Large data-center modular UPS',spec:'500–1250 kW 400 V family · >97% efficiency reference',url:'https://www.se.com/kr/ko/work/products/product-launch/galaxy-vxl/'},
     {vendor:'Delta',product:'Modulon DPH',role:'Modular three-phase UPS',spec:'50–500 kVA · 220/380, 230/400, 240/415 V',url:'https://www.deltapowersolutions.com/ko-kr/mcis/50kw-500kw-three-phase-ups-dph-series-specifications.php'},
+    {vendor:'Delta',product:'AI 120 kW / ORV3 18 kW Power Shelf',role:'AI 서버·랙 전원공급장치 · 시설 UPS와 구분',spec:'120 kW 총 정격 / 2N 보호 부하 60 kW · ORV3 1 OU 18 kW',url:'https://brandnews.deltaww.com/en/BrandCircleDetail/12483'},
+    {vendor:'Flex',product:'CPRS / CRPS Server Power Supplies',role:'서버·스토리지·네트워크용 AC/DC PSU',spec:'이중화 서버 전원 제품군 · 정격/SKU별 공급 확인',url:'https://flex.com/downloads/power-cloud-server-solutions-ac-dc-power-supplies-for-data-centers'},
     {vendor:'Flex',product:'GB200 / GB300 Power Shelf',role:'Rack-level AI power shelf',spec:'1RU · 6 PSUs · up to 33 kW · Redfish monitoring',url:'https://flex.com/resources/power-shelves'},
     {vendor:'Gaon Cable',product:'AI Data Center Power Portfolio',role:'Korea · MV cable / Cable Bus / Busduct / EHV grid',spec:'US AI-data-center MV cable supply · CSA-certified cable bus · LSCUS busduct deployments · exact ratings RFQ',url:'https://www.gaoncable.com/en'},
     {vendor:'Taihan Cable & Solution',product:'Data Center Integrated Power Solution',role:'Korea · EHV / MV / LV cable + busduct',spec:'Project-tailored power infrastructure · PET/epoxy busduct portfolio · design-to-installation integration',url:'https://www.taihan.com/en/solutions/dataCenter'},

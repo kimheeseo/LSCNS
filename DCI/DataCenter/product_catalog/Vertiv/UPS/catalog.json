@@ -4,7 +4,7 @@
   "country": "USA",
   "category": "UPS",
   "displayName": "UPS · Vertiv",
-  "checked": "2026-10-08",
+  "checked": "2026-10-09",
   "officialUrl": "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/liebert-exl-s1/",
   "products": {
     "liebert-exl-s1": {
@@ -17,8 +17,17 @@
         "Voltage": "480 V / regional variants",
         "Topology": "Online double-conversion",
         "Role": "Large / hyperscale data center UPS",
-        "Status": "Exact project voltage, battery and redundancy configuration to be validated"
-      }
+        "Status": "Exact project voltage, battery and redundancy configuration to be validated",
+        "업체 공급 계층": "시설 / 랙 전력 인프라"
+      },
+      "description": "데이터센터 전력·냉각 인프라 업체. UPS와 전력 분배 장비를 공급하며 시설 전원 연속성과 랙 전력 인프라를 지원합니다."
     }
+  },
+  "description": "데이터센터 전력·냉각 인프라 업체. UPS와 전력 분배 장비를 공급하며 시설 전원 연속성과 랙 전력 인프라를 지원합니다.",
+  "vendorProfile": {
+    "summary": "데이터센터 전력·냉각 인프라 업체. UPS와 전력 분배 장비를 공급하며 시설 전원 연속성과 랙 전력 인프라를 지원합니다.",
+    "powerLayer": "시설 / 랙 전력 인프라",
+    "officialUrl": "https://www.vertiv.com/en-us/",
+    "checked": "2026-10-09"
   }
 }

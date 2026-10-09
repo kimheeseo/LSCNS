@@ -1,5 +1,5 @@
 {
-  "revision": "2026-10-08-power-network-storage-supply-chain",
+  "revision": "2026-10-09-power-supply-vendor-profiles",
   "catalogTree": "generated",
   "paths": [
     "AMD/CPU Portfolio/catalog.json",
@@ -319,6 +319,7 @@
     "ZTT/Data Center Infrastructure/IT Cabinet/catalog.json",
     "ZTT/Data Center Infrastructure/Micro Modular Data Center/catalog.json",
     "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json",
-    "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json"
+    "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json",
+    "Delta/Data Center Power/catalog.json"
   ]
 }

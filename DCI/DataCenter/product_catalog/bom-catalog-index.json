@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "checked": "2026-10-08",
+  "checked": "2026-10-09",
   "source": "DCI/DataCenter/product_catalog (업체별 부품 리스트, Amphenol 665 포함)",
-  "totalStructuredCatalogs": 315,
+  "totalStructuredCatalogs": 319,
   "policy": "BOM/견적 후보는 구조화 catalog.json의 공식 제품/제품군을 우선 사용한다. Cable Tray와 Fiber Raceway는 Rack/Infrastructure 하위의 물리 케이블 경로로 별도 구분하며, Fiber Raceway는 광케이블 굽힘 반경과 보호를 우선하고 Cable Tray는 광/동/전력 경로의 하중·지지간격·분리 조건을 함께 검토한다. Fusion Splicer는 설치 Tool이므로 케이블·광부품 조달 수량에 자동 합산하지 않는다. 상세 규격·현장 경로·충전율·지지 간격이 불충분하면 RFQ/검증 필요 상태를 유지한다. Storage는 Enterprise/Data Center SSD와 SSD controller를 별도 role로 색인하며, 서버 수량에는 자동 합산하지 않는다.",
   "roles": {
     "compute": [
@@ -187,7 +187,8 @@
       "Amphenol/Power Distribution Panels/catalog.json",
       "Furukawa Electric/Power Cable/600V EM-FCC(T)/catalog.json",
       "Furukawa Electric/Power Cable/EM-LMFC/catalog.json",
-      "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json"
+      "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json",
+      "Delta/Data Center Power/catalog.json"
     ],
     "cooling": [
       "ZTT/Data Center Infrastructure/In-row Air Conditioner/catalog.json"

@@ -3,13 +3,13 @@
   "company": "Eaton",
   "category": "UPS",
   "displayName": "UPS (무정전 전원장치)",
-  "checked": "2026-10-05",
+  "checked": "2026-10-09",
   "scope": "공식 공개 자료의 대표 제품/제품군. 전체 SKU 목록 아님.",
   "storageMode": "official URL metadata only; no PDF upload",
   "products": {
     "9395xc-1125": {
       "name": "Eaton 9395XC 1125 kW",
-      "description": "대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
+      "description": "전력 관리 업체. 데이터센터 UPS, 배전 장치, 랙 PDU와 Busway 등 전력 보호·분배 솔루션을 공급합니다. 대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
       "officialUrl": "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html",
       "sourceUrls": [
         "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html"
@@ -22,12 +22,13 @@
         "전압 기준": "480 V 시스템 (미국 공식 사양)",
         "배터리": "VRLA/리튬이온 등 구성 확인",
         "비고": "ESS 최대 효율과 이중변환 효율 구분; 한국 적용 전압/인증 검증 필요",
-        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요",
+        "업체 공급 계층": "시설 UPS / 배전 / 랙 PDU"
       }
     },
     "9395xc-1500": {
       "name": "Eaton 9395XC 1500 kW",
-      "description": "대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
+      "description": "전력 관리 업체. 데이터센터 UPS, 배전 장치, 랙 PDU와 Busway 등 전력 보호·분배 솔루션을 공급합니다. 대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
       "officialUrl": "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html",
       "sourceUrls": [
         "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html"
@@ -40,12 +41,13 @@
         "전압 기준": "480 V 시스템 (미국 공식 사양)",
         "배터리": "VRLA/리튬이온 등 구성 확인",
         "비고": "ESS 최대 효율과 이중변환 효율 구분; 한국 적용 전압/인증 검증 필요",
-        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요",
+        "업체 공급 계층": "시설 UPS / 배전 / 랙 PDU"
       }
     },
     "9395xc-2250": {
       "name": "Eaton 9395XC 2250 kW",
-      "description": "대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
+      "description": "전력 관리 업체. 데이터센터 UPS, 배전 장치, 랙 PDU와 Busway 등 전력 보호·분배 솔루션을 공급합니다. 대형 데이터센터용 UPS. 배터리 구성 및 현장 전기 조건은 별도 확인합니다.",
       "officialUrl": "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html",
       "sourceUrls": [
         "https://www.eaton.com/us/en-us/catalog/backup-power-ups-surge-it-power-distribution/eaton-9395xc-ups.html"
@@ -58,7 +60,8 @@
         "전압 기준": "480 V 시스템 (미국 공식 사양)",
         "배터리": "VRLA/리튬이온 등 구성 확인",
         "비고": "ESS 최대 효율과 이중변환 효율 구분; 한국 적용 전압/인증 검증 필요",
-        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요"
+        "확인 상태": "공식 공개 사양 · 공급/호환성 검증 필요",
+        "업체 공급 계층": "시설 UPS / 배전 / 랙 PDU"
       }
     }
   },
@@ -68,5 +71,13 @@
     "배터리",
     "비고",
     "확인 상태"
-  ]
+  ],
+  "country": "Ireland",
+  "description": "전력 관리 업체. 데이터센터 UPS, 배전 장치, 랙 PDU와 Busway 등 전력 보호·분배 솔루션을 공급합니다.",
+  "vendorProfile": {
+    "summary": "전력 관리 업체. 데이터센터 UPS, 배전 장치, 랙 PDU와 Busway 등 전력 보호·분배 솔루션을 공급합니다.",
+    "powerLayer": "시설 UPS / 배전 / 랙 PDU",
+    "officialUrl": "https://www.eaton.com/us/en-us/products/backup-power-ups-surge-it-power-distribution/data-center-hub.html",
+    "checked": "2026-10-09"
+  }
 }

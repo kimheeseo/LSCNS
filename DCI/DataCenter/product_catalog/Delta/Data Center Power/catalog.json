@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "company": "Delta",
+  "country": "Taiwan",
+  "category": "Data Center Power",
+  "displayName": "AI 서버 전원공급장치 · Delta",
+  "checked": "2026-10-09",
+  "officialUrl": "https://brandnews.deltaww.com/en/BrandCircleDetail/12483",
+  "description": "전력 변환·전원공급장치 업체. 시설 UPS와 AI 서버·랙용 PSU / Power Shelf를 함께 공급합니다.",
+  "products": {
+    "ai-120kw-power-shelf": {
+      "name": "Delta 120 kW AI Power Shelf",
+      "description": "AI 서버용 랙 전원공급장치. 24개 5 kW PSU의 총 정격 120 kW와 2N 구성의 보호 부하 60 kW를 구분합니다.",
+      "officialUrl": "https://brandnews.deltaww.com/en/BrandCircleDetail/12483",
+      "sourceUrls": [
+        "https://brandnews.deltaww.com/en/BrandCircleDetail/12483"
+      ],
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "confidence": "공식 공개 제품군 자료",
+      "specs": {
+        "Type": "Rack-level power shelf",
+        "총 정격": "120 kW · 24 × 5 kW PSU",
+        "2N 보호 부하": "60 kW · 독립 12 × 5 kW 계통 두 개",
+        "효율": "97.5% 공개 참고",
+        "Monitoring": "CANbus",
+        "공급 계층": "랙 / 서버 전원 · 시설 UPS 아님"
+      }
+    },
+    "orv3-18kw-power-shelf": {
+      "name": "Delta ORV3 1 OU 18 kW Power Shelf",
+      "description": "Open Rack V3의 AI 서버용 전원 셸프 제품군. 6슬롯 3 kW PSU와 PMC 전력 관리를 제공합니다.",
+      "officialUrl": "https://brandnews.deltaww.com/en/BrandCircleDetail/12483",
+      "sourceUrls": [
+        "https://brandnews.deltaww.com/en/BrandCircleDetail/12483"
+      ],
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "confidence": "공식 공개 제품군 자료",
+      "specs": {
+        "Type": "ORV3 power shelf",
+        "총 정격": "18 kW · 6 × 3 kW PSU",
+        "Form factor": "1 OU · 6-slot chassis",
+        "효율": "97.5% peak 공개 참고",
+        "Monitoring": "PMC · PoE",
+        "공급 계층": "랙 / 서버 전원 · 시설 UPS 아님"
+      }
+    }
+  }
+}

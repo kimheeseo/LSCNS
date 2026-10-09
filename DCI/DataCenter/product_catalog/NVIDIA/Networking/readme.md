@@ -49,3 +49,17 @@ The following ten user-provided preview links were checked against official NVID
    - User preview: https://resources.nvidia.com/en-us-accelerated-networking-resource-library-ms/en-us-accelerated-networking-resource-library/giga-scale-ai-ethernet-evolution-spectrum-x-ethernet-rewrites-rules?pflpid=8026&&lb-mode=preview
 
 All ten records have `vendorReferenceOnly: true` and are browsable but excluded from automatic BOM/SKU matching. Documents without verified product-specific detailed specifications are deliberately not assigned new numerical spec claims.
+
+## Detailed NVIDIA NIC/DPU and Quantum Switch Specs (2026-10-09)
+
+- Official ConnectX NIC portfolio: https://www.nvidia.com/ko-kr/networking/ethernet-adapters/
+- BlueField-3: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield
+- ConnectX-8: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c
+- ConnectX-9: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet
+- Quantum InfiniBand switches: https://www.nvidia.com/ko-kr/networking/infiniband-switching/
+
+Updated detailed specifications for nine existing NVIDIA Networking entries rather than duplicating those product families. Added `InfiniBand Switch Models/catalog.json` with Quantum-X800 **Q3200-RA, Q3300-LD, Q3400-RA, Q3401-RD, Q3450-LD** and Quantum-2 **QM9700, QM9790**.
+
+Important engineering distinction: ConnectX-9 per-device total interface bandwidth is 800Gb/s, whereas a separate NVIDIA Rubin platform-level networking claim reaches 1.6Tb/s. ConnectX-8 is dual-protocol Ethernet/InfiniBand, 800Gb/s total bandwidth, with up to 400Gb/s per Ethernet port according to the selected datasheet. BlueField-3 can support InfiniBand or Ethernet at up to 400Gb/s. The CPO-based Q3450-LD front panel uses MPO12 fiber rather than pluggable transceiver modules; this compatibility fact is cataloged but the existing physical optical BOM calculation has **not** been automatically modified.
+
+Datasheet landing-page links are preserved, and stable official PDF links are available separately in the vendor product cards where supplied. Optical reach, channelization, cooling, power supply and exact purchasable SKU must still be checked for actual deployment.

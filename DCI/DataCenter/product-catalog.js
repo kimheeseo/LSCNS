@@ -708,11 +708,12 @@
     const checked = meta.checked || (manifest && manifest.checked) || '';
     const localPdfUrl = meta.datasheetPath ? staticUrl(meta.datasheetPath) : '';
     const datasheetUrl = meta.datasheetUrl || localPdfUrl;
+    const officialPdfUrl = meta.officialPdfUrl || '';
     const solutionOverviewUrl = meta.solutionOverviewUrl || '';
     const referenceOnly = !!(meta.referenceOnly || meta.vendorReferenceOnly);
     const searchText = [title, fullTitle, model, file.name, state.company, state.category, group, description]
       .concat(Object.entries(specs).flat()).join(' ').toLowerCase();
-    return {file, manifest, group, model, specs, title, description, officialUrl, datasheetUrl, localPdfUrl, solutionOverviewUrl, referenceOnly, checked, searchText};
+    return {file, manifest, group, model, specs, title, description, officialUrl, datasheetUrl, localPdfUrl, officialPdfUrl, solutionOverviewUrl, referenceOnly, checked, searchText};
   }
 
   function comparisonKeys(entries) {
@@ -750,12 +751,13 @@
     const datasheet = d.datasheetUrl && d.datasheetUrl !== primaryUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">데이터시트 PDF ↗</a>' : '';
     const localPdf = d.localPdfUrl && d.localPdfUrl !== d.datasheetUrl ? '<a href="' + esc(d.localPdfUrl) + '" target="_blank" rel="noopener">업로드 PDF ↗</a>' : '';
     const overview = d.solutionOverviewUrl && d.solutionOverviewUrl !== primaryUrl ? '<a href="' + esc(d.solutionOverviewUrl) + '" target="_blank" rel="noopener">플랫폼 개요 ↗</a>' : '';
+    const officialPdf = d.officialPdfUrl && d.officialPdfUrl !== primaryUrl ? '<a href="' + esc(d.officialPdfUrl) + '" target="_blank" rel="noopener">제조사 원문 PDF ↗</a>' : '';
     return '<article class="catalog-card" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
       '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(cleanLabel(state.company)) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + (virtual ? 'URL' : esc(humanBytes(d.file.size))) + '</span></div>' +
       (d.description ? '<p class="catalog-description">' + esc(d.description) + '</p>' : '') +
       (rows.length ? '<dl class="catalog-specs">' + rows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
         '<div class="catalog-no-spec">공통 비교 스펙 미등록 · catalog.json에 comparisonFields를 추가해야 합니다.</div>') +
-      '<div class="catalog-card-actions">' + (primaryUrl ? '<a href="' + esc(primaryUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' : '') + secondary + datasheet + localPdf + overview + '</div>' +
+      '<div class="catalog-card-actions">' + (primaryUrl ? '<a href="' + esc(primaryUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' : '') + secondary + datasheet + localPdf + overview + officialPdf + '</div>' +
       (d.checked ? '<small class="catalog-checked">' + (d.referenceOnly ? '자료 등록일 ' : '사양 확인일 ') + esc(d.checked) + '</small>' : '') +
     '</article>';
   }
@@ -774,7 +776,7 @@
         keys.map(key => '<td>' + esc(d.specs[key] ?? '—') + '</td>').join('') +
         '<td>' + ((d.file.html_url || d.officialUrl) ? '<a href="' + esc(d.file.html_url || d.officialUrl) + '" target="_blank" rel="noopener">' + (d.file.virtual ? 'URL ↗' : 'PDF ↗') + '</a>' : '—') + '</td>' +
         '<td>' + (!d.file.virtual && d.officialUrl && d.officialUrl !== d.file.html_url ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : (d.file.virtual ? 'URL 제품' : '—')) + '</td>' +
-        '<td>' + (d.datasheetUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">PDF ↗</a>' : '—') + (d.localPdfUrl && d.localPdfUrl !== d.datasheetUrl ? ' <a href="' + esc(d.localPdfUrl) + '" target="_blank" rel="noopener">보관 PDF ↗</a>' : '') + (d.solutionOverviewUrl ? ' <a href="' + esc(d.solutionOverviewUrl) + '" target="_blank" rel="noopener">개요 ↗</a>' : '') + '</td></tr>').join('');
+        '<td>' + (d.datasheetUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">PDF ↗</a>' : '—') + (d.localPdfUrl && d.localPdfUrl !== d.datasheetUrl ? ' <a href="' + esc(d.localPdfUrl) + '" target="_blank" rel="noopener">보관 PDF ↗</a>' : '') + (d.solutionOverviewUrl ? ' <a href="' + esc(d.solutionOverviewUrl) + '" target="_blank" rel="noopener">개요 ↗</a>' : '') + (d.officialPdfUrl && d.officialPdfUrl !== d.datasheetUrl ? ' <a href="' + esc(d.officialPdfUrl) + '" target="_blank" rel="noopener">원문 PDF ↗</a>' : '') + '</td></tr>').join('');
       return '<section class="catalog-table-group" data-table-family="' + esc(group) + '">' +
         '<div class="catalog-table-group-head"><span class="catalog-family table-family">' + esc(group) + '</span> <b>' + items.length + '개 · 동일 스펙 기준 비교</b></div>' +
         (keys.length ? '<div class="catalog-sheet-wrap"><table class="catalog-sheet"><thead><tr>' + headers.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>' :

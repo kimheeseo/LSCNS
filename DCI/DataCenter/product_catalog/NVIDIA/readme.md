@@ -40,3 +40,17 @@ Added `Networking/Technical Resources/catalog.json` for ten newly supplied NVIDI
 - The 400G OSFP DR4/SR4 examples explicitly specify 4×100G-PAM4 and dual InfiniBand/Ethernet protocol support, as documented in NVIDIA's model pages; do not generalize these claims to all transceivers.
 - Source categories reflect the NVIDIA index on 2026-10-09 and **do not guarantee in-stock availability**. Confirm exact SKU, optical reach, cooling-shell type (IHS/RHS/finned), MPO APC/UPC, firmware and host-switch compatibility before RFQ.
 - Source URLs point to individual NVIDIA documentation pages, not downloaded third-party PDF copies.
+
+## Detailed NVIDIA NIC/DPU and Quantum Switch Specs (2026-10-09)
+
+- Official ConnectX NIC portfolio: https://www.nvidia.com/ko-kr/networking/ethernet-adapters/
+- BlueField-3: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield
+- ConnectX-8: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c
+- ConnectX-9: https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet
+- Quantum InfiniBand switches: https://www.nvidia.com/ko-kr/networking/infiniband-switching/
+
+Updated detailed specifications for nine existing NVIDIA Networking entries rather than duplicating those product families. Added `InfiniBand Switch Models/catalog.json` with Quantum-X800 **Q3200-RA, Q3300-LD, Q3400-RA, Q3401-RD, Q3450-LD** and Quantum-2 **QM9700, QM9790**.
+
+Important engineering distinction: ConnectX-9 per-device total interface bandwidth is 800Gb/s, whereas a separate NVIDIA Rubin platform-level networking claim reaches 1.6Tb/s. ConnectX-8 is dual-protocol Ethernet/InfiniBand, 800Gb/s total bandwidth, with up to 400Gb/s per Ethernet port according to the selected datasheet. BlueField-3 can support InfiniBand or Ethernet at up to 400Gb/s. The CPO-based Q3450-LD front panel uses MPO12 fiber rather than pluggable transceiver modules; this compatibility fact is cataloged but the existing physical optical BOM calculation has **not** been automatically modified.
+
+Datasheet landing-page links are preserved, and stable official PDF links are available separately in the vendor product cards where supplied. Optical reach, channelization, cooling, power supply and exact purchasable SKU must still be checked for actual deployment.

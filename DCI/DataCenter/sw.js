@@ -1,4 +1,4 @@
-const CACHE='dc-bom-pwa-20261009-linkx-v2';
+const CACHE='dc-bom-pwa-20261009-nic-quantum-v3';
 const CORE=['./','./index.html','./manifest.webmanifest','./style.css','./app-install.js','./icons/dc-192.png','./icons/dc-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));

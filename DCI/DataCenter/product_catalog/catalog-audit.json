@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-09",
   "pdfCount": 1232,
-  "catalogCount": 339,
+  "catalogCount": 340,
   "uncatalogedPdfCount": 0,
   "pdfByVendor": {
     "Commscope": 18,
@@ -14,5 +14,5 @@
     "USConnec": 84
   },
   "uncatalogedPdfPaths": [],
-  "notes": "GitHub product_catalog recursive tree audited before LinkX catalog commit: 336 existing catalog.json and 1232 PDF files, 0 PDFs without a same-folder catalog. Three new structured catalogs (two LinkX + NVIDIA Networking Software) yield 339 catalogs; no new PDFs."
+  "notes": "340 structured catalogs after NVIDIA detailed InfiniBand switch model addition, 1232 archived PDFs, 0 PDFs lacking a same-folder catalog.json (tree checked before current new JSON-only addition)."
 }

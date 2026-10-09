@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Adapter",
+  "displayName": "LinkX QSA Adapters & ConnectX Reference PDFs",
+  "description": "Official product pages and uploaded datasheets; verify precise SKU and compatibility before procurement.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+  "comparisonFields": [
+    "Product Type",
+    "Data Rate",
+    "Speed",
+    "Host Port",
+    "Device Interface",
+    "Protocol"
+  ],
+  "sourceFiles": [
+    "PB_MAM1Q00A-QSA28_QSFP28_to_SFP28_Adapter.pdf",
+    "PB_MAM1Q00A-QSA_QSFP+_to_SFP+_Adapter.pdf",
+    "connectx-7-datasheet.pdf",
+    "connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf"
+  ],
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
+    "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/"
+  ],
+  "products": {
+    "MAM1Q00A-QSA28": {
+      "name": "NVIDIA LinkX MAM1Q00A-QSA28 · QSFP28 to SFP28 Adapter",
+      "description": "Ethernet QSA port adapter; not compatible with InfiniBand.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+      "specs": {
+        "Product Type": "QSA port adapter",
+        "Data Rate": "25 Gb/s",
+        "Host Port": "QSFP28",
+        "Device Interface": "SFP28",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Adapter/PB_MAM1Q00A-QSA28_QSFP28_to_SFP28_Adapter.pdf",
+      "checked": "2026-10-09"
+    },
+    "MAM1Q00A-QSA": {
+      "name": "NVIDIA LinkX MAM1Q00A-QSA · QSFP+ to SFP+ Adapter",
+      "description": "Ethernet QSA port adapter; not compatible with InfiniBand.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+      "specs": {
+        "Product Type": "QSA port adapter",
+        "Data Rate": "10 Gb/s",
+        "Host Port": "QSFP+",
+        "Device Interface": "SFP+",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Adapter/PB_MAM1Q00A-QSA_QSFP+_to_SFP+_Adapter.pdf",
+      "checked": "2026-10-09"
+    },
+    "nvidia-connectx-7-datasheet-reference": {
+      "name": "ConnectX-7 NIC · uploaded datasheet",
+      "description": "Reference only; this family is already listed in NVIDIA/Networking.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
+      "specs": {
+        "Product Type": "NIC datasheet",
+        "Speed": "up to 400 Gb/s",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Adapter/connectx-7-datasheet.pdf",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    },
+    "nvidia-connectx-8-datasheet-reference": {
+      "name": "ConnectX-8 SuperNIC · uploaded datasheet",
+      "description": "Reference only; this family is already listed in NVIDIA/Networking.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+      "specs": {
+        "Product Type": "SuperNIC datasheet",
+        "Speed": "up to 800 Gb/s",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Adapter/connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Cable",
+  "displayName": "MPO to LC Passive Optical Splitter",
+  "description": "Official product pages and uploaded datasheets; verify precise SKU and compatibility before procurement.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+  "comparisonFields": [
+    "Product Type",
+    "Part Number",
+    "Connector",
+    "Fiber Type",
+    "Length",
+    "Compatibility",
+    "BOM Policy"
+  ],
+  "sourceFiles": [
+    "PB_MC6709309-xxx_8_Fiber_MPO_to_4_x_2_Fiber_Duplex_LC_Passive_Optical_Splitter.pdf"
+  ],
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/"
+  ],
+  "products": {
+    "MC6709309": {
+      "name": "NVIDIA LinkX MC6709309 · MPO-12 to 4 duplex LC Splitter",
+      "description": "Passive MMF splitter for SR4 transceivers; not a generic single-mode DR4/FR4 or InfiniBand NDR cable.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+      "specs": {
+        "Product Type": "Passive optical splitter cable",
+        "Part Number": "MC6709309",
+        "Connector": "MPO-12 to 8 x LC (4 duplex LC)",
+        "Fiber Type": "Multimode",
+        "Length": "5 / 10 / 20 / 30 / 50 m",
+        "Compatibility": "Multimode SR4 optics",
+        "BOM Policy": "Check compatibility / RFQ before use"
+      },
+      "datasheetPath": "NVIDIA/Cable/PB_MC6709309-xxx_8_Fiber_MPO_to_4_x_2_Fiber_Duplex_LC_Passive_Optical_Splitter.pdf",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

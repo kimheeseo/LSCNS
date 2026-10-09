@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Networking Switch",
+  "displayName": "Spectrum Ethernet & Quantum Switch Datasheets",
+  "description": "Local product datasheets; reference-only to avoid duplicate automatic BOM matches.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/ethernet-switching/"
+  ],
+  "sourceFiles": [
+    "ethernet-datasheet-sn3000-datasheet-4813150.pdf",
+    "ethernet-datasheet-sn5000-switch-family-4072600.pdf",
+    "ethernet-datasheet-spectrum-sn4000-4087100.pdf",
+    "infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf"
+  ],
+  "comparisonFields": [
+    "Product Type",
+    "Product Family",
+    "Max Port Speed",
+    "Protocol"
+  ],
+  "products": {
+    "sn3000-datasheet": {
+      "name": "NVIDIA Spectrum-2 SN3000 Ethernet Switch · PDF",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "description": "Uploaded vendor datasheet; this product family is already listed in NVIDIA/Networking.",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "Ethernet switch",
+        "Product Family": "Spectrum-2 SN3000",
+        "Max Port Speed": "200 Gb/s",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn3000-datasheet-4813150.pdf",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    },
+    "sn5000-datasheet": {
+      "name": "NVIDIA Spectrum-4 SN5000 Ethernet Switch · PDF",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "description": "Uploaded vendor datasheet; this product family is already listed in NVIDIA/Networking.",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "Ethernet switch",
+        "Product Family": "Spectrum-4 SN5000",
+        "Max Port Speed": "800 Gb/s",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn5000-switch-family-4072600.pdf",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    },
+    "sn4000-datasheet": {
+      "name": "NVIDIA Spectrum-3 SN4000 Ethernet Switch · PDF",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/",
+      "description": "Uploaded vendor datasheet; this product family is already listed in NVIDIA/Networking.",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "Ethernet switch",
+        "Product Family": "Spectrum-3 SN4000",
+        "Max Port Speed": "400 Gb/s",
+        "Protocol": "Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-spectrum-sn4000-4087100.pdf",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    },
+    "quantum-x800-datasheet": {
+      "name": "NVIDIA Quantum-X800 InfiniBand Switch · PDF",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
+      "description": "Uploaded vendor datasheet; this product family is already listed in NVIDIA/Networking.",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Family": "Quantum-X800",
+        "Max Port Speed": "800 Gb/s",
+        "Protocol": "InfiniBand"
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

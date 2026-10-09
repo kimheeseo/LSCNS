@@ -706,9 +706,10 @@
     const description = meta.description || (manifest && manifest.productDescription) || '';
     const officialUrl = meta.officialUrl || (manifest && manifest.officialUrl) || '';
     const checked = meta.checked || (manifest && manifest.checked) || '';
+    const datasheetUrl = meta.datasheetPath ? staticUrl(meta.datasheetPath) : (meta.datasheetUrl || '');
     const searchText = [title, fullTitle, model, file.name, state.company, state.category, group, description]
       .concat(Object.entries(specs).flat()).join(' ').toLowerCase();
-    return {file, manifest, group, model, specs, title, description, officialUrl, checked, searchText};
+    return {file, manifest, group, model, specs, title, description, officialUrl, datasheetUrl, checked, searchText};
   }
 
   function comparisonKeys(entries) {
@@ -743,12 +744,13 @@
     const primaryLabel = virtual ? '공식 제품 페이지 보기 ↗' : '제품 PDF 보기 ↗';
     const secondary = (!virtual && d.officialUrl && d.officialUrl !== d.file.html_url)
       ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 제품 페이지 ↗</a>' : '';
+    const datasheet = d.datasheetUrl && d.datasheetUrl !== primaryUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">데이터시트 PDF ↗</a>' : '';
     return '<article class="catalog-card" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
       '<div class="catalog-card-top"><div><span class="catalog-vendor">' + esc(cleanLabel(state.company)) + '</span><span class="catalog-family">' + esc(d.group) + '</span><h4>' + esc(d.title) + '</h4><code>' + esc(d.model) + '</code></div><span class="catalog-file-size">' + (virtual ? 'URL' : esc(humanBytes(d.file.size))) + '</span></div>' +
       (d.description ? '<p class="catalog-description">' + esc(d.description) + '</p>' : '') +
       (rows.length ? '<dl class="catalog-specs">' + rows.map(([key,value]) => '<div><dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd></div>').join('') + '</dl>' :
         '<div class="catalog-no-spec">공통 비교 스펙 미등록 · catalog.json에 comparisonFields를 추가해야 합니다.</div>') +
-      '<div class="catalog-card-actions">' + (primaryUrl ? '<a href="' + esc(primaryUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' : '') + secondary + '</div>' +
+      '<div class="catalog-card-actions">' + (primaryUrl ? '<a href="' + esc(primaryUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' : '') + secondary + datasheet + '</div>' +
       (d.checked ? '<small class="catalog-checked">사양 확인일 ' + esc(d.checked) + '</small>' : '') +
     '</article>';
   }
@@ -761,12 +763,13 @@
     return [...groups.entries()].map(([group, items]) => {
       const keys = comparisonKeys(items);
       const data = items.map(entryData);
-      const headers = ['모델', ...keys, '자료', '공식 페이지'];
+      const headers = ['모델', ...keys, '자료', '공식 페이지', '데이터시트'];
       const rows = data.map(d => '<tr class="catalog-table-row" data-family="' + esc(d.group) + '" data-search="' + esc(d.searchText) + '">' +
         '<td><b>' + esc(d.title) + '</b><small>' + esc(d.model) + '</small></td>' +
         keys.map(key => '<td>' + esc(d.specs[key] ?? '—') + '</td>').join('') +
         '<td>' + ((d.file.html_url || d.officialUrl) ? '<a href="' + esc(d.file.html_url || d.officialUrl) + '" target="_blank" rel="noopener">' + (d.file.virtual ? 'URL ↗' : 'PDF ↗') + '</a>' : '—') + '</td>' +
-        '<td>' + (!d.file.virtual && d.officialUrl && d.officialUrl !== d.file.html_url ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : (d.file.virtual ? 'URL 제품' : '—')) + '</td></tr>').join('');
+        '<td>' + (!d.file.virtual && d.officialUrl && d.officialUrl !== d.file.html_url ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 ↗</a>' : (d.file.virtual ? 'URL 제품' : '—')) + '</td>' +
+        '<td>' + (d.datasheetUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">PDF ↗</a>' : '—') + '</td></tr>').join('');
       return '<section class="catalog-table-group" data-table-family="' + esc(group) + '">' +
         '<div class="catalog-table-group-head"><span class="catalog-family table-family">' + esc(group) + '</span> <b>' + items.length + '개 · 동일 스펙 기준 비교</b></div>' +
         (keys.length ? '<div class="catalog-sheet-wrap"><table class="catalog-sheet"><thead><tr>' + headers.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>' :

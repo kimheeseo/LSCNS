@@ -3,8 +3,8 @@
   "company": "NVIDIA",
   "category": "Networking",
   "displayName": "Networking",
-  "description": "NVIDIA AI data center networking portfolio: Quantum InfiniBand, Spectrum/Spectrum-X Ethernet, ConnectX/SuperNIC, BlueField DPU, and LinkX interconnect/transceiver families.",
-  "checked": "2026-10-05",
+  "description": "NVIDIA Networking product family catalog, official URLs and manufacturer datasheets (including uploaded PDFs). Family entries must be verified to orderable SKU before procurement.",
+  "checked": "2026-10-09",
   "officialUrl": "https://www.nvidia.com/ko-kr/networking/",
   "sourceUrls": [
     "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
@@ -14,7 +14,12 @@
     "https://www.nvidia.com/ko-kr/networking/spectrumx/",
     "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
     "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
-    "https://www.nvidia.com/ko-kr/networking/interconnect/"
+    "https://www.nvidia.com/ko-kr/networking/interconnect/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-7-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield"
   ],
   "sourceCount": 8,
   "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
@@ -41,7 +46,9 @@
         "Ports": "144",
         "Primary Workload": "Large-scale AI factories and HPC",
         "Source": "NVIDIA Quantum-X800 official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-quantum-2-infiniband-switch-family": {
       "name": "NVIDIA Quantum-2 InfiniBand Switch Family",
@@ -66,7 +73,9 @@
         "Ports": "8 x 100/200 Gb/s on each InfiniBand and Ethernet side",
         "Primary Workload": "Cross-fabric connectivity",
         "Source": "NVIDIA Quantum InfiniBand switches official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/gateway/InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-metrox-3-xc": {
       "name": "NVIDIA MetroX-3 XC System",
@@ -78,7 +87,9 @@
         "Reach": "up to 40 km",
         "Primary Workload": "Remote data center / storage interconnect",
         "Source": "NVIDIA Quantum InfiniBand switches official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/infiniband-datasheet-metrox-3-xc-long-haul-2380143.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-9-supernic": {
       "name": "NVIDIA ConnectX-9 SuperNIC",
@@ -90,7 +101,9 @@
         "Speed": "up to 1.6 Tb/s",
         "Primary Workload": "Gigascale AI factories",
         "Source": "NVIDIA Ethernet SuperNIC official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-8-supernic": {
       "name": "NVIDIA ConnectX-8 SuperNIC",
@@ -102,7 +115,10 @@
         "Speed": "up to 800 Gb/s total network bandwidth",
         "Primary Workload": "Generative AI and large-scale compute fabrics",
         "Source": "NVIDIA Ethernet SuperNIC official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c",
+      "datasheetPath": "NVIDIA/Adapter/connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-bluefield-3-supernic": {
       "name": "NVIDIA BlueField-3 SuperNIC",
@@ -127,7 +143,10 @@
         "Ports": "up to 4",
         "Primary Workload": "Cloud, telecom, AI and enterprise",
         "Source": "NVIDIA Ethernet adapters official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-7-datasheet",
+      "datasheetPath": "NVIDIA/Adapter/connectx-7-datasheet.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-6-dx": {
       "name": "NVIDIA ConnectX-6 Dx 25/50/100/200G NIC",
@@ -178,7 +197,9 @@
         "Speed": "up to 800 Gb/s",
         "Primary Workload": "Cloud-scale GPU compute and AI",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn5000-switch-family-4072600.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-3-sn4000": {
       "name": "NVIDIA Spectrum-3 SN4000 Series Ethernet Switch",
@@ -190,7 +211,9 @@
         "Speed": "up to 400 Gb/s",
         "Primary Workload": "Scale-out distributed data centers",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-spectrum-sn4000-4087100.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-2-sn3000": {
       "name": "NVIDIA Spectrum-2 SN3000 Series Ethernet Switch",
@@ -202,7 +225,9 @@
         "Speed": "up to 200 Gb/s per port",
         "Primary Workload": "Leaf-spine data center networking",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn3000-datasheet-4813150.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-sn2000": {
       "name": "NVIDIA Spectrum SN2000 Series Ethernet Switch",
@@ -261,7 +286,9 @@
         "Speed": "400 Gb/s",
         "Primary Workload": "AI, hybrid cloud, HPC and 5G infrastructure",
         "Source": "NVIDIA BlueField official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
+      "checked": "2026-10-09"
     },
     "nvidia-linkx-400g-osfp-transceiver-family": {
       "name": "NVIDIA LinkX 400G OSFP Optical Transceiver Family",

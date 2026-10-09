@@ -21,7 +21,7 @@ product_catalog/
 - 부품군 폴더 안의 PDF = 제품 자료
 - `catalog.json` = DataCenter Tool에 표시할 간략 스펙
 
-PDF만 추가해도 제품 목록에는 자동으로 나타납니다. 간략 스펙까지 표시하려면 같은 폴더에 `catalog.json`을 추가합니다.
+**현재 GitHub Pages 정적 배포 방식에서는 PDF 파일만 추가해도 제품 목록에 자동 표시되지 않습니다.** 폴더에 `catalog.json`을 작성한 뒤, `product_catalog/catalog-manifest.json`의 `paths` 배열에 해당 `catalog.json`의 상대경로를 추가해야 합니다. URL/제품 스펙은 `catalog.json`에서 관리합니다.
 
 ## catalog.json 예시
 

@@ -75,7 +75,7 @@
             entries.push({
               file: {name:key, size:0, html_url:href, virtual:true},
               manifest,
-              group,
+              group: String(meta.specs?.['Catalog Group'] || group),
               catalogPath:path
             });
           });

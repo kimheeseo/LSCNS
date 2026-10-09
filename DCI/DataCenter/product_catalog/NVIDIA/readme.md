@@ -29,3 +29,14 @@ The web UI reads structured `catalog.json` files from `product_catalog/catalog-m
 ## October 9 resource library extension
 
 Added `Networking/Technical Resources/catalog.json` for ten newly supplied NVIDIA links: Quantum-X800 overview, BlueField-3/4, ConnectX-9, Spectrum-X, SN6000, DSX Air and AI Factory/scale-in technical articles. Product datasheets appear in both their existing Networking product cards and the new technical-resource section. No reference document enters automatic BOM matching.
+
+## NVIDIA LinkX Interconnect and Networking Software (2026-10-09)
+
+- Product source: https://networking-docs.nvidia.com/interconnect
+- `LinkX Interconnect/Current Products/catalog.json`: 41 manufacturer-indexed current-listing product families across 1600G, 800G, 400G, 200G, 100G, 25G and Accessories. The `Catalog Group` spec drives website subcategory filters.
+- `LinkX Interconnect/Discontinued Products/catalog.json`: 31 entries listed under **Products No Longer For Sale** (including MCA7J60-Nxxx, whose manufacturer index points to the wrong URL). All entries are reference-only and are not BOM candidates.
+- `Networking Software/catalog.json`: NVIDIA DSX Air (network/data-center simulation) and NVIDIA NetQ (network operations) with official software links. Excluded from hardware BOM.
+- Existing `Adapter/catalog.json` remains canonical for MAM1Q00A-QSA and MAM1Q00A-QSA28; LinkX browsing duplicates are excluded from automatic BOM matching.
+- The 400G OSFP DR4/SR4 examples explicitly specify 4×100G-PAM4 and dual InfiniBand/Ethernet protocol support, as documented in NVIDIA's model pages; do not generalize these claims to all transceivers.
+- Source categories reflect the NVIDIA index on 2026-10-09 and **do not guarantee in-stock availability**. Confirm exact SKU, optical reach, cooling-shell type (IHS/RHS/finned), MPO APC/UPC, firmware and host-switch compatibility before RFQ.
+- Source URLs point to individual NVIDIA documentation pages, not downloaded third-party PDF copies.

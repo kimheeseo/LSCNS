@@ -1,8 +1,8 @@
 {
-  "checked": "2026-10-06",
+  "checked": "2026-10-09",
   "pdfCount": 1232,
-  "catalogCount": 329,
-  "uncatalogedPdfCount": 12,
+  "catalogCount": 339,
+  "uncatalogedPdfCount": 0,
   "pdfByVendor": {
     "Commscope": 18,
     "Corning": 1057,
@@ -13,18 +13,6 @@
     "Sumitomo Electric": 44,
     "USConnec": 84
   },
-  "uncatalogedPdfPaths": [
-    "Mellanox/Ethernet Platforms/mellanox-archive-BR-SN2000series.pdf",
-    "NVIDIA/Adapter/PB_MAM1Q00A-QSA28_QSFP28_to_SFP28_Adapter.pdf",
-    "NVIDIA/Adapter/PB_MAM1Q00A-QSA_QSFP+_to_SFP+_Adapter.pdf",
-    "NVIDIA/Adapter/connectx-7-datasheet.pdf",
-    "NVIDIA/Adapter/connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf",
-    "NVIDIA/Cable/PB_MC6709309-xxx_8_Fiber_MPO_to_4_x_2_Fiber_Duplex_LC_Passive_Optical_Splitter.pdf",
-    "NVIDIA/InfiniBand Platform/infiniband-ndr-400g-architecture-datasheet-1620877-r4.pdf",
-    "NVIDIA/Networking/Switch/ethernet-datasheet-sn3000-datasheet-4813150.pdf",
-    "NVIDIA/Networking/Switch/ethernet-datasheet-sn5000-switch-family-4072600.pdf",
-    "NVIDIA/Networking/Switch/ethernet-datasheet-spectrum-sn4000-4087100.pdf",
-    "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
-    "NVIDIA/Networking/gateway/InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf"
-  ]
+  "uncatalogedPdfPaths": [],
+  "notes": "GitHub product_catalog recursive tree audited before LinkX catalog commit: 336 existing catalog.json and 1232 PDF files, 0 PDFs without a same-folder catalog. Three new structured catalogs (two LinkX + NVIDIA Networking Software) yield 339 catalogs; no new PDFs."
 }

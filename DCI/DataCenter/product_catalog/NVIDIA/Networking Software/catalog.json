@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Networking Software",
+  "displayName": "DSX Air · NetQ (simulation & network operations)",
+  "description": "Official NVIDIA AI Factory digital-twin simulation and fabric monitoring products. Software resources are not automatically counted as switches, NICs or optical BOM parts.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/air/",
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/ethernet-switching/air/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet-switching/netq/",
+    "https://docs.nvidia.com/dsx-air/"
+  ],
+  "comparisonFields": [
+    "Product Type",
+    "Use Case",
+    "Deployment",
+    "BOM Policy"
+  ],
+  "products": {
+    "nvidia-dsx-air": {
+      "name": "NVIDIA DSX Air · AI Factory Simulation",
+      "description": "Cloud-hosted AI factory digital-twin simulation for network topology, automation, provisioning and configuration testing before physical deployment.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/air/",
+      "documentationUrl": "https://docs.nvidia.com/dsx-air/",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Product Type": "Data center simulation software",
+        "Use Case": "AI Factory digital twin / network fabric simulation",
+        "Deployment": "Cloud hosted",
+        "Simulated Platforms": "Spectrum-X, ConnectX SuperNIC, BlueField DPU, NetQ",
+        "BOM Policy": "Software reference; do not count as a physical BOM item"
+      }
+    },
+    "nvidia-netq": {
+      "name": "NVIDIA NetQ · Fabric Monitoring and Validation",
+      "description": "NVIDIA NetQ telemetry-based network monitoring, diagnostics, validation and change tracking for Cumulus Linux and SONiC fabrics.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/netq/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/f3oamupcyvvp53u4uu4da3oo8x724wyx.pdf",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Product Type": "Network operations software",
+        "Use Case": "Telemetry, fabric health, change history and root-cause analysis",
+        "Deployment": "On-premises or cloud service (per NVIDIA documentation)",
+        "Supported Networks": "Cumulus Linux / SONiC, RoCE monitoring",
+        "BOM Policy": "Software reference; licensing and deployment require separate review"
+      }
+    }
+  }
+}

@@ -1,0 +1,793 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "LinkX Interconnect",
+  "displayName": "LinkX Current Products",
+  "description": "NVIDIA LinkX Interconnect official source, current section as listed October 9 2026. Listed does not guarantee orderable availability; confirm SKU, protocol, host and optics compatibility.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://networking-docs.nvidia.com/interconnect",
+  "sourceUrls": [
+    "https://networking-docs.nvidia.com/interconnect"
+  ],
+  "comparisonFields": [
+    "Part Number / Series",
+    "Product Type",
+    "Speed",
+    "Package",
+    "Fiber Type",
+    "Reach",
+    "Protocol",
+    "Modulation",
+    "Lifecycle"
+  ],
+  "sourceCount": 41,
+  "products": {
+    "MCA4K00": {
+      "name": "MCA4K00 · 1600G OSFP to OSFP active copper (RHS) · ACC",
+      "description": "1600G OSFP to OSFP active copper (RHS)",
+      "officialUrl": "https://networking-docs.nvidia.com/mca4k00hw",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Copper",
+        "Part Number / Series": "MCA4K00",
+        "Product Type": "ACC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Protocol": "Ethernet / InfiniBand / NVL5",
+        "Modulation": "8×200G-PAM4"
+      }
+    },
+    "MCA4K50": {
+      "name": "MCA4K50 · 1600G OSFP to OSFP active copper (IHS) · ACC",
+      "description": "1600G OSFP to OSFP active copper (IHS)",
+      "officialUrl": "https://networking-docs.nvidia.com/mca4k50osfp1600",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Copper",
+        "Part Number / Series": "MCA4K50",
+        "Product Type": "ACC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Protocol": "InfiniBand XDR"
+      }
+    },
+    "MCA7K10": {
+      "name": "MCA7K10 · 1600G to 2×800G OSFP active copper splitter · ACC",
+      "description": "1600G to 2×800G OSFP active copper splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/9809iao500xxxxrhs2x800",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Copper",
+        "Part Number / Series": "MCA7K10",
+        "Product Type": "ACC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP to 2×OSFP"
+      }
+    },
+    "MMS4B10-XM": {
+      "name": "MMS4B10-XM · 1600G OSFP twin-port 2×DR4 1310nm MPO/APC SMF 500m · Transceiver",
+      "description": "1600G OSFP twin-port 2×DR4 1310nm MPO/APC SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4b10xmtro1600g",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Transceivers",
+        "Part Number / Series": "MMS4B10-XM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMS4C1X": {
+      "name": "MMS4C1X · 1600G OSFP twin-port 2×DR4 1310nm MPO/APC SMF 500m · Transceiver",
+      "description": "1600G OSFP twin-port 2×DR4 1310nm MPO/APC SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/9iau000xmosfptcvr1600",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Transceivers",
+        "Part Number / Series": "MMS4C1X",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m"
+      }
+    },
+    "MMS4A00": {
+      "name": "MMS4A00 · 1600G OSFP twin-port 2×DR4 1310nm MPO SMF 500m · Transceiver",
+      "description": "1600G OSFP twin-port 2×DR4 1310nm MPO SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/9iahx00xmosfptcvr1600",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Transceivers",
+        "Part Number / Series": "MMS4A00",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m"
+      }
+    },
+    "MMS4A50": {
+      "name": "MMS4A50 · 1600G OSFP twin-port 2×FR4 LC duplex SMF 2km · Transceiver",
+      "description": "1600G OSFP twin-port 2×FR4 LC duplex SMF 2km",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4a501600gosfp",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "1600G Transceivers",
+        "Part Number / Series": "MMS4A50",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "1600 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "2 km"
+      }
+    },
+    "MCA4J80-Nxxx": {
+      "name": "MCA4J80-Nxxx · 800G twin-port OSFP to 2×400G OSFP InfiniBand LACC",
+      "description": "800G twin-port OSFP to 2×400G OSFP InfiniBand LACC",
+      "officialUrl": "https://networking-docs.nvidia.com/mca4j80nxxx800pub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Copper",
+        "Part Number / Series": "MCA4J80-Nxxx",
+        "Product Type": "ACC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Reach": "5 m max",
+        "Protocol": "InfiniBand NDR",
+        "Modulation": "8×100G-PAM4"
+      }
+    },
+    "MCP4Y10-Nxxx": {
+      "name": "MCP4Y10-Nxxx · 800G twin-port 2×400G OSFP passive DAC",
+      "description": "800G twin-port 2×400G OSFP passive DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp4y10nxxx2x400pub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Copper",
+        "Part Number / Series": "MCP4Y10-Nxxx",
+        "Product Type": "DAC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP"
+      }
+    },
+    "MCP7Y00-Nxxx": {
+      "name": "MCP7Y00-Nxxx · 800G twin-port OSFP 2×400G passive DAC splitter",
+      "description": "800G twin-port OSFP 2×400G passive DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7y00nxxx800pub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Copper",
+        "Part Number / Series": "MCP7Y00-Nxxx",
+        "Product Type": "DAC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP"
+      }
+    },
+    "MMS4C10-XM800": {
+      "name": "MMS4C10-XM800 · 800G OSFP twin-port 2×DR4 MPO/APC SMF 500m · Transceiver",
+      "description": "800G OSFP twin-port 2×DR4 MPO/APC SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4c1x800",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4C10-XM800",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m"
+      }
+    },
+    "MMS4X00-NM-T": {
+      "name": "MMS4X00-NM-T · 800G OSFP twin-port 2×400G DR4 SMF 500m · Transceiver",
+      "description": "800G OSFP twin-port 2×400G DR4 SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x00nmt800g",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NM-T",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m"
+      }
+    },
+    "MMS4X00-NM": {
+      "name": "MMS4X00-NM · 800G OSFP twin-port 2×DR4 SMF 500m · Transceiver",
+      "description": "800G OSFP twin-port 2×DR4 SMF 500m",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x00nm800g500m",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m",
+        "Protocol": "InfiniBand / Ethernet"
+      }
+    },
+    "MMS4X50-NM": {
+      "name": "MMS4X50-NM · 800G OSFP twin-port 2×FR4 SMF 2km · Transceiver",
+      "description": "800G OSFP twin-port 2×FR4 SMF 2km",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x50nm800g2kmpub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X50-NM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "2 km"
+      }
+    },
+    "MMS4X00-NS": {
+      "name": "MMS4X00-NS · 800G OSFP twin-port 2×DR4 SMF 100m · Transceiver",
+      "description": "800G OSFP twin-port 2×DR4 SMF 100m",
+      "officialUrl": "https://networking-docs.nvidia.com/800gmms4x00ns",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NS",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "100 m"
+      }
+    },
+    "MMA4Z00-NS-T": {
+      "name": "MMA4Z00-NS-T · 800G OSFP twin-port 2×400G MMF 50m · Transceiver",
+      "description": "800G OSFP twin-port 2×400G MMF 50m",
+      "officialUrl": "https://networking-docs.nvidia.com/800gmma4z00nst",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMA4Z00-NS-T",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "MMF",
+        "Reach": "50 m"
+      }
+    },
+    "MMS4X00-NS-T": {
+      "name": "MMS4X00-NS-T · 800G OSFP twin-port 2×DR4 SMF 100m · Transceiver",
+      "description": "800G OSFP twin-port 2×DR4 SMF 100m",
+      "officialUrl": "https://networking-docs.nvidia.com/800gmms4x00nst",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NS-T",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "100 m"
+      }
+    },
+    "MMS4A20": {
+      "name": "MMS4A20 · 800G single-port OSFP DR4 MPO SMF 500m RHS · Transceiver",
+      "description": "800G single-port OSFP DR4 MPO SMF 500m RHS",
+      "officialUrl": "https://networking-docs.nvidia.com/9iat0mosfp800sprhs",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4A20",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m"
+      }
+    },
+    "MMS4X00-NM16": {
+      "name": "MMS4X00-NM16 · 800G OSFP DR8 MPO-16/APC SMF 500m finned · Transceiver",
+      "description": "800G OSFP DR8 MPO-16/APC SMF 500m finned",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x00nm16",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NM16",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m",
+        "Protocol": "Ethernet",
+        "Optical Interface": "MPO-16/APC · DR8 · 8×100G-PAM4"
+      }
+    },
+    "MMS4X00-NM-HGX": {
+      "name": "MMS4X00-NM-HGX · 800G OSFP twin-port 2×DR4 SMF 500m for HGX · Transceiver",
+      "description": "800G OSFP twin-port 2×DR4 SMF 500m for HGX",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x00nmhgx500",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X00-NM-HGX",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m",
+        "Protocol": "InfiniBand / Ethernet"
+      }
+    },
+    "MMS4X90-NR": {
+      "name": "MMS4X90-NR · 800G OSFP twin-port 2×LR4 LC duplex SMF 10km · Transceiver",
+      "description": "800G OSFP twin-port 2×LR4 LC duplex SMF 10km",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x90nr800g",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G Transceivers",
+        "Part Number / Series": "MMS4X90-NR",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "800 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "10 km"
+      }
+    },
+    "MFA7U10-H00x": {
+      "name": "MFA7U10-H00x · 400G OSFP to 2×200G QSFP56 HDR active optical splitter cable · AOC",
+      "description": "400G OSFP to 2×200G QSFP56 HDR active optical splitter cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfa7u10h00x10",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G AOC",
+        "Part Number / Series": "MFA7U10-H00x",
+        "Product Type": "AOC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "OSFP to 2×QSFP56",
+        "Fiber Type": "MMF",
+        "Protocol": "InfiniBand HDR"
+      }
+    },
+    "MMA1Z00-NS400": {
+      "name": "MMA1Z00-NS400 · 400G single-port QSFP112 SR4 MMF · Transceiver",
+      "description": "400G single-port QSFP112 SR4 MMF",
+      "officialUrl": "https://networking-docs.nvidia.com/mms1z00ns400sr4",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMA1Z00-NS400",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "QSFP112",
+        "Fiber Type": "MMF",
+        "Reach": "50 m",
+        "Protocol": "InfiniBand / Ethernet",
+        "Modulation": "4×100G-PAM4 (manufacturer documented)"
+      }
+    },
+    "MMS1V00-WM": {
+      "name": "MMS1V00-WM · 400GbE QSFP-DD DR4 · Transceiver",
+      "description": "400GbE QSFP-DD DR4",
+      "officialUrl": "https://networking-docs.nvidia.com/mms1v00wm10",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMS1V00-WM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "QSFP-DD",
+        "Fiber Type": "SMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMS4X00-NS400": {
+      "name": "MMS4X00-NS400 · 400G single-port OSFP DR4 SMF 500m 100G-PAM4 · Transceiver",
+      "description": "400G single-port OSFP DR4 SMF 500m 100G-PAM4",
+      "officialUrl": "https://networking-docs.nvidia.com/mms4x00ns400",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMS4X00-NS400",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "SMF",
+        "Reach": "500 m",
+        "Protocol": "InfiniBand / Ethernet",
+        "Modulation": "4×100G-PAM4 (manufacturer documented)"
+      }
+    },
+    "MMA4Z00-NS400": {
+      "name": "MMA4Z00-NS400 · 400G single-port OSFP SR4 MMF 50m 100G-PAM4 · Transceiver",
+      "description": "400G single-port OSFP SR4 MMF 50m 100G-PAM4",
+      "officialUrl": "https://networking-docs.nvidia.com/mma4z00ns400",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMA4Z00-NS400",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "MMF",
+        "Reach": "50 m",
+        "Protocol": "InfiniBand / Ethernet",
+        "Modulation": "4×100G-PAM4 (manufacturer documented)"
+      }
+    },
+    "MMA4Z00-NS400-T": {
+      "name": "MMA4Z00-NS400-T · 400G single-port OSFP SR4 MMF 50m · Transceiver",
+      "description": "400G single-port OSFP SR4 MMF 50m",
+      "officialUrl": "https://networking-docs.nvidia.com/mma4z00ns400t",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMA4Z00-NS400-T",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "OSFP",
+        "Fiber Type": "MMF",
+        "Reach": "50 m"
+      }
+    },
+    "MMA1Z00-NS400-T": {
+      "name": "MMA1Z00-NS400-T · 400G single-port QSFP112 SR4 MMF 50m · Transceiver",
+      "description": "400G single-port QSFP112 SR4 MMF 50m",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1z00ns400t",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMA1Z00-NS400-T",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "QSFP112",
+        "Fiber Type": "MMF",
+        "Reach": "50 m"
+      }
+    },
+    "MMS1X00-NS400": {
+      "name": "MMS1X00-NS400 · 400G single-port QSFP112 SMF transceiver",
+      "description": "400G single-port QSFP112 SMF transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mms1x00ns400",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G Transceivers",
+        "Part Number / Series": "MMS1X00-NS400",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "400 Gb/s",
+        "Package": "QSFP112",
+        "Fiber Type": "SMF"
+      }
+    },
+    "MFS1S00-HxxxV": {
+      "name": "MFS1S00-HxxxV · 200G QSFP56 MMF AOC",
+      "description": "200G QSFP56 MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s00hxxxv10",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G AOC",
+        "Part Number / Series": "MFS1S00-HxxxV",
+        "Product Type": "AOC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "200 Gb/s",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MMS1W50-HM": {
+      "name": "MMS1W50-HM · 200G QSFP56 FR4 · Transceiver",
+      "description": "200G QSFP56 FR4",
+      "officialUrl": "https://networking-docs.nvidia.com/mms1w50hmspec",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G Transceivers",
+        "Part Number / Series": "MMS1W50-HM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "200 Gb/s",
+        "Package": "QSFP56",
+        "Fiber Type": "SMF"
+      }
+    },
+    "MCP1600-E0xxEyy": {
+      "name": "MCP1600-E0xxEyy · 100G QSFP28 passive DAC",
+      "description": "100G QSFP28 passive DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp1600e0xxxeyyspec",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G Copper",
+        "Part Number / Series": "MCP1600-E0xxEyy",
+        "Product Type": "DAC",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "100 Gb/s",
+        "Package": "QSFP28",
+        "Protocol": "InfiniBand EDR"
+      }
+    },
+    "MMS1V70-CM": {
+      "name": "MMS1V70-CM · 100GbE QSFP28 DR1 · Transceiver",
+      "description": "100GbE QSFP28 DR1",
+      "officialUrl": "https://networking-docs.nvidia.com/mms1v70cm10",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G Transceivers",
+        "Part Number / Series": "MMS1V70-CM",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "100 Gb/s",
+        "Package": "QSFP28",
+        "Fiber Type": "SMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA1B00-C100D": {
+      "name": "MMA1B00-C100D · 100GbE QSFP28 SR4 MMF · Transceiver",
+      "description": "100GbE QSFP28 SR4 MMF",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1b00c100dspec",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G Transceivers",
+        "Part Number / Series": "MMA1B00-C100D",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "100 Gb/s",
+        "Package": "QSFP28",
+        "Fiber Type": "MMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA2P00-AS": {
+      "name": "MMA2P00-AS · 25GbE SFP28 MMF transceiver",
+      "description": "25GbE SFP28 MMF transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma2p00asspec",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Under 25G",
+        "Part Number / Series": "MMA2P00-AS",
+        "Product Type": "Transceiver",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Speed": "25 Gb/s",
+        "Package": "SFP28",
+        "Fiber Type": "MMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MAM1Q00A-QSA": {
+      "name": "MAM1Q00A-QSA · DynamiX QSA QSFP+ to SFP+ Ethernet adapter",
+      "description": "DynamiX QSA QSFP+ to SFP+ Ethernet adapter",
+      "officialUrl": "https://networking-docs.nvidia.com/mam1q00aqsadnmx",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MAM1Q00A-QSA",
+        "Product Type": "Adapter",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Already cataloged in NVIDIA Adapter; reference only to avoid duplicates.",
+        "Package": "QSFP+ to SFP+",
+        "Protocol": "Ethernet"
+      },
+      "vendorReferenceOnly": true
+    },
+    "MAM1Q00A-QSA28": {
+      "name": "MAM1Q00A-QSA28 · DynamiX QSA28 QSFP28 to SFP28 Ethernet adapter",
+      "description": "DynamiX QSA28 QSFP28 to SFP28 Ethernet adapter",
+      "officialUrl": "https://networking-docs.nvidia.com/mam1q00aqsa28dnmx",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MAM1Q00A-QSA28",
+        "Product Type": "Adapter",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Already cataloged in NVIDIA Adapter; reference only to avoid duplicates.",
+        "Package": "QSFP28 to SFP28",
+        "Protocol": "Ethernet"
+      },
+      "vendorReferenceOnly": true
+    },
+    "MFP7E10-Nxxx": {
+      "name": "MFP7E10-Nxxx · Multimode fiber interconnect cable · Fiber cable",
+      "description": "Multimode fiber interconnect cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfp7e10nxxx",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MFP7E10-Nxxx",
+        "Product Type": "Fiber cable",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MFP7E20-Nxxx": {
+      "name": "MFP7E20-Nxxx · Multimode fiber splitter cable",
+      "description": "Multimode fiber splitter cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfp7e20nxxx",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MFP7E20-Nxxx",
+        "Product Type": "Fiber splitter",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MFP7E30-Nxxx": {
+      "name": "MFP7E30-Nxxx · MPO to MPO single-mode fiber cable",
+      "description": "MPO to MPO single-mode fiber cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfp7e30nxxxpub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MFP7E30-Nxxx",
+        "Product Type": "Fiber cable",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Package": "MPO to MPO",
+        "Fiber Type": "SMF"
+      }
+    },
+    "MFP7E40-Nxxx": {
+      "name": "MFP7E40-Nxxx · Single-mode 1:2 fiber splitter cable",
+      "description": "Single-mode 1:2 fiber splitter cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfp7e40nxxxpub",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Accessories",
+        "Part Number / Series": "MFP7E40-Nxxx",
+        "Product Type": "Fiber splitter",
+        "Lifecycle": "Listed in current NVIDIA Interconnect section",
+        "Source": "NVIDIA Networking Interconnect documentation",
+        "BOM Policy": "Family reference – exact SKU, ports and host compatibility require verification",
+        "Fiber Type": "SMF"
+      }
+    }
+  }
+}

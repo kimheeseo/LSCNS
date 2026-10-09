@@ -23,19 +23,22 @@
   "sourceUrls": [
     "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
     "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
-    "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/"
+    "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
+    "https://networking-docs.nvidia.com/mam1q00aqsa28dnmx",
+    "https://networking-docs.nvidia.com/mam1q00aqsadnmx"
   ],
   "products": {
     "MAM1Q00A-QSA28": {
       "name": "NVIDIA LinkX MAM1Q00A-QSA28 · QSFP28 to SFP28 Adapter",
       "description": "Ethernet QSA port adapter; not compatible with InfiniBand.",
-      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+      "officialUrl": "https://networking-docs.nvidia.com/mam1q00aqsa28dnmx",
       "specs": {
         "Product Type": "QSA port adapter",
         "Data Rate": "25 Gb/s",
         "Host Port": "QSFP28",
         "Device Interface": "SFP28",
-        "Protocol": "Ethernet"
+        "Protocol": "Ethernet",
+        "Source": "NVIDIA Networking Interconnect official adapter specification"
       },
       "datasheetPath": "NVIDIA/Adapter/PB_MAM1Q00A-QSA28_QSFP28_to_SFP28_Adapter.pdf",
       "checked": "2026-10-09"
@@ -43,13 +46,14 @@
     "MAM1Q00A-QSA": {
       "name": "NVIDIA LinkX MAM1Q00A-QSA · QSFP+ to SFP+ Adapter",
       "description": "Ethernet QSA port adapter; not compatible with InfiniBand.",
-      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+      "officialUrl": "https://networking-docs.nvidia.com/mam1q00aqsadnmx",
       "specs": {
         "Product Type": "QSA port adapter",
         "Data Rate": "10 Gb/s",
         "Host Port": "QSFP+",
         "Device Interface": "SFP+",
-        "Protocol": "Ethernet"
+        "Protocol": "Ethernet",
+        "Source": "NVIDIA Networking Interconnect official adapter specification"
       },
       "datasheetPath": "NVIDIA/Adapter/PB_MAM1Q00A-QSA_QSFP+_to_SFP+_Adapter.pdf",
       "checked": "2026-10-09"

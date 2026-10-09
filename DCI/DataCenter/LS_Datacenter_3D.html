@@ -297,7 +297,7 @@ function drawPersonModel(x,y,z,heading=0,color='#5edfb8',role='engineer',action=
   else{box(x+.45,y+.96,z-.18,.28,.22,.08,'#253b4e',heading);box(x+.45,y+.96,z-.23,.21,.15,.04,'#65b9d4',heading);
     if(action==='inspect'){box(x+.43,y+1.22,z-.18,.34,.27,.07,'#39495a',heading);box(x+.43,y+1.23,z-.22,.26,.18,.035,'#6ee1d0',heading)}}}
 function renderNPCs(){for(const n of npcs){if(currentZone!=='campus'&&n.zone!==currentZone)continue;const p=npcPose(n);drawPersonModel(p.x,0.02,p.z,p.heading,n.color,n.role,p.action||'walk');if(n.role==='guard'){ring(p.x,.09,p.z,.45,'#7eb8d8')}}
-  const visitor=routeSample([[-15,50],[-10,50],[-10,49],[4,49],[9,49],[14,49],[18,49],[18,43],[25,43],[26,47],[32,47]],simTime/4);drawPersonModel(visitor.x,.02,visitor.z,visitor.heading,'#9fb7c7','visitor',visitor.action||'walk');
+  const visitor=routeSample([[-15,50],[-10,50],[-10,49],[4,49],[9,49],[14,49],[18,49],[18,43],[25,43],[26,47],[32,42]],simTime/4);drawPersonModel(visitor.x,.02,visitor.z,visitor.heading,'#9fb7c7','visitor',visitor.action||'walk');
   const vp=simTime%28, bagx=8.8+Math.max(0,Math.min(1,(vp-6)/12))*4.4;box(bagx,.6,46,.68,.38,.68,'#b17e4f');}
 function isRackDetailTarget(a){return ['GPU server rack','Top-of-Rack switch','Storage rack','Compute rack','ODF','MMR','MMR rack','Customer cage','Co-location rack','Carrier handoff','Core','Spine','Leaf'].includes(a.type)||['odf-hall','colo','mmr-hall','carrier','odf','mmr','core','spine-a','spine-b','leaf-a','leaf-b','tor-a','tor-b'].includes(a.id)}
 function detailTemplate(a){const chips=[];if(/Rack|switch|Spine|Leaf|Core/.test(a.type)||['tor-a','tor-b','mmr-hall','colo-rack-a','colo-rack-b'].includes(a.id)){chips.push('상부 케이블 트레이','ToR / Patch Panel','서버 섀시 / 스토리지','후면 케이블 라더','A/B 전원 PDU');}

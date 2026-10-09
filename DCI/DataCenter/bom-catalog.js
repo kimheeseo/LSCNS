@@ -23,7 +23,7 @@
     if (/RJ45.*MODULAR PLUG|MODULAR PLUG.*RJ45/.test(t)) return 'connector';
     if (/(EDGE.*MODULE|FIBER.*MODULE|FIBRE.*MODULE|광.*모듈|CASSETTE)/.test(t) && !/TRANSCEIVER|OPTICAL MODULE/.test(t)) return 'module';
     if (/MDC\/MMC CABLING|MPO CABLING SYSTEM/.test(t)) return 'patch';
-    if (/ACTIVE ELECTRICAL|\bAEC\b/.test(t)) return 'aec';
+    if (/ACTIVE ELECTRICAL|ACTIVE COPPER|\bAEC\b|\bACC\b|\bLACC\b/.test(t)) return 'aec';
     if (/ACTIVE OPTICAL|\bAOC\b/.test(t) && !/TRANSCEIVERS AND AOC/.test(t)) return 'aoc';
     if (/\bDAC\b|DIRECT ATTACH/.test(t)) return 'dac';
     if (/TRANSFORMER|변압기/.test(t)) return 'transformer';

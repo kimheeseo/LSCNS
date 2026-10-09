@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "InfiniBand Platform",
+  "displayName": "NDR 400G Architecture Datasheet",
+  "description": "Official product pages and uploaded datasheets; verify precise SKU and compatibility before procurement.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+  "comparisonFields": [
+    "Document Type",
+    "Protocol",
+    "Speed",
+    "BOM Policy"
+  ],
+  "sourceFiles": [
+    "infiniband-ndr-400g-architecture-datasheet-1620877-r4.pdf"
+  ],
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/infiniband-switching/"
+  ],
+  "products": {
+    "nvidia-ndr-400g-architecture": {
+      "name": "NVIDIA InfiniBand NDR 400G Platform Architecture",
+      "description": "Architecture reference document, not an orderable hardware SKU.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "specs": {
+        "Document Type": "Platform architecture",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "400 Gb/s",
+        "BOM Policy": "Reference only"
+      },
+      "datasheetPath": "NVIDIA/InfiniBand Platform/infiniband-ndr-400g-architecture-datasheet-1620877-r4.pdf",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

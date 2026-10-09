@@ -1,25 +1,18 @@
 {
-  "checked": "2026-10-06",
-  "pdfCount": 1228,
-  "catalogCount": 306,
-  "uncatalogedPdfCount": 8,
+  "checked": "2026-10-09",
+  "pdfCount": 1232,
+  "catalogCount": 340,
+  "uncatalogedPdfCount": 0,
   "pdfByVendor": {
     "Commscope": 18,
     "Corning": 1057,
     "Furukawa Electric": 3,
     "LS CNS": 13,
-    "NVIDIA": 9,
+    "Mellanox": 1,
+    "NVIDIA": 12,
     "Sumitomo Electric": 44,
     "USConnec": 84
   },
-  "uncatalogedPdfPaths": [
-    "NVIDIA/Adapter/PB_MAM1Q00A-QSA28_QSFP28_to_SFP28_Adapter.pdf",
-    "NVIDIA/Adapter/PB_MAM1Q00A-QSA_QSFP+_to_SFP+_Adapter.pdf",
-    "NVIDIA/Adapter/connectx-7-datasheet.pdf",
-    "NVIDIA/Adapter/connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf",
-    "NVIDIA/Cable/PB_MC6709309-xxx_8_Fiber_MPO_to_4_x_2_Fiber_Duplex_LC_Passive_Optical_Splitter.pdf",
-    "NVIDIA/InfiniBand Platform/infiniband-ndr-400g-architecture-datasheet-1620877-r4.pdf",
-    "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
-    "NVIDIA/Networking/gateway/InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf"
-  ]
+  "uncatalogedPdfPaths": [],
+  "notes": "340 structured catalogs after NVIDIA detailed InfiniBand switch model addition, 1232 archived PDFs, 0 PDFs lacking a same-folder catalog.json (tree checked before current new JSON-only addition)."
 }

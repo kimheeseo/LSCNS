@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "LinkX Interconnect",
+  "displayName": "LinkX Discontinued Products",
+  "description": "Archived NVIDIA LinkX interconnect products explicitly listed under Products No Longer For Sale. Never include in automatic BOM matching. One manufacturer index item MCA7J60 has a misdirected documentation link.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://networking-docs.nvidia.com/interconnect",
+  "sourceUrls": [
+    "https://networking-docs.nvidia.com/interconnect"
+  ],
+  "comparisonFields": [
+    "Part Number / Series",
+    "Product Type",
+    "Speed",
+    "Package",
+    "Fiber Type",
+    "Protocol",
+    "Lifecycle",
+    "Source Link Note"
+  ],
+  "sourceCount": 31,
+  "products": {
+    "MCP7Y10-Nxxx": {
+      "name": "MCP7Y10-Nxxx · 800G OSFP to 2×400G QSFP112 passive DAC splitter",
+      "description": "800G OSFP to 2×400G QSFP112 passive DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7y10nxxx800gpub",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G No Longer For Sale",
+        "Part Number / Series": "MCP7Y10-Nxxx",
+        "Product Type": "DAC",
+        "Speed": "800 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 2×QSFP112"
+      }
+    },
+    "MCA7J65-Nxxx": {
+      "name": "MCA7J65-Nxxx · 800G OSFP to 2×400G QSFP112 active copper splitter · ACC",
+      "description": "800G OSFP to 2×400G QSFP112 active copper splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mca7j65nxxx800pub",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G No Longer For Sale",
+        "Part Number / Series": "MCA7J65-Nxxx",
+        "Product Type": "ACC",
+        "Speed": "800 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 2×QSFP112"
+      }
+    },
+    "MCA7J70-Nxxx": {
+      "name": "MCA7J70-Nxxx · 800G OSFP to 4×200G OSFP active copper splitter · ACC",
+      "description": "800G OSFP to 4×200G OSFP active copper splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mca7j70nxxx800pub",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G No Longer For Sale",
+        "Part Number / Series": "MCA7J70-Nxxx",
+        "Product Type": "ACC",
+        "Speed": "800 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 4×OSFP"
+      }
+    },
+    "MCA7J75-Nxxx": {
+      "name": "MCA7J75-Nxxx · 800G OSFP to 4×200G QSFP112 active copper splitter · ACC",
+      "description": "800G OSFP to 4×200G QSFP112 active copper splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mca7j75nxxx800pub",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G No Longer For Sale",
+        "Part Number / Series": "MCA7J75-Nxxx",
+        "Product Type": "ACC",
+        "Speed": "800 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 4×QSFP112"
+      }
+    },
+    "MCA7J60-Nxxx": {
+      "name": "MCA7J60-Nxxx · 800G OSFP to 2×400G OSFP active copper splitter · ACC",
+      "description": "800G OSFP to 2×400G OSFP active copper splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/interconnect",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "800G No Longer For Sale",
+        "Part Number / Series": "MCA7J60-Nxxx",
+        "Product Type": "ACC",
+        "Speed": "800 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 2×OSFP",
+        "Protocol": "Link on source index incorrectly points to an unrelated active 800G transceiver. Use parent index until correct document is confirmed."
+      }
+    },
+    "MCP7Y60-Hxxx": {
+      "name": "MCP7Y60-Hxxx · 400G OSFP to 2×200G QSFP56 DAC splitter",
+      "description": "400G OSFP to 2×200G QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7y60hxxx400pub",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G No Longer For Sale",
+        "Part Number / Series": "MCP7Y60-Hxxx",
+        "Product Type": "DAC",
+        "Speed": "400 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 2×QSFP56"
+      }
+    },
+    "MCP7Y70-Hxxx": {
+      "name": "MCP7Y70-Hxxx · 400G OSFP to 4×100G QSFP56 DAC splitter",
+      "description": "400G OSFP to 4×100G QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7y70hw",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G No Longer For Sale",
+        "Part Number / Series": "MCP7Y70-Hxxx",
+        "Product Type": "DAC",
+        "Speed": "400 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "OSFP to 4×QSFP56"
+      }
+    },
+    "MCP1660-W0xxEyy": {
+      "name": "MCP1660-W0xxEyy · 400G QSFP-DD passive DAC cable",
+      "description": "400G QSFP-DD passive DAC cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp1660w0xxeyy10",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G No Longer For Sale",
+        "Part Number / Series": "MCP1660-W0xxEyy",
+        "Product Type": "DAC",
+        "Speed": "400 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP-DD"
+      }
+    },
+    "MCP7H60-W0xxRyy": {
+      "name": "MCP7H60-W0xxRyy · 400GbE QSFP-DD to 2×200GbE QSFP56 DAC splitter",
+      "description": "400GbE QSFP-DD to 2×200GbE QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7h60w0xxryy40010",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G No Longer For Sale",
+        "Part Number / Series": "MCP7H60-W0xxRyy",
+        "Product Type": "DAC",
+        "Speed": "400 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP-DD to 2×QSFP56"
+      }
+    },
+    "MCP7F60-W0xxRyy": {
+      "name": "MCP7F60-W0xxRyy · 400GbE QSFP-DD to 4×100GbE QSFP56 DAC splitter",
+      "description": "400GbE QSFP-DD to 4×100GbE QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7f60w0xxxryyspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "400G No Longer For Sale",
+        "Part Number / Series": "MCP7F60-W0xxRyy",
+        "Product Type": "DAC",
+        "Speed": "400 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP-DD to 4×QSFP56"
+      }
+    },
+    "MMA1T00-HS": {
+      "name": "MMA1T00-HS · 200G HDR QSFP56 MMF transceiver",
+      "description": "200G HDR QSFP56 MMF transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1t00hsspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MMA1T00-HS",
+        "Product Type": "Transceiver",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF",
+        "Protocol": "InfiniBand HDR"
+      }
+    },
+    "MMA1T00-VS": {
+      "name": "MMA1T00-VS · 200GbE QSFP56 MMF SR4 transceiver",
+      "description": "200GbE QSFP56 MMF SR4 transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1t00vsspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MMA1T00-VS",
+        "Product Type": "Transceiver",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MCP1650-H0xxEyy": {
+      "name": "MCP1650-H0xxEyy · 200G QSFP56 DAC",
+      "description": "200G QSFP56 DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp1650h0xxeyyspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MCP1650-H0xxEyy",
+        "Product Type": "DAC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56"
+      }
+    },
+    "MCP7H50-H0xxRyy": {
+      "name": "MCP7H50-H0xxRyy · 200G QSFP56 to 2×100G QSFP56 DAC splitter",
+      "description": "200G QSFP56 to 2×100G QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7h50h0xxryy200",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MCP7H50-H0xxRyy",
+        "Product Type": "DAC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56 to 2×QSFP56"
+      }
+    },
+    "MFS1S50-H0xxV": {
+      "name": "MFS1S50-H0xxV · 200G QSFP56 to 2×100G low-latency MMF AOC",
+      "description": "200G QSFP56 to 2×100G low-latency MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s50h0xxv200",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MFS1S50-H0xxV",
+        "Product Type": "AOC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MFS1S90-H0xxE": {
+      "name": "MFS1S90-H0xxE · 2×200G QSFP56 to 2×200G QSFP56 MMF AOC",
+      "description": "2×200G QSFP56 to 2×200G QSFP56 MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s90h0xxe",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MFS1S90-H0xxE",
+        "Product Type": "AOC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MFS1S00-VxxxE": {
+      "name": "MFS1S00-VxxxE · 200GbE QSFP56 MMF AOC",
+      "description": "200GbE QSFP56 MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s00vxxxe",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MFS1S00-VxxxE",
+        "Product Type": "AOC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MFS1S00-HxxxE": {
+      "name": "MFS1S00-HxxxE · 200G QSFP56 MMF AOC",
+      "description": "200G QSFP56 MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s00hxxxe",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MFS1S00-HxxxE",
+        "Product Type": "AOC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MFS1S50-H0xxE": {
+      "name": "MFS1S50-H0xxE · 200G QSFP56 to 2×100G MMF AOC",
+      "description": "200G QSFP56 to 2×100G MMF AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfs1s50h0xxe",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MFS1S50-H0xxE",
+        "Product Type": "AOC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MCP7H50-V0xxRyy": {
+      "name": "MCP7H50-V0xxRyy · 200GbE QSFP56 to 2×100GbE QSFP56 DAC splitter",
+      "description": "200GbE QSFP56 to 2×100GbE QSFP56 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7h50v0xxryy200",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MCP7H50-V0xxRyy",
+        "Product Type": "DAC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56 to 2×QSFP56",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MCP1650-V0xxEyy": {
+      "name": "MCP1650-V0xxEyy · 200GbE QSFP56 DAC",
+      "description": "200GbE QSFP56 DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp1650v0xxeyy",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "200G No Longer For Sale",
+        "Part Number / Series": "MCP1650-V0xxEyy",
+        "Product Type": "DAC",
+        "Speed": "200 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP56",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA1L10-CR": {
+      "name": "MMA1L10-CR · 100GbE QSFP28 LR4 transceiver",
+      "description": "100GbE QSFP28 LR4 transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1l10crspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MMA1L10-CR",
+        "Product Type": "Transceiver",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28",
+        "Fiber Type": "SMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA1L30-CM": {
+      "name": "MMA1L30-CM · 100GbE QSFP28 CWDM4 transceiver",
+      "description": "100GbE QSFP28 CWDM4 transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1l30cm100",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MMA1L30-CM",
+        "Product Type": "Transceiver",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28",
+        "Fiber Type": "SMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA1B00-E100": {
+      "name": "MMA1B00-E100 · 100G transceiver",
+      "description": "100G transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma1b00e100spec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MMA1B00-E100",
+        "Product Type": "Transceiver",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale"
+      }
+    },
+    "MCP1600-C0xxEyyz": {
+      "name": "MCP1600-C0xxEyyz · 100GbE QSFP28 passive DAC",
+      "description": "100GbE QSFP28 passive DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp1600c0xxeyyzspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MCP1600-C0xxEyyz",
+        "Product Type": "DAC",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MFA1A00-xxxx": {
+      "name": "MFA1A00-xxxx · 100G QSFP28 MMF active optical cable · AOC",
+      "description": "100G QSFP28 MMF active optical cable",
+      "officialUrl": "https://networking-docs.nvidia.com/mfa1a00xxxxspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MFA1A00-xxxx",
+        "Product Type": "AOC",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28",
+        "Fiber Type": "MMF"
+      }
+    },
+    "MCP7F00-A0xxRyyz": {
+      "name": "MCP7F00-A0xxRyyz · 100GbE QSFP28 to 4×25GbE SFP28 DAC",
+      "description": "100GbE QSFP28 to 4×25GbE SFP28 DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7f00a0xxryyz",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MCP7F00-A0xxRyyz",
+        "Product Type": "DAC",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28 to 4×SFP28",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MCP7H00-G0xxxxxxx": {
+      "name": "MCP7H00-G0xxxxxxx · 100GbE QSFP28 to 2×50GbE QSFP28 DAC splitter",
+      "description": "100GbE QSFP28 to 2×50GbE QSFP28 DAC splitter",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp7h00g0xxxxxxx",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "100G No Longer For Sale",
+        "Part Number / Series": "MCP7H00-G0xxxxxxx",
+        "Product Type": "DAC",
+        "Speed": "100 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "QSFP28 to 2×QSFP28",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MMA2L20-AR": {
+      "name": "MMA2L20-AR · 25GbE SFP28 LR transceiver",
+      "description": "25GbE SFP28 LR transceiver",
+      "officialUrl": "https://networking-docs.nvidia.com/mma2l20arspec",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "25G No Longer For Sale",
+        "Part Number / Series": "MMA2L20-AR",
+        "Product Type": "Transceiver",
+        "Speed": "25 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "SFP28",
+        "Fiber Type": "SMF",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MCP2M00-A0xxEyyz": {
+      "name": "MCP2M00-A0xxEyyz · 25GbE SFP28 DAC",
+      "description": "25GbE SFP28 DAC",
+      "officialUrl": "https://networking-docs.nvidia.com/mcp2m00a0xxeyyz",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "25G No Longer For Sale",
+        "Part Number / Series": "MCP2M00-A0xxEyyz",
+        "Product Type": "DAC",
+        "Speed": "25 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "SFP28",
+        "Protocol": "Ethernet"
+      }
+    },
+    "MFA2P10-AXXX": {
+      "name": "MFA2P10-AXXX · 25GbE SFP28 AOC",
+      "description": "25GbE SFP28 AOC",
+      "officialUrl": "https://networking-docs.nvidia.com/mfa2p10axxx25",
+      "checked": "2026-10-09",
+      "vendorReferenceOnly": true,
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "25G No Longer For Sale",
+        "Part Number / Series": "MFA2P10-AXXX",
+        "Product Type": "AOC",
+        "Speed": "25 Gb/s",
+        "Lifecycle": "Discontinued — Products No Longer For Sale",
+        "BOM Policy": "Do not auto-match; historical reference only",
+        "Source": "NVIDIA Networking Interconnect / Products No Longer For Sale",
+        "Package": "SFP28",
+        "Protocol": "Ethernet"
+      }
+    }
+  }
+}

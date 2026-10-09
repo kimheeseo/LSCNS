@@ -3,8 +3,8 @@
   "company": "NVIDIA",
   "category": "Networking",
   "displayName": "Networking",
-  "description": "NVIDIA AI data center networking portfolio: Quantum InfiniBand, Spectrum/Spectrum-X Ethernet, ConnectX/SuperNIC, BlueField DPU, and LinkX interconnect/transceiver families.",
-  "checked": "2026-10-05",
+  "description": "NVIDIA Networking product family catalog, official URLs and manufacturer datasheets (including uploaded PDFs). Family entries must be verified to orderable SKU before procurement.",
+  "checked": "2026-10-09",
   "officialUrl": "https://www.nvidia.com/ko-kr/networking/",
   "sourceUrls": [
     "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
@@ -14,9 +14,24 @@
     "https://www.nvidia.com/ko-kr/networking/spectrumx/",
     "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
     "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
-    "https://www.nvidia.com/ko-kr/networking/interconnect/"
+    "https://www.nvidia.com/ko-kr/networking/interconnect/",
+    "https://www.nvidia.com/ko-kr/networking/ethernet/cable-accessories/",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-7-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/solution-overview-gt",
+    "https://resources.nvidia.com/en-us-networking-ai/networking-ethernet-1",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/bluefield-4-dpu-datasheet",
+    "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/ethernet-datasheet-spectrum-sn6000-switch",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/tlf6ud477c3bc846ci7m252l3x3a2yrh.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/57slw65yka7470k51x846hm17777yoyk.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/1xajom0f4mf51d306ki5kj3686wi5575.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/2pob6r13u36o053ih2027osi2vdy3i14.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/230y7u182fn2k51qd8ic4ntf6dj6cvg0.pdf"
   ],
-  "sourceCount": 8,
+  "sourceCount": 23,
   "storageMode": "metadata only; linked datasheets are referenced through sourceUrls",
   "comparisonFields": [
     "Product Family",
@@ -36,24 +51,41 @@
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/infiniband/quantum-x800/",
       "specs": {
         "Product Family": "Quantum-X800",
-        "Protocol": "InfiniBand",
+        "Protocol": "InfiniBand XDR",
         "Speed": "800 Gb/s per port",
-        "Ports": "144",
+        "Ports": "Q3200-RA: 2×36; Q3300/Q3400/Q3401/Q3450: 144",
         "Primary Workload": "Large-scale AI factories and HPC",
-        "Source": "NVIDIA Quantum-X800 official page"
-      }
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "Form Factors": "2U / 3U / 4U (model dependent)",
+        "Connectivity": "OSFP pluggables or MPO12 CPO (Q3450-LD)",
+        "Cooling": "Air / liquid, model dependent",
+        "Technology": "SHARPv4, adaptive routing, CPO option"
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/infiniband-datasheet-quantum-x800-infiniband-switches-3849650.pdf",
+      "checked": "2026-10-09",
+      "solutionOverviewUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/solution-overview-gt",
+      "referenceDocuments": [
+        "quantum-x800-platform-solution-overview"
+      ],
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf"
     },
     "nvidia-quantum-2-infiniband-switch-family": {
       "name": "NVIDIA Quantum-2 InfiniBand Switch Family",
       "description": "NDR-generation InfiniBand switch family for AI, HPC and hyperscale cloud infrastructure.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
       "specs": {
-        "Product Family": "Quantum-2",
-        "Protocol": "InfiniBand",
-        "Speed": "400 Gb/s",
+        "Product Family": "Quantum-2 QM9700/QM9790",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "400 Gb/s per port",
         "Primary Workload": "AI, HPC, hyperscale cloud",
-        "Source": "NVIDIA Quantum InfiniBand switches official page"
-      }
+        "Source": "NVIDIA Quantum-2 InfiniBand Switch Datasheet",
+        "Ports": "64×400 Gb/s",
+        "Connectivity": "32 OSFP cages",
+        "Form Factor": "1U",
+        "Aggregate Throughput": "51.2 Tb/s bidirectional"
+      },
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/230y7u182fn2k51qd8ic4ntf6dj6cvg0.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-skyway-infiniband-ethernet-gateway": {
       "name": "NVIDIA Skyway InfiniBand-Ethernet Gateway",
@@ -66,7 +98,9 @@
         "Ports": "8 x 100/200 Gb/s on each InfiniBand and Ethernet side",
         "Primary Workload": "Cross-fabric connectivity",
         "Source": "NVIDIA Quantum InfiniBand switches official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/gateway/InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-metrox-3-xc": {
       "name": "NVIDIA MetroX-3 XC System",
@@ -78,56 +112,95 @@
         "Reach": "up to 40 km",
         "Primary Workload": "Remote data center / storage interconnect",
         "Source": "NVIDIA Quantum InfiniBand switches official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/infiniband-datasheet-metrox-3-xc-long-haul-2380143.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-9-supernic": {
       "name": "NVIDIA ConnectX-9 SuperNIC",
-      "description": "Next-generation Ethernet SuperNIC for gigascale AI factories.",
+      "description": "ConnectX-9 800Gb/s per-device SuperNIC for Ethernet and InfiniBand; up to 1.6Tb/s is a platform-level Rubin integration figure, not standalone NIC bandwidth.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
       "specs": {
         "Product Family": "ConnectX-9 SuperNIC",
-        "Protocol": "Ethernet",
-        "Speed": "up to 1.6 Tb/s",
-        "Primary Workload": "Gigascale AI factories",
-        "Source": "NVIDIA Ethernet SuperNIC official page"
-      }
+        "Protocol": "Ethernet / InfiniBand",
+        "Speed": "up to 800 Gb/s per SuperNIC",
+        "Primary Workload": "Gigascale AI factories, Rubin GPUs",
+        "Source": "NVIDIA ConnectX-9 SuperNIC Datasheet (4326500, Nov 2025)",
+        "Platform Context": "up to 1.6 Tb/s connectivity to Rubin GPUs (multi-device/platform claim)",
+        "Port Configurations": "1×800 Gb/s or 2×400 Gb/s; up to 8 split ports",
+        "Ethernet Port Speeds": "25/50/100/200/400/800 Gb/s",
+        "InfiniBand Port Speeds": "100/200/400/800 Gb/s",
+        "Host Interface": "PCIe Gen6, up to 48 lanes",
+        "Form Factor": "PCIe HHHL or OCP3 TSFF; OSFP224 / QSFP112; Quad ConnectX-9 IO card (Rubin)",
+        "Modulation": "200/100/50 Gb/s PAM4; 25/10 Gb/s NRZ"
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-9-supernic-datasheet",
+      "checked": "2026-10-09",
+      "referenceDocuments": [
+        "connectx-9-supernic-datasheet"
+      ],
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/1xajom0f4mf51d306ki5kj3686wi5575.pdf"
     },
     "nvidia-connectx-8-supernic": {
       "name": "NVIDIA ConnectX-8 SuperNIC",
-      "description": "High-performance SuperNIC for large AI compute fabrics.",
+      "description": "ConnectX-8 SuperNIC supports InfiniBand and Ethernet with up to 800Gb/s aggregate throughput; Ethernet is up to 400Gb/s per port in this datasheet.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
       "specs": {
         "Product Family": "ConnectX-8 SuperNIC",
-        "Protocol": "Ethernet",
-        "Speed": "up to 800 Gb/s total network bandwidth",
+        "Protocol": "Ethernet / InfiniBand",
+        "Speed": "up to 800 Gb/s aggregate",
         "Primary Workload": "Generative AI and large-scale compute fabrics",
-        "Source": "NVIDIA Ethernet SuperNIC official page"
-      }
+        "Source": "NVIDIA ConnectX-8 SuperNIC Datasheet (4248150, Sep 2025)",
+        "InfiniBand Port Speeds": "100/200/400/800 Gb/s",
+        "Ethernet Port Speeds": "25/50/100/200/400 Gb/s",
+        "Port Configurations": "IB 1×800 or 2×400 Gb/s; Ethernet up to 2×400 Gb/s",
+        "Host Interface": "PCIe Gen6, up to 48 lanes",
+        "Form Factor": "PCIe HHHL (OSFP/QSFP112), dual CX8 mezzanine, OCP3 TSFF",
+        "Modulation": "IB up to 200G PAM4; Ethernet 100G/50G PAM4 & 25G/10G NRZ"
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c",
+      "datasheetPath": "NVIDIA/Adapter/connectx-datasheet-update-connectx-8-supernic-nvidia-4057050.pdf",
+      "checked": "2026-10-09",
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/57slw65yka7470k51x846hm17777yoyk.pdf"
     },
     "nvidia-bluefield-3-supernic": {
       "name": "NVIDIA BlueField-3 SuperNIC",
-      "description": "Network accelerator designed for hyperscale AI workloads and secure cloud multitenancy.",
+      "description": "BlueField-3 SuperNIC variant emphasizes RoCE AI fabric connectivity and workload performance isolation; not equivalent to BlueField-3 DPU SKU.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/ethernet/supernic/",
       "specs": {
         "Product Family": "BlueField-3 SuperNIC",
-        "Protocol": "Ethernet",
+        "Protocol": "Ethernet / RoCEv2",
         "Speed": "up to 400 Gb/s",
-        "Primary Workload": "Hyperscale AI and cloud multitenancy",
-        "Source": "NVIDIA Ethernet SuperNIC official page"
-      }
+        "Primary Workload": "Hyperscale AI, secure multi-tenancy",
+        "Source": "NVIDIA BlueField-3 Networking Platform Datasheet",
+        "Host Interface": "PCIe Gen5, 32 lanes (BlueField-3 family)",
+        "Ports": "1 or 2 (BlueField-3 family)"
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/tlf6ud477c3bc846ci7m252l3x3a2yrh.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-7-400g-adapters": {
       "name": "NVIDIA ConnectX-7 25/50/100/200/400G NIC",
-      "description": "ConnectX-7 network adapter family for accelerated networking, storage and security.",
+      "description": "ConnectX-7 family of Ethernet/InfiniBand RDMA adapters with up to 400Gb/s aggregate bandwidth.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-adapters/",
       "specs": {
         "Product Family": "ConnectX-7",
-        "Protocol": "InfiniBand and Ethernet",
-        "Speed": "25/50/100/200/400 Gb/s",
-        "Ports": "up to 4",
+        "Protocol": "Ethernet / InfiniBand",
+        "Speed": "up to 400 Gb/s aggregate",
+        "Ports": "1 / 2 / 4",
         "Primary Workload": "Cloud, telecom, AI and enterprise",
-        "Source": "NVIDIA Ethernet adapters official page"
-      }
+        "Source": "NVIDIA ConnectX-7 400G Adapters Datasheet",
+        "Ethernet Port Speeds": "10/25/50/100/200/400 Gb/s",
+        "InfiniBand Port Speeds": "100/200/400 Gb/s (EDR/HDR/NDR)",
+        "Host Interface": "PCIe Gen5, up to 32 lanes",
+        "Form Factor": "PCIe HHHL/FHHL; OCP3.0 TSFF/SFF",
+        "Modulation": "10/25G NRZ; 50/100G PAM4"
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-7-datasheet",
+      "datasheetPath": "NVIDIA/Adapter/connectx-7-datasheet.pdf",
+      "checked": "2026-10-09",
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/2pob6r13u36o053ih2027osi2vdy3i14.pdf"
     },
     "nvidia-connectx-6-dx": {
       "name": "NVIDIA ConnectX-6 Dx 25/50/100/200G NIC",
@@ -137,11 +210,14 @@
         "Product Family": "ConnectX-6 Dx",
         "Protocol": "Ethernet",
         "Speed": "25/50/100/200 Gb/s",
-        "Ports": "up to 2 at 25/50/100G or 1 at 200G",
-        "Host Interface": "PCIe 4.0",
+        "Ports": "2×25/50/100G or 1×200G",
+        "Host Interface": "PCIe Gen4",
         "Primary Workload": "Cloud and secure data center networking",
-        "Source": "NVIDIA Ethernet adapters official page"
-      }
+        "Source": "NVIDIA ConnectX Ethernet Adapters official page",
+        "Modulation": "50G PAM4 SerDes",
+        "Security": "Inline IPsec / TLS"
+      },
+      "checked": "2026-10-09"
     },
     "nvidia-connectx-6-lx": {
       "name": "NVIDIA ConnectX-6 Lx 25/50G NIC",
@@ -151,10 +227,12 @@
         "Product Family": "ConnectX-6 Lx",
         "Protocol": "Ethernet",
         "Speed": "25/50 Gb/s",
-        "Ports": "up to 2 at 25GbE or 1 at 50GbE",
+        "Ports": "2×25GbE or 1×50GbE",
         "Primary Workload": "Enterprise, cloud, edge and telecom",
-        "Source": "NVIDIA Ethernet adapters official page"
-      }
+        "Source": "NVIDIA ConnectX Ethernet Adapters official page",
+        "Form Factor": "PCIe and OCP3.0"
+      },
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-6-sn6000": {
       "name": "NVIDIA Spectrum-6 SN6000 Series Ethernet Switch",
@@ -166,7 +244,12 @@
         "Speed": "Product dependent; next-generation Spectrum-6",
         "Primary Workload": "AI factory scale-out",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/ethernet-datasheet-spectrum-sn6000-switch",
+      "referenceDocuments": [
+        "spectrum-sn6000-ethernet-switch-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-4-sn5000": {
       "name": "NVIDIA Spectrum-4 SN5000 Series Ethernet Switch",
@@ -178,7 +261,9 @@
         "Speed": "up to 800 Gb/s",
         "Primary Workload": "Cloud-scale GPU compute and AI",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn5000-switch-family-4072600.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-3-sn4000": {
       "name": "NVIDIA Spectrum-3 SN4000 Series Ethernet Switch",
@@ -190,7 +275,9 @@
         "Speed": "up to 400 Gb/s",
         "Primary Workload": "Scale-out distributed data centers",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-spectrum-sn4000-4087100.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-2-sn3000": {
       "name": "NVIDIA Spectrum-2 SN3000 Series Ethernet Switch",
@@ -202,7 +289,9 @@
         "Speed": "up to 200 Gb/s per port",
         "Primary Workload": "Leaf-spine data center networking",
         "Source": "NVIDIA Ethernet switching official page"
-      }
+      },
+      "datasheetPath": "NVIDIA/Networking/Switch/ethernet-datasheet-sn3000-datasheet-4813150.pdf",
+      "checked": "2026-10-09"
     },
     "nvidia-spectrum-sn2000": {
       "name": "NVIDIA Spectrum SN2000 Series Ethernet Switch",
@@ -226,7 +315,12 @@
         "Used With": "Spectrum-X Ethernet switches and SuperNICs",
         "Primary Workload": "AI cloud and multi-data-center scale-out",
         "Source": "NVIDIA Spectrum-X official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-networking-ai/networking-ethernet-1",
+      "referenceDocuments": [
+        "spectrum-x-ethernet-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-bluefield-4-dpu": {
       "name": "NVIDIA BlueField-4 DPU",
@@ -238,7 +332,12 @@
         "Speed": "800 Gb/s platform connectivity",
         "Primary Workload": "AI networking, storage and cybersecurity",
         "Source": "NVIDIA BlueField official page"
-      }
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/bluefield-4-dpu-datasheet",
+      "referenceDocuments": [
+        "bluefield-4-dpu-datasheet"
+      ],
+      "checked": "2026-10-09"
     },
     "nvidia-bluefield-4-stx": {
       "name": "NVIDIA BlueField-4 STX Storage Processor",
@@ -253,15 +352,28 @@
     },
     "nvidia-bluefield-3-dpu": {
       "name": "NVIDIA BlueField-3 DPU",
-      "description": "Infrastructure computing platform for line-rate networking, storage and cybersecurity workloads.",
+      "description": "BlueField-3 DPU accelerates infrastructure processing, security, storage and networking; supports both Ethernet and InfiniBand up to 400Gb/s.",
       "officialUrl": "https://www.nvidia.com/ko-kr/networking/products/data-processing-unit/",
       "specs": {
-        "Product Family": "BlueField-3",
-        "Protocol": "Ethernet / infrastructure offload",
-        "Speed": "400 Gb/s",
+        "Product Family": "BlueField-3 DPU",
+        "Protocol": "Ethernet / InfiniBand (NDR)",
+        "Speed": "up to 400 Gb/s",
         "Primary Workload": "AI, hybrid cloud, HPC and 5G infrastructure",
-        "Source": "NVIDIA BlueField official page"
-      }
+        "Source": "NVIDIA BlueField-3 Networking Platform Datasheet (4075900, Jul 2025)",
+        "Ports": "1 or 2",
+        "Host Interface": "PCIe Gen5, 32 lanes",
+        "CPU": "up to 16 Armv8.2+ A78 Hercules cores",
+        "Memory": "32 GB onboard DDR5 ECC",
+        "Storage": "128 GB onboard SSD",
+        "Form Factor": "HHHL / FHHL",
+        "Acceleration": "Networking, storage, security (DOCA programmable)"
+      },
+      "datasheetUrl": "https://resources.nvidia.com/en-us-accelerated-networking-resource-library/datasheet-nvidia-bluefield",
+      "checked": "2026-10-09",
+      "referenceDocuments": [
+        "bluefield-3-dpu-datasheet"
+      ],
+      "officialPdfUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/tlf6ud477c3bc846ci7m252l3x3a2yrh.pdf"
     },
     "nvidia-linkx-400g-osfp-transceiver-family": {
       "name": "NVIDIA LinkX 400G OSFP Optical Transceiver Family",

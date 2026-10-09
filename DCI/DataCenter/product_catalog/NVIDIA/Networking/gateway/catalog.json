@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "Networking Gateway",
+  "displayName": "Skyway Gateway Datasheet",
+  "description": "Local product datasheets; reference-only to avoid duplicate automatic BOM matches.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/infiniband-switching/"
+  ],
+  "sourceFiles": [
+    "InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf"
+  ],
+  "comparisonFields": [
+    "Product Type",
+    "Product Family",
+    "Protocol"
+  ],
+  "products": {
+    "skyway-datasheet": {
+      "name": "NVIDIA Skyway InfiniBand–Ethernet Gateway · PDF",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "description": "Uploaded vendor datasheet; this product family is already listed in NVIDIA/Networking.",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand–Ethernet gateway",
+        "Product Family": "Skyway",
+        "Protocol": "InfiniBand / Ethernet"
+      },
+      "datasheetPath": "NVIDIA/Networking/gateway/InfiniBand-DataSheet-Rebranding-NVIDIA-Skyway-1870668-r5.pdf",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

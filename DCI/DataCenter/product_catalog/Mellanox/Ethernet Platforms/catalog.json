@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "company": "Mellanox",
+  "category": "Ethernet Platforms",
+  "displayName": "Legacy Spectrum SN2000 Brochure",
+  "description": "Official product pages and uploaded datasheets; verify precise SKU and compatibility before procurement.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/spectrum-sn2000/",
+  "comparisonFields": [
+    "Product Type",
+    "Product Family",
+    "Speed",
+    "Lifecycle",
+    "BOM Policy"
+  ],
+  "sourceFiles": [
+    "mellanox-archive-BR-SN2000series.pdf"
+  ],
+  "sourceUrls": [
+    "https://www.nvidia.com/ko-kr/networking/ethernet-switching/spectrum-sn2000/"
+  ],
+  "products": {
+    "mellanox-sn2000-archive": {
+      "name": "Mellanox / NVIDIA Spectrum SN2000 · archived brochure",
+      "description": "Historic Mellanox brochure; confirm current support and sales availability.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/ethernet-switching/spectrum-sn2000/",
+      "specs": {
+        "Product Type": "Ethernet switch",
+        "Product Family": "Spectrum SN2000",
+        "Speed": "up to 100 Gb/s",
+        "Lifecycle": "Legacy reference",
+        "BOM Policy": "Reference only"
+      },
+      "datasheetPath": "Mellanox/Ethernet Platforms/mellanox-archive-BR-SN2000series.pdf",
+      "checked": "2026-10-09",
+      "referenceOnly": true,
+      "vendorReferenceOnly": true
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "InfiniBand Switch Models",
+  "displayName": "Quantum-X800 / Quantum-2 — Individual Switch Models",
+  "description": "Actual NVIDIA Quantum InfiniBand hardware model IDs with data-backed ports, form factors, cooling, power and CPO/MPL architecture. Source: NVIDIA Quantum-X800 Sep 2026 and Quantum-2 official datasheets.",
+  "checked": "2026-10-09",
+  "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+  "sourceUrls": [
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+    "https://dam-cdn.nvd.orangelogic.com/AssetLink/230y7u182fn2k51qd8ic4ntf6dj6cvg0.pdf"
+  ],
+  "comparisonFields": [
+    "Product Model",
+    "Product Family",
+    "Protocol",
+    "Speed",
+    "Ports",
+    "Connectors",
+    "Optical Interface",
+    "Rack Units",
+    "Cooling",
+    "Power Feed",
+    "Pluggable Transceivers"
+  ],
+  "products": {
+    "Q3200-RA": {
+      "name": "NVIDIA Quantum-X800 Q3200-RA InfiniBand Switch",
+      "description": "2U air-cooled chassis with two independent 36×800Gb/s switches for cluster expansion or mixed-generation connection.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "Q3200-RA",
+        "Product Family": "Quantum-X800",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "800 Gb/s per port",
+        "Ports": "2 independent × 36 ports = 72×800 Gb/s total",
+        "Throughput": "2×28.8 Tb/s",
+        "Connectors": "2 groups × 18 OSFP cages",
+        "Optical Interface": "OSFP pluggable",
+        "Rack Units": "2U",
+        "Cooling": "Air cooled",
+        "Power Feed": "200–240 VAC",
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "Q3300-LD": {
+      "name": "NVIDIA Quantum-X800 Q3300-LD InfiniBand Switch",
+      "description": "Liquid-cooled 3U 144-port InfiniBand switch with pluggable optics or DAC.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "Q3300-LD",
+        "Product Family": "Quantum-X800",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "800 Gb/s per port",
+        "Ports": "144×800 Gb/s",
+        "Throughput": "115.2 Tb/s (port-sum)",
+        "Connectors": "72 OSFP cages",
+        "Optical Interface": "OSFP pluggable / DAC",
+        "Rack Units": "3U",
+        "Cooling": "Liquid cooled",
+        "Power Feed": "200–240 VAC",
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "Q3400-RA": {
+      "name": "NVIDIA Quantum-X800 Q3400-RA InfiniBand Switch",
+      "description": "4U air-cooled 144×800Gb/s XDR switch with pluggable OSFP interfaces.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "Q3400-RA",
+        "Product Family": "Quantum-X800",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "800 Gb/s per port",
+        "Ports": "144×800 Gb/s",
+        "Throughput": "115.2 Tb/s (port-sum)",
+        "Connectors": "72 OSFP cages",
+        "Optical Interface": "OSFP pluggable",
+        "Rack Units": "4U",
+        "Cooling": "Air cooled",
+        "Power Feed": "200–240 VAC",
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "Q3401-RD": {
+      "name": "NVIDIA Quantum-X800 Q3401-RD InfiniBand Switch",
+      "description": "DC-powered 4U air-cooled XDR InfiniBand switch with 144×800Gb/s ports.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "Q3401-RD",
+        "Product Family": "Quantum-X800",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "800 Gb/s per port",
+        "Ports": "144×800 Gb/s",
+        "Throughput": "115.2 Tb/s (port-sum)",
+        "Connectors": "72 OSFP cages",
+        "Optical Interface": "OSFP pluggable",
+        "Rack Units": "4U",
+        "Cooling": "Air cooled",
+        "Power Feed": "48–54 VDC",
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "Q3450-LD": {
+      "name": "NVIDIA Quantum-X Photonics Q3450-LD CPO InfiniBand Switch",
+      "description": "CPO InfiniBand switch uses direct MPO12 fiber connectivity rather than pluggable optical transceivers; critical to avoid double counting transceiver BOM.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/35m40gksfm2l23257j071cjd655b37w0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "Q3450-LD",
+        "Product Family": "Quantum-X800 Photonics CPO",
+        "Protocol": "InfiniBand XDR",
+        "Speed": "800 Gb/s per port",
+        "Ports": "144×800 Gb/s",
+        "Throughput": "115.2 Tb/s (port-sum)",
+        "Connectors": "144 MPO12 front-panel connectors",
+        "Optical Interface": "Co-packaged optics (CPO); MPO12 optical fiber",
+        "Rack Units": "4U",
+        "Cooling": "Liquid cooled 85% / air cooled 15%",
+        "Power Feed": "48 VDC",
+        "Pluggable Transceivers": "Not required on CPO switch-side ports; BOM architecture must account for CPO directly",
+        "Source": "NVIDIA Quantum-X800 InfiniBand Switches Datasheet (Sep 2026)",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "QM9700": {
+      "name": "NVIDIA Quantum-2 QM9700 InfiniBand Switch",
+      "description": "1U Quantum-2 NDR 400Gb/s switch; exact management/control SKU options require verification.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/230y7u182fn2k51qd8ic4ntf6dj6cvg0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "QM9700",
+        "Product Family": "Quantum-2",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "400 Gb/s per port",
+        "Ports": "64×400 Gb/s",
+        "Aggregate Throughput": "51.2 Tb/s bidirectional",
+        "Connectors": "32 OSFP cages",
+        "Rack Units": "1U",
+        "Cooling": "See exact SKU datasheet / RFQ",
+        "Power Feed": "200–240 VAC",
+        "Source": "NVIDIA Quantum-2 InfiniBand Datasheet",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    },
+    "QM9790": {
+      "name": "NVIDIA Quantum-2 QM9790 InfiniBand Switch",
+      "description": "1U Quantum-2 NDR 400Gb/s switch; exact variant differences and firmware require SKU-level confirmation.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/infiniband-switching/",
+      "datasheetUrl": "https://dam-cdn.nvd.orangelogic.com/AssetLink/230y7u182fn2k51qd8ic4ntf6dj6cvg0.pdf",
+      "checked": "2026-10-09",
+      "specs": {
+        "Product Type": "InfiniBand switch",
+        "Product Model": "QM9790",
+        "Product Family": "Quantum-2",
+        "Protocol": "InfiniBand NDR",
+        "Speed": "400 Gb/s per port",
+        "Ports": "64×400 Gb/s",
+        "Aggregate Throughput": "51.2 Tb/s bidirectional",
+        "Connectors": "32 OSFP cages",
+        "Rack Units": "1U",
+        "Cooling": "See exact SKU datasheet / RFQ",
+        "Power Feed": "200–240 VAC",
+        "Source": "NVIDIA Quantum-2 InfiniBand Datasheet",
+        "BOM Policy": "Verify port wiring, host generation, cooling, power and optics before RFQ"
+      }
+    }
+  }
+}

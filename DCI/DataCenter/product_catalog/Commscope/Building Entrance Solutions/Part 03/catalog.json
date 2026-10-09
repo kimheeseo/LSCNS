@@ -20,30 +20,6 @@
     "Connector Type"
   ],
   "products": {
-    "Y89516-000": {
-      "name": "Y89516-000 · FOSC-ACC-250-SM12-W/CARR · Fiber splice tray",
-      "description": "FOSC®  Splice tray kit, Double stack SM12 Splice module holder with capacity for 24 single splice sleeves",
-      "officialUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
-      "businessUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "Y89516-000",
-        "Part Name": "FOSC-ACC-250-SM12-W/CARR",
-        "Product Type": "Fiber splice tray",
-        "Product Brand": "FOSC®",
-        "Product Series": "FOSC 250",
-        "Status": "—",
-        "Fiber Count": "—",
-        "Fiber Mode": "—",
-        "Fiber Type": "—",
-        "Connector Type": "—",
-        "Connector": "—",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "—"
-      }
-    },
     "Y98526-000": {
       "name": "Y98526-000 · FOSC450-BS-6-24-4-N0V · Single-ended | round fiber closure",
       "description": "FOSC® 450 BS Fiber Optic Splice Closure, Gel Cable sealing, four pre-installed 24-splice trays, 6 cable attach., with test valve",
@@ -2372,6 +2348,54 @@
         "Length": "—"
       }
     },
+    "760245549": {
+      "name": "760245549 · ODF-ACC-BRK-19 · Mounting bracket",
+      "description": "Flex Frame,19\" rack mount brack for Universal Splice cabinet, 1 kit per cabinet",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760245549",
+        "Part Name": "ODF-ACC-BRK-19",
+        "Product Type": "Mounting bracket",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
+    "760245551": {
+      "name": "760245551 · ODF-ACC-BRK-WM · Mounting bracket",
+      "description": "Flex Frame, Wall Mount brack for Universal Splice cabinet, 1 kit per cabinet",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760245551",
+        "Part Name": "ODF-ACC-BRK-WM",
+        "Product Type": "Mounting bracket",
+        "Product Brand": "—",
+        "Product Series": "—",
+        "Status": "—",
+        "Fiber Count": "—",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
     "760254963": {
       "name": "760254963 · FOSC-ACC-D-TRAY-P-SC/APC-NS · Fiber patch tray",
       "description": "FOSC® 12 fiber D-size Patch Tray, adapter retainer, and 12 SC/APC style adapters; no splice tray",
@@ -2458,6 +2482,30 @@
         "Product Series": "FOSC 450",
         "Status": "—",
         "Fiber Count": "72",
+        "Fiber Mode": "—",
+        "Fiber Type": "—",
+        "Connector Type": "—",
+        "Connector": "—",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "—"
+      }
+    },
+    "760261332-US": {
+      "name": "760261332-US · FOSC-ACC-C-TRAY-DR48-US · Fiber splice tray",
+      "description": "FOSC®  C Splice double height tray, 4 HD ribbon splice modules, up to 576 Fiber splice capacity, Build America Buy America  (BABA) compliant.",
+      "officialUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "businessUrl": "https://www.commscope.com/network-type/data-centers/building-entrance-solutions/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "760261332-US",
+        "Part Name": "FOSC-ACC-C-TRAY-DR48-US",
+        "Product Type": "Fiber splice tray",
+        "Product Brand": "FOSC®",
+        "Product Series": "FOSC 450",
+        "Status": "—",
+        "Fiber Count": "576",
         "Fiber Mode": "—",
         "Fiber Type": "—",
         "Connector Type": "—",

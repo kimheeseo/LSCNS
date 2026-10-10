@@ -31,3 +31,20 @@
 .twin-panel :focus-visible,.twin-tour :focus-visible{outline:2px solid #5ce4d1;outline-offset:2px}
 @media(max-width:790px){.twin-modal{align-items:flex-end}.twin-panel{width:100vw;height:min(92dvh,900px);border-left:0;border-top:1px solid #34536a;border-radius:16px 16px 0 0;padding:13px}.twin-grid{gap:6px}.twin-field{padding:7px}.twin-icon-btn{padding:6px 7px}.twin-readout{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:420px){.twin-grid{grid-template-columns:1fr 1fr}.twin-panel h2{font-size:16px}.twin-section{margin-top:12px;padding-top:10px}}
+
+/* v4.3 optical topology controls, detail, and port table */
+.optical-svg{height:auto;min-height:150px;max-height:250px}
+.optical-svg path{stroke-width:3.2}.optical-svg path.selected{stroke:#ffd36a;stroke-width:6}
+.optical-svg rect{fill:#173950;stroke:#75b9cd;stroke-width:1.2}
+.opt-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0}
+.opt-controls label{display:flex;flex-direction:column;gap:4px;color:#a9c1d2;font-size:10px}
+.opt-controls input,.opt-controls select{min-width:0;width:100%;padding:7px;background:#081928;color:#e8f5fb;border:1px solid #345;border-radius:6px}
+.opt-state{margin:8px 0;padding:8px;border-radius:7px;background:#122b3d;color:#bcefe8;font-size:10px}
+.opt-actions{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.opt-actions button{background:#153d50;color:#e6ffff;border:1px solid #398397;border-radius:7px;padding:8px;font-size:10px}
+.opt-table-wrap{max-width:100%;max-height:240px;overflow:auto;border:1px solid #294559;border-radius:7px}
+#optPortTable{border-collapse:collapse;min-width:620px;width:100%;font-size:9px}
+#optPortTable th,#optPortTable td{padding:6px;border-bottom:1px solid #294559;text-align:left;white-space:nowrap}
+#optPortTable th{position:sticky;top:0;background:#122b3d;color:#bbd9e5}
+#optList{margin:8px 0;max-height:170px;overflow:auto}
+@media(max-width:420px){.opt-controls{grid-template-columns:1fr 1fr}}

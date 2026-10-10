@@ -76,7 +76,7 @@ function makeResponseRoute(n,index,a){
  return [start,...roads,park];
 }
 function startResponse(){
- responseDispatch=null;if(T.scenario==='normal'||T.scenario==='fire')return;
+ responseDispatch=null;if(T.scenario==='normal')return;if(T.scenario==='fire'){const safeTarget=incidentAsset();responseDispatch={scenario:'fire',start:T.simTime,asset:safeTarget,people:[]};if(safeTarget){T.setZone(safeTarget.zone);T.pickAsset(safeTarget,true)}return;}
  const a=incidentAsset();if(!a)return;
  const staff=T.npcs.filter(n=>n.role!=='guard'&&T.facilityProfiles[T.facilityMode].staff.includes(n.id)).slice(0,4);
  const people=staff.map((n,i)=>{const route=makeResponseRoute(n,i,a),drive=routeLen(route)/7.5;return {n,index:i,route,drive,arrive:drive+2.5,asset:a,park:route[route.length-1],inspect:[a.x+(i-1.5)*.8,a.z+a.d*.65]}});
@@ -94,7 +94,7 @@ function responsePose(n){
  return {x:start[0]+(end[0]-start[0])*walk,z:start[1]+(end[1]-start[1])*walk,heading:Math.atan2(end[1]-start[1],end[0]-start[0]),action:walk<1?'walk':'inspect'}
 }
 T.npcPose=responsePose;
-window.LS3D_RESPONSE_ACTIVE=function(id){return !!responseDispatch&&responseDispatch.people.some(x=>x.n.id===id)};
+window.LS3D_RESPONSE_ACTIVE=function(id){return T.scenario==='fire'&&!!responseDispatch&&responseDispatch.scenario==='fire'&&T.facilityProfiles[T.facilityMode].staff.includes(id)||!!responseDispatch&&responseDispatch.people.some(x=>x.n.id===id)};
 function drawResponse(ctx){
  const q=incidentStage(),active=T.scenario!=='normal'&&q&&!q.stage[5]?.includes('recovery');
  if(responseDispatch&&responseDispatch.scenario===T.scenario){
@@ -106,13 +106,13 @@ function drawResponse(ctx){
   });
  }
  if(!active||!q)return;
- const a=incidentAsset();if(!a)return;const t=q.elapsed,phase=q.stage[5],smokeColor=[.68,.73,.77,.30];
+ const a=incidentAsset();if(!a)return;const t=q.elapsed,phase=q.stage[5],smokeColor=[.69,.75,.81,.74];
  if(T.scenario==='dlc-leak')ctx.box(a.x,.055,a.z,a.w*1.5,.055,a.d*1.5,[.18,.72,.93,.55],0,'glass');
  if(T.scenario==='rack-hotspot')ctx.ring(a.x,.18,a.z,Math.max(a.w,a.d)*.88,t%1<.5?'#fb806f':'#ffc17a',34);
  if(T.scenario==='fiber-cut'){for(let i=0;i<5;i++){const x=a.x+Math.sin(t*.22+i*2)*.9,z=a.z+Math.cos(t*.19+i*2)*.8;ctx.box(x,1+i%2*.65,z,.16,.65,.16,'#ffd476',t*.15+i)}}
  if(T.scenario==='fire'||T.scenario==='power'||T.scenario==='cooling'||T.scenario==='dlc-leak'||T.scenario==='rack-hotspot'||T.scenario==='ups-battery'){
   const sx=a.x+a.w*.18,sz=a.z-a.d*.18;
-  for(let i=0;i<5;i++){const rise=(t*.55+i*1.7)%8,x=sx+Math.sin(t*.08+i*2)*(.35+rise*.12),y=a.h+.3+rise*.36,z=sz+Math.cos(t*.07+i)*.35;const size=.7+rise*.16;ctx.box(x,y,z,size,size*.72,size,smokeColor,0,'glass')}
+  for(let i=0;i<7;i++){const rise=(t*.62+i*1.55)%10,x=sx+Math.sin(t*.08+i*2)*(.45+rise*.15),y=a.h+.4+rise*.44,z=sz+Math.cos(t*.07+i)*.42;const size=1.15+rise*.20;ctx.box(x,y,z,size,size*.78,size,smokeColor,0,'glass')} if(T.scenario==='fire'){const blink=t%1<.5;ctx.box(a.x,.12,a.z,a.w+3,.1,a.d+3,blink?'#ed5965':'#923847',0,'glass');ctx.box(a.x,.3,a.z,.9,2.2,.9,blink?'#ff704f':'#f5bb50',0,'glass')}
  }
  if(T.scenario==='fire'&&q.index>=4&&q.index<6){const pulse=t%1<.5;ctx.box(a.x,.1,a.z,a.w+2,.08,a.d+2,pulse?'#d7e4ec':'#83cbd1',0,'glass');for(let i=0;i<5;i++)ctx.cylinder(a.x-1.8+i*.9,.2+(t%3)*.55,a.z,.5,1.1,[.78,.86,.9,.2],12)}
  if(phase==='recovery')responseDispatch=null;

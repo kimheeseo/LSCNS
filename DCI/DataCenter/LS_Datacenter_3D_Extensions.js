@@ -1,4 +1,4 @@
-/* v4.1 · 2026-10-10: CONFIG 기반 IT/시설 전력·PUE·가용성 계산 */
+/* v4.2 · 2026-10-10: CONFIG 전력 모델과 시간축 장애 시뮬레이션 */
 (function(){
 'use strict';const T=window.__LS3D_TEST__;if(!T)return;const $=x=>document.getElementById(x);
 const defs={
@@ -37,7 +37,6 @@ function calc(){
  if(sc==='gpu-surge')load*=1+.55*Math.min(1,elapsed/180);
  if(sc==='dlc-leak'&&elapsed>45)load*=.75;
  if(sc==='rack-hotspot'&&elapsed>100)load*=.85;
- if(sc==='ups-battery'&&elapsed>=c.batteryMin*60)load*=.2;
  const mixTotal=Math.max(1,c.air+c.rear+c.dlc);
  const coolingMultiplier=(c.air*1+c.rear*1.08+c.dlc*1.28)/mixTotal;
  const outdoorDerate=Math.max(.55,1-Math.max(0,c.outdoorC-20)*.01);
@@ -54,7 +53,7 @@ function calc(){
  if(sc==='fire')temperature+=13;
  if(sc==='dlc-leak')temperature+=9;
  if(sc==='rack-hotspot')temperature+=Math.min(17,elapsed/10);
- if(sc==='cooling')temperature+=Math.min(16,elapsed/70);
+
  const availabilityClass=c.broken?'network':sc==='power'||sc==='ups-battery'?'power':sc==='cooling'||sc==='dlc-leak'||sc==='rack-hotspot'?'cooling':sc==='network'||sc==='fiber-cut'?'network':sc==='fire'?'other':'normal';
  let availability=c.availabilityModel[availabilityClass]?.[c.redundancy]??c.availabilityModel.normal;
  if(c.broken&&!c.reroute)availability=0;
@@ -90,9 +89,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelect
 document.addEventListener('visibilitychange',()=>{if(document.hidden)T.simRunning=false});
 const oldScenario=T.scenarioApply;T.scenarioApply=function(id){oldScenario(id);if(id==='normal'&&c.broken){let l=L(c.broken);if(l)l.down=false;c.broken=null;c.reroute=false;flow();optics()}};
 T.metrics=function(){return calc()};
-let up=T.scenarioDefs.find(x=>x.id==='ups-battery');const battery=()=>{if(up){let t=Math.max(60,c.batteryMin*60);up.timeline[2][0]=t/2;up.timeline[3][0]=t;up.timeline[4][0]=t+120}};
+let up=T.scenarioDefs.find(x=>x.id==='ups-battery'),power=T.scenarioDefs.find(x=>x.id==='power');const battery=()=>{let t=Math.max(60,c.batteryMin*60);if(up){up.timeline[2][0]=Math.max(30,t*.2);up.timeline[3][0]=t;up.timeline[4][0]=t+60;up.timeline[5][0]=t+180}if(power)power.timeline[3][0]=Math.max(90,t+180)};
 battery();
-let tempAlarm=false,capacityAlarm=false;setInterval(()=>{let live=calc();if(live.temperature>27&&!tempAlarm){event('WARN','랙 입구 온도 가정값 27°C 초과',L(c.selected));tempAlarm=true}if(live.temperature<=27)tempAlarm=false;if(c.rackCount*c.rackPowerKw>c.coolingKw&&!capacityAlarm){event('CRITICAL','IT 부하가 냉각 용량 가정을 초과',L(c.selected));capacityAlarm=true}if(c.rackCount*c.rackPowerKw<=c.coolingKw)capacityAlarm=false;if(c.broken&&T.simTime-c.brokenAt>180){let l=L(c.broken);l.down=false;event('INFO','광 링크 복구',l);c.broken=null;c.reroute=false;flow();optics()}},400);
+let tempAlarm=false,capacityAlarm=false,thermalThrottleLogged=false,thermalShutdownLogged=false,networkCutoverLogged=false,powerTransferLogged=false,powerBatteryDepletedLogged=false,upsBatteryDepletedLogged=false;setInterval(()=>{let live=calc(),elapsed=T.scenarioElapsed?T.scenarioElapsed():0;if(live.temperature>27&&!tempAlarm){event('WARN','랙 입구 온도 가정값 27°C 초과',L(c.selected));tempAlarm=true}if(live.temperature<=27)tempAlarm=false;if(c.rackCount*c.rackPowerKw>c.coolingKw&&!capacityAlarm){event('CRITICAL','IT 부하가 냉각 용량 가정을 초과',L(c.selected));capacityAlarm=true}if(c.rackCount*c.rackPowerKw<=c.coolingKw)capacityAlarm=false;if(T.scenario==='cooling'&&live.temperature>=32&&!thermalThrottleLogged){event('WARN','랙 입구 32°C 가정 임계값 초과 · GPU/서버 서멀 스로틀링',A('tor-a')||T.selected,'stage');thermalThrottleLogged=true}if(T.scenario!=='cooling'||live.temperature<32)thermalThrottleLogged=false;if(T.scenario==='cooling'&&live.temperature>=41&&!thermalShutdownLogged){event('CRITICAL','랙 입구 41°C 가정 임계값 초과 · 부하 차단',A('company-rack-a')||T.selected,'stage');thermalShutdownLogged=true}if(T.scenario!=='cooling'||live.temperature<41)thermalShutdownLogged=false;if(T.scenario==='network'&&elapsed>=15&&!networkCutoverLogged){event('WARN',c.redundancy==='N'?'Core 장애 · 우회 경로 없음':`Core 장애 · Spine 우회 적용 · 지연 ${live.latency.toFixed(1)} µs · 대역폭 ${live.bandwidth.toFixed(0)}%`,A('spine-a')||T.selected,'stage');networkCutoverLogged=true}if(T.scenario!=='network')networkCutoverLogged=false;if(T.scenario==='power'&&elapsed>=12&&!powerTransferLogged){event(live.availableCapacity>0?'INFO':'CRITICAL',live.availableCapacity>0?'발전기 기동 확인 · ATS 절체':'발전기/UPS 용량 부족 · UPS 배터리 공급 지속',A('generator')||T.selected,'stage');powerTransferLogged=true}if(T.scenario==='power'&&live.upsRemaining<=0&&elapsed>12&&!powerBatteryDepletedLogged){event('CRITICAL','UPS 백업 잔여시간 소진 · 부하 차단',A('ups-a')||T.selected,'stage');powerBatteryDepletedLogged=true}if(T.scenario==='ups-battery'&&live.upsRemaining<=0&&!upsBatteryDepletedLogged){event('CRITICAL','UPS 배터리 방전 · 부하 차단',A('ups-a')||T.selected,'stage');upsBatteryDepletedLogged=true}if(T.scenario!=='power'){powerTransferLogged=false;powerBatteryDepletedLogged=false}if(T.scenario!=='ups-battery')upsBatteryDepletedLogged=false;if(c.broken&&T.simTime-c.brokenAt>180){let l=L(c.broken);l.down=false;event('INFO','광 링크 복구',l);c.broken=null;c.reroute=false;flow();optics()}},400);
 
 /* Incident response fleet: four field engineers ride service vans to the affected zone.
    Campus roads and travel speed are illustrative training assumptions. */

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kimheeseo.github.io/LSCNS/DCI/DataCenter/lsdc-twin-bom.schema.json",
+  "title": "LS Datacenter Twin and BOM shared configuration",
+  "type": "object",
+  "required": ["schemaVersion", "units", "facility", "optical"],
+  "properties": {
+    "schemaVersion": {"const": "lsdc-twin-bom/1.0"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "units": {"type": "object", "required": ["power", "length", "temperature", "loss"], "properties": {
+      "power": {"const": "kW"}, "length": {"const": "m"}, "temperature": {"const": "degC"}, "flow": {"const": "L/min"}, "loss": {"const": "dB"}, "time": {"const": "min"}
+    }},
+    "facility": {"type": "object", "required": ["profile", "rackCount", "rackPowerKw", "gpuServerRatio", "cooling", "redundancy", "targetPue", "outdoorC"], "properties": {
+      "profile": {"enum": ["aidc", "server-room", "onprem"]},
+      "name": {"type": "string"},
+      "rackCount": {"type": "integer", "minimum": 1},
+      "rackPowerKw": {"type": "number", "minimum": 0},
+      "gpuServerRatio": {"type": "number", "minimum": 0, "maximum": 1},
+      "cooling": {"type": "object", "properties": {
+        "mode": {"enum": ["air", "rear", "dlc", "mixed"]},
+        "airPct": {"type": "number", "minimum": 0, "maximum": 100},
+        "rearDoorPct": {"type": "number", "minimum": 0, "maximum": 100},
+        "dlcPct": {"type": "number", "minimum": 0, "maximum": 100},
+        "capacityKw": {"type": "number"},
+        "supplyC": {"type": "number"},
+        "returnC": {"type": "number"}
+      }},
+      "redundancy": {"enum": ["N", "N+1", "2N"]},
+      "targetPue": {"type": "number", "minimum": 1},
+      "pueRange": {"type": "object", "properties": {"min": {"type": "number"}, "max": {"type": "number"}}},
+      "outdoorC": {"type": "number"},
+      "generatorKw": {"type": "number"},
+      "upsKw": {"type": "number"},
+      "batteryMinutes": {"type": "number"}
+    }},
+    "optical": {"type": "object", "required": ["topology", "cpoMode", "assumptions"], "properties": {
+      "topology": {"type": "object", "properties": {
+        "nodes": {"type": "array", "items": {"type": "object", "required": ["id", "name", "layer"]}},
+        "links": {"type": "array", "items": {"type": "object", "required": ["id", "from", "to", "type", "fiber", "lengthM", "speed"], "properties": {
+          "lengthM": {"type": "number", "minimum": 0}, "cores": {"type": "integer", "minimum": 0},
+          "connectors": {"type": "integer", "minimum": 0}, "splices": {"type": "integer", "minimum": 0},
+          "speed": {"type": "string"}, "down": {"type": "boolean"}
+        }}}
+      }},
+      "cpoMode": {"enum": ["pluggable", "cpo"]},
+      "assumptions": {"type": "object"}
+    }},
+    "assumptionNotice": {"const": "교육·설계 검토용 가정값 · 공식 제품 사양 아님"}
+  },
+  "additionalProperties": true
+}

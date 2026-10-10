@@ -62,11 +62,11 @@ function calc(){
  if(sc==='cooling'&&temperature>=32)availability=Math.max(0,availability-5);
  const m={load,facility,pue,temperature,availability,latency:c.broken?(c.reroute?18:999):sc==='fiber-cut'?18:0,bandwidth:c.broken?(c.reroute?65:0):sc==='fiber-cut'?65:100,rackLoad,opticalPower,coolingPower,effectiveCop,upsLoss,distributionLoss,otherPower};
  const set=(id,value)=>{const e=$(id);if(e)e.innerHTML=value};
- set('kpiLoad',load.toFixed(0)+'<small>kW</small>');
+ if(T.scenario==='normal'){set('kpiLoad',load.toFixed(0)+'<small>kW</small>');
  set('kpiFacility',facility.toFixed(0)+'<small>kW</small>');
  const fm=$('kpiFacilityMeta');if(fm)fm.textContent='계산 PUE '+pue.toFixed(2)+' · 가정값';
  set('kpiAvailability',availability.toFixed(2)+'<small>%</small>');
- set('kpiTemp',temperature.toFixed(1)+'<small>°C</small>');
+ set('kpiTemp',temperature.toFixed(1)+'<small>°C</small>')}
  if($('thermalOut'))$('thermalOut').textContent='평균 랙 입구 '+temperature.toFixed(1)+'°C · 냉각 용량 부하율 '+(load/Math.max(1,c.coolingKw)*100).toFixed(1)+'% · 외기 '+c.outdoorC.toFixed(1)+'°C (가정)';
  const badMix=Math.abs(c.air+c.rear+c.dlc-100)>.01;
  if($('warn'))$('warn').textContent=(c.pueMin>c.pueMax?'경고: 목표 PUE 하한은 상한 이하여야 합니다. ':badMix?'경고: 냉각 방식 비율 합계를 100%로 맞춰주세요. ':load>c.coolingKw?'경고: IT 부하가 냉각 용량을 초과합니다. ':c.generatorKw<load?'주의: 발전기 가정 용량이 IT 부하 미만입니다. ':c.upsKw<load?'주의: UPS 가정 용량이 IT 부하 미만입니다. ':'')+'계산값은 교육·설계 검토용 가정입니다.';

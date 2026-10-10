@@ -118,8 +118,9 @@ function drawResponse(ctx){
  if(phase==='recovery')responseDispatch=null;
 }
 window.LS3D_RESPONSE_VISUALS=window.LS3D_RESPONSE_VISUALS||[];window.LS3D_RESPONSE_VISUALS.push(drawResponse);
-const baseResponseScenario=T.scenarioApply;
-T.scenarioApply=function(id){baseResponseScenario(id);if(id==='normal'){responseDispatch=null}else startResponse()};
+const baseResponseScenario=scenarioApply;
+scenarioApply=function(id){baseResponseScenario(id);if(id==='normal'){responseDispatch=null}else startResponse()};
+T.scenarioApply=scenarioApply;
 if(!T.gl){let a=document.createElement('a');a.href='./LS_Datacenter_Campus.html';a.textContent='WebGL 미지원 · 2D Gold Pixel Tour';a.style='position:fixed;bottom:8px;z-index:99;background:#432;color:white;padding:10px';document.body.append(a)}
 layout();try{if(!sessionStorage.getItem('twin-guide')){$('guide').classList.add('open');sessionStorage.setItem('twin-guide','1')}}catch(e){}
 layout();form();flow();optics();calc()}

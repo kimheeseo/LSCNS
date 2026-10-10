@@ -76,12 +76,12 @@ function makeResponseRoute(n,index,a){
  return [start,...roads,park];
 }
 function startResponse(){
- responseDispatch=null;if(T.scenario==='normal')return;if(T.scenario==='fire'){const safeTarget=incidentAsset();responseDispatch={scenario:'fire',start:T.simTime,asset:safeTarget,people:[]};if(safeTarget){T.setZone(safeTarget.zone);T.pickAsset(safeTarget,true)}return;}
+ responseDispatch=null;if(T.scenario==='normal')return;if(T.scenario==='fire'){const safeTarget=incidentAsset();responseDispatch={scenario:'fire',start:T.simTime,asset:safeTarget,people:[]};if(safeTarget){T.setZone(safeTarget.zone);T.pickAsset(safeTarget,true);T.cameraDesired.distance=55;T.cameraDesired.target=[safeTarget.x,2,safeTarget.z]}return;}
  const a=incidentAsset();if(!a)return;
  const staff=T.npcs.filter(n=>n.role!=='guard'&&T.facilityProfiles[T.facilityMode].staff.includes(n.id)).slice(0,4);
  const people=staff.map((n,i)=>{const route=makeResponseRoute(n,i,a),drive=routeLen(route)/7.5;return {n,index:i,route,drive,arrive:drive+2.5,asset:a,park:route[route.length-1],inspect:[a.x+(i-1.5)*.8,a.z+a.d*.65]}});
  responseDispatch={scenario:T.scenario,start:T.simTime,asset:a,people};
- T.setZone(a.zone);T.pickAsset(a,true);
+ T.setZone(a.zone);T.pickAsset(a,true);T.cameraDesired.distance=55;T.cameraDesired.target=[a.x,2,a.z];
  T.addEventLog('INFO','현장 출동 차량 4대 배차 · 엔지니어 이동 시작',a,'response');
 }
 function responsePose(n){

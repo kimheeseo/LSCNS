@@ -15,7 +15,7 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 
 ## 3D Digital Twin 사용 방법
 
-자세한 화면 조작, 작업자 시점, 장애 시나리오, 그래프·로그 및 설정 방법은 [3D Digital Twin 상세 사용 안내(TXT)](./DataCenter/LS_Datacenter_3D_사용법.txt)를 참고하세요.
+자세한 화면 조작, 작업자 시점, 장애 시나리오, 그래프·로그 및 설정 방법은 [3D Digital Twin 상세 사용 안내(TXT)](./DataCenter/LS_Datacenter_3D_사용법.txt)를 참고하세요. 계산식·입력값·장애 대응·ToR/광 링크·JSON/BOM 연동까지 포함한 문서는 [3D Digital Twin 운영·계산 가이드북(Word)](./DataCenter/LS_Datacenter_3D_Guidebook_v4.5.3.docx)에서 확인할 수 있습니다.
 
 1. [3D Digital Twin 페이지](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html)를 엽니다.
 2. 왼쪽 메뉴에서 Campus, Utility Yard, Cooling Plant, Gray Zone, Data Hall, Network / MMR, NOC / Safety 중 구역을 선택합니다.

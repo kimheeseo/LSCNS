@@ -1,0 +1,33 @@
+
+#twinExtBar{display:flex;gap:7px;align-items:center}
+.twin-icon-btn{background:#172c42;color:#c8e6f4;border:1px solid #33506a;border-radius:7px;padding:7px 9px;font-size:10px;font-weight:800}
+.twin-modal{position:fixed;inset:0;display:none;z-index:70;background:#020b14c9;align-items:stretch;justify-content:flex-end}
+.twin-modal.open{display:flex}
+.twin-panel{width:min(520px,100vw);height:100dvh;overflow:auto;background:#0d1e30;border-left:1px solid #34536a;box-shadow:-20px 0 55px #0008;padding:18px}
+.twin-panel h2{font-size:18px;margin:0 0 7px}.twin-panel p{font-size:11px;line-height:1.6;color:#9bb4c8}
+.twin-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a455a;padding-bottom:12px}
+.twin-close,.twin-action{border:1px solid #38637a;background:#163449;color:#e1f5ff;border-radius:8px;padding:8px 11px;font-size:11px;font-weight:800}
+.twin-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.twin-field{border:1px solid #29465d;border-radius:9px;padding:9px;background:#11263a;min-width:0}
+.twin-field label{display:block;color:#a7c2d2;font-size:10px;margin-bottom:6px}
+.twin-field input,.twin-field select{width:100%;min-width:0;background:#0a1928;color:#e6f7ff;border:1px solid #3a5c72;border-radius:6px;padding:8px;font-size:11px}
+.twin-presets,.twin-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.twin-warning{padding:9px 11px;border:1px solid #8c5e3d;background:#3e2d26;color:#ffcf9c;border-radius:8px;font-size:10px;line-height:1.5;margin-top:10px}
+.twin-note{font-size:10px;color:#8ba8bd;line-height:1.6}
+.twin-section{margin-top:17px;padding-top:14px;border-top:1px solid #29445a}
+.twin-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.twin-stat{border:1px solid #2c4a60;background:#122b40;border-radius:8px;padding:8px;font-size:9px;color:#9fb8ca}
+.twin-stat b{display:block;font-size:14px;color:#e6faff;margin-top:5px}
+.opt-link{width:100%;text-align:left;border:1px solid #315268;background:#112b40;color:#dceefa;border-radius:8px;padding:9px;margin:5px 0;font-size:10px}
+.opt-link.selected{border-color:#56d8cc;background:#174052}.opt-link.down{border-color:#b54f63;color:#ffb9c3}
+.optical-svg{width:100%;height:auto;border:1px solid #29495f;border-radius:12px;background:#0a1928}
+.optical-svg text{font:10px system-ui;fill:#d8edf6}.optical-svg .n{fill:#17364c;stroke:#6ba4b7;stroke-width:1.5}.optical-svg .l{stroke:#56dfc7;stroke-width:4;fill:none;cursor:pointer}.optical-svg .l.alt{stroke:#72a9ff;stroke-dasharray:5 4}.optical-svg .l.down{stroke:#ff7185;stroke-dasharray:5 5}
+.twin-status{padding:8px 10px;border-radius:8px;background:#102b3e;color:#92c9d2;font-size:10px;line-height:1.55;margin:9px 0}
+.twin-tour{position:fixed;z-index:80;left:50%;top:14%;transform:translateX(-50%);width:min(420px,92vw);padding:18px;border-radius:14px;border:1px solid #4a8193;background:#10273a;box-shadow:0 20px 80px #000b}
+.twin-tour[hidden]{display:none}.twin-tour h3{margin:0 0 8px;color:#79e2d7}.twin-tour p{font-size:12px;line-height:1.65;color:#c2d8e3}.twin-tour footer{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+#twinLoading{position:fixed;z-index:90;inset:0;display:grid;place-items:center;background:#071523;color:#d9f4ff;font:700 13px system-ui;transition:opacity .35s}
+#twinLoading.done{opacity:0;pointer-events:none}
+.twin-tip{border:1px solid #34596d;background:#102a3d;border-radius:8px;padding:9px;color:#a9c5d2;font-size:10px;line-height:1.65;margin:8px 0}
+.twin-panel :focus-visible,.twin-tour :focus-visible{outline:2px solid #5ce4d1;outline-offset:2px}
+@media(max-width:790px){.twin-modal{align-items:flex-end}.twin-panel{width:100vw;height:min(92dvh,900px);border-left:0;border-top:1px solid #34536a;border-radius:16px 16px 0 0;padding:13px}.twin-grid{gap:6px}.twin-field{padding:7px}.twin-icon-btn{padding:6px 7px}.twin-readout{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.twin-grid{grid-template-columns:1fr 1fr}.twin-panel h2{font-size:16px}.twin-section{margin-top:12px;padding-top:10px}}

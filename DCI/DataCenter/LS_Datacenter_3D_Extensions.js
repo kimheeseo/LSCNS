@@ -1,4 +1,4 @@
-/* v4.2 · 2026-10-10: CONFIG 전력 모델과 시간축 장애 시뮬레이션 */
+/* v4.2 · 2026-10-10: CONFIG 장애 시뮬레이션·랙 배치·광 링크 상세 */
 (function(){
 'use strict';const T=window.__LS3D_TEST__;if(!T)return;const $=x=>document.getElementById(x);
 const defs={
@@ -29,6 +29,7 @@ const N=id=>nodes.find(x=>x.id===id),L=id=>links.find(x=>x.id===id),A=id=>T.asse
 function loss(l){let alpha=l.media==='MMF'?LOSS.mmfDbKm:LOSS.smfDbKm,val=l.length/1000*alpha+l.conn*LOSS.connectorDb+l.splice*LOSS.spliceDb+(c.mode==='cpo'&&l.media==='SMF'?LOSS.cpoCouplingDb:0);return [val,l.budget?l.budget-val:null,alpha]}
 function event(sev,msg,l){if(T.addEventLog)T.addEventLog(sev,msg,A(N(l?.from)?.asset)||A('odf')||T.selected,'fiber')}
 function flow(){T.flowPaths.fiber.splice(0,T.flowPaths.fiber.length,...links.filter(x=>!x.down).map(x=>[N(x.from).pos,N(x.to).pos]));let e=$('optState');if(e)e.textContent=c.broken?(c.reroute?'우회 경로 · 지연 +18 µs · 가용 대역폭 65%':'연결 끊김 · 대체 경로 없음'):'정상 경로 · 교육용 가정값'}
+function optics(){const svg=$('optSvg'),list=$('optList'),detail=$('optDetail');if(!svg||!list||!detail)return;const pt=n=>({x:28+(n.pos[0]+22)/50*590,y:116-n.pos[1]*3.1});svg.innerHTML=links.map(l=>{const a=pt(N(l.from)),b=pt(N(l.to)),cl=(l.down?'bad ':l.route==='B'?'alt ':'')+(c.selected===l.id?'selected':'');return '<path data-link="'+esc(l.id)+'" class="'+cl+'" d="M '+a.x.toFixed(1)+' '+a.y.toFixed(1)+' L '+b.x.toFixed(1)+' '+b.y.toFixed(1)+'"></path>'}).join('')+nodes.map(n=>{const q=pt(n);return '<rect x="'+(q.x-31)+'" y="'+(q.y-10)+'" width="62" height="20" rx="4"></rect><text x="'+q.x+'" y="'+(q.y+3)+'" text-anchor="middle">'+esc(n.name)+'</text>'}).join('');list.innerHTML=links.map(l=>'<button type="button" data-link="'+esc(l.id)+'">'+esc(N(l.from).name)+' → '+esc(N(l.to).name)+' · '+esc(l.type)+(l.down?' · 단선':'')+'</button>').join('');const show=l=>{if(!l)return;const v=loss(l),from=N(l.from),to=N(l.to);detail.innerHTML='<div class="twin-readout"><b>'+esc(from.name)+' → '+esc(to.name)+'</b><br>케이블: '+esc(l.type)+' · '+esc(l.media)+' · '+esc(l.speed)+'<br>거리: '+Number(l.length).toLocaleString()+' m · 코어: '+(l.cores||'전기 링크')+'<br>커넥터: '+esc(l.connector)+' · '+l.conn+'개 · 접속 '+l.splice+'개<br>가정 손실: '+v[0].toFixed(2)+' dB · 링크 마진: '+(v[1]==null?'예산 미입력':v[1].toFixed(2)+' dB')+'<br>상태: '+(l.down?'단선':'정상')+' · 교육용 가정값</div>';svg.querySelectorAll('[data-link]').forEach(e=>e.onclick=()=>{const q=L(e.dataset.link);if(q){c.selected=q.id;optics()}});list.querySelectorAll('[data-link]').forEach(e=>e.onclick=()=>{const q=L(e.dataset.link);if(q){c.selected=q.id;optics()}})};show(L(c.selected)||links[0]);flow()}
 function calc(){
  const rackLoad=c.rackCount*c.rackPowerKw;
  const opticalPower=(c.mode==='cpo'?c.cpoW:c.plugW)*c.portCount/1000+(c.mode==='cpo'?c.cpoKw:c.plugKw);

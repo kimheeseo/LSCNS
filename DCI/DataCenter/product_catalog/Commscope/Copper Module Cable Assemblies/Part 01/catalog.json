@@ -24,81 +24,6 @@
     "Length"
   ],
   "products": {
-    "66242081-01": {
-      "name": "66242081-01 · 6624 2 081-01 · Copper patch cord",
-      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 1 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "66242081-01",
-        "Part Name": "6624 2 081-01",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "1 m"
-      }
-    },
-    "66242081-04": {
-      "name": "66242081-04 · 6624 2 081-04 · Copper patch cord",
-      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 4 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "66242081-04",
-        "Part Name": "6624 2 081-04",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "4 m"
-      }
-    },
-    "66242081-11": {
-      "name": "66242081-11 · 6624 2 081-11 · Copper patch cord",
-      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 8 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "66242081-11",
-        "Part Name": "6624 2 081-11",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "8 m"
-      }
-    },
     "60892141-00": {
       "name": "60892141-00 · 6089 2 141-00 · Copper test cord",
       "description": "LSA-PLUS® 2-Pole Test Cord, 0.13 m",
@@ -274,15 +199,90 @@
         "Length": "1.5 m"
       }
     },
-    "LSA-66232083-00": {
-      "name": "LSA-66232083-00 · LSA-6623 2 083-00 · Copper test cord",
-      "description": "LSA-PLUS® Test Cord LSA-PLUS, 4-pole plug, 1.8 m",
+    "66242081-01": {
+      "name": "66242081-01 · 6624 2 081-01 · Copper patch cord",
+      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 1 m",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
       "checked": "2026-10-06",
       "specs": {
-        "Part Number": "LSA-66232083-00",
-        "Part Name": "LSA-6623 2 083-00",
+        "Part Number": "66242081-01",
+        "Part Name": "6624 2 081-01",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "1 m"
+      }
+    },
+    "66242081-04": {
+      "name": "66242081-04 · 6624 2 081-04 · Copper patch cord",
+      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 4 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "66242081-04",
+        "Part Name": "6624 2 081-04",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "4 m"
+      }
+    },
+    "66242081-11": {
+      "name": "66242081-11 · 6624 2 081-11 · Copper patch cord",
+      "description": "LSA-PLUS® Patch Cord,  2/2, 2 pole, 8 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "66242081-11",
+        "Part Name": "6624 2 081-11",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "8 m"
+      }
+    },
+    "64512077-10": {
+      "name": "64512077-10 · 6451 2 077-10 · Copper test cord",
+      "description": "LSA-PLUS®  Test Cord, 2 pole, 2 banana sockets, 0.19 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "64512077-10",
+        "Part Name": "6451 2 077-10",
         "Product Type": "Copper test cord",
         "Product Brand": "LSA-PLUS®",
         "Product Series": "LSA-PLUS",
@@ -296,7 +296,107 @@
         "Cable Jacket": "—",
         "Jacket": "—",
         "Flame Rating": "—",
-        "Length": "1.8 m"
+        "Length": "0.19 m"
+      }
+    },
+    "64512072-00": {
+      "name": "64512072-00 · 6451 2 072-00 · Copper patch cord",
+      "description": "LSA-PLUS®  Patch Cord, 4 pole, 2 plugs, 1 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "64512072-00",
+        "Part Name": "6451 2 072-00",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "1 m"
+      }
+    },
+    "64512072-02": {
+      "name": "64512072-02 · 6451 2 072-02 · Copper patch cord",
+      "description": "LSA-PLUS®  Patch Cord, 4 pole, 2 plugs, 2 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "64512072-02",
+        "Part Name": "6451 2 072-02",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "2 m"
+      }
+    },
+    "64512073-02": {
+      "name": "64512073-02 · 6451 2 073-02 · Copper patch cord",
+      "description": "LSA-PLUS®  Patch Cord, 2 pole, open ended, 2 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "64512073-02",
+        "Part Name": "6451 2 073-02",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "2 m"
+      }
+    },
+    "64512074-02": {
+      "name": "64512074-02 · 6451 2 074-02 · Copper patch cord",
+      "description": "LSA-PLUS®  Patch Cord, 2 pole, 2 plugs, 2 m",
+      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
+      "checked": "2026-10-06",
+      "specs": {
+        "Part Number": "64512074-02",
+        "Part Name": "6451 2 074-02",
+        "Product Type": "Copper patch cord",
+        "Product Brand": "LSA-PLUS®",
+        "Product Series": "LSA-PLUS",
+        "Status": "—",
+        "Category": "—",
+        "Pair Count": "—",
+        "AWG": "—",
+        "Shielding": "—",
+        "Connector Type": "LSA-PLUS",
+        "Connector": "LSA-PLUS",
+        "Cable Jacket": "—",
+        "Jacket": "—",
+        "Flame Rating": "—",
+        "Length": "2 m"
       }
     },
     "66242340-09": {
@@ -449,15 +549,15 @@
         "Length": "7 ft"
       }
     },
-    "64512077-10": {
-      "name": "64512077-10 · 6451 2 077-10 · Copper test cord",
-      "description": "LSA-PLUS®  Test Cord, 2 pole, 2 banana sockets, 0.19 m",
+    "LSA-66232083-00": {
+      "name": "LSA-66232083-00 · LSA-6623 2 083-00 · Copper test cord",
+      "description": "LSA-PLUS® Test Cord LSA-PLUS, 4-pole plug, 1.8 m",
       "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
       "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
       "checked": "2026-10-06",
       "specs": {
-        "Part Number": "64512077-10",
-        "Part Name": "6451 2 077-10",
+        "Part Number": "LSA-66232083-00",
+        "Part Name": "LSA-6623 2 083-00",
         "Product Type": "Copper test cord",
         "Product Brand": "LSA-PLUS®",
         "Product Series": "LSA-PLUS",
@@ -471,107 +571,7 @@
         "Cable Jacket": "—",
         "Jacket": "—",
         "Flame Rating": "—",
-        "Length": "0.19 m"
-      }
-    },
-    "64512072-00": {
-      "name": "64512072-00 · 6451 2 072-00 · Copper patch cord",
-      "description": "LSA-PLUS®  Patch Cord, 4 pole, 2 plugs, 1 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "64512072-00",
-        "Part Name": "6451 2 072-00",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "1 m"
-      }
-    },
-    "64512072-02": {
-      "name": "64512072-02 · 6451 2 072-02 · Copper patch cord",
-      "description": "LSA-PLUS®  Patch Cord, 4 pole, 2 plugs, 2 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "64512072-02",
-        "Part Name": "6451 2 072-02",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "2 m"
-      }
-    },
-    "64512073-02": {
-      "name": "64512073-02 · 6451 2 073-02 · Copper patch cord",
-      "description": "LSA-PLUS®  Patch Cord, 2 pole, open ended, 2 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "64512073-02",
-        "Part Name": "6451 2 073-02",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "2 m"
-      }
-    },
-    "64512074-02": {
-      "name": "64512074-02 · 6451 2 074-02 · Copper patch cord",
-      "description": "LSA-PLUS®  Patch Cord, 2 pole, 2 plugs, 2 m",
-      "officialUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "businessUrl": "https://www.commscope.com/product-type/cable-assemblies/",
-      "checked": "2026-10-06",
-      "specs": {
-        "Part Number": "64512074-02",
-        "Part Name": "6451 2 074-02",
-        "Product Type": "Copper patch cord",
-        "Product Brand": "LSA-PLUS®",
-        "Product Series": "LSA-PLUS",
-        "Status": "—",
-        "Category": "—",
-        "Pair Count": "—",
-        "AWG": "—",
-        "Shielding": "—",
-        "Connector Type": "LSA-PLUS",
-        "Connector": "LSA-PLUS",
-        "Cable Jacket": "—",
-        "Jacket": "—",
-        "Flame Rating": "—",
-        "Length": "2 m"
+        "Length": "1.8 m"
       }
     }
   }

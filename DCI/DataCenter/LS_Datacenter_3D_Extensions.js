@@ -220,7 +220,7 @@ function wireOpticalControls(){
  if(rad){rad.value=String(c.radix);rad.onchange=()=>{c.radix=+rad.value;calc();flow()};}
  if(speed){speed.value=c.linkSpeed;speed.onchange=()=>{c.linkSpeed=speed.value;links.forEach(l=>l.speed=c.linkSpeed);optics();calc()};}
  if(mode){mode.value=c.mode;mode.onchange=()=>{c.mode=mode.value;const q=document.querySelector('[data-k="mode"]');if(q)q.value=c.mode;optics();calc()};}
- if(dist)dist.onchange=()=>{const l=L(c.selected);if(l){l.length=Math.max(0,Math.min(100000,+dist.value||0));c.linkDistanceM=l.length;optics();calc()}};
+ if(dist){const applyDistance=()=>{const l=L(c.selected);if(l){l.length=Math.max(0,Math.min(100000,+dist.value||0));c.linkDistanceM=l.length;optics();calc()}};dist.oninput=applyDistance;dist.onchange=applyDistance;}
  if(cable)cable.onchange=()=>{const l=L(c.selected);if(l){l.type=cable.value;l.media=['SMF','MMF'].includes(cable.value)?cable.value:'MMF';optics();calc()}};
  const cut=$('cutLinkBtn');if(cut)cut.onclick=cutSelectedLink;
  const csv=$('portCsvBtn');if(csv)csv.onclick=exportPortCsv;

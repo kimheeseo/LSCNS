@@ -13,10 +13,10 @@ function mapPacket(o){
  const f=o.facility||{},cool=f.cooling||{},top=o.optical?.topology||{},ln=Array.isArray(top.links)?top.links:[];
  const racks=Number(f.rackCount),kw=Number(f.rackPowerKw),ratio=Number(f.gpuServerRatio);
  if(!Number.isFinite(racks)||racks<1||racks>500||!Number.isFinite(kw)||kw<0||kw>200||!Number.isFinite(ratio)||ratio<0||ratio>1)throw Error('랙 수(1–500), 랙 전력(0–200 kW), GPU 비율(0–1)을 확인해 주세요.');
- const gpu=Math.max(1,Math.round(racks*ratio*8)),capacity=Number(cool.capacityKw??f.coolingKw)||kw*racks;
+ const gpu=Math.max(1,Math.round(racks*ratio*8)),capacity=Number(cool.capacityKw??f.coolingKw)||kw*racks,rackKw=Math.max(10,kw),coolingPerRack=Math.max(10,capacity/racks),powerNote=kw<10?' · 기존 BOM 입력 하한으로 '+rackKw+' kW/랙을 계산에 적용(원본 '+kw+' kW/랙 유지)':'';
  const coolingMode=['air','rear','dlc','mixed'].includes(cool.mode)?cool.mode:'air';
- setVal('targetGPU',gpu);setVal('rackRU',48);setVal('rackPowerKw',kw);
- setVal('rackCoolingKw',capacity/racks);
+ setVal('targetGPU',gpu);setVal('rackRU',48);setVal('rackPowerKw',rackKw);
+ setVal('rackCoolingKw',coolingPerRack);
  setVal('coolingMode',coolingMode==='rear'?'rear-door':coolingMode==='dlc'?'dlc':coolingMode==='air'?'air':'auto');
  setVal('facilityRedundancy',['N','N+1','2N'].includes(f.redundancy)?f.redundancy:'N+1');setVal('facilityEnabled','on');
  setVal('topology',top.type==='fat-tree'?'clos3':'rail');
@@ -27,7 +27,7 @@ function mapPacket(o){
  if(up.length)setVal('leafSpineDistanceM',Math.round(up.reduce((a,x)=>a+(Number(x.lengthM)||0),0)/up.length));
  packet=o;const status=$('tbStatus');status.className='tb-ok';
  const mode=o.optical?.cpoMode==='cpo'?'CPO':'플러거블';
- status.textContent='가져옴: '+racks+' 랙 · '+kw+' kW/랙 · GPU '+gpu+'개 초안(랙당 GPU 서버 1대 × 서버당 8 GPU 가정, BOM 입력 최소 1개) · 냉각 '+coolingMode+' / '+capacity+' kW · '+(f.redundancy||'N+1')+' · '+mode+' · 광 링크 '+ln.length+'개. 결과는 BOM 도구의 기존 계산 기준을 따르며 입력 검토 후 실행하세요.';
+ status.textContent='가져옴: '+racks+' 랙 · '+kw+' kW/랙 · GPU '+gpu+'개 초안(랙당 GPU 서버 1대 × 서버당 8 GPU 가정, BOM 입력 최소 1개) · 냉각 '+coolingMode+' / '+capacity+' kW · '+(f.redundancy||'N+1')+' · '+mode+' · 광 링크 '+ln.length+'개'+powerNote+'. 결과는 BOM 도구의 기존 계산 기준을 따르며 입력 검토 후 실행하세요.';
  $('tbRun').disabled=false;
 }
 $('tbImportBtn').onclick=()=>$('tbFile').click();

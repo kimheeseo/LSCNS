@@ -226,7 +226,8 @@ function wireOpticalControls(){
  const csv=$('portCsvBtn');if(csv)csv.onclick=exportPortCsv;
 }
 
-syncTopology();layout();form();wireOpticalControls();flow();optics();calc()}
+syncTopology();layout();form();wireOpticalControls();flow();optics();calc();
 const phase3ScenarioApply=scenarioApply;scenarioApply=function(id){phase3ScenarioApply(id);if(id==='fiber-cut'){if(!c.broken)cutSelectedLink()}else if(id==='normal'&&c.broken){const q=L(c.broken);if(q)q.down=false;c.broken=null;c.reroute=false;flow();optics()}calc()};T.scenarioApply=scenarioApply;
+}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 })();

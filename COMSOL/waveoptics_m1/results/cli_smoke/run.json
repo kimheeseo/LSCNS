@@ -1,0 +1,43 @@
+{
+  "parameters": {
+    "n_core": 1.5,
+    "n_clad": 1.45,
+    "width_um": 3.0,
+    "wavelength_um": 1.55,
+    "padding_um": 20.0,
+    "h_um": 0.0375,
+    "max_modes": 6,
+    "mesh_backend": "gmsh"
+  },
+  "polarization": "both",
+  "modes": [
+    {
+      "mode": "TE0",
+      "neff": 1.489312949694172,
+      "beta_per_um": 6.037180156974653,
+      "relative_residual": 9.242653151335668e-15,
+      "boundary_decay_estimate": 1.0743070875406886e-12
+    },
+    {
+      "mode": "TE1",
+      "neff": 1.4612098586748263,
+      "beta_per_um": 5.923259557891374,
+      "relative_residual": 1.1451054759244078e-14,
+      "boundary_decay_estimate": 4.358952808557207e-07
+    },
+    {
+      "mode": "TM0",
+      "neff": 1.488941076913414,
+      "beta_per_um": 6.035672708205492,
+      "relative_residual": 9.796616585689353e-15,
+      "boundary_decay_estimate": 1.226379990490759e-12
+    },
+    {
+      "mode": "TM1",
+      "neff": 1.4606488145881777,
+      "beta_per_um": 5.9209852714643345,
+      "relative_residual": 9.275136366815237e-15,
+      "boundary_decay_estimate": 6.326950494590678e-07
+    }
+  ]
+}

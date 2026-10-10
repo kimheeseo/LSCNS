@@ -1,0 +1,28 @@
+................................                                         [100%]
+=============================== warnings summary ===============================
+tests/test_additional_domain.py::test_high_contrast_domain_convergence[TM]
+tests/test_m1.py::test_high_contrast_slab[TM]
+tests/test_m1.py::test_interface_flux[TM]
+tests/test_m1.py::test_te_tm_are_distinct
+  /workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.505e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_boundary_truncation_separately[TE]
+  /workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TE1: estimated relative cladding decay 1.700e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_boundary_truncation_separately[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 2.248e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_interface_flux[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.553e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_interface_flux[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.514e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/scratch/e531e3519011/waveoptics_m1/results/pytest.xml -
+32 passed, 8 warnings in 3.02s

@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "executed_utc": "2026-10-10T17:17:37.375408+00:00",
+    "python": "3.11.17",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-fem": "12.0.2",
+      "gmsh": "4.14.1",
+      "matplotlib": "3.10.3",
+      "pytest": "8.4.2"
+    },
+    "pytest_passed": 32,
+    "pytest_total": 32,
+    "baseline": {
+      "n_core": 1.5,
+      "n_clad": 1.45,
+      "width_um": 3.0,
+      "wavelength_um": 1.55,
+      "padding_um": 20.0,
+      "max_modes": 6
+    },
+    "high_contrast": {
+      "n_core": 3.45,
+      "n_clad": 1.44,
+      "width_um": 0.4,
+      "wavelength_um": 1.55,
+      "padding_um": 8.0,
+      "max_modes": 6
+    },
+    "test_hashes": {
+      "tests/analytic_slab.py": "aa5c74c4a2dd571944f9f263e97f72b7269d080d899d42b4719ec7260a47fb34",
+      "tests/test_m1.py": "2d32dbbf6ad1569ba65af1c7a2ad32f101a0c0ee0896fb39aaf5c1224bf982a4"
+    }
+  },
+  "baseline_finest": [
+    {
+      "case": "baseline",
+      "mode": "TE0",
+      "level": 3,
+      "h_max_um": 0.03750000000013909,
+      "elements": 1148,
+      "dofs": 1147,
+      "neff_exact": 1.4893141708402111,
+      "neff_fem": 1.489312949694172,
+      "abs_neff_error": 1.2211460391764462e-06,
+      "neff_order": 2.0000345173639844,
+      "relative_l2_field_error": 6.375401545009898e-05,
+      "field_order": 1.9997670848039437,
+      "relative_residual": 9.242653151335668e-15,
+      "decay_estimate": 1.0743070875406886e-12
+    },
+    {
+      "case": "baseline",
+      "mode": "TE1",
+      "level": 3,
+      "h_max_um": 0.03750000000013909,
+      "elements": 1148,
+      "dofs": 1147,
+      "neff_exact": 1.461215584892605,
+      "neff_fem": 1.4612098586748263,
+      "abs_neff_error": 5.726217778612153e-06,
+      "neff_order": 1.9995687408527152,
+      "relative_l2_field_error": 0.00023933907244715077,
+      "field_order": 2.000296464500291,
+      "relative_residual": 1.1451054759244078e-14,
+      "decay_estimate": 4.358952808557207e-07
+    },
+    {
+      "case": "baseline",
+      "mode": "TM0",
+      "level": 3,
+      "h_max_um": 0.03750000000013909,
+      "elements": 1148,
+      "dofs": 1147,
+      "neff_exact": 1.4889423360317204,
+      "neff_fem": 1.488941076913414,
+      "abs_neff_error": 1.2591183065069345e-06,
+      "neff_order": 2.00004550834307,
+      "relative_l2_field_error": 6.276811129836308e-05,
+      "field_order": 1.9998011675705756,
+      "relative_residual": 9.796616585689353e-15,
+      "decay_estimate": 1.226379990490759e-12
+    },
+    {
+      "case": "baseline",
+      "mode": "TM1",
+      "level": 3,
+      "h_max_um": 0.03750000000013909,
+      "elements": 1148,
+      "dofs": 1147,
+      "neff_exact": 1.4606545266060773,
+      "neff_fem": 1.4606488145881777,
+      "abs_neff_error": 5.712017899561772e-06,
+      "neff_order": 1.9995022119420924,
+      "relative_l2_field_error": 0.0002464821525984178,
+      "field_order": 2.000296193470138,
+      "relative_residual": 9.275136366815237e-15,
+      "decay_estimate": 6.326950494590678e-07
+    }
+  ],
+  "high_contrast_finest": [
+    {
+      "case": "high_contrast",
+      "mode": "TE0",
+      "level": 3,
+      "h_max_um": 0.0025000000000103273,
+      "elements": 6560,
+      "dofs": 6559,
+      "neff_exact": 3.163401847225911,
+      "neff_fem": 3.163392272699531,
+      "abs_neff_error": 9.574526380173864e-06,
+      "neff_order": 2.000003949270518,
+      "relative_l2_field_error": 1.7026526173898796e-05,
+      "field_order": 1.9999129923625867,
+      "relative_residual": 3.6758321820799457e-13,
+      "decay_estimate": 2.1418638565917965e-40
+    },
+    {
+      "case": "high_contrast",
+      "mode": "TE1",
+      "level": 3,
+      "h_max_um": 0.0025000000000103273,
+      "elements": 6560,
+      "dofs": 6559,
+      "neff_exact": 2.220899182222866,
+      "neff_fem": 2.220828863186251,
+      "abs_neff_error": 7.031903661491867e-05,
+      "neff_order": 2.000016925273994,
+      "relative_l2_field_error": 5.924676814454399e-05,
+      "field_order": 2.0000927930140007,
+      "relative_residual": 9.655226913174535e-13,
+      "decay_estimate": 1.5428224853427785e-24
+    },
+    {
+      "case": "high_contrast",
+      "mode": "TM0",
+      "level": 3,
+      "h_max_um": 0.0025000000000103273,
+      "elements": 6560,
+      "dofs": 6559,
+      "neff_exact": 2.9499635830575097,
+      "neff_fem": 2.949946996443193,
+      "abs_neff_error": 1.6586614316693726e-05,
+      "neff_order": 2.000059511755826,
+      "relative_l2_field_error": 1.323031124794358e-05,
+      "field_order": 2.000156712259393,
+      "relative_residual": 6.246303442012141e-13,
+      "decay_estimate": 5.489961759613441e-37
+    },
+    {
+      "case": "high_contrast",
+      "mode": "TM1",
+      "level": 3,
+      "h_max_um": 0.0025000000000103273,
+      "elements": 6560,
+      "dofs": 6559,
+      "neff_exact": 1.5946080725418286,
+      "neff_fem": 1.594552458366177,
+      "abs_neff_error": 5.5614175651585995e-05,
+      "neff_order": 1.9991440284693915,
+      "relative_l2_field_error": 0.0001458642866656007,
+      "field_order": 1.99992607024188,
+      "relative_residual": 2.2398972613550344e-12,
+      "decay_estimate": 2.2640051382481823e-10
+    }
+  ]
+}

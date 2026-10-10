@@ -1,0 +1,206 @@
+..FFFFFFFFFFFFFFFFFFFFFFFFFF                                             [100%]
+=================================== FAILURES ===================================
+_____________________ test_neff_modes_fields_residual[TE] ______________________
+waveoptics_m1/tests/test_m1.py:40: in test_neff_modes_fields_residual
+    sol = solve(**BASE, polarization=pol, h_um=0.0375)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_____________________ test_neff_modes_fields_residual[TM] ______________________
+waveoptics_m1/tests/test_m1.py:40: in test_neff_modes_fields_residual
+    sol = solve(**BASE, polarization=pol, h_um=0.0375)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_______________________ test_three_level_convergence[TE] _______________________
+waveoptics_m1/tests/test_m1.py:63: in test_three_level_convergence
+    sols = [solve(**BASE, polarization=pol, h_um=h) for h in hs]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:63: in <listcomp>
+    sols = [solve(**BASE, polarization=pol, h_um=h) for h in hs]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_______________________ test_three_level_convergence[TM] _______________________
+waveoptics_m1/tests/test_m1.py:63: in test_three_level_convergence
+    sols = [solve(**BASE, polarization=pol, h_um=h) for h in hs]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:63: in <listcomp>
+    sols = [solve(**BASE, polarization=pol, h_um=h) for h in hs]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_high_contrast_slab[TE] __________________________
+waveoptics_m1/tests/test_m1.py:77: in test_high_contrast_slab
+    sol = solve(**STRONG, polarization=pol, h_um=0.0025)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_high_contrast_slab[TM] __________________________
+waveoptics_m1/tests/test_m1.py:77: in test_high_contrast_slab
+    sol = solve(**STRONG, polarization=pol, h_um=0.0025)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________ test_boundary_truncation_separately[TE] ____________________
+waveoptics_m1/tests/test_m1.py:89: in test_boundary_truncation_separately
+    short = solve(**{**BASE, 'padding_um': 15.0}, polarization=pol, h_um=0.05)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________ test_boundary_truncation_separately[TM] ____________________
+waveoptics_m1/tests/test_m1.py:89: in test_boundary_truncation_separately
+    short = solve(**{**BASE, 'padding_um': 15.0}, polarization=pol, h_um=0.05)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________________ test_interface_flux[TE] ____________________________
+waveoptics_m1/tests/test_m1.py:100: in test_interface_flux
+    sol = solve(**STRONG, polarization=pol, h_um=h)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________________ test_interface_flux[TM] ____________________________
+waveoptics_m1/tests/test_m1.py:100: in test_interface_flux
+    sol = solve(**STRONG, polarization=pol, h_um=h)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+__________________________ test_single_mode_slab[TE] ___________________________
+waveoptics_m1/tests/test_m1.py:117: in test_single_mode_slab
+    sol = solve(**{**BASE, 'width_um': 1.0}, polarization=pol, h_um=0.025)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+__________________________ test_single_mode_slab[TM] ___________________________
+waveoptics_m1/tests/test_m1.py:117: in test_single_mode_slab
+    sol = solve(**{**BASE, 'width_um': 1.0}, polarization=pol, h_um=0.025)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________________ test_te_tm_are_distinct ____________________________
+waveoptics_m1/tests/test_m1.py:124: in test_te_tm_are_distinct
+    te = solve(**STRONG, polarization='TE', h_um=0.0025)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+___________________________ test_backend_equivalence ___________________________
+waveoptics_m1/tests/test_m1.py:132: in test_backend_equivalence
+    gm = solve(**BASE, polarization='TM', h_um=0.075, mesh_backend='gmsh')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change0] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change1] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change2] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change3] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change4] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change5] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change6] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change7] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change8] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change9] __________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change10] _________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+_________________________ test_invalid_input[change11] _________________________
+waveoptics_m1/tests/test_m1.py:147: in test_invalid_input
+    solve(**{**BASE, 'polarization':'TE', 'h_um':0.075, **change})
+waveoptics_m1/tests/test_m1.py:13: in solve
+    from waveoptics.slab import solve_slab
+E   ModuleNotFoundError: No module named 'waveoptics'
+=========================== short test summary info ============================
+FAILED waveoptics_m1/tests/test_m1.py::test_neff_modes_fields_residual[TE] - ...
+FAILED waveoptics_m1/tests/test_m1.py::test_neff_modes_fields_residual[TM] - ...
+FAILED waveoptics_m1/tests/test_m1.py::test_three_level_convergence[TE] - Mod...
+FAILED waveoptics_m1/tests/test_m1.py::test_three_level_convergence[TM] - Mod...
+FAILED waveoptics_m1/tests/test_m1.py::test_high_contrast_slab[TE] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_high_contrast_slab[TM] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_boundary_truncation_separately[TE]
+FAILED waveoptics_m1/tests/test_m1.py::test_boundary_truncation_separately[TM]
+FAILED waveoptics_m1/tests/test_m1.py::test_interface_flux[TE] - ModuleNotFou...
+FAILED waveoptics_m1/tests/test_m1.py::test_interface_flux[TM] - ModuleNotFou...
+FAILED waveoptics_m1/tests/test_m1.py::test_single_mode_slab[TE] - ModuleNotF...
+FAILED waveoptics_m1/tests/test_m1.py::test_single_mode_slab[TM] - ModuleNotF...
+FAILED waveoptics_m1/tests/test_m1.py::test_te_tm_are_distinct - ModuleNotFou...
+FAILED waveoptics_m1/tests/test_m1.py::test_backend_equivalence - ModuleNotFo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change0] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change1] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change2] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change3] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change4] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change5] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change6] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change7] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change8] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change9] - ModuleNo...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change10] - ModuleN...
+FAILED waveoptics_m1/tests/test_m1.py::test_invalid_input[change11] - ModuleN...
+26 failed, 2 passed in 1.61s

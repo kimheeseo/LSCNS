@@ -1,0 +1,28 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+/workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TE1: estimated relative cladding decay 1.700e-05; increase padding and check domain convergence.
+  warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+Transforming over 1000 elements to C_CONTIGUOUS.
+/workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 2.248e-05; increase padding and check domain convergence.
+  warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+/workspace/scratch/e531e3519011/waveoptics_m1/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.505e-05; increase padding and check domain convergence.
+  warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.

@@ -45,7 +45,12 @@
       "cpoMode": {"enum": ["pluggable", "cpo"]},
       "assumptions": {"type": "object"}
     }},
-    "assumptionNotice": {"const": "교육·설계 검토용 가정값 · 공식 제품 사양 아님"}
+    "assumptionNotice": {"const": "교육·설계 검토용 가정값 · 공식 제품 사양 아님"},
+    "layoutData": {"type": "object", "properties": {
+      "schemaVersion": {"const": "lsdc-layout/1.0"},
+      "zones": {"type": "array", "items": {"type": "object", "required": ["id", "name"]}},
+      "assets": {"type": "array", "items": {"type": "object", "required": ["id", "zone", "name", "type"]}}
+    }}
   },
   "additionalProperties": true
 }

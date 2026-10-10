@@ -81,7 +81,7 @@ function startResponse(){
  const staff=T.npcs.filter(n=>n.role!=='guard'&&T.facilityProfiles[T.facilityMode].staff.includes(n.id)).slice(0,4);
  const people=staff.map((n,i)=>{const route=makeResponseRoute(n,i,a),drive=routeLen(route)/7.5;return {n,index:i,route,drive,arrive:drive+2.5,asset:a,park:route[route.length-1],inspect:[a.x+(i-1.5)*.8,a.z+a.d*.65]}});
  responseDispatch={scenario:T.scenario,start:T.simTime,asset:a,people};
- T.setZone(a.zone);T.pickAsset(a,true);T.cameraDesired.distance=55;T.cameraDesired.target=[a.x,2,a.z];
+ T.setZone('campus');T.pickAsset(a,true);T.cameraDesired.distance=88;T.cameraDesired.target=[a.x,2,a.z];
  T.addEventLog('INFO','현장 출동 차량 4대 배차 · 엔지니어 이동 시작',a,'response');
 }
 function responsePose(n){
@@ -94,14 +94,17 @@ function responsePose(n){
  return {x:start[0]+(end[0]-start[0])*walk,z:start[1]+(end[1]-start[1])*walk,heading:Math.atan2(end[1]-start[1],end[0]-start[0]),action:walk<1?'walk':'inspect'}
 }
 T.npcPose=responsePose;
+const responseTask=workerTask;
+workerTask=function(n,p){if(responseDispatch&&responseDispatch.scenario===T.scenario){const r=responseDispatch.people.find(x=>x.n.id===n.id);if(r){const t=Math.max(0,T.simTime-responseDispatch.start);return t<r.drive?'출동 차량 탑승 · 장애 구역으로 이동 중':t<r.arrive?'현장 도착 · 차량 하차 중':'장애 설비 점검 중 · '+r.asset.name}}return responseTask(n,p||T.npcPose(n))};
 window.LS3D_RESPONSE_ACTIVE=function(id){return T.scenario==='fire'&&!!responseDispatch&&responseDispatch.scenario==='fire'&&T.facilityProfiles[T.facilityMode].staff.includes(id)||!!responseDispatch&&responseDispatch.people.some(x=>x.n.id===id)};
 function drawResponse(ctx){
  const q=incidentStage(),active=T.scenario!=='normal'&&q&&!q.stage[5]?.includes('recovery');
  if(responseDispatch&&responseDispatch.scenario===T.scenario){
   responseDispatch.people.forEach(function(p){const t=Math.max(0,T.simTime-responseDispatch.start),dist=Math.min(routeLen(p.route),t*7.5),v=pointOnRoute(p.route,dist),rot=v.heading;
-   ctx.box(v.x,.04,v.z,2.35,.78,1.08,'#d8e1e7',rot);ctx.box(v.x,.82,v.z-.03,1.12,.55,.9,'#7ba2b5',rot);ctx.box(v.x+.62,.84,v.z-.03,.38,.12,.66,'#f4c86c',rot);
+   for(let ri=1;ri<p.route.length;ri++)ctx.line([p.route[ri-1][0],.1,p.route[ri-1][1]],[p.route[ri][0],.1,p.route[ri][1]],'#e6bf67');
+   ctx.box(v.x,.04,v.z,2.55,.82,1.12,'#d8e1e7',rot);ctx.box(v.x,.82,v.z-.03,1.12,.55,.9,'#7ba2b5',rot);ctx.box(v.x+.62,.84,v.z-.03,.38,.12,.66,'#f4c86c',rot);
    ctx.box(v.x-.84,.10,v.z-.60,.38,.38,.17,'#172532',rot);ctx.box(v.x-.84,.10,v.z+.60,.38,.38,.17,'#172532',rot);ctx.box(v.x+.84,.10,v.z-.60,.38,.38,.17,'#172532',rot);ctx.box(v.x+.84,.10,v.z+.60,.38,.38,.17,'#172532',rot);
-   ctx.box(v.x,.04,v.z,2.0,.03,1.18,'#f8cc67',rot,'glass');
+   ctx.box(v.x,.04,v.z,2.18,.075,1.2,'#f8cc67',rot);ctx.box(v.x+.72,.9,v.z,.25,.16,.22,T.simTime%2<1?'#ff596b':'#ffd369',rot);
    if(t<p.arrive+16&&T.scenarioElapsed()>Math.max(45,p.drive)){ctx.box(v.x,.025,v.z,2.6,.025,1.4,[.2,.85,.72,.62],0,'glass')}
   });
  }

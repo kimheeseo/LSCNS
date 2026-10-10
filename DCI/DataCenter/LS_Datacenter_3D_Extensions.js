@@ -43,6 +43,83 @@ T.metrics=(function(old){return function(){let m=old();if(c.edited||c.broken){le
 let up=T.scenarioDefs.find(x=>x.id==='ups-battery');const battery=()=>{if(up){let t=Math.max(60,c.batteryMin*60);up.timeline[2][0]=t/2;up.timeline[3][0]=t;up.timeline[4][0]=t+120}};
 battery();
 let tempAlarm=false,capacityAlarm=false;setInterval(()=>{let live=calc();if(live.temperature>27&&!tempAlarm){event('WARN','랙 입구 온도 가정값 27°C 초과',L(c.selected));tempAlarm=true}if(live.temperature<=27)tempAlarm=false;if(c.rackCount*c.rackPowerKw>c.coolingKw&&!capacityAlarm){event('CRITICAL','IT 부하가 냉각 용량 가정을 초과',L(c.selected));capacityAlarm=true}if(c.rackCount*c.rackPowerKw<=c.coolingKw)capacityAlarm=false;if(c.broken&&T.simTime-c.brokenAt>180){let l=L(c.broken);l.down=false;event('INFO','광 링크 복구',l);c.broken=null;c.reroute=false;flow();optics()}},400);
+
+/* Incident response fleet: four field engineers ride service vans to the affected zone.
+   Campus roads and travel speed are illustrative training assumptions. */
+let responseDispatch=null;
+const originalPose=T.npcPose;
+const roadRoutes={
+ utility:[[-3,29],[-3,-35],[-47,-35],[-47,-39]],
+ cooling:[[35,29],[35,-35],[47,-35],[47,-39]],
+ gray:[[-3,29],[-25,29],[-25,26]],
+ hall:[[-3,29],[15,29],[15,27]],
+ network:[[35,29],[44,29],[44,28]],
+ ops:[[-3,29],[-43,29],[-43,27]],
+ campus:[[26,29],[26,47]]
+};
+function incidentStage(){const d=T.scenarioDefs.find(x=>x.id===T.scenario);if(!d)return null;const t=T.scenarioElapsed();let st=d.timeline[0];for(const row of d.timeline)if(t>=row[0])st=row;return {def:d,stage:st,elapsed:t,index:d.timeline.indexOf(st)}}
+function incidentAsset(){
+ const q=incidentStage();if(!q)return null;
+ const id=q.stage[4],visible=T.visibleAssets(),a=(id&&T.assetMap.get(id)&&visible.some(x=>x.id===id)&&T.assetMap.get(id))||q.def.assets.map(x=>T.assetMap.get(x)).find(x=>x&&visible.some(y=>y.id===x.id));
+ return a||T.selected;
+}
+function distance2(a,b){return Math.hypot(b[0]-a[0],b[1]-a[1])}
+function routeLen(route){return route.slice(1).reduce((n,p,i)=>n+distance2(route[i],p),0)}
+function pointOnRoute(route,d){for(let i=1;i<route.length;i++){const a=route[i-1],b=route[i],len=distance2(a,b);if(d<=len){const t=len?d/len:1;return {x:a[0]+(b[0]-a[0])*t,z:a[1]+(b[1]-a[1])*t,heading:Math.atan2(b[1]-a[1],b[0]-a[0])}}d-=len}const b=route[route.length-1],a=route[route.length-2]||b;return {x:b[0],z:b[1],heading:Math.atan2(b[1]-a[1],b[0]-a[0])}}
+function responseTarget(a,index){
+ const z=T.Z.find(x=>x.id===a.zone),dx=a.x-z.pos[0],dz=a.z-z.pos[1],n=Math.hypot(dx,dz)||1;
+ const side=Math.max(a.w,a.d)*.72+2;
+ return [a.x-dx/n*side+(index-1.5)*.72,a.z-dz/n*side];
+}
+function makeResponseRoute(n,index,a){
+ const p=originalPose(n),start=[p.x,p.z],roads=roadRoutes[a.zone]||roadRoutes.campus,park=responseTarget(a,index);
+ return [start,...roads,park];
+}
+function startResponse(){
+ responseDispatch=null;if(T.scenario==='normal'||T.scenario==='fire')return;
+ const a=incidentAsset();if(!a)return;
+ const staff=T.npcs.filter(n=>n.role!=='guard'&&T.facilityProfiles[T.facilityMode].staff.includes(n.id)).slice(0,4);
+ const people=staff.map((n,i)=>{const route=makeResponseRoute(n,i,a),drive=routeLen(route)/7.5;return {n,index:i,route,drive,arrive:drive+2.5,asset:a,park:route[route.length-1],inspect:[a.x+(i-1.5)*.8,a.z+a.d*.65]}});
+ responseDispatch={scenario:T.scenario,start:T.simTime,asset:a,people};
+ T.setZone(a.zone);T.pickAsset(a,true);
+ T.addEventLog('INFO','현장 출동 차량 4대 배차 · 엔지니어 이동 시작',a,'response');
+}
+function responsePose(n){
+ if(!responseDispatch||responseDispatch.scenario!==T.scenario)return originalPose(n);
+ const p=responseDispatch.people.find(x=>x.n.id===n.id);if(!p)return originalPose(n);
+ const t=Math.max(0,T.simTime-responseDispatch.start);
+ if(t<p.drive){const v=pointOnRoute(p.route,t*7.5);return {...v,action:'ride'}}
+ if(t<p.arrive){const v=pointOnRoute(p.route,routeLen(p.route));return {...v,action:'ride'}}
+ const walk=Math.min(1,(t-p.arrive)/2.8),start=p.park,end=p.inspect;
+ return {x:start[0]+(end[0]-start[0])*walk,z:start[1]+(end[1]-start[1])*walk,heading:Math.atan2(end[1]-start[1],end[0]-start[0]),action:walk<1?'walk':'inspect'}
+}
+T.npcPose=responsePose;
+window.LS3D_RESPONSE_ACTIVE=function(id){return !!responseDispatch&&responseDispatch.people.some(x=>x.n.id===id)};
+function drawResponse(ctx){
+ const q=incidentStage(),active=T.scenario!=='normal'&&q&&!q.stage[5]?.includes('recovery');
+ if(responseDispatch&&responseDispatch.scenario===T.scenario){
+  responseDispatch.people.forEach(function(p){const t=Math.max(0,T.simTime-responseDispatch.start),dist=Math.min(routeLen(p.route),t*7.5),v=pointOnRoute(p.route,dist),rot=v.heading;
+   ctx.box(v.x,.04,v.z,2.35,.78,1.08,'#d8e1e7',rot);ctx.box(v.x,.82,v.z-.03,1.12,.55,.9,'#7ba2b5',rot);ctx.box(v.x+.62,.84,v.z-.03,.38,.12,.66,'#f4c86c',rot);
+   ctx.box(v.x-.84,.10,v.z-.60,.38,.38,.17,'#172532',rot);ctx.box(v.x-.84,.10,v.z+.60,.38,.38,.17,'#172532',rot);ctx.box(v.x+.84,.10,v.z-.60,.38,.38,.17,'#172532',rot);ctx.box(v.x+.84,.10,v.z+.60,.38,.38,.17,'#172532',rot);
+   ctx.box(v.x,.04,v.z,2.0,.03,1.18,'#f8cc67',rot,'glass');
+   if(t<p.arrive+16&&T.scenarioElapsed()>Math.max(45,p.drive)){ctx.box(v.x,.025,v.z,2.6,.025,1.4,[.2,.85,.72,.62],0,'glass')}
+  });
+ }
+ if(!active||!q)return;
+ const a=incidentAsset();if(!a)return;const t=q.elapsed,phase=q.stage[5],smokeColor=[.68,.73,.77,.30];
+ if(T.scenario==='dlc-leak')ctx.box(a.x,.055,a.z,a.w*1.5,.055,a.d*1.5,[.18,.72,.93,.55],0,'glass');
+ if(T.scenario==='rack-hotspot')ctx.ring(a.x,.18,a.z,Math.max(a.w,a.d)*.88,t%1<.5?'#fb806f':'#ffc17a',34);
+ if(T.scenario==='fiber-cut'){for(let i=0;i<5;i++){const x=a.x+Math.sin(t*.22+i*2)*.9,z=a.z+Math.cos(t*.19+i*2)*.8;ctx.box(x,1+i%2*.65,z,.16,.65,.16,'#ffd476',t*.15+i)}}
+ if(T.scenario==='fire'||T.scenario==='power'||T.scenario==='cooling'||T.scenario==='dlc-leak'||T.scenario==='rack-hotspot'||T.scenario==='ups-battery'){
+  const sx=a.x+a.w*.18,sz=a.z-a.d*.18;
+  for(let i=0;i<5;i++){const rise=(t*.55+i*1.7)%8,x=sx+Math.sin(t*.08+i*2)*(.35+rise*.12),y=a.h+.3+rise*.36,z=sz+Math.cos(t*.07+i)*.35;const size=.7+rise*.16;ctx.box(x,y,z,size,size*.72,size,smokeColor,0,'glass')}
+ }
+ if(T.scenario==='fire'&&q.index>=4&&q.index<6){const pulse=t%1<.5;ctx.box(a.x,.1,a.z,a.w+2,.08,a.d+2,pulse?'#d7e4ec':'#83cbd1',0,'glass');for(let i=0;i<5;i++)ctx.cylinder(a.x-1.8+i*.9,.2+(t%3)*.55,a.z,.5,1.1,[.78,.86,.9,.2],12)}
+ if(phase==='recovery')responseDispatch=null;
+}
+window.LS3D_RESPONSE_VISUALS=window.LS3D_RESPONSE_VISUALS||[];window.LS3D_RESPONSE_VISUALS.push(drawResponse);
+const baseResponseScenario=T.scenarioApply;
+T.scenarioApply=function(id){baseResponseScenario(id);if(id==='normal'){responseDispatch=null}else startResponse()};
 if(!T.gl){let a=document.createElement('a');a.href='./LS_Datacenter_Campus.html';a.textContent='WebGL 미지원 · 2D Gold Pixel Tour';a.style='position:fixed;bottom:8px;z-index:99;background:#432;color:white;padding:10px';document.body.append(a)}
 layout();try{if(!sessionStorage.getItem('twin-guide')){$('guide').classList.add('open');sessionStorage.setItem('twin-guide','1')}}catch(e){}
 layout();form();flow();optics();calc()}

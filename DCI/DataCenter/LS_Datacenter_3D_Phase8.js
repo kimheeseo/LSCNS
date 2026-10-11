@@ -19,6 +19,16 @@ let report=null,opened=false;
 function item(name,test,detail){return{name,pass:!!test,detail:String(detail||'')}}
 function checks(){
  const c=window.LS3D_CONFIG,p4=window.LS3D_PHASE4_CACHE,p5=window.LS3D_PHASE5,p6=window.LS3D_PHASE6,p7=window.LS3D_PHASE7;
+ const modeSelect=$('facilityModeSelect'),originalMode=T.facilityMode;
+ if(modeSelect){modeSelect.value='server-room';modeSelect.dispatchEvent(new Event('change',{bubbles:true}))}
+ const room=T.roomBounds?.(),roomAssets=T.visibleAssets(),externalAssetCount=room?roomAssets.filter(a=>!T.assetInsideRoom(a,room)).length:null;
+ const profile=T.facilityProfiles?.['server-room'],profileIds=profile?.ids,probe=profile?T.addAsset('hall','phase8-outside-room-probe','Phase 8 boundary probe','Compute rack',-18,0,3,3,4):null;
+ if(profile&&probe)profile.ids=profileIds.concat(probe.id);
+ const boundaryProbeVisible=!!probe&&T.visibleAssets().some(a=>a.id===probe.id);
+ if(profile&&probe){profile.ids=profileIds;T.assets.splice(T.assets.indexOf(probe),1);T.assetMap.delete(probe.id)}
+ const drawings=p6?.drawings||[],routeInside=(p)=>!!room&&[p.from,p.to].every(q=>q[0]>=room.minX&&q[0]<=room.maxX&&q[1]>=room.minY&&q[1]<=room.maxY&&q[2]>=room.minZ&&q[2]<=room.maxZ),externalRouteCount=drawings.filter(p=>!routeInside(p)).length;
+ const flowPaths=T.flowPaths?.fiber||[],externalFlowCount=room?flowPaths.filter(r=>r.some(q=>q[0]<room.minX||q[0]>room.maxX||q[1]<room.minZ||q[1]>room.maxZ)).length:null;
+ if(modeSelect&&originalMode){modeSelect.value=originalMode;modeSelect.dispatchEvent(new Event('change',{bubbles:true}))}
  const list=[
  item('캠퍼스 7구역 표시 모델',T.Z.length===7,'zones='+T.Z.length),
  item('랙/설비 데이터',Array.isArray(T.assets)&&T.assets.length>=50,'assets='+T.assets.length),
@@ -30,8 +40,12 @@ function checks(){
  item('Phase 6 선분–AABB 거리: 비관통',typeof p6?.clearance==='function'&&Math.abs(p6.clearance({from:[-10,5,0],to:[10,5,0],radius:.1},{x:0,z:0,w:2,d:2,h:2})-2.9)<.001,'expected 2.9m'),
  item('Phase 6 선분–AABB 거리: 관통',typeof p6?.clearance==='function'&&p6.clearance({from:[-10,1,0],to:[10,1,0],radius:.1},{x:0,z:0,w:2,d:2,h:2})===0,'expected 0m'),
  item('Phase 6 MEP 형상·이격 검사',!!p6&&Array.isArray(p6.checks.rows)&&p6.checks.routeCount>=2,'capsule/AABB concept precheck'),
- item('Phase 7 NVIDIA 카탈로그 감사 함수',typeof p7?.estimate==='function'&&typeof p7?.load==='function','source catalog loader'),
+ item('Phase 7 공통 packet 계산 API',typeof p7?.estimate==='function'&&typeof p7?.load==='function','shared schema snapshot wrapper'),
  item('Phase 7 공유 토폴로지 snapshot API',typeof T.exportConfig==='function'&&T.exportConfig()?.schemaVersion==='lsdc-twin-bom/1.0','existing shared schema'),
+ item('Phase 7 공통 BOM 엔진',typeof window.LSDCPhase7BOM?.calculate==='function'&&window.LSDCPhase7BOM.calculate(T.exportConfig()).rows.length>=9,'shared packet → rows'),
+ item('Phase 7 호환성 validator',typeof window.LSDCPhase7Compatibility?.validate==='function'&&Array.isArray(window.LSDCPhase7Compatibility.validate(T.exportConfig()).warnings),'blocking/warnings/info API'),
+ item('Server Room RoomBounds 및 외부 자산 필터',!!room&&externalAssetCount===0&&!boundaryProbeVisible,'bounds='+JSON.stringify(room)+' · 표시 자산 외부 '+externalAssetCount+' · 경계 probe 표시 '+boundaryProbeVisible),
+ item('Server Room 외부 MEP route 0건',drawings.length>0&&externalRouteCount===0&&externalFlowCount===0,'MEP '+externalRouteCount+' · optical '+externalFlowCount),
  item('Phase 7 토폴로지 비교 함수',typeof p7?.reconcileTopology==='function','explicit quantity reconciliation'),
  item('기본 시뮬레이터 설정',Number(c?.rackCount)>0&&Number(c?.rackPowerKw)>0,'rackCount='+c?.rackCount),
  item('운영 시나리오 API',typeof T.scenarioApply==='function','power/cooling/network/fiber-cut'),

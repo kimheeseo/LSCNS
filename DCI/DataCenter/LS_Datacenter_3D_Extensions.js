@@ -10,6 +10,12 @@ const CONFIG=window.LS3D_CONFIG={rackCount:0,rackPowerKw:0,gpuRatio:0,cooling:'a
 const c=CONFIG;const LAYOUT_DATA={schemaVersion:'lsdc-layout/1.0',get zones(){return T.visibleZones().map(z=>({id:z.id,name:z.name}))},get assets(){return T.assets.filter(a=>!a.hidden).map(a=>({id:a.id,zone:a.zone,name:a.name,type:a.type||a.name,x:a.x,z:a.z,width:a.w,depth:a.d,height:a.h,powerKw:(String(a.power||'').match(/[0-9]+(?:\.[0-9]+)?/)||[])[0]?Number(String(a.power).match(/[0-9]+(?:\.[0-9]+)?/)[0]):null}))}};
 function preset(id){Object.assign(c,defs[id]||defs.aidc);c.topology=c.topology||'spine-leaf';c.radix=c.radix||64;c.linkSpeed=c.linkSpeed||'800G';c.linkDistanceM=c.linkDistanceM||34;c.broken=null;c.reroute=false;c.edited=false}
 preset(T.facilityMode);
+const geometry=window.LS3DServerRoomGeometry;
+function roomBounds(){const hall=T.Z.find(z=>z.id==='hall');return hall&&geometry?.roomBounds(hall,T.facilityMode)||null;}
+function assetInsideRoom(a,b=roomBounds()){return !!geometry?.assetInside(a,b);}
+window.LS3D_ASSET_RENDER_FILTER=a=>T.facilityMode!=='server-room'||assetInsideRoom(a);
+const baseVisibleAssets=T.visibleAssets;T.visibleAssets=()=>baseVisibleAssets().filter(a=>T.facilityMode!=='server-room'||assetInsideRoom(a));
+T.roomBounds=roomBounds;T.assetInsideRoom=assetInsideRoom;
 const LOSS={smfDbKm:.22,mmfDbKm:3,connectorDb:.25,spliceDb:.10,cpoCouplingDb:.15};
 const OPTICAL_PROFILE={'400G':{txDbm:2,rxSensitivityDbm:-7.0},'800G':{txDbm:1,rxSensitivityDbm:-5.5},'1.6T':{txDbm:0,rxSensitivityDbm:-4.0}};
 const nodes=[['server','GPU NIC',[3,0],'gpu-0-0'],['torA','ToR / Leaf A',[15,0],'tor-a'],['torB','ToR / Leaf B',[22,5],'tor-b'],['spA','Spine A',[8,18],'spine-a'],['spB','Spine B',[22,18],'spine-b'],['core','Core',[15,28],'core'],['odf','ODF / MMR',[-5,28],'odf'],['isp','Campus / ISP',[-22,28],'carrier']].map(x=>({id:x[0],name:x[1],pos:x[2],asset:x[3]}));
@@ -30,7 +36,7 @@ const TOPOLOGY_BASE_NODES=nodes.slice(),TOPOLOGY_BASE_LINKS=links.map(x=>({...x}
 const N=id=>nodes.find(x=>x.id===id),L=id=>links.find(x=>x.id===id),A=id=>T.assets.find(x=>x.id===id),esc=x=>String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function loss(l){if(['DAC/AEC','AOC'].includes(l.type))return [null,null,0];let alpha=l.media==='MMF'?LOSS.mmfDbKm:LOSS.smfDbKm,val=l.length/1000*alpha+l.conn*LOSS.connectorDb+l.splice*LOSS.spliceDb+(c.mode==='cpo'&&l.media==='SMF'?LOSS.cpoCouplingDb:0),profile=OPTICAL_PROFILE[c.linkSpeed]||OPTICAL_PROFILE['800G'];return [val,profile.txDbm-profile.rxSensitivityDbm-val,alpha]}
 function event(sev,msg,l){if(T.addEventLog)T.addEventLog(sev,msg,A(N(l?.from)?.asset)||A('odf')||T.selected,'fiber')}
-function flow(){T.flowPaths.fiber.splice(0,T.flowPaths.fiber.length,...links.filter(x=>!x.down).map(x=>[N(x.from).pos,N(x.to).pos]));let e=$('optState');if(e)e.textContent=(c.topology==='fat-tree'?'Fat-tree':'Spine-Leaf')+' · radix '+c.radix+' · '+c.linkSpeed+' · '+(c.broken?(c.reroute?'우회 적용 · 지연 +'+Number(c.brokenLatencyUs||18).toFixed(1)+' µs · 가용 대역폭 '+Number(c.brokenBandwidthPct||72).toFixed(0)+'%':'연결 끊김 · 대체 경로 없음'):'정상 경로 · 교육용 가정값')}
+function flow(){let routes;if(T.facilityMode==='server-room'){const b=roomBounds(),x0=b.minX+2,x1=b.maxX-2,z=T.Z.find(q=>q.id==='hall').pos[1]-1,m=(x0+x1)/2;routes=[[[x0,z+4],[m,z+4]],[[m,z+4],[x1,z+4]],[[x0,z],[m,z],[x1,z]]]}else routes=links.filter(x=>!x.down).map(x=>[N(x.from).pos,N(x.to).pos]);const b=roomBounds();T.flowPaths.fiber.splice(0,T.flowPaths.fiber.length,...routes.filter(r=>T.facilityMode!=='server-room'||r.every(p=>p[0]>=b.minX&&p[0]<=b.maxX&&p[1]>=b.minZ&&p[1]<=b.maxZ)));let e=$('optState');if(e)e.textContent=(c.topology==='fat-tree'?'Fat-tree':'Spine-Leaf')+' · radix '+c.radix+' · '+c.linkSpeed+' · '+(c.broken?(c.reroute?'우회 적용 · 지연 +'+Number(c.brokenLatencyUs||18).toFixed(1)+' µs · 가용 대역폭 '+Number(c.brokenBandwidthPct||72).toFixed(0)+'%':'연결 끊김 · 대체 경로 없음'):'정상 경로 · 교육용 가정값')}
 function optics(){
  const svg=$('optSvg'),list=$('optList'),detail=$('optDetail'),tbody=$('optPortTable')?.querySelector('tbody');
  if(!svg||!list||!detail)return;
@@ -252,6 +258,7 @@ function wireOpticalControls(){
 }
 
 syncTopology();layout();form();wireOpticalControls();flow();optics();calc();const exportBtn=$('exportBtn');if(exportBtn)exportBtn.onclick=exportBomCsv;
+document.getElementById('facilityModeSelect')?.addEventListener('change',flow);
 const phase3ScenarioApply=scenarioApply;scenarioApply=function(id){phase3ScenarioApply(id);if(id==='fiber-cut'){if(!c.broken)cutSelectedLink()}else if(id==='normal'&&c.broken){const q=L(c.broken);if(q)q.down=false;c.broken=null;c.reroute=false;flow();optics()}calc()};T.scenarioApply=scenarioApply;
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();

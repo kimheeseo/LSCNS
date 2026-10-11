@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {calculate}=require('../phase7-bom-engine.js');
+const packet={schemaVersion:'lsdc-twin-bom/1.0',createdAt:'2026-10-11T00:00:00Z',facility:{profile:'aidc',rackCount:100,gpuServerRatio:.5},optical:{cpoMode:'pluggable',assumptions:{},topology:{nodes:[{id:'l1',layer:'Leaf'},{id:'l2',layer:'Leaf'},{id:'s1',layer:'Spine'},{id:'s2',layer:'Spine'},{id:'c1',layer:'Core'}],links:[{id:'f1',type:'SMF trunk',media:'SMF',lengthM:80},{id:'f2',type:'MPO-16 SMF',media:'SMF',lengthM:70},{id:'d1',type:'DAC/AEC',media:'copper',lengthM:5}]}}};
+const first=calculate(packet);
+assert.deepEqual(first.counts,{rackCount:100,gpuServerCount:50,gpuCount:400,nicCount:50,leafCount:2,spineCount:2,coreCount:1,opticalLinkCount:2,totalOpticalLengthM:150});
+assert.equal(first.rows.length,9);
+packet.facility.rackCount=200;
+const second=calculate(packet);
+assert.equal(second.counts.rackCount,200);
+assert.equal(second.counts.gpuServerCount,100);
+assert.equal(second.counts.gpuCount,800);
+assert.throws(()=>calculate({schemaVersion:'other'}),/lsdc-twin-bom\/1.0/);
+console.log('phase7_engine.test.cjs: 6 assertions passed');

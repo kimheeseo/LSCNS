@@ -20,6 +20,14 @@ const btn=document.createElement('button');btn.id='phase6-open';btn.className='p
 let opened=false,last=[];
 function options(){return {pipe:$('p6-pipe').checked,power:$('p6-power').checked,rack:$('p6-rack').checked,offset:Number($('p6-offset').value),clearance:Number($('p6-clearance').value)}}
 function pipes(opt){const h=T.Z.find(z=>z.id==='hall'),x=h.pos[0],z=h.pos[1],o=opt.offset;
+ if(T.facilityMode==='server-room'){
+  const b=T.roomBounds?.();if(!b)return[];
+  const x0=b.minX+2,x1=b.maxX-2,r=[];
+  const hasCDU=T.visibleAssets().some(a=>/CDU/i.test(a.type+' '+a.name));
+  if(hasCDU&&/dlc|mixed/i.test(String(window.LS3D_CONFIG?.cooling||'')))r.push({id:'SR-DLC-SUPPLY',kind:'cooling',from:[x0,6.25,z-1+o],to:[x1,6.25,z-1+o],radius:.10,color:'#51c6eb'},{id:'SR-DLC-RETURN',kind:'cooling',from:[x0,6.05,z-.4+o],to:[x1,6.05,z-.4+o],radius:.10,color:'#2c8cbb'});
+  r.push({id:'SR-POWER-BUSWAY',kind:'power',from:[x0,6.35,z-7],to:[x1,6.35,z-7],radius:.16,color:'#efb964'});
+  return r.filter(p=>[p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ));
+ }
  return [{id:'DLC-SUPPLY',kind:'cooling',from:[x-18,6.7,z-2+o],to:[x+17,6.7,z-2+o],radius:.13,color:'#51c6eb'},
  {id:'DLC-RETURN',kind:'cooling',from:[x-18,6.45,z-1.4+o],to:[x+17,6.45,z-1.4+o],radius:.13,color:'#2c8cbb'},
  {id:'POWER-BUSWAY',kind:'power',from:[x-18,6.8,z-13],to:[x+17,6.8,z-13],radius:.22,color:'#efb964'}];
@@ -46,7 +54,7 @@ function clearance(pipe,a){
 }
 function check(){
  const opt=options();if(!Number.isFinite(opt.clearance)||opt.clearance<.1||opt.clearance>2)throw Error('이격 거리 .1–2m');
- const equipment=assets.filter(a=>a.zone==='hall'&&/rack|switch|ODF|CDU|CRAH|cage/i.test(a.type));
+ const equipment=T.visibleAssets().filter(a=>a.zone==='hall'&&/rack|switch|ODF|CDU|CRAH|cage/i.test(a.type));
  const routes=pipes(opt).filter(p=>(p.kind==='power'?opt.power:opt.pipe));
  const table=routes.flatMap(route=>equipment.map(asset=>{
  const d=clearance(route,asset);
@@ -88,5 +96,5 @@ $('p6-csv').onclick=()=>{
  const data=last.length?last:check().rows,s='\uFEFFroute,asset,name,spacing_m,required_m,collision\n'+data.map(x=>[x.route,x.asset,'"'+String(x.name).replace(/"/g,'""')+'"',x.spacingM,x.requiredM,x.collision].join(',')).join('\n');
  const url=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='LS_Datacenter_MEP_clearance_concept.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 };
-window.LS3D_PHASE6={open:()=>toggle(true),get options(){return options()},get checks(){return check()},get drawings(){return pipes(options())},clearance,run:render};
+window.LS3D_PHASE6={open:()=>toggle(true),get options(){return options()},get checks(){return check()},get drawings(){return pipes(options())},get roomBounds(){return T.roomBounds?.()||null},get externalRoutes(){const b=T.roomBounds?.();return b?pipes(options()).filter(p=>![p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ)):[]},clearance,run:render};
 })();

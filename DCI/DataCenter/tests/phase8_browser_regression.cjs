@@ -1,4 +1,4 @@
-/* LS DataCenter 3D v4.7.0 Phase 2 end-to-end regression - Playwright Chromium, no new runtime dependencies. */
+/* LS DataCenter 3D v5.0.0 Phase 1–8 end-to-end regression - Playwright Chromium. */
 'use strict';
 const {chromium,devices}=require('playwright');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),os=require('node:os');
@@ -28,7 +28,7 @@ async function initPage(context,device){
  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE1&&document.querySelector('#phase1-readout'),{timeout:25000});
  await page.waitForTimeout(900);
  const snapshot=await page.evaluate(()=>({title:document.title,gl:window.__LS3D_TEST__.gl,error:document.querySelector('#error')?.textContent||'',hud:document.querySelector('#phase1-readout')?.textContent||'',viewport:{width:document.querySelector('#viewport')?.getBoundingClientRect().width,height:document.querySelector('#viewport')?.getBoundingClientRect().height}}));
- check(device,'initialization',!snapshot.error&&/v4\.(6\.[012]|7\.0)/.test(snapshot.title),JSON.stringify(snapshot));
+ check(device,'initialization',!snapshot.error&&/v5\.0\.0/.test(snapshot.title),JSON.stringify(snapshot));
  check(device,'hud-mounted',!!snapshot.hud,snapshot.hud);
  const tour=await page.locator('#guide.open').count()===1;
  check(device,'first-visit-tour',tour||await page.locator('#guide').count()===1,'tour dialog present, automatic open on first visit='+tour);
@@ -187,21 +187,24 @@ async function desktop(browser){
  check('phase6','offset-and-clearance-recompute',reroute.rows.length===mep.rows.length,JSON.stringify({before:mep.violations.length,after:reroute.violations.length}));
  await page.screenshot({path:path.join(out,'phase6-mep-audit.png')});
  await page.locator('#p6-close').click({timeout:4000});
+ await page.locator('#facilityModeSelect').selectOption('server-room');await page.waitForTimeout(300);
+ const room=await page.evaluate(()=>{const t=window.__LS3D_TEST__,b=t.roomBounds(),assets=t.visibleAssets(),routes=window.LS3D_PHASE6.drawings,flows=t.flowPaths.fiber;return{bounds:b,assets:assets.map(a=>a.id),outsideAssets:assets.filter(a=>!t.assetInsideRoom(a,b)).map(a=>a.id),routes:routes.map(r=>r.id),outsideRoutes:routes.filter(r=>![r.from,r.to].every(p=>p[0]>=b.minX&&p[0]<=b.maxX&&p[1]>=b.minY&&p[1]<=b.maxY&&p[2]>=b.minZ&&p[2]<=b.maxZ)).map(r=>r.id),outsideFlows:flows.filter(r=>r.some(p=>p[0]<b.minX||p[0]>b.maxX||p[1]<b.minZ||p[1]>b.maxZ)).length}});
+ check('server-room','inside-bounds-assets-only',room.assets.length>0&&room.outsideAssets.length===0,JSON.stringify({assets:room.assets.length,bounds:room.bounds}));
+ check('server-room','external-MEP-and-optical-routes-zero',room.routes.length>0&&room.outsideRoutes.length===0&&room.outsideFlows===0,JSON.stringify({routes:room.routes,outside:room.outsideRoutes,flowsOutside:room.outsideFlows}));
+ await page.screenshot({path:path.join(out,'server-room-bounds.png')});
+ await page.locator('#facilityModeSelect').selectOption('aidc');await page.waitForTimeout(250);
  await page.locator('#phase7-open').click({timeout:5000});
- await page.waitForFunction(()=>window.LS3D_PHASE7.catalog!==null,{timeout:15000});
- const nvidia=await page.evaluate(()=>{
-  const api=window.LS3D_PHASE7,base={racks:20,uplinkPerRack:2,lengthM:34,speedG:800,protocol:'InfiniBand'};
-  const cpo=api.estimate({...base,mode:'cpo'}),plug=api.estimate({...base,mode:'pluggable'});
-  const wrong=api.estimate({...base,mode:'cpo',protocol:'Ethernet'});
-  return{cpo,cpoSwitchMods:cpo.rows.find(x=>x.id==='OPT_SWITCH')?.qty,plugSwitchMods:plug.rows.find(x=>x.id==='OPT_SWITCH')?.qty,block:wrong.blocking.length};
+ const phase7=await page.evaluate(()=>{
+  const api=window.LS3D_PHASE7,packet=window.__LS3D_TEST__.exportConfig(),result=api.estimate(packet),compat=window.LSDCPhase7Compatibility.validate(packet);
+  const old=window.LS3D_CONFIG.rackCount;window.LS3D_CONFIG.rackCount=old+1;const changed=api.estimate(window.__LS3D_TEST__.exportConfig());window.LS3D_CONFIG.rackCount=old;
+  return{schema:packet.schemaVersion,counts:result.counts,changed:changed.counts.rackCount,warnings:compat.warnings,blocking:compat.blocking,status:compat.status,rows:result.rows.length};
  });
- check('phase7','manufacturer-catalog-link',nvidia.cpo.products.switch.name.includes('Q3450')&&nvidia.cpo.products.nic.name.includes('ConnectX-8'),'NVIDIA catalog loaded');
- check('phase7','CPO-no-switch-pluggable',nvidia.cpoSwitchMods===0&&nvidia.plugSwitchMods===null,'Pluggable count unresolved until SKU');
- check('phase7','reject-ethernet-with-IB-CPO',nvidia.block>0,'protocol safeguard');
- check('phase7','BOM-link-qty-preserved',nvidia.cpo.logicalLinks===40&&nvidia.cpo.rows.find(x=>x.id==='LENGTH').qty===1360,'20 rack *2 uplinks * 34m');
- await page.locator('#p7-mode').selectOption('cpo');await page.locator('#p7-calc').click({timeout:5000});
- check('phase7','CPO-ui-render',await page.locator('#p7-table').innerText().then(x=>x.includes('Q3450')&&x.includes('0 개')));
- await page.screenshot({path:path.join(out,'phase7-nvidia-bom.png')});
+ check('phase7','shared-engine-from-twin-snapshot',phase7.schema==='lsdc-twin-bom/1.0'&&phase7.rows>=9,JSON.stringify(phase7.counts));
+ check('phase7','rack-quantity-reacts-to-shared-config',phase7.changed===phase7.counts.rackCount+1,'same snapshot source, no separate Phase 7 rack input');
+ check('phase7','unknown-product-data-remains-warning',phase7.warnings.length>0&&phase7.status==='UNKNOWN','missing SKU/reach is not treated as verified');
+ await page.locator('#p7-sync').click({timeout:5000});
+ check('phase7','shared-engine-ui-render',await page.locator('#p7-table').innerText().then(x=>x.includes('활성 광 링크')||x.includes('활성 광 링크')===false&&x.includes('서버 랙')));
+ await page.screenshot({path:path.join(out,'phase7-shared-bom.png')});
  await page.locator('#p7-close').click({timeout:4000});
  await page.locator('#phase8-open').click({timeout:5000});
  const report8=await page.evaluate(()=>window.LS3D_PHASE8.run());
@@ -280,7 +283,7 @@ async function mobile(browser){
  if(browser)await browser.close().catch(()=>{});await new Promise(r=>server.close(r));
  T.finished=new Date().toISOString();T.summary={pass:T.cases.filter(x=>x.pass).length,fail:T.cases.filter(x=>!x.pass).length,pageErrors:T.pageErrors.length,consoleErrors:T.consoleErrors.length,environment:'GitHub Actions Linux Chromium / SwiftShader; synthetic mobile touch; NOT physical hardware'};
  fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(T,null,2));
- const lines=['# LS Datacenter 3D v4.7.0 · Phase 1 browser regression','','Execution: '+T.finished,'Environment: '+T.summary.environment,'Tests: '+T.summary.pass+' passed, '+T.summary.fail+' failed','Page errors: '+T.pageErrors.length+', console errors: '+T.consoleErrors.length,'','## FPS samples (headless, software WebGL—not physical device FPS)',''];
+ const lines=['# LS Datacenter 3D v5.0.0 · Phase 1–8 browser regression','','Execution: '+T.finished,'Environment: '+T.summary.environment,'Tests: '+T.summary.pass+' passed, '+T.summary.fail+' failed','Page errors: '+T.pageErrors.length+', console errors: '+T.consoleErrors.length,'','## FPS samples (headless, software WebGL—not physical device FPS)',''];
  for(const [k,v] of Object.entries(T.metrics))lines.push('- '+k+': '+v.avgFPS+' FPS, p95 frame '+v.p95Ms+'ms, frames='+v.frames+', WebGL='+v.WebGL);
  lines.push('','## Cases','');
  for(const x of T.cases)lines.push('- '+(x.pass?'PASS':'FAIL')+' '+x.group+' / '+x.name+(x.detail?' — '+x.detail:''));

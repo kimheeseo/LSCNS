@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {validate}=require('../phase7-compatibility.js');
+const base={schemaVersion:'lsdc-twin-bom/1.0',facility:{profile:'aidc'},optical:{cpoMode:'pluggable',assumptions:{},topology:{portSpeed:'800G',nodes:[{id:'a',layer:'Leaf',protocol:'Ethernet'},{id:'b',layer:'Spine',protocol:'Ethernet'}],links:[{id:'l1',from:'a',to:'b',type:'SMF trunk',media:'SMF',lengthM:100,speed:'800G'}]}}};
+let r=validate(base);assert.equal(r.compatible,true);assert.equal(r.status,'UNKNOWN');assert.ok(r.warnings.some(x=>/reach/.test(x)));
+const mismatch=structuredClone(base);mismatch.network={protocol:'InfiniBand'};r=validate(mismatch);assert.equal(r.compatible,false);assert.ok(r.blocking.some(x=>/프로토콜/.test(x)));
+const reach=structuredClone(base);reach.optical.topology.links[0].maxReachM=50;r=validate(reach);assert.ok(r.blocking.some(x=>/reach/.test(x)));
+const speed=structuredClone(base);speed.optical.topology.links[0].speed='400G';r=validate(speed);assert.ok(r.blocking.some(x=>/속도/.test(x)));
+const double=structuredClone(base);double.optical.cpoMode='cpo';double.optical.topology.links[0].type='Pluggable transceiver';r=validate(double);assert.ok(r.blocking.some(x=>/중복/.test(x)));
+console.log('phase7_compatibility.test.cjs: 8 assertions passed');

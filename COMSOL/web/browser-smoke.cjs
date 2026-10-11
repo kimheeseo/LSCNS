@@ -30,7 +30,7 @@ const check=(name,passed,info)=>{rec.checks.push({name,passed:!!passed,info});co
   v=await desktop.locator('#metrics').innerText();check('desktop-input-recompute',!v.includes('1.4461047'),v.slice(0,200));
   await desktop.locator('[data-mode="mcf"]').click();
   let m=await desktop.locator('#metrics').innerText();
-  check('desktop-MCF',m.includes('10.43')&&m.includes('0.000074'),m.slice(0,230));
+  check('desktop-MCF',m.includes('10.43')&&m.includes('7.42780e-5'),m.slice(0,230));
   await desktop.locator('[data-mode="hcf"]').click();
   let h=await desktop.locator('#metrics').innerText();
   check('desktop-HCF',h.includes('0.9994878')&&h.includes('3.37'),h.slice(0,220));

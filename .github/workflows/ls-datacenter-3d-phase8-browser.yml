@@ -1,0 +1,52 @@
+name: LS Datacenter 3D Phase 4-8 Integration Browser Regression
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'DCI/DataCenter/LS_Datacenter_3D.html'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Extensions.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Extensions.css'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase2A.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase2B.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase2.css'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase45.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase6.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase7.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase8.js'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Phase458.css'
+      - 'DCI/DataCenter/tests/phase8_browser_regression.cjs'
+      - '.github/workflows/ls-datacenter-3d-phase8-browser.yml'
+permissions:
+  contents: read
+jobs:
+  playwright-browser-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium Playwright in ephemeral workspace
+        run: |
+          mkdir -p /tmp/lsdc-phase1
+          npm install --no-save --prefix /tmp/lsdc-phase1 playwright@1.56.1
+          /tmp/lsdc-phase1/node_modules/.bin/playwright install --with-deps chromium
+      - name: Run desktop and mobile emulation and measure FPS
+        env:
+          NODE_PATH: /tmp/lsdc-phase1/node_modules
+        run: node DCI/DataCenter/tests/phase8_browser_regression.cjs
+      - name: Publish results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls-datacenter-v460-phase8-browser-regression
+          path: DCI/DataCenter/tests/test-results/phase8/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Print report
+        if: always()
+        run: |
+          cat DCI/DataCenter/tests/test-results/phase8/report.md || true

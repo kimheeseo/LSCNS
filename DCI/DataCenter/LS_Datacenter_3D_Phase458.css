@@ -1,0 +1,41 @@
+/* LS Datacenter 3D v4.7.0 · Phase 4–8 non-invasive UI */
+.phase58-launch{position:absolute;left:9px;z-index:41;min-height:29px;max-width:150px;padding:6px 9px;background:#112e44;color:#bcefe5;border:1px solid #55758b;border-radius:8px;font:700 10px system-ui,sans-serif;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px #00172999}
+.phase58-launch:hover,.phase58-launch[aria-expanded=true]{color:#f7d285;border-color:#efc46a;background:#173b4f}
+.phase58-launch.p5{top:173px}.phase58-launch.p6{top:210px}.phase58-launch.p7{top:247px}.phase58-launch.p8{top:284px}
+.phase58-panel{position:fixed;right:14px;top:76px;bottom:14px;width:min(433px,calc(100vw - 20px));padding:16px;overflow:auto;overscroll-behavior:contain;background:#0c2336f7;color:#e6f8ff;border:1px solid #517586;border-radius:13px;box-shadow:0 14px 45px #000b;backdrop-filter:blur(8px);z-index:82;font:11px/1.6 system-ui,sans-serif}
+.phase58-panel[hidden]{display:none!important}
+.phase58-panel header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.phase58-panel header b{font-size:13px;color:#6de0cd}
+.phase58-panel header button{background:#183e52;color:#e7f8ff;border:1px solid #4a7187;padding:4px 9px;border-radius:7px;cursor:pointer}
+.phase58-panel .p58-note{font-size:10px;color:#bad1da;line-height:1.75;margin:10px 0 13px}
+.phase58-panel label{display:block;font-size:11px;margin:12px 0 7px;font-weight:650;color:#d4e9f0}
+.phase58-panel select,.phase58-panel input[type=number]{display:block;margin-top:5px;padding:9px;width:100%;font:inherit;color:#ebfaff;background:#132f44;border:1px solid #47738a;border-radius:8px}
+.phase58-panel input[type=range]{display:block;width:100%;margin:8px 0;accent-color:#63dcc4}
+.phase58-panel input[type=checkbox]{accent-color:#63dcc4;margin-right:7px}
+.phase58-panel output{display:inline-block;margin:4px;color:#f4ce87}
+.phase58-panel .p58-actions{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
+.phase58-panel .p58-actions button{flex:1 1 auto;min-height:35px;border:1px solid #47728a;background:#194258;color:#e9f8fb;border-radius:7px;cursor:pointer;padding:7px 8px;font-size:10px;font-weight:700}
+.phase58-panel .p58-actions button:hover{border-color:#6adac5}
+.phase58-panel .p58-metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+.phase58-panel .p58-metrics>div{padding:11px;border:1px solid #36576a;background:#133043;border-radius:8px}
+.phase58-panel .p58-metrics small{display:block;color:#a7bdcc;font-size:9px}
+.phase58-panel .p58-metrics strong{display:block;font-size:18px;color:#f8cc78}
+.phase58-panel pre{padding:10px;overflow-wrap:anywhere;white-space:pre-wrap;background:#0a1b2b;color:#9ac0cf;border:1px solid #2d5063;border-radius:7px;max-height:200px;overflow:auto;font-size:10px}
+.phase58-panel #p5-status,.phase58-panel #p6-status,.phase58-panel #p7-status,.phase58-panel #p8-summary{background:#153a43;border:1px solid #3e7881;border-radius:8px;padding:10px;font-weight:650;font-size:10px}
+.phase58-panel .p58-foot{display:block;font-size:9px;color:#a1bdcc;border-top:1px solid #36586c;padding-top:10px;margin-top:13px;line-height:1.8}
+.phase58-panel .p58-err{padding:6px 8px;background:#59344070;border-left:2px solid #f18d9c;color:#facbd0;border-radius:3px;font-size:10px}
+.phase58-panel .p58-pass{color:#73ddbf;margin:6px 0;font-size:10px}
+.phase58-panel #p6-results{max-height:220px;overflow:auto;font-size:10px}.phase58-panel #p6-results p{margin:4px 0}
+.phase58-panel table{border-collapse:collapse;width:100%;font-size:9px;margin:13px 0;table-layout:fixed}
+.phase58-panel th,.phase58-panel td{text-align:left;vertical-align:top;border-bottom:1px solid #335568;padding:7px 5px;overflow-wrap:anywhere}
+.phase58-panel th:nth-child(1){width:40%}.phase58-panel th:nth-child(2){width:24%}
+.phase58-panel table a{color:#74dacf;text-decoration:underline}
+.phase58-panel #p8-cases{max-height:280px;overflow:auto}
+.phase58-panel #p8-cases p{border-bottom:1px solid #304d60;padding:5px 0;margin:0}
+.phase58-panel a{color:#73e0cd;text-decoration:underline}
+@media(max-width:790px){
+ .phase58-panel{top:69px;bottom:6px;right:6px;width:min(400px,calc(100vw - 12px));max-height:calc(100dvh - 75px);padding:12px;z-index:92}
+ .phase58-launch{left:7px;max-width:120px;padding:6px;font-size:9px;min-height:27px;z-index:45}
+ .phase58-launch.p5{top:172px}.phase58-launch.p6{top:208px}.phase58-launch.p7{top:244px}.phase58-launch.p8{top:280px}
+}
+@media(max-width:420px){.phase58-launch{font-size:8px;max-width:110px}.phase58-panel header b{font-size:11px}}

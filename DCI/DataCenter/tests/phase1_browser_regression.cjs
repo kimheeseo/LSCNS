@@ -1,4 +1,4 @@
-/* LS DataCenter 3D v4.5.5 browser regression - Playwright Chromium, no new runtime dependencies. */
+/* LS DataCenter 3D v5.0.0 browser regression - Playwright Chromium. */
 'use strict';
 const {chromium,devices}=require('playwright');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),os=require('node:os');
@@ -28,7 +28,7 @@ async function initPage(context,device){
  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE1&&document.querySelector('#phase1-readout'),{timeout:25000});
  await page.waitForTimeout(900);
  const snapshot=await page.evaluate(()=>({title:document.title,gl:window.__LS3D_TEST__.gl,error:document.querySelector('#error')?.textContent||'',hud:document.querySelector('#phase1-readout')?.textContent||'',viewport:{width:document.querySelector('#viewport')?.getBoundingClientRect().width,height:document.querySelector('#viewport')?.getBoundingClientRect().height}}));
- check(device,'initialization',!snapshot.error&&/v4\.(5\.5|6\.[012]|7\.0)/.test(snapshot.title),JSON.stringify(snapshot));
+ check(device,'initialization',!snapshot.error&&/v5\.0\.0|v4\.(5\.5|6\.[012]|7\.0)/.test(snapshot.title),JSON.stringify(snapshot));
  check(device,'hud-mounted',!!snapshot.hud,snapshot.hud);
  const tour=await page.locator('#guide.open').count()===1;
  check(device,'first-visit-tour',tour||await page.locator('#guide').count()===1,'tour dialog present, automatic open on first visit='+tour);

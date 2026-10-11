@@ -265,7 +265,7 @@ async function mobile(browser){
   const rect=await page.locator(panelId).boundingBox();
   const vw=await page.evaluate(()=>innerWidth);
   check('mobile','phase458-fit-'+panelId,!!rect&&rect.x>=-1&&rect.x+rect.width<=vw+1,JSON.stringify(rect).slice(0,180));
-  if(panelId==='#phase7-panel')await page.waitForFunction(()=>!!window.LS3D_PHASE7.catalog,{timeout:15000});
+  if(panelId==='#phase7-panel')await page.waitForFunction(()=>!!document.querySelector('#p7-table tbody tr'),{timeout:5000});
   await page.locator(cl).click({timeout:4000});
  }
 

@@ -54,7 +54,7 @@ panel.innerHTML=[
 '<label>GPU 랙 수<input type="number" id="p7-racks" min="1" max="200000" step="1"></label>',
 '<label>랙당 uplink 수<input type="number" id="p7-links" value="2" min="1" max="8" step="1"></label>',
 '<label>링크당 가상 거리 (m)<input type="number" id="p7-length" value="34" min=".1" max="10000" step=".1"></label>',
-'<div class="p58-actions"><button id="p7-sync" type="button">제품 자료 새로고침</button><button id="p7-calc" type="button">BOM 감사 실행</button><button id="p7-json" type="button">검증 JSON</button></div>',
+'<div class="p58-actions"><button id="p7-sync" type="button">제품 자료 새로고침</button><button id="p7-calc" type="button">BOM 감사 실행</button><button id="p7-json" type="button">검증 JSON</button><button id="p7-to-bom" type="button">기존 3D 구성 → BOM 도구</button></div>',
 '<p id="p7-status" aria-live="polite">제품 카탈로그 로드 전.</p><div id="p7-summary"></div><div id="p7-table"></div>',
 '<small class="p58-foot">정확한 주문형 SKU, MTP/MPO polarity, host-side 광모듈·reach, FEC, breakout 및 switch cage 소모량은 RFQ 이전 제조사 호환성 검토 필요.</small>'
 ].join('');document.body.appendChild(panel);
@@ -82,5 +82,6 @@ $('p7-json').onclick=()=>{if(!last){$('p7-status').textContent='먼저 BOM 검�
  const url=URL.createObjectURL(new Blob([JSON.stringify(last,null,2)],{type:'application/json'})),a=document.createElement('a');
  a.href=url;a.download='LS_Datacenter_NVIDIA_BOM_audit.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 };
+$('p7-to-bom').onclick=()=>{const old=$('bomOut');if(!old){$('p7-status').textContent='기존 BOM 공유 버튼을 찾을 수 없습니다.';return} $('p7-status').textContent='기존 3D 전체 구성(JSON)을 BOM 도구로 전달합니다. Phase 7 가상 링크 수량은 별도 감사 JSON으로 확인하십시오.';old.click()};
 window.LS3D_PHASE7={open:()=>toggle(true),load,estimate,get catalog(){return catalog},get audit(){return last}};
 })();

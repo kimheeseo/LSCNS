@@ -30,6 +30,9 @@ async function initPage(context,device){
  const snapshot=await page.evaluate(()=>({title:document.title,gl:window.__LS3D_TEST__.gl,error:document.querySelector('#error')?.textContent||'',hud:document.querySelector('#phase1-readout')?.textContent||'',viewport:{width:document.querySelector('#viewport')?.getBoundingClientRect().width,height:document.querySelector('#viewport')?.getBoundingClientRect().height}}));
  check(device,'initialization',!snapshot.error&&snapshot.title.includes('v4.5.5'),JSON.stringify(snapshot));
  check(device,'hud-mounted',!!snapshot.hud,snapshot.hud);
+ const tour=await page.locator('#guide.open').count()===1;
+ check(device,'first-visit-tour',tour||await page.locator('#guide').count()===1,'tour dialog present, automatic open on first visit='+tour);
+ if(tour){await page.locator('#tourSkip').click({timeout:4500});await page.waitForTimeout(150);check(device,'tour-dismiss',await page.locator('#guide.open').count()===0,'skip/close restores background interactions')}
  return page;
 }
 async function desktop(browser){

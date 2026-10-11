@@ -1,0 +1,6 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {calculate}=require('../fiber-capacity.js');
+const base={profile:'dr4',links:128,routes:1,allocated:8,fibers:1024,spare:0};
+test('DR4 1024F yields 128 duplex links; FR4 yields 512',()=>{const d=calculate(base);assert.equal(d.capacity,128);assert.equal(d.totalTrafficTbps,51.2);const f=calculate({...base,profile:'fr4',allocated:2,links:512});assert.equal(f.capacity,512);assert.equal(f.perFiberGbps,400);assert.equal(f.totalTrafficTbps,204.8);});
+test('full MPO12 allocation, reserve and separate routes prevent under-sizing',()=>{assert.equal(calculate({...base,allocated:12}).capacity,85);assert.equal(calculate({...base,allocated:12}).cablesPerRoute,2);const r=calculate({...base,spare:20,routes:3});assert.equal(r.requiredFibers,1232);assert.equal(r.plannedLinks,154);assert.equal(r.totalCables,6);assert.equal(calculate({...base,links:2,routes:512}).totalCables,512);});
+test('invalid or missing specifications do not become zero capacity',()=>{for(const patch of [{links:''},{routes:0},{allocated:7},{fibers:4},{spare:-1},{links:1.5},{spare:Infinity},{profile:'cpo'},{links:Number.MAX_SAFE_INTEGER,spare:100}])assert.throws(()=>calculate({...base,...patch}));});

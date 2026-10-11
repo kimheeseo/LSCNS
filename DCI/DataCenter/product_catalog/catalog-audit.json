@@ -1,7 +1,7 @@
 {
-  "checked": "2026-10-09",
-  "pdfCount": 1232,
-  "catalogCount": 340,
+  "checked": "2026-10-06",
+  "pdfCount": 1233,
+  "catalogCount": 338,
   "uncatalogedPdfCount": 0,
   "pdfByVendor": {
     "Commscope": 18,
@@ -9,10 +9,9 @@
     "Furukawa Electric": 3,
     "LS CNS": 13,
     "Mellanox": 1,
-    "NVIDIA": 12,
+    "NVIDIA": 13,
     "Sumitomo Electric": 44,
     "USConnec": 84
   },
-  "uncatalogedPdfPaths": [],
-  "notes": "340 structured catalogs after NVIDIA detailed InfiniBand switch model addition, 1232 archived PDFs, 0 PDFs lacking a same-folder catalog.json (tree checked before current new JSON-only addition)."
+  "uncatalogedPdfPaths": []
 }

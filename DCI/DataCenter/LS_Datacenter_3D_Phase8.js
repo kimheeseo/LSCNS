@@ -31,6 +31,8 @@ function checks(){
  item('Phase 6 선분–AABB 거리: 관통',typeof p6?.clearance==='function'&&p6.clearance({from:[-10,1,0],to:[10,1,0],radius:.1},{x:0,z:0,w:2,d:2,h:2})===0,'expected 0m'),
  item('Phase 6 MEP 형상·이격 검사',!!p6&&Array.isArray(p6.checks.rows)&&p6.checks.routeCount>=2,'capsule/AABB concept precheck'),
  item('Phase 7 NVIDIA 카탈로그 감사 함수',typeof p7?.estimate==='function'&&typeof p7?.load==='function','source catalog loader'),
+ item('Phase 7 공유 토폴로지 snapshot API',typeof T.exportConfig==='function'&&T.exportConfig()?.schemaVersion==='lsdc-twin-bom/1.0','existing shared schema'),
+ item('Phase 7 토폴로지 비교 함수',typeof p7?.reconcileTopology==='function','explicit quantity reconciliation'),
  item('기본 시뮬레이터 설정',Number(c?.rackCount)>0&&Number(c?.rackPowerKw)>0,'rackCount='+c?.rackCount),
  item('운영 시나리오 API',typeof T.scenarioApply==='function','power/cooling/network/fiber-cut'),
  item('기존 다운로드 및 이벤트 로그',typeof T.exportCSV==='function'&&typeof T.addEventLog==='function','CSV + event log')

@@ -1,0 +1,49 @@
+{
+  "best_index": 1.2019558229571856,
+  "best_thickness_um": 0.309882383652903,
+  "objective_R": 0.0004988950841635875,
+  "bare_R": 0.033233814305931704,
+  "quarterwave_R": 0.0006315288636590194,
+  "improvement_vs_bare_pct": 98.49883290683688,
+  "improvement_vs_quarterwave_pct": 21.002013863145407,
+  "bound_index": [
+    1.05,
+    1.42
+  ],
+  "bound_thickness_um": [
+    0.15,
+    0.44
+  ],
+  "nominal_n": 1.2016753395585933,
+  "nominal_thickness_um": 0.32246646597768985,
+  "wavelength_range_um": [
+    1.3,
+    1.65
+  ],
+  "num_wavelengths": 81,
+  "cases": [
+    [
+      "TE",
+      0.0
+    ],
+    [
+      "TM",
+      0.0
+    ],
+    [
+      "TE",
+      20.0
+    ],
+    [
+      "TM",
+      20.0
+    ]
+  ],
+  "thickness_error_factors": [
+    0.97,
+    1.0,
+    1.03
+  ],
+  "success": true,
+  "method": "multi-start bounded L-BFGS-B"
+}

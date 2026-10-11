@@ -1,0 +1,73 @@
+{
+  "stage": "M4-M6",
+  "m4": {
+    "num_meshes": 3,
+    "finest_frequency_THz": 90.35283998868337,
+    "finest_relative_error": 0.003068691032168447
+  },
+  "m5": {
+    "lambda_range_um": [
+      1.3,
+      1.65
+    ],
+    "sellmeier_n_1p55": 1.4440236217032607,
+    "group_index_1p55": 1.4625964838941496,
+    "quarterwave_n": 1.2016753395585933,
+    "quarterwave_depth_um": 0.32246646597768985,
+    "bare_reflectance_1p55": 0.0331146644702367,
+    "AR_reflectance_1p55": 0.0002180680089054168,
+    "max_energy_error": 7.771561172376096e-16,
+    "mean_group_delay_fs": 1.3136324007628117
+  },
+  "m6": {
+    "best_index": 1.2019558229571856,
+    "best_thickness_um": 0.309882383652903,
+    "objective_R": 0.0004988950841635875,
+    "bare_R": 0.033233814305931704,
+    "quarterwave_R": 0.0006315288636590194,
+    "improvement_vs_bare_pct": 98.49883290683688,
+    "improvement_vs_quarterwave_pct": 21.002013863145407,
+    "bound_index": [
+      1.05,
+      1.42
+    ],
+    "bound_thickness_um": [
+      0.15,
+      0.44
+    ],
+    "nominal_n": 1.2016753395585933,
+    "nominal_thickness_um": 0.32246646597768985,
+    "wavelength_range_um": [
+      1.3,
+      1.65
+    ],
+    "num_wavelengths": 81,
+    "cases": [
+      [
+        "TE",
+        0.0
+      ],
+      [
+        "TM",
+        0.0
+      ],
+      [
+        "TE",
+        20.0
+      ],
+      [
+        "TM",
+        20.0
+      ]
+    ],
+    "thickness_error_factors": [
+      0.97,
+      1.0,
+      1.03
+    ],
+    "success": true,
+    "method": "multi-start bounded L-BFGS-B"
+  },
+  "validated_assertions": 12,
+  "scope": "M4 cavity FEM subset; M5/M6 1D Maxwell transfer matrix; not COMSOL equivalent"
+}

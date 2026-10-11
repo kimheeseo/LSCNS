@@ -1,0 +1,68 @@
+[
+  {
+    "lengths_um": [
+      2.0,
+      1.0,
+      3.0
+    ],
+    "shape": [
+      3,
+      2,
+      4
+    ],
+    "index": 1.0,
+    "nodes": 60,
+    "tetrahedra": 144,
+    "edges": 255,
+    "free_dofs": 99,
+    "frequency_hz": 90646608710091.97,
+    "analytic_te101_hz": 90076423276365.38,
+    "relative_error": 0.006330018588517783,
+    "eigenvalue": 3.609287292810404,
+    "relative_residual": 3.640101443663321e-15
+  },
+  {
+    "lengths_um": [
+      2.0,
+      1.0,
+      3.0
+    ],
+    "shape": [
+      4,
+      3,
+      6
+    ],
+    "index": 1.0,
+    "nodes": 140,
+    "tetrahedra": 432,
+    "edges": 679,
+    "free_dofs": 355,
+    "frequency_hz": 90477208065257.2,
+    "analytic_te101_hz": 90076423276365.38,
+    "relative_error": 0.004449386135839006,
+    "eigenvalue": 3.5958098048851217,
+    "relative_residual": 1.0515600489817712e-14
+  },
+  {
+    "lengths_um": [
+      2.0,
+      1.0,
+      3.0
+    ],
+    "shape": [
+      5,
+      4,
+      8
+    ],
+    "index": 1.0,
+    "nodes": 270,
+    "tetrahedra": 960,
+    "edges": 1413,
+    "free_dofs": 861,
+    "frequency_hz": 90352839988683.38,
+    "analytic_te101_hz": 90076423276365.38,
+    "relative_error": 0.003068691032168447,
+    "eigenvalue": 3.585931149251933,
+    "relative_residual": 1.2876756912124591e-14
+  }
+]

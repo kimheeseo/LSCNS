@@ -1,0 +1,58 @@
+name: COMSOL WaveOptics M7 M8 FEM Validation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/run_m7_m8_validation.py'
+      - 'COMSOL/waveoptics_m7/src/**'
+      - 'COMSOL/waveoptics_m8/src/**'
+      - '.github/workflows/waveoptics-m7-m8-validation.yml'
+permissions:
+  contents: write
+jobs:
+  numerical-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical libraries
+        run: |
+          python -m pip install --disable-pip-version-check 'numpy>=1.26,<3' 'scipy>=1.12,<2' 'matplotlib>=3.8,<4'
+      - name: Run guided mode FEM and capillary reference checks
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+          MPLBACKEND: Agg
+        run: |
+          python COMSOL/run_m7_m8_validation.py | tee /tmp/waveoptics-m7-m8-validation.log
+      - name: Upload M7 M8 figures reports and raw numerical data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: COMSOL-waveoptics-M7-M8-numerical-results
+          retention-days: 60
+          if-no-files-found: warn
+          path: |
+            COMSOL/M7_M8_EXECUTION_SUMMARY.json
+            COMSOL/M1_M8_FINAL_REPORT.md
+            COMSOL/waveoptics_m7/M7_VALIDATION_REPORT.md
+            COMSOL/waveoptics_m7/screenshots/
+            COMSOL/waveoptics_m8/M8_VALIDATION_REPORT.md
+            COMSOL/waveoptics_m8/screenshots/
+      - name: Commit validated outputs and screenshots to GitHub
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add COMSOL/M7_M8_EXECUTION_SUMMARY.json COMSOL/M1_M8_FINAL_REPORT.md
+          git add COMSOL/waveoptics_m7/M7_VALIDATION_REPORT.md COMSOL/waveoptics_m7/screenshots
+          git add COMSOL/waveoptics_m8/M8_VALIDATION_REPORT.md COMSOL/waveoptics_m8/screenshots
+          if ! git diff --cached --quiet; then
+            git commit -m "results: validated M7 optical fiber FEM M8 MCF and HCF baseline [skip ci]"
+            git push origin HEAD:main
+          fi

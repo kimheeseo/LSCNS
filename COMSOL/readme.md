@@ -1,4 +1,4 @@
-# Python Wave Optics — M1–M6
+# Python Wave Optics — M1–M8
 
 - [M1 slab scalar modes](waveoptics_m1/)
 - [M2 vector modes](waveoptics_m2/)
@@ -6,6 +6,11 @@
 - [M4 3D Nédélec PEC cavity (verified recovery subset)](waveoptics_m4/) — **과거 M4 PML/port/S 전체 원본 GitHub 미보존**, 제한적 3D FEM 검증
 - [M5 material dispersion + spectral S](waveoptics_m5/)
 - [M6 constrained broadband inverse design](waveoptics_m6/)
+
+- [M7 step-index fiber LP01 FEM (neff / MFD / Aeff / D)](waveoptics_m7/) — [검증 보고서](waveoptics_m7/M7_VALIDATION_REPORT.md)
+- [M8 two-core MCF + hollow capillary benchmark](waveoptics_m8/) — [검증 보고서](waveoptics_m8/M8_VALIDATION_REPORT.md)
+
+M7/M8: `python COMSOL/run_m7_m8_validation.py` → FEM/해석해 검증 및 수치 PNG·CSV·JSON·보고서 생성. **M8 HCF는 capillary 해석 근사이며 NANF/ARF 복소 Maxwell FEM·PML·confinement loss는 미구현.**
 
 M4/M5/M6는 `python COMSOL/run_m4_m6_validation.py`로 독립 수치 검증 및 PNG/CSV/JSON/MD 보고서 생성. GitHub Actions 워크플로: `.github/workflows/waveoptics-m4-m6-validation.yml`.
 

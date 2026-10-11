@@ -1,0 +1,55 @@
+........................................................................ [ 82%]
+...............                                                          [100%]
+=============================== warnings summary ===============================
+tests/test_additional_domain.py::test_high_contrast_domain_convergence[TM]
+tests/test_m1.py::test_high_contrast_slab[TM]
+tests/test_m1.py::test_interface_flux[TM]
+tests/test_m1.py::test_te_tm_are_distinct
+  /workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.505e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_boundary_truncation_separately[TE]
+  /workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/slab.py:129: RuntimeWarning: TE1: estimated relative cladding decay 1.700e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_boundary_truncation_separately[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 2.248e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_interface_flux[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.553e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m1.py::test_interface_flux[TM]
+  /workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/slab.py:129: RuntimeWarning: TM1: estimated relative cladding decay 1.514e-05; increase padding and check domain convergence.
+    warnings.warn(f'{polarization}{len(modes)}: estimated relative cladding decay '
+
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+  /workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+  /workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+  /workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+tests/test_m3_extended.py::test_oblique_cylinder_and_fields[TE]
+  /workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/scratch/e531e3519011/waveoptics_m3/results/pytest_final.xml -
+87 passed, 22 warnings in 56.70s

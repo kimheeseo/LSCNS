@@ -1,0 +1,111 @@
+{
+  "modes": [
+    {
+      "index": 0,
+      "neff_real": 1.3538725996954593,
+      "neff_imag": 0.0011079329032417538,
+      "effective_area_um2": 0.7202467084055497,
+      "loss_db_per_m": 39009.998834229395,
+      "pencil_residual": 5.6091851705187217e-14,
+      "gauss_residual": 5.615180015010461e-15
+    },
+    {
+      "index": 1,
+      "neff_real": 1.2282971707073977,
+      "neff_imag": 0.0012212028455102389,
+      "effective_area_um2": 0.7204371790733869,
+      "loss_db_per_m": 42998.200920220406,
+      "pencil_residual": 8.051697238052194e-14,
+      "gauss_residual": 5.024021998969106e-15
+    },
+    {
+      "index": 2,
+      "neff_real": 1.0445945681366307,
+      "neff_imag": 0.0014359638138610033,
+      "effective_area_um2": 0.8129714851750993,
+      "loss_db_per_m": 50559.872841406446,
+      "pencil_residual": 1.0554979384462536e-13,
+      "gauss_residual": 4.59043249188829e-15
+    },
+    {
+      "index": 3,
+      "neff_real": 1.0435374294546624,
+      "neff_imag": 0.0014374184937319219,
+      "effective_area_um2": 0.8402407319244943,
+      "loss_db_per_m": 50611.09170123331,
+      "pencil_residual": 1.4686536248875032e-13,
+      "gauss_residual": 6.362404125131752e-15
+    }
+  ],
+  "diagnostics": {
+    "triangles": 2400,
+    "nodes": 1271,
+    "edge_dofs": 3670,
+    "scalar_dofs": 1271,
+    "free_dofs": 4661,
+    "h_max_um": 0.04242640687129777,
+    "h_core_max_um": null,
+    "candidates": 10,
+    "returned": 4,
+    "target_neff": 1.4,
+    "window": [
+      0.85,
+      1.5
+    ],
+    "rejected": [
+      {
+        "neff": [
+          0.7633758293950045,
+          0.001964956109743263
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.0036365648324444425,
+          0.4124771780754964
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.003743133573017575,
+          0.4007337624317547
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          1.5840633388629114e-08,
+          1.901073420381235e-07
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          4.654477345489605e-07,
+          2.0917034393073837e-08
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.0017771197254258162,
+          0.8440624334640766
+        ],
+        "reason": "outside_window"
+      }
+    ],
+    "completeness_certified": false,
+    "element_pair": "ElementTriN1 + ElementTriP1",
+    "normalization": "integral |E|^2 dA = 1",
+    "boundary": "PEC"
+  },
+  "geometry": {
+    "kind": "rectangle",
+    "width_um": 1.2,
+    "height_um": 0.9,
+    "h_nominal_um": 0.06,
+    "coordinate_spacing_bound_um": 0.03
+  }
+}

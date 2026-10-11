@@ -1,0 +1,27 @@
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Traceback (most recent call last):
+  File "/workspace/scratch/e531e3519011/.venv/bin/wave-scatter", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/scattering_cli.py", line 58, in main
+    (args.out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int32 is not JSON serializable

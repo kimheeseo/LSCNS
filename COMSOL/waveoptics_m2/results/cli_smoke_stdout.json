@@ -1,0 +1,93 @@
+{
+  "modes": [
+    {
+      "index": 0,
+      "neff_real": 1.1880995459300492,
+      "neff_imag": -0.0,
+      "effective_area_um2": 0.5806993434787645,
+      "loss_db_per_m": -0.0,
+      "pencil_residual": 2.6983671387802027e-14,
+      "gauss_residual": 9.96582502922978e-16
+    },
+    {
+      "index": 1,
+      "neff_real": 1.1880921282996115,
+      "neff_imag": -0.0,
+      "effective_area_um2": 0.5807034954236819,
+      "loss_db_per_m": -0.0,
+      "pencil_residual": 2.8225072521341133e-14,
+      "gauss_residual": 1.1677714511051466e-15
+    }
+  ],
+  "diagnostics": {
+    "triangles": 5878,
+    "nodes": 3004,
+    "edge_dofs": 8881,
+    "scalar_dofs": 3004,
+    "free_dofs": 11629,
+    "h_max_um": 0.20067229043908325,
+    "h_core_max_um": 0.053800938676543085,
+    "candidates": 8,
+    "returned": 2,
+    "target_neff": 1.25,
+    "window": [
+      1.0001,
+      1.4999
+    ],
+    "rejected": [
+      {
+        "neff": [
+          0.9936511921271005,
+          -0.0
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.9913884463915185,
+          -0.0
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.9913887691582078,
+          -0.0
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.9821547836924062,
+          -0.0
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.9871429321292683,
+          -0.0
+        ],
+        "reason": "outside_window"
+      },
+      {
+        "neff": [
+          0.9871428401663995,
+          -0.0
+        ],
+        "reason": "outside_window"
+      }
+    ],
+    "completeness_certified": false,
+    "element_pair": "ElementTriN1 + ElementTriP1",
+    "normalization": "integral |E|^2 dA = 1",
+    "boundary": "PEC"
+  },
+  "geometry": {
+    "kind": "fiber",
+    "core_radius_um": 0.3,
+    "outer_radius_um": 3.0,
+    "h_nominal_um": 0.03,
+    "outer_factor": 5.0
+  }
+}

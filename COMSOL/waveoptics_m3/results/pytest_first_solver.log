@@ -1,0 +1,27 @@
+..................F.                                                     [100%]
+=================================== FAILURES ===================================
+__________________ test_slab_port_from_independent_dispersion __________________
+
+    def test_slab_port_from_independent_dispersion():
+        gm,_,solve,_,_=api()
+        from analytic_slab import exact_modes
+        def n(x): return np.where(abs(x[1])<.25,1.5,1.)
+        mesh=gm([0,.6],[-2.,-.25,.25,2.],.025)
+        for pol in ['TE','TM']:
+            s=solve(mesh,n,1.,pol)
+            beta=exact_modes(1.5,1.,.5,1.,pol)[0].beta_per_um
+            assert abs(s.port_modes['left'].beta[0].real-beta)<.003
+            assert abs(s.s_parameters['left'][0])<.003
+>           assert abs(s.s_parameters['right'][0]-np.exp(1j*beta*.6))<.004
+E           AssertionError: assert np.float64(0.0042162300859982915) < 0.004
+E            +  where np.float64(0.0042162300859982915) = abs((np.complex128(0.17035538094953082-0.9853808604980397j) - np.complex128(0.1745087678001669-0.9846556199813554j)))
+E            +    where np.complex128(0.1745087678001669-0.9846556199813554j) = <ufunc 'exp'>(((1j * np.float64(8.146326398590528)) * 0.6))
+E            +      where <ufunc 'exp'> = np.exp
+
+waveoptics_m3/tests/test_scattering_m3.py:135: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  skfem.mesh.mesh:mesh.py:583 Transforming over 1000 vertices to C_CONTIGUOUS.
+WARNING  skfem.mesh.mesh:mesh.py:589 Transforming over 1000 elements to C_CONTIGUOUS.
+=========================== short test summary info ============================
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_slab_port_from_independent_dispersion
+1 failed, 19 passed in 8.75s

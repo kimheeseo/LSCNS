@@ -1,0 +1,23 @@
+{
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "87",
+    "time": "56.698",
+    "timestamp": "2026-10-10T19:46:58.187294-05:00",
+    "hostname": "99bba7785eef"
+  },
+  "pytest_stdout_summary": "87 passed, 22 warnings in 56.70s",
+  "report_pages": 10,
+  "report_visual_inspection": "all 10 final rendered pages inspected",
+  "contract_sha256_verified": true,
+  "previous_solver_sources_unchanged": {
+    "slab.py": "5ac59e742553658ebdb3c654a5e2874bf8b5e664a74800b7381880db4c891c3b",
+    "mesh.py": "a15e1e6a438eff7cb22ec49c6df8195ea667fad82c3bec27320c0bcd123b24dd",
+    "cli.py": "828b90e3581d14b24d1feaadc31f406a65d70f96b80c0a5a535365467edbd36e",
+    "vector.py": "9e52f6186470364c195fc193c8893b18e02a5a74126a504147a46cefee181660",
+    "vector_cli.py": "ea2a6e8045e3419b1aee6c6aa65976e8f184b2140044364f506bf04afed26fc2"
+  }
+}

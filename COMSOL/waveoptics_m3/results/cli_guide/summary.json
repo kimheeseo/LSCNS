@@ -1,0 +1,109 @@
+{
+  "configuration": {
+    "case": "guide",
+    "polarization": "TE",
+    "wavelength": 1.0,
+    "h": 0.03,
+    "out": "/workspace/scratch/e531e3519011/waveoptics_m3/results/cli_guide",
+    "width": 0.6,
+    "length": 0.9,
+    "index": 1.2,
+    "layer_index": [
+      1.6,
+      0.0
+    ],
+    "layer_start": 0.3,
+    "layer_end": 0.55,
+    "incident_mode": 0,
+    "full_s": true
+  },
+  "diagnostics": {
+    "h_nominal_um": 0.03,
+    "h_max_um": 0.014142135623840792,
+    "triangles": 10800,
+    "dofs": 5551,
+    "free_dofs": 5369,
+    "linear_residual": 6.512194916079505e-14,
+    "element": "P1",
+    "quadrature_order": 6,
+    "ports": {
+      "left": {
+        "trace_modes": 59,
+        "propagating_modes": 1,
+        "evanescent_modes": 58
+      },
+      "right": {
+        "trace_modes": 59,
+        "propagating_modes": 1,
+        "evanescent_modes": 58
+      }
+    },
+    "power_out": 0.999999999999999,
+    "port_reference_planes_um": {
+      "left": 0.0,
+      "right": 0.9
+    }
+  },
+  "S": {
+    "left": [
+      [
+        0.29727387944445605,
+        0.22085271767471898
+      ]
+    ],
+    "right": [
+      [
+        0.7334735638138511,
+        -0.5699726738028247
+      ]
+    ]
+  },
+  "port_beta_per_um": {
+    "left": [
+      [
+        5.4246741425281275,
+        0.0
+      ]
+    ],
+    "right": [
+      [
+        5.424674142527677,
+        0.0
+      ]
+    ]
+  },
+  "S_matrix": [
+    [
+      [
+        0.29727387944445605,
+        0.22085271767471898
+      ],
+      [
+        0.7334735638138514,
+        -0.5699726738028247
+      ]
+    ],
+    [
+      [
+        0.7334735638138511,
+        -0.5699726738028247
+      ],
+      [
+        0.14058711167133686,
+        0.3426119471591408
+      ]
+    ]
+  ],
+  "channels": [
+    [
+      "left",
+      0
+    ],
+    [
+      "right",
+      0
+    ]
+  ],
+  "reciprocity_residual": 4.710277376051325e-16,
+  "unitarity_residual": 2.819048078222817e-15
+}

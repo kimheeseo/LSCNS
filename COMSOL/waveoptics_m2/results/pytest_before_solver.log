@@ -1,0 +1,298 @@
+..FFFFFFFFFFFFFFFFFF                                                     [100%]
+=================================== FAILURES ===================================
+____________________ test_rectangle_spectrum_no_extra_modes ____________________
+
+    def test_rectangle_spectrum_no_extra_modes():
+>       sol = rectangle()
+              ^^^^^^^^^^^
+
+tests/test_vector_m2.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.03, n = 1.5, candidates = 10, window = (0.85, 1.5)
+
+    def rectangle(h=.03, n=1.5, candidates=10, window=(.85,1.5)):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:13: ModuleNotFoundError
+_____________________ test_rectangle_fields_area_magnetic ______________________
+
+    def test_rectangle_fields_area_magnetic():
+>       sol = rectangle()
+              ^^^^^^^^^^^
+
+tests/test_vector_m2.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.03, n = 1.5, candidates = 10, window = (0.85, 1.5)
+
+    def rectangle(h=.03, n=1.5, candidates=10, window=(.85,1.5)):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:13: ModuleNotFoundError
+_______________________ test_rectangle_three_mesh_levels _______________________
+
+    def test_rectangle_three_mesh_levels():
+>       sols = [rectangle(h) for h in (.12,.06,.03)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_vector_m2.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_vector_m2.py:76: in <listcomp>
+    sols = [rectangle(h) for h in (.12,.06,.03)]
+            ^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.12, n = 1.5, candidates = 10, window = (0.85, 1.5)
+
+    def rectangle(h=.03, n=1.5, candidates=10, window=(.85,1.5)):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:13: ModuleNotFoundError
+____________________ test_complex_index_loss_against_exact _____________________
+
+    def test_complex_index_loss_against_exact():
+        n = 1.5+.001j
+>       sol = rectangle(n=n)
+              ^^^^^^^^^^^^^^
+
+tests/test_vector_m2.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.03, n = (1.5+0.001j), candidates = 10, window = (0.85, 1.5)
+
+    def rectangle(h=.03, n=1.5, candidates=10, window=(.85,1.5)):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:13: ModuleNotFoundError
+____________________ test_fiber_exact_vector_pair_and_area _____________________
+
+    def test_fiber_exact_vector_pair_and_area():
+>       sol = fiber()
+              ^^^^^^^
+
+tests/test_vector_m2.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.015, radius = 3.0, candidates = 8
+
+    def fiber(h=.015, radius=3., candidates=8):
+>       from waveoptics.vector import fiber_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:20: ModuleNotFoundError
+_______________________ test_fiber_vector_field_subspace _______________________
+
+    def test_fiber_vector_field_subspace():
+        # The HE11 pair is degenerate: compare to the complete analytic polarization
+        # subspace rather than arbitrarily choosing one numerical eigenvector angle.
+>       sol = fiber()
+              ^^^^^^^
+
+tests/test_vector_m2.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.015, radius = 3.0, candidates = 8
+
+    def fiber(h=.015, radius=3., candidates=8):
+>       from waveoptics.vector import fiber_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:20: ModuleNotFoundError
+_________________________ test_fiber_three_mesh_levels _________________________
+
+    def test_fiber_three_mesh_levels():
+>       sols = [fiber(h) for h in (.06,.03,.015)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_vector_m2.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_vector_m2.py:129: in <listcomp>
+    sols = [fiber(h) for h in (.06,.03,.015)]
+            ^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.06, radius = 3.0, candidates = 8
+
+    def fiber(h=.015, radius=3., candidates=8):
+>       from waveoptics.vector import fiber_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:20: ModuleNotFoundError
+____________________ test_fiber_outer_boundary_convergence _____________________
+
+    def test_fiber_outer_boundary_convergence():
+>       sols = [fiber(h=.02,radius=r) for r in (2.,2.5,3.)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_vector_m2.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_vector_m2.py:138: in <listcomp>
+    sols = [fiber(h=.02,radius=r) for r in (2.,2.5,3.)]
+            ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+h = 0.02, radius = 2.0, candidates = 8
+
+    def fiber(h=.015, radius=3., candidates=8):
+>       from waveoptics.vector import fiber_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:20: ModuleNotFoundError
+________________ test_arbitrary_index_callable_and_array_agree _________________
+
+    def test_arbitrary_index_callable_and_array_agree():
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:150: ModuleNotFoundError
+________________________ test_invalid_inputs[changes0] _________________________
+
+changes = {'wavelength_um': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes1] _________________________
+
+changes = {'target_neff': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes2] _________________________
+
+changes = {'neff_window': (1.5, 0.8)}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes3] _________________________
+
+changes = {'candidates': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes4] _________________________
+
+changes = {'candidates': 2.5}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes5] _________________________
+
+changes = {'n': (1.5-0.01j)}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes6] _________________________
+
+changes = {'n': 0}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes7] _________________________
+
+changes = {'n': nan}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+________________________ test_invalid_inputs[changes8] _________________________
+
+changes = {'n': array([1., 1., 1.])}
+
+    @pytest.mark.parametrize('changes',[
+        {'wavelength_um':0}, {'target_neff':0}, {'neff_window':(1.5,.8)},
+        {'candidates':0}, {'candidates':2.5}, {'n':1.5-.01j},
+        {'n':0}, {'n':float('nan')}, {'n':np.ones(3)},
+    ])
+    def test_invalid_inputs(changes):
+>       from waveoptics.vector import rectangle_mesh, solve_vector
+E       ModuleNotFoundError: No module named 'waveoptics.vector'
+
+tests/test_vector_m2.py:165: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_vector_m2.py::test_rectangle_spectrum_no_extra_modes - Modu...
+FAILED tests/test_vector_m2.py::test_rectangle_fields_area_magnetic - ModuleN...
+FAILED tests/test_vector_m2.py::test_rectangle_three_mesh_levels - ModuleNotF...
+FAILED tests/test_vector_m2.py::test_complex_index_loss_against_exact - Modul...
+FAILED tests/test_vector_m2.py::test_fiber_exact_vector_pair_and_area - Modul...
+FAILED tests/test_vector_m2.py::test_fiber_vector_field_subspace - ModuleNotF...
+FAILED tests/test_vector_m2.py::test_fiber_three_mesh_levels - ModuleNotFound...
+FAILED tests/test_vector_m2.py::test_fiber_outer_boundary_convergence - Modul...
+FAILED tests/test_vector_m2.py::test_arbitrary_index_callable_and_array_agree
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes0] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes1] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes2] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes3] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes4] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes5] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes6] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes7] - ModuleNotFoun...
+FAILED tests/test_vector_m2.py::test_invalid_inputs[changes8] - ModuleNotFoun...
+18 failed, 2 passed in 1.29s

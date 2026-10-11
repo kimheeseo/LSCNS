@@ -1,0 +1,322 @@
+..FFFFFFFFFFFFFFFFFF                                                     [100%]
+=================================== FAILURES ===================================
+_____________________ test_straight_guide_three_meshes[TE] _____________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_straight_guide_three_meshes(polarization):
+>       gm,_,solve,_,_=api(); n,L,W,wl=1.3,.9,.7,1.
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_____________________ test_straight_guide_three_meshes[TM] _____________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_straight_guide_three_meshes(polarization):
+>       gm,_,solve,_,_=api(); n,L,W,wl=1.3,.9,.7,1.
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_________________________ test_dielectric_layer_s[TE] __________________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_dielectric_layer_s(polarization):
+>       gm,_,solve,_,_=api(); Ls=[.3,.25,.35]; ns=[1.2,1.6,1.2]; W=.6; wl=1.
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_________________________ test_dielectric_layer_s[TM] __________________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_dielectric_layer_s(polarization):
+>       gm,_,solve,_,_=api(); Ls=[.3,.25,.35]; ns=[1.2,1.6,1.2]; W=.6; wl=1.
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_________________ test_multimode_reciprocity_and_unitarity[TE] _________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_multimode_reciprocity_and_unitarity(polarization):
+>       gm,_,solve,_,_=api(); mesh=gm([0,.3,.55,.9],[0,.6],.035)
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_________________ test_multimode_reciprocity_and_unitarity[TM] _________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_multimode_reciprocity_and_unitarity(polarization):
+>       gm,_,solve,_,_=api(); mesh=gm([0,.3,.55,.9],[0,.6],.035)
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+______________ test_asymmetric_interface_power_normalization[TE] _______________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_asymmetric_interface_power_normalization(polarization):
+>       gm,_,solve,_,_=api()
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:68: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+______________ test_asymmetric_interface_power_normalization[TM] _______________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_asymmetric_interface_power_normalization(polarization):
+>       gm,_,solve,_,_=api()
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:68: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_____________ test_pml_truncation_matches_analytic_reflection[TE] ______________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_pml_truncation_matches_analytic_reflection(polarization):
+>       gm,_,solve,_,PML=api(); L=1.5; start=1.; sigma=1.2; thickness=.5
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+_____________ test_pml_truncation_matches_analytic_reflection[TM] ______________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_pml_truncation_matches_analytic_reflection(polarization):
+>       gm,_,solve,_,PML=api(); L=1.5; start=1.; sigma=1.2; thickness=.5
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+________________________ test_cylinder_three_meshes[TE] ________________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_cylinder_three_meshes(polarization):
+>       _,cm,_,solve,PML=api(); pml=PML((-.8,.8),(-.8,.8),left=.6,right=.6,bottom=.6,top=.6,strength=4.)
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+________________________ test_cylinder_three_meshes[TM] ________________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_cylinder_three_meshes(polarization):
+>       _,cm,_,solve,PML=api(); pml=PML((-.8,.8),(-.8,.8),left=.6,right=.6,bottom=.6,top=.6,strength=4.)
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+____________________ test_pml_background_no_scattering[TE] _____________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_pml_background_no_scattering(polarization):
+>       _,cm,_,solve,PML=api(); p=PML((-.6,.6),(-.6,.6),left=.4,right=.4,top=.4,bottom=.4)
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+____________________ test_pml_background_no_scattering[TM] _____________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_pml_background_no_scattering(polarization):
+>       _,cm,_,solve,PML=api(); p=PML((-.6,.6),(-.6,.6),left=.4,right=.4,top=.4,bottom=.4)
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+______________________ test_absorbing_layer_passivity[TE] ______________________
+
+polarization = 'TE'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_absorbing_layer_passivity(polarization):
+>       gm,_,solve,_,_=api()
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+______________________ test_absorbing_layer_passivity[TM] ______________________
+
+polarization = 'TM'
+
+    @pytest.mark.parametrize('polarization',['TE','TM'])
+    def test_absorbing_layer_passivity(polarization):
+>       gm,_,solve,_,_=api()
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+__________________ test_slab_port_from_independent_dispersion __________________
+
+    def test_slab_port_from_independent_dispersion():
+>       gm,_,solve,_,_=api()
+                       ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+________________________ test_invalid_inputs_and_cutoff ________________________
+
+    def test_invalid_inputs_and_cutoff():
+>       gm,_,solve,_,PML=api(); mesh=gm([0,.4],[0,.5],.1)
+                         ^^^^^
+
+waveoptics_m3/tests/test_scattering_m3.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       from waveoptics.scattering import guide_mesh, cylinder_mesh, solve_ports, solve_plane_wave, PML
+E       ModuleNotFoundError: No module named 'waveoptics.scattering'
+
+waveoptics_m3/tests/test_scattering_m3.py:8: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_straight_guide_three_meshes[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_straight_guide_three_meshes[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_dielectric_layer_s[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_dielectric_layer_s[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_multimode_reciprocity_and_unitarity[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_multimode_reciprocity_and_unitarity[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_asymmetric_interface_power_normalization[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_asymmetric_interface_power_normalization[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_pml_truncation_matches_analytic_reflection[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_pml_truncation_matches_analytic_reflection[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_cylinder_three_meshes[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_cylinder_three_meshes[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_pml_background_no_scattering[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_pml_background_no_scattering[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_absorbing_layer_passivity[TE]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_absorbing_layer_passivity[TM]
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_slab_port_from_independent_dispersion
+FAILED waveoptics_m3/tests/test_scattering_m3.py::test_invalid_inputs_and_cutoff
+18 failed, 2 passed in 0.41s

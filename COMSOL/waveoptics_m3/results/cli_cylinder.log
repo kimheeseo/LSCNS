@@ -1,0 +1,41 @@
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+{
+  "configuration": {
+    "case": "cylinder",
+    "polarization": "TM",
+    "wavelength": 1.0,
+    "h": 0.04,
+    "out": "/workspace/scratch/e531e3519011/waveoptics_m3/results/cli_cylinder",
+    "radius": 0.2,
+    "index": [
+      1.5,
+      0.0
+    ],
+    "background_index": 1.0,
+    "half_box": 0.8,
+    "pml_thickness": 0.6,
+    "pml_strength": 4.0,
+    "angle_deg": 0.0,
+    "extraction_radius": 0.55
+  },
+  "diagnostics": {
+    "h_nominal_um": 0.04,
+    "h_max_um": 0.0538167418825696,
+    "triangles": 11772,
+    "dofs": 6027,
+    "free_dofs": 5747,
+    "linear_residual": 1.6949487133216504e-14,
+    "element": "P1",
+    "quadrature_order": 6,
+    "physical_bounds": [
+      -0.8,
+      0.8,
+      -0.8,
+      0.8
+    ],
+    "background_index": 1.0,
+    "angle_rad": 0.0
+  },
+  "scattering_width_um": 0.21246085024230466
+}

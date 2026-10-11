@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waveoptics-m3"
+version = "0.3.0"
+description = "Verified slab, full-vector mode, and 2D TE/TM scattering FEM solvers"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==2.2.6", "scipy==1.15.3", "scikit-fem==12.0.2",
+  "gmsh==4.14.1", "matplotlib==3.10.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+
+[project.scripts]
+slab-modes = "waveoptics.cli:main"
+vector-modes = "waveoptics.vector_cli:main"
+wave-scatter = "waveoptics.scattering_cli:main"
+
+[tool.setuptools.packages.find]
+include = ["waveoptics*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = [".", "tests"]

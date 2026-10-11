@@ -1,0 +1,42 @@
+[
+  {
+    "h": 0.025,
+    "polarization": "TE",
+    "hmax": 0.0176776695298109,
+    "beta_exact": 8.572188760833406,
+    "beta_port": 8.571921450588164,
+    "beta_port_error": 0.00026731024524195846,
+    "transmission_error": 0.003830746683100045,
+    "reflection": 0.0002200378910813926
+  },
+  {
+    "h": 0.025,
+    "polarization": "TM",
+    "hmax": 0.0176776695298109,
+    "beta_exact": 8.146326398590528,
+    "beta_port": 8.145895240748592,
+    "beta_port_error": 0.0004311578419358142,
+    "transmission_error": 0.0042162300859982915,
+    "reflection": 5.2126968911955214e-05
+  },
+  {
+    "h": 0.0125,
+    "polarization": "TE",
+    "hmax": 0.008838834764913458,
+    "beta_exact": 8.572188760833406,
+    "beta_port": 8.572121936593353,
+    "beta_port_error": 6.682424005255427e-05,
+    "transmission_error": 0.0009594099472623406,
+    "reflection": 5.4876208302647254e-05
+  },
+  {
+    "h": 0.0125,
+    "polarization": "TM",
+    "hmax": 0.008838834764913458,
+    "beta_exact": 8.146326398590528,
+    "beta_port": 8.146218629173026,
+    "beta_port_error": 0.00010776941750201274,
+    "transmission_error": 0.001056049682081433,
+    "reflection": 1.2901028658346296e-05
+  }
+]

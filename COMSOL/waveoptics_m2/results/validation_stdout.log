@@ -1,0 +1,25 @@
+rectangle 0.12 dofs 1131 errors [0.00010565820683350324, 0.00036722249831888654, 0.0003986619453548723, 0.004644234030679373]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+rectangle 0.06 dofs 4661 errors [2.639976489060558e-05, 9.191684279508117e-05, 0.00010061323012200418, 0.001157754429776725]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+rectangle 0.03 dofs 18921 errors [6.599016071584529e-06, 2.298623695140556e-05, 2.521234095853586e-05, 0.0002892333628163879]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+fiber 0.06 dofs 2973 errors [0.0019784617992111286, 0.002021112877000686]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+fiber 0.03 dofs 11629 errors [0.0005012633316343607, 0.0005086809620720167]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+fiber 0.015 dofs 45509 errors [0.00012739256483595973, 0.00012784677009913814]
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+reference fiber neff 1.1886008092616835 area 0.5788795272566327
+validation elapsed 36.33572426400042

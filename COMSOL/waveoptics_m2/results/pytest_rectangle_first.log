@@ -1,0 +1,63 @@
+.F.FF..........                                                          [100%]
+=================================== FAILURES ===================================
+____________________ test_rectangle_spectrum_no_extra_modes ____________________
+
+    def test_rectangle_spectrum_no_extra_modes():
+        sol = rectangle()
+        refs = rectangle_spectrum()
+        assert len(sol.modes) == len(refs) == 4
+        for mode,(_,exact) in zip(sol.modes,refs):
+>           assert abs(mode.neff-exact) < 3e-4
+E           assert np.float64(0.001157754429776725) < 0.0003
+E            +  where np.float64(0.001157754429776725) = abs((np.complex128(1.043536918609453-0j) - np.complex128(1.0446946730392297+0j)))
+E            +    where np.complex128(1.043536918609453-0j) = VectorMode(neff=np.complex128(1.043536918609453-0j), beta_per_um=np.complex128(4.230152151294435-0j), effective_area_u...+0.j,  0.        +0.j,  0.        +0.j, ...,\n       -0.00791095+0.j, -0.00531977+0.j, -0.00267262+0.j], shape=(1271,))).neff
+
+tests/test_vector_m2.py:53: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  skfem.mesh.mesh:mesh.py:583 Transforming over 1000 vertices to C_CONTIGUOUS.
+WARNING  skfem.mesh.mesh:mesh.py:589 Transforming over 1000 elements to C_CONTIGUOUS.
+_______________________ test_rectangle_three_mesh_levels _______________________
+
+    def test_rectangle_three_mesh_levels():
+        sols = [rectangle(h) for h in (.12,.06,.03)]
+        exact = rectangle_spectrum()[0][1]
+        neff_errors = np.array([abs(s.modes[0].neff-exact) for s in sols])
+        field_errors = []
+        for s in sols:
+            xy,w,e,_ = s.quadrature_fields(s.modes[0])
+            f = np.array([np.zeros_like(xy[0]),np.sin(np.pi*xy[0]/1.2),np.zeros_like(xy[0])])
+            field_errors.append(relative_field_error(e,f,w))
+        for errors,limits in [(neff_errors,(1.8,2.2)),(np.array(field_errors),(.8,1.2))]:
+            assert np.all(np.diff(errors) < 0)
+            p = np.log(errors[:-1]/errors[1:])/np.log(2)
+>           assert np.all((p > limits[0]) & (p < limits[1]))
+E           assert np.False_
+E            +  where np.False_ = <function all at 0x7f01a572de30>((array([1.71623392, 2.00080784]) > 1.8 & array([1.71623392, 2.00080784]) < 2.2))
+E            +    where <function all at 0x7f01a572de30> = np.all
+
+tests/test_vector_m2.py:87: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  skfem.mesh.mesh:mesh.py:583 Transforming over 1000 vertices to C_CONTIGUOUS.
+WARNING  skfem.mesh.mesh:mesh.py:589 Transforming over 1000 elements to C_CONTIGUOUS.
+____________________ test_complex_index_loss_against_exact _____________________
+
+    def test_complex_index_loss_against_exact():
+        n = 1.5+.001j
+        sol = rectangle(n=n)
+        refs = rectangle_spectrum(n=n)
+        assert len(sol.modes) == 4
+        for mode,(_,exact) in zip(sol.modes,refs):
+>           assert abs(mode.neff-exact) < 3e-4
+E           assert np.float64(0.0011577527689564857) < 0.0003
+E            +  where np.float64(0.0011577527689564857) = abs((np.complex128(1.0435374294546589+0.001437418493732181j) - np.complex128(1.0446951811277114+0.0014358255183878643j)))
+E            +    where np.complex128(1.0435374294546589+0.001437418493732181j) = VectorMode(neff=np.complex128(1.0435374294546589+0.001437418493732181j), beta_per_um=np.complex128(4.230154222091269+0...., -0.0079109 +2.17937427e-05j,\n       -0.00531974+1.46553501e-05j, -0.0026726 +7.36275049e-06j],\n      shape=(1271,))).neff
+
+tests/test_vector_m2.py:96: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  skfem.mesh.mesh:mesh.py:583 Transforming over 1000 vertices to C_CONTIGUOUS.
+WARNING  skfem.mesh.mesh:mesh.py:589 Transforming over 1000 elements to C_CONTIGUOUS.
+=========================== short test summary info ============================
+FAILED tests/test_vector_m2.py::test_rectangle_spectrum_no_extra_modes - asse...
+FAILED tests/test_vector_m2.py::test_rectangle_three_mesh_levels - assert np....
+FAILED tests/test_vector_m2.py::test_complex_index_loss_against_exact - asser...
+3 failed, 12 passed, 5 deselected in 2.04s

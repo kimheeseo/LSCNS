@@ -1,0 +1,40 @@
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Traceback (most recent call last):
+  File "/workspace/scratch/e531e3519011/waveoptics_m3/validate_m3.py", line 109, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/e531e3519011/waveoptics_m3/validate_m3.py", line 53, in main
+    px=np.linspace(-.78,.78,241);XX,YY=np.meshgrid(px,px);points=np.array([XX.ravel(),YY.ravel()]);total=s.sample(points,total=True).reshape(XX.shape)
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e531e3519011/waveoptics_m3/waveoptics/scattering.py", line 239, in sample
+    value=self.basis.interpolator(self.field)(xy)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/skfem/assembly/basis/cell_basis.py", line 251, in interpfun
+    out = self.probes(x) @ y
+          ^^^^^^^^^^^^^^
+  File "/workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/skfem/assembly/basis/cell_basis.py", line 208, in probes
+    cells = self.mesh.element_finder(mapping=self.mapping)(*x)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/skfem/mesh/mesh_tri_1.py", line 443, in finder
+    X = mapping.invF(np.array([x, y])[:, None], ix)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e531e3519011/.venv/lib/python3.11/site-packages/skfem/mapping/mapping_affine.py", line 201, in invF
+    y = (x.T - b.T).T
+         ~~~~^~~~~
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 13.1 GiB for an array with shape (58081, 15109, 2) and data type float64

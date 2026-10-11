@@ -1,4 +1,4 @@
-/* v4.5.2 · 2026-10-10: 설정 품질 변경 시 상단 표기 직접 갱신 */
+/* v4.5.5 · 2026-10-11: 기존 시나리오 보존, FOV HUD + 절차형 GPU semantic LOD 추가 */
 (function(){
 'use strict';const T=window.__LS3D_TEST__;if(!T)return;const $=x=>document.getElementById(x);
 const defs={
@@ -254,4 +254,139 @@ syncTopology();layout();form();wireOpticalControls();flow();optics();calc();cons
 const phase3ScenarioApply=scenarioApply;scenarioApply=function(id){phase3ScenarioApply(id);if(id==='fiber-cut'){if(!c.broken)cutSelectedLink()}else if(id==='normal'&&c.broken){const q=L(c.broken);if(q)q.down=false;c.broken=null;c.reroute=false;flow();optics()}calc()};T.scenarioApply=scenarioApply;
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+
+/* v4.5.5 Phase 1 · 2026-10-11 — additive FOV/semantic LOD module. The original extension remains unchanged above. */
+(function(){
+'use strict';
+const T=window.__LS3D_TEST__,view=document.getElementById('viewport');
+if(!T||!view)return;
+const steps=[
+  {label:'10 m',m:10},{label:'1 m',m:1},{label:'10 cm',m:.1},
+  {label:'1 cm',m:.01},{label:'1 mm',m:.001},{label:'100 µm',m:1e-4},
+  {label:'10 µm',m:1e-5},{label:'1 µm',m:1e-6},
+  {label:'100 nm',m:1e-7},{label:'10 nm',m:1e-8},
+  {label:'1 nm',m:1e-9},{label:'0.1 nm',m:1e-10}
+];
+const stages=[
+  ['campus','캠퍼스','건물과 7개 운영 구역을 살펴봅니다.'],
+  ['hall','데이터홀','서버실 내부 레이아웃과 구역을 살펴봅니다.'],
+  ['row','랙 열','랙과 광/전력 경로를 살펴봅니다.'],
+  ['rack','개별 랙','ToR, 패치패널 및 서버 섀시를 검사합니다.'],
+  ['tray','서버 트레이','서버 레일을 인출하면 GPU 카드까지 확대할 수 있습니다.'],
+  ['gpu','GPU 카드','PCB·팬·히트싱크·메모리 위치의 절차형 개념 모델입니다.'],
+  ['package','GPU 패키지','칩렛과 HBM 배치의 절차형 개념 모델입니다.'],
+  ['concept','개념 스케일','µm~nm 구간은 확대 개념도이며 실측 형상이 아닙니다.']
+];
+const el=document.createElement('aside');
+el.className='phase1-scale';
+el.setAttribute('aria-label','화면 폭의 로그 스케일과 LOD 단계');
+el.innerHTML='<div class="phase1-scale-head"><b>FIELD OF VIEW</b><button type="button" id="phase1-toggle" aria-pressed="true" aria-label="FOV 눈금자 접기">접기</button></div><div class="phase1-scale-body"><div id="phase1-readout">≈ —</div><small id="phase1-stage">캠퍼스</small><div id="phase1-ruler" class="phase1-ruler"><i class="phase1-cursor" id="phase1-cursor"></i></div><div id="phase1-concept" class="phase1-concept">교육·설계 검토용 · 실측 CAD/BIM 아님</div></div>';
+view.appendChild(el);
+const ruler=el.querySelector('#phase1-ruler');
+for(let i=0;i<steps.length;i++){
+ const t=document.createElement('div');t.className='phase1-tick';t.style.top=(i/(steps.length-1)*100)+'%';
+ const mark=document.createElement('i');mark.className='phase1-tick-line';
+ const label=document.createElement('span');label.textContent=steps[i].label;
+ t.append(mark,label);ruler.appendChild(t);
+}
+const btn=el.querySelector('#phase1-toggle');
+btn.onclick=function(){const off=el.classList.toggle('is-collapsed');btn.textContent=off?'펼치기':'접기';btn.setAttribute('aria-pressed',String(!off));btn.setAttribute('aria-label',off?'FOV 눈금자 펼치기':'FOV 눈금자 접기');};
+function widthForDistance(distance,verticalFov,aspect){return 2*Math.max(0,distance)*Math.tan(verticalFov/2)*Math.max(.01,aspect)}
+function formatWidth(m){
+ const abs=Math.max(0,Number(m)||0);
+ const units=abs>=1?[1,'m']:abs>=.01?[.01,'cm']:abs>=.001?[.001,'mm']:abs>=1e-6?[1e-6,'µm']:[1e-9,'nm'];
+ const v=abs/units[0],digits=v>=100?0:v>=10?1:2;
+ return '≈ '+v.toFixed(digits)+' '+units[1];
+}
+function stageFor(d,inspect,slide){
+ if(!inspect){if(d>105)return 0;if(d>50)return 1;if(d>18)return 2;return 3;}
+ if(d>=2.5)return 3;if(d>=.75||!slide)return 4;
+ if(d>=.065)return 5;if(d>=.001)return 6;return 7;
+}
+function box(ctx,x,y,z,w,h,depth,col){ctx.box(x,y,z,w,h,depth,col)}
+function renderLOD(ctx,a,d,mechanism){
+ if(!T.phase1Local)return;
+ const slide=!!(mechanism&&(mechanism.targetSlide||mechanism.slide>.5));
+ const state=stageFor(d,true,slide);
+ if(state===4){
+   // Simplified isolated server tray; original rack, door, and cassette remain in the old inspector.
+   box(ctx,0,-.24,0,1.85,.24,2.35,'#28455e');
+   box(ctx,0,-.16,0,1.67,.06,2.12,'#92a8ba');
+   box(ctx,0,-.07,-.33,1.35,.045,.87,'#245263');
+   for(let k=0;k<4;k++){
+     const x=-.55+k*.36;
+     box(ctx,x,-.055,-.38,.26,.025,.65,'#1b8b78');
+     box(ctx,x,-.020,-.46,.13,.065,.16,'#26475c');
+     for(let j=0;j<3;j++)box(ctx,x-.08+j*.08,-.017,-.62,.033,.075,.032,'#94aaba');
+   }
+   box(ctx,0,-.035,.95,1.4,.09,.12,'#87a2af');
+   for(let j=0;j<8;j++)box(ctx,-.66+j*.19,-.006,.99,.08,.023,.032,'#53c9c6');
+   if(slide)ctx.line([-.8,.10,-1.07],[.8,.10,-1.07],'#f8cb6a');
+   return;
+ }
+ if(state===5){
+   // GPU add-in board. Limits remain deliberately schematic and independent of CAD accuracy.
+   box(ctx,0,-.043,0,.44,.026,.31,'#19836f');
+   box(ctx,0,-.017,0,.18,.042,.15,'#374957');
+   box(ctx,0,.026,0,.132,.020,.119,'#b3bdc6');
+   for(let k=0;k<11;k++){const x=-.062+k*.012;
+     box(ctx,x,.045,-.047,.006,.028,.09,'#82a6ae');
+   }
+   for(let k=0;k<2;k++){
+     const z=-.1+k*.2;
+     ctx.cylinder(-.16,-.014,z,.056,.018,'#435f72',14);
+     for(let j=0;j<7;j++){
+       const an=j*Math.PI*2/7;
+       box(ctx,-.16+Math.cos(an)*.028,.006,z+Math.sin(an)*.028,.015,.005,.032,'#91cbd6');
+     }
+   }
+   for(let i=0;i<4;i++)box(ctx,.16,-.016,-.115+i*.076,.060,.027,.035,'#303e60');
+   for(let i=0;i<12;i++)box(ctx,-.18+i*.033,-.05,.158,.019,.009,.013,'#f8cb6a');
+   for(let k=-1;k<=1;k++)ctx.line([-.19,.015,k*.07],[.19,.015,k*.07],'#43c6a5');
+   return;
+ }
+ if(state===6){
+   // Approximate package layout in local metres: no claim of real HBM/chiplet dimensions.
+   box(ctx,0,-.016,0,.061,.006,.061,'#b18c4c');
+   box(ctx,0,-.009,0,.048,.006,.048,'#194c63');
+   box(ctx,0,-.002,0,.026,.006,.027,'#3b87a2');
+   for(let i=-1;i<=1;i++)for(let j of [-1,1]){
+     box(ctx,i*.012,-.003,j*.019,.009,.008,.006,'#536888');
+   }
+   for(let i=0;i<7;i++){let x=-.024+i*.008;ctx.line([x,-.005,-.023],[x,-.005,.023],'#f8cb6a')}
+   return;
+ }
+ // A LOCAL conceptual die visualization. All vertices are relative to 0 to retain float32 precision.
+ // Never interpret these micron/nanometre shapes as measured transistor or package geometry.
+ const u=Math.max(1e-12,d*.48);
+ box(ctx,0,-u*.22,0,u*1.9,u*.06,u*1.42,'#26546c');
+ box(ctx,0,-u*.15,0,u*1.3,u*.06,u*1.05,'#38a2a4');
+ for(let i=-2;i<=2;i++)for(let j=-1;j<=1;j++){
+   box(ctx,i*u*.2,-u*.08,j*u*.31,u*.13,u*.08,u*.17,(i+j)%2?'#f8cb6a':'#87bce4');
+ }
+ for(let i=-3;i<=3;i++)ctx.line([-u*.8,0,i*u*.15],[u*.8,0,i*u*.15],'#58dbc6');
+}
+window.LS3D_PHASE1_RENDER=renderLOD;
+window.LS3D_PHASE1={widthForDistance,formatWidth,stageFor,get tickLabels(){return steps.map(x=>x.label)},get stage(){return el.querySelector('#phase1-stage').textContent},get collapsed(){return el.classList.contains('is-collapsed')}};
+let lastTick=0;
+window.addEventListener('ls3d-tick',function(){
+ const now=performance.now();if(now-lastTick<120)return;lastTick=now;
+ const camera=T.camera,lens=T.lens;
+ if(!camera||!lens||!lens.aspect||!Number.isFinite(camera.distance))return;
+ const inspect=!!(T.selected&&T.isMechanicalRack(T.selected)&&document.getElementById('detailModal')?.classList.contains('show'));
+ const slide=inspect&&!!(T.mechanical(T.selected).targetSlide||T.mechanical(T.selected).slide>.5);
+ const viewMode=!!(T.walkActive||T.workerViewId);
+ // First-person rays have no single camera-to-target distance; use 2m reference explicitly.
+ const distance=viewMode?2:Math.max(1e-10,camera.distance);
+ const fov=viewMode?Math.PI/3.1:lens.verticalFov;
+ const width=widthForDistance(distance,fov,lens.aspect);
+ const st=stageFor(distance,inspect,slide),details=stages[st];
+ const percent=Math.min(100,Math.max(0,Math.log10(10/Math.max(1e-12,width))/11*100));
+ el.querySelector('#phase1-cursor').style.top=percent+'%';
+ el.querySelector('#phase1-readout').textContent=formatWidth(width)+(viewMode?' · POV 2m 가정':'');
+ el.querySelector('#phase1-stage').textContent=details[1]+' · '+details[2];
+ el.querySelector('#phase1-concept').textContent=st>=6?'개념도 · 실측 아님 · CAD/BIM 아님':!slide&&inspect&&st===4?'GPU 확대 전 ‘서버 레일 인출’을 선택하세요.':'교육·설계 검토용 · 실측 CAD/BIM 아님';
+ view.classList.toggle('phase1-inspector',inspect);
+});
 })();

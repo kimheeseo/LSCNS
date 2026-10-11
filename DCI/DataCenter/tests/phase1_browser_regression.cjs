@@ -105,6 +105,8 @@ async function mobile(browser){
  let tapOK=true;try{await page.locator('#phase1-toggle').tap({timeout:2000})}catch(e){tapOK=false;await page.evaluate(()=>document.querySelector('#phase1-toggle').click());T.warnings.push('mobile tap fallback '+String(e).slice(0,200))}
  check('mobile','touch-toggle',tapOK&&await page.evaluate(()=>window.LS3D_PHASE1.collapsed),'tap');
  await page.evaluate(()=>document.querySelector('#phase1-toggle').click());
+ await page.locator('#scene').scrollIntoViewIfNeeded({timeout:7000});
+ await page.evaluate(()=>{window.__LS3D_TOUCH_DIAG__={start:0,move:0};let e=document.getElementById('scene');e.addEventListener('touchstart',()=>window.__LS3D_TOUCH_DIAG__.start++,{passive:true});e.addEventListener('touchmove',()=>window.__LS3D_TOUCH_DIAG__.move++,{passive:true})});
  await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance=40);
  await page.waitForTimeout(300);
  const before=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance);
@@ -117,7 +119,8 @@ async function mobile(browser){
  await touch('touchEnd',[]);
  await page.waitForTimeout(180);
  const after=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance);
- check('mobile','pinch-zoom',after<before&&after>0,'before='+before.toFixed(2)+' after='+after.toFixed(2));
+ const touchDiag=await page.evaluate(()=>({count:window.__LS3D_TOUCH_DIAG__,scrollY:scrollY,innerHeight:innerHeight}));
+ check('mobile','pinch-zoom',after<before&&after>0,'before='+before.toFixed(2)+' after='+after.toFixed(2)+' '+JSON.stringify(touchDiag));
  T.metrics.mobileCampus=await fpsSample(page,3);
  await page.screenshot({path:path.join(out,'mobile-portrait.png'),fullPage:true});
  await page.close();await context.close();

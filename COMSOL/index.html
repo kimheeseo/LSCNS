@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="LS Wave Optics 연구용 Python FEM 프로젝트 — 웹 LP01 해석식·MCF 결합·HCF capillary 프리뷰">
+<title>LS Wave Optics Lab | FEM & Optical Fiber Explorer</title>
+<link rel="stylesheet" href="./web/style.css?v=20261011a">
+<script src="./web/app.js?v=20261011a" defer></script>
+</head>
+<body>
+<header class="topbar">
+ <div class="brand"><span class="symbol">◈</span><div><strong>LS WAVE OPTICS</strong><small>PYTHON FEM · OPTICAL FIBER LAB</small></div></div>
+ <nav aria-label="주 메뉴"><a href="#explorer">분석 대시보드</a><a href="#python">Python 연구 환경</a><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL" target="_blank" rel="noopener">GitHub ↗</a></nav>
+</header>
+<main>
+ <section class="hero">
+  <div class="hero-copy"><p class="eyebrow">OPTICAL SIMULATION · RESEARCH PREVIEW</p>
+   <h1>광학 구조를 입력하고,<br><em>모드와 물성을 확인하세요.</em></h1>
+   <p>COMSOL Wave Optics 연구 프로젝트 M1–M8을 위한 웹 계산 뷰어입니다. Python FEM과 웹 해석식의 결과를 구분하며, 실제 제품 사양과의 비교 전 검토용으로 사용하세요.</p>
+   <div class="quick-links"><a href="#explorer" class="primary">분석 시작 <span>↗</span></a><a href="#python" class="subtle">Python FEM 실행 방법</a></div>
+  </div>
+  <div class="hero-status" aria-label="현재 개발 상태">
+   <div class="label">AVAILABLE MODELS</div><div class="status-row"><span>01</span><b>Step-index Fiber</b><small>LP01 · analytical</small></div>
+   <div class="status-row"><span>02</span><b>Multi-core Fiber</b><small>M8 reference</small></div>
+   <div class="status-row"><span>03</span><b>Hollow-core</b><small>Capillary model</small></div>
+   <p>웹 실행은 **Python FEM을 실행하지 않습니다.** 독립 해석식·저장된 FEM 기준 결과를 사용하는 별도의 빠른 미리보기입니다.</p>
+  </div>
+ </section>
+ <section class="workspace" id="explorer">
+  <div class="sectionhead"><div><p class="eyebrow">INTERACTIVE WORKSPACE</p><h2>Optical Fiber Explorer</h2></div><span class="labstatus">WEB ANALYTICAL ENGINE</span></div>
+  <div class="tabs" role="tablist" aria-label="해석 대상 선택">
+    <button type="button" role="tab" aria-selected="true" data-mode="fiber">M7 · SMF / G.654.E*</button>
+    <button type="button" role="tab" aria-selected="false" data-mode="mcf">M8 · MCF</button>
+    <button type="button" role="tab" aria-selected="false" data-mode="hcf">M8 · HCF</button>
+  </div>
+  <div class="workspace-layout">
+   <aside class="settings">
+     <h3><span>01</span> 입력 파라미터</h3>
+     <p class="aside-note">단위는 µm입니다. 값을 변경하면 자동으로 결과가 갱신됩니다.</p>
+     <form id="web-form" onsubmit="return false">
+      <div class="input-block" data-for="fiber">
+       <label for="wl">Wavelength <small>λ (µm)</small></label><input id="wl" type="number" min=".8" max="2.5" step=".01" value="1.55">
+       <label for="radius">Core radius <small>a (µm)</small></label><input id="radius" type="number" min=".1" max="30" step=".1" value="4.1">
+       <label for="dn">Index contrast <small>Δn</small></label><input id="dn" type="number" min=".00001" max=".04" step=".0005" value=".005">
+       <div class="hint">클래딩 굴절률은 실리카 Sellmeier로 계산하고 n<sub>core</sub>=n<sub>clad</sub>+Δn를 가정합니다. 실제 G.654.E 제품 단면의 굴절률 프로파일과 동일하다는 의미는 아닙니다.</div>
+      </div>
+      <div class="input-block" data-for="mcf" hidden>
+       <label for="pitch">Core-to-core pitch <small>µm</small></label><input id="pitch" type="number" min="12" max="24" step=".5" value="16">
+       <div class="hint">기준: λ=1.55 µm, a=4.1 µm, Δn=0.005. M8 FEM에서 검증한 12/16/20/24 µm 참조점 사이를 로그 보간합니다. 파라미터를 바꿔 새 FEM을 수행하지 않습니다.</div>
+      </div>
+      <div class="input-block" data-for="hcf" hidden>
+       <label for="hwl">Wavelength <small>λ (µm)</small></label><input id="hwl" type="number" min=".2" max="4" step=".01" value="1.55">
+       <label for="hradius">Air core radius <small>R (µm)</small></label><input id="hradius" type="number" min="2" max="500" step="1" value="15">
+       <label for="air">Air refractive index <small>n<sub>air</sub></small></label><input id="air" type="number" min="1" max="1.1" step=".00001" value="1.00027">
+       <div class="hint">이상적 원형 hollow capillary 근사입니다. 반공진 모세관, nested tube, confinement loss, 표면산란은 포함하지 않습니다.</div>
+      </div>
+     </form>
+     <button type="button" class="run" id="calculate">▶ 계산 실행</button>
+     <div class="model-label">계산 방식 <strong id="web-method">LP01 Bessel 해석식</strong></div>
+     <div class="aside-actions"><button type="button" id="export-csv">↓ CSV</button><button type="button" id="export-png">↓ 그래프 PNG</button></div>
+     <div class="notice" id="notice" role="status"></div>
+   </aside>
+   <div class="results">
+    <div class="results-top"><h3><span>02</span> 결과 대시보드</h3><small id="computed-at">계산 준비</small></div>
+    <div class="metrics" id="metrics" aria-live="polite"></div>
+    <div class="viz-grid">
+      <article class="viz-card field-card"><div class="viz-head"><strong>Mode field distribution</strong><span>2D VIEW</span></div><div class="mode-wrap"><canvas id="mode-map" width="240" height="240" role="img" aria-label="광모드 2D 횡단면 상대 세기 그래프"></canvas></div><div class="viz-foot">정규화된 상대 모드 세기 · 개념적 횡단면</div></article>
+      <article class="viz-card"><div class="viz-head"><strong>Mode profile / Coupling</strong><span>GRAPH A</span></div><canvas id="chart-a" class="plot" role="img" aria-label="광모드 분포 또는 결합 특성 그래프"></canvas></article>
+      <article class="viz-card span"><div class="viz-head"><strong>Spectral response</strong><span>GRAPH B</span></div><canvas id="chart-b" class="plot wide" role="img" aria-label="파장별 유효굴절률 혹은 색분산 그래프"></canvas></article>
+    </div>
+    <div class="disclaimer">* 이 웹페이지는 빠른 해석식 프리뷰이며 직접 FEM을 돌리는 웹 해석기가 아닙니다. 실제 2D FEM, 메시 수렴 및 다중코어 고유모드 계산은 아래 Python 연구 환경에서 실행해 주세요. 상품 스펙·실측 CAD/BIM의 검증 자료로 단독 사용하지 마십시오.</div>
+   </div>
+  </div>
+ </section>
+ <section class="python" id="python"><div class="sectionhead"><div><p class="eyebrow">REPRODUCIBLE RESEARCH</p><h2>Python FEM으로 직접 계산하기</h2></div><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL" class="link">소스 전체 보기 ↗</a></div>
+  <div class="python-grid">
+   <div class="doc-card"><span class="step">STEP 01</span><h3>Python 3.11 설치 및 코드 받기</h3><pre><code>git clone https://github.com/kimheeseo/LSCNS.git
+cd LSCNS
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install numpy scipy matplotlib</code></pre><p>Windows PowerShell 기준. Mac/Linux는 <code>python3 -m venv .venv</code>로 생성한 후 <code>.venv/bin/python</code>을 사용하세요.</p></div>
+   <div class="doc-card"><span class="step">STEP 02</span><h3>기존 M7·M8 검증 재실행</h3><pre><code>.\.venv\Scripts\python.exe COMSOL\run_m7_m8_validation.py</code></pre><p>실행하면 모드 분포·메시 수렴·MCF 결합·HCF 기준 계산 결과가 각 <code>screenshots/</code> 폴더에 PNG, CSV, JSON으로 저장됩니다.</p></div>
+   <div class="doc-card"><span class="step">STEP 03</span><h3>내 광섬유 사양 넣기</h3><pre><code>from fiber_modes import Fiber, solve_modes, scalar_metrics
+fiber = Fiber(wavelength_um=1.55,
+              radius_um=4.1,
+              delta_n=0.005)
+sol = solve_modes(fiber, n=81)
+print(scalar_metrics(sol))</code></pre><p>해당 import가 동작하려면 <code>COMSOL/waveoptics_m7/src</code>를 Python import 경로에 추가해야 합니다. 정확한 실행 예제는 <a href="./README.md">README</a>에서 확인하십시오.</p></div>
+  </div>
+ </section>
+ <section class="source-links"><h2>마일스톤별 연구 자료</h2><div class="source-grid">
+  <a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/waveoptics_m7">M7 · Step-index FEM <span>neff / MFD / Aeff / Dispersion ↗</span></a>
+  <a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/waveoptics_m8">M8 · MCF / HCF <span>Coupling / Capillary ↗</span></a>
+  <a href="https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/M1_M8_FINAL_REPORT.md">M1–M8 · 검증 현황 <span>Milestone summary ↗</span></a>
+ </div></section>
+</main>
+<footer>LS WAVE OPTICS · Educational numerical model · 2026 <a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL">GitHub Repository</a></footer>
+</body>
+</html>

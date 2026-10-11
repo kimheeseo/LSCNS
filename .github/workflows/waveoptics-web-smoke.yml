@@ -1,0 +1,42 @@
+name: COMSOL WaveOptics Web Smoke
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/index.html'
+      - 'COMSOL/web/**'
+      - '.github/workflows/waveoptics-web-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  web-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax and mathematical oracle smoke
+        run: |
+          node --check COMSOL/web/app.js
+          node --check COMSOL/web/browser-smoke.cjs
+          node COMSOL/web/smoke.cjs
+      - name: Install Chromium for desktop and mobile preview
+        run: |
+          mkdir -p /tmp/waveoptics-playwright
+          npm install --no-save --prefix /tmp/waveoptics-playwright playwright@1.56.1
+          /tmp/waveoptics-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Desktop and mobile Chromium UI regression
+        env:
+          NODE_PATH: /tmp/waveoptics-playwright/node_modules
+        run: node COMSOL/web/browser-smoke.cjs
+      - name: Upload screenshots and test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waveoptics-web-desktop-mobile-smoke
+          path: |
+            COMSOL/web/test-results/*.png
+            COMSOL/web/test-results/report.json
+          retention-days: 30

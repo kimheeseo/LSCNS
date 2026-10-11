@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Broadcom",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "switchAsic": {
+      "name": "Tomahawk® 6 – Davisson BCM78919 CPO Switch",
+      "description": "102.4 Tb/s switching capacity, 16 × 6.4T Davisson DR optical engines, 200 Gb/s per link, field-replaceable ELSFP laser modules. Broadcom lists IEEE 802.3 interoperability with existing 400G/800G standards and scale-up support up to 512 XPUs; current lifecycle is Limited Release.",
+      "officialUrl": "https://www.broadcom.com/products/fiber-optic-modules-components/co-packaged-optics/switches",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.broadcom.com/products/fiber-optic-modules-components/co-packaged-optics/switches",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Switch ASIC / xPU",
+        "공개 사양 / 상태": "102.4 Tb/s switching capacity, 16 × 6.4T Davisson DR optical engines, 200 Gb/s per link, field-replaceable ELSFP laser modules. Broadcom lists IEEE 802.3 interoperability with existing 400G/800G standards and scale-up support up to 512 XPUs; current lifecycle is Limited Release.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "미국",
+        "원문 업체": "Broadcom",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

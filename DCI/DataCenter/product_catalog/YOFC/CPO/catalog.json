@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "YOFC",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "pmFiber": {
+      "name": "R5 anti-bending PM fiber for components / PM 1310 reference variant",
+      "description": "YOFC는 R5 anti-bending PM fiber를 CPO 및 800G SiPh transceiver용으로 판매한다고 설명합니다. 별도 PM1310 공개 사양표의 기준 모델은 attenuation ≤0.5 dB/km, MFD 9.0 ±1.0 µm, cladding 125 ±1.0 µm, beat length 3.0–6.0 mm입니다. PM1310 기준 모델 수치를 R5 제품의 확정 사양으로 간주하지 마세요.",
+      "officialUrl": "https://en.yofc.com/view/3205.html",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://en.yofc.com/view/3205.html",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "PM fiber",
+        "공개 사양 / 상태": "YOFC는 R5 anti-bending PM fiber를 CPO 및 800G SiPh transceiver용으로 판매한다고 설명합니다. 별도 PM1310 공개 사양표의 기준 모델은 attenuation ≤0.5 dB/km, MFD 9.0 ±1.0 µm, cladding 125 ±1.0 µm, beat length 3.0–6.0 mm입니다. PM1310 기준 모델 수치를 R5 제품의 확정 사양으로 간주하지 마세요.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "중국",
+        "원문 업체": "YOFC (Yangtze Optical Fibre and Cable Co., Ltd)",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "dataFiber": {
+      "name": "Specialty Fiber / G.654.E / HCF / MCF",
+      "description": "CIOE 2026 전시 품목에는 specialty fiber와 광섬유·케이블이 포함됩니다. YOFC는 공식 기술 소개에서 G.654.E의 낮은 감쇠·큰 유효면적, HCF/MCF, CPO 적용 R5 PMF 제품군을 소개합니다. 실제 dB/km·Aeff·MFD는 개별 모델의 최신 데이터시트로 확인해야 합니다.",
+      "officialUrl": "https://en.yofc.com/view/3205.html",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://en.yofc.com/view/3205.html",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "광섬유 / 광케이블",
+        "공개 사양 / 상태": "CIOE 2026 전시 품목에는 specialty fiber와 광섬유·케이블이 포함됩니다. YOFC는 공식 기술 소개에서 G.654.E의 낮은 감쇠·큰 유효면적, HCF/MCF, CPO 적용 R5 PMF 제품군을 소개합니다. 실제 dB/km·Aeff·MFD는 개별 모델의 최신 데이터시트로 확인해야 합니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "중국",
+        "원문 업체": "YOFC (Yangtze Optical Fibre and Cable Co., Ltd)",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

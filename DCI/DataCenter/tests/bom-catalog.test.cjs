@@ -1,5 +1,21 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const M=require('../bom-catalog.js');
+test('CPO reference catalogs stay in their group and never replace purchase BOM rows',()=>{
+ const catRoot=path.join(__dirname,'../product_catalog');
+ const imported=JSON.parse(fs.readFileSync(path.join(catRoot,'cpo-import.json'),'utf8'));
+ const manifest=JSON.parse(fs.readFileSync(path.join(catRoot,'catalog-manifest.json'),'utf8'));
+ let count=0;
+ for(const supplier of imported.suppliers){
+  assert.ok(manifest.paths.includes(supplier.path));
+  const catalog=JSON.parse(fs.readFileSync(path.join(catRoot,supplier.path),'utf8'));
+  const products=M.normalize(catalog,supplier.path);count+=products.length;
+  assert.equal(products.length,supplier.products);
+  for(const p of products){assert.equal(p.kind,'cpo');assert.ok(p.referenceOnly);assert.match(p.source,/^https?:\/\//);}
+  for(const item of ['Switch','Connector','Fiber Cable','CPO'])assert.equal(M.match({item},products).length,0);
+ }
+ assert.equal(count,imported.productCount);
+ assert.equal(imported.suppliers.length,imported.supplierCount);
+});
 const read=folder=>M.normalize(JSON.parse(fs.readFileSync(path.join(__dirname,'../product_catalog',folder,'catalog.json'),'utf8')),folder+'/catalog.json');
 const optical=read('Coherent/Optical Transceivers'),aec=read('Amphenol/Active Electrical Cables'),dac=read('Amphenol/Copper DAC');
 test('Coherent Korean fields are read; 400G FR4 is not a DR4 candidate; unknown IB is not qualified',()=>{

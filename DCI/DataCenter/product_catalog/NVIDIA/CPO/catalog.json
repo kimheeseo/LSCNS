@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "NVIDIA",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "switchAsic": {
+      "name": "NVIDIA Spectrum-X Ethernet Photonics / Quantum-X InfiniBand Photonics",
+      "description": "CPO architectures built on 200G SerDes. Spectrum-X Ethernet Photonics is specified up to 409.6 Tb/s and planned for H2 2026 availability. Quantum-X800 includes CPO switches such as Q3450-LD with 144 × 800 Gb/s InfiniBand ports and liquid-cooled onboard silicon photonics.",
+      "officialUrl": "https://www.nvidia.com/en-us/networking/products/silicon-photonics/",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/networking/products/silicon-photonics/",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "Switch ASIC / xPU",
+        "공개 사양 / 상태": "CPO architectures built on 200G SerDes. Spectrum-X Ethernet Photonics is specified up to 409.6 Tb/s and planned for H2 2026 availability. Quantum-X800 includes CPO switches such as Q3450-LD with 144 × 800 Gb/s InfiniBand ports and liquid-cooled onboard silicon photonics.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "미국",
+        "원문 업체": "NVIDIA",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "opticalModule": {
+      "name": "NVIDIA LinkX® Optical Transceivers / AI Networking Interconnect",
+      "description": "NVIDIA LinkX는 Ethernet 및 InfiniBand용 100G/200G/400G/800G optical interconnect를 제공합니다. 최신 포트폴리오는 switch 측 OSFP와 NIC 측 OSFP/QSFP112 조합을 사용하며, DR 계열은 최대 500 m, FR 계열은 최대 2 km 범위를 제시합니다. CPO, pluggable optics, DAC/LACC를 하나의 AI-factory interconnect 체계로 운용합니다.",
+      "officialUrl": "https://www.nvidia.com/ko-kr/networking/interconnect/",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.nvidia.com/ko-kr/networking/interconnect/",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "광모듈 / 트랜시버",
+        "공개 사양 / 상태": "NVIDIA LinkX는 Ethernet 및 InfiniBand용 100G/200G/400G/800G optical interconnect를 제공합니다. 최신 포트폴리오는 switch 측 OSFP와 NIC 측 OSFP/QSFP112 조합을 사용하며, DR 계열은 최대 500 m, FR 계열은 최대 2 km 범위를 제시합니다. CPO, pluggable optics, DAC/LACC를 하나의 AI-factory interconnect 체계로 운용합니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "미국",
+        "원문 업체": "NVIDIA",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "ASE",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "package": {
+      "name": "ASE VIPack™ / CPO packaging and silicon-photonics integration",
+      "description": "ASE positions VIPack as a heterogeneous-integration and advanced-packaging platform. Its CPO demonstration describes a possible alternative to pluggable optics at 1.6 Tb/s or 3.2 Tb/s per port; this is an architecture demonstration, not a guaranteed production SKU specification.",
+      "officialUrl": "https://ase.aseglobal.com/press-room/ase-demonstrates-cpo-for-ai-applications/",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://ase.aseglobal.com/press-room/ase-demonstrates-cpo-for-ai-applications/",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "CPO 패키지 / 기판",
+        "공개 사양 / 상태": "ASE positions VIPack as a heterogeneous-integration and advanced-packaging platform. Its CPO demonstration describes a possible alternative to pluggable optics at 1.6 Tb/s or 3.2 Tb/s per port; this is an architecture demonstration, not a guaranteed production SKU specification.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "대만",
+        "원문 업체": "ASE",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

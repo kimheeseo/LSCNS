@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "Furukawa Electric",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "pmFiber": {
+      "name": "ClearLite TruePhase® PANDA Polarization-Maintaining Fiber",
+      "description": "통신용 980–1550 nm 대역 제품군. 표준 polarization crosstalk/extinction 성능은 < -35 dB/100 m로 안내되며 small-bend 및 2% proof 옵션이 공개되어 있습니다.",
+      "officialUrl": "https://www.furukawa.co.jp/telecom/product/opt_fiber/specialty_clearlite_ture.html",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.furukawa.co.jp/telecom/product/opt_fiber/specialty_clearlite_ture.html",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "PM fiber",
+        "공개 사양 / 상태": "통신용 980–1550 nm 대역 제품군. 표준 polarization crosstalk/extinction 성능은 < -35 dB/100 m로 안내되며 small-bend 및 2% proof 옵션이 공개되어 있습니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "일본",
+        "원문 업체": "Furukawa Electric",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "connector": {
+      "name": "Furukawa Electric / Lightera Snap-Beam™ Connector",
+      "description": "Compact detachable optical connector for PIC/CPO using expanded-beam coupling, magnet-assisted automatic connection and reflow compatibility. ECOC 2026 presentation described an 8 × 40-channel gang connector enabling simultaneous connection of 320 optical channels.",
+      "officialUrl": "https://www.prnewswire.com/news-releases/furukawa-electric-and-lighteras-snap-beam-connector-for-co-packaged-optics-wins-ecoc-fibre-infrastructure-innovation-award-2026-302886658.html",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/furukawa-electric-and-lighteras-snap-beam-connector-for-co-packaged-optics-wins-ecoc-fibre-infrastructure-innovation-award-2026-302886658.html",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "커넥터 / VSFF",
+        "공개 사양 / 상태": "Compact detachable optical connector for PIC/CPO using expanded-beam coupling, magnet-assisted automatic connection and reflow compatibility. ECOC 2026 presentation described an 8 × 40-channel gang connector enabling simultaneous connection of 320 optical channels.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "일본",
+        "원문 업체": "Furukawa Electric",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

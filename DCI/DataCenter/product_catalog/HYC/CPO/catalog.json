@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "company": "HYC",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "fau": {
+      "name": "High-precision-pitch CPO FAU · PMF/SMF hybrid",
+      "description": "CPO용 고밀도 fiber-to-chip 결합을 위한 hybrid PMF+SMF 구조의 고정밀 pitch FAU로 소개됐습니다. HYC 발표는 PER 및 GR-468/GR-1221 준수 목표를 설명하며 개별 모델 인증 자료는 별도 확인이 필요합니다.",
+      "officialUrl": "https://www.ofcconference.org/news-media/exhibitor-news/hyc-showcases-multi-core-fiber-and-cpo-interconnect-solutions-at-ofc-2026/",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.ofcconference.org/news-media/exhibitor-news/hyc-showcases-multi-core-fiber-and-cpo-interconnect-solutions-at-ofc-2026/",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "FAU / Fiber-to-Chip",
+        "공개 사양 / 상태": "CPO용 고밀도 fiber-to-chip 결합을 위한 hybrid PMF+SMF 구조의 고정밀 pitch FAU로 소개됐습니다. HYC 발표는 PER 및 GR-468/GR-1221 준수 목표를 설명하며 개별 모델 인증 자료는 별도 확인이 필요합니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "중국",
+        "원문 업체": "HYC Co., Ltd.",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "connector": {
+      "name": "Ultra-high-fiber-count MMC patch cords",
+      "description": "OFC 2026 전시에서 MMC 및 MTP 인터페이스 기반 초고밀도 patch cord 포트폴리오를 소개했습니다.",
+      "officialUrl": "https://www.ofcconference.org/news-media/exhibitor-news/hyc-showcases-multi-core-fiber-and-cpo-interconnect-solutions-at-ofc-2026/",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.ofcconference.org/news-media/exhibitor-news/hyc-showcases-multi-core-fiber-and-cpo-interconnect-solutions-at-ofc-2026/",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "커넥터 / VSFF",
+        "공개 사양 / 상태": "OFC 2026 전시에서 MMC 및 MTP 인터페이스 기반 초고밀도 patch cord 포트폴리오를 소개했습니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "중국",
+        "원문 업체": "HYC Co., Ltd.",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

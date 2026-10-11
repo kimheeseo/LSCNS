@@ -162,10 +162,11 @@
     gpu:'GPU / AI Accelerator',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
     rack:'Rack', management:'Cable Management', cabletray:'Cable Tray', raceway:'Fiber Raceway', cooling:'Cooling', facility:'Data Center Infrastructure',
-    splicer:'Splicer', monitoring:'Fiber Test / Monitoring', other:'Other'
+    splicer:'Splicer', monitoring:'Fiber Test / Monitoring', cpo:'CPO', other:'Other'
   };
 
   const dbGroups = [
+    {id:'cpo', label:'CPO', kinds:['cpo']},
     {id:'cable', label:'Cable / Interconnect DB', kinds:['fiber','trunk','patch','aoc','dac','aec','copper']},
     {id:'connectivity', label:'Connector / Panel / Adapter DB', kinds:['connector','adapter','module','panel']},
     {id:'optics', label:'Optics / Component DB', kinds:['transceiver','component']},
@@ -202,6 +203,8 @@
       if (product && typeof product === 'object') dbTaxonomyCache.set(product, result);
       return result;
     };
+
+    if (category === 'CPO' || dbPathParts(product)[1] === 'CPO') return hit('cpo','CPO supply-chain reference catalog');
 
     if (/FIBER TEST AND MONITORING|\bOTDR\b|FIBERWATCH|ONMSI|FTH-5000|928-OMS|RTU-4000|RTU-4100/.test(t)) return hit('monitoring','fiber test/monitoring reference equipment');
 
@@ -429,7 +432,8 @@
     const companies = dbCountMap(items, p => dbPathParts(p)[0] || p.vendor || 'Unknown');
     const categories = dbCountMap(items, p => dbPathParts(p)[1] || p.category || 'Other');
     const paths = new Set(items.map(p => p.path).filter(Boolean));
-    const companyRows = [...companies.entries()].sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0,18);
+    const sortedCompanies = [...companies.entries()].sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const companyRows = kinds.includes('cpo') ? sortedCompanies : sortedCompanies.slice(0,18);
     const categoryRows = [...categories.entries()].sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0,16);
     host.hidden = false;
     host.innerHTML =
@@ -745,7 +749,7 @@
     const rows = keys.map(key => [key, d.specs[key] ?? '—']);
     const virtual = !!d.file.virtual;
     const primaryUrl = d.file.html_url || d.officialUrl;
-    const primaryLabel = virtual ? (d.referenceOnly ? '공식 기술자료 보기 ↗' : '공식 제품 페이지 보기 ↗') : '제품 PDF 보기 ↗';
+    const primaryLabel = state.category === 'CPO' ? '제품·기술 출처 보기 ↗' : virtual ? (d.referenceOnly ? '공식 기술자료 보기 ↗' : '공식 제품 페이지 보기 ↗') : '제품 PDF 보기 ↗';
     const secondary = (!virtual && d.officialUrl && d.officialUrl !== d.file.html_url)
       ? '<a href="' + esc(d.officialUrl) + '" target="_blank" rel="noopener">공식 제품 페이지 ↗</a>' : '';
     const datasheet = d.datasheetUrl && d.datasheetUrl !== primaryUrl ? '<a href="' + esc(d.datasheetUrl) + '" target="_blank" rel="noopener">데이터시트 PDF ↗</a>' : '';

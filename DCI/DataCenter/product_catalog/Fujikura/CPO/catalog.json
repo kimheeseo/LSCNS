@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "company": "Fujikura",
+  "category": "CPO",
+  "displayName": "CPO",
+  "checked": "2026-10-11",
+  "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "storageMode": "metadata only; source-linked CPO reference products",
+  "products": {
+    "pmFiber": {
+      "name": "1310 nm PANDA PM Fiber — SM13-PS-H90D / SM13-PS-U40D / SM13-PS-U25D",
+      "description": "제조사 공개 사양: cladding 125 ± 1 µm, MFD 9.0 ± 0.5 µm @1310 nm, attenuation ≤1.0 dB/km @1310 nm, polarization crosstalk ≤−30 dB/100 m. 2% proof 버전의 최소 굽힘 반경은 R20 mm. 코팅 외경은 H90D 900 ±100 µm, U40D 400 ±15 µm, U25D 245 ±15 µm입니다.",
+      "officialUrl": "https://www.fujikura.co.jp/eng/resource/pdf/td5039.pdf",
+      "checked": "2026-10-11",
+      "sourceUrls": [
+        "https://www.fujikura.co.jp/eng/resource/pdf/td5039.pdf",
+        "https://kimheeseo.github.io/cpo-supply-chain/"
+      ],
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "PM fiber",
+        "공개 사양 / 상태": "제조사 공개 사양: cladding 125 ± 1 µm, MFD 9.0 ± 0.5 µm @1310 nm, attenuation ≤1.0 dB/km @1310 nm, polarization crosstalk ≤−30 dB/100 m. 2% proof 버전의 최소 굽힘 반경은 R20 mm. 코팅 외경은 H90D 900 ±100 µm, U40D 400 ±15 µm, U25D 245 ±15 µm입니다.",
+        "등록 기준": "공급망 페이지의 제품별 공개 자료 · 양산/주문/호환 검증 별도",
+        "BOM 적용": "CPO 참고 제품 · 구매 수량 자동 합산 제외",
+        "국가": "일본",
+        "원문 업체": "Fujikura",
+        "원문 버전": "CPO Supply Chain v2.13.0 · 2026-10-11"
+      },
+      "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+      "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    }
+  }
+}

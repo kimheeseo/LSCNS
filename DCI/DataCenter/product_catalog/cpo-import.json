@@ -1,0 +1,905 @@
+{
+  "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
+  "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
+  "sourceVersion": "2.13.0",
+  "checked": "2026-10-11",
+  "supplierCount": 149,
+  "productCount": 162,
+  "selection": "Suppliers mapped to CPO core/enabling layers (ELS, PMF, optical engines, packaging, FAU, connectors, foundry, test, assembly, thermal/materials, emerging photonics), plus explicitly CPO-labeled portfolios. Generic host NIC/cable and long-haul fiber records excluded.",
+  "suppliers": [
+    {
+      "supplierId": "3m",
+      "company": "3M",
+      "path": "3M/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "adstech",
+      "company": "ADS Tech",
+      "path": "ADS Tech/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "advantest",
+      "company": "Advantest",
+      "path": "Advantest/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "agc",
+      "company": "AGC",
+      "path": "AGC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "aimphotonics",
+      "company": "AIM Photonics",
+      "path": "AIM Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ajinomoto",
+      "company": "Ajinomoto Fine-Techno",
+      "path": "Ajinomoto Fine-Techno/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "amf",
+      "company": "Advanced Micro Foundry (AMF)",
+      "path": "Advanced Micro Foundry (AMF)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "amkor",
+      "company": "Amkor",
+      "path": "Amkor/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "amphenol",
+      "company": "Amphenol",
+      "path": "Amphenol/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ase",
+      "company": "ASE",
+      "path": "ASE/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "astarime",
+      "company": "A*STAR Institute of Microelectronics (IME)",
+      "path": "A*STAR Institute of Microelectronics (IME)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "attotude",
+      "company": "AttoTude",
+      "path": "AttoTude/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "auras",
+      "company": "Auras Technology",
+      "path": "Auras Technology/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "avc",
+      "company": "Asia Vital Components (AVC)",
+      "path": "Asia Vital Components (AVC)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "avicena",
+      "company": "Avicena",
+      "path": "Avicena/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ayar",
+      "company": "Ayar Labs",
+      "path": "Ayar Labs/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "blacksemiconductor",
+      "company": "Black Semiconductor",
+      "path": "Black Semiconductor/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "boe",
+      "company": "BOE Technology",
+      "path": "BOE Technology/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "boyd",
+      "company": "Boyd",
+      "path": "Boyd/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "broadcom",
+      "company": "Broadcom",
+      "path": "Broadcom/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "cambridgecioe",
+      "company": "CIG",
+      "path": "CIG/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "casela",
+      "company": "Casela Technologies",
+      "path": "Casela Technologies/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "celestial",
+      "company": "Celestial AI",
+      "path": "Celestial AI/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "celestica",
+      "company": "Celestica",
+      "path": "Celestica/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ciena",
+      "company": "Ciena",
+      "path": "Ciena/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "cisco",
+      "company": "Cisco",
+      "path": "Cisco/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "coherent",
+      "company": "Coherent",
+      "path": "Coherent/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "coolermaster",
+      "company": "Cooler Master",
+      "path": "Cooler Master/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "corning",
+      "company": "Corning",
+      "path": "Corning/CPO/catalog.json",
+      "products": 3
+    },
+    {
+      "supplierId": "daikin",
+      "company": "Daikin",
+      "path": "Daikin/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "delo",
+      "company": "DELO",
+      "path": "DELO/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "denselight",
+      "company": "DenseLight Semiconductors",
+      "path": "DenseLight Semiconductors/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "dow",
+      "company": "Dow",
+      "path": "Dow/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "dupont",
+      "company": "DuPont",
+      "path": "DuPont/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "dymax",
+      "company": "Dymax",
+      "path": "Dymax/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "enlightra",
+      "company": "Enlightra",
+      "path": "Enlightra/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "enlitech",
+      "company": "Enlitech",
+      "path": "Enlitech/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ennostar",
+      "company": "Ennostar",
+      "path": "Ennostar/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fabrinet",
+      "company": "Fabrinet",
+      "path": "Fabrinet/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ficontec",
+      "company": "ficonTEC",
+      "path": "ficonTEC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fii",
+      "company": "Foxconn Industrial Internet",
+      "path": "Foxconn Industrial Internet/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fit",
+      "company": "FIT Hon Teng",
+      "path": "FIT Hon Teng/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "formfactor",
+      "company": "FormFactor",
+      "path": "FormFactor/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fostec",
+      "company": "FOSTEC",
+      "path": "FOSTEC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "foxconn",
+      "company": "Foxconn",
+      "path": "Foxconn/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fujikura",
+      "company": "Fujikura",
+      "path": "Fujikura/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "fujitsu",
+      "company": "Fujitsu",
+      "path": "Fujitsu/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "furukawa",
+      "company": "Furukawa Electric",
+      "path": "Furukawa Electric/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "globalfoundries",
+      "company": "GlobalFoundries",
+      "path": "GlobalFoundries/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "hanwha",
+      "company": "Hanwha Solutions",
+      "path": "Hanwha Solutions/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "hengtong",
+      "company": "Hengtong",
+      "path": "Hengtong/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "henkel",
+      "company": "Henkel",
+      "path": "Henkel/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "hpe",
+      "company": "HPE",
+      "path": "HPE/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "hyc",
+      "company": "HYC",
+      "path": "HYC/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "hyperlight",
+      "company": "HyperLight",
+      "path": "HyperLight/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "hyperlume",
+      "company": "Hyperlume",
+      "path": "Hyperlume/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ibm",
+      "company": "IBM",
+      "path": "IBM/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "iconphotonics",
+      "company": "ICON Photonics",
+      "path": "ICON Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "imec",
+      "company": "imec",
+      "path": "imec/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "imecas",
+      "company": "IMECAS",
+      "path": "IMECAS/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "indium",
+      "company": "Indium Corporation",
+      "path": "Indium Corporation/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "innolume",
+      "company": "Innolume",
+      "path": "Innolume/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "innometry",
+      "company": "InnoMetry",
+      "path": "InnoMetry/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "intel",
+      "company": "Intel",
+      "path": "Intel/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ipronics",
+      "company": "iPronics",
+      "path": "iPronics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "itri",
+      "company": "ITRI",
+      "path": "ITRI/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "jabil",
+      "company": "Jabil",
+      "path": "Jabil/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "jcet",
+      "company": "JCET Group",
+      "path": "JCET Group/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "keysight",
+      "company": "Keysight",
+      "path": "Keysight/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "kyocera",
+      "company": "Kyocera",
+      "path": "Kyocera/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lasercell",
+      "company": "LaserCell",
+      "path": "LaserCell/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lessengers",
+      "company": "Lessengers",
+      "path": "Lessengers/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "letic2n",
+      "company": "CEA-Leti",
+      "path": "CEA-Leti/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightepoch",
+      "company": "LightEpoch (光纪元)",
+      "path": "LightEpoch (光纪元)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightium",
+      "company": "Lightium",
+      "path": "Lightium/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightlinktech",
+      "company": "LightLinkTech (光联芯科)",
+      "path": "LightLinkTech (光联芯科)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightmatter",
+      "company": "Lightmatter",
+      "path": "Lightmatter/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightspeed",
+      "company": "LightSpeed Photonics",
+      "path": "LightSpeed Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lightwavelogic",
+      "company": "Lightwave Logic",
+      "path": "Lightwave Logic/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lingxiphotonics",
+      "company": "Lingxi Photonics (灵熙光子)",
+      "path": "Lingxi Photonics (灵熙光子)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lionix",
+      "company": "LioniX International",
+      "path": "LioniX International/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "lumentum",
+      "company": "Lumentum",
+      "path": "Lumentum/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "lumileds",
+      "company": "Lumileds",
+      "path": "Lumileds/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "luminar",
+      "company": "Luminar",
+      "path": "Luminar/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "macom",
+      "company": "MACOM",
+      "path": "MACOM/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "marvell",
+      "company": "Marvell",
+      "path": "Marvell/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "mediatek",
+      "company": "MediaTek",
+      "path": "MediaTek/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "micas",
+      "company": "Micas Networks",
+      "path": "Micas Networks/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "mitsubishi",
+      "company": "Mitsubishi Electric",
+      "path": "Mitsubishi Electric/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "molex",
+      "company": "Molex",
+      "path": "Molex/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nagase",
+      "company": "Nagase",
+      "path": "Nagase/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "namics",
+      "company": "NAMICS",
+      "path": "NAMICS/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nanosys",
+      "company": "Nanosys",
+      "path": "Nanosys/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ncodin",
+      "company": "NcodiN",
+      "path": "NcodiN/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "neg",
+      "company": "Nippon Electric Glass (NEG)",
+      "path": "Nippon Electric Glass (NEG)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "newphotonics",
+      "company": "NewPhotonics",
+      "path": "NewPhotonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nexilumen",
+      "company": "Nexilumen (光擎源)",
+      "path": "Nexilumen (光擎源)/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nlm",
+      "company": "NLM Photonics",
+      "path": "NLM Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "norland",
+      "company": "Norland Products",
+      "path": "Norland Products/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nrccnrc",
+      "company": "NRC-CNRC",
+      "path": "NRC-CNRC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nstic",
+      "company": "NSTIC",
+      "path": "NSTIC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ntt",
+      "company": "NTT",
+      "path": "NTT/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nttinnovative",
+      "company": "NTT Innovative Devices",
+      "path": "NTT Innovative Devices/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nubis",
+      "company": "Nubis Communications",
+      "path": "Nubis Communications/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "nvidia",
+      "company": "NVIDIA",
+      "path": "NVIDIA/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "openlight",
+      "company": "OpenLight",
+      "path": "OpenLight/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "optonest",
+      "company": "OptoNest",
+      "path": "OptoNest/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "panasonic",
+      "company": "Panasonic Industry",
+      "path": "Panasonic Industry/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "petra",
+      "company": "PETRA",
+      "path": "PETRA/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "photonect",
+      "company": "Photonect",
+      "path": "Photonect/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "pilotphotonics",
+      "company": "Pilot Photonics",
+      "path": "Pilot Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "poet",
+      "company": "POET Technologies",
+      "path": "POET Technologies/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "polaris",
+      "company": "Polaris Electro-Optics",
+      "path": "Polaris Electro-Optics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "qdlaser",
+      "company": "QD Laser",
+      "path": "QD Laser/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "quintessent",
+      "company": "Quintessent",
+      "path": "Quintessent/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "raintree",
+      "company": "Rain Tree Photonics",
+      "path": "Rain Tree Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "ranovus",
+      "company": "RANOVUS",
+      "path": "RANOVUS/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "resonac",
+      "company": "Resonac",
+      "path": "Resonac/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "samsung",
+      "company": "Samsung",
+      "path": "Samsung/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "schott",
+      "company": "SCHOTT",
+      "path": "SCHOTT/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "scintil",
+      "company": "Scintil Photonics",
+      "path": "Scintil Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "sekisui",
+      "company": "SEKISUI Chemical",
+      "path": "SEKISUI Chemical/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "senko",
+      "company": "SENKO",
+      "path": "SENKO/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "shinetsu",
+      "company": "Shin-Etsu Chemical",
+      "path": "Shin-Etsu Chemical/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "shunsin",
+      "company": "ShunSin Technology",
+      "path": "ShunSin Technology/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "sicoya",
+      "company": "Sicoya",
+      "path": "Sicoya/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "silorix",
+      "company": "Silorix",
+      "path": "Silorix/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "silterra",
+      "company": "SilTerra",
+      "path": "SilTerra/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "sivers",
+      "company": "Sivers Semiconductors",
+      "path": "Sivers Semiconductors/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "skywater",
+      "company": "SkyWater Technology",
+      "path": "SkyWater Technology/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "smic",
+      "company": "SMIC",
+      "path": "SMIC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "soitec",
+      "company": "Soitec",
+      "path": "Soitec/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "solinide",
+      "company": "Solinide Photonics",
+      "path": "Solinide Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "spil",
+      "company": "SPIL",
+      "path": "SPIL/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "statschippac",
+      "company": "STATS ChipPAC",
+      "path": "STATS ChipPAC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "stm",
+      "company": "STMicroelectronics",
+      "path": "STMicroelectronics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "sumitomo",
+      "company": "Sumitomo Electric",
+      "path": "Sumitomo Electric/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "sumitomoBakelite",
+      "company": "Sumitomo Bakelite",
+      "path": "Sumitomo Bakelite/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "suruga",
+      "company": "Suruga Seiki",
+      "path": "Suruga Seiki/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "teradyne",
+      "company": "Teradyne",
+      "path": "Teradyne/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "tfcioe",
+      "company": "TFC",
+      "path": "TFC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "tower",
+      "company": "Tower Semiconductor",
+      "path": "Tower Semiconductor/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "tsmc",
+      "company": "TSMC",
+      "path": "TSMC/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "umc",
+      "company": "UMC",
+      "path": "UMC/CPO/catalog.json",
+      "products": 2
+    },
+    {
+      "supplierId": "umec",
+      "company": "UMEC",
+      "path": "UMEC/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "usconec",
+      "company": "USConnec",
+      "path": "USConnec/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "winstek",
+      "company": "Winstek",
+      "path": "Winstek/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "xscape",
+      "company": "Xscape Photonics",
+      "path": "Xscape Photonics/CPO/catalog.json",
+      "products": 1
+    },
+    {
+      "supplierId": "yofc",
+      "company": "YOFC",
+      "path": "YOFC/CPO/catalog.json",
+      "products": 2
+    }
+  ]
+}

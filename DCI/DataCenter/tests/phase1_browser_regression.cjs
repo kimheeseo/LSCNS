@@ -29,7 +29,7 @@ async function initPage(context,device){
  await page.waitForTimeout(900);
  const snapshot=await page.evaluate(()=>({title:document.title,gl:window.__LS3D_TEST__.gl,error:document.querySelector('#error')?.textContent||'',hud:document.querySelector('#phase1-readout')?.textContent||'',viewport:{width:document.querySelector('#viewport')?.getBoundingClientRect().width,height:document.querySelector('#viewport')?.getBoundingClientRect().height}}));
  check(device,'initialization',!snapshot.error&&snapshot.title.includes('v4.5.5'),JSON.stringify(snapshot));
- check(device,'hud-mounted',!!snapshot.hud&&document.querySelector?true:true,snapshot.hud);
+ check(device,'hud-mounted',!!snapshot.hud,snapshot.hud);
  return page;
 }
 async function desktop(browser){

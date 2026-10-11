@@ -61,9 +61,22 @@ panel.innerHTML=[
 ].join('');document.body.appendChild(panel);
 const btn=document.createElement('button');btn.id='phase7-open';btn.className='phase58-launch p7';btn.textContent='▣ NVIDIA / BOM';btn.type='button';view.appendChild(btn);
 function inputs(){return{racks:+$('p7-racks').value,uplinkPerRack:+$('p7-links').value,lengthM:+$('p7-length').value,protocol:$('p7-proto').value,mode:$('p7-mode').value,speedG:+$('p7-speed').value}}
+function reconcileTopology(audit,packet){
+ const links=packet?.optical?.topology?.links;
+ if(!Array.isArray(links))return{status:'missing-topology',matched:false,warning:'공유 토폴로지 데이터가 없습니다.'};
+ const active=links.filter(x=>!x.down);
+ const optical=active.filter(x=>!/DAC|AEC|COPPER/i.test(String(x.type||'')+' '+String(x.fiber||'')));
+ const totalLengthM=optical.reduce((n,x)=>n+Number(x.lengthM||0),0);
+ const counts={all:active.length,optical:optical.length,lengthM:Number(totalLengthM.toFixed(2))};
+ const sameCount=counts.optical===audit.logicalLinks;
+ const sameLength=Math.abs(counts.lengthM-(audit.rows.find(x=>x.id==='LENGTH')?.qty||0))<.001;
+ return{status:sameCount&&sameLength?'matched':'different-assumptions',matched:sameCount&&sameLength,counts,auditLinks:audit.logicalLinks,auditLengthM:audit.rows.find(x=>x.id==='LENGTH')?.qty,warning:'3D 링크 토폴로지와 Phase 7 랙당 uplink 가정은 서로 다른 모델입니다. 불일치할 때 수량을 강제 동기화하지 않습니다.'};
+}
 function render(){
  try{
   last=estimate(inputs());
+  if(typeof T.exportConfig==='function'){try{last.topologyReconciliation=reconcileTopology(last,T.exportConfig())}catch(_){}}
+
   $('p7-status').textContent='검토 완료 · '+(last.blocking.length?'호환성 경고 '+last.blocking.length+'건':'명시적 차단 없음 (호환성 확정 아님)');
   $('p7-summary').innerHTML='<strong>링크 '+last.logicalLinks+'개 · 스위치 논리포트 기반 '+(last.switchesMinimum??'미산정')+'대</strong>'
    +last.blocking.map(x=>'<p class="p58-err">'+esc(x)+'</p>').join('')
@@ -84,5 +97,5 @@ $('p7-json').onclick=()=>{if(!last){$('p7-status').textContent='먼저 BOM 검�
  a.href=url;a.download='LS_Datacenter_NVIDIA_BOM_audit.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 };
 $('p7-to-bom').onclick=()=>{const old=$('bomOut');if(!old){$('p7-status').textContent='기존 BOM 공유 버튼을 찾을 수 없습니다.';return} $('p7-status').textContent='기존 3D 전체 구성(JSON)을 BOM 도구로 전달합니다. Phase 7 가상 링크 수량은 별도 감사 JSON으로 확인하십시오.';old.click()};
-window.LS3D_PHASE7={open:()=>toggle(true),load,estimate,get catalog(){return catalog},get audit(){return last}};
+window.LS3D_PHASE7={open:()=>toggle(true),load,estimate,get catalog(){return catalog},reconcileTopology,get audit(){return last}};
 })();

@@ -1,4 +1,4 @@
-/* LS DataCenter 3D v5.0.0 Phase 1–8 end-to-end regression - Playwright Chromium. */
+/* LS DataCenter 3D v4.7.0 Phase 1–8 end-to-end regression - Playwright Chromium. */
 'use strict';
 const {chromium,devices}=require('playwright');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),os=require('node:os');
@@ -283,7 +283,7 @@ async function mobile(browser){
  if(browser)await browser.close().catch(()=>{});await new Promise(r=>server.close(r));
  T.finished=new Date().toISOString();T.summary={pass:T.cases.filter(x=>x.pass).length,fail:T.cases.filter(x=>!x.pass).length,pageErrors:T.pageErrors.length,consoleErrors:T.consoleErrors.length,environment:'GitHub Actions Linux Chromium / SwiftShader; synthetic mobile touch; NOT physical hardware'};
  fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(T,null,2));
- const lines=['# LS Datacenter 3D v5.0.0 · Phase 1–8 browser regression','','Execution: '+T.finished,'Environment: '+T.summary.environment,'Tests: '+T.summary.pass+' passed, '+T.summary.fail+' failed','Page errors: '+T.pageErrors.length+', console errors: '+T.consoleErrors.length,'','## FPS samples (headless, software WebGL—not physical device FPS)',''];
+ const lines=['# LS Datacenter 3D v4.7.0 · Phase 1–8 browser regression','','Execution: '+T.finished,'Environment: '+T.summary.environment,'Tests: '+T.summary.pass+' passed, '+T.summary.fail+' failed','Page errors: '+T.pageErrors.length+', console errors: '+T.consoleErrors.length,'','## FPS samples (headless, software WebGL—not physical device FPS)',''];
  for(const [k,v] of Object.entries(T.metrics))lines.push('- '+k+': '+v.avgFPS+' FPS, p95 frame '+v.p95Ms+'ms, frames='+v.frames+', WebGL='+v.WebGL);
  lines.push('','## Cases','');
  for(const x of T.cases)lines.push('- '+(x.pass?'PASS':'FAIL')+' '+x.group+' / '+x.name+(x.detail?' — '+x.detail:''));

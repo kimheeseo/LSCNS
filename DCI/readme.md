@@ -13,6 +13,10 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 | 2D Gold Pixel Tour | [▶ LS Datacenter Campus 2D](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) | 픽셀아트 캠퍼스 탐험 및 설비 조사 |
 | CPO Supply Chain | [▶ CPO 공급망 도구](https://kimheeseo.github.io/cpo-supply-chain/) | CPO 공급망 및 업체 정보 |
 
+## Wave Optics / COMSOL 수치해석 프로젝트
+
+광도파관 FEM, PML, 모드 해석, 산란 S-파라미터 및 M1~M6 검증 결과는 **[COMSOL 폴더](../COMSOL/)**에 따로 관리합니다. 이곳 `DCI/DataCenter/`의 `Phase1`~`Phase4` 소스·보고서·ZIP은 **데이터센터 3D Digital Twin 렌더링 및 기능 개발 자료**로, COMSOL 마일스톤 M1~M6와 다른 프로젝트입니다.
+
 ## 3D Digital Twin 사용 방법
 
 자세한 화면 조작, 작업자 시점, 장애 시나리오, 그래프·로그 및 설정 방법은 [3D Digital Twin 상세 사용 안내(TXT)](./DataCenter/LS_Datacenter_3D_사용법.txt)를 참고하세요. 계산식·입력값·장애 대응·ToR/광 링크·JSON/BOM 연동까지 포함한 문서는 [3D Digital Twin 운영·계산 가이드북(Word)](./DataCenter/LS_Datacenter_3D_Guidebook_v4.5.3.docx)에서 확인할 수 있습니다.

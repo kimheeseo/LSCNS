@@ -1,0 +1,1157 @@
+{
+  "executed_utc": "2026-10-11T10:41:40.029363+00:00",
+  "python": "3.11.17",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "skfem": "12.0.2",
+    "gmsh": "4.14.1"
+  },
+  "slab": {
+    "TE": {
+      "rows": [
+        {
+          "h_max_um": 0.07500000000027773,
+          "neff": [
+            1.4893092861391863,
+            1.4611926868673302
+          ],
+          "exact_neff": [
+            1.4893141708402111,
+            1.461215584892605
+          ],
+          "relative_errors": [
+            3.2798325030512597e-06,
+            1.5670531789775997e-05
+          ],
+          "error": 1.5670531789775997e-05
+        },
+        {
+          "h_max_um": 0.03750000000013909,
+          "neff": [
+            1.489312949694172,
+            1.4612098586748263
+          ],
+          "exact_neff": [
+            1.4893141708402111,
+            1.461215584892605
+          ],
+          "relative_errors": [
+            8.199385079962844e-07,
+            3.918804205084504e-06
+          ],
+          "error": 3.918804205084504e-06
+        },
+        {
+          "h_max_um": 0.018750000000069544,
+          "neff": [
+            1.4893138652704623,
+            1.4612141531094713
+          ],
+          "exact_neff": [
+            1.4893141708402111,
+            1.461215584892605
+          ],
+          "relative_errors": [
+            2.0517480785471334e-07,
+            9.798575572371345e-07
+          ],
+          "error": 9.798575572371345e-07
+        }
+      ],
+      "slopes": [
+        1.9995687408527152,
+        1.9997695497541847
+      ]
+    },
+    "TM": {
+      "rows": [
+        {
+          "h_max_um": 0.07500000000027773,
+          "neff": [
+            1.4889372993996215,
+            1.4606316864166267
+          ],
+          "exact_neff": [
+            1.4889423360317204,
+            1.4606545266060773
+          ],
+          "relative_errors": [
+            3.382691174169999e-06,
+            1.563695523794831e-05
+          ],
+          "error": 1.563695523794831e-05
+        },
+        {
+          "h_max_um": 0.03750000000013909,
+          "neff": [
+            1.488941076913414,
+            1.4606488145881777
+          ],
+          "exact_neff": [
+            1.4889423360317204,
+            1.4606545266060773
+          ],
+          "relative_errors": [
+            8.456461180778127e-07,
+            3.910587887495892e-06
+          ],
+          "error": 3.910587887495892e-06
+        },
+        {
+          "h_max_um": 0.018750000000069544,
+          "neff": [
+            1.4889420209718465,
+            1.4606530983633212
+          ],
+          "exact_neff": [
+            1.4889423360317204,
+            1.4606545266060773
+          ],
+          "relative_errors": [
+            2.1159978216974743e-07,
+            9.778101050230036e-07
+          ],
+          "error": 9.778101050230036e-07
+        }
+      ],
+      "slopes": [
+        1.9995022119420924,
+        1.9997592875973218
+      ]
+    }
+  },
+  "fiber": [
+    {
+      "h_nominal_um": 0.04,
+      "h_max_um": 0.0720210216644945,
+      "neff": [
+        [
+          1.1877144785570033,
+          -0.0
+        ],
+        [
+          1.1877031189078477,
+          -0.0
+        ]
+      ],
+      "exact_neff": 1.1886008092616835,
+      "worst_absolute_error": 0.0008976903538358005,
+      "max_gauss_residual": 7.467230674386424e-16,
+      "diagnostics": {
+        "triangles": 3332,
+        "nodes": 1715,
+        "edge_dofs": 5046,
+        "scalar_dofs": 1715,
+        "free_dofs": 6569,
+        "h_max_um": 0.260306427171704,
+        "h_core_max_um": 0.0720210216644945,
+        "candidates": 8,
+        "returned": 2,
+        "target_neff": 1.25,
+        "window": [
+          1.0001,
+          1.4999
+        ],
+        "rejected": [
+          {
+            "neff": [
+              0.993629478161522,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9913775011184915,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9913781240399839,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9821209248471663,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.987132204680388,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9871323670545568,
+              -0.0
+            ],
+            "reason": "outside_window"
+          }
+        ],
+        "completeness_certified": false,
+        "element_pair": "ElementTriN1 + ElementTriP1",
+        "normalization": "integral |E|^2 dA = 1",
+        "boundary": "PEC"
+      }
+    },
+    {
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.0375315743672547,
+      "neff": [
+        [
+          1.188376196723452,
+          -0.0
+        ],
+        [
+          1.1883737982800495,
+          -0.0
+        ]
+      ],
+      "exact_neff": 1.1886008092616835,
+      "worst_absolute_error": 0.00022701098163402378,
+      "max_gauss_residual": 2.1510383163688313e-15,
+      "diagnostics": {
+        "triangles": 13056,
+        "nodes": 6625,
+        "edge_dofs": 19680,
+        "scalar_dofs": 6625,
+        "free_dofs": 25921,
+        "h_max_um": 0.13818172190884626,
+        "h_core_max_um": 0.0375315743672547,
+        "candidates": 8,
+        "returned": 2,
+        "target_neff": 1.25,
+        "window": [
+          1.0001,
+          1.4999
+        ],
+        "rejected": [
+          {
+            "neff": [
+              0.9936672687722785,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9913962488226427,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9913963339900084,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9821789490187697,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9871506510843369,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9871506729592908,
+              -0.0
+            ],
+            "reason": "outside_window"
+          }
+        ],
+        "completeness_certified": false,
+        "element_pair": "ElementTriN1 + ElementTriP1",
+        "normalization": "integral |E|^2 dA = 1",
+        "boundary": "PEC"
+      }
+    },
+    {
+      "h_nominal_um": 0.01,
+      "h_max_um": 0.019759675967509247,
+      "neff": [
+        [
+          1.188544408098809,
+          -0.0
+        ],
+        [
+          1.188544232363808,
+          -0.0
+        ]
+      ],
+      "exact_neff": 1.1886008092616835,
+      "worst_absolute_error": 5.6576897875526555e-05,
+      "max_gauss_residual": 1.7452041570542955e-14,
+      "diagnostics": {
+        "triangles": 51396,
+        "nodes": 25889,
+        "edge_dofs": 77284,
+        "scalar_dofs": 25889,
+        "free_dofs": 102413,
+        "h_max_um": 0.06896790516059254,
+        "h_core_max_um": 0.019759675967509247,
+        "candidates": 8,
+        "returned": 2,
+        "target_neff": 1.25,
+        "window": [
+          1.0001,
+          1.4999
+        ],
+        "rejected": [
+          {
+            "neff": [
+              0.9936769500242766,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.991400925385277,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9914009300634616,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9821937252748738,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.9871553534728943,
+              -0.0
+            ],
+            "reason": "outside_window"
+          },
+          {
+            "neff": [
+              0.987155360202978,
+              -0.0
+            ],
+            "reason": "outside_window"
+          }
+        ],
+        "completeness_certified": false,
+        "element_pair": "ElementTriN1 + ElementTriP1",
+        "normalization": "integral |E|^2 dA = 1",
+        "boundary": "PEC"
+      }
+    }
+  ],
+  "layers": [
+    {
+      "polarization": "TE",
+      "case": "layer",
+      "R": 0.1371073003672701,
+      "T": 0.8628926996327296,
+      "exact_R": 0.13707636724441472,
+      "exact_T": 0.8629236327555846,
+      "error_R": 3.093312285537553e-05,
+      "error_T": 3.0933122854959194e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.00942809041586501,
+      "triangles": 24480,
+      "dofs": 12467,
+      "free_dofs": 12193,
+      "linear_residual": 1.26363940089977e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        },
+        "right": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        }
+      },
+      "power_out": 0.9999999999999999,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    },
+    {
+      "polarization": "TE",
+      "case": "asymmetric",
+      "R": 0.05077371166591957,
+      "T": 0.9492262883340813,
+      "exact_R": 0.050787281051626436,
+      "exact_T": 0.9492127189483736,
+      "error_R": 1.356938570686722e-05,
+      "error_T": 1.3569385707734583e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.009428090415894489,
+      "triangles": 24300,
+      "dofs": 12376,
+      "free_dofs": 12104,
+      "linear_residual": 1.1937125943247953e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        },
+        "right": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        }
+      },
+      "power_out": 1.000000000000001,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    },
+    {
+      "polarization": "TE",
+      "case": "absorbing",
+      "R": 0.1255733278423668,
+      "T": 0.7832721727104525,
+      "exact_R": 0.1255397388282145,
+      "exact_T": 0.7832532754343909,
+      "error_R": 3.3589014152290986e-05,
+      "error_T": 1.8897276061524693e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.00942809041586501,
+      "triangles": 24480,
+      "dofs": 12467,
+      "free_dofs": 12193,
+      "linear_residual": 1.2457676226077076e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        },
+        "right": {
+          "trace_modes": 89,
+          "propagating_modes": 1,
+          "evanescent_modes": 88
+        }
+      },
+      "power_out": 0.9088455005528191,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    },
+    {
+      "polarization": "TM",
+      "case": "layer",
+      "R": 0.028630538579814596,
+      "T": 0.9713694614201843,
+      "exact_R": 0.028551616213440417,
+      "exact_T": 0.9714483837865595,
+      "error_R": 7.892236637417963e-05,
+      "error_T": 7.892236637518923e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.00942809041586501,
+      "triangles": 24480,
+      "dofs": 12467,
+      "free_dofs": 12467,
+      "linear_residual": 8.836854512668219e-14,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        },
+        "right": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        }
+      },
+      "power_out": 0.9999999999999991,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    },
+    {
+      "polarization": "TM",
+      "case": "asymmetric",
+      "R": 0.020455153065553344,
+      "T": 0.9795448469344473,
+      "exact_R": 0.020408163265306135,
+      "exact_T": 0.9795918367346939,
+      "error_R": 4.698980024720953e-05,
+      "error_T": 4.698980024653299e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.009428090415894489,
+      "triangles": 24300,
+      "dofs": 12376,
+      "free_dofs": 12376,
+      "linear_residual": 8.066486607466527e-14,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        },
+        "right": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        }
+      },
+      "power_out": 1.0000000000000007,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    },
+    {
+      "polarization": "TM",
+      "case": "absorbing",
+      "R": 0.026460644906589424,
+      "T": 0.8872586011345311,
+      "exact_R": 0.02638688031738417,
+      "exact_T": 0.8872770622469623,
+      "error_R": 7.37645892052545e-05,
+      "error_T": 1.8461112431200632e-05,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.00942809041586501,
+      "triangles": 24480,
+      "dofs": 12467,
+      "free_dofs": 12467,
+      "linear_residual": 8.824012880567615e-14,
+      "element": "P1",
+      "quadrature_order": 6,
+      "ports": {
+        "left": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        },
+        "right": {
+          "trace_modes": 91,
+          "propagating_modes": 2,
+          "evanescent_modes": 89
+        }
+      },
+      "power_out": 0.9137192460411203,
+      "port_reference_planes_um": {
+        "left": 0.0,
+        "right": 0.9
+      }
+    }
+  ],
+  "cylinder": [
+    {
+      "polarization": "TE",
+      "width_um": 0.4814698719599541,
+      "exact_width_um": 0.48454392195403556,
+      "relative_width_error": 0.006344213299972146,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.027199397732562906,
+      "triangles": 45992,
+      "dofs": 23277,
+      "free_dofs": 22717,
+      "linear_residual": 1.0784911213757331e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "physical_bounds": [
+        -0.8,
+        0.8,
+        -0.8,
+        0.8
+      ],
+      "background_index": 1.0,
+      "angle_rad": 0.0
+    },
+    {
+      "polarization": "TM",
+      "width_um": 0.22063944363826185,
+      "exact_width_um": 0.22120039029272373,
+      "relative_width_error": 0.002535920726539187,
+      "h_nominal_um": 0.01,
+      "h_max_um": 0.0137687454214621,
+      "triangles": 183354,
+      "dofs": 92238,
+      "free_dofs": 91118,
+      "linear_residual": 1.3507155464702998e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "physical_bounds": [
+        -0.8,
+        0.8,
+        -0.8,
+        0.8
+      ],
+      "background_index": 1.0,
+      "angle_rad": 0.0
+    }
+  ],
+  "cavity": {
+    "rows": [
+      {
+        "lengths_um": [
+          2.0,
+          1.0,
+          3.0
+        ],
+        "shape": [
+          4,
+          3,
+          6
+        ],
+        "index": 1.0,
+        "nodes": 140,
+        "tetrahedra": 432,
+        "edges": 679,
+        "free_dofs": 355,
+        "frequency_hz": 90477208065257.2,
+        "analytic_te101_hz": 90076423276365.38,
+        "relative_error": 0.004449386135839006,
+        "eigenvalue": 3.595809804885122,
+        "relative_residual": 8.327343930391822e-15,
+        "h_max_um": 0.7817359599705717
+      },
+      {
+        "lengths_um": [
+          2.0,
+          1.0,
+          3.0
+        ],
+        "shape": [
+          8,
+          6,
+          12
+        ],
+        "index": 1.0,
+        "nodes": 819,
+        "tetrahedra": 3456,
+        "edges": 4706,
+        "free_dofs": 3410,
+        "frequency_hz": 90179887501730.81,
+        "analytic_te101_hz": 90076423276365.38,
+        "relative_error": 0.0011486271501699452,
+        "eigenvalue": 3.5722159827065902,
+        "relative_residual": 3.9604476381081744e-14,
+        "h_max_um": 0.39086797998528583
+      },
+      {
+        "lengths_um": [
+          2.0,
+          1.0,
+          3.0
+        ],
+        "shape": [
+          16,
+          12,
+          24
+        ],
+        "index": 1.0,
+        "nodes": 5525,
+        "tetrahedra": 27648,
+        "edges": 34900,
+        "free_dofs": 29716,
+        "frequency_hz": 90102163851372.47,
+        "analytic_te101_hz": 90076423276365.38,
+        "relative_error": 0.00028576373340349903,
+        "eigenvalue": 3.566061040046552,
+        "relative_residual": 1.9492725107248686e-13,
+        "h_max_um": 0.19543398999264291
+      }
+    ],
+    "slopes": [
+      1.9536957385844007,
+      2.0070158291951947
+    ],
+    "oracle_formula": "c0/(2*n*1e-6)*sqrt(1/a_um**2+1/c_um**2)",
+    "source_sha256": "a15044bc7a499406299ddf087f86651623b9561f4191574680b3cc50459bd4b9"
+  },
+  "new_wavelength": {
+    "rows": [
+      {
+        "wavelength_um": 1.13,
+        "S21": [
+          -0.9029061681599858,
+          0.425363008414322
+        ],
+        "exact_S21": [
+          -0.9028766373737002,
+          0.4298997298030786
+        ],
+        "S21_error": 0.004536817499805375,
+        "field_error": 0.21268986061606776,
+        "tetrahedra": 1260,
+        "vertices": 336,
+        "edge_dofs": 1809,
+        "free_dofs": 1191,
+        "h_max_um": 0.1818274580197363,
+        "linear_residual": 7.913480160516432e-15,
+        "weak_gauss_residual": 1.2024086680116612e-14,
+        "gradient_curl_residual": 2.2179275968102036e-18,
+        "port_trace_modes": 24,
+        "propagating_channels": 8,
+        "output_power": 1.0000000000000004,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.37249272377014625
+      },
+      {
+        "wavelength_um": 1.13,
+        "S21": [
+          -0.9034871819018431,
+          0.4282262472298668
+        ],
+        "exact_S21": [
+          -0.9028766373737002,
+          0.4298997298030786
+        ],
+        "S21_error": 0.0017813782708029438,
+        "field_error": 0.10931012149535196,
+        "tetrahedra": 8316,
+        "vertices": 1800,
+        "edge_dofs": 10873,
+        "free_dofs": 8623,
+        "h_max_um": 0.09657604509991888,
+        "linear_residual": 2.4651609953943418e-14,
+        "weak_gauss_residual": 4.8740541559493115e-14,
+        "gradient_curl_residual": 8.699907673609664e-19,
+        "port_trace_modes": 24,
+        "propagating_channels": 8,
+        "output_power": 0.9999999999999996,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.10753889952176511
+      },
+      {
+        "wavelength_um": 1.13,
+        "S21": [
+          -0.9031605466381847,
+          0.42927769190937015
+        ],
+        "exact_S21": [
+          -0.9028766373737002,
+          0.4298997298030786
+        ],
+        "S21_error": 0.000683765757894761,
+        "field_error": 0.054903901792241805,
+        "tetrahedra": 63504,
+        "vertices": 12122,
+        "edge_dofs": 78565,
+        "free_dofs": 69769,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 7.12749024271599e-14,
+        "weak_gauss_residual": 2.1902913925534113e-13,
+        "gradient_curl_residual": 3.3225900989621166e-19,
+        "port_trace_modes": 24,
+        "propagating_channels": 8,
+        "output_power": 1.0000000000000002,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02886592049978908
+      }
+    ],
+    "slopes": [
+      1.477474013203918,
+      1.4126312321850045
+    ]
+  },
+  "pml": {
+    "rows": [
+      {
+        "thickness_um": 0.2,
+        "power": 1,
+        "amplitude": 0.011101347914558518,
+        "complex_error": 0.006010986052260809,
+        "S11": [
+          0.007972677645450288,
+          -0.007725046063410237
+        ],
+        "exact_S11": [
+          0.005314532809250186,
+          -0.0023337364497582154
+        ],
+        "tetrahedra": 22464,
+        "vertices": 4522,
+        "edge_dofs": 28445,
+        "free_dofs": 24077,
+        "h_max_um": 0.07855954340035261,
+        "linear_residual": 4.246651428835956e-14,
+        "weak_gauss_residual": 8.188052592960048e-14,
+        "gradient_curl_residual": 5.219589060751324e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 0.0001439081294802957,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.051641556500843705
+      },
+      {
+        "thickness_um": 0.3,
+        "power": 2,
+        "amplitude": 0.008387122333726998,
+        "complex_error": 0.003457698516711937,
+        "S11": [
+          0.007182829481590103,
+          0.004330217278532597
+        ],
+        "exact_S11": [
+          0.0037271913166346004,
+          0.004449565112090213
+        ],
+        "tetrahedra": 25272,
+        "vertices": 5054,
+        "edge_dofs": 31909,
+        "free_dofs": 27169,
+        "h_max_um": 0.07855954340035261,
+        "linear_residual": 3.8921942839339784e-14,
+        "weak_gauss_residual": 7.346142507167914e-14,
+        "gradient_curl_residual": 4.898649641988888e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 8.06549662558525e-05,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.051641556500843705
+      },
+      {
+        "thickness_um": 0.4,
+        "power": 3,
+        "amplitude": 0.00677576372271634,
+        "complex_error": 0.002406613469088135,
+        "S11": [
+          -0.0015913546583697924,
+          0.006586240534429604
+        ],
+        "exact_S11": [
+          -0.0032293402676222788,
+          0.0048230639881137825
+        ],
+        "tetrahedra": 28080,
+        "vertices": 5586,
+        "edge_dofs": 35373,
+        "free_dofs": 30261,
+        "h_max_um": 0.07855954340035261,
+        "linear_residual": 5.402398835758567e-14,
+        "weak_gauss_residual": 7.988683477194996e-14,
+        "gradient_curl_residual": 4.63168443820794e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 5.333777156128377e-05,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.051641556500843705
+      }
+    ],
+    "corrected_max_difference": 0.007226852500328049
+  },
+  "previous_cylinder_three_meshes": {
+    "TE": {
+      "rows": [
+        {
+          "h_nominal_um": 0.08,
+          "h_max_um": 0.10516526950162211,
+          "triangles": 3140,
+          "dofs": 1643,
+          "free_dofs": 1499,
+          "linear_residual": 7.934221468981153e-15,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.08131690465888577,
+          "scattering_width_um": 0.4427716620742407,
+          "relative_width_error": 0.08620943940714099
+        },
+        {
+          "h_nominal_um": 0.04,
+          "h_max_um": 0.0538167418825696,
+          "triangles": 11772,
+          "dofs": 6027,
+          "free_dofs": 5747,
+          "linear_residual": 2.9070795055203386e-14,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.022281794012145327,
+          "scattering_width_um": 0.4728880479588222,
+          "relative_width_error": 0.024055350747582027
+        },
+        {
+          "h_nominal_um": 0.02,
+          "h_max_um": 0.027199397732562906,
+          "triangles": 45992,
+          "dofs": 23277,
+          "free_dofs": 22717,
+          "linear_residual": 1.0784911213757331e-13,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.00572059909273635,
+          "scattering_width_um": 0.4814698719599541,
+          "relative_width_error": 0.006344213299972146
+        }
+      ],
+      "field_slopes": [
+        1.932363439598236,
+        1.9925509523058882
+      ],
+      "width_slopes": [
+        1.9052542366965368,
+        1.9531569760873608
+      ],
+      "exact_scattering_width_um": 0.48454392195403556,
+      "extraction_radius_um": 0.55,
+      "field_circle_samples": 720,
+      "width_circle_samples": 1440,
+      "width_orders": 8
+    },
+    "TM": {
+      "rows": [
+        {
+          "h_nominal_um": 0.08,
+          "h_max_um": 0.10516526950162211,
+          "triangles": 3140,
+          "dofs": 1643,
+          "free_dofs": 1499,
+          "linear_residual": 6.867130396627324e-15,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.0903833607074443,
+          "scattering_width_um": 0.190538995957001,
+          "relative_width_error": 0.13861365386899738
+        },
+        {
+          "h_nominal_um": 0.04,
+          "h_max_um": 0.0538167418825696,
+          "triangles": 11772,
+          "dofs": 6027,
+          "free_dofs": 5747,
+          "linear_residual": 1.6949487133216504e-14,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.025131254816784295,
+          "scattering_width_um": 0.21246085024230466,
+          "relative_width_error": 0.03950960501857015
+        },
+        {
+          "h_nominal_um": 0.02,
+          "h_max_um": 0.027199397732562906,
+          "triangles": 45992,
+          "dofs": 23277,
+          "free_dofs": 22717,
+          "linear_residual": 4.586302007429306e-14,
+          "element": "P1",
+          "quadrature_order": 6,
+          "physical_bounds": [
+            -0.8,
+            0.8,
+            -0.8,
+            0.8
+          ],
+          "background_index": 1.0,
+          "angle_rad": 0.0,
+          "field_l2_error": 0.006423030439555916,
+          "scattering_width_um": 0.2189386970130435,
+          "relative_width_error": 0.01022463512242111
+        }
+      ],
+      "field_slopes": [
+        1.9105168542003488,
+        1.9991833044738285
+      ],
+      "width_slopes": [
+        1.8734974164415181,
+        1.98089690066826
+      ],
+      "exact_scattering_width_um": 0.22120039029272373,
+      "extraction_radius_um": 0.55,
+      "field_circle_samples": 720,
+      "width_circle_samples": 1440,
+      "width_orders": 8
+    }
+  },
+  "fiber_slopes": [
+    2.1093564201548483,
+    2.1657250391289726
+  ],
+  "port_orthogonality_error": 8.27885366579608e-15,
+  "port_orthogonality_gram": [
+    [
+      0.9999999999999951,
+      0.0,
+      -5.1010019496948145e-17,
+      3.607946958867499e-17
+    ],
+    [
+      0.0,
+      0.9999999999999959,
+      2.9674489369619207e-17,
+      6.64580607761037e-17
+    ],
+    [
+      -5.1010019496948145e-17,
+      2.9674489369619207e-17,
+      1.0000000000000042,
+      -9.090457501654297e-16
+    ],
+    [
+      3.607946958867499e-17,
+      6.64580607761037e-17,
+      -9.090457501654297e-16,
+      1.0000000000000029
+    ]
+  ],
+  "reciprocity_residual": 5.3420440911275784e-15,
+  "reciprocity_source": "results/validation_m4.json: actual previous 8x8 solve",
+  "elapsed_seconds": 118.66443188300002,
+  "cylinder_initial": [
+    {
+      "polarization": "TE",
+      "width_um": 0.4814698719599541,
+      "exact_width_um": 0.48454392195403556,
+      "relative_width_error": 0.006344213299972146,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.027199397732562906,
+      "triangles": 45992,
+      "dofs": 23277,
+      "free_dofs": 22717,
+      "linear_residual": 1.0784911213757331e-13,
+      "element": "P1",
+      "quadrature_order": 6,
+      "physical_bounds": [
+        -0.8,
+        0.8,
+        -0.8,
+        0.8
+      ],
+      "background_index": 1.0,
+      "angle_rad": 0.0
+    },
+    {
+      "polarization": "TM",
+      "width_um": 0.2189386970130435,
+      "exact_width_um": 0.22120039029272373,
+      "relative_width_error": 0.01022463512242111,
+      "h_nominal_um": 0.02,
+      "h_max_um": 0.027199397732562906,
+      "triangles": 45992,
+      "dofs": 23277,
+      "free_dofs": 22717,
+      "linear_residual": 4.586302007429306e-14,
+      "element": "P1",
+      "quadrature_order": 6,
+      "physical_bounds": [
+        -0.8,
+        0.8,
+        -0.8,
+        0.8
+      ],
+      "background_index": 1.0,
+      "angle_rad": 0.0
+    }
+  ],
+  "volume_absorption": [
+    {
+      "polarization": "TE",
+      "A_volume": 0.09115449944718057,
+      "R": 0.1255733278423668,
+      "T": 0.7832721727104524,
+      "energy_residual": 3.3306690738754696e-16,
+      "h_max_um": 0.00942809041586501
+    },
+    {
+      "polarization": "TM",
+      "A_volume": 0.08628075395887995,
+      "R": 0.026460644906589434,
+      "T": 0.8872586011345309,
+      "energy_residual": 2.220446049250313e-16,
+      "h_max_um": 0.00942809041586501
+    }
+  ],
+  "refinement_and_energy_elapsed_seconds": 10.938340354000047
+}

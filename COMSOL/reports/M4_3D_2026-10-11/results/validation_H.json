@@ -1,0 +1,69 @@
+{
+  "rows": [
+    {
+      "h_nominal_um": 0.2,
+      "H_l2_error": 0.22160470982084415,
+      "tetrahedra": 1260,
+      "vertices": 336,
+      "edge_dofs": 1809,
+      "free_dofs": 1191,
+      "h_max_um": 0.1818274580197363,
+      "linear_residual": 7.632060192397654e-15,
+      "weak_gauss_residual": 9.710445197811011e-15,
+      "gradient_curl_residual": 2.2179275968102036e-18,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 1.0000000000000007,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.37249272377014625
+    },
+    {
+      "h_nominal_um": 0.1,
+      "H_l2_error": 0.1146360141793297,
+      "tetrahedra": 8316,
+      "vertices": 1800,
+      "edge_dofs": 10873,
+      "free_dofs": 8623,
+      "h_max_um": 0.09657604509991888,
+      "linear_residual": 2.0569723144436737e-14,
+      "weak_gauss_residual": 3.941705239777012e-14,
+      "gradient_curl_residual": 8.699907673609664e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9999999999999998,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.10753889952176511
+    },
+    {
+      "h_nominal_um": 0.05,
+      "H_l2_error": 0.056917177055115994,
+      "tetrahedra": 63504,
+      "vertices": 12122,
+      "edge_dofs": 78565,
+      "free_dofs": 69769,
+      "h_max_um": 0.049033233622777,
+      "linear_residual": 6.95575023960071e-14,
+      "weak_gauss_residual": 1.7783433942380818e-13,
+      "gradient_curl_residual": 3.3225900989621166e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 1.0000000000000004,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.02886592049978908
+    }
+  ],
+  "H_slopes": [
+    1.0417331635444307,
+    1.0329468054233675
+  ],
+  "reference_Z0_ohm": 376.730313412
+}

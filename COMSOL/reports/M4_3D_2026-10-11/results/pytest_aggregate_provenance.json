@@ -1,0 +1,31 @@
+{
+  "total_tests": 104,
+  "disjoint": true,
+  "single_process": false,
+  "sources": [
+    {
+      "file": "pytest_nested.xml",
+      "sha256": "5015f9f539369a942b47d792e2f29010d3863564e80319f4ac4240ea87dd713b",
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "12",
+      "time": "933.863",
+      "timestamp": "2026-10-10T21:34:22.571110-05:00",
+      "hostname": "99bba7785eef"
+    },
+    {
+      "file": "pytest_regression.xml",
+      "sha256": "d852f7211ff84aec607aa64c7f1b6aef23e4a597c0c5c8658a406d126ec20da5",
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "92",
+      "time": "98.069",
+      "timestamp": "2026-10-10T21:58:38.097016-05:00",
+      "hostname": "99bba7785eef"
+    }
+  ]
+}

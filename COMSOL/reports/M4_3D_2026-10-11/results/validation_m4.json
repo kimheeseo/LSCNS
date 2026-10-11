@@ -1,0 +1,739 @@
+{
+  "executed_utc": "2026-10-11T02:50:18.336677+00:00",
+  "versions": {
+    "python": "3.11.17",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "skfem": "12.0.2",
+    "gmsh": "4.14.1",
+    "matplotlib": "3.10.3"
+  },
+  "manufactured": {
+    "rows": [
+      {
+        "h_nominal_um": 0.2,
+        "field_l2_error": 0.29266875514149365,
+        "tetrahedra": 1260,
+        "vertices": 336,
+        "edge_dofs": 1809,
+        "free_dofs": 1167,
+        "h_max_um": 0.173205080757195,
+        "linear_residual": 1.1293744485260982e-14,
+        "weak_gauss_residual": 8.861560865352496e-15,
+        "gradient_curl_residual": 2.2894220599590097e-18
+      },
+      {
+        "h_nominal_um": 0.1,
+        "field_l2_error": 0.16181381065457476,
+        "tetrahedra": 7722,
+        "vertices": 1680,
+        "edge_dofs": 10119,
+        "free_dofs": 7965,
+        "h_max_um": 0.09466274160784169,
+        "linear_residual": 4.624483297886957e-14,
+        "weak_gauss_residual": 4.68066714566482e-14,
+        "gradient_curl_residual": 8.728049197476412e-19
+      },
+      {
+        "h_nominal_um": 0.05,
+        "field_l2_error": 0.08250381076312768,
+        "tetrahedra": 56700,
+        "vertices": 10868,
+        "edge_dofs": 70273,
+        "free_dofs": 62155,
+        "h_max_um": 0.04870247908365109,
+        "linear_residual": 1.9936616794801315e-13,
+        "weak_gauss_residual": 1.790691681430755e-13,
+        "gradient_curl_residual": 3.412654277747247e-19
+      }
+    ],
+    "field_slopes": [
+      0.9808646062832422,
+      1.013559207532603
+    ]
+  },
+  "straight": {
+    "TE": {
+      "rows": [
+        {
+          "h_nominal_um": 0.2,
+          "S21": [
+            -0.9942628741461166,
+            -0.0880707363083197
+          ],
+          "S11": [
+            0.0003495300529332557,
+            -3.493056581285367e-05
+          ],
+          "S21_error": 0.011858091122561048,
+          "field_l2_error": 0.23300317442450166,
+          "tetrahedra": 1260,
+          "vertices": 336,
+          "edge_dofs": 1809,
+          "free_dofs": 1191,
+          "h_max_um": 0.1818274580197363,
+          "linear_residual": 7.632060192397654e-15,
+          "weak_gauss_residual": 9.710445197811011e-15,
+          "gradient_curl_residual": 2.2179275968102036e-18,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 1.0000000000000007,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.37249272377014625
+        },
+        {
+          "h_nominal_um": 0.1,
+          "S21": [
+            -0.9966200808303697,
+            -0.08034396153705473
+          ],
+          "S11": [
+            3.481711652963959e-05,
+            -0.00015811438127280277
+          ],
+          "S21_error": 0.0038213654853750745,
+          "field_l2_error": 0.12191417339672282,
+          "tetrahedra": 8316,
+          "vertices": 1800,
+          "edge_dofs": 10873,
+          "free_dofs": 8623,
+          "h_max_um": 0.09657604509991888,
+          "linear_residual": 2.0569723144436737e-14,
+          "weak_gauss_residual": 3.941705239777012e-14,
+          "gradient_curl_residual": 8.699907673609664e-19,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 0.9999999999999998,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.10753889952176511
+        },
+        {
+          "h_nominal_um": 0.05,
+          "S21": [
+            -0.9969583904493792,
+            -0.07781735802947427
+          ],
+          "S11": [
+            5.15025167135974e-06,
+            -4.990623983560173e-05
+          ],
+          "S21_error": 0.0012732161049577443,
+          "field_l2_error": 0.06177170017434623,
+          "tetrahedra": 63504,
+          "vertices": 12122,
+          "edge_dofs": 78565,
+          "free_dofs": 69769,
+          "h_max_um": 0.049033233622777,
+          "linear_residual": 6.95575023960071e-14,
+          "weak_gauss_residual": 1.7783433942380818e-13,
+          "gradient_curl_residual": 3.3225900989621166e-19,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 1.0000000000000004,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.02886592049978908
+        }
+      ],
+      "exact_S21": [
+        -0.9970658448258897,
+        -0.07654868438866175
+      ],
+      "exact_beta_per_um": 6.43643258906458,
+      "gamma_per_um": 6.43643258906458,
+      "transmission_slopes": [
+        1.7897162046408035,
+        1.6214357856321793
+      ],
+      "field_slopes": [
+        1.0237184307421194,
+        1.0030089178619352
+      ]
+    },
+    "TM": {
+      "rows": [
+        {
+          "h_nominal_um": 0.2,
+          "S21": [
+            -0.28700178149010014,
+            0.9546507720099371
+          ],
+          "S11": [
+            -0.062067903141154956,
+            -0.01828548514472748
+          ],
+          "S21_error": 0.00933145903181832,
+          "field_l2_error": 0.21002593192974642,
+          "tetrahedra": 1260,
+          "vertices": 336,
+          "edge_dofs": 1809,
+          "free_dofs": 1191,
+          "h_max_um": 0.1818274580197363,
+          "linear_residual": 6.614251116962105e-15,
+          "weak_gauss_residual": 1.1531538220035169e-14,
+          "gradient_curl_residual": 2.2179275968102036e-18,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 1.0000000000000029,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.37249272377014625
+        },
+        {
+          "h_nominal_um": 0.1,
+          "S21": [
+            -0.2941897908615086,
+            0.9555030897322964
+          ],
+          "S11": [
+            -0.0168292652772547,
+            -0.005154543419081987
+          ],
+          "S21_error": 0.0021732615799440512,
+          "field_l2_error": 0.10994308955988258,
+          "tetrahedra": 8316,
+          "vertices": 1800,
+          "edge_dofs": 10873,
+          "free_dofs": 8623,
+          "h_max_um": 0.09657604509991888,
+          "linear_residual": 1.9611370926988907e-14,
+          "weak_gauss_residual": 4.8856857512503755e-14,
+          "gradient_curl_residual": 8.699907673609664e-19,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 1.000000000000001,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.10753889952176511
+        },
+        {
+          "h_nominal_um": 0.05,
+          "S21": [
+            -0.29553966405759297,
+            0.9553137658005052
+          ],
+          "S11": [
+            -0.004543248252513177,
+            -0.0014041710225051476
+          ],
+          "S21_error": 0.000815282060692522,
+          "field_l2_error": 0.05517640520840283,
+          "tetrahedra": 63504,
+          "vertices": 12122,
+          "edge_dofs": 78565,
+          "free_dofs": 69769,
+          "h_max_um": 0.049033233622777,
+          "linear_residual": 5.367356782524976e-14,
+          "weak_gauss_residual": 2.023503341425071e-13,
+          "gradient_curl_residual": 3.3225900989621166e-19,
+          "port_trace_modes": 24,
+          "propagating_channels": 8,
+          "output_power": 1.0000000000000009,
+          "max_orders": [
+            2,
+            2
+          ],
+          "port_projection_deviation_norm": 0.02886592049978908
+        }
+      ],
+      "exact_S21": [
+        -0.29632300172025633,
+        0.955087785835154
+      ],
+      "exact_beta_per_um": 3.7432735263093986,
+      "gamma_per_um": 15.186953598425305,
+      "transmission_slopes": [
+        2.302985678474179,
+        1.4464492616139557
+      ],
+      "field_slopes": [
+        1.022980936296609,
+        1.0171060266540504
+      ]
+    }
+  },
+  "layer": {
+    "TE_0": {
+      "S11": [
+        0.19590333778608437,
+        -0.2711741561619801
+      ],
+      "S21": [
+        -0.7638784397027322,
+        -0.5518610367252101
+      ],
+      "exact_S11": [
+        0.19616946696802337,
+        -0.27273934878068223
+      ],
+      "exact_S21": [
+        -0.764634480535985,
+        -0.5499680891030277
+      ],
+      "reflection_error": 0.0015876563466692582,
+      "transmission_error": 0.0020383445346338473,
+      "exact_output_power": 1.0000000000000004,
+      "tetrahedra": 89280,
+      "vertices": 16800,
+      "edge_dofs": 109767,
+      "free_dofs": 98727,
+      "h_max_um": 0.04377182821012478,
+      "linear_residual": 1.4583478288585392e-13,
+      "weak_gauss_residual": 2.7735262948319667e-13,
+      "gradient_curl_residual": 2.9652865583460526e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9999999999999998,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.022613784128827162
+    },
+    "TM_0": {
+      "S11": [
+        0.06398913555866881,
+        0.11914513575237429
+      ],
+      "S21": [
+        -0.8728918973742488,
+        0.4687917284925217
+      ],
+      "exact_S11": [
+        0.06419294255145384,
+        0.11975703345089433
+      ],
+      "exact_S21": [
+        -0.8731914045833853,
+        0.4680537255778676
+      ],
+      "reflection_error": 0.0006449465743472171,
+      "transmission_error": 0.0007964627237747402,
+      "exact_output_power": 0.9999999999999999,
+      "tetrahedra": 89280,
+      "vertices": 16800,
+      "edge_dofs": 109767,
+      "free_dofs": 98727,
+      "h_max_um": 0.04377182821012478,
+      "linear_residual": 9.555492014849268e-14,
+      "weak_gauss_residual": 3.029703688055431e-13,
+      "gradient_curl_residual": 2.9652865583460526e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9999999999999994,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.022613784128827162
+    },
+    "TE_0.03": {
+      "S11": [
+        0.20127216731265873,
+        -0.2532381884538885
+      ],
+      "S21": [
+        -0.7389871937565916,
+        -0.5277222279173975
+      ],
+      "exact_S11": [
+        0.20166966194964017,
+        -0.25473792806474826
+      ],
+      "exact_S21": [
+        -0.7398483267370809,
+        -0.5259163711598083
+      ],
+      "reflection_error": 0.0015515221193430548,
+      "transmission_error": 0.0020006670485158626,
+      "exact_output_power": 0.9295256405751625,
+      "tetrahedra": 89280,
+      "vertices": 16800,
+      "edge_dofs": 109767,
+      "free_dofs": 98727,
+      "h_max_um": 0.04377182821012478,
+      "linear_residual": 1.4179765747309394e-13,
+      "weak_gauss_residual": 3.134048552505957e-13,
+      "gradient_curl_residual": 2.9652865583460526e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9292567962002443,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.022613784128827162
+    },
+    "TM_0.03": {
+      "S11": [
+        0.0646987230491276,
+        0.11201359658387407
+      ],
+      "S21": [
+        -0.8313336642980348,
+        0.44551455677811075
+      ],
+      "exact_S11": [
+        0.06518959276876925,
+        0.11244843232290802
+      ],
+      "exact_S21": [
+        -0.8316657878113958,
+        0.4447805014602716
+      ],
+      "reflection_error": 0.0006557706928509916,
+      "transmission_error": 0.0008056942582488631,
+      "exact_output_power": 0.906392010032438,
+      "tetrahedra": 89280,
+      "vertices": 16800,
+      "edge_dofs": 109767,
+      "free_dofs": 98727,
+      "h_max_um": 0.04377182821012478,
+      "linear_residual": 9.679086563231394e-14,
+      "weak_gauss_residual": 3.233417347677093e-13,
+      "gradient_curl_residual": 2.9652865583460526e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9063354242696452,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.022613784128827162
+    }
+  },
+  "pml": {
+    "TE": [
+      {
+        "strength": 0,
+        "S11": [
+          0.6393177570586754,
+          0.7688426365526244
+        ],
+        "exact_S11": [
+          0.6421365803491996,
+          0.7665902505102944
+        ],
+        "reflection_amplitude": 0.9999230941786106,
+        "exact_reflection_amplitude": 1.0,
+        "reflection_error": 0.003608186196260485,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 1.292014888499914e-13,
+        "weak_gauss_residual": 2.031279843795218e-13,
+        "gradient_curl_residual": 2.622426663768183e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 1.000000000000005,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      },
+      {
+        "strength": 1.2,
+        "S11": [
+          0.13673843023178422,
+          0.16491584046355742
+        ],
+        "exact_S11": [
+          0.13701045018820115,
+          0.1635646972100306
+        ],
+        "reflection_amplitude": 0.2142303263734013,
+        "exact_reflection_amplitude": 0.21336652416483365,
+        "reflection_error": 0.0013782535863331106,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 8.349964651139501e-14,
+        "weak_gauss_residual": 1.945763050089086e-13,
+        "gradient_curl_residual": 2.572255028017168e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 0.045902389438232306,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      },
+      {
+        "strength": 4,
+        "S11": [
+          0.0050869435105518335,
+          0.004399586814738311
+        ],
+        "exact_S11": [
+          0.0037271913166346004,
+          0.004449565112090213
+        ],
+        "reflection_amplitude": 0.006725574950884467,
+        "exact_reflection_amplitude": 0.0058043591203100755,
+        "reflection_error": 0.0013606703712027112,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 9.341693413393872e-14,
+        "weak_gauss_residual": 2.3582977718129833e-13,
+        "gradient_curl_residual": 2.5635041183677767e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 4.684778086752739e-05,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      }
+    ],
+    "TM": [
+      {
+        "strength": 0,
+        "S11": [
+          -0.9567063332655323,
+          0.2909534949498756
+        ],
+        "exact_S11": [
+          -0.9571075681746475,
+          0.2897328130240214
+        ],
+        "reflection_amplitude": 0.9999704717310042,
+        "exact_reflection_amplitude": 1.0,
+        "reflection_error": 0.0012849333898688386,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 1.177691059548274e-13,
+        "weak_gauss_residual": 2.495651756774784e-13,
+        "gradient_curl_residual": 2.622426663768183e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 1.0000000000000084,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      },
+      {
+        "strength": 1.2,
+        "S11": [
+          -0.38962567414833593,
+          0.12075485198690851
+        ],
+        "exact_S11": [
+          -0.38975960056521797,
+          0.11798689011544149
+        ],
+        "reflection_amplitude": 0.40790918135526866,
+        "exact_reflection_amplitude": 0.4072265370428007,
+        "reflection_error": 0.0027711999579666,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 9.412573135596742e-14,
+        "weak_gauss_residual": 2.6194719321330024e-13,
+        "gradient_curl_residual": 2.572255028017168e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 0.16639634041533385,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      },
+      {
+        "strength": 4,
+        "S11": [
+          -0.04935814204561062,
+          0.02030520043611426
+        ],
+        "exact_S11": [
+          -0.04790869277576942,
+          0.014502779820976622
+        ],
+        "reflection_amplitude": 0.05337159685586941,
+        "exact_reflection_amplitude": 0.05005570363124254,
+        "reflection_error": 0.005980718032211305,
+        "tetrahedra": 102312,
+        "vertices": 19140,
+        "edge_dofs": 125469,
+        "free_dofs": 113427,
+        "h_max_um": 0.049033233622777,
+        "linear_residual": 9.953278875397213e-14,
+        "weak_gauss_residual": 2.8494242207415694e-13,
+        "gradient_curl_residual": 2.5635041183677767e-19,
+        "port_trace_modes": 12,
+        "propagating_channels": 4,
+        "output_power": 0.0028594090804407034,
+        "max_orders": [
+          2,
+          2
+        ],
+        "port_projection_deviation_norm": 0.02041128813059261
+      }
+    ]
+  },
+  "geometry_checks": {
+    "connected_components": 1,
+    "internal_exposed_faces": 0,
+    "volume_um3": 0.24,
+    "exact_volume_um3": 0.24
+  },
+  "mode_conversion": {
+    "channels": [
+      [
+        "left",
+        "TE",
+        0,
+        1
+      ],
+      [
+        "left",
+        "TE",
+        1,
+        0
+      ],
+      [
+        "left",
+        "TE",
+        1,
+        1
+      ],
+      [
+        "left",
+        "TM",
+        1,
+        1
+      ],
+      [
+        "right",
+        "TE",
+        0,
+        1
+      ],
+      [
+        "right",
+        "TE",
+        1,
+        0
+      ],
+      [
+        "right",
+        "TE",
+        1,
+        1
+      ],
+      [
+        "right",
+        "TM",
+        1,
+        1
+      ]
+    ],
+    "reciprocity_residual": 5.3420440911275784e-15,
+    "unitarity_residual": 5.544107596633996e-15,
+    "TE10_to_TM11_amplitude": 0.1161242776592288
+  },
+  "port_cutoff": [
+    {
+      "max_order": 1,
+      "S21": [
+        -0.9966228352347082,
+        -0.08031452298103259
+      ],
+      "error": 0.0037918066672324394,
+      "tetrahedra": 8316,
+      "vertices": 1800,
+      "edge_dofs": 10873,
+      "free_dofs": 8607,
+      "h_max_um": 0.09657604509991888,
+      "linear_residual": 2.056407120243299e-14,
+      "weak_gauss_residual": 3.97318088261504e-14,
+      "gradient_curl_residual": 8.699907673609664e-19,
+      "port_trace_modes": 8,
+      "propagating_channels": 8,
+      "output_power": 0.9999999999999993,
+      "max_orders": [
+        1,
+        1
+      ],
+      "port_projection_deviation_norm": 0.02029819388224977
+    },
+    {
+      "max_order": 2,
+      "S21": [
+        -0.9966200808303697,
+        -0.08034396153705473
+      ],
+      "error": 0.0038213654853750745,
+      "tetrahedra": 8316,
+      "vertices": 1800,
+      "edge_dofs": 10873,
+      "free_dofs": 8623,
+      "h_max_um": 0.09657604509991888,
+      "linear_residual": 2.0569723144436737e-14,
+      "weak_gauss_residual": 3.941705239777012e-14,
+      "gradient_curl_residual": 8.699907673609664e-19,
+      "port_trace_modes": 24,
+      "propagating_channels": 8,
+      "output_power": 0.9999999999999998,
+      "max_orders": [
+        2,
+        2
+      ],
+      "port_projection_deviation_norm": 0.10753889952176511
+    },
+    {
+      "max_order": 3,
+      "S21": [
+        -0.9966199387733604,
+        -0.08034578188416155
+      ],
+      "error": 0.0038231899767096496,
+      "tetrahedra": 8316,
+      "vertices": 1800,
+      "edge_dofs": 10873,
+      "free_dofs": 8647,
+      "h_max_um": 0.09657604509991888,
+      "linear_residual": 1.9266131559933738e-14,
+      "weak_gauss_residual": 3.616286193269877e-14,
+      "gradient_curl_residual": 8.699907673609664e-19,
+      "port_trace_modes": 48,
+      "propagating_channels": 8,
+      "output_power": 1.0000000000000024,
+      "max_orders": [
+        3,
+        3
+      ],
+      "port_projection_deviation_norm": 0.3036597539847975
+    }
+  ],
+  "elapsed_seconds": 485.8508150769994
+}

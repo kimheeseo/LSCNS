@@ -1,0 +1,249 @@
+{
+  "passed": 22,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "M7 guided grid 41",
+      "passed": true
+    },
+    {
+      "name": "M7 residual grid 41",
+      "passed": true
+    },
+    {
+      "name": "M7 guided grid 61",
+      "passed": true
+    },
+    {
+      "name": "M7 residual grid 61",
+      "passed": true
+    },
+    {
+      "name": "M7 guided grid 81",
+      "passed": true
+    },
+    {
+      "name": "M7 residual grid 81",
+      "passed": true
+    },
+    {
+      "name": "M7 independent LP01 neff <1e-5",
+      "passed": true
+    },
+    {
+      "name": "M7 mesh refinement trend",
+      "passed": true
+    },
+    {
+      "name": "M7 Aeff versus Bessel oracle within 3%",
+      "passed": true
+    },
+    {
+      "name": "M7 MFD versus Bessel second moment within 3%",
+      "passed": true
+    },
+    {
+      "name": "M7 single-mode V",
+      "passed": true
+    },
+    {
+      "name": "M7 analytic dispersion step convergence",
+      "passed": true
+    },
+    {
+      "name": "M7 silica Malitson",
+      "passed": true
+    },
+    {
+      "name": "M8 positive two-core supermode splitting",
+      "passed": true
+    },
+    {
+      "name": "M8 coupling decreases with separation",
+      "passed": true
+    },
+    {
+      "name": "M8 even/odd mode parity",
+      "passed": true
+    },
+    {
+      "name": "M8 supermode residual",
+      "passed": true
+    },
+    {
+      "name": "M8 MCF grid convergence within 7%",
+      "passed": true
+    },
+    {
+      "name": "M8 hollow capillary index below air",
+      "passed": true
+    },
+    {
+      "name": "M8 hollow capillary monotonic wavelength",
+      "passed": true
+    },
+    {
+      "name": "M8 capillary large radius limit",
+      "passed": true
+    },
+    {
+      "name": "M8 capillary dispersion finite",
+      "passed": true
+    }
+  ],
+  "M7": {
+    "V": 1.9989171400695704,
+    "n_core": 1.4490236217032606,
+    "n_clad": 1.4440236217032607,
+    "LP01_analytic_neff": 1.4461047805814204,
+    "Aeff_analytic_um2": 79.29135654686326,
+    "MFD_analytic_um": 10.593669506635894,
+    "D_analytic_ps_per_nm_km": 16.993004793714583,
+    "meshes": [
+      {
+        "grid": 41,
+        "triangles": 3200,
+        "neff": 1.4460800957948594,
+        "Aeff_um2": 80.2050526072061,
+        "MFD_um": 10.634317974672667,
+        "error": 2.4684786561035565e-05,
+        "residual": 1.8090796176228251e-16
+      },
+      {
+        "grid": 61,
+        "triangles": 7200,
+        "neff": 1.4460997210964086,
+        "Aeff_um2": 79.70053502859707,
+        "MFD_um": 10.59791149543211,
+        "error": 5.05948501183795e-06,
+        "residual": 2.1466252165819463e-16
+      },
+      {
+        "grid": 81,
+        "triangles": 12800,
+        "neff": 1.4461084275366947,
+        "Aeff_um2": 79.54515174445133,
+        "MFD_um": 10.585007467144939,
+        "error": 3.6469552742168787e-06,
+        "residual": 2.843982517735254e-16
+      }
+    ]
+  },
+  "M8": {
+    "MCF": [
+      {
+        "separation_um": 12.0,
+        "n_grid": 101,
+        "n_even": 1.446229946888412,
+        "n_odd": 1.4459347246376861,
+        "index_split": 0.0002952222507259794,
+        "coupling_length_mm": 2.625140883162437,
+        "parity": [
+          {
+            "even_score": 0.0117088244569479,
+            "odd_score": 1.9999657255637753
+          },
+          {
+            "even_score": 1.9999479272355911,
+            "odd_score": 0.014432198240824623
+          }
+        ],
+        "residuals": [
+          1.4625601576932496e-13,
+          6.82904721098687e-13
+        ]
+      },
+      {
+        "separation_um": 16.0,
+        "n_grid": 101,
+        "n_even": 1.446119914267572,
+        "n_odd": 1.4460456362913423,
+        "index_split": 7.427797622971966e-05,
+        "coupling_length_mm": 10.433779154175605,
+        "parity": [
+          {
+            "even_score": 0.015278761786369572,
+            "odd_score": 1.9999416390080678
+          },
+          {
+            "even_score": 1.9999350928011,
+            "odd_score": 0.01611287009369612
+          }
+        ],
+        "residuals": [
+          5.806423230603192e-13,
+          1.740165741471613e-12
+        ]
+      },
+      {
+        "separation_um": 20.0,
+        "n_grid": 101,
+        "n_even": 1.4461025366717817,
+        "n_odd": 1.4460836323729043,
+        "index_split": 1.8904298877409076e-05,
+        "coupling_length_mm": 40.99596631569006,
+        "parity": [
+          {
+            "even_score": 0.009333198010171084,
+            "odd_score": 1.9999782227351632
+          },
+          {
+            "even_score": 1.9999780125259132,
+            "odd_score": 0.009378134830314704
+          }
+        ],
+        "residuals": [
+          1.7395495949372986e-12,
+          1.8567453071851924e-12
+        ]
+      },
+      {
+        "separation_um": 24.0,
+        "n_grid": 101,
+        "n_even": 1.4460902808244576,
+        "n_odd": 1.4460853151705968,
+        "index_split": 4.96565386076675e-06,
+        "coupling_length_mm": 156.07209477954464,
+        "parity": [
+          {
+            "even_score": 0.014704228271085265,
+            "odd_score": 1.9999459456872706
+          },
+          {
+            "even_score": 1.9999454038686089,
+            "odd_score": 0.014777738149930658
+          }
+        ],
+        "residuals": [
+          2.1248953925898182e-16,
+          2.573101642611145e-16
+        ]
+      }
+    ],
+    "HCF_capillary": {
+      "neff_1p55": 0.9994878124536852,
+      "D_1p55_ps_per_nm_km": 3.373167521614031,
+      "n_air": 1.00027,
+      "radius_um": 15.0,
+      "model": "ideal capillary analytic; no antiresonant leakage or PML"
+    },
+    "convergence_16um": [
+      {
+        "grid": 81,
+        "split": 7.135631759647154e-05,
+        "length_mm": 10.860986470500302
+      },
+      {
+        "grid": 101,
+        "split": 7.427797622971966e-05,
+        "length_mm": 10.433779154175605
+      },
+      {
+        "grid": 121,
+        "split": 7.241237971555847e-05,
+        "length_mm": 10.70258984781692
+      }
+    ]
+  },
+  "seconds": 1.88
+}

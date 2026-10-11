@@ -18,7 +18,7 @@ panel.innerHTML=[
 ].join('');
 document.body.appendChild(panel);
 const btn=document.createElement('button');btn.id='phase5-open';btn.className='phase58-launch p5';btn.type='button';btn.textContent='▥ FPS / 기기 검증';btn.setAttribute('aria-controls','phase5-panel');view.appendChild(btn);
-let opened=false,record=null,active=null,lastUpdate=0;
+let opened=false,record=null,active=null,lastUpdate=0;const history=[];
 function device(){
  const cv=document.querySelector('#viewport canvas')||document.querySelector('canvas');
  let gpu='브라우저 비공개',gl=cv?.getContext('webgl')||cv?.getContext('experimental-webgl');
@@ -42,6 +42,7 @@ function finish(cancel=false){
  device:device(),quality:C.quality,staticCacheEnabled:!!cache?.enabled,sample:result,renderMetrics:{...window.LS3D_RENDER_METRICS},
  staticCache:{hits:cache?.hits,misses:cache?.misses,uploads:cache?.gpu?.uploads,vertices:cache?.gpu?.counts?.reduce((a,b)=>a+b,0)}};
  active=null;
+ if(record.completed){history.push(record);if(history.length>30)history.shift();}
  $('p5-status').textContent=cancel?'측정을 취소했습니다.':'실기기 측정 완료. JSON 결과를 내려받을 수 있습니다.';
  if(result){$('p5-fps').textContent=result.fps.toFixed(1);$('p5-p95').textContent=result.p95Ms.toFixed(1)+' ms'}
  refresh();
@@ -59,9 +60,9 @@ function start(){
 $('p5-run').onclick=start;$('p5-stop').onclick=()=>finish(true);
 $('p5-json').onclick=()=>{
  if(!record){$('p5-status').textContent='10초 측정 완료 후 저장해 주세요.';return}
- const blob=new Blob([JSON.stringify(record,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ const blob=new Blob([JSON.stringify({...record,sessionHistory:history.map(x=>({at:x.at,quality:x.quality,staticCacheEnabled:x.staticCacheEnabled,sample:x.sample,device:x.device}))},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
  a.href=url;a.download='LS_Datacenter_device_FPS_'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 };
 window.addEventListener('ls3d-tick',()=>{const t=performance.now();if(!opened||t-lastUpdate<600)return;lastUpdate=t;refresh()});
-window.LS3D_PHASE5={open:()=>toggle(true),close:()=>toggle(false),measure:start,cancel:()=>finish(true),get device(){return device()},get result(){return record},get measuring(){return !!active},get cache(){return cache}};
+window.LS3D_PHASE5={open:()=>toggle(true),close:()=>toggle(false),measure:start,cancel:()=>finish(true),get device(){return device()},get result(){return record},get history(){return history.slice()},get measuring(){return !!active},get cache(){return cache}};
 })();

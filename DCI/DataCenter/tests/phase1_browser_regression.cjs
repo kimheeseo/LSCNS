@@ -28,7 +28,7 @@ async function initPage(context,device){
  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE1&&document.querySelector('#phase1-readout'),{timeout:25000});
  await page.waitForTimeout(900);
  const snapshot=await page.evaluate(()=>({title:document.title,gl:window.__LS3D_TEST__.gl,error:document.querySelector('#error')?.textContent||'',hud:document.querySelector('#phase1-readout')?.textContent||'',viewport:{width:document.querySelector('#viewport')?.getBoundingClientRect().width,height:document.querySelector('#viewport')?.getBoundingClientRect().height}}));
- check(device,'initialization',!snapshot.error&&snapshot.title.includes('v4.5.5'),JSON.stringify(snapshot));
+ check(device,'initialization',!snapshot.error&&/v4\.(5\.5|6\.0)/.test(snapshot.title),JSON.stringify(snapshot));
  check(device,'hud-mounted',!!snapshot.hud,snapshot.hud);
  const tour=await page.locator('#guide.open').count()===1;
  check(device,'first-visit-tour',tour||await page.locator('#guide').count()===1,'tour dialog present, automatic open on first visit='+tour);

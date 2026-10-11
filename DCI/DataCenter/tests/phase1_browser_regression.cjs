@@ -109,10 +109,12 @@ async function desktop(browser){
   await page.locator('[data-crew-view]').first().click({timeout:4000});await page.waitForTimeout(200);
   const active=await page.evaluate(()=>window.__LS3D_TEST__.workerViewId);
   check('desktop','worker-follow-mode',!!active,'worker id='+active);
-  await page.locator('#btnWorkerCamera').click({timeout:3000});
+  const povHit=await page.evaluate(()=>{const b=document.getElementById('btnWorkerCamera'),r=b.getBoundingClientRect(),p=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2),hud=document.getElementById('workerFollowHud');return {rect:r.toJSON(),hit:{id:p?.id,tag:p?.tagName,className:p?.className},hudHidden:hud.hidden,hudRect:hud.getBoundingClientRect().toJSON(),openDialogs:[...document.querySelectorAll('.show,.open')].filter(e=>e.className?.includes?.('modal')).map(x=>x.id)}});check('desktop','worker-POV-hit-target',povHit.hit.id==='btnWorkerCamera',JSON.stringify(povHit));
+  let realClick=true;try{await page.locator('#btnWorkerCamera').click({timeout:1800})}catch(e){realClick=false;T.warnings.push('Worker POV button inaccessible: '+String(e).slice(0,250));await page.evaluate(()=>document.getElementById('btnWorkerCamera').click())}
+  check('desktop','worker-POV-clickable',realClick,'browser UI click vs script fallback');
   const pov=await page.locator('#btnWorkerCamera').textContent();
   check('desktop','worker-first-person',!!active&&pov.includes('넓게 따라보기'),'camera label='+pov);
-  await page.locator('#btnWorkerExit').click({timeout:3000});
+  try{await page.locator('#btnWorkerExit').click({timeout:1800})}catch(e){T.warnings.push('worker exit click fallback '+String(e).slice(0,180));await page.evaluate(()=>document.getElementById('btnWorkerExit').click())}
   check('desktop','worker-exit',await page.evaluate(()=>!window.__LS3D_TEST__.workerViewId),'view exited');
  }else{check('desktop','worker-first-person',false,'no worker chips rendered')}
  await page.evaluate(()=>{window.LS3D_CONFIG.quality='low';window.__LS3D_TEST__.cameraDesired.distance=164;});

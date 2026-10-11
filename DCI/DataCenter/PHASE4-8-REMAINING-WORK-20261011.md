@@ -70,3 +70,10 @@
 3. Phase 6 상세 배관 CAD, 굽힘 반경, 서비스 접근성, 시공 안전 기준 검토는 미완료.
 4. Phase 7 원본 BOM과 양방향 공유 스키마/엔진 동기화는 미완료.
 5. Phase 8 신규 변경분의 Chromium CI 성공 여부는 아직 미확인. 문서상 회귀 항목 존재는 통과를 의미하지 않음.
+
+## Phase 7 재개발 — 3D 토폴로지·BOM 정합성 비교 (2026-10-11)
+- `LS_Datacenter_3D_Extensions.js`가 `T.exportConfig()`으로 기존 `lsdc-twin-bom/1.0` 구성 스냅샷을 노출합니다. 기존 JSON 생성 경로와 동일하므로 별도 가상 토폴로지를 만들지 않습니다.
+- `LS_Datacenter_3D_Phase7.js`의 `reconcileTopology(audit, packet)`가 다운된 링크를 제외한 활성 링크 중 DAC/AEC/구리 링크를 제외한 광 링크 개수와 거리 합을 계산합니다. 감사 모델의 `racks × uplinkPerRack` 및 `lengthM × linkCount` 가정과 비교하여 일치 여부와 실제 측정되지 않은 가정을 명시한 `topologyReconciliation` 데이터를 JSON 감사 결과에 포함합니다.
+- 두 수량 모델은 자동 일치하는 것이 정상이라는 보장이 없습니다. 불일치 시 3D 토폴로지 또는 BOM 수량을 임의 수정하지 않습니다.
+- `LS_Datacenter_3D_Phase8.js`에 공통 스냅샷 API 및 조정 함수를 확인하는 스모크 검사를 추가했습니다.
+- **검증 한계:** 이는 양방향 계산 엔진 통합의 첫 단계(출처·차이 확인)입니다. 3D 편집→원본 BOM 즉시 재계산 및 BOM 변경→3D 장면 갱신은 여전히 미구현입니다. 최신 GitHub Actions 통과 결과도 별도 확인해야 합니다.

@@ -90,6 +90,37 @@ async function desktop(browser){
  check('desktop','worker-features-retained',worker.listBtn&&worker.roster&&worker.staff>0,JSON.stringify(worker));
  const comparison=await page.evaluate(()=>({log:!!document.getElementById('eventLog')||!!document.querySelector('[id*="log"]'),graph:!!document.querySelector('canvas:not(#scene)')||!!document.querySelector('svg'),facility:!!document.getElementById('facilityModeSelect')}));
  check('desktop','dashboard-elements',comparison.facility,JSON.stringify(comparison));
+
+ const scenarios=[];
+ for(const id of ['cooling','network','fiber-cut','normal']){
+   await page.locator('#scenarioSelect').selectOption(id);
+   await page.waitForTimeout(110);
+   const result=await page.evaluate(()=>({scenario:window.__LS3D_TEST__.scenario,eventLog:!!document.querySelector('#eventLog, [id*=eventLog]'),config:!!window.LS3D_CONFIG}));
+   scenarios.push({id,result});check('desktop','scenario-'+id,result.scenario===id,JSON.stringify(result));
+ }
+ await page.locator('#redundancySelect').selectOption('2N');
+ await page.locator('#compareBtn').click({timeout:3500});
+ const compare=await page.evaluate(()=>({total:document.querySelectorAll('#compareCards .compare-card').length,selected:document.querySelector('#compareCards .compare-card.active')?.textContent?.slice(0,24)}));
+ check('desktop','redundancy-compare',compare.total===3&&compare.selected?.includes('2N'),JSON.stringify(compare));
+ const linkCheck=await page.evaluate(()=>({twoD:[...document.querySelectorAll('a')].some(a=>a.href.includes('LS_Datacenter_Campus.html')),guide:[...document.querySelectorAll('a')].some(a=>a.href.includes('LS_Datacenter_3D_Guidebook'))}));
+ check('desktop','2D-and-Word-guide-links',linkCheck.twoD&&linkCheck.guide,JSON.stringify(linkCheck));
+ const crewCount=await page.locator('[data-crew-view]').count();
+ if(crewCount){
+  await page.locator('[data-crew-view]').first().click({timeout:4000});await page.waitForTimeout(200);
+  const active=await page.evaluate(()=>window.__LS3D_TEST__.workerViewId);
+  check('desktop','worker-follow-mode',!!active,'worker id='+active);
+  await page.locator('#btnWorkerCamera').click({timeout:3000});
+  const pov=await page.locator('#btnWorkerCamera').textContent();
+  check('desktop','worker-first-person',!!active&&pov.includes('넓게 따라보기'),'camera label='+pov);
+  await page.locator('#btnWorkerExit').click({timeout:3000});
+  check('desktop','worker-exit',await page.evaluate(()=>!window.__LS3D_TEST__.workerViewId),'view exited');
+ }else{check('desktop','worker-first-person',false,'no worker chips rendered')}
+ await page.evaluate(()=>{window.LS3D_CONFIG.quality='low';window.__LS3D_TEST__.cameraDesired.distance=164;});
+ await page.waitForTimeout(850);
+ T.metrics.desktopCampusLowQuality=await fpsSample(page,3);
+ check('desktop','quality-toggle',await page.evaluate(()=>window.LS3D_CONFIG.quality==='low'),'low quality selected');
+ await page.evaluate(()=>{window.LS3D_CONFIG.quality='medium';});
+
  let downloaded=false,filename='';try{const [dl]=await Promise.all([page.waitForEvent('download',{timeout:9000}),page.locator('#exportBtn').click()]);downloaded=!!dl;filename=dl.suggestedFilename()}catch(e){T.warnings.push('CSV download interaction: '+String(e).slice(0,200))}
  check('desktop','CSV-export',downloaded,filename);
  await page.screenshot({path:path.join(out,'desktop-overview.png')});

@@ -199,11 +199,11 @@ async function mobile(browser){
  await page.locator('#phase2-mep-open').click({timeout:5500});
  const panel=await page.locator('#phase2-mep-panel').boundingBox();
  const dims=await page.evaluate(()=>({inner:innerWidth,scroll:document.documentElement.scrollWidth,top:document.getElementById('phase2-mep-panel').getBoundingClientRect().top}));
- check('mobile','phase2-MEP-responsive',panel&&panel.left>=-1&&panel.right<=dims.inner+1&&dims.scroll<=dims.inner+3,JSON.stringify({panel,dims}).slice(0,460));
+ check('mobile','phase2-MEP-responsive',panel&&panel.x>=-1&&panel.x+panel.width<=dims.inner+1&&dims.scroll<=dims.inner+3,JSON.stringify({panel,dims}).slice(0,460));
  await page.locator('#phase2-mep-close').click({timeout:4000});
  await page.locator('#phase2-opt-open').click({timeout:5500});
  const opt=await page.locator('#phase2-opt-panel').boundingBox();
- check('mobile','phase2-optical-responsive',opt&&opt.left>=-1&&opt.right<=dims.inner+1,JSON.stringify(opt).slice(0,260));
+ check('mobile','phase2-optical-responsive',opt&&opt.x>=-1&&opt.x+opt.width<=dims.inner+1,JSON.stringify(opt).slice(0,260));
  await page.screenshot({path:path.join(out,'phase2-optical-mobile.png')});
  await page.locator('#phase2-opt-close').click({timeout:4000});
 

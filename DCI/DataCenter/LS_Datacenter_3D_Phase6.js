@@ -6,7 +6,7 @@ const $=id=>document.getElementById(id),assets=T.assets;
 const el=document.createElement('aside');el.id='phase6-panel';el.className='phase58-panel';el.hidden=true;
 el.innerHTML=[
 '<header><b>PHASE 6 · 랙·MEP 정밀 개념도</b><button type="button" id="p6-close">✕</button></header>',
-'<p class="p58-note">실측 CAD/BIM 아님. 랙 치수·배관·버스웨이는 기존 가상 좌표의 개념 구성입니다. AABB 충돌·간격 검사는 실제 시공 승인 기준이 아닙니다.</p>',
+'<p class="p58-note">실측 CAD/BIM 아님. 랙 치수·배관·버스웨이는 기존 가상 좌표의 개념 구성입니다. 캡슐 선분–AABB 충돌·간격 검사는 실제 시공 승인 기준이 아닙니다.</p>',
 '<label><input type="checkbox" id="p6-pipe" checked> 수랭 Supply/Return 배관 및 밸브</label>',
 '<label><input type="checkbox" id="p6-power" checked> 상부 전력 Busway · 랙 분기</label>',
 '<label><input type="checkbox" id="p6-rack" checked> 랙 서버/ToR 구획 · 케이블 경로</label>',
@@ -25,12 +25,24 @@ function pipes(opt){const h=T.Z.find(z=>z.id==='hall'),x=h.pos[0],z=h.pos[1],o=o
  {id:'POWER-BUSWAY',kind:'power',from:[x-18,6.8,z-13],to:[x+17,6.8,z-13],radius:.22,color:'#efb964'}];
 }
 function gap1(a0,a1,b0,b1){return Math.max(0,b0-a1,a0-b1)}
+function pointBoxDistance(p,a){
+ const q=[Math.max(a.x-a.w/2-p[0],0,p[0]-(a.x+a.w/2)),Math.max(-p[1],0,p[1]-a.h),Math.max(a.z-a.d/2-p[2],0,p[2]-(a.z+a.d/2))];
+ return Math.hypot(...q);
+}
+// True capsule-to-AABB distance for an axis-aligned cabinet, without treating a diagonal
+// pipe segment as the entire enclosing rectangular prism. The distance to a convex box
+// along a straight segment is convex; fixed-iteration ternary minimization converges.
 function clearance(pipe,a){
- const ax=a.x-a.w/2,az=a.z-a.d/2,ay=0,bx=a.x+a.w/2,bz=a.z+a.d/2,by=a.h;
- const x=gap1(Math.min(pipe.from[0],pipe.to[0]),Math.max(pipe.from[0],pipe.to[0]),ax,bx);
- const y=gap1(Math.min(pipe.from[1],pipe.to[1]),Math.max(pipe.from[1],pipe.to[1]),ay,by);
- const z=gap1(Math.min(pipe.from[2],pipe.to[2]),Math.max(pipe.from[2],pipe.to[2]),az,bz);
- return Math.max(0,Math.hypot(x,y,z)-pipe.radius);
+ if(![...pipe.from,...pipe.to,pipe.radius,a.x,a.z,a.w,a.h,a.d].every(Number.isFinite))throw Error('MEP geometry must contain finite values');
+ let lo=0,hi=1;
+ for(let i=0;i<65;i++){
+  const l=lo+(hi-lo)/3,r=hi-(hi-lo)/3;
+  const d=t=>pointBoxDistance(pipe.from.map((v,k)=>v+(pipe.to[k]-v)*t),a);
+  if(d(l)<d(r))hi=r;else lo=l;
+ }
+ const t=(lo+hi)/2;
+ const p=pipe.from.map((v,k)=>v+(pipe.to[k]-v)*t);
+ return Math.max(0,pointBoxDistance(p,a)-pipe.radius);
 }
 function check(){
  const opt=options();if(!Number.isFinite(opt.clearance)||opt.clearance<.1||opt.clearance>2)throw Error('이격 거리 .1–2m');
@@ -40,7 +52,7 @@ function check(){
  const d=clearance(route,asset);
  return {route:route.id,asset:asset.id,name:asset.name,spacingM:Number(d.toFixed(3)),requiredM:opt.clearance,collision:d<opt.clearance};
  }));
- return{rows:table,violations:table.filter(x=>x.collision),testedAssets:equipment.length,routeCount:routes.length,units:'schematic metres',notice:'AABB precheck on assumed concept positions; not construction clearance'};
+ return{rows:table,violations:table.filter(x=>x.collision),testedAssets:equipment.length,routeCount:routes.length,units:'schematic metres',notice:'segment-to-AABB capsule precheck on assumed concept positions; not construction clearance'};
 }
 function draw(ctx){
  const opt=options();if(T.currentZone!=='hall')return;

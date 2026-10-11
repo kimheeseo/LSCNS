@@ -154,4 +154,28 @@ async function mobile(browser){
  const after=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance);
  const touchDiag=await page.evaluate(()=>({count:window.__LS3D_TOUCH_DIAG__,scrollY:scrollY,innerHeight:innerHeight}));
  check('mobile','pinch-zoom',after<before&&after>0,'before='+before.toFixed(2)+' after='+after.toFixed(2)+' '+JSON.stringify(touchDiag));
- T.metrics.mobileCamp
+ T.metrics.mobileCampus=await fpsSample(page,3);
+ await page.screenshot({path:path.join(out,'mobile-portrait.png'),fullPage:true});
+ await page.close();await context.close();
+}
+(async()=>{
+ await new Promise(resolve=>server.listen(9874,'127.0.0.1',resolve));
+ let browser;
+ try{
+ browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-background-timer-throttling','--disable-renderer-backgrounding']});
+ await desktop(browser);await mobile(browser);
+ }catch(e){safeError('harness',e);check('harness','completed',false,String(e).slice(0,600))}
+ finally{
+ if(browser)await browser.close().catch(()=>{});await new Promise(r=>server.close(r));
+ T.finished=new Date().toISOString();T.summary={pass:T.cases.filter(x=>x.pass).length,fail:T.cases.filter(x=>!x.pass).length,pageErrors:T.pageErrors.length,consoleErrors:T.consoleErrors.length,environment:'GitHub Actions Linux Chromium / SwiftShader; synthetic mobile touch; NOT physical hardware'};
+ fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(T,null,2));
+ const lines=['# LS Datacenter 3D v4.5.5 · Phase 1 browser regression','','Execution: '+T.finished,'Environment: '+T.summary.environment,'Tests: '+T.summary.pass+' passed, '+T.summary.fail+' failed','Page errors: '+T.pageErrors.length+', console errors: '+T.consoleErrors.length,'','## FPS samples (headless, software WebGL—not physical device FPS)',''];
+ for(const [k,v] of Object.entries(T.metrics))lines.push('- '+k+': '+v.avgFPS+' FPS, p95 frame '+v.p95Ms+'ms, frames='+v.frames+', WebGL='+v.WebGL);
+ lines.push('','## Cases','');
+ for(const x of T.cases)lines.push('- '+(x.pass?'PASS':'FAIL')+' '+x.group+' / '+x.name+(x.detail?' — '+x.detail:''));
+ if(T.pageErrors.length)lines.push('','## Runtime errors','',...T.pageErrors.map(x=>'- '+x.p+': '+x.message.slice(0,500)));
+ fs.writeFileSync(path.join(out,'report.md'),lines.join('\n')+'\n');
+ process.stdout.write('\nREPORT '+JSON.stringify(T.summary)+'\n');
+ }
+ process.exitCode=(T.summary.fail||T.summary.pageErrors)?1:0;
+})().catch(e=>{console.error(e);process.exitCode=1});

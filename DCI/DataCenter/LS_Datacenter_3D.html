@@ -492,7 +492,7 @@ function ls3dAppendStatic(cache){
  // Standard arrays are retained because the existing WebGL pipeline uses a single
  // batched tri/line/glass upload per frame. No opaque blending-order changes.
  for(const [dst,src] of [[tri,cache.tri],[wire,cache.wire],[transparent,cache.glass]]){
-  for(let i=0,n=src.length;i<n;i++)dst.push(src[i]);
+  for(let i=0,n=src.length;i<n;i+=8192)Array.prototype.push.apply(dst,src.slice(i,Math.min(i+8192,n)));
  }
 }
 function ls3dStaticGeometry(key,fn){
@@ -508,7 +508,7 @@ function ls3dStaticGeometry(key,fn){
  }else LS3D_PHASE4_CACHE.hits++;
  ls3dAppendStatic(geo);
  LS3D_PHASE4_CACHE.entries=ls3dStaticMap.size;
- if(LS3D_PHASE4_CACHE.misses>LS3D_PHASE4_CACHE.lastSizeCheck){LS3D_PHASE4_CACHE.approxBytes=[...ls3dStaticMap.values()].reduce((sum,v)=>sum+(v.tri.length+v.wire.length+v.glass.length)*8,0);LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses;}
+ if(LS3D_PHASE4_CACHE.lastSizeCheck!==LS3D_PHASE4_CACHE.misses){LS3D_PHASE4_CACHE.approxBytes=[...ls3dStaticMap.values()].reduce((sum,v)=>sum+(v.tri.length+v.wire.length+v.glass.length)*8,0);LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses;}
 }
 LS3D_PHASE4_CACHE.clear=()=>{ls3dStaticMap.clear();LS3D_PHASE4_CACHE.entries=0;LS3D_PHASE4_CACHE.approxBytes=0;LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses};
 function drawScene(){tri=[];wire=[];transparent=[];

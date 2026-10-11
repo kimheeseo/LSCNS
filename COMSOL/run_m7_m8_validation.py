@@ -31,7 +31,7 @@ def stage7():
  chk('M7 silica Malitson',1.443<silica_index(1.55)<1.446)
  wl=np.linspace(1.34,1.66,81);ne=np.array([lp01_analytic(Fiber(wavelength_um=float(w)))['n_eff'] for w in wl])
  d=np.array([dispersion_lp01(w) for w in wl])
- np.savetxt(out/'m7_dispersion.csv',np.column_stack((wl,ne,d)),delimiter=',comments='',header='wavelength_um,LP01_neff,D_ps_nm_km')
+ np.savetxt(out/'m7_dispersion.csv',np.column_stack((wl,ne,d)),delimiter=',',comments='',header='wavelength_um,LP01_neff,D_ps_nm_km')
  n=sol['n'];x=sol['xy'][:,0].reshape(n,n);y=sol['xy'][:,1].reshape(n,n);I=sol['fields'][:,0].reshape(n,n)**2
  fig,ax=plt.subplots(1,2,figsize=(11,4),constrained_layout=True)
  im=ax[0].pcolormesh(x,y,I,cmap='inferno',shading='auto');ax[0].add_patch(plt.Circle((0,0),f.radius_um,fill=False,edgecolor='cyan'))

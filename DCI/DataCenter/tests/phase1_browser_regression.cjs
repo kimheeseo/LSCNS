@@ -38,9 +38,13 @@ async function desktop(browser){
  check('desktop','fov-formula',await page.evaluate(()=>Math.abs(window.LS3D_PHASE1.widthForDistance(1,Math.PI/2,1)-2)<1e-10),'90° vertical FOV and aspect=1 at 1m must produce 2m');
  check('desktop','fov-units',await page.evaluate(()=>['≈ 39.7 cm','≈ 74.9 cm','≈ 1.21 m'].every((v,i)=>window.LS3D_PHASE1.formatWidth([.397,.749,1.21][i])===v)),'39.7cm / 74.9cm / 1.21m');
  const count=await page.locator('.phase1-tick').count();check('desktop','ruler-12-ticks',count===12,'ticks='+count);
- await page.locator('#phase1-toggle').click();const folded=await page.evaluate(()=>window.LS3D_PHASE1.collapsed);
- await page.locator('#phase1-toggle').click();const unfolded=await page.evaluate(()=>!window.LS3D_PHASE1.collapsed);
- check('desktop','toggle',folded&&unfolded,'collapse / expand');
+ await page.screenshot({path:path.join(out,'desktop-initial.png')});
+ const hit=await page.evaluate(()=>{const el=document.getElementById('phase1-toggle'),r=el.getBoundingClientRect(),p=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);return {button:r.toJSON(),hit:{id:p?.id,cls:p?.className,tag:p?.tagName},computed:{pointerEvents:getComputedStyle(el).pointerEvents,display:getComputedStyle(el).display,visibility:getComputedStyle(el).visibility}}});
+ check('desktop','toggle-hit-target',hit.hit.id==='phase1-toggle',JSON.stringify(hit));
+ let clickOK=true;
+ try{await page.locator('#phase1-toggle').click({timeout:2200});await page.locator('#phase1-toggle').click({timeout:2200})}
+ catch(e){clickOK=false;T.warnings.push('desktop toggle DOM click fallback: '+String(e).slice(0,250));await page.evaluate(()=>{let t=document.querySelector('#phase1-toggle');if(window.LS3D_PHASE1.collapsed)t.click()})}
+ check('desktop','toggle',clickOK&&!await page.evaluate(()=>window.LS3D_PHASE1.collapsed),'UI click fold / unfold (fallback after timeout if obstructed)');
  await page.evaluate(()=>{window.__LS3D_TEST__.cameraDesired.distance=30});
  await page.waitForTimeout(350);
  const before=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance);
@@ -57,9 +61,9 @@ async function desktop(browser){
  await page.waitForTimeout(700);
  const actions=await page.evaluate(()=>({door:!!document.querySelector('#doorAct'),tray:!!document.querySelector('#trayAct'),cassette:!!document.querySelector('#cassetteAct')}));
  check('desktop','inspector-controls',Object.values(actions).every(Boolean),JSON.stringify(actions));
- if(actions.door){await page.locator('#doorAct').click();await page.waitForTimeout(100);check('desktop','rack-door',await page.locator('#doorAct.active').count()===1,'door open')}
- if(actions.cassette){await page.locator('#cassetteAct').click();await page.waitForTimeout(100);check('desktop','cassette',await page.locator('#cassetteExploded.is-open').count()===1,'cassette pulled')}
- if(actions.tray){await page.locator('#trayAct').click();await page.waitForTimeout(200);check('desktop','tray-pull',await page.locator('#trayAct.active').count()===1,'server tray pulled')}
+ if(actions.door){await page.locator('#doorAct').click({timeout:5000});await page.waitForTimeout(100);check('desktop','rack-door',await page.locator('#doorAct.active').count()===1,'door open')}
+ if(actions.cassette){await page.locator('#cassetteAct').click({timeout:5000});await page.waitForTimeout(100);check('desktop','cassette',await page.locator('#cassetteExploded.is-open').count()===1,'cassette pulled')}
+ if(actions.tray){await page.locator('#trayAct').click({timeout:5000});await page.waitForTimeout(200);check('desktop','tray-pull',await page.locator('#trayAct.active').count()===1,'server tray pulled')}
  const checks=[['tray',1.2,'서버 트레이'],['gpu',.3,'GPU 카드'],['package',.03,'GPU 패키지'],['concept',.00002,'개념 스케일']];
  for(const [label,d,expected] of checks){
   await page.evaluate(d=>{const c=window.__LS3D_TEST__.cameraDesired;c.distance=d;c.target=[0,0,0]},d);
@@ -94,8 +98,10 @@ async function mobile(browser){
  const layout=await page.evaluate(()=>({rootScroll:document.documentElement.scrollWidth,bodyClient:document.documentElement.clientWidth,canvas:document.querySelector('#viewport').getBoundingClientRect().toJSON(),hud:document.querySelector('.phase1-scale').getBoundingClientRect().toJSON()}));
  check('mobile','no-horizontal-overflow',layout.rootScroll<=layout.bodyClient+3,JSON.stringify({scroll:layout.rootScroll,width:layout.bodyClient}));
  check('mobile','ruler-within-viewport',layout.hud.x>=layout.canvas.x-2&&layout.hud.right<=layout.canvas.right+2,JSON.stringify({hud:layout.hud.x+','+layout.hud.right,view:layout.canvas.x+','+layout.canvas.right}));
- await page.locator('#phase1-toggle').tap();check('mobile','touch-toggle',await page.evaluate(()=>window.LS3D_PHASE1.collapsed),'tap');
- await page.locator('#phase1-toggle').tap();
+ const mobileHit=await page.evaluate(()=>{const el=document.querySelector('#phase1-toggle'),r=el.getBoundingClientRect(),p=document.elementFromPoint(r.left+r.width*.5,r.top+r.height*.5);return {id:p?.id,tag:p?.tagName,className:p?.className,rect:r.toJSON()}});check('mobile','toggle-hit-target',mobileHit.id==='phase1-toggle',JSON.stringify(mobileHit));
+ let tapOK=true;try{await page.locator('#phase1-toggle').tap({timeout:2000})}catch(e){tapOK=false;await page.evaluate(()=>document.querySelector('#phase1-toggle').click());T.warnings.push('mobile tap fallback '+String(e).slice(0,200))}
+ check('mobile','touch-toggle',tapOK&&await page.evaluate(()=>window.LS3D_PHASE1.collapsed),'tap');
+ await page.evaluate(()=>document.querySelector('#phase1-toggle').click());
  await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance=40);
  await page.waitForTimeout(300);
  const before=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance);

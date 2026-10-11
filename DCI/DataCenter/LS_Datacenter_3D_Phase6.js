@@ -19,11 +19,11 @@ el.innerHTML=[
 const btn=document.createElement('button');btn.id='phase6-open';btn.className='phase58-launch p6';btn.textContent='▥ 랙 / MEP 검사';btn.type='button';view.appendChild(btn);
 let opened=false,last=[];
 function options(){return {pipe:$('p6-pipe').checked,power:$('p6-power').checked,rack:$('p6-rack').checked,offset:Number($('p6-offset').value),clearance:Number($('p6-clearance').value)}}
-function pipes(opt){const h=T.Z.find(z=>z.id==='hall'),x=h.pos[0],z=h.pos[1],o=opt.offset;
- if(T.facilityMode==='server-room'){
-  const b=T.roomBounds?.();if(!b)return[];
+function pipes(opt,mode=T.facilityMode){const h=T.Z.find(z=>z.id==='hall'),x=h.pos[0],z=h.pos[1],o=opt.offset;
+ if(mode==='server-room'){
+  const b=T.roomBounds?.('server-room');if(!b)return[];
   const x0=b.minX+2,x1=b.maxX-2,r=[];
-  const hasCDU=T.visibleAssets().some(a=>/CDU/i.test(a.type+' '+a.name));
+  const hasCDU=(T.serverRoomAssets?.()||[]).some(a=>/CDU/i.test(a.type+' '+a.name));
   if(hasCDU&&/dlc|mixed/i.test(String(window.LS3D_CONFIG?.cooling||'')))r.push({id:'SR-DLC-SUPPLY',kind:'cooling',from:[x0,6.25,z-1+o],to:[x1,6.25,z-1+o],radius:.10,color:'#51c6eb'},{id:'SR-DLC-RETURN',kind:'cooling',from:[x0,6.05,z-.4+o],to:[x1,6.05,z-.4+o],radius:.10,color:'#2c8cbb'});
   r.push({id:'SR-POWER-BUSWAY',kind:'power',from:[x0,6.35,z-7],to:[x1,6.35,z-7],radius:.16,color:'#efb964'});
   return r.filter(p=>[p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ));
@@ -63,6 +63,10 @@ function check(){
  return{rows:table,violations:table.filter(x=>x.collision),testedAssets:equipment.length,routeCount:routes.length,units:'schematic metres',notice:'segment-to-AABB capsule precheck on assumed concept positions; not construction clearance'};
 }
 function draw(ctx){
+ if(T.facilityMode==='server-room'){
+  const raw=ctx,b=T.roomBounds('server-room'),G=window.LS3DServerRoomGeometry;
+  ctx={line:(a,z,c)=>{if(G.routeInside([a,z],b))raw.line(a,z,c)},box:(x,y,z,w,h,d,c)=>{if(G.assetInside({x,y,z,w,h,d},b))raw.box(x,y,z,w,h,d,c)},cylinder:(x,y,z,r,h,c,n)=>{if(G.assetInside({x,y,z,w:r*2,d:r*2,h},b))raw.cylinder(x,y,z,r,h,c,n)}};
+ }
  const opt=options();if(T.currentZone!=='hall')return;
  const route=pipes(opt);
  for(const p of route){
@@ -74,7 +78,7 @@ function draw(ctx){
   }
  }
  if(!opt.rack)return;
- for(const a of assets.filter(x=>x.zone==='hall'&&(/GPU server rack|Top-of-Rack switch/.test(x.type)))){
+ for(const a of T.visibleAssets().filter(x=>x.zone==='hall'&&(/GPU server rack|Top-of-Rack switch/.test(x.type)))){
   // Draw as additive internals outside the original rack: service-line guides above cabinet only.
   ctx.line([a.x-a.w*.37,a.h+.2,a.z],[a.x+a.w*.37,a.h+.2,a.z],'#85dec5');
   ctx.box(a.x,a.h+.38,a.z-a.d*.25,a.w*.66,.12,.26,'#e6b75c');
@@ -96,5 +100,5 @@ $('p6-csv').onclick=()=>{
  const data=last.length?last:check().rows,s='\uFEFFroute,asset,name,spacing_m,required_m,collision\n'+data.map(x=>[x.route,x.asset,'"'+String(x.name).replace(/"/g,'""')+'"',x.spacingM,x.requiredM,x.collision].join(',')).join('\n');
  const url=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='LS_Datacenter_MEP_clearance_concept.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 };
-window.LS3D_PHASE6={open:()=>toggle(true),get options(){return options()},get checks(){return check()},get drawings(){return pipes(options())},get roomBounds(){return T.roomBounds?.()||null},get externalRoutes(){const b=T.roomBounds?.();return b?pipes(options()).filter(p=>![p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ)):[]},clearance,run:render};
+window.LS3D_PHASE6={serverRoomDrawings:()=>pipes(options(),'server-room'),draw,open:()=>toggle(true),get options(){return options()},get checks(){return check()},get drawings(){return pipes(options())},get roomBounds(){return T.roomBounds?.()||null},get externalRoutes(){const b=T.roomBounds?.();return b?pipes(options()).filter(p=>![p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ)):[]},clearance,run:render};
 })();

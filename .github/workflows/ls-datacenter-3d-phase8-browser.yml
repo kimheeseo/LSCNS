@@ -11,6 +11,12 @@ on:
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase2.css'
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase45.js'
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase6.js'
+      - 'DCI/DataCenter/phase7-bom-engine.js'
+      - 'DCI/DataCenter/phase7-compatibility.js'
+      - 'DCI/DataCenter/server-room-geometry.js'
+      - 'DCI/DataCenter/tests/phase7_engine.test.cjs'
+      - 'DCI/DataCenter/tests/phase7_compatibility.test.cjs'
+      - 'DCI/DataCenter/tests/server_room_geometry.test.cjs'
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase7.js'
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase8.js'
       - 'DCI/DataCenter/LS_Datacenter_3D_Phase458.css'
@@ -34,6 +40,11 @@ jobs:
           mkdir -p /tmp/lsdc-phase1
           npm install --no-save --prefix /tmp/lsdc-phase1 playwright@1.56.1
           /tmp/lsdc-phase1/node_modules/.bin/playwright install --with-deps chromium
+      - name: Run shared engine, compatibility and room unit checks
+        run: |
+          node DCI/DataCenter/tests/phase7_engine.test.cjs
+          node DCI/DataCenter/tests/phase7_compatibility.test.cjs
+          node DCI/DataCenter/tests/server_room_geometry.test.cjs
       - name: Run desktop and mobile emulation and measure FPS
         env:
           NODE_PATH: /tmp/lsdc-phase1/node_modules
@@ -42,7 +53,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ls-datacenter-v460-phase8-browser-regression
+          name: ls-datacenter-v470-phase8-browser-regression
           path: DCI/DataCenter/tests/test-results/phase8/
           if-no-files-found: warn
           retention-days: 30

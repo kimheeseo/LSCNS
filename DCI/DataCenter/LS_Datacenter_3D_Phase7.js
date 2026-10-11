@@ -1,17 +1,18 @@
-/* Phase 7 v5.0.0 · shared Twin packet BOM summary and evidence-aware validator. */
+/* Phase 7 v4.7.0 · shared Twin packet BOM summary and evidence-aware validator. */
 (function(){
 'use strict';
 const T=window.__LS3D_TEST__,view=document.getElementById('viewport'),B=window.LSDCPhase7BOM,V=window.LSDCPhase7Compatibility;
 if(!T||!view||!B||!V)return;
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
-let last=null,openState=false;
+let last=null,openState=false,signature=null;
+function packetSignature(p){const {createdAt,...stable}=p;return JSON.stringify(stable)}
 const panel=document.createElement('aside');panel.id='phase7-panel';panel.className='phase58-panel';panel.hidden=true;
 panel.innerHTML=[
  '<header><b>PHASE 7 · 공통 BOM / 호환성 검토</b><button id="p7-close" type="button">✕</button></header>',
  '<p class="p58-note">현재 3D 설계의 lsdc-twin-bom/1.0 스냅샷을 공통 계산 엔진에 전달합니다. 설계 물량과 화면에 그려진 대표 객체 수는 별도로 유지합니다.</p>',
  '<div class="p58-actions"><button id="p7-sync" type="button">현재 설계 다시 계산</button><button id="p7-json" type="button">검토 JSON</button><button id="p7-to-bom" type="button">전체 설계 → BOM 도구</button></div>',
  '<p id="p7-status" aria-live="polite">실행 전</p><div id="p7-summary"></div><div id="p7-table"></div><section id="p7-compat"><h4>제품 호환성 검토</h4><div id="p7-compat-result"></div></section>',
- '<small class="p58-foot">제품 SKU·공식 reach·FEC·cage 및 connector 세부 정보가 packet에 없으면 호환을 확정하지 않고 UNKNOWN/경고로 표시합니다.</small>'
+ '<small class="p58-foot">제품 SKU·공식 reach·FEC·cage 및 connector 세부 정보가 packet에 없으면 UNKNOWN/경고로 표시합니다. PASS는 입력된 근거의 규칙 검사를 의미하며 데이터시트 독립 검증·구매 승인은 별도입니다.</small>'
 ].join('');document.body.appendChild(panel);
 const btn=document.createElement('button');btn.id='phase7-open';btn.className='phase58-launch p7';btn.textContent='▣ 공통 BOM / 호환성';btn.type='button';view.appendChild(btn);
 function snapshot(){if(typeof T.exportConfig!=='function')throw Error('공유 설계 스키마 API T.exportConfig()를 찾을 수 없습니다.');return T.exportConfig()}
@@ -19,7 +20,7 @@ function estimate(packet){const p=packet||snapshot(),engine=B.calculate(p),compa
 function reconcileTopology(audit,packet){const fresh=B.calculate(packet||snapshot()),a=audit?.counts||{},b=fresh.counts;const keys=['rackCount','gpuServerCount','gpuCount','nicCount','leafCount','spineCount','coreCount','opticalLinkCount','totalOpticalLengthM'];const differences=keys.filter(k=>a[k]!==b[k]).map(k=>({key:k,audit:a[k]??null,packet:b[k]??null}));return {matched:differences.length===0,status:differences.length?'different':'matched',differences,source:'same lsdc-twin-bom/1.0 packet'};}
 function render(){
  try{
-  last=estimate();const c=last.counts,v=last.compatibility;
+  last=estimate();signature=packetSignature(last.packet);const c=last.counts,v=last.compatibility;
   $('p7-status').textContent='공통 엔진 계산 완료 · '+(v.status==='PASS'?'호환 PASS':v.status==='FAIL'?'차단 '+v.blocking.length+'건':'추가 확인 '+v.warnings.length+'건');
   $('p7-summary').innerHTML='<strong>랙 '+fmt(c.rackCount)+' · GPU 서버 '+fmt(c.gpuServerCount)+' · GPU '+fmt(c.gpuCount)+' · NIC '+fmt(c.nicCount)+'</strong><p class="p58-note">Leaf '+fmt(c.leafCount)+' · Spine '+fmt(c.spineCount)+' · Core '+fmt(c.coreCount)+' · 활성 광 링크 '+fmt(c.opticalLinkCount)+' · 광 길이 '+fmt(c.totalOpticalLengthM)+' m</p>'
    +last.assumptions.map(x=>'<p class="p58-note">가정: '+esc(x)+'</p>').join('');
@@ -33,5 +34,6 @@ function toggle(v){openState=v;panel.hidden=!v;btn.setAttribute('aria-expanded',
 btn.onclick=()=>toggle(!openState);$('p7-close').onclick=()=>toggle(false);$('p7-sync').onclick=render;
 $('p7-json').onclick=()=>{const result=last||render();if(!result)return;const data={schema:'lsdc/phase7-review/1.0',bom:{...result,packet:undefined},compatibility:result.compatibility};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='LS_Datacenter_Phase7_review.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200)};
 $('p7-to-bom').onclick=()=>{const out=$('bomOut');if(out){out.click();$('p7-status').textContent='전체 공유 설계를 BOM 도구로 전달했습니다.'}else $('p7-status').textContent='기존 BOM 공유 버튼을 찾지 못했습니다.'};
+setInterval(()=>{if(openState&&!document.hidden){try{if(packetSignature(snapshot())!==signature)render()}catch(e){render()}}},400);
 window.LS3D_PHASE7={open:()=>toggle(true),load:async()=>({source:'twin-bom-bridge.js',schema:'lsdc-twin-bom/1.0'}),estimate,reconcileTopology,get audit(){return last},get engine(){return B},get validator(){return V}};
 })();

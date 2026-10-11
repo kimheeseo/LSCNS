@@ -39,26 +39,24 @@
 
 이 검사는 축 정렬 3D AABB 근사와 가상 좌표를 사용합니다. 장비 문 스윙, 실제 배관 열팽창·압력, 케이블 굽힘 반경, 전기 안전 거리, 화재구획, 구조 하중, 내진 등을 검증하지 않으며 비검출이 시공 승인임을 의미하지 않습니다.
 
-## Phase 7 — NVIDIA NIC / CPO / 광모듈 BOM 정합성
+## Phase 7 — 공유 BOM / 호환성 검토
 
-1. **NVIDIA / BOM**을 열고 기존 NVIDIA 제품 카탈로그(JSON)가 로드되는지 확인합니다.
-2. InfiniBand/Ethernet, CPO/Pluggable, 400/800 Gb/s, 랙 수, 랙당 uplink 수와 가상 링크 거리를 선택합니다.
-3. **BOM 감사 실행** 후 논리 링크 수, 스위치 하한, 케이블 수/길이, 부품별 미산정·경고를 확인합니다.
-4. **검증 JSON**을 저장하여 기존 BOM 도구의 설계안과 비교합니다. 현재 양방향 수량 동기화는 미구현입니다.
+1. **공통 BOM / 호환성**을 열면 현재 `lsdc-twin-bom/1.0` 패킷을 계산합니다.
+2. 설정에서 랙 수·GPU 비율을 바꾸거나 광 패널에서 토폴로지·거리·단선 상태를 변경하면 열린 BOM 패널이 약 0.4초 간격으로 갱신됩니다. **현재 설계 다시 계산**으로 수동 갱신할 수도 있습니다.
+3. 랙·GPU 서버·GPU·NIC·Leaf/Spine/Core·활성 광 링크·총 길이를 확인합니다. 랙 수 변화가 스위치와 링크를 자동 증설하지는 않습니다. 토폴로지는 공유 패킷의 노드·링크 기준입니다.
+4. **검토 JSON**을 저장하거나 **전체 설계 → BOM 도구**로 입력 초안을 전달합니다. 기존 BOM 도구는 별도의 설계 계산 기준을 적용하므로 구매 BOM 수량과 이 요약이 항상 같다고 주장하지 않습니다.
 
-특히 제조사 카탈로그 근거로 다음 원칙을 적용합니다.
+GPU 서버는 명시 서버 수량 또는 랙 수×GPU 서버 비율을 사용합니다. 서버당 GPU/NIC 값을 주면 그 값을 사용하며, 없으면 8 GPU/1 NIC를 가정합니다. 근거에 실제 사용값과 입력/가정을 표시합니다. 필수 입력이 없으면 미확정이며 0대와 구분합니다.
 
-- Q3450-LD: InfiniBand CPO 및 MPO12 전면 커넥터. 스위치 **측** 플러거블 광모듈을 추가 계상하지 않습니다. 호스트 모듈 및 실제 송수신 호환성은 미산정입니다.
-- Q3400-RA: 논리 포트 144와 물리 OSFP cage 72를 구분합니다. 한 논리 포트에 OSFP 1개로 잘못 산정하지 않습니다.
-- ConnectX-8: InfiniBand 800G 단일 링크와 Ethernet 포트 속도는 구분합니다. Ethernet 단일 800G NIC로 확정하지 않습니다.
-- Spectrum-4 SN5000: Ethernet 스위치 제품군으로 실제 세부 SKU·포트 수가 없는 경우 구매 수량을 확정하지 않습니다.
-- Ethernet 연결에 InfiniBand Q3450-LD CPO를 섞는 등 프로토콜 상충 조건은 차단 경고를 표시합니다.
+- **PASS**: 제공된 근거가 패킷 규칙 검사를 통과함. 공식 URL 원문·실제 제품의 독립 검증이나 구매 승인은 아닙니다.
+- **UNKNOWN**: SKU, 데이터시트 URL, reach, endpoint 프로토콜/포트, 광 connector/FEC 등 필수 근거가 부족함.
+- **FAIL**: 프로토콜·속도·reach·매체·connector/FEC 상충, 포트 초과, CPO 중복 또는 잘못된 스키마.
 
-링크 수=랙 수×uplink/랙, 케이블 길이=링크 수×가상 거리라는 설계 *가정*을 사용합니다. MPO polarity, FEC, host port, optical reach, cooling 및 exact SKU를 공식 문서로 검증해야 실제 BOM이 됩니다.
+`compatible`은 PASS일 때만 true입니다. 차단 오류가 없다는 의미는 `nonBlocking`을 확인합니다. UNKNOWN을 호환 확정으로 취급하면 안 됩니다. 제품별 세부 광 lane, MPO polarity, 장비 설정 및 공식 지원 목록은 별도 검증 대상입니다.
 
 ## Phase 8 — 전체 통합 점검
 
-**종합 점검 / 가이드 → 통합 점검 실행**을 눌러 7개 구역, 랙 자산, Phase 1 FOV, 35개 MEP, 광 경로, Phase 4 GPU 캐시, Phase 5 계측, Phase 6 간섭 계산기, Phase 7 카탈로그 계산기 등의 API 준비 상태를 검사합니다. 이는 시나리오를 강제로 바꾸지 않는 비파괴적 스모크 테스트입니다.
+**종합 점검 / 가이드 → 통합 점검 실행**을 눌러 7개 구역, 랙 자산, Phase 1 FOV, 35개 MEP, 광 경로, Phase 4 GPU 캐시, Phase 5 계측, Phase 6 간섭 계산기, Phase 7 공통 패킷 계산기 등의 API 준비 상태를 검사합니다. 서버실 모델은 모드 전환 없이 읽기 전용으로 검사하며 운영 모드·장애·카메라·선택 설비·설정·로그를 보존합니다.
 
 더 강한 검증은 GitHub Actions의 [Phase 4~8 Chromium 회귀 테스트](https://github.com/kimheeseo/LSCNS/actions/workflows/ls-datacenter-3d-phase8-browser.yml)로 수행합니다. 성공 실행에서만 완료된 테스트 건수와 스크린샷을 검증 결과로 인정합니다. 물리적 Windows GPU/Android/iPhone 성능, 정식 GPU Instancing, 실제 BIM 및 구매 승인은 여전히 별도 과제입니다.
 
@@ -68,8 +66,8 @@
 
 - LS_Datacenter_3D_Phase45.js — GPU 캐시 상태·실기기 FPS 자가진단
 - LS_Datacenter_3D_Phase6.js — Data Hall 개념 배관/버스웨이, 간섭 검사
-- LS_Datacenter_3D_Phase7.js — NVIDIA 제조사 카탈로그 BOM 감사
+- LS_Datacenter_3D_Phase7.js — 공통 패킷 BOM 요약 및 호환성 검토
 - LS_Datacenter_3D_Phase8.js — 종합 기능 점검
 - LS_Datacenter_3D_Phase458.css — PC/모바일 UI
 
-NVIDIA 공식 카탈로그 파일을 불러오므로 단순 파일 직접 열기보다 GitHub Pages 또는 로컬 HTTP 서버에서 실행합니다. 변경 전 원본 소스와 테스트 보고서는 GitHub 커밋 히스토리에서 확인할 수 있습니다.
+연결된 스크립트를 함께 로드하므로 단순 파일 직접 열기보다 GitHub Pages 또는 로컬 HTTP 서버에서 실행합니다. 변경 전 원본 소스와 테스트 보고서는 GitHub 커밋 히스토리에서 확인할 수 있습니다.

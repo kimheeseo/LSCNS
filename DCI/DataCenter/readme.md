@@ -1,4 +1,4 @@
-# LS Datacenter 3D Digital Twin v5.0.0
+# LS Datacenter 3D Digital Twin v4.7.0
 
 - [3D 시뮬레이터 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html)
 - [데이터센터 BOM Tool](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/)
@@ -8,4 +8,4 @@
 - [Server Room 수정 보고서](./SERVER_ROOM_FIX_REPORT.md)
 - [Phase 8 검증 보고서](./PHASE8_VALIDATION_REPORT.md)
 
-v5.0.0 adds the shared `lsdc-twin-bom/1.0` summary engine, evidence-aware product compatibility checks, and room-bounded Server Room rendering/MEP routes. Browser validation is recorded separately; the current development environment does not include the Playwright Chromium executable.
+v4.7.0 adds the shared `lsdc-twin-bom/1.0` summary engine, evidence-aware product compatibility checks, and room-bounded Server Room rendering/MEP routes. The 2026-10-11 Chromium baseline passed 79 checks in GitHub Actions. Current hardening results are recorded in PHASE8_VALIDATION_REPORT.md.

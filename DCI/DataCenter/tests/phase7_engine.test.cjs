@@ -12,3 +12,14 @@ assert.equal(second.counts.gpuServerCount,100);
 assert.equal(second.counts.gpuCount,800);
 assert.throws(()=>calculate({schemaVersion:'other'}),/lsdc-twin-bom\/1.0/);
 console.log('phase7_engine.test.cjs: 6 assertions passed');
+const custom=calculate({schemaVersion:'lsdc-twin-bom/1.0',facility:{rackCount:10,gpuServerRatio:1},compute:{gpuPerServer:4},network:{nicPerServer:2}});
+assert.equal(custom.counts.gpuCount,40);assert.equal(custom.counts.nicCount,20);
+assert.match(custom.rows.find(x=>x.id==='gpu').basis,/4개.*입력값/);
+assert.match(custom.rows.find(x=>x.id==='nic').basis,/2개.*입력값/);
+const missing=calculate({schemaVersion:'lsdc-twin-bom/1.0'});
+assert.equal(missing.counts.gpuServerCount,null);assert.equal(missing.counts.gpuCount,null);assert.equal(missing.counts.nicCount,null);
+assert.equal(calculate({schemaVersion:'lsdc-twin-bom/1.0',facility:{rackCount:''}}).counts.rackCount,null);
+console.log('phase7 engine hardening: custom assumptions and missing values passed');
+
+assert.equal(missing.counts.opticalLinkCount,null);assert.equal(missing.counts.totalOpticalLengthM,null);
+assert.equal(calculate({schemaVersion:'lsdc-twin-bom/1.0',optical:{topology:{links:[{type:'SMF',lengthM:null}]}}}).counts.totalOpticalLengthM,null);

@@ -20,3 +20,10 @@ assert.equal(assetInside({id:'ceiling-penetration',x:15,z:7,w:1,d:1,h:8},b),fals
 assert.equal(routeInside([[4,6.35,0],[15,6.35,0],[26,6.35,0]],b),true);
 assert.equal(routeInside([[-3,6.8,0],[32,6.8,0]],b),false);
 console.log('server_room_geometry.test.cjs: 6 assertions passed');
+// Execute the actual structural renderer: box Y is a base, not a centre.
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const html=fs.readFileSync(path.join(__dirname,'../LS_Datacenter_3D.html'),'utf8');
+const source=html.slice(html.indexOf('function zoneBase(z)'),html.indexOf('function campusGround()'));
+const columns=[];vm.runInNewContext(source+';zoneBase(hall)',{hall:{...hall,color:'#fff'},facilityMode:'server-room',showRoof:false,showSection:false,line:()=>{},box:(x,y,z,w,h,d,color)=>{if(color==='#6d8a9c')columns.push({y,h})}});
+assert.ok(columns.length>0&&columns.every(c=>c.y>=b.minY&&c.y+c.h<=b.maxY),'actual server-room columns remain below the room ceiling');
+console.log('server-room structural columns: ceiling regression passed');

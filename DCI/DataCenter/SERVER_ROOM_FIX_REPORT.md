@@ -11,4 +11,10 @@
 ## 검증
 
 - `tests/server_room_geometry.test.cjs`: 6 assertions 통과. 좌표 bounds, 기존 서버실 8개 설비, 외부 asset, 천장 초과, 내부/외부 route를 확인했습니다.
-- `tests/phase8_browser_regression.cjs`에는 server-room 전환, 실내 자산 0건 외부 검사, MEP/optical route 검사와 스크린샷 캡처를 추가했습니다. 현재 실행 환경에는 Playwright 패키지는 있으나 Chromium 실행 파일이 없어 실제 스크린샷과 브라우저 결과는 미검증입니다.
+- `tests/phase8_browser_regression.cjs`에는 server-room 전환, 실내 자산 0건 외부 검사, MEP/optical route 검사와 스크린샷 캡처를 추가했습니다. 최초 개발 환경에서는 Chromium 실행 파일이 없어 미검증이었으며, 이후 실행과 최신 보완 검증은 PHASE8_VALIDATION_REPORT.md에 기록했습니다.
+
+## 2026-10-11 추가 렌더링 보완
+
+Phase 6 랙 안내선은 전체 자산 대신 현재 표시 자산만 순회합니다. 서버실의 추가 line/box/cylinder는 실제 bounds를 다시 검사합니다. Chromium 회귀는 실제 추가 draw 콜백을 실행하여 외부 primitive가 없는지 검사합니다. Phase 8은 운영 모드 전환 및 임시 자산 삽입 없이 서버실 경계·자산·경로를 읽기 전용으로 검사합니다.
+
+서버실 구조 기둥은 box의 Y를 base로 적용해 0~6.6m에 표시되며, 기존 3.3~9.9m로 천장 위에 돌출되던 형상을 수정했습니다.

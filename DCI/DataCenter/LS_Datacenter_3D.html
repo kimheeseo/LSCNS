@@ -487,7 +487,9 @@ window.LS3D_RESPONSE_VISUALS=window.LS3D_RESPONSE_VISUALS||[];
 // Phase 4: zone/ground geometry is invariant while its signature remains the same.
 // Capture locally without changing the scene model or external module callbacks.
 const LS3D_PHASE4_CACHE=window.LS3D_PHASE4_CACHE={enabled:true,maxEntries:20,entries:0,hits:0,misses:0,approxBytes:0};
-const ls3dStaticMap=new Map();
+const ls3dStaticMap=new Map();const ls3dStaticFrameKeys=[];
+const LS3D_STATIC_GPU={signature:null,buffers:[null,null,null],counts:[0,0,0],uploads:0,bytes:0};
+LS3D_PHASE4_CACHE.gpu=LS3D_STATIC_GPU;
 function ls3dAppendStatic(cache){
  // Standard arrays are retained because the existing WebGL pipeline uses a single
  // batched tri/line/glass upload per frame. No opaque blending-order changes.
@@ -506,12 +508,41 @@ function ls3dStaticGeometry(key,fn){
   while(ls3dStaticMap.size>=LS3D_PHASE4_CACHE.maxEntries)ls3dStaticMap.delete(ls3dStaticMap.keys().next().value);
   ls3dStaticMap.set(key,geo);LS3D_PHASE4_CACHE.misses++;
  }else LS3D_PHASE4_CACHE.hits++;
- ls3dAppendStatic(geo);
+ ls3dStaticFrameKeys.push(key);
  LS3D_PHASE4_CACHE.entries=ls3dStaticMap.size;
  if(LS3D_PHASE4_CACHE.lastSizeCheck!==LS3D_PHASE4_CACHE.misses){LS3D_PHASE4_CACHE.approxBytes=[...ls3dStaticMap.values()].reduce((sum,v)=>sum+(v.tri.length+v.wire.length+v.glass.length)*8,0);LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses;}
 }
-LS3D_PHASE4_CACHE.clear=()=>{ls3dStaticMap.clear();LS3D_PHASE4_CACHE.entries=0;LS3D_PHASE4_CACHE.approxBytes=0;LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses};
-function drawScene(){tri=[];wire=[];transparent=[];
+LS3D_PHASE4_CACHE.clear=()=>{ls3dStaticMap.clear();LS3D_PHASE4_CACHE.entries=0;LS3D_PHASE4_CACHE.approxBytes=0;LS3D_PHASE4_CACHE.lastSizeCheck=LS3D_PHASE4_CACHE.misses;LS3D_STATIC_GPU.signature=null};
+// Store world-space static triangles/lines on the GPU until zone visibility, roof,
+// section, or facility mode changes; dynamic models keep the existing 3-pass renderer.
+function ls3dPrepareStaticGPU(){
+ if(!gl||!LS3D_PHASE4_CACHE.enabled)return;
+ const signature=ls3dStaticFrameKeys.join('|');
+ if(signature===LS3D_STATIC_GPU.signature)return;
+ const t=tri,w=wire,g=transparent;tri=[];wire=[];transparent=[];
+ try{
+  for(const key of ls3dStaticFrameKeys){const cache=ls3dStaticMap.get(key);if(cache)ls3dAppendStatic(cache);}
+  const meshes=[tri,wire,transparent];let memory=0;
+  for(let i=0;i<3;i++){
+   if(!LS3D_STATIC_GPU.buffers[i])LS3D_STATIC_GPU.buffers[i]=gl.createBuffer();
+   const arr=meshes[i];const packed=new Float32Array(arr);
+   gl.bindBuffer(gl.ARRAY_BUFFER,LS3D_STATIC_GPU.buffers[i]);
+   gl.bufferData(gl.ARRAY_BUFFER,packed,gl.STATIC_DRAW);
+   LS3D_STATIC_GPU.counts[i]=packed.length/10;memory+=packed.byteLength;
+  }
+  LS3D_STATIC_GPU.bytes=memory;LS3D_STATIC_GPU.signature=signature;LS3D_STATIC_GPU.uploads++;
+ }finally{tri=t;wire=w;transparent=g;}
+}
+function ls3dDrawStaticGPU(i,mode){
+ if(!gl||!LS3D_PHASE4_CACHE.enabled||!LS3D_STATIC_GPU.counts[i])return;
+ gl.bindBuffer(gl.ARRAY_BUFFER,LS3D_STATIC_GPU.buffers[i]);
+ gl.vertexAttribPointer(glPos,3,gl.FLOAT,false,40,0);
+ gl.vertexAttribPointer(glNorm,3,gl.FLOAT,false,40,12);
+ gl.vertexAttribPointer(glColor,4,gl.FLOAT,false,40,24);
+ gl.drawArrays(mode,0,LS3D_STATIC_GPU.counts[i]);
+}
+
+function drawScene(){tri=[];wire=[];transparent=[];ls3dStaticFrameKeys.length=0;
  if(isMechanicalRack(selected)&&$('detailModal')?.classList.contains('show')){
    const a=selected;if(phase1Local&&camera.distance<2.5&&window.LS3D_PHASE1_RENDER){window.LS3D_PHASE1_RENDER({box,line,cylinder,ring},a,camera.distance,mechanical(a));return;}
    box(a.x,-.32,a.z,12,.16,11,'#173148');box(a.x,-.1,a.z,7,.08,7,'#29465c');drawRack(a,a.type==='Top-of-Rack switch');
@@ -553,8 +584,8 @@ function updateWalk(dt){if(!walk)return;let yaw=cameraDesired.yaw,dx=0,dz=0;if(p
 function render3D(dt){const start=performance.now(),rect=canvas.getBoundingClientRect();if(!rect.width||!rect.height)return;let q=window.LS3D_CONFIG?.quality||'medium',dpr=Math.min(devicePixelRatio||1,q==='low'?.8:q==='high'?1.65:1.1),w=Math.floor(rect.width*dpr),h=Math.floor(rect.height*dpr);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;if(gl)gl.viewport(0,0,w,h)}renderW=rect.width;renderH=rect.height;cameraFrame(dt);
  for(const k of ['visibleAssets','culledAssets','liteRacks','mediumRacks','fullRacks','culledZones','lightNPCs','culledRouteSegments'])LS3D_RENDER_METRICS[k]=0;
  const gstart=performance.now();drawScene();LS3D_RENDER_METRICS.geometryMs=performance.now()-gstart;
- LS3D_RENDER_METRICS.triVertices=tri.length/10;LS3D_RENDER_METRICS.wireVertices=wire.length/10;
- if(gl){gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(glProg);gl.uniformMatrix4fv(glVP,false,new Float32Array(matVP));ls3dMeshSlot=0;renderMesh(tri,gl.TRIANGLES);renderMesh(wire,gl.LINES);gl.depthMask(false);renderMesh(transparent,gl.TRIANGLES);gl.depthMask(true)}else drawFallback2D();moveMarkers();LS3D_RENDER_METRICS.renderMs=performance.now()-start}
+ LS3D_RENDER_METRICS.triVertices=tri.length/10;LS3D_RENDER_METRICS.wireVertices=wire.length/10;LS3D_RENDER_METRICS.staticVertices=LS3D_STATIC_GPU.counts.reduce((a,b)=>a+b,0);
+ if(gl){gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(glProg);gl.uniformMatrix4fv(glVP,false,new Float32Array(matVP));ls3dPrepareStaticGPU();ls3dMeshSlot=0;ls3dDrawStaticGPU(0,gl.TRIANGLES);renderMesh(tri,gl.TRIANGLES);ls3dDrawStaticGPU(1,gl.LINES);renderMesh(wire,gl.LINES);gl.depthMask(false);ls3dDrawStaticGPU(2,gl.TRIANGLES);renderMesh(transparent,gl.TRIANGLES);gl.depthMask(true)}else drawFallback2D();moveMarkers();LS3D_RENDER_METRICS.renderMs=performance.now()-start}
 function rayBox(origin,dir,a){let lo=[a.x-a.w*.57,0,a.z-a.d*.57],hi=[a.x+a.w*.57,a.h+2,a.z+a.d*.57],loT=0,hiT=1000;for(let i=0;i<3;i++){if(Math.abs(dir[i])<1e-8){if(origin[i]<lo[i]||origin[i]>hi[i])return null}else{let p=(lo[i]-origin[i])/dir[i],q=(hi[i]-origin[i])/dir[i];if(p>q)[p,q]=[q,p];loT=Math.max(loT,p);hiT=Math.min(hiT,q);if(hiT<loT)return null}}return loT}
 function pickAt(clientX,clientY){let r=canvas.getBoundingClientRect(),nx=2*(clientX-r.left)/r.width-1,ny=1-2*(clientY-r.top)/r.height,half=Math.tan((walk?Math.PI/3.1:Math.PI/4)/2),v=norm(add(forward,add(scale(rightVec,nx*half*r.width/r.height),scale(upVec,ny*half))));let best=Infinity,found=null;for(const a of visibleAssets()){if(currentZone!=='campus'&&a.zone!==currentZone)continue;let t=rayBox(eye,v,a);if(t!==null&&t<best){best=t;found=a}}if(found){pickAsset(found);toast('선택: '+found.name);return}if(currentZone==='campus'){for(const z of Z.slice(1)){let a={x:z.pos[0],z:z.pos[1],w:z.size[0],d:z.size[1],h:1.8},t=rayBox(eye,v,a);if(t!==null&&t<best){best=t;found=z}}if(found?.id)setZone(found.id)}}
 function toggleWalk(){walk=!walk;$('btnWalk').classList.toggle('active',walk);if(walk){showRoof=false;$('btnRoof').textContent='지붕 켜기';let z=Z.find(t=>t.id===currentZone);walkPos=[z.pos[0],2.65,z.pos[1]+z.size[1]*.42];if(collide(walkPos[0],walkPos[2]))walkPos=[z.pos[0]-z.size[0]*.35,2.65,z.pos[1]+z.size[1]*.35];cameraDesired.yaw=0;walkPitch=.16;$('cameraHint').textContent='WASD 이동 · 마우스 드래그 시야 · Shift 빠르게 · 설비 충돌 방지';toast('걷기 모드: WASD 이동, 드래그로 시점 변경')}else{cameraDesired.target=[walkPos[0],2,walkPos[2]];cameraDesired.distance=51;cameraDesired.pitch=.78;$('cameraHint').textContent='드래그 회전 · Shift+드래그 이동 · 휠 줌 · 설비 클릭'}}

@@ -95,7 +95,7 @@ n=1.5의 고유주파수는 n=1.0 대비 1/n 스케일법칙 **오차 {100*abs(c
 **후속 보완:** 다층막, 실제 박막 Sellmeier 데이터, 생산 제약(흡수, 응력, 두께 분포), 2D/3D FEM spotcheck.
 """,encoding='utf8')
     summary={"stage":"M4-M6","m4":{"num_meshes":3,"finest_frequency_THz":m4[-1]['frequency_hz']/1e12,"finest_relative_error":m4[-1]['relative_error']},
-    "m5":m5,"m6":m6,"validated_assertions":12,"scope":"M4 cavity FEM subset; M5/M6 1D Maxwell transfer matrix; not COMSOL equivalent"}
+    "m5":m5,"m6":m6,"validated_assertions":13,"scope":"M4 cavity FEM subset; M5/M6 1D Maxwell transfer matrix; not COMSOL equivalent"}
     (ROOT/'WAVEOPTICS_M4_M6_EXECUTION_SUMMARY.json').write_text(json.dumps(summary,indent=2),encoding='utf8')
     print(json.dumps(summary,indent=2))
 if __name__=="__main__":main()

@@ -60,7 +60,7 @@ def run(outdir):
     gd=group_delay_fs(wl,ar["S21"])
     stats={"lambda_range_um":[float(wl[0]),float(wl[-1])],"sellmeier_n_1p55":float(silica_index(1.55)),
         "group_index_1p55":float(silica_group_index(1.55)),"quarterwave_n":n0,"quarterwave_depth_um":depth,
-        "bare_reflectance_1p55":float(bare["R"][50]),"AR_reflectance_1p55":float(ar["R"][50]),
+        "bare_reflectance_1p55":float(spectrum([1.55])["R"][0]),"AR_reflectance_1p55":float(spectrum([1.55],layers=[(n0,depth)])["R"][0]),
         "max_energy_error":float(np.max(np.abs(ar["R"]+ar["T"]-1))),"mean_group_delay_fs":float(np.mean(gd))}
     (out/"m5_summary.json").write_text(json.dumps(stats,indent=2))
     np.savetxt(out/"m5_spectrum.csv",np.column_stack([wl,bare["R"],ar["R"],te["R"],tm["R"],gd]),delimiter=",",header="wavelength_um,R_bare,R_AR_normal,R_AR_TE20,R_AR_TM20,group_delay_fs",comments="")

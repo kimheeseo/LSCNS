@@ -15,7 +15,15 @@ AI 데이터센터의 **Compute / Network / Optical / Rack / Power / Cooling / B
 
 ## Wave Optics / COMSOL 수치해석 프로젝트
 
-광도파관 FEM, PML, 모드 해석, 산란 S-파라미터 및 M1~M6 검증 결과는 **[COMSOL 폴더](../COMSOL/)**에 따로 관리합니다. 이곳 `DCI/DataCenter/`의 `Phase1`~`Phase4` 소스·보고서·ZIP은 **데이터센터 3D Digital Twin 렌더링 및 기능 개발 자료**로, COMSOL 마일스톤 M1~M6와 다른 프로젝트입니다.
+광도파관 FEM, PML, 모드 해석, 산란 S-파라미터 및 M1~M8 검증 결과는 **[COMSOL 폴더](../COMSOL/)**에 따로 관리합니다. 이곳 `DCI/DataCenter/`의 `Phase1`~`Phase8` 소스·보고서·ZIP은 **데이터센터 3D Digital Twin 렌더링 및 기능 개발 자료**로, COMSOL 마일스톤 M1~M8와 다른 프로젝트입니다.
+
+## 3D Digital Twin v4.7.0 · Phase 4~8
+
+- [▶ 최신 3D 시뮬레이터 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?v=4.7.0)
+- [Phase 1~8 상세 사용 가이드](./DataCenter/LS_Datacenter_3D_Phase8_Guide.md)
+- [Phase 4~8 Chromium 검증](https://github.com/kimheeseo/LSCNS/actions/workflows/ls-datacenter-3d-phase8-browser.yml)
+
+Phase 4 정적 GPU 캐시/성능 진단, Phase 5 실기기 FPS 자체 측정, Phase 6 랙·배관·버스웨이 개념 3D·간섭 검사, Phase 7 NVIDIA 카탈로그 기반 BOM 감사·기존 BOM 도구 연동, Phase 8 종합 점검 기능을 추가했습니다. **실제 Windows/Android/iPhone 실기기 측정, 정식 GPU Instancing, 실측 CAD/BIM 충돌 검토, 제조사 승인 BOM 수량은 미완료 항목**입니다.
 
 ## 3D Digital Twin 사용 방법
 

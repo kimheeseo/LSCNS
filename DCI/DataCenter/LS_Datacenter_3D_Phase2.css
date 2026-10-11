@@ -1,5 +1,5 @@
 /* v4.6.0 Phase 2-A/2-B · isolated responsive UI; existing styles remain intact */
-.phase2-buttons-top{display:inline-flex;gap:5px;align-items:center;pointer-events:auto;flex-wrap:nowrap}
+.phase2-buttons-top{position:absolute;left:9px;top:98px;z-index:35;display:flex;flex-direction:column;gap:6px;align-items:stretch;pointer-events:auto;max-width:116px}
 .phase2-buttons-top button{white-space:nowrap;font-size:9px;padding:7px 8px;border-radius:7px;border:1px solid #4e788b;background:#153e51;color:var(--teal,#58dec9);font-weight:800;cursor:pointer}
 .phase2-buttons-top button:hover,.phase2-buttons-top button[aria-expanded=true]{border-color:var(--gold,#f8cb6a);color:var(--gold,#f8cb6a)}
 .phase2-side-panel{position:fixed;top:74px;right:16px;bottom:16px;width:min(416px,calc(100vw - 20px));z-index:46;overflow-y:auto;overscroll-behavior:contain;background:#0b2133f5;color:#e4f7ff;border:1px solid #477083;border-radius:14px;padding:15px;box-shadow:0 12px 36px #0009;backdrop-filter:blur(7px);font:11px/1.5 system-ui,sans-serif}

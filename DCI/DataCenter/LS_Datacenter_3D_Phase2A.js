@@ -26,7 +26,7 @@ function log(message,asset){
 }
 let bar=document.createElement('span');bar.className='phase2-buttons-top';bar.id='phase2-bar';
 bar.innerHTML='<button type="button" id="phase2-mep-open" aria-controls="phase2-mep-panel" aria-expanded="false">▤ MEP 작업</button><button type="button" id="phase2-opt-open" aria-controls="phase2-opt-panel" aria-expanded="false">◎ 광 연결</button>';
-(document.querySelector('.vp-tools')||document.querySelector('.top-actions')||view).appendChild(bar);
+view.appendChild(bar);
 let el=document.createElement('aside');el.id='phase2-mep-panel';el.className='phase2-side-panel';el.setAttribute('role','dialog');el.setAttribute('aria-label','구역별 설비 작업 체크리스트');el.hidden=true;
 el.innerHTML=[
 '<header><b>PHASE 2-A · MEP 작업 로그</b><button id="phase2-mep-close" type="button" aria-label="닫기">✕</button></header>',

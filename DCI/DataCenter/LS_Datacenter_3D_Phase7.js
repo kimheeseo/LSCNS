@@ -30,19 +30,20 @@ function estimate(o,cat=catalog){
  if(proto==='InfiniBand'&&!cpo)notes.push('Q3400-RA: 144 논리 800G 포트 / 72 OSFP cage를 구분해야 합니다. 포트마다 OSFP 하나라는 산식은 사용하지 않습니다.');
  if(proto==='Ethernet')notes.push('Spectrum-4 SN5000은 제품군 레퍼런스이며 고정 모델의 포트 수/속도 조합이 확정되지 않아 스위치 수량 자동 확정 불가.');
  const switches=logicalPortCapacity?Math.ceil(linkCount/logicalPortCapacity):null;
- const switchSidePluggable=cpo?0:null;
+ if(cpo&&proto==='Ethernet')notes.push('Ethernet CPO 장비 SKU가 확인되지 않았으므로 switch-side 광모듈 수량을 0으로 확정하지 않습니다.');
+ const switchSidePluggable=cpo&&proto==='InfiniBand'?0:null;
  const fibersCables=linkCount;const installedLength=length*linkCount;
  const rows=[
  {id:'NIC',name:srcNic.name,qty:linkCount,unit:'개 (NIC 1개/링크 가정)',status:'가정값 · 슬롯/지원 모델 검증',url:srcNic.officialUrl},
  {id:'SWITCH',name:srcSwitch.name,qty:switches,unit:'대',status:logicalPortCapacity?'논리 포트 기준 하한 · 실제 cage/breakout 검증':'모델/SKU 및 포트 불명 · 미산정',url:srcSwitch.officialUrl},
  {id:'CABLE',name:cpo?'MPO12 SMF 케이블 후보 (CPO switch-side)':'광 트렁크/점퍼 (커넥터 SKU 미선정)',qty:fibersCables,unit:'본 (1본/가상 링크)',status:'거리/극성/광규격/정격 확인 필요',url:srcSwitch.officialUrl},
  {id:'LENGTH',name:'광케이블 포설 총 길이 (여유 미포함)',qty:Number(installedLength.toFixed(2)),unit:'m',status:'도면 실측 아님 · 입력 거리 × 링크 수',url:null},
- {id:'OPT_SWITCH',name:'Switch-side 플러거블 광모듈',qty:switchSidePluggable,unit:'개',status:cpo?'Q3450 CPO측 모듈 불필요':'모듈·breakout 구조 미확정 · 미산정',url:srcSwitch.officialUrl},
+ {id:'OPT_SWITCH',name:'Switch-side 플러거블 광모듈',qty:switchSidePluggable,unit:'개',status:cpo&&proto==='InfiniBand'?'Q3450 CPO측 모듈 불필요':'모듈·breakout 구조 미확정 · 미산정',url:srcSwitch.officialUrl},
  {id:'OPT_HOST',name:'NIC-side 호스트 광모듈',qty:null,unit:'개',status:'실물 NIC 포트·FEC·reach 확인 전 미산정',url:srcNic.officialUrl}
  ];
  return{schema:'lsdc/phase7-bom-audit/1.0',input:{racks,uplinkPerRack:uplink,lengthM:length,protocol:proto,mode,speedG:speed},
  products:{switch:{name:srcSwitch.name,url:srcSwitch.officialUrl,source:proto==='InfiniBand'?paths[0]:paths[1]},nic:{name:srcNic.name,url:srcNic.officialUrl,source:paths[1]}},
- logicalLinks:linkCount,switchesMinimum:switches,rows,notes,blocking,orderable:false,warning:'교육용 설계 초안. 기존 BOM 산출 엔진을 대체하지 않으며 실제 구매 수량이나 포트 호환을 보증하지 않습니다.'};
+ logicalLinks:linkCount,switchesMinimum:switches,rows,notes,blocking,orderable:false,compatible: blocking.length===0,warning:'교육용 설계 초안. 기존 BOM 산출 엔진을 대체하지 않으며 실제 구매 수량이나 포트 호환을 보증하지 않습니다.'};
 }
 const panel=document.createElement('aside');panel.id='phase7-panel';panel.className='phase58-panel';panel.hidden=true;
 panel.innerHTML=[

@@ -707,13 +707,15 @@ const steps=[
 let active=false,index=0,task=0,done=false,records=[],saved=null,internal=false;
 let tourMode='manual',autoPaused=false,finished=false,autoTimer=null,remainingMs=15000,lastAutoTime=0;
 const AUTO_STEP_MS=15000;
+let visitorView='first',avatarWalking=false;
+
 const newAssets=[['campus','visitor-locker','방문자 보관함',-16,46,3,2,2.4],['campus','visitor-lobby','로비 · 브리핑룸',-2,35,7,4,3],['campus','visitor-loading','하역장 · Gray Zone 인접',-42,28,7,3,2],['gray','visitor-staging','스테이징룸',0,9,6,3,2.5],['campus','visitor-mantrap','White Zone 맨트랩',15,29,4,4,3],['hall','visitor-rpp','RPP · 랙 회로 분배반',18,-3,2,2,3]];
 for(const a of newAssets){const obj=addAsset(...a.slice(0,3),'Visitor tour',...a.slice(3),'—','방문자 교육 투어용 개념 설비');obj.visitorOnly=true;}
 const css=document.createElement('style');css.textContent=`
 #visitorPanel{display:none;padding:18px;border-bottom:1px solid #345a70;background:#102b40}body.visitor-tour #visitorPanel{display:block}#visitorPanel h2{font-size:19px;margin:9px 0}#visitorPanel p{font-size:12px;line-height:1.75;color:#b2ccdb}#visitorPanel button{padding:11px;border:1px solid #39738a;border-radius:8px;background:#174457;color:#e7fcff;min-height:42px;font:inherit;font-size:12px}#visitorPanel button:disabled{opacity:.4;cursor:default}#visitorAction{width:100%;background:#17665f!important;font-weight:800!important}#visitorProgress{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}#visitorProgress span{padding:5px 8px;background:#17354b;border-radius:5px;font-size:11px}#visitorProgress .current{outline:1px solid #52d7c9}#visitorProgress .complete{color:#60e1bb}#visitorTask{background:#092033;border-left:3px solid #5bddca;padding:12px;margin:10px 0}#visitorTask strong{font-size:13px}#visitorTask p{margin-bottom:0}#visitorResult{color:#79e8c4;min-height:20px;font-size:12px;margin:10px 0}#visitorControls{display:none;position:absolute;bottom:48px;left:12px;gap:5px;z-index:7;flex-wrap:wrap;max-width:240px}body.visitor-tour #visitorControls{display:flex}#visitorControls button{background:#12394eee;border:1px solid #53a5ac;color:white;border-radius:8px;min-width:44px;min-height:44px;touch-action:none}body.visitor-tour #guide,body.visitor-tour .phase2-bar,body.visitor-tour #phase5-open,body.visitor-tour #phase6-open,body.visitor-tour #phase7-open,body.visitor-tour #phase8-open,body.visitor-tour #phase1-hud,body.visitor-tour .crew-summary-panel,body.visitor-tour .redundancy-bar{display:none!important}body.visitor-tour .right-inner{display:none}body.visitor-tour .vp-tools>*,body.visitor-tour .side-section,body.visitor-tour .worker-follow-hud,body.visitor-tour .crew-summary,body.visitor-tour .control,body.visitor-tour .facility-switch,body.visitor-tour .metrics,body.visitor-tour .telemetry-drawer{display:none!important}body.visitor-tour .vp-tools #btnFull{display:block!important}body.visitor-tour .legend{display:none}#visitorLogs{max-height:160px;overflow:auto;font-size:10px;color:#9fb9cb;line-height:1.7}body.visitor-tour .heading p{display:none}@media(max-width:790px){body.visitor-tour .viewport{height:52dvh;min-height:280px}body.visitor-tour #visitorPanel{padding:14px}body.visitor-tour .main{gap:7px}body.visitor-tour .heading h1{font-size:16px}body.visitor-tour .top-actions .small-btn:not(#visitorToggle){display:none}body.visitor-tour .mobile-zone{display:none}body.visitor-tour #visitorControls{bottom:12px}}`;
 document.head.append(css);
 const toggle=document.createElement('button');toggle.id='visitorToggle';toggle.className='small-btn';toggle.textContent='방문자 투어 · 1인칭';toggle.setAttribute('aria-pressed','false');document.querySelector('.top-actions').prepend(toggle);
-const panel=document.createElement('section');panel.id='visitorPanel';panel.setAttribute('aria-label','방문자 순서형 투어');panel.innerHTML=`<small>VISITOR V-001 · 안내자 동행 · 1인칭</small><div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap" role="group" aria-label="방문자 진행 방식"><button id="visitorManual" aria-pressed="true">수동 모드</button><button id="visitorAuto" aria-pressed="false">자동 모드 · 15초</button><button id="visitorPause" hidden>일시정지</button></div><p id="visitorAutoStatus" role="status" aria-live="off">수동 모드 · 확인 버튼으로 진행</p><div id="visitorProgress"></div><h2 id="visitorTitle"></h2><p id="visitorIntro"></p><div id="visitorTask"><strong id="visitorTaskTitle"></strong><p id="visitorTaskCopy"></p></div><p id="visitorResult" role="status" aria-live="polite"></p><button id="visitorAction"></button><div style="display:flex;gap:6px;margin-top:9px;flex-wrap:wrap"><button id="visitorNext" disabled>다음 구역 →</button><button id="visitorInspect" hidden>랙 내부 보기</button><button id="visitorRecenter">안내 위치로</button><button id="visitorRestart">처음부터</button><button id="visitorExit">투어 종료</button></div><p>WASD / 화살표: 걷기 · 화면 드래그: 둘러보기<br>모바일: 화면 이동 버튼 · 단계 이동은 안내 위치로 전환됩니다.<br>교육용 개념 배치도이며 실제 LS 시설이 아닙니다. 시설별 보안 정책과 절차는 다를 수 있습니다.</p><details><summary>교육용 방문 이력</summary><div id="visitorLogs"></div></details>`;
+const panel=document.createElement('section');panel.id='visitorPanel';panel.setAttribute('aria-label','방문자 순서형 투어');panel.innerHTML=`<small id="visitorViewLabel">VISITOR V-001 · 안내자 동행 · 1인칭</small><div style="display:flex;gap:6px;margin-top:10px" role="group" aria-label="방문자 카메라 시점"><button id="visitorFirstPerson" aria-pressed="true">1인칭 · 눈높이</button><button id="visitorThirdPerson" aria-pressed="false">3인칭 · 따라보기</button></div><div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap" role="group" aria-label="방문자 진행 방식"><button id="visitorManual" aria-pressed="true">수동 모드</button><button id="visitorAuto" aria-pressed="false">자동 모드 · 15초</button><button id="visitorPause" hidden>일시정지</button></div><p id="visitorAutoStatus" role="status" aria-live="off">수동 모드 · 확인 버튼으로 진행</p><div id="visitorProgress"></div><h2 id="visitorTitle"></h2><p id="visitorIntro"></p><div id="visitorTask"><strong id="visitorTaskTitle"></strong><p id="visitorTaskCopy"></p></div><p id="visitorResult" role="status" aria-live="polite"></p><button id="visitorAction"></button><div style="display:flex;gap:6px;margin-top:9px;flex-wrap:wrap"><button id="visitorNext" disabled>다음 구역 →</button><button id="visitorInspect" hidden>랙 내부 보기</button><button id="visitorRecenter">안내 위치로</button><button id="visitorRestart">처음부터</button><button id="visitorExit">투어 종료</button></div><p>WASD / 화살표: 걷기 · 화면 드래그: 둘러보기<br>모바일: 화면 이동 버튼 · 단계 이동은 안내 위치로 전환됩니다.<br>교육용 개념 배치도이며 실제 LS 시설이 아닙니다. 시설별 보안 정책과 절차는 다를 수 있습니다.</p><details><summary>교육용 방문 이력</summary><div id="visitorLogs"></div></details>`;
 document.querySelector('.right').prepend(panel);
 const controls=document.createElement('div');controls.id='visitorControls';controls.innerHTML='<button data-vkey="w" aria-label="앞으로">↑</button><button data-vkey="s" aria-label="뒤로">↓</button><button data-vkey="a" aria-label="왼쪽 이동">←</button><button data-vkey="d" aria-label="오른쪽 이동">→</button><button data-vlook="-1" aria-label="왼쪽 보기">↶</button><button data-vlook="1" aria-label="오른쪽 보기">↷</button>';el('viewport').append(controls);
 const baseAssetDraw=drawAsset;
@@ -723,15 +725,15 @@ visibleAssets=function(){return baseAssets().filter(a=>(active||!a.visitorOnly)&
 visibleZones=function(){return active?baseZones().filter(z=>z.id===currentZone):baseZones();};
 setZone=function(id,focus=true){if(active&&!internal){toast('방문자 투어: 안내 절차를 완료한 뒤 다음 구역으로 이동하세요');return;}return baseSet(id,focus);};
 pickAsset=function(a,focus=false){if(active&&a.zone!==currentZone)return;return basePick(a,active?false:focus);};T.setZone=setZone;T.pickAsset=pickAsset;
-updateWalk=function(dt){if(!active)return baseUpdate(dt);if(!walk)return;const before=walkPos.slice();baseUpdate(Math.min(dt,.05)*.32);const z=Z.find(z=>z.id===currentZone);if(currentZone!=='campus'&&(Math.abs(walkPos[0]-z.pos[0])>z.size[0]/2-.7||Math.abs(walkPos[2]-z.pos[1])>z.size[1]/2-.7))walkPos=before;walkPos[1]=1.7;};
-drawScene=function(){baseDraw();if(!active)return;const a=assetMap.get(steps[index][2][Math.min(task,steps[index][2].length-1)][0]);if(!a)return;
+updateWalk=function(dt){if(!active)return baseUpdate(dt);if(!walk)return;const before=walkPos.slice();baseUpdate(Math.min(dt,.05)*.32);const z=Z.find(z=>z.id===currentZone);if(currentZone!=='campus'&&(Math.abs(walkPos[0]-z.pos[0])>z.size[0]/2-.7||Math.abs(walkPos[2]-z.pos[1])>z.size[1]/2-.7))walkPos=before;walkPos[1]=1.7;avatarWalking=Math.hypot(walkPos[0]-before[0],walkPos[2]-before[2])>.0001;};
+drawScene=function(){baseDraw();if(!active||el('detailModal').classList.contains('show'))return;if(visitorView==='third'&&eye&&Math.hypot(eye[0]-walkPos[0],eye[2]-walkPos[2])>.8)drawVisitorAvatar();const a=assetMap.get(steps[index][2][Math.min(task,steps[index][2].length-1)][0]);if(!a)return;
 if(currentZone==='hall'){box(7,.16,3.5,20,.05,1.7,'#268bad');box(7,.16,-5.8,20,.05,1.7,'#c87b38');box(7,6.3,3.5,20,.08,2,'#497b91');}
 if(a.id==='visitor-mantrap'){const x=a.x,z=a.z;box(x-2,0,z,.12,3,4,'#668eaa');box(x+2,0,z,.12,3,4,'#668eaa');box(x+(task>=4?3:0),0,z-2,4,3,.10,task>=4?'#3ab99e':'#67889c');box(x+(task===0?3:0),0,z+2,4,3,.10,task===0?'#3ab99e':'#67889c');}
 line([a.x-1,.2,a.z+a.d/2+1],[a.x+1,.2,a.z+a.d/2+1],'#68f1c7');};
 function log(message){records.push({time:new Date().toLocaleTimeString('ko-KR'),stage:index+1,message});el('visitorLogs').textContent=records.map(r=>r.time+' · '+r.stage+' · '+r.message).join('\n');el('visitorLogs').style.whiteSpace='pre-line';}
 function position(){closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(task,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
-walkPos=[x,1.7,z];cameraDesired.yaw=Math.atan2(a.x-x,a.z-z);cameraDesired.distance=20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='눈높이 1.7m · '+a.name;el('cameraHint').textContent='방문자 1인칭 · WASD 이동 / 드래그 시야';}
+walkPos=[x,1.7,z];cameraDesired.yaw=Math.atan2(a.x-x,a.z-z);cameraDesired.distance=20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='눈높이 1.7m · '+a.name;updateViewUI();}
 function render(){const s=steps[index],rows=s[2],row=rows[Math.min(task,rows.length-1)];el('visitorProgress').innerHTML=steps.map((s,i)=>'<span class="'+(i===index?'current':i<index?'complete':'')+'">'+(i<index?'✓ ':i+1)+'</span>').join('');el('visitorTitle').textContent=(index+1)+' / '+steps.length+' · '+s[0];el('visitorIntro').textContent=s[1];el('visitorTaskTitle').textContent=(Math.min(task+1,rows.length))+' / '+rows.length+' · '+row[1];el('visitorTaskCopy').textContent=row[2];el('visitorAction').textContent=done?'✓ 이 구역 절차 완료':row[1]+' → 확인';el('visitorAction').disabled=done||tourMode==='auto';el('visitorNext').disabled=!done||finished||tourMode==='auto';el('visitorNext').textContent=index===7?'견학 완료 ✓':'다음 구역 →';el('visitorInspect').hidden=!(index===5&&task===2);renderAutoStatus();}
 function start(){if(active)return; saved={mode:facilityMode,zone:currentZone,running:simRunning,scenario,roof:showRoof,section:showSection,walk,pos:walkPos.slice(),pitch:walkPitch,desired:JSON.parse(JSON.stringify(cameraDesired)),selected,config:{...window.LS3D_CONFIG},scenarioStart,downs:assets.map(a=>[a.id,a.down])};if(workerViewId)stopWorkerView(false);applyFacilityMode('aidc');scenarioApply('normal');simRunning=false;active=true;document.body.classList.add('visitor-tour');toggle.textContent='방문자 모드 종료';toggle.setAttribute('aria-pressed','true');index=task=0;done=false;finished=false;tourMode='manual';autoPaused=false;stopAuto();records=[];log('견학 시작 · 가상 방문자 V-001');position();render();}
 function exit(){if(!active)return;stopAuto();active=false;document.body.classList.remove('visitor-tour');toggle.textContent='방문자 투어 · 1인칭';toggle.setAttribute('aria-pressed','false');pressedKeys.clear();closeDetail();applyFacilityMode(saved.mode);Object.assign(window.LS3D_CONFIG,saved.config);scenarioApply(saved.scenario);scenarioStart=saved.scenarioStart;saved.downs.forEach(([id,down])=>{if(assetMap.has(id))assetMap.get(id).down=down;});simRunning=saved.running;showRoof=saved.roof;showSection=saved.section;baseSet(saved.zone,false);basePick(saved.selected,false);walk=saved.walk;walkPos=saved.pos;walkPitch=saved.pitch;Object.assign(cameraDesired,saved.desired);refresh();}
@@ -742,7 +744,49 @@ controls.querySelectorAll('[data-vkey]').forEach(b=>{b.onpointerdown=e=>{e.preve
 document.addEventListener('keydown',e=>{if(!active)return;if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();if(el('detailModal').classList.contains('show'))closeDetail();else exit();}},true);
 // Guard competing navigation/UI shortcuts while the guided visitor session is active.
 document.addEventListener('click',e=>{if(!active)return;const allowed=e.target.closest('#visitorPanel,#visitorControls,#visitorToggle,#scene,#detailModal,#btnFull');if(!allowed){e.preventDefault();e.stopImmediatePropagation();}},true);
-window.__LS3D_VISITOR__={start,exit,confirm,next,steps,setMode,toggleAutoPause,get mode(){return tourMode;},get active(){return active;},get state(){return {index,task,done,finished,mode:tourMode,paused:autoPaused,remainingMs,zone:currentZone,position:walkPos.slice(),records:records.slice()};}};
+window.__LS3D_VISITOR__={start,exit,confirm,next,steps,setMode,toggleAutoPause,get mode(){return tourMode;},get active(){return active;},setView,get view(){return visitorView;},get state(){return {index,task,done,finished,view:visitorView,mode:tourMode,paused:autoPaused,remainingMs,zone:currentZone,position:walkPos.slice(),records:records.slice()};}};
+
+
+function updateViewUI(){
+ el('visitorFirstPerson').setAttribute('aria-pressed',String(visitorView==='first'));
+ el('visitorThirdPerson').setAttribute('aria-pressed',String(visitorView==='third'));
+ el('visitorViewLabel').textContent='VISITOR V-001 · 안내자 동행 · '+(visitorView==='first'?'1인칭':'3인칭');
+ el('cameraHint').textContent='방문자 '+(visitorView==='first'?'1인칭 눈높이':'3인칭 따라보기')+' · WASD 이동 / 드래그 시야';
+}
+function setView(view){
+ if(!active||!['first','third'].includes(view)||visitorView===view)return;
+ visitorView=view;avatarWalking=false;pressedKeys.clear();updateViewUI();
+}
+el('visitorFirstPerson').onclick=()=>setView('first');
+el('visitorThirdPerson').onclick=()=>setView('third');
+const visitorBaseCameraFrame=cameraFrame;
+cameraFrame=function(dt){
+ if(!active||visitorView!=='third'||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
+ const yaw=cameraDesired.yaw,pitch=clamp(walkPitch,-.6,.65),pivot=[walkPos[0],1.55,walkPos[2]];
+ const desired=[pivot[0]-Math.sin(yaw)*4.5*Math.cos(pitch),Math.max(.55,3.15+Math.sin(pitch)*3),pivot[2]-Math.cos(yaw)*4.5*Math.cos(pitch)];
+ const boom=sub(desired,pivot),distance=Math.hypot(...boom),dir=norm(boom);
+ let safeDistance=distance;
+ for(const a of visibleAssets()){const hit=rayBox(pivot,dir,a);if(hit!==null&&hit>0&&hit<safeDistance)safeDistance=Math.max(.45,hit-.3);}
+ // Keep the follow camera inside the active support room/server hall.
+ const zone=Z.find(z=>z.id===currentZone);
+ if(zone&&currentZone!=='campus')for(const axis of [0,2]){
+   const half=zone.size[axis===0?0:1]/2-.4,center=zone.pos[axis===0?0:1];
+   if(Math.abs(dir[axis])>.000001){const limit=(center+(dir[axis]>0?half:-half)-pivot[axis])/dir[axis];if(limit>0)safeDistance=Math.min(safeDistance,limit);}
+ }
+ eye=add(pivot,scale(dir,safeDistance));
+ const target=[pivot[0]+Math.sin(yaw)*1.6,pivot[1]-Math.sin(pitch)*1.6,pivot[2]+Math.cos(yaw)*1.6];
+ forward=norm(sub(target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));
+ viewMatrix=lookAt(eye,target,[0,1,0]);matVP=mul4(perspective(Math.PI/3.1,renderW/Math.max(1,renderH),.08,400),viewMatrix);
+};
+function drawVisitorAvatar(){
+ const x=walkPos[0],z=walkPos[2],yaw=cameraDesired.yaw;
+ const c=Math.cos(yaw),sn=Math.sin(yaw),p=(lx,lz)=>[x+lx*c+lz*sn,z-lx*sn+lz*c];
+ const gait=avatarWalking?Math.sin(performance.now()*.009)*.08:0;
+ for(const sign of [-1,1]){let q=p(sign*.14,sign*gait);box(q[0],.08,q[1],.18,.64,.22,'#243c56',yaw);q=p(sign*.37,-sign*gait);box(q[0],.83,q[1],.13,.5,.16,'#4ac8bb',yaw);}
+ box(x,.73,z,.57,.64,.31,'#4ac8bb',yaw);
+ cylinder(x,1.43,z,.15,.24,'#dec4a2',10);cylinder(x,1.66,z,.21,.08,'#f6ce70',10);
+ const badge=p(.13,.18);box(badge[0],1.04,badge[1],.14,.18,.035,'#fff0b3',yaw);
+}
 
 function stopAuto(){if(autoTimer!==null)clearTimeout(autoTimer);autoTimer=null;lastAutoTime=0;}
 function renderAutoStatus(){

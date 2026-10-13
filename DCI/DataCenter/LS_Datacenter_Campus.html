@@ -1453,7 +1453,7 @@ const juniorMeta={
  noc:['운영 관제실','상태를 지켜보는 곳','전기·온도·통신의 상태를 확인하고 이상을 담당자에게 알립니다.','이상이 보이면 위치와 상태를 기록하고 담당자에게 전달합니다.','설비 상태 → 확인 → 담당자 보고']
 };
 const juniorIds=Object.keys(juniorMeta);let juniorVisited=new Set();if(resetTour)try{localStorage.removeItem(JUNIOR_KEY)}catch(e){}try{const a=JSON.parse(localStorage.getItem(JUNIOR_KEY)||'[]');if(Array.isArray(a))juniorVisited=new Set(a.filter(id=>juniorIds.includes(id)))}catch(e){}
-const juniorNames={campus:'01 · 캠퍼스 입구',utility:'02 · 전기 공급',coolingplant:'03 · 열 식히기',gray:'04 · 전원·냉각 지원실',white:'05 · 서버실',networkroom:'06 · 통신 연결실',ops:'07 · 운영 관제실'};
+const juniorNames={campus:'01 · 캠퍼스 입구',utility:'02 · 전기 공급',coolingplant:'03 · 열 식히기',gray:'04 · Gray Zone · 지원실',white:'05 · White Zone · 서버실',networkroom:'06 · Network/MMR · 통신실',ops:'07 · 운영 관제실'};
 const juniorGoals={campus:'안내판과 보안 게이트를 조사해 보세요.',utility:'변압기와 발전기의 차이를 알아보세요.',coolingplant:'서버에서 나온 열이 어디로 가는지 알아보세요.',gray:'UPS와 냉각 지원 장치의 역할을 알아보세요.',white:'서버·스위치·저장 장치의 차이를 찾아보세요.',networkroom:'외부와 내부 네트워크가 만나는 곳을 알아보세요.',ops:'설비 이상을 발견했을 때 무엇을 해야 할지 알아보세요.'};
 const juniorRoles={campus:'입구에서 데이터센터의 전체 역할을 살펴봅니다.',utility:'서버가 사용할 전기를 준비합니다.',coolingplant:'서버에서 발생한 열을 외부로 보냅니다.',gray:'서버실에 전기와 냉각을 안정적으로 제공합니다.',white:'서버가 계산하고 데이터를 저장하는 공간입니다.',networkroom:'서버실을 외부 통신 회선과 연결합니다.',ops:'설비 상태를 살펴보고 이상을 담당자에게 알립니다.'};
 function makeJuniorMap(z){return {grid:Array.from({length:H},(_,y)=>Array.from({length:W},(_,x)=>x===0||y===0||x===W-1||y===H-1?(z==='campus'?'tree':'wall'):(z==='campus'?'yard':'floor'))),objects:[],doors:{}}}
@@ -1590,6 +1590,49 @@ const clarityDrawObj=drawObj;drawObj=function(o){const originalText=ctx.fillText
 const clarityDraw=draw;draw=function(){clarityDraw();const o=target();if(o?.id&&!move){ctx.save();ctx.strokeStyle='#efd46b';ctx.lineWidth=2;ctx.strokeRect(o.x*T-1,o.y*T-1,o.w*T+2,o.h*T+2);ctx.restore()}};
 $('trainingDescription').textContent=trainingMode==='junior'?'12개 대표 설비 · 기초 OJT':'73개 설비 · 상세 탐험';near();
 progress();renderLabels();
+
+// Consistent physical-space classification in both OJT levels.
+const spaceDefs={
+ gray:{label:'GRAY ZONE',title:'전기·기계 지원 공간',color:'#687c5b',short:'UPS · 배터리 · 분전 · CDU/펌프 · 정비',incoming:'전력 · 냉각 설비에서 받은 냉수',outgoing:'서버실로 보내는 안정된 전력 · 냉각수'},
+ white:{label:'WHITE ZONE',title:'IT 공간 · 서버실',color:'#597e68',short:'서버 랙 · Leaf/ToR · Containment · Busway · 랙 PDU',incoming:'A/B 전원 · 차가운 공기/냉각수 · 데이터',outgoing:'연산·저장 데이터 · 열 · 냉각 환수'},
+ networkroom:{label:'NETWORK / MMR',title:'통신 인입·연결 공간',color:'#557f91',short:'ER · Carrier · MMR · ODF · Core/Spine',incoming:'외부 통신 회선 · 서버실 상향 링크',outgoing:'내부로 연결한 회선 · 네트워크 링크'}
+};
+const spaceStyle=document.createElement('style');
+spaceStyle.textContent=`
+.space-classifier{margin:0 0 10px;background:#f4f0db;color:#314b3d;border:2px solid #687c5b;font:12px/1.55 CampusKR,Arial,sans-serif}.space-classifier h2{margin:0;padding:8px 10px;font-size:13px;background:#e4e5cb}.space-key{display:flex;flex-wrap:wrap;gap:5px;padding:7px}.space-key button{flex:1;min-width:85px;padding:7px 3px;border:2px solid var(--space-color);background:#f4f0db;color:#314b3d;font:700 11px/1.5 CampusKR,Arial,sans-serif;cursor:pointer}.space-key button[aria-pressed=true]{background:var(--space-color);color:#fff}.space-classifier .pixel-role-panel{margin:0;border:0;border-top:1px solid #a4ad91;padding:8px 10px;font:12px/1.6 CampusKR,Arial,sans-serif}.space-classifier .pixel-role-panel div{display:grid;grid-template-columns:82px minmax(0,1fr);gap:4px}.space-classifier .pixel-role-panel b{color:#52654e}.viewport[data-space=gray]{outline:3px solid #687c5b;outline-offset:2px}.viewport[data-space=white]{outline:3px solid #597e68;outline-offset:2px}.viewport[data-space=networkroom]{outline:3px solid #557f91;outline-offset:2px}body[data-theme=night] .space-classifier,body[data-theme=night] .space-key button{background:#33413c;color:#f4f0db}body[data-theme=night] .space-classifier h2{background:#40544a}@media(max-width:520px){.space-key button{font-size:10px;min-width:78px}.space-classifier .pixel-role-panel{font-size:11px}.space-classifier .pixel-role-panel div{grid-template-columns:70px minmax(0,1fr)}}
+`;
+document.head.append(spaceStyle);
+const spacePanel=document.createElement('section');spacePanel.className='space-classifier';spacePanel.id='spaceClassifier';spacePanel.setAttribute('aria-label','White·Gray·Network 구역 구분');
+spacePanel.innerHTML='<h2 id="spaceTitle"></h2><div class="space-key" role="group" aria-label="기능 구역 선택">'+Object.entries(spaceDefs).map(([id,v])=>'<button type="button" data-space-zone="'+id+'" style="--space-color:'+v.color+'" aria-pressed="false">'+v.label+'<br>'+v.title+'</button>').join('')+'</div>';
+brief.before(spacePanel);spacePanel.append(rolePanel);brief.hidden=true;
+function syncSpaceClassification(){
+ const def=spaceDefs[zone];document.querySelector('.viewport').dataset.space=zone;
+ $('spaceTitle').textContent=def?def.label+' · '+def.title:names[zone].replace(/^\d+ · /,'')+' · 기반시설/운영';
+ const v=zoneRoles[zone],simple=trainingMode==='junior';
+ rolePanel.innerHTML='<div><b>이 구역의 역할</b><span>'+escapeHtml(simple?(def?def.title+' · '+juniorRoles[zone]:juniorRoles[zone]):v[0])+'</span></div><div><b>들어오는 것</b><span>'+escapeHtml(simple&&def?def.incoming:v[1])+'</span></div><div><b>나가는 것</b><span>'+escapeHtml(simple&&def?def.outgoing:v[2])+'</span></div>';
+ spacePanel.querySelectorAll('[data-space-zone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.spaceZone===zone)));
+ for(const [id,def] of Object.entries(spaceDefs)){
+  const b=document.querySelector('.route [data-zone="'+id+'"]');
+  if(b)b.innerHTML=(id==='gray'?'04':id==='white'?'05':'06')+' · '+def.label+'<span>'+def.title+'</span>';
+ }
+ // Active banner and notebook descriptions use the same physical classification.
+ if(def)$('zoneLabel').textContent=(zone==='gray'?'04':zone==='white'?'05':'06')+' · '+def.label+' · '+def.title;
+}
+spacePanel.querySelectorAll('[data-space-zone]').forEach(b=>b.onclick=()=>{enter(b.dataset.spaceZone,11,17);keys=[];});
+const spaceEnter=enter;enter=function(...args){spaceEnter(...args);syncSpaceClassification();};
+const spaceMode=setTrainingMode;setTrainingMode=function(mode){spaceMode(mode);syncSpaceClassification();};
+// The small OJT remains 12 stations; each note now explicitly names its space.
+const juniorSpaceNote=$('book').onclick;$('book').onclick=()=>{juniorSpaceNote();if(trainingMode!=='junior')return;Array.from($('bookList').children).forEach((section,i)=>{const id=juniorIds[i],z=Object.keys(juniorMaps).find(z=>juniorMaps[z].objects.some(o=>o.id===id)),d=spaceDefs[z];if(!d)return;const tag=document.createElement('small');tag.textContent=d.label+' · '+d.title;section.prepend(tag);});};
+const spaceJuniorInvestigation=juniorInvestigation;juniorInvestigation=function(id){spaceJuniorInvestigation(id);const def=spaceDefs[zone];if(def){const tag=document.createElement('p');tag.textContent=def.label+' · '+def.title;fieldExtra.prepend(tag);}};
+info.sign[2]='캠퍼스는 데이터센터 건물과 외부 지원 설비를 포함합니다. Gray Zone은 전기·기계 지원, White Zone은 IT, 06 Network/MMR는 통신 인입·연결 공간입니다.';
+info.ups[2]+=' 위치: Gray Zone · IT 랙이 아닌 전기 지원 설비입니다.';
+info.cooling[2]+=' 이 지도에서는 Gray Zone의 지원 설비로 표시합니다.';
+info.server[1]='WHITE ZONE / IT';info.server[2]+=' 위치: White Zone · 전력·냉각은 Gray Zone 및 외부 지원 설비에서 공급받습니다.';
+info.mmr[1]='NETWORK / MMR';info.mmr[2]+=' 위치: 별도 06 Network/MMR · Gray Zone과 구분합니다.';
+version.textContent='구역 구분 보강 · 업데이트 2026-10-14 (KST) · 교육용 개념 배치도이며 실제 LS 시설이 아님';
+window.campusSpaceDiagnostics=()=>({mode:trainingMode,zone,definition:spaceDefs[zone]||null,roles:zoneRoles[zone],spaces:Object.entries(spaceDefs).map(([z,d])=>({id:z,label:d.label,title:d.title,objects:seniorMaps[z].objects.filter(o=>o.id).map(o=>o.id)}))});
+syncSpaceClassification();
+
 // Exposed read-only diagnostics for development tests; no external dependency.
 window.pixelOjtDiagnostics=()=>({powerTiles:powerTiles.length,powerRoute:powerWalk.map(n=>({...n})),powerBRoute:powerBBranch.map(n=>({...n})),coolingLoops:coolingLoops.map(x=>({id:x.id,length:x.tiles.length})),total:Object.keys(info).length});
 })();

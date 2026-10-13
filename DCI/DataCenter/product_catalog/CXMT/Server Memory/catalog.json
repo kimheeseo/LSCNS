@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "company": "CXMT",
+  "country": "China",
+  "category": "Server Memory",
+  "displayName": "Server Memory · CXMT",
+  "checked": "2026-10-13",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "제품/제품군",
+    "종류",
+    "용량/밀도",
+    "속도",
+    "전압/전력",
+    "적용 분야",
+    "공급/확인 상태"
+  ],
+  "officialUrl": "https://www.cxmt.com/en/product.html",
+  "sourceUrls": [
+    "https://www.cxmt.com/en/product.html",
+    "https://technode.com/2026/10/12/cxmt-plans-next-generation-ddr5-server-memory-using-denser-dram-architecture/"
+  ],
+  "products": {
+    "ddr5-dram": {
+      "name": "CXMT DDR5 DRAM",
+      "description": "CXMT 공식 제품 페이지 기준 DDR5 DRAM 칩. Enterprise Server가 적용 분야로 명시되어 있습니다. 공개 페이지는 칩 밀도와 전송속도를 제시하며, 서버용 RDIMM의 상세 SKU·호환성은 별도 확인이 필요합니다.",
+      "officialUrl": "https://www.cxmt.com/en/product.html",
+      "checked": "2026-10-13",
+      "confidence": "높음",
+      "specs": {
+        "종류": "DDR5 DRAM component",
+        "다이 용량": "16Gb / 24Gb",
+        "속도": "최대 8,000 Mbps",
+        "오류 검출": "On-die ECC",
+        "적용 분야": "Enterprise Server, Workstation 등",
+        "확인 상태": "공식 제품 페이지 확인 · RDIMM SKU·플랫폼 호환성은 별도 검증"
+      }
+    },
+    "4f2-ddr5-rdimm-roadmap": {
+      "name": "CXMT 4F² DDR5 RDIMM (발표 제품)",
+      "description": "CXMT 경영진의 업계 행사 발표를 보도한 2026-10-12 자료에 따르면, 4F² DRAM 구조 기반 DDR5 서버 RDIMM을 2026년 말 출시 목표로 제시했습니다. 아직 출시·양산·고객 인증이 확인된 제품이 아니므로 로드맵 항목으로만 표시합니다.",
+      "officialUrl": "https://technode.com/2026/10/12/cxmt-plans-next-generation-ddr5-server-memory-using-denser-dram-architecture/",
+      "checked": "2026-10-13",
+      "confidence": "중간",
+      "referenceOnly": true,
+      "specs": {
+        "종류": "DDR5 RDIMM · 발표/로드맵",
+        "구조": "4F² DRAM cell architecture",
+        "발표된 일정": "2026년 말 출시 목표",
+        "용량·속도·전압": "공식 SKU 사양 미공개",
+        "공급/인증": "출시 및 양산 미확인 · 검증 필요",
+        "근거": "CXMT 공식 제품 페이지의 현재 DDR5 component 정보와 별도 구분"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "company": "Micron",
+  "country": "USA",
+  "category": "Server Memory",
+  "displayName": "Server Memory · Micron",
+  "checked": "2026-10-13",
+  "storageMode": "metadata only; official URLs; no PDF upload",
+  "comparisonFields": [
+    "제품/제품군",
+    "종류",
+    "용량",
+    "속도",
+    "공급/검증 상태"
+  ],
+  "officialUrl": "https://investors.micron.com/news/press-release/2026/Micron-Advances-Memory-Innovation-With-the-Worlds-First-Ultra-Dense-Module-for-Next-Generation-Servers/default.aspx",
+  "sourceUrls": [
+    "https://investors.micron.com/news/press-release/2026/Micron-Advances-Memory-Innovation-With-the-Worlds-First-Ultra-Dense-Module-for-Next-Generation-Servers/default.aspx",
+    "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/"
+  ],
+  "products": {
+    "512gb-ddr5-rdimm": {
+      "name": "Micron 512GB DDR5 RDIMM (sampling)",
+      "description": "Micron이 공개한 초고용량 DDR5 서버 메모리 모듈. 2026-09 발표 시 여러 서버 플랫폼에서 시연되었고, 최대 9,200 MT/s 사양과 AMD·Intel의 검증 진행을 공개했습니다. 2026-09-30 실적 발표에서 샘플링 시작을 언급했으므로 양산·일반 판매 완료로 표기하지 않습니다.",
+      "officialUrl": "https://investors.micron.com/news/press-release/2026/Micron-Advances-Memory-Innovation-With-the-Worlds-First-Ultra-Dense-Module-for-Next-Generation-Servers/default.aspx",
+      "checked": "2026-10-13",
+      "confidence": "높음",
+      "referenceOnly": true,
+      "specs": {
+        "종류": "DDR5 RDIMM",
+        "용량": "512 GB",
+        "속도": "최대 9,200 MT/s",
+        "발표 내용": "다수 서버 플랫폼 시연",
+        "공급 상태": "샘플링 개시 발표 · qualification/양산 일정 확인 필요",
+        "호환성": "AMD·Intel 플랫폼 검증 진행 발표",
+        "확인 상태": "공식 발표 기준 · 양산/일반 공급 미확인"
+      }
+    }
+  }
+}

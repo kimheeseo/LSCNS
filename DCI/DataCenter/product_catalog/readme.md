@@ -141,3 +141,12 @@ Intel Gaudi 2/3와 Flex 140/170/170V(5개), Qualcomm AI 가속기 4종·연결 D
 24개 대표 제품/제품군, 11개 신규 카탈로그입니다. UPS·발전기·랙·변압기·케이블 관리·Cat6A/DAC 동 케이블·AEC를 분류했습니다. Schneider Electric, Eaton, Cummins, Caterpillar, Hitachi Energy, Panduit 업체를 추가하고 기존 Amphenol/Credo에 배선 분류를 확장했습니다.
 
 UPS 배터리/이중화, 발전기 DCC/Standby, 변압기 kVA·전압·보호 협조는 현장 설계 검증이 필요합니다. 랙 크기/하중은 IT kW가 아닙니다. AEC·DAC·ACC·AOC를 구분하고 광모듈 중복 합산을 피합니다. 카탈로그 등록이며 신규 설비의 자동 수량 계산/제품 호환 매핑은 포함하지 않습니다. PDF 업로드와 근거 없는 가격 추가는 없습니다.
+
+## Current repository audit
+
+- Review date: 2026-10-13
+- PDF files: **1233**
+- Structured catalog.json files: **487**
+- PDF files without same-folder catalog.json: **0**
+- Sumitomo Electric PDF files: **44**
+- USConnec PDF files: **84**

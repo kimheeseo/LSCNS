@@ -830,4 +830,27 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./LS_Datacenter_3D_NXI.js?v=20261014-nxi2"></script></body></html>
+</script><script>
+(function(){
+  const engine=window.__LS3D_ENGINE__={requested:'Three.js',version:'0.160.0',status:'loading',startedAt:Date.now(),error:null};
+  document.body.dataset.nxiEngine='loading';
+  let finished=false;
+  function fail(message){
+    if(finished)return;finished=true;engine.status='error';engine.error=String(message||'unknown module error');document.body.dataset.nxiEngine='error';
+    const note=document.createElement('div');note.id='nxi-engine-error';note.setAttribute('role','alert');note.textContent='Three.js 3D 엔진을 불러오지 못했습니다. 새로고침 후 다시 확인해 주세요.';
+    Object.assign(note.style,{position:'fixed',left:'50%',top:'16px',transform:'translateX(-50%)',zIndex:'1000',padding:'10px 14px',border:'1px solid #ff7588',borderRadius:'9px',background:'#321823',color:'#fff',font:'700 12px system-ui'});
+    document.body.appendChild(note);
+  }
+  const check=setInterval(function(){
+    if(window.LSNXITwin?.ready){
+      clearInterval(check);clearTimeout(timeout);finished=true;engine.status='ready';engine.readyAt=Date.now();engine.three=window.LSNXITwin.diagnostics().three;document.body.dataset.nxiEngine='ready';
+      window.dispatchEvent(new CustomEvent('ls3d-engine-ready',{detail:{engine:'Three.js',version:engine.three}}));
+    }
+  },50);
+  const timeout=setTimeout(function(){clearInterval(check);fail('Three.js renderer readiness timeout');},20000);
+  window.addEventListener('error',function(event){
+    const source=String(event.filename||event.target?.src||'');
+    if(source.includes('LS_Datacenter_3D_NXI.js')||source.includes('/vendor/three.module.js')||source.includes('/assets/datacenter-3d/')){clearInterval(check);clearTimeout(timeout);fail(event.message||source);}
+  },true);
+})();
+</script><script type="module" src="./LS_Datacenter_3D_NXI.js?v=20261015-task02"></script></body></html>

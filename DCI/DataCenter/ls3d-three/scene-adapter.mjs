@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
-import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step06';
+import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step09';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09';

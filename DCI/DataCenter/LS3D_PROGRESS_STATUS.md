@@ -14,9 +14,10 @@
 | 04/20 | 캠퍼스/건물·출입문·유리·바닥·천장·케이블 트레이 | **3D 구현 완료, 통합 Mock 12/12 PASS / 실브라우저 검증 대기** | 신규 architecture.mjs, Roof/Section 동작/힌지 및 server-room 격리 API 검사, Playwright 테스트 파일 준비 |
 | 05/20 | 7개 구역별 설비 3D 구분 및 LOD/인스턴싱 | **코드 구현 완료, API Mock 13/13 PASS / 실브라우저·FPS 검증 대기** | 설비 Factory·구역별 형상, 3단계 LOD, 반복 부품 GPU InstancedMesh, 기존 Rack/2D/BOM 보존 |
 | 06/20 | 엔지니어·경비원 3D 모델 및 관절·보행 애니메이션 | **코드 구현 완료, 통합 Mock 17/17 PASS / 실브라우저 GPU 검증 대기** | 역할별 6명, 헬멧·경비모·ID·무전기·관절·워크/점검·정지, 회사 서버실 격리, 기존 NPC/랙 유지 |
-| 07~20/20 | 경로탐색/충돌회피·상태머신·보안·랙/MMR/최종 배포 | 미착수 | 사용자 별도 승인 전 진행 없음 |
+| 07/20 | NPC A* 경로 탐색·벽/설비/사람 회피·출입문 통과 | **코드 구현 및 실제 자산 기반 9/9 경로 PASS, 통합 Mock 16/16 PASS / 실제 WebGL2 브라우저 검증 대기** | 1.25 격자 A*, 랙/건물 footprint, Hall 포털, 근거리 보행자 회피, 작업자 시점 동일 좌표 |
+| 08~20/20 | 점검 상태머신·보안·랙/MMR·최종 배포 | 미착수 | 사용자 별도 승인 전 진행 없음 |
 
-**완전 검증 완료 2/20; STEP 03 수동 브라우저 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 Mock 13/13 PASS; STEP 06 NPC/애니메이션 통합 Mock 17/17 PASS. STEP 04~06의 실제 GPU/브라우저 회귀 및 성능은 대기.**
+**완전 검증 완료 2/20; STEP 03 브라우저 수동 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 Mock 13/13 PASS; STEP 06 Mock 17/17 PASS; STEP 07 실제 배치 경로 9/9 및 통합 Mock 16/16 PASS. STEP 04~07 새 GPU/브라우저 회귀 및 성능은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -40,6 +41,9 @@
 - [06 캐릭터 모델/보행 애니메이션 개발 보고서](./architecture/STEP06_NPC_CHARACTERS_REPORT.md)
 - [06 역할별 3D 캐릭터 모듈](./ls3d-three/npc-characters.mjs)
 - [06 Playwright 브라우저 회귀 테스트](./ls3d-three/step06.playwright.spec.mjs)
+- [07 A* 탐색·충돌 회피 결과 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)
+- [07 NPC A* Navigator](./ls3d-three/npc-navigation.mjs)
+- [07 Playwright 브라우저 회귀 테스트](./ls3d-three/step07.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -73,6 +77,13 @@
 - 사용자 GPU 실화면/모바일/Playwright 자동 실행과 FPS 검증은 미실행.
 - 상세 [STEP06_NPC_CHARACTERS_REPORT.md](./architecture/STEP06_NPC_CHARACTERS_REPORT.md).
 
+## STEP 07 추가 구현 사항 (2026-10-15)
+- 1.25 개념 좌표 격자, 보행자 반경 0.39, 8방향 최소 힙 A*·충돌 안전 경로 단축·근거리 동료 회피 구현.
+- AI/On-Prem Data Hall 출입문을 이용한 경유점; 회사 서버실 전용 26×24 공간 경계, 건물·설비 footprint 충돌 확인.
+- HTML에 있는 운영 자산 74개 배치를 직접 파싱/실행한 9개 모드·작업자 경로 검증 9/9 PASS. 2명 맞교행 회피 모의 검사 7/7 PASS. STEP 03~07 API Mock 통합 16/16 PASS.
+- 기존 직원 HUD/추적 카메라와 Three 캐릭터가 동일 navigator pose를 사용. 기존 화재 대피 재정의 스크립트는 우선 유지(화재 안전성은 별도 미검증).
+- 실제 PC/모바일 WebGL2 브라우저·Playwright FPS/메모리 검증 대기. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md).
+
 ## 브라우저 확인 방법
 
 ### 직접 확인
@@ -101,4 +112,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03 사용자 기본 동작 6/6 PASS이지만 일부 P0 회귀가 남아 있다. STEP 04 건축 Mock 12/12, STEP 05 설비/LOD Mock 13/13, STEP 06 NPC 관절 Mock 17/17 통과했다. STEP 04~06 신규 구현은 실제 WebGL2/PC·모바일 브라우저 동작과 GPU FPS/메모리/콘솔 오류 검증 대기. [STEP06 보고서](./architecture/STEP06_NPC_CHARACTERS_REPORT.md)에 따라 실제 캐릭터 움직임을 점검한 뒤 필요 결함만 보완한다. **STEP 07 NavMesh/A* 및 충돌 회피는 사용자 추가 승인 전 진행하지 않는다.**
+STEP 03 사용자 수동 핵심 6/6 PASS, STEP 04~07의 Mock/정적 회귀 검사 PASS. STEP 07 A* 실자산 경로 9/9·통합 Mock 16/16 통과. 신규 04~07 기능은 실제 Chrome/Android 브라우저의 캐릭터 이동·출입문 통과·장애물 회피·실측 GPU FPS·메모리·Console 오류 확인이 추가 필요하다. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)를 참고한다. **STEP 08 점검 상태머신은 사용자 별도 승인 전 착수하지 않는다.**

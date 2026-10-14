@@ -84,7 +84,7 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    readerWaiting.visible=!approved;
    readerWaiting.position.set(entry.x-3.5,0,entry.z);
    gate.position.set(entry.x-1.8,1.1,entry.z);
-   gate.rotation.y=approved?Math.PI*.45*Math.min(1,(t-(start-.001))/1.7):0;
+   gate.rotation.y=approved?Math.PI*.45*(step===6?Math.min(1,(t-start)/1.7):1):0;
    stats.stage=phase.name;stats.updates++;
    return {active:true,stage:phase.name,phaseIndex:step,progress:ratio,
      visitor:{x:pos[0],z:pos[1]},bag:{x:bp[0],z:bp[1]},

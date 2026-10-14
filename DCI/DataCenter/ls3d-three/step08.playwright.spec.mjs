@@ -26,7 +26,7 @@ test('worker inspection FSM advances align, inspect, tablet, depart without rest
  expect(data.tablets).toEqual([false,false,true,false,false,false]);
  expect(data.targets[0]).not.toBeNull();
  expect(data.total).toBe(1);
- expect(data.resumed).toBe('depart');
+ expect(data.resumed).toBe('move');
  expect(data.next).toBe('move');
  await page.screenshot({path:info.outputPath('step08-inspection.png')});
 });

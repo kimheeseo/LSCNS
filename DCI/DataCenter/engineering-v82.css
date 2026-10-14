@@ -1,0 +1,9 @@
+/* Keep the existing grid, language controls, and responsive layouts. */
+#engineering-v82-results{margin-top:14px;padding:14px;max-width:100%;overflow:hidden}
+#engineering-v82-results table{font-size:12px}
+#engineering-system-table input,#engineering-inputs [data-optic]{width:90px;min-width:70px;max-width:100%}
+#engineering-inputs>summary{position:sticky;top:0;z-index:2;background:var(--panel,#14213a);padding:10px}
+#engineering-v82-inputs p{color:#f3cf80}
+#engineering-inputs .tableWrap{max-width:100%;overflow:auto}
+#engineering-v82-results p{overflow-wrap:anywhere}
+@media(max-width:720px){#engineering-v82-results{padding:8px}#engineering-v82-results table{min-width:640px}#engineering-system-table input{width:65px;min-width:55px}}

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -45,8 +46,8 @@ export function createSceneAdapter(T, canvas) {
     }));
     return materialCache.get(key);
   }
-  function cube(parent, x, baseY, z, w, h, d, color, metal = 0.3, rough = 0.5) {
-    const m = new THREE.Mesh(boxGeometry, material(color, metal, rough));
+  function cube(parent, x, baseY, z, w, h, d, color, metal = 0.3, rough = 0.5, transparent = false) {
+    const m = new THREE.Mesh(boxGeometry, material(color, metal, rough, transparent));
     m.position.set(x, baseY + h * .5, z); m.scale.set(Math.max(.001, w), Math.max(.001, h), Math.max(.001, d));
     m.castShadow = h > .3; m.receiveShadow = true; parent.add(m); return m;
   }
@@ -62,41 +63,23 @@ export function createSceneAdapter(T, canvas) {
       else obj.material.dispose();
     }
   }); } }
-  function zoneScene(flags) {
-    const mode = T.facilityMode, current = T.currentZone;
-    const selectedZones = T.visibleZones().filter(z => z.id !== 'campus' && (current === 'campus' || z.id === current));
-    const sig = [mode, current, !!flags.showRoof, !!flags.showSection, ...selectedZones.map(z => z.id)].join('|');
-    if (sig === zoneSignature) return;
-    zoneSignature = sig; clearGroup(zoneRoot);
-    if (mode !== 'server-room') {
-      cube(zoneRoot, 0, -.66, 0, 142, .5, 116, '#1d3447', .08, .95);
-      cube(zoneRoot, 0, -.15, 0, 138, .08, 112, '#315064', .12, .88);
-      for (let x = -67; x < 68; x += 14) cube(zoneRoot, x, -.06, 44, .12, .055, 85, '#547285', .1, .9);
+  // STEP 04: real structural building envelope. Dynamic architecture shares
+  // the existing source-of-truth zone data and never creates a second RAF loop.
+  const architecture = createArchitectureKit(THREE, {cube});
+  function zoneScene(flags, dt) {
+    const mode=T.facilityMode, current=T.currentZone;
+    const available=T.visibleZones();
+    const sig=[mode,current,!!flags.showRoof,!!flags.showSection,
+      ...available.map(z=>[z.id,z.pos.join(','),z.size.join(',')].join(':'))].join('|');
+    zoneRoot.visible=!flags.inspect;
+    if(sig!==zoneSignature) {
+      zoneSignature=sig;
+      clearGroup(zoneRoot);
+      const result=architecture.build(zoneRoot,available,mode,current,flags);
+      diagnostic.zones=result.zones;
     }
-    selectedZones.forEach(z => {
-      let w = z.size[0], d = z.size[1], x = z.pos[0], zz = z.pos[1];
-      if (mode === 'server-room') { w = 26; d = 24; }
-      const g = new THREE.Group(); g.userData.zoneId = z.id; zoneRoot.add(g);
-      cube(g, x, -.22, zz, w, .26, d, '#3b596b', .12, .84);
-      cube(g, x, .04, zz, w - .5, .07, d - .5, '#607e8e', .18, .72);
-      const wall = material('#88a9b8', .25, .52);
-      const wallH = current === 'campus' ? 4.4 : 2.25;
-      const isCut = !!flags.showSection;
-      if (!isCut) {
-        // Building walls are separate real 3D meshes; low cut-away keeps cabinets visible.
-        cube(g, x, .08, zz - d / 2, w, wallH, .27, '#6f99ae', .26, .5);
-        cube(g, x - w / 2, .08, zz, .27, wallH, d, '#83a9bd', .27, .5);
-        cube(g, x + w / 2, .08, zz, .27, wallH, d, '#83a9bd', .27, .5);
-        cube(g, x - w * .33, .08, zz + d / 2, w * .34, wallH, .27, '#84aabd');
-        cube(g, x + w * .33, .08, zz + d / 2, w * .34, wallH, .27, '#84aabd');
-        cube(g, x, .08, zz + d / 2, w * .25, .15, .27, '#9fbdc9');
-        cube(g, x, wallH - .15, zz + d / 2, w * .26, .34, .27, '#9fbdc9');
-        for (let i = -1; i <= 1; i += 2) cube(g, x + i * w * .43, wallH * .46, zz - d / 2 - .16, w * .08, wallH * .45, .08, '#65abc4', .05, .12);
-      }
-      if (flags.showRoof && !isCut) cube(g, x, wallH + .22, zz, w, .25, d, '#83acc0', .65, .23);
-      for (let i = -1; i <= 1; i++) cube(g, x + i * w * .25, 6.8, zz, .23, .23, d * .78, '#c7a46b', .75, .3);
-    });
-    diagnostic.zones = selectedZones.length + (mode === 'server-room' ? 0 : 1);
+    if(!flags.inspect)architecture.tick(dt,current,flags);
+    diagnostic.architecture=architecture.summary;
   }
   function genericEquipment(root, a) {
     const type = String(a.type || ''), w = a.w, d = a.d, h = a.h;
@@ -285,7 +268,7 @@ export function createSceneAdapter(T, canvas) {
     camera.near = Math.max(.035,view.near || .08);
     camera.far = Math.max(600, view.far || 600);
     camera.updateProjectionMatrix();
-    zoneScene(flags);
+    zoneScene(flags, dt);
     refreshAssets(flags);
     routeScene(flags);
     refreshPeople(flags);
@@ -318,5 +301,5 @@ export function createSceneAdapter(T, canvas) {
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get disposed(){return disposed;} };
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get disposed(){return disposed;} };
 }

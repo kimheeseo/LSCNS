@@ -448,6 +448,11 @@ export function createSceneAdapter(T, canvas) {
       }
       while(obj && !obj.userData.assetId) obj=obj.parent;
       const id=obj?.userData.assetId, asset=T.assetMap.get(id);
+      // STEP 13: a connector mesh carries a more specific partId than its
+      // parent cassette drawer. Resolve by the owning rack's canonical partMap.
+      const clickedPartId=hit.object.userData?.partId;
+      const exactPart=clickedPartId&&registry.get(id)?.partMap?.get(clickedPartId);
+      if(exactPart)part=exactPart;
       if(asset){
         if(part) {
           selectRackPart(id,part.id);

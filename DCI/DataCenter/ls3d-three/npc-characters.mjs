@@ -6,7 +6,8 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
     engineer:   {uniform:'#338d91',trousers:'#2f5865',helmet:'#edc85f',vest:'#dcbd62',boots:'#243645',trim:'#c2edf0'},
     technician: {uniform:'#8e779d',trousers:'#465368',helmet:'#e9c65b',vest:'#f0b951',boots:'#293746',trim:'#e3d5f0'},
     operator:   {uniform:'#416b8f',trousers:'#263f59',helmet:'#96bed9',vest:'#64a4cd',boots:'#1e3548',trim:'#d7e9f0'},
-    guard:      {uniform:'#254a76',trousers:'#263c57',helmet:'#2d4b6d',vest:'#46688d',boots:'#1d2d42',trim:'#d1deeb'}
+    guard:      {uniform:'#254a76',trousers:'#263c57',helmet:'#2d4b6d',vest:'#46688d',boots:'#1d2d42',trim:'#d1deeb'},
+    visitor:    {uniform:'#c9b9a2',trousers:'#495973',helmet:'#6a5260',vest:'#b5c4cb',boots:'#334454',trim:'#e6dbd0'}
   };
   const metrics={built:0,animated:0,roleCounts:{},lastActionCounts:{walk:0,inspect:0,pause:0,idle:0}};
   function kind(role){return roles[role] ? role : 'engineer';}
@@ -61,7 +62,10 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
     }
     // Head protection visually differentiates security officers and field engineers.
     const helmet=pivot(head,'helmet',0,.34,0);
-    if(role==='guard'){
+    if(role==='visitor'){
+      round(helmet,'visitor-hair',0,-.04,0,.54,.22,'#403b41');
+      piece(helmet,'visitor-side-parting',-.12,.04,.01,.20,.06,.30,'#59535b');
+    }else if(role==='guard'){
       round(helmet,'security-cap-crown',0,-.03,0,.57,.25,palette.helmet);
       piece(helmet,'security-cap-visor',0,-.10,.205,.51,.054,.30,'#203f63',.36,.45);
       piece(helmet,'security-cap-emblem',0,.04,.253,.15,.10,.032,'#dfc17f');

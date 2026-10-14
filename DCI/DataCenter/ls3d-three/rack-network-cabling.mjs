@@ -39,8 +39,12 @@ export function createRackNetworkCabling(THREE,{cube}) {
     box(tor,'tor-face',0,torY+.07,-d*.548,w*.66,u*.93,.06,'#163d53');
     for(let i=0;i<8;i++){
       const x=-w*.27+i*w*.078;
-      box(tor,'tor-port-'+i,x,torY+.14,-d*.585,w*.061,.076,.040,
+      const port=box(tor,'tor-port-'+i,x,torY+.14,-d*.585,w*.061,.076,.040,
         i%2?'#5dcad4':'#6ce6ae');
+      const record={id:id+':tor-port:'+i,assetId:id,kind:'tor-port',
+        label:'Top-of-Rack 포트 '+(i+1)+' (교육용)',uStart:torU,uHeight:2,portIndex:i};
+      port.userData.assetId=id;port.userData.partId=record.id;
+      built.parts.push(record);built.partMap.set(record.id,record);
       stats.torPorts++;
     }
     for(const sign of [-1,1])

@@ -70,9 +70,9 @@ export function createArchitectureKit(THREE, { cube }) {
     part(g,'frame',name+'-pillar',x,.03,z,.44,height,.44,color,.67,.35);
     part(g,'detail',name+'-shoe',x,.02,z,.72,.2,.72,'#455e70',.55,.48);
   }
-  function glassGrid(g,frontName,w,d,y,height,cutaway) {
+  function glassGrid(g,frontName,w,d,y,height,cutaway,side=1) {
     const segments=Math.max(4,Math.min(9,Math.round(w/5.7)));
-    const half=w/2,step=w/segments,front=d/2+.025;
+    const half=w/2,step=w/segments,front=side*d/2+side*.025;
     for(let i=0;i<=segments;i++) {
       const x=-half+i*step;
       part(g,'frame',frontName+'-mullion-'+i,x,y,front,.12,height,.17,'#9fc1ce',.7,.28);
@@ -157,7 +157,7 @@ export function createArchitectureKit(THREE, { cube }) {
     }
     if(!section){
       part(local,'wall','rear-wall',0,.1,-d/2,w,selected?1.7:h,.26,facade,.28,.55);
-      if(!openView)glassGrid(local,z.id+'-rear',w,d,2.3,h-2.5,false);
+      if(!openView)glassGrid(local,z.id+'-rear',w,d,2.3,h-2.5,false,-1);
       // A meaningful open doorway, not a solid front wall overlapping the entrance.
       const portal=3.3, wing=Math.max(1,w/2-portal/2);
       const frontZ=d/2;

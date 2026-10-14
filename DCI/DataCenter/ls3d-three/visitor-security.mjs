@@ -23,11 +23,15 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
  const lamp=new THREE.Group();lamp.name='security:scanner-lamp';root.add(lamp);
  const lampMesh=cube(lamp,0,2.8,0,.40,.15,.20,'#7cecc0',.14,.31);
  lampMesh.name='security:scanner-ready';
+ const lampWarning=cube(lamp,0,2.8,0,.40,.15,.20,'#f6c66d',.14,.31);
+ lampWarning.name='security:scanner-running';lampWarning.visible=false;
  const gate=new THREE.Group();gate.name='security:gate-barrier-pivot';root.add(gate);
  const bar=cube(gate,2.2,0,0,4.4,.16,.19,'#e8c982',.57,.36);
  bar.name='security:access-barrier';
  const scanner=cube(root,0,1.15,0,.2,.34,.19,'#53d1bd',.33,.42);
- scanner.name='security:card-reader-feedback';
+ scanner.name='security:card-reader-approved';
+ const readerWaiting=cube(root,0,1.15,0,.2,.34,.19,'#e8b26d',.33,.42);
+ readerWaiting.name='security:card-reader-waiting';
  const zones={},stats={cycles:0,updates:0,stage:'inactive',ready:false,stageCount:phases.length};
  let lastCycle=-1,mode='',lastScene='',visible=false;
  function available() {
@@ -45,8 +49,9 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    if(!visible){stats.stage='inactive';return {active:false,stage:'inactive'};}
    const {desk,xray,metal,gate:entry}=components;
    const way=[
-    point(desk,-8,1),point(desk,0,1),point(xray,-5,0),
-    point(xray,0,0),point(metal,-3,0),
+    point(desk,-8,desk.d*.5+1.3),point(desk,0,desk.d*.5+1.3),
+    point(xray,-5,xray.d*.5+1.0),point(xray,0,xray.d*.5+1.0),
+    point(metal,-3,0),
     point(metal,0,0),point(entry,-3.5,0),
     point(entry,0,0),point(entry,8,1.7)
    ];
@@ -59,7 +64,7 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    const phase=phases[step],ratio=Math.max(0,Math.min(1,(t-start)/phase.duration));
    const from=way[step],to=way[step+1];
    const smooth=ratio*ratio*(3-2*ratio);
-   const pos=lerp(from,to,phase.action==='walk'?smooth:step===3?.30:0);
+   const pos=lerp(from,to,phase.action==='walk'?smooth:0);
    visitor.position.set(pos[0],.04,pos[1]);
    const travel=Math.hypot(to[0]-from[0],to[1]-from[1]);
    visitor.rotation.y=travel>.0001?Math.atan2(to[0]-from[0],to[1]-from[1]):0;
@@ -72,9 +77,12 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    luggage.position.set(bp[0],.64,bp[1]);luggage.visible=step>=2&&step<=6;
    const approved=step>=6;
    lamp.position.set(xray.x,0,xray.z);
-   lampMesh.material.color?.set?.(step>=3&&step<=4?'#f6c66d':'#7cecc0');
+   lampMesh.visible=!(step>=3&&step<=4);
+   lampWarning.visible=!lampMesh.visible;
    scanner.position.set(entry.x-3.5,0,entry.z);
-   scanner.material.color?.set?.(approved?'#5aeeb8':'#e8b26d');
+   scanner.visible=approved;
+   readerWaiting.visible=!approved;
+   readerWaiting.position.set(entry.x-3.5,0,entry.z);
    gate.position.set(entry.x-1.8,1.1,entry.z);
    gate.rotation.y=approved?Math.PI*.45*Math.min(1,(t-(start-.001))/1.7):0;
    stats.stage=phase.name;stats.updates++;

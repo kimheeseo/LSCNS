@@ -9,6 +9,8 @@ import { createRackComponentKit } from './rack-components.mjs?v=20261015-step11t
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
+import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14';
+import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -95,7 +97,7 @@ export function createSceneAdapter(T, canvas) {
     if(!item)return;
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
-    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);
+    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);
     item.g.traverse(obj=>{
       if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
       // LOD levels use cached materials; selected-ring material is per-object.
@@ -111,6 +113,8 @@ export function createSceneAdapter(T, canvas) {
   const rackDoors=createRackDoorControls();
   const rackRails=createRackServerRails(THREE,{cube});
   const rackOptics=createRackOpticalCassette(THREE,{cube});
+  const rackNetwork=createRackNetworkCabling(THREE,{cube});
+  const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null;
   let focusedRack=null;
   function currentRackAsset() {
@@ -180,7 +184,7 @@ export function createSceneAdapter(T, canvas) {
         button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
         grid.appendChild(button);
       }
-      grid.addEventListener('click',e=>{
+      rackControls.addEventListener('click',e=>{
         const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
@@ -192,6 +196,10 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='next-server')cycleRackServer(asset.id,1);
         else if(action==='server-slide')toggleRackServerSlide(asset.id);
         else if(action==='cassette-slide')toggleRackCassette(asset.id);
+        else if(action==='link-all')rackNetwork.focus(asset.id,'all');
+        else if(action==='link-fiber')rackNetwork.focus(asset.id,'fiber');
+        else if(action==='link-power-a')rackNetwork.focus(asset.id,'power-A');
+        else if(action==='link-power-b')rackNetwork.focus(asset.id,'power-B');
         else if(action==='next-fiber'){
           const item=registry.get(asset.id);
           const ports=(item?.opticsSession?.portDefs||[]);
@@ -201,6 +209,26 @@ export function createSceneAdapter(T, canvas) {
         showControls();
       });
       rackControls.appendChild(grid);
+      const details=document.createElement('details');
+      details.style.cssText='border-top:1px solid #477384;margin-top:7px;padding-top:7px;';
+      const title=document.createElement('summary');
+      title.textContent='◎ ToR / 후면 PDU A·B / 서버 NIC 배선';
+      title.style.cssText='cursor:pointer;font-weight:650;padding:3px 0;';
+      details.appendChild(title);
+      const cablesGrid=document.createElement('div');
+      cablesGrid.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:5px;';
+      for(const [code,label] of [
+        ['link-all','모든 랙 내부 배선'],['link-fiber','서버 NIC → ToR'],
+        ['link-power-a','전원 A / PDU-A'],['link-power-b','전원 B / PDU-B']
+      ]){
+        const button=document.createElement('button');
+        button.type='button';button.dataset.rackAction=code;button.textContent=label;
+        button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
+        cablesGrid.appendChild(button);
+      }
+      details.appendChild(cablesGrid);rackControls.appendChild(details);
+      rackControls.style.maxHeight='min(76vh,550px)';
+      rackControls.style.overflowY='auto';
       canvas.parentElement.appendChild(rackControls);
     }
     rackControls.hidden=false;
@@ -209,7 +237,8 @@ export function createSceneAdapter(T, canvas) {
     rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점':'전면 시점'):'기본 시점')+
       ' · 서버 '+serverLabel+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
-      ' · 광포트 '+(fiber?.ports.length||0)+'개';
+      ' · 광포트 '+(fiber?.ports.length||0)+'개'+
+      ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all');
   }
   function showRackPart(info) {
     selectedRackPart=info?{...info}:null;
@@ -236,18 +265,24 @@ export function createSceneAdapter(T, canvas) {
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
     let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null;
-    let serverSession=null,opticsSession=null;
+    let serverSession=null,opticsSession=null,networkSession=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
       const built=rackKit.build(high,a);
       serverSession=rackRails.decorate(a,built,high);
       opticsSession=rackOptics.decorate(a,built);
+      networkSession=rackNetwork.decorate(a,built,high);
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
       cube(low,0,.06,0,w*.92,h*.94,d*.90,'#53728b',.52,.44);
       cube(low,0,h*.72,-d*.48,w*.75,.26,.08,'#56a7b7',.32,.34);
       rackLOD={high,low};
+    } else if(a.id==='colo'&&a.type==='Customer cage'){
+      // STEP 16 draws the real three-tenant fence in a separate world layer.
+      // Suppress the old single-cage generic equipment shell to avoid overlaying it.
+      kind='customer-cage-anchor';
+      cube(g,0,.01,0,w*.93,.065,d*.9,'#618996',.24,.62);
     } else {
       const result=equipmentFactory.build(a);
       kind=result.kind;equipmentLOD=result.lod;g.add(equipmentLOD);
@@ -261,7 +296,7 @@ export function createSceneAdapter(T, canvas) {
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
     g.traverse(obj=>{if(obj.isMesh)obj.userData.assetId=a.id});
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -297,6 +332,7 @@ export function createSceneAdapter(T, canvas) {
         rackDoors.tick(a.id,item.moving,m,dt);
         rackRails.update(a.id,item.moving,m);
         rackOptics.update(a.id,item.moving,m);
+        rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         // When using the STEP 11 independent side camera, keep world-space rack
         // orientation fixed. Original legacy rear flip remains otherwise available.
         item.g.rotation.y=focusedRack?.id===a.id?0:(m.rear?Math.PI:0);
@@ -307,6 +343,10 @@ export function createSceneAdapter(T, canvas) {
     if(focusedRack&&!registry.has(focusedRack.id))focusedRack=null;
     showControls();
     diagnostic.assets=registry.size;
+    diagnostic.rackNetwork={
+      stats:{...rackNetwork.stats},
+      selected:currentRackAsset()?rackNetwork.diagnostic(currentRackAsset().id):null
+    };
     diagnostic.rackInteraction={
       focus:focusedRack?{...focusedRack}:null,
       doors:{...rackDoors.stats},
@@ -423,6 +463,9 @@ export function createSceneAdapter(T, canvas) {
     camera.updateProjectionMatrix();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
+    const rooms=zoneExtras.update(flags,dt);
+    diagnostic.mmr=rooms.mmr;
+    diagnostic.colocation=rooms.colocation;
     routeScene(flags);
     securityState=security.simulate(T.simTime||0);
     security.root.visible=securityState.active&&!flags.inspect;
@@ -441,8 +484,13 @@ export function createSceneAdapter(T, canvas) {
     mouse.x=((clientX-rect.left)/rect.width)*2-1;
     mouse.y=-((clientY-rect.top)/rect.height)*2+1;
     raycaster.setFromCamera(mouse,camera);
-    for(const hit of raycaster.intersectObjects(assetRoot.children,true)) {
+    const targets=[...assetRoot.children,
+      ...(zoneExtras.mmr.root.visible?zoneExtras.mmr.root.children:[]),
+      ...(zoneExtras.colocation.root.visible?zoneExtras.colocation.root.children:[])];
+    for(const hit of raycaster.intersectObjects(targets,true)) {
       if (hit.object.userData.noPick || hit.object.name === 'selection-ring') continue;
+      const areaSelection=zoneExtras.pick(hit.object);
+      if(areaSelection)return areaSelection.assetId||areaSelection.id;
       let obj=hit.object,part=null;
       for(let p=obj;p&&p!==assetRoot;p=p.parent) {
         if(!part&&p.userData.rackPart)part=p.userData.rackPart;
@@ -469,9 +517,10 @@ export function createSceneAdapter(T, canvas) {
   function dispose() {
     if(disposed)return;disposed=true;
     navigation.reset();inspection.reset();
+    zoneExtras.dispose();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
-    rackDoors.reset();rackRails.reset();rackOptics.reset();focusedRack=null;
+    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
@@ -484,6 +533,9 @@ export function createSceneAdapter(T, canvas) {
   return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},
     get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
+    get rackNetwork(){return diagnostic.rackNetwork;},
+    get mmr(){return diagnostic.mmr;},get colocation(){return diagnostic.colocation;},
+    rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
     selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
     get rackInteraction(){return diagnostic.rackInteraction;},

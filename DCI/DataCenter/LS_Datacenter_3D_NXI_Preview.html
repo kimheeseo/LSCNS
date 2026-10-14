@@ -566,7 +566,7 @@ function drawScene(){tri=[];wire=[];transparent=[];ls3dStaticFrameKeys.length=0;
 let cameraDesired={yaw:-.7,pitch:.74,distance:164,target:[0,2,0]},camera={yaw:-.7,pitch:.74,distance:164,target:[0,2,0]};let lastFrame=0,lastUI=0;
 const LS3D_ZOOM_MIN=1e-10;let phase1Local=false,phase1Near=.25,phase1Far=500;
 function phase1Inspecting(){return !!(selected&&isMechanicalRack(selected)&&$('detailModal')?.classList.contains('show'))}
-function phase1CenterFocus(){if(phase1Inspecting()&&!mechanical(selected).targetSlide&&cameraDesired.distance<.85)cameraDesired.distance=.85;const on=phase1Inspecting()&&cameraDesired.distance<.0005;if(on===phase1Local)return;phase1Local=on;const target=on?[0,0,0]:phase1Inspecting()?[selected.x,selected.h*.51,selected.z]:cameraDesired.target;cameraDesired.target=target.slice();camera.target=target.slice();camera.distance=cameraDesired.distance;}
+function phase1CenterFocus(){if(phase1Inspecting()&&!mechanical(selected).targetSlide&&cameraDesired.distance<.85)cameraDesired.distance=.85;const on=phase1Inspecting()&&cameraDesired.distance<2.5;if(on===phase1Local)return;phase1Local=on;const target=on?[0,0,0]:phase1Inspecting()?[selected.x,selected.h*.51,selected.z]:cameraDesired.target;cameraDesired.target=target.slice();camera.target=target.slice();camera.distance=cameraDesired.distance;}
 function phase1ClipPlanes(){const d=Math.max(LS3D_ZOOM_MIN,camera.distance);phase1Near=phase1Local?Math.max(d*.008,1e-13):d<12?Math.max(.012,d*.006):.25;phase1Far=phase1Local?Math.max(d*35,5e-9):d<12?120:500;return [phase1Near,phase1Far]}
 
 const labels=[];

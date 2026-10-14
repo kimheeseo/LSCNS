@@ -205,8 +205,9 @@ export function createSceneAdapter(T, canvas) {
     }
     rackControls.hidden=false;
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
+    const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점':'전면 시점'):'기본 시점')+
-      ' · 서버 '+(server?.selected?.split(':').pop()||'—')+
+      ' · 서버 '+serverLabel+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개';
   }

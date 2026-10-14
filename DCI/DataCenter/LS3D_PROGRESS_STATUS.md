@@ -10,16 +10,24 @@
 |---|---|---|---|
 | 01/20 | 기존 3D 코드 분석·보호 범위 | 완료 | 정적 코드 분석 및 기준 SHA 기록 |
 | 02/20 | Three.js 전환 구조 설계 | 완료 | 아키텍처·호환 API·롤백·검증 계획 기록 |
-| 03/20 | Three.js 엔진·3D Scene·조명·카메라 | 개발 코드 GitHub 업로드 / **완료 판정 보류** | 구문·정적 연계·Mock 테스트 통과, **실제 WebGL2 브라우저/Playwright 테스트 미실행** |
+| 03/20 | Three.js 엔진·3D Scene·조명·카메라 | **구현 완료·기본 브라우저 수동 6/6 PASS / 최종 완료 판정 보류** | 사용자 M01~M06 PASS, 독립 Chromium 환경 접근 차단, P0 회귀 및 Playwright 미검증 |
 | 04~20/20 | 고품질 건물·설비·NPC·랙·MMR·통합 배포 | 미착수 | 새 단계의 구현 및 브라우저 검증 없음 |
 
-**완전 완료 2/20, 단계 03 실제 브라우저 검증 대기.**
+**완전 완료 2/20, 단계 03 기본 브라우저 수동 검증 6/6 PASS 및 P0 회귀·자동 시험 대기.**
+
+### 2026-10-15 수동 검증 결과
+- 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
+- 본 결과는 사용자 수동 확인이며 Playwright GPU 실행·콘솔 로그·FPS·모든 설비 데이터 일치 검증은 아니다.
+- 독립 Chromium 접속 시도는 외부 URL 접근 정책으로 `net::ERR_BLOCKED_BY_ADMINISTRATOR`; **시험 환경 차단(사이트 장애 증거 아님)**.
+- [추가 회귀 검증 우선순위·수정 후보·콘솔 진단](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md).
+
 
 ## 개발 자료와 소스
 
 - [20개 업무 로드맵](./LS3D_V4_20_TASK_ROADMAP.md)
 - [02 전환 구조 설계](./architecture/STEP02_THREEJS_MIGRATION_ADR.md)
 - [03 엔진 개발 및 검증 보고서](./architecture/STEP03_THREEJS_ENGINE_REPORT.md)
+- [03 사용자 브라우저 6/6 결과 및 잔여 점검](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -31,7 +39,7 @@
 - 새 Three.js 시험 모드: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three
 - 구형 WebGL 강제: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy
 
-참고: 위 링크는 사이트 경로이며, 보고서 작성 현재 시점 실제 브라우저 구동 성공은 증명되지 않았다.
+참고: `?engine=three` 링크에서 3D 표시 및 기본 조작이 되는 것을 **사용자가 직접 보고했다**. 독립 자동 검증 및 배포 서버 로그는 확보하지 않았다.
 
 ## 브라우저 확인 방법
 
@@ -61,4 +69,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-먼저 STEP 03의 실제 브라우저 검증을 완료하고 발생 오류를 수정한다. 그 결과를 사용자에게 보고한 후, 승인받을 때만 STEP 04 캠퍼스 건물 정밀 모델링으로 진행한다.
+STEP 03 수동 핵심 시험은 통과했다. [추가 검증 표](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md)의 P0 안정성·회귀 항목을 확인하고 발견되는 결함을 수정한다. 사용자 확인/승인 전 STEP 04 캠퍼스 건물 정밀 모델링은 진행하지 않는다.

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -81,15 +82,18 @@ export function createSceneAdapter(T, canvas) {
     if(!flags.inspect)architecture.tick(dt,current,flags);
     diagnostic.architecture=architecture.summary;
   }
-  function genericEquipment(root, a) {
-    const type = String(a.type || ''), w = a.w, d = a.d, h = a.h;
-    const rack = /rack|top-of-rack|core|spine|leaf|odf|switch/i.test(type) && !/switchgear/i.test(type);
-    const color = /cool|chiller|tower|pump|CRAH|CDU/i.test(type) ? '#65a5bf'
-      : /transform|UPS|PDU|switchgear|generator|battery/i.test(type) ? '#9ca9a5'
-      : rack ? '#57748e' : '#6a94a9';
-    cube(root, 0, .05, 0, w, Math.max(.5, h - .17), d, color, .52, .38);
-    cube(root, 0, h * .16, d * .506, w * .79, h * .38, .13, '#1a354d', .34, .34);
-    for (let j = 0; j < 4; j++) cube(root, -w * .31 + j * w * .205, h * .39, d * .589, w * .13, .075, .065, '#b7d0d9', .6, .3);
+  const equipmentFactory=createEquipmentFactory(THREE,{cube,cylinder,material,boxGeometry});
+  function disposeAsset(item) {
+    if(!item)return;
+    assetRoot.remove(item.g);
+    item.g.traverse(obj=>{
+      if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
+      // LOD levels use cached materials; selected-ring material is per-object.
+      if(obj.material && !Array.from(materialCache.values()).includes(obj.material)) {
+        if(Array.isArray(obj.material))obj.material.forEach(m=>m.dispose());
+        else obj.material.dispose();
+      }
+    });
   }
   function makeRack(g, a, motion) {
     const w = a.w, d = a.d, h = a.h;
@@ -121,43 +125,31 @@ export function createSceneAdapter(T, canvas) {
     return { hinge, slide, cassette, reach: d * .67, door: motion || null };
   }
   function assetMesh(a) {
-    const g = new THREE.Group();
-    g.name = 'equipment:' + a.id;
-    g.userData.assetId = a.id;
-    const t = String(a.type || '').toLowerCase();
-    const w = a.w, d = a.d, h = a.h;
-    let moving = null;
-    if (T.isMechanicalRack(a)) moving = makeRack(g, a, T.mechanical(a));
-    else if (/cooling tower/.test(t)) {
-      cube(g, 0, 0, 0, w, .3, d, '#668ea5');
-      cylinder(g, 0, .3, 0, w * .32, h - .7, '#83bbcd');
-      cylinder(g, 0, h - .55, 0, w * .34, .25, '#3d6074');
-      for (let i = 0; i < 4; i++) {
-        const ang = i * Math.PI / 2;
-        cube(g, Math.cos(ang) * w * .16, h - .3, Math.sin(ang) * w * .16, .15, .05, w * .25, '#a0bdc7');
-      }
-    } else if (/transformer/.test(t)) {
-      genericEquipment(g, a);
-      for (let i = -1; i <= 1; i++) cylinder(g, i * w * .26, h - .18, 0, .23, .8, '#ccd8d9');
-      for (let i = 0; i < 5; i++) cube(g, -w * .36 + i * w * .18, h * .36, d * .56, .06, h * .32, .16, '#24415b');
-    } else if (/chiller/.test(t)) {
-      genericEquipment(g, a);
-      for (let i = -1; i <= 1; i++) cylinder(g, i * w * .25, h - .15, 0, .45, .2, '#2f5367');
-    } else if (/x-ray|xray/i.test(a.id + ' ' + a.type)) {
-      genericEquipment(g, a);
-      cube(g, -w * .72, .72, 0, w * .5, .16, d * .52, '#879ca9');
-      cube(g, w * .72, .72, 0, w * .5, .16, d * .52, '#879ca9');
-    } else if (/metal.detector/i.test(a.id + ' ' + a.type)) {
-      cube(g, -w * .34, 0, 0, w * .17, h, d * .4, '#c6d5d9');
-      cube(g, w * .34, 0, 0, w * .17, h, d * .4, '#c6d5d9');
-      cube(g, 0, h - .23, 0, w * .85, .22, d * .4, '#92bccb');
-    } else genericEquipment(g, a);
-    cube(g, 0, -.09, 0, w * 1.08, .11, d * 1.08, '#355269', .12, .88);
-    g.position.set(a.x, 0, a.z);
-    const selection = new THREE.Mesh(new THREE.RingGeometry(Math.max(w,d) * .56, Math.max(w,d) * .66, 36), new THREE.MeshBasicMaterial({ color: 0x63e4d8, side: THREE.DoubleSide, transparent: true, opacity: .94 }));
-    selection.rotation.x = -Math.PI / 2; selection.position.y = .027; selection.name = 'selection-ring'; selection.userData.noPick = true; g.add(selection);
-    g.traverse(obj => { if (obj.isMesh) obj.userData.assetId = a.id; });
-    return { g, moving, selection };
+    const g=new THREE.Group();
+    g.name='equipment:'+a.id;g.userData.assetId=a.id;
+    const {w,d,h}=a;
+    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack';
+    if(T.isMechanicalRack(a)){
+      const high=new THREE.Group();high.name='rack-high';g.add(high);
+      moving=makeRack(high,a,T.mechanical(a));
+      const low=new THREE.Group();low.name='rack-low';g.add(low);
+      cube(low,0,.06,0,w*.92,h*.94,d*.90,'#53728b',.52,.44);
+      cube(low,0,h*.72,-d*.48,w*.75,.26,.08,'#56a7b7',.32,.34);
+      rackLOD={high,low};
+    } else {
+      const result=equipmentFactory.build(a);
+      kind=result.kind;equipmentLOD=result.lod;g.add(equipmentLOD);
+    }
+    cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
+    g.position.set(a.x,0,a.z);
+    const selection=new THREE.Mesh(
+      new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),
+      new THREE.MeshBasicMaterial({color:0x63e4d8,side:THREE.DoubleSide,transparent:true,opacity:.94})
+    );
+    selection.rotation.x=-Math.PI/2;selection.position.y=.027;
+    selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
+    g.traverse(obj=>{if(obj.isMesh)obj.userData.assetId=a.id});
+    return {g,moving,selection,kind,equipmentLOD,rackLOD};
   }
   function refreshAssets(flags) {
     const showDetail = !!flags.inspect;
@@ -168,11 +160,17 @@ export function createSceneAdapter(T, canvas) {
       const sig = [a.zone,a.type,a.x,a.z,a.w,a.d,a.h].join('|');
       let item = registry.get(a.id);
       if (!item || item.sig !== sig) {
-        if (item) { assetRoot.remove(item.g); item.g.traverse(o => { if (o.geometry && o.geometry !== boxGeometry && o.geometry !== cylinderGeometry) o.geometry.dispose(); }); }
+        if(item)disposeAsset(item);
         const model = assetMesh(a);
         item = { ...model, sig }; registry.set(a.id, item); assetRoot.add(item.g);
       }
-      item.selection.visible = T.selected?.id === a.id;
+      item.selection.visible=T.selected?.id===a.id;
+      if(item.rackLOD) {
+        const dx=camera.position.x-a.x, dy=camera.position.y-a.h*.5, dz=camera.position.z-a.z;
+        const far=T.selected?.id!==a.id && Math.hypot(dx,dy,dz)>96;
+        item.rackLOD.high.visible=!far;item.rackLOD.low.visible=far;
+      }
+      if(item.equipmentLOD)item.equipmentLOD.update(camera);
       const fault = !!a.down || !!(flags.scenario !== 'normal' && (
         (flags.scenario === 'cooling' && /tower/i.test(a.id)) ||
         (flags.scenario === 'network' && a.id === 'core') ||
@@ -188,8 +186,15 @@ export function createSceneAdapter(T, canvas) {
         item.g.rotation.y = m.rear ? Math.PI : 0;
       }
     }
-    for (const [id,item] of registry) if (!present.has(id)) { assetRoot.remove(item.g); item.g.traverse(o=>{if(o.geometry && o.geometry!==boxGeometry && o.geometry!==cylinderGeometry)o.geometry.dispose();}); registry.delete(id); }
-    diagnostic.assets = registry.size;
+    for(const [id,item] of registry)if(!present.has(id)){disposeAsset(item);registry.delete(id);}
+    diagnostic.assets=registry.size;
+    diagnostic.equipment={
+      kinds:{...equipmentFactory.diagnostics.kinds},
+      instancedBatches:equipmentFactory.diagnostics.instancedBatches,
+      instancedParts:equipmentFactory.diagnostics.instancedParts,
+      activeKinds:[...new Set([...registry.values()].map(v=>v.kind))].sort(),
+      lodAssets:[...registry.values()].filter(v=>!!v.equipmentLOD || !!v.rackLOD).length
+    };
   }
   function routeScene(flags) {
     const on = flags.flow || {};
@@ -296,10 +301,12 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
-    clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);clearGroup(assetRoot);
+    clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
+    for(const item of registry.values())disposeAsset(item);
+    registry.clear();
     for(const m of materialCache.values())m.dispose();
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get disposed(){return disposed;} };
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get disposed(){return disposed;} };
 }

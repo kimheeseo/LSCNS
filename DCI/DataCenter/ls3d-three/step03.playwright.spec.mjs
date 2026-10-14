@@ -4,7 +4,6 @@
 import { test, expect } from '@playwright/test';
 const URL3D = process.env.LS3D_BASE_URL ||
   'https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html';
-const basicErrors = [];
 test.use({ viewport: { width: 1366, height: 768 } });
 test('legacy renderer remains default and 2D/BOM links exist', async ({page}) => {
   const errors=[];page.on('pageerror', e=>errors.push(e.message));
@@ -20,6 +19,7 @@ test('Three.js creates GPU objects and syncs all seven zones', async ({page}, in
   const errors=[];page.on('pageerror', e=>errors.push(e.message));
   await page.goto(URL3D + '?engine=three',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>['ready','failed'].includes(window.LS3D_THREE?.status),null,{timeout:30000});
+  if(await page.evaluate(()=>window.LS3D_THREE?.status==='ready'))await page.waitForFunction(()=>window.LS3D_THREE?.renders>2);
   const initial=await page.evaluate(()=>{
     const S=window.LS3D_THREE,T=window.__LS3D_TEST__;
     return {status:S.status,error:S.error,version:S.adapter?.THREE.REVISION,
@@ -31,7 +31,6 @@ test('Three.js creates GPU objects and syncs all seven zones', async ({page}, in
   expect(initial.version).toBe('186');
   expect(initial.originalT).toBe(7);
   expect(initial.hasRenderer&&initial.camera&&initial.scene).toBe(true);
-  await page.waitForFunction(()=>window.LS3D_THREE?.renders>2);
   expect(initial.assets).toBeGreaterThan(0);
   for(const id of ['campus','utility','cooling','gray','hall','network','ops']){
     await page.evaluate(id=>window.__LS3D_TEST__.setZone(id),id);
@@ -61,7 +60,7 @@ test('server-room restricts external scene content', async ({page})=>{
   expect(counts.zones).toBe(1);
   expect(counts.routes).toBe(0);
 });
-test('mobile canvas and Three scene remain usable', async ({page},info})=>{
+test('mobile canvas and Three scene remain usable', async ({page},info)=>{
   await page.setViewportSize({width:390,height:844});
   await page.goto(URL3D+'?engine=three',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>window.LS3D_THREE?.status==='ready',{},{timeout:30000});

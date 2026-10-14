@@ -11,9 +11,10 @@
 | 01/20 | 기존 3D 코드 분석·보호 범위 | 완료 | 정적 코드 분석 및 기준 SHA 기록 |
 | 02/20 | Three.js 전환 구조 설계 | 완료 | 아키텍처·호환 API·롤백·검증 계획 기록 |
 | 03/20 | Three.js 엔진·3D Scene·조명·카메라 | **구현 완료·기본 브라우저 수동 6/6 PASS / 최종 완료 판정 보류** | 사용자 M01~M06 PASS, 독립 Chromium 환경 접근 차단, P0 회귀 및 Playwright 미검증 |
-| 04~20/20 | 고품질 건물·설비·NPC·랙·MMR·통합 배포 | 미착수 | 새 단계의 구현 및 브라우저 검증 없음 |
+| 04/20 | 캠퍼스/건물·출입문·유리·바닥·천장·케이블 트레이 | **3D 구현 완료, 통합 Mock 12/12 PASS / 실브라우저 검증 대기** | 신규 architecture.mjs, Roof/Section 동작/힌지 및 server-room 격리 API 검사, Playwright 테스트 파일 준비 |
+| 05~20/20 | 설비/NPC/랙/MMR/통합·배포 | 미착수 | 사용자 승인 전 진행 없음 |
 
-**완전 완료 2/20, 단계 03 기본 브라우저 수동 검증 6/6 PASS 및 P0 회귀·자동 시험 대기.**
+**완전 검증 완료 2/20; STEP 03 기본 수동 브라우저 6/6 PASS; STEP 04 실제 3D 건축 구현·Mock 12/12 PASS, 브라우저 회귀 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -28,6 +29,9 @@
 - [02 전환 구조 설계](./architecture/STEP02_THREEJS_MIGRATION_ADR.md)
 - [03 엔진 개발 및 검증 보고서](./architecture/STEP03_THREEJS_ENGINE_REPORT.md)
 - [03 사용자 브라우저 6/6 결과 및 잔여 점검](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md)
+- [04 건축 3D 모델링 및 검증 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md)
+- [04 신규 건축 모듈](./ls3d-three/architecture.mjs)
+- [04 Playwright 브라우저 회귀 테스트 코드](./ls3d-three/step04.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -39,7 +43,13 @@
 - 새 Three.js 시험 모드: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three
 - 구형 WebGL 강제: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy
 
-참고: `?engine=three` 링크에서 3D 표시 및 기본 조작이 되는 것을 **사용자가 직접 보고했다**. 독립 자동 검증 및 배포 서버 로그는 확보하지 않았다.
+참고: 사용자 기본 화면/조작 검증 6/6 PASS는 **STEP 03 버전**에서의 수동 확인이다. STEP 04에서 새로 추가한 외벽/유리/도어/트레이의 **실제 브라우저 동작은 아직 검증하지 않았다**. 독립 자동 검증 및 배포 서버 로그는 확보하지 않았다.
+
+## STEP 04 추가 구현 사항 (2026-10-15)
+- 밀폐된 Gray/Data Hall/Network/MMR/NOC 건축 shell + Utility/Cooling 개방형 설비 야드를 실질 3D Mesh로 구분.
+- 건물 입구 2짝 유리문(THREE.Group hinge), 레이어 바닥·raised-floor 줄눈·오버헤드 cable trays·부분 ceiling·roof/section 옵션을 연결.
+- 실제 GitHub Scene Adapter + Architecture 모듈로 수행한 API mock 12/12 PASS. **실 GPU 렌더 FPS 및 Playwright는 미실행**.
+- 상세: [STEP04_BUILDING_ARCHITECTURE_REPORT.md](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md).
 
 ## 브라우저 확인 방법
 
@@ -69,4 +79,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03 수동 핵심 시험은 통과했다. [추가 검증 표](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md)의 P0 안정성·회귀 항목을 확인하고 발견되는 결함을 수정한다. 사용자 확인/승인 전 STEP 04 캠퍼스 건물 정밀 모델링은 진행하지 않는다.
+STEP 03은 사용자 기본 검증 PASS이지만 P0 회귀 확인이 남아 있다. **STEP 04의 코드 구현과 API Mock 테스트가 통과했고, 새 3D 건축 모델의 실제 Chrome/모바일 브라우저 검증이 남아 있다.** [STEP 04 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md)를 참조하여 지붕·단면·문 열림·서버실 범위·성능·Console 오류를 확인한다. STEP 05는 사용자 별도 승인 전 시작하지 않는다.

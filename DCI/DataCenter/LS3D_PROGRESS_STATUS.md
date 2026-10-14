@@ -18,9 +18,12 @@
 | 08/20 | NPC 설비 점검 상태머신 | **구현 코드 및 Three.js 연결 확인 / 브라우저 QA 대기** | `inspection-fsm.mjs`에서 점검 단계 및 전환 구현 확인 |
 | 09/20 | 방문객 보안 검색 절차 | **구현 코드 및 Three.js 연결 확인 / 브라우저 QA 대기** | `visitor-security.mjs`에서 8단계 방문 동선 및 보안 장치 시각화 확인 |
 | 10/20 | 42/48U 랙 부품 독립 객체 | **구현 코드 및 Three.js 연결 확인 / 브라우저 QA 대기** | `rack-components.mjs` 및 `step10.playwright.spec.mjs` 존재 확인, 실제 Chromium PASS 미확인 |
-| 11~20/20 | 랙 도어·서버 레일·카세트·MMR·최종 배포 | 미착수 | 사용자 별도 승인 전 진행 없음 |
+| 11/20 | 전·후면 랙 도어 및 카메라 | **실제 Three 코드 구현·모의 테스트 통과 / Chromium QA 대기** | 독립 문 힌지, 전면/후면 시점 조작, 이전 레거시 상태 연동 |
+| 12/20 | 서버 레일 인출 및 NIC/포트 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 한 번에 선택한 서버만 인출, 42/48U 서버 14개/개념 NIC 56포트(샘플) |
+| 13/20 | 광 카세트 상세 조작 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 카세트 이동/커버 개폐, 랙당 8개 커넥터·3D 광섬유, 포트별 raycast |
+| 14~20/20 | ToR·후면 PDU·케이블·MMR·최종 배포 | 미착수 | 별도 사용자 승인 전 진행 없음 |
 
-**완전 실브라우저 검증 완료는 STEP 01~02. STEP 03 사용자 기본 화면 수동 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 구현 코드·Three API Mock 통합 21/21 PASS(후속 개별 결함 수정). STEP 04~10의 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
+**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -50,6 +53,13 @@
 - [08 점검 상태머신 보고서](./architecture/STEP08_INSPECTION_FSM_REPORT.md), [FSM 코드](./ls3d-three/inspection-fsm.mjs), [Playwright](./ls3d-three/step08.playwright.spec.mjs)
 - [09 방문객 출입 보안 보고서](./architecture/STEP09_VISITOR_SECURITY_REPORT.md), [모듈](./ls3d-three/visitor-security.mjs), [Playwright](./ls3d-three/step09.playwright.spec.mjs)
 - [10 랙 42/48U/부품 선택 보고서](./architecture/STEP10_RACK_PARTS_REPORT.md), [모듈](./ls3d-three/rack-components.mjs), [Playwright](./ls3d-three/step10.playwright.spec.mjs)
+- [11 랙 전·후면 문 및 시점 개발 보고서](./architecture/STEP11_RACK_DOORS_CAMERA_REPORT.md)
+- [12 개별 서버 인출 및 NIC 개발 보고서](./architecture/STEP12_SERVER_RAIL_NIC_REPORT.md)
+- [13 광 카세트·커넥터·광섬유 보고서](./architecture/STEP13_FIBER_CASSETTE_REPORT.md)
+- [11 독립 문 모션](./ls3d-three/rack-door-controls.mjs)
+- [12 서버 레일·NIC 모듈](./ls3d-three/rack-server-rails.mjs)
+- [13 광 카세트 모듈](./ls3d-three/rack-optical-cassette.mjs)
+- [11~13 브라우저 회귀 스크립트](./ls3d-three/step11to13.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -97,6 +107,14 @@
 - 실자산 74개를 사용한 통합 Three API Mock **21/21 PASS** 이후 상태머신 재진입·보안 동선/출입문 연출을 보완하고 개별 시험 수행. **실 Chromium/WebGL2·모바일·GPU FPS/메모리·Playwright 실행 로그는 확보하지 않음**.
 - [STEP08 상세](./architecture/STEP08_INSPECTION_FSM_REPORT.md) · [STEP09 상세](./architecture/STEP09_VISITOR_SECURITY_REPORT.md) · [STEP10 상세](./architecture/STEP10_RACK_PARTS_REPORT.md).
 
+## STEP 11~13 추가 구현·검증 (2026-10-15)
+
+- STEP 11: 전면 문은 원래 `T.mechanical(a).door`를 보존, 독립 후면 문 hinge motion 도입. 선택 랙의 앞/뒤 시점은 `T.cameraDesired`로 직접 설정. 구형 `m.rear` fallback은 유지.
+- STEP 12: 서버 개별 group의 position.z만 이동하도록 STEP 10 공통 server-tray를 개선. 서버별 가이드 레일·NIC·4개 개념 NIC 포트 추가, 하단 조작 UI로 서버 선택/인출.
+- STEP 13: 인출 카세트에 8개 어댑터·페룰·커넥터 및 실제 THREE.TubeGeometry 3D 광섬유 경로와 열리는 커버 구현. Raycast 시 정확한 `fiber-port` ID를 상위 카세트보다 우선 처리.
+- **모의 테스트:** 42U/48U 부품 동작 24/24, 전체 Scene Adapter 결합 17/17 PASS. 실제 페이지 WebGL2·모바일 FPS·카메라 클리핑·터치 및 Playwright는 **미실행**.
+- 11~13번 보고서 및 `step11to13.playwright.spec.mjs`를 참조. 기존 2D Tour와 BOM 계산 파일은 변경 금지/보존.
+
 ## 브라우저 확인 방법
 
 ### 직접 확인
@@ -125,4 +143,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03 사용자 수동 핵심 6/6 PASS, STEP 04~07의 Mock/정적 회귀 검사 PASS. STEP 07 A* 실자산 경로 9/9·통합 Mock 16/16 통과. 신규 04~07 기능은 실제 Chrome/Android 브라우저의 캐릭터 이동·출입문 통과·장애물 회피·실측 GPU FPS·메모리·Console 오류 확인이 추가 필요하다. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)를 참고한다. **STEP 11 랙 전·후면 도어/카메라 정밀화는 사용자 별도 승인 전 진행하지 않는다.**
+STEP 11~13 기능 코드는 구현되었고 STEP 10 랙 모델과 결합한 모의 검증 24/24 + Scene Adapter 17/17 통과. **실제 Chrome/WebGL2 브라우저에서 랙 전·후면 카메라, 문 간섭·클리핑, 서버 단독 인출, 광 카세트 내부 포트/3D 광섬유 및 모바일 터치/성능을 직접 검증해야 STEP 11~13 최종 완료로 확정한다.** 기존 STEP 04~10 실브라우저 회귀도 남아 있다. 다음 STEP 14 ToR/후면 A·B PDU/케이블 관리는 사용자 별도 승인 전 시작하지 않는다.

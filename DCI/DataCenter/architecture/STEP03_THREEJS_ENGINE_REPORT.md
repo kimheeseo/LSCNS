@@ -113,3 +113,21 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 - BOM: `index.html` blob `692767f0c234df3b8310642e3acd032137c68baa`
 
 다음 단계 진행 게이트: 사용자 확인 후, 필요한 STEP 03 실기기 검증을 수행하고 미통과 항목을 해결하기 전에는 STEP 04에 착수하지 않는다.
+
+
+## 6. 사용자 브라우저 수동 검증 후 업데이트 (2026-10-15)
+
+앞부분의 **4-C 'NOT RUN'은 최초 작성 당시의 기준 기록**으로 보존한다. 이후 사용자가 실브라우저로 기본 6개 항목을 점검하여 **모두 PASS**를 보고했다. 이는 사용자의 실제 관찰에 근거한 결과이며, CI 로그·스크린샷이 수반된 독립 시험은 아니다.
+
+1. 3D 데이터센터 건물·설비 렌더 표시: PASS (사용자 확인)
+2. `Three.js r186 · PBR` 표시: PASS (사용자 확인)
+3. 7개 구역 전환: PASS (사용자 확인)
+4. 랙 클릭 및 우측 상세정보: PASS (사용자 확인)
+5. 마우스/터치 카메라 회전·확대: PASS (사용자 확인)
+6. 랙 문 열기·서버 인출: PASS (사용자 확인)
+
+이후 테스트 실행 환경에서 Python Playwright/Chromium을 이용해 `?engine=three` 공개 GitHub Pages로 직접 접속했으나 `net::ERR_BLOCKED_BY_ADMINISTRATOR`로 정책상 차단되어 **자동 확인은 수행되지 않았다**. 사이트 장애로 판정하지 않는다. 콘솔·fallback·server-room 격리·BOM 정확성·연속 실행 안정성·성능을 추가 확인해야 한다.
+
+- [브라우저 수동검증 6/6 기록, P0/P1/P2 잔여 항목, 수정 후보](./STEP03_BROWSER_VERIFICATION_20261015.md)
+- STEP 03: **구현 및 핵심 수동 검증 통과, 전체 통합 검증 대기**.
+- STEP 04: 미착수.

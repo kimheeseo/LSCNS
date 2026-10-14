@@ -139,7 +139,7 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
     rig.torso.rotation.z=action==='walk'?Math.sin(phase)*.035:Math.sin(time*.72)*.012;
     rig.head.rotation.y=action==='walk'?Math.sin(phase*.4)*.11:Math.sin(time*.67)*.17;
     rig.head.rotation.x=action==='inspect'?.22:Math.sin(time*.85)*.022;
-    rig.tablet.visible=action==='inspect';
+    rig.tablet.visible=pose.showTablet!==undefined?!!pose.showTablet:action==='inspect';
     rig.lastAction=action;
     metrics.animated++;
     return action;

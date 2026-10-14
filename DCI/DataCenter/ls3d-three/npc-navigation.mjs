@@ -11,7 +11,15 @@ export function createNpcNavigation(T, options={}) {
   const eps=.0001;
   function snapshot(n) {
     const route=T.routeForWorker ? T.routeForWorker(n) : n.route;
-    const points=(Array.isArray(route)?route:[]).filter(p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1]));
+    const points=(Array.isArray(route)?route:[]).filter(p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1])).map(p=>[p[0],p[1]]);
+    // STEP 07: Data Hall worker explicitly enters through the STEP 04 front-door portal
+    // once per circuit in AI/on-prem campuses. The legacy NPC route array is untouched.
+    if(n.id==='eng-hall'&&T.facilityMode!=='server-room'&&points.length>=2){
+      const hall=(T.Z||[]).find(z=>z.id==='hall');
+      if(hall){const cx=hall.pos[0],front=hall.pos[1]+hall.size[1]/2;
+        points.unshift([cx,front+3.1],[cx,front-2.8]);
+        points.push([cx,front-2.8],[cx,front+3.1]);}
+    }
     const assets=(T.visibleAssets?.()||[]).filter(a=>a.zone===n.zone || (n.zone==='campus'&&a.zone==='campus'));
     const building=(T.Z||[]).find(z=>z.id===n.zone);
     const zones=n.zone==='campus' ? (T.visibleZones?.()||T.Z||[]).filter(z=>!['campus','utility','cooling'].includes(z.id)) : [];
@@ -156,8 +164,8 @@ export function createNpcNavigation(T, options={}) {
     return simplified;
   }
   function legFor(grid,a,b){
-    const source=grid.pointBlocked(a)?grid.posFromNode?.(grid.nodeFor(a)):a;
-    const target=grid.pointBlocked(b)?grid.posFromNode?.(grid.nodeFor(b)):b;
+    const source=grid.pointBlocked(a)?null:a;
+    const target=grid.pointBlocked(b)?null:b;
     // The optional helpers may be absent: use grid coordinates for safe snapped endpoints.
     const safe=n=>n<0?null:grid.pos(n%grid.nx,(n/grid.nx)|0);
     const A=source||safe(grid.nodeFor(a)),B=target||safe(grid.nodeFor(b));
@@ -255,7 +263,16 @@ export function createNpcNavigation(T, options={}) {
     if(!n||!original||!Number.isFinite(original.x)||!Number.isFinite(original.z))return original;
     if(n.point)return original; // guards remain at their original posts
     const plan=getPlan(n);
-    if(!plan.legs.length || plan.fails)return original;
+    if(!plan.legs.length)return original;
+    if(plan.fails){
+      // Fail closed on disconnected paths: never silently fall back to unsafe,
+      // straight-through-racks legacy movement in the Three.js navigation mode.
+      metrics.stops++;
+      const safeCell=plan.grid.nodeFor([original.x,original.z]);
+      if(safeCell<0)return {...original,action:'pause'};
+      const p=plan.grid.pos(safeCell%plan.grid.nx,Math.floor(safeCell/plan.grid.nx));
+      return {...original,x:p[0],z:p[1],action:'pause'};
+    }
     let candidate=poseFromPlan(plan,n,simTime,original);
     candidate=avoidAgents(n,candidate,plan,simTime);
     const previous=lastPose.get(n.id),speed=Math.max(.05,(Number(n.speed)||2.5)/8);
@@ -263,7 +280,10 @@ export function createNpcNavigation(T, options={}) {
       // Clamp the maximum advance to physical walk speed, preserving pause and frame continuity.
       const a=[previous.pose.x,previous.pose.z],b=[candidate.x,candidate.z],distance=dist(a,b);
       const maxStep=Math.max(.055,speed*(simTime-previous.time)*1.5+.055);
-      if(distance>maxStep&&plan.grid.lineClear(a,b)){
+      if(distance>maxStep&&!plan.grid.lineClear(a,b)){
+        metrics.stops++;
+        candidate={...previous.pose,action:'pause'};
+      }else if(distance>maxStep){
         const f=maxStep/distance;
         candidate={...candidate,x:a[0]+(b[0]-a[0])*f,z:a[1]+(b[1]-a[1])*f,
           heading:Math.atan2(b[0]-a[0],b[1]-a[1]),action:'walk'};

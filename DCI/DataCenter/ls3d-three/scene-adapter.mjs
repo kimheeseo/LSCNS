@@ -255,14 +255,19 @@ export function createSceneAdapter(T, canvas) {
     for (const [id,g] of people) if(!visible.has(id)){peopleRoot.remove(g);people.delete(id);}
     diagnostic.npc = people.size;
   }
+  let viewportWidth=0, viewportHeight=0, viewportDpr=0;
   function render(dt, view) {
     if (disposed) throw new Error('Three.js adapter was disposed');
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 1 || rect.height < 1) return;
     const quality = window.LS3D_CONFIG?.quality || 'medium';
     const dpr = Math.min(window.devicePixelRatio || 1, quality === 'low' ? .8 : quality === 'high' ? 1.55 : 1.1);
-    renderer.setPixelRatio(dpr);
-    renderer.setSize(Math.floor(rect.width), Math.floor(rect.height), false);
+    const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
+    if(viewportWidth!==pixelWidth || viewportHeight!==pixelHeight || viewportDpr!==dpr) {
+      renderer.setPixelRatio(dpr);
+      renderer.setSize(pixelWidth, pixelHeight, false);
+      viewportWidth=pixelWidth;viewportHeight=pixelHeight;viewportDpr=dpr;
+    }
     const flags = view.flags || {};
     const eye = view.eye, direction = view.forward, up = view.up;
     camera.position.set(eye[0],eye[1],eye[2]);

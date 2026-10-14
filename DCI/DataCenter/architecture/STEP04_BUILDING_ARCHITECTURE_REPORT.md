@@ -100,6 +100,13 @@ Connector에서 GitHub `main`의 **실제 새 모듈 파일을 재조회**, fake
 - 기존 STEP 03 사용자 수동 6/6 PASS는 이 아키텍처 추가 **이전 버전**에 대한 결과이므로 STEP 04 기능을 검증했다고 볼 수 없다.
 - 원격 raw GitHub 파일을 로컬 테스트 컨테이너에서 내려받으려는 시도는 DNS 네트워크 접근 제한으로 실패했다(사이트의 동작 결함을 의미하지 않음).
 
+### 3.4 공개 GitHub Pages 접근 시도
+
+- 2026-10-15: 공개 `.../LS_Datacenter_3D.html?engine=three` 및 `.../ls3d-three/architecture.mjs?v=20261015-step04` 주소를 외부 문서 접근 도구로 조회 시도.
+- 관찰: 해당 검사 도구에서 **URL not accessible** 반환. **HTTP 상태 코드/실제 브라우저 동작을 얻지 못함**.
+- 판정: **Pages 배포 반영 확인 불가** (404라고 단정할 수 없음). GitHub `main` 파일 생성/수정은 연결된 GitHub API에서 재조회하여 검증했다.
+- 사용자 Chrome에서 새 모듈을 강력 새로고침 후 `window.LS3D_THREE.adapter.architecture`를 확인해야 실제 배포가 반영된 것으로 판단할 수 있다.
+
 ## 4. 다음 브라우저 수동 점검 절차
 
 1. Chrome/Edge에서 https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three 를 열고 `Three.js r186 · PBR` 표시를 확인한다.

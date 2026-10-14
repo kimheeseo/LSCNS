@@ -17,7 +17,8 @@
 - **STEP 04 / 20: 3D 건축 구현 완료·정적 및 통합 Mock 12/12 PASS / 실브라우저 검증 대기** — [STEP04 건축 모델링 결과 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md), [Three.js 아키텍처 모듈](./ls3d-three/architecture.mjs), [STEP04 Playwright 테스트](./ls3d-three/step04.playwright.spec.mjs). 외벽·유리·실제 문 pivot·raised floor·ceiling·suspended cable tray·지붕/단면 연동. 신규 GPU 실측은 아직 수행하지 않음.
 - **STEP 05 / 20: 7개 구역 설비 외형 고도화 + THREE.LOD + InstancedMesh 구현 / Mock 13/13 PASS / 실제 브라우저 및 FPS 검증 대기** — 비랙 설비 20여 가지 분류, 변압기/UPS/냉각탑/Chiller/ODF/CRAH 등 독립 Mesh, 3단계 LOD, 반복 부품 인스턴싱, 랙 원거리 단순화, renderer 리사이즈 최적화. [STEP05 개발/검증 보고서](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md) · [신규 설비 Factory](./ls3d-three/equipment-factory.mjs) · [Playwright 회귀 시험](./ls3d-three/step05.playwright.spec.mjs).
 - **STEP 06 / 20: 엔지니어·기술자·운영자·경비원 3D 관절 캐릭터 구현 완료 / Mock 17/17 PASS / 실브라우저 검증 대기** — 작업복·안전모·경비모·반사조끼·사원증·무전기·팔/다리 관절 및 보행/대기/점검 포즈를 구현. 기존 NPC 위치·이동 경로·작업자 카메라 보존. [STEP06 보고서](./architecture/STEP06_NPC_CHARACTERS_REPORT.md) · [캐릭터 모듈](./ls3d-three/npc-characters.mjs) · [Playwright 시험](./ls3d-three/step06.playwright.spec.mjs). 실제 WebGL2/모바일 FPS는 미측정.
-- **STEP 07~20: 미착수.** 7번 A*/NavMesh·충돌 회피는 사용자 별도 승인 전 시작하지 않는다.
+- **STEP 07 / 20: A* 경로 탐색·설비/벽 회피·보행자 근거리 회피 및 Hall 출입문 통과 구현 / 실제 배치 9/9 경로 검사·통합 Mock 16/16 PASS / 실브라우저 QA 대기** — [STEP07 개발 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md), [A* Navigator](./ls3d-three/npc-navigation.mjs), [Playwright 테스트](./ls3d-three/step07.playwright.spec.mjs). 기존 시설·랙·경로 데이터와 6번 캐릭터 및 작업자 추적 카메라 보존. 화재 대피 시나리오 안전성은 미검증.
+- **STEP 08~20: 미착수.** 8번 작업자 설비 점검 상태머신은 사용자 별도 승인 전 진행하지 않는다.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준
 - 3D HTML과 2D/BOM 엔트리 파일 확인, 버전과 SHA 기록

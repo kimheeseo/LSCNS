@@ -20,7 +20,7 @@
 ## 2. 계산 규칙과 토폴로지 해석
 
 - 'Host'는 독립 fabric의 NIC 종단입니다. 예: 8-NIC HGX 서버 128대의 Rail에서는 Rail마다 128 host이며, 8개 Rail 합계는 1,024 링크입니다. 8개 Rail의 1,024 GPU 전체를 단일 Rail의 용량 한계에 대입하지 않습니다.
-- R=64에서는 하향 d=32, 1:1이면 상향 u=32, 2:1이면 u=16입니다. 요청 비율이 정수 포트와 맞지 않으면 실제 예약 비율 d/u를 표시합니다. 2-tier 최대 host=2,048/domain, 3-tier=65,536/domain은 균일 radix 및 동속 링크의 이상적인 상한입니다. ToR의 랙 지역성 때문에 그보다 일찍 계층이 필요할 수 있습니다.
+- R=64에서는 하향 d=32, 1:1이면 상향 u=32, 2:1이면 u=16입니다. 요청 비율이 정수 포트와 맞지 않으면 실제 예약 비율 d/u를 표시합니다. 2-tier 최대 host=2,048/domain, 3-tier=65,536/domain은 균일 radix 및 동속 링크의 이상적인 상한입니다. ToR의 랙 지역성 때문에 그보다 일찍 계층이 필요할 수 있습니다. 서버 단위 Single/Dual ToR에서는 랙당 서버 수에 NIC 하향 포트 제약을 추가하여 rack당 Single은1Leaf, Dual은A/B1Leaf씩 배치합니다. OEM NVL72 rack은 분할할 수 없으므로 포트가 넘으면 다중Leaf 및 radix 변경 검토 경고를 표시합니다.
 - 2-tier compact Spine 수 S는 `u의 약수` 중 `Leaf 수×u/S≤R`을 만족하는 최소값. 모든 Leaf는 모든 Spine에 u/S개 링크를 연결합니다. 미사용 포트가 있는 경우에도 스위치 발주 수량에 예비율을 더하지 않습니다.
 - 3-tier는 최대 d Leaf/pod. pod Spine 수 S는 u의 약수 중 `pod 최대 Leaf 수×u/S≤R/2`의 최소값. Leaf–Spine 병렬 수=u/S. Spine의 상향 예약은 최대로 채워진 pod의 하향량과 동일하게 둡니다. Core는 같은 Spine-plane별 독립 group으로 연결하며 radix를 넘지 않는 병렬 분배를 계산합니다. 작은 마지막 pod는 상향 여유가 생길 수 있습니다.
 - 스위치 수는 토폴로지·병렬 연결 정책에 따라 달라지므로 유일한 이론값이 아닙니다. 검산은 이 명시된 compact Clos 구성의 링크/대역폭/포트 보존을 확인합니다. 실제 routing, ECMP/LAG, InfiniBand subnet manager, firmware와 ASIC 지원은 RFQ 검증 사항입니다.
@@ -94,6 +94,8 @@ PUE=1.2, PF=0.9, UPS η=0.96, 시설 headroom=20%, UPS=1,000kVA/80%, generator=2
 자동 검증 19개 통과: A/B/C 독립 수식, 전력 체인, 6조합, 2-tier 한계/승급, radix8 full fat-tree R³/4, DAC/AOC, twin-port, 예비재고, 강제 광손실 실패, low-loss, 정수 oversub 양자화, storage capacity/bandwidth, IT power 역산, NVL72 air 교정, N/N+1/2N, 비정상 입력, route별 trunk 올림.
 
 실행: `node DCI/DataCenter/tests/engineering-v82.test.cjs`.
+
+GitHub Pages 미리보기에서 A의32/16/0, B의128/64/64와2:1 반영, C의4rack/288GPU/360kW액냉/516.006L/min/CDU1+1을 실제 입력 조작으로 확인했습니다. 기존 레이아웃이 신규 컨트롤을 제거하거나 Oversubscription 값을 전달하지 않는 문제를 수정한 후 재확인했습니다.
 
 미검증: 실제 OEM SKU/firmware/FEC/광극성 및 APC/UPC, routing 처리량, 실측 소비전력, 액체 압력/관경/수질, 개별 냉각 설비 부하·동시율, 전기 보호협조·전원선 정격, 시공 좌표/패널 배치·트레이 공유 경로, 소화설비. '이론 일치'는 명시한 planning model의 보존식과 수량 검산 범위입니다.
 

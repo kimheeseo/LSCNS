@@ -13,9 +13,10 @@
 | 03/20 | Three.js 엔진·3D Scene·조명·카메라 | **구현 완료·기본 브라우저 수동 6/6 PASS / 최종 완료 판정 보류** | 사용자 M01~M06 PASS, 독립 Chromium 환경 접근 차단, P0 회귀 및 Playwright 미검증 |
 | 04/20 | 캠퍼스/건물·출입문·유리·바닥·천장·케이블 트레이 | **3D 구현 완료, 통합 Mock 12/12 PASS / 실브라우저 검증 대기** | 신규 architecture.mjs, Roof/Section 동작/힌지 및 server-room 격리 API 검사, Playwright 테스트 파일 준비 |
 | 05/20 | 7개 구역별 설비 3D 구분 및 LOD/인스턴싱 | **코드 구현 완료, API Mock 13/13 PASS / 실브라우저·FPS 검증 대기** | 설비 Factory·구역별 형상, 3단계 LOD, 반복 부품 GPU InstancedMesh, 기존 Rack/2D/BOM 보존 |
-| 06~20/20 | NPC/랙/MMR/통합·배포 | 미착수 | 사용자 승인 전 진행 없음 |
+| 06/20 | 엔지니어·경비원 3D 모델 및 관절·보행 애니메이션 | **코드 구현 완료, 통합 Mock 17/17 PASS / 실브라우저 GPU 검증 대기** | 역할별 6명, 헬멧·경비모·ID·무전기·관절·워크/점검·정지, 회사 서버실 격리, 기존 NPC/랙 유지 |
+| 07~20/20 | 경로탐색/충돌회피·상태머신·보안·랙/MMR/최종 배포 | 미착수 | 사용자 별도 승인 전 진행 없음 |
 
-**완전 검증 완료 2/20; STEP 03 수동 브라우저 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 대표 설비 25개 Mock 13/13 PASS. STEP 04·05 실브라우저 회귀 및 실제 GPU 성능 측정은 대기.**
+**완전 검증 완료 2/20; STEP 03 수동 브라우저 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 Mock 13/13 PASS; STEP 06 NPC/애니메이션 통합 Mock 17/17 PASS. STEP 04~06의 실제 GPU/브라우저 회귀 및 성능은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -36,6 +37,9 @@
 - [05 설비 모델링·LOD·인스턴싱 개발 보고서](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md)
 - [05 신규 장비 형상 Factory](./ls3d-three/equipment-factory.mjs)
 - [05 Playwright 브라우저 회귀 테스트](./ls3d-three/step05.playwright.spec.mjs)
+- [06 캐릭터 모델/보행 애니메이션 개발 보고서](./architecture/STEP06_NPC_CHARACTERS_REPORT.md)
+- [06 역할별 3D 캐릭터 모듈](./ls3d-three/npc-characters.mjs)
+- [06 Playwright 브라우저 회귀 테스트](./ls3d-three/step06.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -61,6 +65,13 @@
 - 실제 GitHub source를 재조회하여 실행한 JavaScript Mock 통합 13/13 PASS: 샘플 25개 설비 중 24개 시각 모델 분류, 반복 부품 18개 인스턴싱 배치/226개 부품 처리.
 - 위 수치는 Mock 형상 생성 통계이며 GPU draw calls / FPS 개선 수치가 아니다. 실제 PC/모바일 브라우저 회귀 검증 필요.
 - 상세 [STEP05_EQUIPMENT_LOD_REPORT.md](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md).
+
+## STEP 06 추가 구현 사항 (2026-10-15)
+- 기존 블록 NPC를 직원·보안요원 역할별 Three.js 관절 모형으로 교체. 안전모·경비모·사원증·무전기·작업복·안전화·반사조끼·팔다리 관절을 구현.
+- T.npcPose() 좌표/방향/상태를 기존대로 유지하여 walk/pause/inspect/idle 애니메이션을 연결. STEP 07 경로 탐색·충돌 회피는 아직 없음.
+- 연결 GitHub 실제 코드 기반 Three API Mock 통합 17/17 PASS. AI Campus 6명·Hall 1명·회사 서버실 경비원 제외·태블릿 자세·재생성/해제 확인.
+- 사용자 GPU 실화면/모바일/Playwright 자동 실행과 FPS 검증은 미실행.
+- 상세 [STEP06_NPC_CHARACTERS_REPORT.md](./architecture/STEP06_NPC_CHARACTERS_REPORT.md).
 
 ## 브라우저 확인 방법
 
@@ -90,4 +101,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03의 수동 핵심 시험은 PASS이지만 P0 회귀가 남아 있다. STEP 04 3D 건축 Mock 12/12, STEP 05 설비/LOD Mock 13/13 PASS이며 두 단계의 실제 WebGL2 브라우저·GPU FPS·모바일·콘솔·기능 회귀 검증이 필요하다. [STEP04 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md), [STEP05 보고서](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md)를 참고한다. 다음 **STEP 06 NPC 개발은 사용자 별도 승인 전 진행하지 않는다.**
+STEP 03 사용자 기본 동작 6/6 PASS이지만 일부 P0 회귀가 남아 있다. STEP 04 건축 Mock 12/12, STEP 05 설비/LOD Mock 13/13, STEP 06 NPC 관절 Mock 17/17 통과했다. STEP 04~06 신규 구현은 실제 WebGL2/PC·모바일 브라우저 동작과 GPU FPS/메모리/콘솔 오류 검증 대기. [STEP06 보고서](./architecture/STEP06_NPC_CHARACTERS_REPORT.md)에 따라 실제 캐릭터 움직임을 점검한 뒤 필요 결함만 보완한다. **STEP 07 NavMesh/A* 및 충돌 회피는 사용자 추가 승인 전 진행하지 않는다.**

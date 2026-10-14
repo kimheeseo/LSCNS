@@ -12,8 +12,9 @@
 - **STEP 01 / 20: 완료** — v4.7.0 정적 감사 및 원본 2D/BOM 보호 SHA 확정.
 - **STEP 02 / 20: 완료** — Three.js 전환 아키텍처·API 계약·단일 RAF·분리 캔버스·복귀 플래그·acceptance matrix 작성. 상세: [STEP02_THREEJS_MIGRATION_ADR.md](./architecture/STEP02_THREEJS_MIGRATION_ADR.md).
 - **STEP 02 검증:** GitHub 정적 검사 D01~D09 PASS; 브라우저 동작·Three 구현 검증 D10 NOT RUN(차후 STEP 03/19). 계획서/설계 문서만 변경.
-- **STEP 03 / 20: 엔진 구현 및 정적·Mock 테스트 통과 / 실브라우저 확인 대기** — HTML + Three.js Scene Adapter + Bootstrap + Playwright 스크립트 구현. **실제 WebGL2 GPU/Pages 동작은 아직 검증되지 않아 완전 완료로 표기하지 않음.** 상세: [STEP03_THREEJS_ENGINE_REPORT.md](./architecture/STEP03_THREEJS_ENGINE_REPORT.md).
-- 권고 라이브러리 고정: Three.js **0.186.1**, WebGLRenderer + 동일 버전 공식 addons. `?engine=legacy`와 `?engine=three`는 설계된 향후 플래그이며 **현재 사이트에 구현된 기능은 아님**.
+- **STEP 03 / 20: 엔진 구현 완료 + 사용자 수동 브라우저 핵심 6/6 PASS / P0 회귀 및 자동화 미검증** — HTML + Three.js Scene Adapter + Bootstrap + Playwright 스크립트 구축. 사용자 6개 항목 통과 보고, 독립 Chromium은 환경 접근 차단. **완전 완료 판정은 잔여 검증 후**. [개발 보고서](./architecture/STEP03_THREEJS_ENGINE_REPORT.md) · [사용자 검증 및 잔여 과제](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md).
+- 구현된 버전 고정: Three.js **0.186.1**, WebGLRenderer. `?engine=legacy`(기존)·`?engine=three`(신규) 모드 선택은 **코드에 구현**, 사용자 기본 실행 확인 6/6 PASS. 같은 버전 addons 경로는 import map에 정의되어 있으며 모든 addon 기능 구현을 뜻하지 않는다.
+- **STEP 04~20: 미착수.** 3번 P0 회귀 확인과 사용자의 다음 업무 승인 전에 4번을 진행하지 않는다.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준
 - 3D HTML과 2D/BOM 엔트리 파일 확인, 버전과 SHA 기록

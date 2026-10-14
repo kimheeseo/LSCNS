@@ -1,6 +1,7 @@
 /* LS Datacenter N-XI concept twin v4.8.0. Existing simulation and export APIs are preserved. */
 import * as THREE from './vendor/three.module.js';
 import {box,cyl,group,instances,tube,replaceTube,mats,material,equipmentModel,buildingModel,personModel,animatePerson,cctvModel} from './assets/datacenter-3d/models.js';
+import {responseLayer} from './assets/datacenter-3d/response.js';
 import {FloorNav,StaffAgent,wallsFor} from './assets/datacenter-3d/navigation.js';
 const T=window.__LS3D_TEST__,by=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 if(!T)throw Error('Legacy 3D state bridge not initialized');
@@ -10,7 +11,7 @@ try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference
 renderer.domElement.id='nxi-scene';renderer.domElement.setAttribute('aria-label','N-XI procedural 3D digital twin');renderer.domElement.className='nxi-canvas';viewport.insertBefore(renderer.domElement,inputCanvas);inputCanvas.classList.add('nxi-input-canvas');
 renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.localClippingEnabled=true;
 const scene=new THREE.Scene();scene.background=new THREE.Color('#b6ccd9');scene.fog=new THREE.Fog('#b6ccd9',160,360);
-const cam=new THREE.PerspectiveCamera(45,1,.04,600),world=new THREE.Group(),equipment=new THREE.Group(),npcLayer=new THREE.Group(),buildingLayer=new THREE.Group(),routeLayer=new THREE.Group();scene.add(world);world.add(equipment,npcLayer,buildingLayer,routeLayer);
+const cam=new THREE.PerspectiveCamera(45,1,.04,600),world=new THREE.Group(),equipment=new THREE.Group(),npcLayer=new THREE.Group(),buildingLayer=new THREE.Group(),routeLayer=new THREE.Group();scene.add(world);const response=responseLayer(scene);world.add(equipment,npcLayer,buildingLayer,routeLayer);
 scene.add(new THREE.HemisphereLight('#edf7ff','#778e98',2.1));const sun=new THREE.DirectionalLight('#fff5de',3.1);sun.position.set(-38,85,40);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-95;sun.shadow.camera.right=95;sun.shadow.camera.top=80;sun.shadow.camera.bottom=-80;sun.shadow.camera.near=1;sun.shadow.camera.far=200;sun.shadow.normalBias=.04;sun.shadow.bias=-.0001;scene.add(sun);const fill=new THREE.DirectionalLight('#d4eaff',1.4);fill.position.set(50,45,-40);scene.add(fill);
 const serviceLight=new THREE.PointLight('#edf7ff',18,15,2);scene.add(serviceLight);
 // Soft industrial environment reflection, generated from 3D surfaces rather than downloaded imagery.
@@ -54,7 +55,7 @@ const oldTask=T.workerTask;T.workerTask=(n,p)=>{const a=people.find(q=>q.id===n.
 const oldPose=T.npcPose;T.npcPose=n=>people.find(p=>p.id===n.id)?.pose()||oldPose(n);
 let visitor=null,visitorModel=null,securityProgress='대기 · 방문자 보안 시연',gateOpen=0,gateTarget=0;
 const visitStops=[['접수', 'entry-desk',[-9,48.9],3],['가방 올리기','xray',[4.5,47.3],2],['X-ray 컨베이어','xray',[4.5,47.3],5],['금속 탐지 게이트','metal-detector',[18,47.7],1],['게이트 통과','metal-detector',[18,44.4],2],['출입 카드 확인','gate',[26,48],3],['승인·출입문 개방','gate',[26,48],2],['방문자 입장','gate',[26,43.8],2]];
-function startVisitor(){if(T.facilityMode!=='aidc'){securityProgress='AI Data Center 모드에서 실행';return;}visitor={agent:new StaffAgent('visitor',nav,[-22,49],[],.9),stage:0,started:clock,wait:0,done:false};if(!visitorModel)visitorModel=personModel(npcLayer,'#ae8769','visitor');visitorModel.root.visible=true;gateTarget=0;dispatchVisitor();}
+function startVisitor(){if(T.facilityMode!=='aidc'){securityProgress='AI Data Center 모드에서 실행';return;}visitor={agent:new StaffAgent('visitor',nav,[-22,49],[],.9),stage:0,started:clock,wait:0,done:false};if(!visitorModel)visitorModel=personModel(npcLayer,'#ae8769','visitor');visitorModel.root.visible=true;gateTarget=0;T.cameraDesired.target=[10,1,46];T.cameraDesired.distance=48;T.cameraDesired.pitch=.58;T.cameraDesired.yaw=-.18;dispatchVisitor();}
 function dispatchVisitor(){const s=visitStops[visitor.stage];if(!s){visitor.done=true;gateTarget=0;securityProgress='승인 완료 · 보안 절차 교육 시연';return;}const a=T.assetMap.get(s[1]);visitor.agent.dispatch({x:s[2][0],z:s[2][1],faceX:a.x,faceZ:a.z,name:s[0]});visitor.wait=s[3];visitor.started=clock;securityProgress=s[0];}
 function updateVisitor(dt){const xr=models.get('xray');if(!visitor){if(xr?.bag)xr.bag.position.x=-3.3;return;}const a=visitor.agent;if(visitor.done){animatePerson(visitorModel,a.pose(),clock);return;}
  if(a.state==='walk')a.update(dt,[...people,a]);else{a.heading+=Math.max(-dt*2,Math.min(dt*2,Math.atan2((a.target?.faceX||a.x)-a.x,(a.target?.faceZ||a.z)-a.z)-a.heading));visitor.wait-=dt;if(visitor.stage===2&&xr?.bag){xr.bag.position.x=-3.4+Math.min(1,(5-visitor.wait)/5)*6.8;}if(visitor.stage===6)gateTarget=1;if(visitor.wait<=0){visitor.stage++;dispatchVisitor();}}
@@ -89,13 +90,14 @@ const selection=document.createElement('aside');selection.id='nxi-selection';sel
 const hud=document.createElement('output');hud.id='nxi-health';hud.setAttribute('aria-live','polite');hud.textContent='Three.js 로딩';viewport.append(hud);
 by('nxi-wide').onclick=()=>{document.body.classList.toggle('nxi-wide');by('nxi-wide').textContent=document.body.classList.contains('nxi-wide')?'패널 복귀':'공간 크게 보기';};by('nxi-visitor').onclick=startVisitor;by('nxi-cable-clear').onclick=resetHighlight;by('nxi-floor').onchange=e=>floorLayer=e.target.value;by('nxi-orbit').onclick=()=>{if(T.workerViewId)by('btnWorkerExit').click();if(T.walkActive)by('btnWalk').click();T.cameraDesired.pitch=.6;T.cameraDesired.distance=24;};
 let errorCount=0;renderer.domElement.addEventListener('webglcontextlost',()=>{errorCount++;hud.textContent='WebGL context lost · 페이지를 새로고침하세요';});
-build();
+build();document.body.classList.add('nxi-wide');T.cameraDesired.distance=145;T.cameraDesired.target=[0,1,0];T.camera.distance=145;by('nxi-wide').textContent='패널 복귀';
 let lastMotionTime=performance.now();
 function render(dt,state){
  const nowMotion=performance.now(),wallDt=Math.min(.5,(nowMotion-lastMotionTime)/1000);lastMotionTime=nowMotion;dt=wallDt;
  document.body.classList.toggle('nxi-inspection',state.inspecting);
  if(state.micro){renderer.domElement.hidden=true;inputCanvas.style.opacity='1';return false;}renderer.domElement.hidden=false;inputCanvas.style.opacity='0';
- const size=state.renderW+'x'+state.renderH+'-'+(window.LS3D_CONFIG?.quality||'medium');if(size!==lastSize){renderer.setPixelRatio(Math.min(devicePixelRatio||1,window.LS3D_CONFIG?.quality==='high'?1.6:1.1));renderer.setSize(state.renderW,state.renderH,false);cam.aspect=state.renderW/state.renderH;lastSize=size;}
+ const size=state.renderW+'x'+state.renderH+'-'+(window.LS3D_CONFIG?.quality||'medium');if(size!==lastSize){renderer.setPixelRatio(Math.min(devicePixelRatio||1,window.LS3D_CONFIG?.quality==='low'?.8:window.LS3D_CONFIG?.quality==='high'?1.6:1.1));renderer.setSize(state.renderW,state.renderH,false);cam.aspect=state.renderW/state.renderH;lastSize=size;}
+ renderer.shadowMap.enabled=window.LS3D_CONFIG?.quality!=='low';
  cam.fov=(state.walk||T.workerViewId)?58:45;cam.near=.025;cam.far=600;cam.updateProjectionMatrix();cam.position.fromArray(state.eye);cam.lookAt(new THREE.Vector3(...state.eye).add(new THREE.Vector3(...state.forward)));
  let layoutChanged=false;for(const a of T.assets){let m=models.get(a.id);if(!m){m=equipmentModel(equipment,a);m.id=a.id;m.asset=a;visibleObject(m).userData.assetId=a.id;m.root.traverse(o=>{if(o.isMesh)o.userData.assetId=a.id;});models.set(a.id,m);obstacles.push({assetId:a.id,x:a.x,z:a.z,w:m.width||a.w,d:m.depth||a.d});layoutChanged=true;}const obj=visibleObject(m);if(obj.position.x!==a.x||obj.position.z!==a.z){obj.position.x=a.x;obj.position.z=a.z;for(const o of obstacles.filter(o=>o.assetId===a.id)){o.x=a.x;o.z=a.z;}layoutChanged=true;}}
  if(T.facilityMode!==activeFacility||layoutChanged)rebuildAgents();const motionDt=T.simRunning?wallDt*Math.min(3,state.simSpeed||1):0;clock+=motionDt;updateFaultDispatch();
@@ -109,12 +111,12 @@ function render(dt,state){
  for(const r of routes)r.mesh.visible=!state.inspecting&&T.facilityMode!=='server-room'&&state.flows[r.kind]&&r.ids.every(id=>allowed.has(id))&&(T.currentZone==='campus'||r.ids.some(id=>T.assetMap.get(id)?.zone===T.currentZone));
  const clip=state.section?[new THREE.Plane(new THREE.Vector3(-1,0,0),T.Z.find(z=>z.id===T.currentZone)?.pos[0]||0)]:[];renderer.clippingPlanes=clip;
  const shadowKey=[T.currentZone,state.roof,state.section,state.inspecting,Math.floor(clock*4)].join(':');if(render.shadowKey!==shadowKey){renderer.shadowMap.needsUpdate=true;render.shadowKey=shadowKey;}
- renderer.render(scene,cam);
+ response.update(window.LS3D_RESPONSE_VISUALS||[],!state.inspecting&&T.facilityMode!=='server-room');renderer.render(scene,cam);
  if(Math.floor(clock*2)!==render.lastHud){render.lastHud=Math.floor(clock*2);hud.textContent='N-XI 3D · '+renderer.info.render.calls+' draw · '+people.filter(p=>p.state==='inspect').length+'명 점검 · '+securityProgress;}
  return true;
 }
 function diagnostics(){const racks=[...models.values()].filter(m=>m.isRack);return {version:'4.8.0-NXI',three:THREE.REVISION,ready:true,models:models.size,racks:racks.length,buildings:buildings.size,npcs:people.map(p=>({id:p.id,...p.pose(),distance:p.distance,replans:p.replans,failedRoutes:p.failedRoutes,blocked:nav.blocked(p.x,p.z)})),security:{stage:visitor?.stage??-1,done:visitor?.done||false,bagX:models.get('xray')?.bag.position.x,gateOpen},rack:T.selected&&models.get(T.selected.id)?.isRack?{id:T.selected.id,doorRotation:models.get(T.selected.id).door.rotation.y,serverZ:models.get(T.selected.id).servers.map(s=>s.node.position.z),cassetteZ:models.get(T.selected.id).cassette.position.z,rearDoor:models.get(T.selected.id).rearDoor.rotation.y}:null,selectedLink,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,errorCount,faultCounter,visitor:visitor?{...visitor.agent.pose(),path:visitor.agent.path,pathIndex:visitor.agent.pathIndex,replans:visitor.agent.replans,failedRoutes:visitor.agent.failedRoutes}:null,renderCanvas:{width:renderer.domElement.width,height:renderer.domElement.height},assumptions:'Procedural concept CAD; no real equipment performance validation'};}
-window.LSNXITwin={ready:true,render,pick,canWalk:(x,z)=>!nav.blocked(x,z)&&!(gateOpen<.7&&Math.abs(x-26)<1&&Math.abs(z-47)<.25),diagnostics,startVisitor,models,people:()=>people,nav:()=>nav,inspectCable,resetHighlight,focusAsset,openInspection,renderer,scene,camera:cam};
+window.LSNXITwin={ready:true,render,pick,canTraverse:(a,b)=>nav.clear(a,b),canWalk:(x,z)=>!nav.blocked(x,z)&&!(gateOpen<.7&&Math.abs(x-26)<1&&Math.abs(z-47)<.25),diagnostics,startVisitor,models,people:()=>people,nav:()=>nav,inspectCable,resetHighlight,focusAsset,openInspection,renderer,scene,camera:cam};
 // Visible test/readout is useful to operators and browser regression; no hidden eval required for manual review.
 const healthDetails=document.createElement('details');healthDetails.id='nxi-diagnostics';healthDetails.innerHTML='<summary>3D 모델·동작 검증</summary><pre id="nxi-diagnostics-json"></pre>';by('assetNote').after(healthDetails);setInterval(()=>{if(healthDetails.open)by('nxi-diagnostics-json').textContent=JSON.stringify(diagnostics(),null,2);},500);
 by('sceneInfo').textContent+=' · N-XI PBR concept';

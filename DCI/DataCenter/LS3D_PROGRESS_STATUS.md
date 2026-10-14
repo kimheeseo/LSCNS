@@ -20,7 +20,7 @@
 | 10/20 | 42/48U 랙 부품 독립 객체 | **구현 코드 및 Three.js 연결 확인 / 브라우저 QA 대기** | `rack-components.mjs` 및 `step10.playwright.spec.mjs` 존재 확인, 실제 Chromium PASS 미확인 |
 | 11~20/20 | 랙 도어·서버 레일·카세트·MMR·최종 배포 | 미착수 | 사용자 별도 승인 전 진행 없음 |
 
-**완전 검증 완료 2/20; STEP 03 브라우저 수동 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 Mock 13/13 PASS; STEP 06 Mock 17/17 PASS; STEP 07 실제 배치 경로 9/9 및 통합 Mock 16/16 PASS. STEP 04~07 새 GPU/브라우저 회귀 및 성능은 대기.**
+**완전 실브라우저 검증 완료는 STEP 01~02. STEP 03 사용자 기본 화면 수동 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 구현 코드·Three API Mock 통합 21/21 PASS(후속 개별 결함 수정). STEP 04~10의 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -47,6 +47,9 @@
 - [07 A* 탐색·충돌 회피 결과 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)
 - [07 NPC A* Navigator](./ls3d-three/npc-navigation.mjs)
 - [07 Playwright 브라우저 회귀 테스트](./ls3d-three/step07.playwright.spec.mjs)
+- [08 점검 상태머신 보고서](./architecture/STEP08_INSPECTION_FSM_REPORT.md), [FSM 코드](./ls3d-three/inspection-fsm.mjs), [Playwright](./ls3d-three/step08.playwright.spec.mjs)
+- [09 방문객 출입 보안 보고서](./architecture/STEP09_VISITOR_SECURITY_REPORT.md), [모듈](./ls3d-three/visitor-security.mjs), [Playwright](./ls3d-three/step09.playwright.spec.mjs)
+- [10 랙 42/48U/부품 선택 보고서](./architecture/STEP10_RACK_PARTS_REPORT.md), [모듈](./ls3d-three/rack-components.mjs), [Playwright](./ls3d-three/step10.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -87,6 +90,13 @@
 - 기존 직원 HUD/추적 카메라와 Three 캐릭터가 동일 navigator pose를 사용. 기존 화재 대피 재정의 스크립트는 우선 유지(화재 안전성은 별도 미검증).
 - 실제 PC/모바일 WebGL2 브라우저·Playwright FPS/메모리 검증 대기. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md).
 
+## STEP 08~10 구현 및 검증 기록 (2026-10-15)
+- **STEP 08:** 이동/정렬/점검/태블릿/이탈 개념 점검 상태머신, 역할·시나리오별 대상 선택. 기존 A* 좌표 보존.
+- **STEP 09:** 방문객 접수·X-ray 수하물 컨베이어·금속 탐지·카드리더·게이트 힌지 8단계. 경비원 2명 기존 NPC 연동, 회사 서버실에서 방문객 숨김.
+- **STEP 10:** 개념 42/48U 랙, 서버/ToR/ODF/광카세트/PDU A·B/패치 패널의 독립 Group, click-pick 메타데이터 및 HUD. 기존 도어·인출 인터페이스 유지.
+- 실자산 74개를 사용한 통합 Three API Mock **21/21 PASS** 이후 상태머신 재진입·보안 동선/출입문 연출을 보완하고 개별 시험 수행. **실 Chromium/WebGL2·모바일·GPU FPS/메모리·Playwright 실행 로그는 확보하지 않음**.
+- [STEP08 상세](./architecture/STEP08_INSPECTION_FSM_REPORT.md) · [STEP09 상세](./architecture/STEP09_VISITOR_SECURITY_REPORT.md) · [STEP10 상세](./architecture/STEP10_RACK_PARTS_REPORT.md).
+
 ## 브라우저 확인 방법
 
 ### 직접 확인
@@ -115,4 +125,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03 사용자 수동 핵심 6/6 PASS, STEP 04~07의 Mock/정적 회귀 검사 PASS. STEP 07 A* 실자산 경로 9/9·통합 Mock 16/16 통과. 신규 04~07 기능은 실제 Chrome/Android 브라우저의 캐릭터 이동·출입문 통과·장애물 회피·실측 GPU FPS·메모리·Console 오류 확인이 추가 필요하다. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)를 참고한다. **STEP 08 점검 상태머신은 사용자 별도 승인 전 착수하지 않는다.**
+STEP 03 사용자 수동 핵심 6/6 PASS, STEP 04~07의 Mock/정적 회귀 검사 PASS. STEP 07 A* 실자산 경로 9/9·통합 Mock 16/16 통과. 신규 04~07 기능은 실제 Chrome/Android 브라우저의 캐릭터 이동·출입문 통과·장애물 회피·실측 GPU FPS·메모리·Console 오류 확인이 추가 필요하다. [STEP07 보고서](./architecture/STEP07_NPC_NAVIGATION_REPORT.md)를 참고한다. **STEP 11 랙 전·후면 도어/카메라 정밀화는 사용자 별도 승인 전 진행하지 않는다.**

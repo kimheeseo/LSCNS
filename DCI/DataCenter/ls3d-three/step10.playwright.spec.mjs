@@ -30,7 +30,7 @@ test('42/48U racks contain independently selectable server, switch, ODF and PDU 
  expect(r.stats.visibleParts).toBeGreaterThan(100);
  expect(r.overlayVisible).toBe(true);
  expect(r.selected.kind).toBe('tor');
- expect(r.label).toContain('ToR');
+ expect(r.label).toContain('Top-of-Rack');
  await page.screenshot({path:info.outputPath('step10-rack-component-selection.png')});
 });
 test('rack door, slide and cassette remains operable in hall and company room',async({page},info)=>{

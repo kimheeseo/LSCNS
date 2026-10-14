@@ -14,7 +14,8 @@
 - **STEP 02 검증:** GitHub 정적 검사 D01~D09 PASS; 브라우저 동작·Three 구현 검증 D10 NOT RUN(차후 STEP 03/19). 계획서/설계 문서만 변경.
 - **STEP 03 / 20: 엔진 구현 완료 + 사용자 수동 브라우저 핵심 6/6 PASS / P0 회귀 및 자동화 미검증** — HTML + Three.js Scene Adapter + Bootstrap + Playwright 스크립트 구축. 사용자 6개 항목 통과 보고, 독립 Chromium은 환경 접근 차단. **완전 완료 판정은 잔여 검증 후**. [개발 보고서](./architecture/STEP03_THREEJS_ENGINE_REPORT.md) · [사용자 검증 및 잔여 과제](./architecture/STEP03_BROWSER_VERIFICATION_20261015.md).
 - 구현된 버전 고정: Three.js **0.186.1**, WebGLRenderer. `?engine=legacy`(기존)·`?engine=three`(신규) 모드 선택은 **코드에 구현**, 사용자 기본 실행 확인 6/6 PASS. 같은 버전 addons 경로는 import map에 정의되어 있으며 모든 addon 기능 구현을 뜻하지 않는다.
-- **STEP 04~20: 미착수.** 3번 P0 회귀 확인과 사용자의 다음 업무 승인 전에 4번을 진행하지 않는다.
+- **STEP 04 / 20: 3D 건축 구현 완료·정적 및 통합 Mock 12/12 PASS / 실브라우저 검증 대기** — [STEP04 건축 모델링 결과 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md), [Three.js 아키텍처 모듈](./ls3d-three/architecture.mjs), [STEP04 Playwright 테스트](./ls3d-three/step04.playwright.spec.mjs). 외벽·유리·실제 문 pivot·raised floor·ceiling·suspended cable tray·지붕/단면 연동. 신규 GPU 실측은 아직 수행하지 않음.
+- **STEP 05~20: 미착수.** 다음 업무인 5번은 사용자 별도 승인 전 착수하지 않는다.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준
 - 3D HTML과 2D/BOM 엔트리 파일 확인, 버전과 SHA 기록

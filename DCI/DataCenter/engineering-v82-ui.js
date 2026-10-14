@@ -29,7 +29,7 @@ window.getEngineeringInputs=()=>{
  profile.querySelectorAll('input').forEach(e=>{(i.systemAssumptions[e.dataset.system]??={})[e.dataset.param]=Number(e.value);});
  opticTable.querySelectorAll('input').forEach(e=>{(i.opticsAssumptions[e.dataset.optic]??={})[e.dataset.param]=Number(e.value);});
  // Capture mounted legacy fields too. The one assumption panel is the source of truth.
- for(const id of ['slackPct','matedPairs','fiberPolarity','upsUtilPct','generatorUtilPct','transformerUtilPct'])if($(id))i[id]=$(id).type==='number'?Number($(id).value):$(id).value;
+ for(const id of ['oversub','slackPct','matedPairs','fiberPolarity','upsUtilPct','generatorUtilPct','transformerUtilPct'])if($(id))i[id]=$(id).type==='number'?Number($(id).value):$(id).value;
  return i;
 };
 function sync(){

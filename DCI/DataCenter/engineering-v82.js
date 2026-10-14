@@ -79,14 +79,15 @@ function calculate(raw={}){
  if(mode==='rear-door'&&maxRackKw>i.rearDoorLimitKw)warnings.push('Rear-door HX planning threshold exceeded: '+maxRackKw+' > '+i.rearDoorLimitKw+' kW');
  // Each domain has its own fabric. ToR modes preserve rack affinity; Dual splits existing NICs across A/B fabrics.
  const R=Math.max(4,Math.floor(i.switchRadix/2)*2),down=R/2,up=Math.max(1,ceil(down/i.oversub));
+ if(i.twinPort400&&p.linkSpeed===400){i.switchLogicalPerCage=2;warnings.push('Twin-port option assumes two qualified 400G logical ports/switch cage');}
  const domains=i.topology==='rail'?(p.rackScale?p.rails||4:p.links):i.topology==='dual'?2:1;
  if(R!==i.switchRadix)warnings.push('Switch radix rounded to even '+R);i.switchRadix=R;
  const endpoints=units*p.links,portNodes=[],routes=[],domainRows=[],counts={leaf:0,spine:0,core:0,server:0,uplink:0,coreLink:0};
  const addNode=(id,role,capacity)=>{const node={id,role,capacity,logicalPerCage:i.switchLogicalPerCage,used:{server:0,leafSpine:0,core:0}};portNodes.push(node);return node;};
  function route(a,b,n,seg){if(!n)return;routes.push({a:a.id,b:b.id,links:n,segment:seg});const k=seg==='server'?'server':seg==='leafSpine'?'leafSpine':'core';a.used[k]+=n;b.used[k]+=n;}
  for(let domain=0;domain<domains;domain++){
-  const assignedPerUnit=i.topology==='rail'?p.links/domains:Math.floor(p.links/domains)+(domain<p.links%domains?1:0);
-  if(!Number.isInteger(assignedPerUnit))warnings.push('Rail endpoints/rack require divisible NIC count');
+  const assignedPerUnit=Math.floor(p.links/domains)+(domain<p.links%domains?1:0);
+  if(p.links%domains)warnings.push('NIC ports are distributed unevenly across independent domains');
   const groups=i.topology==='rail'?[{id:'all',n:ceil(units*assignedPerUnit)}]:computeRacks.map(r=>({id:r.id,n:ceil(r.units*assignedPerUnit)}));
   const leaves=[];
   if(i.topology==='rail'){
@@ -204,6 +205,7 @@ function calculate(raw={}){
  if(i.oobEnabled){const managed=bmc+switchCount+storageSwitches+storageNodes+frontSwitches+ops;aux('OOB',managed,'1G',true);row('Ops','BMC managed endpoints',managed,'port','Compute '+bmc+' + switches/storage/ops; OOB switch management upstream RFQ');row('Ops','Console server',ceil((switchCount+frontSwitches+storageSwitches)/i.consolePorts),'device','ceil(managed fabric switches/'+i.consolePorts+')');row('Connectivity','Console serial cable',purchase(switchCount+frontSwitches+storageSwitches),'cable','1/managed fabric switch; connector RFQ',{installedQty:switchCount+frontSwitches+storageSwitches});}
  if(i.regionPduEnabled){const phase=Number(i.sitePhases)===1?1:Math.sqrt(3);if(Number(i.siteCurrentA)>0)i.pduRatedKw=phase*i.siteVoltage*Number(i.siteCurrentA)*i.powerFactor/1000;else warnings.push('Regional PDU current invalid; configured PDU kW retained');}
  for(const r of allRacks){const q=Math.max(1,ceil(r.powerKw/(i.pduRatedKw*i.pduUtilPct/100)),ceil(ceil(r.cords/2)/i.pduOutlets));r.pduQty=2*q;r.phaseKw=round(r.powerKw/3);if(r.powerKw>i.rackCoolingKw)errors.push(r.id+': cooling capacity exceeded');}
+ const mainSwitchNodes=portNodes.filter(n=>n.role!=='Endpoint');let switchIndex=0;for(const rack of allRacks.filter(r=>r.role==='Network'))for(let idx=0;idx<rack.units&&switchIndex<mainSwitchNodes.length;idx++)mainSwitchNodes[switchIndex++].rackId=rack.id;for(const node of portNodes.filter(n=>n.role==='Endpoint')){const match=node.id.match(/compute-(\d+)/);if(match)node.rackId='compute-'+match[1];}
  const it=round(sum(allRacks.map(r=>r.powerKw))),facilityKw=round(it*i.pue),facilityMargin=1+i.facilityHeadroomPct/100;
  const upsKva=it/i.powerFactor/i.upsEfficiency*facilityMargin,generatorKw=facilityKw*facilityMargin,transformerKva=facilityKw/i.powerFactor*facilityMargin;
  const facility={pue:i.pue,itPowerKw:it,facilityPowerKw:facilityKw,mechanicalAndLossKw:round(facilityKw-it),upsDesignKva:round(upsKva),upsDesignKw:round(upsKva*i.powerFactor),generatorDesignKw:round(generatorKw),transformerDesignKva:round(transformerKva),upsQty:red(ceil(upsKva/(i.upsBlockKva*i.upsUtilPct/100)),i.facilityRedundancy),generatorQty:red(ceil(generatorKw/(i.generatorBlockKw*i.generatorUtilPct/100)),i.facilityRedundancy),transformerQty:red(ceil(transformerKva/(i.transformerBlockKva*i.transformerUtilPct/100)),i.facilityRedundancy)};

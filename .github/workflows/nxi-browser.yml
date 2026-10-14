@@ -1,0 +1,40 @@
+name: LS Datacenter N-XI 3D browser verification
+on:
+  push:
+    paths:
+      - 'DCI/DataCenter/LS_Datacenter_3D_NXI*'
+      - 'DCI/DataCenter/LS_Datacenter_3D_Extensions_NXI.js'
+      - 'DCI/DataCenter/assets/datacenter-3d/**'
+      - 'DCI/DataCenter/vendor/three*'
+      - 'DCI/DataCenter/tests/nxi-*'
+      - '.github/workflows/nxi-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Navigation and procedural model verification
+        run: node DCI/DataCenter/tests/nxi-models.test.mjs
+      - name: Install pinned test browser
+        run: |
+          npm install --no-save --prefix /tmp/nxi-playwright playwright@1.56.1
+          /tmp/nxi-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Desktop and mobile 3D manipulation tests
+        env:
+          NODE_PATH: /tmp/nxi-playwright/node_modules
+        run: node DCI/DataCenter/tests/nxi-browser.cjs
+      - name: Screenshots and reproducible browser report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls-datacenter-nxi-browser
+          path: DCI/DataCenter/tests/test-results/nxi/
+          if-no-files-found: warn
+          retention-days: 30

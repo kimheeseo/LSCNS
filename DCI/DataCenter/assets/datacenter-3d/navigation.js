@@ -1,0 +1,32 @@
+/* Deterministic floor navigation; metres. No motion through corner-cutting diagonals. */
+export class FloorNav {
+ constructor(rectangles=[],step=.6,bounds=[-70,70,-57,57]){this.rects=rectangles;this.step=step;this.bounds=bounds;this.nx=Math.ceil((bounds[1]-bounds[0])/step)+1;this.nz=Math.ceil((bounds[3]-bounds[2])/step)+1;this.cache=new Map();}
+ blocked(x,z,r=.28){if(x<this.bounds[0]+r||x>this.bounds[1]-r||z<this.bounds[2]+r||z>this.bounds[3]-r)return true;return this.rects.some(b=>x>b.x-b.w/2-r&&x<b.x+b.w/2+r&&z>b.z-b.d/2-r&&z<b.z+b.d/2+r);}
+ cell(x,z){return [Math.round((x-this.bounds[0])/this.step),Math.round((z-this.bounds[2])/this.step)]}
+ point(ix,iz){return [this.bounds[0]+ix*this.step,this.bounds[2]+iz*this.step]}
+ free(ix,iz){if(ix<0||iz<0||ix>=this.nx||iz>=this.nz)return false;const k=iz*this.nx+ix;if(!this.cache.has(k)){const [x,z]=this.point(ix,iz);this.cache.set(k,!this.blocked(x,z));}return this.cache.get(k)}
+ nearest(p){let [ix,iz]=this.cell(...p);for(let r=0;r<20;r++)for(let dz=-r;dz<=r;dz++)for(let dx=-r;dx<=r;dx++)if((Math.abs(dx)===r||Math.abs(dz)===r)&&this.free(ix+dx,iz+dz))return this.point(ix+dx,iz+dz);return null;}
+ clear(a,b){const n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/(this.step*.3));for(let k=0;k<=n;k++){const u=n?k/n:0;if(this.blocked(a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u))return false;}return true;}
+ path(start,goal){const s=this.nearest(start),g=this.nearest(goal);if(!s||!g)return [];const [sx,sz]=this.cell(...s),[gx,gz]=this.cell(...g),sid=sz*this.nx+sx,gid=gz*this.nx+gx;
+ const heap=[],score=new Map([[sid,0]]),parent=new Map(),closed=new Set();const push=n=>{heap.push(n);let i=heap.length-1;while(i>0){let j=(i-1)>>1;if(heap[j].f<=n.f)break;heap[i]=heap[j];i=j;}heap[i]=n;};const pop=()=>{const v=heap[0],last=heap.pop();if(heap.length){let i=0;while(i*2+1<heap.length){let j=i*2+1;if(j+1<heap.length&&heap[j+1].f<heap[j].f)j++;if(heap[j].f>=last.f)break;heap[i]=heap[j];i=j;}heap[i]=last;}return v;};
+ push({id:sid,x:sx,z:sz,f:Math.hypot(gx-sx,gz-sz)});let iter=0;
+ while(heap.length&&iter++<this.nx*this.nz){let n=pop();if(closed.has(n.id))continue;if(n.id===gid){let ids=[gid],id=gid;while(parent.has(id)){id=parent.get(id);ids.push(id);}const raw=ids.reverse().map(id=>this.point(id%this.nx,Math.floor(id/this.nx)));if(this.clear(start,raw[0]))raw.unshift(start.slice());if(this.clear(raw.at(-1),goal))raw.push(goal.slice());const out=[raw[0]];for(let i=0;i<raw.length-1;){let j=raw.length-1;while(j>i+1&&!this.clear(raw[i],raw[j]))j--;out.push(raw[j]);i=j;}return out;}
+ closed.add(n.id);for(let dz=-1;dz<=1;dz++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dz)continue;let x=n.x+dx,z=n.z+dz,id=z*this.nx+x;if(!this.free(x,z)||closed.has(id)||(dx&&dz&&(!this.free(n.x+dx,n.z)||!this.free(n.x,n.z+dz))))continue;let v=score.get(n.id)+Math.hypot(dx,dz);if(v>=(score.get(id)??Infinity))continue;score.set(id,v);parent.set(id,n.id);push({id,x,z,f:v+Math.hypot(gx-x,gz-z)});}}
+ return [];
+ }
+}
+export function wallsFor(z){const [x,p]=z.pos,[w,d]=z.size,hole=3.2,th=.25;return [{x:x-w/2,z:p,w:th,d},{x:x+w/2,z:p,w:th,d},{x,z:p-d/2,w,d:th},{x:x-w/4-hole/4,z:p+d/2,w:w/2-hole/2,d:th},{x:x+w/4+hole/4,z:p+d/2,w:w/2-hole/2,d:th}];}
+const angle=(a,b)=>{let d=b-a;while(d>Math.PI)d-=Math.PI*2;while(d<-Math.PI)d+=Math.PI*2;return d;};
+export class StaffAgent {
+ constructor(id,nav,start,targets=[],speed=1.05){this.id=id;this.nav=nav;const p=nav.nearest(start)||start;this.x=p[0];this.z=p[1];this.heading=0;this.speed=speed;this.velocity=0;this.targets=targets;this.index=0;this.state='tablet';this.timer=1;this.path=[];this.pathIndex=1;this.task='점검 대기';this.distance=0;this.yields=0;this.replans=0;this.failedRoutes=0;}
+ dispatch(target){this.target=target;const goal=[target.x,target.z];this.path=this.nav.path([this.x,this.z],goal);this.pathIndex=1;this.state=this.path.length?'walk':'tablet';this.timer=3;this.task=target.name||'설비 점검';if(!this.path.length)this.failedRoutes++;this.replans++;}
+ update(dt,people=[]){dt=Math.min(.06,Math.max(0,dt));if(!dt)return;
+  if(this.state!=='walk'){this.velocity=Math.max(0,this.velocity-dt*3);if(this.target){const h=Math.atan2((this.target.faceX??this.target.x)-this.x,(this.target.faceZ??this.target.z)-this.z);this.heading+=Math.max(-dt*2.6,Math.min(dt*2.6,angle(this.heading,h)));}this.timer-=dt;if(this.timer<=0){if(this.state==='face'){this.state='inspect';this.timer=4.5;}else if(this.state==='inspect'){this.state='tablet';this.timer=2.5;}else if(this.targets.length){this.dispatch(this.targets[this.index++%this.targets.length]);}}return;}
+  const next=this.path[this.pathIndex];if(!next){this.state='face';this.timer=1.2;return;}let dx=next[0]-this.x,dz=next[1]-this.z,dist=Math.hypot(dx,dz);if(dist<.07){this.pathIndex++;return;}
+  const desired=Math.atan2(dx,dz);this.heading+=Math.max(-dt*2.8,Math.min(dt*2.8,angle(this.heading,desired)));this.velocity=Math.min(this.speed,this.velocity+dt*1.7);let step=Math.min(dist,this.velocity*dt),nx=this.x+dx/dist*step,nz=this.z+dz/dist*step;
+  if(people.some(p=>p!==this&&Math.hypot(nx-p.x,nz-p.z)<.65)){this.velocity=0;this.yields++;this.waitSeconds=(this.waitSeconds||0)+dt;if(this.waitSeconds>1.6){const sign=this.id.length%2?1:-1,side=[this.x-dz/dist*.95*sign,this.z+dx/dist*.95*sign];if(!this.nav.blocked(...side)&&people.every(p=>p===this||Math.hypot(side[0]-p.x,side[1]-p.z)>.75)){const a=this.nav.path([this.x,this.z],side),b=this.nav.path(side,[this.target.x,this.target.z]);if(a.length&&b.length){this.path=[...a,...b.slice(1)];this.pathIndex=1;this.replans++;}}this.waitSeconds=0;}return;}
+  if(this.nav.blocked(nx,nz)||!this.nav.clear([this.x,this.z],[nx,nz])){this.velocity=0;this.dispatch(this.target);return;}
+  this.x=nx;this.z=nz;this.distance+=step;
+ }
+ pose(){return {x:this.x,z:this.z,heading:this.heading,action:this.state==='walk'&&this.velocity>.03?'walk':this.state==='inspect'?'inspect':'pause',task:this.task,state:this.state};}
+}

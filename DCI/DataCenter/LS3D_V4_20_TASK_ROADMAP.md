@@ -12,7 +12,7 @@
 - **STEP 01 / 20: 완료** — v4.7.0 정적 감사 및 원본 2D/BOM 보호 SHA 확정.
 - **STEP 02 / 20: 완료** — Three.js 전환 아키텍처·API 계약·단일 RAF·분리 캔버스·복귀 플래그·acceptance matrix 작성. 상세: [STEP02_THREEJS_MIGRATION_ADR.md](./architecture/STEP02_THREEJS_MIGRATION_ADR.md).
 - **STEP 02 검증:** GitHub 정적 검사 D01~D09 PASS; 브라우저 동작·Three 구현 검증 D10 NOT RUN(차후 STEP 03/19). 계획서/설계 문서만 변경.
-- **STEP 03 / 20: 승인 대기 / 미착수** — 사용자의 다음 단계 확인 전 엔진 코드 수정하지 않음.
+- **STEP 03 / 20: 엔진 구현 및 정적·Mock 테스트 통과 / 실브라우저 확인 대기** — HTML + Three.js Scene Adapter + Bootstrap + Playwright 스크립트 구현. **실제 WebGL2 GPU/Pages 동작은 아직 검증되지 않아 완전 완료로 표기하지 않음.** 상세: [STEP03_THREEJS_ENGINE_REPORT.md](./architecture/STEP03_THREEJS_ENGINE_REPORT.md).
 - 권고 라이브러리 고정: Three.js **0.186.1**, WebGLRenderer + 동일 버전 공식 addons. `?engine=legacy`와 `?engine=three`는 설계된 향후 플래그이며 **현재 사이트에 구현된 기능은 아님**.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준

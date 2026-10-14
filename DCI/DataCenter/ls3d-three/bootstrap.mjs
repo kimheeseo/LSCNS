@@ -114,7 +114,7 @@ if (requested && T) {
     try {
       const support=document.createElement('canvas').getContext('webgl2');
       if(!support)throw new Error('Three.js 0.186.1 requires WebGL2; browser only supports legacy WebGL.');
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261015-step05');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261015-step06');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

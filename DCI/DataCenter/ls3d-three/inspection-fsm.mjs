@@ -46,7 +46,7 @@ export function createInspectionFSM(T){
   s.lastTime=time;
   if(moving){
     if(s.state!=='move'){
-      if(s.state==='tablet'||s.state==='depart')metrics.completed++;
+      // Completion is recorded at tablet -> depart, never twice on resumed movement.
       s.state='depart';s.since=time;log(n,'depart',s.target,time);
     }
     if(s.state==='depart'&&time-s.since>.25){
@@ -54,7 +54,13 @@ export function createInspectionFSM(T){
     }
     return {...pose,inspectionState:s.state,targetId:s.target?.id||null};
   }
-  if(s.state==='move'||s.state==='depart'){
+  if(s.state==='depart'){
+    // Remain in departing/rest state until the legacy navigation actually resumes.
+    // Otherwise a long stationary pose would restart the entire sequence every frame.
+    return {...pose,action:'pause',inspectionState:'depart',targetId:s.target?.id||null,
+      inspectionAlert:scenario!=='normal'};
+  }
+  if(s.state==='move'){
     s.target=pickTarget(n,pose,scenario);
     s.state='align';s.since=time;s.scenario=scenario;
     s.origin={x:pose.x,z:pose.z};

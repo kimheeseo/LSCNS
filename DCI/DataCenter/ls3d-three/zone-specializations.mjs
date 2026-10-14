@@ -46,15 +46,15 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     const grid=doc.createElement('div');
     grid.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px';
     const actions=[
-      ['mmr-bay','carrier','① Carrier 인입'],
-      ['mmr-bay','handoff','② MMR / DWDM'],
-      ['mmr-bay','cross-connect','③ ODF Cross-connect'],
-      ['mmr-bay','core','④ Core Router'],
-      ['mmr-link','all','전체 광회선'],
-      ['mmr-link','external-carrier','외부→Carrier'],
-      ['mmr-link','carrier-odf','Carrier→ODF'],
-      ['mmr-link','odf-dwdm','ODF→DWDM'],
-      ['mmr-link','dwdm-core','DWDM→Core']
+      ['mmrBay','carrier','① Carrier 인입'],
+      ['mmrBay','handoff','② MMR / DWDM'],
+      ['mmrBay','cross-connect','③ ODF Cross-connect'],
+      ['mmrBay','core','④ Core Router'],
+      ['mmrLink','all','전체 광회선'],
+      ['mmrLink','external-carrier','외부→Carrier'],
+      ['mmrLink','carrier-odf','Carrier→ODF'],
+      ['mmrLink','odf-dwdm','ODF→DWDM'],
+      ['mmrLink','dwdm-core','DWDM→Core']
     ];
     for(const [type,id,label] of actions){
       const btn=doc.createElement('button');btn.type='button';btn.dataset[type]=id;
@@ -88,11 +88,11 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     coloPanel.appendChild(summary);
     const row=doc.createElement('div');
     row.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px';
-    const options=[['colo-tenant','all','전체 고객 배선']];
+    const options=[['coloTenant','all','전체 고객 배선']];
     for(const id of ['A','B','C']){
-      options.push(['colo-tenant',id,'고객 '+id+' 배선 격리'],
-        ['colo-gate',id,id+' 출입문 열기/닫기'],
-        ['colo-rack',id,id+' 고객 랙 선택']);
+      options.push(['coloTenant',id,'고객 '+id+' 배선 격리'],
+        ['coloGate',id,id+' 출입문 열기/닫기'],
+        ['coloRack',id,id+' 고객 랙 선택']);
     }
     for(const [kind,id,label] of options){
       const btn=doc.createElement('button');btn.type='button';btn.dataset[kind]=id;btn.textContent=label;

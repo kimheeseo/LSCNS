@@ -47,8 +47,8 @@ export function createRackComponentKit(THREE,{cube}){
   retain(unitGroup);
   const pickSlots=[
     {kind:'patch-panel',label:'광 패치패널',top:count-1,units:1,color:'#be9e68'},
-    {kind:'odf',label:'ODF 및 광 카세트',top:count-4,units:2,color:'#537e94'},
-    {kind:'tor',label:'Top-of-Rack 네트워크 스위치',top:count-7,units:2,color:'#36718a'}
+    {kind:'tor',label:'Top-of-Rack 네트워크 스위치',top:count-3,units:2,color:'#36718a'},
+    {kind:'odf',label:'ODF 및 광 카세트',top:count-6,units:2,color:'#537e94'}
   ];
   const network=/core|spine|leaf|odf|mmr|switch/i.test(a.type);
   const storage=/storage/i.test(a.type);

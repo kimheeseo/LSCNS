@@ -3,6 +3,9 @@ import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step06';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
+import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08';
+import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09';
+import { createRackComponentKit } from './rack-components.mjs?v=20261015-step10';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -97,43 +100,40 @@ export function createSceneAdapter(T, canvas) {
       }
     });
   }
-  function makeRack(g, a, motion) {
-    const w = a.w, d = a.d, h = a.h;
-    const dark = '#1c334a', steel = '#7695ad';
-    cube(g, -w * .45, 0, -d * .42, w * .085, h, d * .075, steel, .75, .3);
-    cube(g, w * .45, 0, -d * .42, w * .085, h, d * .075, steel, .75, .3);
-    cube(g, -w * .45, 0, d * .42, w * .085, h, d * .075, steel, .75, .3);
-    cube(g, w * .45, 0, d * .42, w * .085, h, d * .075, steel, .75, .3);
-    cube(g, 0, h - .16, 0, w, .16, d, '#90acc2', .78, .29);
-    cube(g, 0, .06, 0, w, .16, d, steel, .74, .3);
-    const slide = new THREE.Group(); slide.name = 'server-tray'; g.add(slide);
-    for (let i = 0; i < 5; i++) {
-      const y = .7 + (i * (h - 1.9)) / 5;
-      const col = i === 0 ? '#5a7690' : '#263d53';
-      cube(slide, 0, y, -d * .26, w * .77, .42, d * .49, col, .7, .32);
-      for (let j = 0; j < 6; j++) cube(slide, -w * .31 + j * w * .125, y + .18, -d * .52, w * .07, .05, .052, '#8facc3', .65, .35);
+  // STEP 10: replace the undifferentiated rack visual with separately tagged parts.
+  // The original front-door/server-slide/fiber-cassette motion contract is preserved.
+  const rackKit=createRackComponentKit(THREE,{cube});
+  let selectedRackPart=null, rackHud=null;
+  function showRackPart(info) {
+    selectedRackPart=info?{...info}:null;
+    if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
+    if(!rackHud) {
+      rackHud=document.createElement('div');
+      rackHud.id='ls3dRackPartInfo';
+      rackHud.style.cssText='position:absolute;left:12px;bottom:12px;z-index:25;max-width:min(330px,85%);padding:11px 13px;border:1px solid #64aebc;border-radius:10px;background:rgba(15,35,54,.95);color:#f3fbff;font:12px system-ui;pointer-events:none;box-shadow:0 4px 20px #0007';
+      canvas.parentElement.appendChild(rackHud);
     }
-    cube(g, 0, h - .67, -d * .33, w * .79, .32, d * .65, '#367b88', .66, .32);
-    for (let i = 0; i < 9; i++) cube(g, -w * .34 + i * w * .085, h - .5, -d * .678, w * .05, .105, .06, i % 2 ? '#5fe8bd' : '#8dd6fd', .1, .2);
-    const cassette = new THREE.Group(); cassette.name = 'fiber-cassette'; g.add(cassette);
-    cube(cassette, 0, h - 1.17, -d * .46, w * .79, .25, d * .2, '#d6ae66', .6, .36);
-    const hinge = new THREE.Group(); hinge.name = 'front-door-hinge';
-    hinge.position.set(-w * .5, .06, -d * .55);
-    g.add(hinge);
-    cube(hinge, w * .5, 0, 0, w, h - .12, .08, '#5f829a', .54, .4);
-    for (let i = 0; i < 12; i++) cube(hinge, w * .5, .38 + i * ((h - .94) / 12), -.052, w * .75, .045, .055, dark);
-    cube(g, w * .4, .42, d * .53, .13, h - .84, .14, '#f3d07c', .61, .33);
-    cube(g, -w * .4, .42, d * .53, .13, h - .84, .14, '#f3d07c', .61, .33);
-    return { hinge, slide, cassette, reach: d * .67, door: motion || null };
+    rackHud.hidden=!selectedRackPart;
+    if(selectedRackPart)rackHud.textContent=
+      '선택 부품: '+selectedRackPart.label+' · '+selectedRackPart.assetId+
+      ' · U '+selectedRackPart.uStart+'-'+(selectedRackPart.uStart+selectedRackPart.uHeight-1);
+    return selectedRackPart;
+  }
+  function selectRackPart(assetId,partId) {
+    const record=registry.get(assetId);
+    const part=record?.partMap?.get(partId)||null;
+    return showRackPart(part);
   }
   function assetMesh(a) {
     const g=new THREE.Group();
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
-    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack';
+    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
-      moving=makeRack(high,a,T.mechanical(a));
+      const built=rackKit.build(high,a);
+      moving=built.moving;rackParts=built.parts;partMap=built.partMap;
+      rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
       cube(low,0,.06,0,w*.92,h*.94,d*.90,'#53728b',.52,.44);
       cube(low,0,h*.72,-d*.48,w*.75,.26,.08,'#56a7b7',.32,.34);
@@ -151,7 +151,7 @@ export function createSceneAdapter(T, canvas) {
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
     g.traverse(obj=>{if(obj.isMesh)obj.userData.assetId=a.id});
-    return {g,moving,selection,kind,equipmentLOD,rackLOD};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits};
   }
   function refreshAssets(flags) {
     const showDetail = !!flags.inspect;
@@ -167,6 +167,8 @@ export function createSceneAdapter(T, canvas) {
         item = { ...model, sig }; registry.set(a.id, item); assetRoot.add(item.g);
       }
       item.selection.visible=T.selected?.id===a.id;
+      if(selectedRackPart && selectedRackPart.assetId===a.id && !item.partMap?.has(selectedRackPart.id))
+        showRackPart(null);
       if(item.rackLOD) {
         const dx=camera.position.x-a.x, dy=camera.position.y-a.h*.5, dz=camera.position.z-a.z;
         const far=T.selected?.id!==a.id && Math.hypot(dx,dy,dz)>96;
@@ -189,7 +191,14 @@ export function createSceneAdapter(T, canvas) {
       }
     }
     for(const [id,item] of registry)if(!present.has(id)){disposeAsset(item);registry.delete(id);}
+    if(selectedRackPart&&!registry.has(selectedRackPart.assetId))showRackPart(null);
     diagnostic.assets=registry.size;
+    diagnostic.rackComponents={
+      rackCount:[...registry.values()].filter(x=>x.rackUnits).length,
+      counts:{...rackKit.stats},
+      selectedPart:selectedRackPart,
+      visibleParts:[...registry.values()].reduce((n,x)=>n+(x.rackParts?.length||0),0)
+    };
     diagnostic.equipment={
       kinds:{...equipmentFactory.diagnostics.kinds},
       instancedBatches:equipmentFactory.diagnostics.instancedBatches,
@@ -222,6 +231,10 @@ export function createSceneAdapter(T, canvas) {
   // Position/heading/action are still sampled from original T.npcPose; pathfinding is STEP 07.
   const npcFactory=createNpcCharacterFactory(THREE,{cube,cylinder});
   const navigation=createNpcNavigation(T,{cellSize:1.25,agentRadius:.39});
+  const inspection=createInspectionFSM(T);
+  const security=createVisitorSecurity(THREE,T,{cube,characterFactory:npcFactory});
+  world.add(security.root);
+  let securityState={active:false};
   function refreshPeople(flags) {
     const all=T.npcs || [],visible=new Set(),states={walk:0,inspect:0,pause:0,idle:0};
     const roles={},staff=T.facilityProfiles?.[T.facilityMode]?.staff || [];
@@ -230,8 +243,12 @@ export function createSceneAdapter(T, canvas) {
       if(n.role!=='guard' && !staff.includes(n.id))continue;
       if(T.currentZone!=='campus' && n.zone!==T.currentZone)continue;
       if(flags.inspect)continue;
-      const pose=T.npcPose(n);
-      if(!pose||!Number.isFinite(pose.x)||!Number.isFinite(pose.z))continue;
+      const rawPose=T.npcPose(n);
+      if(!rawPose||!Number.isFinite(rawPose.x)||!Number.isFinite(rawPose.z))continue;
+      const checked=inspection.update(n,rawPose,T.simTime||0,flags.scenario||'normal');
+      const extra=n.id==='guard-a'?securityState.guardAAction:
+        n.id==='guard-b'?securityState.guardBAction:null;
+      const pose=extra?{...checked,action:extra}:checked;
       visible.add(n.id);
       let g=people.get(n.id);
       if(!g){g=npcFactory.create(n);people.set(n.id,g);peopleRoot.add(g);}
@@ -248,6 +265,7 @@ export function createSceneAdapter(T, canvas) {
     }
     diagnostic.npc=people.size;
     diagnostic.navigation=navigation.diagnostic();
+    diagnostic.inspections=inspection.diagnostic();
     diagnostic.npcAnimation={
       visible:people.size,
       ids:[...people.keys()],
@@ -284,7 +302,10 @@ export function createSceneAdapter(T, canvas) {
     zoneScene(flags, dt);
     refreshAssets(flags);
     routeScene(flags);
+    securityState=security.simulate(T.simTime||0);
+    security.root.visible=securityState.active&&!flags.inspect;
     refreshPeople(flags);
+    diagnostic.security=security.diagnostic();
     renderer.render(scene,camera);
     diagnostic.frames = ++frames;
     diagnostic.calls = renderer.info.render.calls;
@@ -300,16 +321,27 @@ export function createSceneAdapter(T, canvas) {
     raycaster.setFromCamera(mouse,camera);
     for(const hit of raycaster.intersectObjects(assetRoot.children,true)) {
       if (hit.object.userData.noPick || hit.object.name === 'selection-ring') continue;
-      let obj=hit.object;
+      let obj=hit.object,part=null;
+      for(let p=obj;p&&p!==assetRoot;p=p.parent) {
+        if(!part&&p.userData.rackPart)part=p.userData.rackPart;
+      }
       while(obj && !obj.userData.assetId) obj=obj.parent;
       const id=obj?.userData.assetId, asset=T.assetMap.get(id);
-      if(asset){T.pickAsset(asset);return id;}
+      if(asset){
+        if(part)selectRackPart(id,part.id);
+        else showRackPart(null);
+        T.pickAsset(asset);return id;
+      }
     }
+    showRackPart(null);
     return null;
   }
   function dispose() {
     if(disposed)return;disposed=true;
-    navigation.reset();
+    navigation.reset();inspection.reset();
+    if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
+    security.root.removeFromParent?.();
+    clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
     for(const item of registry.values())disposeAsset(item);
     registry.clear();
@@ -317,5 +349,9 @@ export function createSceneAdapter(T, canvas) {
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;}, navigation, get disposed(){return disposed;} };
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},
+    get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
+    get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
+    selectRackPart,inspection,securityController:security,navigation,
+    get disposed(){return disposed;} };
 }

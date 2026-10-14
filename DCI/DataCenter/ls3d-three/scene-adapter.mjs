@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step06';
+import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -220,6 +221,7 @@ export function createSceneAdapter(T, canvas) {
   // STEP 06 replaces simple block people with reusable articulated Three.Group rigs.
   // Position/heading/action are still sampled from original T.npcPose; pathfinding is STEP 07.
   const npcFactory=createNpcCharacterFactory(THREE,{cube,cylinder});
+  const navigation=createNpcNavigation(T,{cellSize:1.25,agentRadius:.39});
   function refreshPeople(flags) {
     const all=T.npcs || [],visible=new Set(),states={walk:0,inspect:0,pause:0,idle:0};
     const roles={},staff=T.facilityProfiles?.[T.facilityMode]?.staff || [];
@@ -245,6 +247,7 @@ export function createSceneAdapter(T, canvas) {
       people.delete(id); // all primitive geometries/materials are cached/shared by the adapter
     }
     diagnostic.npc=people.size;
+    diagnostic.navigation=navigation.diagnostic();
     diagnostic.npcAnimation={
       visible:people.size,
       ids:[...people.keys()],
@@ -306,6 +309,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
+    navigation.reset();
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
     for(const item of registry.values())disposeAsset(item);
     registry.clear();
@@ -313,5 +317,5 @@ export function createSceneAdapter(T, canvas) {
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;}, get disposed(){return disposed;} };
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;}, navigation, get disposed(){return disposed;} };
 }

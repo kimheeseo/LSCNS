@@ -11,3 +11,6 @@ body.nxi-wide .crew-summary,body.nxi-inspection .crew-summary,body.nxi-wide .fac
 body.nxi-inspection .main,body.nxi-wide .main{height:calc(100dvh - 64px);overflow:hidden}body.nxi-inspection .viewport,body.nxi-wide .viewport{height:calc(100dvh - 80px);min-height:0;flex:1}
 body.nxi-inspection #nxi-controls{max-width:calc(100% - 375px)}
 @media(max-width:790px){body.nxi-inspection #nxi-controls{max-width:95%}body.nxi-inspection .viewport,body.nxi-wide .viewport{height:calc(100dvh - 72px);min-height:0}}
+
+body.nxi-wide.nxi-has-selection:not(.nxi-inspection) #shell{grid-template-columns:0 minmax(0,1fr) 275px}body.nxi-wide.nxi-has-selection:not(.nxi-inspection) .right{display:block}
+@media(max-width:790px){body.nxi-wide.nxi-has-selection:not(.nxi-inspection) #shell{grid-template-columns:1fr}body.nxi-wide.nxi-has-selection:not(.nxi-inspection) .right{display:block}}

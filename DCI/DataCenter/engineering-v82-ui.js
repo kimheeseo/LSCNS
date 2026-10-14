@@ -66,7 +66,7 @@ window.fetch=async(input,init={})=>{
 function finishMount(){
  // Legacy UI adds labels later. Keep all assumptions editable and visible in every result tab.
  const panel=$('engineering-inputs');panel.open=true;const advanced=panel.closest('details.advanced');if(advanced)advanced.open=true;
- panel.querySelector('summary').textContent=text(0);
+ const ownSummary=panel.querySelector(':scope > summary');if(ownSummary){ownSummary.textContent=text(0);panel.prepend(ownSummary);}
  for(const [id,val]of [['slackPct',15],['matedPairs',4],['marginDb',0],['fiberPolarity','B']])if($(id))$(id).value=val;
  if($('upsBlockKw'))$('upsBlockKw').closest('label').hidden=true;
  if($('storageArrayTb'))$('storageArrayTb').closest('label').hidden=true;

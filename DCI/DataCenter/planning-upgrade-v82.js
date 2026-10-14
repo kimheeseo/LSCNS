@@ -40,7 +40,7 @@
     const pricing=document.createElement('section');pricing.id='planningPrices';pricing.className='panel';$('view-bom').append(pricing);
     const hint=document.createElement('p');hint.className='muted';hint.textContent='길이는 설치 케이블 본선·통합 케이블 기준입니다. 입력한 포설·양단 여유를 포함합니다. 예비 재고, 패치 리드 미실측 길이·AOC 내부 심수는 제외됩니다.';summary.after(hint);
     const basic=document.createElement('div');basic.id='basicInputs';const adv=document.querySelector('.formPanel .advanced');document.querySelector('.formPanel>.fields').before(basic);
-    const basicIds=new Set(['targetGPU','systemId','topology','rackPowerKw','coolingMode','serverDistanceM','leafSpineDistanceM']);
+    const basicIds=new Set(['designInputMode','fabricTier','targetGPU','systemId','topology','rackPowerKw','coolingMode','serverDistanceM','leafSpineDistanceM']);
     const main=document.createElement('section');main.className='inputGroup';main.innerHTML='<h3>기본 입력</h3><div class="fields sub"></div>';basic.append(main);
     document.querySelectorAll('.formPanel>.fields .inputGroup').forEach(group=>{group.querySelectorAll('label').forEach(label=>{if([...label.querySelectorAll('input,select')].some(x=>basicIds.has(x.id)))main.querySelector('.fields').append(label);});if(group.querySelector('input,select'))adv.append(group);else group.remove();});
     document.querySelector('.formPanel>.fields').hidden=true;adv.querySelector('summary').textContent='고급 입력 · 포트·랙·광손실·지역 규격';

@@ -12,9 +12,10 @@
 | 02/20 | Three.js 전환 구조 설계 | 완료 | 아키텍처·호환 API·롤백·검증 계획 기록 |
 | 03/20 | Three.js 엔진·3D Scene·조명·카메라 | **구현 완료·기본 브라우저 수동 6/6 PASS / 최종 완료 판정 보류** | 사용자 M01~M06 PASS, 독립 Chromium 환경 접근 차단, P0 회귀 및 Playwright 미검증 |
 | 04/20 | 캠퍼스/건물·출입문·유리·바닥·천장·케이블 트레이 | **3D 구현 완료, 통합 Mock 12/12 PASS / 실브라우저 검증 대기** | 신규 architecture.mjs, Roof/Section 동작/힌지 및 server-room 격리 API 검사, Playwright 테스트 파일 준비 |
-| 05~20/20 | 설비/NPC/랙/MMR/통합·배포 | 미착수 | 사용자 승인 전 진행 없음 |
+| 05/20 | 7개 구역별 설비 3D 구분 및 LOD/인스턴싱 | **코드 구현 완료, API Mock 13/13 PASS / 실브라우저·FPS 검증 대기** | 설비 Factory·구역별 형상, 3단계 LOD, 반복 부품 GPU InstancedMesh, 기존 Rack/2D/BOM 보존 |
+| 06~20/20 | NPC/랙/MMR/통합·배포 | 미착수 | 사용자 승인 전 진행 없음 |
 
-**완전 검증 완료 2/20; STEP 03 기본 수동 브라우저 6/6 PASS; STEP 04 실제 3D 건축 구현·Mock 12/12 PASS, 브라우저 회귀 대기.**
+**완전 검증 완료 2/20; STEP 03 수동 브라우저 6/6 PASS; STEP 04 Mock 12/12 PASS; STEP 05 대표 설비 25개 Mock 13/13 PASS. STEP 04·05 실브라우저 회귀 및 실제 GPU 성능 측정은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -32,6 +33,9 @@
 - [04 건축 3D 모델링 및 검증 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md)
 - [04 신규 건축 모듈](./ls3d-three/architecture.mjs)
 - [04 Playwright 브라우저 회귀 테스트 코드](./ls3d-three/step04.playwright.spec.mjs)
+- [05 설비 모델링·LOD·인스턴싱 개발 보고서](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md)
+- [05 신규 장비 형상 Factory](./ls3d-three/equipment-factory.mjs)
+- [05 Playwright 브라우저 회귀 테스트](./ls3d-three/step05.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -50,6 +54,13 @@
 - 건물 입구 2짝 유리문(THREE.Group hinge), 레이어 바닥·raised-floor 줄눈·오버헤드 cable trays·부분 ceiling·roof/section 옵션을 연결.
 - 실제 GitHub Scene Adapter + Architecture 모듈로 수행한 API mock 12/12 PASS. **실 GPU 렌더 FPS 및 Playwright는 미실행**.
 - 상세: [STEP04_BUILDING_ARCHITECTURE_REPORT.md](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md).
+
+## STEP 05 추가 구현 사항 (2026-10-15)
+- 7개 구역 장비의 고유 특징(변압기/UPS/발전기/냉각탑/칠러/CDU/ODF/CRAH 등)을 개별 3D Mesh로 구현.
+- Three.LOD 3단계 및 GPU InstancedMesh로 포트·환기 그릴·라디에이터 핀·루버 반복 구성. 기존 Rack door/slide/cassette 등 상태 유지.
+- 실제 GitHub source를 재조회하여 실행한 JavaScript Mock 통합 13/13 PASS: 샘플 25개 설비 중 24개 시각 모델 분류, 반복 부품 18개 인스턴싱 배치/226개 부품 처리.
+- 위 수치는 Mock 형상 생성 통계이며 GPU draw calls / FPS 개선 수치가 아니다. 실제 PC/모바일 브라우저 회귀 검증 필요.
+- 상세 [STEP05_EQUIPMENT_LOD_REPORT.md](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md).
 
 ## 브라우저 확인 방법
 
@@ -79,4 +90,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 03은 사용자 기본 검증 PASS이지만 P0 회귀 확인이 남아 있다. **STEP 04의 코드 구현과 API Mock 테스트가 통과했고, 새 3D 건축 모델의 실제 Chrome/모바일 브라우저 검증이 남아 있다.** [STEP 04 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md)를 참조하여 지붕·단면·문 열림·서버실 범위·성능·Console 오류를 확인한다. STEP 05는 사용자 별도 승인 전 시작하지 않는다.
+STEP 03의 수동 핵심 시험은 PASS이지만 P0 회귀가 남아 있다. STEP 04 3D 건축 Mock 12/12, STEP 05 설비/LOD Mock 13/13 PASS이며 두 단계의 실제 WebGL2 브라우저·GPU FPS·모바일·콘솔·기능 회귀 검증이 필요하다. [STEP04 보고서](./architecture/STEP04_BUILDING_ARCHITECTURE_REPORT.md), [STEP05 보고서](./architecture/STEP05_EQUIPMENT_LOD_REPORT.md)를 참고한다. 다음 **STEP 06 NPC 개발은 사용자 별도 승인 전 진행하지 않는다.**

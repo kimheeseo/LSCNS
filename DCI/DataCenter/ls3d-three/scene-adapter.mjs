@@ -5,7 +5,10 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step0
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261015-step10';
+import { createRackComponentKit } from './rack-components.mjs?v=20261015-step11to13';
+import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
+import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -91,6 +94,8 @@ export function createSceneAdapter(T, canvas) {
   function disposeAsset(item) {
     if(!item)return;
     assetRoot.remove(item.g);
+    const id=item.g.userData.assetId;
+    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);
     item.g.traverse(obj=>{
       if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
       // LOD levels use cached materials; selected-ring material is per-object.
@@ -103,7 +108,108 @@ export function createSceneAdapter(T, canvas) {
   // STEP 10: replace the undifferentiated rack visual with separately tagged parts.
   // The original front-door/server-slide/fiber-cassette motion contract is preserved.
   const rackKit=createRackComponentKit(THREE,{cube});
-  let selectedRackPart=null, rackHud=null;
+  const rackDoors=createRackDoorControls();
+  const rackRails=createRackServerRails(THREE,{cube});
+  const rackOptics=createRackOpticalCassette(THREE,{cube});
+  let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null;
+  let focusedRack=null;
+  function currentRackAsset() {
+    const a=T.selected;
+    return a&&T.isMechanicalRack(a)&&registry.has(a.id)?a:null;
+  }
+  function focusRackSide(assetId,side='front') {
+    const a=T.assetMap.get(assetId),desired=T.cameraDesired;
+    if(!a||!T.isMechanicalRack(a)||!desired||T.workerViewId||T.walkActive)return false;
+    focusedRack={id:a.id,side:side==='rear'?'rear':'front'};
+    desired.target=[a.x,a.h*.56,a.z];
+    desired.distance=Math.max(7,Math.min(19,Math.max(a.w,a.d)*2.7));
+    desired.pitch=.24;
+    desired.yaw=focusedRack.side==='rear'?0:Math.PI;
+    return true;
+  }
+  function setRackServerSelection(assetId,partId) {
+    const selected=rackRails.select(assetId,partId);
+    if(selected)selectRackPart(assetId,selected);
+    return selected;
+  }
+  function cycleRackServer(assetId,step=1) {
+    const s=registry.get(assetId)?.serverSession;
+    if(!s)return null;
+    const ids=[...s.groups.keys()],index=ids.indexOf(s.selected);
+    if(!ids.length)return null;
+    return setRackServerSelection(assetId,ids[(index+step+ids.length)%ids.length]);
+  }
+  function toggleRearRackDoor(assetId){return rackDoors.toggleRear(assetId);}
+  function toggleRackServerSlide(assetId) {
+    const a=T.assetMap.get(assetId);
+    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'slide'));
+  }
+  function toggleRackCassette(assetId) {
+    const a=T.assetMap.get(assetId);
+    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'cassette'));
+  }
+  function toggleRackFrontDoor(assetId) {
+    const a=T.assetMap.get(assetId);
+    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'door'));
+  }
+  function showControls() {
+    if(typeof document==='undefined'||!canvas.parentElement)return;
+    const a=currentRackAsset();
+    if(!a){if(rackControls)rackControls.hidden=true;return;}
+    if(!rackControls){
+      rackControls=document.createElement('div');
+      rackControls.id='ls3dRackMotionControls';
+      rackControls.style.cssText='position:absolute;right:10px;bottom:10px;z-index:30;width:min(302px,calc(100% - 20px));padding:10px;background:rgba(13,29,45,.94);border:1px solid #6aa8bc;border-radius:10px;color:#f0fbff;font:12px system-ui;box-shadow:0 4px 20px #0008;pointer-events:auto;';
+      rackControlsLabel=document.createElement('div');
+      rackControlsLabel.id='ls3dRackActionStatus';
+      rackControlsLabel.setAttribute('aria-live','polite');
+      rackControlsLabel.style.cssText='font-weight:600;margin-bottom:7px;line-height:1.4;';
+      rackControls.appendChild(rackControlsLabel);
+      const grid=document.createElement('div');
+      grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
+      const actions=[
+        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
+        ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
+        ['previous-server','이전 서버'],['next-server','다음 서버'],
+        ['server-slide','선택 서버 인출/복귀'],['cassette-slide','광 카세트 인출/복귀'],
+        ['next-fiber','다음 광 커넥터'],['clear-selection','부품 선택 해제']
+      ];
+      for(const [code,label] of actions){
+        const button=document.createElement('button');
+        button.type='button';button.dataset.rackAction=code;button.textContent=label;
+        button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
+        grid.appendChild(button);
+      }
+      grid.addEventListener('click',e=>{
+        const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
+        const asset=currentRackAsset();if(!asset||!action)return;
+        e.preventDefault();e.stopPropagation();
+        if(action==='front-camera')focusRackSide(asset.id,'front');
+        else if(action==='rear-camera')focusRackSide(asset.id,'rear');
+        else if(action==='front-door')toggleRackFrontDoor(asset.id);
+        else if(action==='rear-door')toggleRearRackDoor(asset.id);
+        else if(action==='previous-server')cycleRackServer(asset.id,-1);
+        else if(action==='next-server')cycleRackServer(asset.id,1);
+        else if(action==='server-slide')toggleRackServerSlide(asset.id);
+        else if(action==='cassette-slide')toggleRackCassette(asset.id);
+        else if(action==='next-fiber'){
+          const item=registry.get(asset.id);
+          const ports=(item?.opticsSession?.portDefs||[]);
+          const current=ports.findIndex(p=>p.id===selectedRackPart?.id);
+          if(ports.length)selectRackPart(asset.id,ports[(current+1)%ports.length].id);
+        }else if(action==='clear-selection')showRackPart(null);
+        showControls();
+      });
+      rackControls.appendChild(grid);
+      canvas.parentElement.appendChild(rackControls);
+    }
+    rackControls.hidden=false;
+    const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
+    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점':'전면 시점'):'기본 시점')+
+      ' · 서버 '+(server?.selected?.split(':').pop()||'—')+
+      ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
+      ' · 광포트 '+(fiber?.ports.length||0)+'개';
+  }
   function showRackPart(info) {
     selectedRackPart=info?{...info}:null;
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
@@ -129,9 +235,12 @@ export function createSceneAdapter(T, canvas) {
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
     let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null;
+    let serverSession=null,opticsSession=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
       const built=rackKit.build(high,a);
+      serverSession=rackRails.decorate(a,built,high);
+      opticsSession=rackOptics.decorate(a,built);
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
@@ -151,9 +260,9 @@ export function createSceneAdapter(T, canvas) {
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
     g.traverse(obj=>{if(obj.isMesh)obj.userData.assetId=a.id});
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession};
   }
-  function refreshAssets(flags) {
+  function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
     const visible = T.visibleAssets().filter(a => (T.currentZone === 'campus' || a.zone === T.currentZone) && (!showDetail || a.id === T.selected?.id));
     const present = new Set();
@@ -183,16 +292,28 @@ export function createSceneAdapter(T, canvas) {
       if (fault) item.g.scale.y = 1 + Math.sin((T.simTime || 0) * 5) * .008;
       else item.g.scale.y = 1;
       if (item.moving) {
-        const m = T.mechanical(a);
-        item.moving.hinge.rotation.y = -(m.door || 0) * Math.PI * .53;
-        item.moving.slide.position.z = -(m.slide || 0) * item.moving.reach;
-        item.moving.cassette.position.z = -(m.cassette || 0) * item.moving.reach * .7;
-        item.g.rotation.y = m.rear ? Math.PI : 0;
+        const m=T.mechanical(a);
+        rackDoors.tick(a.id,item.moving,m,dt);
+        rackRails.update(a.id,item.moving,m);
+        rackOptics.update(a.id,item.moving,m);
+        // When using the STEP 11 independent side camera, keep world-space rack
+        // orientation fixed. Original legacy rear flip remains otherwise available.
+        item.g.rotation.y=focusedRack?.id===a.id?0:(m.rear?Math.PI:0);
       }
     }
     for(const [id,item] of registry)if(!present.has(id)){disposeAsset(item);registry.delete(id);}
     if(selectedRackPart&&!registry.has(selectedRackPart.assetId))showRackPart(null);
+    if(focusedRack&&!registry.has(focusedRack.id))focusedRack=null;
+    showControls();
     diagnostic.assets=registry.size;
+    diagnostic.rackInteraction={
+      focus:focusedRack?{...focusedRack}:null,
+      doors:{...rackDoors.stats},
+      rails:{...rackRails.stats},
+      optics:{...rackOptics.stats},
+      selectedServer:currentRackAsset()?rackRails.state(currentRackAsset().id):null,
+      selectedOptics:currentRackAsset()?rackOptics.state(currentRackAsset().id):null
+    };
     diagnostic.rackComponents={
       rackCount:[...registry.values()].filter(x=>x.rackUnits).length,
       counts:{...rackKit.stats},
@@ -300,7 +421,7 @@ export function createSceneAdapter(T, canvas) {
     camera.far = Math.max(600, view.far || 600);
     camera.updateProjectionMatrix();
     zoneScene(flags, dt);
-    refreshAssets(flags);
+    refreshAssets(flags,dt);
     routeScene(flags);
     securityState=security.simulate(T.simTime||0);
     security.root.visible=securityState.active&&!flags.inspect;
@@ -328,8 +449,11 @@ export function createSceneAdapter(T, canvas) {
       while(obj && !obj.userData.assetId) obj=obj.parent;
       const id=obj?.userData.assetId, asset=T.assetMap.get(id);
       if(asset){
-        if(part)selectRackPart(id,part.id);
-        else showRackPart(null);
+        if(part) {
+          selectRackPart(id,part.id);
+          if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))
+            rackRails.select(id,part.id);
+        } else showRackPart(null);
         T.pickAsset(asset);return id;
       }
     }
@@ -340,6 +464,8 @@ export function createSceneAdapter(T, canvas) {
     if(disposed)return;disposed=true;
     navigation.reset();inspection.reset();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
+    if(rackControls){rackControls.remove();rackControls=null;}
+    rackDoors.reset();rackRails.reset();rackOptics.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
@@ -352,6 +478,9 @@ export function createSceneAdapter(T, canvas) {
   return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},
     get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
-    selectRackPart,inspection,securityController:security,navigation,
+    selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
+    toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
+    get rackInteraction(){return diagnostic.rackInteraction;},
+    inspection,securityController:security,navigation,
     get disposed(){return disposed;} };
 }

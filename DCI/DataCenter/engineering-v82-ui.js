@@ -15,6 +15,7 @@ number('itInputMw','IT input MW · reserved headroom applied',100);number('nvlRa
 number('verticalRiseM','Vertical rise m',3);number('p2pPairs','P2P connector pairs',2);check('lowLoss','Low-loss MPO · 0.25 dB');choose('connectorPolish','Connector polish',[['auto','Profile auto · confirm SKU'],['APC','APC'],['UPC','UPC']]);check('twinPort400','Qualified 2×400G switch module sharing');
 number('upsEfficiency','UPS efficiency η',.96);number('upsBlockKva','UPS module kVA',1000);number('liquidPct','DLC / rear-door liquid heat %',75);number('waterDensity','Fluid density kg/m³',1000);number('waterCp','Fluid cp J/(kg·K)',4186);number('deltaTK','Liquid ΔT K',10);choose('cduRedundancy','CDU redundancy',[['N+1','N+1'],['N','N'],['2N','2N']]);number('airLimitKw','Air planning limit kW/rack',30);number('rearDoorLimitKw','Rear-door planning limit kW/rack',50);
 choose('storageEncoding','Storage protection',[['ec','EC 8+2 · usable 80%'],['replica3','3 replicas · usable 33.3%']]);number('storageReadGbpsPerGpu','Read GB/s per GPU',0);number('storageRawTbPerNode','Raw TB / storage node',1000);number('storageReadGbpsPerNode','Read GB/s / storage node',50);number('cassetteChannels','MPO cassette channels',12);number('consolePorts','Console ports/device',32);number('trayWidthMm','Tray width mm',300);number('trayDepthMm','Tray depth mm',50);number('cableOdMm','Cable OD mm',5);number('trayRouteM','Measured tray route m · 0=RFQ',0);
+const reason=document.createElement('p');reason.id='nvl72-cooling-reason';reason.className='muted';reason.hidden=true;$('coolingMode').closest('label').append(reason);
 const opts=$('storageProtocol');opts.insertAdjacentHTML('beforeend','<option>NVMe-oF/RoCE</option>');for(const o of opts.options)if(o.value==='Fibre Channel')o.textContent='Fibre Channel · legacy SAN';
 for(const key of ['gb200','gb300'])$('systemId').insertAdjacentHTML('beforeend',`<option value="${key}">${key.toUpperCase()} NVL72 · rack-scale</option>`);
 const box=document.createElement('section');box.id='engineering-v82-inputs';box.className='inputGroup';box.innerHTML='<h3 data-eng-label="0"></h3><p data-eng-label="1"></p>';box.append(fields);$('engineering-inputs').prepend(box);
@@ -35,6 +36,7 @@ function sync(){
  const nvl=['gb200','gb300'].includes($('systemId').value);
  for(const o of $('coolingMode').options)o.disabled=nvl&&!['dlc','immersion'].includes(o.value);
  if(nvl&&!['dlc','immersion'].includes($('coolingMode').value))$('coolingMode').value='dlc';
+ const reason=$('nvl72-cooling-reason');if(reason){reason.hidden=!nvl;reason.textContent=text(13);}
  const mode=$('designInputMode').value;
  $('targetGPU').closest('label').hidden=mode!=='gpu';$('itInputMw').closest('label').hidden=mode!=='power';$('nvlRackCount').closest('label').hidden=mode!=='racks';
  $('designInputMode').querySelector('[value="racks"]').disabled=!nvl;
@@ -72,6 +74,8 @@ function finishMount(){
  if($('storageArrayTb'))$('storageArrayTb').closest('label').hidden=true;
  // Oversubscription is one of the two topology axes' companion inputs, not buried in legacy advanced fields.
  $('oversub').closest('label').querySelector('span').textContent='Oversubscription · x:1';
+ if($('targetPodEgress')){$('targetPodEgress').closest('label').hidden=true;$('targetPodEgress').disabled=true;}
+ if($('powerFactor'))$('powerFactor').closest('label').querySelector('span').textContent='AC load power factor · UPS / Transformer';
  sync();schedule();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(finishMount)))));else finishMount();sync();

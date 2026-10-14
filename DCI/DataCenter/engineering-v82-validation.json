@@ -1,0 +1,2019 @@
+{
+  "tests": 19,
+  "inputs": {
+    "A": {
+      "switchRadix": 64,
+      "rackRU": 48,
+      "rackPowerKw": 100,
+      "rackCoolingKw": 100,
+      "reservedRU": 4,
+      "rackHeadroomPct": 20,
+      "slackPct": 15,
+      "verticalRiseM": 3,
+      "sparePct": 10,
+      "frontendEnabled": true,
+      "oobEnabled": true,
+      "pue": 1.2,
+      "powerFactor": 0.9,
+      "upsEfficiency": 0.96,
+      "facilityHeadroomPct": 20,
+      "facilityEnabled": true,
+      "systemId": "b200",
+      "targetGPU": 1024,
+      "topology": "rail",
+      "fabricTier": 2,
+      "oversub": 1,
+      "fabricProtocol": "InfiniBand",
+      "serverCabling": "structured",
+      "leafSpineCabling": "structured"
+    },
+    "B": {
+      "switchRadix": 64,
+      "rackRU": 48,
+      "rackPowerKw": 100,
+      "rackCoolingKw": 100,
+      "reservedRU": 4,
+      "rackHeadroomPct": 20,
+      "slackPct": 15,
+      "verticalRiseM": 3,
+      "sparePct": 10,
+      "frontendEnabled": true,
+      "oobEnabled": true,
+      "pue": 1.2,
+      "powerFactor": 0.9,
+      "upsEfficiency": 0.96,
+      "facilityHeadroomPct": 20,
+      "facilityEnabled": true,
+      "systemId": "h200",
+      "targetGPU": 4096,
+      "topology": "rail",
+      "fabricTier": 3,
+      "oversub": 2,
+      "fabricProtocol": "Ethernet",
+      "serverCabling": "p2p",
+      "leafSpineCabling": "p2p",
+      "coreCabling": "p2p"
+    },
+    "C": {
+      "switchRadix": 64,
+      "rackRU": 48,
+      "rackPowerKw": 120,
+      "rackCoolingKw": 120,
+      "reservedRU": 4,
+      "rackHeadroomPct": 20,
+      "slackPct": 15,
+      "verticalRiseM": 3,
+      "sparePct": 10,
+      "frontendEnabled": true,
+      "oobEnabled": true,
+      "pue": 1.2,
+      "powerFactor": 0.9,
+      "upsEfficiency": 0.96,
+      "facilityHeadroomPct": 20,
+      "facilityEnabled": true,
+      "systemId": "gb200",
+      "inputMode": "racks",
+      "nvlRackCount": 4,
+      "coolingMode": "dlc",
+      "facilityRedundancy": "N+1",
+      "cduRedundancy": "N+1"
+    }
+  },
+  "results": {
+    "A": {
+      "summary": {
+        "targetGPU": 1024,
+        "installedGPU": 1024,
+        "systemUnits": 128,
+        "servers": 128,
+        "computeRacks": 32,
+        "networkRacks": 5,
+        "totalRacks": 37,
+        "totalItPowerKw": 1937.4,
+        "computePowerKw": 1830.4,
+        "facilityPowerKw": 2324.88,
+        "systemsPerRack": 4,
+        "bindingConstraint": [
+          "RU"
+        ],
+        "rackLimits": {
+          "RU": 4,
+          "power": 5,
+          "cooling": 5
+        },
+        "inputItKw": null,
+        "computeBudgetKw": null
+      },
+      "fabric": {
+        "leafCount": 32,
+        "spineCount": 16,
+        "coreCount": 0,
+        "serverLinks": 1024,
+        "serverLeafLinks": 1024,
+        "endpointLinks": 1024,
+        "totalLeafUplinks": 1024,
+        "leafSpineLinks": 1024,
+        "spineToCoreLinks": 0,
+        "spineCoreLinks": 0,
+        "stageCount": 2,
+        "linkSpeedGbps": 400,
+        "protocol": "InfiniBand",
+        "switchName": "64 logical-port 400G planning",
+        "serverFacingMedia": "400G-SR4",
+        "leafSpineMedia": "400G-DR4",
+        "spineDownPortsUsed": 4,
+        "coreUplinkPorts": 0,
+        "spineUnusedPorts": 0,
+        "domains": [
+          {
+            "domain": 0,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 1,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 2,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 3,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 4,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 5,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 6,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          },
+          {
+            "domain": 7,
+            "hosts": 128,
+            "leaf": 4,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 1
+          }
+        ]
+      },
+      "facility": {
+        "pue": 1.2,
+        "itPowerKw": 1937.4,
+        "facilityPowerKw": 2324.88,
+        "mechanicalAndLossKw": 387.48,
+        "upsDesignKva": 2690.833,
+        "upsDesignKw": 2421.75,
+        "generatorDesignKw": 2789.856,
+        "transformerDesignKva": 3099.84,
+        "upsQty": 5,
+        "generatorQty": 3,
+        "transformerQty": 3
+      },
+      "cooling": {
+        "mode": "air",
+        "modeLabel": "AIR",
+        "rackDensityKw": 57.2,
+        "liquidKw": 0,
+        "airKw": 1937.4,
+        "liquidFraction": 0,
+        "flowLMin": 0,
+        "cduQty": 0,
+        "cduDuty": 0,
+        "rackLiquidCapacityKw": 0,
+        "rackAirCapacityKw": 100,
+        "rackLiquidKw": 0,
+        "rackAirKw": 57.2,
+        "notes": [
+          {
+            "title": "Liquid / air heat",
+            "text": "0 / 1937.4 kW; residual air includes network/storage"
+          },
+          {
+            "title": "Flow assumption",
+            "text": "0 L/min = P/(ρ cp ΔT); ΔT 10 K; CDU 0 duty / 0 installed; flow/pressure RFQ"
+          },
+          {
+            "title": "Rack binding constraint",
+            "text": "RU; 4 systems/rack; {\"RU\":4,\"power\":5,\"cooling\":5}"
+          }
+        ]
+      },
+      "optical": {
+        "server": {
+          "links": 1024,
+          "lengthM": 50,
+          "routeLengthM": 37.949999999999996,
+          "profile": {
+            "media": "400G-SR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "UPC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OM4",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 2048,
+          "purchasedModules": 2253,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 4,
+            "attenDbKm": 3,
+            "connectorDb": 0.35,
+            "estimatedDb": 1.55,
+            "budgetDb": 1.9,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-SR4",
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 1024,
+            "cableCount": 1127,
+            "installedChannelFibers": 12,
+            "requiredFibers": 8192,
+            "provisionedFibers": 16384
+          }
+        },
+        "leafSpine": {
+          "links": 1024,
+          "lengthM": 120,
+          "routeLengthM": 118.44999999999999,
+          "profile": {
+            "media": "400G-DR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "APC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OS2",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 2048,
+          "purchasedModules": 2253,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 4,
+            "attenDbKm": 0.35,
+            "connectorDb": 0.35,
+            "estimatedDb": 1.442,
+            "budgetDb": 3,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 1024,
+            "cableCount": 1127,
+            "installedChannelFibers": 12,
+            "requiredFibers": 8192,
+            "provisionedFibers": 16384
+          }
+        },
+        "core": {
+          "links": 0,
+          "profile": {
+            "optical": false
+          },
+          "loss": {
+            "applicable": false
+          },
+          "trunk": {
+            "cableCount": 0,
+            "installedCableCount": 0,
+            "provisionedFibers": 0
+          }
+        }
+      },
+      "storage": {
+        "systems": 0,
+        "switches": 0,
+        "rawRatio": 0.8,
+        "rawTb": 0,
+        "usableTb": 0,
+        "readGbps": 0
+      },
+      "bom": [
+        {
+          "category": "Compute",
+          "item": "B200 8-GPU planning node",
+          "qty": 128,
+          "installedQty": 128,
+          "spareQty": 0,
+          "unit": "system",
+          "basis": "ceil(GPU/8); configured power 14.3 kW"
+        },
+        {
+          "category": "Network",
+          "item": "Compute NIC logical endpoints",
+          "qty": 1024,
+          "installedQty": 1024,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "128 × 8 NIC ports"
+        },
+        {
+          "category": "Network",
+          "item": "Leaf 400G planning switch",
+          "qty": 32,
+          "installedQty": 32,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=32; no spare"
+        },
+        {
+          "category": "Network",
+          "item": "Spine 400G planning switch",
+          "qty": 16,
+          "installedQty": 16,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=32; no spare"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server 400G-SR4 transceiver",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "module",
+          "basis": "2048 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server 16F trunk 50 m",
+          "qty": 1127,
+          "installedQty": 1024,
+          "spareQty": 103,
+          "unit": "cable",
+          "basis": "ceil(1024/1) channels/trunk; reserve Base-12 × 1",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server optical patch leads",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "cable",
+          "basis": "2 endpoint patch leads/link; additional intermediate patching RFQ",
+          "segment": "server"
+        },
+        {
+          "category": "Passive",
+          "item": "server patch panels",
+          "qty": 86,
+          "installedQty": 86,
+          "spareQty": 0,
+          "unit": "panel",
+          "basis": "2 sides × ceil(1024/24)"
+        },
+        {
+          "category": "Passive",
+          "item": "server MPO through adapter cassettes",
+          "qty": 172,
+          "installedQty": 172,
+          "spareQty": 0,
+          "unit": "cassette",
+          "basis": "2 sides × ceil(channels/12); parallel MPO, not MPO→LC conversion"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine 400G-DR4 transceiver",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "module",
+          "basis": "2048 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine 16F trunk 120 m",
+          "qty": 1127,
+          "installedQty": 1024,
+          "spareQty": 103,
+          "unit": "cable",
+          "basis": "ceil(1024/1) channels/trunk; reserve Base-12 × 1",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine optical patch leads",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "cable",
+          "basis": "2 endpoint patch leads/link; additional intermediate patching RFQ",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Passive",
+          "item": "leafSpine patch panels",
+          "qty": 86,
+          "installedQty": 86,
+          "spareQty": 0,
+          "unit": "panel",
+          "basis": "2 sides × ceil(1024/24)"
+        },
+        {
+          "category": "Passive",
+          "item": "leafSpine MPO through adapter cassettes",
+          "qty": 172,
+          "installedQty": 172,
+          "spareQty": 0,
+          "unit": "cassette",
+          "basis": "2 sides × ceil(channels/12); parallel MPO, not MPO→LC conversion"
+        },
+        {
+          "category": "Network",
+          "item": "Frontend 100G switch",
+          "qty": 13,
+          "installedQty": 13,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend endpoint/uplink cable",
+          "qty": 355,
+          "installedQty": 322,
+          "spareQty": 33,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend optical module allowance",
+          "qty": 709,
+          "installedQty": 644,
+          "spareQty": 65,
+          "unit": "module",
+          "basis": "2/link; speed, optics budget and host compatibility RFQ"
+        },
+        {
+          "category": "Network",
+          "item": "OOB 1G switch",
+          "qty": 9,
+          "installedQty": 9,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "OOB endpoint/uplink cable",
+          "qty": 261,
+          "installedQty": 237,
+          "spareQty": 24,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "BMC managed endpoints",
+          "qty": 189,
+          "installedQty": 189,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "Compute 128 + switches/storage/ops; OOB switch management upstream RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "Console server",
+          "qty": 2,
+          "installedQty": 2,
+          "spareQty": 0,
+          "unit": "device",
+          "basis": "ceil(managed fabric switches/32)"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Console serial cable",
+          "qty": 68,
+          "installedQty": 61,
+          "spareQty": 7,
+          "unit": "cable",
+          "basis": "1/managed fabric switch; connector RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "UPS 1000 kVA module",
+          "qty": 5,
+          "installedQty": 5,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT 1937.4/PF 0.9/η 0.96×1.2/usable 800))"
+        },
+        {
+          "category": "Facility",
+          "item": "Generator 2500 kW module",
+          "qty": 3,
+          "installedQty": 3,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE×headroom/usable kW)); mechanical load included"
+        },
+        {
+          "category": "Facility",
+          "item": "Transformer 3000 kVA module",
+          "qty": 3,
+          "installedQty": 3,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE/PF×headroom/(rated×derating)))"
+        },
+        {
+          "category": "Rack",
+          "item": "IT rack",
+          "qty": 37,
+          "installedQty": 37,
+          "spareQty": 0,
+          "unit": "rack",
+          "basis": "Compute 32 + equipment 5"
+        },
+        {
+          "category": "Power",
+          "item": "A/B rack PDU",
+          "qty": 142,
+          "installedQty": 142,
+          "spareQty": 0,
+          "unit": "PDU",
+          "basis": "Each side supports full rack kW and cord count; N-side redundancy"
+        },
+        {
+          "category": "Power",
+          "item": "C19/C20 planning AC power cord",
+          "qty": 999,
+          "installedQty": 908,
+          "spareQty": 91,
+          "unit": "cable",
+          "basis": "sum(OEM cord count); connector/current verified by RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "A/B busway tap or RPP branch",
+          "qty": 74,
+          "installedQty": 74,
+          "spareQty": 0,
+          "unit": "branch",
+          "basis": "2/rack; A/B breaker, fault level and ampacity RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "3-phase balance plan",
+          "qty": 111,
+          "installedQty": 111,
+          "spareQty": 0,
+          "unit": "phase schedule",
+          "basis": "Rack kW/3 per phase; discrete outlet mapping RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Rack ground bonding kit",
+          "qty": 37,
+          "installedQty": 37,
+          "spareQty": 0,
+          "unit": "kit",
+          "basis": "1/rack; conductor sizing/site earth RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable endpoint labels",
+          "qty": 13528,
+          "installedQty": 13528,
+          "spareQty": 0,
+          "unit": "label",
+          "basis": "2 per installed cable; no spare stock labels"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable tray / optical raceway",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "m",
+          "basis": "RFQ: measured pathway required; cable lengths are not tray length",
+          "coverage": "RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "Aisle containment",
+          "qty": 32,
+          "installedQty": 32,
+          "spareQty": 0,
+          "unit": "rack allowance",
+          "basis": "Option: rack-face allowance only; dimensions/doors RFQ",
+          "coverage": "option"
+        },
+        {
+          "category": "Facility",
+          "item": "Fire detection / suppression",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "RFQ",
+          "basis": "RFQ: floor area, hazard class, local fire design required",
+          "coverage": "RFQ"
+        }
+      ],
+      "warnings": [
+        "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
+        "Air cooling planning threshold exceeded: 57.2 > 30 kW",
+        "leafSpine: route >100m; custom length 120m RFQ",
+        "Tray shared-route upper-bound fill 268.083% >40%; split pathways or enlarge tray"
+      ],
+      "errors": []
+    },
+    "B": {
+      "summary": {
+        "targetGPU": 4096,
+        "installedGPU": 4096,
+        "systemUnits": 512,
+        "servers": 512,
+        "computeRacks": 103,
+        "networkRacks": 15,
+        "totalRacks": 118,
+        "totalItPowerKw": 5778.9,
+        "computePowerKw": 5222.4,
+        "facilityPowerKw": 6934.68,
+        "systemsPerRack": 5,
+        "bindingConstraint": [
+          "RU"
+        ],
+        "rackLimits": {
+          "RU": 5,
+          "power": 7,
+          "cooling": 7
+        },
+        "inputItKw": null,
+        "computeBudgetKw": null
+      },
+      "fabric": {
+        "leafCount": 128,
+        "spineCount": 64,
+        "coreCount": 64,
+        "serverLinks": 4096,
+        "serverLeafLinks": 4096,
+        "endpointLinks": 4096,
+        "totalLeafUplinks": 2048,
+        "leafSpineLinks": 2048,
+        "spineToCoreLinks": 2048,
+        "spineCoreLinks": 2048,
+        "stageCount": 3,
+        "linkSpeedGbps": 400,
+        "protocol": "Ethernet",
+        "switchName": "64 logical-port 400G planning",
+        "serverFacingMedia": "400G-SR4",
+        "leafSpineMedia": "400G-DR4",
+        "spineDownPortsUsed": 16,
+        "coreUplinkPorts": 32,
+        "spineUnusedPorts": 0,
+        "domains": [
+          {
+            "domain": 0,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 1,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 2,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 3,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 4,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 5,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 6,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          },
+          {
+            "domain": 7,
+            "hosts": 512,
+            "leaf": 16,
+            "spine": 8,
+            "core": 8,
+            "tier": 3,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 16,
+            "allocatedOversub": 2,
+            "actualOversub": 2
+          }
+        ]
+      },
+      "facility": {
+        "pue": 1.2,
+        "itPowerKw": 5778.9,
+        "facilityPowerKw": 6934.68,
+        "mechanicalAndLossKw": 1155.78,
+        "upsDesignKva": 8026.25,
+        "upsDesignKw": 7223.625,
+        "generatorDesignKw": 8321.616,
+        "transformerDesignKva": 9246.24,
+        "upsQty": 12,
+        "generatorQty": 6,
+        "transformerQty": 5
+      },
+      "cooling": {
+        "mode": "air",
+        "modeLabel": "AIR",
+        "rackDensityKw": 51,
+        "liquidKw": 0,
+        "airKw": 5778.9,
+        "liquidFraction": 0,
+        "flowLMin": 0,
+        "cduQty": 0,
+        "cduDuty": 0,
+        "rackLiquidCapacityKw": 0,
+        "rackAirCapacityKw": 100,
+        "rackLiquidKw": 0,
+        "rackAirKw": 51,
+        "notes": [
+          {
+            "title": "Liquid / air heat",
+            "text": "0 / 5778.9 kW; residual air includes network/storage"
+          },
+          {
+            "title": "Flow assumption",
+            "text": "0 L/min = P/(ρ cp ΔT); ΔT 10 K; CDU 0 duty / 0 installed; flow/pressure RFQ"
+          },
+          {
+            "title": "Rack binding constraint",
+            "text": "RU; 5 systems/rack; {\"RU\":5,\"power\":7,\"cooling\":7}"
+          }
+        ]
+      },
+      "optical": {
+        "server": {
+          "links": 4096,
+          "lengthM": 50,
+          "routeLengthM": 37.949999999999996,
+          "profile": {
+            "media": "400G-SR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "UPC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OM4",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 8192,
+          "purchasedModules": 9012,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 2,
+            "attenDbKm": 3,
+            "connectorDb": 0.35,
+            "estimatedDb": 0.85,
+            "budgetDb": 1.9,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-SR4",
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 0,
+            "cableCount": 0,
+            "installedChannelFibers": 12,
+            "requiredFibers": 32768,
+            "provisionedFibers": 0
+          }
+        },
+        "leafSpine": {
+          "links": 2048,
+          "lengthM": 120,
+          "routeLengthM": 118.44999999999999,
+          "profile": {
+            "media": "400G-DR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "APC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OS2",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 4096,
+          "purchasedModules": 4506,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 2,
+            "attenDbKm": 0.35,
+            "connectorDb": 0.35,
+            "estimatedDb": 0.742,
+            "budgetDb": 3,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 0,
+            "cableCount": 0,
+            "installedChannelFibers": 12,
+            "requiredFibers": 16384,
+            "provisionedFibers": 0
+          }
+        },
+        "core": {
+          "links": 2048,
+          "lengthM": 120,
+          "routeLengthM": 118.44999999999999,
+          "profile": {
+            "media": "400G-DR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "APC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OS2",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 4096,
+          "purchasedModules": 4506,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 2,
+            "attenDbKm": 0.35,
+            "connectorDb": 0.35,
+            "estimatedDb": 0.742,
+            "budgetDb": 3,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 0,
+            "cableCount": 0,
+            "installedChannelFibers": 12,
+            "requiredFibers": 16384,
+            "provisionedFibers": 0
+          }
+        }
+      },
+      "storage": {
+        "systems": 0,
+        "switches": 0,
+        "rawRatio": 0.8,
+        "rawTb": 0,
+        "usableTb": 0,
+        "readGbps": 0
+      },
+      "bom": [
+        {
+          "category": "Compute",
+          "item": "H200 8-GPU planning node",
+          "qty": 512,
+          "installedQty": 512,
+          "spareQty": 0,
+          "unit": "system",
+          "basis": "ceil(GPU/8); configured power 10.2 kW"
+        },
+        {
+          "category": "Network",
+          "item": "Compute NIC logical endpoints",
+          "qty": 4096,
+          "installedQty": 4096,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "512 × 8 NIC ports"
+        },
+        {
+          "category": "Network",
+          "item": "Leaf 400G planning switch",
+          "qty": 128,
+          "installedQty": 128,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=16; no spare"
+        },
+        {
+          "category": "Network",
+          "item": "Spine 400G planning switch",
+          "qty": 64,
+          "installedQty": 64,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=16; no spare"
+        },
+        {
+          "category": "Network",
+          "item": "Super-spine 400G planning switch",
+          "qty": 64,
+          "installedQty": 64,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=16; no spare"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server 400G-SR4 transceiver",
+          "qty": 9012,
+          "installedQty": 8192,
+          "spareQty": 820,
+          "unit": "module",
+          "basis": "8192 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server P2P fiber 50 m",
+          "qty": 4506,
+          "installedQty": 4096,
+          "spareQty": 410,
+          "unit": "cable",
+          "basis": "1 assembly/link; ceil spare",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine 400G-DR4 transceiver",
+          "qty": 4506,
+          "installedQty": 4096,
+          "spareQty": 410,
+          "unit": "module",
+          "basis": "4096 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine P2P fiber 120 m",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "cable",
+          "basis": "1 assembly/link; ceil spare",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "core 400G-DR4 transceiver",
+          "qty": 4506,
+          "installedQty": 4096,
+          "spareQty": 410,
+          "unit": "module",
+          "basis": "4096 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "core"
+        },
+        {
+          "category": "Connectivity",
+          "item": "core P2P fiber 120 m",
+          "qty": 2253,
+          "installedQty": 2048,
+          "spareQty": 205,
+          "unit": "cable",
+          "basis": "1 assembly/link; ceil spare",
+          "segment": "core"
+        },
+        {
+          "category": "Network",
+          "item": "Frontend 100G switch",
+          "qty": 49,
+          "installedQty": 49,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend endpoint/uplink cable",
+          "qty": 1411,
+          "installedQty": 1282,
+          "spareQty": 129,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend optical module allowance",
+          "qty": 2821,
+          "installedQty": 2564,
+          "spareQty": 257,
+          "unit": "module",
+          "basis": "2/link; speed, optics budget and host compatibility RFQ"
+        },
+        {
+          "category": "Network",
+          "item": "OOB 1G switch",
+          "qty": 40,
+          "installedQty": 40,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "OOB endpoint/uplink cable",
+          "qty": 1130,
+          "installedQty": 1027,
+          "spareQty": 103,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "BMC managed endpoints",
+          "qty": 817,
+          "installedQty": 817,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "Compute 512 + switches/storage/ops; OOB switch management upstream RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "Console server",
+          "qty": 10,
+          "installedQty": 10,
+          "spareQty": 0,
+          "unit": "device",
+          "basis": "ceil(managed fabric switches/32)"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Console serial cable",
+          "qty": 336,
+          "installedQty": 305,
+          "spareQty": 31,
+          "unit": "cable",
+          "basis": "1/managed fabric switch; connector RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "UPS 1000 kVA module",
+          "qty": 12,
+          "installedQty": 12,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT 5778.9/PF 0.9/η 0.96×1.2/usable 800))"
+        },
+        {
+          "category": "Facility",
+          "item": "Generator 2500 kW module",
+          "qty": 6,
+          "installedQty": 6,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE×headroom/usable kW)); mechanical load included"
+        },
+        {
+          "category": "Facility",
+          "item": "Transformer 3000 kVA module",
+          "qty": 5,
+          "installedQty": 5,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE/PF×headroom/(rated×derating)))"
+        },
+        {
+          "category": "Rack",
+          "item": "IT rack",
+          "qty": 118,
+          "installedQty": 118,
+          "spareQty": 0,
+          "unit": "rack",
+          "basis": "Compute 103 + equipment 15"
+        },
+        {
+          "category": "Power",
+          "item": "A/B rack PDU",
+          "qty": 466,
+          "installedQty": 466,
+          "spareQty": 0,
+          "unit": "PDU",
+          "basis": "Each side supports full rack kW and cord count; N-side redundancy"
+        },
+        {
+          "category": "Power",
+          "item": "C19/C20 planning AC power cord",
+          "qty": 4139,
+          "installedQty": 3762,
+          "spareQty": 377,
+          "unit": "cable",
+          "basis": "sum(OEM cord count); connector/current verified by RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "A/B busway tap or RPP branch",
+          "qty": 236,
+          "installedQty": 236,
+          "spareQty": 0,
+          "unit": "branch",
+          "basis": "2/rack; A/B breaker, fault level and ampacity RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "3-phase balance plan",
+          "qty": 354,
+          "installedQty": 354,
+          "spareQty": 0,
+          "unit": "phase schedule",
+          "basis": "Rack kW/3 per phase; discrete outlet mapping RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Rack ground bonding kit",
+          "qty": 118,
+          "installedQty": 118,
+          "spareQty": 0,
+          "unit": "kit",
+          "basis": "1/rack; conductor sizing/site earth RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable endpoint labels",
+          "qty": 21612,
+          "installedQty": 21612,
+          "spareQty": 0,
+          "unit": "label",
+          "basis": "2 per installed cable; no spare stock labels"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable tray / optical raceway",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "m",
+          "basis": "RFQ: measured pathway required; cable lengths are not tray length",
+          "coverage": "RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "Aisle containment",
+          "qty": 103,
+          "installedQty": 103,
+          "spareQty": 0,
+          "unit": "rack allowance",
+          "basis": "Option: rack-face allowance only; dimensions/doors RFQ",
+          "coverage": "option"
+        },
+        {
+          "category": "Facility",
+          "item": "Fire detection / suppression",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "RFQ",
+          "basis": "RFQ: floor area, hazard class, local fire design required",
+          "coverage": "RFQ"
+        }
+      ],
+      "warnings": [
+        "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
+        "Air cooling planning threshold exceeded: 51 > 30 kW",
+        "leafSpine: route >100m; custom length 120m RFQ",
+        "core: route >100m; custom length 120m RFQ",
+        "Tray shared-route upper-bound fill 1072.33% >40%; split pathways or enlarge tray"
+      ],
+      "errors": []
+    },
+    "C": {
+      "summary": {
+        "targetGPU": 288,
+        "installedGPU": 288,
+        "systemUnits": 4,
+        "servers": 4,
+        "computeRacks": 4,
+        "networkRacks": 3,
+        "totalRacks": 7,
+        "totalItPowerKw": 527,
+        "computePowerKw": 480,
+        "facilityPowerKw": 632.4,
+        "systemsPerRack": 1,
+        "bindingConstraint": [
+          "RU",
+          "power",
+          "cooling"
+        ],
+        "rackLimits": {
+          "RU": 1,
+          "power": 1,
+          "cooling": 1
+        },
+        "inputItKw": null,
+        "computeBudgetKw": null
+      },
+      "fabric": {
+        "leafCount": 12,
+        "spineCount": 8,
+        "coreCount": 0,
+        "serverLinks": 288,
+        "serverLeafLinks": 288,
+        "endpointLinks": 288,
+        "totalLeafUplinks": 384,
+        "leafSpineLinks": 384,
+        "spineToCoreLinks": 0,
+        "spineCoreLinks": 0,
+        "stageCount": 2,
+        "linkSpeedGbps": 400,
+        "switchName": "64 logical-port 400G planning",
+        "serverFacingMedia": "400G-SR4",
+        "leafSpineMedia": "400G-DR4",
+        "spineDownPortsUsed": 3,
+        "coreUplinkPorts": 0,
+        "spineUnusedPorts": 0,
+        "domains": [
+          {
+            "domain": 0,
+            "hosts": 72,
+            "leaf": 3,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 0.75
+          },
+          {
+            "domain": 1,
+            "hosts": 72,
+            "leaf": 3,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 0.75
+          },
+          {
+            "domain": 2,
+            "hosts": 72,
+            "leaf": 3,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 0.75
+          },
+          {
+            "domain": 3,
+            "hosts": 72,
+            "leaf": 3,
+            "spine": 2,
+            "core": 0,
+            "tier": 2,
+            "twoLimit": 2048,
+            "threeLimit": 65536,
+            "down": 32,
+            "up": 32,
+            "allocatedOversub": 1,
+            "actualOversub": 0.75
+          }
+        ]
+      },
+      "facility": {
+        "pue": 1.2,
+        "itPowerKw": 527,
+        "facilityPowerKw": 632.4,
+        "mechanicalAndLossKw": 105.4,
+        "upsDesignKva": 731.944,
+        "upsDesignKw": 658.75,
+        "generatorDesignKw": 758.88,
+        "transformerDesignKva": 843.2,
+        "upsQty": 2,
+        "generatorQty": 2,
+        "transformerQty": 2
+      },
+      "cooling": {
+        "mode": "dlc",
+        "modeLabel": "DLC",
+        "rackDensityKw": 120,
+        "liquidKw": 360,
+        "airKw": 167,
+        "liquidFraction": 0.75,
+        "flowLMin": 516.006,
+        "cduQty": 2,
+        "cduDuty": 1,
+        "rackLiquidCapacityKw": 90,
+        "rackAirCapacityKw": 30,
+        "rackLiquidKw": 90,
+        "rackAirKw": 30,
+        "notes": [
+          {
+            "title": "Liquid / air heat",
+            "text": "360 / 167 kW; residual air includes network/storage"
+          },
+          {
+            "title": "Flow assumption",
+            "text": "516.006 L/min = P/(ρ cp ΔT); ΔT 10 K; CDU 1 duty / 2 installed; flow/pressure RFQ"
+          },
+          {
+            "title": "Rack binding constraint",
+            "text": "RU + power + cooling; 1 systems/rack; {\"RU\":1,\"power\":1,\"cooling\":1}"
+          }
+        ]
+      },
+      "optical": {
+        "server": {
+          "links": 288,
+          "lengthM": 50,
+          "routeLengthM": 37.949999999999996,
+          "profile": {
+            "media": "400G-SR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "UPC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OM4",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 576,
+          "purchasedModules": 634,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 4,
+            "attenDbKm": 3,
+            "connectorDb": 0.35,
+            "estimatedDb": 1.55,
+            "budgetDb": 1.9,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-SR4",
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 288,
+            "cableCount": 317,
+            "installedChannelFibers": 12,
+            "requiredFibers": 2304,
+            "provisionedFibers": 4608
+          }
+        },
+        "leafSpine": {
+          "links": 384,
+          "lengthM": 120,
+          "routeLengthM": 118.44999999999999,
+          "profile": {
+            "media": "400G-DR4",
+            "optical": true,
+            "optics": 2,
+            "connector": "MPO-12",
+            "polish": "APC",
+            "fibers": 8,
+            "installedChannelFibers": 12,
+            "base": 12,
+            "connectorGroups": 1,
+            "fiberType": "OS2",
+            "trunkFiberCount": 16,
+            "requestedTrunkFiberCount": 16,
+            "compatibility": "REVIEW",
+            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+          },
+          "installedModules": 768,
+          "purchasedModules": 845,
+          "loss": {
+            "applicable": true,
+            "matedPairs": 4,
+            "attenDbKm": 0.35,
+            "connectorDb": 0.35,
+            "estimatedDb": 1.442,
+            "budgetDb": 3,
+            "marginDb": 0,
+            "pass": true,
+            "alternatives": [
+              "400G-DR4",
+              "400G-FR4",
+              "400G-LR4-6"
+            ]
+          },
+          "trunk": {
+            "installedCableCount": 384,
+            "cableCount": 423,
+            "installedChannelFibers": 12,
+            "requiredFibers": 3072,
+            "provisionedFibers": 6144
+          }
+        },
+        "core": {
+          "links": 0,
+          "profile": {
+            "optical": false
+          },
+          "loss": {
+            "applicable": false
+          },
+          "trunk": {
+            "cableCount": 0,
+            "installedCableCount": 0,
+            "provisionedFibers": 0
+          }
+        }
+      },
+      "storage": {
+        "systems": 0,
+        "switches": 0,
+        "rawRatio": 0.8,
+        "rawTb": 0,
+        "usableTb": 0,
+        "readGbps": 0
+      },
+      "bom": [
+        {
+          "category": "Compute",
+          "item": "GB200 NVL72 planning rack",
+          "qty": 4,
+          "installedQty": 4,
+          "spareQty": 0,
+          "unit": "rack",
+          "basis": "ceil(GPU/72); configured power 120 kW"
+        },
+        {
+          "category": "Network",
+          "item": "Compute NIC logical endpoints",
+          "qty": 288,
+          "installedQty": 288,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "4 × 72 NIC ports"
+        },
+        {
+          "category": "Network",
+          "item": "Leaf 400G planning switch",
+          "qty": 12,
+          "installedQty": 12,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=32; no spare"
+        },
+        {
+          "category": "Network",
+          "item": "Spine 400G planning switch",
+          "qty": 8,
+          "installedQty": 8,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "Sum independent domains; R=64, down=32, up=32; no spare"
+        },
+        {
+          "category": "Compute",
+          "item": "NVLink copper backplane assembly",
+          "qty": 4,
+          "installedQty": 4,
+          "spareQty": 0,
+          "unit": "rack kit",
+          "basis": "1 OEM rack kit/rack; RFQ, not scale-out optics"
+        },
+        {
+          "category": "Compute",
+          "item": "NVLink switch trays (included OEM rack)",
+          "qty": 36,
+          "installedQty": 36,
+          "spareQty": 0,
+          "unit": "tray",
+          "basis": "9/rack reference, included in rack kit; do not double-order"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server 400G-SR4 transceiver",
+          "qty": 634,
+          "installedQty": 576,
+          "spareQty": 58,
+          "unit": "module",
+          "basis": "576 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server 16F trunk 50 m",
+          "qty": 317,
+          "installedQty": 288,
+          "spareQty": 29,
+          "unit": "cable",
+          "basis": "ceil(288/1) channels/trunk; reserve Base-12 × 1",
+          "segment": "server"
+        },
+        {
+          "category": "Connectivity",
+          "item": "server optical patch leads",
+          "qty": 634,
+          "installedQty": 576,
+          "spareQty": 58,
+          "unit": "cable",
+          "basis": "2 endpoint patch leads/link; additional intermediate patching RFQ",
+          "segment": "server"
+        },
+        {
+          "category": "Passive",
+          "item": "server patch panels",
+          "qty": 24,
+          "installedQty": 24,
+          "spareQty": 0,
+          "unit": "panel",
+          "basis": "2 sides × ceil(288/24)"
+        },
+        {
+          "category": "Passive",
+          "item": "server MPO through adapter cassettes",
+          "qty": 48,
+          "installedQty": 48,
+          "spareQty": 0,
+          "unit": "cassette",
+          "basis": "2 sides × ceil(channels/12); parallel MPO, not MPO→LC conversion"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine 400G-DR4 transceiver",
+          "qty": 845,
+          "installedQty": 768,
+          "spareQty": 77,
+          "unit": "module",
+          "basis": "768 installed + ceil(spare 10%); 2 modules/link",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine 16F trunk 120 m",
+          "qty": 423,
+          "installedQty": 384,
+          "spareQty": 39,
+          "unit": "cable",
+          "basis": "ceil(384/1) channels/trunk; reserve Base-12 × 1",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Connectivity",
+          "item": "leafSpine optical patch leads",
+          "qty": 845,
+          "installedQty": 768,
+          "spareQty": 77,
+          "unit": "cable",
+          "basis": "2 endpoint patch leads/link; additional intermediate patching RFQ",
+          "segment": "leafSpine"
+        },
+        {
+          "category": "Passive",
+          "item": "leafSpine patch panels",
+          "qty": 32,
+          "installedQty": 32,
+          "spareQty": 0,
+          "unit": "panel",
+          "basis": "2 sides × ceil(384/24)"
+        },
+        {
+          "category": "Passive",
+          "item": "leafSpine MPO through adapter cassettes",
+          "qty": 64,
+          "installedQty": 64,
+          "spareQty": 0,
+          "unit": "cassette",
+          "basis": "2 sides × ceil(channels/12); parallel MPO, not MPO→LC conversion"
+        },
+        {
+          "category": "Network",
+          "item": "Frontend 100G switch",
+          "qty": 7,
+          "installedQty": 7,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend endpoint/uplink cable",
+          "qty": 198,
+          "installedQty": 180,
+          "spareQty": 18,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Frontend optical module allowance",
+          "qty": 396,
+          "installedQty": 360,
+          "spareQty": 36,
+          "unit": "module",
+          "basis": "2/link; speed, optics budget and host compatibility RFQ"
+        },
+        {
+          "category": "Network",
+          "item": "OOB 1G switch",
+          "qty": 7,
+          "installedQty": 7,
+          "spareQty": 0,
+          "unit": "switch",
+          "basis": "ceil(endpoints/24) leaf + aggregate uplink capacity; RFQ full port map"
+        },
+        {
+          "category": "Connectivity",
+          "item": "OOB endpoint/uplink cable",
+          "qty": 189,
+          "installedQty": 171,
+          "spareQty": 18,
+          "unit": "cable",
+          "basis": "endpoints + leaf uplinks; media length and optics RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "BMC managed endpoints",
+          "qty": 135,
+          "installedQty": 135,
+          "spareQty": 0,
+          "unit": "port",
+          "basis": "Compute 108 + switches/storage/ops; OOB switch management upstream RFQ"
+        },
+        {
+          "category": "Ops",
+          "item": "Console server",
+          "qty": 1,
+          "installedQty": 1,
+          "spareQty": 0,
+          "unit": "device",
+          "basis": "ceil(managed fabric switches/32)"
+        },
+        {
+          "category": "Connectivity",
+          "item": "Console serial cable",
+          "qty": 30,
+          "installedQty": 27,
+          "spareQty": 3,
+          "unit": "cable",
+          "basis": "1/managed fabric switch; connector RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "UPS 1000 kVA module",
+          "qty": 2,
+          "installedQty": 2,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT 527/PF 0.9/η 0.96×1.2/usable 800))"
+        },
+        {
+          "category": "Facility",
+          "item": "Generator 2500 kW module",
+          "qty": 2,
+          "installedQty": 2,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE×headroom/usable kW)); mechanical load included"
+        },
+        {
+          "category": "Facility",
+          "item": "Transformer 3000 kVA module",
+          "qty": 2,
+          "installedQty": 2,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(IT×PUE/PF×headroom/(rated×derating)))"
+        },
+        {
+          "category": "Cooling",
+          "item": "CDU 600 kW module",
+          "qty": 2,
+          "installedQty": 2,
+          "spareQty": 0,
+          "unit": "module",
+          "basis": "red(ceil(360/600)); N+1"
+        },
+        {
+          "category": "Cooling",
+          "item": "Rack liquid manifold pair",
+          "qty": 8,
+          "installedQty": 8,
+          "spareQty": 0,
+          "unit": "manifold",
+          "basis": "Supply + return per compute rack; flow/pressure OEM RFQ"
+        },
+        {
+          "category": "Rack",
+          "item": "IT rack",
+          "qty": 7,
+          "installedQty": 7,
+          "spareQty": 0,
+          "unit": "rack",
+          "basis": "Compute 4 + equipment 3"
+        },
+        {
+          "category": "Power",
+          "item": "A/B rack PDU",
+          "qty": 40,
+          "installedQty": 40,
+          "spareQty": 0,
+          "unit": "PDU",
+          "basis": "Each side supports full rack kW and cord count; N-side redundancy"
+        },
+        {
+          "category": "Power",
+          "item": "C19/C20 planning AC power cord",
+          "qty": 75,
+          "installedQty": 68,
+          "spareQty": 7,
+          "unit": "cable",
+          "basis": "sum(OEM cord count); connector/current verified by RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "A/B busway tap or RPP branch",
+          "qty": 14,
+          "installedQty": 14,
+          "spareQty": 0,
+          "unit": "branch",
+          "basis": "2/rack; A/B breaker, fault level and ampacity RFQ"
+        },
+        {
+          "category": "Power",
+          "item": "3-phase balance plan",
+          "qty": 21,
+          "installedQty": 21,
+          "spareQty": 0,
+          "unit": "phase schedule",
+          "basis": "Rack kW/3 per phase; discrete outlet mapping RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Rack ground bonding kit",
+          "qty": 7,
+          "installedQty": 7,
+          "spareQty": 0,
+          "unit": "kit",
+          "basis": "1/rack; conductor sizing/site earth RFQ"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable endpoint labels",
+          "qty": 4788,
+          "installedQty": 4788,
+          "spareQty": 0,
+          "unit": "label",
+          "basis": "2 per installed cable; no spare stock labels"
+        },
+        {
+          "category": "Passive",
+          "item": "Cable tray / optical raceway",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "m",
+          "basis": "RFQ: measured pathway required; cable lengths are not tray length",
+          "coverage": "RFQ"
+        },
+        {
+          "category": "Facility",
+          "item": "Aisle containment",
+          "qty": 4,
+          "installedQty": 4,
+          "spareQty": 0,
+          "unit": "rack allowance",
+          "basis": "Option: rack-face allowance only; dimensions/doors RFQ",
+          "coverage": "option"
+        },
+        {
+          "category": "Facility",
+          "item": "Fire detection / suppression",
+          "qty": 0,
+          "installedQty": 0,
+          "spareQty": 0,
+          "unit": "RFQ",
+          "basis": "RFQ: floor area, hazard class, local fire design required",
+          "coverage": "RFQ"
+        }
+      ],
+      "warnings": [
+        "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
+        "leafSpine: route >100m; custom length 120m RFQ",
+        "Tray shared-route upper-bound fill 87.965% >40%; split pathways or enlarge tray"
+      ],
+      "errors": []
+    }
+  }
+}

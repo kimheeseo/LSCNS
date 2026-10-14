@@ -55,7 +55,7 @@ function calculate(raw={}){
  if(!['rail','single','dual'].includes(i.topology)){warnings.push('Unknown topology; Rail used');i.topology='rail';}
  const selected=SYSTEMS[i.systemId];
  let p={...(selected||SYSTEMS.b200),...(raw.systemAssumptions?.[i.systemId]||{})};
- if(i.systemId==='custom')p={name:i.customName||'Custom',gpus:i.customGpus||8,ru:i.customRU||10,power:i.customKw||14.3,links:i.customLinks||8,linkSpeed:Number(i.customSpeed)||400,cordCount:i.customCords||6};
+ if(i.systemId==='custom'||(!selected&&i.customKw))p={name:i.customName||'Custom',gpus:i.customGpus||8,ru:i.customRU||10,power:i.customKw||14.3,links:i.customLinks||8,linkSpeed:Number(i.customSpeed)||400,cordCount:i.customCords||6};
  if(i.nicOverride){p.links=Number(i.nicLinks)||p.links;p.linkSpeed=Number(i.nicSpeed)||p.linkSpeed;}
  for(const k of ['gpus','ru','power','links','linkSpeed'])if(!Number.isFinite(Number(p[k]))||p[k]<=0){warnings.push('System '+k+': default used');p[k]=(selected||SYSTEMS.b200)[k];}else p[k]=Number(p[k]);
  p.links=ceil(p.links);p.gpus=ceil(p.gpus);p.ru=ceil(p.ru);
@@ -105,7 +105,9 @@ function calculate(raw={}){
    spineCount=spines.length;
   }else{
    // Regular folded Clos: <= R/2 leaves/pod; up spine planes/pod; each spine reserves leafCount upstream ports.
-   const pods=[];for(let at=0;at<leaves.length;at+=down)pods.push(leaves.slice(at,at+down));
+   const podLeafCap=Math.max(1,Math.min(down,Math.floor(i.podLeafLimit||down)));
+   const pods=[];for(let at=0;at<leaves.length;at+=podLeafCap)pods.push(leaves.slice(at,at+podLeafCap));
+   if(pods.length>R)errors.push('Domain '+domain+': configured pod Leaf limit creates more than R pods; split fabric');
    const maxLeaves=Math.max(1,...pods.map(x=>x.length));
    let podSpines=1;while(podSpines<up&&(up%podSpines!==0||maxLeaves*(up/podSpines)>down))podSpines++;
    const parallelLeafLinks=up/podSpines,spineUp=maxLeaves*parallelLeafLinks;
@@ -133,7 +135,7 @@ function calculate(raw={}){
   const routed=(distance+i.verticalRiseM+2*i.terminationM)*(1+i.slackPct/100),standard=[1,2,3,5,10,20,30,50,100].find(m=>m>=routed),length=standard||ceil(routed/10)*10;
   if(!standard)warnings.push(segment+': route >100m; custom length '+length+'m RFQ');
   const table=OPTICS.filter(x=>x.speed===speed).map(x=>({...x,reach:raw.opticsAssumptions?.[speed+'-'+x.id]?.reach??x.reach,loss:raw.opticsAssumptions?.[speed+'-'+x.id]?.loss??x.loss}));
-  const lossOf=x=>{const optical=x.loss!==null,pairs=cabling==='structured'?Math.max(4,ceil(i.matedPairs)):Math.max(2,ceil(i.p2pPairs)),atten=x.fiber==='OM4'?i.mmfAttenDbKm:i.fiberAttenDbKm,connector=/LC/.test(x.connector)?i.lcLossDb:i.lowLoss?.25:i.mpoLossDb;return {applicable:optical,matedPairs:pairs,attenDbKm:atten,connectorDb:connector,estimatedDb:optical?round(atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb):0,budgetDb:x.loss,marginDb:i.marginDb,pass:length<=x.reach&&(!optical||atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb+i.marginDb<=x.loss)};};
+  const lossOf=x=>{const optical=x.loss!==null,budget=optical&&i.opticalBudgetMode==='project'?Math.min(x.loss,Number(i.projectBudgetDb)||x.loss):x.loss,pairs=cabling==='structured'?Math.max(4,ceil(i.matedPairs)):Math.max(2,ceil(i.p2pPairs)),atten=x.fiber==='OM4'?i.mmfAttenDbKm:i.fiberAttenDbKm,connector=/LC/.test(x.connector)?i.lcLossDb:i.lowLoss?.25:i.mpoLossDb;return {applicable:optical,matedPairs:pairs,attenDbKm:atten,connectorDb:connector,estimatedDb:optical?round(atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb):0,budgetDb:budget,marginDb:i.marginDb,pass:length<=x.reach&&(!optical||atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb+i.marginDb<=budget)};};
   const available=table.filter(x=>cabling==='p2p'||x.loss!==null).filter(x=>i.fiberPreference==='smf'?x.loss===null||x.fiber==='OS2':i.fiberPreference==='mmf'?x.loss===null||x.fiber==='OM4':true);
   let chosen=mediaChoice&&mediaChoice!=='auto'?table.find(x=>x.id===mediaChoice):available.filter(x=>x.id!=='aec').find(x=>lossOf(x).pass);
   chosen=chosen||available.at(-1)||table.at(-1);const loss=lossOf(chosen),isOptical=chosen.loss!==null;
@@ -200,6 +202,7 @@ function calculate(raw={}){
  const ops=i.enterpriseRackEnabled?sum(['firewallQty','routerQty','loadBalancerQty','kvmQty','nasQty'].map(k=>ceil(i[k]))):0;
  if(ops){for(const k of ['firewallQty','routerQty','loadBalancerQty','kvmQty','nasQty'])row('Ops',k.replace('Qty',''),ceil(i[k]),'device','User option');addEquipmentRacks('Ops',ops,i.opsUnitRU,i.opsUnitKw);}
  if(i.oobEnabled){const managed=bmc+switchCount+storageSwitches+storageNodes+frontSwitches+ops;aux('OOB',managed,'1G',true);row('Ops','BMC managed endpoints',managed,'port','Compute '+bmc+' + switches/storage/ops; OOB switch management upstream RFQ');row('Ops','Console server',ceil((switchCount+frontSwitches+storageSwitches)/i.consolePorts),'device','ceil(managed fabric switches/'+i.consolePorts+')');row('Connectivity','Console serial cable',purchase(switchCount+frontSwitches+storageSwitches),'cable','1/managed fabric switch; connector RFQ',{installedQty:switchCount+frontSwitches+storageSwitches});}
+ if(i.regionPduEnabled){const phase=Number(i.sitePhases)===1?1:Math.sqrt(3);if(Number(i.siteCurrentA)>0)i.pduRatedKw=phase*i.siteVoltage*Number(i.siteCurrentA)*i.powerFactor/1000;else warnings.push('Regional PDU current invalid; configured PDU kW retained');}
  for(const r of allRacks){const q=Math.max(1,ceil(r.powerKw/(i.pduRatedKw*i.pduUtilPct/100)),ceil(ceil(r.cords/2)/i.pduOutlets));r.pduQty=2*q;r.phaseKw=round(r.powerKw/3);if(r.powerKw>i.rackCoolingKw)errors.push(r.id+': cooling capacity exceeded');}
  const it=round(sum(allRacks.map(r=>r.powerKw))),facilityKw=round(it*i.pue),facilityMargin=1+i.facilityHeadroomPct/100;
  const upsKva=it/i.powerFactor/i.upsEfficiency*facilityMargin,generatorKw=facilityKw*facilityMargin,transformerKva=facilityKw/i.powerFactor*facilityMargin;

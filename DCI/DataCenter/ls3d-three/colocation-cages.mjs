@@ -49,16 +49,24 @@ export function createColocationCages(THREE,{cube}) {
     clear();lastSignature=signature;root.visible=true;ready=true;stats.builds++;
     root.position.set(cage.x,0,cage.z);
     const w=cage.w,d=cage.d,h=Math.min(4.6,Math.max(3.5,cage.h));
-    const bayWidth=w/3,front=d/2,back=-d/2,barH=h-.2;
+    const front=d/2,back=-d/2,barH=h-.2;
+    // Derive fence positions from ORIGINAL rack footprints so partitions cannot
+    // slice through customer racks; equal thirds would cut across Customer A.
+    const thresholds=[-w/2];
+    for(let i=0;i<2;i++){
+      const rightEdge=racks[i].x+racks[i].w/2;
+      const leftEdge=racks[i+1].x-racks[i+1].w/2;
+      thresholds.push((rightEdge+leftEdge)/2-cage.x);
+    }
+    thresholds.push(w/2);
+    if(thresholds.slice(1).some((x,i)=>x-thresholds[i]<1.95)){
+      thresholds.splice(0,4,-w/2,-w/6,w/6,w/2);
+    }
     const floor=part(root,'raised-tenant-floor',0,-.07,0,w+.23,.12,d+.25,'#587884');
     floor.userData.noPick=true;
-    const frame=(name,x,z,spanX,spanZ,color)=>{
-      const obj=part(root,name,x,.10,z,spanX,.11,spanZ,color);
-      obj.userData.noPick=true;return obj;
-    };
     // Per-bay enclosure: linked steel mesh panels and posts with real 3D depth.
     for(let partition=0;partition<=3;partition++){
-      const xx=-w/2+partition*bayWidth;
+      const xx=thresholds[partition];
       for(let s=0;s<8;s++){
         const zz=back+(s+.5)*d/8;
         const pole=part(root,'mesh-stile-'+partition+'-'+s,xx,.08,zz,.060,barH,.065,'#8ca5b0');
@@ -67,10 +75,12 @@ export function createColocationCages(THREE,{cube}) {
       const side=part(root,'mesh-wall-'+partition,xx,.23,0,.035,barH*.79,d-.10,
         partition===0||partition===3?'#6da2b5':'#79a9b4',true);
       side.userData.noPick=true;stats.meshPanels++;
-      for(let y=0;y<4;y++)frame('mesh-rail-'+partition+'-'+y,xx,.07+y*barH/4,.06,d-.1,'#93b3bd');
+      for(let y=0;y<4;y++)
+        part(root,'mesh-rail-'+partition+'-'+y,xx,.16+y*barH/4,0,.067,.07,d-.1,'#93b3bd').userData.noPick=true;
     }
     for(let section=0;section<3;section++){
-      const center=-w/2+bayWidth*(section+.5);
+      const bayWidth=thresholds[section+1]-thresholds[section];
+      const center=(thresholds[section]+thresholds[section+1])/2;
       const cfg=tenants[section],rack=racks[section],localRackX=rack.x-cage.x;
       const tenantGroup=new THREE.Group();tenantGroup.name='colo:tenant:'+cfg.id;
       tenantGroup.userData.coloTenant=cfg.id;root.add(tenantGroup);

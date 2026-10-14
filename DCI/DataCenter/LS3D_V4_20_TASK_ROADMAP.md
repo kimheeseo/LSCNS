@@ -8,6 +8,13 @@
 - 기준 시점: 분석 당시 3D 페이지는 v4.7.0. 코드를 보지 않고 새 기능을 구현 완료로 판정하지 않는다.
 - 운영 규칙: **항목 하나 완료 → 실제 구현 및 검증 결과 보고 → 사용자 확인 후 다음 번호 진행**. 완료 기준 미충족 시 `진행 중/미완료`로 보고한다.
 
+## 현재 완료 상태 (2026-10-15 KST)
+- **STEP 01 / 20: 완료** — v4.7.0 정적 감사 및 원본 2D/BOM 보호 SHA 확정.
+- **STEP 02 / 20: 완료** — Three.js 전환 아키텍처·API 계약·단일 RAF·분리 캔버스·복귀 플래그·acceptance matrix 작성. 상세: [STEP02_THREEJS_MIGRATION_ADR.md](./architecture/STEP02_THREEJS_MIGRATION_ADR.md).
+- **STEP 02 검증:** GitHub 정적 검사 D01~D09 PASS; 브라우저 동작·Three 구현 검증 D10 NOT RUN(차후 STEP 03/19). 계획서/설계 문서만 변경.
+- **STEP 03 / 20: 승인 대기 / 미착수** — 사용자의 다음 단계 확인 전 엔진 코드 수정하지 않음.
+- 권고 라이브러리 고정: Three.js **0.186.1**, WebGLRenderer + 동일 버전 공식 addons. `?engine=legacy`와 `?engine=three`는 설계된 향후 플래그이며 **현재 사이트에 구현된 기능은 아님**.
+
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준
 - 3D HTML과 2D/BOM 엔트리 파일 확인, 버전과 SHA 기록
 - 보존해야 하는 주요 객체·기능 인터페이스와 렌더링 방식 기록

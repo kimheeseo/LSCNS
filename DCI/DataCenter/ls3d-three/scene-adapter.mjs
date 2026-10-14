@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
+import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step06';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -216,44 +217,43 @@ export function createSceneAdapter(T, canvas) {
       }
     }
   }
-  function personMesh(n) {
-    const g = new THREE.Group();
-    const uniform = n.role === 'guard' ? '#2d5681' : '#59b6c8';
-    cube(g, 0, 1.04, 0, .54, .78, .34, uniform, .1, .75);
-    cube(g, 0, 1.8, 0, .28, .14, .24, '#d7c29d', .02, .9);
-    const head = new THREE.Mesh(new THREE.SphereGeometry(.21, 12, 8), material('#caa982',.05,.85));
-    head.position.y = 2.04; g.add(head);
-    cube(g, 0, 2.22, 0, .54, .13, .46, n.role === 'guard' ? '#28476a' : '#f0c46a', .11, .61);
-    const limbs = [];
-    for (const x of [-.21,.21]) {
-      const arm = new THREE.Group(); arm.position.set(x,1.72,0); g.add(arm);
-      cube(arm,0,-.52,0,.16,.56,.17,uniform,.05,.85); limbs.push(arm);
-    }
-    for (const x of [-.15,.15]) {
-      const leg = new THREE.Group(); leg.position.set(x,1.04,0);g.add(leg);
-      cube(leg,0,-.71,0,.2,.7,.22,'#324c65',.09,.8); limbs.push(leg);
-    }
-    g.userData.limbs=limbs; return g;
-  }
+  // STEP 06 replaces simple block people with reusable articulated Three.Group rigs.
+  // Position/heading/action are still sampled from original T.npcPose; pathfinding is STEP 07.
+  const npcFactory=createNpcCharacterFactory(THREE,{cube,cylinder});
   function refreshPeople(flags) {
-    const all = T.npcs || [], visible = new Set();
-    const staff = (T.facilityProfiles?.[T.facilityMode]?.staff || []);
-    for (const n of all) {
-      if (T.facilityMode !== 'aidc' && n.role === 'guard') continue;
-      if (n.role !== 'guard' && !staff.includes(n.id)) continue;
-      if (T.currentZone !== 'campus' && n.zone !== T.currentZone) continue;
-      if (flags.inspect) continue;
-      const pose = T.npcPose(n); if (!pose || !Number.isFinite(pose.x) || !Number.isFinite(pose.z)) continue;
+    const all=T.npcs || [],visible=new Set(),states={walk:0,inspect:0,pause:0,idle:0};
+    const roles={},staff=T.facilityProfiles?.[T.facilityMode]?.staff || [];
+    for(const n of all){
+      if(T.facilityMode!=='aidc' && n.role==='guard')continue;
+      if(n.role!=='guard' && !staff.includes(n.id))continue;
+      if(T.currentZone!=='campus' && n.zone!==T.currentZone)continue;
+      if(flags.inspect)continue;
+      const pose=T.npcPose(n);
+      if(!pose||!Number.isFinite(pose.x)||!Number.isFinite(pose.z))continue;
       visible.add(n.id);
-      let g = people.get(n.id);
-      if (!g) { g=personMesh(n); people.set(n.id,g); peopleRoot.add(g); }
-      g.position.set(pose.x,.04,pose.z);g.rotation.y = pose.heading || 0;
-      const stride = pose.action === 'walk' ? Math.sin((T.simTime || 0) * 4.1) * .34 : 0;
-      g.userData.limbs[0].rotation.x = stride;g.userData.limbs[1].rotation.x = -stride;
-      g.userData.limbs[2].rotation.x = -stride;g.userData.limbs[3].rotation.x = stride;
+      let g=people.get(n.id);
+      if(!g){g=npcFactory.create(n);people.set(n.id,g);peopleRoot.add(g);}
+      g.position.set(pose.x,.04,pose.z);
+      g.rotation.y=Number.isFinite(pose.heading)?pose.heading:0;
+      const action=npcFactory.update(g,n,pose,T.simTime||0);
+      states[action]++;
+      const role=g.userData.npcRole;
+      roles[role]=(roles[role]||0)+1;
     }
-    for (const [id,g] of people) if(!visible.has(id)){peopleRoot.remove(g);people.delete(id);}
-    diagnostic.npc = people.size;
+    for(const [id,g] of people)if(!visible.has(id)){
+      peopleRoot.remove(g);
+      people.delete(id); // all primitive geometries/materials are cached/shared by the adapter
+    }
+    diagnostic.npc=people.size;
+    diagnostic.npcAnimation={
+      visible:people.size,
+      ids:[...people.keys()],
+      roles,
+      actions:states,
+      articulated:people.size,
+      totalBuilt:npcFactory.metrics.built,
+      totalAnimationUpdates:npcFactory.metrics.animated
+    };
   }
   let viewportWidth=0, viewportHeight=0, viewportDpr=0;
   function render(dt, view) {
@@ -313,5 +313,5 @@ export function createSceneAdapter(T, canvas) {
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get disposed(){return disposed;} };
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;}, get disposed(){return disposed;} };
 }

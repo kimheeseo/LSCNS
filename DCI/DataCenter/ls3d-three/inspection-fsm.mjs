@@ -45,8 +45,8 @@ export function createInspectionFSM(T){
   }
   s.lastTime=time;
   if(moving){
-    if(s.state!=='move'){
-      // Completion is recorded at tablet -> depart, never twice on resumed movement.
+    if(s.state!=='move' && s.state!=='depart'){
+      // Transition to depart only once; otherwise since would reset on every walking frame.
       s.state='depart';s.since=time;log(n,'depart',s.target,time);
     }
     if(s.state==='depart'&&time-s.since>.25){

@@ -12,7 +12,7 @@ import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=2026101
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
-import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-step18';
+import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
 import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261015-rack-collapse';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.

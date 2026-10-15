@@ -276,7 +276,7 @@ export function createSceneAdapter(T, canvas) {
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const fiberSelected=selectedRackPart?.assetId===a.id&&selectedRackPart.kind==='fiber-port';
-    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 근접 확대':'전면 시점 · 근접 확대'):'기본 시점')+
+    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 3인칭':'전면 시점 · 3인칭'):'기본 시점')+
       ' · 서버 '+serverLabel+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+

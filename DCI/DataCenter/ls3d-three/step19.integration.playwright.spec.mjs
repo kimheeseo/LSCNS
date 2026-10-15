@@ -222,6 +222,11 @@ test('19-G: narrow mobile screen and two-finger pan/pinch with no false rack pic
     desired:JSON.stringify(window.__LS3D_TEST__.cameraDesired),
     selected:window.__LS3D_TEST__.selected?.id
   }));
+  // On mobile the metrics and introductory sections put the 3D scene below
+  // the initial fold. A user scrolls to the viewport before touching it.
+  // CDP touch coordinates are viewport-relative, so scroll first as well.
+  await page.locator('#sceneThree').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(200);
   // Locate two genuinely uncovered points on the mobile Three.js canvas.
   // Fixed viewport fractions may fall under Co-location/MEP HUD overlays,
   // so those touches never reach the real canvas pointer handlers.

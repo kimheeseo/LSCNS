@@ -29,7 +29,7 @@ class Node{
   updateWorldMatrix(){}
 }
 function shape(){
-  const root=new Node('root'),room=root.add(new Node('arch:zone:hall'));
+  const root=new Node('root'),room=new Node('arch:zone:hall');root.add(room);
   const wall=room.add(new Node('arch:wall:side', 'wall',true));
   const roof=room.add(new Node('arch:roof:main','roof',true));
   const floor=room.add(new Node('arch:floor:main','floor',true));

@@ -25,9 +25,10 @@
 | 15/20 | MMR 별도 4구획·Carrier/ODF/DWDM/Core 모델·4개 출입문·광회선 선택 | **실제 소스 구현 및 JS Mock 16/16 + Scene Bridge 8/8 + Node 호환 테스트 4/4 PASS / Chromium QA 대기** | 구획 출입문 실제 `rotation.y`, 선택 Fiber `TubeGeometry`, 상세 메타정보·선택 경로 강조·구역 전환 상태 보존 |
 | 16/20 | 고객 A/B/C Co-location 격리·광/전력 A/B·출입문 정밀화 | **GitHub 코드 구현·28/28 실제 소스 Mock PASS 및 작성한 단위 테스트 5/5 PASS / Chromium QA 대기** | 좌표 기반 안전 펜스, 실 3D Mesh·3개 힌지, 개별 Fiber/PDU A/B Tube 및 선택/메타정보, rebuild 상태 보존 |
 | 17/20 | 전력·냉각·광 3D Tube / Overhead Tray·Pipe / 연결 선택 | **코드 구현·원본 HTML 자산 60개 기반 Mock 22/22 PASS + 별도 JS 테스트 5/5 PASS / Chromium QA 대기** | 기존 THREE.Line 제거, 실제 설비 ID 연결·루트별 색상/선택·정보 표시·메모리 dispose 및 server-room 격리 |
-| 18~20/20 | 카메라·모바일/성능·통합 Playwright·최종 배포 | **미진행** | 사용자 다음 승인 후 진행 |
+| 18/20 | 근거리 카메라 가림 복원·모바일 UI 및 2손가락 pan/pinch·적응형 DPR·모바일 Shadow 최적화 | **구현·실제 저장 코드 JS Mock 5/5 PASS / Chromium 및 GPU 성능실측 대기** | viewport 정책, 선택 장비 가림 판단, 패널 배치, high/low 수동설정 보존, 메모리 그룹 정리 개선 |
+| 19~20/20 | 통합 Playwright·실화면/FPS/메모리 및 최종 배포 | **미진행** | 사용자 다음 승인 후 진행 |
 
-**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14~17은 소스 기반 모의 검증을 완료했으나 브라우저 검증은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
+**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14~18은 소스 기반 모의 검증을 완료했으나 브라우저 검증은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -72,6 +73,8 @@
 - [16 3D 고객 Cage 모듈](./ls3d-three/colocation-cages.mjs) · [Node 테스트](./ls3d-three/step16.unit.test.mjs) · [Playwright 브라우저 초안](./ls3d-three/step16.playwright.spec.mjs)
 - [17 광·전력·냉각 MEP 3D 경로 보고서](./architecture/STEP17_MEP_3D_ROUTES_REPORT.md)
 - [17 3D Tube/케이블 트레이/냉각 배관 엔진](./ls3d-three/campus-mep-routes.mjs) · [Node 테스트](./ls3d-three/step17.unit.test.mjs) · [Playwright 브라우저 초안](./ls3d-three/step17.playwright.spec.mjs)
+- [18 카메라·모바일 UI·성능 개발 보고서](./architecture/STEP18_CAMERA_UI_PERFORMANCE_REPORT.md)
+- [18 viewport policy 모듈](./ls3d-three/scene-viewport-policy.mjs) · [Unit 테스트](./ls3d-three/step18.unit.test.mjs) · [Playwright 초안](./ls3d-three/step18.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -155,4 +158,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 17 광·전력·냉각의 실제 Three.js TubeGeometry·트레이·배관 모델을 main에 반영. STEP 17 원본 HTML 실제 자산 기반 Mock **22/22 PASS**, 저장한 단위 테스트 본문 JS 실행 **5/5 PASS**. **실 Chromium/WebGL2·모바일 스크린샷·성능 검증은 ERR_BLOCKED_BY_ADMINISTRATOR로 미실행**, 최종 수용 판정은 보류한다. [STEP17 보고서](./architecture/STEP17_MEP_3D_ROUTES_REPORT.md). STEP 18은 사용자 다음 승인 후 진행한다.
+STEP 18은 Three.js viewport policy / 근거리 occlusion / 모바일 panel layout / 다중 포인터 pinch+pan / GPU 부담 경감을 `main`에 추가하고 실제 모듈 JavaScript Mock **5/5 PASS**. **실 Chromium/WebGL2·모바일 터치·스크린샷·정량 FPS/메모리 검증 미실행**이므로 완료 기준은 코드 구현·모의 검증까지다. [STEP18 보고서](./architecture/STEP18_CAMERA_UI_PERFORMANCE_REPORT.md). STEP 19는 사용자 확인 후 진행한다.

@@ -100,7 +100,7 @@ test('19-C: rack front/rear, selected sled, cassette, ToR and independent PDU A/
   });
   await page.waitForFunction(()=>!!document.querySelector('#ls3dRackMotionControls')&&
     !document.querySelector('#ls3dRackMotionControls').hidden);
-  const a=window; // browser actions below are DOM interactions, not mocked.
+  // Browser actions below are real DOM interactions.
   await page.locator('[data-rack-action="rear-camera"]').click();
   await page.locator('[data-rack-action="rear-door"]').click();
   await settle(page);

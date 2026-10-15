@@ -11,6 +11,11 @@ const THREE_BUILD=path.resolve(process.cwd(),'node_modules/three/build');
 const ZONES=['campus','utility','cooling','gray','hall','network','ops'];
 const serious=[];
 test.beforeEach(async({page})=>{
+  // Only the tested 3D controls are in scope; first-visit onboarding covers
+  // the canvas and controls in a fresh CI browser unless already completed.
+  await page.addInitScript(() => {
+    try { window.localStorage.setItem('ls3d-first-guide-v481', 'done'); } catch (_) {}
+  });
   // Hermetic Three.js version for browser CI, preserving the site's exact
   // import map and module graph. This replaces *only* the CDN response.
   await page.route('**/npm/three@0.186.1/build/three.*.js',async route=>{

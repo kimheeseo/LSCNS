@@ -573,7 +573,7 @@ export function createSceneAdapter(T, canvas) {
     // rack/asset; all are restored on zoom-out, zone changes or dispose.
     diagnostic.occlusion=cameraOcclusion.update({
       eye,selected:T.selected,currentZone:T.currentZone,
-      facilityMode:T.facilityMode,inspect:!!flags.inspect,showSection:!!flags.showSection
+      facilityMode:T.facilityMode,inspect:!!flags.inspect&&focusedRack?.id!==T.selected?.id,showSection:!!flags.showSection
     });
     diagnostic.viewport=viewportPolicy.summary();
     diagnostic.overlay=layoutSceneOverlays({

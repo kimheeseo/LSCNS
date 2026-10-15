@@ -46,9 +46,10 @@ export function createRackComponentKit(THREE,{cube}){
     box(unitGroup,'u-mounting-rail-'+xx,xx,.24,-d*.412,.085,h-.51,.105,'#c1d0d5',.74,.27);
   retain(unitGroup);
   const pickSlots=[
-    {kind:'patch-panel',label:'광 패치패널',top:count-1,units:1,color:'#be9e68'},
-    {kind:'tor',label:'Top-of-Rack 네트워크 스위치',top:count-3,units:2,color:'#36718a'},
-    {kind:'odf',label:'ODF 및 광 카세트',top:count-6,units:2,color:'#537e94'}
+    // STEP 14: reserve the physically highest U positions for the ToR.
+    {kind:'tor',label:'Top-of-Rack 네트워크 스위치',top:count,units:2,color:'#36718a'},
+    {kind:'patch-panel',label:'광 패치패널',top:count-2,units:1,color:'#be9e68'},
+    {kind:'odf',label:'ODF 및 광 카세트',top:count-3,units:2,color:'#537e94'}
   ];
   const network=/core|spine|leaf|odf|mmr|switch/i.test(a.type);
   const storage=/storage/i.test(a.type);

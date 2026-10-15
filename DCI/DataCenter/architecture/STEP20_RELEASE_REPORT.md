@@ -95,3 +95,26 @@
 - 본 모델의 경로, U/포트 및 시각적 배관은 교육/설계 검토용. 실제 CAD/BIM·IEC/TIA 적합성·전력/냉각 용량·광 링크 정격의 실측 검증 대체물이 아니다.
 
 **결론:** STEP 20의 버전업 표기·사용법 정리·TXT 릴리스 이력·GitHub 소스 반영은 완료. 실 브라우저/배포 종합 수용성은 아직 완료라 판정할 수 없으므로 **v4.8.0-rc.1** 유지.
+
+
+## 7. 최종 GitHub main 정적 대조 (2026-10-15)
+
+GitHub 저장소에서 직접 파일을 다시 fetch하여 아래 **15개 정적 항목 15/15 PASS**를 확인하였다. 이 검사는 저장소 원본 문서/소스/Blob SHA 비교이며 Chromium 실브라우저 실행은 아니다.
+
+1. HTML 제목 v4.8.0-rc.1 표기
+2. 화면 사이드바에 v4.7.0 코어 / Three.js rc.1 구분 표시
+3. 기존 Three Bootstrap 버전 URL 및 STEP18 기능 참조 유지
+4. Three.js 0.186.1 import map 유지
+5. Root README의 최신 Three.js 링크
+6. Root README의 상세 설명서 및 버전업 TXT 링크
+7. DataCenter README의 Three/Legacy/BOM 접속 링크
+8. TXT에 STEP 01~STEP 20 총 20개 단계 기록
+9. TXT에 롤백/QA 보류/버전 후보 문구 기록
+10. 최종 보고서 rc 상태 및 정식 판정 보류 문구
+11. 진행 현황·로드맵의 STEP20 반영
+12. GitHub Actions가 step20.release.test.mjs 트리거 및 테스트 실행하도록 설정
+13. step20.release.test.mjs JavaScript 구문 파싱 정상
+14. 기존 2D Gold Pixel Tour Git Blob SHA 일치
+15. 기존 DataCenter BOM Git Blob SHA 일치
+
+**미실행/미확인:** 상기 15개 확인은 실제 Node CLI step20.release.test.mjs 수행 로그가 아니다. GitHub Actions 자체 브라우저 성공 여부, GitHub Pages 실화면, GPU FPS/모바일 터치는 확인되지 않았으므로 최종 후보 버전의 정식 승격 판정은 유보한다.

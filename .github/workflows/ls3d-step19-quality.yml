@@ -41,6 +41,7 @@ jobs:
           for step in 14 15 16 17 18; do
             node --test "DCI/DataCenter/ls3d-three/step${step}.unit.test.mjs"
           done
+          node --test DCI/DataCenter/ls3d-three/step19.source.test.mjs
       - name: Serve exact checked-out 3D site via localhost
         shell: bash
         run: |

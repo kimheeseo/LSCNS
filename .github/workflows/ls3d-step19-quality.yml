@@ -1,0 +1,70 @@
+name: LS Datacenter 3D - Step 19 Integrated QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "DCI/DataCenter/ls3d-three/step19.*"
+      - ".github/workflows/ls3d-step19-quality.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ls3d-step19-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  webgl-qa:
+    name: Source regression + Chromium WebGL QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: "true"
+      LS3D_BASE_URL: "http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright and pinned local Three.js
+        shell: bash
+        run: |
+          npm init -y >/dev/null
+          npm install --no-save --no-audit --no-fund @playwright/test@1.56.1 three@0.186.1
+          npx playwright install --with-deps chromium
+      - name: Run all existing STEP 14-18 source regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          for step in 14 15 16 17 18; do
+            node --test "DCI/DataCenter/ls3d-three/step${step}.unit.test.mjs"
+          done
+      - name: Serve exact checked-out 3D site via localhost
+        shell: bash
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ls3d-step19-server.log 2>&1 &
+          echo $! > /tmp/ls3d-step19-server.pid
+          for n in {1..30}; do
+            if curl --silent --fail -o /dev/null "$LS3D_BASE_URL"; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ls3d-step19-server.log
+          exit 1
+      - name: Run eight integrated Chromium/WebGL acceptance scenarios
+        shell: bash
+        run: |
+          npx playwright test --config DCI/DataCenter/ls3d-three/step19.playwright.config.mjs
+      - name: Upload HTML results, screenshots, traces and videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3d-step19-chromium-qa-${{ github.run_number }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            DCI/DataCenter/ls3d-three/step19-playwright-report/
+            DCI/DataCenter/ls3d-three/step19-test-results/
+            DCI/DataCenter/ls3d-three/step19-test-results.json
+            /tmp/ls3d-step19-server.log

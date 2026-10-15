@@ -3,6 +3,7 @@
 // npx playwright install chromium
 // npx playwright test --config=DCI/DataCenter/ls3d-three/playwright.step19.config.mjs
 import {defineConfig,devices} from '@playwright/test';
+import {fileURLToPath} from 'node:url';
 export default defineConfig({
   testDir:'.',
   testMatch:'step19.integration.spec.mjs',
@@ -37,6 +38,9 @@ export default defineConfig({
   },
   webServer:{
     command:'python3 -m http.server 8765 --bind 127.0.0.1',
+    // The config lives below DCI/DataCenter/ls3d-three, but the site URL is
+    // repository-relative. Serve the repository root, not the config folder.
+    cwd:fileURLToPath(new URL('../../../',import.meta.url)),
     url:'http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html',
     timeout:30000,
     reuseExistingServer:!process.env.CI

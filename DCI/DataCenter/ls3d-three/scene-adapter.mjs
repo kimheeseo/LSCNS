@@ -13,6 +13,7 @@ import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-step18';
+import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261015-rack-collapse';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -129,7 +130,7 @@ export function createSceneAdapter(T, canvas) {
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
-  let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null;
+  let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null;
   let focusedRack=null;
   function currentRackAsset() {
     const a=T.selected;
@@ -178,11 +179,27 @@ export function createSceneAdapter(T, canvas) {
       rackControls=document.createElement('div');
       rackControls.id='ls3dRackMotionControls';
       rackControls.style.cssText='position:absolute;right:10px;bottom:10px;z-index:30;width:min(302px,calc(100% - 20px));padding:10px;background:rgba(13,29,45,.94);border:1px solid #6aa8bc;border-radius:10px;color:#f0fbff;font:12px system-ui;box-shadow:0 4px 20px #0008;pointer-events:auto;';
+      const bar=document.createElement('div');
+      bar.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:31px;';
+      rackPanelHeading=document.createElement('strong');
+      rackPanelHeading.id='ls3dRackPanelTitle';
+      rackPanelHeading.textContent='랙 조작';
+      rackPanelHeading.style.cssText='font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;';
+      bar.appendChild(rackPanelHeading);
+      const disclosureButton=document.createElement('button');
+      disclosureButton.id='ls3dRackPanelToggle';
+      disclosureButton.type='button';
+      disclosureButton.style.cssText='flex:none;padding:6px 10px;border:1px solid #74b4c6;border-radius:7px;background:#22516a;color:#effcff;font:600 12px system-ui;cursor:pointer;touch-action:manipulation;';
+      bar.appendChild(disclosureButton);rackControls.appendChild(bar);
+      const controlsBody=document.createElement('div');
+      controlsBody.id='ls3dRackMotionBody';
+      controlsBody.style.cssText='padding-top:5px;';
+      rackControls.appendChild(controlsBody);
       rackControlsLabel=document.createElement('div');
       rackControlsLabel.id='ls3dRackActionStatus';
       rackControlsLabel.setAttribute('aria-live','polite');
       rackControlsLabel.style.cssText='font-weight:600;margin-bottom:7px;line-height:1.4;';
-      rackControls.appendChild(rackControlsLabel);
+      controlsBody.appendChild(rackControlsLabel);
       const grid=document.createElement('div');
       grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
       const actions=[
@@ -222,7 +239,7 @@ export function createSceneAdapter(T, canvas) {
         }else if(action==='clear-selection')showRackPart(null);
         showControls();
       });
-      rackControls.appendChild(grid);
+      controlsBody.appendChild(grid);
       const details=document.createElement('details');
       details.style.cssText='border-top:1px solid #477384;margin-top:7px;padding-top:7px;';
       const title=document.createElement('summary');
@@ -240,12 +257,20 @@ export function createSceneAdapter(T, canvas) {
         button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
         cablesGrid.appendChild(button);
       }
-      details.appendChild(cablesGrid);rackControls.appendChild(details);
-      rackControls.style.maxHeight='min(76vh,550px)';
-      rackControls.style.overflowY='auto';
+      details.appendChild(cablesGrid);controlsBody.appendChild(details);
+      rackPanelDisclosure=createRackPanelDisclosure({
+        panel:rackControls,body:controlsBody,button:disclosureButton,
+        title:rackPanelHeading,
+        collapsed:canvas.getBoundingClientRect().width<=640
+      });
+      disclosureButton.addEventListener('click',e=>{
+        e.preventDefault();e.stopPropagation();
+        rackPanelDisclosure.toggle();
+      });
       canvas.parentElement.appendChild(rackControls);
     }
     rackControls.hidden=false;
+    if(rackPanelHeading)rackPanelHeading.textContent='랙 조작 · '+a.id;
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점':'전면 시점'):'기본 시점')+
@@ -546,6 +571,7 @@ export function createSceneAdapter(T, canvas) {
     mepRoutes.dispose();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
+    rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;
     rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
@@ -567,6 +593,7 @@ export function createSceneAdapter(T, canvas) {
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
     selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
+    get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},
     inspection,securityController:security,navigation,
     get disposed(){return disposed;} };

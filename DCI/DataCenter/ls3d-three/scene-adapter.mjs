@@ -10,7 +10,7 @@ import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
-import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step15-detail-b';
+import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.

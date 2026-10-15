@@ -97,6 +97,7 @@ export function createSceneAdapter(T, canvas) {
     zoneRoot.visible=!flags.inspect;
     if(sig!==zoneSignature) {
       zoneSignature=sig;
+      cameraOcclusion.restore();
       clearGroup(zoneRoot);
       const result=architecture.build(zoneRoot,available,mode,current,flags);
       diagnostic.zones=result.zones;
@@ -463,8 +464,6 @@ export function createSceneAdapter(T, canvas) {
     camera.near=Math.max(.055,Math.min(.15,view.near||.08));
     camera.far=Math.max(600,view.far||600);
     camera.updateProjectionMatrix();
-    // Rebuilds can dispose old walls: restore the hidden visibility before clearing.
-    cameraOcclusion.restore();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
     const rooms=zoneExtras.update(flags,dt);

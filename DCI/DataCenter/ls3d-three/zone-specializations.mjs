@@ -20,6 +20,11 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     if(associated)T.pickAsset(associated,true);
     return bay;
   }
+  function pickMMRLink(id){
+    const accepted=mmr.linkIds.includes(id)?mmr.selectLink(id):null;
+    if(accepted)renderStatus();
+    return accepted;
+  }
   function pickTenant(id){
     const selected=colocation.selectTenant(id);
     if(selected!=='all'){
@@ -50,6 +55,10 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
       ['mmrBay','handoff','② MMR / DWDM'],
       ['mmrBay','cross-connect','③ ODF Cross-connect'],
       ['mmrBay','core','④ Core Router'],
+      ['mmrDoor','carrier','Carrier 출입문'],
+      ['mmrDoor','handoff','DWDM 출입문'],
+      ['mmrDoor','cross-connect','ODF 출입문'],
+      ['mmrDoor','core','Core 출입문'],
       ['mmrLink','all','전체 광회선'],
       ['mmrLink','external-carrier','외부→Carrier'],
       ['mmrLink','carrier-odf','Carrier→ODF'],
@@ -67,7 +76,8 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
       const b=event.target.closest?.('button');
       if(!b)return;
       if(b.dataset.mmrBay)pickMMRBay(b.dataset.mmrBay);
-      if(b.dataset.mmrLink)mmr.selectLink(b.dataset.mmrLink);
+      if(b.dataset.mmrDoor)mmr.toggleDoor(b.dataset.mmrDoor);
+      if(b.dataset.mmrLink)pickMMRLink(b.dataset.mmrLink);
       renderStatus();
     });
     canvas.parentElement.appendChild(mmrPanel);
@@ -115,7 +125,10 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
   }
   function renderStatus(){
     if(mmrPanel&&!mmrPanel.hidden){
-      const s=mmr.summary(),text='선택 회선: '+s.selectedLink+' · 4개 통신실 · DWDM 예시';
+      const s=mmr.summary(),route=s.selectedRoute;
+      const text='선택 회선: '+s.selectedLink+
+        (route?' · '+route.from+' → '+route.to+' ('+route.system+')':' · 전체 연결')+
+        ' · 4개 출입 구획 / DWDM · 교육용 예시';
       lastMMR=statusLabel(mmrPanel,text,lastMMR);
     }
     if(coloPanel&&!coloPanel.hidden){
@@ -132,6 +145,7 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     if(inNetwork){
       mmr.build(T.Z.find(z=>z.id==='network'),visible,mode,flags);
       mmr.root.visible=mmr.summary().ready;
+      if(mmr.root.visible)mmr.tick(dt);
     }else mmr.root.visible=false;
     if(inHall){
       colocation.build(visible,mode,flags);
@@ -151,6 +165,13 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
         const id=o.userData.coloTenant;
         pickTenant(id);renderStatus();
         return {kind:'customer',id,assetId:colocation.focusRackId(id)};
+      }
+      if(o.userData?.mmrSegment&&mmr.linkIds.includes(o.userData.mmrSegment)){
+        const id=o.userData.mmrSegment;
+        pickMMRLink(id);
+        return {kind:'mmr-link',id,assetId:
+          id==='external-carrier'?'carrier':id==='carrier-odf'?'odf':
+          id==='odf-dwdm'?'mmr':'core'};
       }
       if(o.userData?.mmrBay){
         const id=o.userData.mmrBay;

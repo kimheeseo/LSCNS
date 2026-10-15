@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/ls3d-step19-qa.yml"
       - "DCI/DataCenter/ls3d-three/step19.integration.spec.mjs"
+      - "DCI/DataCenter/ls3d-three/step19.contract.test.mjs"
       - "DCI/DataCenter/ls3d-three/playwright.step19.config.mjs"
   workflow_dispatch:
 
@@ -33,7 +34,8 @@ jobs:
             DCI/DataCenter/ls3d-three/step15.unit.test.mjs \
             DCI/DataCenter/ls3d-three/step16.unit.test.mjs \
             DCI/DataCenter/ls3d-three/step17.unit.test.mjs \
-            DCI/DataCenter/ls3d-three/step18.unit.test.mjs
+            DCI/DataCenter/ls3d-three/step18.unit.test.mjs \
+            DCI/DataCenter/ls3d-three/step19.contract.test.mjs
 
   chromium-webgl:
     name: Chromium WebGL2 screenshots and performance

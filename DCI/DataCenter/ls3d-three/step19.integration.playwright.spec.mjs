@@ -256,3 +256,51 @@ test('19-H: company server-room hides outside 3D routes and legacy mode still ru
   expect(await page.evaluate(()=>window.__LS3D_TEST__.Z.length)).toBe(7);
   expect(await page.locator('#back2D').getAttribute('href')).toContain('LS_Datacenter_Campus.html');
 });
+
+
+test('19-I: mobile rack controls fold/unfold and keep rack mechanisms intact',async({browser},info)=>{
+  const context=await browser.newContext({
+    viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2
+  });
+  const page=await context.newPage();
+  const errors=await ready(page,'hall');
+  await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;T.pickAsset(T.assetMap.get('gpu-0-0'),true);
+  });
+  await page.waitForFunction(()=>!!document.getElementById('ls3dRackPanelToggle')&&
+    !document.getElementById('ls3dRackMotionControls').hidden);
+  const btn=page.locator('#ls3dRackPanelToggle');
+  const body=page.locator('#ls3dRackMotionBody');
+  await expect(btn).toHaveAttribute('aria-expanded','false');
+  await expect(body).toBeHidden();
+  await expect(page.locator('#ls3dRackMotionControls')).toHaveAttribute('data-rack-collapsed','true');
+  await snapshot(page,info,'step20-mobile-rack-collapsed.png');
+  await btn.click();
+  await expect(btn).toHaveAttribute('aria-expanded','true');
+  await expect(body).toBeVisible();
+  const before=await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    return T.mechanical(T.assetMap.get('gpu-0-0')).targetDoor;
+  });
+  await page.locator('[data-rack-action="front-door"]').click();
+  const after=await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    return T.mechanical(T.assetMap.get('gpu-0-0')).targetDoor;
+  });
+  expect(after).not.toBe(before);
+  await snapshot(page,info,'step20-mobile-rack-expanded.png');
+  await btn.click();
+  await expect(body).toBeHidden();
+  await page.waitForTimeout(200);
+  const preserved=await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    return {selected:T.selected?.id,
+      targetDoor:T.mechanical(T.assetMap.get('gpu-0-0')).targetDoor,
+      panel:window.LS3D_THREE.adapter.rackPanel};
+  });
+  expect(preserved.selected).toBe('gpu-0-0');
+  expect(preserved.targetDoor).toBe(after);
+  expect(preserved.panel.collapsed).toBe(true);
+  verify(errors);
+  await context.close();
+});

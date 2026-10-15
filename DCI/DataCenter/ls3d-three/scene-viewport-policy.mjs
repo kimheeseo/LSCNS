@@ -109,7 +109,11 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
     const details=mep.querySelector?.('details');
     if(details){
       details.style.maxHeight=narrow?'min(32vh,220px)':'min(52vh,420px)';
-      if(narrow&&zone&&details.open)details.open=false;
+      const congested=!!narrow&&!!zone;
+      if(congested&&details.open&&mep.dataset.step18Collapsed!=='1'){
+        details.open=false;mep.dataset.step18Collapsed='1';
+      }
+      if(!congested)mep.dataset.step18Collapsed='0';
     }
   }
   if(rack){

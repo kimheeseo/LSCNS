@@ -7,6 +7,16 @@
 - 페이지: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three
 - Legacy 복귀: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy
 
+
+## v4.8.1 추가 변경 (2026-10-15)
+
+- 첫 진입 안내를 8구역 자동 가이드 투어와 전원→냉각→광 단선 추천 시나리오 실행 화면으로 보강했습니다.
+- 편집 가능한 가정값·중간 계산식·공개 출처를 설정 패널에 노출했습니다. PUE 기준 링크는 ISO/IEC 30134-2:2026 및 The Green Grid입니다.
+- 광 네트워크 3D 빠른 보기에서 Spine–Leaf 경로와 기존 광 예산/단선 우회 시나리오에 접근할 수 있게 했습니다.
+- **교육용 모델 한계:** UPS 잔여시간은 설정 백업시간에서 시나리오 경과분을 차감합니다. 가용성은 장애/이중화 가정표 조회이며 현장 신뢰도/가용성 보증 계산이 아닙니다.
+- 변경 범위는 3D 페이지, 버전/사용 안내 및 관련 회귀 테스트입니다. 2D Gold Pixel Tour와 BOM 파일은 변경하지 않았습니다.
+- GitHub Actions 및 GitHub Pages의 최신 실행 상태는 [워크플로](https://github.com/kimheeseo/LSCNS/actions)에서 확인합니다. 이 기록은 PASS를 선취하지 않습니다.
+
 ## 1. 이 단계에서 실제 반영한 사항
 
 | 요구 | 조치 | 상태 |

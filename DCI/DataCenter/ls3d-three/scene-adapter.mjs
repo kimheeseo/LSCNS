@@ -12,6 +12,7 @@ import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=2026101
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
+import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-step18';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -50,6 +51,8 @@ export function createSceneAdapter(T, canvas) {
   const raycaster = new THREE.Raycaster(), mouse = new THREE.Vector2();
   let zoneSignature = '', disposed = false, frames = 0, failReason = null;
   const diagnostic = { engine: 'three', version: THREE.REVISION, frames: 0, assets: 0, zones: 0, npc: 0, calls: 0, triangles: 0, memoryGeometries: 0, memoryTextures: 0 };
+  const viewportPolicy=createViewportPolicy();
+  const cameraOcclusion=createCameraOcclusion(THREE,{zoneRoot});
   function material(color, metal = 0.28, rough = 0.48, transparent = false) {
     const key = String(color) + '|' + metal + '|' + rough + '|' + transparent;
     if (!materialCache.has(key)) materialCache.set(key, new THREE.MeshStandardMaterial({
@@ -68,13 +71,21 @@ export function createSceneAdapter(T, canvas) {
     m.position.set(x, baseY + height / 2, z); m.scale.set(Math.max(.001, r), Math.max(.001, height), Math.max(.001, r));
     m.castShadow = true; m.receiveShadow = true; parent.add(m); return m;
   }
-  function clearGroup(g) { while (g.children.length) { const n = g.children[0]; g.remove(n); n.traverse(obj => {
-    if (obj.geometry && obj.geometry !== boxGeometry && obj.geometry !== cylinderGeometry) obj.geometry.dispose();
-    if (obj.material && !Array.from(materialCache.values()).includes(obj.material)) {
-      if (Array.isArray(obj.material)) obj.material.forEach(m => m.dispose());
-      else obj.material.dispose();
+  function clearGroup(g) {
+    // Snapshot cached materials just once per teardown, not once per mesh.
+    const cached=new Set(materialCache.values());
+    while(g.children.length){
+      const child=g.children[0];g.remove(child);
+      child.traverse(obj=>{
+        if(obj.geometry&&obj.geometry!==boxGeometry&&obj.geometry!==cylinderGeometry)
+          obj.geometry.dispose();
+        if(obj.material){
+          const materials=Array.isArray(obj.material)?obj.material:[obj.material];
+          for(const mat of materials)if(!cached.has(mat))mat.dispose?.();
+        }
+      });
     }
-  }); } }
+  }
   // STEP 04: real structural building envelope. Dynamic architecture shares
   // the existing source-of-truth zone data and never creates a second RAF loop.
   const architecture = createArchitectureKit(THREE, {cube});
@@ -430,8 +441,12 @@ export function createSceneAdapter(T, canvas) {
     if (disposed) throw new Error('Three.js adapter was disposed');
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 1 || rect.height < 1) return;
+    // STEP 18: sustained slow frames reduce MEDIUM DPR only; explicit low/high stays fixed.
+    viewportPolicy.sample(dt);
     const quality = window.LS3D_CONFIG?.quality || 'medium';
-    const dpr = Math.min(window.devicePixelRatio || 1, quality === 'low' ? .8 : quality === 'high' ? 1.55 : 1.1);
+    const {dpr}=viewportPolicy.settings({
+      width:rect.width,quality,devicePixelRatio:window.devicePixelRatio||1
+    });
     const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
     if(viewportWidth!==pixelWidth || viewportHeight!==pixelHeight || viewportDpr!==dpr) {
       renderer.setPixelRatio(dpr);
@@ -445,15 +460,31 @@ export function createSceneAdapter(T, canvas) {
     camera.lookAt(eye[0] + direction[0] * 20, eye[1] + direction[1] * 20, eye[2] + direction[2] * 20);
     camera.fov = view.fov * 180 / Math.PI;
     camera.aspect = rect.width / rect.height;
-    camera.near = Math.max(.035,view.near || .08);
-    camera.far = Math.max(600, view.far || 600);
+    camera.near=Math.max(.055,Math.min(.15,view.near||.08));
+    camera.far=Math.max(600,view.far||600);
     camera.updateProjectionMatrix();
+    // Rebuilds can dispose old walls: restore the hidden visibility before clearing.
+    cameraOcclusion.restore();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
     const rooms=zoneExtras.update(flags,dt);
     diagnostic.mmr=rooms.mmr;
     diagnostic.colocation=rooms.colocation;
     routeScene(flags);
+    // Hide only those room envelope meshes that actually block the near selected
+    // rack/asset; all are restored on zoom-out, zone changes or dispose.
+    diagnostic.occlusion=cameraOcclusion.update({
+      eye,selected:T.selected,currentZone:T.currentZone,
+      facilityMode:T.facilityMode,inspect:!!flags.inspect,showSection:!!flags.showSection
+    });
+    diagnostic.viewport=viewportPolicy.summary();
+    diagnostic.overlay=layoutSceneOverlays({
+      width:rect.width,height:rect.height,
+      mmr:document.getElementById('ls3dMMRControls'),
+      colo:document.getElementById('ls3dColoControls'),
+      mep:document.getElementById('ls3dMEPControls'),
+      rack:rackControls
+    });
     securityState=security.simulate(T.simTime||0);
     security.root.visible=securityState.active&&!flags.inspect;
     refreshPeople(flags);
@@ -507,6 +538,7 @@ export function createSceneAdapter(T, canvas) {
   function dispose() {
     if(disposed)return;disposed=true;
     navigation.reset();inspection.reset();
+    cameraOcclusion.dispose();
     zoneExtras.dispose();
     mepRoutes.dispose();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
@@ -527,6 +559,8 @@ export function createSceneAdapter(T, canvas) {
     get rackNetwork(){return diagnostic.rackNetwork;},
     get mmr(){return diagnostic.mmr;},get colocation(){return diagnostic.colocation;},
     get mep(){return diagnostic.mep;},mepController:mepRoutes,
+    get viewportPerformance(){return viewportPolicy.summary();},
+    get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
     selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,

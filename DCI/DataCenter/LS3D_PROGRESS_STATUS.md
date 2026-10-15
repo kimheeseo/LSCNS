@@ -77,6 +77,10 @@
 - [18 카메라·모바일 UI·성능 개발 보고서](./architecture/STEP18_CAMERA_UI_PERFORMANCE_REPORT.md)
 - [18 viewport policy 모듈](./ls3d-three/scene-viewport-policy.mjs) · [Unit 테스트](./ls3d-three/step18.unit.test.mjs) · [Playwright 초안](./ls3d-three/step18.playwright.spec.mjs)
 - [19 통합 QA 검증 보고서](./architecture/STEP19_INTEGRATION_QA_REPORT.md)
+- [20 최신 3D 사용자 매뉴얼](./README.md)
+- [20 별도 버전업 TXT](./LS3D_VERSION_UPGRADE_HISTORY.txt)
+- [20 최종 릴리스 후보 보고서](./architecture/STEP20_RELEASE_REPORT.md)
+- [20 릴리스·2D/BOM 보호 정적 테스트](./ls3d-three/step20.release.test.mjs)
 - [19 브라우저 통합 E2E 시나리오](./ls3d-three/step19.integration.spec.mjs) · [보호 SHA/Import Contract 테스트](./ls3d-three/step19.contract.test.mjs) · [Playwright Config](./ls3d-three/playwright.step19.config.mjs)
 - [19 GitHub Actions CI](https://github.com/kimheeseo/LSCNS/actions/workflows/ls3d-step19-qa.yml)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
@@ -162,4 +166,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 19에서 STEP14~18 모의 단위 테스트 **22/22 PASS**, 20개 JS 소스 파싱 PASS/상대 import 누락 0을 직접 검증. 실 브라우저 통합 E2E 5종·GitHub Actions 2-job·원본 2D/BOM Git blob 검증 테스트를 `main`에 등록. **GitHub Actions의 실제 실행 결과와 Chromium/WebGL 스크린샷·FPS 수치는 아직 확인 불가**하여 브라우저 검증 완료로 기록하지 않는다. [19단계 보고서](./architecture/STEP19_INTEGRATION_QA_REPORT.md). STEP20은 별도 요청과 CI 결과 확인 후 진행한다.
+STEP 20 사용자 승인에 따라 `v4.8.0-rc.1`을 Three.js 릴리스 후보로 표기하고, `LS_Datacenter_3D.html` title/사이드바, GitHub root `README.md`, 신규 `DataCenter/README.md` 사용자 매뉴얼, `LS3D_VERSION_UPGRADE_HISTORY.txt` 이력 및 `STEP20_RELEASE_REPORT.md`를 main에 반영하였다. 신규 `step20.release.test.mjs`를 Actions 정적 보호 게이트에 추가했다. 19단계 당시 STEP14~18 실제 코드 JS Mock **22/22 PASS** 결과는 유지한다. **실제 GitHub Actions Chromium/WebGL2 합격 로그·모바일 화면/스크린샷·FPS·최신 GitHub Pages 반영은 아직 독립 확인되지 않아 정식 v4.8.0 판정은 보류**한다. [STEP20 최종 보고서](./architecture/STEP20_RELEASE_REPORT.md) · [사용법](./README.md) · [버전 TXT](./LS3D_VERSION_UPGRADE_HISTORY.txt).

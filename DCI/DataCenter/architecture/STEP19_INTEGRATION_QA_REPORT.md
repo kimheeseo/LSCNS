@@ -89,3 +89,23 @@ npx playwright test --config=DCI/DataCenter/ls3d-three/playwright.step19.config.
 - GitHub Pages 배포 상태와 최종 문서/SHA/사용 설명서 갱신은 20단계 작업으로 분리.
 
 현 단계는 **19/20: 테스트 인프라 및 확인 가능한 소스 검증 완료 / 실제 브라우저 최종 수용성 판정 대기**이다.
+
+## 6. 보완 통합 시나리오 및 별도 워크플로
+
+GitHub 저장소의 최신 19단계 아티팩트를 다시 조사해, 초기 5종의 실브라우저 종합검사 외에 다음 **8개 독립 시나리오**를 별도 보완했다.
+
+- `step19.integration.playwright.spec.mjs`: 실제 Chromium으로 7구역 렌더·draw call, NPC/8단계 보안, 랙 Door/NIC/ToR/PDU A/B/카세트, MMR/ODF/DWDM, A/B/C Co-location, 3D MEP 계통별 회선, 모바일 Two-Finger Pan/Pinch 및 서버실/legacy 격리를 검증하도록 구성.
+- `step19.playwright.config.mjs`: 실패 시 trace/video/screenshot, 성공 시 구역별/모바일/설비 캡처와 JSON 진단을 보관하도록 구성.
+- `step19.source.test.mjs`: 모듈 간 기본 데이터 계약·7구역·지정 UI 셀렉터, 14~18단계 단위테스트 및 2D/BOM Git Blob 보호를 Node에서 재검사하도록 구성.
+- `.github/workflows/ls3d-step19-quality.yml`: Node STEP 14~18 + STEP 19 원본 정합성 검사, localhost 기반 headless Chromium/WebGL 테스트, `actions/upload-artifact@v4` 수집을 위한 별도 GitHub Actions 워크플로.
+- Three.js CDN 요청 중 `three.module.js`와 `three.core.js`는 모두 동일 버전의 로컬 npm 패키지로 fulfillment하며, ESM cross-origin CORS 허용 헤더를 포함. 외부 CDN 접근이 실패해도 핵심 WebGL 모듈 로딩에 의존하지 않도록 테스트 구성.
+
+**직접 수행한 독립 소스 검증**: GitHub의 14~18단계 모듈과 저장된 테스트를 다시 가져와 JS/Three API Mock 실행 **22/22 PASS**(3+4+5+5+5). 수정된 전용 Playwright 테스트 구문 검증, 모듈·UI 셀렉터 및 버전 경로 일치, 보호 Git Blob SHA와 Actions 설정을 포함한 **별도 정적 정합성 검사 15/15 PASS**.
+
+**최종 브라우저 결과는 여전히 미확인**: `ls3d-step19-qa.yml` 및 `ls3d-step19-quality.yml` 두 워크플로는 모두 GitHub `main`에 등록되어 있지만, 이 세션에서는 push-triggered GitHub Actions 실행 로그·스크린샷 아티팩트·PASS 판정을 직접 읽지 못했다. 두 워크플로의 구성을 성공한 실제 브라우저 수용성 검증으로 간주하지 않는다.
+
+- [추가 8개 WebGL E2E 테스트](../ls3d-three/step19.integration.playwright.spec.mjs)
+- [추가 5개 원본 정합성 테스트](../ls3d-three/step19.source.test.mjs)
+- [추가 CI 워크플로](https://github.com/kimheeseo/LSCNS/actions/workflows/ls3d-step19-quality.yml)
+
+20단계 전에는 위 Actions 결과에서 **실제 실패/통과 수, WebGL 콘솔 및 캡처, FPS/메모리 측정값**을 확인하고 오류를 수정해야 한다.

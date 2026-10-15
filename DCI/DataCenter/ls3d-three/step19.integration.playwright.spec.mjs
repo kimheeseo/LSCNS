@@ -20,6 +20,7 @@ async function ready(page,zone='campus'){
   await page.route('**/npm/three@0.186.1/build/three.*.js',async route=>{
     const name=route.request().url().includes('three.core.js')?'three.core.js':'three.module.js';
     await route.fulfill({status:200,contentType:'text/javascript',
+      headers:{'access-control-allow-origin':'*'},
       body:await readFile(new URL(name,THREE_BUILD))});
   });
   await page.goto(BASE+(BASE.includes('?')?'&':'?')+'engine=three',{waitUntil:'domcontentloaded'});

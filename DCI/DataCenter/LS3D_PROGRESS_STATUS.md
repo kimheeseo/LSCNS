@@ -22,10 +22,11 @@
 | 12/20 | 서버 레일 인출 및 NIC/포트 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 한 번에 선택한 서버만 인출, 42/48U 서버 14개/개념 NIC 56포트(샘플) |
 | 13/20 | 광 카세트 상세 조작 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 카세트 이동/커버 개폐, 랙당 8개 커넥터·3D 광섬유, 포트별 raycast |
 | 14/20 | ToR 최상단·후면 PDU A/B·NIC 배선·필터 정밀화 | **구현 완료·실제 모듈 Mock 18/18 PASS, Node 테스트 내용 3/3 PASS / Chromium QA 대기** | U 최상단 ToR, 포트 8개, 인출되는 NIC 연결선, 비선택 링크 반투명화·기존 조작 API 보존 |
-| 15~16/20 | MMR / Co-location | **기존 GitHub 커밋에서 구현 확인·이번 차수 검증 제외** | STEP 14 이외의 기능 추가 없음 |
+| 15/20 | MMR 별도 4구획·Carrier/ODF/DWDM/Core 모델·4개 출입문·광회선 선택 | **실제 소스 구현 및 JS Mock 16/16 + Scene Bridge 8/8 + Node 호환 테스트 4/4 PASS / Chromium QA 대기** | 구획 출입문 실제 `rotation.y`, 선택 Fiber `TubeGeometry`, 상세 메타정보·선택 경로 강조·구역 전환 상태 보존 |
+| 16/20 | Co-location | **기존 구현 존재 / 이번 차수 변경·재검증 없음** | 사용자 다음 승인에 따라 별도 진행 |
 | 17~20/20 | 전역 배선·카메라/성능·종합 테스트·최종 배포 | **이번 차수 미진행** | 별도 요청 이후 진행 |
 
-**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14는 모의 검증 기준 코드 구현이 완료됐으나 브라우저 검증은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
+**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14~15는 소스 기반 모의 검증을 완료했으나 브라우저 검증은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -62,6 +63,10 @@
 - [12 서버 레일·NIC 모듈](./ls3d-three/rack-server-rails.mjs)
 - [13 광 카세트 모듈](./ls3d-three/rack-optical-cassette.mjs)
 - [11~13 브라우저 회귀 스크립트](./ls3d-three/step11to13.playwright.spec.mjs)
+- [14 랙 배선 상세 보고서](./architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md)
+- [15 MMR 독립 공간 결과 보고서](./architecture/STEP15_MMR_REPORT.md)
+- [15 MMR 3D 모델 모듈](./ls3d-three/mmr-room.mjs)
+- [15 Node 호환 회귀 테스트](./ls3d-three/step15.unit.test.mjs) · [Playwright 브라우저 시험 초안](./ls3d-three/step15.playwright.spec.mjs)
 - [3D 웹페이지 HTML](./LS_Datacenter_3D.html)
 - [Three.js Scene Adapter](./ls3d-three/scene-adapter.mjs)
 - [Three.js Bootstrap/Legacy Fallback](./ls3d-three/bootstrap.mjs)
@@ -145,4 +150,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 14 ToR/후면 PDU A·B/NIC 배선 개선 코드를 main에 반영하고 실제 GitHub 소스의 Three API Mock 18/18 및 새 단위 테스트 3/3 검사를 통과했다. **Chrome/WebGL2 실제 브라우저 렌더·모바일 터치·스크린샷·성능 검증은 아직 미실행**이므로 STEP 14 최종 검증 판정은 보류한다. [STEP14 상세 보고서](./architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md). 이후 번호는 사용자 확인 없이 진행하지 않는다.
+STEP 14 랙 배선 정밀화에 이어 STEP 15 MMR의 Carrier/ODF/DWDM/Core 전면 장비·개별 힌지 출입문·클릭 가능한 광 링크 및 연결 메타데이터를 main에 반영했다. STEP 15 실제 코드 Mock **16/16 PASS**, Scene Bridge 연동 **8/8 PASS**, 커밋된 Node 호환 시험 소스의 JS 실행 **4/4 PASS**. **독립 Chromium/WebGL2·모바일·스크린샷·성능 실검증은 미실행**이므로 완전 검증 판정은 보류한다. [STEP15 보고서](./architecture/STEP15_MMR_REPORT.md). STEP 16은 사용자 별도 요청 시 진행한다.

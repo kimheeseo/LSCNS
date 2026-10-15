@@ -11,6 +11,7 @@ import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
+import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -47,7 +48,7 @@ export function createSceneAdapter(T, canvas) {
   const materialCache = new Map();
   const registry = new Map(), people = new Map();
   const raycaster = new THREE.Raycaster(), mouse = new THREE.Vector2();
-  let zoneSignature = '', routeSignature = '', disposed = false, frames = 0, failReason = null;
+  let zoneSignature = '', disposed = false, frames = 0, failReason = null;
   const diagnostic = { engine: 'three', version: THREE.REVISION, frames: 0, assets: 0, zones: 0, npc: 0, calls: 0, triangles: 0, memoryGeometries: 0, memoryTextures: 0 };
   function material(color, metal = 0.28, rough = 0.48, transparent = false) {
     const key = String(color) + '|' + metal + '|' + rough + '|' + transparent;
@@ -115,6 +116,7 @@ export function createSceneAdapter(T, canvas) {
   const rackOptics=createRackOpticalCassette(THREE,{cube});
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
+  const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null;
   let focusedRack=null;
   function currentRackAsset() {
@@ -369,25 +371,10 @@ export function createSceneAdapter(T, canvas) {
       lodAssets:[...registry.values()].filter(v=>!!v.equipmentLOD || !!v.rackLOD).length
     };
   }
+  // STEP 17: calibrated as *example geometry*, unlike the old WebGL2 flat lines.
+  // This layer anchors curves to actual equipment IDs and shares the scene RAF.
   function routeScene(flags) {
-    const on = flags.flow || {};
-    // Server-room route filter is strict; avoid external world-space MEP paths.
-    if (T.facilityMode === 'server-room' || flags.inspect) { if (routeSignature !== 'none') { clearGroup(routeRoot); routeSignature = 'none'; } return; }
-    const sig = JSON.stringify([T.currentZone, on, T.flowPaths]);
-    if (sig === routeSignature) return;
-    routeSignature = sig; clearGroup(routeRoot);
-    const keys = ['power','cooling','fiber'];
-    const colors = { power:'#f8ce75', cooling:'#59c8ed', fiber:'#6debc2' };
-    for (const key of keys) if (on[key] && Array.isArray(T.flowPaths[key])) {
-      for (const path of T.flowPaths[key]) {
-        if (!Array.isArray(path) || path.length < 2) continue;
-        const points = path.filter(p => Array.isArray(p) && p.length >= 2).map(p => new THREE.Vector3(p[0], key === 'power' ? .22 : key === 'cooling' ? .45 : 6.38, p[1]));
-        if (points.length < 2) continue;
-        const geometry = new THREE.BufferGeometry().setFromPoints(points);
-        const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: colors[key], transparent:true, opacity:.77 }));
-        line.userData.noPick = true; routeRoot.add(line);
-      }
-    }
+    diagnostic.mep=mepRoutes.update(flags);
   }
   // STEP 06 replaces simple block people with reusable articulated Three.Group rigs.
   // Position/heading/action are still sampled from original T.npcPose; pathfinding is STEP 07.
@@ -486,9 +473,12 @@ export function createSceneAdapter(T, canvas) {
     raycaster.setFromCamera(mouse,camera);
     const targets=[...assetRoot.children,
       ...(zoneExtras.mmr.root.visible?zoneExtras.mmr.root.children:[]),
-      ...(zoneExtras.colocation.root.visible?zoneExtras.colocation.root.children:[])];
+      ...(zoneExtras.colocation.root.visible?zoneExtras.colocation.root.children:[]),
+      ...(routeRoot.visible?routeRoot.children:[])];
     for(const hit of raycaster.intersectObjects(targets,true)) {
       if (hit.object.userData.noPick || hit.object.name === 'selection-ring') continue;
+      const routeSelection=routeRoot.visible?mepRoutes.pick(hit.object):null;
+      if(routeSelection)return routeSelection.id;
       const areaSelection=zoneExtras.pick(hit.object);
       if(areaSelection)return areaSelection.assetId||areaSelection.id;
       let obj=hit.object,part=null;
@@ -518,6 +508,7 @@ export function createSceneAdapter(T, canvas) {
     if(disposed)return;disposed=true;
     navigation.reset();inspection.reset();
     zoneExtras.dispose();
+    mepRoutes.dispose();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
     rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();focusedRack=null;
@@ -535,6 +526,7 @@ export function createSceneAdapter(T, canvas) {
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
     get rackNetwork(){return diagnostic.rackNetwork;},
     get mmr(){return diagnostic.mmr;},get colocation(){return diagnostic.colocation;},
+    get mep(){return diagnostic.mep;},mepController:mepRoutes,
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
     selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,

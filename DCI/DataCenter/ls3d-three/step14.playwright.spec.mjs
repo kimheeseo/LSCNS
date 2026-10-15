@@ -20,7 +20,7 @@ async function boot(page){
     if(!rack)throw Error('No mechanical rack');
     T.pickAsset(rack);return rack.id;
   });
-  await page.waitForFunction(()=>!document.getElementById('ls3dRackMotionControls')?.hidden);
+  await page.waitForFunction(()=>{const el=document.getElementById('ls3dRackMotionControls');return !!el&&!el.hidden;});
   return {id,errors};
 }
 test('STEP14 42U/48U ToR placement, selectable eight ports, independent PDU A/B',async({page},info)=>{

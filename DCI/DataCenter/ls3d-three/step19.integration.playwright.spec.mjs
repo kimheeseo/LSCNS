@@ -40,6 +40,10 @@ async function ready(page,zone='campus'){
   expect(status.state,status.error||'Three bootstrap failure').toBe('ready');
   expect(status.gl).toBe(true);
   await page.waitForFunction(()=>window.LS3D_THREE.renders>=3,null,{timeout:30000});
+  // The legacy tour dialog can be opened by a separate initializer even when
+  // the newer first-visit localStorage flag is pre-seeded. Dismiss the actual
+  // overlay before testing independent rack/MMR/mobile controls.
+  await page.evaluate(()=>document.getElementById('guide')?.classList.remove('open'));
   await page.evaluate(z=>window.__LS3D_TEST__.setZone(z),zone);
   await page.waitForFunction(z=>window.__LS3D_TEST__.currentZone===z,zone);
   return issues;
@@ -246,16 +250,21 @@ test('19-G: narrow mobile screen and two-finger pan/pinch with no false rack pic
 test('19-H: company server-room hides outside 3D routes and legacy mode still runs',async({page},info)=>{
   const errors=await ready(page,'hall');
   await page.evaluate(()=>window.__LS3D_TEST__.applyFacilityMode('server-room'));
-  await page.waitForFunction(()=>window.LS3D_THREE.adapter.mep?.visible===false);
+  await page.waitForFunction(()=>{
+    const a=window.LS3D_THREE?.adapter;
+    return a?.mep?.visible===false &&
+      a?.mmrController?.root?.visible===false &&
+      a?.colocationController?.root?.visible===false;
+  });
   const state=await page.evaluate(()=>({
     facility:window.__LS3D_TEST__.facilityMode,
     mep:window.LS3D_THREE.adapter.mep,
-    mmr:window.LS3D_THREE.adapter.mmr,
-    colo:window.LS3D_THREE.adapter.colocation
+    mmrVisible:window.LS3D_THREE.adapter.mmrController.root.visible,
+    coloVisible:window.LS3D_THREE.adapter.colocationController.root.visible
   }));
   expect(state.facility).toBe('server-room');
-  expect(state.mmr.ready).toBe(false);
-  expect(state.colo.ready).toBe(false);
+  expect(state.mmrVisible).toBe(false);
+  expect(state.coloVisible).toBe(false);
   await snapshot(page,info,'step19-company-server-room.png');
   verify(errors);
   await page.goto(BASE+(BASE.includes('?')?'&':'?')+'engine=legacy',{waitUntil:'domcontentloaded'});

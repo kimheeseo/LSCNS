@@ -43,6 +43,9 @@ async function enter(page){
   expect(status.status,status.error||'WebGL2 Three.js initialization failed').toBe('ready');
   await page.waitForFunction(()=>LS3D_THREE?.adapter?.diagnostic?.frames>=4,
     null,{timeout:30000});
+  // The older tour initializer opens independently of the first-visit flag.
+  // Explicitly dismiss its DOM overlay before Chromium tests app controls.
+  await page.evaluate(()=>document.getElementById('guide')?.classList.remove('open'));
   return errors;
 }
 async function zone(page,id){
@@ -182,11 +185,16 @@ test('S19-04: mobile responsive controls, multi-touch camera and facility isolat
   expect(panels.every(p=>p.exists&&p.left>=-1&&p.right<=391)).toBe(true);
   await page.screenshot({path:info.outputPath('step19-mobile-390.png')});
   await page.evaluate(()=>window.__LS3D_TEST__.applyFacilityMode('server-room'));
+  // A room may remain initialized (ready=true) after becoming hidden.
+  // Facility isolation is about actual rendered visibility, not the cached
+  // initialization flag of a 3D room controller.
   await page.waitForFunction(()=>{
     const a=window.LS3D_THREE?.adapter;
-    return a?.mep?.visible===false&&a?.colocation?.ready===false;
+    return a?.mep?.visible===false &&
+      a?.colocationController?.root?.visible===false &&
+      a?.mmrController?.root?.visible===false;
   },null,{timeout:20000});
-  expect(await page.evaluate(()=>window.LS3D_THREE.adapter.colocation?.ready)).toBe(false);
+  expect(await page.evaluate(()=>window.LS3D_THREE.adapter.colocationController.root.visible)).toBe(false);
   await attachJSON(info,'mobile-layout.json',panels);
   expect(errors).toEqual([]);
 });

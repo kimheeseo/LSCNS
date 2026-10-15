@@ -1,0 +1,69 @@
+name: LS3D Step 19 - Three.js Integration QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/ls3d-step19-qa.yml"
+      - "DCI/DataCenter/ls3d-three/step19.integration.spec.mjs"
+      - "DCI/DataCenter/ls3d-three/playwright.step19.config.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ls3d-step19-qa-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  source-mock:
+    name: Node source unit regression (steps 14-18)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute existing 14-18 Node tests
+        run: |
+          set -euo pipefail
+          node --test \
+            DCI/DataCenter/ls3d-three/step14.unit.test.mjs \
+            DCI/DataCenter/ls3d-three/step15.unit.test.mjs \
+            DCI/DataCenter/ls3d-three/step16.unit.test.mjs \
+            DCI/DataCenter/ls3d-three/step17.unit.test.mjs \
+            DCI/DataCenter/ls3d-three/step18.unit.test.mjs
+
+  chromium-webgl:
+    name: Chromium WebGL2 screenshots and performance
+    needs: source-mock
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: 'true'
+      LS3D_BASE_URL: http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Three.js and Playwright
+        run: npm install --no-save @playwright/test@^1.56.0 three@0.186.1
+      - name: Install Chromium and Linux dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Run real browser integration
+        run: |
+          npx playwright test \
+            --config=DCI/DataCenter/ls3d-three/playwright.step19.config.mjs
+      - name: Attach Playwright screenshots, reports, traces and JSON metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3d-step19-qa-${{ github.run_number }}
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            DCI/DataCenter/ls3d-three/step19-results/
+            DCI/DataCenter/ls3d-three/step19-results.json
+            DCI/DataCenter/ls3d-three/step19-playwright-report/

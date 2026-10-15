@@ -7,17 +7,20 @@ import path from 'node:path';
 
 const BASE=process.env.LS3D_BASE_URL||
   'http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html';
-const THREE_SOURCE=path.resolve(process.cwd(),'node_modules/three/build/three.module.js');
+const THREE_BUILD=path.resolve(process.cwd(),'node_modules/three/build');
 const ZONES=['campus','utility','cooling','gray','hall','network','ops'];
 const serious=[];
 test.beforeEach(async({page})=>{
   // Hermetic Three.js version for browser CI, preserving the site's exact
   // import map and module graph. This replaces *only* the CDN response.
-  await page.route('https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js',
-    async route=>route.fulfill({
-      status:200,body:await readFile(THREE_SOURCE),
-      headers:{'content-type':'text/javascript; charset=utf-8','access-control-allow-origin':'*'}
-    }));
+  await page.route('**/npm/three@0.186.1/build/three.*.js',async route=>{
+    const name=route.request().url().includes('three.core.js')?'three.core.js':'three.module.js';
+    await route.fulfill({
+      status:200,body:await readFile(path.join(THREE_BUILD,name)),
+      headers:{'content-type':'text/javascript; charset=utf-8',
+        'access-control-allow-origin':'*'}
+    });
+  });
 });
 function errorsFor(page){
   const errors=[];

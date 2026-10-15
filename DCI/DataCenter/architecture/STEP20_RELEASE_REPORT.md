@@ -118,3 +118,18 @@ GitHub 저장소에서 직접 파일을 다시 fetch하여 아래 **15개 정적
 15. 기존 DataCenter BOM Git Blob SHA 일치
 
 **미실행/미확인:** 상기 15개 확인은 실제 Node CLI step20.release.test.mjs 수행 로그가 아니다. GitHub Actions 자체 브라우저 성공 여부, GitHub Pages 실화면, GPU FPS/모바일 터치는 확인되지 않았으므로 최종 후보 버전의 정식 승격 판정은 유보한다.
+
+
+## 8. 모바일 랙 서버 조작 패널 접기 개선 (2026-10-15)
+
+- 사용자 요청: 화면 하단의 '이전 서버 / 다음 서버 / 선택 서버 인출·복귀 / 광 카세트 인출·복귀' 패널이 3D 장비를 가리므로 접기 버튼 추가.
+- 구현: `ls3d-three/rack-panel-disclosure.mjs` 신규, `scene-adapter.mjs`에 '접기 ▴ / 펼치기 ▾' 버튼·레이블·접힌 본문 추가.
+- 모바일: 폭 640px 이하에서는 처음에 작은 `랙 조작 · Rack ID` 제목만 표시, 언제든 펼쳐 조작 가능.
+- 데스크톱: 기본 펼침, 사용자가 선택하면 접기. 다른 랙을 선택해도 패널 상태 유지.
+- 기존 서버 이동, 문 열기/닫기, 광 카세트와 ToR/PDU A·B 배선 제어 기능의 구현 및 상태값 유지.
+- 반응형 충돌 처리: `scene-viewport-policy.mjs`에서 랙이 접힌 경우 MEP 패널의 하단 배치 여백을 줄이고 `maxHeight=62px` 적용.
+- 캐시 무효화: `bootstrap.mjs` → `scene-adapter.mjs` → `scene-viewport-policy.mjs` 버전 쿼리를 `20261015-rack-collapse`로 변경. 원본 2D/BOM 미변경.
+- 테스트: 저장된 신규 JavaScript/DOM Mock 회귀 **4/4 PASS**.
+- 실 Chromium 모바일 수용성: `step19.integration.playwright.spec.mjs`에 19-I 시나리오(기본 접힘/펼침/문 상태 유지)를 추가했지만 실제 브라우저 실행/스크린샷은 미확인.
+
+상세 조작 방법은 [DataCenter README](../README.md)의 '서버 조작 패널 접기 / 펼치기'에 설명했다. GitHub TXT 이력의 섹션 8에도 코드 경로·변경 방법을 기록하였다.

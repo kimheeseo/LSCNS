@@ -5,11 +5,11 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step0
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261015-step11to13';
+import { createRackComponentKit } from './rack-components.mjs?v=20261015-step14-top-u';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
-import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14';
+import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.

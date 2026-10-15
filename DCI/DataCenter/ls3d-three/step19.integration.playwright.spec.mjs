@@ -16,6 +16,13 @@ async function ready(page,zone='campus'){
     if(msg.type()==='error' && /three|webgl|module|uncaught|failed/i.test(msg.text()))
       issues.push('console: '+msg.text());
   });
+  // STEP 19 validates 3D controls after onboarding. A fresh CI browser has no
+  // visitor history, so the first-visit guide otherwise overlays buttons and
+  // intercepts both clicks and mobile touch gestures. Keep onboarding enabled
+  // for real visitors; skip it only in these app-control acceptance tests.
+  await page.addInitScript(() => {
+    try { window.localStorage.setItem('ls3d-first-guide-v481', 'done'); } catch (_) {}
+  });
   // Local known version, no dependence on third-party CDN availability.
   await page.route('**/npm/three@0.186.1/build/three.*.js',async route=>{
     const name=route.request().url().includes('three.core.js')?'three.core.js':'three.module.js';

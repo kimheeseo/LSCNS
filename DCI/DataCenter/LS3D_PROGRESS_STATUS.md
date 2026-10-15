@@ -27,7 +27,7 @@
 | 17/20 | 전력·냉각·광 3D Tube / Overhead Tray·Pipe / 연결 선택 | **코드 구현·원본 HTML 자산 60개 기반 Mock 22/22 PASS + 별도 JS 테스트 5/5 PASS / Chromium QA 대기** | 기존 THREE.Line 제거, 실제 설비 ID 연결·루트별 색상/선택·정보 표시·메모리 dispose 및 server-room 격리 |
 | 18/20 | 근거리 카메라 가림 복원·모바일 UI 및 2손가락 pan/pinch·적응형 DPR·모바일 Shadow 최적화 | **구현·실제 저장 코드 JS Mock 5/5 PASS / Chromium 및 GPU 성능실측 대기** | viewport 정책, 선택 장비 가림 판단, 패널 배치, high/low 수동설정 보존, 메모리 그룹 정리 개선 |
 | 19/20 | 전체 통합 Node·Playwright·GitHub Actions 검증 | **22/22 실제 JS 소스 Mock PASS / 핵심 JS 20개 파싱 PASS / 5개 Browser E2E·CI 작성됨; 실제 Chromium PASS·증거 아티팩트 미확인** | CI 파이프라인·스크린샷/성능 수집 경로 구축, 7구역/NPC·보안/랙/MMR/Cage/MEP/모바일 범위 확대 |
-| 20/20 | 실제 브라우저 테스트 오류 수정·릴리스 검증·최종 보고 | **미진행** | 별도 사용자 승인 후 진행 |
+| 20/20 | 최종 릴리스 후보 표기, README 사용설명서/버전업 TXT·최종 보고서 | **v4.8.0-rc.1 GitHub main 문서/버전 반영 완료 / Chromium·모바일·Pages 실제 배포 최종 수용 보류** | root README + DataCenter/README.md + 버전 TXT + STEP20 보고서, 기존 2D/BOM 보호 |
 
 **완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14~19는 소스 기반 모의 검증/통합 테스트 코드까지 완료했으나 브라우저 수용성은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 

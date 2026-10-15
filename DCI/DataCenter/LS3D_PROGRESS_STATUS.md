@@ -21,9 +21,11 @@
 | 11/20 | 전·후면 랙 도어 및 카메라 | **실제 Three 코드 구현·모의 테스트 통과 / Chromium QA 대기** | 독립 문 힌지, 전면/후면 시점 조작, 이전 레거시 상태 연동 |
 | 12/20 | 서버 레일 인출 및 NIC/포트 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 한 번에 선택한 서버만 인출, 42/48U 서버 14개/개념 NIC 56포트(샘플) |
 | 13/20 | 광 카세트 상세 조작 | **코드 구현·모의 테스트 통과 / Chromium QA 대기** | 카세트 이동/커버 개폐, 랙당 8개 커넥터·3D 광섬유, 포트별 raycast |
-| 14~20/20 | ToR·후면 PDU·케이블·MMR·최종 배포 | 미착수 | 별도 사용자 승인 전 진행 없음 |
+| 14/20 | ToR 최상단·후면 PDU A/B·NIC 배선·필터 정밀화 | **구현 완료·실제 모듈 Mock 18/18 PASS, Node 테스트 내용 3/3 PASS / Chromium QA 대기** | U 최상단 ToR, 포트 8개, 인출되는 NIC 연결선, 비선택 링크 반투명화·기존 조작 API 보존 |
+| 15~16/20 | MMR / Co-location | **기존 GitHub 커밋에서 구현 확인·이번 차수 검증 제외** | STEP 14 이외의 기능 추가 없음 |
+| 17~20/20 | 전역 배선·카메라/성능·종합 테스트·최종 배포 | **이번 차수 미진행** | 별도 요청 이후 진행 |
 
-**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
+**완전 검증 완료로 기록된 단계는 STEP 01~02. STEP 14는 모의 검증 기준 코드 구현이 완료됐으나 브라우저 검증은 대기 중이다. STEP 03 사용자 기본 수동 브라우저 6/6 PASS. STEP 04~07 Mock 검사 PASS. STEP 08~10 코드·Three API Mock 21/21 PASS(이전 결과). STEP 11~13 부품 Mock 24/24 및 Scene Adapter 통합 Mock 17/17 PASS. STEP 04~13 신규 WebGL2/모바일/Playwright/FPS 최종 검증은 대기.**
 
 ### 2026-10-15 수동 검증 결과
 - 사용자 확인 6종 PASS: 3D 건물·설비 표시, Three.js r186·PBR 표시, 7개 구역 전환, 랙 선택·상세정보, PC/터치 카메라 회전·확대, 도어 및 서버 인출.
@@ -143,4 +145,4 @@ npx playwright test DCI/DataCenter/ls3d-three/step03.playwright.spec.mjs
 
 ## 다음 작업 조건
 
-STEP 11~13 기능 코드는 구현되었고 STEP 10 랙 모델과 결합한 모의 검증 24/24 + Scene Adapter 17/17 통과. **실제 Chrome/WebGL2 브라우저에서 랙 전·후면 카메라, 문 간섭·클리핑, 서버 단독 인출, 광 카세트 내부 포트/3D 광섬유 및 모바일 터치/성능을 직접 검증해야 STEP 11~13 최종 완료로 확정한다.** 기존 STEP 04~10 실브라우저 회귀도 남아 있다. 다음 STEP 14 ToR/후면 A·B PDU/케이블 관리는 사용자 별도 승인 전 시작하지 않는다.
+STEP 14 ToR/후면 PDU A·B/NIC 배선 개선 코드를 main에 반영하고 실제 GitHub 소스의 Three API Mock 18/18 및 새 단위 테스트 3/3 검사를 통과했다. **Chrome/WebGL2 실제 브라우저 렌더·모바일 터치·스크린샷·성능 검증은 아직 미실행**이므로 STEP 14 최종 검증 판정은 보류한다. [STEP14 상세 보고서](./architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md). 이후 번호는 사용자 확인 없이 진행하지 않는다.

@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "DCI/DataCenter/ls3d-three/step19.*"
+      - "DCI/DataCenter/ls3d-three/**"
       - "DCI/DataCenter/ls3d-three/step20.release.test.mjs"
       - "DCI/DataCenter/LS_Datacenter_3D.html"
       - "DCI/DataCenter/README.md"
@@ -49,6 +49,7 @@ jobs:
           done
           node --test DCI/DataCenter/ls3d-three/step19.source.test.mjs
           node --test DCI/DataCenter/ls3d-three/step20.release.test.mjs
+          node --test DCI/DataCenter/ls3d-three/step20.rack-panel.unit.test.mjs
       - name: Serve exact checked-out 3D site via localhost
         shell: bash
         run: |

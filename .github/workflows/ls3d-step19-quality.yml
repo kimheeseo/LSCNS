@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - "DCI/DataCenter/ls3d-three/step19.*"
+      - "DCI/DataCenter/ls3d-three/step20.release.test.mjs"
+      - "DCI/DataCenter/LS_Datacenter_3D.html"
+      - "DCI/DataCenter/README.md"
+      - "DCI/DataCenter/LS3D_VERSION_UPGRADE_HISTORY.txt"
+      - "DCI/DataCenter/architecture/STEP20_RELEASE_REPORT.md"
+      - "README.md"
       - ".github/workflows/ls3d-step19-quality.yml"
   workflow_dispatch:
 
@@ -42,6 +48,7 @@ jobs:
             node --test "DCI/DataCenter/ls3d-three/step${step}.unit.test.mjs"
           done
           node --test DCI/DataCenter/ls3d-three/step19.source.test.mjs
+          node --test DCI/DataCenter/ls3d-three/step20.release.test.mjs
       - name: Serve exact checked-out 3D site via localhost
         shell: bash
         run: |

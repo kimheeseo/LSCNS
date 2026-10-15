@@ -141,8 +141,10 @@ export function createSceneAdapter(T, canvas) {
     if(!a||!T.isMechanicalRack(a)||!desired||T.workerViewId||T.walkActive)return false;
     focusedRack={id:a.id,side:side==='rear'?'rear':'front'};
     desired.target=[a.x,a.h*.56,a.z];
-    desired.distance=Math.max(7,Math.min(19,Math.max(a.w,a.d)*2.7));
-    desired.pitch=.24;
+    // Frame the complete rack at close range; the previous 2.7× footprint
+    // distance pushed rear components too far away to inspect.
+    desired.distance=Math.max(5.8,Math.min(9,a.h*1.35));
+    desired.pitch=.14;
     desired.yaw=focusedRack.side==='rear'?0:Math.PI;
     return true;
   }
@@ -207,7 +209,7 @@ export function createSceneAdapter(T, canvas) {
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['previous-server','이전 서버'],['next-server','다음 서버'],
         ['server-slide','선택 서버 인출/복귀'],['cassette-slide','광 카세트 인출/복귀'],
-        ['next-fiber','다음 광 커넥터'],['clear-selection','부품 선택 해제']
+        ['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
@@ -273,13 +275,75 @@ export function createSceneAdapter(T, canvas) {
     if(rackPanelHeading)rackPanelHeading.textContent='랙 조작 · '+a.id;
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
-    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점':'전면 시점'):'기본 시점')+
+    const fiberSelected=selectedRackPart?.assetId===a.id&&selectedRackPart.kind==='fiber-port';
+    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 근접 확대':'전면 시점 · 근접 확대'):'기본 시점')+
       ' · 서버 '+serverLabel+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
+      (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/8 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
       ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all');
   }
+  let selectedPartVisuals=[], selectedPartRing=null;
+  function clearRackPartEmphasis() {
+    for(const entry of selectedPartVisuals){
+      if(entry.object.material===entry.highlighted)entry.object.material=entry.original;
+      const list=Array.isArray(entry.highlighted)?entry.highlighted:[entry.highlighted];
+      for(const material of list)material?.dispose?.();
+    }
+    selectedPartVisuals=[];
+    if(selectedPartRing){
+      selectedPartRing.parent?.remove(selectedPartRing);
+      selectedPartRing.geometry?.dispose?.();selectedPartRing.material?.dispose?.();
+      selectedPartRing=null;
+    }
+  }
+  function emphasizeRackPart(assetId,partId) {
+    clearRackPartEmphasis();
+    const item=registry.get(assetId);if(!item)return null;
+    let anchor=null;
+    item.g.updateMatrixWorld(true);
+    item.g.traverse(object=>{
+      if(!object.isMesh||object.userData?.partId!==partId||!object.material)return;
+      const original=object.material;
+      const highlighted=Array.isArray(original)?original.map(m=>m.clone()):original.clone();
+      const mats=Array.isArray(highlighted)?highlighted:[highlighted];
+      for(const material of mats){
+        if(material.emissive){material.emissive.set(0xffdf55);material.emissiveIntensity=2.2;}
+        if(material.color)material.color.lerp(new THREE.Color(0xffef8a),.72);
+      }
+      object.material=highlighted;
+      selectedPartVisuals.push({object,original,highlighted});
+      if(object.name.includes('connector-boot'))anchor=object;
+    });
+    if(anchor&&THREE.TorusGeometry&&THREE.MeshBasicMaterial){
+      selectedPartRing=new THREE.Mesh(
+        new THREE.TorusGeometry(.105,.018,8,24),
+        new THREE.MeshBasicMaterial({color:0xffef68,depthTest:false,toneMapped:false})
+      );
+      selectedPartRing.name='rack-optical:selected-port-ring';
+      selectedPartRing.userData.assetId=assetId;selectedPartRing.userData.partId=partId;
+      selectedPartRing.position.set(0,0,-.058);
+      selectedPartRing.renderOrder=1001;
+      anchor.add(selectedPartRing);
+    }
+    return anchor;
+  }
+  function focusOpticalPort(assetId,anchor) {
+    const asset=T.assetMap.get(assetId),desired=T.cameraDesired,item=registry.get(assetId);
+    if(!asset||!desired||!anchor||T.workerViewId||T.walkActive)return false;
+    focusedRack={id:asset.id,side:'front'};
+    const motion=T.mechanical?.(asset),wasOpen=!!(motion?.targetCassette||motion?.cassette>.5);
+    if(!wasOpen)toggleRackCassette(assetId);
+    item?.g?.updateMatrixWorld?.(true);
+    const p=new THREE.Vector3();anchor.getWorldPosition(p);
+    const extension=wasOpen?0:(Number(item?.moving?.reach)||1)*.70;
+    desired.target=[p.x,p.y,p.z-extension];
+    desired.distance=Math.max(2.7,Math.min(4.2,asset.w*.75));
+    desired.pitch=.12;desired.yaw=Math.PI;
+    return true;
+  }
   function showRackPart(info) {
+    clearRackPartEmphasis();
     selectedRackPart=info?{...info}:null;
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
@@ -291,13 +355,19 @@ export function createSceneAdapter(T, canvas) {
     rackHud.hidden=!selectedRackPart;
     if(selectedRackPart)rackHud.textContent=
       '선택 부품: '+selectedRackPart.label+' · '+selectedRackPart.assetId+
-      ' · U '+selectedRackPart.uStart+'-'+(selectedRackPart.uStart+selectedRackPart.uHeight-1);
+      ' · U '+selectedRackPart.uStart+'-'+(selectedRackPart.uStart+selectedRackPart.uHeight-1)+
+      (selectedRackPart.kind==='fiber-port'?' · 포트 '+(selectedRackPart.portIndex+1)+'/8 · 광 경로 노란색 강조':'');
     return selectedRackPart;
   }
   function selectRackPart(assetId,partId) {
     const record=registry.get(assetId);
     const part=record?.partMap?.get(partId)||null;
-    return showRackPart(part);
+    const selected=showRackPart(part);
+    if(part?.kind==='fiber-port'){
+      const anchor=emphasizeRackPart(assetId,partId);
+      focusOpticalPort(assetId,anchor);
+    }
+    return selected;
   }
   function assetMesh(a) {
     const g=new THREE.Group();

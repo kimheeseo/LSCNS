@@ -30,9 +30,10 @@ class Node{
 }
 function shape(){
   const root=new Node('root'),room=new Node('arch:zone:hall');root.add(room);
-  const wall=room.add(new Node('arch:wall:side', 'wall',true));
-  const roof=room.add(new Node('arch:roof:main','roof',true));
-  const floor=room.add(new Node('arch:floor:main','floor',true));
+  const wall=new Node('arch:wall:side','wall',true);
+  const roof=new Node('arch:roof:main','roof',true);
+  const floor=new Node('arch:floor:main','floor',true);
+  room.add(wall).add(roof).add(floor);
   return {root,wall,roof,floor};
 }
 const selected={id:'gpu-0-0',zone:'hall',x:3,z:2,h:6};

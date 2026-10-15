@@ -17,8 +17,8 @@ const version=load(prefix+'LS3D_VERSION_UPGRADE_HISTORY.txt');
 const report=load(prefix+'architecture/STEP20_RELEASE_REPORT.md');
 
 test('Three preview version appears in real HTML title and sidebar while core baseline remains declared',()=>{
-  assert.match(html,/<title>LS Datacenter Campus · 3D Digital Twin v4\.8\.0-rc\.1<\/title>/);
-  assert.match(html,/v4\.7\.0 코어 · Three\.js v4\.8\.0-rc\.1/);
+  assert.match(html,/<title>LS Datacenter Campus · 3D Digital Twin v4\.8\.1<\/title>/);
+  assert.match(html,/v4\.7\.0 계산 코어 · Three\.js v4\.8\.1/);
   assert.match(html,/bootstrap\.mjs\?v=20261015-rack-collapse/);
   assert.match(html,/three@0\.186\.1\/build\/three\.module\.js/);
 });
@@ -28,7 +28,7 @@ test('root README and DataCenter guide link to the correct Three and rollback UR
     assert.match(text,/LS_Datacenter_3D\.html\?engine=legacy/);
     assert.match(text,/LS3D_VERSION_UPGRADE_HISTORY\.txt/);
     assert.match(text,/STEP20_RELEASE_REPORT\.md/);
-    assert.match(text,/v4\.8\.0-rc\.1/);
+    assert.match(text,/v4\.8\.1/);
   }
 });
 test('separate UTF-8 TXT describes all 20 stages, version strategy and unverified QA',()=>{
@@ -37,7 +37,7 @@ test('separate UTF-8 TXT describes all 20 stages, version strategy and unverifie
     assert.ok(version.includes(marker),'Missing '+marker+' in upgrade TXT');
   }
   assert.match(version,/v4\.7\.0/);
-  assert.match(version,/v4\.8\.0-rc\.1/);
+  assert.match(version,/v4\.8\.1/);
   assert.match(version,/캐시/);
   assert.match(version,/롤백/);
   assert.match(report,/Chromium\/WebGL2/);

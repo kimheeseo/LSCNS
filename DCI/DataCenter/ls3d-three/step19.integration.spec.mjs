@@ -182,7 +182,10 @@ test('S19-04: mobile responsive controls, multi-touch camera and facility isolat
   expect(panels.every(p=>p.exists&&p.left>=-1&&p.right<=391)).toBe(true);
   await page.screenshot({path:info.outputPath('step19-mobile-390.png')});
   await page.evaluate(()=>window.__LS3D_TEST__.applyFacilityMode('server-room'));
-  await page.waitForFunction(()=>window.LS3D_THREE.adapter.mep?.visible===false);
+  await page.waitForFunction(()=>{
+    const a=window.LS3D_THREE?.adapter;
+    return a?.mep?.visible===false&&a?.colocation?.ready===false;
+  },null,{timeout:20000});
   expect(await page.evaluate(()=>window.LS3D_THREE.adapter.colocation?.ready)).toBe(false);
   await attachJSON(info,'mobile-layout.json',panels);
   expect(errors).toEqual([]);

@@ -4,7 +4,7 @@
 export function createRackNetworkCabling(THREE,{cube}) {
   const records=new Map();
   const stats={built:0,torSwitches:0,torPorts:0,nicLinks:0,powerALinks:0,powerBLinks:0,
-    ductSegments:0,highlights:0};
+    ductSegments:0,highlights:0,cableGeometryUpdates:0};
   const box=(p,name,x,y,z,w,h,d,color)=>{
     const m=cube(p,x,y,z,w,h,d,color,.42,.42);
     m.name='rack-link:'+name;return m;
@@ -12,10 +12,26 @@ export function createRackNetworkCabling(THREE,{cube}) {
   const wire=(parent,name,points,color,radius=.022)=>{
     const g=new THREE.Group();g.name='rack-link:'+name;parent.add(g);
     if(THREE.CatmullRomCurve3&&THREE.TubeGeometry&&THREE.Vector3&&THREE.MeshStandardMaterial){
-      const curve=new THREE.CatmullRomCurve3(points.map(p=>new THREE.Vector3(p[0],p[1],p[2])));
-      const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,14,radius,5,false),
-        new THREE.MeshStandardMaterial({color,metalness:.08,roughness:.61}));
+      const base=points.map(p=>p.slice());
+      const curveFor=(offset=0)=>new THREE.CatmullRomCurve3(base.map((p,i)=>
+        new THREE.Vector3(p[0],p[1],p[2]+(i===0?offset:i===1?offset*.6:0))));
+      const mesh=new THREE.Mesh(new THREE.TubeGeometry(curveFor(),14,radius,5,false),
+        new THREE.MeshStandardMaterial({color,metalness:.08,roughness:.61,transparent:true,opacity:.94}));
       mesh.name='rack-link:cable:'+name;mesh.userData.noPick=true;g.add(mesh);
+      // A pulled sled carries the NIC endpoint; rebuild its *own* service-loop
+      // curve only when the travel changes enough to matter visually.
+      let previousOffset=0;
+      g.userData.followServer=(offset=0)=>{
+        if(!Number.isFinite(offset)||Math.abs(offset-previousOffset)<.025)return false;
+        const previous=mesh.geometry;
+        mesh.geometry=new THREE.TubeGeometry(curveFor(offset),14,radius,5,false);
+        previous.dispose?.();previousOffset=offset;stats.cableGeometryUpdates++;
+        return true;
+      };
+      g.userData.emphasize=(active)=>{
+        mesh.material.opacity=active?.94:.11;
+        mesh.material.depthWrite=!!active;
+      };
     } else {
       // Non-WebGL test doubles can still inspect independent links.
       for(let j=1;j<points.length;j++){
@@ -78,10 +94,10 @@ export function createRackNetworkCabling(THREE,{cube}) {
     modules.forEach((module,index)=>{
       const info=module.userData.rackPart;
       if(!info)return;
-      const yy=low+(info.uStart-1)*u+info.uHeight*u*.48;
+      const yy=low+(info.uStart-1)*u+info.uHeight*u*.26;
       const sx=index%2?1:-1;
       const cable=wire(network,'nic-to-tor-'+index,[
-        [sx*w*.18,yy,d*.31],[sx*w*.31,yy+.13,d*.28],
+        [sx*w*.18,yy,d*.382],[sx*w*.31,yy+.13,d*.28],
         [sx*w*.34,yy+.35,-d*.04],[sx*w*.33,torY+.12,-d*.14],
         [sx*w*.22,torY+.15,-d*.57]
       ],'#5fdccf',.025);
@@ -93,7 +109,7 @@ export function createRackNetworkCabling(THREE,{cube}) {
       for(const side of ['A','B']){
         const px=(side==='A'?-1:1)*w*.405;
         const cord=wire(network,'server-'+index+'-pdu-'+side,[
-          [sx*w*.22,yy,d*.29],[sx*w*.29,yy+.09,d*.40],
+          [sx*w*.22,yy,d*.33],[sx*w*.29,yy+.09,d*.40],
           [px,yy+.12,d*.445],[px,yy+.02,d*.50]
         ],colors[side],.026);
         cord.userData.cableSystem='power-'+side;
@@ -103,7 +119,8 @@ export function createRackNetworkCabling(THREE,{cube}) {
         if(side==='A')stats.powerALinks++;else stats.powerBLinks++;
       }
     });
-    const record={id,torY,links,tor,pdus,selectedServer:null,filter:'all',built};
+    const record={id,torY,links,tor,pdus,selectedServer:null,filter:'all',built,
+      serverOffsets:new Map(),lastEmphasis:null};
     records.set(id,record);stats.built++;stats.torSwitches++;
     return record;
   }
@@ -117,19 +134,40 @@ export function createRackNetworkCabling(THREE,{cube}) {
   function update(id,selectedServer=null) {
     const rec=records.get(id);if(!rec)return null;
     rec.selectedServer=selectedServer;
-    for(const l of rec.links){
-      const matches=(rec.filter==='all'||rec.filter===l.kind);
-      // Selecting a server highlights its own rack-local links only when a
-      // link filter is active; this is a visualization, not routing control.
-      l.group.visible=matches&&(rec.filter==='all'||!selectedServer||l.from===selectedServer);
+    const emphasisKey=rec.filter+'|'+(selectedServer||'');
+    const needsEmphasis=emphasisKey!==rec.lastEmphasis;
+    const serverGroups=rec.built.serverGroups||[];
+    for(const group of serverGroups){
+      const serverId=group.userData?.rackPart?.id;
+      if(!serverId)continue;
+      const offset=Number(group.position?.z)||0;
+      if(Math.abs(offset-(rec.serverOffsets.get(serverId)||0))>=.025){
+        for(const link of rec.links)if(link.from===serverId)
+          link.group.userData.followServer?.(offset);
+        rec.serverOffsets.set(serverId,offset);
+      }
     }
-    return {id,mode:rec.filter,selectedServer,visible:rec.links.filter(l=>l.group.visible).length,
-      links:rec.links.length,torU:rec.built.parts.find(p=>p.kind==='tor')?.uStart};
+    if(needsEmphasis){
+      for(const l of rec.links){
+        const matches=(rec.filter==='all'||rec.filter===l.kind)&&
+          (rec.filter==='all'||!selectedServer||l.from===selectedServer);
+        // Keep all routes in view: dim unrelated ones instead of removing them.
+        l.group.visible=true;
+        l.group.userData.emphasize?.(matches);
+        l.emphasized=matches;
+      }
+      rec.lastEmphasis=emphasisKey;
+    }
+    return {id,mode:rec.filter,selectedServer,highlighted:rec.links.filter(l=>l.emphasized).length,
+      visible:rec.links.filter(l=>l.group.visible).length,links:rec.links.length,
+      torU:rec.built.parts.find(p=>p.kind==='tor')?.uStart};
   }
   function diagnostic(id){
     const r=records.get(id);
     return r?{id,torU:r.built.parts.find(p=>p.kind==='tor')?.uStart,
-      torY:r.torY,filter:r.filter,links:r.links.map(l=>({kind:l.kind,from:l.from,to:l.to,visible:l.group.visible}))}:null;
+      torY:r.torY,filter:r.filter,selectedServer:r.selectedServer,
+      links:r.links.map(l=>({kind:l.kind,from:l.from,to:l.to,visible:l.group.visible,
+        emphasized:!!l.emphasized}))}:null;
   }
   function drop(id){records.delete(id);}
   function reset(){records.clear();}

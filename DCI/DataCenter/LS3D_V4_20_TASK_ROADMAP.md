@@ -27,7 +27,7 @@
 - **STEP 11~13 검증:** 42U/48U 부품·기계 동작 Mock **24/24 PASS**; STEP 03~13 Scene Adapter 연동 Mock **17/17 PASS**(커넥터 raycast 포함). 실제 Chrome/WebGL2 시각·클리핑·FPS 및 Playwright 실행 로그는 아직 없음.
 - **STEP 14 / 20: 구현·모의 검증 완료 / 실브라우저 검증 대기** — ToR 최상단 U 배치, 8개 독립 선택 포트, 서버 인출 시 NIC→ToR/PDU A/B 3D 케이블 시작점 갱신, 선택 경로 강조 및 비선택 경로 반투명화. 실제 저장소 소스 실행 Mock **18/18 PASS**, 별도 단위 테스트 **3/3 PASS**; Playwright 시각 검증 미실행. [보고서](./architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md) · [코드](./ls3d-three/rack-network-cabling.mjs) · [Node 테스트](./ls3d-three/step14.unit.test.mjs) · [브라우저 테스트 초안](./ls3d-three/step14.playwright.spec.mjs).
 - **STEP 15 / 20: 4구획 독립 MMR, Carrier Demarc/ODF/DWDM/Core 전면 부품·힌지 출입문·광회선 raycast 선택 구현 및 모의 검증 완료 / Chromium QA 대기** — 실제 소스 기반 형상/서비스 경로 검증 **16/16 PASS**, Scene 연동 **8/8 PASS**, 저장된 Node 호환 테스트 JS 실행 **4/4 PASS**. 실브라우저 Playwright/모바일 스크린샷은 미실행. [보고서](./architecture/STEP15_MMR_REPORT.md) · [MMR 모듈](./ls3d-three/mmr-room.mjs) · [Node 테스트](./ls3d-three/step15.unit.test.mjs) · [Playwright 초안](./ls3d-three/step15.playwright.spec.mjs).
-- **STEP 16 / 20: 과거 커밋의 Co-location 구현 존재 / 이번 차수 변경·재검증 없음.** 사용자 확인 후 별도 단계로 수행. [기존 모듈](./ls3d-three/colocation-cages.mjs).
+- **STEP 16 / 20: 고객 A/B/C 실제 랙 footprint 기반 Mesh Fence·3개 힌지 문·고객별 Fiber/PDU A·B 3D 연결 정밀화 코드 구현 및 소스 Mock 완료 / Chromium QA 대기.** 고객 랙을 관통하는 임의 3등분 보정 제거, 격자형 Mesh, 개별 광 어댑터·전원 피더·3D 케이블 raycast·시스템별 선택/반투명 강조, 문·선택 상태 보존. 소스 모의 검증 **28/28 PASS**, 전용 JS 테스트 **5/5 PASS**. [STEP16 보고서](./architecture/STEP16_COLOCATION_REPORT.md) · [모델](./ls3d-three/colocation-cages.mjs) · [Node 테스트](./ls3d-three/step16.unit.test.mjs) · [Playwright 초안](./ls3d-three/step16.playwright.spec.mjs).
 - **STEP 17~20 / 20: 이번 작업에서는 진행하지 않음.** 이후 별도 요청과 확인을 따라 진행.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준

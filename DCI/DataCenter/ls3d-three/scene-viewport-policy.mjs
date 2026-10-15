@@ -96,7 +96,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
     zone.style.left=narrow?'8px':'12px';
     zone.style.top=narrow?'58px':'73px';
     zone.style.right='auto';
-    zone.style.maxHeight=narrow?'min(40%, 250px)':'55%';
+    zone.style.maxHeight=narrow?(short?'min(30%,140px)':'min(38%,250px)'):'55%';
     zone.style.overflowY='auto';
   }
   if(mep){
@@ -124,7 +124,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
       rack.style.maxHeight='min(31%,260px)';
       rack.style.overflowY='auto';
     }else{
-      rack.style.maxHeight='';rack.style.overflowY='';
+      rack.style.maxHeight='min(76vh,550px)';rack.style.overflowY='auto';
     }
   }
   return {mobile:narrow,short,zonePanel:!!zone,rackPanel:rackVisible};

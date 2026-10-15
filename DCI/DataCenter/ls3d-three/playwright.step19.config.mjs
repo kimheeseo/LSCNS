@@ -14,10 +14,10 @@ export default defineConfig({
   expect:{timeout:20000},
   reporter:[
     ['list'],
-    ['html',{open:'never',outputFolder:'DCI/DataCenter/ls3d-three/step19-playwright-report'}],
-    ['json',{outputFile:'DCI/DataCenter/ls3d-three/step19-results.json'}]
+    ['html',{open:'never',outputFolder:'step19-playwright-report'}],
+    ['json',{outputFile:'step19-results.json'}]
   ],
-  outputDir:'DCI/DataCenter/ls3d-three/step19-results',
+  outputDir:'step19-results',
   use:{
     ...devices['Desktop Chrome'],
     browserName:'chromium',

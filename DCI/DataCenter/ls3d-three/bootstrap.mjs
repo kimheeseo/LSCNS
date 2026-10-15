@@ -24,7 +24,7 @@ if (requested && T) {
   if (heading) heading.appendChild(label);
   function mark(text) { label.textContent=text; }
   mark('Three.js 불러오는 중');
-  let pointer = null, second = null, lastPinch = null;
+  let pointer = null, second = null, lastPinch = null, lastMid = null, multiTouch = false;
   function clamp(x,a,b){return Math.min(b,Math.max(a,x))}
   function fallback(error) {
     status.error=String(error?.message || error);
@@ -42,16 +42,17 @@ if (requested && T) {
   }
   status.fallback=fallback;
   function setPointers() {
-    if (pointer && second) {
+    if(pointer&&second){
       lastPinch=Math.hypot(pointer.x-second.x,pointer.y-second.y);
-    } else lastPinch=null;
+      lastMid={x:(pointer.x+second.x)/2,y:(pointer.y+second.y)/2};
+    }else {lastPinch=null;lastMid=null;}
   }
   canvas.addEventListener('pointerdown',e=>{
     if (status.status!=='ready')return;
     e.preventDefault();
     const p={id:e.pointerId,x:e.clientX,y:e.clientY,originX:e.clientX,originY:e.clientY,button:e.button,shift:e.shiftKey,moved:false};
     if(!pointer)pointer=p;
-    else if(!second)second=p;
+    else if(!second){second=p;multiTouch=true;pointer.moved=true;second.moved=true;}
     canvas.setPointerCapture(e.pointerId);
     setPointers();
   });
@@ -64,9 +65,20 @@ if (requested && T) {
     if(Math.abs(p.x-p.originX)+Math.abs(p.y-p.originY)>5)p.moved=true;
     if(pointer && second) {
       const pinch=Math.hypot(pointer.x-second.x,pointer.y-second.y);
-      if(lastPinch && pinch>3 && !T.walkActive && !T.workerViewId)
-        T.cameraDesired.distance=clamp(T.cameraDesired.distance*lastPinch/pinch,.12,260);
-      lastPinch=pinch;
+      const center={x:(pointer.x+second.x)/2,y:(pointer.y+second.y)/2};
+      if(!T.walkActive&&!T.workerViewId){
+        if(lastPinch && pinch>3)
+          T.cameraDesired.distance=clamp(T.cameraDesired.distance*lastPinch/pinch,.8,260);
+        if(lastMid){
+          const shiftX=center.x-lastMid.x,shiftY=center.y-lastMid.y;
+          const yaw=T.cameraDesired.yaw;
+          const factor=clamp(T.cameraDesired.distance*.0017,.012,.35);
+          // Two-finger translation pans the camera target independently of pinch.
+          T.cameraDesired.target[0]+=(-shiftX*Math.cos(yaw)+shiftY*Math.sin(yaw)*.30)*factor;
+          T.cameraDesired.target[2]+=(shiftX*Math.sin(yaw)+shiftY*Math.cos(yaw)*.30)*factor;
+        }
+      }
+      lastPinch=pinch;lastMid=center;
       return;
     }
     if(T.workerViewId) {
@@ -88,13 +100,22 @@ if (requested && T) {
   });
   canvas.addEventListener('pointerup',e=>{
     const p=pointer?.id===e.pointerId?pointer:second?.id===e.pointerId?second:null;
-    if(p && !p.moved && !second && p.button===0 && !T.workerViewId)status.adapter?.pick(e.clientX,e.clientY);
+    if(p&&!p.moved&&!multiTouch&&!second&&p.button===0&&!T.workerViewId)
+      status.adapter?.pick(e.clientX,e.clientY);
     if(pointer?.id===e.pointerId)pointer=second,second=null;
     else if(second?.id===e.pointerId)second=null;
+    if(!pointer&&!second)multiTouch=false;
     setPointers();
   });
-  canvas.addEventListener('pointercancel',()=>{pointer=null;second=null;lastPinch=null});
-  canvas.addEventListener('lostpointercapture',e=>{if(pointer?.id===e.pointerId)pointer=null;if(second?.id===e.pointerId)second=null;setPointers()});
+  canvas.addEventListener('pointercancel',()=>{
+    pointer=null;second=null;lastPinch=null;lastMid=null;multiTouch=false;
+  });
+  canvas.addEventListener('lostpointercapture',e=>{
+    if(pointer?.id===e.pointerId)pointer=second,second=null;
+    else if(second?.id===e.pointerId)second=null;
+    if(!pointer&&!second)multiTouch=false;
+    setPointers();
+  });
   canvas.addEventListener('contextmenu',e=>e.preventDefault());
   canvas.addEventListener('wheel',e=>{
     e.preventDefault();

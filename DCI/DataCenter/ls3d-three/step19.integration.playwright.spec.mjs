@@ -222,16 +222,40 @@ test('19-G: narrow mobile screen and two-finger pan/pinch with no false rack pic
     desired:JSON.stringify(window.__LS3D_TEST__.cameraDesired),
     selected:window.__LS3D_TEST__.selected?.id
   }));
-  const rect=await page.locator('#sceneThree').boundingBox();
-  expect(rect).toBeTruthy();
+  // Locate two genuinely uncovered points on the mobile Three.js canvas.
+  // Fixed viewport fractions may fall under Co-location/MEP HUD overlays,
+  // so those touches never reach the real canvas pointer handlers.
+  const gesture=await page.evaluate(()=>{
+    const canvas=document.getElementById('sceneThree'),r=canvas.getBoundingClientRect();
+    const ys=[.56,.68,.76,.44,.34,.84];
+    const xs=[.22,.30,.38,.46,.54,.62,.70];
+    const exposed=(x,y)=>document.elementFromPoint(x,y)===canvas;
+    for(const fy of ys)for(const fx of xs){
+      const p1={x:r.x+r.width*fx,y:r.y+r.height*fy};
+      for(const fx2 of xs){
+        if(fx2-fx<.16)continue;
+        const p2={x:r.x+r.width*fx2,y:p1.y};
+        if(p2.x+44>r.right-6||p1.y+14>r.bottom-6)continue;
+        if(exposed(p1.x,p1.y)&&exposed(p2.x,p2.y)&&
+          exposed(p1.x+22,p1.y+12)&&exposed(p2.x+42,p2.y+12)){
+          return {p1,p2,canvas:{width:r.width,height:r.height}};
+        }
+      }
+    }
+    return null;
+  });
+  expect(gesture,'No unoccluded region available for a two-finger canvas gesture').toBeTruthy();
+  const {p1,p2}=gesture;
   const cdp=await context.newCDPSession(page);
-  const p1={x:rect.x+rect.width*.38,y:rect.y+rect.height*.5};
-  const p2={x:rect.x+rect.width*.58,y:rect.y+rect.height*.5};
   await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[
     {...p1,id:1},{...p2,id:2}
   ]});
+  // Send intermediate movement so real pointer state has a pinch baseline.
   await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[
-    {x:p1.x+20,y:p1.y+10,id:1},{x:p2.x+42,y:p2.y+10,id:2}
+    {x:p1.x+10,y:p1.y+5,id:1},{x:p2.x+18,y:p2.y+5,id:2}
+  ]});
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[
+    {x:p1.x+22,y:p1.y+12,id:1},{x:p2.x+42,y:p2.y+12,id:2}
   ]});
   await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
   const after=await page.evaluate(()=>({

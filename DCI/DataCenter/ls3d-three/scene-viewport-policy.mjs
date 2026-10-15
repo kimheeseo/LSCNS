@@ -129,7 +129,10 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
       rack.style.maxHeight='min(31%,260px)';
       rack.style.overflowY='auto';
     }else{
-      rack.style.maxHeight='min(76vh,550px)';
+      // Constrain expanded rack controls to the actual viewport height.
+      // On short laptop screens, a taller floating rack card otherwise
+      // extends beneath the KPI metrics, blocking rear-camera buttons.
+      rack.style.maxHeight='min(76vh,550px,calc(100% - 20px))';
       rack.style.overflowY='auto';
     }
   }

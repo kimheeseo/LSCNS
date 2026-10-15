@@ -50,15 +50,16 @@ export function createCameraOcclusion(THREE,{zoneRoot}){
     }
     const changed=lastZone!==currentZone||lastSelected!==selected.id;
     lastZone=currentZone;lastSelected=selected.id;
-    // Redraw at 10 Hz-ish rather than raycasting every GPU frame.
-    if(!changed&&frame%6!==0)return summary();
-    restore();
     const targetY=Math.min(Math.max((selected.h||4)*.50,.85),4.5);
     origin.set(eye[0],eye[1],eye[2]);
     destination.set(selected.x,targetY,selected.z);
     direction.subVectors(destination,origin);
     const length=direction.length();
-    if(length>24||length<1)return summary();
+    // Restore immediately at zoom-out, even between 6-frame visibility scans.
+    if(length>24||length<1){restore();return summary();}
+    // Redraw at 10 Hz-ish rather than raycasting every GPU frame.
+    if(!changed&&frame%6!==0)return summary();
+    restore();
     let room=null;
     for(const child of zoneRoot.children){
       if(child.name==='arch:zone:'+currentZone){room=child;break;}

@@ -858,7 +858,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');
-css.textContent=\`
+css.textContent=`
 .ls3d-start-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 10px}
 .ls3d-start-actions button{min-height:54px;padding:9px 10px;border:1px solid #397b8f;border-radius:10px;background:linear-gradient(150deg,#17445b,#102b40);color:#e7fbff;text-align:left;font:700 11px/1.45 system-ui;cursor:pointer}
 .ls3d-start-actions button:first-child{border-color:#43cbbb;background:linear-gradient(145deg,#17665f,#154153)}
@@ -878,7 +878,7 @@ css.textContent=\`
 #ls3dFormulaSources table{width:100%;border-collapse:collapse;font-size:9px;margin-top:8px}
 #ls3dFormulaSources th,#ls3dFormulaSources td{padding:5px;border-bottom:1px solid #294559;text-align:left}
 @media(max-width:640px){.ls3d-start-actions{grid-template-columns:1fr}.ls3d-start-actions button{min-height:43px}#ls3dScenarioPlayer{top:65px;right:8px}}
-\`;
+`;
 document.head.append(css);
 function init(){
  const guide=document.getElementById('guide'),panel=guide?.querySelector('.twin-panel');

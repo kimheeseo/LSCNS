@@ -25,7 +25,9 @@
 - **STEP 12 / 20: 개별 서버 레일 인출 및 NIC 카드·포트 3D 구현·모의 검증 PASS / 실브라우저 대기** — 공통 슬라이드에서 개별 서버 선택 인출로 전환, 고정/이동 레일과 NIC/4 포트, Next/Previous 서버 및 인출 조작. [STEP12 보고서](./architecture/STEP12_SERVER_RAIL_NIC_REPORT.md) · [서버 레일 모듈](./ls3d-three/rack-server-rails.mjs).
 - **STEP 13 / 20: 광 카세트 인출·커버 회전·8개 독립 커넥터/3D 광섬유 구현·모의 검증 PASS / 실브라우저 대기** — 실제 TubeGeometry 서비스 루프, 포트별 raycast 식별, 원위치 복귀. [STEP13 보고서](./architecture/STEP13_FIBER_CASSETTE_REPORT.md) · [광 카세트 모듈](./ls3d-three/rack-optical-cassette.mjs) · [통합 Playwright 회귀 초안](./ls3d-three/step11to13.playwright.spec.mjs).
 - **STEP 11~13 검증:** 42U/48U 부품·기계 동작 Mock **24/24 PASS**; STEP 03~13 Scene Adapter 연동 Mock **17/17 PASS**(커넥터 raycast 포함). 실제 Chrome/WebGL2 시각·클리핑·FPS 및 Playwright 실행 로그는 아직 없음.
-- **STEP 14~20: 미착수.** 다음 14번 ToR·후면 PDU·케이블 관리 정밀화는 사용자 승인 전 진행하지 않는다.
+- **STEP 14 / 20: 구현·모의 검증 완료 / 실브라우저 검증 대기** — ToR 최상단 U 배치, 8개 독립 선택 포트, 서버 인출 시 NIC→ToR/PDU A/B 3D 케이블 시작점 갱신, 선택 경로 강조 및 비선택 경로 반투명화. 실제 저장소 소스 실행 Mock **18/18 PASS**, 별도 단위 테스트 **3/3 PASS**; Playwright 시각 검증 미실행. [보고서](./architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md) · [코드](./ls3d-three/rack-network-cabling.mjs) · [Node 테스트](./ls3d-three/step14.unit.test.mjs) · [브라우저 테스트 초안](./ls3d-three/step14.playwright.spec.mjs).
+- **STEP 15~16 / 20: 과거 커밋에 구현 코드 존재, 별도 검증 미완료.** 이번 STEP 14 작업에서는 수정하지 않음. [MMR/Co-location 코드](./ls3d-three/zone-specializations.mjs).
+- **STEP 17~20 / 20: 이번 작업에서는 진행하지 않음.** 이후 별도 요청과 확인을 따라 진행.
 
 ## STEP 01 현황 분석 및 원본 보호 — 완료 기준
 - 3D HTML과 2D/BOM 엔트리 파일 확인, 버전과 SHA 기록

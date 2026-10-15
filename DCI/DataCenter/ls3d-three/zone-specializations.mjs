@@ -33,6 +33,12 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     }
     return selected;
   }
+  function pickTenantCircuit(id,kind){
+    const detail=colocation.selectCircuit(id,kind);
+    if(!detail)return null;
+    renderStatus();
+    return detail;
+  }
   function viewMMR(){
     const doc=getDocument();
     if(!doc||!canvas.parentElement)return null;
@@ -103,6 +109,8 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
       options.push(['coloTenant',id,'고객 '+id+' 배선 격리'],
         ['coloGate',id,id+' 출입문 열기/닫기'],
         ['coloRack',id,id+' 고객 랙 선택']);
+      for(const [system,label] of [['fiber','광 회선'],['power-A','전력 A'],['power-B','전력 B']])
+        options.push(['coloCircuit',id+':'+system,'고객 '+id+' · '+label]);
     }
     for(const [kind,id,label] of options){
       const btn=doc.createElement('button');btn.type='button';btn.dataset[kind]=id;btn.textContent=label;
@@ -113,6 +121,10 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     coloPanel.addEventListener('click',e=>{
       const b=e.target.closest?.('button');if(!b)return;
       if(b.dataset.coloTenant)pickTenant(b.dataset.coloTenant);
+      if(b.dataset.coloCircuit){
+        const [id,system]=b.dataset.coloCircuit.split(':');
+        pickTenantCircuit(id,system);
+      }
       if(b.dataset.coloGate)colocation.toggleGate(b.dataset.coloGate);
       if(b.dataset.coloRack){
         const a=asset(colocation.focusRackId(b.dataset.coloRack));
@@ -133,8 +145,10 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     }
     if(coloPanel&&!coloPanel.hidden){
       const s=colocation.summary(),opened=s.bays.filter(b=>b.gateOpening>.1).map(b=>b.id);
-      const text='선택 고객: '+(s.selected==='all'?'전체':s.selected)+
-        ' · 열린 출입문 '+(opened.join(', ')||'없음')+' · 고객별 광/전력 A·B 독립 경로(예시)';
+      const current=s.bays.find(b=>b.id===s.selected)?.circuits.find(c=>c.kind===s.selectedCircuit);
+      const text=s.layoutIssue||('선택 고객: '+(s.selected==='all'?'전체':s.selected)+
+        (current?' · '+current.label+' · '+current.from+' → '+current.to:' · 전체 광·전력 A/B')+
+        ' · 열린 출입문 '+(opened.join(', ')||'없음')+' · 예시 배선/정격 미검증');
       lastColo=statusLabel(coloPanel,text,lastColo);
     }
   }
@@ -163,6 +177,12 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     for(let o=object;o;o=o.parent){
       if(o.userData?.coloTenant){
         const id=o.userData.coloTenant;
+        const system=o.userData.coloSystem;
+        if(system&&colocation.circuitKinds.includes(system)){
+          const details=pickTenantCircuit(id,system);
+          if(details)return {kind:'customer-link',id,system,
+            assetId:colocation.focusRackId(id)};
+        }
         pickTenant(id);renderStatus();
         return {kind:'customer',id,assetId:colocation.focusRackId(id)};
       }
@@ -188,5 +208,5 @@ export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
     mmrPanel=null;coloPanel=null;lastMMR='';lastColo='';
     mmr.root.removeFromParent?.();colocation.root.removeFromParent?.();
   }
-  return {mmr,colocation,update,pick,dispose,diagnostic,pickMMRBay,pickTenant};
+  return {mmr,colocation,update,pick,dispose,diagnostic,pickMMRBay,pickTenant,pickTenantCircuit};
 }

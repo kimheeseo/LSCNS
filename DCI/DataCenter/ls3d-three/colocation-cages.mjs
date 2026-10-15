@@ -8,20 +8,30 @@ export function createColocationCages(THREE,{cube}) {
     {id:'B',rack:'colo-rack-b',color:'#e0b56c',power:'#e6c15d',powerB:'#db9676',fiber:'#7ec7ee'},
     {id:'C',rack:'colo-rack-c',color:'#b89bdc',power:'#efca6a',powerB:'#e79779',fiber:'#b2a2ec'}
   ];
-  const stats={builds:0,bays:0,doors:0,meshPanels:0,powerPaths:0,fiberPaths:0,selectionChanges:0};
+  const stats={builds:0,bays:0,doors:0,meshPanels:0,powerPaths:0,fiberPaths:0,selectionChanges:0,meshWires:0};
+  const routeKinds=['fiber','power-A','power-B'];
+  const labels={fiber:'광 패치/분배', 'power-A':'Rack PDU A 전원', 'power-B':'Rack PDU B 전원'};
+  // This is an illustrative visual connection model, NOT electrical/optical engineering proof.
+  const routeMeta=(tenant,kind,rackId)=>({
+    tenant,kind,label:labels[kind],from:'공용 분배 경계 (개념)',to:rackId,
+    verified:false,connector:'미검증 / 장비별 확인 필요',capacity:'가정값 없음'
+  });
   const gates=new Map(),links=new Map();
-  let selected='all',ready=false,lastSignature='';
+  let selected='all',selectedCircuit='all',ready=false,lastSignature='',layoutIssue=null,boundaries=[];
   const part=(parent,name,x,y,z,w,h,d,color,transparent=false)=>{
     const obj=cube(parent,x,y,z,w,h,d,color,.41,.47,transparent);
     obj.name='colo:'+name;return obj;
   };
-  function cable(parent,name,points,color,radius=.035){
+  function cable(parent,name,points,color,radius=.035,meta=null){
     const layer=new THREE.Group();layer.name='colo:circuit:'+name;parent.add(layer);
+    if(meta)Object.assign(layer.userData,{coloTenant:meta.tenant,coloSystem:meta.kind,coloRoute:meta});
     if(THREE.CatmullRomCurve3&&THREE.TubeGeometry&&THREE.Vector3&&THREE.MeshStandardMaterial){
       const curve=new THREE.CatmullRomCurve3(points.map(p=>new THREE.Vector3(...p)));
       const fiber=new THREE.Mesh(new THREE.TubeGeometry(curve,15,radius,6,false),
-        new THREE.MeshStandardMaterial({color,metalness:.10,roughness:.58}));
-      fiber.name='colo:wire:'+name;fiber.userData.noPick=true;layer.add(fiber);
+        new THREE.MeshStandardMaterial({color,metalness:.10,roughness:.58,transparent:true,opacity:.95,depthWrite:true}));
+      fiber.name='colo:wire:'+name;
+      if(meta)Object.assign(fiber.userData,{coloTenant:meta.tenant,coloSystem:meta.kind,coloRoute:meta});
+      layer.add(fiber);
     }else for(let i=1;i<points.length;i++){
       const a=points[i-1],b=points[i];
       part(layer,'test-wire-'+name+'-'+i,(a[0]+b[0])/2,(a[1]+b[1])/2,(a[2]+b[2])/2,.045,.045,.045,color);
@@ -35,7 +45,7 @@ export function createColocationCages(THREE,{cube}) {
       }
     });
     while(root.children.length)root.remove(root.children[0]);
-    gates.clear();links.clear();lastSignature='';ready=false;
+    gates.clear();links.clear();lastSignature='';ready=false;boundaries=[];
   }
   function build(assets,mode,flags={}){
     const lookup=new Map((assets||[]).map(a=>[a.id,a]));
@@ -46,7 +56,8 @@ export function createColocationCages(THREE,{cube}) {
     const signature=JSON.stringify([mode,cage.x,cage.z,cage.w,cage.d,cage.h,
       racks.map(r=>[r.id,r.x,r.z,r.w,r.d]),!!flags.showSection]);
     if(lastSignature===signature){root.visible=true;return summary();}
-    clear();lastSignature=signature;root.visible=true;ready=true;stats.builds++;
+    const oldGates=new Map([...gates].map(([id,g])=>[id,{opening:g.opening,target:g.target}]));
+    clear();lastSignature=signature;root.visible=true;ready=true;layoutIssue=null;stats.builds++;
     root.position.set(cage.x,0,cage.z);
     const w=cage.w,d=cage.d,h=Math.min(4.6,Math.max(3.5,cage.h));
     const front=d/2,back=-d/2,barH=h-.2;
@@ -59,9 +70,18 @@ export function createColocationCages(THREE,{cube}) {
       thresholds.push((rightEdge+leftEdge)/2-cage.x);
     }
     thresholds.push(w/2);
-    if(thresholds.slice(1).some((x,i)=>x-thresholds[i]<1.95)){
-      thresholds.splice(0,4,-w/2,-w/6,w/6,w/2);
+    // Never fall back to equal-thirds and drive security walls through racks.
+    const margin=.055;
+    const invalid=racks.some((r,i)=>r.x-r.w/2<cage.x-w/2+margin||
+      r.x+r.w/2>cage.x+w/2-margin||
+      r.z-r.d/2<cage.z-d/2+margin||r.z+r.d/2>cage.z+d/2-margin||
+      (i>0 && racks[i-1].x+racks[i-1].w/2+margin>=r.x-r.w/2))||
+      thresholds.slice(1).some((x,i)=>x-thresholds[i]<1.6);
+    if(invalid){
+      layoutIssue='고객 랙 좌표와 펜스 간격이 충돌합니다. 배치 확인 전 임의 구획을 생성하지 않습니다.';
+      clear();root.visible=false;return summary();
     }
+    boundaries=thresholds.slice();
     const floor=part(root,'raised-tenant-floor',0,-.07,0,w+.23,.12,d+.25,'#587884');
     floor.userData.noPick=true;
     // Per-bay enclosure: linked steel mesh panels and posts with real 3D depth.
@@ -72,11 +92,18 @@ export function createColocationCages(THREE,{cube}) {
         const pole=part(root,'mesh-stile-'+partition+'-'+s,xx,.08,zz,.060,barH,.065,'#8ca5b0');
         pole.userData.noPick=true;
       }
-      const side=part(root,'mesh-wall-'+partition,xx,.23,0,.035,barH*.79,d-.10,
-        partition===0||partition===3?'#6da2b5':'#79a9b4',true);
-      side.userData.noPick=true;stats.meshPanels++;
-      for(let y=0;y<4;y++)
-        part(root,'mesh-rail-'+partition+'-'+y,xx,.16+y*barH/4,0,.067,.07,d-.1,'#93b3bd').userData.noPick=true;
+      // Open steel lattice, not an opaque wall or a textured 2D plane.
+      for(let row=0;row<9;row++){
+        const y=.19+row*barH/9;
+        part(root,'partition-horizontal-'+partition+'-'+row,xx,y,0,.045,.038,d-.10,'#93b3bd').userData.noPick=true;
+        stats.meshWires++;
+      }
+      for(let col=0;col<14;col++){
+        const z=back+(col+.5)*(d-.08)/14;
+        part(root,'partition-vertical-'+partition+'-'+col,xx,.21,z,.039,barH*.81,.039,'#7f9eac').userData.noPick=true;
+        stats.meshWires++;
+      }
+      stats.meshPanels++;
     }
     for(let section=0;section<3;section++){
       const bayWidth=thresholds[section+1]-thresholds[section];
@@ -85,12 +112,30 @@ export function createColocationCages(THREE,{cube}) {
       const tenantGroup=new THREE.Group();tenantGroup.name='colo:tenant:'+cfg.id;
       tenantGroup.userData.coloTenant=cfg.id;root.add(tenantGroup);
       // Fence behind and two front gate jambs, leaving a real 1.48m concept gap.
-      part(tenantGroup,'rear-mesh-'+cfg.id,center,.25,back,bayWidth-.12,barH*.76,.043,cfg.color,true).userData.noPick=true;
+      for(let j=0;j<=12;j++){
+        const xx=thresholds[section]+.07+(bayWidth-.14)*j/12;
+        part(tenantGroup,'rear-mesh-vertical-'+cfg.id+'-'+j,xx,.2,back,.045,barH*.78,.045,cfg.color).userData.noPick=true;
+        stats.meshWires++;
+      }
+      for(let j=0;j<9;j++){
+        part(tenantGroup,'rear-mesh-horizontal-'+cfg.id+'-'+j,center,.23+j*barH*.76/9,back,
+          bayWidth-.14,.04,.048,cfg.color).userData.noPick=true;
+        stats.meshWires++;
+      }
       const sideWidth=Math.max(.15,(bayWidth-1.48)/2);
       for(const sign of [-1,1]){
         const xx=center+sign*(.74+sideWidth/2);
-        part(tenantGroup,'front-mesh-'+cfg.id+'-'+sign,xx,.23,front,sideWidth,barH*.80,.041,cfg.color,true).userData.noPick=true;
         part(tenantGroup,'front-rail-'+cfg.id+'-'+sign,xx,2.87,front,sideWidth,.08,.068,'#b0c2ca').userData.noPick=true;
+        for(let j=0;j<5;j++){
+          part(tenantGroup,'front-lattice-h-'+cfg.id+'-'+sign+'-'+j,xx,.2+j*barH*.70/5,front,
+            sideWidth,.035,.043,cfg.color).userData.noPick=true;
+          stats.meshWires++;
+        }
+        for(let j=0;j<Math.max(2,Math.ceil(sideWidth/.26));j++){
+          const count=Math.max(2,Math.ceil(sideWidth/.26)),px=xx-sideWidth/2+(j+.5)*sideWidth/count;
+          part(tenantGroup,'front-lattice-v-'+cfg.id+'-'+sign+'-'+j,px,.22,front,
+            .042,barH*.79,.042,cfg.color).userData.noPick=true;stats.meshWires++;
+        }
       }
       const entry=new THREE.Group();entry.name='colo:gate-hinge:'+cfg.id;
       entry.userData.coloTenant=cfg.id;
@@ -101,23 +146,40 @@ export function createColocationCages(THREE,{cube}) {
       part(entry,'gate-handle-'+cfg.id,1.28,1.25,-.09,.095,.30,.13,'#e3d3b4').userData.coloTenant=cfg.id;
       const label=part(tenantGroup,'tenant-nameplate-'+cfg.id,center,h-.10,front+.05,1.67,.32,.16,cfg.color);
       label.userData.coloTenant=cfg.id;
-      gates.set(cfg.id,{entry,target:0,opening:0});
+      const prior=oldGates.get(cfg.id);
+      gates.set(cfg.id,{entry,target:prior?.target||0,opening:prior?.opening||0});
+      entry.rotation.y=-(prior?.opening||0)*1.28;
       stats.doors++;
       // Dedicated rack pathways; each cable remains within its own x-bay.
+      // Distinct optical raceway, fiber adapters and A/B rear PDU feeder interfaces.
+      part(tenantGroup,'fiber-overhead-raceway-'+cfg.id,center,3.78,0,
+        Math.max(1.35,bayWidth*.72),.12,.23,'#6aa6ac').userData.noPick=true;
+      for(let k=0;k<8;k++){
+        const connector=part(tenantGroup,'fiber-adapter-'+cfg.id+'-'+k,
+          localRackX-.45+k*.128,3.13,rack.z-cage.z+1.20,.085,.13,.13,k%2?'#75e4d1':'#b8dddf');
+        connector.userData.coloTenant=cfg.id;connector.userData.coloSystem='fiber';
+      }
+      for(const side of ['A','B']){
+        const x=localRackX+(side==='A'?-1:1)*rack.w*.37;
+        const pdu=part(tenantGroup,'rear-pdu-feed-'+cfg.id+'-'+side,
+          x,.34,rack.z-cage.z+rack.d*.50,.16,2.05,.14,side==='A'?cfg.power:cfg.powerB);
+        pdu.userData.coloTenant=cfg.id;pdu.userData.coloSystem='power-'+side;
+      }
       const fiber=cable(tenantGroup,'fiber-'+cfg.id,[
-        [center+.44,3.42,front-.12],[center+.44,3.46,.50],
-        [localRackX+.26,3.38,-.04],[localRackX+.26,3.18,rack.z-cage.z+.12]
-      ],cfg.fiber,.035);
+        [center+.44,3.42,front-.12],[center+.44,3.65,.50],
+        [localRackX+.26,3.45,-.04],[localRackX+.26,3.18,rack.z-cage.z+1.20]
+      ],cfg.fiber,.035,routeMeta(cfg.id,'fiber',rack.id));
       const powerA=cable(tenantGroup,'power-A-'+cfg.id,[
         [center-.47,.64,front-.16],[center-.47,.70,.68],
         [localRackX-.23,.73,.07],[localRackX-.23,.75,rack.z-cage.z+.22]
-      ],cfg.power,.045);
+      ],cfg.power,.045,routeMeta(cfg.id,'power-A',rack.id));
       const powerB=cable(tenantGroup,'power-B-'+cfg.id,[
         [center+.14,.98,front-.14],[center+.14,1.02,.88],
         [localRackX+.12,1.10,.04],[localRackX+.12,1.12,rack.z-cage.z+.20]
-      ],cfg.powerB,.044);
+      ],cfg.powerB,.044,routeMeta(cfg.id,'power-B',rack.id));
       for(const link of [fiber,powerA,powerB])link.userData.coloTenant=cfg.id;
-      links.set(cfg.id,{fiber,powerA,powerB,rackId:rack.id});
+      links.set(cfg.id,{fiber,powerA,powerB,rackId:rack.id,
+        metadata:Object.fromEntries(routeKinds.map(k=>[k,routeMeta(cfg.id,k,rack.id)]))});
       stats.fiberPaths++;stats.powerPaths+=2;stats.bays++;
       // Colored, independent power/fiber entry nodes with tenant labels for picking.
       for(const [key,x,y,z,col] of [
@@ -128,17 +190,34 @@ export function createColocationCages(THREE,{cube}) {
         badge.userData.coloTenant=cfg.id;badge.userData.coloSystem=key;
       }
     }
-    selectTenant(selected);
+    applySelection();
     return summary();
+  }
+  function applySelection(){
+    for(const [id,paths] of links){
+      for(const kind of routeKinds){
+        const match=(selected==='all'||selected===id)&&
+          (selectedCircuit==='all'||selectedCircuit===kind);
+        const group=paths[kind];group.visible=true;
+        group.userData.highlighted=match;
+        group.traverse(o=>{
+          if(o.name?.startsWith('colo:wire:')&&o.material){
+            o.material.opacity=match?.95:.11;
+            o.material.depthWrite=match;
+          }
+        });
+      }
+    }
   }
   function selectTenant(id='all'){
     selected=['A','B','C'].includes(id)?id:'all';
-    stats.selectionChanges++;
-    for(const [tenant,paths] of links){
-      const visible=selected==='all'||selected===tenant;
-      paths.fiber.visible=visible;paths.powerA.visible=visible;paths.powerB.visible=visible;
-    }
+    selectedCircuit='all';stats.selectionChanges++;applySelection();
     return selected;
+  }
+  function selectCircuit(id,kind){
+    if(!tenants.some(t=>t.id===id)||!routeKinds.includes(kind))return null;
+    selected=id;selectedCircuit=kind;stats.selectionChanges++;
+    applySelection();return links.get(id)?.metadata[kind]||null;
   }
   function toggleGate(id){
     const gate=gates.get(id);if(!gate)return null;
@@ -156,12 +235,18 @@ export function createColocationCages(THREE,{cube}) {
     return tenant?.rack||null;
   }
   function summary(){
-    return {ready,selected,bays:tenants.map(t=>({id:t.id,rackId:t.rack,
-      gateTarget:gates.get(t.id)?.target||0,gateOpening:gates.get(t.id)?.opening||0,
-      linksVisible:!!links.get(t.id)?.fiber.visible,
-      circuits:links.has(t.id)?3:0})),stats:{...stats}};
+    return {ready,selected,selectedCircuit,layoutIssue,boundaries:boundaries.slice(),
+      bays:tenants.map(t=>({id:t.id,rackId:t.rack,
+        gateTarget:gates.get(t.id)?.target||0,gateOpening:gates.get(t.id)?.opening||0,
+        linksVisible:!!links.get(t.id)?.fiber.visible,
+        circuits:routeKinds.map(kind=>({
+          ...links.get(t.id)?.metadata?.[kind],
+          highlighted:!!links.get(t.id)?.[kind]?.userData.highlighted,
+          visible:!!links.get(t.id)?.[kind]?.visible
+        }))
+      })),stats:{...stats}};
   }
-  function dispose(){clear();selected='all';root.visible=false;}
-  return {root,build,selectTenant,toggleGate,tick,focusRackId,summary,dispose,
-    tenantIds:tenants.map(t=>t.id)};
+  function dispose(){clear();selected='all';selectedCircuit='all';layoutIssue=null;root.visible=false;}
+  return {root,build,selectTenant,selectCircuit,toggleGate,tick,focusRackId,summary,dispose,
+    tenantIds:tenants.map(t=>t.id),circuitKinds:routeKinds.slice()};
 }

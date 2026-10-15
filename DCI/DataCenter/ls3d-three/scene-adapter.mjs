@@ -448,6 +448,10 @@ export function createSceneAdapter(T, canvas) {
     const {dpr}=viewportPolicy.settings({
       width:rect.width,quality,devicePixelRatio:window.devicePixelRatio||1
     });
+    // Avoid mobile shadow-map cost on LOW quality or sustained MEDIUM slowdown.
+    const reducedShadows=quality==='low'||
+      (rect.width<=640&&quality==='medium'&&viewportPolicy.summary().degraded);
+    renderer.shadowMap.enabled=!reducedShadows;
     const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
     if(viewportWidth!==pixelWidth || viewportHeight!==pixelHeight || viewportDpr!==dpr) {
       renderer.setPixelRatio(dpr);

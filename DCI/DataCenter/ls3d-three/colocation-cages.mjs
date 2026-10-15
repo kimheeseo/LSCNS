@@ -51,7 +51,7 @@ export function createColocationCages(THREE,{cube}) {
     const lookup=new Map((assets||[]).map(a=>[a.id,a]));
     const cage=lookup.get('colo');
     const valid=mode!=='server-room'&&!!cage&&tenants.every(t=>lookup.has(t.rack));
-    if(!valid){clear();root.visible=false;return summary();}
+    if(!valid){clear();layoutIssue=null;root.visible=false;return summary();}
     const racks=tenants.map(t=>lookup.get(t.rack));
     const signature=JSON.stringify([mode,cage.x,cage.z,cage.w,cage.d,cage.h,
       racks.map(r=>[r.id,r.x,r.z,r.w,r.d]),!!flags.showSection]);

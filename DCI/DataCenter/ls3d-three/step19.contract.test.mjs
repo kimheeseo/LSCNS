@@ -38,9 +38,9 @@ test('all seven geographic modes and critical security/rack/network/colo assets 
 });
 test('Three.js revision and latest rack controls browser bootstrap path are pinned',()=>{
   assert.match(html,/three@0\.186\.1\/build\/three\.module\.js/);
-  assert.match(html,/ls3d-three\/bootstrap\.mjs\?v=20261016-rear-optical-focus/);
+  assert.match(html,/ls3d-three\/bootstrap\.mjs\?v=20261016-third-person-rack-camera/);
   const bootstrap=readFileSync(join(three,'bootstrap.mjs'),'utf8');
-  assert.match(bootstrap,/scene-adapter\.mjs\?v=20261016-rear-optical-focus/);
+  assert.match(bootstrap,/scene-adapter\.mjs\?v=20261016-third-person-rack-camera/);
 });
 test('all ls3d-three relative ES imports exist in repository (no broken graph)',()=>{
   const files=readdirSync(three).filter(name=>name.endsWith('.mjs'));

@@ -16,7 +16,8 @@ const policy=read('DCI/DataCenter/ls3d-three/scene-viewport-policy.mjs');
 test('seven canonical zones, physical asset anchors and pinned import map survive',()=>{
   for(const zone of ['campus','utility','cooling','gray','hall','network','ops'])
     assert.match(html,new RegExp("id:'"+zone+"'"));
-  for(const id of ['gpu-0-0','carrier','mmr','odf','core',
+  assert.ok(html.includes('gpu-${r}-${i}'),'GPU rack IDs are generated from row/column loops');
+  for(const id of ['tor-a','carrier','mmr','odf','core',
     'xfmr-a','switchgear','ups-a','pdu','tower-a','chiller',
     'colo-rack-a','colo-rack-b','colo-rack-c'])
     assert.ok(html.includes("'"+id+"'"),id);

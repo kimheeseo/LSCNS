@@ -141,10 +141,10 @@ export function createSceneAdapter(T, canvas) {
     if(!a||!T.isMechanicalRack(a)||!desired||T.workerViewId||T.walkActive)return false;
     focusedRack={id:a.id,side:side==='rear'?'rear':'front'};
     desired.target=[a.x,a.h*.56,a.z];
-    // Frame the complete rack at close range; the previous 2.7× footprint
-    // distance pushed rear components too far away to inspect.
-    desired.distance=Math.max(5.8,Math.min(9,a.h*1.35));
-    desired.pitch=.14;
+    // Third-person inspection: stay outside the rack and frame its full height.
+    // The higher, wider view leaves room for roof occlusion to clear the sightline.
+    desired.distance=Math.max(9,Math.min(15,a.h*2.1));
+    desired.pitch=.28;
     desired.yaw=focusedRack.side==='rear'?0:Math.PI;
     return true;
   }

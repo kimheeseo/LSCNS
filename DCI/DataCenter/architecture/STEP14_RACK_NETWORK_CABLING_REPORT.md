@@ -62,6 +62,7 @@ LS3D_BASE_URL=https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.
 - `ls3d-three/rack-network-cabling.mjs` — NIC service-loop 동기화 / 강조 투명도
 - `ls3d-three/step14.unit.test.mjs` — 실제 소스 실행 가능한 Node 단위 테스트
 - `ls3d-three/step14.playwright.spec.mjs` — 실제 브라우저 회귀 검증 초안
+- `ls3d-three/scene-adapter.mjs`, `ls3d-three/bootstrap.mjs`, `LS_Datacenter_3D.html` — 단계 14 수정 모듈의 캐시 버전 경로 갱신
 - `architecture/STEP14_RACK_NETWORK_CABLING_REPORT.md` — 본 결과 문서
 - `LS3D_PROGRESS_STATUS.md` 및 `LS3D_V4_20_TASK_ROADMAP.md` — 14단계 상태 동기화
 

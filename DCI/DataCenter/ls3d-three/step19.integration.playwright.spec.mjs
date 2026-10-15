@@ -189,12 +189,12 @@ test('19-F: MEP fiber/power/cooling 3D paths, selective highlight and no fabrica
   const chosen='fiber:mmr-hall:colo-rack-a';
   const focus=await page.evaluate(id=>window.LS3D_THREE.adapter.mepController.selectRoute(id),chosen);
   expect(focus?.id).toBe(chosen);
-  const selected=await page.evaluate(()=>window.LS3D_THREE.adapter.mep);
+  const selected=await page.evaluate(()=>window.LS3D_THREE.adapter.mepController.summary());
   expect(selected.paths.filter(p=>p.highlighted)).toHaveLength(1);
   expect(selected.paths.every(p=>p.visible)).toBe(true);
   await snapshot(page,info,'step19-campus-mep-fiber.png');
   await page.evaluate(()=>window.LS3D_THREE.adapter.mepController.selectSystem('cooling'));
-  const cool=await page.evaluate(()=>window.LS3D_THREE.adapter.mep);
+  const cool=await page.evaluate(()=>window.LS3D_THREE.adapter.mepController.summary());
   expect(cool.paths.every(p=>p.highlighted===(p.system==='cooling'))).toBe(true);
   verify(errors);
 });

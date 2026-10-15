@@ -8,7 +8,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 
 const BASE=process.env.LS3D_BASE_URL||
  'http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html';
-const THREE_LOCAL=new URL('../../../node_modules/three/build/three.module.js',import.meta.url);
+const THREE_BUILD=new URL('../../../node_modules/three/build/',import.meta.url);
 async function ready(page,zone='campus'){
   const issues=[];
   page.on('pageerror',e=>issues.push('pageerror: '+e.message));
@@ -17,8 +17,10 @@ async function ready(page,zone='campus'){
       issues.push('console: '+msg.text());
   });
   // Local known version, no dependence on third-party CDN availability.
-  await page.route(/cdn\.jsdelivr\.net\/npm\/three@0\.186\.1\/build\/three\.module\.js/,async route=>{
-    await route.fulfill({status:200,contentType:'text/javascript',body:await readFile(THREE_LOCAL)});
+  await page.route(/cdn\\.jsdelivr\\.net\\/npm\\/three@0\\.186\\.1\\/build\\/three\\.(module|core)\\.js/,async route=>{
+    const name=route.request().url().includes('three.core.js')?'three.core.js':'three.module.js';
+    await route.fulfill({status:200,contentType:'text/javascript',
+      body:await readFile(new URL(name,THREE_BUILD))});
   });
   await page.goto(BASE+(BASE.includes('?')?'&':'?')+'engine=three',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>['ready','failed'].includes(window.LS3D_THREE?.status),

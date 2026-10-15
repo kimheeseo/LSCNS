@@ -178,7 +178,7 @@ export function createColocationCages(THREE,{cube}) {
         [localRackX+.12,1.10,.04],[localRackX+.12,1.12,rack.z-cage.z+.20]
       ],cfg.powerB,.044,routeMeta(cfg.id,'power-B',rack.id));
       for(const link of [fiber,powerA,powerB])link.userData.coloTenant=cfg.id;
-      links.set(cfg.id,{fiber,powerA,powerB,rackId:rack.id,
+      links.set(cfg.id,{fiber,'power-A':powerA,'power-B':powerB,powerA,powerB,rackId:rack.id,
         metadata:Object.fromEntries(routeKinds.map(k=>[k,routeMeta(cfg.id,k,rack.id)]))});
       stats.fiberPaths++;stats.powerPaths+=2;stats.bays++;
       // Colored, independent power/fiber entry nodes with tenant labels for picking.

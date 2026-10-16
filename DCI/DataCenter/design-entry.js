@@ -60,6 +60,13 @@
  function formula(title,code,detail){return `<article class="entry-formula"><h3>${esc(title)}</h3><code>${esc(code)}</code><p>${esc(detail)}</p></article>`;}
  function paint(r){
   if(!mounted)return;const c=window.DCDesignChecks.evaluate(r),banner=$('designConstraintSummary');banner.setAttribute('aria-busy','false');
+   // Never present stored sample figures as if they were outputs for the user's input.
+   const preview=$('entry-sample-result');
+   if(preview){
+     preview.hidden=Boolean(c.valid);
+     const note=$('entry-sample-state');
+     if(note&&!c.valid)note.textContent='계산 결과를 확인할 수 없어 저장된 예시를 표시합니다. 현재 입력값의 결과가 아니며, 계산 API 연결과 입력값을 확인해 주세요.';
+   }
   $('topology').closest('label').querySelector('span').textContent='토폴로지 · 서버–Leaf 연결';
   const errors=c.issues.filter(x=>x.level==='error'),notes=c.issues.filter(x=>x.level!=='error');
   banner.dataset.severity=!c.valid||errors.length||c.errors.length?'error':notes.length||c.warnings.length?'warning':'ok';

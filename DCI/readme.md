@@ -93,3 +93,10 @@ DataCenter 화면은 LSCNS GitHub Pages에서 실행됩니다. 핵심 계산·BO
 - 제품 카탈로그 자체는 제조사 공개 자료이므로 public reference data로 유지할 수 있습니다.
 
 > 주의: 과거 public Git commit에는 이전 소스가 남아 있을 수 있습니다. 완전한 과거 이력 제거는 별도의 history rewrite 또는 runtime-only public repository 재생성이 필요합니다.
+
+## 데이터센터 구성·설계 계산 백서 v1.4
+
+- [v1.4 백서 안내 및 사례 B 검산 방법](./DataCenter/whitepaper/v1.4/README.md)
+- [사례 B GitHub 재현 테스트](./DataCenter/whitepaper/v1.4/validate_caseB.cjs)
+
+Word 백서(143페이지)와 재현 ZIP은 안내 페이지에 연결된 Google Drive에 원본 형식으로 보관되어 있습니다. 이 저장소에는 재현 코드와 안내 문서가 등록되어 있습니다. 웹 UI 실측 검증과 소스 실행 검산의 범위는 서로 구분합니다.

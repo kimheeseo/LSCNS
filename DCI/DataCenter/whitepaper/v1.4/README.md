@@ -4,12 +4,12 @@
 
 ## 파일 접근
 
-- [Word 백서 v1.4 (143페이지)](https://docs.google.com/document/d/1qBQ6A0QZEsUkErt4c5QxAjJEWztrPWPC/edit?usp=drivesdk&ouid=104119821971369669159&rtpof=true&sd=true)
-- [사례 B 교차 검산 재현 ZIP](https://drive.google.com/file/d/1FZm-UFONl590ounB0jjQ52RrXQRqBqwm/view?usp=drivesdk)
+- [Word 백서 v1.4 (143페이지)](./데이터센터_구성및설계계산_백서_v1.4_최종.docx)
+- [사례 B 교차 검산 재현 ZIP](./데이터센터_v1.4_사례B_교차검산_재현파일.zip)
 - [GitHub 원본 Phase 7-A 계산 엔진](../../phase7-bom-engine.js)
 - [GitHub 재현 테스트](./validate_caseB.cjs)
 
-**보관 위치 주의:** Word·ZIP 바이너리는 Google Drive에 별도로 보관되어 있으며, **이 GitHub 저장소에 바이너리 파일이 업로드된 것은 아닙니다.** Drive 파일은 현재 소유자 전용으로 보관되어 있어 외부인은 접근 권한이 필요할 수 있습니다. GitHub에는 재현 테스트와 설명서를 기록합니다.
+**보관 위치:** Word·ZIP 원본 바이너리와 재현 테스트·설명서가 이 GitHub 폴더에 함께 업로드되었습니다. Google Drive 사본도 유지합니다.
 
 ## v1.4 변경 내용
 

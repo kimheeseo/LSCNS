@@ -9,3 +9,8 @@
 - [Phase 8 검증 보고서](./PHASE8_VALIDATION_REPORT.md)
 
 v4.7.0 adds the shared `lsdc-twin-bom/1.0` summary engine, evidence-aware product compatibility checks, and room-bounded Server Room rendering/MEP routes. The 2026-10-11 Chromium baseline passed 79 checks in GitHub Actions. Current hardening results are recorded in PHASE8_VALIDATION_REPORT.md.
+
+## 데이터센터 백서 v1.4
+
+- [백서 안내 / Word·검산 ZIP 위치 / 검증 결과](./whitepaper/v1.4/README.md)
+- [사례 B 검산 Node.js 스크립트](./whitepaper/v1.4/validate_caseB.cjs)

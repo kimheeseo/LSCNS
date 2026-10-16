@@ -22,7 +22,16 @@
   for(const id of ['itInputMw','nvlRackCount'])fields.append($(id).closest('label'));
   for(const id of ['network-policy','media-policy','route-procurement'])if($(id))policy.append($(id));
   const scope=$('wb-scenario')?.closest('label');if(scope)more.prepend(scope);
-  for(const d of [...form.querySelectorAll(':scope>details')])if(d!==advanced){d.open=false;advanced.append(d);}
+  // Colocation inputs must remain accessible when the user switches scope.
+   // Moving them under a closed Advanced group makes the capacity workflow unreachable.
+   const colo=form.querySelector(':scope>details.coloInputs');
+   if(colo)colo.hidden=$('wb-scenario')?.value!=='colo';
+   for(const d of [...form.querySelectorAll(':scope>details')])if(d!==advanced&&d!==colo){d.open=false;advanced.append(d);}
+   if(colo)form.addEventListener('change',e=>{
+     if(e.target.id!=='wb-scenario')return;
+     colo.hidden=e.target.value!=='colo';
+     if(!colo.hidden)colo.open=true;
+   });
   // Preserve the input collector's containment contract: assumptions remain inside engineering-inputs.
   $('engineering-inputs').open=false;advanced.open=false;
   advanced.querySelector(':scope>summary').textContent='고급 옵션 · 랙·냉각 / Facility / 보조장비 / 가정값';

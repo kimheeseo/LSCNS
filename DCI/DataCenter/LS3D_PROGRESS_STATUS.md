@@ -1,5 +1,16 @@
 # LS Datacenter Campus 3D — 통합 개발 진행 현황
 
+## 최신 보충 검증 — 2026-10-16 (Step 19 반복 CI 실패 복구)
+
+> 아래 단계표는 2026-10-15 당시 작성한 역사적 스냅샷입니다. STEP 19 관련 Chromium 검증의 최신 판정은 이 보충 기록을 우선합니다.
+
+- 통합 QA [#57](https://github.com/kimheeseo/LSCNS/actions/runs/38820787435): **9/9 PASS** (커밋 `7e3b5b9`).
+- 별도 Three.js QA [#11](https://github.com/kimheeseo/LSCNS/actions/runs/38819653752): **5/5 PASS** (커밋 `172d3fc`; 통합 QA와 다른 커밋).
+- Pages [#937](https://github.com/kimheeseo/LSCNS/actions/runs/38820786560): **배포 SUCCESS** (커밋 `7e3b5b9`).
+- 원인/조치/실패→통과 추적: [STEP19_QA_FAILURE_RECOVERY_20261016.md](./architecture/STEP19_QA_FAILURE_RECOVERY_20261016.md).
+- 의미: Step 19 자동화 대상의 Linux Chromium/SwiftShader 환경에서 수용 검증 완료. 실제 Android/iOS 현장 조작·FPS 기준 달성·모든 선행 Phase 브라우저 QA의 완료는 별개입니다.
+
+
 > 작성일: 2026-10-15 (KST)  
 > 저장소: https://github.com/kimheeseo/LSCNS · 브랜치: `main`  
 > 작업 원칙: 번호별 구현 → 실제 검증 → 완료 보고 → 사용자 확인 후 다음 번호

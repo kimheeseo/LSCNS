@@ -1,6 +1,24 @@
 LS DATACENTER CAMPUS 3D - 버전업 및 20단계 개발 이력
 ============================================================
 
+[STEP 19 반복 실패 해결 및 QA 증거 추가: 2026-10-16 KST]
+- 통합 Chromium/WebGL QA: 실행 #57, 9/9 PASS (commit 7e3b5b9f37de06598da3a440198440ced3a5a7b6).
+  https://github.com/kimheeseo/LSCNS/actions/runs/38820787435
+- 별도 Three.js QA: 실행 #11, 5/5 PASS (commit 172d3fc6b16637e659cf5ec423a2c5a4332a4e9e).
+  https://github.com/kimheeseo/LSCNS/actions/runs/38819653752
+- Pages 배포: 실행 #937, SUCCESS (commit 7e3b5b9f37de06598da3a440198440ced3a5a7b6).
+  https://github.com/kimheeseo/LSCNS/actions/runs/38820786560
+- 원인: 첫 방문 guide 오버레이의 포인터 차단, 랙 제어 패널의 짧은 화면 밖 오버플로,
+  모바일 캔버스 스크롤/터치 좌표 문제, 서버실 ready/visible 판정 혼동, CI 경로 오류.
+- 대응: 두 QA에서 모달 명시적 닫기, 실제 표시 여부 검사, localhost root·결과 경로 수정,
+  뷰포트 내 랙 제어 패널 높이 제한, 모바일 스크롤 후 노출된 캔버스 좌표에서 두 손가락 제스처 테스트.
+- 2D Gold Pixel Tour 및 BOM 엔진 변경 없이 기존 사용자 기능 유지.
+- 별도 QA 5/5와 통합 QA 9/9는 서로 다른 커밋에서 각각 확인한 결과이며
+  실제 모바일 단말의 물리 조작·장기 FPS 성능은 별도 검증이 필요함.
+- 상세 보고서: DCI/DataCenter/architecture/STEP19_QA_FAILURE_RECOVERY_20261016.md
+- 아래 2026-10-15 '실제 QA 미확인' 문구는 과거 릴리스 후보 시점의 이력이며
+  현재 검증 상태는 본 2026-10-16 업데이트와 보고서를 우선 참조.
+
 [최신 추가 변경: v4.8.1 · 2026-10-15]
 - 첫 진입 시 시작 안내에 8구역 자동 가이드 투어를 추가했습니다.
 - 전원 → 냉각 → 광케이블 단선/우회 순서로 추천 시나리오를 자동 재생하고 일시정지/중지할 수 있습니다.

@@ -14,3 +14,10 @@ v4.7.0 adds the shared `lsdc-twin-bom/1.0` summary engine, evidence-aware produc
 
 - [백서 안내 / Word·검산 ZIP 위치 / 검증 결과](./whitepaper/v1.4/README.md)
 - [사례 B 검산 Node.js 스크립트](./whitepaper/v1.4/validate_caseB.cjs)
+
+## Step 19 통합 QA 최종 검증 (2026-10-16)
+
+- [오류 원인·해결 방법 및 성공한 GitHub Actions 실행 기록](./architecture/STEP19_QA_FAILURE_RECOVERY_20261016.md)
+- [통합 QA #57 — 9/9 PASS](https://github.com/kimheeseo/LSCNS/actions/runs/38820787435) · [별도 QA #11 — 5/5 PASS](https://github.com/kimheeseo/LSCNS/actions/runs/38819653752) · [GitHub Pages #937 — SUCCESS](https://github.com/kimheeseo/LSCNS/actions/runs/38820786560)
+- [최신 상세 사용설명서](./README.md) (별도 브라우저 테스트 결과이며 실제 기기별 전체 보증은 아님)
+

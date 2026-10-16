@@ -5,6 +5,16 @@
 **상태:** v4.8.1은 첫 방문 가이드 투어/추천 시나리오 자동 재생, 가정값·계산식 출처 공개, 광 네트워크 상세 진입을 개선했습니다. 모든 값은 교육용 가정이며 현장 설계 검증을 대체하지 않습니다.
 
 
+## 2026-10-16 · Step 19 반복 실패 복구 검증
+
+- **통합 Chromium/WebGL QA: [#57 — 9/9 PASS](https://github.com/kimheeseo/LSCNS/actions/runs/38820787435)** (`7e3b5b9`)
+- **별도 Three.js QA: [#11 — 5/5 PASS](https://github.com/kimheeseo/LSCNS/actions/runs/38819653752)** (`172d3fc`; 서로 다른 커밋에서 검증)
+- **GitHub Pages: [#937 — 배포 성공](https://github.com/kimheeseo/LSCNS/actions/runs/38820786560)** (`7e3b5b9`)
+- 첫 방문 안내창의 클릭 차단, 짧은 화면 랙 패널 간섭, 모바일 터치 스크롤/좌표, 서버실 3D 표시 상태 판정, QA 웹 서버 경로 및 아티팩트 저장 경로를 보완했습니다.
+- **[반복 실패 원인·수정 코드·커밋·검증 이력 상세 보고서](./architecture/STEP19_QA_FAILURE_RECOVERY_20261016.md)**
+
+> 범위: GitHub-hosted Linux Chromium/SwiftShader QA입니다. 실제 스마트폰·GPU 성능 실측, 과거 다른 Phase 검증 전체의 통과를 뜻하지 않습니다.
+
 ## v4.8.1 업데이트
 
 - 첫 방문 시 자동 표시되는 시작 화면에서 8구역 가이드 투어, 전원→냉각→광케이블 단선 시나리오, 광 네트워크 3D 화면을 바로 실행할 수 있습니다.
@@ -105,7 +115,7 @@
 
 ## 8. 검증 상태 및 오류 대응
 
-현재 확인된 결과: STEP 03 사용자 수동 브라우저 기본 점검 6/6 PASS, STEP 14~18 실제 저장 모듈의 JavaScript/Mock 재검증 22/22 PASS. **v4.8.0-rc.1의 Chromium/WebGL2 실화면·모바일 조작·FPS 개선 수치 및 Pages 실배포 합격은 미확인**입니다.
+현재 확인된 결과: STEP 03 사용자 수동 브라우저 기본 점검 6/6 PASS, STEP 14~18의 기존 소스 기반 검증 결과와 별도로 **2026-10-16 Step 19 통합 QA #57 9/9 PASS / 별도 QA #11 5/5 PASS / Pages #937 배포 성공**을 실제 Actions 실행에서 확인했습니다. **서로 다른 커밋의 성공 결과이며**, 실제 모바일 기기 시험·지속 FPS 개선 수치·이전 모든 단계별 QA의 합격까지 검증한 것은 아닙니다. [상세 복구 보고서](./architecture/STEP19_QA_FAILURE_RECOVERY_20261016.md)를 참조하세요.
 
 1. [GitHub Actions 통합 품질 검사](https://github.com/kimheeseo/LSCNS/actions/workflows/ls3d-step19-quality.yml)에서 최신 실행 상태를 확인합니다.
 2. PASS가 나오면 해당 Actions 실행의 Artifacts에서 화면 캡처·추적·JSON 결과를 확인합니다.

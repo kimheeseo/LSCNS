@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08101f"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>DC BOM Design Tool</title><link rel="manifest" href="./manifest.webmanifest?v=20261006b"><link rel="apple-touch-icon" href="./icons/dc-192.png"><link rel="stylesheet" href="./style.css?v=8.1.16-cooling-scenario-20261006"><link rel="stylesheet" href="./workbench.css?v=8.1.4-gold-tour-20261006"><link rel="stylesheet" href="./supply-chain.css?v=8.1.0-private-api"><link rel="stylesheet" href="./planning-upgrade.css?v=8.1.0-private-api"><link rel="stylesheet" href="./procurement-upgrade.css?v=8.1.0-private-api"><link rel="stylesheet" href="./product-catalog.css?v=8.1.8-gold-tour-20261006"><link rel="stylesheet" href="./capacity-ui.css?v=8.1.0-rack-cpu"><link rel="stylesheet" href="./dc-responsive-dbmap.css?v=8.1.13-20261006"><link rel="stylesheet" href="./engineering-v82.css?v=20261014"><link rel="stylesheet" href="./design-entry.css?v=20261016a"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08101f"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>DC BOM Design Tool</title><link rel="manifest" href="./manifest.webmanifest?v=20261006b"><link rel="apple-touch-icon" href="./icons/dc-192.png"><link rel="stylesheet" href="./style.css?v=8.1.16-cooling-scenario-20261006"><link rel="stylesheet" href="./workbench.css?v=8.1.4-gold-tour-20261006"><link rel="stylesheet" href="./supply-chain.css?v=8.1.0-private-api"><link rel="stylesheet" href="./planning-upgrade.css?v=8.1.0-private-api"><link rel="stylesheet" href="./procurement-upgrade.css?v=8.1.0-private-api"><link rel="stylesheet" href="./product-catalog.css?v=8.1.8-gold-tour-20261006"><link rel="stylesheet" href="./capacity-ui.css?v=8.1.0-rack-cpu"><link rel="stylesheet" href="./dc-responsive-dbmap.css?v=8.1.13-20261006"><link rel="stylesheet" href="./engineering-v82.css?v=20261014"><link rel="stylesheet" href="./design-entry.css?v=20261016b"></head>
 <body data-dc-bom-20260930="8.1.0" data-v73-cooling-state="closed" data-dc-bom-version="8.2.0"><div style="padding:10px 16px;background:#233e32;color:#fff;font:600 14px system-ui"><a href="./LS_Datacenter_Gold_Anatomy.html" style="color:#f6d783">🎮 Gold Anatomy 데이터센터 탐방 (개선판 미리보기) ↗</a></div>
 <nav id="v63-top-links" aria-label="Related tools"><button id="dcInstallBtn" type="button" hidden aria-label="데이터센터 BOM 앱 설치">⬇ 앱 설치</button><a id="dc-gold-tour-link" href="./LS_Datacenter_Campus.html" title="Gold-style DataCenter Campus Tour">🎮 Gold Campus Tour</a><a id="dc-cpo-directory-link" href="./cpo-suppliers.html" title="CPO 공급망 99개 업체 목록" style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid #3b6991;border-radius:10px;color:#bce5ff;background:#102b47;text-decoration:none;font-weight:700">🔬 CPO 업체 리스트</a><a id="v63-cpo-link" href="https://kimheeseo.github.io/cpo-supply-chain/" target="_blank" rel="noopener noreferrer" title="Open CPO (Co-Packaged Optics) Supply Chain"><span class="v63-cpo-dot" aria-hidden="true"></span><span>CPO (Co-Packaged Optics)</span><span class="v63-cpo-arrow" aria-hidden="true">↗</span></a></nav>
 <div class="wrap">
@@ -46,7 +46,19 @@
       <button id="run" class="primary" data-i18n="run">설계 계산</button><div id="error" class="error"></div>
     </section>
 
-    <section class="panel resultPanel"><h2 data-i18n="result">설계 결과</h2><div id="status" class="status">기본 예제 계산 중…</div><div id="kpis" class="kpis"></div><svg id="topologySvg" viewBox="0 0 900 260" aria-label="topology"></svg></section>
+    <section class="panel resultPanel"><h2 data-i18n="result">설계 결과</h2><div id="status" class="status">기본 예제 계산 중…</div><div id="kpis" class="kpis"></div>
+      <section id="entry-sample-result" class="entry-sample" aria-label="기본 예제 결과 미리보기">
+        <div class="entry-sample-heading"><strong>기본 예제 미리보기</strong><span>샘플 · 실시간 결과 아님</span></div>
+        <p id="entry-sample-state" role="status">실제 계산 결과를 불러오는 동안 예시 결과를 표시합니다. 출처: 저장소의 2026-10-16 첫 진입 검증 기록.</p>
+        <div class="entry-sample-metrics">
+          <div><b>1,024</b><small>GPU · B200</small></div>
+          <div><b>128</b><small>서버 시스템</small></div>
+          <div><b>37</b><small>총 랙 · Compute 32</small></div>
+          <div><b>1,937.4 kW</b><small>IT 설계전력</small></div>
+        </div>
+        <p class="entry-sample-foot">PUE 1.20 → 시설전력 2,324.88 kW · 계획 가정에 따른 저장된 예시값입니다. 현재 입력의 계산 결과나 설비 적합 판정이 아닙니다.</p>
+      </section>
+      <svg id="topologySvg" viewBox="0 0 900 260" aria-label="topology"></svg></section>
   </main>
 
   <section class="panel" id="fabricArchitecturePanel"><h2>Leaf · Spine · Core 네트워크 구성도</h2><p class="muted">현재 설계 결과를 기준으로 Compute/Rack → Leaf → Spine → Core/Super-spine 계층과 링크 수를 표시합니다.</p><div class="visualGrid two"><svg id="fabricArchitectureSvg" viewBox="0 0 1100 430" aria-label="Leaf Spine Core network architecture"></svg><div id="fabricArchitectureMeta" class="legendCards"></div></div></section>
@@ -72,7 +84,7 @@
 <script src="./dc-ux-polish.js?v=1.1.0"></script>
 <script src="./compute-alternatives.js?v=20261006-accelerators-v2"></script>
 <script src="./app-install.js?v=20261006"></script>
-<script src="./design-checks.js?v=20261016a"></script><script src="./design-entry.js?v=20261016a"></script><script src="./twin-bom-bridge.js?v=1.2.0"></script><script>
+<script src="./design-checks.js?v=20261016a"></script><script src="./design-entry.js?v=20261016b"></script><script src="./twin-bom-bridge.js?v=1.2.0"></script><script>
 /* Show most recent GitHub commit touching DataCenter; keep published fallback on API errors. */
 (function(){
   var target=document.getElementById('dc-last-updated');

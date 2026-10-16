@@ -1,4 +1,4 @@
-const CACHE='dc-bom-pwa-20261011-fiber-sizing-v1';
+const CACHE='dc-bom-pwa-20261016-entry-v1';
 const CORE=['./','./index.html','./manifest.webmanifest','./style.css','./app-install.js','./icons/dc-192.png','./icons/dc-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
@@ -29,3 +29,4 @@ self.addEventListener('fetch',event=>{
     return cached||network;
   }));
 });
+

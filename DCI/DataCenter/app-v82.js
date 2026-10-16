@@ -42,6 +42,7 @@ window.DCRefreshDetails=refreshDesignDetails;
 let designRevision=0;
 async function render(r,revision=designRevision){if(window.DCCatalogMatch&&r?.backend?.mode!=='private-api'){try{r=await window.DCCatalogMatch(r)}catch(e){console.warn('Catalog match failed',e)}}if(revision!==designRevision)return r;renderBase(r);document.dispatchEvent(new CustomEvent('dc:design',{detail:r}));return r;}
 
-async function run(){const revision=++designRevision;const b=$('run');b.disabled=true;b.textContent='…';try{const res=await fetch('/api/design',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())});const data=await res.json();await render(data,revision);}catch(e){await render({status:'REVIEW',error:e.message},revision);}finally{if(revision===designRevision){b.disabled=false;b.textContent=I18N[lang].run;}}}
-$('run').addEventListener('click',run);run();
+async function run(){const revision=++designRevision;document.dispatchEvent(new CustomEvent('dc:calculating'));const b=$('run');b.disabled=true;b.textContent='…';try{const res=await fetch('/api/design',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())});const data=await res.json();await render(data,revision);}catch(e){await render({status:'REVIEW',error:e.message},revision);}finally{if(revision===designRevision){b.disabled=false;b.textContent=I18N[lang].run;}}}
+$('run').addEventListener('click',run); // Initial run follows dc:inputs-ready in engineering-v82-ui.
+
 

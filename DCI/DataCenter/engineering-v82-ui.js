@@ -19,7 +19,7 @@ const reason=document.createElement('p');reason.id='nvl72-cooling-reason';reason
 const opts=$('storageProtocol');opts.insertAdjacentHTML('beforeend','<option>NVMe-oF/RoCE</option>');for(const o of opts.options)if(o.value==='Fibre Channel')o.textContent='Fibre Channel · legacy SAN';
 for(const key of ['gb200','gb300'])$('systemId').insertAdjacentHTML('beforeend',`<option value="${key}">${key.toUpperCase()} NVL72 · rack-scale</option>`);
 const box=document.createElement('section');box.id='engineering-v82-inputs';box.className='inputGroup';box.innerHTML='<h3 data-eng-label="0"></h3><p data-eng-label="1"></p>';box.append(fields);$('engineering-inputs').prepend(box);
-const profile=document.createElement('details');profile.open=true;profile.id='engineering-system-table';profile.innerHTML='<summary>System assumptions · GPU / RU / kW / NIC / speed</summary><div class="tableWrap"><table><thead><tr><th>System</th><th>GPU/unit</th><th>RU/unit</th><th>kW/unit</th><th>NIC ports/unit</th><th>Gbit/s</th></tr></thead><tbody>'+Object.entries(E.SYSTEMS).map(([key,p])=>'<tr><td>'+key.toUpperCase()+'</td>'+['gpus','ru','power','links','linkSpeed'].map(k=>`<td><input type="number" step="any" min="1" data-system="${key}" data-param="${k}" value="${p[k]}" aria-label="${key} ${k}"></td>`).join('')+'</tr>').join('')+'</tbody></table></div>';$('engineering-inputs').prepend(profile);
+const profile=document.createElement('details');profile.open=false;profile.id='engineering-system-table';profile.innerHTML='<summary>System assumptions · GPU / RU / kW / NIC / speed</summary><div class="tableWrap"><table><thead><tr><th>System</th><th>GPU/unit</th><th>RU/unit</th><th>kW/unit</th><th>NIC ports/unit</th><th>Gbit/s</th></tr></thead><tbody>'+Object.entries(E.SYSTEMS).map(([key,p])=>'<tr><td>'+key.toUpperCase()+'</td>'+['gpus','ru','power','links','linkSpeed'].map(k=>`<td><input type="number" step="any" min="1" data-system="${key}" data-param="${k}" value="${p[k]}" aria-label="${key} ${k}"></td>`).join('')+'</tr>').join('')+'</tbody></table></div>';$('engineering-inputs').prepend(profile);
 const opticTable=document.createElement('details');opticTable.innerHTML='<summary>Optics planning table · reach / loss · vendor confirmation required</summary><div class="tableWrap"><table><thead><tr><th>Optics</th><th>Fiber / connector</th><th>Reach m</th><th>Budget dB</th></tr></thead><tbody>'+E.OPTICS.map(p=>`<tr><td>${p.standard||p.speed+'G '+p.id.toUpperCase()}</td><td>${p.fiber} · ${p.connector} ${p.polish||''}</td><td><input type="number" min="0" data-optic="${p.speed}-${p.id}" data-param="reach" value="${p.reach}"></td><td>${p.loss===null?'Integrated cable':`<input type="number" min="0" step="any" data-optic="${p.speed}-${p.id}" data-param="loss" value="${p.loss}">`}</td></tr>`).join('')+'</tbody></table></div>';$('engineering-inputs').prepend(opticTable);
 const audit=document.createElement('section');audit.id='engineering-v82-results';audit.className='panel';document.querySelector('.resultPanel').append(audit);
 const oldGet=window.getEngineeringInputs;
@@ -67,7 +67,7 @@ window.fetch=async(input,init={})=>{
 };
 function finishMount(){
  // Legacy UI adds labels later. Keep all assumptions editable and visible in every result tab.
- const panel=$('engineering-inputs');panel.open=true;const advanced=panel.closest('details.advanced');if(advanced)advanced.open=true;
+ const panel=$('engineering-inputs');panel.open=false;const advanced=panel.closest('details.advanced');if(advanced)advanced.open=false;
  const ownSummary=panel.querySelector(':scope > summary');if(ownSummary){ownSummary.textContent=text(0);panel.prepend(ownSummary);}
  for(const [id,val]of [['slackPct',15],['matedPairs',4],['marginDb',0],['fiberPolarity','B']])if($(id))$(id).value=val;
  if($('upsBlockKw'))$('upsBlockKw').closest('label').hidden=true;
@@ -76,7 +76,8 @@ function finishMount(){
  $('oversub').closest('label').querySelector('span').textContent='Oversubscription · x:1';
  if($('targetPodEgress')){$('targetPodEgress').closest('label').hidden=true;$('targetPodEgress').disabled=true;}
  if($('powerFactor'))$('powerFactor').closest('label').querySelector('span').textContent='AC load power factor · UPS / Transformer';
- sync();schedule();
+ sync();document.dispatchEvent(new CustomEvent('dc:inputs-ready'));schedule();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(finishMount)))));else finishMount();sync();
 })();
+

@@ -33,3 +33,22 @@
 .entry-ready #statusNotice{display:none}.entry-check-card{padding:8px 12px}.entry-check-card b{margin:3px 0}
 
 .capacity-active #designConstraintSummary{display:none}
+
+/* A real snapshot is visible even when the calculation API has not replied.
+   It disappears as soon as the live model returns a usable result. */
+#entry-sample-result[hidden]{display:none!important}
+.entry-sample{margin:14px 0;padding:15px;border:1px dashed #5a7894;border-radius:11px;background:#10253a;color:#e3edf8}
+.entry-sample-heading{display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between}
+.entry-sample-heading strong{font-size:15px}
+.entry-sample-heading span{font-size:11px;font-weight:700;color:#ffdd9c}
+.entry-sample p{margin:10px 0;font-size:12px;line-height:1.55;color:#b9ccdc}
+.entry-sample-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:11px}
+.entry-sample-metrics>div{min-width:0;padding:10px;border:1px solid #45617b;border-radius:8px;background:#091d30}
+.entry-sample-metrics b{display:block;font-size:18px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.entry-sample-metrics small{display:block;margin-top:4px;font-size:11px;color:#b6c8d7}
+.entry-sample .entry-sample-foot{font-size:11px;color:#a4c0d1}
+body.dc-light .entry-sample{background:#f0f6fb;color:#142639;border-color:#97adbe}
+body.dc-light .entry-sample-metrics>div{background:#fff;border-color:#c5d4e1}
+body.dc-light .entry-sample p,body.dc-light .entry-sample-metrics small{color:#456078}
+body.dc-light .entry-sample-heading span{color:#925b13}
+@media(max-width:650px){.entry-sample{padding:10px}.entry-sample-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.entry-sample-metrics b{font-size:16px}}

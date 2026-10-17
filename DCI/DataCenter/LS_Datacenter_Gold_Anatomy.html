@@ -37,7 +37,7 @@ button,select{font:inherit}.top{position:sticky;top:0;z-index:30;display:flex;ga
  <div class="toolbar" id="views">
   <button class="active" data-view="all">전체 구조</button><button data-view="power">전력·냉각</button><button data-view="white">IT Hall</button><button data-view="network">Network/MMR</button><button data-view="operations">운영·안전</button>
  </div>
- <div class="toolbar" id="modes"><button class="active" data-mode="auto">Auto</button><button data-mode="mobile">모바일</button><button data-mode="desktop">컴퓨터</button></div>
+ <div class="toolbar" id="modes"><button class="active" data-mode="auto">Auto</button><button data-mode="mobile">모바일</button><button data-mode="desktop">컴퓨터</button></div><div class="toolbar" id="levels"><button class="active" data-level="junior">주니어 OJT</button><button data-level="senior">시니어 검토</button></div>
 </header>
 <div class="layout">
  <section class="mapbox">
@@ -56,7 +56,7 @@ button,select{font:inherit}.top{position:sticky;top:0;z-index:30;display:flex;ga
  </section>
  <aside class="side">
   <section class="card" id="detail"><h2>환영합니다!</h2><p>실제 데이터센터의 전력·냉각·네트워크·IT Hall·운영 공간을 골드버전 방식으로 탐험합니다.</p></section>
-  <section class="card"><h2>탐험 노트 <span id="progress">0/0</span></h2><div class="chips" id="visited"></div><h3>계통 색상</h3><div class="legend"><span>🔴 전력</span><span>🔵 냉각</span><span>🟢 네트워크</span><span>🟣 운영·안전</span></div><h3>전문가 자료</h3><a class="tourlink" href="./index.html" target="_blank" rel="noopener">DataCenter BOM · 업체별 제품 리스트 ↗</a></section>
+  <section class="card"><h2>탐험 노트 <span id="progress">0/0</span></h2><p id="mission">미션: Main Gate에서 시작해 전력 → 냉각 → IT Hall → Network/MMR → NOC 순으로 조사해 보세요.</p><div class="chips" id="visited"></div><h3>빠른 이동</h3><div class="chips" id="fastTravel"><button type="button" class="chip" data-jump="transformer">전력실</button><button type="button" class="chip" data-jump="chiller">냉각</button><button type="button" class="chip" data-jump="rackA">White Space</button><button type="button" class="chip" data-jump="mmr">MMR</button><button type="button" class="chip" data-jump="noc">NOC</button></div><h3>계통 색상</h3><div class="legend"><span>🔴 전력</span><span>🔵 냉각</span><span>🟢 네트워크</span><span>🟣 운영·안전</span></div><h3>전문가 자료</h3><a class="tourlink" href="./index.html" target="_blank" rel="noopener">DataCenter BOM · 업체별 제품 리스트 ↗</a></section>
  </aside>
 </div>
 <script>
@@ -83,7 +83,7 @@ const items=[
 {id:'fire',name:'FIRE SUPPRESSION',ico:'🧯',group:'security',x:630,y:535,w:170,h:65,zone:'Safety',role:'연기·온도 감지, 경보, 청정가스/스프링클러 계통으로 핵심 설비를 보호합니다.',flow:['Smoke/Heat Detector','Fire Alarm Panel','Suppression'],bom:['Fire Alarm Cable','Detection System','Suppression Control']},
 {id:'maint',name:'MAINTENANCE / SPARES',ico:'🧰',group:'operations',x:815,y:535,w:90,h:65,zone:'Operations',role:'예비품, 공구, 교체 모듈과 정비 작업을 관리합니다.',flow:['Spare Parts','Maintenance','Return to Service'],bom:['Patch Cord','Optics Spare','Cable / Label','Tools']}
 ];
-const $=id=>document.getElementById(id),world=$('world'),player=$('player'),visited=new Set();let pos={x:960,y:660},selected=null,view='all',mode='auto';
+const $=id=>document.getElementById(id),world=$('world'),player=$('player'),visited=new Set();let pos={x:960,y:660},selected=null,view='all',mode='auto',level='junior';
 function safe(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function line(x1,y1,x2,y2,cls){const d=document.createElement('div'),len=Math.hypot(x2-x1,y2-y1),ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI;d.className=cls;d.style.cssText='left:'+x1+'px;top:'+y1+'px;width:'+len+'px;transform:rotate('+ang+'deg)';world.appendChild(d)}
 function tag(x,y,t,cls){const e=document.createElement('span');e.className='flowtag '+(cls||'');e.style.left=x+'px';e.style.top=y+'px';e.textContent=t;world.appendChild(e)}
@@ -129,6 +129,8 @@ function nearest(){const n=[...items].map(a=>({a,d:Math.hypot(pos.x-(a.x+a.w/2),
 document.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>{const d={up:[0,-32],down:[0,32],left:[-32,0],right:[32,0]}[b.dataset.move];move(...d)});$('inspect').onclick=nearest;
 document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;const d={ArrowUp:[0,-32],w:[0,-32],ArrowDown:[0,32],s:[0,32],ArrowLeft:[-32,0],a:[-32,0],ArrowRight:[32,0],d:[32,0]}[e.key];if(d){e.preventDefault();move(...d)}else if(e.key==='z'||e.key==='Z'||e.key==='Enter'){e.preventDefault();nearest()}});
 $('views').querySelectorAll('button').forEach(b=>b.onclick=()=>{view=b.dataset.view;$('views').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render()});
+$('levels').querySelectorAll('button').forEach(b=>b.onclick=()=>{level=b.dataset.level;$('levels').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));if(selected)inspect(selected)});
+$('fastTravel').querySelectorAll('[data-jump]').forEach(b=>b.onclick=()=>{const a=items.find(x=>x.id===b.dataset.jump);if(!a)return;pos={x:a.x+a.w+18,y:a.y+a.h/2};player.style.left=pos.x+'px';player.style.top=pos.y+'px';inspect(a.id)});
 function applyMode(){const actual=mode==='auto'?(innerWidth<900?'mobile':'desktop'):mode;document.body.classList.toggle('mode-mobile',actual==='mobile');document.body.classList.toggle('mode-desktop',actual==='desktop')}
 $('modes').querySelectorAll('button').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;try{localStorage.setItem('ls-gold-mode',mode)}catch{}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyMode()});window.addEventListener('resize',applyMode);
 try{mode=localStorage.getItem('ls-gold-mode')||'auto'}catch{}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));$('progress').textContent='0/'+items.length;applyMode();render();

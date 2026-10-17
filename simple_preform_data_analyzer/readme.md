@@ -84,4 +84,3 @@ pyinstaller --onefile --windowed --name lsexcelpreform app.py
 ## 참고
 
 - [사용 시작 영상](https://youtu.be/Gsl1WYRC1nI?si=XFRbgvzFufa7gd1c)
-- [배포 파일 다운로드](https://drive.google.com/drive/folders/1G7vG1GKtajdI2Q21o0q0UUIVP4btDATo?usp=drive_link)

@@ -1,45 +1,111 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LS Gold Data Center · Anatomy Tour</title>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LS Gold Data Center · Anatomy Tour</title>
 <style>
-:root{--bg:#111d20;--panel:#f6efd5;--ink:#25312c;--gold:#e9c46a}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,"Noto Sans KR",sans-serif;color:#f6efd5}header{padding:12px 16px;background:#20382f;border-bottom:4px solid #b88a46;display:flex;flex-wrap:wrap;align-items:center;gap:12px}h1{font-size:20px;margin:0}button,select{font:inherit;cursor:pointer;border:2px solid #a78c55;border-radius:7px;padding:9px 12px;background:#2c473b;color:#fff}button.active{background:#b58b42;color:#14251e;font-weight:800}.toolbar{display:flex;flex-wrap:wrap;gap:6px}.layout{max-width:1450px;margin:auto;padding:12px;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.8fr);gap:12px}.mapbox{background:#263f37;border:5px ridge #bd995b;border-radius:12px;overflow:hidden;position:relative}.maptitle{padding:10px 12px;font-weight:800;background:#1a3129;display:flex;justify-content:space-between;gap:8px}.mapscroll{overflow:auto;max-width:100%;background:#739d83}.world{position:relative;width:960px;height:660px;transform-origin:top left;background:repeating-linear-gradient(0deg,transparent 0 31px,#ffffff10 32px),repeating-linear-gradient(90deg,transparent 0 31px,#ffffff10 32px),#87aa8a}.floor{position:absolute;border:5px solid #4c635d;border-top:13px solid #a9beb0;background:#c4cbb6;box-shadow:8px 10px 0 #3b5948;border-radius:3px}.area{position:absolute;border:3px solid #314f43;background:#d2d4bf;color:#172f26;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;font-size:12px;font-weight:800;cursor:pointer;box-shadow:5px 6px #5c715e;transition:filter .12s}.area:focus,.area.selected{outline:4px solid #ffd35e;z-index:2}.area small{font-size:10px}.area .pixel{font-size:29px;filter:drop-shadow(2px 3px #0004)}.area.power{background:#dca18b}.area.cooling{background:#a0c9e1}.area.network{background:#9dd7b1}.area.operations{background:#c3afd9}.area.white{background:#e3d5aa}.area.security{background:#cfb5ad}.player{position:absolute;width:28px;height:36px;z-index:10;pointer-events:none;filter:drop-shadow(3px 4px #0007)}.player:before{content:"";position:absolute;left:6px;top:0;width:17px;height:13px;background:#d7ad83;border:3px solid #3a382f}.player:after{content:"";position:absolute;left:4px;top:15px;width:22px;height:17px;background:#d3424a;border:3px solid #39362d;box-shadow:0 8px #25375a}.wire{position:absolute;height:5px;transform-origin:left center;pointer-events:none;opacity:.8}.wire.power{background:#c7513b}.wire.cooling{background:#2e8fc0}.wire.network{background:#208b6b}.side{display:flex;flex-direction:column;gap:12px}.card{background:var(--panel);color:var(--ink);border:5px ridge #b99659;border-radius:12px;padding:14px}.card h2{margin:0 0 8px;font-size:20px}.card h3{margin:12px 0 6px;font-size:14px}.card p{line-height:1.55;margin:8px 0}.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{background:#d9dfcc;border-radius:5px;padding:5px 8px;font-size:12px}.step{border-left:3px solid #b88942;padding:4px 10px;margin:4px 0}.controls{display:grid;grid-template-columns:repeat(3,52px);gap:5px;justify-content:center;margin:12px 0}.controls button{min-height:46px}.status{font-size:12px;opacity:.85}.tourlink{color:#225c48;font-weight:bold}.mode-mobile .layout{grid-template-columns:1fr}.mode-mobile .mapscroll{overflow:auto}.mode-mobile .side{display:grid;grid-template-columns:1fr}.mode-mobile .world{width:960px}.help{font-size:12px;opacity:.9;padding:4px 12px 12px}.hidden{display:none!important}@media(max-width:850px){.layout{grid-template-columns:1fr}.mapscroll{overflow:auto}.side{display:block}.card{margin-bottom:12px}header h1{width:100%}}@media(prefers-reduced-motion:reduce){.area{transition:none}}
-</style></head><body>
-<header><h1>✦ LS DATA CENTER · GOLD ANATOMY TOUR</h1><div class="toolbar" id="views"><button class="active" data-view="all">전체 구조</button><button data-view="power">전력·냉각</button><button data-view="white">IT Hall</button><button data-view="network">Network/MMR</button></div><div class="toolbar" id="modes"><button class="active" data-mode="auto">Auto</button><button data-mode="mobile">모바일</button><button data-mode="desktop">컴퓨터</button></div><div class="toolbar"><button id="junior">주니어 OJT</button><button id="senior">시니어</button><button id="reset">처음으로</button></div></header>
-<div class="layout"><section class="mapbox"><div class="maptitle"><span id="zoneTitle">캠퍼스 · 전체 해부도</span><span id="location">현재 위치: 출입 게이트</span></div><div class="mapscroll" id="mapscroll"><div class="world" id="world"><div class="floor" style="left:170px;top:100px;width:620px;height:480px"></div><div class="player" id="player"></div></div></div><div class="help">방향키/WASD 이동 · Z/Enter 조사 · 설비를 직접 눌러도 조사할 수 있습니다.</div><div class="controls"><span></span><button data-move="up">▲</button><span></span><button data-move="left">◀</button><button id="inspect">조사</button><button data-move="right">▶</button><span></span><button data-move="down">▼</button><span></span></div></section>
-<aside class="side"><section class="card" id="detail"><h2>환영합니다!</h2><p>건물과 설비 사이를 탐험하며 전력·냉각·광통신·IT 장비의 연결 관계를 확인하세요.</p></section><section class="card"><h2>탐험 노트 <span id="progress">0/0</span></h2><p>설비를 조사하면 탐험 노트가 채워집니다.</p><div class="chips" id="visited"></div><h3>전문가 자료</h3><a class="tourlink" href="./index.html" target="_blank" rel="noopener">DataCenter BOM · 업체별 제품 리스트 ↗</a><p class="status">설비별 관련 품목은 교육용 분류이며 실제 구매 수량은 BOM 계산기에서 확인합니다.</p></section></aside></div>
+:root{
+ --bg:#121a18;--ink:#203128;--panel:#f6efd5;--gold:#d4a94e;--line:#4b604f;
+ --power:#c86750;--cool:#5e9fc7;--net:#54a47d;--white:#d9c792;--ops:#a993c7;--safe:#bd8f84;
+}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(#17241f,#0f1715);color:#f7efd7;font-family:system-ui,"Noto Sans KR",sans-serif}
+button,select{font:inherit}.top{position:sticky;top:0;z-index:30;display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:#20372f;border-bottom:4px solid #a67c38}
+.brand{font-weight:900;letter-spacing:.04em;margin-right:auto}.toolbar{display:flex;gap:6px;flex-wrap:wrap}.toolbar button{border:2px solid #8f7747;border-radius:8px;background:#29483d;color:#fff;padding:8px 11px;cursor:pointer}.toolbar button.active{background:#d0a34e;color:#17241f;font-weight:900}
+.layout{max-width:1500px;margin:auto;padding:12px;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(310px,.75fr);gap:12px}
+.mapbox{background:#263f37;border:5px ridge #b89558;border-radius:12px;overflow:hidden}.maphead{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;background:#193027;font-weight:900}
+.mapscroll{overflow:auto;background:#738f77}.world{position:relative;width:1180px;height:760px;transform-origin:top left;background:
+ linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px),#83a085;background-size:32px 32px}
+.campus-road{position:absolute;background:#67766b;border:3px solid #4d5d52}.building{position:absolute;border:5px solid #465c51;border-top:14px solid #a7b7a9;background:#c8cbb8;box-shadow:9px 10px #3d594b;border-radius:4px}
+.zone-frame{position:absolute;border:3px dashed #314b40;border-radius:7px;pointer-events:none}.zone-frame span{position:absolute;left:6px;top:5px;padding:2px 7px;border-radius:999px;background:#20382f;color:#f7e9b7;font-size:10px;font-weight:900;letter-spacing:.06em}
+.room{position:absolute;border:3px solid #304c40;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;color:#183127;font-size:11px;font-weight:900;box-shadow:4px 5px #5a6c5e;cursor:pointer;transition:filter .12s,transform .12s}
+.room:hover{filter:brightness(1.05)}.room.selected{outline:5px solid #ffd35e;z-index:8;transform:translateY(-2px)}.room .ico{font-size:24px}.room small{font-size:9px;font-weight:700;opacity:.75}
+.room.power{background:#d9a28e}.room.cooling{background:#9cc4dc}.room.network{background:#9cd1af}.room.white{background:#e0d3a8}.room.operations{background:#c0acd5}.room.security{background:#ceb0a7}
+.rack{position:absolute;width:38px;height:72px;border:3px solid #33433c;background:linear-gradient(90deg,#23312c 0 22%,#43534c 22% 78%,#1f2a26 78%);box-shadow:4px 4px #627063;cursor:pointer}.rack:before{content:"";position:absolute;left:7px;right:7px;top:9px;height:4px;background:#75d194;box-shadow:0 9px #6db4d5,0 18px #e2bd59,0 27px #75d194,0 36px #6db4d5,0 45px #e2bd59}
+.aisle-label{position:absolute;color:#35463e;font-size:9px;font-weight:900;letter-spacing:.06em;writing-mode:vertical-rl;transform:rotate(180deg)}
+.pipe,.fiber,.powerline{position:absolute;height:5px;transform-origin:left center;pointer-events:none;border-radius:999px;opacity:.88}.pipe{background:#327fae}.fiber{background:#278b67}.powerline{background:#b94f3e}.player{position:absolute;width:29px;height:39px;z-index:20;pointer-events:none;filter:drop-shadow(3px 4px #0007)}.player:before{content:"";position:absolute;left:6px;top:0;width:18px;height:14px;background:#d7ad83;border:3px solid #38362f}.player:after{content:"";position:absolute;left:4px;top:16px;width:23px;height:18px;background:#cf4147;border:3px solid #38362f;box-shadow:0 8px #26375a}
+.maphelp{padding:7px 11px 10px;font-size:12px;color:#d8dfd0}.controls{display:grid;grid-template-columns:repeat(3,54px);gap:5px;justify-content:center;padding:0 0 12px}.controls button{min-height:46px;border:2px solid #90784a;border-radius:8px;background:#2b493e;color:white}
+.side{display:flex;flex-direction:column;gap:12px}.card{background:var(--panel);color:var(--ink);border:5px ridge #b99659;border-radius:12px;padding:14px}.card h2{margin:0 0 8px;font-size:20px}.card h3{margin:12px 0 6px;font-size:14px}.card p{line-height:1.55;margin:8px 0}.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{background:#dce0cc;border-radius:5px;padding:5px 8px;font-size:12px}.flow{display:flex;gap:4px;align-items:center;flex-wrap:wrap}.flow span{padding:5px 7px;border-radius:6px;background:#e9e1c6;font-size:11px}.flow b{color:#936c2e}.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.legend span{font-size:11px;padding:6px 8px;border-radius:7px;background:#ebe4cf}.tourlink{color:#225c48;font-weight:900}.status{font-size:12px;opacity:.85}.hidden{display:none!important}
+.mode-mobile .layout{grid-template-columns:1fr}.mode-mobile .side{display:grid;grid-template-columns:1fr}.mode-mobile .world{width:1180px}.mode-desktop .world{width:1180px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.brand{width:100%}.top{position:static}.card{margin-bottom:0}}
+@media(prefers-reduced-motion:reduce){.room{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand">✦ LS DATA CENTER · GOLD ANATOMY TOUR</div>
+ <div class="toolbar" id="views">
+  <button class="active" data-view="all">전체 구조</button><button data-view="power">전력·냉각</button><button data-view="white">IT Hall</button><button data-view="network">Network/MMR</button><button data-view="operations">운영·안전</button>
+ </div>
+ <div class="toolbar" id="modes"><button class="active" data-mode="auto">Auto</button><button data-mode="mobile">모바일</button><button data-mode="desktop">컴퓨터</button></div>
+</header>
+<div class="layout">
+ <section class="mapbox">
+  <div class="maphead"><span id="zoneTitle">캠퍼스 · 전체 해부도</span><span id="location">현재 위치: Main Gate</span></div>
+  <div class="mapscroll" id="mapscroll"><div class="world" id="world">
+    <div class="campus-road" style="left:0;top:660px;width:1180px;height:48px"></div>
+    <div class="building" style="left:190px;top:80px;width:760px;height:550px"></div>
+    <div class="zone-frame" style="left:15px;top:30px;width:160px;height:315px"><span>UTILITY / COOLING YARD</span></div>
+    <div class="zone-frame" style="left:205px;top:95px;width:710px;height:145px"><span>GRAY ZONE · ELECTRICAL</span></div>
+    <div class="zone-frame" style="left:205px;top:255px;width:710px;height:250px"><span>WHITE SPACE · IT HALL</span></div>
+    <div class="zone-frame" style="left:205px;top:515px;width:710px;height:100px"><span>OPERATIONS / SAFETY</span></div>
+    <div class="player" id="player"></div>
+  </div></div>
+  <div class="maphelp">방향키/WASD 이동 · Z/Enter 조사 · 설비나 랙을 직접 눌러도 조사할 수 있습니다.</div>
+  <div class="controls"><span></span><button data-move="up">▲</button><span></span><button data-move="left">◀</button><button id="inspect">조사</button><button data-move="right">▶</button><span></span><button data-move="down">▼</button><span></span></div>
+ </section>
+ <aside class="side">
+  <section class="card" id="detail"><h2>환영합니다!</h2><p>실제 데이터센터의 전력·냉각·네트워크·IT Hall·운영 공간을 골드버전 방식으로 탐험합니다.</p></section>
+  <section class="card"><h2>탐험 노트 <span id="progress">0/0</span></h2><div class="chips" id="visited"></div><h3>계통 색상</h3><div class="legend"><span>🔴 전력</span><span>🔵 냉각</span><span>🟢 네트워크</span><span>🟣 운영·안전</span></div><h3>전문가 자료</h3><a class="tourlink" href="./index.html" target="_blank" rel="noopener">DataCenter BOM · 업체별 제품 리스트 ↗</a></section>
+ </aside>
+</div>
 <script>
 (()=>{
 const items=[
-['utility','UTILITY POWER','⚡','power',790,30,145,72,'외부 전력망에서 데이터센터로 전력을 공급합니다.','Utility → Transformer → Switchgear','MV/HV Power Cable, Control Cable','Utility Yard'],
-['transformer','TRANSFORMER','🔌','power',800,120,135,72,'수전 전압을 내부 배전 전압으로 변환합니다.','Utility → Transformer → Switchgear','MV Cable, LV Cable, Termination','Utility Yard'],
-['generator','GENERATOR','🛢️','power',800,215,135,72,'상용전원 장애 시 대체 전원을 공급합니다.','Generator → ATS/Switchgear → UPS','Power Cable, Control Cable, Fuel System','Utility Yard'],
-['switchgear','SWITCHGEAR / ATS','🔀','power',180,120,155,72,'수전과 발전기 전원을 절체하고 보호·배전합니다.','Utility/Generator → ATS → UPS','Power Cable, Switchgear, Busduct','Electrical Room'],
-['ups','UPS / BATTERY','🔋','power',365,120,150,72,'순간 정전과 발전기 기동 사이 IT 부하를 보호합니다.','ATS → UPS → PDU → Rack','Battery Cable, UPS, LV Cable','Electrical Room'],
-['pdu','PDU / BUSWAY','🔴','power',550,120,175,72,'전력을 랙에 안전하게 분배합니다.','UPS → PDU/Busway → Rack PDU','Busway, Rack PDU, Power Cable','Electrical Room'],
-['tower','COOLING TOWER','💧','cooling',18,22,142,78,'냉각수 계통에서 열을 외기로 방출합니다.','Cooling Tower ↔ Chiller','Cooling Tower, Pump, Pipe','Cooling Plant'],
-['chiller','CHILLER / PUMP','❄️','cooling',18,122,142,78,'냉수를 만들고 순환시켜 IT 발열을 제거합니다.','Chiller → Pump → CRAH/CDU','Chiller, Pump, Pipe','Cooling Plant'],
-['cdu','CDU / CRAH','🌬️','cooling',18,222,142,78,'랙 또는 실내 공조 계통으로 냉각을 전달합니다.','CRAH/CDU → IT Rack → Return','CDU, CRAH, Hose, Sensor','Cooling Plant'],
-['mmr','MMR / ODF','🌐','network',185,228,155,90,'통신사업자 광회선과 데이터센터 내부망이 접속되는 구역입니다.','Carrier → ODF → Core/Spine','OS2 Fiber, ODF, Patch Panel, MPO Trunk','Network / MMR'],
-['spine','SPINE SWITCH','🖧','network',360,228,155,90,'여러 Leaf 스위치를 상호 연결하는 패브릭 상위 계층입니다.','MMR/Core → Spine → Leaf','Optical Transceiver, Fiber Trunk, Switch','Network / MMR'],
-['leaf','LEAF / TOR','🖧','network',535,228,155,90,'서버와 스토리지를 연결하는 패브릭 접속 계층입니다.','Spine → Leaf/ToR → Server','DAC/AEC/AOC, Transceiver, Fiber','Network / MMR'],
-['rack1','COMPUTE RACK A','🗄️','white',192,355,140,94,'GPU/CPU 서버와 랙 PDU, 케이블링을 수용합니다.','Power + Cooling + Leaf → Compute','Rack, GPU Server, Power Cable, Patch Cord','White Space'],
-['rack2','COMPUTE RACK B','🗄️','white',360,355,140,94,'핫/콜드 아일 및 상부 케이블 트레이와 함께 배치됩니다.','Containment ↔ CRAH/CDU','Rack, Containment, Cable Tray','White Space'],
-['rack3','STORAGE / NET RACK','🗄️','white',528,355,160,94,'스토리지 및 네트워크 장비를 수용합니다.','Storage → Leaf → Spine','Rack, Switch, Fiber Patch Panel','White Space'],
-['noc','NOC / OPERATIONS','🖥️','operations',185,486,155,75,'장애·전력·온도·네트워크 상태를 모니터링합니다.','Sensor → BMS/DCIM → NOC','Monitoring, Copper/Fiber Cabling','Operations'],
-['security','SECURITY / GATE','🛡️','security',360,486,155,75,'출입 통제와 방문객 보안 검사를 수행합니다.','Visitor → Gate → Authorized Zone','Access Control, CCTV, Cat6A','Security'],
-['fire','FIRE SUPPRESSION','🧯','security',535,486,155,75,'화재 감지·경보·소화 설비로 설비를 보호합니다.','Detector → Alarm → Suppression','Fire Alarm Cable, Detection System','Safety']
+{id:'utility',name:'UTILITY POWER',ico:'⚡',group:'power',x:20,y:55,w:145,h:62,zone:'Utility Yard',role:'외부 전력망에서 데이터센터로 전력을 공급합니다.',flow:['Utility','Transformer','Switchgear'],bom:['MV/HV Power Cable','Control Cable']},
+{id:'tower',name:'COOLING TOWER',ico:'💧',group:'cooling',x:20,y:135,w:145,h:62,zone:'Cooling Yard',role:'냉각수 계통의 열을 외기로 방출합니다.',flow:['Cooling Tower','Chiller','CRAH/CDU'],bom:['Cooling Tower','Pump','Pipe']},
+{id:'chiller',name:'CHILLER / PUMP',ico:'❄️',group:'cooling',x:20,y:215,w:145,h:62,zone:'Cooling Plant',role:'냉수를 생성하고 순환시켜 IT 발열을 제거합니다.',flow:['Chiller','Pump','CRAH/CDU'],bom:['Chiller','Pump','Pipe']},
+{id:'generator',name:'GENERATOR',ico:'🛢️',group:'power',x:20,y:295,w:145,h:62,zone:'Utility Yard',role:'상용전원 장애 시 대체 전원을 공급합니다.',flow:['Generator','ATS','UPS'],bom:['Power Cable','Control Cable','Fuel System']},
+{id:'transformer',name:'TRANSFORMER',ico:'🔌',group:'power',x:220,y:120,w:130,h:68,zone:'Electrical Room',role:'수전 전압을 내부 배전 전압으로 변환합니다.',flow:['Utility','Transformer','Switchgear'],bom:['MV Cable','LV Cable','Termination']},
+{id:'switchgear',name:'SWITCHGEAR / ATS',ico:'🔀',group:'power',x:370,y:120,w:150,h:68,zone:'Electrical Room',role:'수전·발전기 전원을 절체하고 보호·배전합니다.',flow:['Utility/Generator','ATS','UPS'],bom:['Switchgear','Busduct','Power Cable']},
+{id:'ups',name:'UPS / BATTERY',ico:'🔋',group:'power',x:540,y:120,w:145,h:68,zone:'Electrical Room',role:'정전 시 IT 부하를 무정전으로 유지합니다.',flow:['ATS','UPS','PDU'],bom:['UPS','Battery Cable','LV Cable']},
+{id:'pdu',name:'PDU / BUSWAY',ico:'🔴',group:'power',x:705,y:120,w:175,h:68,zone:'Electrical Room',role:'전력을 랙에 분배합니다.',flow:['UPS','PDU/Busway','Rack PDU'],bom:['Busway','Rack PDU','Power Cable']},
+{id:'mmr',name:'MMR / ODF',ico:'🌐',group:'network',x:220,y:275,w:135,h:78,zone:'Network / MMR',role:'Carrier 광회선과 내부망이 접속되는 통신 인입 구역입니다.',flow:['Carrier','ODF','Core/Spine'],bom:['OS2 Fiber','ODF','Patch Panel','MPO Trunk']},
+{id:'core',name:'CORE / BORDER',ico:'🖧',group:'network',x:375,y:275,w:135,h:78,zone:'Network / MMR',role:'외부망과 데이터센터 패브릭을 연결합니다.',flow:['MMR','Core','Spine'],bom:['Router','Transceiver','Fiber']},
+{id:'spine',name:'SPINE',ico:'🖧',group:'network',x:530,y:275,w:135,h:78,zone:'IT Hall',role:'Leaf 스위치를 상호 연결하는 패브릭 상위 계층입니다.',flow:['Core','Spine','Leaf'],bom:['Switch','Optics','Fiber Trunk']},
+{id:'leaf',name:'LEAF / TOR',ico:'🖧',group:'network',x:685,y:275,w:135,h:78,zone:'IT Hall',role:'서버·스토리지를 패브릭에 연결합니다.',flow:['Spine','Leaf/ToR','Server'],bom:['DAC/AEC/AOC','Transceiver','Fiber']},
+{id:'cdu',name:'CDU / CRAH',ico:'🌬️',group:'cooling',x:840,y:275,w:65,h:210,zone:'IT Hall',role:'랙 또는 실내 공조 계통으로 냉각을 전달합니다.',flow:['Chiller','CRAH/CDU','Rack'],bom:['CDU','CRAH','Hose','Sensor']},
+{id:'rackA',name:'COMPUTE ROW A',ico:'🗄️',group:'white',x:250,y:390,w:140,h:90,zone:'White Space',role:'GPU/CPU 서버와 Rack PDU·광배선을 수용합니다.',flow:['Power + Cooling + Leaf','Compute'],bom:['Rack','GPU Server','Patch Cord','Power Cable']},
+{id:'rackB',name:'COMPUTE ROW B',ico:'🗄️',group:'white',x:450,y:390,w:140,h:90,zone:'White Space',role:'Hot/Cold aisle 및 상부 tray와 함께 구성됩니다.',flow:['Containment','CRAH/CDU'],bom:['Rack','Containment','Cable Tray']},
+{id:'rackC',name:'STORAGE / NET',ico:'🗄️',group:'white',x:650,y:390,w:140,h:90,zone:'White Space',role:'스토리지 및 네트워크 장비를 수용합니다.',flow:['Storage','Leaf','Spine'],bom:['Rack','Switch','Fiber Panel']},
+{id:'noc',name:'NOC / OPERATIONS',ico:'🖥️',group:'operations',x:230,y:535,w:170,h:65,zone:'Operations',role:'전력·온도·네트워크 상태를 통합 모니터링합니다.',flow:['Sensors','BMS/DCIM','NOC'],bom:['Monitoring','Copper/Fiber Cabling']},
+{id:'security',name:'SECURITY / GATE',ico:'🛡️',group:'security',x:430,y:535,w:170,h:65,zone:'Security',role:'출입 통제와 방문객 보안 검사를 수행합니다.',flow:['Visitor','Gate','Authorized Zone'],bom:['Access Control','CCTV','Cat6A']},
+{id:'fire',name:'FIRE SUPPRESSION',ico:'🧯',group:'security',x:630,y:535,w:170,h:65,zone:'Safety',role:'화재 감지·경보·소화로 핵심 설비를 보호합니다.',flow:['Detector','Alarm','Suppression'],bom:['Fire Alarm Cable','Detection System']}
 ];
-const $=id=>document.getElementById(id),world=$('world'),player=$('player'),visited=new Set();let pos={x:735,y:545},selected=null,view='all',level='junior',mode='auto';
-function safe(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;':'&quot;'}[c]));}
-function renderMap(){world.querySelectorAll('.area,.wire').forEach(n=>n.remove());items.forEach(a=>{const [id,name,emoji,group,x,y,w,h]=a;const b=document.createElement('button');b.type='button';b.className='area '+group+(selected===id?' selected':'');b.style.cssText='left:'+x+'px;top:'+y+'px;width:'+w+'px;height:'+h+'px';b.dataset.id=id;b.innerHTML='<span class="pixel">'+emoji+'</span><span>'+safe(name)+'</span>';b.addEventListener('click',()=>inspect(id));if(view!=='all'&&view!=='power'&&group!==view)b.style.opacity='.22';if(view==='power'&&!['power','cooling'].includes(group))b.style.opacity='.22';world.appendChild(b);});player.style.left=pos.x+'px';player.style.top=pos.y+'px';$('zoneTitle').textContent={all:'캠퍼스 · 전체 해부도',power:'전력·냉각 설비',white:'White Space · 서버홀',network:'네트워크 · MMR'}[view];}
-function inspect(id){const a=items.find(x=>x[0]===id);if(!a)return;selected=id;visited.add(id);$('location').textContent='현재 조사: '+a[1];$('detail').innerHTML='<h2>'+a[2]+' '+safe(a[1])+'</h2><p><strong>구역:</strong> '+safe(a[11])+'</p><p>'+safe(a[8])+'</p><h3>계통 흐름</h3><div class="step">'+safe(a[9])+'</div><h3>관련 BOM · LS전선 기회 품목</h3><div class="chips">'+a[10].split(', ').map(t=>'<span class="chip">'+safe(t)+'</span>').join('')+'</div><p><a class="tourlink" href="./index.html" target="_blank" rel="noopener">실제 BOM/제품 후보 조회 ↗</a></p>'+(level==='senior'?'<p class="status">시니어 검토: 이중화 구성, 용량, 커넥터/매체 호환성, 유지보수 경로를 별도 검증하세요.</p>':'<p class="status">주니어 학습: 이 설비가 앞뒤 어느 장비와 연결되는지 확인하세요.</p>');$('progress').textContent=visited.size+'/'+items.length;$('visited').innerHTML=items.filter(x=>visited.has(x[0])).map(x=>'<span class="chip">'+x[2]+' '+safe(x[1])+'</span>').join('');renderMap();}
-function move(dx,dy){pos.x=Math.max(0,Math.min(930,pos.x+dx));pos.y=Math.max(0,Math.min(610,pos.y+dy));player.style.left=pos.x+'px';player.style.top=pos.y+'px';const near=items.map(a=>({id:a[0],d:Math.hypot(pos.x-(a[4]+a[6]/2),pos.y-(a[5]+a[7]/2))})).sort((a,b)=>a.d-b.d)[0];if(near.d<90)$('location').textContent='근처 설비: '+items.find(x=>x[0]===near.id)[1];}
-function nearest(){const a=items.map(a=>({id:a[0],d:Math.hypot(pos.x-(a[4]+a[6]/2),pos.y-(a[5]+a[7]/2))})).sort((a,b)=>a.d-b.d)[0];inspect(a.id);}
-document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>{const d={up:[0,-32],down:[0,32],left:[-32,0],right:[32,0]}[b.dataset.move];move(...d)}));$('inspect').addEventListener('click',nearest);
+const $=id=>document.getElementById(id),world=$('world'),player=$('player'),visited=new Set();let pos={x:960,y:660},selected=null,view='all',mode='auto';
+function safe(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function line(x1,y1,x2,y2,cls){const d=document.createElement('div'),len=Math.hypot(x2-x1,y2-y1),ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI;d.className=cls;d.style.cssText='left:'+x1+'px;top:'+y1+'px;width:'+len+'px;transform:rotate('+ang+'deg)';world.appendChild(d)}
+function drawInfra(){
+ line(93,85,285,154,'powerline');line(285,154,445,154,'powerline');line(445,154,612,154,'powerline');line(612,154,795,154,'powerline');
+ line(92,166,92,246,'pipe');line(92,246,872,365,'pipe');
+ line(288,314,442,314,'fiber');line(442,314,596,314,'fiber');line(596,314,752,314,'fiber');
+}
+function render(){
+ world.querySelectorAll('.room,.rack,.pipe,.fiber,.powerline').forEach(n=>n.remove());drawInfra();
+ items.forEach(a=>{const b=document.createElement('button');b.type='button';b.className='room '+a.group+(selected===a.id?' selected':'');b.style.cssText='left:'+a.x+'px;top:'+a.y+'px;width:'+a.w+'px;height:'+a.h+'px';b.dataset.id=a.id;b.innerHTML='<span class="ico">'+a.ico+'</span><span>'+safe(a.name)+'</span><small>'+safe(a.zone)+'</small>';b.onclick=()=>inspect(a.id);const visible=view==='all'||(view==='power'&&['power','cooling'].includes(a.group))||view===a.group||(view==='white'&&['white','network','cooling'].includes(a.group))||(view==='operations'&&['operations','security'].includes(a.group));if(!visible)b.style.opacity='.18';world.appendChild(b)});
+ for(const [x,name] of [[270,'A'],[310,'A'],[470,'B'],[510,'B'],[670,'C'],[710,'C']]){const r=document.createElement('div');r.className='rack';r.style.left=x+'px';r.style.top='402px';r.title='Rack Row '+name;r.onclick=()=>inspect(name==='A'?'rackA':name==='B'?'rackB':'rackC');world.appendChild(r)}
+ player.style.left=pos.x+'px';player.style.top=pos.y+'px';
+ $('zoneTitle').textContent={all:'캠퍼스 · 전체 해부도',power:'전력·냉각 계통',white:'White Space · IT Hall',network:'Network / MMR',operations:'Operations / Safety'}[view];
+}
+function inspect(id){const a=items.find(x=>x.id===id);if(!a)return;selected=id;visited.add(id);$('location').textContent='현재 조사: '+a.name;$('detail').innerHTML='<h2>'+a.ico+' '+safe(a.name)+'</h2><p><strong>구역:</strong> '+safe(a.zone)+'</p><p>'+safe(a.role)+'</p><h3>계통 흐름</h3><div class="flow">'+a.flow.map((t,i)=>'<span>'+safe(t)+'</span>'+(i<a.flow.length-1?'<b>→</b>':'')).join('')+'</div><h3>관련 BOM · LS전선 기회 품목</h3><div class="chips">'+a.bom.map(t=>'<span class="chip">'+safe(t)+'</span>').join('')+'</div><p><a class="tourlink" href="./index.html" target="_blank" rel="noopener">실제 BOM/제품 후보 조회 ↗</a></p>';$('progress').textContent=visited.size+'/'+items.length;$('visited').innerHTML=items.filter(x=>visited.has(x.id)).map(x=>'<span class="chip">'+x.ico+' '+safe(x.name)+'</span>').join('');render()}
+function move(dx,dy){pos.x=Math.max(0,Math.min(1140,pos.x+dx));pos.y=Math.max(0,Math.min(710,pos.y+dy));player.style.left=pos.x+'px';player.style.top=pos.y+'px';const n=[...items].map(a=>({a,d:Math.hypot(pos.x-(a.x+a.w/2),pos.y-(a.y+a.h/2))})).sort((a,b)=>a.d-b.d)[0];if(n.d<110)$('location').textContent='근처 설비: '+n.a.name}
+function nearest(){const n=[...items].map(a=>({a,d:Math.hypot(pos.x-(a.x+a.w/2),pos.y-(a.y+a.h/2))})).sort((a,b)=>a.d-b.d)[0];inspect(n.a.id)}
+document.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>{const d={up:[0,-32],down:[0,32],left:[-32,0],right:[32,0]}[b.dataset.move];move(...d)});$('inspect').onclick=nearest;
 document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;const d={ArrowUp:[0,-32],w:[0,-32],ArrowDown:[0,32],s:[0,32],ArrowLeft:[-32,0],a:[-32,0],ArrowRight:[32,0],d:[32,0]}[e.key];if(d){e.preventDefault();move(...d)}else if(e.key==='z'||e.key==='Z'||e.key==='Enter'){e.preventDefault();nearest()}});
-$('views').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.view;$('views').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderMap()}));
-function applyMode(){document.body.classList.toggle('mode-mobile',mode==='mobile'||(mode==='auto'&&innerWidth<850));}
-$('modes').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;try{localStorage.setItem('ls-gold-mode',mode)}catch(e){}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyMode()}));window.addEventListener('resize',applyMode);
-$('junior').addEventListener('click',()=>{level='junior';if(selected)inspect(selected)});$('senior').addEventListener('click',()=>{level='senior';if(selected)inspect(selected)});$('reset').addEventListener('click',()=>{pos={x:735,y:545};selected=null;visited.clear();$('detail').innerHTML='<h2>환영합니다!</h2><p>탐험을 시작하세요.</p>';$('progress').textContent='0/'+items.length;$('visited').innerHTML='';renderMap()});
-try{mode=localStorage.getItem('ls-gold-mode')||'auto'}catch(e){}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));applyMode();$('progress').textContent='0/'+items.length;renderMap();
+$('views').querySelectorAll('button').forEach(b=>b.onclick=()=>{view=b.dataset.view;$('views').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render()});
+function applyMode(){const actual=mode==='auto'?(innerWidth<900?'mobile':'desktop'):mode;document.body.classList.toggle('mode-mobile',actual==='mobile');document.body.classList.toggle('mode-desktop',actual==='desktop')}
+$('modes').querySelectorAll('button').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;try{localStorage.setItem('ls-gold-mode',mode)}catch{}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyMode()});window.addEventListener('resize',applyMode);
+try{mode=localStorage.getItem('ls-gold-mode')||'auto'}catch{}$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));$('progress').textContent='0/'+items.length;applyMode();render();
 })();
-</script></body></html>
+</script>
+</body></html>

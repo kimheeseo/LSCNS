@@ -29,6 +29,8 @@
 | **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three) |
 | **기존 3D 렌더 복귀** | [Legacy 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) |
 | **원본 2D Gold Pixel Tour** | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) |
+| **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |
+| **Gold Anatomy 8단계 보고서** | [개편 보고서](./architecture/GOLD_ANATOMY_8_STEP_REPORT_20261017.md) |
 | **데이터센터 제품·BOM 툴** | [DataCenter 메인](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/) |
 | **상세 버전업 이력 TXT** | [LS3D_VERSION_UPGRADE_HISTORY.txt](./LS3D_VERSION_UPGRADE_HISTORY.txt) |
 | **20단계 릴리스 보고서** | [STEP20_RELEASE_REPORT.md](./architecture/STEP20_RELEASE_REPORT.md) |

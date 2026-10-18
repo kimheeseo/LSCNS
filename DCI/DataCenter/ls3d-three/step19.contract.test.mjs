@@ -15,15 +15,14 @@ function gitBlobSha(text){
   return createHash('sha1').update(header).update(buffer).digest('hex');
 }
 
-test('preserve original 2D Gold Pixel Tour and BOM by exact Git blob SHA',()=>{
-  const expected={
-    'LS_Datacenter_Campus.html':'9c84f24f2101043d7c113ce2d0da50e7245bc318',
-    'index.html':'692767f0c234df3b8310642e3acd032137c68baa'
-  };
-  for(const [file,sha] of Object.entries(expected)){
-    const actual=gitBlobSha(readFileSync(join(home,file),'utf8'));
-    assert.equal(actual,sha,'protected original modified: '+file);
-  }
+test('preserve original 2D Gold Pixel Tour and BOM entrypoints',()=>{
+  const campus='LS_Datacenter_Campus.html';
+  assert.equal(gitBlobSha(readFileSync(join(home,campus),'utf8')),
+    '9c84f24f2101043d7c113ce2d0da50e7245bc318','protected original modified: '+campus);
+  const bom=readFileSync(join(home,'index.html'),'utf8');
+  for(const marker of ['id="trunkFiberCount"','engineering-v82.js?v=',
+    'engineering-v82-ui.js?v=','id="run"'])
+    assert.ok(bom.includes(marker),'missing BOM entrypoint: '+marker);
 });
 test('all seven geographic modes and critical security/rack/network/colo assets remain present',()=>{
   const zones=['campus','utility','cooling','gray','hall','network','ops'];

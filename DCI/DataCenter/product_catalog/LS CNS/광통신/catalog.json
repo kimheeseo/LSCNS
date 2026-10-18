@@ -3,12 +3,18 @@
   "company": "LS Cable & System",
   "category": "광통신",
   "displayName": "광통신",
-  "description": "LS전선 광통신 카탈로그 자료. 화면 제목은 PDF 파일명 대신 업무용 짧은 명칭으로 표시합니다.",
-  "checked": "2026-10-05",
+  "description": "LS전선 광통신 카탈로그 자료와 공식 공개 제품군. 제품군 항목은 개별 발주 SKU가 아니며 심수·광섬유 등급·종단은 RFQ 확인 대상입니다.",
+  "checked": "2026-10-18",
   "officialUrl": "https://www.lscns.com/",
   "comparisonFields": [
     "자료 구분",
-    "발행 연도"
+    "발행 연도",
+    "용도",
+    "Fiber Count",
+    "Fiber Type",
+    "Connector",
+    "Jacket",
+    "확인 상태"
   ],
   "products": {
     "Fiber Optic Cable and Product (2020)": {
@@ -30,6 +36,54 @@
         "발행 연도": "—"
       },
       "displayModel": "광섬유"
+    },
+    "indoor-central-tube-single-jacket": {
+      "name": "LS전선 Central Tube Single Jacket 실내 광케이블",
+      "description": "건물 내부 백본 등 실내 배선용으로 공식 제품 소개에 명시된 제품군. 구조와 실제 난연 인증은 개별 사양서 확인.",
+      "officialUrl": "https://www.lscns.com/cn/product/prod_view.asp?searchCate=121&searchSeq=3250",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "제품군 · SKU 확인 필요",
+      "specs": {
+        "용도": "실내 백본 / 수직·수평 배선",
+        "Fiber Count": "RFQ: 심수 미공개",
+        "Fiber Type": "RFQ: OS2/OM 계열 미공개",
+        "Connector": "RFQ: 종단 방식 미공개",
+        "Jacket": "RFQ: 해당 모델의 난연·LSZH 인증 확인",
+        "확인 상태": "공식 제품군 확인 · 개별 SKU/심수/규격 검증 필요"
+      }
+    },
+    "indoor-tight-buffered-distribution": {
+      "name": "LS전선 Tight Buffered Distribution 실내 광케이블",
+      "description": "실내 백본용으로 공식 제품 소개에 명시된 tight-buffered 배선 제품군.",
+      "officialUrl": "https://www.lscns.com/cn/product/prod_view.asp?searchCate=121&searchSeq=3250",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "제품군 · SKU 확인 필요",
+      "specs": {
+        "용도": "실내 백본 / 수직·수평 배선",
+        "Fiber Count": "RFQ: 심수 미공개",
+        "Fiber Type": "RFQ: OS2/OM 계열 미공개",
+        "Connector": "RFQ: 종단 방식 미공개",
+        "Jacket": "RFQ: 해당 모델의 난연·LSZH 인증 확인",
+        "확인 상태": "공식 제품군 확인 · 개별 SKU/심수/규격 검증 필요"
+      }
+    },
+    "indoor-simplex-duplex-cord": {
+      "name": "LS전선 Simplex / Duplex 실내 광 코드",
+      "description": "Optical LAN, 패치 코드와 피그테일 용도로 공식 제품 소개에 명시된 제품군. Simplex/duplex 이외의 케이블 구조와 종단 정보는 미공개.",
+      "officialUrl": "https://www.lscns.com/cn/product/prod_view.asp?searchCate=121&searchSeq=3250",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "제품군 · SKU 확인 필요",
+      "specs": {
+        "용도": "패치 코드 / 피그테일 / Optical LAN",
+        "Fiber Count": "Simplex 1 / Duplex 2 (제품군 형태; 개별 SKU 확인)",
+        "Fiber Type": "RFQ: OS2/OM 계열 미공개",
+        "Connector": "RFQ: LC·MPO 등 종단 미공개",
+        "Jacket": "RFQ: 해당 모델의 난연·LSZH 인증 확인",
+        "확인 상태": "공식 제품군 확인 · 개별 SKU/종단/길이 검증 필요"
+      }
     }
   }
 }

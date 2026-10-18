@@ -1,5 +1,5 @@
 {
-  "tests": 19,
+  "tests": 25,
   "inputs": {
     "A": {
       "switchRadix": 64,
@@ -301,10 +301,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OM4",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 2048,
           "purchasedModules": 2253,
@@ -329,7 +332,7 @@
             "cableCount": 1127,
             "installedChannelFibers": 12,
             "requiredFibers": 8192,
-            "provisionedFibers": 16384
+            "provisionedFibers": 12288
           }
         },
         "leafSpine": {
@@ -351,10 +354,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OS2",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 2048,
           "purchasedModules": 2253,
@@ -378,7 +384,7 @@
             "cableCount": 1127,
             "installedChannelFibers": 12,
             "requiredFibers": 8192,
-            "provisionedFibers": 16384
+            "provisionedFibers": 12288
           }
         },
         "core": {
@@ -453,7 +459,7 @@
         },
         {
           "category": "Connectivity",
-          "item": "server 16F trunk 50 m",
+          "item": "server 12F trunk 50 m",
           "qty": 1127,
           "installedQty": 1024,
           "spareQty": 103,
@@ -501,7 +507,7 @@
         },
         {
           "category": "Connectivity",
-          "item": "leafSpine 16F trunk 120 m",
+          "item": "leafSpine 12F trunk 120 m",
           "qty": 1127,
           "installedQty": 1024,
           "spareQty": 103,
@@ -733,7 +739,11 @@
       "warnings": [
         "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
         "Air cooling planning threshold exceeded: 57.2 > 30 kW",
+        "server: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "server: zero optical loss reserve; set a project margin before installation approval",
         "leafSpine: route >100m; custom length 120m RFQ",
+        "leafSpine: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "leafSpine: zero optical loss reserve; set a project margin before installation approval",
         "Tray shared-route upper-bound fill 268.083% >40%; split pathways or enlarge tray"
       ],
       "errors": []
@@ -959,10 +969,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OM4",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 8192,
           "purchasedModules": 9012,
@@ -1009,10 +1022,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OS2",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 4096,
           "purchasedModules": 4506,
@@ -1058,10 +1074,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OS2",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 4096,
           "purchasedModules": 4506,
@@ -1399,8 +1418,14 @@
       "warnings": [
         "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
         "Air cooling planning threshold exceeded: 51 > 30 kW",
+        "server: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "server: zero optical loss reserve; set a project margin before installation approval",
         "leafSpine: route >100m; custom length 120m RFQ",
+        "leafSpine: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "leafSpine: zero optical loss reserve; set a project margin before installation approval",
         "core: route >100m; custom length 120m RFQ",
+        "core: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "core: zero optical loss reserve; set a project margin before installation approval",
         "Tray shared-route upper-bound fill 1072.33% >40%; split pathways or enlarge tray"
       ],
       "errors": []
@@ -1572,10 +1597,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OM4",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 576,
           "purchasedModules": 634,
@@ -1600,7 +1628,7 @@
             "cableCount": 317,
             "installedChannelFibers": 12,
             "requiredFibers": 2304,
-            "provisionedFibers": 4608
+            "provisionedFibers": 3456
           }
         },
         "leafSpine": {
@@ -1622,10 +1650,13 @@
             "base": 12,
             "connectorGroups": 1,
             "fiberType": "OS2",
-            "trunkFiberCount": 16,
-            "requestedTrunkFiberCount": 16,
+            "trunkFiberCount": 12,
+            "requestedTrunkFiberCount": 0,
+            "unusedTrunkFibers": 0,
+            "opticSku": "",
+            "source": "",
             "compatibility": "REVIEW",
-            "rule": "Assumption; confirm vendor datasheet and host/FEC"
+            "rule": "Generic assumption; select both endpoint optic SKUs and verify host/FEC"
           },
           "installedModules": 768,
           "purchasedModules": 845,
@@ -1649,7 +1680,7 @@
             "cableCount": 423,
             "installedChannelFibers": 12,
             "requiredFibers": 3072,
-            "provisionedFibers": 6144
+            "provisionedFibers": 4608
           }
         },
         "core": {
@@ -1742,7 +1773,7 @@
         },
         {
           "category": "Connectivity",
-          "item": "server 16F trunk 50 m",
+          "item": "server 12F trunk 50 m",
           "qty": 317,
           "installedQty": 288,
           "spareQty": 29,
@@ -1790,7 +1821,7 @@
         },
         {
           "category": "Connectivity",
-          "item": "leafSpine 16F trunk 120 m",
+          "item": "leafSpine 12F trunk 120 m",
           "qty": 423,
           "installedQty": 384,
           "spareQty": 39,
@@ -2039,7 +2070,11 @@
       ],
       "warnings": [
         "All coefficients are planning assumptions; manufacturer datasheet / OEM verification required.",
+        "server: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "server: zero optical loss reserve; set a project margin before installation approval",
         "leafSpine: route >100m; custom length 120m RFQ",
+        "leafSpine: generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement",
+        "leafSpine: zero optical loss reserve; set a project margin before installation approval",
         "Tray shared-route upper-bound fill 87.965% >40%; split pathways or enlarge tray"
       ],
       "errors": []

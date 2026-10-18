@@ -24,12 +24,19 @@ const OPTICS=[
  {id:'lr',speed:400,standard:'400G-LR4-6',reach:6000,loss:6.3,fiber:'OS2',connector:'Duplex LC',polish:'UPC',fibers:2,base:2},
  {id:'lr',speed:800,standard:'800G-2×LR4 planning',reach:6000,loss:6.3,fiber:'OS2',connector:'2×Duplex LC',polish:'UPC',fibers:4,base:2,groups:2}
 ];
+// These entries constrain the cable-facing interface of a named module. The peer
+// module, host cage/FEC and optical loss budget still need separate confirmation.
+const OPTIC_SKUS={
+ 'nvidia-mma4z00-ns400':{name:'NVIDIA MMA4Z00-NS400',speed:400,mediaId:'sr',reach:50,connector:'MPO-12',polish:'APC',fiber:'OM4',protocols:['InfiniBand','Ethernet'],endGender:'female',source:'https://networking-docs.nvidia.com/mma4z00ns400'},
+ 'cisco-qsfp-400g-dr4':{name:'Cisco QSFP-400G-DR4',speed:400,mediaId:'dr',reach:500,connector:'MPO-12',polish:'APC',fiber:'OS2',protocols:['Ethernet'],source:'https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/400g-qsfp-transceiver-modules-ds.html'},
+ 'cisco-qsfp-400g-fr4':{name:'Cisco QSFP-400G-FR4',speed:400,mediaId:'fr',reach:2000,connector:'Duplex LC',polish:'UPC',fiber:'OS2',protocols:['Ethernet'],source:'https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/400g-qsfp-transceiver-modules-ds.html'}
+};
 const DEFAULTS={targetGPU:1024,systemId:'b200',inputMode:'gpu',itInputMw:100,nvlRackCount:4,topology:'rail',fabricProtocol:'InfiniBand',fabricTier:2,oversub:1,
  rackRU:48,reservedRU:4,rackPowerKw:100,rackCoolingKw:100,rackHeadroomPct:20,coolingMode:'auto',sparePct:10,
- serverDistanceM:30,leafSpineDistanceM:100,coreDistanceM:100,serverCabling:'structured',leafSpineCabling:'structured',coreCabling:'structured',trunkFiberCount:16,
- switchRadix:64,switchKw:2,switchRU:2,switchLogicalPerCage:1,serverMedia:'auto',uplinkMedia:'auto',coreMedia:'auto',fiberPreference:'auto',
+ serverDistanceM:30,leafSpineDistanceM:100,coreDistanceM:100,serverCabling:'structured',leafSpineCabling:'structured',coreCabling:'structured',trunkFiberCount:0,
+ switchRadix:64,switchKw:2,switchRU:2,switchLogicalPerCage:1,serverLogicalPerModule:1,serverMedia:'auto',uplinkMedia:'auto',coreMedia:'auto',fiberPreference:'auto',
  slackPct:15,verticalRiseM:3,terminationM:0,matedPairs:4,p2pPairs:2,mpoLossDb:.35,lcLossDb:.25,lowLoss:false,
- fiberAttenDbKm:.35,mmfAttenDbKm:3,marginDb:0,spliceCount:0,spliceLossDb:.1,fiberPolarity:'B',connectorPolish:'auto',
+ fiberAttenDbKm:.35,mmfAttenDbKm:3,marginDb:0,spliceCount:0,spliceLossDb:.1,fiberPolarity:'B',connectorPolish:'auto',mpoEndGender:'review',serverOpticSku:'auto',uplinkOpticSku:'auto',coreOpticSku:'auto',
  pue:1.2,facilityHeadroomPct:20,powerFactor:.9,upsEfficiency:.96,upsBlockKva:1000,upsUtilPct:80,generatorBlockKw:2500,generatorUtilPct:80,transformerBlockKva:3000,transformerUtilPct:80,facilityRedundancy:'N+1',facilityEnabled:false,
  liquidPct:75,cduBlockKw:600,cduRedundancy:'N+1',waterDensity:1000,waterCp:4186,deltaTK:10,airLimitKw:30,rearDoorLimitKw:50,
  panelChannels:24,cassetteChannels:12,pduRatedKw:46,pduUtilPct:80,pduOutlets:24,siteVoltage:400,
@@ -81,6 +88,8 @@ function calculate(raw={}){
  // Each domain has its own fabric. ToR modes preserve rack affinity; Dual splits existing NICs across A/B fabrics.
  const R=Math.max(4,Math.floor(i.switchRadix/2)*2),down=R/2,up=Math.max(1,ceil(down/i.oversub));
  if(i.twinPort400&&p.linkSpeed===400){i.switchLogicalPerCage=2;warnings.push('Twin-port option assumes two qualified 400G logical ports/switch cage');}
+ if(![1,2].includes(i.serverLogicalPerModule)){warnings.push('Server module port count must be 1 or 2; 1 used');i.serverLogicalPerModule=1;}
+ if(i.serverLogicalPerModule===2&&!i.twinPort400)warnings.push('Server dual-port module count requires the qualified 2×400G physical module option; no sharing applied');
  const domains=i.topology==='rail'?(p.rackScale?p.rails||4:p.links):i.topology==='dual'?2:1;
  if(R!==i.switchRadix)warnings.push('Switch radix rounded to even '+R);i.switchRadix=R;
  const endpoints=units*p.links,portNodes=[],routes=[],domainRows=[],counts={leaf:0,spine:0,core:0,server:0,uplink:0,coreLink:0};
@@ -137,34 +146,51 @@ function calculate(raw={}){
   const routed=(distance+i.verticalRiseM+2*i.terminationM)*(1+i.slackPct/100),standard=[1,2,3,5,10,20,30,50,100].find(m=>m>=routed),length=standard||ceil(routed/10)*10;
   if(!standard)warnings.push(segment+': route >100m; custom length '+length+'m RFQ');
   const table=OPTICS.filter(x=>x.speed===speed).map(x=>({...x,reach:raw.opticsAssumptions?.[speed+'-'+x.id]?.reach??x.reach,loss:raw.opticsAssumptions?.[speed+'-'+x.id]?.loss??x.loss}));
+  const skuId=i[{server:'serverOpticSku',leafSpine:'uplinkOpticSku',core:'coreOpticSku'}[segment]];
+  const requestedSku=skuId&&skuId!=='auto'?OPTIC_SKUS[skuId]:null;
+  let sku=requestedSku;
+  if(skuId&&skuId!=='auto'&&!sku){errors.push(segment+': unknown optic SKU '+skuId+'; generic profile is unqualified');}
+  if(sku&&sku.speed!==speed){errors.push(segment+': '+sku.name+' requires '+sku.speed+'G, not '+speed+'G');sku=null;}
+  if(sku&&!sku.protocols.includes(i.fabricProtocol))errors.push(segment+': '+sku.name+' has no published '+i.fabricProtocol+' protocol qualification');
+  if(sku&&mediaChoice&&mediaChoice!=='auto'&&mediaChoice!==sku.mediaId)errors.push(segment+': requested '+mediaChoice+' media conflicts with '+sku.name);
   const lossOf=x=>{const optical=x.loss!==null,budget=optical&&i.opticalBudgetMode==='project'?Math.min(x.loss,Number(i.projectBudgetDb)||x.loss):x.loss,pairs=cabling==='structured'?Math.max(4,ceil(i.matedPairs)):Math.max(2,ceil(i.p2pPairs)),atten=x.fiber==='OM4'?i.mmfAttenDbKm:i.fiberAttenDbKm,connector=/LC/.test(x.connector)?i.lcLossDb:i.lowLoss?.25:i.mpoLossDb;return {applicable:optical,matedPairs:pairs,attenDbKm:atten,connectorDb:connector,estimatedDb:optical?round(atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb):0,budgetDb:budget,marginDb:i.marginDb,pass:length<=x.reach&&(!optical||atten*length/1000+pairs*connector+i.spliceCount*i.spliceLossDb+i.marginDb<=budget)};};
   const available=table.filter(x=>cabling==='p2p'||x.loss!==null).filter(x=>i.fiberPreference==='smf'?x.loss===null||x.fiber==='OS2':i.fiberPreference==='mmf'?x.loss===null||x.fiber==='OM4':true);
-  let chosen=mediaChoice&&mediaChoice!=='auto'?table.find(x=>x.id===mediaChoice):available.filter(x=>x.id!=='aec').find(x=>lossOf(x).pass);
-  chosen=chosen||available.at(-1)||table.at(-1);const loss=lossOf(chosen),isOptical=chosen.loss!==null;
-  const alternatives=table.filter(x=>lossOf(x).pass&&(cabling==='p2p'||x.loss!==null)).map(x=>x.standard||x.id.toUpperCase());
-  if(!loss.pass)errors.push(segment+': '+(chosen.standard||chosen.id)+' FAIL; alternatives '+(alternatives.join(', ')||'reduce connector pairs / direct cabling / vendor-qualified long reach'));
+  let chosen=sku?table.find(x=>x.id===sku.mediaId):mediaChoice&&mediaChoice!=='auto'?table.find(x=>x.id===mediaChoice):available.filter(x=>x.id!=='aec').find(x=>lossOf(x).pass);
+  chosen=chosen||available.at(-1)||table.at(-1);
+  if(sku)chosen={...chosen,reach:sku.reach,connector:sku.connector,polish:sku.polish,fiber:sku.fiber};
+  const loss=lossOf(chosen),isOptical=chosen.loss!==null;
+  const alternatives=table.filter(x=>!sku||x.id!==sku.mediaId).filter(x=>lossOf(x).pass&&(cabling==='p2p'||x.loss!==null)).map(x=>x.standard||x.id.toUpperCase());
+  if(!loss.pass)errors.push(segment+': '+(sku?.name||chosen.standard||chosen.id)+' FAIL; '+(sku?'different qualified endpoint SKU required; generic media possibilities ':'alternatives ')+(alternatives.join(', ')||'reduce connector pairs / direct cabling / vendor-qualified long reach'));
+  if(isOptical&&!sku)warnings.push(segment+': generic optical reach/connector only; select and verify both endpoint optic SKUs before procurement');
+  if(isOptical&&i.marginDb===0)warnings.push(segment+': zero optical loss reserve; set a project margin before installation approval');
+  if(sku&&((i.fiberPreference==='smf'&&chosen.fiber==='OM4')||(i.fiberPreference==='mmf'&&chosen.fiber==='OS2')))errors.push(segment+': '+sku.name+' fiber type '+chosen.fiber+' conflicts with '+i.fiberPreference+' preference');
   if(cabling==='structured'&&!isOptical)errors.push(segment+': DAC/AOC/AEC cannot traverse passive patch panels; select point-to-point');
   if(isOptical&&i.fiberPolarity!=='B'&&/MPO/.test(chosen.connector))errors.push(segment+': Type-B end-to-end polarity required by planning profile; verify assembly mapping');
   if(isOptical&&i.connectorPolish!=='auto'&&i.connectorPolish!==chosen.polish)errors.push(segment+': '+i.connectorPolish+' polish conflicts with '+chosen.polish+' profile; never mate APC/UPC');
-  const groups=chosen.groups||1,base=chosen.base||0,channelFibers=base*groups,channelsPerTrunk=isOptical?Math.floor(i.trunkFiberCount/channelFibers):0;
-  const actualTrunk=channelsPerTrunk>0?i.trunkFiberCount:channelFibers;
+  if(sku?.endGender&&i.mpoEndGender!=='review'&&i.mpoEndGender!==sku.endGender)errors.push(segment+': '+sku.name+' requires '+sku.endGender+' cable connector at the transceiver');
+  if(sku?.endGender&&i.mpoEndGender==='review')warnings.push(segment+': '+sku.name+' transceiver end requires '+sku.endGender+' MPO cable; pinning/adapter mapping RFQ');
+  const groups=chosen.groups||1,base=chosen.base||0,channelFibers=base*groups;
+  const requestedTrunk=i.trunkFiberCount||channelFibers,channelsPerTrunk=isOptical?Math.floor(requestedTrunk/channelFibers):0;
+  const actualTrunk=channelsPerTrunk>0?requestedTrunk:channelFibers;
   if(isOptical&&cabling==='structured'&&!channelsPerTrunk)warnings.push(segment+': trunk too small; '+actualTrunk+'F required per channel; RFQ');
-  // Share only qualified 2x400G switch modules, grouped per physical switch. Server-side NIC remains one module/port.
+  if(isOptical&&cabling==='structured'&&actualTrunk%channelFibers)warnings.push(segment+': '+actualTrunk+'F trunk leaves '+(actualTrunk%channelFibers)+'F outside complete '+channelFibers+'F channels; exact MPO breakout/termination RFQ');
+  // Share qualified 2x400G switch modules per physical switch; count server
+  // modules per actual system rather than pooling their ports across systems.
   let installedModules=isOptical?2*links:0;
   if(isOptical&&speed===400&&i.twinPort400){
    const field=segment==='server'?'server':segment==='leafSpine'?'leafSpine':'core';
    const eligible=portNodes.filter(n=>segment==='server'?n.role==='Leaf':segment==='leafSpine'?['Leaf','Spine'].includes(n.role):['Spine','Core'].includes(n.role));
-   installedModules=segment==='server'?links:0;installedModules+=sum(eligible.map(n=>ceil(n.used[field]/2)));
-   warnings.push(segment+': 2×400G modules assumed; matched breakout/FEC/cage/connector SKU required');
+   installedModules=segment==='server'?units*ceil(p.links/i.serverLogicalPerModule):0;installedModules+=sum(eligible.map(n=>ceil(n.used[field]/2)));
+   warnings.push(segment+': 2×400G modules assumed; server '+i.serverLogicalPerModule+' logical ports/module; matched breakout/FEC/cage/connector SKU required');
   }
   const trunkCapacity=Math.max(1,Math.floor(actualTrunk/channelFibers));
   const segmentRoutes=routes.filter(q=>q.segment===segment);
   const trunkInstalled=isOptical&&cabling==='structured'?sum(segmentRoutes.map(q=>ceil(q.links/trunkCapacity))):0;
   const selectedBase=i[{server:'serverBase',leafSpine:'uplinkBase',core:'coreBase'}[segment]];
   if(selectedBase&&selectedBase!=='auto'&&Number(selectedBase)!==base)warnings.push(segment+': Base-'+selectedBase+' conflicts with planned Base-'+base+'; RFQ interface redesign');
-  const profile={speed,standard:(chosen.standard||'').replace(/^\d+G-/,''),protocol:i.fabricProtocol,package:'',media:chosen.standard||speed+'G '+chosen.id.toUpperCase(),optical:isOptical,optics:isOptical?2:0,connector:chosen.connector,polish:chosen.polish,fibers:chosen.fibers,installedChannelFibers:channelFibers,base,connectorGroups:groups,fiberType:chosen.fiber,trunkFiberCount:actualTrunk,requestedTrunkFiberCount:i.trunkFiberCount,compatibility:'REVIEW',rule:'Assumption; confirm vendor datasheet and host/FEC'};
+  const profile={speed,standard:(chosen.standard||'').replace(/^\d+G-/,''),protocol:i.fabricProtocol,package:'',media:chosen.standard||speed+'G '+chosen.id.toUpperCase(),optical:isOptical,optics:isOptical?2:0,connector:chosen.connector,polish:chosen.polish,fibers:chosen.fibers,installedChannelFibers:channelFibers,base,connectorGroups:groups,fiberType:chosen.fiber,trunkFiberCount:actualTrunk,requestedTrunkFiberCount:i.trunkFiberCount,unusedTrunkFibers:actualTrunk%Math.max(1,channelFibers),opticSku:sku?.name||'',source:sku?.source||'',compatibility:'REVIEW',rule:sku?'SKU reach/connector only; loss budget, peer optic and host/FEC RFQ':'Generic assumption; select both endpoint optic SKUs and verify host/FEC'};
   optical[segment]={links,lengthM:length,routeLengthM:routed,profile,installedModules,purchasedModules:purchase(installedModules,i.modulePack),loss:{...loss,alternatives},trunk:{installedCableCount:trunkInstalled,cableCount:purchase(trunkInstalled),installedChannelFibers:channelFibers,requiredFibers:links*chosen.fibers,provisionedFibers:trunkInstalled*actualTrunk}};
-  guide.push({speed:speed+'G',media:profile.media,distanceM:length,connector:profile.connector,rule:'Loss '+loss.estimatedDb+'/'+loss.budgetDb+' dB; '+(loss.pass?'PASS planning':'FAIL')+'; assumption only',segment});
+  guide.push({speed:speed+'G',media:profile.media,distanceM:length,connector:profile.connector,rule:(sku?sku.name+' · ':'Generic profile · ')+'Loss '+loss.estimatedDb+'/'+loss.budgetDb+' dB; '+(loss.pass?'PRELIMINARY / RFQ':'FAIL')+'; peer module and channel budget unverified',segment});
   if(isOptical){row('Connectivity',segment+' '+profile.media+' transceiver',purchase(installedModules,i.modulePack),'module',installedModules+' installed + ceil(spare '+i.sparePct+'%); '+(i.twinPort400&&speed===400?'qualified twin switch ports':'2 modules/link'),{segment,installedQty:installedModules});
    if(cabling==='structured'){
     row('Connectivity',segment+' '+actualTrunk+'F trunk '+length+' m',purchase(trunkInstalled,i.trunkBundle),'cable','ceil('+links+'/'+Math.max(1,Math.floor(actualTrunk/channelFibers))+') channels/trunk; reserve Base-'+base+' × '+groups,{segment,installedQty:trunkInstalled});
@@ -236,5 +262,5 @@ function calculate(raw={}){
  const networkTotals={switches:switchCount+storageSwitches+sum(auxFabrics.map(x=>x.switches)),modules:sum(bom.filter(x=>x.unit==='module'&&x.category==='Connectivity').map(x=>x.installedQty)),purchasedModules:sum(bom.filter(x=>x.unit==='module'&&x.category==='Connectivity').map(x=>x.qty)),bomLines:bom.length,powerKw:it};
  return {networkTotals,validation,version:'8.2.0-engineering',usable:true,status:errors.length?'ERROR / REVIEW':'REVIEW',input:i,warnings:[...new Set([...warnings,...errors])],errors,backend:{mode:'browser-engineering'},systemProfile:{...p,evidence:'Planning assumption',source:'https://docs.nvidia.com/dgx/'},summary:{targetGPU:target,installedGPU:units*p.gpus,systemUnits:units,servers:units,computeRacks:racks,networkRacks:allRacks.filter(r=>r.role==='Network').length,totalRacks:allRacks.length,totalItPowerKw:it,computePowerKw:computeKw,facilityPowerKw:facilityKw,systemsPerRack:perRack,bindingConstraint:binding,rackLimits:limits,inputItKw:i.inputMode==='power'?i.itInputMw*1000:null,computeBudgetKw:powerBudget},fabric,optical,facility,cooling,bom,products,coverage,interconnectGuide:guide,racks:allRacks,portAudit:{nodes:portNodes,routes,pass:!errors.some(x=>x.startsWith('Port capacity'))},additionalFabrics:auxFabrics,storage:{systems:storageNodes,switches:storageSwitches,rawRatio,rawTb:storageNodes*i.storageRawTbPerNode,usableTb:storageNodes*i.storageRawTbPerNode*rawRatio,readGbps:storageNodes*i.storageReadGbpsPerNode},planningScope:{frontend:i.frontendEnabled,oob:i.oobEnabled,storageFabric:i.storageEnabled},procurement,productRequirements:allRequirements,powerProof:{itKw:it,rackSumKw:it,residualKw:0,totalRacks:allRacks.length,averageRackKw:it/allRacks.length,computeKw,computeRacks:racks,averageComputeRackKw:computeKw/racks,pue:i.pue,overheadKw:facilityKw-it,upsKva,upsKw:upsKva*i.powerFactor,transformerKva,generatorKw,phaseBalance:'P/3 planning; outlet allocation RFQ'},cablingHandover:[],rackLayout:{rackRU:i.rackRU,components:p.rackScale?[{group:'Compute',label:'NVL72 OEM rack kit',startU:1,endU:Math.min(p.ru,i.rackRU)}]:Array.from({length:perRack},(_,j)=>({group:'Compute',label:p.name,startU:j*p.ru+1,endU:Math.min((j+1)*p.ru,i.rackRU)})),notes:cooling.notes},assumptions:{...i,system:p,optics:OPTICS,trayFillPct:fill}};
 }
-const api={calculate,SYSTEMS,OPTICS,DEFAULTS};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.DCEngineering=api;
+const api={calculate,SYSTEMS,OPTICS,OPTIC_SKUS,DEFAULTS};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.DCEngineering=api;
 })(typeof window!=='undefined'?window:globalThis);

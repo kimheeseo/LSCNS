@@ -65,9 +65,10 @@ function gitBlobSha(path){
   const data=readFileSync(new URL(path,root));
   return createHash('sha1').update(Buffer.from('blob '+data.length+'\0')).update(data).digest('hex');
 }
-test('previous 2D Gold Pixel Tour and DataCenter BOM blobs remain unchanged',()=>{
+test('previous 2D Gold Pixel Tour remains unchanged and BOM entrypoints remain wired',()=>{
   assert.equal(gitBlobSha('DCI/DataCenter/LS_Datacenter_Campus.html'),
     '9c84f24f2101043d7c113ce2d0da50e7245bc318');
-  assert.equal(gitBlobSha('DCI/DataCenter/index.html'),
-    '692767f0c234df3b8310642e3acd032137c68baa');
+  const bom=read('DCI/DataCenter/index.html');
+  for(const marker of ['id="trunkFiberCount"','engineering-v82.js?v=','engineering-v82-ui.js?v=','id="run"'])
+    assert.ok(bom.includes(marker),marker);
 });

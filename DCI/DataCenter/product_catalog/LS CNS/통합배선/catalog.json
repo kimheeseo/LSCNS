@@ -3,12 +3,17 @@
   "company": "LS Cable & System",
   "category": "통합배선",
   "displayName": "통합배선",
-  "description": "LS전선 통합배선·데이터센터 관련 카탈로그 자료. 긴 PDF 파일명 대신 간략 업무명을 사용합니다.",
-  "checked": "2026-10-05",
+  "description": "LS전선 통합배선·데이터센터 관련 자료와 공식 공개 솔루션. 솔루션 소개의 전송 속도를 개별 SKU의 인증 성능으로 해석하지 않습니다.",
+  "checked": "2026-10-18",
   "officialUrl": "https://www.lscns.com/",
   "comparisonFields": [
     "자료 구분",
-    "발행 연도"
+    "발행 연도",
+    "용도",
+    "Data Rate",
+    "Fiber Count",
+    "Connector",
+    "확인 상태"
   ],
   "products": {
     "2024_LS_Simple_통합배선_카탈로그": {
@@ -50,6 +55,21 @@
         "발행 연도": "2020"
       },
       "displayModel": "20_LS Simple 지명원"
+    },
+    "fast-net-fiber-preterminated": {
+      "name": "LS Fast-Net Fiber Pre-Terminated 데이터센터 배선 솔루션",
+      "description": "LS전선 공식 데이터센터 소개에 명시된 사전 종단형 광배선 솔루션. 40G/100G는 소개 페이지의 솔루션 범위이며 400G/800G 지원이나 개별 모델을 뜻하지 않습니다.",
+      "officialUrl": "https://www.lscns.com/cn/product/prod_view.asp?searchCate=122&searchSeq=3257",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "솔루션 · SKU 확인 필요",
+      "specs": {
+        "용도": "데이터센터 MDA/HDA/EDA 광배선 (공식 페이지)",
+        "Data Rate": "40G / 100G 솔루션 소개",
+        "Fiber Count": "RFQ: 케이블별 심수 미공개",
+        "Connector": "RFQ: 각 단말의 커넥터·극성 미공개",
+        "확인 상태": "공식 솔루션 확인 · 개별 SKU/광손실/길이 검증 필요"
+      }
     }
   }
 }

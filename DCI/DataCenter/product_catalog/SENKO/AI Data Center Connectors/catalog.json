@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "company": "SENKO Advanced Components",
+  "category": "AI Data Center Connectors",
+  "displayName": "고밀도 DCI · 광 백플레인",
+  "description": "공식 제품 페이지로 확인한 SN-MT 고밀도 광연결 제품군. 발주 SKU와 양단 호환성은 별도로 확인합니다.",
+  "checked": "2026-10-18",
+  "officialUrl": "https://www.senko.com/sn-mt-uniboot/",
+  "comparisonFields": ["용도", "Fiber Count", "Fiber Type", "Connector", "Polish", "Insertion Loss", "Gender", "발주 모델", "확인 상태"],
+  "products": {
+    "sn-mt16-uniboot-2ch": {
+      "name": "SENKO SN-MT16 Uniboot 2CH 광커넥터",
+      "description": "SN-MT16 2채널 일체형 커넥터. 채널당 16심으로 커넥터 하나에 총 32심. DCI 트렁크·패치 패널용 구성은 발주 시 케이블·어댑터·핀·극성과 함께 검증.",
+      "officialUrl": "https://www.senko.com/sn-mt-uniboot/",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "SN-MT16 Uniboot 2CH · SKU 확인",
+      "specs": {"용도":"DCI 고밀도 트렁크 종단", "Fiber Count":"32 (2 × 16심)", "Fiber Type":"RFQ: 적용 케이블 광섬유 등급 확인", "Connector":"SN-MT16 Uniboot 2CH", "Polish":"APC (녹색 하우징)", "Insertion Loss":"최대 0.35 dB (공식 FAQ; 구성별 확인)", "Gender":"Male (핀) / Female (무핀) 옵션", "발주 모델":"RFQ: SKU 미공개", "확인 상태":"공식 제품군 · 케이블/극성/어댑터 호환 확인 필요"}
+    },
+    "sn-mt-4-port-blind-mate-backplane": {
+      "name": "SENKO SN/SN-MT 4-Port Blind Mate 광 백플레인",
+      "description": "4 × SN-MT32로 최대 128심을 연결하는 블라인드 메이트 백플레인. 랙 내부 AI 컴퓨트·CPO 아키텍처용이며 일반 DCI 트렁크 커넥터와 용도가 다름.",
+      "officialUrl": "https://www.senko.com/product/sn-sn-mt-4-port-blind-mate-backplane/",
+      "checked": "2026-10-18",
+      "referenceOnly": true,
+      "displayModel": "4-Port Blind Mate · SKU 확인",
+      "specs": {"용도":"AI 컴퓨트 광 백플레인 / CPO", "Fiber Count":"최대 128 (4 × SN-MT32)", "Fiber Type":"Single-mode (공식 사양)", "Connector":"SN-MT32 × 4", "Polish":"RFQ: 구성별 확인", "Insertion Loss":"RFQ: 링크 구성별 확인", "Gender":"RFQ: 기구·핀 구성 확인", "발주 모델":"RFQ: SKU 미공개", "확인 상태":"공식 제품군 · 하우징/정렬/인터페이스 확인 필요"}
+    }
+  }
+}

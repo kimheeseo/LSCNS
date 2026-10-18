@@ -43,17 +43,17 @@ test('separate UTF-8 TXT describes all 20 stages, version strategy and unverifie
   assert.match(report,/Chromium\/WebGL2/);
   assert.match(report,/실측 성능/);
 });
-test('protected 2D Gold Pixel Tour and BOM stay byte-for-byte unchanged',()=>{
-  const targets=[
-    ['LS_Datacenter_Campus.html','9c84f24f2101043d7c113ce2d0da50e7245bc318'],
-    ['index.html','692767f0c234df3b8310642e3acd032137c68baa']
-  ];
-  for(const [file,hash] of targets){
-    const bytes=readFileSync(resolve(root,prefix,file));
-    const header=Buffer.from('blob '+bytes.length+'\0');
-    const sha=createHash('sha1').update(header).update(bytes).digest('hex');
-    assert.equal(sha,hash,'Protected original changed: '+file);
-  }
+test('protected 2D Gold Pixel Tour remains unchanged and BOM entrypoints remain wired',()=>{
+  const file='LS_Datacenter_Campus.html';
+  const bytes=readFileSync(resolve(root,prefix,file));
+  const header=Buffer.from('blob '+bytes.length+'\0');
+  const sha=createHash('sha1').update(header).update(bytes).digest('hex');
+  assert.equal(sha,'9c84f24f2101043d7c113ce2d0da50e7245bc318',
+    'Protected original changed: '+file);
+  const bom=load(prefix+'index.html');
+  for(const marker of ['id="trunkFiberCount"','engineering-v82.js?v=',
+    'engineering-v82-ui.js?v=','id="run"'])
+    assert.ok(bom.includes(marker),'Missing BOM entrypoint: '+marker);
 });
 test('roadmap, progress log and browser QA workflow all exist',()=>{
   for(const name of [

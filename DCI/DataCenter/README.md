@@ -32,6 +32,7 @@
 | **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |
 | **Gold Anatomy 8단계 보고서** | [개편 보고서](./architecture/GOLD_ANATOMY_8_STEP_REPORT_20261017.md) |
 | **데이터센터 제품·BOM 툴** | [DataCenter 메인](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/) |
+| **광케이블·커넥터 BOM 검증** | [SKU별 광도달거리·심수·MPO 종단 보완 기록](./OPTICAL-BOM-VALIDATION-20261018.md) |
 | **상세 버전업 이력 TXT** | [LS3D_VERSION_UPGRADE_HISTORY.txt](./LS3D_VERSION_UPGRADE_HISTORY.txt) |
 | **20단계 릴리스 보고서** | [STEP20_RELEASE_REPORT.md](./architecture/STEP20_RELEASE_REPORT.md) |
 | **단계별 검증 현황** | [LS3D_PROGRESS_STATUS.md](./LS3D_PROGRESS_STATUS.md) |

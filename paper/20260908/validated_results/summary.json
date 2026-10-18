@@ -1,0 +1,127 @@
+{
+  "primary_model": "new_vector7",
+  "quantity_warning": "Calculated leakage compared with measured total; not total-loss prediction accuracy",
+  "nominal_metrics": [
+    {
+      "model": "old_scalar5",
+      "n": 2,
+      "min_wavelength_nm": 1310.0,
+      "max_wavelength_nm": 1550.0,
+      "MAPE_pct": 149678.9138229697,
+      "max_APE_pct": 164281.78101080304,
+      "n_exceeds_10pct": 2,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "old_scalar7",
+      "n": 2,
+      "min_wavelength_nm": 1310.0,
+      "max_wavelength_nm": 1550.0,
+      "MAPE_pct": 957.2579895546148,
+      "max_APE_pct": 1278.7177737153388,
+      "n_exceeds_10pct": 2,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "new_vector7",
+      "n": 2,
+      "min_wavelength_nm": 1310.0,
+      "max_wavelength_nm": 1550.0,
+      "MAPE_pct": 31875.490107272515,
+      "max_APE_pct": 41325.33594089177,
+      "n_exceeds_10pct": 2,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "fullchord_vector9",
+      "n": 2,
+      "min_wavelength_nm": 1310.0,
+      "max_wavelength_nm": 1550.0,
+      "MAPE_pct": 12997.903893023908,
+      "max_APE_pct": 25861.47742340761,
+      "n_exceeds_10pct": 2,
+      "n_within_15pct": 0
+    }
+  ],
+  "spectral_metrics": [
+    {
+      "model": "old_scalar5",
+      "n": 46,
+      "min_wavelength_nm": 1200.0,
+      "max_wavelength_nm": 1650.0,
+      "MAPE_pct": 125995.8802292394,
+      "max_APE_pct": 173784.06079691867,
+      "n_exceeds_10pct": 46,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "old_scalar7",
+      "n": 46,
+      "min_wavelength_nm": 1200.0,
+      "max_wavelength_nm": 1650.0,
+      "MAPE_pct": 875.1488287680239,
+      "max_APE_pct": 1922.4937082307822,
+      "n_exceeds_10pct": 46,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "new_vector7",
+      "n": 46,
+      "min_wavelength_nm": 1200.0,
+      "max_wavelength_nm": 1650.0,
+      "MAPE_pct": 29202.469069620256,
+      "max_APE_pct": 59139.12294691094,
+      "n_exceeds_10pct": 46,
+      "n_within_15pct": 0
+    },
+    {
+      "model": "fullchord_vector9",
+      "n": 46,
+      "min_wavelength_nm": 1200.0,
+      "max_wavelength_nm": 1650.0,
+      "MAPE_pct": 3013.0577106199703,
+      "max_APE_pct": 25947.642164975874,
+      "n_exceeds_10pct": 46,
+      "n_within_15pct": 0
+    }
+  ],
+  "nominal_primary": [
+    {
+      "wavelength_nm": 1310.0,
+      "paper_loss_db_km": 0.128,
+      "original_scalar5_db_km": 210.40867969382785,
+      "revised_vector7_db_km": 53.02443000434147,
+      "relative_error_pct": 41325.33594089177,
+      "absolute_percentage_error": 41325.33594089177,
+      "exceeds_10pct": true
+    },
+    {
+      "wavelength_nm": 1550.0,
+      "paper_loss_db_km": 0.091,
+      "original_scalar5_db_km": 123.01020243797414,
+      "revised_vector7_db_km": 20.498336289024472,
+      "relative_error_pct": 22425.644273653263,
+      "absolute_percentage_error": 22425.644273653263,
+      "exceeds_10pct": true
+    }
+  ],
+  "target_10pct_all_points_met": false,
+  "target_15pct_all_points_met": false,
+  "bird_max_APE_pct": 0.05509238503227376,
+  "precision_max_difference_pct": 0.004036620790348611,
+  "can_replace_Petrovich_FEM_or_total_loss": false,
+  "environment": {
+    "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "pandas": "2.2.3",
+      "matplotlib": "3.10.8",
+      "mpmath": "1.4.1",
+      "ipython": "9.17.1"
+    },
+    "execution": "actual IPython kernel; Colab web UI not used",
+    "executed_at_utc": "2026-09-08T04:01:45.773604+00:00"
+  }
+}

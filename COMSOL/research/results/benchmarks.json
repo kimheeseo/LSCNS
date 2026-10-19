@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-10-19T02:44:22.843393+00:00",
+  "created_utc": "2026-10-19T02:48:42.334619+00:00",
   "model": "weak-guidance scalar step-index; constant delta_n",
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
   "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
@@ -11,8 +11,8 @@
     "OMP_NUM_THREADS": "1"
   },
   "source_sha256": {
-    "research/run_benchmarks.py": "cb3ab98958a6d5651a37cea821f821ace6b15cffd1afa7a7d8a1bdcf9d935008",
-    "research/run_regressions.py": "a49f1f4d93b7b158d3849f9df0c63f0559ae5b4fccb668ac5e56d2a70d2b8905",
+    "research/run_benchmarks.py": "31fa992518447da52240f31123fcb869d26ef2311cc6164398f0ac56108455f7",
+    "research/run_regressions.py": "2d36c888304aba7470f263cf2d80ad530a5c67fb07da126baede035473efc845",
     "research/tests/test_research.py": "9801ed5e768426f8faef8166985890f4487c6bbc1491931efee45efd2f2622db",
     "run_m4_m6_validation.py": "9811a80c01c6cc4bc195f005f2fcc56cdfd5be474bd59e286da5d31ef06c1714",
     "run_m7_m8_validation.py": "dcd85c438aa51acafdc4a9460dbc9cd7cc63c4906851a2b226b906e10caff382",
@@ -67,6 +67,8 @@
   },
   "radial_cases": [
     {
+      "vector_HE11_neff": 1.4482011452177446,
+      "scalar_vector_model_difference": 3.3504007468376784e-06,
       "wavelength_um": 1.31,
       "radius_um": 3.5,
       "delta_n": 0.004,
@@ -140,6 +142,8 @@
       "passed": true
     },
     {
+      "vector_HE11_neff": 1.446099917631952,
+      "scalar_vector_model_difference": 4.862949468442679e-06,
       "wavelength_um": 1.55,
       "radius_um": 4.1,
       "delta_n": 0.005,
@@ -213,6 +217,8 @@
       "passed": true
     },
     {
+      "vector_HE11_neff": 1.4441522636812496,
+      "scalar_vector_model_difference": 1.8937651669048705e-06,
       "wavelength_um": 1.625,
       "radius_um": 5.0,
       "delta_n": 0.003,
@@ -286,6 +292,8 @@
       "passed": true
     },
     {
+      "vector_HE11_neff": 1.4446381547595246,
+      "scalar_vector_model_difference": 8.631651191581824e-07,
       "wavelength_um": 1.55,
       "radius_um": 5.5,
       "delta_n": 0.002,
@@ -1115,5 +1123,5 @@
     "dispersion_step": true
   },
   "all_required_gates_passed": true,
-  "elapsed_seconds": 15.250187975000017
+  "elapsed_seconds": 14.853804192000098
 }

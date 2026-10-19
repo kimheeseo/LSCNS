@@ -17,6 +17,8 @@ for stage in (7,8):sys.path.insert(0,str(ROOT/f'waveoptics_m{stage}'/'src'))
 from fiber_modes import Fiber,lp01_analytic,radial_lp01_aeff,solve_modes,scalar_metrics,dispersion_lp01
 from radial_fem import solve_radial,radial_dispersion
 from mcf_hcf import solve_two_core
+sys.path.insert(0,str(ROOT/"waveoptics_m2/tests"))
+from analytic_vector import FiberReference
 
 
 def run(out):
@@ -43,7 +45,8 @@ def run(out):
             mesh.append(keep)
         last=mesh[-1]
         passed=last['neff_error']<2e-7 and last['Aeff_relative_error']<5e-4 and last['MFD_relative_error']<5e-4 and last['residual']<1e-9
-        record['radial_cases'].append(dict(wavelength_um=w,radius_um=a,delta_n=dn,V=f.v,reference=ref,meshes=mesh,passed=passed))
+        vector_neff=FiberReference(nc=f.core,ns=f.clad,a=a,wavelength=w).neff
+        record['radial_cases'].append(dict(vector_HE11_neff=vector_neff,scalar_vector_model_difference=ref['n_eff']-vector_neff,wavelength_um=w,radius_um=a,delta_n=dn,V=f.v,reference=ref,meshes=mesh,passed=passed))
     f=Fiber()
     record['cartesian_mesh']=[dict(grid=n,**scalar_metrics(solve_modes(f,n=n,modes=1))) for n in (41,61,81,121,161)]
     # Fixed 0.3 um spacing separates outer-box changes from mesh changes.

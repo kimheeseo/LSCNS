@@ -129,7 +129,7 @@ M8 MCF는 스칼라 FEM, HCF는 이상적 모세관 해석식입니다. **HCF의
 | **M7** | Step-index optical fiber LP01 scalar FEM, MFD, Aeff | [M7](waveoptics_m7/) · [검증 보고서](waveoptics_m7/M7_VALIDATION_REPORT.md) |
 | **M8** | Two-core MCF scalar FEM + HCF capillary reference | [M8](waveoptics_m8/) · [검증 보고서](waveoptics_m8/M8_VALIDATION_REPORT.md) |
 
-M1~M3은 이전 수치 검증 원본을 저장했고, M4는 과거 전체 PML·포트 구현 원본을 현재 저장소에서 확인하지 못한 **PEC 공동 고유모드 제한적 복구**입니다. M5·M6은 1D 독립 해석 오라클입니다. MATLAB/COMSOL 소프트웨어 자체의 검증서나 상용 광섬유 제품 사양서와의 정량 비교는 아닙니다.
+M1~M3은 원본 소스와 수치 검증을 제공합니다. M4는 `waveoptics_m4`의 PEC 공동 솔버와 `reports/M4_3D_2026-10-11`의 전체 3D PML·포트 구현 보관 ZIP을 구분합니다. M5·M6은 1D 독립 해석 오라클입니다. MATLAB/COMSOL 소프트웨어 자체의 검증서나 상용 광섬유 제품 사양서와의 정량 비교는 아닙니다.
 
 ## 자동 테스트
 

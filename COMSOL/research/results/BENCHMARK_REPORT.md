@@ -1,6 +1,6 @@
 # Research qualification benchmarks
 
-Created: 2026-10-19T02:36:11.596997+00:00
+Created: 2026-10-19T02:44:22.843393+00:00
 
 Raw inputs, meshes, numerical values, environment and source hashes: [benchmarks.json](benchmarks.json).
 These are scalar-model verification results. No direct COMSOL run or manufacturer measurement comparison.
@@ -39,3 +39,20 @@ Lc=lambda/(2 delta neff) is the ideal identical-core complete power-transfer len
 |320|0.01|16.99299371|-1.10878e-05|
 |320|0.005|16.99299338|-1.14092e-05|
 |320|0.0025|16.99299228|-1.25113e-05|
+
+## Required qualification gates
+
+| Gate | Result |
+|---|---|
+|radial_four_cases|PASS|
+|mcf_mesh_and_domain_screening|PASS|
+|radial_domain_neff|PASS|
+|radial_domain_Aeff|PASS|
+|radial_domain_MFD|PASS|
+|radial_outer_tail|PASS|
+|dispersion_agreement|PASS|
+|dispersion_step|PASS|
+
+## Cartesian mesh diagnostic
+The centroid-sampled circular interface does not converge monotonically across grids 41/61/81/121/161. A low residual or a favorable single mesh is insufficient evidence of accuracy.
+Use the interface-conforming radial solver for circular-fiber precision studies. Cartesian results remain available as a separate coarse/discretization comparison; they are not promoted to high-precision qualification by these radial gates.

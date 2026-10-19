@@ -62,7 +62,7 @@ def analytic_te101(lengths=(2.,1.,3.),index=1.):
 def solve(lengths=(2.,1.,3.),shape=(4,3,6),index=1.):
     xyz,tets,edges,free,K,M=assemble(lengths,shape,index)
     lam=(2*np.pi*analytic_te101(lengths,index)*1e-6/C0)**2
-    vals,vecs=eigsh(K[free][:,free],k=min(8,len(free)-2),M=M[free][:,free],sigma=lam*.95,which='LM',tol=1e-8)
+    vals,vecs=eigsh(K[free][:,free],k=min(8,len(free)-2),M=M[free][:,free],sigma=lam*.95,which='LM',tol=1e-10,v0=np.random.default_rng(0).normal(size=len(free)))
     pos=np.flatnonzero((vals>lam*.25)&np.isfinite(vals))
     if not len(pos):raise RuntimeError("No positive cavity mode")
     order=pos[np.argsort(vals[pos])]
@@ -89,7 +89,7 @@ def save_plot(mesh,result,out):
 def run(outdir):
     outdir=Path(outdir);outdir.mkdir(parents=True,exist_ok=True)
     rec=[];finemesh=None
-    for shape in [(3,2,4),(4,3,6),(5,4,8)]:
+    for shape in [(4,3,6),(8,6,12),(12,9,18)]:
       info,mesh=solve(shape=shape);rec.append(info);finemesh=mesh
     (outdir/"m4_cavity_results.json").write_text(json.dumps(rec,indent=2))
     save_plot(finemesh,rec[-1],outdir/"m4_cavity_field.png")

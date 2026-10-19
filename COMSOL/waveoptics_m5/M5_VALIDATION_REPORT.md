@@ -12,4 +12,4 @@
 
 ![M5 spectral response](screenshots/m5_spectrum.png)
 
-**후속 보완:** M4 3D ports/PML 복구 이후 수치 FEM의 S(λ)와 독립 정식화 교차검증.
+**후속 보완:** 보관된 M4 3D ports/PML 구현을 활용하여 수치 FEM의 S(λ)와 독립 정식화 교차검증.

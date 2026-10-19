@@ -1,6 +1,6 @@
 # M4 검증 보고서 — 3D Nédélec PEC cavity 수치 재구현 (제한적 복구)
 
-**재검증 범위:** 실제 3D tetrahedral first-order Nédélec FEM, 등방성 비자성 유전체, PEC 벽, 전자기 cavity eigenmode. 기존 M4의 3D PML / mode port / complex S 행렬 전체 소스는 현재 GitHub에서 찾지 못하여 **복원·재검증했다고 주장하지 않습니다.**
+**재검증 범위:** 실제 3D tetrahedral first-order Nédélec FEM, 등방성 비자성 유전체, PEC 벽, 전자기 cavity eigenmode. 별도의 전체 3D PML/port 소스는 `reports/M4_3D_2026-10-11/M4_Reproducibility_Source.zip`에 보관되어 있습니다. 이 실행 파일은 그 전체 구현을 검증하지 않으며, 연구용 회귀 runner의 선택 옵션으로 별도 실행합니다.
 
 ## 방법
 좌표 (x,y,z) 단위 μm. Maxwell 고유치 ∇×μᵣ⁻¹∇×E=k₀²εᵣE. Edge Nédélec Nᵢⱼ=λᵢ∇λⱼ−λⱼ∇λᵢ. Curl exact + tetra 4-point degree-2 mass quadrature, sparse generalized eigsh shift-invert, tangential E=0 PEC edges.
@@ -9,9 +9,9 @@
 
 | 분할(nx,ny,nz) | tetra | DOF(자유) | FEM frequency (THz) | analytic (THz) | 상대오차 (%) | 선형 고유잔차 |
 |---|---:|---:|---:|---:|---:|---:|
-| [3, 2, 4] | 144 | 99 | 90.646609 | 90.076423 | 0.633 | 4.88e-15 |
-| [4, 3, 6] | 432 | 355 | 90.477208 | 90.076423 | 0.445 | 9.32e-15 |
-| [5, 4, 8] | 960 | 861 | 90.352840 | 90.076423 | 0.307 | 1.36e-14 |
+| [4, 3, 6] | 432 | 355 | 90.477208 | 90.076423 | 0.445 | 8.17e-15 |
+| [8, 6, 12] | 3456 | 3410 | 90.179888 | 90.076423 | 0.115 | 3.62e-14 |
+| [12, 9, 18] | 11664 | 12189 | 90.122323 | 90.076423 | 0.051 | 1.09e-13 |
 
 ## 추가 검증
 n=1.5의 고유주파수는 n=1.0 대비 1/n 스케일법칙 **오차 0.000%**로 일치.
@@ -19,4 +19,4 @@ n=1.5의 고유주파수는 n=1.0 대비 1/n 스케일법칙 **오차 0.000%**�
 ![3D field](screenshots/m4_cavity_field.png)
 ![convergence](screenshots/m4_convergence.png)
 
-**통과:** 3개 메시, PEC 고유주파수 독립 기준, 고유잔차, 메시 개선 추세, n 스케일링. **미검증:** 3D mode ports, full-vector PML, S parameters, 실제 COMSOL 비교, 물리적 개방 광섬유 모드.
+**통과:** 공동 주파수 상대오차 0.1% 미만, 3개 메시, PEC 고유주파수 독립 기준, 고유잔차, 메시 개선 추세, n 스케일링. **미검증:** 3D mode ports, full-vector PML, S parameters, 실제 COMSOL 비교, 물리적 개방 광섬유 모드.

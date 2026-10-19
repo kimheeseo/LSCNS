@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_utc": "2026-10-19T02:36:11.596997+00:00",
+  "created_utc": "2026-10-19T02:44:22.843393+00:00",
   "model": "weak-guidance scalar step-index; constant delta_n",
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
   "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
@@ -11,10 +11,11 @@
     "OMP_NUM_THREADS": "1"
   },
   "source_sha256": {
-    "research/run_benchmarks.py": "4f52022af8a67bbfb2aa19eae8214be1c723bb3f060dbda1e3dfc3b08f2ebdbf",
-    "research/tests/test_research.py": "eaf3a440806d93a8163ff28a5d0a7fc1f452b960a776d02e4517df7a9f6d63a1",
-    "run_m4_m6_validation.py": "dccfd380c467842908ef9377569c89f9a361702020d5fb52c1c645062600c880",
-    "run_m7_m8_validation.py": "c4aa09630c344158df47ac873203da60803dd524de5142359a6c0b3f23e58889",
+    "research/run_benchmarks.py": "cb3ab98958a6d5651a37cea821f821ace6b15cffd1afa7a7d8a1bdcf9d935008",
+    "research/run_regressions.py": "a49f1f4d93b7b158d3849f9df0c63f0559ae5b4fccb668ac5e56d2a70d2b8905",
+    "research/tests/test_research.py": "9801ed5e768426f8faef8166985890f4487c6bbc1491931efee45efd2f2622db",
+    "run_m4_m6_validation.py": "9811a80c01c6cc4bc195f005f2fcc56cdfd5be474bd59e286da5d31ef06c1714",
+    "run_m7_m8_validation.py": "dcd85c438aa51acafdc4a9460dbc9cd7cc63c4906851a2b226b906e10caff382",
     "waveoptics_m1/tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "waveoptics_m1/tests/analytic_slab.py": "aa5c74c4a2dd571944f9f263e97f72b7269d080d899d42b4719ec7260a47fb34",
     "waveoptics_m1/tests/test_additional_domain.py": "3b185440e5e7cb0e1d95ad352002e5b60d5688b26ecad72b9d905076d0c7f4a9",
@@ -57,7 +58,7 @@
     "waveoptics_m3/waveoptics/slab.py": "5ac59e742553658ebdb3c654a5e2874bf8b5e664a74800b7381880db4c891c3b",
     "waveoptics_m3/waveoptics/vector.py": "9e52f6186470364c195fc193c8893b18e02a5a74126a504147a46cefee181660",
     "waveoptics_m3/waveoptics/vector_cli.py": "ea2a6e8045e3419b1aee6c6aa65976e8f184b2140044364f506bf04afed26fc2",
-    "waveoptics_m4/src/m4_cavity.py": "a15044bc7a499406299ddf087f86651623b9561f4191574680b3cc50459bd4b9",
+    "waveoptics_m4/src/m4_cavity.py": "7dd7644bdc24d690868dc7eb849ee0bee9680547cf5cb205ed71aa478895311e",
     "waveoptics_m5/src/m5_spectral.py": "b32e13391ee038d5e3125c9d340cb96abb680d73eaa933ddfd9421c4ac0770b0",
     "waveoptics_m6/src/m6_inverse_design.py": "27a22916ba07bc607fe701af677d0d5af909270b0fc3ddf78132f79080512aef",
     "waveoptics_m7/src/fiber_modes.py": "ea33af7093a041cd0e0c10d581e5a2aaa5dfc65eb20c297bdbae763cb4cf2abe",
@@ -1102,5 +1103,17 @@
       "qualification": "5 percent screening only; not a rigorous uncertainty bound or stochastic XT prediction"
     }
   ],
-  "elapsed_seconds": 11.416334173999985
+  "cartesian_mesh_error_monotone": false,
+  "gates": {
+    "radial_four_cases": true,
+    "mcf_mesh_and_domain_screening": true,
+    "radial_domain_neff": true,
+    "radial_domain_Aeff": true,
+    "radial_domain_MFD": true,
+    "radial_outer_tail": true,
+    "dispersion_agreement": true,
+    "dispersion_step": true
+  },
+  "all_required_gates_passed": true,
+  "elapsed_seconds": 15.250187975000017
 }

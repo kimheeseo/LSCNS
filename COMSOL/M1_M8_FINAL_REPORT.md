@@ -1,6 +1,27 @@
-# M1–M8 integration status
+# M1–M8 연구용 검증 현황 · 2026-10-19
 
-M1-M3 archived earlier; M4 partial 3D PEC cavity only; M5/M6 1D optics; M7 validated weak-guidance 2D scalar FEM LP01; M8 validated MCF two-core scalar FEM and HCF capillary analytic baseline.
+[연구용 사용법·제한사항](research/README.md) · [독립 수치 검증](research/results/BENCHMARK_REPORT.md) · [재현 실행 기록](research/results/regression_summary.json)
 
-M7/M8 newly passed checks: 22/22. No COMSOL direct or real fiber specification validation.
-Full vector Maxwell/PML/complex loss and HCF NANF antiresonant confinement are NOT implemented.
+| 대상 | 이번 재실행 결과 | 검증된 범위 |
+|---|---|---|
+| M1 | 기존 시험 32개 통과 | 슬랩 TE/TM 해석해·메시·영역·입력 검사 |
+| M2 | 기존 시험 56개 통과 | M1 회귀 포함, 지정 벡터 모드 예제 |
+| M3 | 기존 시험 87개 통과 | M1/M2 회귀 포함, 지정 2D 산란·포트·PML 예제 |
+| M4 공동 + M5/M6 | 13개 assertion 통과 | 공동 3개 메시, 주파수 오차 0.05096% (<0.1%), 1D 스펙트럼·코팅 최적화 |
+| M4 전체 3D 보관 구현 | 핵심/추가 17개 별도 실행 중 | 실행 완료 후 별도 로그로 판정; 과거 104개를 이번 통과 수로 사용하지 않음 |
+| M7/M8 기존 | 22개 check 통과 | 기본 광섬유 스칼라 FEM·2코어 결합·이상적 모세관 |
+| 새 연구용 회귀 | 45개 통과 | 장 적분·입력·분산·기본 호출 오류·독립 Bessel 대조 |
+| 새 연구용 benchmark | 필수 기준 8개 통과 | 4개 원형 단면, 메시·영역·분산 및 MCF pitch 12/16/20/24 um |
+
+각 단계의 시험은 중복된 회귀를 포함합니다. 위 수치를 합쳐 고유 테스트 수로 보고하지 마십시오. M1–M3의 8개 경고는 고대비 슬랩의 유한 클래딩 감쇠 경고이며, 별도 영역 수렴 시험을 포함합니다.
+
+## 연구에 사용할 때
+
+- 원형 step-index 광섬유의 정밀 LP01 연구에는 새 경계 정합 radial P1 FEM을 사용하고, 각 새 조건의 수렴을 확인합니다.
+- 기존 Cartesian FEM은 원형 경계의 중심점 분류로 인해 n_eff 오차가 메시와 함께 단조 감소하지 않습니다. 작은 고유잔차만으로 물리적 정확도를 주장하지 않습니다.
+- MFD는 중심 기준 scalar second-moment 직경입니다. 제조사 MFD/Petermann-II와 동일시하지 않습니다. Aeff는 장 적분으로 구합니다.
+- 물질 모델은 silica Sellmeier + 일정 delta_n입니다. 실제 제품의 도핑 분산·굴절률 분포를 직접 검증한 것이 아닙니다.
+- MCF는 동일 2코어의 이상적 결합이며 케이블 XT 모델이 아닙니다. HCF는 capillary 해석식이며 NANF/ARF 또는 누설손실 FEM이 아닙니다.
+- 웹은 해석식/저장값 프리뷰입니다. Python FEM을 실행하지 않습니다.
+
+이번 작업은 명시된 수학 모델의 수치 검증입니다. 실제 COMSOL 실행값·제조사 구조·실측 결과와의 직접 대조, 임의 구조에 대한 전체 고유모드 완전성, HCF 반공진 손실은 미검증입니다.

@@ -1,7 +1,9 @@
-# M4 — 3D Wave Optics (현재 저장소 복구 상태)
+# M4 — 3D PEC 공동 FEM
 
-**중요:** 이전 대화에서 3D Nédélec FEM / Cartesian PML / mode ports / S-matrix 구현과 104개 테스트 통과가 보고되었으나, COMSOL GitHub 폴더에는 해당 완전한 M4 소스 및 실행 증빙이 없었습니다. 본 폴더는 그 코드를 복구했다고 주장하지 않습니다.
+`src/m4_cavity.py`는 사면체 1차 Nédélec PEC 공동 고유모드 솔버입니다. 기본 검증은 (4,3,6), (8,6,12), (12,9,18)의 세 메시에서 실행하며, 최세밀 TE101 주파수 오차 0.1% 미만을 요구합니다.
 
-대신 `src/m4_cavity.py`에 독립적으로 재구현한 **3D 사면체 Nédélec PEC cavity eigenmode** 솔버를 제공합니다. GitHub Actions 수치 검증 후 `M4_VALIDATION_REPORT.md`, `screenshots/`에 계산 결과를 생성합니다. 이는 전체 M4 PML/포트/S 검증을 대체하지 않습니다.
+별도의 전체 3D 주파수 영역 PML·직사각형 포트·S 행렬 소스는 [보관 자료](../reports/M4_3D_2026-10-11/)의 ZIP에 들어 있습니다. 이 공동 솔버와 혼동하지 마십시오.
 
-실행: `python src/m4_cavity.py --out screenshots` (NumPy, SciPy, Matplotlib). 수치 결과는 교육 및 수치해석 검증용이며 COMSOL과 독립 직접 비교는 수행하지 않았습니다.
+저장소 루트에서 `python COMSOL/run_m4_m6_validation.py`로 공동 검증을 재현합니다. 전체 3D 핵심·추가 17개 시험은 `python COMSOL/research/run_regressions.py --only M4_full`로 실행합니다.
+
+[연구용 검증 안내](../research/README.md) · [공동 보고서](M4_VALIDATION_REPORT.md)

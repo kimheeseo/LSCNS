@@ -2,8 +2,8 @@
   "stage": "M4-M6",
   "m4": {
     "num_meshes": 3,
-    "finest_frequency_THz": 90.35283998868337,
-    "finest_relative_error": 0.003068691032168447
+    "finest_frequency_THz": 90.12232333729705,
+    "finest_relative_error": 0.0005095679786357721
   },
   "m5": {
     "lambda_range_um": [

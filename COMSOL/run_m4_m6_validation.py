@@ -18,13 +18,13 @@ def main():
     m4=m4run(m4dir/'screenshots')
     check(len(m4)==3,'three mesh convergence runs')
     check(all(x['relative_residual']<1e-5 for x in m4),'eigenvector residual')
-    check(m4[-1]['relative_error']<.20,'3D cavity TE101 analytic reference error <20%')
+    check(m4[-1]['relative_error']<.001,'3D cavity TE101 analytic reference error <0.1%')
     check(m4[-1]['relative_error']<m4[0]['relative_error'],'refinement trend')
-    case,_=m4solve(index=1.5,shape=(3,2,4))
-    check(abs(case['frequency_hz']*1.5/m4[0]['frequency_hz']-1)<.025,'n=1.5 frequency scaling')
+    case,_=m4solve(index=1.5,shape=tuple(m4[0]['shape']))
+    check(abs(case['frequency_hz']*1.5/m4[0]['frequency_hz']-1)<1e-8,'n=1.5 frequency scaling')
     m4report=f"""# M4 검증 보고서 — 3D Nédélec PEC cavity 수치 재구현 (제한적 복구)
 
-**재검증 범위:** 실제 3D tetrahedral first-order Nédélec FEM, 등방성 비자성 유전체, PEC 벽, 전자기 cavity eigenmode. 기존 M4의 3D PML / mode port / complex S 행렬 전체 소스는 현재 GitHub에서 찾지 못하여 **복원·재검증했다고 주장하지 않습니다.**
+**재검증 범위:** 실제 3D tetrahedral first-order Nédélec FEM, 등방성 비자성 유전체, PEC 벽, 전자기 cavity eigenmode. 별도의 전체 3D PML/port 소스는 `reports/M4_3D_2026-10-11/M4_Reproducibility_Source.zip`에 보관되어 있습니다. 이 실행 파일은 그 전체 구현을 검증하지 않으며, 연구용 회귀 runner의 선택 옵션으로 별도 실행합니다.
 
 ## 방법
 좌표 (x,y,z) 단위 μm. Maxwell 고유치 ∇×μᵣ⁻¹∇×E=k₀²εᵣE. Edge Nédélec Nᵢⱼ=λᵢ∇λⱼ−λⱼ∇λᵢ. Curl exact + tetra 4-point degree-2 mass quadrature, sparse generalized eigsh shift-invert, tangential E=0 PEC edges.
@@ -42,7 +42,7 @@ n=1.5의 고유주파수는 n=1.0 대비 1/n 스케일법칙 **오차 {100*abs(c
 ![3D field](screenshots/m4_cavity_field.png)
 ![convergence](screenshots/m4_convergence.png)
 
-**통과:** 3개 메시, PEC 고유주파수 독립 기준, 고유잔차, 메시 개선 추세, n 스케일링. **미검증:** 3D mode ports, full-vector PML, S parameters, 실제 COMSOL 비교, 물리적 개방 광섬유 모드.
+**통과:** 공동 주파수 상대오차 0.1% 미만, 3개 메시, PEC 고유주파수 독립 기준, 고유잔차, 메시 개선 추세, n 스케일링. **미검증:** 3D mode ports, full-vector PML, S parameters, 실제 COMSOL 비교, 물리적 개방 광섬유 모드.
 """
     (m4dir/'M4_VALIDATION_REPORT.md').write_text(m4report,encoding='utf8')
     m5=m5run(m5dir/'screenshots')
@@ -65,7 +65,7 @@ n=1.5의 고유주파수는 n=1.0 대비 1/n 스케일법칙 **오차 {100*abs(c
 
 ![M5 spectral response](screenshots/m5_spectrum.png)
 
-**후속 보완:** M4 3D ports/PML 복구 이후 수치 FEM의 S(λ)와 독립 정식화 교차검증.
+**후속 보완:** 보관된 M4 3D ports/PML 구현을 활용하여 수치 FEM의 S(λ)와 독립 정식화 교차검증.
 """,encoding='utf8')
     m6=m6run(m6dir/'screenshots')
     check(m6['success'],'bounded multi-start solver exit success')

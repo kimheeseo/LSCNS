@@ -1,5 +1,10 @@
 # Python Wave Optics — M1–M8
 
+## G.654.E 검증 (2026-10-19)
+
+[▶ PremierLink LE125 G.654.E 기준 수치 검증 보고서·재현 코드·그래프](g654e_validation/README.md) — 이상적 Step-index FEM/Bessel 일치성 11/12 검사 통과, 2D FEM 메시 수렴 문제 1건 확인. **실제 LE125 굴절률 프로파일·감쇠·제품 적합성 검증 아님.**
+
+
 ## 2026-10-19 연구용 수치 검증 업데이트
 
 [연구용 실행·검증 안내](research/README.md) · [메시/영역/분산 검증 결과](research/results/BENCHMARK_REPORT.md)

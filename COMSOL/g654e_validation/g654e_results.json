@@ -1,0 +1,268 @@
+{
+  "sources": {
+    "fiber": "LS PremierLink LE125 brochure (2025): nominal MFD 12.5 um at 1550nm; loss <=0.17 dB/km",
+    "standard": "ITU-T G.654 (08/2024), Table 5: D1550 17–23 ps/(nm km), S1550 .050–.070; max loss 1550 0.23 dB/km",
+    "code": "COMSOL/waveoptics_m7/src/radial_fem.py and fiber_modes.py (equivalent radial FEM verification code)"
+  },
+  "caveat": "The manufactured LE125 refractive index profile is undisclosed; 12.5um MFD is a calibration TARGET, not an independent validation of product match. G.654.E MFD measurement convention may not equal model moment measure. No complex loss or cable cutoff predicted.",
+  "parameters": {
+    "lambda_um": 1.55,
+    "radius_um": 5.5,
+    "delta_n": 0.0034785793846155016,
+    "n_core": 1.4475022010878762,
+    "n_clad": 1.4440236217032607,
+    "V": 2.236018315885969,
+    "theoretical_step_index_cutoff_proxy_nm": 1441.197420131382
+  },
+  "analytic": {
+    "V": 2.236018315885969,
+    "u": 1.6014116738325377,
+    "w": 1.5605314991663561,
+    "n_eff": 1.4457189905444037,
+    "Aeff_um2": 121.92251323880788,
+    "MFD_2nd_um": 12.81984845673696,
+    "MFD_petermann_ii_um": 12.499999999996536,
+    "D_ps_nm_km": 19.82572452120741
+  },
+  "dispersion_step_convergence": {
+    "0.006": 19.825725305159438,
+    "0.003": 19.82572452120741,
+    "0.0015": 19.825723511370892
+  },
+  "radial_fem": [
+    {
+      "n_eff": 1.4457188109479377,
+      "Aeff_um2": 121.9328337534079,
+      "MFD_2nd_um": 12.820014844328105,
+      "residual": 1.0752662327792178e-15,
+      "guided": true,
+      "outer_radius_um": 30.0,
+      "core_elements": 40,
+      "clad_elements": 160,
+      "abs_neff_error": 1.7959646592125011e-07,
+      "rel_aeff_error_pct": 0.008464814516906394,
+      "rel_mfd2_error_pct": 0.0012978904680993608
+    },
+    {
+      "n_eff": 1.4457189296788158,
+      "Aeff_um2": 121.92672854431535,
+      "MFD_2nd_um": 12.820063294537414,
+      "residual": 3.3622074113075925e-15,
+      "guided": true,
+      "outer_radius_um": 35.0,
+      "core_elements": 80,
+      "clad_elements": 320,
+      "abs_neff_error": 6.086558790308061e-08,
+      "rel_aeff_error_pct": 0.003457364350101244,
+      "rel_mfd2_error_pct": 0.0016758216852430508
+    },
+    {
+      "n_eff": 1.445718970537917,
+      "Aeff_um2": 121.92399850820998,
+      "MFD_2nd_um": 12.819934641268723,
+      "residual": 1.1885593213312561e-14,
+      "guided": true,
+      "outer_radius_um": 40.0,
+      "core_elements": 160,
+      "clad_elements": 640,
+      "abs_neff_error": 2.000648668953886e-08,
+      "rel_aeff_error_pct": 0.001218207665387716,
+      "rel_mfd2_error_pct": 0.0006722741852538405
+    },
+    {
+      "n_eff": 1.4457189841548506,
+      "Aeff_um2": 121.92300551850859,
+      "MFD_2nd_um": 12.81987753562188,
+      "residual": 4.7010022534011876e-14,
+      "guided": true,
+      "outer_radius_um": 45.0,
+      "core_elements": 320,
+      "clad_elements": 1280,
+      "abs_neff_error": 6.389553108832047e-09,
+      "rel_aeff_error_pct": 0.00040376439727207725,
+      "rel_mfd2_error_pct": 0.00022682705662635527
+    }
+  ],
+  "sensitivity": [
+    {
+      "radius_um": 5.0,
+      "delta_n": 0.0033129041720034833,
+      "V": 1.9836895559525927,
+      "Aeff_um2": 119.33452290625934,
+      "D_ps_nm_km": 18.551767391441903
+    },
+    {
+      "radius_um": 5.25,
+      "delta_n": 0.0033794801622160212,
+      "V": 2.1037228280596714,
+      "Aeff_um2": 120.55513164624847,
+      "D_ps_nm_km": 19.214631935477293
+    },
+    {
+      "radius_um": 5.5,
+      "delta_n": 0.0034785793846096986,
+      "V": 2.2360183158841425,
+      "Aeff_um2": 121.92251323893444,
+      "D_ps_nm_km": 19.825725137739177
+    },
+    {
+      "radius_um": 5.75,
+      "delta_n": 0.0036133333589110886,
+      "V": 2.382559127316337,
+      "Aeff_um2": 123.42611407565005,
+      "D_ps_nm_km": 20.3906184576193
+    }
+  ],
+  "checks": {
+    "radial_neff_abs_lt_1e_6": true,
+    "radial_aeff_rel_lt_1pct": true,
+    "radial_mfd_2nd_rel_lt_1pct": true,
+    "radial_neff_error_refines": true,
+    "D1550_in_ITU_17_23": true,
+    "MFD_petermann_calibration_lt_0p01": true,
+    "2d_neff_error_fine_lt_1e_5": false,
+    "2d_aeff_error_fine_lt_2pct": true,
+    "2d_mfd2_error_fine_lt_2pct": true,
+    "2d_fine_residual_lt_1e_8": true,
+    "D_1530_1625_sample_points_within_ITU_bound": true,
+    "S1550_within_ITU_0p05_to_0p07": true
+  },
+  "m7_2d_fem": [
+    {
+      "n": 61,
+      "outer_halfwidth_um": 24,
+      "triangles": 7200,
+      "n_eff": 1.4457452806595184,
+      "Aeff_um2": 124.53821113417942,
+      "MFD_2nd_um": 12.916381818531242,
+      "residual": 1.7892691434786614e-16,
+      "centroid_um": [
+        -3.1477601389776154e-15,
+        -2.5607778659906193e-15
+      ],
+      "power_integral": 0.9999999999999978,
+      "neff_error": 2.6290115114679935e-05,
+      "Aeff_error_pct": 2.1453772776552027,
+      "MFD_second_error_pct": 0.7529992426981824
+    },
+    {
+      "n": 81,
+      "outer_halfwidth_um": 24,
+      "triangles": 12800,
+      "n_eff": 1.4457075361540381,
+      "Aeff_um2": 122.30675497113933,
+      "MFD_2nd_um": 12.844589362187847,
+      "residual": 2.090026940607774e-16,
+      "centroid_um": [
+        -2.1444890386560348e-14,
+        -8.82635406504244e-15
+      ],
+      "power_integral": 0.9999999999999984,
+      "neff_error": 1.1454390365539524e-05,
+      "Aeff_error_pct": 0.3151524046907106,
+      "MFD_second_error_pct": 0.19298906328246712
+    },
+    {
+      "n": 121,
+      "outer_halfwidth_um": 24,
+      "triangles": 28800,
+      "n_eff": 1.4457225324609941,
+      "Aeff_um2": 122.45438107836726,
+      "MFD_2nd_um": 12.838148796168445,
+      "residual": 3.3637079158547536e-16,
+      "centroid_um": [
+        6.902183335183223e-14,
+        -1.0170081208587843e-13
+      ],
+      "power_integral": 0.9999999999999982,
+      "neff_error": 3.5419165904659877e-06,
+      "Aeff_error_pct": 0.4362343142628733,
+      "MFD_second_error_pct": 0.14275004492638743
+    },
+    {
+      "n": 161,
+      "outer_halfwidth_um": 24,
+      "triangles": 51200,
+      "n_eff": 1.4457088549250927,
+      "Aeff_um2": 121.7150897778791,
+      "MFD_2nd_um": 12.815352444391337,
+      "residual": 5.617535338875186e-16,
+      "centroid_um": [
+        6.997954468588009e-14,
+        2.2384382432252994e-13
+      ],
+      "power_integral": 0.9999999999999983,
+      "neff_error": 1.0135619310958077e-05,
+      "Aeff_error_pct": -0.17012728446837988,
+      "MFD_second_error_pct": -0.03507071367337966
+    },
+    {
+      "n": 121,
+      "outer_halfwidth_um": 32,
+      "triangles": 28800,
+      "n_eff": 1.4456995420780174,
+      "Aeff_um2": 121.82175420934557,
+      "MFD_2nd_um": 12.833162902288395,
+      "residual": 2.4288946889038477e-15,
+      "centroid_um": [
+        6.381776075806059e-13,
+        -4.1648926593033527e-13
+      ],
+      "power_integral": 0.9999999999999984,
+      "neff_error": 1.9448466386240426e-05,
+      "Aeff_error_pct": -0.08264185734504492,
+      "MFD_second_error_pct": 0.10385805726462749
+    }
+  ],
+  "D_band_check": [
+    {
+      "wavelength_nm": 1530.0,
+      "model_D_ps_nm_km": 18.625280760685936,
+      "itu_lower": 16.0,
+      "itu_upper": 21.6,
+      "pass_ITU_bound": true
+    },
+    {
+      "wavelength_nm": 1550.0,
+      "model_D_ps_nm_km": 19.82572452120741,
+      "itu_lower": 17.0,
+      "itu_upper": 23.0,
+      "pass_ITU_bound": true
+    },
+    {
+      "wavelength_nm": 1580.0,
+      "model_D_ps_nm_km": 21.57748976842102,
+      "itu_lower": 18.5,
+      "itu_upper": 25.1,
+      "pass_ITU_bound": true
+    },
+    {
+      "wavelength_nm": 1610.0,
+      "model_D_ps_nm_km": 23.277291239689117,
+      "itu_lower": 20.0,
+      "itu_upper": 27.2,
+      "pass_ITU_bound": true
+    },
+    {
+      "wavelength_nm": 1625.0,
+      "model_D_ps_nm_km": 24.10988081569132,
+      "itu_lower": 20.75,
+      "itu_upper": 28.25,
+      "pass_ITU_bound": true
+    }
+  ],
+  "dispersion_slope_steps": [
+    {
+      "step_um": 0.01,
+      "slope_ps_nm2_km": 0.05934563054088837
+    },
+    {
+      "step_um": 0.005,
+      "slope_ps_nm2_km": 0.059341803209060726
+    },
+    {
+      "step_um": 0.002,
+      "slope_ps_nm2_km": 0.05934125833625359
+    }
+  ]
+}

@@ -7,7 +7,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'waveoptics_m7'/'src')
 from fiber_modes import Fiber,solve_modes,C0
 U01=2.404825557695773
 def solve_two_core(separation_um=16.,n=101,halfwidth_um=27.):
- if separation_um<=8.5 or halfwidth_um<=separation_um/2+9:raise ValueError("invalid 2-core cross section")
+ if not np.all(np.isfinite([separation_um,halfwidth_um])) or separation_um<=8.5 or halfwidth_um<=separation_um/2+9:raise ValueError("invalid 2-core cross section")
  f=Fiber(domain_halfwidth_um=halfwidth_um)
  sol=solve_modes(f,n,cores=[(-separation_um/2,0),(separation_um/2,0)],modes=2)
  if not all(sol['guided']):raise RuntimeError("two modes not guided")
@@ -20,14 +20,19 @@ def solve_two_core(separation_um=16.,n=101,halfwidth_um=27.):
     coupling_length_mm=float(f.wavelength_um/(2*split)/1000),parity=parity,residuals=sol['residuals'],solution=sol)
 def capillary_neff(w,radius_um=15.,n_air=1.00027):
  wl=np.asarray(w,float)
- if radius_um<=0 or n_air<1 or np.any(wl<=0):raise ValueError("invalid capillary")
+ if not np.isfinite(radius_um) or not np.isfinite(n_air) or np.any(~np.isfinite(wl)) or radius_um<=0 or n_air<1 or np.any(wl<=0):raise ValueError("invalid capillary")
  z=n_air*n_air-(U01*wl/(2*np.pi*radius_um))**2
  if np.any(z<=0):raise ValueError("outside capillary propagation regime")
  return np.sqrt(z)
-def capillary_dispersion(w=1.55):
- h=.002;n=lambda x:float(capillary_neff(x))
- d2=(-n(w+2*h)+16*n(w+h)-30*n(w)+16*n(w-h)-n(w-2*h))/(12*h*h)
- return float(-(w/C0)*1e12*d2)
+def capillary_dispersion(w=1.55,radius_um=15.,n_air=1.00027):
+ """Exact second derivative of ideal capillary index, constant n_air.
+
+ D [ps/(nm km)] = -(lambda/c)*1e12*d2n/dlambda_um2.
+ Gas material dispersion and confinement loss are excluded.
+ """
+ ne=capillary_neff(w,radius_um=radius_um,n_air=n_air)
+ q=(U01/(2*np.pi*radius_um))**2
+ return np.asarray(w)/C0*1e12*q*n_air**2/ne**3
 def run(output_dir):
  import matplotlib
  matplotlib.use('Agg')

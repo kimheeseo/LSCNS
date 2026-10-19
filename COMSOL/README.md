@@ -1,5 +1,12 @@
 # Python Wave Optics — M1–M8
 
+## 2026-10-19 연구용 수치 검증 업데이트
+
+[연구용 실행·검증 안내](research/README.md) · [메시/영역/분산 검증 결과](research/results/BENCHMARK_REPORT.md)
+
+원형 LP01 FEM, 정확한 장 적분, 무한구간 Bessel 기준 적분, MCF 수렴 검사와 회귀 검사를 추가했습니다. 검증 범위와 미검증 범위는 위 안내를 확인하십시오.
+
+
 ## M4 3D 전체 구현 보고서와 첨부사진 검증 추가
 
 [2026-10-11 결과 보고서 및 재현 소스](reports/M4_3D_2026-10-11/)를 추가했습니다. 3D Nédélec·PML·직사각형 포트·S 행렬 구현의 기존 104개 실제 시험과 사진 기준 추가 검사 9개를 구분해 수록했습니다. 기존 아래 `waveoptics_m4` 공동 재구현은 유지하며 전체 주파수 응답 구현은 새 보고서 폴더의 소스 ZIP으로 제공합니다. 공동 주파수 0.1% 기준은 추가 세분화 메시에서 충족했으며 기존 기본 메시를 통과로 바꾼 것은 아닙니다. 3D 구 Mie 산란·임의 구조 전체 스퓨리어스 배제·사람 또는 별도 모델의 독립 검토는 미검증입니다.
@@ -30,14 +37,15 @@
 git clone https://github.com/kimheeseo/LSCNS.git
 cd LSCNS
 py -3.11 -m venv .venv
-..venvScriptspython.exe -m pip install --upgrade pip
-..venvScriptspython.exe -m pip install numpy scipy matplotlib
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install numpy scipy matplotlib
 ```
 
 기존 검증 조건으로 M7(광섬유 FEM)과 M8(MCF·HCF) 그래프를 재생성합니다.
 
 ```powershell
-..venvScriptspython.exe COMSOLun_m7_m8_validation.py
+.\.venv\Scripts\python.exe COMSOL
+un_m7_m8_validation.py
 ```
 
 실행 결과는 아래 파일로 저장됩니다.
@@ -50,7 +58,8 @@ py -3.11 -m venv .venv
 M4–M6을 재실행하려면 다음 명령어를 사용합니다.
 
 ```powershell
-..venvScriptspython.exe COMSOLun_m4_m6_validation.py
+.\.venv\Scripts\python.exe COMSOL
+un_m4_m6_validation.py
 ```
 
 macOS/Linux는 `python3 -m venv .venv`를 사용한 뒤 `.venv/bin/python`으로 실행할 수 있습니다.
@@ -84,7 +93,7 @@ print("LP01 independent analytical reference:", lp01_analytic(fiber))
 PowerShell에서 실행합니다.
 
 ```powershell
-..venvScriptspython.exe my_fiber_test.py
+.\.venv\Scripts\python.exe my_fiber_test.py
 ```
 
 **주의:** `radius_um`은 코어 **반경**(지름 아님), `delta_n`은 **굴절률의 절대 차이**입니다. 제조사의 MFD·Aeff·D만으로 실제 코어 굴절률 분포를 유일하게 결정할 수 없습니다. 단순 step-index 해석을 실제 G.652.D/G.654.E 제품의 내부 구조와 동일시하지 마세요.

@@ -12,7 +12,9 @@ from m5_spectral import spectrum,silica_index
 
 W=np.linspace(1.30,1.65,81)
 CASES=[("TE",0.),("TM",0.),("TE",20.),("TM",20.)]
-def reflectance(n,d,wavelengths=W,errors=(0.,)):
+def reflectance(n,d,wavelengths=W,errors=(1.,)):
+    if not errors or any(not np.isfinite(x) or x<=0 for x in errors):
+        raise ValueError('thickness factors must be positive and finite')
     all_r=[]
     for scale in errors:
         for pol,angle in CASES:

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071426">
+<title>데이터센터 OJT | 한눈에 배우는 시설·MMR·랙</title>
+<style>
+:root{color-scheme:dark;--bg:#071426;--panel:#102139;--line:#294463;--text:#edf5ff;--muted:#a9bdd2;--blue:#5bc0ff;--green:#71dfb0;--gold:#ffd06a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#17345a 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}.wrap{max-width:1100px;margin:auto;padding:24px 20px 60px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.top a{color:var(--blue);text-decoration:none;font-weight:700}.eyebrow{color:var(--green);font-size:.78rem;letter-spacing:.12em;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:.45rem 0}h2{font-size:1.6rem;margin:.2rem 0 .5rem}h3{margin:.2rem 0 .4rem}p{margin:.35rem 0;color:var(--muted)}.intro{max-width:760px;font-size:1.08rem}
+.steps{display:flex;gap:8px;margin:25px 0 16px;flex-wrap:wrap}.step{background:#0c1b2e;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:9px 15px;cursor:pointer;font:inherit;font-weight:700}.step[aria-current=true]{background:#17385a;border-color:var(--blue);color:white}
+.progress{height:4px;background:#1d314a;border-radius:4px;overflow:hidden}.progress i{display:block;height:100%;width:33.33%;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .2s}
+.module{margin-top:20px}.module[hidden]{display:none}.lead{padding:16px 18px;background:#10253b;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;margin:15px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,#11253d,#0b192b);border:1px solid var(--line);border-radius:15px;padding:17px}.card p{font-size:.94rem}.tag{display:inline-block;border:1px solid #335777;border-radius:999px;padding:2px 8px;color:#bce5ff;font-size:.78rem;margin:0 5px 5px 0}
+.diagram{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.zone{background:#132a43;border:1px solid #31506d;border-radius:12px;padding:12px;text-align:center;min-height:78px}.zone strong{display:block}.zone small{color:var(--muted)}.zone.power{border-color:#90733a}.zone.it{border-color:#397d68}.zone.net{border-color:#447dad}
+.path{display:flex;align-items:stretch;gap:7px;margin:18px 0;flex-wrap:wrap}.node{flex:1 1 120px;padding:14px 10px;text-align:center;border:1px solid #34516d;border-radius:12px;background:#10243a}.arrow{align-self:center;color:var(--green);font-size:1.4rem;font-weight:900}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.rack{height:530px;max-width:400px;margin:auto;border:8px solid #334b65;border-radius:10px;background:#091321;padding:10px;display:flex;flex-direction:column;gap:5px;box-shadow:inset 0 0 0 2px #0b1725}
+.rack-label{text-align:center;color:var(--muted);font-size:.8rem}.unit{border:1px solid #32506d;border-radius:6px;background:#132b44;color:#dceeff;text-align:left;padding:5px 9px;cursor:pointer;font:inherit;font-size:.85rem;line-height:1.2;flex:1}
+.unit:hover,.unit:focus{outline:2px solid var(--blue);background:#1c4160}.unit.power{background:#253b35;border-color:#477765}.unit.switch{background:#233b52}.unit.server{background:#1b2e49}
+.rack-info{min-height:220px}.key{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-top:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;background:var(--blue)}
+.notice{border:1px solid #806a35;background:#302817;color:#ffe9b5;border-radius:12px;padding:12px 15px;margin-top:15px;font-size:.9rem}
+.controls{display:flex;justify-content:space-between;margin-top:22px}.controls button,.quiz button{background:#173858;color:white;border:1px solid #3e7297;border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}.controls button:disabled{opacity:.45;cursor:default}
+.quiz{margin-top:30px;border-top:1px solid var(--line);padding-top:20px}.quiz-answer{display:block;width:100%;text-align:left;margin:7px 0;background:#10243a!important}.feedback{min-height:1.5em;color:var(--green);font-weight:700}
+footer{margin-top:28px;color:var(--muted);font-size:.85rem}
+@media(max-width:700px){.grid,.two{grid-template-columns:1fr}.diagram{grid-template-columns:repeat(2,1fr)}.rack{height:460px}.wrap{padding:18px 14px 45px}.step{font-size:.9rem}}
+</style>
+</head>
+<body><main class="wrap">
+<div class="top"><a href="./index.html">← DataCenter 메인 도구</a><span class="eyebrow">기초 OJT · 15~20분</span></div>
+<header><p class="eyebrow">Data Center 101</p><h1>데이터센터,<br>흐름으로 이해하기</h1><p class="intro">처음 접하는 분도 따라올 수 있도록 시설 전체에서 시작해 MMR·Colocation, 마지막으로 랙 한 대의 구성까지 단계별로 살펴봅니다. 상자를 선택하면 역할과 연결 관계를 확인할 수 있습니다.</p></header>
+<div class="steps" role="tablist" aria-label="학습 단계">
+<button class="step" role="tab" aria-current="true" data-step="0">1. 시설 전체</button><button class="step" role="tab" aria-current="false" data-step="1">2. MMR · Colocation</button><button class="step" role="tab" aria-current="false" data-step="2">3. 랙 한 대</button></div><div class="progress"><i id="bar"></i></div>
+<section class="module" data-module="0">
+<div class="lead"><strong>먼저 큰 그림:</strong> 데이터센터는 서버만 있는 건물이 아닙니다. 전력·냉각·네트워크·보안·운영이 함께 작동해 IT 장비가 계속 서비스를 제공하도록 하는 시설입니다.</div>
+<div class="diagram" aria-label="데이터센터 주요 구역">
+<button class="zone power" data-info="전력 계통은 유틸리티 전원을 받아 변압·개폐한 뒤 UPS와 배전 장비를 거쳐 랙에 전달합니다. A/B 이중 경로는 단일 고장점의 영향을 줄이기 위한 설계입니다."><strong>전력 구역</strong><small>변압기 · Switchgear · UPS</small></button>
+<button class="zone" data-info="발전기는 상용 전원이 장시간 끊겼을 때 백업 전력을 공급합니다. ATS/STS와 제어·연료 시스템이 전원 전환과 지속 운전을 지원합니다."><strong>비상전원</strong><small>발전기 · ATS</small></button>
+<button class="zone it" data-info="데이터홀(White Space)은 고객 또는 운영자의 랙과 IT 장비가 설치되는 공간입니다. 랙 배치, 통로, 바닥 하중, 케이블 경로, 전력·냉각 용량을 함께 봅니다."><strong>데이터홀</strong><small>랙 · 서버 · 스토리지</small></button>
+<button class="zone net" data-info="네트워크 구역은 외부 회선과 내부 스위칭 장비를 연결합니다. MMR은 통신사/고객 회선의 상호접속, MDA와 Spine/Leaf는 데이터홀 내부 분배를 담당할 수 있습니다."><strong>네트워크</strong><small>MMR · MDA · Fabric</small></button>
+<button class="zone" data-info="냉각 설비는 서버가 발생시키는 열을 제거합니다. 공랭은 CRAH/CRAC 등으로 차가운 공기를 공급하고, 고밀도 AI 랙은 CDU와 냉각수 루프를 활용하는 직접수랭(DLC)을 적용할 수 있습니다."><strong>냉각 구역</strong><small>CRAH · CDU · 냉각수</small></button>
+<button class="zone" data-info="운영 구역에서는 NOC/DCIM/BMS 등을 통해 알람, 전력, 온습도, 설비 상태를 관찰하고 대응합니다. 운영 절차와 정기 점검도 설비만큼 중요합니다."><strong>운영·관제</strong><small>NOC · DCIM · BMS</small></button>
+<button class="zone" data-info="물리 보안은 출입통제, 방문자 관리, CCTV, 구역별 권한으로 장비와 데이터를 보호합니다. Colocation에서는 고객별 케이지 접근통제가 중요합니다."><strong>보안</strong><small>출입통제 · CCTV</small></button>
+<button class="zone" data-info="화재 감지·소화, 누수 감지, 비상 대응은 사람과 서비스의 안전을 지킵니다. 방식과 설계는 현지 법규 및 시설 조건에 따라 달라집니다."><strong>안전·방재</strong><small>감지 · 소화 · 누수</small></button></div>
+<div class="card" id="zoneInfo" aria-live="polite"><h3>구역을 선택해 보세요</h3><p>어떤 설비가 무엇을 하는지, 다른 구역과 어떻게 연결되는지 확인할 수 있습니다.</p></div>
+<div class="grid" style="margin-top:14px"><div class="card"><span class="tag">전력 흐름</span><p>전력망 → 변압/개폐 → UPS·배터리 → PDU/RPP → 랙 PDU → 서버 전원공급장치</p></div><div class="card"><span class="tag">열 흐름</span><p>서버가 열 발생 → 차가운 공기/액체로 열 흡수 → 냉각 설비에서 열 제거 → 다시 공급</p></div></div>
+</section>
+<section class="module" data-module="1" hidden>
+<div class="lead"><strong>Colocation (코로케이션):</strong> 고객이 데이터센터 건물을 직접 짓는 대신, 전문 사업자의 시설·전력·냉각·보안을 이용하고 자기 장비를 설치·운영하는 방식입니다.</div>
+<div class="grid"><article class="card"><span class="tag">공유 시설</span><h3>무엇을 공유하나?</h3><p>건물과 기반 설비(전력, 냉각, 보안, 운영)를 사업자와 여러 고객이 나눠 씁니다. 고객은 랙 단위 또는 전용 케이지/공간을 임대할 수 있습니다.</p></article><article class="card"><span class="tag">고객 책임</span><h3>누가 무엇을 관리하나?</h3><p>사업자는 시설 인프라와 약정된 서비스를, 고객은 보통 서버·네트워크 장비·운영체제와 애플리케이션을 관리합니다. 원격 작업 범위와 계약 조건은 사업자마다 다릅니다.</p></article></div>
+<h2 style="margin-top:22px">회선이 고객 장비까지 오는 길</h2>
+<div class="path" aria-label="외부 통신 회선 연결 흐름"><div class="node"><strong>통신사 회선</strong><small>OSP / 외부 광</small></div><span class="arrow">→</span><div class="node"><strong>MPOE</strong><small>건물 인입·인계</small></div><span class="arrow">→</span><div class="node"><strong>MMR</strong><small>상호접속·Cross-connect</small></div><span class="arrow">→</span><div class="node"><strong>MDA / 분배</strong><small>내부 네트워크</small></div><span class="arrow">→</span><div class="node"><strong>고객 랙</strong><small>장비 포트</small></div></div>
+<div class="grid"><article class="card"><span class="tag">MMR · Meet-Me Room</span><h3>통신사와 고객이 만나는 접속실</h3><p>여러 통신사, 클라우드/인터넷 교환, 고객 회선이 ODF·패치패널을 통해 연결되는 통제된 공간입니다. 고객은 Cross-connect(교차접속)를 신청해 자기 랙과 사업자 회선을 물리적으로 연결합니다.</p><p><strong>왜 중요한가?</strong> 통신사 선택 폭, 회선 이중화, 클라우드 직접 연결·피어링 경로를 확보하는 핵심 접점입니다.</p></article><article class="card"><span class="tag">MDA · Main Distribution Area</span><h3>데이터홀 내부의 주 분배 지점</h3><p>네트워크의 주요 분배·패치 지점입니다. MMR과 연결되거나, 내부 Backbone/Spine/Leaf 네트워크로 이어집니다. 실제 토폴로지와 명칭은 설계 및 사업자에 따라 달라질 수 있습니다.</p><p><strong>쉽게 구분하면:</strong> MMR은 외부/고객 회선의 상호접속, MDA는 내부 분배 중심입니다.</p></article><article class="card"><span class="tag">Cage · 고객 전용 구역</span><h3>공용 데이터홀 안의 전용 공간</h3><p>메시 펜스나 벽체, 출입통제로 구분되는 고객 공간입니다. 고객 랙을 배치하고 권한 있는 사람만 접근합니다. 단독 랙 임대와 전용 케이지는 제공 범위가 다릅니다.</p></article><article class="card"><span class="tag">Cross-connect</span><h3>두 지점 사이의 물리 회선 연결</h3><p>예: 고객 랙의 라우터 포트 ↔ MMR의 통신사 포트. 회선 종류(광/동), 커넥터, 속도, 경로, 양 끝 패치 정보를 정확히 정해야 합니다.</p></article></div>
+<div class="notice">참고: MPOE, MMR, MDA의 위치·역할·명칭은 시설별로 다를 수 있습니다. 도식은 개념 학습용이며 실제 설계는 해당 사업자의 시설 도면과 서비스 정의를 확인하세요.</div>
+</section>
+<section class="module" data-module="2" hidden>
+<div class="lead"><strong>랙은 작은 IT 시스템이자 설비 접점입니다.</strong> 장비를 얹는 것뿐 아니라 전력 이중화, 공기/액체 냉각, 네트워크, 케이블 관리, 중량과 유지보수 공간을 함께 설계해야 합니다.</div>
+<div class="two"><div><div class="rack-label">전면 예시 · 42U 랙 (개념도, 장비 배치는 구성마다 다름)</div><div class="rack" aria-label="선택 가능한 랙 구성 요소">
+<button class="unit" data-title="상부 케이블 트레이" data-copy="랙 위 트레이는 광·동 케이블을 정리해 랙 간/구역 간 배선 경로를 제공합니다. 전력 케이블과 데이터 케이블의 분리, 굴곡 반경, 무게 지지, 라벨링을 고려합니다.">케이블 트레이 · 상부 경로</button>
+<button class="unit switch" data-title="Top-of-Rack 스위치" data-copy="ToR(Top-of-Rack) 스위치는 랙 서버의 네트워크 연결을 모읍니다. 서버 NIC에서 짧은 DAC/AOC 또는 광 패치가 연결되고, 업링크는 Leaf/Spine 등 패브릭으로 나갑니다. 이중 스위치/이중 업링크 설계 여부는 요구 가용성과 네트워크 구성에 따릅니다.">ToR / Leaf 스위치</button>
+<button class="unit" data-title="패치 패널" data-copy="광 패치 패널은 트렁크 케이블과 장비 점퍼를 정리해 변경·장애 대응을 쉽게 합니다. 포트 번호, 섬유 극성, 커넥터(MPO/LC 등), 라벨을 양 끝에서 일치시켜야 합니다.">광 패치 패널</button>
+<button class="unit server" data-title="GPU 서버" data-copy="GPU 서버는 GPU, CPU, 메모리, NIC, 전원공급장치로 구성됩니다. GPU 수만으로 랙 구성을 정할 수는 없고 서버 섀시의 GPU 밀도, 전력, 네트워크 포트, 냉각 방식, 중량과 실제 랙 U 공간을 확인해야 합니다.">GPU / 컴퓨트 서버</button>
+<button class="unit server" data-title="컴퓨트·스토리지 서버" data-copy="일반 컴퓨트 서버는 애플리케이션/가상화/관리 워크로드를 수행합니다. 스토리지는 데이터를 저장하며 별도 스토리지 네트워크나 고속 Ethernet/IB 패브릭을 사용할 수 있습니다.">컴퓨트 · 스토리지 노드</button>
+<button class="unit" data-title="케이블 매니저" data-copy="수직·수평 케이블 매니저는 패치 케이블의 장력과 얽힘을 줄이고 장비 교체를 돕습니다. 공기 흐름을 막지 않도록 배선하고 포트·양 끝을 식별 가능하게 라벨링합니다.">수직 케이블 매니저</button>
+<button class="unit power" data-title="A/B 랙 PDU" data-copy="랙 PDU는 상위 배전에서 받은 전력을 랙 내 장비에 분배합니다. A와 B 두 경로를 각각 다른 PDU에 연결하고, 장비의 이중 전원공급장치를 분리해 연결하는 구성이 일반적입니다. 실제 회로 용량·전압·커넥터·부하율은 설계 기준으로 검증해야 합니다.">A PDU · B PDU</button>
+<button class="unit power" data-title="서버 전원공급장치" data-copy="이중 PSU가 있는 서버는 PSU1/PSU2를 서로 다른 A/B 전원 경로에 연결해 한쪽 경로 장애에도 동작하도록 설계할 수 있습니다. 단, 이중화 구성과 부하 분담 방식이 실제로 지원되는지 제조사 문서와 전기 설계에서 확인해야 합니다.">서버 PSU · A/B 전원 인입</button>
+</div><div class="key"><span><i class="dot"></i> IT/네트워크</span><span><i class="dot" style="background:#71dfb0"></i> 전력</span></div></div>
+<aside class="card rack-info" id="rackInfo" aria-live="polite"><span class="tag">랙 구성요소</span><h3>랙의 한 부분을 눌러보세요</h3><p>각 요소의 역할과 데이터·전력 흐름을 확인합니다.</p><hr style="border-color:#294463"><h3>랙 바깥도 중요합니다</h3><p><strong>공간:</strong> 랙 폭·깊이·U 높이·중량·정비 공간<br><strong>전력:</strong> IT 부하(kW), A/B 회로, PDU 정격·부하 여유<br><strong>냉각:</strong> 흡기/배기 방향, 핫/콜드 아일, 랙 열밀도, 필요 시 DLC<br><strong>연결:</strong> 서버 NIC ↔ ToR ↔ 패브릭, 관리망, 스토리지망<br><strong>운영:</strong> 라벨·자산정보·접근통제·부품 교체 절차</p></aside></div>
+<div class="notice">이 그림은 역할을 익히기 위한 예시입니다. 실제 랙의 U 배치, GPU 수, 케이블 수량, 전력·냉각 용량은 서버 모델, 네트워크 토폴로지, 시설 기준 및 이중화 목표에 따라 산정해야 합니다.</div>
+<div class="quiz"><h2>빠른 확인</h2><p id="question">1/3 · MMR의 대표 역할은 무엇인가요?</p><button class="quiz-answer" data-correct="false">랙 서버의 냉각수를 순환시키는 것</button><button class="quiz-answer" data-correct="true">통신사·고객 회선을 상호접속하는 것</button><button class="quiz-answer" data-correct="false">GPU 연산을 수행하는 것</button><p class="feedback" id="feedback" aria-live="polite"></p><button id="nextQuestion" hidden>다음 확인 문제</button></div>
+</section>
+<div class="controls"><button id="prev" disabled>← 이전 단계</button><button id="next">다음 단계 →</button></div>
+<footer>기초 OJT 학습용 개념도입니다. 실제 설계·시공·운영 기준은 프로젝트 요구사항, 제조사 자료, 시설 운영자 표준 및 적용 규정을 따르세요.</footer>
+</main>
+<script>
+(()=>{const tabs=[...document.querySelectorAll(".step")],mods=[...document.querySelectorAll(".module")],bar=document.querySelector("#bar");let active=0;
+function show(i){active=Math.max(0,Math.min(2,i));tabs.forEach((b,n)=>{b.setAttribute("aria-current",String(n===active));b.setAttribute("tabindex",n===active?"0":"-1")});mods.forEach((m,n)=>m.hidden=n!==active);bar.style.width=((active+1)/3*100)+"%";document.querySelector("#prev").disabled=active===0;document.querySelector("#next").disabled=active===2;document.querySelector("#next").textContent=active===2?"학습 완료":"다음 단계 →";window.scrollTo({top:0,behavior:"smooth"})}
+tabs.forEach(b=>b.addEventListener("click",()=>show(+b.dataset.step)));document.querySelector("#prev").onclick=()=>show(active-1);document.querySelector("#next").onclick=()=>show(active+1);
+document.querySelectorAll(".zone").forEach(z=>z.addEventListener("click",()=>{const box=document.querySelector("#zoneInfo");box.innerHTML="<h3>"+z.querySelector("strong").textContent+"</h3><p>"+z.dataset.info+"</p>"}));
+document.querySelectorAll(".unit").forEach(u=>u.addEventListener("click",()=>{const box=document.querySelector("#rackInfo");box.innerHTML='<span class="tag">랙 구성요소</span><h3>'+u.dataset.title+'</h3><p>'+u.dataset.copy+'</p><hr style="border-color:#294463"><p><strong>확인 포인트:</strong> 포트·전원·냉각 연결을 도면과 라벨에서 추적할 수 있는지 확인합니다.</p>'}));
+const qs=[["MMR의 대표 역할은 무엇인가요?",["랙 서버의 냉각수를 순환시키는 것","통신사·고객 회선을 상호접속하는 것","GPU 연산을 수행하는 것"],1],["Colocation에서 일반적으로 고객이 설치·관리하는 것은?",["고객의 서버·네트워크 장비","건물 전체의 발전기","공용 냉각탑"],0],["이중 PSU 서버의 전원 연결 예로 적절한 것은?",["두 PSU 모두 A 경로에 연결","한 PSU는 A, 다른 PSU는 B 경로에 연결","PSU를 네트워크 스위치에 연결"],1]];
+let qi=0;function renderQ(){document.querySelector("#question").textContent=(qi+1)+"/3 · "+qs[qi][0];document.querySelectorAll(".quiz-answer").forEach((b,n)=>{b.textContent=qs[qi][1][n];b.dataset.correct=String(n===qs[qi][2]);b.disabled=false;b.hidden=false});document.querySelector("#feedback").textContent="";document.querySelector("#nextQuestion").hidden=true}
+document.querySelectorAll(".quiz-answer").forEach(b=>b.addEventListener("click",()=>{const ok=b.dataset.correct==="true";document.querySelector("#feedback").textContent=ok?"정답입니다. 핵심 연결 관계를 잘 잡으셨어요.":"다시 생각해 보세요. 해당 단계의 설명을 확인하고 한 번 더 골라보세요.";if(ok){document.querySelectorAll(".quiz-answer").forEach(x=>x.disabled=true);if(qi<2)document.querySelector("#nextQuestion").hidden=false;else document.querySelector("#feedback").textContent="3문제 완료! 전체 시설 → 연결 지점 → 랙까지 학습했습니다."}}));
+document.querySelector("#nextQuestion").onclick=()=>{qi=(qi+1)%qs.length;renderQ()};show(0)})();
+</script></body></html>

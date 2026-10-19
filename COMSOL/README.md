@@ -1,5 +1,12 @@
 # Python Wave Optics — M1–M8
 
+## G.654.E Google Colab 실행 보고서 (2026-10-19)
+
+[▶ Colab에서 G.654.E FEM 시뮬레이션 직접 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g654e_validation/G654E_Colab_Validation.ipynb) · [실행 결과가 포함된 ipynb](g654e_validation/G654E_Colab_Validation.ipynb) · [계산 그래프/표 ZIP](g654e_validation/G654E_Colab_Results.zip)
+
+코어 반경·파장·MFD 설정 후 **Bessel 독립 해석해, radial FEM, 기존 M7 2D FEM, 파장별 분산, 메시 수렴성**을 Colab에서 재계산하며, 기본 조건으로 실행한 그래프도 노트북에 저장했습니다. **기록된 수치 검사 11/12 통과; 2D 메시 기준 1건 미달. 실제 LE125 제품 내부 굴절률 프로파일 검증 아님.**
+
+
 ## G.654.E 검증 (2026-10-19)
 
 [▶ PremierLink LE125 G.654.E 기준 수치 검증 보고서·재현 코드·그래프](g654e_validation/README.md) — 이상적 Step-index FEM/Bessel 일치성 11/12 검사 통과, 2D FEM 메시 수렴 문제 1건 확인. **실제 LE125 굴절률 프로파일·감쇠·제품 적합성 검증 아님.**

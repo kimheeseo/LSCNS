@@ -1,5 +1,14 @@
 # G.654.E / PremierLink LE125: numerical benchmark (2026-10-19)
 
+## Google Colab에서 직접 시뮬레이션하기
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g654e_validation/G654E_Colab_Validation.ipynb)
+
+- [실행 결과(그래프 포함)를 저장한 노트북](G654E_Colab_Validation.ipynb): Colab의 `런타임 → 모두 실행` 또는 각 셀의 실행 버튼으로 실제 1D radial FEM, 2D P1 FEM과 분산 그래프를 계산합니다.
+- [기본 실행 결과 ZIP](G654E_Colab_Results.zip): 저장된 그래프 8개, CSV 표, 실행 보고서, JSON. 파라미터를 바꿨다면 Colab에서 다시 계산 후 새 ZIP을 생성하세요.
+- **필수 주의:** 공개 12.5 µm MFD는 *보정 목표*이며 실제 제품의 코어 구조, Aeff, 감쇠를 실측값과 독립 비교한 검증이 아닙니다. 처음 입력된 가상 step-index 모델에서 11/12개 수치 검사가 통과합니다.
+
+
 This folder contains the reproducible G.654.E **step-index surrogate** numerical consistency benchmark for the existing M7 scalar fiber FEM code. It does **not** certify the LS Cable & System PremierLink LE125 product or COMSOL equivalence.
 
 ## Summary

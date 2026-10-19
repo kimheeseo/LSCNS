@@ -8,7 +8,7 @@
 | 기존 3D 렌더 | [Legacy 3D 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) | 기존 v4.7.0 계산·운영 코어 유지 |
 | 원본 2D Gold Pixel Tour | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) | 원본 보호 |
 | 데이터센터 BOM 및 제품 툴 | [DataCenter 메인](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/) | 기존 BOM 도구 보존 |
-| **고객용 간편 설계** | [온프레미스 · 서버실 · AI 데이터센터 간편 설계](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/customer-designer.html) | 고객 유형별 핵심 조건 → 랙·전력·냉각·GPU·케이블 계획 요약 |
+| **고객용 간편 설계** | [온프레미스 · 서버실 · AI 데이터센터 간편 설계](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/customer-designer.html) | 고객 유형별 핵심 조건 → 랙·전력·냉각·GPU·케이블 계획 요약 |\n| **데이터센터 기초 OJT** | [시설 전체 · MMR/Colocation · 랙 구성 학습](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/data-center-ojt.html) | 초보자용 단계별 설명·선택형 도식·3문항 복습 |
 
 ## 고객용 간편 설계
 
@@ -51,3 +51,4 @@ v4.8.1은 첫 진입 자동 가이드 투어, 전원→냉각→광 단선 추�
 ### 이전 Phase 7 v4.7.0 기능
 
 기존 시뮬레이터는 공유 설계 패킷 lsdc-twin-bom/1.0의 정보를 요약하고 구성 호환성 및 근거 부족을 표시하며, 회사 서버실을 모델링된 공간 범위에 한정하는 기능을 포함합니다. 이번 Three.js 업데이트는 기존 데이터·계산/BOM 호환성을 유지하면서 시각 탐방 레이어를 추가한 것입니다.
+\n\n## 데이터센터 기초 OJT\n\n복잡한 BOM/설계 화면과 분리된 입문 교육 페이지입니다. 데이터센터 주요 구역과 전력·냉각 흐름을 익힌 뒤, 통신사 회선이 고객 랙까지 연결되는 과정(MPOE → MMR → MDA → Cage/Rack), Colocation의 역할 분담, 랙 내부 네트워크·전력 구성을 학습합니다. 구성요소를 클릭해 설명을 보고 마지막 3문항으로 핵심 개념을 확인할 수 있습니다. 도식은 일반적인 개념 예시이며 시설별 실제 설계는 다를 수 있습니다.\n

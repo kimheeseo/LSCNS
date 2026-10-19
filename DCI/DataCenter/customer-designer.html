@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08101f"><title>고객용 간편 데이터센터 설계</title>
+  <link rel="stylesheet" href="./customer-designer.css?v=20261020a">
+</head>
+<body>
+<main class="shell">
+  <a class="back" href="./index.html">← 엔지니어링 BOM 설계로 이동</a>
+  <header><span class="eyebrow">LSCNS · CUSTOMER PLANNING</span><h1>고객용 간편 데이터센터 설계</h1><p>복잡한 BOM 입력 전, 고객 환경에 맞는 공간·전력·냉각·이중화의 핵심 요구사항을 빠르게 확인합니다.</p></header>
+  <section class="mode-select" aria-label="고객 환경 선택">
+    <button class="mode-card active" data-mode="onprem"><span>01</span><strong>온프레미스</strong><small>업무·보안·TCO·증설성</small></button>
+    <button class="mode-card" data-mode="server"><span>02</span><strong>서버실</strong><small>공간·UPS·냉각·운영</small></button>
+    <button class="mode-card" data-mode="ai"><span>03</span><strong>AI 데이터센터</strong><small>GPU·전력·수랭·광배선</small></button>
+  </section>
+  <section class="layout">
+    <form class="panel form-panel" id="customerForm">
+      <div class="form-head"><div><span id="modeLabel">온프레미스</span><h2 id="formTitle">업무와 증설 계획을 입력하세요</h2></div><span class="step">간편 설계</span></div>
+      <div id="fields" class="fields"></div>
+      <div class="priority"><b>이 고객 유형의 우선순위</b><ul id="priorityList"></ul></div>
+      <button class="run" type="submit">간편 설계 결과 보기</button>
+    </form>
+    <section class="panel result-panel" aria-live="polite">
+      <div class="result-head"><div><span class="eyebrow">PLANNING RESULT</span><h2 id="resultTitle">온프레미스 계획 요약</h2></div><span id="health" class="health">검토 필요</span></div>
+      <div id="headline" class="headline">조건을 입력하고 결과를 계산해 주세요.</div>
+      <div class="kpis" id="kpis"></div>
+      <div class="attention"><h3>고객이 먼저 확인할 항목</h3><ol id="attentionList"></ol></div>
+      <div class="bom-preview"><div class="bom-head"><h3>주요 구성 미리보기</h3><span>계획 단계</span></div><div id="bomPreview"></div></div>
+      <div class="actions"><a id="detailLink" href="./index.html">상세 엔지니어링 BOM 열기 →</a><button id="copySummary" type="button">요약 복사</button></div>
+      <p class="disclaimer">본 결과는 초기 검토용 계획 산출입니다. 실제 전기 단선결선, 보호협조, 냉각 용량, 시공 경로, 제품 호환성 및 견적은 상세 설계와 RFQ로 확인해야 합니다.</p>
+    </section>
+  </section>
+  <section class="why panel"><h2>고객 모드별로 무엇을 다르게 보여주나요?</h2><div class="comparison"><article><b>온프레미스</b><span>총소유비용(TCO), 보안·망 분리, 단계적 증설과 기존 업무 연동</span></article><article><b>서버실</b><span>설치 가능 랙 수, 랙당 전력, UPS 백업시간, 냉각 여유와 무중단 운영</span></article><article><b>AI 데이터센터</b><span>GPU 랙 수, MW급 수전, DLC/CDU, 400G·800G 광배선과 확장 병목</span></article></div></section>
+</main>
+<script src="./engineering-v82.js?v=20261018-optics"></script>
+<script src="./customer-designer.js?v=20261020a"></script>
+</body></html>

@@ -1,0 +1,31 @@
+{
+  "file_sha256": {
+    "Fiber_Input_Output_Examples.ipynb": "2017e774976c0cbb69ac59d83337680b93f5f9e9bdafc2a87a3ef3ff345df4b2",
+    "Fiber_Input_Output_Results.zip": "5229219160c76fba1e1e95a9aa97eec80d3c4752108c4705c3482ea76edcb476",
+    "README.md": "c704b05e6ded878a1e3a6c7004d1cd4a4d94d7243b6fc0957e3b95575f5bc5d6",
+    "build_notebook.py": "3d67c645aaf1e9de9b7b3091cd34ffa7341512e5612b84ecb0b6b92c4cb33e37",
+    "fiber_model.py": "2185ad58bc555b043d3312952cb47de03049b20cd7d3d03f41f402723285d26c",
+    "make_docs.py": "a91ae3d4d17cf5db73e32d81a9c4aadd748446f4662ed701be3597d4c703b31b",
+    "readme.md": "c704b05e6ded878a1e3a6c7004d1cd4a4d94d7243b6fc0957e3b95575f5bc5d6",
+    "requirements-tested.txt": "8cc4dbee4d1395ff63d2514ad281f82378095111ef70839afac40cccd0bfc01d",
+    "results/01_Mesh_Comparison.png": "d8e36fad26b4f357e36c0528458bb9b173c8ded8dcf0b1a326baa4868bea8108",
+    "results/02_Actual_2D_Fields.png": "dbfc5efd1f656e8ce70c5bac8d20f8f37710659fbd5482dfc5c853933516c6c6",
+    "results/03_Spectral_Outputs.png": "46a9849ba7ba7a24d31ae66c9627c56a5284dfdde45b67eab7d7947c189bd545",
+    "results/EXECUTION_REPORT.md": "cf15d7e5feb2cb40a8081107058c29efa6bbd97849fd0465072f1181a9c285ed",
+    "results/cartesian_mesh.csv": "835874b4898ba9cdf1d1ecc4cc0c9d050b04d0eba8adff2a5123be79231c05ad",
+    "results/checks.csv": "df2b0b40bab14fb395effb67e19921b24fe5e5f8426046bccbcdf847637fa92d",
+    "results/current_inputs.csv": "0bfe3b9daa52b88d58cf01a552dc86c5d59c5a621bc2024491d6eefb6c1b3517",
+    "results/current_outputs.csv": "8024352ca82614668eaa5c5b422219629e073cc37b0bf44189f882e570b69260",
+    "results/edited_parameters_replay.log": "51c1a6642cd2d1aaadfe2422d8cc88f7012e2e217cfc48c4b4a8aa905253a245",
+    "results/example_inputs_outputs.csv": "0ac3c861f594906613c8f200bfbf8239a3e535905e5c7ebc07f31bd811f9d82f",
+    "results/execution.log": "51b3bd3351b97642d54b67b1576bfa78396db18bc543b0302136682c6b4e61aa",
+    "results/radial_domain.csv": "b9d5546d57eef34c411ff2dde3aed1dbd7a71eeeed80a719f3e6ab812f5984ad",
+    "results/radial_mesh.csv": "ee27e4c2dc622cd44ea6a5825198ab1f958d7f1ee7d925cc0fd74a8e462bf3d2",
+    "results/report_validation.json": "0557c3722dd949130b350bc6b87f7647686e18b43534504d51a54703d5d35e41",
+    "results/spectral_outputs.csv": "7fe7ccd14f76f99c2f63d6aa20ff46c1bf416ad054fbf299c82fc77b83920653",
+    "results/summary.json": "2fb4ff8c208151aaa75018a86feb41c02a5d76e892c2dc1a780593a6c1c95578",
+    "run_report.py": "c81129355d509b7cff108935e8a16856c48e27ecc4ec5853655c8a133a1b2f49",
+    "simulation.py": "fef32a15c2944e4b09ee48aa59fc05da0b457e99947123a0ed09fb475f79d22f",
+    "validate_report.py": "ea85307dc74c2e52fdf11a15c9ef80299237bbe5781f72a8e4b6f3556332c493"
+  }
+}

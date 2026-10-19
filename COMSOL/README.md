@@ -1,5 +1,12 @@
 # Python Wave Optics — M1–M8
 
+## 입력값·출력값·예시·Mesh 비교 — 통합 Colab 보고서
+
+[▶ G.654.E / G.657.A1 입력·출력 설명서](fiber_simulation_guide/readme.md) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [실행 결과 ZIP](fiber_simulation_guide/Fiber_Input_Output_Results.zip)
+
+직접 Δn 입력과 MFD 보정 모드를 구분하고, 두 광섬유의 **실제 계산 예시 6개**, 분석 파장 변경, 코어 반경 변경, Mesh 수·외부 계산영역의 영향을 설명합니다. 사용자 Mesh·파장 입력을 바꾼 실제 재실행도 확인했습니다. [G.654.E 입력/출력](g654e_validation/readme.md) · [G.657.A1 입력/출력](g657a1_validation/readme.md)
+
+
 ## G.657.A1 Google Colab 실행 보고서 (2026-10-19)
 
 [▶ Colab에서 G.657.A1 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g657a1_validation/G657A1_Colab_Validation.ipynb) · [검증 보고서](g657a1_validation/G657A1_VALIDATION_REPORT.md) · [그래프·표 결과 ZIP](g657a1_validation/G657A1_Colab_Results.zip)

@@ -1,0 +1,9 @@
+fiber,test,passed
+G.654.E,radial |neff error| <1e-6,True
+G.654.E,radial |Aeff error| <1%,True
+G.654.E,2D |neff error| <1e-5,False
+G.657.A1,radial |neff error| <1e-6,True
+G.657.A1,radial |Aeff error| <1%,True
+G.657.A1,2D |neff error| <1e-5,False
+G.654.E,domain last neff change <1e-7,True
+G.657.A1,domain last neff change <1e-7,True

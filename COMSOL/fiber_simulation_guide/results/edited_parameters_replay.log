@@ -1,0 +1,65 @@
+Executed code cell 1
+Executed code cell 2
+Executed code cell 3
+Executed code cell 4
+Executed code cell 5
+Executed code cell 6
+Executed code cell 7
+Executed code cell 8
+Executed code cell 9
+Executed code cell 10
+{
+  "passed": 6,
+  "total": 8,
+  "current_outputs": [
+    {
+      "fiber": "G.654.E",
+      "lambda0_nm": null,
+      "S0_ps_nm2_km": null,
+      "lambda0_status": "NOT_RESOLVED_IN_SUPPORTED_INTERVAL",
+      "analysis_wavelength_nm": 1550.0,
+      "MFD_reference_wavelength_nm": 1550.0,
+      "assumed_radius_um": 5.5,
+      "delta_n": 0.003478579384613,
+      "delta_n_source": "MFD_CALIBRATION",
+      "MFD_target_um": 12.5,
+      "MFD_PII_at_reference_um": 12.49999999999996,
+      "n_clad": 1.444023621703261,
+      "n_core": 1.447502201087874,
+      "V": 2.23601831588513,
+      "neff_Bessel": 1.445718990544402,
+      "Aeff_um2": 121.92251323886603,
+      "MFD_PII_um": 12.49999999999996,
+      "MFD_2nd_um": 12.81984845674093,
+      "D_ps_nm_km": 19.82572527592733,
+      "S_ps_nm2_km": 0.059342009483171,
+      "n2_assumed_m2_W": 2.2e-20,
+      "gamma_W_inv_km_inv": 0.731453874378635
+    },
+    {
+      "fiber": "G.657.A1",
+      "lambda0_nm": 1303.2814037592434,
+      "S0_ps_nm2_km": 0.084041677219637,
+      "lambda0_status": "FOUND_IN_1280_1360",
+      "analysis_wavelength_nm": 1550.0,
+      "MFD_reference_wavelength_nm": 1310.0,
+      "assumed_radius_um": 4.1,
+      "delta_n": 0.004621529545326,
+      "delta_n_source": "MFD_CALIBRATION",
+      "MFD_target_um": 9.2,
+      "MFD_PII_at_reference_um": 9.19999999999994,
+      "n_clad": 1.444023621703261,
+      "n_core": 1.448645151248587,
+      "V": 1.921649810708961,
+      "neff_Bessel": 1.445828199548923,
+      "Aeff_um2": 84.45952261578027,
+      "MFD_PII_um": 10.543027200436343,
+      "MFD_2nd_um": 11.045599885828201,
+      "D_ps_nm_km": 16.641833199500123,
+      "S_ps_nm2_km": 0.055962955181099,
+      "n2_assumed_m2_W": 2.6e-20,
+      "gamma_W_inv_km_inv": 1.247880205556839
+    }
+  ]
+}
+NOTICE: failed numerical criteria retained; this report must not be labeled all passed.

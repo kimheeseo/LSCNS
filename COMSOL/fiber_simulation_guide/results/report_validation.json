@@ -1,0 +1,19 @@
+{
+  "notebook_valid": true,
+  "all_code_cells_executed": true,
+  "engine_and_protocol_hashes_match": true,
+  "edited_mesh_form_applied_to_actual_solvers": true,
+  "analysis_wavelength_1550_keeps_reference_1310": true,
+  "manual_delta_n_mode_verified": true,
+  "fixed_examples_count": 6,
+  "actual_edited_grids": [
+    41,
+    61
+  ],
+  "actual_edited_radial_core_counts": [
+    40,
+    80
+  ],
+  "colab_ui_manually_tested": false,
+  "execution_method": "Actual in-process IPython cell replay"
+}

@@ -1,0 +1,42 @@
+name: Fiber input-output report replay
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/fiber_simulation_guide/*.py'
+      - 'COMSOL/fiber_simulation_guide/*.ipynb'
+      - 'COMSOL/fiber_simulation_guide/requirements-tested.txt'
+      - '.github/workflows/fiber-io-report-validation.yml'
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: COMSOL/fiber_simulation_guide
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r COMSOL/fiber_simulation_guide/requirements-tested.txt
+      - name: Replay both fiber examples and mesh studies (retain numerical failures)
+        run: python COMSOL/fiber_simulation_guide/run_report.py --in-process
+      - name: Verify edited mesh and wavelength inputs control the actual solvers
+        run: python COMSOL/fiber_simulation_guide/validate_report.py
+      - name: Store executed notebook and numerical evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fiber-input-output-${{ github.sha }}
+          retention-days: 60
+          path: |
+            COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb
+            COMSOL/fiber_simulation_guide/Fiber_Input_Output_Results.zip
+            COMSOL/fiber_simulation_guide/results/

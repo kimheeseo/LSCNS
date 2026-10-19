@@ -1,3 +1,5 @@
+> **2026-10-20 M8 개선:** [HCF 오차 보고서](waveoptics_m8/HCF_VALIDATION_REPORT.md) · [2코어 MCF 검증](waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md) · [실행 가능한 Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb). 곡선 P2 FEM·독립 기준·메시/영역 수렴을 추가했습니다. HCF는 이상적 모세관 모델 검증입니다.
+
 # Python Wave Optics — M1–M8
 
 ## 입력값·출력값·예시·Mesh 비교 — 통합 Colab 보고서

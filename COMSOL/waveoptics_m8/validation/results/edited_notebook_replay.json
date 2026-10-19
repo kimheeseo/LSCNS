@@ -1,0 +1,13 @@
+{
+  "edited_parameters": true,
+  "executed_code_cells": 7,
+  "checks_passed": 22,
+  "checks_total": 22,
+  "png_outputs": 3,
+  "pitch_um": 18.0,
+  "hcf_radius_um": 20.0,
+  "coupling_length_mm": 21.12335397989096,
+  "hcf_D": 1.8954589902956767,
+  "runtime_seconds": 59.42438459396362,
+  "colab_browser_tested": false
+}

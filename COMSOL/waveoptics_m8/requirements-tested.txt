@@ -1,0 +1,9 @@
+# Replayed on CPython 3.12. System Gmsh libraries are documented in README.
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+scikit-fem==12.0.2
+gmsh==4.15.2
+nbformat==5.10.4
+pytest==9.1.1
+ipython==9.8.0

@@ -1,0 +1,14 @@
+{
+  "edited_parameters": false,
+  "executed_code_cells": 7,
+  "checks_passed": 22,
+  "checks_total": 22,
+  "png_outputs": 3,
+  "pitch_um": 16.0,
+  "hcf_radius_um": 15.0,
+  "coupling_length_mm": 10.639811136188671,
+  "hcf_D": 3.373168002735622,
+  "runtime_seconds": 56.38830924034119,
+  "colab_browser_tested": false,
+  "embedded_hashes_match": true
+}

@@ -1,0 +1,57 @@
+name: M8 HCF and two-core MCF research verification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/waveoptics_m8/**'
+      - 'COMSOL/waveoptics_m7/src/**'
+      - '.github/workflows/waveoptics-m8-research.yml'
+  pull_request:
+    paths:
+      - 'COMSOL/waveoptics_m8/**'
+      - 'COMSOL/waveoptics_m7/src/**'
+permissions:
+  contents: read
+concurrency:
+  group: m8-research-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            COMSOL/waveoptics_m5
+            COMSOL/waveoptics_m6
+            COMSOL/waveoptics_m7
+            COMSOL/waveoptics_m8
+            COMSOL/research/tests
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Gmsh libraries and pinned Python dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
+          python -m pip install -r COMSOL/waveoptics_m8/requirements-tested.txt
+      - name: Physical reference and regression tests
+        run: python -m pytest COMSOL/waveoptics_m8/tests COMSOL/research/tests/test_research.py -q --junitxml=COMSOL/waveoptics_m8/validation/results/tests.xml
+      - name: Independent references and mesh/domain study
+        run: python COMSOL/waveoptics_m8/validation/run_validation.py
+      - name: Replay embedded Colab cells
+        run: python COMSOL/waveoptics_m8/validation/replay_notebook.py
+      - name: Replay changed input parameters
+        run: python COMSOL/waveoptics_m8/validation/replay_notebook.py --edited
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m8-hcf-mcf-verification
+          path: |
+            COMSOL/waveoptics_m8/validation/results
+            COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb

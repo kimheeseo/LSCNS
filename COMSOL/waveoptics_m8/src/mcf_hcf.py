@@ -6,9 +6,10 @@ import sys,numpy as np,json
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'waveoptics_m7'/'src'))
 from fiber_modes import Fiber,solve_modes,C0
 U01=2.404825557695773
-def solve_two_core(separation_um=16.,n=101,halfwidth_um=27.):
- if not np.all(np.isfinite([separation_um,halfwidth_um])) or separation_um<=8.5 or halfwidth_um<=separation_um/2+9:raise ValueError("invalid 2-core cross section")
- f=Fiber(domain_halfwidth_um=halfwidth_um)
+def solve_two_core(separation_um=16.,n=101,halfwidth_um=27.,*,fiber=None):
+ from dataclasses import replace
+ f=Fiber(domain_halfwidth_um=halfwidth_um) if fiber is None else replace(fiber,domain_halfwidth_um=halfwidth_um)
+ if not np.all(np.isfinite([separation_um,halfwidth_um])) or separation_um<=2*f.radius_um or halfwidth_um<=separation_um/2+2*f.radius_um:raise ValueError("invalid 2-core cross section")
  sol=solve_modes(f,n,cores=[(-separation_um/2,0),(separation_um/2,0)],modes=2)
  if not all(sol['guided']):raise RuntimeError("two modes not guided")
  even,odd=map(float,sol['neff']);split=even-odd
@@ -60,3 +61,13 @@ def run(output_dir):
  ax[1].plot(wl,hcf);ax[1].set(xlabel='wavelength (um)',ylabel='n_eff',title='Ideal hollow capillary reference');ax[1].ticklabel_format(axis='y',useOffset=False);ax[1].grid(alpha=.3)
  fig.savefig(out/'m8_coupling_and_hcf.png',dpi=140);plt.close(fig)
  return summary
+
+
+def solve_two_core_conforming(separation_um=16.,mesh_size_um=.45,halfwidth_um=40.,fiber=None,return_fields=False):
+ """Recommended M8 solver: curved P2 interface mesh and exact parity BCs.
+
+ solve_two_core remains the historical Cartesian P1 compatibility API.
+ Use validation/run_validation.py for independent errors and convergence.
+ """
+ from conforming_mcf import solve_conforming
+ return solve_conforming(Fiber() if fiber is None else fiber,separation_um,halfwidth_um,mesh_size_um,return_fields)

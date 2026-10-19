@@ -1,0 +1,23 @@
+name,value,limit,passed
+HCF neff absolute error,1.7078694014571738e-10,1e-09,True
+HCF transverse eigenvalue relative error (%),2.1825986400762803e-05,0.0001,True
+HCF D relative error (%),2.187724870376546e-05,0.0001,True
+HCF Aeff relative error (%),1.4813046493781612e-05,0.0001,True
+HCF eigen residual,4.171862821677979e-11,1e-08,True
+HCF refinement neff error ratio,0.00391712500678037,0.05,True
+HCF finite-difference D relative error (%),2.387947768450923e-05,0.001,True
+HCF 9-case max neff absolute error,4.62863081196474e-10,1e-09,True
+HCF 9-case max D relative error (%),2.196510246367557e-05,0.0001,True
+MCF multipole 6->8 splitting difference (%),3.0484049348190353e-10,1e-05,True
+MCF angular 256->512 splitting difference (%),0.0,1e-05,True
+MCF large-pitch single-core neff limit,1.8773205212596622e-11,1e-09,True
+MCF finest max neff absolute error,6.651830197768049e-10,1e-07,True
+MCF finest splitting relative error (%),4.92814286979152e-05,0.05,True
+MCF finest Lc relative error (%),4.9281404416455956e-05,0.05,True
+MCF finest residual,2.159828305569753e-15,1e-09,True
+MCF refinement Lc error ratio,0.012390494475417967,0.1,True
+MCF last two domain splitting change (%),0.0003692252233949958,0.01,True
+MCF pitch sweep max Lc error (%),0.00012774494297270163,0.05,True
+MCF pitch sweep coupling monotonic violations,0.0,0.0,True
+MCF coherent power conservation,0.0,1e-14,True
+"MCF coherent transfer at 0,Lc,2Lc",1.4997597826618576e-32,1e-12,True

@@ -1,0 +1,5 @@
+MCF mesh h=1.0: Lc=10.6393932 mm, error=0.00397736%
+MCF mesh h=0.7: Lc=10.6396971 mm, error=0.00112093%
+MCF mesh h=0.45: Lc=10.6397951 mm, error=0.000199969%
+MCF mesh h=0.3: Lc=10.6398111 mm, error=4.92814e-05%
+Checks: 22/22; runtime 51.1s

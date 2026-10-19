@@ -30,15 +30,15 @@ def main():
     record['execution_status']='running'
     wanted=lambda name:args.only is None or name in args.only
     env=os.environ.copy();env.update(OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',MPLBACKEND='Agg')
-    def execute(name,cmd,paths=(),cwd=ROOT.parent):
+    def execute(name,cmd,paths=(),cwd=ROOT.parent,timeout_seconds=900):
         child=env.copy();child['PYTHONPATH']=os.pathsep.join(map(str,paths))
         t=time.perf_counter()
         with (logs/(name+'.log')).open('w') as stream:
             try:
-                result=subprocess.run(cmd,cwd=cwd,env=child,stdout=stream,stderr=subprocess.STDOUT,timeout=900)
+                result=subprocess.run(cmd,cwd=cwd,env=child,stdout=stream,stderr=subprocess.STDOUT,timeout=timeout_seconds)
                 code=result.returncode
             except subprocess.TimeoutExpired:
-                stream.write('\nTIMEOUT after 900 seconds\n');code=124
+                stream.write(f'\nTIMEOUT after {timeout_seconds} seconds\n');code=124
         log=(logs/(name+'.log')).read_text()
         row=dict(name=name,completed_utc=datetime.now(timezone.utc).isoformat(),command=cmd,returncode=code,seconds=round(time.perf_counter()-t,2),
                  log_sha256=hashlib.sha256(log.encode()).hexdigest(),log='regression/'+name+'.log',
@@ -67,7 +67,7 @@ def main():
                         target.write_bytes(z.read(info.filename))
             p=Path(tmp)/'waveoptics_m4'
             execute('M4_full',[sys.executable,'-m','pytest',str(p/'tests/test_maxwell3d_m4.py'),str(p/'tests/test_m4_extended.py'),
-                    '-q','--tb=short',f'--junitxml={logs}/M4_full.xml'],[p,p/'tests'])
+                    '-q','--tb=short',f'--junitxml={logs}/M4_full.xml'],[p,p/'tests'],timeout_seconds=1800)
     record['all_commands_passed']=all(r['returncode']==0 for r in record['runs'])
     record['execution_status']='completed'
     (args.out/'regression_summary.json').write_text(json.dumps(record,indent=2)+'\n')

@@ -9,6 +9,8 @@ on:
   push:
     paths:
       - 'COMSOL/research/**'
+      - '!COMSOL/research/results/**'
+      - '!COMSOL/research/*.md'
       - 'COMSOL/waveoptics_m*/src/**'
       - '.github/workflows/waveoptics-research.yml'
   pull_request:

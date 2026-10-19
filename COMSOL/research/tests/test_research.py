@@ -70,3 +70,17 @@ def test_radial_dispersion_and_mesh_step_convergence():
     assert vals[-1]==pytest.approx(dispersion_lp01(),abs=.02)
     fine=radial_dispersion(f,core_elements=320,clad_elements=1280)['D_ps_nm_km']
     assert abs(fine-vals[1])<.02
+
+
+def test_metrics_translation_phase_and_amplitude_invariant():
+    xy=np.array([[0,0],[2,0],[2,1],[0,1.]])
+    s=dict(xy=xy,triangles=np.array([[0,1,2],[0,2,3]]),fields=np.array([[1],[2],[3],[4.]])*np.exp(.7j),neff=[1.],residuals=[0.])
+    a=scalar_metrics(s)
+    s['xy']=xy+[100,-55];s['fields']*=13
+    b=scalar_metrics(s)
+    assert b['Aeff_um2']==pytest.approx(a['Aeff_um2'],rel=1e-12)
+    assert b['MFD_2nd_um']==pytest.approx(a['MFD_2nd_um'],rel=1e-12)
+
+
+def test_bessel_metrics_independent_of_fem_box():
+    assert radial_lp01_aeff(Fiber(domain_halfwidth_um=18.))==radial_lp01_aeff(Fiber(domain_halfwidth_um=50.))

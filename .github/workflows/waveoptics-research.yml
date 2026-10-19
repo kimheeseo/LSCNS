@@ -1,0 +1,65 @@
+name: Wave Optics Research Qualification
+on:
+  workflow_dispatch:
+    inputs:
+      full_m4:
+        description: 'Also re-run archived full 3D M4 tests (more CPU/memory)'
+        type: boolean
+        default: false
+  push:
+    paths:
+      - 'COMSOL/research/**'
+      - 'COMSOL/waveoptics_m*/src/**'
+      - '.github/workflows/waveoptics-research.yml'
+  pull_request:
+    paths:
+      - 'COMSOL/**'
+      - '.github/workflows/waveoptics-research.yml'
+permissions:
+  contents: read
+concurrency:
+  group: waveoptics-research-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: COMSOL/research/requirements.txt
+      - name: Install gmsh OS dependencies
+        run: sudo apt-get update && sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
+      - name: Install pinned numerical environment
+        run: python -m pip install -r COMSOL/research/requirements.txt
+      - name: Execute isolated regressions
+        env:
+          RUN_FULL_M4: ${{ inputs.full_m4 }}
+        run: |
+          if [ "$RUN_FULL_M4" = "true" ]; then
+            python COMSOL/research/run_regressions.py --include-archived-m4
+          else
+            python COMSOL/research/run_regressions.py
+          fi
+      - name: Check independent radial and coupling benchmarks
+        run: python COMSOL/research/run_benchmarks.py
+      - name: Upload raw evidence (including failures)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waveoptics-research-${{ github.sha }}
+          retention-days: 60
+          path: |
+            COMSOL/research/results/
+            COMSOL/M7_M8_EXECUTION_SUMMARY.json
+            COMSOL/WAVEOPTICS_M4_M6_EXECUTION_SUMMARY.json
+            COMSOL/waveoptics_m*/screenshots/

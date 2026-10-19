@@ -19,13 +19,13 @@
   <div class="hero-copy"><p class="eyebrow">OPTICAL SIMULATION · RESEARCH PREVIEW</p>
    <h1>광학 구조를 입력하고,<br><em>모드와 물성을 확인하세요.</em></h1>
    <p>COMSOL Wave Optics 연구 프로젝트 M1–M8을 위한 웹 계산 뷰어입니다. Python FEM과 웹 해석식의 결과를 구분하며, 실제 제품 사양과의 비교 전 검토용으로 사용하세요.</p>
-   <div class="quick-links"><a href="#explorer" class="primary">분석 시작 <span>↗</span></a><a href="#python" class="subtle">Python FEM 실행 방법</a></div>
+   <div class="quick-links"><a href="#explorer" class="primary">분석 시작 <span>↗</span></a><a href="#python" class="subtle">Python FEM 실행 방법</a><a href="https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/research/README.md" class="subtle">연구용 검증 결과 · 2026-10-19 ↗</a></div>
   </div>
   <div class="hero-status" aria-label="현재 개발 상태">
    <div class="label">AVAILABLE MODELS</div><div class="status-row"><span>01</span><b>Step-index Fiber</b><small>LP01 · analytical</small></div>
    <div class="status-row"><span>02</span><b>Multi-core Fiber</b><small>M8 reference</small></div>
    <div class="status-row"><span>03</span><b>Hollow-core</b><small>Capillary model</small></div>
-   <p>웹 실행은 **Python FEM을 실행하지 않습니다.** 독립 해석식·저장된 FEM 기준 결과를 사용하는 별도의 빠른 미리보기입니다.</p>
+   <p>웹 실행은 <strong>Python FEM을 실행하지 않습니다.</strong> 독립 해석식·저장된 FEM 기준 결과를 사용하는 별도의 빠른 미리보기입니다.</p>
   </div>
  </section>
  <section class="workspace" id="explorer">
@@ -76,17 +76,21 @@
  </section>
  <section class="python" id="python"><div class="sectionhead"><div><p class="eyebrow">REPRODUCIBLE RESEARCH</p><h2>Python FEM으로 직접 계산하기</h2></div><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL" class="link">소스 전체 보기 ↗</a></div>
   <div class="python-grid">
-   <div class="doc-card"><span class="step">STEP 01</span><h3>Python 3.11 설치 및 코드 받기</h3><pre><code>git clone https://github.com/kimheeseo/LSCNS.git
+   <div class="doc-card"><span class="step">STEP 01</span><h3>Python 3.12 설치 및 코드 받기</h3><pre><code>git clone https://github.com/kimheeseo/LSCNS.git
 cd LSCNS
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install numpy scipy matplotlib</code></pre><p>Windows PowerShell 기준. Mac/Linux는 <code>python3 -m venv .venv</code>로 생성한 후 <code>.venv/bin/python</code>을 사용하세요.</p></div>
-   <div class="doc-card"><span class="step">STEP 02</span><h3>기존 M7·M8 검증 재실행</h3><pre><code>.\.venv\Scripts\python.exe COMSOL\run_m7_m8_validation.py</code></pre><p>실행하면 모드 분포·메시 수렴·MCF 결합·HCF 기준 계산 결과가 각 <code>screenshots/</code> 폴더에 PNG, CSV, JSON으로 저장됩니다.</p></div>
-   <div class="doc-card"><span class="step">STEP 03</span><h3>내 광섬유 사양 넣기</h3><pre><code>from fiber_modes import Fiber, solve_modes, scalar_metrics
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r COMSOL/research/requirements.txt</code></pre><p>Windows PowerShell 기준. Mac/Linux는 <code>python3 -m venv .venv</code>로 생성한 후 <code>.venv/bin/python</code>을 사용하세요.</p></div>
+   <div class="doc-card"><span class="step">STEP 02</span><h3>연구용 검증 재실행</h3><pre><code>.\.venv\Scripts\python.exe COMSOL\research\run_benchmarks.py
+.\.venv\Scripts\python.exe -m pytest COMSOL\research\tests -q</code></pre><p>원형 FEM·해석해 비교, 메시·영역·분산 및 MCF 수렴 결과를 <code>COMSOL/research/results/</code>에 저장합니다.</p></div>
+   <div class="doc-card"><span class="step">STEP 03</span><h3>내 광섬유 사양 넣기</h3><pre><code>from fiber_modes import Fiber
+from radial_fem import solve_radial
 fiber = Fiber(wavelength_um=1.55,
               radius_um=4.1,
-              delta_n=0.005)
-sol = solve_modes(fiber, n=81)
-print(scalar_metrics(sol))</code></pre><p>해당 import가 동작하려면 <code>COMSOL/waveoptics_m7/src</code>를 Python import 경로에 추가해야 합니다. 정확한 실행 예제는 <a href="./README.md">README</a>에서 확인하십시오.</p></div>
+              delta_n=0.005,
+              domain_halfwidth_um=40.)
+sol = solve_radial(fiber, core_elements=320,
+                   clad_elements=1280)
+print(sol["n_eff"], sol["Aeff_um2"])</code></pre><p>해당 import가 동작하려면 <code>COMSOL/waveoptics_m7/src</code>를 Python import 경로에 추가해야 합니다. 정확한 실행 예제는 <a href="./README.md">README</a>에서 확인하십시오.</p></div>
   </div>
  </section>
  <section class="source-links"><h2>마일스톤별 연구 자료</h2><div class="source-grid">

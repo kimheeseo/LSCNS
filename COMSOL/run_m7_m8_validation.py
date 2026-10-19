@@ -94,8 +94,6 @@ if __name__=='__main__':
  t=time.time();a=stage7();b=stage8()
  rec=dict(passed=sum(x['passed'] for x in checks),failed=sum(not x['passed'] for x in checks),checks=checks,M7=a,M8=b,seconds=round(time.time()-t,2))
  (ROOT/'M7_M8_EXECUTION_SUMMARY.json').write_text(json.dumps(rec,indent=2))
- (ROOT/'M1_M8_FINAL_REPORT.md').write_text('# M1–M8 integration status\n\n'
- 'M1-M3 archived earlier; M4 partial 3D PEC cavity only; M5/M6 1D optics; M7 validated weak-guidance 2D scalar FEM LP01; M8 validated MCF two-core scalar FEM and HCF capillary analytic baseline.\n\n'
- f'M7/M8 newly passed checks: {rec["passed"]}/{len(checks)}. No COMSOL direct or real fiber specification validation.\n'
- 'Full vector Maxwell/PML/complex loss and HCF NANF antiresonant confinement are NOT implemented.\n')
+ # This runner covers M7/M8 only. Do not overwrite the global M1-M8 status
+ # using incomplete knowledge of archived full-vector M4 and other milestones.
  print(json.dumps(dict(passed=rec['passed'],failed=rec['failed'],neff=a['meshes'][-1]['neff'],Aeff=a['meshes'][-1]['Aeff_um2'],M8_split_16=b['MCF'][1]['index_split']),indent=2))

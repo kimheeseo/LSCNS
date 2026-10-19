@@ -9,7 +9,7 @@ on:
       - 'COMSOL/waveoptics_m6/src/**'
       - '.github/workflows/waveoptics-m4-m6-validation.yml'
 permissions:
-  contents: write
+  contents: read
 jobs:
   verified-results:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -28,14 +28,6 @@ jobs:
           export OPENBLAS_NUM_THREADS=1
           export OMP_NUM_THREADS=1
           python COMSOL/run_m4_m6_validation.py | tee /tmp/waveoptics-m4-m6-summary.log
-      - name: Publish image, numerical data and reports to COMSOL
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add COMSOL/waveoptics_m4/screenshots COMSOL/waveoptics_m5/screenshots COMSOL/waveoptics_m6/screenshots
-          git add COMSOL/waveoptics_m4/M4_VALIDATION_REPORT.md COMSOL/waveoptics_m5/M5_VALIDATION_REPORT.md COMSOL/waveoptics_m6/M6_VALIDATION_REPORT.md
-          git add COMSOL/WAVEOPTICS_M4_M6_EXECUTION_SUMMARY.json
-          git diff --cached --quiet || { git commit -m "results: validated M4 cavity FEM M5 wavelength S and M6 inverse design [skip ci]"; git push origin HEAD:main; }
       - name: Upload numerical validation plots and reports
         if: always()
         uses: actions/upload-artifact@v4

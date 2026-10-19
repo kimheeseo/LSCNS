@@ -68,6 +68,22 @@ def run(out):
           relative_mesh_change=mesh_change,relative_domain_change=box_change,
           screening_passed=mesh_change<.05 and box_change<.05,
           qualification='5 percent screening only; not a rigorous uncertainty bound or stochastic XT prediction'))
+    ref=lp01_analytic(f)['n_eff']
+    errors=[abs(c['n_eff']-ref) for c in record['cartesian_mesh']]
+    record['cartesian_mesh_error_monotone']=bool(all(b<a for a,b in zip(errors,errors[1:])))
+    rd=record['radial_domain']
+    ds=record['dispersion']
+    record['gates']={
+        'radial_four_cases':all(c['passed'] for c in record['radial_cases']),
+        'mcf_mesh_and_domain_screening':all(c['screening_passed'] for c in record['mcf']),
+        'radial_domain_neff':abs(rd[-1]['n_eff']-rd[-2]['n_eff'])<1e-7,
+        'radial_domain_Aeff':abs(rd[-1]['Aeff_um2']/rd[-2]['Aeff_um2']-1)<.001,
+        'radial_domain_MFD':abs(rd[-1]['MFD_2nd_um']/rd[-2]['MFD_2nd_um']-1)<.001,
+        'radial_outer_tail':rd[-1]['tail_power_fraction']<1e-6,
+        'dispersion_agreement':all(abs(d['D_ps_nm_km']-record['dispersion_analytic_ps_nm_km'])<.02 for d in ds),
+        'dispersion_step':max(d['D_ps_nm_km'] for d in ds[-3:])-min(d['D_ps_nm_km'] for d in ds[-3:])<.002,
+    }
+    record['all_required_gates_passed']=all(record['gates'].values())
     record['elapsed_seconds']=time.perf_counter()-started
     (out/'benchmarks.json').write_text(json.dumps(record,indent=2,allow_nan=False)+'\n')
     lines=['# Research qualification benchmarks','',f"Created: {record['created_utc']}",'',
@@ -87,6 +103,11 @@ def run(out):
               '', '## Dispersion', '', '| core elements | wavelength step um | D ps/(nm km) | difference from Bessel |','|---:|---:|---:|---:|']
     for c in record['dispersion']:
         lines.append(f"|{c['core_elements']}|{c['step_um']}|{c['D_ps_nm_km']:.8f}|{c['D_ps_nm_km']-record['dispersion_analytic_ps_nm_km']:.6g}|")
+    lines += ['', '## Required qualification gates', '', '| Gate | Result |','|---|---|']
+    for key,value in record['gates'].items():lines.append(f"|{key}|{'PASS' if value else 'FAIL'}|")
+    lines += ['', '## Cartesian mesh diagnostic',
+      'The centroid-sampled circular interface does not converge monotonically across grids 41/61/81/121/161. A low residual or a favorable single mesh is insufficient evidence of accuracy.',
+      'Use the interface-conforming radial solver for circular-fiber precision studies. Cartesian results remain available as a separate coarse/discretization comparison; they are not promoted to high-precision qualification by these radial gates.']
     (out/'BENCHMARK_REPORT.md').write_text('\n'.join(lines)+'\n')
     return record
 
@@ -96,4 +117,4 @@ if __name__=='__main__':
     print(json.dumps(dict(radial_passed=sum(c['passed'] for c in r['radial_cases']),radial_cases=len(r['radial_cases']),
                          MCF_screening=[{'pitch':c['pitch_um'],'passed':c['screening_passed']} for c in r['mcf']],seconds=r['elapsed_seconds']),indent=2))
     # MCF screening failures are reported, not silently converted into success claims.
-    if not all(c['passed'] for c in r['radial_cases']):sys.exit(1)
+    if not r['all_required_gates_passed']:sys.exit(1)

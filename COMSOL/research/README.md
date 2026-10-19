@@ -22,6 +22,9 @@ python -m venv .venv
 python -m pip install -r COMSOL/research/requirements.txt
 python -m pytest COMSOL/research/tests -q
 python COMSOL/research/run_benchmarks.py
+python COMSOL/research/run_regressions.py
+# 선택: 보관된 M4 전체 3D 핵심/추가 시험까지 재실행
+python COMSOL/research/run_regressions.py --include-archived-m4
 ```
 
 Linux에서 M1–M4를 실행할 때 gmsh의 OS 라이브러리가 필요합니다: `sudo apt-get install libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1`.
@@ -48,6 +51,12 @@ print(radial_dispersion(f, step_um=.005, core_elements=320, clad_elements=1280))
 ```
 
 새로운 조건마다 메시·외부 경계·파장 간격의 수렴을 확인하십시오.
+
+## 검증에서 확인한 주의점
+
+Cartesian FEM은 원형 경계의 굴절률을 삼각형 중심에서 분류하기 때문에 메시를 세분화해도 n_eff 오차가 단조 감소하지 않습니다. 81격자 한 점에서 작은 오차가 나왔다고 전체 수렴이 입증되지는 않습니다. 원형 광섬유의 정밀 연구에는 경계 정합 radial FEM을 권장하며, Cartesian FEM의 잔차는 선형대수 해의 정확도만 보여줍니다.
+
+회귀 및 벤치마크는 실패 시 비정상 종료합니다. GitHub Actions는 실패를 포함한 원시 증빙을 artifact로 보관하고, 실행 결과를 자동으로 main에 덮어쓰지 않습니다. 이전 M7/M8 runner가 전체 M1–M8 상태 보고서를 덮어쓰던 동작도 제거했습니다.
 
 ## 검증의 의미와 사용 제한
 

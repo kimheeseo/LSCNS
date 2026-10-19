@@ -81,7 +81,7 @@
     },
     {
       "name": "research",
-      "completed_utc": "2026-10-19T02:44:22.248465+00:00",
+      "completed_utc": "2026-10-19T02:47:33.449308+00:00",
       "command": [
         "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
         "-m",
@@ -92,12 +92,41 @@
         "--junitxml=/workspace/scratch/2a1494642f29/repo/COMSOL/research/results/regression/research.xml"
       ],
       "returncode": 0,
-      "seconds": 1.07,
-      "log_sha256": "f9fe1cc4301034e10a7fdde08c7d032596d1852e6d6955baaf72193e77287637",
+      "seconds": 1.78,
+      "log_sha256": "b37f1ef3250b8e0238593fdf0beabaea46a4c95961e89f7cd13d368a0866b223",
       "log": "regression/research.log",
-      "summary": "45 passed in 0.66s"
+      "summary": "45 passed in 1.27s"
+    },
+    {
+      "name": "M4_full",
+      "completed_utc": "2026-10-19T02:53:25.853847+00:00",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "pytest",
+        "/tmp/comsol-m4-source/waveoptics_m4/tests/test_maxwell3d_m4.py",
+        "/tmp/comsol-m4-source/waveoptics_m4/tests/test_m4_extended.py",
+        "-q",
+        "--tb=short",
+        "--junitxml=/tmp/m4-full-verified.xml"
+      ],
+      "environment": {
+        "PYTHONPATH": "/tmp/comsol-m4-source/waveoptics_m4:/tmp/comsol-m4-source/waveoptics_m4/tests",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1"
+      },
+      "provenance": "Standalone replay of the archived source and the same two test files supported by run_regressions.py; not a second execution.",
+      "returncode": 0,
+      "seconds": 888.445,
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "log_sha256": "74dd566e6462eaf246c0cc395dd2a0774c041635d9170040da745f2b35ff764a",
+      "log": "regression/M4_full.log",
+      "summary": "17 passed in 888.45s (0:14:48)"
     }
   ],
   "all_commands_passed": true,
-  "execution_status": "completed"
+  "execution_status": "completed",
+  "archived_m4_sha256": "5e5a5664e3d09958c120f52206c20e656d694dc68cc0af902322ea3964744c39"
 }

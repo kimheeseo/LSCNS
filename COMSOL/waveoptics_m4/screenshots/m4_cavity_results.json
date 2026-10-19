@@ -19,7 +19,7 @@
     "analytic_te101_hz": 90076423276365.38,
     "relative_error": 0.006330018588518005,
     "eigenvalue": 3.6092872928104045,
-    "relative_residual": 3.7513495024720595e-15
+    "relative_residual": 4.876979903135061e-15
   },
   {
     "lengths_um": [
@@ -41,7 +41,7 @@
     "analytic_te101_hz": 90076423276365.38,
     "relative_error": 0.004449386135839006,
     "eigenvalue": 3.595809804885122,
-    "relative_residual": 7.49074831256547e-15
+    "relative_residual": 9.324539705397172e-15
   },
   {
     "lengths_um": [
@@ -63,6 +63,6 @@
     "analytic_te101_hz": 90076423276365.38,
     "relative_error": 0.003068691032168447,
     "eigenvalue": 3.5859311492519335,
-    "relative_residual": 1.4720967187875768e-14
+    "relative_residual": 1.3565340988528887e-14
   }
 ]

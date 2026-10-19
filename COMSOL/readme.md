@@ -1,5 +1,12 @@
 # Python Wave Optics — M1–M8
 
+## G.657.A1 Google Colab 실행 보고서 (2026-10-19)
+
+[▶ Colab에서 G.657.A1 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g657a1_validation/G657A1_Colab_Validation.ipynb) · [검증 보고서](g657a1_validation/G657A1_VALIDATION_REPORT.md) · [그래프·표 결과 ZIP](g657a1_validation/G657A1_Colab_Results.zip)
+
+1310 nm MFD 9.2 µm를 참고한 가상 단면의 radial/2D FEM·분산·영역/메시 수렴을 재계산합니다. **수치 검사 11/12 통과, 기존 2D 격자의 n_eff 기준 1건 미달. 규격 수치 참고 4/4 범위 내이며 굽힘 손실·실제 제품·ITU 적합성을 검증한 것은 아닙니다.** 저장된 그림 8개와 실행 결과가 포함돼 있습니다.
+
+
 ## 2026-10-19 연구용 수치 검증 업데이트
 
 [연구용 실행·검증 안내](research/README.md) · [메시/영역/분산 검증 결과](research/results/BENCHMARK_REPORT.md)

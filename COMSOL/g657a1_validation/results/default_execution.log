@@ -1,0 +1,42 @@
+Executed code cell 1
+Executed code cell 2
+Executed code cell 3
+Executed code cell 4
+Executed code cell 5
+Executed code cell 6
+Executed code cell 7
+Executed code cell 8
+Executed code cell 9
+Executed code cell 10
+{
+  "numerical_passed": 11,
+  "numerical_total": 12,
+  "reference_passed": 4,
+  "reference_total": 4,
+  "parameters_and_results": {
+    "analysis_wavelength_nm": 1310.0,
+    "MFD_reference_wavelength_nm": 1310.0,
+    "MFD_target_um": 9.2,
+    "assumed_core_radius_um": 4.1,
+    "fitted_delta_n": 0.004621529545325871,
+    "n_clad": 1.4468043175527274,
+    "n_core": 1.4514258470980532,
+    "V": 2.27589243612002,
+    "neff_analytic": 1.4491075481353866,
+    "Aeff_um2": 66.26787188820097,
+    "MFD_2nd_um": 9.420343377596833,
+    "MFD_petermann_ii_um": 9.200000000000156,
+    "MFD_PII_1310_um": 9.200000000000156,
+    "MFD_PII_1550_um": 10.543027200436818,
+    "Aeff_1550_um2": 84.45952261578726,
+    "lambda0_nm": 1303.2813980824003,
+    "S0_ps_nm2_km": 0.08404163559534177,
+    "D1550_ps_nm_km": 16.641833358947995,
+    "D1625_ps_nm_km": 20.687858000759007,
+    "ideal_LP11_cutoff_proxy_nm": 1239.765221960085,
+    "n2_assumed_m2_W": 2.6e-20,
+    "gamma1550_W_inv_km_inv": 1.2478802055567362,
+    "MFD_was_fitted": true
+  }
+}
+NOTICE: failed numerical criteria retained; this report must not be labeled all passed.

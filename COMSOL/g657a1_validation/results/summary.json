@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-19T05:56:30.839581+00:00",
+  "model": "calibrated scalar circular step-index G.657.A1 surrogate",
+  "parameters_and_results": {
+    "analysis_wavelength_nm": 1310.0,
+    "MFD_reference_wavelength_nm": 1310.0,
+    "MFD_target_um": 9.2,
+    "assumed_core_radius_um": 4.1,
+    "fitted_delta_n": 0.004621529545325871,
+    "n_clad": 1.4468043175527274,
+    "n_core": 1.4514258470980532,
+    "V": 2.27589243612002,
+    "neff_analytic": 1.4491075481353866,
+    "Aeff_um2": 66.26787188820097,
+    "MFD_2nd_um": 9.420343377596833,
+    "MFD_petermann_ii_um": 9.200000000000156,
+    "MFD_PII_1310_um": 9.200000000000156,
+    "MFD_PII_1550_um": 10.543027200436818,
+    "Aeff_1550_um2": 84.45952261578726,
+    "lambda0_nm": 1303.2813980824003,
+    "S0_ps_nm2_km": 0.08404163559534177,
+    "D1550_ps_nm_km": 16.641833358947995,
+    "D1625_ps_nm_km": 20.687858000759007,
+    "ideal_LP11_cutoff_proxy_nm": 1239.765221960085,
+    "n2_assumed_m2_W": 2.6e-20,
+    "gamma1550_W_inv_km_inv": 1.2478802055567362,
+    "MFD_was_fitted": true
+  },
+  "numerical_checks": {
+    "Radial |neff error| <1e-6": true,
+    "Radial |Aeff error| <1%": true,
+    "Radial |second-moment MFD error| <1%": true,
+    "Radial mesh error decreases at every refinement": true,
+    "Radial residual <1e-8": true,
+    "Fixed-spacing domain neff change <1e-7": true,
+    "Fixed-spacing domain Aeff change <0.1%": true,
+    "D1550 derivative-step spread <0.01": true,
+    "2D |neff error| <1e-5": false,
+    "2D |Aeff error| <2%": true,
+    "2D |second-moment MFD error| <2%": true,
+    "2D residual <1e-8": true
+  },
+  "reference_checks": {
+    "lambda0 in [1300,1324] nm": true,
+    "S0 in [.073,.092] ps/(nm2 km)": true,
+    "D1550 in [13.3,18.6] ps/(nm km)": true,
+    "D1625 in [17.2,23.7] ps/(nm km)": true
+  },
+  "numerical_passed": 11,
+  "numerical_total": 12,
+  "reference_passed": 4,
+  "reference_total": 4,
+  "calibration_residual_um": 1.5631940186722204e-13,
+  "not_testable": [
+    "actual manufacturer n(r)/trench",
+    "actual bending loss at R=10/15 mm",
+    "attenuation incl. Rayleigh/absorption",
+    "measured cable cutoff",
+    "manufacturer Aeff",
+    "PMD/birefringence",
+    "COMSOL full-vector equivalence"
+  ],
+  "dispersion_step_convergence": {
+    "0.006": 16.641833494478686,
+    "0.003": 16.641833358947995,
+    "0.0015": 16.641831945176875
+  },
+  "radial_mesh": [
+    {
+      "elements": 200,
+      "outer_radius_um": 40.0,
+      "neff_FEM": 1.449106749820628,
+      "neff_abs_error": 7.98314759e-07,
+      "Aeff_um2": 66.29283021449966,
+      "Aeff_error_pct": 0.037662785279702,
+      "MFD_second_um": 9.422359125961433,
+      "MFD_error_pct": 0.02139782260373,
+      "residual": 8.58493462125336e-16
+    },
+    {
+      "elements": 400,
+      "outer_radius_um": 40.0,
+      "neff_FEM": 1.449107348407813,
+      "neff_abs_error": 1.99727574e-07,
+      "Aeff_um2": 66.27411398617649,
+      "Aeff_error_pct": 0.009419493636442,
+      "MFD_second_um": 9.420847255441986,
+      "MFD_error_pct": 0.005348826735463,
+      "residual": 3e-15
+    },
+    {
+      "elements": 800,
+      "outer_radius_um": 40.0,
+      "neff_FEM": 1.44910749819407,
+      "neff_abs_error": 4.9941316e-08,
+      "Aeff_um2": 66.26943258245534,
+      "Aeff_error_pct": 0.002355129582243,
+      "MFD_second_um": 9.420469342681908,
+      "MFD_error_pct": 0.001337160228942,
+      "residual": 1.2e-14
+    },
+    {
+      "elements": 1600,
+      "outer_radius_um": 40.0,
+      "neff_FEM": 1.449107535649461,
+      "neff_abs_error": 1.2485925e-08,
+      "Aeff_um2": 66.26826207256664,
+      "Aeff_error_pct": 0.000588798696199,
+      "MFD_second_um": 9.42037486735429,
+      "MFD_error_pct": 0.000334273987646,
+      "residual": 4.9e-14
+    }
+  ],
+  "radial_domain": [
+    {
+      "outer_radius_um": 30.0,
+      "n_eff": 1.449107529082578,
+      "Aeff_um2": 66.26848219133012,
+      "MFD_2nd_um": 9.420390011970692,
+      "residual": 4.6e-14
+    },
+    {
+      "outer_radius_um": 40.0,
+      "n_eff": 1.449107529095795,
+      "Aeff_um2": 66.26848356171298,
+      "MFD_2nd_um": 9.420391891484918,
+      "residual": 4.5e-14
+    },
+    {
+      "outer_radius_um": 50.0,
+      "n_eff": 1.449107529101556,
+      "Aeff_um2": 66.268483368003,
+      "MFD_2nd_um": 9.420391878339975,
+      "residual": 5e-14
+    }
+  ],
+  "fem2d": [
+    {
+      "grid_n": 61,
+      "triangles": 7200,
+      "neff_FEM": 1.449085942857147,
+      "neff_abs_error": 2.160527824e-05,
+      "Aeff_um2": 67.35181881204521,
+      "Aeff_error_pct": 1.635705045233604,
+      "MFD_second_um": 9.501558486433662,
+      "MFD_second_error_pct": 0.862124718616664,
+      "residual": 1.73341291981656e-16
+    },
+    {
+      "grid_n": 81,
+      "triangles": 12800,
+      "neff_FEM": 1.449100532748966,
+      "neff_abs_error": 7.015386421e-06,
+      "Aeff_um2": 67.02689534339457,
+      "Aeff_error_pct": 1.145386796899306,
+      "MFD_second_um": 9.473397908958017,
+      "MFD_second_error_pct": 0.56319105614937,
+      "residual": 1.80777657484855e-16
+    },
+    {
+      "grid_n": 121,
+      "triangles": 28800,
+      "neff_FEM": 1.44909068111052,
+      "neff_abs_error": 1.6867024866e-05,
+      "Aeff_um2": 66.34293250768658,
+      "Aeff_error_pct": 0.113268492478902,
+      "MFD_second_um": 9.433760892816833,
+      "MFD_second_error_pct": 0.142431275402433,
+      "residual": 1e-15
+    },
+    {
+      "grid_n": 161,
+      "triangles": 51200,
+      "neff_FEM": 1.449093275357564,
+      "neff_abs_error": 1.4272777822e-05,
+      "Aeff_um2": 66.23674037396022,
+      "Aeff_error_pct": -0.046978291823341,
+      "MFD_second_um": 9.425491042773094,
+      "MFD_second_error_pct": 0.054644135249937,
+      "residual": 5.36973295955659e-16
+    }
+  ],
+  "sensitivity": [
+    {
+      "assumed_radius_um": 3.6,
+      "status": "FIT",
+      "fitted_delta_n": 0.004333156227691,
+      "Aeff_um2": 64.38197158593586,
+      "D1550": 13.774989831205941
+    },
+    {
+      "assumed_radius_um": 3.8,
+      "status": "FIT",
+      "fitted_delta_n": 0.00441094805768,
+      "Aeff_um2": 65.06491928549511,
+      "D1550": 14.955344417139193
+    },
+    {
+      "assumed_radius_um": 4.0,
+      "status": "FIT",
+      "fitted_delta_n": 0.004538107187478,
+      "Aeff_um2": 65.84437703135839,
+      "D1550": 16.091336385356843
+    },
+    {
+      "assumed_radius_um": 4.1,
+      "status": "FIT",
+      "fitted_delta_n": 0.004621529545326,
+      "Aeff_um2": 66.26787188820097,
+      "D1550": 16.641833358947995
+    },
+    {
+      "assumed_radius_um": 4.2,
+      "status": "FIT",
+      "fitted_delta_n": 0.004719211486998,
+      "Aeff_um2": 66.71271005884712,
+      "D1550": 17.18041769510406
+    }
+  ],
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "sources": {
+    "LS_2025_brochure": "https://fliphtml5.com/plzsm/rgkq/20250925_%ED%86%B5%EC%8B%A0_%EB%B8%8C%EB%A1%9C%EC%85%94/",
+    "ITU_G657_2024": "https://www.itu.int/epublications/publication/itu-t-g-657-2024-08-characteristics-of-a-bending-loss-insensitive-single-mode-optical-fibre-and-cable"
+  },
+  "source_note": "Numerical methods transcribed from existing M7 and G654E benchmark; embedded in this notebook."
+}

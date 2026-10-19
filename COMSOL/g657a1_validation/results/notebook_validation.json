@@ -1,0 +1,15 @@
+{
+  "notebook_schema_valid": true,
+  "executed_code_cells": 10,
+  "embedded_pngs": 8,
+  "no_error_outputs": true,
+  "engine_sha256_verified": true,
+  "known_2d_failure_preserved": true,
+  "analysis_1550_keeps_mfd_anchor_1310": true,
+  "delta_n_difference": 0.0,
+  "alternate_numerical_passed": 8,
+  "alternate_numerical_total": 8,
+  "alternate_export_pngs": 5,
+  "colab_ui_manually_tested": false,
+  "tested_execution_method": "Actual in-process IPython replay; local socket kernel unavailable"
+}

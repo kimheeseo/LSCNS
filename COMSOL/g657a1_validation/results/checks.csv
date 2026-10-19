@@ -1,0 +1,17 @@
+group,test,status
+NUMERICAL,Radial |neff error| <1e-6,PASS
+NUMERICAL,Radial |Aeff error| <1%,PASS
+NUMERICAL,Radial |second-moment MFD error| <1%,PASS
+NUMERICAL,Radial mesh error decreases at every refinement,PASS
+NUMERICAL,Radial residual <1e-8,PASS
+NUMERICAL,Fixed-spacing domain neff change <1e-7,PASS
+NUMERICAL,Fixed-spacing domain Aeff change <0.1%,PASS
+NUMERICAL,D1550 derivative-step spread <0.01,PASS
+NUMERICAL,2D |neff error| <1e-5,FAIL
+NUMERICAL,2D |Aeff error| <2%,PASS
+NUMERICAL,2D |second-moment MFD error| <2%,PASS
+NUMERICAL,2D residual <1e-8,PASS
+STANDARD_REFERENCE_ONLY,"lambda0 in [1300,1324] nm",PASS
+STANDARD_REFERENCE_ONLY,"S0 in [.073,.092] ps/(nm2 km)",PASS
+STANDARD_REFERENCE_ONLY,"D1550 in [13.3,18.6] ps/(nm km)",PASS
+STANDARD_REFERENCE_ONLY,"D1625 in [17.2,23.7] ps/(nm km)",PASS

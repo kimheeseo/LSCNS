@@ -1,0 +1,43 @@
+name: G657A1 notebook reproducibility (known 2D failure retained)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/g657a1_validation/*.py'
+      - 'COMSOL/g657a1_validation/*.ipynb'
+      - 'COMSOL/g657a1_validation/requirements-tested.txt'
+      - '.github/workflows/waveoptics-g657a1-validation.yml'
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: COMSOL/g657a1_validation
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install tested environment
+        run: python -m pip install -r COMSOL/g657a1_validation/requirements-tested.txt
+      - name: Execute all notebook cells and preserve numerical failures
+        run: python COMSOL/g657a1_validation/g657a1_validation.py --in-process
+      - name: Verify notebook and independent 1310 nm calibration anchor
+        run: python COMSOL/g657a1_validation/validate_notebook.py
+      - name: Preserve executed notebook and raw outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: G657A1-replay-${{ github.sha }}
+          retention-days: 60
+          path: |
+            COMSOL/g657a1_validation/G657A1_Colab_Validation.ipynb
+            COMSOL/g657a1_validation/G657A1_Colab_Results.zip
+            COMSOL/g657a1_validation/results/

@@ -8,6 +8,23 @@
 | 기존 3D 렌더 | [Legacy 3D 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) | 기존 v4.7.0 계산·운영 코어 유지 |
 | 원본 2D Gold Pixel Tour | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) | 원본 보호 |
 | 데이터센터 BOM 및 제품 툴 | [DataCenter 메인](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/) | 기존 BOM 도구 보존 |
+| **고객용 간편 설계** | [온프레미스 · 서버실 · AI 데이터센터 간편 설계](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/customer-designer.html) | 고객 유형별 핵심 조건 → 랙·전력·냉각·GPU·케이블 계획 요약 |
+
+## 고객용 간편 설계
+
+고객이 복잡한 엔지니어링 입력 전에 구축 방향을 검토하도록 만든 2D 계획 화면입니다. 기존 상세 BOM 엔진을 대체하지 않으며, 결과 화면의 **상세 엔지니어링 BOM 열기**에서 DataCenter 메인 도구로 이동합니다.
+
+| 고객 모드 | 강조하는 의사결정 | 주요 산출 |
+|---|---|---|
+| 온프레미스 | 보안·망 분리, TCO, 증설성 | 계획 랙, IT/시설 전력, UPS, GPU, 기본 이중경로 케이블 |
+| 서버실 | 공간, UPS 백업시간, 냉각, 운영 연속성 | 설치 랙, 공간 여유, UPS 에너지, GPU, 기본 이중경로 케이블 |
+| AI 데이터센터 | GPU 랙, 고밀도 전력, 수랭, Fabric | GPU·서버·랙, IT/시설 전력, UPS·발전기, Leaf/Spine, 고속 광·케이블 |
+
+### GPU·케이블 표시 기준
+
+- **온프레미스·서버실:** 고객이 입력한 GPU 수를 표시합니다. 케이블은 초기 계획값으로 `랙 수 × 2`를 사용하며, 랙별 이중 네트워크 경로를 의미합니다. 실제 광/동 케이블 종류·길이·커넥터·심수는 상세 BOM에서 산정합니다.
+- **AI 데이터센터:** 목표 GPU 수 및 서버 프로파일을 기존 `engineering-v82.js` 계산 엔진에 전달합니다. 광/고속 케이블은 엔진 BOM의 Cable/AOC/DAC/Trunk/Patch 수량을 우선 사용하며, 항목이 아직 산출되지 않은 경우 GPU-Fabric 링크 기반의 계획 수량을 표시합니다.
+- 모든 수량은 초기 사업성·공간·전력 검토용이며, 실제 단선결선도, 보호협조, 냉각/배관, 광 예산, 시공 경로, SKU 적합성 및 RFQ 검토를 대체하지 않습니다.
 
 ## 사용 설명서 · 개발 이력
 

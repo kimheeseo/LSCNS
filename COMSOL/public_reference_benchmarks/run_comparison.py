@@ -114,6 +114,15 @@ def mcf():
     for L in [32.,36.,40.]:
         s,sec=timed(solve_conforming,f,pitch,L,.5)
         domains.append(dict(halfwidth_um=L,kappa_per_m=s['kappa_per_m'],Lc_mm=s['coupling_length_mm'],runtime_seconds=sec))
+    extended=[]
+    for L in [48.,56.,64.]:
+        z,sec=timed(solve_conforming,f,pitch,L,.35)
+        extended.append(dict(halfwidth_um=L,h_um=.35,elements=z['quarter_elements'],dofs=z['quarter_dofs'],
+            n_even=z['n_even'],n_odd=z['n_odd'],kappa_per_m=z['kappa_per_m'],Lc_mm=z['coupling_length_mm'],
+            kappa_error_pct=pct(z['kappa_per_m'],ref['kappa_per_m']),
+            Lc_error_pct=pct(z['coupling_length_mm'],ref['coupling_length_mm']),runtime_seconds=sec))
+    check('MCF expanded L56->64 kappa change <0.001%',pct(extended[-2]['kappa_per_m'],extended[-1]['kappa_per_m'])<.001,extended)
+    check('MCF expanded L64 kappa error <0.001%',extended[-1]['kappa_error_pct']<.001,extended[-1])
     gaps=[]
     for gap in [1.,2.,4.,6.]:
         rr=ref if gap==2 else solve_reference(f,7+gap,order=10,samples=512)
@@ -130,10 +139,10 @@ def mcf():
     check('MCF L36->40 kappa change <0.1%',pct(domains[-2]['kappa_per_m'],domains[-1]['kappa_per_m'])<.1,domains)
     check('MCF published trend kappa decreases with edge gap',all(a['kappa_per_m']>b['kappa_per_m'] for a,b in zip(gaps[:-1],gaps[1:])),gaps)
     plot_xy('mcf_gap.svg',[r['gap_um'] for r in gaps],{'Existing curved P2 FEM':[r['kappa_per_m'] for r in gaps],'Independent scalar multipole':[r['reference_kappa_per_m'] for r in gaps]},'Edge gap dg (um)','Kappa (1/m)','Zhao et al. parameters; scalar approximation')
-    for name,rows in [('mcf_mesh.csv',mesh),('mcf_domain.csv',domains),('mcf_gap.csv',gaps),('mcf_delta_sensitivity.csv',alternatives)]:write_csv(name,rows)
+    for name,rows in [('mcf_mesh.csv',mesh),('mcf_domain.csv',domains),('mcf_gap.csv',gaps),('mcf_delta_sensitivity.csv',alternatives),('mcf_extended_domain.csv',extended)]:write_csv(name,rows)
     return dict(parameters=dict(n_clad=f.clad,n_core=f.core,delta_n=f.delta_n,relative_delta=.0025,radius_um=3.5,
         gap_um=2,pitch_um=9,wavelength_um=1.55,V=f.v),independent_reference=refs,mesh=mesh,domain=domains,gap_sweep=gaps,
-        delta_sensitivity=alternatives,published_comsol_comparison='parameters/trend only; graph not digitized, no raw beta/kappa',
+        delta_sensitivity=alternatives,extended_domain=extended,published_comsol_comparison='parameters/trend only; graph not digitized, no raw beta/kappa',
         numerical_comsol_error_pct=None,polarization_comparison=False)
 
 def hcf():
@@ -190,9 +199,12 @@ def main():
     summary=[
         dict(case='M1 TE0',value=m1fine['neff'],metric='neff',reference_kind='published analytical equation; not COMSOL export',error=m1fine['abs_error'],error_unit='absolute neff'),
         dict(case='M7 LP01',value=m7['mesh'][-1]['neff'],metric='neff',reference_kind='independent scalar circular equation',error=m7['mesh'][-1]['scalar_abs_error'],error_unit='absolute neff'),
-        dict(case='MCF',value=mc['mesh'][-1]['kappa_per_m'],metric='kappa 1/m',reference_kind='independent scalar multipole; not published COMSOL',error=mc['mesh'][-1]['kappa_error_pct'],error_unit='relative percent'),
+        dict(case='MCF',value=mc['extended_domain'][-1]['kappa_per_m'],metric='kappa 1/m',reference_kind='independent scalar multipole; not published COMSOL',error=mc['extended_domain'][-1]['kappa_error_pct'],error_unit='relative percent'),
         dict(case='HCF',value=hc['mesh'][-1]['neff'],metric='neff',reference_kind='published capillary approximation; not full COMSOL',error=hc['mesh'][-1]['neff_abs_error'],error_unit='absolute neff')]
     write_csv('summary.csv',summary)
+    graph=None
+    if (OUT/'mcf_graph_estimates.json').exists():
+        graph=json.loads((OUT/'mcf_graph_estimates.json').read_text())
     report=['# 공개 레퍼런스 비교 결과: M1 · M7 · MCF · HCF','',
         '이 실행의 Python FEM 결과로 자동 생성했습니다. **COMSOL 소프트웨어를 실행하지 않았습니다.** 해석식·독립 기준 오차를 COMSOL 실측 오차로 표시하지 않습니다.','',
         '- 실행 UTC: '+data['metadata']['executed_utc'],'- 소스 커밋: '+commit,
@@ -222,6 +234,8 @@ def main():
         '- Figure 2의 간격 증가 → κ 감소 경향을 재현했습니다. 그래프를 정밀 디지타이즈하지 않았고 원시 β/κ 표가 없어 **논문 COMSOL 대비 정밀 오차율은 미산출**입니다.','',
         table(['h (µm)','κ (1/m)','Lc (mm)','독립 스칼라 κ 오차 (%)'],[[r['h_um'],f"{r['kappa_per_m']:.9f}",f"{r['Lc_mm']:.9f}",f"{r['kappa_error_pct']:.6g}"] for r in mc['mesh']]),'',
         table(['Δ 가정','n_core','κ (1/m)','기본 가정 대비 κ 차이 (%)'],[[r['convention'],f"{r['n_core']:.12f}",f"{r['kappa_per_m']:.9f}",f"{r['kappa_difference_from_primary_pct']:.6g}"] for r in mc['delta_sensitivity']]),'',
+        '**경계 영향 추가 확인:** L=40 µm에서 h를 줄여도 오차가 약 0.0086%에 머물렀습니다. 같은 h=0.35 µm로 L을 48/56/64 µm까지 늘려 독립 기준에 접근하는지 확인했습니다. 아래는 메시 세분화와 별도로 수행한 계산영역 확대 결과입니다. 기존 UI의 영역 제한은 변경하지 않았습니다.','',
+        table(['L (µm)','h (µm)','κ (1/m)','Lc (mm)','독립 스칼라 κ 오차 (%)'],[[r['halfwidth_um'],r['h_um'],f"{r['kappa_per_m']:.9f}",f"{r['Lc_mm']:.9f}",f"{r['kappa_error_pct']:.6g}"] for r in mc['extended_domain']]),'',
         '![MCF 간격 변화](mcf_gap.svg)','',
         '## HCF','',
         'H1 Eq.(1)의 모세관 근사 neff=sqrt(n_gas²−(u01·λ/(2πR))²)를 기준으로 기존 radial P1 FEM을 검증했습니다. R=15 µm·λ=1550 nm·일정 n_gas=1.00027은 선택한 검증 입력이며 논문의 실제 AR-HCF 단면·압력을 재현한 것이 아닙니다. Aeff는 J0 적분, D는 같은 식을 일정 n_gas로 미분한 기준입니다.','',
@@ -238,6 +252,18 @@ def main():
         '## 출처·재현·검사','',
         '[출처 전체](../references.json) · [실행법](../README.md) · [수치/환경/해시](comparison.json) · [CSV 요약](summary.csv)','',
         table(['검사','통과'],[[x['name'],str(x['passed'])] for x in CHECKS])]
+    if graph:
+        report+=['','## 논문 MCF 그림 수치 추출 검토','',
+            '원시 COMSOL 수치표가 없어 Figure 2(a)의 녹색 FEM 곡선을 이미지 좌표로 추출했습니다. 축 보정과 원본 PDF 해시는 mcf_graph_estimates.json에 기록합니다. 그림 오차는 근사값이며 모델/Δ 정의/편광 차이를 포함한 엄밀한 수치 오차가 아닙니다.','',
+            '추출 상태: '+graph.get('status','unknown')]
+        if graph.get('status')=='estimated':
+            report+=['',table(['가장자리 간격 (µm)','그림 κ 근사 (1/m)','이미지 좌표 불확실도 (±1/m)'],[[r['gap_um'],f"{r['kappa_estimate_per_m']:.3f}",f"{r['raster_uncertainty_per_m']:.3f}"] for r in graph['samples']]),
+                '','![논문 Figure 2a 확인용 발췌](mcf_published_figure2a.png)','Zhao, Ren, Yin & Wang (2021), DOI 10.4236/opj.2021.118029, Figure 2(a), CC BY 4.0. 확인을 위한 그림 발췌·크롭이며 수치 추정은 이번 코드에서 수행했습니다.']
+            p=next(r for r in graph['samples'] if r['gap_um']==2)
+            diff=pct(mc['extended_domain'][-1]['kappa_per_m'],p['kappa_estimate_per_m'])
+            report+=['',f"dg=2 µm: 현재 스칼라 κ={mc['extended_domain'][-1]['kappa_per_m']:.6f} /m, 그림 κ≈{p['kappa_estimate_per_m']:.3f}±{p['raster_uncertainty_per_m']:.3f} /m. 명목 상대 차이는 약 {diff:.3f}%입니다.",
+                '**이 값은 그림 추출·축 가정이 맞는지 확인한 후 읽어야 합니다. 큰 차이가 남으면 재현 일치로 판정하지 않으며, Δ 정의·기하/편광·원문 수치 확보가 필요합니다. 독립 스칼라 FEM 오차가 작다는 이유로 논문과의 불일치를 덮지 않습니다.**']
+        else:report+=['','자동 그림 추출을 완료하지 못했습니다. 원인: '+graph.get('error','unknown')+'; 정밀 논문 오차율은 미산출입니다.']
     (OUT/'COMPARISON_REPORT.md').write_text('\n'.join(report)+'\n',encoding='utf-8')
     print('COMPARISON_SUMMARY '+json.dumps(dict(metadata=data['metadata'],summary=summary,M7_vector=m7['vector_characteristic_reference'],MCF_delta_sensitivity=mc['delta_sensitivity'],checks=CHECKS),ensure_ascii=False),flush=True)
     if not all(c['passed'] for c in CHECKS):raise SystemExit('Declared acceptance checks failed; outputs retained.')

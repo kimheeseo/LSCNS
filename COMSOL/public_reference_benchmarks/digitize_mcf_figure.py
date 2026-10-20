@@ -17,7 +17,17 @@ def main():
         axis_assumptions=dict(gap_min_um=0,gap_max_um=10,kappa_min_per_m=0,kappa_max_per_m=1600),
         status='unavailable')
     try:
-        pdf=OUT/'mcf_source_temp.pdf';urllib.request.urlretrieve(URL,pdf)
+        pdf=OUT/'mcf_source_temp.pdf'
+        errors=[]
+        urls=[URL,'https://www.scirp.org/pdf/opj_2021082710523279.pdf','https://www.scirp.net/pdf/opj_2021082710523279.pdf']
+        for candidate in urls:
+            try:
+                request=urllib.request.Request(candidate,headers={'User-Agent':'Mozilla/5.0 (compatible; public-research-reference-comparison)','Accept':'application/pdf'})
+                with urllib.request.urlopen(request,timeout=30) as response:body=response.read()
+                if not body.startswith(b'%PDF'):raise RuntimeError('Not a PDF response')
+                pdf.write_bytes(body);out['retrieved_url']=candidate;break
+            except Exception as error:errors.append(str(error))
+        if not pdf.exists():raise RuntimeError('; '.join(errors))
         out['source_pdf_sha256']=hashlib.sha256(pdf.read_bytes()).hexdigest()
         subprocess.run(['pdftoppm','-f','4','-l','4','-singlefile','-r','180','-png',str(pdf),str(OUT/'mcf_figure_temp')],check=True,capture_output=True)
         image=Image.open(OUT/'mcf_figure_temp.png').convert('RGB');a=np.asarray(image)/255.

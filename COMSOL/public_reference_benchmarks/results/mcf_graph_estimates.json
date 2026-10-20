@@ -1,17 +1,52 @@
 {
   "source_url": "https://content.scirp.org/pdf/opj_2021082710523279.pdf",
   "source_locator": "Figure 2(a), printed p.405, PDF page 4",
-  "method": "green FEM curve sampled from raster; not raw numerical COMSOL data",
-  "axis_assumptions": {
-    "gap_min_um": 0,
-    "gap_max_um": 10,
-    "kappa_min_per_m": 0,
-    "kappa_max_per_m": 1600
-  },
-  "status": "unavailable",
+  "method": "red FEM curve, manually checked axes; approximate raster sampling, not raw COMSOL",
+  "status": "estimated",
+  "attribution": "Zhao, Ren, Yin and Wang (2021), DOI 10.4236/opj.2021.118029, CC BY 4.0; crop and sampling by this project",
   "retrieved_url": "https://content.scirp.org/pdf/opj_2021082710523279.pdf",
   "source_pdf_sha256": "b82f0faf6b0036fe2be9f49fb967c2ca320b664e8e2b6169e45feb18bdec82d9",
-  "colored_pixels": 11768,
-  "green_pixels_in_search_region": 0,
-  "error": "Insufficient green curve pixels; see mcf_plot_inspection.png"
+  "axis_calibration": {
+    "left_pixel": 691.0,
+    "right_pixel": 1223.0,
+    "top_pixel": 186.0,
+    "bottom_pixel": 425.0,
+    "gap_min_um": 1.0,
+    "gap_max_um": 30.0,
+    "kappa_min_per_m": 0.0,
+    "kappa_max_per_m": 2000.0,
+    "dpi": 180,
+    "verification": "axes/legend manually inspected; exact PDF hash and fixed rendering resolution"
+  },
+  "samples": [
+    {
+      "gap_um": 1.0,
+      "kappa_estimate_per_m": 1916.3179916317993,
+      "raster_uncertainty_per_m": 50.2092050209205,
+      "x_pixel": 691.0,
+      "y_pixel": 196.0
+    },
+    {
+      "gap_um": 2.0,
+      "kappa_estimate_per_m": 1514.6443514644352,
+      "raster_uncertainty_per_m": 41.84100418410042,
+      "x_pixel": 709.3448275862069,
+      "y_pixel": 244.0
+    },
+    {
+      "gap_um": 4.0,
+      "kappa_estimate_per_m": 933.0543933054394,
+      "raster_uncertainty_per_m": 50.2092050209205,
+      "x_pixel": 746.0344827586207,
+      "y_pixel": 313.5
+    },
+    {
+      "gap_um": 6.0,
+      "kappa_estimate_per_m": 581.5899581589958,
+      "raster_uncertainty_per_m": 37.65690376569037,
+      "x_pixel": 782.7241379310344,
+      "y_pixel": 355.5
+    }
+  ],
+  "limitation": "Approximate raster uncertainty, not a confidence interval. Does not include Delta convention, polarization, model or COMSOL discretization uncertainty."
 }

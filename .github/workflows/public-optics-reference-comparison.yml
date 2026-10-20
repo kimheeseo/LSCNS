@@ -1,0 +1,58 @@
+name: Published Optics Reference Comparison
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/public_reference_benchmarks/*.py'
+      - 'COMSOL/public_reference_benchmarks/references.json'
+      - '.github/workflows/public-optics-reference-comparison.yml'
+permissions:
+  contents: write
+concurrency:
+  group: public-optics-reference-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            COMSOL/public_reference_benchmarks
+            COMSOL/waveoptics_m1
+            COMSOL/waveoptics_m7/src
+            COMSOL/waveoptics_m8/src
+            COMSOL/research/requirements.txt
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fixed numerical dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
+          python -m pip install -r COMSOL/research/requirements.txt
+      - name: Check Python syntax
+        run: python -m py_compile COMSOL/public_reference_benchmarks/*.py
+      - name: Recalculate all four reference comparisons
+        run: python COMSOL/public_reference_benchmarks/run_comparison.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-optics-reference-results
+          path: COMSOL/public_reference_benchmarks/results
+      - name: Record calculated report and evidence
+        if: success() && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add COMSOL/public_reference_benchmarks/results
+          if ! git diff --cached --quiet; then
+            git commit -m "Record executed M1 M7 MCF HCF public reference comparison"
+            git push origin HEAD:main
+          fi

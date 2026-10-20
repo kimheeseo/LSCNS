@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "reviewed_date_kst": "2026-10-21",
+  "scope": "Published-reference reproduction; no COMSOL software executed",
+  "sources": [
+    {
+      "id": "C1",
+      "title": "COMSOL 6.4 Dielectric Slab Waveguide",
+      "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.woptics.dielectric_slab_waveguide/dielectric_slab_waveguide.html",
+      "parameters": {
+        "n_core": 1.5,
+        "n_clad": 1,
+        "width_um": 1,
+        "wavelength_um": 1.55,
+        "total_transverse_height_um": 7,
+        "padding_each_side_um": 3
+      },
+      "reference_kind": "published geometry and analytical equations; no precise COMSOL neff table",
+      "comparison": "transverse TE eigenproblem only; no propagation/ports"
+    },
+    {
+      "id": "C2",
+      "title": "COMSOL 6.4 Step-Index Fiber",
+      "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.rf.step_index_fiber/step_index_fiber.html",
+      "parameters": {
+        "n_core": 1.4457,
+        "n_clad": 1.4378,
+        "radius_um": 8,
+        "outer_radius_um": 40,
+        "wavelength_um": 1.55
+      },
+      "published": {
+        "neff_rounded": 1.4444,
+        "V_rounded": 4.895
+      },
+      "rounding_note": "1.4444 is printed with four decimal places. A +/-0.00005 interval assumes rounding to nearest, not a known solver error bound.",
+      "reference_kind": "rounded COMSOL value plus independent scalar and vector circular characteristic equations"
+    },
+    {
+      "id": "P1",
+      "title": "Zhao et al. Calculation of the Coupling Coefficient of Twin-Core Fiber Based on the Supermode Theory with Finite Element Method",
+      "doi": "10.4236/opj.2021.118029",
+      "url": "https://content.scirp.org/pdf/opj_2021082710523279.pdf",
+      "locator": "Section 2, p.404 and Figure 2, p.405",
+      "parameters": {
+        "n_clad": 1.444,
+        "radius_um": 3.5,
+        "gap_um": 2,
+        "relative_index_difference": 0.0025,
+        "wavelength_um": 1.55
+      },
+      "conversions": [
+        "pitch = 2*a + edge_gap",
+        "Primary assumption: Delta=(n_core^2-n_clad^2)/(2*n_core^2); n_core=n_clad/sqrt(1-2*Delta)",
+        "Alternative sensitivity: n_core=n_clad*(1+Delta). The paper does not unambiguously state the conversion equation."
+      ],
+      "reference_kind": "COMSOL-based published parameter set and qualitative coupling trend; no tabulated raw beta/kappa values in retrieved paper",
+      "numerical_comsol_error_pct": null
+    },
+    {
+      "id": "H1",
+      "title": "Kelly et al. Gas-induced differential refractive index enhanced guidance in hollow-core optical fibers",
+      "doi": "10.1364/OPTICA.424224",
+      "url": "https://eprints.soton.ac.uk/449907/1/optica_8_6_916.pdf",
+      "publisher_url": "https://opg.optica.org/abstract.cfm?uri=optica-8-6-916",
+      "locator": "Equation (1), circular capillary approximation",
+      "equation": "neff=sqrt(n_gas^2-(u01*lambda/(2*pi*R))^2)",
+      "reference_kind": "published capillary approximation, not tabulated full COMSOL AR-HCF results",
+      "retrieval_note": "Author PDF indexed excerpt retrieved; direct PDF/publisher access was blocked in this session. No raw numerical data retrieved.",
+      "numerical_comsol_error_pct": null
+    },
+    {
+      "id": "C3",
+      "title": "COMSOL 6.4 Leaky Modes in a Microstructured Optical Fiber",
+      "url": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.woptics.microstructured_optical_fiber/microstructured_optical_fiber.html",
+      "locator": "Table 1",
+      "published_example": {
+        "mode": "HE11",
+        "neff_real": 1.44539464,
+        "neff_imag": -3.18614991e-8,
+        "boundary": "PML"
+      },
+      "comparison_eligible": false,
+      "reason": "High-index silica core with air holes and vector leaky modes; not a hollow J0/Dirichlet disk. Do not compare these neff values to the current HCF model."
+    }
+  ]
+}

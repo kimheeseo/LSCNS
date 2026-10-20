@@ -54,8 +54,9 @@
         "Primary assumption: Delta=(n_core^2-n_clad^2)/(2*n_core^2); n_core=n_clad/sqrt(1-2*Delta)",
         "Alternative sensitivity: n_core=n_clad*(1+Delta). The paper does not unambiguously state the conversion equation."
       ],
-      "reference_kind": "COMSOL-based published parameter set and qualitative coupling trend; no tabulated raw beta/kappa values in retrieved paper",
-      "numerical_comsol_error_pct": null
+      "reference_kind": "Published COMSOL parameters and Fig.2a raster estimates; not raw numerical export",
+      "numerical_comsol_error_pct": null,
+      "graph_note": "Red FEM curve; axes verified from actual PDF. Sampling uses exact PDF hash and records pixel uncertainty."
     },
     {
       "id": "H1",

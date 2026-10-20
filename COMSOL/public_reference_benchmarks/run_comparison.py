@@ -142,7 +142,7 @@ def mcf():
     for name,rows in [('mcf_mesh.csv',mesh),('mcf_domain.csv',domains),('mcf_gap.csv',gaps),('mcf_delta_sensitivity.csv',alternatives),('mcf_extended_domain.csv',extended)]:write_csv(name,rows)
     return dict(parameters=dict(n_clad=f.clad,n_core=f.core,delta_n=f.delta_n,relative_delta=.0025,radius_um=3.5,
         gap_um=2,pitch_um=9,wavelength_um=1.55,V=f.v),independent_reference=refs,mesh=mesh,domain=domains,gap_sweep=gaps,
-        delta_sensitivity=alternatives,extended_domain=extended,published_comsol_comparison='parameters/trend only; graph not digitized, no raw beta/kappa',
+        delta_sensitivity=alternatives,extended_domain=extended,published_comsol_comparison='parameters/trend and approximate published raster comparison; no raw COMSOL beta/kappa',
         numerical_comsol_error_pct=None,polarization_comparison=False)
 
 def hcf():
@@ -231,7 +231,7 @@ def main():
         'P1의 a=3.5 µm, n_clad=1.444, λ=1550 nm, 상대 Δ=0.25%, 가장자리 간격 dg=2 µm를 사용했습니다. 중심 간격 p=2a+dg=9 µm. 기본 변환은 Δ=(n_core²−n_clad²)/(2n_core²)를 가정하며, 원문 변환식이 명확하지 않아 대안의 민감도를 함께 계산했습니다.','',
         f"- 변환 n_core={mc['parameters']['n_core']:.12f}, 절대 Δn={mc['parameters']['delta_n']:.12f}",
         '- 곡선 P2 FEM을 독립 무한 클래딩 Fourier–Bessel 경계 정합과 비교했습니다. 논문 벡터/편광·경계·메시와 완전히 동일하다는 주장은 하지 않습니다.',
-        '- Figure 2의 간격 증가 → κ 감소 경향을 재현했습니다. 그래프를 정밀 디지타이즈하지 않았고 원시 β/κ 표가 없어 **논문 COMSOL 대비 정밀 오차율은 미산출**입니다.','',
+        '- Figure 2의 간격 증가 → κ 감소 경향을 재현했습니다. 원시 β/κ 표가 없어 **논문 COMSOL 대비 정밀 오차율은 미산출**입니다.','',
         table(['h (µm)','κ (1/m)','Lc (mm)','독립 스칼라 κ 오차 (%)'],[[r['h_um'],f"{r['kappa_per_m']:.9f}",f"{r['Lc_mm']:.9f}",f"{r['kappa_error_pct']:.6g}"] for r in mc['mesh']]),'',
         table(['Δ 가정','n_core','κ (1/m)','기본 가정 대비 κ 차이 (%)'],[[r['convention'],f"{r['n_core']:.12f}",f"{r['kappa_per_m']:.9f}",f"{r['kappa_difference_from_primary_pct']:.6g}"] for r in mc['delta_sensitivity']]),'',
         '**경계 영향 추가 확인:** L=40 µm에서 h를 줄여도 오차가 약 0.0086%에 머물렀습니다. 같은 h=0.35 µm로 L을 48/56/64 µm까지 늘려 독립 기준에 접근하는지 확인했습니다. 아래는 메시 세분화와 별도로 수행한 계산영역 확대 결과입니다. 기존 UI의 영역 제한은 변경하지 않았습니다.','',
@@ -254,17 +254,25 @@ def main():
         table(['검사','통과'],[[x['name'],str(x['passed'])] for x in CHECKS])]
     if graph:
         report+=['','## 논문 MCF 그림 수치 추출 검토','',
-            '원시 COMSOL 수치표가 없어 Figure 2(a)의 녹색 FEM 곡선을 이미지 좌표로 추출했습니다. 축 보정과 원본 PDF 해시는 mcf_graph_estimates.json에 기록합니다. 그림 오차는 근사값이며 모델/Δ 정의/편광 차이를 포함한 엄밀한 수치 오차가 아닙니다.','',
+            '원시 COMSOL 수치표가 없어 Figure 2(a)의 빨간 FEM 곡선을 이미지 좌표로 추출했습니다. 축 보정과 원본 PDF 해시는 mcf_graph_estimates.json에 기록합니다. 그림 오차는 근사값이며 모델/Δ 정의/편광 차이를 포함한 엄밀한 수치 오차가 아닙니다.','',
             '추출 상태: '+graph.get('status','unknown')]
         if graph.get('status')=='estimated':
             report+=['',table(['가장자리 간격 (µm)','그림 κ 근사 (1/m)','이미지 좌표 불확실도 (±1/m)'],[[r['gap_um'],f"{r['kappa_estimate_per_m']:.3f}",f"{r['raster_uncertainty_per_m']:.3f}"] for r in graph['samples']]),
                 '','![논문 Figure 2a 확인용 발췌](mcf_published_figure2a.png)','Zhao, Ren, Yin & Wang (2021), DOI 10.4236/opj.2021.118029, Figure 2(a), CC BY 4.0. 확인을 위한 그림 발췌·크롭이며 수치 추정은 이번 코드에서 수행했습니다.']
             p=next(r for r in graph['samples'] if r['gap_um']==2)
             diff=pct(mc['extended_domain'][-1]['kappa_per_m'],p['kappa_estimate_per_m'])
+            data['MCF']['published_curve_comparison']=dict(
+                approximate_reference_per_m=p['kappa_estimate_per_m'],
+                raster_uncertainty_per_m=p['raster_uncertainty_per_m'],
+                FEM_per_m=mc['extended_domain'][-1]['kappa_per_m'],
+                nominal_difference_pct=diff,
+                within_raster_interval=abs(mc['extended_domain'][-1]['kappa_per_m']-p['kappa_estimate_per_m'])<=p['raster_uncertainty_per_m'],
+                raw_COMSOL_error=False)
             report+=['',f"dg=2 µm: 현재 스칼라 κ={mc['extended_domain'][-1]['kappa_per_m']:.6f} /m, 그림 κ≈{p['kappa_estimate_per_m']:.3f}±{p['raster_uncertainty_per_m']:.3f} /m. 명목 상대 차이는 약 {diff:.3f}%입니다.",
                 '**이 값은 그림 추출·축 가정이 맞는지 확인한 후 읽어야 합니다. 큰 차이가 남으면 재현 일치로 판정하지 않으며, Δ 정의·기하/편광·원문 수치 확보가 필요합니다. 독립 스칼라 FEM 오차가 작다는 이유로 논문과의 불일치를 덮지 않습니다.**']
         else:report+=['','자동 그림 추출을 완료하지 못했습니다. 원인: '+graph.get('error','unknown')+'; 정밀 논문 오차율은 미산출입니다.']
     (OUT/'COMPARISON_REPORT.md').write_text('\n'.join(report)+'\n',encoding='utf-8')
+    (OUT/'comparison.json').write_text(json.dumps(data,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     print('COMPARISON_SUMMARY '+json.dumps(dict(metadata=data['metadata'],summary=summary,M7_vector=m7['vector_characteristic_reference'],MCF_delta_sensitivity=mc['delta_sensitivity'],checks=CHECKS),ensure_ascii=False),flush=True)
     if not all(c['passed'] for c in CHECKS):raise SystemExit('Declared acceptance checks failed; outputs retained.')
 if __name__=='__main__':main()

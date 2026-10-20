@@ -2,10 +2,10 @@
 
 이 실행의 Python FEM 결과로 자동 생성했습니다. **COMSOL 소프트웨어를 실행하지 않았습니다.** 해석식·독립 기준 오차를 COMSOL 실측 오차로 표시하지 않습니다.
 
-- 실행 UTC: 2026-10-20T21:46:12.592486+00:00
-- 소스 커밋: 1f0bf6ff4f03d40c5d76ce800602e5afb0b10da4
-- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/39502888769
-- 검사 결과: 22/22 통과
+- 실행 UTC: 2026-10-20T21:48:54.746180+00:00
+- 소스 커밋: 705eff27821c05431131bf2025170f4d4f6bcd24
+- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/39503147864
+- 검사 결과: 24/24 통과
 
 ## 핵심 수치
 
@@ -13,7 +13,7 @@
 | --- | --- | --- | --- |
 | M1 TE0 | 1.40290981847 | published analytical equation; not COMSOL export | 1.75736e-06 (absolute neff) |
 | M7 LP01 | 1.44440184303 | independent scalar circular equation | 1.37502e-09 (absolute neff) |
-| MCF | 1506.48144838 | independent scalar multipole; not published COMSOL | 0.00863093 (relative percent) |
+| MCF | 1506.35165 | independent scalar multipole; not published COMSOL | 1.41858e-05 (relative percent) |
 | HCF | 0.999487812283 | published capillary approximation; not full COMSOL | 1.70787e-10 (absolute neff) |
 
 ## M1 슬랩
@@ -65,7 +65,7 @@ P1의 a=3.5 µm, n_clad=1.444, λ=1550 nm, 상대 Δ=0.25%, 가장자리 간격 
 
 | h (µm) | κ (1/m) | Lc (mm) | 독립 스칼라 κ 오차 (%) |
 | --- | --- | --- | --- |
-| 1.0 | 1506.484263521 | 1.042690166 | 0.00881781 |
+| 1.0 | 1506.484263520 | 1.042690166 | 0.00881781 |
 | 0.7 | 1506.481892933 | 1.042691807 | 0.00866044 |
 | 0.5 | 1506.481253767 | 1.042692249 | 0.00861801 |
 | 0.35 | 1506.481448380 | 1.042692114 | 0.00863093 |
@@ -75,6 +75,14 @@ P1의 a=3.5 µm, n_clad=1.444, λ=1550 nm, 상대 Δ=0.25%, 가장자리 간격 
 | squared_index_primary | 1.447623594154 | 1506.351436314 | 0 |
 | linear_relative_to_cladding | 1.447610000000 | 1504.823255937 | 0.101449 |
 | linear_relative_to_core | 1.447619047619 | 1505.845012446 | 0.0336192 |
+
+**경계 영향 추가 확인:** L=40 µm에서 h를 줄여도 오차가 약 0.0086%에 머물렀습니다. 같은 h=0.35 µm로 L을 48/56/64 µm까지 늘려 독립 기준에 접근하는지 확인했습니다. 아래는 메시 세분화와 별도로 수행한 계산영역 확대 결과입니다. 기존 UI의 영역 제한은 변경하지 않았습니다.
+
+| L (µm) | h (µm) | κ (1/m) | Lc (mm) | 독립 스칼라 κ 오차 (%) |
+| --- | --- | --- | --- | --- |
+| 48.0 | 0.35 | 1506.367087813 | 1.042771274 | 0.00103903 |
+| 56.0 | 0.35 | 1506.353329254 | 1.042780798 | 0.000125664 |
+| 64.0 | 0.35 | 1506.351650002 | 1.042781961 | 1.41858e-05 |
 
 ![MCF 간격 변화](mcf_gap.svg)
 
@@ -122,6 +130,8 @@ H1 Eq.(1)의 모세관 근사 neff=sqrt(n_gas²−(u01·λ/(2πR))²)를 기준�
 | M7 vector matches printed rounding interval (assumed nearest) | True |
 | M7 vector characteristic residual <1e-10 | True |
 | M7 R40->48 neff change <1e-9 | True |
+| MCF expanded L56->64 kappa change <0.001% | True |
+| MCF expanded L64 kappa error <0.001% | True |
 | MCF angular order8->10 kappa change <0.01% | True |
 | MCF finest scalar kappa error <0.1% | True |
 | MCF L36->40 kappa change <0.1% | True |
@@ -130,3 +140,11 @@ H1 Eq.(1)의 모세관 근사 neff=sqrt(n_gas²−(u01·λ/(2πR))²)를 기준�
 | HCF N640 Aeff error <0.0001% | True |
 | HCF N640 D error <0.0001% | True |
 | HCF mesh neff error decreases | True |
+
+## 논문 MCF 그림 수치 추출 검토
+
+원시 COMSOL 수치표가 없어 Figure 2(a)의 녹색 FEM 곡선을 이미지 좌표로 추출했습니다. 축 보정과 원본 PDF 해시는 mcf_graph_estimates.json에 기록합니다. 그림 오차는 근사값이며 모델/Δ 정의/편광 차이를 포함한 엄밀한 수치 오차가 아닙니다.
+
+추출 상태: unavailable
+
+자동 그림 추출을 완료하지 못했습니다. 원인: Insufficient green curve pixels; 정밀 논문 오차율은 미산출입니다.

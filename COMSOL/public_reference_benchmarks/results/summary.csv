@@ -1,5 +1,5 @@
 ﻿case,value,metric,reference_kind,error,error_unit
-M1 TE0,1.402909818469644,neff,published analytical equation; not COMSOL export,1.7573561532646664e-06,absolute neff
-M7 LP01,1.4444018430341945,neff,independent scalar circular equation,1.3750187655148238e-09,absolute neff
-MCF,1506.481448380482,kappa 1/m,independent scalar multipole; not published COMSOL,0.008630925251973242,relative percent
+M1 TE0,1.4029098184696438,neff,published analytical equation; not COMSOL export,1.757356153486711e-06,absolute neff
+M7 LP01,1.4444018430341943,neff,independent scalar circular equation,1.3750189875594288e-09,absolute neff
+MCF,1506.3516500019582,kappa 1/m,independent scalar multipole; not published COMSOL,1.4185798295965496e-05,relative percent
 HCF,0.9994878122828983,neff,published capillary approximation; not full COMSOL,1.7078694014571738e-10,absolute neff

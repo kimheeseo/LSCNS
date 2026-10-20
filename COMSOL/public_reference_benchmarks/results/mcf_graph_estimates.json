@@ -9,5 +9,7 @@
     "kappa_max_per_m": 1600
   },
   "status": "unavailable",
-  "error": "HTTP Error 403: Forbidden"
+  "retrieved_url": "https://content.scirp.org/pdf/opj_2021082710523279.pdf",
+  "source_pdf_sha256": "b82f0faf6b0036fe2be9f49fb967c2ca320b664e8e2b6169e45feb18bdec82d9",
+  "error": "Insufficient green curve pixels"
 }

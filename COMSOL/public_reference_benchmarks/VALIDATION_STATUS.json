@@ -1,0 +1,42 @@
+{
+  "date_kst": "2026-10-21",
+  "scope": "Reproduction of public parameters/equations; existing solvers; no direct COMSOL execution",
+  "latest_completed_numerical_run": "https://github.com/kimheeseo/LSCNS/actions/runs/39503951722",
+  "tested_source_commit": "57d6805103243fb584d8118d3141264db11bca29",
+  "checks_passed": 24,
+  "checks_total": 24,
+  "M1": {
+    "status": "verified_against_public_analytical_equations",
+    "neff_error_absolute": 0.000001757356153486711,
+    "port_propagation_validated": false
+  },
+  "M7": {
+    "status": "consistent_with_printed_COMSOL_neff_precision",
+    "published_neff": 1.4444,
+    "FEM_neff": 1.4444018430341943,
+    "scalar_reference_error_absolute": 1.3750189875594288e-9,
+    "scalar_vector_model_difference_absolute": 0.0000023990022941511313,
+    "precise_COMSOL_error_available": false
+  },
+  "MCF": {
+    "status": "public parameters/trend reproduced and published curve consistent within approximate raster uncertainty",
+    "expanded_domain_kappa_error_pct": 0.000014185798295965496,
+    "reference": "independent scalar multipole, not COMSOL",
+    "unresolved": "raw COMSOL export, exact Delta convention and polarization/model difference",
+    "published_curve_comparison": {
+      "approximate_reference_per_m": 1514.6443514644352,
+      "raster_uncertainty_per_m": 41.84100418410042,
+      "FEM_per_m": 1506.3516500019582,
+      "nominal_difference_pct": 0.5475015606441995,
+      "within_raster_interval": true,
+      "raw_COMSOL_error": false
+    }
+  },
+  "HCF": {
+    "status": "verified_against_public_capillary_approximation",
+    "neff_error_absolute": 1.7078694014571738e-10,
+    "actual_ARF_NANF_COMSOL_loss_comparison": false
+  },
+  "COMSOL_executed": false,
+  "COMSOL_speedup_available": false
+}

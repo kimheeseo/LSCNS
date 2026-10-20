@@ -1,3 +1,5 @@
+> **공개 자료 기반 비교 완료:** [M1·M7·MCF·HCF 결과·오차·한계](public_reference_benchmarks/results/COMPARISON_REPORT.md) · [재현 코드·출처](public_reference_benchmarks/README.md). 공개 COMSOL 예제의 조건과 논문을 재현했으며, COMSOL 프로그램 자체를 실행한 비교는 아닙니다.
+
 > **설치·사용·결과 해석 가이드:** [이 도구로 알 수 있는 것, Windows 설치, 화면 사용 순서, 실제 계산 예시 3개](workbench/USER_GUIDE.md) · [입력 예제 JSON](workbench/examples/README.md)
 
 > **2026-10-20 Workbench UI:** [모델 트리·설정·메시·결과 화면](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [회사 PC에서 실제 Python FEM 실행하기](workbench/README.md). GitHub 화면은 저장 결과 미리보기이며 새 해석은 로컬 Python 앱에서 실행합니다.

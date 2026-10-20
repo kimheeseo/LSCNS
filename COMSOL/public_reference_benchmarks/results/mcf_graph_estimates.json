@@ -1,0 +1,13 @@
+{
+  "source_url": "https://content.scirp.org/pdf/opj_2021082710523279.pdf",
+  "source_locator": "Figure 2(a), printed p.405, PDF page 4",
+  "method": "green FEM curve sampled from raster; not raw numerical COMSOL data",
+  "axis_assumptions": {
+    "gap_min_um": 0,
+    "gap_max_um": 10,
+    "kappa_min_per_m": 0,
+    "kappa_max_per_m": 1600
+  },
+  "status": "unavailable",
+  "error": "HTTP Error 403: Forbidden"
+}

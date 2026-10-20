@@ -1,0 +1,67 @@
+{
+  "inputs": {
+    "model": "hcf",
+    "wavelength_nm": 1550.0,
+    "radius_um": 4.1,
+    "delta_n": 0.005,
+    "outer_um": 28.0,
+    "pitch_um": 16.0,
+    "core_elements": 160,
+    "clad_elements": 640,
+    "mesh_size_um": 0.7,
+    "hcf_radius_um": 15.0,
+    "n_air": 1.00027,
+    "hcf_elements": 320,
+    "derivative_step_nm": 5.0,
+    "sweep_start_nm": 1530.0,
+    "sweep_end_nm": 1625.0,
+    "sweep_points": 7
+  },
+  "action": "solve",
+  "scope": "이상적 J0/Dirichlet 모세관 · 일정 기체 굴절률 · 방사형 P1",
+  "reference_scope": "동일 이상화 스칼라 모델의 독립 기준. 제품·COMSOL 실측 대비 오차 아님.",
+  "warnings": [
+    "유리벽·반공진·PML·복소 neff·구속 손실·굽힘 손실은 계산하지 않습니다."
+  ],
+  "rows": [],
+  "metrics": [
+    {
+      "key": "neff",
+      "label": "유효굴절률",
+      "value": 0.9994878117705694,
+      "unit": "",
+      "reference": 0.9994878124536852,
+      "error": 6.831157861597603e-10,
+      "error_kind": "absolute"
+    },
+    {
+      "key": "aeff",
+      "label": "유효면적",
+      "value": 336.8628143231237,
+      "unit": "µm²",
+      "reference": 336.8630139546181,
+      "error": 5.926192135706465e-05,
+      "error_kind": "relative_pct"
+    },
+    {
+      "key": "D",
+      "label": "분산 D",
+      "value": 3.373170216465917,
+      "unit": "ps/(nm·km)",
+      "reference": 3.3731672647794295,
+      "error": 8.75048954284901e-05,
+      "error_kind": "relative_pct"
+    },
+    {
+      "key": "kt2",
+      "label": "횡방향 고유값 kt²",
+      "value": 0.025703071162932318,
+      "unit": "1/µm²"
+    }
+  ],
+  "details": {
+    "elements": 320,
+    "residual": 1.0759770747917836e-11
+  },
+  "runtime_seconds": 0.4612307548522949
+}

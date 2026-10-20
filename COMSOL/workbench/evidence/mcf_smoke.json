@@ -1,0 +1,79 @@
+{
+  "inputs": {
+    "model": "mcf",
+    "wavelength_nm": 1550.0,
+    "radius_um": 4.1,
+    "delta_n": 0.005,
+    "outer_um": 28.0,
+    "pitch_um": 16.0,
+    "core_elements": 160,
+    "clad_elements": 640,
+    "mesh_size_um": 0.7,
+    "hcf_radius_um": 15.0,
+    "n_air": 1.00027,
+    "hcf_elements": 320,
+    "derivative_step_nm": 5.0,
+    "sweep_start_nm": 1530.0,
+    "sweep_end_nm": 1625.0,
+    "sweep_points": 7
+  },
+  "action": "solve",
+  "scope": "동일 2코어 · 약도파 스칼라 · 곡선 P2 · 1/4 영역 대칭",
+  "reference_scope": "동일 이상화 스칼라 모델의 독립 기준. 제품·COMSOL 실측 대비 오차 아님.",
+  "warnings": [
+    "벡터 편광·PML·임의 형상·실제 제품 굴절률 분포·실측 정확도는 검증 범위 밖입니다.",
+    "동일 직선 2코어의 스칼라 결합이며, 제조 편차·굽힘·랜덤 케이블 누화를 포함하지 않습니다."
+  ],
+  "rows": [],
+  "metrics": [
+    {
+      "key": "neff_even",
+      "label": "짝모드 neff",
+      "value": 1.446140404986981,
+      "unit": "",
+      "reference": 1.4461404299588443,
+      "error": 2.4971863243905545e-08,
+      "error_kind": "absolute"
+    },
+    {
+      "key": "neff_odd",
+      "label": "홀모드 neff",
+      "value": 1.44606756156955,
+      "unit": "",
+      "reference": 1.4460675903559463,
+      "error": 2.87863963777113e-08,
+      "error_kind": "absolute"
+    },
+    {
+      "key": "split",
+      "label": "Δneff",
+      "value": 7.28434174310788e-05,
+      "unit": "",
+      "reference": 7.2839602897945e-05,
+      "error": 0.005236894466805737,
+      "error_kind": "relative_pct"
+    },
+    {
+      "key": "Lc",
+      "label": "결합 길이 Lc",
+      "value": 10.639259212862582,
+      "unit": "mm",
+      "reference": 10.63981637963961,
+      "error": 0.005236620230538233,
+      "error_kind": "relative_pct"
+    },
+    {
+      "key": "kappa",
+      "label": "결합 계수 κ",
+      "value": 147.64151294442055,
+      "unit": "1/m"
+    }
+  ],
+  "details": {
+    "elements": 3921,
+    "dofs": 8004,
+    "residual": 4.576199659382486e-16,
+    "V": 1.9989171400695704
+  },
+  "runtime_seconds": 2.2809531688690186
+}

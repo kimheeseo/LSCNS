@@ -1,0 +1,155 @@
+{
+  "defaults": {
+    "model": "single",
+    "wavelength_nm": 1550.0,
+    "radius_um": 4.1,
+    "delta_n": 0.005,
+    "outer_um": 40.0,
+    "pitch_um": 16.0,
+    "core_elements": 160,
+    "clad_elements": 640,
+    "mesh_size_um": 0.7,
+    "hcf_radius_um": 15.0,
+    "n_air": 1.00027,
+    "hcf_elements": 320,
+    "derivative_step_nm": 5.0,
+    "sweep_start_nm": 1530.0,
+    "sweep_end_nm": 1625.0,
+    "sweep_points": 7
+  },
+  "presets": [
+    {
+      "id": "single",
+      "name": "단일 코어 · 검증 기본값",
+      "values": {
+        "model": "single",
+        "wavelength_nm": 1550.0,
+        "radius_um": 4.1,
+        "delta_n": 0.005,
+        "outer_um": 40.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1530.0,
+        "sweep_end_nm": 1625.0,
+        "sweep_points": 7
+      }
+    },
+    {
+      "id": "g654",
+      "name": "G.654.E 등가 예시 · 실제 단면 아님",
+      "values": {
+        "model": "single",
+        "wavelength_nm": 1550.0,
+        "radius_um": 5.5,
+        "delta_n": 0.0034785793846155,
+        "outer_um": 40.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1530.0,
+        "sweep_end_nm": 1625.0,
+        "sweep_points": 7
+      }
+    },
+    {
+      "id": "g657",
+      "name": "G.657.A1 등가 예시 · 실제 단면 아님",
+      "values": {
+        "model": "single",
+        "wavelength_nm": 1310.0,
+        "radius_um": 4.1,
+        "delta_n": 0.004621529545326,
+        "outer_um": 40.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1290.0,
+        "sweep_end_nm": 1550.0,
+        "sweep_points": 7
+      }
+    },
+    {
+      "id": "scuba125",
+      "name": "SCUBA 125 · 단순 등가/예비 모델",
+      "values": {
+        "model": "single",
+        "wavelength_nm": 1550.0,
+        "radius_um": 5.5,
+        "delta_n": 0.0036378189433495,
+        "outer_um": 40.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1530.0,
+        "sweep_end_nm": 1625.0,
+        "sweep_points": 7
+      },
+      "note": "반경 5.5 µm 가정, 공칭 MFD 12.3 µm로 Δn 보정. Aeff 공칭 125 µm²와 약 5.15% 차이. 제조사 단면·손실 재현 아님."
+    },
+    {
+      "id": "mcf",
+      "name": "2코어 MCF · 곡선 P2",
+      "values": {
+        "model": "mcf",
+        "wavelength_nm": 1550.0,
+        "radius_um": 4.1,
+        "delta_n": 0.005,
+        "outer_um": 32.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1530.0,
+        "sweep_end_nm": 1625.0,
+        "sweep_points": 7
+      }
+    },
+    {
+      "id": "hcf",
+      "name": "HCF · 이상적 모세관 기준",
+      "values": {
+        "model": "hcf",
+        "wavelength_nm": 1550.0,
+        "radius_um": 4.1,
+        "delta_n": 0.005,
+        "outer_um": 40.0,
+        "pitch_um": 16.0,
+        "core_elements": 160,
+        "clad_elements": 640,
+        "mesh_size_um": 0.7,
+        "hcf_radius_um": 15.0,
+        "n_air": 1.00027,
+        "hcf_elements": 320,
+        "derivative_step_nm": 5.0,
+        "sweep_start_nm": 1530.0,
+        "sweep_end_nm": 1625.0,
+        "sweep_points": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "M1": {
+    "parameters": {
+      "n_core": 1.5,
+      "n_clad": 1.0,
+      "width_um": 1.0,
+      "wavelength_um": 1.55,
+      "padding_um": 3.0,
+      "polarization": "TE",
+      "max_modes": 6
+    },
+    "mesh": [
+      {
+        "mode": "TE0",
+        "h_um": 0.04000000000014836,
+        "elements": 175,
+        "dofs": 174,
+        "neff": 1.402799089590116,
+        "reference_neff": 1.4029115758257973,
+        "abs_error": 0.00011248623568138605,
+        "relative_error_pct": 0.008018055992956873,
+        "field_relative_l2_error": 0.0006386951129793148,
+        "runtime_seconds": 0.11059986600000116
+      },
+      {
+        "mode": "TE1",
+        "h_um": 0.04000000000014836,
+        "elements": 175,
+        "dofs": 174,
+        "neff": 1.115726867072224,
+        "reference_neff": 1.116344006843033,
+        "abs_error": 0.0006171397708090165,
+        "relative_error_pct": 0.05528222188017634,
+        "field_relative_l2_error": 0.0028276090751080895,
+        "runtime_seconds": 0.11059986600000116
+      },
+      {
+        "mode": "TE0",
+        "h_um": 0.02000000000007418,
+        "elements": 350,
+        "dofs": 349,
+        "neff": 1.4028834572599296,
+        "reference_neff": 1.4029115758257973,
+        "abs_error": 2.8118565867707446e-05,
+        "relative_error_pct": 0.0020043006524595812,
+        "field_relative_l2_error": 0.00015973991731674505,
+        "runtime_seconds": 0.009142803000003141
+      },
+      {
+        "mode": "TE1",
+        "h_um": 0.02000000000007418,
+        "elements": 350,
+        "dofs": 349,
+        "neff": 1.1161888483019502,
+        "reference_neff": 1.116344006843033,
+        "abs_error": 0.00015515854108283378,
+        "relative_error_pct": 0.01389881077264119,
+        "field_relative_l2_error": 0.0016047938124355227,
+        "runtime_seconds": 0.009142803000003141
+      },
+      {
+        "mode": "TE0",
+        "h_um": 0.010000000000037534,
+        "elements": 700,
+        "dofs": 699,
+        "neff": 1.4029045463674574,
+        "reference_neff": 1.4029115758257973,
+        "abs_error": 7.029458339857797e-06,
+        "relative_error_pct": 0.0005010621097569916,
+        "field_relative_l2_error": 3.9974504611798704e-05,
+        "runtime_seconds": 0.010986432999999352
+      },
+      {
+        "mode": "TE1",
+        "h_um": 0.010000000000037534,
+        "elements": 700,
+        "dofs": 699,
+        "neff": 1.116304450350616,
+        "reference_neff": 1.116344006843033,
+        "abs_error": 3.9556492416936706e-05,
+        "relative_error_pct": 0.00354339631640972,
+        "field_relative_l2_error": 0.0015144682946833723,
+        "runtime_seconds": 0.010986432999999352
+      },
+      {
+        "mode": "TE0",
+        "h_um": 0.005000000000018989,
+        "elements": 1400,
+        "dofs": 1399,
+        "neff": 1.4029098184696438,
+        "reference_neff": 1.4029115758257973,
+        "abs_error": 1.757356153486711e-06,
+        "relative_error_pct": 0.00012526492644073284,
+        "field_relative_l2_error": 1.0135843533891034e-05,
+        "runtime_seconds": 0.016238110000003303
+      },
+      {
+        "mode": "TE1",
+        "h_um": 0.005000000000018989,
+        "elements": 1400,
+        "dofs": 1399,
+        "neff": 1.116333357507628,
+        "reference_neff": 1.116344006843033,
+        "abs_error": 1.0649335405066296e-05,
+        "relative_error_pct": 0.0009539474695781368,
+        "field_relative_l2_error": 0.0015133312914572187,
+        "runtime_seconds": 0.016238110000003303
+      }
+    ],
+    "domain": [
+      {
+        "padding_um": 3.0,
+        "neff_TE0": 1.4029098184696438,
+        "neff_TE1": 1.116333357507628,
+        "runtime_seconds": 0.014676094999998668
+      },
+      {
+        "padding_um": 5.0,
+        "neff_TE0": 1.4029098184738387,
+        "neff_TE1": 1.116334370688722,
+        "runtime_seconds": 0.022072770999997715
+      },
+      {
+        "padding_um": 7.0,
+        "neff_TE0": 1.4029098184738382,
+        "neff_TE1": 1.116334371013434,
+        "runtime_seconds": 0.03147150100000573
+      }
+    ],
+    "reference_kind": "published analytical equations; not raw COMSOL output",
+    "analytic_modes": [
+      {
+        "mode": "TE0",
+        "neff": 1.4029115758257973
+      },
+      {
+        "mode": "TE1",
+        "neff": 1.116344006843033
+      }
+    ],
+    "port_propagation_comparison": false,
+    "documentation_discrepancy": "With full width 1 um, V_half=2.266>pi/2, both TE0/TE1 exist. Official prose says TE0 only; do not use it as mode count oracle."
+  },
+  "M7": {
+    "parameters": {
+      "wavelength_um": 1.55,
+      "n_core": 1.4457,
+      "n_clad": 1.4378,
+      "radius_um": 8,
+      "outer_radius_um": 40,
+      "V": 4.894537730479192
+    },
+    "scalar_reference": {
+      "neff": 1.4444018444092133,
+      "u": 1.9863606571823416,
+      "V": 4.894537730479192
+    },
+    "vector_characteristic_reference": {
+      "neff": 1.4443994454069191,
+      "u": 1.9881943903088044,
+      "V": 4.894537730479192,
+      "characteristic_relative_residual": 2.89874379599566e-16
+    },
+    "published_comsol_neff_rounded": 1.4444,
+    "published_comsol_precision": "four decimal places; no precise raw COMSOL export retrieved",
+    "finest_fem_to_printed_neff_abs_difference": 1.8430341943709294e-06,
+    "scalar_vector_abs_model_difference": 2.3990022941511313e-06,
+    "scalar_vector_relative_model_difference_pct": 0.00016608994844049385,
+    "mesh": [
+      {
+        "core_elements": 80,
+        "clad_elements": 320,
+        "neff": 1.4444017564278218,
+        "scalar_reference": 1.4444018444092133,
+        "scalar_abs_error": 8.798139150556494e-08,
+        "scalar_relative_error_pct": 6.091199055589059e-06,
+        "Aeff_um2": 143.4896052638308,
+        "MFD_2nd_um": 13.04476659329272,
+        "residual": 2.035491466331536e-15,
+        "runtime_seconds": 0.0037135159999976963
+      },
+      {
+        "core_elements": 160,
+        "clad_elements": 640,
+        "neff": 1.4444018224101047,
+        "scalar_reference": 1.4444018444092133,
+        "scalar_abs_error": 2.199910853484255e-08,
+        "scalar_relative_error_pct": 1.523060124853315e-06,
+        "Aeff_um2": 143.4934745104573,
+        "MFD_2nd_um": 13.044860959519449,
+        "residual": 8.465450854147972e-15,
+        "runtime_seconds": 0.004052737000002082
+      },
+      {
+        "core_elements": 320,
+        "clad_elements": 1280,
+        "neff": 1.4444018389091917,
+        "scalar_reference": 1.4444018444092133,
+        "scalar_abs_error": 5.500021549309508e-09,
+        "scalar_relative_error_pct": 3.8078195279230746e-07,
+        "Aeff_um2": 143.4944415483289,
+        "MFD_2nd_um": 13.04488454687934,
+        "residual": 3.0912794880151025e-14,
+        "runtime_seconds": 0.0057463169999962815
+      },
+      {
+        "core_elements": 640,
+        "clad_elements": 2560,
+        "neff": 1.4444018430341943,
+        "scalar_reference": 1.4444018444092133,
+        "scalar_abs_error": 1.3750189875594288e-09,
+        "scalar_relative_error_pct": 9.519642978037297e-08,
+        "Aeff_um2": 143.49468328707974,
+        "MFD_2nd_um": 13.044890443348752,
+        "residual": 1.2927899696684629e-13,
+        "runtime_seconds": 0.00854909000000248
+      }
+    ],
+    "domain": [
+      {
+        "outer_radius_um": 32.0,
+        "clad_elements": 1920,
+        "neff": 1.444401843034193,
+        "runtime_seconds": 0.007195483000003833
+      },
+      {
+        "outer_radius_um": 40.0,
+        "clad_elements": 2560,
+        "neff": 1.4444018430341943,
+        "runtime_seconds": 0.008440127000000075
+      },
+      {
+        "outer_radius_um": 48.0,
+        "clad_elements": 3200,
+        "neff": 1.444401843034195,
+        "runtime_seconds": 0.008927784000000827
+      }
+    ],
+    "production_ui_range_changed": false
+  },
+  "MCF": {
+    "parameters": {
+      "n_clad": 1.444,
+      "n_core": 1.4476235941541429,
+      "delta_n": 0.0036235941541429284,
+      "relative_delta": 0.0025,
+      "radius_um": 3.5,
+      "gap_um": 2,
+      "pitch_um": 9,
+      "wavelength_um": 1.55,
+      "V": 1.4523017797225861
+    },
+    "independent_reference": [
+      {
+        "n_even": 1.445072930935166,
+        "n_odd": 1.4443297267805346,
+        "index_split": 0.0007432041546313606,
+        "coupling_length_mm": 1.0427821146726644,
+        "order": 6,
+        "angular_samples": 512,
+        "boundary_relative_singular": [
+          1.2048684724274701e-14,
+          9.761547407831006e-15
+        ],
+        "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
+        "kappa_per_m": 1506.3514272950292,
+        "runtime_seconds": 1.6638597130000008
+      },
+      {
+        "n_even": 1.4450729309419295,
+        "n_odd": 1.4443297267829196,
+        "index_split": 0.0007432041590098581,
+        "coupling_length_mm": 1.0427821085292395,
+        "order": 8,
+        "angular_samples": 512,
+        "boundary_relative_singular": [
+          1.982554015640643e-14,
+          3.957807065637025e-14
+        ],
+        "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
+        "kappa_per_m": 1506.3514361695165,
+        "runtime_seconds": 2.163725189999994
+      },
+      {
+        "n_even": 1.4450729309420203,
+        "n_odd": 1.4443297267829391,
+        "index_split": 0.0007432041590811345,
+        "coupling_length_mm": 1.0427821084292324,
+        "order": 10,
+        "angular_samples": 512,
+        "boundary_relative_singular": [
+          6.600838867218293e-15,
+          2.7914025494924155e-14
+        ],
+        "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
+        "kappa_per_m": 1506.3514363139818,
+        "runtime_seconds": 2.6931357039999995
+      }
+    ],
+    "mesh": [
+      {
+        "h_um": 1.0,
+        "elements": 3810,
+        "dofs": 7781,
+        "n_even": 1.4450728899215073,
+        "n_odd": 1.4443296202280962,
+        "split": 0.0007432696934110972,
+        "kappa_per_m": 1506.4842635201553,
+        "Lc_mm": 1.0426901659924845,
+        "kappa_reference_per_m": 1506.3514363139818,
+        "kappa_error_pct": 0.008817809906200505,
+        "Lc_error_pct": 0.008817032437036266,
+        "runtime_seconds": 0.2896473950000029
+      },
+      {
+        "h_um": 0.7,
+        "elements": 7840,
+        "dofs": 15913,
+        "n_even": 1.445072917583641,
+        "n_odd": 1.4443296490598307,
+        "split": 0.0007432685238102366,
+        "kappa_per_m": 1506.4818929333996,
+        "Lc_mm": 1.0426918067606274,
+        "kappa_reference_per_m": 1506.3514363139818,
+        "kappa_error_pct": 0.008660437151177225,
+        "Lc_error_pct": 0.008659687184404427,
+        "runtime_seconds": 0.662427976999993
+      },
+      {
+        "h_um": 0.5,
+        "elements": 14948,
+        "dofs": 30217,
+        "n_even": 1.4450729270795712,
+        "n_odd": 1.444329658871113,
+        "split": 0.0007432682084582698,
+        "kappa_per_m": 1506.4812537673208,
+        "Lc_mm": 1.0426922491512858,
+        "kappa_reference_per_m": 1506.3514363139818,
+        "kappa_error_pct": 0.008618005746166535,
+        "Lc_error_pct": 0.008617263109925935,
+        "runtime_seconds": 1.5776482309999977
+      },
+      {
+        "h_um": 0.35,
+        "elements": 30822,
+        "dofs": 62105,
+        "n_even": 1.4450729299505054,
+        "n_odd": 1.4443296616460288,
+        "split": 0.0007432683044765742,
+        "kappa_per_m": 1506.481448380482,
+        "Lc_mm": 1.0426921144522259,
+        "kappa_reference_per_m": 1506.3514363139818,
+        "kappa_error_pct": 0.008630925251973242,
+        "Lc_error_pct": 0.008630180387544838,
+        "runtime_seconds": 4.111023016999994
+      }
+    ],
+    "domain": [
+      {
+        "halfwidth_um": 32.0,
+        "kappa_per_m": 1507.455739498702,
+        "Lc_mm": 1.0420182069937645,
+        "runtime_seconds": 0.8778360289999938
+      },
+      {
+        "halfwidth_um": 36.0,
+        "kappa_per_m": 1506.7288652082034,
+        "Lc_mm": 1.0425208961386958,
+        "runtime_seconds": 1.1912065920000003
+      },
+      {
+        "halfwidth_um": 40.0,
+        "kappa_per_m": 1506.4812537673208,
+        "Lc_mm": 1.0426922491512858,
+        "runtime_seconds": 1.564987709999997
+      }
+    ],
+    "gap_sweep": [
+      {
+        "gap_um": 1.0,
+        "pitch_um": 8.0,
+        "kappa_per_m": 1925.0087178760493,
+        "reference_kappa_per_m": 1924.5711962371486,
+        "Lc_mm": 0.8159943963931905,
+        "kappa_error_pct": 0.022733460822659524,
+        "runtime_seconds": 1.5877770929999997
+      },
+      {
+        "gap_um": 2.0,
+        "pitch_um": 9.0,
+        "kappa_per_m": 1506.4812537673208,
+        "reference_kappa_per_m": 1506.3514363139818,
+        "Lc_mm": 1.0426922491512858,
+        "kappa_error_pct": 0.008618005746166535,
+        "runtime_seconds": 1.5817866450000082
+      },
+      {
+        "gap_um": 4.0,
+        "pitch_um": 11.0,
+        "kappa_per_m": 925.8077354099302,
+        "reference_kappa_per_m": 925.775755522162,
+        "Lc_mm": 1.6966766065087777,
+        "kappa_error_pct": 0.0034543881255756728,
+        "runtime_seconds": 1.685894796999989
+      },
+      {
+        "gap_um": 6.0,
+        "pitch_um": 13.0,
+        "kappa_per_m": 576.4119335134071,
+        "reference_kappa_per_m": 576.3952040777198,
+        "Lc_mm": 2.7251280472637203,
+        "kappa_error_pct": 0.002902424511689184,
+        "runtime_seconds": 1.6925202990000088
+      }
+    ],
+    "delta_sensitivity": [
+      {
+        "convention": "squared_index_primary",
+        "n_core": 1.4476235941541429,
+        "delta_n": 0.0036235941541429284,
+        "kappa_per_m": 1506.3514363139818,
+        "Lc_mm": 1.0427821084292324,
+        "kappa_difference_from_primary_pct": 0.0
+      },
+      {
+        "convention": "linear_relative_to_cladding",
+        "n_core": 1.4476099999999998,
+        "delta_n": 0.003609999999999891,
+        "kappa_per_m": 1504.823255937415,
+        "Lc_mm": 1.0438410760846357,
+        "kappa_difference_from_primary_pct": 0.10144912665972458
+      },
+      {
+        "convention": "linear_relative_to_core",
+        "n_core": 1.4476190476190476,
+        "delta_n": 0.003619047619047633,
+        "kappa_per_m": 1505.8450124463177,
+        "Lc_mm": 1.0431328017237727,
+        "kappa_difference_from_primary_pct": 0.03361923754680624
+      }
+    ],
+    "published_comsol_comparison": "parameters/trend only; graph not digitized, no raw beta/kappa",
+    "numerical_comsol_error_pct": null,
+    "polarization_comparison": false
+  },
+  "HCF": {
+    "parameters": {
+      "wavelength_um": 1.55,
+      "radius_um": 15.0,
+      "n_gas_constant": 1.00027
+    },
+    "parameter_origin": "chosen baseline; not the full Kelly et al. fiber geometry",
+    "reference": {
+      "neff": 0.9994878124536852,
+      "kt2": 0.025703048724207925,
+      "Aeff_um2": 336.8630139546181,
+      "D_ps_nm_km": 3.3731672647794286
+    },
+    "reference_kind": "published capillary approximation Eq.(1), exact for current ideal Dirichlet disk",
+    "mesh": [
+      {
+        "elements": 80,
+        "neff": 0.9994878015317833,
+        "neff_abs_error": 1.0921901938409917e-08,
+        "Aeff_um2": 336.859812048165,
+        "Aeff_error_pct": 0.0009505069777549078,
+        "D_ps_nm_km": 3.3732144574097203,
+        "D_error_pct": 0.001399059892000696,
+        "kt2_error_pct": 0.001395781596504452,
+        "runtime_seconds": 0.002940831000003641
+      },
+      {
+        "elements": 160,
+        "neff": 0.9994878097216571,
+        "neff_abs_error": 2.732028159257993e-09,
+        "Aeff_um2": 336.8622149784342,
+        "Aeff_error_pct": 0.00023718133211109128,
+        "D_ps_nm_km": 3.3731790696458193,
+        "D_error_pct": 0.0003499638607871399,
+        "kt2_error_pct": 0.0003491438294610917,
+        "runtime_seconds": 0.0028845150000051945
+      },
+      {
+        "elements": 320,
+        "neff": 0.9994878117705694,
+        "neff_abs_error": 6.831157861597603e-10,
+        "Aeff_um2": 336.8628143231237,
+        "Aeff_error_pct": 5.926192135706465e-05,
+        "D_ps_nm_km": 3.373170216465917,
+        "D_error_pct": 8.750489545482082e-05,
+        "kt2_error_pct": 8.729985548879633e-05,
+        "runtime_seconds": 0.0031428799999986268
+      },
+      {
+        "elements": 640,
+        "neff": 0.9994878122828983,
+        "neff_abs_error": 1.7078694014571738e-10,
+        "Aeff_um2": 336.8629640549433,
+        "Aeff_error_pct": 1.4813046476907269e-05,
+        "D_ps_nm_km": 3.373168002735622,
+        "D_error_pct": 2.1877248756426862e-05,
+        "kt2_error_pct": 2.18259864007628e-05,
+        "runtime_seconds": 0.003565922000007049
+      }
+    ],
+    "radius_sweep": [
+      {
+        "radius_um": 10.0,
+        "neff": 0.9985092159838194,
+        "reference_neff": 0.9985092163684666,
+        "Aeff_um2": 149.71687291330784,
+        "D_ps_nm_km": 7.611964695295458
+      },
+      {
+        "radius_um": 15.0,
+        "neff": 0.9994878122828983,
+        "reference_neff": 0.9994878124536852,
+        "Aeff_um2": 336.8629640549433,
+        "D_ps_nm_km": 3.373168002735622
+      },
+      {
+        "radius_um": 20.0,
+        "neff": 0.999830094704173,
+        "reference_neff": 0.9998300948002077,
+        "Aeff_um2": 598.8674916532314,
+        "D_ps_nm_km": 1.8954589902956767
+      },
+      {
+        "radius_um": 25.0,
+        "neff": 0.999988482904048,
+        "reference_neff": 0.9999884829655005,
+        "Aeff_um2": 935.7304557081767,
+        "D_ps_nm_km": 1.2125174192379369
+      }
+    ],
+    "numerical_comsol_error_pct": null,
+    "confinement_loss_comparison": false,
+    "rejected_comparison": "Official microstructured fiber is silica core with vector modes/PML, not the same HCF geometry."
+  },
+  "metadata": {
+    "executed_utc": "2026-10-20T21:43:24.918367+00:00",
+    "source_commit": "ce632bdb57667a6ebe39b4b7134106f47561015c",
+    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/39502486770",
+    "python": "3.12.15",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "matplotlib": "3.10.8",
+      "scikit-fem": "12.0.2",
+      "gmsh": "4.15.2"
+    },
+    "source_sha256": {
+      "public_reference_benchmarks/run_comparison.py": "ae55ab1b333ab2902993e5ab19344ba693c9ba552c282284de942b8c9add759c",
+      "public_reference_benchmarks/reference_equations.py": "1a6bdce01f336b205695d18cc56eee78896c2547c0fd88237e5429be4b947d41",
+      "public_reference_benchmarks/references.json": "78484da1ae9b718ae8c2eacaeb505ba1901319aa574d7e312b2a6b124d7df60f",
+      "waveoptics_m1/waveoptics/slab.py": "5ac59e742553658ebdb3c654a5e2874bf8b5e664a74800b7381880db4c891c3b",
+      "waveoptics_m1/waveoptics/mesh.py": "a15e1e6a438eff7cb22ec49c6df8195ea667fad82c3bec27320c0bcd123b24dd",
+      "waveoptics_m1/tests/analytic_slab.py": "aa5c74c4a2dd571944f9f263e97f72b7269d080d899d42b4719ec7260a47fb34",
+      "waveoptics_m7/src/fiber_modes.py": "ea33af7093a041cd0e0c10d581e5a2aaa5dfc65eb20c297bdbae763cb4cf2abe",
+      "waveoptics_m7/src/radial_fem.py": "4a0f94fe88e6a1f2fd5cc931319e6fd650b1daf94725515da0850c4005a6b95f",
+      "waveoptics_m8/src/conforming_mcf.py": "5482e76e775bec42c43dcceb867a72febba4cafd5861a02d3fe6177284e824cd",
+      "waveoptics_m8/src/multipole_reference.py": "77f413dbd2d05cc78aae29f3adb5085c61e61233b3131571fc6538e00edd04a3",
+      "waveoptics_m8/src/capillary_fem.py": "a501e437a6c093caedcd063e1b8dba93d382ce0cafefb80b71523c0b0c058d33"
+    },
+    "comsol_executed": false,
+    "comsol_runtime_speedup": null
+  },
+  "checks": [
+    {
+      "name": "M1 mode count h=0.04",
+      "passed": true,
+      "detail": {
+        "fem": 2,
+        "analytic": 2
+      }
+    },
+    {
+      "name": "M1 mode count h=0.02",
+      "passed": true,
+      "detail": {
+        "fem": 2,
+        "analytic": 2
+      }
+    },
+    {
+      "name": "M1 mode count h=0.01",
+      "passed": true,
+      "detail": {
+        "fem": 2,
+        "analytic": 2
+      }
+    },
+    {
+      "name": "M1 mode count h=0.005",
+      "passed": true,
+      "detail": {
+        "fem": 2,
+        "analytic": 2
+      }
+    },
+    {
+      "name": "M1 TE0 finest absolute error <1e-5",
+      "passed": true,
+      "detail": {
+        "mode": "TE0",
+        "h_um": 0.005000000000018989,
+        "elements": 1400,
+        "dofs": 1399,
+        "neff": 1.4029098184696438,
+        "reference_neff": 1.4029115758257973,
+        "abs_error": 1.757356153486711e-06,
+        "relative_error_pct": 0.00012526492644073284,
+        "field_relative_l2_error": 1.0135843533891034e-05,
+        "runtime_seconds": 0.016238110000003303
+      }
+    },
+    {
+      "name": "M1 TE0 field relative L2 <2e-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "M1 TE0 mesh error decreases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "M1 TE0 padding5->7 change <1e-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "M7 weak contrast vector/scalar limit <1e-7",
+      "passed": true,
+      "detail": {
+        "vector": {
+          "neff": 1.4500179609561057,
+          "u": 1.2505362705160887,
+          "V": 1.380653354779706,
+          "characteristic_relative_residual": 1.3330085849371742e-16
+        },
+        "scalar": {
+          "neff": 1.4500179630107373,
+          "u": 1.250520611296817,
+          "V": 1.380653354779706
+        }
+      }
+    },
+    {
+      "name": "M7 finest scalar absolute error <1e-8",
+      "passed": true,
+      "detail": {
+        "core_elements": 640,
+        "clad_elements": 2560,
+        "neff": 1.4444018430341943,
+        "scalar_reference": 1.4444018444092133,
+        "scalar_abs_error": 1.3750189875594288e-09,
+        "scalar_relative_error_pct": 9.519642978037297e-08,
+        "Aeff_um2": 143.49468328707974,
+        "MFD_2nd_um": 13.044890443348752,
+        "residual": 1.2927899696684629e-13,
+        "runtime_seconds": 0.00854909000000248
+      }
+    },
+    {
+      "name": "M7 mesh error decreases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "M7 vector matches printed rounding interval (assumed nearest)",
+      "passed": true,
+      "detail": {
+        "neff": 1.4443994454069191,
+        "u": 1.9881943903088044,
+        "V": 4.894537730479192,
+        "characteristic_relative_residual": 2.89874379599566e-16
+      }
+    },
+    {
+      "name": "M7 vector characteristic residual <1e-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "M7 R40->48 neff change <1e-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "MCF angular order8->10 kappa change <0.01%",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "MCF finest scalar kappa error <0.1%",
+      "passed": true,
+      "detail": {
+        "h_um": 0.35,
+        "elements": 30822,
+        "dofs": 62105,
+        "n_even": 1.4450729299505054,
+        "n_odd": 1.4443296616460288,
+        "split": 0.0007432683044765742,
+        "kappa_per_m": 1506.481448380482,
+        "Lc_mm": 1.0426921144522259,
+        "kappa_reference_per_m": 1506.3514363139818,
+        "kappa_error_pct": 0.008630925251973242,
+        "Lc_error_pct": 0.008630180387544838,
+        "runtime_seconds": 4.111023016999994
+      }
+    },
+    {
+      "name": "MCF L36->40 kappa change <0.1%",
+      "passed": true,
+      "detail": [
+        {
+          "halfwidth_um": 32.0,
+          "kappa_per_m": 1507.455739498702,
+          "Lc_mm": 1.0420182069937645,
+          "runtime_seconds": 0.8778360289999938
+        },
+        {
+          "halfwidth_um": 36.0,
+          "kappa_per_m": 1506.7288652082034,
+          "Lc_mm": 1.0425208961386958,
+          "runtime_seconds": 1.1912065920000003
+        },
+        {
+          "halfwidth_um": 40.0,
+          "kappa_per_m": 1506.4812537673208,
+          "Lc_mm": 1.0426922491512858,
+          "runtime_seconds": 1.564987709999997
+        }
+      ]
+    },
+    {
+      "name": "MCF published trend kappa decreases with edge gap",
+      "passed": true,
+      "detail": [
+        {
+          "gap_um": 1.0,
+          "pitch_um": 8.0,
+          "kappa_per_m": 1925.0087178760493,
+          "reference_kappa_per_m": 1924.5711962371486,
+          "Lc_mm": 0.8159943963931905,
+          "kappa_error_pct": 0.022733460822659524,
+          "runtime_seconds": 1.5877770929999997
+        },
+        {
+          "gap_um": 2.0,
+          "pitch_um": 9.0,
+          "kappa_per_m": 1506.4812537673208,
+          "reference_kappa_per_m": 1506.3514363139818,
+          "Lc_mm": 1.0426922491512858,
+          "kappa_error_pct": 0.008618005746166535,
+          "runtime_seconds": 1.5817866450000082
+        },
+        {
+          "gap_um": 4.0,
+          "pitch_um": 11.0,
+          "kappa_per_m": 925.8077354099302,
+          "reference_kappa_per_m": 925.775755522162,
+          "Lc_mm": 1.6966766065087777,
+          "kappa_error_pct": 0.0034543881255756728,
+          "runtime_seconds": 1.685894796999989
+        },
+        {
+          "gap_um": 6.0,
+          "pitch_um": 13.0,
+          "kappa_per_m": 576.4119335134071,
+          "reference_kappa_per_m": 576.3952040777198,
+          "Lc_mm": 2.7251280472637203,
+          "kappa_error_pct": 0.002902424511689184,
+          "runtime_seconds": 1.6925202990000088
+        }
+      ]
+    },
+    {
+      "name": "HCF N640 neff absolute error <1e-9",
+      "passed": true,
+      "detail": {
+        "elements": 640,
+        "neff": 0.9994878122828983,
+        "neff_abs_error": 1.7078694014571738e-10,
+        "Aeff_um2": 336.8629640549433,
+        "Aeff_error_pct": 1.4813046476907269e-05,
+        "D_ps_nm_km": 3.373168002735622,
+        "D_error_pct": 2.1877248756426862e-05,
+        "kt2_error_pct": 2.18259864007628e-05,
+        "runtime_seconds": 0.003565922000007049
+      }
+    },
+    {
+      "name": "HCF N640 Aeff error <0.0001%",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "HCF N640 D error <0.0001%",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "HCF mesh neff error decreases",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

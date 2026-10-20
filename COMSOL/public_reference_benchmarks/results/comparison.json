@@ -20,7 +20,7 @@
         "abs_error": 0.00011248623568138605,
         "relative_error_pct": 0.008018055992956873,
         "field_relative_l2_error": 0.0006386951129793148,
-        "runtime_seconds": 0.03555521500000225
+        "runtime_seconds": 0.04366729100000555
       },
       {
         "mode": "TE1",
@@ -32,7 +32,7 @@
         "abs_error": 0.0006171397708090165,
         "relative_error_pct": 0.05528222188017634,
         "field_relative_l2_error": 0.0028276090751080895,
-        "runtime_seconds": 0.03555521500000225
+        "runtime_seconds": 0.04366729100000555
       },
       {
         "mode": "TE0",
@@ -44,7 +44,7 @@
         "abs_error": 2.8118565867707446e-05,
         "relative_error_pct": 0.0020043006524595812,
         "field_relative_l2_error": 0.00015973991731674505,
-        "runtime_seconds": 0.009497731000003284
+        "runtime_seconds": 0.009216524999999365
       },
       {
         "mode": "TE1",
@@ -56,7 +56,7 @@
         "abs_error": 0.00015515854108283378,
         "relative_error_pct": 0.01389881077264119,
         "field_relative_l2_error": 0.0016047938124355227,
-        "runtime_seconds": 0.009497731000003284
+        "runtime_seconds": 0.009216524999999365
       },
       {
         "mode": "TE0",
@@ -68,7 +68,7 @@
         "abs_error": 7.029458339857797e-06,
         "relative_error_pct": 0.0005010621097569916,
         "field_relative_l2_error": 3.9974504611798704e-05,
-        "runtime_seconds": 0.011438524999995536
+        "runtime_seconds": 0.011123673000000167
       },
       {
         "mode": "TE1",
@@ -80,7 +80,7 @@
         "abs_error": 3.9556492416936706e-05,
         "relative_error_pct": 0.00354339631640972,
         "field_relative_l2_error": 0.0015144682946833723,
-        "runtime_seconds": 0.011438524999995536
+        "runtime_seconds": 0.011123673000000167
       },
       {
         "mode": "TE0",
@@ -92,7 +92,7 @@
         "abs_error": 1.757356153486711e-06,
         "relative_error_pct": 0.00012526492644073284,
         "field_relative_l2_error": 1.0135843533891034e-05,
-        "runtime_seconds": 0.015258621000000971
+        "runtime_seconds": 0.016459448000006205
       },
       {
         "mode": "TE1",
@@ -104,7 +104,7 @@
         "abs_error": 1.0649335405066296e-05,
         "relative_error_pct": 0.0009539474695781368,
         "field_relative_l2_error": 0.0015133312914572187,
-        "runtime_seconds": 0.015258621000000971
+        "runtime_seconds": 0.016459448000006205
       }
     ],
     "domain": [
@@ -112,19 +112,19 @@
         "padding_um": 3.0,
         "neff_TE0": 1.4029098184696438,
         "neff_TE1": 1.116333357507628,
-        "runtime_seconds": 0.015090637999996659
+        "runtime_seconds": 0.015053774999998382
       },
       {
         "padding_um": 5.0,
         "neff_TE0": 1.4029098184738387,
         "neff_TE1": 1.116334370688722,
-        "runtime_seconds": 0.021818549999998993
+        "runtime_seconds": 0.02234537799999714
       },
       {
         "padding_um": 7.0,
         "neff_TE0": 1.4029098184738382,
         "neff_TE1": 1.116334371013434,
-        "runtime_seconds": 0.03164366899999749
+        "runtime_seconds": 0.031371538999991344
       }
     ],
     "reference_kind": "published analytical equations; not raw COMSOL output",
@@ -177,7 +177,7 @@
         "Aeff_um2": 143.4896052638308,
         "MFD_2nd_um": 13.04476659329272,
         "residual": 2.035491466331536e-15,
-        "runtime_seconds": 0.0036501690000037
+        "runtime_seconds": 0.003965549000000124
       },
       {
         "core_elements": 160,
@@ -189,7 +189,7 @@
         "Aeff_um2": 143.4934745104573,
         "MFD_2nd_um": 13.044860959519449,
         "residual": 8.465450854147972e-15,
-        "runtime_seconds": 0.004183011999998598
+        "runtime_seconds": 0.004193943999993621
       },
       {
         "core_elements": 320,
@@ -201,7 +201,7 @@
         "Aeff_um2": 143.4944415483289,
         "MFD_2nd_um": 13.04488454687934,
         "residual": 3.0912794880151025e-14,
-        "runtime_seconds": 0.005684799000000851
+        "runtime_seconds": 0.0057504789999995864
       },
       {
         "core_elements": 640,
@@ -213,7 +213,7 @@
         "Aeff_um2": 143.49468328707974,
         "MFD_2nd_um": 13.044890443348752,
         "residual": 1.2927899696684629e-13,
-        "runtime_seconds": 0.008482770000000528
+        "runtime_seconds": 0.00869954099999859
       }
     ],
     "domain": [
@@ -221,19 +221,19 @@
         "outer_radius_um": 32.0,
         "clad_elements": 1920,
         "neff": 1.444401843034193,
-        "runtime_seconds": 0.008230681000000573
+        "runtime_seconds": 0.007197126999997749
       },
       {
         "outer_radius_um": 40.0,
         "clad_elements": 2560,
         "neff": 1.4444018430341943,
-        "runtime_seconds": 0.008160499999995352
+        "runtime_seconds": 0.00828846400000316
       },
       {
         "outer_radius_um": 48.0,
         "clad_elements": 3200,
         "neff": 1.444401843034195,
-        "runtime_seconds": 0.009061418000001709
+        "runtime_seconds": 0.009040786999989336
       }
     ],
     "production_ui_range_changed": false
@@ -264,7 +264,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514272950292,
-        "runtime_seconds": 1.6561969100000056
+        "runtime_seconds": 1.6527762679999967
       },
       {
         "n_even": 1.4450729309419295,
@@ -279,7 +279,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514361695165,
-        "runtime_seconds": 2.1598813769999907
+        "runtime_seconds": 2.168285580999992
       },
       {
         "n_even": 1.4450729309420203,
@@ -294,7 +294,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514363139818,
-        "runtime_seconds": 2.689206215000013
+        "runtime_seconds": 2.697899867000004
       }
     ],
     "mesh": [
@@ -310,7 +310,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008817809906200505,
         "Lc_error_pct": 0.008817032437036266,
-        "runtime_seconds": 0.27343520999998816
+        "runtime_seconds": 0.284289283999982
       },
       {
         "h_um": 0.7,
@@ -324,7 +324,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008660437151177225,
         "Lc_error_pct": 0.008659687184404427,
-        "runtime_seconds": 0.6200644309999888
+        "runtime_seconds": 0.6905658119999885
       },
       {
         "h_um": 0.5,
@@ -338,7 +338,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008618005746166535,
         "Lc_error_pct": 0.008617263109925935,
-        "runtime_seconds": 1.5007068000000032
+        "runtime_seconds": 1.62704605899998
       },
       {
         "h_um": 0.35,
@@ -352,7 +352,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008630925251973242,
         "Lc_error_pct": 0.008630180387544838,
-        "runtime_seconds": 3.7529524380000083
+        "runtime_seconds": 4.259103864999986
       }
     ],
     "domain": [
@@ -360,19 +360,19 @@
         "halfwidth_um": 32.0,
         "kappa_per_m": 1507.455739498702,
         "Lc_mm": 1.0420182069937645,
-        "runtime_seconds": 0.7830906650000031
+        "runtime_seconds": 0.8800396789999922
       },
       {
         "halfwidth_um": 36.0,
         "kappa_per_m": 1506.7288652082034,
         "Lc_mm": 1.0425208961386958,
-        "runtime_seconds": 1.1030852909999993
+        "runtime_seconds": 1.2214004089999833
       },
       {
         "halfwidth_um": 40.0,
         "kappa_per_m": 1506.4812537673208,
         "Lc_mm": 1.0426922491512858,
-        "runtime_seconds": 1.4630131979999987
+        "runtime_seconds": 1.624762832000016
       }
     ],
     "gap_sweep": [
@@ -383,7 +383,7 @@
         "reference_kappa_per_m": 1924.5711962371486,
         "Lc_mm": 0.8159943963931905,
         "kappa_error_pct": 0.022733460822659524,
-        "runtime_seconds": 1.481548145000005
+        "runtime_seconds": 1.6374566190000053
       },
       {
         "gap_um": 2.0,
@@ -392,7 +392,7 @@
         "reference_kappa_per_m": 1506.3514363139818,
         "Lc_mm": 1.0426922491512858,
         "kappa_error_pct": 0.008618005746166535,
-        "runtime_seconds": 1.4634308150000095
+        "runtime_seconds": 1.5960511640000163
       },
       {
         "gap_um": 4.0,
@@ -401,7 +401,7 @@
         "reference_kappa_per_m": 925.775755522162,
         "Lc_mm": 1.6966766065087777,
         "kappa_error_pct": 0.0034543881255756728,
-        "runtime_seconds": 1.5582191809999983
+        "runtime_seconds": 1.6665070939999964
       },
       {
         "gap_um": 6.0,
@@ -410,7 +410,7 @@
         "reference_kappa_per_m": 576.3952040777198,
         "Lc_mm": 2.7251280472637203,
         "kappa_error_pct": 0.002902424511689184,
-        "runtime_seconds": 1.5066823089999986
+        "runtime_seconds": 1.6269420670000159
       }
     ],
     "delta_sensitivity": [
@@ -451,7 +451,7 @@
         "Lc_mm": 1.0427712736840853,
         "kappa_error_pct": 0.0010390337191424348,
         "Lc_error_pct": 0.0010390229233402284,
-        "runtime_seconds": 6.546186297999995
+        "runtime_seconds": 7.458368849999999
       },
       {
         "halfwidth_um": 56.0,
@@ -464,7 +464,7 @@
         "Lc_mm": 1.0427807980301584,
         "kappa_error_pct": 0.00012566390525061991,
         "Lc_error_pct": 0.00012566374732791044,
-        "runtime_seconds": 10.792375112000002
+        "runtime_seconds": 12.681541140999997
       },
       {
         "halfwidth_um": 64.0,
@@ -477,7 +477,7 @@
         "Lc_mm": 1.0427819605022868,
         "kappa_error_pct": 1.4185798295965496e-05,
         "Lc_error_pct": 1.418579628342208e-05,
-        "runtime_seconds": 15.679210400999992
+        "runtime_seconds": 18.305467252
       }
     ],
     "published_comsol_comparison": "parameters/trend only; graph not digitized, no raw beta/kappa",
@@ -508,7 +508,7 @@
         "D_ps_nm_km": 3.3732144574097203,
         "D_error_pct": 0.001399059892000696,
         "kt2_error_pct": 0.001395781596504452,
-        "runtime_seconds": 0.0031121949999999288
+        "runtime_seconds": 0.0030504720000124053
       },
       {
         "elements": 160,
@@ -519,7 +519,7 @@
         "D_ps_nm_km": 3.3731790696458193,
         "D_error_pct": 0.0003499638607871399,
         "kt2_error_pct": 0.0003491438294610917,
-        "runtime_seconds": 0.002891613000002735
+        "runtime_seconds": 0.0029110609999918324
       },
       {
         "elements": 320,
@@ -530,7 +530,7 @@
         "D_ps_nm_km": 3.373170216465917,
         "D_error_pct": 8.750489545482082e-05,
         "kt2_error_pct": 8.729985548879633e-05,
-        "runtime_seconds": 0.0031324420000089503
+        "runtime_seconds": 0.0031033010000101058
       },
       {
         "elements": 640,
@@ -541,7 +541,7 @@
         "D_ps_nm_km": 3.373168002735622,
         "D_error_pct": 2.1877248756426862e-05,
         "kt2_error_pct": 2.18259864007628e-05,
-        "runtime_seconds": 0.0035946149999972477
+        "runtime_seconds": 0.0035479919999943377
       }
     ],
     "radius_sweep": [
@@ -579,11 +579,11 @@
     "rejected_comparison": "Official microstructured fiber is silica core with vector modes/PML, not the same HCF geometry."
   },
   "metadata": {
-    "executed_utc": "2026-10-20T21:48:54.746180+00:00",
-    "source_commit": "705eff27821c05431131bf2025170f4d4f6bcd24",
-    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/39503147864",
+    "executed_utc": "2026-10-20T21:51:50.215944+00:00",
+    "source_commit": "7a94d5b562bac1a3a95a0bf355ef4160cdf17a52",
+    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/39503509025",
     "python": "3.12.15",
-    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
     "packages": {
       "numpy": "2.3.5",
       "scipy": "1.17.0",
@@ -653,7 +653,7 @@
         "abs_error": 1.757356153486711e-06,
         "relative_error_pct": 0.00012526492644073284,
         "field_relative_l2_error": 1.0135843533891034e-05,
-        "runtime_seconds": 0.015258621000000971
+        "runtime_seconds": 0.016459448000006205
       }
     },
     {
@@ -701,7 +701,7 @@
         "Aeff_um2": 143.49468328707974,
         "MFD_2nd_um": 13.044890443348752,
         "residual": 1.2927899696684629e-13,
-        "runtime_seconds": 0.008482770000000528
+        "runtime_seconds": 0.00869954099999859
       }
     },
     {
@@ -744,7 +744,7 @@
           "Lc_mm": 1.0427712736840853,
           "kappa_error_pct": 0.0010390337191424348,
           "Lc_error_pct": 0.0010390229233402284,
-          "runtime_seconds": 6.546186297999995
+          "runtime_seconds": 7.458368849999999
         },
         {
           "halfwidth_um": 56.0,
@@ -757,7 +757,7 @@
           "Lc_mm": 1.0427807980301584,
           "kappa_error_pct": 0.00012566390525061991,
           "Lc_error_pct": 0.00012566374732791044,
-          "runtime_seconds": 10.792375112000002
+          "runtime_seconds": 12.681541140999997
         },
         {
           "halfwidth_um": 64.0,
@@ -770,7 +770,7 @@
           "Lc_mm": 1.0427819605022868,
           "kappa_error_pct": 1.4185798295965496e-05,
           "Lc_error_pct": 1.418579628342208e-05,
-          "runtime_seconds": 15.679210400999992
+          "runtime_seconds": 18.305467252
         }
       ]
     },
@@ -788,7 +788,7 @@
         "Lc_mm": 1.0427819605022868,
         "kappa_error_pct": 1.4185798295965496e-05,
         "Lc_error_pct": 1.418579628342208e-05,
-        "runtime_seconds": 15.679210400999992
+        "runtime_seconds": 18.305467252
       }
     },
     {
@@ -811,7 +811,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008630925251973242,
         "Lc_error_pct": 0.008630180387544838,
-        "runtime_seconds": 3.7529524380000083
+        "runtime_seconds": 4.259103864999986
       }
     },
     {
@@ -822,19 +822,19 @@
           "halfwidth_um": 32.0,
           "kappa_per_m": 1507.455739498702,
           "Lc_mm": 1.0420182069937645,
-          "runtime_seconds": 0.7830906650000031
+          "runtime_seconds": 0.8800396789999922
         },
         {
           "halfwidth_um": 36.0,
           "kappa_per_m": 1506.7288652082034,
           "Lc_mm": 1.0425208961386958,
-          "runtime_seconds": 1.1030852909999993
+          "runtime_seconds": 1.2214004089999833
         },
         {
           "halfwidth_um": 40.0,
           "kappa_per_m": 1506.4812537673208,
           "Lc_mm": 1.0426922491512858,
-          "runtime_seconds": 1.4630131979999987
+          "runtime_seconds": 1.624762832000016
         }
       ]
     },
@@ -849,7 +849,7 @@
           "reference_kappa_per_m": 1924.5711962371486,
           "Lc_mm": 0.8159943963931905,
           "kappa_error_pct": 0.022733460822659524,
-          "runtime_seconds": 1.481548145000005
+          "runtime_seconds": 1.6374566190000053
         },
         {
           "gap_um": 2.0,
@@ -858,7 +858,7 @@
           "reference_kappa_per_m": 1506.3514363139818,
           "Lc_mm": 1.0426922491512858,
           "kappa_error_pct": 0.008618005746166535,
-          "runtime_seconds": 1.4634308150000095
+          "runtime_seconds": 1.5960511640000163
         },
         {
           "gap_um": 4.0,
@@ -867,7 +867,7 @@
           "reference_kappa_per_m": 925.775755522162,
           "Lc_mm": 1.6966766065087777,
           "kappa_error_pct": 0.0034543881255756728,
-          "runtime_seconds": 1.5582191809999983
+          "runtime_seconds": 1.6665070939999964
         },
         {
           "gap_um": 6.0,
@@ -876,7 +876,7 @@
           "reference_kappa_per_m": 576.3952040777198,
           "Lc_mm": 2.7251280472637203,
           "kappa_error_pct": 0.002902424511689184,
-          "runtime_seconds": 1.5066823089999986
+          "runtime_seconds": 1.6269420670000159
         }
       ]
     },
@@ -892,7 +892,7 @@
         "D_ps_nm_km": 3.373168002735622,
         "D_error_pct": 2.1877248756426862e-05,
         "kt2_error_pct": 2.18259864007628e-05,
-        "runtime_seconds": 0.0035946149999972477
+        "runtime_seconds": 0.0035479919999943377
       }
     },
     {

@@ -2,9 +2,9 @@
 
 이 실행의 Python FEM 결과로 자동 생성했습니다. **COMSOL 소프트웨어를 실행하지 않았습니다.** 해석식·독립 기준 오차를 COMSOL 실측 오차로 표시하지 않습니다.
 
-- 실행 UTC: 2026-10-20T21:48:54.746180+00:00
-- 소스 커밋: 705eff27821c05431131bf2025170f4d4f6bcd24
-- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/39503147864
+- 실행 UTC: 2026-10-20T21:51:50.215944+00:00
+- 소스 커밋: 7a94d5b562bac1a3a95a0bf355ef4160cdf17a52
+- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/39503509025
 - 검사 결과: 24/24 통과
 
 ## 핵심 수치
@@ -147,4 +147,4 @@ H1 Eq.(1)의 모세관 근사 neff=sqrt(n_gas²−(u01·λ/(2πR))²)를 기준�
 
 추출 상태: unavailable
 
-자동 그림 추출을 완료하지 못했습니다. 원인: Insufficient green curve pixels; 정밀 논문 오차율은 미산출입니다.
+자동 그림 추출을 완료하지 못했습니다. 원인: Insufficient green curve pixels; see mcf_plot_inspection.png; 정밀 논문 오차율은 미산출입니다.

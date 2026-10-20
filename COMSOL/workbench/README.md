@@ -9,7 +9,7 @@ GitHub Pages에서는 Python을 실행할 수 없으므로 **저장된 실제 �
 ## Windows에서 시작
 
 1. Python 3.12를 설치합니다.
-2. 위 설치용 소스 ZIP 또는 저장소 전체를 다운로드·압축 해제합니다. `workbench` 폴더만 단독으로 받으면 기존 해석기 경로가 없습니다.
+2. 위 **설치용 소스 ZIP**을 다운로드·압축 해제합니다. 필요한 M7/M8 해석기가 포함되어 있습니다. `workbench` 폴더만 단독으로 받으면 기존 해석기 경로가 없습니다.
 3. `COMSOL/workbench/START_WINDOWS.bat`를 실행합니다. 첫 실행은 가상환경 생성과 공개 Python 의존성 설치를 수행합니다.
 4. 브라우저가 열리면 `Python 엔진 연결됨`을 확인합니다. 기본 주소는 `http://127.0.0.1:8765/`입니다.
 5. 오른쪽에서 입력값을 바꾸고 **모드 해석**을 누릅니다. 종료는 Python 실행 창에서 Ctrl+C입니다.
@@ -17,7 +17,7 @@ GitHub Pages에서는 Python을 실행할 수 없으므로 **저장된 실제 �
 수동 설치 및 실행:
 
 ```powershell
-cd LSCNS
+cd LS_WaveOptics_Workbench_v0.1
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r COMSOL/workbench/requirements.txt
 .\.venv\Scripts\python.exe COMSOL/workbench/launch.py

@@ -86,7 +86,7 @@ def main():
     with WorkbenchServer(('127.0.0.1',args.port)) as server:
         url=f'http://127.0.0.1:{server.server_address[1]}/'
         print('LS Wave Optics Workbench v0.1.0 — '+url,flush=True)
-        print('실제 계산은 이 PC에서 실행합니다. 종료: Ctrl+C',flush=True)
+        print('Local computation. Stop with Ctrl+C.',flush=True)
         if not args.no_browser:webbrowser.open(url)
         try:server.serve_forever()
         except KeyboardInterrupt:pass

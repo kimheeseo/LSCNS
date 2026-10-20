@@ -9,7 +9,7 @@ def build():
     files=[p for p in sorted(ROOT.rglob('*')) if p.is_file() and not set(p.parts)&{'__pycache__','.venv','.pytest_cache'} and p.suffix not in ['.zip','.pyc'] and p.name!='SOURCE_MANIFEST.json']
     files += [COMSOL/p for p in DEPENDENCIES]
     manifest=dict(version='0.1.0',date_kst='2026-10-20',root='COMSOL',files={str(p.relative_to(COMSOL)):{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in files})
-    (ROOT/'SOURCE_MANIFEST.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
+    (ROOT/'SOURCE_MANIFEST.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     files.append(ROOT/'SOURCE_MANIFEST.json')
     package=ROOT/'LS_WaveOptics_Workbench_v0.1.zip'
     prefix='LS_WaveOptics_Workbench_v0.1/'

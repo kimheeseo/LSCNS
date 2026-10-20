@@ -55,7 +55,7 @@ def test_spectral_changes_are_recomputed():
 
 
 def test_catalog_and_default_saved_example():
-    catalog=json.loads((ROOT/'catalog.json').read_text());sample=json.loads((ROOT/'sample_result.json').read_text())
+    catalog=json.loads((ROOT/'catalog.json').read_text(encoding='utf-8'));sample=json.loads((ROOT/'sample_result.json').read_text(encoding='utf-8'))
     assert catalog['defaults']==DEFAULTS==sample['inputs']
     assert all(normalize(p['values'])==p['values'] for p in PRESETS)
     assert sample['action']=='solve'

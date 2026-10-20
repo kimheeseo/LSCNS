@@ -68,20 +68,32 @@ jobs:
         with:
           name: wave-optics-workbench-qa
           path: COMSOL/workbench/evidence
+      - name: Save the exact portable source for Windows verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: wave-optics-workbench-source
+          path: COMSOL/workbench/LS_WaveOptics_Workbench_v0.1.zip
   windows-python:
+    needs: verify
     runs-on: windows-latest
     timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: LS_WaveOptics_Workbench_v0.1
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
       MPLBACKEND: Agg
+      PYTHONUTF8: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
-          sparse-checkout: |
-            COMSOL/workbench
-            COMSOL/waveoptics_m7/src
-            COMSOL/waveoptics_m8/src
+          name: wave-optics-workbench-source
+          path: .
+      - name: Extract the company PC source bundle
+        working-directory: .
+        shell: pwsh
+        run: Expand-Archive -LiteralPath LS_WaveOptics_Workbench_v0.1.zip -DestinationPath .
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -95,4 +107,4 @@ jobs:
         if: always()
         with:
           name: wave-optics-workbench-windows
-          path: COMSOL/workbench/evidence/windows_tests.xml
+          path: LS_WaveOptics_Workbench_v0.1/COMSOL/workbench/evidence/windows_tests.xml

@@ -16,12 +16,12 @@
       "sha256": "8f433f99f076de23f5bd68c152b43caa71e9402b7df698ca09bdd57516fbdf87"
     },
     "workbench/README.md": {
-      "bytes": 7332,
-      "sha256": "c18a143e72f0ad2b4054bde98c2e99c56c8172f561a52688e1e29f7f1c3cfb0a"
+      "bytes": 7391,
+      "sha256": "59ff3f6d0f9665b2594510ca9dfee8b6761095ae000da47c085a750d03797373"
     },
     "workbench/START_WINDOWS.bat": {
-      "bytes": 558,
-      "sha256": "6ea9a236af625f5b5f0c9492ee3d39b36d523e4371d40f1d686ab04beab6d3ef"
+      "bytes": 582,
+      "sha256": "9cb86ab869e4c1a704da8b27e50a7a8932d63c336355b0dd5b4f2f9efe168596"
     },
     "workbench/VALIDATION_REPORT.md": {
       "bytes": 3750,
@@ -61,11 +61,11 @@
     },
     "workbench/evidence/tests.log": {
       "bytes": 99,
-      "sha256": "30954ad302bba789076d7ef0086fd2affedbdd11ac9e3ac7dd8f6dbba29b3cdb"
+      "sha256": "87fd0becffd00afb032e119b6b9051e0b2611cc9f7a5689a4418bd7e153694c1"
     },
     "workbench/evidence/tests.xml": {
       "bytes": 2105,
-      "sha256": "601e5d5203b0eec2768166d6fda94b9842fda8c11dd821dd6796717888904969"
+      "sha256": "88e2c4f0a3e0a4aa4136a3b41441bd1c4ae09fad2ce444b812259a6577e4693a"
     },
     "workbench/evidence/ui_geometry.png": {
       "bytes": 143404,
@@ -92,20 +92,20 @@
       "sha256": "bbe866010a24a0f376ec22d4860aa955c7cee84706fbd041171253eeabdca85b"
     },
     "workbench/launch.py": {
-      "bytes": 6041,
-      "sha256": "c92820b8fbb45956d2002fe443cd3cfea801fe3b7ec3e8495a192bdc342c91ef"
+      "bytes": 6016,
+      "sha256": "1afb1a538baa764e2eb8198410140c7d8f92c488399f12f4f7f5184ce363b819"
     },
     "workbench/package_source.py": {
-      "bytes": 1852,
-      "sha256": "55805db2d872672d8cac0293f2e70d0e752b73458c4954479f96bc638b7a5a07"
+      "bytes": 1869,
+      "sha256": "755e119a2a91ff7dc5d7f1814fb900bc7fe104e9b24149f28feaa4ad1b6226eb"
     },
     "workbench/qa/browser_check.py": {
       "bytes": 6270,
       "sha256": "0813bdf351772f3e3993198e64970b814efa4c14c0cc45bc4a92f16f75104544"
     },
     "workbench/qa/test_workbench.py": {
-      "bytes": 5119,
-      "sha256": "c61a77dd6da86f66234e88a144fe22bb7f92d850e0e58f4ae4d4ee499b8d68a5"
+      "bytes": 5151,
+      "sha256": "4ba1e538d3e280b2f78e500ade157d11c1300d256f2bb7ed06377ebb039b1576"
     },
     "workbench/requirements.txt": {
       "bytes": 133,

@@ -35,10 +35,12 @@ jobs:
       - name: Install fixed numerical dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
+          sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1 poppler-utils
           python -m pip install -r COMSOL/research/requirements.txt
       - name: Check Python syntax
         run: python -m py_compile COMSOL/public_reference_benchmarks/*.py
+      - name: Inspect published MCF curve with documented raster calibration
+        run: python COMSOL/public_reference_benchmarks/digitize_mcf_figure.py
       - name: Recalculate all four reference comparisons
         run: python COMSOL/public_reference_benchmarks/run_comparison.py
       - uses: actions/upload-artifact@v4

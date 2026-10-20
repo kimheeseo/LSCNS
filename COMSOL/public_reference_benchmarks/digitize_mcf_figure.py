@@ -31,10 +31,14 @@ def main():
         out['source_pdf_sha256']=hashlib.sha256(pdf.read_bytes()).hexdigest()
         subprocess.run(['pdftoppm','-f','4','-l','4','-singlefile','-r','180','-png',str(pdf),str(OUT/'mcf_figure_temp')],check=True,capture_output=True)
         image=Image.open(OUT/'mcf_figure_temp.png').convert('RGB');a=np.asarray(image)/255.
-        H,W=a.shape[:2];green=(a[:,:,1]>a[:,:,0]*1.35)&(a[:,:,1]>a[:,:,2]*1.35)&(a[:,:,1]>.15)
+        H,W=a.shape[:2]
+        image.crop((0,0,W,int(.52*H))).save(OUT/'mcf_plot_inspection.png')
+        out['colored_pixels']=int(np.sum(np.max(a,axis=2)-np.min(a,axis=2)>.12))
+        green=(a[:,:,1]>a[:,:,0]*1.35)&(a[:,:,1]>a[:,:,2]*1.35)&(a[:,:,1]>.15)
         region=np.zeros((H,W),bool);region[int(.06*H):int(.46*H),int(.08*W):int(.66*W)]=True
         yy,xx=np.where(green&region)
-        if len(xx)<20:raise RuntimeError('Insufficient green curve pixels')
+        out['green_pixels_in_search_region']=int(len(xx))
+        if len(xx)<20:raise RuntimeError('Insufficient green curve pixels; see mcf_plot_inspection.png')
         dark=np.max(a,axis=2)<.30
         ylo=max(int(.06*H),int(yy.min())-45);yhi=min(int(.46*H),int(yy.max())+60)
         candidates=[]

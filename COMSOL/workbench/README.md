@@ -1,5 +1,7 @@
 # LS Wave Optics Workbench v0.1
 
+**[처음 사용자용 상세 가이드: 알 수 있는 것 → 설치 → 사용법 → 결과 해석](USER_GUIDE.md)** · [불러올 수 있는 예제 모델 3개](examples/README.md) · [Windows/Linux 최종 검증](FINAL_VERIFICATION.md)
+
 회사 PC에서 실행하는 **Python FEM + 브라우저 UI**입니다. 모델 트리 → 기하·재료 → 실제 메시 → 연구 → 결과·오차 확인 순서로 사용합니다. COMSOL 소프트웨어나 COMSOL API를 사용하지 않습니다.
 
 [설치용 소스 ZIP](https://github.com/kimheeseo/LSCNS/raw/refs/heads/main/COMSOL/workbench/LS_WaveOptics_Workbench_v0.1.zip) · [화면 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [전체 소스](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/workbench)
@@ -89,3 +91,7 @@ GitHub Actions는 수치/HTTP 테스트와 Chromium에서 실제 계산·파라�
 
 
 [변경 기록](CHANGELOG.md) · [UI 검증 보고서 및 실제 화면](VALIDATION_REPORT.md)
+
+## 배포본과 최신 문서
+
+설치 ZIP은 Windows/Linux에서 검증한 v0.1 파일 그대로 유지합니다. `SOURCE_MANIFEST.json`은 그 배포 시점의 파일 해시 기록이며, 이후 GitHub에 보완한 README·상세 가이드·예제 모델은 ZIP에 들어 있지 않습니다. 최신 설치·사용법과 재현 예제는 [USER_GUIDE.md](USER_GUIDE.md)를 확인하십시오. 이번 문서 보완은 계산 엔진과 UI 코드를 변경하지 않습니다.

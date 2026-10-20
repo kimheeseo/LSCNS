@@ -1,0 +1,22 @@
+{
+  "format": "ls-wave-optics-model",
+  "version": 1,
+  "inputs": {
+    "model": "single",
+    "wavelength_nm": 1550.0,
+    "radius_um": 4.1,
+    "delta_n": 0.005,
+    "outer_um": 40.0,
+    "pitch_um": 16.0,
+    "core_elements": 160,
+    "clad_elements": 640,
+    "mesh_size_um": 0.7,
+    "hcf_radius_um": 15.0,
+    "n_air": 1.00027,
+    "hcf_elements": 320,
+    "derivative_step_nm": 5.0,
+    "sweep_start_nm": 1530.0,
+    "sweep_end_nm": 1625.0,
+    "sweep_points": 7
+  }
+}

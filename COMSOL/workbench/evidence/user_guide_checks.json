@@ -1,0 +1,52 @@
+{
+  "change_scope": "documentation and model input examples only; solver/UI/package unchanged",
+  "link_check_scope": "full Workbench README, USER_GUIDE, examples README; new links in COMSOL README.md and readme.md",
+  "local_link_targets_checked": 41,
+  "model_examples": [
+    {
+      "model": "single",
+      "format_valid": true,
+      "engine_normalize_valid": true,
+      "archived_inputs_exact_match": true,
+      "reference": "COMSOL/workbench/sample_result.json",
+      "metrics": {
+        "neff": 1.446104734078156,
+        "aeff": 79.29354896768972,
+        "mfd": 10.593815215661113,
+        "mfd_pii": 10.182790450806609,
+        "D": 16.992954906515152
+      }
+    },
+    {
+      "model": "mcf",
+      "format_valid": true,
+      "engine_normalize_valid": true,
+      "archived_inputs_exact_match": true,
+      "reference": "COMSOL/workbench/evidence/mcf_smoke.json",
+      "metrics": {
+        "neff_even": 1.446140404986981,
+        "neff_odd": 1.44606756156955,
+        "split": 7.28434174310788e-05,
+        "Lc": 10.639259212862582,
+        "kappa": 147.64151294442055
+      }
+    },
+    {
+      "model": "hcf",
+      "format_valid": true,
+      "engine_normalize_valid": true,
+      "archived_inputs_exact_match": true,
+      "reference": "COMSOL/workbench/evidence/hcf_smoke.json",
+      "metrics": {
+        "neff": 0.9994878117705694,
+        "aeff": 336.8628143231237,
+        "D": 3.373170216465917,
+        "kt2": 0.025703071162932318
+      }
+    }
+  ],
+  "original_verified_zip_sha256": "9b377497a0626efb3cc62b5f72086f27a0975eef184d57c876167233b966f363",
+  "original_verified_zip_unchanged": true,
+  "solver_tests_rerun": false,
+  "comsol_cross_validation": false
+}

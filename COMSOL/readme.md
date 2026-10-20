@@ -1,3 +1,5 @@
+> **설치·사용·결과 해석 가이드:** [이 도구로 알 수 있는 것, Windows 설치, 화면 사용 순서, 실제 계산 예시 3개](workbench/USER_GUIDE.md) · [입력 예제 JSON](workbench/examples/README.md)
+
 > **2026-10-20 Workbench UI:** [모델 트리·설정·메시·결과 화면](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [회사 PC에서 실제 Python FEM 실행하기](workbench/README.md). GitHub 화면은 저장 결과 미리보기이며 새 해석은 로컬 Python 앱에서 실행합니다.
 
 > **2026-10-20 M8 개선:** [HCF 오차 보고서](waveoptics_m8/HCF_VALIDATION_REPORT.md) · [2코어 MCF 검증](waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md) · [실행 가능한 Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb). 곡선 P2 FEM·독립 기준·메시/영역 수렴을 추가했습니다. HCF는 이상적 모세관 모델 검증입니다.

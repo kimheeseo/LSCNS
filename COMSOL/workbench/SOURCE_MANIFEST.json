@@ -1,0 +1,143 @@
+{
+  "version": "0.1.0",
+  "date_kst": "2026-10-20",
+  "root": "COMSOL",
+  "files": {
+    "workbench/.gitignore": {
+      "bytes": 41,
+      "sha256": "b0b18f5bf7184f205a45032e7a3034fffc852f9c6ad28ae26bb839e2893b5ddd"
+    },
+    "workbench/CHANGELOG.md": {
+      "bytes": 1037,
+      "sha256": "e7a2b65e2a335759933f08e348b80152ca798e6f7d64426b8f48f04a78e6aea1"
+    },
+    "workbench/PROGRESS.md": {
+      "bytes": 791,
+      "sha256": "8f433f99f076de23f5bd68c152b43caa71e9402b7df698ca09bdd57516fbdf87"
+    },
+    "workbench/README.md": {
+      "bytes": 7332,
+      "sha256": "c18a143e72f0ad2b4054bde98c2e99c56c8172f561a52688e1e29f7f1c3cfb0a"
+    },
+    "workbench/START_WINDOWS.bat": {
+      "bytes": 558,
+      "sha256": "6ea9a236af625f5b5f0c9492ee3d39b36d523e4371d40f1d686ab04beab6d3ef"
+    },
+    "workbench/VALIDATION_REPORT.md": {
+      "bytes": 3750,
+      "sha256": "9afbd13b5dcf20b76238e2f2cd32475f9099272d115f4429be4ad8c796fab6dd"
+    },
+    "workbench/app.js": {
+      "bytes": 18295,
+      "sha256": "3050d757e26c60c111dc922dc3940563f36a676ef86098eed50948bcd92e664e"
+    },
+    "workbench/catalog.json": {
+      "bytes": 4118,
+      "sha256": "27bfb12a26f38c05de566a1f79487cbc9b7dda9c35c1bdfdfe3801c321fe58a2"
+    },
+    "workbench/engine.py": {
+      "bytes": 17125,
+      "sha256": "1699d37f849ef03bd54ba59fd5fc44a54fdf8be241bf0744c1f8f3bd4ed06a0f"
+    },
+    "workbench/evidence/browser_qa.json": {
+      "bytes": 605,
+      "sha256": "82267bde977c6f3bb7e195f687e911059cc04aac9c1e64d8652ac3783b7325d8"
+    },
+    "workbench/evidence/bundle_check.json": {
+      "bytes": 155,
+      "sha256": "049693e61dcb55aca666b9e8996edb8c834b1d175e07cdc8794805b6c423a48f"
+    },
+    "workbench/evidence/downloaded_result.csv": {
+      "bytes": 518,
+      "sha256": "6f8940b3704cf993cb95e6d6497d334c142aa6d52d66ca7f022aa6ada2f32157"
+    },
+    "workbench/evidence/hcf_smoke.json": {
+      "bytes": 1763,
+      "sha256": "93864fb89155a8d1076690039d3590b8d2a83d4e138fc0e294f246bd808d5fd0"
+    },
+    "workbench/evidence/mcf_smoke.json": {
+      "bytes": 2170,
+      "sha256": "6fc71c73e023dc88eb0c74d1268a89aaa1b32aa156efca4b435d6dccd2726ac7"
+    },
+    "workbench/evidence/tests.log": {
+      "bytes": 99,
+      "sha256": "30954ad302bba789076d7ef0086fd2affedbdd11ac9e3ac7dd8f6dbba29b3cdb"
+    },
+    "workbench/evidence/tests.xml": {
+      "bytes": 2105,
+      "sha256": "601e5d5203b0eec2768166d6fda94b9842fda8c11dd821dd6796717888904969"
+    },
+    "workbench/evidence/ui_geometry.png": {
+      "bytes": 143404,
+      "sha256": "2e8d55a15eb90be5ff6c33b36c353b5f9ed40504109cf84b2ed7c161f0fae938"
+    },
+    "workbench/evidence/ui_mcf_result.png": {
+      "bytes": 294313,
+      "sha256": "fc04825bbd16c6506115fb28a3191326445a98310230cba4778ae7a486efbfce"
+    },
+    "workbench/evidence/ui_mobile.png": {
+      "bytes": 94659,
+      "sha256": "5f32c5a25c7c048437edd1e19b3cee278d644a77786a40d383d97659775357a7"
+    },
+    "workbench/evidence/ui_single_result.png": {
+      "bytes": 179385,
+      "sha256": "ded8d81552abdba974e31b7e9d953439b76d5e4ccd630cbd90bdcf85ce331c76"
+    },
+    "workbench/evidence/ui_static_preview.png": {
+      "bytes": 186798,
+      "sha256": "fd2e26d9cd95ec9f33f53a6163101046f989734ace28f59a5972bc04c3b44fef"
+    },
+    "workbench/index.html": {
+      "bytes": 11067,
+      "sha256": "bbe866010a24a0f376ec22d4860aa955c7cee84706fbd041171253eeabdca85b"
+    },
+    "workbench/launch.py": {
+      "bytes": 6041,
+      "sha256": "c92820b8fbb45956d2002fe443cd3cfea801fe3b7ec3e8495a192bdc342c91ef"
+    },
+    "workbench/package_source.py": {
+      "bytes": 1852,
+      "sha256": "55805db2d872672d8cac0293f2e70d0e752b73458c4954479f96bc638b7a5a07"
+    },
+    "workbench/qa/browser_check.py": {
+      "bytes": 6270,
+      "sha256": "0813bdf351772f3e3993198e64970b814efa4c14c0cc45bc4a92f16f75104544"
+    },
+    "workbench/qa/test_workbench.py": {
+      "bytes": 5119,
+      "sha256": "c61a77dd6da86f66234e88a144fe22bb7f92d850e0e58f4ae4d4ee499b8d68a5"
+    },
+    "workbench/requirements.txt": {
+      "bytes": 133,
+      "sha256": "5efa6afbce3c24b00c5a96cb12d9f1c7ef72a12ef245f84eff9f474f98c02fb0"
+    },
+    "workbench/sample_result.json": {
+      "bytes": 153733,
+      "sha256": "73c07252fd594b18b166a1f2c9b98f2f06bc72a094f28dbf6996cfd2060cefd7"
+    },
+    "workbench/style.css": {
+      "bytes": 13426,
+      "sha256": "fda5a0fa5de65401be7762d0f6748d48bb57478afc4d06c6b66758434a2a1508"
+    },
+    "waveoptics_m7/src/fiber_modes.py": {
+      "bytes": 7902,
+      "sha256": "ea33af7093a041cd0e0c10d581e5a2aaa5dfc65eb20c297bdbae763cb4cf2abe"
+    },
+    "waveoptics_m7/src/radial_fem.py": {
+      "bytes": 3877,
+      "sha256": "4a0f94fe88e6a1f2fd5cc931319e6fd650b1daf94725515da0850c4005a6b95f"
+    },
+    "waveoptics_m8/src/capillary_fem.py": {
+      "bytes": 2273,
+      "sha256": "a501e437a6c093caedcd063e1b8dba93d382ce0cafefb80b71523c0b0c058d33"
+    },
+    "waveoptics_m8/src/conforming_mcf.py": {
+      "bytes": 5903,
+      "sha256": "5482e76e775bec42c43dcceb867a72febba4cafd5861a02d3fe6177284e824cd"
+    },
+    "waveoptics_m8/src/multipole_reference.py": {
+      "bytes": 3693,
+      "sha256": "77f413dbd2d05cc78aae29f3adb5085c61e61233b3131571fc6538e00edd04a3"
+    }
+  }
+}

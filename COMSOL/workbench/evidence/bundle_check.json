@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "ZIP CRC",
+    "SHA256 manifest",
+    "extracted relative imports",
+    "real HCF solve from extracted bundle"
+  ]
+}

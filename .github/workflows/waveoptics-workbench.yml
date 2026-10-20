@@ -3,11 +3,27 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'COMSOL/workbench/**'
+      - 'COMSOL/workbench/*.py'
+      - 'COMSOL/workbench/*.js'
+      - 'COMSOL/workbench/*.html'
+      - 'COMSOL/workbench/*.css'
+      - 'COMSOL/workbench/catalog.json'
+      - 'COMSOL/workbench/sample_result.json'
+      - 'COMSOL/workbench/requirements.txt'
+      - 'COMSOL/workbench/START_WINDOWS.bat'
+      - 'COMSOL/workbench/qa/**'
       - '.github/workflows/waveoptics-workbench.yml'
   pull_request:
     paths:
-      - 'COMSOL/workbench/**'
+      - 'COMSOL/workbench/*.py'
+      - 'COMSOL/workbench/*.js'
+      - 'COMSOL/workbench/*.html'
+      - 'COMSOL/workbench/*.css'
+      - 'COMSOL/workbench/catalog.json'
+      - 'COMSOL/workbench/sample_result.json'
+      - 'COMSOL/workbench/requirements.txt'
+      - 'COMSOL/workbench/START_WINDOWS.bat'
+      - 'COMSOL/workbench/qa/**'
 permissions:
   contents: read
 concurrency:
@@ -52,3 +68,31 @@ jobs:
         with:
           name: wave-optics-workbench-qa
           path: COMSOL/workbench/evidence
+  windows-python:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            COMSOL/workbench
+            COMSOL/waveoptics_m7/src
+            COMSOL/waveoptics_m8/src
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Windows numerical dependencies
+        run: |
+          python -m pip install -r COMSOL/workbench/requirements.txt
+          python -m pip install pytest==9.1.1
+      - name: Verify Windows solvers and local server worker processes
+        run: python -m pytest COMSOL/workbench/qa/test_workbench.py -q --junitxml=COMSOL/workbench/evidence/windows_tests.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wave-optics-workbench-windows
+          path: COMSOL/workbench/evidence/windows_tests.xml

@@ -93,3 +93,16 @@ def test_http_job_runs_real_fem_in_worker(server):
     neff=r['result']['metrics'][0]
     assert neff['error']<4e-9
     assert r['result']['inputs']['model']=='hcf'
+
+
+def test_fem_petermann_ii_against_bessel_gradient_integral():
+    from engine import compute_one,make_fiber
+    from fiber_modes import lp01_analytic
+    from scipy.integrate import quad
+    from scipy.special import j0,j1,k0,k1
+    c=normalize({});f=make_fiber(c);a=lp01_analytic(f);u,w=a['u'],a['w']
+    I=quad(lambda t:(j0(u*t)/j0(u))**2*t,0,1)[0]+quad(lambda t:(k0(w*t)/k0(w))**2*t,1,np.inf)[0]
+    J=quad(lambda t:(u*j1(u*t)/j0(u))**2*t,0,1)[0]+quad(lambda t:(w*k1(w*t)/k0(w))**2*t,1,np.inf)[0]
+    reference=2*f.radius_um*np.sqrt(2*I/J)
+    actual=next(x['value'] for x in compute_one(c,plots=False,dispersion=False)['metrics'] if x['key']=='mfd_pii')
+    assert actual==pytest.approx(reference,rel=1e-4)

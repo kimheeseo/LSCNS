@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "online engine and geometry",
+    "real single-core solve, oracle error and saved PNG",
+    "changed input hides old plot and disables exports",
+    "model save and reopen",
+    "actual curved P2 mesh and two-core supermodes",
+    "HCF radius change recomputes dispersion; no false domain study",
+    "numerical mesh convergence",
+    "wavelength sweep",
+    "static preview labels saved evidence; never pretends to solve",
+    "mobile layout has no page overflow"
+  ],
+  "js_errors": [],
+  "environment": "GitHub Actions Chromium; actual localhost Python backend"
+}

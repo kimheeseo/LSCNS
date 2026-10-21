@@ -1,0 +1,478 @@
+{
+  "metadata": {
+    "executed_utc": "2026-10-21T01:16:05.755573+00:00",
+    "python": "3.12.14",
+    "reference_url": "https://arxiv.org/pdf/1708.06879v2",
+    "pdf_sha256": "6b45b8848232612d95092290af5a29a3b3c2d969464503ee271e6a09b535c3c6",
+    "solver_source_commit": "a65fc034fdd9c658ce57bfebe6ee47497d5690e3",
+    "solver_url": "https://raw.githubusercontent.com/kimheeseo/LSCNS/a65fc034fdd9c658ce57bfebe6ee47497d5690e3/COMSOL/waveoptics_m8/src/capillary_fem.py",
+    "solver_sha256": "a501e437a6c093caedcd063e1b8dba93d382ce0cafefb80b71523c0b0c058d33",
+    "figure_embedded_size": [
+      2512,
+      465
+    ],
+    "figure_sha256": "70730d46e4513f590a617c80bb89688d0dc9517528067babe4ddf10ecba40d6f",
+    "axes_pixels": {
+      "y_zero": 16.5,
+      "y_minus100": 362.0,
+      "x_ranges": [
+        [
+          6,
+          173.0,
+          921.0,
+          0.048
+        ],
+        [
+          8,
+          968.0,
+          1716.0,
+          0.0608
+        ],
+        [
+          10,
+          1762.0,
+          2510.0,
+          0.0729
+        ]
+      ],
+      "sample_x_halfwidth": 10
+    },
+    "parameters": {
+      "radius_um": 12,
+      "wall_um": 0.2,
+      "gap_um": 1,
+      "n_air_constant": 1.0,
+      "elements": 640
+    },
+    "COMSOL_used_in_this_work": false,
+    "COMSOL_use_in_arxiv_text": "not specified; FEM and PML specified",
+    "interpretation": "different physical models; discrepancies are NOT ARF solver error or product accuracy",
+    "uncertainty": "heuristic raster reading interval, not statistical or total physical uncertainty"
+  },
+  "rows": [
+    {
+      "tubes": 6,
+      "wavelength_um": 0.6,
+      "published_FEM_GVD_estimate_fs2_cm": -3.0390738060781475,
+      "raster_reading_halfwidth_fs2_cm": 2.0260492040520983,
+      "current_capillary_FEM_GVD_fs2_cm": -3.893284297972661,
+      "signed_difference_fs2_cm": -0.8542104918945137,
+      "nominal_absolute_difference_pct": 28.107592852338524,
+      "paper_empirical_GVD_recomputed_fs2_cm": -3.477115919124502,
+      "paper_empirical_neff_recomputed": 0.9998475254241072,
+      "current_capillary_neff": 0.9998168709272212,
+      "pixel_x": 248,
+      "green_pixel_y_min": 24,
+      "green_pixel_y_max": 30
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 0.7,
+      "published_FEM_GVD_estimate_fs2_cm": -5.354558610709117,
+      "raster_reading_halfwidth_fs2_cm": 2.0260492040520983,
+      "current_capillary_FEM_GVD_fs2_cm": -6.183618332929698,
+      "signed_difference_fs2_cm": -0.8290597222205811,
+      "nominal_absolute_difference_pct": 15.48325048795734,
+      "paper_empirical_GVD_recomputed_fs2_cm": -5.690173640695118,
+      "paper_empirical_neff_recomputed": 0.999791373867937,
+      "current_capillary_neff": 0.9997507327404761,
+      "pixel_x": 323,
+      "green_pixel_y_min": 32,
+      "green_pixel_y_max": 38
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 0.8,
+      "published_FEM_GVD_estimate_fs2_cm": -8.538350217076701,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -9.23247159207622,
+      "signed_difference_fs2_cm": -0.6941213749995185,
+      "nominal_absolute_difference_pct": 8.129455425841819,
+      "paper_empirical_GVD_recomputed_fs2_cm": -8.790414688317103,
+      "paper_empirical_neff_recomputed": 0.9997258500627189,
+      "current_capillary_neff": 0.999674414010837,
+      "pixel_x": 397,
+      "green_pixel_y_min": 43,
+      "green_pixel_y_max": 50
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 0.9,
+      "published_FEM_GVD_estimate_fs2_cm": -12.879884225759769,
+      "raster_reading_halfwidth_fs2_cm": 2.3154848046309695,
+      "current_capillary_FEM_GVD_fs2_cm": -13.148865725985704,
+      "signed_difference_fs2_cm": -0.2689815002259355,
+      "nominal_absolute_difference_pct": 2.088384456810353,
+      "paper_empirical_GVD_recomputed_fs2_cm": -13.006328667411026,
+      "paper_empirical_neff_recomputed": 0.9996506265868376,
+      "current_capillary_neff": 0.9995879124064446,
+      "pixel_x": 472,
+      "green_pixel_y_min": 57,
+      "green_pixel_y_max": 65
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 1.0,
+      "published_FEM_GVD_estimate_fs2_cm": -18.66859623733719,
+      "raster_reading_halfwidth_fs2_cm": 1.8813314037626627,
+      "current_capillary_FEM_GVD_fs2_cm": -18.042087811484397,
+      "signed_difference_fs2_cm": 0.6265084258527942,
+      "nominal_absolute_difference_pct": 3.3559482346068283,
+      "paper_empirical_GVD_recomputed_fs2_cm": -18.61358025308869,
+      "paper_empirical_neff_recomputed": 0.9995653233424672,
+      "current_capillary_neff": 0.9994912252834489,
+      "pixel_x": 547,
+      "green_pixel_y_min": 78,
+      "green_pixel_y_max": 83
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 1.1,
+      "published_FEM_GVD_estimate_fs2_cm": -26.193921852387845,
+      "raster_reading_halfwidth_fs2_cm": 2.7496382054992763,
+      "current_capillary_FEM_GVD_fs2_cm": -24.021723982037447,
+      "signed_difference_fs2_cm": 2.1721978703503986,
+      "nominal_absolute_difference_pct": 8.292755405591853,
+      "paper_empirical_GVD_recomputed_fs2_cm": -25.945353492993526,
+      "paper_empirical_neff_recomputed": 0.9994695038785795,
+      "current_capillary_neff": 0.9993843496856042,
+      "pixel_x": 622,
+      "green_pixel_y_min": 102,
+      "green_pixel_y_max": 113
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 1.2,
+      "published_FEM_GVD_estimate_fs2_cm": -35.74529667149059,
+      "raster_reading_halfwidth_fs2_cm": 2.6049204052098407,
+      "current_capillary_FEM_GVD_fs2_cm": -31.197693218565938,
+      "signed_difference_fs2_cm": 4.547603452924655,
+      "nominal_absolute_difference_pct": 12.722242858181929,
+      "paper_empirical_GVD_recomputed_fs2_cm": -35.40462291185651,
+      "paper_empirical_neff_recomputed": 0.9993626710960929,
+      "current_capillary_neff": 0.9992672823438173,
+      "pixel_x": 697,
+      "green_pixel_y_min": 133,
+      "green_pixel_y_max": 143
+    },
+    {
+      "tubes": 6,
+      "wavelength_um": 1.3,
+      "published_FEM_GVD_estimate_fs2_cm": -47.61215629522431,
+      "raster_reading_halfwidth_fs2_cm": 2.894356005788712,
+      "current_capillary_FEM_GVD_fs2_cm": -39.680281319003015,
+      "signed_difference_fs2_cm": 7.931874976221295,
+      "nominal_absolute_difference_pct": 16.65934835431281,
+      "paper_empirical_GVD_recomputed_fs2_cm": -47.47879357113853,
+      "paper_empirical_neff_recomputed": 0.9992442622634257,
+      "current_capillary_neff": 0.9991400196756463,
+      "pixel_x": 771,
+      "green_pixel_y_min": 175,
+      "green_pixel_y_max": 187
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 0.6,
+      "published_FEM_GVD_estimate_fs2_cm": -3.0390738060781475,
+      "raster_reading_halfwidth_fs2_cm": 2.0260492040520983,
+      "current_capillary_FEM_GVD_fs2_cm": -3.893284297972661,
+      "signed_difference_fs2_cm": -0.8542104918945137,
+      "nominal_absolute_difference_pct": 28.107592852338524,
+      "paper_empirical_GVD_recomputed_fs2_cm": -3.5553405810509284,
+      "paper_empirical_neff_recomputed": 0.9998469339603304,
+      "current_capillary_neff": 0.9998168709272212,
+      "pixel_x": 1043,
+      "green_pixel_y_min": 24,
+      "green_pixel_y_max": 30
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 0.7,
+      "published_FEM_GVD_estimate_fs2_cm": -5.354558610709117,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -6.183618332929698,
+      "signed_difference_fs2_cm": -0.8290597222205811,
+      "nominal_absolute_difference_pct": 15.48325048795734,
+      "paper_empirical_GVD_recomputed_fs2_cm": -5.86302694086087,
+      "paper_empirical_neff_recomputed": 0.9997902682819559,
+      "current_capillary_neff": 0.9997507327404761,
+      "pixel_x": 1118,
+      "green_pixel_y_min": 32,
+      "green_pixel_y_max": 39
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 0.8,
+      "published_FEM_GVD_estimate_fs2_cm": -8.827785817655572,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -9.23247159207622,
+      "signed_difference_fs2_cm": -0.40468577442064735,
+      "nominal_absolute_difference_pct": 4.584227379092907,
+      "paper_empirical_GVD_recomputed_fs2_cm": -9.13612805998207,
+      "paper_empirical_neff_recomputed": 0.9997239443884295,
+      "current_capillary_neff": 0.999674414010837,
+      "pixel_x": 1192,
+      "green_pixel_y_min": 43,
+      "green_pixel_y_max": 50
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 0.9,
+      "published_FEM_GVD_estimate_fs2_cm": -13.16931982633864,
+      "raster_reading_halfwidth_fs2_cm": 2.3154848046309695,
+      "current_capillary_FEM_GVD_fs2_cm": -13.148865725985704,
+      "signed_difference_fs2_cm": 0.02045410035293571,
+      "nominal_absolute_difference_pct": 0.15531630048218215,
+      "paper_empirical_GVD_recomputed_fs2_cm": -13.647593968452249,
+      "paper_empirical_neff_recomputed": 0.9996475379652909,
+      "current_capillary_neff": 0.9995879124064446,
+      "pixel_x": 1267,
+      "green_pixel_y_min": 57,
+      "green_pixel_y_max": 65
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 1.0,
+      "published_FEM_GVD_estimate_fs2_cm": -19.247467438494933,
+      "raster_reading_halfwidth_fs2_cm": 1.8813314037626627,
+      "current_capillary_FEM_GVD_fs2_cm": -18.042087811484397,
+      "signed_difference_fs2_cm": 1.2053796270105366,
+      "nominal_absolute_difference_pct": 6.262536257626172,
+      "paper_empirical_GVD_recomputed_fs2_cm": -19.735253624206095,
+      "paper_empirical_neff_recomputed": 0.9995605532639626,
+      "current_capillary_neff": 0.9994912252834489,
+      "pixel_x": 1342,
+      "green_pixel_y_min": 80,
+      "green_pixel_y_max": 85
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 1.1,
+      "published_FEM_GVD_estimate_fs2_cm": -27.35166425470333,
+      "raster_reading_halfwidth_fs2_cm": 2.7496382054992763,
+      "current_capillary_FEM_GVD_fs2_cm": -24.021723982037447,
+      "signed_difference_fs2_cm": 3.3299402726658833,
+      "nominal_absolute_difference_pct": 12.174543536572092,
+      "paper_empirical_GVD_recomputed_fs2_cm": -27.817570504576693,
+      "paper_empirical_neff_recomputed": 0.9994624169113898,
+      "current_capillary_neff": 0.9993843496856042,
+      "pixel_x": 1417,
+      "green_pixel_y_min": 105,
+      "green_pixel_y_max": 116
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 1.2,
+      "published_FEM_GVD_estimate_fs2_cm": -37.19247467438495,
+      "raster_reading_halfwidth_fs2_cm": 2.7496382054992763,
+      "current_capillary_FEM_GVD_fs2_cm": -31.197693218565938,
+      "signed_difference_fs2_cm": 5.994781455819009,
+      "nominal_absolute_difference_pct": 16.11826453685189,
+      "paper_empirical_GVD_recomputed_fs2_cm": -38.41287556241398,
+      "paper_empirical_neff_recomputed": 0.9993524705954298,
+      "current_capillary_neff": 0.9992672823438173,
+      "pixel_x": 1492,
+      "green_pixel_y_min": 142,
+      "green_pixel_y_max": 153
+    },
+    {
+      "tubes": 8,
+      "wavelength_um": 1.3,
+      "published_FEM_GVD_estimate_fs2_cm": -50.36179450072359,
+      "raster_reading_halfwidth_fs2_cm": 3.907380607814761,
+      "current_capillary_FEM_GVD_fs2_cm": -39.680281319003015,
+      "signed_difference_fs2_cm": 10.681513181720575,
+      "nominal_absolute_difference_pct": 21.209556346462406,
+      "paper_empirical_GVD_recomputed_fs2_cm": -52.16297915803858,
+      "paper_empirical_neff_recomputed": 0.9992299624667819,
+      "current_capillary_neff": 0.9991400196756463,
+      "pixel_x": 1566,
+      "green_pixel_y_min": 181,
+      "green_pixel_y_max": 200
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 0.6,
+      "published_FEM_GVD_estimate_fs2_cm": -3.0390738060781475,
+      "raster_reading_halfwidth_fs2_cm": 2.0260492040520983,
+      "current_capillary_FEM_GVD_fs2_cm": -3.893284297972661,
+      "signed_difference_fs2_cm": -0.8542104918945137,
+      "nominal_absolute_difference_pct": 28.107592852338524,
+      "paper_empirical_GVD_recomputed_fs2_cm": -3.630330142850719,
+      "paper_empirical_neff_recomputed": 0.9998463716721767,
+      "current_capillary_neff": 0.9998168709272212,
+      "pixel_x": 1837,
+      "green_pixel_y_min": 24,
+      "green_pixel_y_max": 30
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 0.7,
+      "published_FEM_GVD_estimate_fs2_cm": -5.354558610709117,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -6.183618332929698,
+      "signed_difference_fs2_cm": -0.8290597222205811,
+      "nominal_absolute_difference_pct": 15.48325048795734,
+      "paper_empirical_GVD_recomputed_fs2_cm": -6.029571774608496,
+      "paper_empirical_neff_recomputed": 0.9997892150572362,
+      "current_capillary_neff": 0.9997507327404761,
+      "pixel_x": 1912,
+      "green_pixel_y_min": 32,
+      "green_pixel_y_max": 39
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 0.8,
+      "published_FEM_GVD_estimate_fs2_cm": -8.827785817655572,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -9.23247159207622,
+      "signed_difference_fs2_cm": -0.40468577442064735,
+      "nominal_absolute_difference_pct": 4.584227379092907,
+      "paper_empirical_GVD_recomputed_fs2_cm": -9.471174256102154,
+      "paper_empirical_neff_recomputed": 0.9997221246017975,
+      "current_capillary_neff": 0.999674414010837,
+      "pixel_x": 1986,
+      "green_pixel_y_min": 44,
+      "green_pixel_y_max": 51
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 0.9,
+      "published_FEM_GVD_estimate_fs2_cm": -13.603473227206946,
+      "raster_reading_halfwidth_fs2_cm": 2.3154848046309695,
+      "current_capillary_FEM_GVD_fs2_cm": -13.148865725985704,
+      "signed_difference_fs2_cm": 0.4546075012212416,
+      "nominal_absolute_difference_pct": 3.341848758977425,
+      "paper_empirical_GVD_recomputed_fs2_cm": -14.273199836844324,
+      "paper_empirical_neff_recomputed": 0.9996445804391041,
+      "current_capillary_neff": 0.9995879124064446,
+      "pixel_x": 2061,
+      "green_pixel_y_min": 59,
+      "green_pixel_y_max": 67
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 1.0,
+      "published_FEM_GVD_estimate_fs2_cm": -20.11577424023155,
+      "raster_reading_halfwidth_fs2_cm": 2.170767004341534,
+      "current_capillary_FEM_GVD_fs2_cm": -18.042087811484397,
+      "signed_difference_fs2_cm": 2.073686428747152,
+      "nominal_absolute_difference_pct": 10.308757714131525,
+      "paper_empirical_GVD_recomputed_fs2_cm": -20.83766816144907,
+      "paper_empirical_neff_recomputed": 0.9995559714845382,
+      "current_capillary_neff": 0.9994912252834489,
+      "pixel_x": 2136,
+      "green_pixel_y_min": 82,
+      "green_pixel_y_max": 89
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 1.1,
+      "published_FEM_GVD_estimate_fs2_cm": -29.377713458755427,
+      "raster_reading_halfwidth_fs2_cm": 2.7496382054992763,
+      "current_capillary_FEM_GVD_fs2_cm": -24.021723982037447,
+      "signed_difference_fs2_cm": 5.35598947671798,
+      "nominal_absolute_difference_pct": 18.23147156853263,
+      "paper_empirical_GVD_recomputed_fs2_cm": -29.67278018022479,
+      "paper_empirical_neff_recomputed": 0.9994555861230782,
+      "current_capillary_neff": 0.9993843496856042,
+      "pixel_x": 2211,
+      "green_pixel_y_min": 112,
+      "green_pixel_y_max": 123
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 1.2,
+      "published_FEM_GVD_estimate_fs2_cm": -41.24457308248915,
+      "raster_reading_halfwidth_fs2_cm": 3.0390738060781475,
+      "current_capillary_FEM_GVD_fs2_cm": -31.197693218565938,
+      "signed_difference_fs2_cm": 10.046879863923209,
+      "nominal_absolute_difference_pct": 24.359277143757676,
+      "paper_empirical_GVD_recomputed_fs2_cm": -41.420717030084106,
+      "paper_empirical_neff_recomputed": 0.9993426010852626,
+      "current_capillary_neff": 0.9992672823438173,
+      "pixel_x": 2286,
+      "green_pixel_y_min": 154,
+      "green_pixel_y_max": 167
+    },
+    {
+      "tubes": 10,
+      "wavelength_um": 1.3,
+      "published_FEM_GVD_estimate_fs2_cm": -56.29522431259045,
+      "raster_reading_halfwidth_fs2_cm": 3.61794500723589,
+      "current_capillary_FEM_GVD_fs2_cm": -39.680281319003015,
+      "signed_difference_fs2_cm": 16.614942993587434,
+      "nominal_absolute_difference_pct": 29.51394757986868,
+      "paper_empirical_GVD_recomputed_fs2_cm": -56.892614301536504,
+      "paper_empirical_neff_recomputed": 0.9992160682136153,
+      "current_capillary_neff": 0.9991400196756463,
+      "pixel_x": 2360,
+      "green_pixel_y_min": 203,
+      "green_pixel_y_max": 220
+    }
+  ],
+  "capillary_mesh": [
+    {
+      "elements": 320,
+      "neff": 0.9994912249502494,
+      "D_ps_nm_km": 3.3985029268922777
+    },
+    {
+      "elements": 640,
+      "neff": 0.9994912252834489,
+      "D_ps_nm_km": 3.3985006983626547
+    },
+    {
+      "elements": 1280,
+      "neff": 0.9994912253667537,
+      "D_ps_nm_km": 3.398500141197121
+    }
+  ],
+  "empirical_derivative_checks": [
+    {
+      "f2": 0.048,
+      "step_um": 0.01,
+      "relative_difference": 1.1458622939386487e-09
+    },
+    {
+      "f2": 0.048,
+      "step_um": 0.005,
+      "relative_difference": 8.187404532122855e-09
+    },
+    {
+      "f2": 0.048,
+      "step_um": 0.0025,
+      "relative_difference": 3.7057726998135365e-08
+    },
+    {
+      "f2": 0.0608,
+      "step_um": 0.01,
+      "relative_difference": 3.9447545230331116e-10
+    },
+    {
+      "f2": 0.0608,
+      "step_um": 0.005,
+      "relative_difference": 3.217040189795739e-09
+    },
+    {
+      "f2": 0.0608,
+      "step_um": 0.0025,
+      "relative_difference": 2.7457890294790843e-08
+    },
+    {
+      "f2": 0.0729,
+      "step_um": 0.01,
+      "relative_difference": 6.905298555182071e-11
+    },
+    {
+      "f2": 0.0729,
+      "step_um": 0.005,
+      "relative_difference": 1.4056718011801195e-09
+    },
+    {
+      "f2": 0.0729,
+      "step_um": 0.0025,
+      "relative_difference": 8.972778853255647e-09
+    }
+  ]
+}

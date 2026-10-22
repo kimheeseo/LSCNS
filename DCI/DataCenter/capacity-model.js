@@ -362,6 +362,13 @@
         const layers = Math.max(1, ceil(averageCables * Math.PI * (c('cableDiameterMm') / 2) ** 2 / (numeric('coefficients.trayAreaMm2', 0.0000001) * numeric('coefficients.trayFill', 0.0000001, false, 1))));
         add({network: 'shared', phase: group.phase, tier: 'route', distanceClass: 'row/hall'}, '트레이/덕트 계획 길이', '경로', '공유 경로 · 평균 점유 기반 ' + layers + ' 병렬단면', baseRouteM * layers, 'm', '평균 OD·경로로 산정; 이중 경로 분리·굽힘·국소 점유 검증 필요');
       }
+      if (gpus > 0) {
+        const compute = {network: 'compute', phase: 1, tier: 'compute', distanceClass: 'server'};
+        add(compute, equipment.rackScale ? 'GPU compute tray' : 'GPU server system', 'Compute', equipment.name, servers, equipment.rackScale ? 'tray' : 'server', '장비 프리셋 기반 계획 수량; 서버 OEM·섀시·CPU·메모리·NIC 구성과 SKU는 별도 확인 필요', {computeComponent: 'system'});
+        const model = equipment.gpuModel || 'GPU model not selected';
+        const boardTdp = equipment.gpuBoardPowerW ? ' · board TDP ' + equipment.gpuBoardPowerW + ' W' : '';
+        add(compute, 'GPU accelerator', 'Compute', model + boardTdp, gpus, 'GPU', '설치 계획 수량; GPU 보드 전력은 카드 TDP이며 서버 전체 전력과 다름. BOM·호환성·냉각은 OEM 구성으로 확정 필요', {computeComponent: 'gpu', sourceUrl: equipment.gpuSourceUrl || ''});
+      }
       // CPU가 서버 내부에 포함되더라도, BOM/견적 검토에서 누락되지 않도록
       // 별도 계획 행으로 표시합니다. 정확한 CPU SKU·소켓·TDP는 OEM 확정 전 RFQ입니다.
       const cpuSpec = equipmentId === 'genericCpu' ? 'CPU-only 서버 · CPU SKU 미확정' : '호스트 CPU · OEM/SKU 미확정';

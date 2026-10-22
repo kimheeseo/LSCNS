@@ -6,7 +6,7 @@
   const number = id => $(id).value.trim() === '' ? undefined : Number($(id).value);
   const names = {compute: '컴퓨트/데이터', storage: '스토리지', management: '관리망', dci: '건물 간/DCI', shared: '공유 배선'};
   const labels = {rackKw: '랙당 IT 부하', pue: '목표 PUE', speed: '컴퓨트 링크 속도', oversub: '다운/업 대역폭 비율', gpuPerServer: 'GPU/서버', serverKw: '서버 전력', serverRu: '서버 RU', computePorts: '외부 컴퓨트 포트/기준', computePortBasis: '컴퓨트 포트 기준', storagePorts: '스토리지 포트/서버', managementPorts: '관리 포트/서버', computePowerShare: 'IT 부하 중 compute 비율', usableRackRu: 'Compute 설치 가능 RU', rackLimitRu: '전체 랙 RU', racksPerBlock: '랙/블록', blocksPerHall: '블록/홀', hallsPerBuilding: '홀/건물', buildingDistanceM: '건물 간 경로 거리', rowLengthM: '랙 열 경로 길이', rackDistanceM: '랙 내 평균 경로', hallDistanceM: '홀 내 평균 경로', fabricDistanceM: 'Leaf-Spine 평균 경로', superSpineDistanceM: 'Spine-Super-spine 평균 경로', endpointDistribution: '랙/열/홀 링크 분포', sparePct: '구매 예비품', uncertaintyPct: '계획 수량 범위 ±', slackPct: '배선 여유장', endAllowanceM: '양단 작업 여유장', panelTerminations: '패널당 종단그룹', cableFibers: 'DCI 케이블 심수', fiberReservePct: 'DCI 설치 예비심선', gbpsPerRack: 'DCI 요구 대역폭/랙', wdmChannels: '심선쌍당 WDM 채널', redundancy: '이중화', leafDown: 'Leaf 다운 포트', leafUp: 'Leaf 업 포트', spinePorts: 'Spine 전체 포트', spineUp: 'Spine 코어 예약 포트', coreOversub: '블록 간 오버서브', superSpinePorts: 'Super-spine 포트', minSpines: '블록당 최소 Spine', trayAreaMm2: '트레이 단면적', trayFill: '트레이 점유율', cableDiameterMm: '평균 케이블 외경', racksPerTrayRoute: '공유 트레이 경로당 랙', rackAreaM2: '랙당 IT 면적', siteAreaMultiplier: '총 부지 배수', powerModuleMw: '참고 전력 모듈 용량', coolingModuleKw: '참고 냉각 모듈 용량', airCoolingLimitKw: '공랭 경고 임계값', dacMaxM: 'DAC 최대 선택 길이', aocMaxM: 'AOC 최대 선택 길이', baseTMaxM: '관리망 copper 최대 길이', cpoPortsPerEngine: 'CPO engine당 포트', cpoExternalLasersPerEngine: 'CPO engine당 ELS', topology: '토폴로지', protocol: '프로토콜', cooling: '냉각', assemblySpeeds: 'DAC/AOC 계획 속도 목록', endsPerLink: '링크 양단 수'};
-  let config, overrides = {}, customPresets = {}, active = false, latest, alternativeId = 'base', phaseDefinitions = [], timer, catalogCache, renderToken = 0;
+  let config, overrides = {}, customPresets = {}, active = false, simpleMode = false, latest, alternativeId = 'base', phaseDefinitions = [], timer, catalogCache, renderToken = 0;
   const key = 'dcCapacityDesign.v8';
   function save() {
     try { localStorage.setItem(key, JSON.stringify({active, config, input: readInput(), overrides, customPresets, phases: phaseDefinitions})); } catch (e) { console.warn('Capacity settings not saved', e); }
@@ -33,8 +33,13 @@
   function buildInput() {
     const form = document.querySelector('.formPanel');
     const launch = document.createElement('div'); launch.className = 'cap-launch';
-    launch.innerHTML = '<button type="button" id="capacityButton" aria-expanded="false" aria-controls="capacity-input">용량</button><button type="button" id="capacityLegacy" hidden>기존 장비별 설계</button>';
+    launch.innerHTML = '<button type="button" id="capacitySimpleButton" aria-pressed="false">간편 BOM 계산</button><button type="button" id="capacityButton" aria-expanded="false" aria-controls="capacity-input">상세 용량 설계</button><button type="button" id="capacityLegacy" hidden>기존 장비별 설계</button>';
+    const simple = document.createElement('section'); simple.id = 'capacity-simple'; simple.hidden = true;
+    const gpuOptions = Object.entries(config.equipmentPresets).filter(([, x]) => x.gpuModel).map(([id, x]) => [id, x.name]);
+    simple.innerHTML = '<h3>간편 BOM 입력</h3><div class="cap-fields">' + field('cap-simple-capacity', '요청 용량', 'number', '1024', 'min="1" step="1"') + select('cap-simple-unit', '용량 단위', [['gpu', 'GPU 개수'], ['MW', 'IT 부하 MW']]) + '<label><span>설계 우선순위</span><select id="cap-simple-tier"><option value="high">고성능 · 1:1 패브릭 + InfiniBand · 이중 컴퓨트 패브릭</option><option value="value">가성비 · 2:1 패브릭 + RoCE · 단일 컴퓨트 패브릭</option></select></label><label><span>GPU 종류</span><select id="cap-simple-gpu">' + gpuOptions.map(([id, name]) => '<option value="' + esc(id) + '">' + esc(name) + '</option>').join('') + '</select></label></div><p class="muted">요청한 GPU 또는 IT 용량으로 계획 BOM을 계산합니다. GPU 보드 TDP와 서버 전체 전력은 구분하며, GPU 서버 수·네트워크·케이블은 계획 가정 기반입니다.</p><button type="button" id="cap-simple-run" class="primary">간편 BOM 산출</button><p id="cap-simple-note" class="muted" aria-live="polite"></p>';
     form.querySelector('h2').after(launch);
+    launch.after(simple);
+    if (config.equipmentPresets['nvidia-b200']) $('cap-simple-gpu').value = 'nvidia-b200';
     const section = document.createElement('section'); section.id = 'capacity-input'; section.hidden = true;
     section.innerHTML = '<div class="cap-mode" role="group" aria-label="용량 설계 입력 모드"><button type="button" id="cap-quick" aria-pressed="true">빠른 견적</button><button type="button" id="cap-detail" aria-pressed="false">상세 설계</button></div>' +
       '<div class="cap-fields">' + field('cap-scale', '고객 요구 규모', 'text', 'GPU 10,000개', 'placeholder="15GW / 랙 2,000개, 랙당 10kW"') + select('cap-kind', '입력 단위', [['auto', '문장에서 자동 판별'], ['MW', 'MW'], ['GW', 'GW'], ['gpu', 'GPU 수'], ['racks', '랙 수'], ['servers', '서버 수']]) +
@@ -53,8 +58,12 @@
       '<button type="button" id="cap-run" class="primary">설계안 계산</button><p id="cap-error" class="error" role="alert"></p>';
     launch.after(section);
     fillPowerDefaults(true, true);
-    $('capacityButton').onclick = () => {activate(true); recompute();};
+    $('capacitySimpleButton').onclick = () => {simpleMode = true; activate(true); syncSimpleInputs(); recompute();};
+    $('capacityButton').onclick = () => {simpleMode = false; activate(true); recompute();};
     $('capacityLegacy').onclick = () => activate(false);
+    $('cap-simple-run').onclick = recompute;
+    simple.addEventListener('input', () => {if (simpleMode) {syncSimpleInputs(); clearTimeout(timer); timer = setTimeout(recompute, 180);}});
+    simple.addEventListener('change', () => {if (simpleMode) {syncSimpleInputs(); recompute();}});
     $('cap-run').onclick = recompute;
     $('cap-quick').onclick = () => detailMode(false);
     $('cap-detail').onclick = () => detailMode(true);
@@ -134,6 +143,20 @@
     }).join('');
   }
   function readInput() {return {scaleText: $('cap-scale').value, scaleKind: $('cap-kind').value, powerBasis: $('cap-basis').value, workload: $('cap-workload').value, equipment: $('cap-equipment').value, rackKw: powerInput('cap-rack'), pue: powerInput('cap-pue'), tier: $('cap-tier').value, powerLimitMw: number('cap-power-limit'), siteAreaM2: number('cap-site-area'), buildings: number('cap-buildings'), speed: number('cap-speed'), media: $('cap-media').value, cooling: $('cap-cooling').value || undefined, topology: $('cap-topology').value || undefined, protocol: $('cap-protocol').value || undefined, cpo: $('cap-cpo').checked, budget: $('cap-budget').value, redundancy: Object.fromEntries(['compute', 'storage', 'management', 'dci'].map(k => [k, Number($('cap-dual-' + k).value)])), phases: phaseDefinitions, overrides, customPresets};}
+  function syncSimpleInputs() {
+    const equipment = $('cap-simple-gpu').value, tier = $('cap-simple-tier').value, units = $('cap-simple-unit').value;
+    $('cap-scale').value = $('cap-simple-capacity').value; $('cap-kind').value = units;
+    $('cap-workload').value = tier === 'high' ? 'training' : 'inference'; $('cap-equipment').value = equipment;
+    fillPowerDefaults(true, true);
+    const preset = config.equipmentPresets[equipment];
+    $('cap-speed').value = String(preset.gpuModel === 'NVIDIA B300' ? 800 : 400);
+    $('cap-protocol').value = tier === 'high' ? 'InfiniBand' : 'RoCE';
+    $('cap-topology').value = tier === 'high' ? 'three' : 'two';
+    $('cap-media').value = 'auto'; $('cap-cooling').value = preset.gpuModel === 'AMD Instinct MI355X' || preset.gpuModel === 'NVIDIA B300' ? 'liquid' : '';
+    $('cap-dual-compute').value = tier === 'high' ? '2' : '1';
+    $('cap-dual-storage').value = '1'; $('cap-dual-management').value = '1'; $('cap-dual-dci').value = '1';
+    $('cap-simple-note').textContent = '가속기 보드 TDP ' + fmt(preset.gpuBoardPowerW) + ' W/GPU · 서버 전력 추정은 카드 TDP 합계 + 서버 호스트 2.5 kW 가정 · 전력·랙밀도·NIC/포트는 OEM 확정 전 계획값';
+  }
   function restoreInput(input) {
     $('cap-equipment').innerHTML = options({...config.equipmentPresets, ...customPresets}, input.equipment || 'generic8');
     const mapping = {scaleText: 'scale', scaleKind: 'kind', powerBasis: 'basis', workload: 'workload', equipment: 'equipment', rackKw: 'rack', pue: 'pue', tier: 'tier', powerLimitMw: 'power-limit', siteAreaM2: 'site-area', buildings: 'buildings', speed: 'speed', media: 'media', cooling: 'cooling', topology: 'topology', protocol: 'protocol', budget: 'budget'};
@@ -145,7 +168,8 @@
   }
   function activate(enabled) {
     active = enabled; document.body.classList.toggle('capacity-active', enabled);
-    $('capacityButton').setAttribute('aria-expanded', String(enabled)); $('capacityLegacy').hidden = !enabled; $('capacity-input').hidden = !enabled;
+    document.body.classList.toggle('capacity-quick', enabled && simpleMode);
+    $('capacityButton').setAttribute('aria-expanded', String(enabled && !simpleMode)); $('capacitySimpleButton').setAttribute('aria-pressed', String(enabled && simpleMode)); $('capacityLegacy').hidden = !enabled; $('capacity-input').hidden = !enabled || simpleMode; $('capacity-simple').hidden = !enabled || !simpleMode;
     document.querySelectorAll('#workbench-nav [data-view]').forEach(b => b.disabled = false);
     for (const id of ['result', 'optical', 'power', 'bom', 'evidence']) $('view-' + id)?.classList.add('cap-view');
     let used = $('capacity-assumptions');
@@ -169,7 +193,11 @@
   function recompute() {
     if (!active) return;
     try {
-      latest = M.calculate(readInput(), config); window.DCCapacityDesign = latest;
+      if (simpleMode) syncSimpleInputs();
+      const input = readInput();
+      latest = M.calculate(input, config);
+      if (simpleMode) {const equipment = config.equipmentPresets[input.equipment], high = $('cap-simple-tier').value === 'high'; latest.quickPlan = {mode: high ? '고성능' : '가성비', capacity: $('cap-simple-capacity').value + ' ' + ($('cap-simple-unit').value === 'gpu' ? 'GPU' : 'MW IT'), gpuModel: equipment.gpuModel, cardTdpW: equipment.gpuBoardPowerW, network: high ? '1:1 · InfiniBand · compute fabric 2개' : '2:1 · RoCE · compute fabric 1개', note: '계획 BOM이며 OEM 서버전력·NIC 구성·스위치 SKU·케이블 경로 및 가격은 RFQ/현장 설계 확인 필요'}; }
+      window.DCCapacityDesign = latest;
       if (!latest.alternatives.some(x => x.id === alternativeId)) alternativeId = 'base';
       $('cap-error').textContent = ''; const s = latest.summary;
       $('cap-preview').textContent = fmt(s.itKw / config.units.powerToKw.MW) + ' MW IT · ' + fmt(s.facilityKw / config.units.powerToKw.MW) + ' MW 시설 · ' + fmt(s.racks) + '랙 · ' + fmt(s.servers) + '서버 · ' + fmt(s.gpus) + 'GPU';
@@ -224,7 +252,7 @@
     $('capacity-assumptions').innerHTML = '<div class="cap-heading"><b>이번 계산의 가정</b><span>v' + esc(r.version) + ' · 비용: 산정 불가</span></div><div class="cap-used">' + used.map(x => '<button type="button" data-assumption="' + esc(x.path) + '"><span>' + esc(labels[x.path.split('.').at(-1)] || x.path) + '</span><b>' + esc(typeof x.value === 'object' ? Object.values(x.value).map(fmt).join(' / ') : fmt(x.value)) + ' ' + esc(x.unit) + '</b><small>' + esc(x.origin + ' · ' + x.status) + '</small></button>').join('') + '</div><details><summary>사용된 모든 가정·출처 (' + r.assumptions.length + ')</summary>' + assumptionTable(r.assumptions) + '</details>';
     $('capacity-assumptions').querySelectorAll('[data-assumption]').forEach(b => b.onclick = () => editAssumption(b.dataset.assumption));
     const kpis = [['IT 부하', fmt(s.itKw / config.units.powerToKw.MW) + ' MW'], ['시설 전체 전력', fmt(s.facilityKw / config.units.powerToKw.MW) + ' MW'], ['랙 / 서버', fmt(s.racks) + ' / ' + fmt(s.servers)], ['GPU 수용', fmt(s.gpus)], ['건물 / 홀 / 블록', fmt(s.buildings) + ' / ' + fmt(s.halls) + ' / ' + fmt(s.blocks)], ['포트 / 링크', fmt(s.endpointPorts) + ' / ' + fmt(s.links)]];
-    content('result').innerHTML = '<h2>용량 기반 설계안</h2><div class="cap-kpis">' + kpis.map(([name, v]) => '<div><span>' + esc(name) + '</span><b>' + esc(v) + '</b></div>').join('') + '</div>' +
+    content('result').innerHTML = '<h2>' + (r.quickPlan ? '간편 BOM 계산 결과' : '용량 기반 설계안') + '</h2>' + (r.quickPlan ? '<p class="cap-quick-summary"><b>' + esc(r.quickPlan.mode) + '</b> · ' + esc(r.quickPlan.capacity) + ' · ' + esc(r.quickPlan.gpuModel) + ' · 보드 TDP ' + fmt(r.quickPlan.cardTdpW) + ' W/GPU · ' + esc(r.quickPlan.network) + '</p><p class="muted">' + esc(r.quickPlan.note) + '</p>' : '') + '<div class="cap-kpis">' + kpis.map(([name, v]) => '<div><span>' + esc(name) + '</span><b>' + esc(v) + '</b></div>').join('') + '</div>' +
       '<p>' + esc(config.workloadPresets[r.workload].name) + ' · ' + esc((r.input.customPresets?.[r.equipmentId] || config.equipmentPresets[r.equipmentId]).name) + ' · ' + esc(s.cooling === 'air' ? '공랭' : '액체 냉각') + '</p><p class="muted">IT 부하에는 compute ' + fmt(s.computeKw / config.units.powerToKw.MW) + ' MW와 네트워크·스토리지·여유 ' + fmt(s.otherItKw / config.units.powerToKw.MW) + ' MW가 포함됩니다. 랙 수용 전력 ' + fmt(s.rackCapacityKw / config.units.powerToKw.MW) + ' MW는 요청 전력과 구분됩니다.</p>' +
       rackDiagram(r) + '<h3>설계 대안 비교</h3>' + table(['안', '구매 케이블 assembly/트렁크 조수', '광모듈', '패널', '트레이/덕트 m', '장점', '검토 사항'], r.alternatives.map(x => ['<button type="button" data-alternative="' + x.id + '" aria-pressed="' + (x.id === alternativeId) + '">' + esc(x.name) + '</button>', quantityRange(x.totals.cables), quantityRange(x.totals.transceivers), quantityRange(x.totals.panels), quantityRange(x.totals.trayM), esc(x.pros), esc(x.cons)])) +
       '<p class="muted">수량은 설치량에 예비품을 더한 비교 기준값입니다. 상세 BOM에는 ±범위를 표시합니다. 커넥터 종단과 CPO 참고 수량은 케이블 구매량에 중복 합산하지 않습니다.</p><h3>전력 → 랙 → GPU → 포트 → 링크 → 케이블</h3>' +
@@ -295,7 +323,7 @@
   }
   async function init() {
     try {
-      const response = await fetch(new URL('capacity-design.config.json?v=8.0.0', location.href), {cache: 'no-store'});
+      const response = await fetch(new URL('capacity-design.config.json?v=8.1.0', location.href), {cache: 'no-store'});
       if (!response.ok) throw Error('설정 HTTP ' + response.status);
       config = await response.json();
       let saved; try {saved = JSON.parse(localStorage.getItem(key) || 'null');} catch {}

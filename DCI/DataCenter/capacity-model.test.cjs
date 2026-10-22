@@ -102,3 +102,18 @@ test('15 GW uses bounded block aggregation', () => {
   assert.equal(r.summary.racks, 250000); assert.equal(r.summary.blocks, 7813);
   assert.ok(r.segments.length < 100); assert.ok(performance.now() - t < 5000);
 });
+test('GPU model profiles produce server and accelerator BOM rows', () => {
+  const cases = [['nvidia-h100', 700], ['nvidia-h200', 700], ['nvidia-b200', 1000], ['nvidia-b300', 1400], ['amd-mi350x', 1000], ['amd-mi355x', 1400]];
+  for (const [equipment, tdp] of cases) {
+    const r = run({scaleText: '1024', scaleKind: 'gpu', workload: 'training', equipment});
+    const bom = r.alternatives[0].bom;
+    const gpu = bom.find(x => x.item === 'GPU accelerator');
+    const system = bom.find(x => x.computeComponent === 'system');
+    assert.equal(r.summary.gpus, 1024, equipment);
+    assert.equal(r.summary.servers, 128, equipment);
+    assert.equal(gpu.installedQty, 1024, equipment);
+    assert.match(gpu.spec, new RegExp('board TDP ' + tdp + ' W'));
+    assert.equal(system.installedQty, 128, equipment);
+    assert.ok(Object.values(r.validation).every(Boolean), equipment);
+  }
+});

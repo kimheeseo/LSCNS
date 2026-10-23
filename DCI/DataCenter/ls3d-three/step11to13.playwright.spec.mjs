@@ -118,7 +118,7 @@ test('STEP12 only selected server sled slides; distinct NIC/port geometry exists
     });return z!==null&&Math.abs(z)<.05;
   },{id:rack.id,second:servers[1]});
 });
-test('STEP13 optical cassette slides, exposes 8 pickable connector ports, lid hinges and 3D fibers',async({page},info)=>{
+test('STEP13 optical cassette slides, exposes 24 pickable LC duplex ports, lid hinges and 3D fibers',async({page},info)=>{
   await start(page);const rack=await chooseRack(page);
   await page.locator('[data-rack-action="cassette-slide"]').click();
   await page.waitForFunction(id=>{
@@ -126,7 +126,7 @@ test('STEP13 optical cassette slides, exposes 8 pickable connector ports, lid hi
     window.LS3D_THREE.adapter.scene.traverse(o=>{
       if(o.name==='equipment:'+id)o.traverse(p=>{
         if(p.name==='fiber-cassette')slide=p.position.z;
-        if(p.name==='rack-optical:cover-hinge')lid=p.rotation.x;
+        if(p.name?.startsWith('rack-optical:module-cover-'))lid=p.rotation.x;
       });
     });
     return slide<-.2&&lid<-.4;
@@ -137,17 +137,19 @@ test('STEP13 optical cassette slides, exposes 8 pickable connector ports, lid hi
       if(o.name==='equipment:'+id)o.traverse(p=>{
         if(p.name?.startsWith('rack-optical:adapter-port-'))counts.adapters++;
         if(p.name?.startsWith('rack-optical:connector-boot-'))counts.connectors++;
-        if(p.name?.startsWith('rack-optical:fiber-'))counts.fibers++;
-        if(p.name?.startsWith('rack-optical:mt-ferrule-'))portIds.push(p.userData.partId);
+        if(p.name?.startsWith('rack-optical:fanout-fiber-'))counts.fibers++;
+        if(p.name?.startsWith('rack-optical:adapter-port-'))portIds.push(p.userData.partId);
       });
     });
     const selected=window.LS3D_THREE.adapter.selectRackPart(id,portIds[0]);
     return {counts,portIds,selected};
   },rack.id);
-  expect(data.counts).toEqual({adapters:8,connectors:8,fibers:8});
-  expect(new Set(data.portIds).size).toBe(8);
+  expect(data.counts).toEqual({adapters:24,connectors:8,fibers:48});
+  expect(new Set(data.portIds).size).toBe(24);
   expect(data.selected.kind).toBe('fiber-port');
-  await expect(page.locator('#ls3dRackPartInfo')).toContainText('광 카세트');
+  await expect(page.locator('#ls3dRackPartInfo')).toContainText('LC duplex');
+  await page.locator('[data-rack-action="optical-explode"]').click();
+  expect(await page.evaluate(id=>window.LS3D_THREE.adapter.rackInteraction.selectedOptics?.exploded,rack.id)).toBe(true);
   await page.screenshot({path:info.outputPath('step13-optical-cassette-fibers.png')});
   await page.locator('[data-rack-action="cassette-slide"]').click();
   await page.waitForFunction(id=>{

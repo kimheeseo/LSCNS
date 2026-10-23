@@ -204,7 +204,7 @@ function assetPreview(a){
  return `<small>${a.type.toUpperCase()} · CONCEPT MODEL</small><svg viewBox="0 0 180 120" aria-hidden="true"><path d="M31 64L90 25 152 61 91 99Z" fill="#7abbd4"/><path d="M31 64L91 99V116L31 81Z" fill="#386985"/><path d="M91 99L152 61V78L91 116Z" fill="#1f536b"/><path d="M53 59L91 36 131 59 92 82Z" fill="#c2dfeb"/><path d="M53 59L92 82V97L53 75Z" fill="#3d6681"/><path d="M92 82L131 59V76L92 97Z" fill="#457f97"/><circle cx="105" cy="76" r="3" fill="#4fe5c6"/><circle cx="114" cy="72" r="3" fill="#ffd37e"/></svg>`;
 }
 function refresh(){let m=metrics();$('facilityMainSubtitle').textContent=activeProfile().summary;$('crewSummaryTitle').textContent='👷 작업자 '+activeProfile().staff.length+'명 · 근무 현황';$('facilityModeNote').textContent=activeProfile().note;$('kpiLoad').innerHTML=`${m.load.toFixed(0)}<small>kW</small>`;$('kpiFacility').innerHTML=`${m.facility.toFixed(0)}<small>kW</small>`;$('kpiFacilityMeta').textContent='계산 PUE '+m.pue.toFixed(2)+' · 가정값';$('kpiLoadMeta').textContent=activeProfile().name+' · 가정값';$('kpiAvailability').innerHTML=`${m.availability.toFixed(2)}<small>%</small>`;$('kpiTemp').innerHTML=`${m.temperature.toFixed(1)}<small>°C</small>`;$('clock').textContent=clockStr(simTime);$('simProgress').style.width=(simTime%3600)/36+'%';$('simStatus').textContent=simRunning?'RUNNING':'PAUSED';$('liveTag').textContent=simRunning?'● SIMULATING':'Ⅱ PAUSED';$('playBtn').textContent=simRunning?'Ⅱ':'▶';$('scenarioNote').textContent=scenarioText[scenario];$('scenarioSelect').value=scenario;
- let a=selected,st=status(a),fault=st!=='NORMAL';if($('assetVisual').dataset.id!==a.id){$('assetVisual').dataset.id=a.id;$('assetVisual').innerHTML=assetPreview(a)}$('assetStatus').textContent=st;$('assetStatus').classList.toggle('fault',fault);$('assetId').textContent=a.id.toUpperCase()+' / '+a.type.toUpperCase();$('assetName').textContent=a.name;$('assetDesc').textContent=a.desc+(a.details?' '+a.details:'');$('assetZone').textContent=Z.find(z=>z.id===a.zone).n;$('assetType').textContent=a.type;$('assetPower').textContent=a.power;$('assetState').textContent=fault?'장애/정지':'정상 (가상)';$('faultBtn').textContent=a.down?'↻ 재가동':'● 설비 정지';$('faultBtn').classList.toggle('danger',!a.down);$('assetNote').textContent=(a.details?a.details+' · ':'')+'※ 설비 용량·운전값은 교육용 가정이며 공식 제품 사양이 아닙니다.';renderEquipList();refreshWorkerPanel();}
+ let a=selected,st=status(a),fault=st!=='NORMAL';if($('assetVisual').dataset.id!==a.id){$('assetVisual').dataset.id=a.id;$('assetVisual').innerHTML=assetPreview(a)}$('assetStatus').textContent=st;$('assetStatus').classList.toggle('fault',fault);$('assetId').textContent=a.id.toUpperCase()+' / '+a.type.toUpperCase();$('assetName').textContent=a.name;$('assetDesc').textContent=a.desc+(a.details?' '+a.details:'');$('assetZone').textContent=Z.find(z=>z.id===a.zone).n;$('assetType').textContent=a.type;$('assetPower').textContent=a.power;$('assetState').textContent=fault?'장애/정지':'정상 (가상)';$('faultBtn').textContent=a.down?'↻ 재가동':'● 설비 정지';$('faultBtn').classList.toggle('danger',!a.down);$('assetNote').textContent=(a.details?a.details+' · ':'')+'※ 설비 용량·운전값은 교육용 가정이며 공식 제품 사양이 아닙니다.';renderEquipList();refreshWorkerPanel();window.LS3D_INSPECTOR?.sync();}
 function searchAsset(){const q=$('assetSearch').value.trim().toLowerCase();if(!q)return;const a=visibleAssets().find(v=>(v.name+' '+v.id+' '+v.type+' '+v.zone).toLowerCase().includes(q));if(!a){toast('설비를 찾을 수 없습니다');return}setZone(a.zone);pickAsset(a,true);toast('찾음: '+a.name)}
 function exportCSV(){const rows=[['ID','Zone','Equipment','Type','Example capacity','Status','X (concept)','Z (concept)','Description'],...visibleAssets().map(a=>[a.id,a.zone,a.name,a.type,a.power,status(a),a.x,a.z,a.desc])];let raw='\\ufeff'+rows.map(r=>r.map(x=>'"'+String(x).replaceAll('"','""')+'"').join(',')).join('\\r\\n'),u=URL.createObjectURL(new Blob([raw],{type:'text/csv;charset=utf-8'})),ln=document.createElement('a');ln.href=u;ln.download='LS_Datacenter_3D_Equipment_Concept_BOM.csv';ln.click();setTimeout(()=>URL.revokeObjectURL(u),500);toast('가상 설비 목록 CSV 생성 완료')}
 </script>
@@ -855,7 +855,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261023-ls-rack-detail&camera=20261024"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261023-ls-rack-detail&camera=20261024&inspector=20261024"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');
@@ -924,5 +924,5 @@ function init(){
 }
 document.addEventListener('DOMContentLoaded',init,{once:true});
 })();
-</script></body></html>
+</script><script src="./ls3d-inspector-ui.js?v=20261024-inspector"></script></body></html>
 

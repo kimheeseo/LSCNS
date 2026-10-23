@@ -1,6 +1,6 @@
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
+import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step09b';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -133,6 +133,33 @@ export function createSceneAdapter(T, canvas) {
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null;
   let focusedRack=null;
+  let inspectedScenePart=null,sceneInspectionContext='',scenePartMaterials=[];
+  function clearSceneInspection(){
+    for(const entry of scenePartMaterials){if(entry.object.material===entry.highlighted)entry.object.material=entry.original;entry.highlighted.dispose?.();}
+    scenePartMaterials=[];inspectedScenePart=null;sceneInspectionContext='';
+  }
+  function clearInspectionSelection(){showRackPart(null);}
+  function selectScenePart(info){
+    clearRackPartEmphasis();clearSceneInspection();selectedRackPart=null;if(rackHud)rackHud.hidden=true;
+    inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
+    zoneRoot.traverse(object=>{
+      if(!object.isMesh||object.userData?.inspectionPart?.id!==info.id||!object.material?.clone)return;
+      const original=object.material,highlighted=original.clone();
+      highlighted.emissive?.set(0xffd65a);highlighted.emissiveIntensity=1.2;
+      object.material=highlighted;scenePartMaterials.push({object,original,highlighted});
+    });
+    window.LS3D_INSPECTOR?.setSelection(info);return info;
+  }
+  function selectInspectionPart(id){
+    for(const [assetId,record] of registry){if(record.partMap?.has(id)){const part=selectRackPart(assetId,id);const asset=T.assetMap.get(assetId);if(asset)T.pickAsset(asset,false);return part;}}
+    let info=null;zoneRoot.traverse(o=>{if(!info&&o.userData?.inspectionPart?.id===id)info=o.userData.inspectionPart;});
+    return info?selectScenePart(info):null;
+  }
+  function syncInspectionCatalog(){
+    const parts=[...(registry.get(T.selected?.id)?.rackParts||[])],ids=new Set(parts.map(p=>p.id));
+    if(zoneRoot.visible)zoneRoot.traverse(o=>{const p=o.userData?.inspectionPart;if(p&&o.visible&&!ids.has(p.id)){ids.add(p.id);parts.push(p);}});
+    window.LS3D_INSPECTOR?.setParts(parts);window.LS3D_INSPECTOR?.sync();
+  }
   function currentRackAsset() {
     const a=T.selected;
     return a&&T.isMechanicalRack(a)&&registry.has(a.id)?a:null;
@@ -350,13 +377,15 @@ export function createSceneAdapter(T, canvas) {
     return true;
   }
   function showRackPart(info) {
+    clearSceneInspection();
     clearRackPartEmphasis();
     selectedRackPart=info?{...info}:null;
+    window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
       rackHud=document.createElement('div');
       rackHud.id='ls3dRackPartInfo';
-      rackHud.style.cssText='position:absolute;left:12px;bottom:12px;z-index:25;max-width:min(330px,85%);padding:11px 13px;border:1px solid #64aebc;border-radius:10px;background:rgba(15,35,54,.95);color:#f3fbff;font:12px system-ui;pointer-events:none;box-shadow:0 4px 20px #0007';
+      rackHud.style.cssText='display:none'; // Selection details live in the right inspector.
       canvas.parentElement.appendChild(rackHud);
     }
     rackHud.hidden=!selectedRackPart;
@@ -374,7 +403,7 @@ export function createSceneAdapter(T, canvas) {
     if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);
       focusOpticalPort(assetId,anchor);
-    }else if(part&&['optical-module','optical-housing','mpo-input','fiber-management'].includes(part.kind)){
+    }else if(part){
       emphasizeRackPart(assetId,partId);
     }
     return selected;
@@ -419,6 +448,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
+    if(selectedRackPart&&selectedRackPart.assetId!==T.selected?.id)showRackPart(null);
     const visible = T.visibleAssets().filter(a => (T.currentZone === 'campus' || a.zone === T.currentZone) && (!showDetail || a.id === T.selected?.id));
     const present = new Set();
     for (const a of visible) {
@@ -578,12 +608,14 @@ export function createSceneAdapter(T, canvas) {
     camera.near=Math.max(.055,Math.min(.15,view.near||.08));
     camera.far=Math.max(600,view.far||600);
     camera.updateProjectionMatrix();
+    if(inspectedScenePart&&(flags.inspect||sceneInspectionContext!==T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id))clearInspectionSelection();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
     const rooms=zoneExtras.update(flags,dt);
     diagnostic.mmr=rooms.mmr;
     diagnostic.colocation=rooms.colocation;
     routeScene(flags);
+    syncInspectionCatalog();
     // Hide only those room envelope meshes that actually block the near selected
     // rack/asset; all are restored on zoom-out, zone changes or dispose.
     diagnostic.occlusion=cameraOcclusion.update({
@@ -616,13 +648,16 @@ export function createSceneAdapter(T, canvas) {
     mouse.y=-((clientY-rect.top)/rect.height)*2+1;
     raycaster.setFromCamera(mouse,camera);
     const targets=[...assetRoot.children,
+      ...(zoneRoot.visible?zoneRoot.children:[]),
       ...(zoneExtras.mmr.root.visible?zoneExtras.mmr.root.children:[]),
       ...(zoneExtras.colocation.root.visible?zoneExtras.colocation.root.children:[]),
       ...(routeRoot.visible?routeRoot.children:[])];
     for(const hit of raycaster.intersectObjects(targets,true)) {
       if (hit.object.userData.noPick || hit.object.name === 'selection-ring') continue;
+      const structure=hit.object.userData?.inspectionPart;
+      if(structure){selectScenePart(structure);return structure.id;}
       const routeSelection=routeRoot.visible?mepRoutes.pick(hit.object):null;
-      if(routeSelection)return routeSelection.id;
+      if(routeSelection){selectScenePart({id:routeSelection.id,kind:'mep-route',label:routeSelection.label+' 연결 구간',zoneId:routeSelection.fromZone,description:routeSelection.from+' → '+routeSelection.to+' · '+routeSelection.name+' · 교육용 연결 경로입니다.'});return routeSelection.id;}
       const areaSelection=zoneExtras.pick(hit.object);
       if(areaSelection)return areaSelection.assetId||areaSelection.id;
       let obj=hit.object,part=null;
@@ -650,6 +685,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
+    clearSceneInspection();
     navigation.reset();inspection.reset();
     cameraOcclusion.dispose();
     zoneExtras.dispose();
@@ -676,7 +712,7 @@ export function createSceneAdapter(T, canvas) {
     get viewportPerformance(){return viewportPolicy.summary();},
     get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
-    selectRackPart,focusRackSide,setRackServerSelection,cycleRackServer,
+    selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
     get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},

@@ -1,6 +1,16 @@
 // LS3D STEP 04 — industrial architecture geometry for the real Three.js renderer.
 // Builds spatial geometry: slabs, façades, doors, glass, ceiling structure and suspended trays.
 // Illustrative coordinates (legacy scene units), NOT CAD/BIM or construction clearances.
+export function describeArchitecturePart(kind,name,zoneId){
+ if(kind!=='tray'&&kind!=='beam')return null;
+ const component=name.includes('-hanger-')?'천장 행거':name.includes('-rung-')?'가로 지지대':name.includes('-rail-')?'측면 레일':name.endsWith('-base')?'바닥 받침':'구조 부재';
+ const power=name.includes('-power-tray'),fiber=name.includes('-fiber-tray');
+ const group=kind==='tray'?name.replace(/-(?:base|rail-.*|rung-.*|hanger-.*)$/,''):name;
+ const label=kind==='beam'?'천장 구조 보':power?'전력 케이블 트레이':fiber?'광케이블 트레이':name.includes('-cross-tray')?'교차 케이블 트레이':'설비 케이블 트레이';
+ const description=kind==='beam'?'천장과 설비 지지 구조를 구성하는 보입니다. 전기 도체나 광케이블이 아닙니다.':power?'랙 상부에서 전력 케이블을 지지하고 정리하는 트레이입니다. 노란색은 전력 배선 구역을 구별하기 위한 표현이며, 이 부품 자체가 전류를 공급하는 버스웨이는 아닙니다.':fiber?'광케이블을 지지·정리하고 전력 배선과 경로를 구별하는 트레이입니다. 실제 포설 시 허용 굴곡반경과 충전율을 확인해야 합니다.':'구역 사이에서 케이블 경로를 연결하고 지지하는 트레이입니다. 실제 시공 치수와 내하중을 나타내는 모델은 아닙니다.';
+ return {id:'structure:'+zoneId+':'+group,kind:kind==='tray'?'cable-tray':'structural-beam',label,description,component,zoneId};
+}
+
 export function createArchitectureKit(THREE, { cube }) {
   const doors = [];
   let counts = {}, lastMode = '', lastZone = '', lastFlags = {};
@@ -11,6 +21,10 @@ export function createArchitectureKit(THREE, { cube }) {
     mesh.name = 'arch:' + kind + ':' + name;
     mesh.userData.archKind = kind;
     mesh.userData.noPick = true;
+    if(kind==='tray'||kind==='beam'){
+      let owner=parent;while(owner&&!owner.userData?.zoneId)owner=owner.parent;
+      if(owner){mesh.userData.inspectionPart=describeArchitecturePart(kind,name,owner.userData.zoneId);mesh.userData.noPick=false;}
+    }
     mesh.castShadow = kind === 'wall' || kind === 'beam' || kind === 'door';
     counts[kind] = (counts[kind] || 0) + 1;
     return mesh;

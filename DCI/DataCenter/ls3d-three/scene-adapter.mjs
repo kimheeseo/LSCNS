@@ -1,3 +1,4 @@
+import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
@@ -139,13 +140,8 @@ export function createSceneAdapter(T, canvas) {
   function focusRackSide(assetId,side='front') {
     const a=T.assetMap.get(assetId),desired=T.cameraDesired;
     if(!a||!T.isMechanicalRack(a)||!desired||T.workerViewId||T.walkActive)return false;
-    focusedRack={id:a.id,side:side==='rear'?'rear':'front'};
-    desired.target=[a.x,a.h*.56,a.z];
-    // Third-person inspection: stay outside the rack and frame its full height.
-    // The higher, wider view leaves room for roof occlusion to clear the sightline.
-    desired.distance=Math.max(9,Math.min(15,a.h*2.1));
-    desired.pitch=.28;
-    desired.yaw=focusedRack.side==='rear'?0:Math.PI;
+    const rect=canvas.getBoundingClientRect();
+    focusedRack=applyRackCamera(T,a,{width:rect.width,height:rect.height,side});
     return true;
   }
   function setRackServerSelection(assetId,partId) {
@@ -205,7 +201,7 @@ export function createSceneAdapter(T, canvas) {
       const grid=document.createElement('div');
       grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
       const actions=[
-        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
+        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],['rack-context','주변 시설 보기'],
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['previous-server','이전 서버'],['next-server','다음 서버'],
         ['server-slide','선택 서버 인출/복귀'],['cassette-slide','광 카세트 인출/복귀'],
@@ -223,6 +219,7 @@ export function createSceneAdapter(T, canvas) {
         e.preventDefault();e.stopPropagation();
         if(action==='front-camera')focusRackSide(asset.id,'front');
         else if(action==='rear-camera')focusRackSide(asset.id,'rear');
+        else if(action==='rack-context'){focusedRack=null;T.closeDetail?.();}
         else if(action==='front-door')toggleRackFrontDoor(asset.id);
         else if(action==='rear-door')toggleRearRackDoor(asset.id);
         else if(action==='previous-server')cycleRackServer(asset.id,-1);
@@ -230,6 +227,7 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='server-slide')toggleRackServerSlide(asset.id);
         else if(action==='cassette-slide')toggleRackCassette(asset.id);
         else if(action==='optical-detail'||action==='optical-explode'){
+          focusRackSide(asset.id,'front');
           const motion=T.mechanical(asset);if(!motion.targetCassette)toggleRackCassette(asset.id);
           if(action==='optical-explode')rackOptics.explode(asset.id);
           const info=registry.get(asset.id)?.rackParts.find(p=>p.kind==='optical-module');
@@ -340,7 +338,7 @@ export function createSceneAdapter(T, canvas) {
   function focusOpticalPort(assetId,anchor) {
     const asset=T.assetMap.get(assetId),desired=T.cameraDesired,item=registry.get(assetId);
     if(!asset||!desired||!anchor||T.workerViewId||T.walkActive)return false;
-    focusedRack={id:asset.id,side:'front'};
+    focusRackSide(assetId,'front');
     const motion=T.mechanical?.(asset),wasOpen=!!(motion?.targetCassette||motion?.cassette>.5);
     if(!wasOpen)toggleRackCassette(assetId);
     item?.g?.updateMatrixWorld?.(true);
@@ -565,7 +563,12 @@ export function createSceneAdapter(T, canvas) {
       renderer.setSize(pixelWidth, pixelHeight, false);
       viewportWidth=pixelWidth;viewportHeight=pixelHeight;viewportDpr=dpr;
     }
-    const flags = view.flags || {};
+    // Dedicated rack inspection never lets a room wall, roof, neighboring rack,
+    // or a campus MEP/cage layer fill the front/rear camera view.
+    if(focusedRack&&!rackFocusActive(focusedRack,T))focusedRack=null;
+    const isolatedRack=!!focusedRack;
+    const flags = {...(view.flags||{}),inspect:!!view.flags?.inspect||isolatedRack};
+    diagnostic.isolatedRack=isolatedRack?focusedRack.id:null;
     const eye = view.eye, direction = view.forward, up = view.up;
     camera.position.set(eye[0],eye[1],eye[2]);
     camera.up.set(up[0],up[1],up[2]);

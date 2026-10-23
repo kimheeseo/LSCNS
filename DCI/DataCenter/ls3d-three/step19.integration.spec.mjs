@@ -233,3 +233,41 @@ test('S19-05: sampled real-browser frame rate, draw calls and memory snapshots (
   await page.screenshot({path:info.outputPath('step19-performance-hall.png')});
   expect(errors).toEqual([]);
 });
+
+// Regression for the reported blank blue viewport from campus/front camera.
+test('S19-rack-camera: front and rear show the selected rack at desktop and mobile sizes',async({page},info)=>{
+  await enter(page);
+  await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;T.setZone('campus');T.pickAsset(T.assetMap.get('tor-a'),false);
+  });
+  for(const [width,height] of [[1400,700],[1400,580],[390,844]]){
+    await page.setViewportSize({width,height});
+    for(const side of ['front','rear']){
+      await page.locator('[data-rack-action="'+side+'-camera"]').click();
+      await page.waitForFunction(()=>window.LS3D_THREE.diagnostics?.isolatedRack==='tor-a');
+      await page.waitForTimeout(180);
+      const geometry=await page.evaluate(()=>{
+        const A=window.LS3D_THREE.adapter,THREE=A.THREE;
+        let rack=null,architectureVisible=null;const ids=[];
+        A.scene.traverse(o=>{
+          if(o.name==='equipment:tor-a')rack=o;
+          if(o.name?.startsWith('equipment:'))ids.push(o.userData.assetId);
+          if(o.name?.startsWith('arch:zone:'))architectureVisible=o.parent.visible;
+        });
+        if(!rack)return {missing:true};
+        const box=new THREE.Box3().setFromObject(rack),center=box.getCenter(new THREE.Vector3()).project(A.camera);
+        const corners=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){
+          const p=new THREE.Vector3(x,y,z).project(A.camera);corners.push({x:p.x,y:p.y,z:p.z});
+        }
+        return {ids,architectureVisible,center:{x:center.x,y:center.y,z:center.z},corners};
+      });
+      expect(geometry.missing).toBeFalsy();expect(geometry.ids).toEqual(['tor-a']);
+      expect(geometry.architectureVisible).toBe(false);
+      expect(Math.abs(geometry.center.x)).toBeLessThan(1);expect(Math.abs(geometry.center.y)).toBeLessThan(1);
+      for(const p of geometry.corners){expect(Math.abs(p.x)).toBeLessThan(1);expect(Math.abs(p.y)).toBeLessThan(1);expect(p.z).toBeLessThan(1);expect(p.z).toBeGreaterThan(-1);}
+      await page.screenshot({path:info.outputPath('rack-camera-'+width+'-'+side+'.png')});
+    }
+  }
+  await page.locator('[data-rack-action="rack-context"]').click();
+  await page.waitForFunction(()=>!window.LS3D_THREE.diagnostics?.isolatedRack);
+});

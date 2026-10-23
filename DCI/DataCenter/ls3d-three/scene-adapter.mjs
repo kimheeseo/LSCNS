@@ -5,10 +5,10 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step0
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261015-step14-top-u';
+import { createRackComponentKit } from './rack-components.mjs?v=20261023-ls-rack-detail';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261015-step13';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
@@ -209,7 +209,7 @@ export function createSceneAdapter(T, canvas) {
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['previous-server','이전 서버'],['next-server','다음 서버'],
         ['server-slide','선택 서버 인출/복귀'],['cassette-slide','광 카세트 인출/복귀'],
-        ['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
+        ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
@@ -229,6 +229,15 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='next-server')cycleRackServer(asset.id,1);
         else if(action==='server-slide')toggleRackServerSlide(asset.id);
         else if(action==='cassette-slide')toggleRackCassette(asset.id);
+        else if(action==='optical-detail'||action==='optical-explode'){
+          const motion=T.mechanical(asset);if(!motion.targetCassette)toggleRackCassette(asset.id);
+          if(action==='optical-explode')rackOptics.explode(asset.id);
+          const info=registry.get(asset.id)?.rackParts.find(p=>p.kind==='optical-module');
+          if(info)selectRackPart(asset.id,info.id);
+          const desired=T.cameraDesired;
+          desired.target=[asset.x,asset.h*.89,asset.z-asset.d*.65];
+          desired.distance=Math.max(3.4,asset.w*1.5);desired.pitch=.62;desired.yaw=Math.PI+.22;
+        }
         else if(action==='link-all')rackNetwork.focus(asset.id,'all');
         else if(action==='link-fiber')rackNetwork.focus(asset.id,'fiber');
         else if(action==='link-power-a')rackNetwork.focus(asset.id,'power-A');
@@ -280,7 +289,7 @@ export function createSceneAdapter(T, canvas) {
       ' · 서버 '+serverLabel+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
-      (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/8 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
+      (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
       ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all');
   }
   let selectedPartVisuals=[], selectedPartRing=null;
@@ -313,7 +322,7 @@ export function createSceneAdapter(T, canvas) {
       }
       object.material=highlighted;
       selectedPartVisuals.push({object,original,highlighted});
-      if(object.name.includes('connector-boot'))anchor=object;
+      if(!anchor||object.name.includes('connector-boot'))anchor=object;
     });
     if(anchor&&THREE.TorusGeometry&&THREE.MeshBasicMaterial){
       selectedPartRing=new THREE.Mesh(
@@ -356,7 +365,8 @@ export function createSceneAdapter(T, canvas) {
     if(selectedRackPart)rackHud.textContent=
       '선택 부품: '+selectedRackPart.label+' · '+selectedRackPart.assetId+
       ' · U '+selectedRackPart.uStart+'-'+(selectedRackPart.uStart+selectedRackPart.uHeight-1)+
-      (selectedRackPart.kind==='fiber-port'?' · 포트 '+(selectedRackPart.portIndex+1)+'/8 · 광 경로 노란색 강조':'');
+      (selectedRackPart.kind==='fiber-port'?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 · 광 경로 노란색 강조':'')+
+      (selectedRackPart.description?' · '+selectedRackPart.description:'');
     return selectedRackPart;
   }
   function selectRackPart(assetId,partId) {
@@ -366,6 +376,8 @@ export function createSceneAdapter(T, canvas) {
     if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);
       focusOpticalPort(assetId,anchor);
+    }else if(part&&['optical-module','optical-housing','mpo-input','fiber-management'].includes(part.kind)){
+      emphasizeRackPart(assetId,partId);
     }
     return selected;
   }
@@ -668,3 +680,4 @@ export function createSceneAdapter(T, canvas) {
     inspection,securityController:security,navigation,
     get disposed(){return disposed;} };
 }
+

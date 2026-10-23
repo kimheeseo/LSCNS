@@ -44,6 +44,10 @@ export function createRackComponentKit(THREE,{cube}){
   const unitGroup=group(root,id,'u-rails','42U/48U 마운팅 레일',1,count);
   for(const xx of [-w*.395,w*.395])
     box(unitGroup,'u-mounting-rail-'+xx,xx,.24,-d*.412,.085,h-.51,.105,'#c1d0d5',.74,.27);
+  // Repeated mounting apertures expose the U pitch and actual attachment points.
+  for(const xx of [-w*.395,w*.395])for(let u=0;u<count;u++){
+    box(unitGroup,'mounting-aperture-'+u,xx,lower+u*unit+unit*.34,-d*.470,.035,.026,.009,'#182a39',.1,.7);
+  }
   retain(unitGroup);
   const pickSlots=[
     // STEP 14: reserve the physically highest U positions for the ToR.
@@ -57,6 +61,7 @@ export function createRackComponentKit(THREE,{cube}){
   const serverType=network?'network-switch':storage?'storage':'server';
   for(const slot of pickSlots){
     const start=Math.max(1,slot.top-slot.units+1);
+    if(slot.kind==='odf')continue; // Open, four-slot chassis is supplied by rack-optical-cassette.
     const g=part(slot.kind,slot.label,start,slot.units,w*.76,null,d*.46,-d*.29,slot.color);
     const yh=(slot.units*unit)*.5;
     const face=box(g,'port-face',0,lower+(start-1)*unit+.015,-d*.555,w*.68,
@@ -89,11 +94,19 @@ export function createRackComponentKit(THREE,{cube}){
       box(partGroup,'server-port-'+i+'-'+j,-w*.26+j*w*.075,y+units*unit*.38,
         -d*.52,.057,.075,.027,j%2?'#68d8e9':'#63eaba',.2,.26);
     }
+    for(const sign of [-1,1]){
+      box(partGroup,'server-mount-ear',sign*w*.373,y,-d*.48,w*.05,units*unit-.035,.038,'#92a9b5');
+      box(partGroup,'server-pull-handle',sign*w*.304,y+unit*.6,-d*.54,w*.028,unit*1.7,.05,'#acbdc7');
+    }
+    for(let bay=0;bay<4;bay++){
+      box(partGroup,'hot-swap-drive-bay-'+bay,-w*.17+bay*w*.105,y+unit*.45,-d*.52,w*.09,unit*1.9,.025,'#536c7d');
+      box(partGroup,'drive-release-tab-'+bay,-w*.17+bay*w*.105,y+unit*.65,-d*.54,w*.046,.022,.015,'#b4c1c7');
+    }
     retain(partGroup);modules.push(partGroup);
   }
   const cassette=new THREE.Group();cassette.name='fiber-cassette';root.add(cassette);
   const cassetteParts=group(cassette,id,'cassette-pull','인출형 광카세트',count-4,2);
-  box(cassetteParts,'cassette-drawer',0,h*.78,-d*.26,w*.59,.19,d*.28,'#e1b56a');
+  // Drawer is an empty carrier; optical kit builds the housing and all modules.
   retain(cassetteParts);
   for(const side of [-1,1]){
     const pdu=group(root,id,side<0?'pdu-a':'pdu-b',side<0?'후면 Rack PDU A':'후면 Rack PDU B',1,count);
@@ -129,3 +142,4 @@ export function createRackComponentKit(THREE,{cube}){
  }
  return {build,stats};
 }
+

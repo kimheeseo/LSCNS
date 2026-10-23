@@ -135,7 +135,7 @@ if (requested && T) {
     try {
       const support=document.createElement('canvas').getContext('webgl2');
       if(!support)throw new Error('Three.js 0.186.1 requires WebGL2; browser only supports legacy WebGL.');
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261016-third-person-rack-camera');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261023-ls-rack-detail');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';
@@ -151,3 +151,4 @@ if (requested && T) {
   status.status='failed';status.error='LS3D host API unavailable';
   console.warn(status.error);
 }
+

@@ -22,7 +22,7 @@ test('seven canonical zones, physical asset anchors and pinned import map surviv
     'colo-rack-a','colo-rack-b','colo-rack-c'])
     assert.ok(html.includes("'"+id+"'"),id);
   assert.ok(html.includes('three@0.186.1/build/three.module.js'));
-  assert.ok(html.includes('bootstrap.mjs?v=20261016-third-person-rack-camera'));
+  assert.ok(html.includes('bootstrap.mjs?v=20261023-ls-rack-detail'));
 });
 
 test('STEP03-18 Three scene adapter still wires specialized 3D modules and QA diagnostics',()=>{

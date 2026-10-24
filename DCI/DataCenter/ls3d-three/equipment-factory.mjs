@@ -105,12 +105,17 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       }
       case 'generator': {
         part(root,'genset-skid',0,.12,0,w*.98,.33,d*.88,'#384958',.66,.46);
-        part(root,'diesel-generator-housing',0,.55,0,w*.84,h*.61,d*.78,'#acb08e',.46,.53);
+        part(root,'diesel-generator-housing',0,.55,0,w*.84,h*.61,d*.78,'#9ca98f',.46,.53);
+        part(root,'generator-service-door',w*.08,.54,front,w*.42,h*.43,.04,'#566c65',.42,.40);
+        part(root,'generator-control-panel',w*.13,h*.63,front-.052,w*.15,.16,.016,'#58d8bd',.08,.20);
         part(root,'radiator-hood',-w*.35,.8,0,w*.16,h*.37,d*.73,'#3d6675',.52,.38);
         batch(root,'radiator-grilles',Array.from({length:11},(_,i)=>[
           -w*.44,.94+i*(h*.32/11),d*.32]),w*.06,.035,.042,'#263f53');
+        batch(root,'generator-louvers',Array.from({length:9},(_,i)=>[
+          w*.10,h*.25+i*h*.055,front-.06]),w*.50,.022,.018,'#334e58');
         round(root,'exhaust-pipe',w*.28,h*.65,d*.12,.19,h*.22,'#899ca6');
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
+        part(root,'generator-cable-termination',w*.37,.18,-d*.33,w*.14,h*.32,.10,'#293d47',.40,.34);
         break;
       }
       case 'ups': {
@@ -145,13 +150,26 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'battery-bank': {
-        part(root,'battery-cabinet',0,.12,0,w*.97,h*.92,d*.85,'#718295',.51,.52);
-        for(let i=0;i<4;i++) {
-          const x=-w*.36+i*w*.245;
-          part(root,'battery-drawer-'+i,x,h*.19,front,w*.20,h*.61,.065,'#c3cbd0',.46,.39);
+        // UPS battery strings: rack bays, individual front modules, DC busbars and cable exits.
+        part(root,'battery-plinth',0,.035,0,w*.99,.14,d*.92,'#263944',.60,.38);
+        part(root,'battery-cabinet',0,.14,0,w*.97,h*.88,d*.85,'#465a68',.51,.43);
+        for(let bay=0;bay<3;bay++) {
+          const x=-w*.30+bay*w*.30;
+          part(root,'battery-bay-frame-'+bay,x,.17,front,w*.24,h*.66,.055,'#192e3b',.40,.34);
+          for(let row=0;row<4;row++){
+            const y=h*.24+row*h*.145;
+            part(root,'battery-module-'+bay+'-'+row,x,y,front-.045,w*.19,h*.10,.028,row%2?'#7d909c':'#99a7ad',.35,.35);
+            part(root,'battery-module-terminal-'+bay+'-'+row,x+w*.068,y+h*.032,front-.069,.030,.035,.012,row%2?'#4f81b4':'#cf5960',.08,.28);
+          }
         }
-        batch(root,'battery-leds',Array.from({length:8},(_,i)=>[
-          -w*.39+i*w*.11,h*.77,front-.08]),w*.055,.055,.028,'#83edbc');
+        part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
+        part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
+        for(const x of [-w*.38,w*.38]){
+          part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
+          part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);
+        }
+        batch(root,'battery-leds',Array.from({length:9},(_,i)=>[
+          -w*.38+i*w*.095,h*.86,front-.08]),w*.040,.040,.024,'#83edbc');
         break;
       }
       case 'fuel-tank':case 'water-tank': {
@@ -173,6 +191,10 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         batch(root,'fan-blades',vanes,w*.13,.085,d*.15,'#e0f1f0');
         part(root,'fan-protective-grille',0,h*.95,0,w*.75,.07,d*.75,'#2c5367',.49,.53);
+        part(root,'tower-hot-water-inlet',w*.39,h*.52,d*.20,.14,.22,.14,'#cc9d53');
+        part(root,'tower-cold-water-outlet',-w*.39,.23,-d*.20,.14,.22,.14,'#5bb9d5');
+        batch(root,'tower-drift-eliminators',Array.from({length:8},(_,i)=>[
+          -w*.31+i*w*.09,h*.66,front-.06]),w*.06,.15,.025,'#d6e8eb');
         break;
       }
       case 'chiller':{
@@ -183,6 +205,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           -w*.40+i*w*.062,h*.30,front]),w*.04,h*.34,.065,'#a1d2d7');
         for(const x of [-w*.28,w*.28])
           round(root,'fluid-pipe-'+x,x,h*.61,d*.49,.13,.29,'#d8b677');
+        part(root,'chiller-operator-hmi',w*.33,h*.55,front-.06,w*.16,.20,.022,'#183c52',.14,.20);
+        part(root,'chiller-hmi-screen',w*.33,h*.60,front-.08,w*.105,.09,.014,'#70d8d0',.06,.20);
+        batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
       }
       case 'pump-hx':{

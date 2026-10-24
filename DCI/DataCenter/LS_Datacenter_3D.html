@@ -70,7 +70,7 @@ addAsset('gray','ups-b','UPS B · 예비 UPS','UPS',-3,-8,6,4,5,'500 kVA 예시'
 addAsset('gray','battery-a','Battery Bank A','Battery bank',8,-8,7,3,3,'—','UPS 계통에서 DC 백업 에너지를 저장합니다.');
 addAsset('gray','pdu','전력 분배반 · PDU','PDU',-10,1,6,3,4,'—','UPS 후단의 배전을 구획별 랙으로 전달합니다.');
 addAsset('gray','gray-cdu','Gray Zone CDU','CDU',-1,1,5,4,4,'—','랙 액체냉각에 필요한 냉각 유체를 공급합니다.');
-addAsset('gray','cable-tray','상부 Power Busway','Busway',9,1,7,4,2,'—','상부 전력 분배와 케이블 트레이 개념 모형입니다.');
+addAsset('gray','cable-tray','부스덕트 · Power Busway','Busway',9,1,7,4,2,'—','금속 하우징 내부 도체를 통해 전력을 전달하고 탭오프 장치로 분기하는 전력 분배 설비의 개념 모형입니다.');
 addAsset('gray','carrier-entry','Carrier Entry','Optical entry',-9,10,6,3,3,'—','외부 통신사업자 인입 구역입니다.');
 addAsset('gray','cross-connect','Cross-connect Panel','ODF',7,10,6,3,4,'—','외부 광회선과 내부 패치를 분배합니다.');
 for(let r=0;r<2;r++)for(let i=0;i<5;i++)addAsset('hall',`gpu-${r}-${i}`,`GPU ROW ${r?'B':'A'} · R${i+1}`,'GPU server rack',-15+i*3.5,-9+r*10,2.7,3.0,6,'60 kW/랙 예시','GPU 서버 · 네트워크 NIC · 이중 PDU 등으로 구성된 고밀도 랙입니다.');
@@ -855,7 +855,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261023-ls-rack-detail&camera=20261024&inspector=20261024&fill=20261024"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261023-ls-rack-detail&camera=20261024&inspector=20261024&fill=20261024&products=20261024"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');
@@ -924,5 +924,5 @@ function init(){
 }
 document.addEventListener('DOMContentLoaded',init,{once:true});
 })();
-</script><script src="./ls3d-inspector-ui.js?v=20261024-inspector"></script></body></html>
+</script><script src="./ls3d-inspector-ui.js?v=20261024-product-click"></script></body></html>
 

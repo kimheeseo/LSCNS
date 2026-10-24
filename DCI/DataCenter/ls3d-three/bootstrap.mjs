@@ -100,7 +100,7 @@ if (requested && T) {
   });
   canvas.addEventListener('pointerup',e=>{
     const p=pointer?.id===e.pointerId?pointer:second?.id===e.pointerId?second:null;
-    if(p&&!p.moved&&!multiTouch&&!second&&p.button===0&&!T.workerViewId)
+    if(p&&!p.moved&&!multiTouch&&!second&&p.button===0)
       status.adapter?.pick(e.clientX,e.clientY);
     if(pointer?.id===e.pointerId)pointer=second,second=null;
     else if(second?.id===e.pointerId)second=null;
@@ -135,7 +135,7 @@ if (requested && T) {
     try {
       const support=document.createElement('canvas').getContext('webgl2');
       if(!support)throw new Error('Three.js 0.186.1 requires WebGL2; browser only supports legacy WebGL.');
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261023-ls-rack-detail&camera=20261024&inspector=20261024&fill=20261024');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261023-ls-rack-detail&camera=20261024&inspector=20261024&fill=20261024&products=20261024');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

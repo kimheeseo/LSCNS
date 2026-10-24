@@ -1,3 +1,4 @@
+import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024';
@@ -143,8 +144,9 @@ export function createSceneAdapter(T, canvas) {
   function selectScenePart(info){
     clearRackPartEmphasis();clearSceneInspection();selectedRackPart=null;if(rackHud)rackHud.hidden=true;
     inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
-    zoneRoot.traverse(object=>{
-      if(!object.isMesh||object.userData?.inspectionPart?.id!==info.id||!object.material?.clone)return;
+    const highlightRoot=info.assetId?registry.get(info.assetId)?.g:zoneRoot;
+    highlightRoot?.traverse(object=>{
+      if(!object.isMesh||(!info.assetId&&object.userData?.inspectionPart?.id!==info.id)||object.userData?.noPick||!object.material?.clone)return;
       const original=object.material,highlighted=original.clone();
       highlighted.emissive?.set(0xffd65a);highlighted.emissiveIntensity=1.2;
       object.material=highlighted;scenePartMaterials.push({object,original,highlighted});
@@ -152,13 +154,16 @@ export function createSceneAdapter(T, canvas) {
     window.LS3D_INSPECTOR?.setSelection(info);return info;
   }
   function selectInspectionPart(id){
+    if(id.startsWith('equipment:')){const assetId=id.slice(10),record=registry.get(assetId),asset=T.assetMap.get(assetId);if(record&&asset){T.pickAsset(asset,false);return selectScenePart(describeEquipment(asset,record.kind));}}
     for(const [assetId,record] of registry){if(record.partMap?.has(id)){const part=selectRackPart(assetId,id);const asset=T.assetMap.get(assetId);if(asset)T.pickAsset(asset,false);return part;}}
     let info=null;zoneRoot.traverse(o=>{if(!info&&o.userData?.inspectionPart?.id===id)info=o.userData.inspectionPart;});
     return info?selectScenePart(info):null;
   }
   function syncInspectionCatalog(){
-    const parts=[...(registry.get(T.selected?.id)?.rackParts||[])],ids=new Set(parts.map(p=>p.id));
-    if(zoneRoot.visible)zoneRoot.traverse(o=>{const p=o.userData?.inspectionPart;if(p&&o.visible&&!ids.has(p.id)){ids.add(p.id);parts.push(p);}});
+    const selectedRecord=registry.get(T.selected?.id);
+    const equipment=selectedRecord&&describeEquipment(T.selected,selectedRecord.kind);
+    const parts=[...(selectedRecord?.rackParts||[]),...(equipment?[equipment]:[])],ids=new Set(parts.map(p=>p.id));
+    if(zoneRoot.visible)zoneRoot.traverse(o=>{const p=o.userData?.inspectionPart;if(p&&isVisiblePickObject(o)&&!ids.has(p.id)){ids.add(p.id);parts.push(p);}});
     window.LS3D_INSPECTOR?.setParts(parts);window.LS3D_INSPECTOR?.sync();
   }
   function currentRackAsset() {
@@ -609,7 +614,7 @@ export function createSceneAdapter(T, canvas) {
     camera.near=Math.max(.055,Math.min(.15,view.near||.08));
     camera.far=Math.max(600,view.far||600);
     camera.updateProjectionMatrix();
-    if(inspectedScenePart&&(flags.inspect||sceneInspectionContext!==T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id))clearInspectionSelection();
+    if(inspectedScenePart&&((flags.inspect&&!inspectedScenePart.assetId)||sceneInspectionContext!==T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id))clearInspectionSelection();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
     const rooms=zoneExtras.update(flags,dt);
@@ -654,7 +659,8 @@ export function createSceneAdapter(T, canvas) {
       ...(zoneExtras.colocation.root.visible?zoneExtras.colocation.root.children:[]),
       ...(routeRoot.visible?routeRoot.children:[])];
     for(const hit of raycaster.intersectObjects(targets,true)) {
-      if (hit.object.userData.noPick || hit.object.name === 'selection-ring') continue;
+      // Raycaster also intersects hidden descendants; only rendered surfaces may win.
+      if (!isVisiblePickObject(hit.object)) continue;
       const structure=hit.object.userData?.inspectionPart;
       if(structure){selectScenePart(structure);return structure.id;}
       const routeSelection=routeRoot.visible?mepRoutes.pick(hit.object):null;
@@ -678,7 +684,9 @@ export function createSceneAdapter(T, canvas) {
           if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))
             rackRails.select(id,part.id);
         } else showRackPart(null);
-        T.pickAsset(asset);return id;
+        T.pickAsset(asset);
+        if(!T.isMechanicalRack(asset))selectScenePart(describeEquipment(asset,registry.get(id)?.kind));
+        return id;
       }
     }
     showRackPart(null);

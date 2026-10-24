@@ -340,3 +340,49 @@ test('S19-rack-fill: central passive patching and blanking cover every front U',
   await expect(page.locator('#inspectorPartName')).toContainText('광패치패널');
   await page.screenshot({path:info.outputPath('rack-center-filled-passive-panels.png')});
 });
+
+// Pointer events, not a direct adapter.pick call: verifies the user-facing path.
+test('S19-product-click: ceiling trays and busduct expose persistent product descriptions',async({page},info)=>{
+ await enter(page);
+ async function aim(name,zone){
+  await page.evaluate(({name,zone})=>{
+   const T=window.__LS3D_TEST__;T.setZone(zone);
+   const v={target:[0,3,0],yaw:Math.PI/2,pitch:.25,distance:3};
+   Object.assign(T.cameraDesired,v);Object.assign(T.camera,{...v,target:[...v.target]});
+  },{name,zone});
+  await page.waitForFunction(name=>{let found=false;window.LS3D_THREE.adapter.scene.traverse(o=>{if(o.name===name)found=true;});return found;},name);
+  await page.evaluate(name=>{
+   const A=window.LS3D_THREE.adapter,T=window.__LS3D_TEST__;let obj;
+   A.scene.traverse(o=>{if(o.name===name)obj=o;});
+   const p=obj.getWorldPosition(new A.THREE.Vector3());
+   const bus=name.includes('busway');
+   const v={target:[p.x,p.y,p.z],yaw:bus?Math.PI:Math.PI/2,pitch:bus?.08:.25,distance:bus?8:2.5};
+   Object.assign(T.cameraDesired,v);Object.assign(T.camera,{...v,target:[...v.target]});
+   A.clearInspectionSelection();
+  },name);
+  await page.waitForTimeout(180);
+  return page.evaluate(name=>{
+   const A=window.LS3D_THREE.adapter;let obj;
+   A.scene.traverse(o=>{if(o.name===name)obj=o;});
+   const p=obj.getWorldPosition(new A.THREE.Vector3()).project(A.camera),r=A.renderer.domElement.getBoundingClientRect();
+   return {x:r.left+(p.x+1)*r.width/2,y:r.top+(1-p.y)*r.height/2};
+  },name);
+ }
+ let p=await aim('arch:tray:hall-power-tray-rail--0.38','hall');
+ await page.mouse.click(p.x,p.y);
+ await expect(page.locator('#inspectorPartName')).toHaveText('전력 케이블 트레이');
+ await page.waitForTimeout(600);await expect(page.locator('#inspectorPartDetails')).toBeVisible();
+ await expect(page.locator('#inspectorPartDescription')).toContainText('전력 케이블');
+ await page.screenshot({path:info.outputPath('product-power-tray-click.png')});
+ p=await aim('equipment-part:busway-shell','gray');
+ await page.mouse.click(p.x,p.y);
+ await expect(page.locator('#inspectorPartName')).toContainText('부스덕트');
+ await expect(page.locator('#inspectorPartDescription')).toContainText('탭오프');
+ await page.waitForTimeout(600);await expect(page.locator('#inspectorPartDetails')).toBeVisible();
+ await page.screenshot({path:info.outputPath('product-busduct-click.png')});
+ await page.setViewportSize({width:390,height:844});
+ p=await aim('arch:tray:hall-fiber-tray-rail--0.38','hall');
+ await page.mouse.click(p.x,p.y);
+ await expect(page.locator('#inspectorPartName')).toHaveText('광케이블 트레이');
+ await expect(page.locator('#inspectorPartDescription')).toContainText('굴곡반경');
+});

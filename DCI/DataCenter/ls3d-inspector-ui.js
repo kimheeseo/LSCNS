@@ -26,7 +26,7 @@ function moveTools(){
 }
 moveTools();window.addEventListener('resize',moveTools);
 const selector=document.createElement('section');selector.className='inspector-selectors';
-selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><label for="inspectorPartSelect">부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
+selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
 document.querySelector('.right-head').insertAdjacentElement('afterend',selector);
 const card=document.createElement('section');card.id='inspectorPartDetails';card.className='inspector-part';card.hidden=true;card.setAttribute('aria-live','polite');
 card.innerHTML='<small id="inspectorPartContext"></small><strong id="inspectorPartName"></strong><p id="inspectorPartDescription"></p><button type="button" id="inspectorPartClear">부품 선택 해제</button>';
@@ -49,7 +49,7 @@ function setSelection(info){part=info?{...info}:null;contextAsset=info?.assetId|
 function setParts(next){
  parts=next||[];const sig=parts.map(p=>p.id+'|'+p.label).join('\n');if(sig===partSignature)return;partSignature=sig;
  partSelect.replaceChildren(option('',parts.length?'부품 또는 구조물을 선택하세요':'현재 선택 가능한 부품이 없습니다'));
- const groups=new Map();for(const p of parts){const label=p.assetId?'선택 설비 내부 부품':'주변 트레이 · 구조물';if(!groups.has(label)){const group=document.createElement('optgroup');group.label=label;partSelect.appendChild(group);groups.set(label,group);}groups.get(label).appendChild(option(p.id,p.label+(p.assetId?'':' · '+zoneName(p.zoneId))));}
+ const groups=new Map();for(const p of parts){const label=p.kind==='equipment'?'선택 설비 설명':p.assetId?'선택 설비 내부 부품':'주변 트레이 · 구조물';if(!groups.has(label)){const group=document.createElement('optgroup');group.label=label;partSelect.appendChild(group);groups.set(label,group);}groups.get(label).appendChild(option(p.id,p.label+(p.assetId?'':' · '+zoneName(p.zoneId))));}
  if(part&&!parts.some(p=>p.id===part.id)&&part.kind!=='mep-route')setSelection(null);renderPart();
 }
 function sync(){

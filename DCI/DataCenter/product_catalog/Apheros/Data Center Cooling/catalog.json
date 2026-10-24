@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "company": "Apheros",
+  "category": "Data Center Cooling",
+  "displayName": "콜드플레이트 소재 · Apheros",
+  "checked": "2026-10-24",
+  "officialUrl": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/",
+  "description": "OCP 2026 Innovation Village FTS의 cold plate 소재 프로토타입 시연.",
+  "products": {
+    "metal-foam-direct-to-chip-cold-plate": {
+      "name": "Apheros Metal Foam for Direct-to-Chip Cold Plates",
+      "description": "직접 칩 냉각 콜드플레이트용 open-porosity 금속 폼 기판 프로토타입. OCP 목록은 실물 시제품 데모를 설명하며 열저항·유량·압손·제품 SKU는 제시하지 않습니다.",
+      "officialUrl": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/",
+      "sourceUrls": [
+        "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "confidence": "OCP 공식 Innovation Village demo; 제품/성능 SKU 정보 미공개",
+      "specs": {
+        "Type": "Direct-to-chip cold plate material / substrate",
+        "Technology": "Open-porosity metal foam",
+        "OCP 2026 상태": "Physical prototype demo",
+        "Thermal / hydraulic specs": "공개 목록에 미기재",
+        "BOM 적용": "Reference only · 성능/조달 수량에 자동 반영하지 않음"
+      }
+    }
+  }
+}

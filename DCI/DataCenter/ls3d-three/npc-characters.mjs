@@ -97,6 +97,11 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
     piece(tablet,'tablet-housing',0,0,.14,.33,.24,.045,'#253847',.42,.43);
     piece(tablet,'tablet-screen',0,0,.172,.27,.18,.015,'#45afbf',.12,.26);
     tablet.visible=false;
+    if(role==='guard'){
+      const baton=pivot(arms.right.lower,'traffic-baton',.02,-.22,.08);
+      round(baton,'traffic-baton-light',0,0,.12,.055,.48,'#f0a43d');
+      piece(baton,'traffic-baton-grip',0,-.25,.12,.09,.16,.09,'#263e50',.32,.42);
+    }
     const legs={};
     for(const sign of [-1,1]){
       const isLeft=sign<0;
@@ -114,8 +119,8 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
   }
   function update(root,n,pose,clock=0) {
     const rig=root.userData.rig;if(!rig)return 'idle';
-    const action=pose.action==='walk'?'walk':pose.action==='inspect'?'inspect':
-      pose.action==='pause'?'pause':'idle';
+    const action=pose.action==='walk'?'walk':pose.action==='inspect'||pose.action==='write'?'inspect':
+      pose.action==='wave'?'wave':pose.action==='pause'?'pause':'idle';
     const time=Number.isFinite(clock)?clock:0;
     const phase=time*(2.6+Math.max(.1,Math.min(5,Number(n.speed)||2.5))*.35);
     const gait=action==='walk'?Math.sin(phase)*.46:0;
@@ -125,15 +130,15 @@ export function createNpcCharacterFactory(THREE, {cube, cylinder}) {
     rig.legs.left.lower.rotation.x=action==='walk'?-bend:0;
     rig.legs.right.lower.rotation.x=action==='walk'?-Math.max(0,-Math.sin(phase))*.32:0;
     rig.arms.left.upper.rotation.x=action==='walk'?-gait*.76:
-      action==='inspect'?-1.00:action==='pause'?-0.18:-.04;
+      action==='inspect'?-1.00:action==='wave'?-0.16:action==='pause'?-0.18:-.04;
     rig.arms.right.upper.rotation.x=action==='walk'?gait*.76:
-      action==='inspect'?-0.53:action==='pause'?-0.10:.04;
+      action==='inspect'?-0.53:action==='wave'?-1.15+Math.sin(time*2.1)*.32:action==='pause'?-0.10:.04;
     rig.arms.left.lower.rotation.x=action==='inspect'?-1.03:
       action==='walk'?-.16:-.22;
     rig.arms.right.lower.rotation.x=action==='inspect'?-1.01:
-      action==='walk'?-.18:-.24;
+      action==='wave'?-0.55+Math.sin(time*2.1)*.26:action==='walk'?-.18:-.24;
     rig.arms.left.upper.rotation.z=action==='inspect'?.12:.06;
-    rig.arms.right.upper.rotation.z=action==='inspect'?- .10:-.06;
+    rig.arms.right.upper.rotation.z=action==='inspect'?- .10:action==='wave'?.34:-.06;
     rig.torso.position.y=1.03+
       (action==='walk'?Math.abs(Math.sin(phase*2))*.028:Math.sin(time*1.4)*.009);
     rig.torso.rotation.z=action==='walk'?Math.sin(phase)*.035:Math.sin(time*.72)*.012;

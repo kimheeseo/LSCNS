@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-scenes';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-security-detail';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -421,6 +421,7 @@ export function createSceneAdapter(T, canvas) {
       'visitor-lobby':['LOBBY · BRIEFING ROOM','SAFETY ORIENTATION'],
       'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
       'visitor-locker':['VISITOR ID CAMERA','ID / CAMERA · USB · LAPTOP'],
+      'visitor-mantrap':['BIOMETRIC MANTRAP','IRIS · FINGERPRINT · CARD'],
       'ups-a':['UPS A','ONLINE UPS · 500 kVA'],
       'ups-b':['UPS B','STANDBY UPS · 500 kVA']
     };
@@ -474,8 +475,13 @@ export function createSceneAdapter(T, canvas) {
     );
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
-    g.traverse(obj=>{if(obj.isMesh)obj.userData.assetId=a.id});
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession};
+    const mantrapLights={red:null,green:null};
+    g.traverse(obj=>{
+      if(obj.isMesh)obj.userData.assetId=a.id;
+      if(obj.name==='equipment-part:mantrap-card-led-red')mantrapLights.red=obj;
+      if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
+    });
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -500,6 +506,13 @@ export function createSceneAdapter(T, canvas) {
         item.rackLOD.high.visible=!far;item.rackLOD.low.visible=far;
       }
       if(item.equipmentLOD)item.equipmentLOD.update(camera);
+      if(item.kind==='biometric-mantrap'){
+        const tour=window.__LS3D_VISITOR__?.state;
+        const cardDemo=!!(tour?.active&&tour.index===4&&(tour.task===1||tour.task===2));
+        const approved=cardDemo&&Math.sin(performance.now()*.004)>0;
+        if(item.mantrapLights?.red)item.mantrapLights.red.visible=!approved;
+        if(item.mantrapLights?.green)item.mantrapLights.green.visible=approved;
+      }
       const fault = !!a.down || !!(flags.scenario !== 'normal' && (
         (flags.scenario === 'cooling' && /tower/i.test(a.id)) ||
         (flags.scenario === 'network' && a.id === 'core') ||

@@ -114,6 +114,7 @@ export function createSceneAdapter(T, canvas) {
     const id=item.g.userData.assetId;
     rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);
     item.g.traverse(obj=>{
+      if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
       if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
       // LOD levels use cached materials; selected-ring material is per-object.
       if(obj.material && !Array.from(materialCache.values()).includes(obj.material)) {

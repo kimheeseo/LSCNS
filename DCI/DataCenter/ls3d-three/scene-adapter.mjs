@@ -3,10 +3,10 @@ import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=202
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-facilities';
-import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step09b';
+import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
+import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09c';
 import { createRackComponentKit } from './rack-components.mjs?v=20261023-ls-rack-detail&fill=20261024';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';

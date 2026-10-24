@@ -56,9 +56,9 @@
     "nvidia-cisco-usfp-12-8t": {
       "name": "NVIDIA/Cisco USFP 12.8T pluggable optics form factor",
       "description": "OSFP 크기 기반 400G/lane pluggable optics 생태계 제안. NVIDIA, Cisco, TE Connectivity, Amphenol이 cages/connectors/modules 협력 개발을 발표.",
-      "officialUrl": "https://nvidianews.nvidia.com/news/nvidia-and-cisco-advance-ai-networking-with-800g-and-1-6t",
+      "officialUrl": "https://nvidianews.nvidia.com/news/nvidia-and-cisco-introduce-new-pluggable-optics-form-factor-to-scale-ai-factories",
       "sourceUrls": [
-        "https://nvidianews.nvidia.com/news/nvidia-and-cisco-advance-ai-networking-with-800g-and-1-6t"
+        "https://nvidianews.nvidia.com/news/nvidia-and-cisco-introduce-new-pluggable-optics-form-factor-to-scale-ai-factories"
       ],
       "checked": "2026-10-24",
       "referenceOnly": true,

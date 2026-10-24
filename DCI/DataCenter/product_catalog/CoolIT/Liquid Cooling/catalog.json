@@ -27,9 +27,9 @@
     "cp-osfp-staubli-mini-qd": {
       "name": "CoolIT CP-OSFP + Stäubli Mini Quick Disconnect",
       "description": "OSFP 광트랜시버 직접 냉각용 콜드플레이트와 서비스 탈착형 퀵 디스커넥트 공동 설계; 3.2 Tb/s 이상 차세대 트랜시버 대상.",
-      "officialUrl": "https://www.coolitsystems.com/news/coolit-and-staubli-introduce-direct-to-plug-cooling-for-pluggable-optics",
+      "officialUrl": "https://www.coolitsystems.com/resources/news/coolit-and-staubli/",
       "sourceUrls": [
-        "https://www.coolitsystems.com/news/coolit-and-staubli-introduce-direct-to-plug-cooling-for-pluggable-optics"
+        "https://www.coolitsystems.com/resources/news/coolit-and-staubli/"
       ],
       "checked": "2026-10-24",
       "referenceOnly": true,

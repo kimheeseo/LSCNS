@@ -709,9 +709,9 @@
     "448g-front-io-overpass": {
       "name": "Amphenol 448G Front I/O OverPass",
       "description": "차세대 AI 서버의 front I/O 고속 전기 인터커넥트 플랫폼. 제품 페이지에는 448G PAM6(향후 PAM4) 및 passive/active copper·optical 구성 지원을 제시합니다.",
-      "officialUrl": "https://www.amphenol.com/products/448g-front-i-o-overpass",
+      "officialUrl": "https://www.amphenol-cs.com/product-series/448g-front-io-overpass.html",
       "sourceUrls": [
-        "https://www.amphenol.com/products/448g-front-i-o-overpass"
+        "https://www.amphenol-cs.com/product-series/448g-front-io-overpass.html"
       ],
       "checked": "2026-10-24",
       "referenceOnly": true,

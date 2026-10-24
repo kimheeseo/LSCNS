@@ -3,7 +3,7 @@
   "company": "Lumentum",
   "category": "CPO",
   "displayName": "CPO",
-  "checked": "2026-10-11",
+  "checked": "2026-10-24",
   "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
   "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
   "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
@@ -52,6 +52,23 @@
       },
       "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
       "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "ocp-1060nm-vcsel-pcie-optics": {
+      "name": "Lumentum 1060 nm VCSEL-based PCIe-over-optics platform",
+      "description": "Astera Labs Scorpio Smart Fabric Switch 및 Corning multimode fiber와 함께 AI 랙 규모 PCIe-over-optics를 공동 시연했습니다. 어레이 구조·제품 번호·주문 가능성은 원문에서 확인되지 않습니다.",
+      "officialUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Astera-Labs-and-Corning-to-Demonstrate-1060-nm-VCSEL-Based-PCIe-over-Optics-for-AI-Rack-Scale-Connectivity-at-the-2026-OCP-Global-Summit/default.aspx",
+      "sourceUrls": [
+        "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Astera-Labs-and-Corning-to-Demonstrate-1060-nm-VCSEL-Based-PCIe-over-Optics-for-AI-Rack-Scale-Connectivity-at-the-2026-OCP-Global-Summit/default.aspx"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "specs": {
+        "Catalog Group": "VCSEL / photodetector optical interconnect",
+        "Wavelength": "1060 nm",
+        "Use case": "AI rack-scale PCIe-over-optics",
+        "OCP 2026 상태": "공동 랙 데모; 상용 SKU/출하 여부 미확인",
+        "BOM 적용": "광 인터커넥트 참고 · 구매 수량 자동 합산 제외"
+      }
     }
   }
 }

@@ -31,10 +31,10 @@
     "supermicro-vera-cpu-rack": {
       "name": "Supermicro NVIDIA Vera CPU Rack",
       "description": "Rack-scale CPU system for agentic AI workloads; available to quote, with exact configuration confirmed through vendor RFQ.",
-      "officialUrl": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack",
+      "officialUrl": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack-256-cpu-100-liquid-cooled-rack-scale",
       "checked": "2026-10-24",
       "sourceUrls": [
-        "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack"
+        "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack-256-cpu-100-liquid-cooled-rack-scale"
       ],
       "confidence": "높음 (제조사 발표; 주문 구성은 견적 확인)",
       "referenceOnly": false,

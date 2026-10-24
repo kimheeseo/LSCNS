@@ -7,6 +7,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   function classify(a) {
     const t = String(a.type || '').toLowerCase(), id=String(a.id||'').toLowerCase();
     const s=t+' '+id;
+    if(/site-sign|ls data center.*안내/.test(s))return 'visitor-center';
+    if(/visitor-lobby|briefing|classroom/.test(s))return 'briefing-room';
+    if(/visitor-loading|하역장|loading bay/.test(s))return 'loading-bay';
     if(/cooling tower|\btower-[ab]\b/.test(s))return 'cooling-tower';
     if(/transformer|xfmr/.test(s))return 'transformer';
     if(/switchgear/.test(s))return 'switchgear';
@@ -108,7 +111,23 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
         break;
       }
-      case 'ats':case 'ups':case 'pdu':case 'cdu': {
+      case 'ups': {
+        // Online UPS: distinct cabinet face, bypass column and battery/DC status bank.
+        part(root,'ups-plinth',0,.03,0,w*.98,.18,d*.93,'#263948',.66,.38);
+        part(root,'ups-main-cabinet',-w*.11,.15,0,w*.68,h*.78,d*.85,'#738897',.59,.35);
+        part(root,'ups-door',-w*.11,h*.18,front,w*.57,h*.57,.065,'#193247',.35,.29);
+        part(root,'ups-hmi-display',-w*.11,h*.61,front-.05,w*.29,.22,.025,'#58e1cd',.12,.18);
+        part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#405d6e',.62,.38);
+        part(root,'ups-input-output-strip',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#e4c66f',.2,.28);
+        batch(root,'ups-status-leds',Array.from({length:8},(_,i)=>[
+          -w*.34+(i%4)*w*.12,h*.82+Math.floor(i/4)*h*.07,front-.06]),w*.045,.04,.02,
+          '#65e6b5');
+        batch(root,'ups-vent-slots',Array.from({length:12},(_,i)=>[
+          -w*.35+(i%6)*w*.085,h*.28+Math.floor(i/6)*h*.09,front-.07]),w*.05,.035,.025,
+          '#9fb9c3');
+        break;
+      }
+      case 'ats':case 'pdu':case 'cdu': {
         panel(root,kind,w,h,d,kind==='cdu'?'#4d8799':'#677e92');
         if(kind==='cdu'){
           for(const x of [-w*.25,w*.25]){
@@ -234,6 +253,43 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           part(root,'monitor-'+x,x,.87,-d*.12,w*.18,.58,.12,'#1d384e');
           part(root,'display-'+x,x,.94,-d*.20,w*.16,.37,.03,'#49b4ce',.1,.14);
         }
+        break;
+      }
+      case 'visitor-center': {
+        part(root,'visitor-center-building',0,.06,0,w*.96,h*.83,d*.90,'#71808b',.40,.50);
+        part(root,'visitor-center-glass',0,h*.43,front,w*.72,h*.42,.055,'#254c62',.12,.23);
+        part(root,'visitor-center-ls-plaque',0,h*.73,front-.06,w*.34,.22,.03,'#d9363e',.24,.29);
+        part(root,'visitor-center-canopy',0,h*.84,front,w*.88,.12,d*.34,'#d8e3e8',.45,.35);
+        break;
+      }
+      case 'briefing-room': {
+        part(root,'briefing-floor',0,.04,0,w*.94,.12,d*.92,'#536f7f',.28,.60);
+        part(root,'briefing-backwall',0,h*.28,d*.38,w*.90,h*.56,.08,'#e0e7e4',.12,.52);
+        part(root,'briefing-screen',0,h*.57,d*.32,w*.43,h*.24,.035,'#2f6078',.1,.20);
+        // Classroom desks and chairs face the briefing screen.
+        for(const zz of [-d*.20,d*.03])for(const xx of [-w*.27,0,w*.27]){
+          part(root,'briefing-desk',xx,.31,zz,w*.17,.08,d*.15,'#ad8f66',.25,.48);
+          part(root,'briefing-chair',xx,.08,zz-d*.14,w*.12,.23,d*.10,'#364b58',.34,.48);
+        }
+        // Red-shirt instructor, intentionally simplified educational figure.
+        round(root,'briefing-instructor-head',-w*.22,h*.66,d*.19,.11,.20,'#e1b28d');
+        part(root,'briefing-instructor-red-shirt',-w*.22,h*.38,d*.19,.24,h*.27,.15,'#d74248',.20,.42);
+        part(root,'briefing-podium',-w*.04,.18,d*.23,w*.15,h*.37,d*.14,'#4b7180',.35,.44);
+        break;
+      }
+      case 'loading-bay': {
+        part(root,'loading-bay-floor',0,.04,0,w*.95,.12,d*.94,'#536b78',.30,.58);
+        part(root,'loading-truck-body',-w*.19,.18,0,w*.55,h*.48,d*.46,'#edf1ef',.30,.42);
+        part(root,'loading-truck-cab',w*.19,.19,-d*.02,w*.20,h*.34,d*.43,'#b8c9d0',.34,.39);
+        part(root,'loading-truck-open-tail',-w*.48,h*.28,d*.28,w*.09,h*.39,.035,'#d7e3e6',.30,.42);
+        for(const xx of [-w*.33,w*.20])for(const zz of [-d*.22,d*.22])
+          round(root,'loading-truck-wheel',xx,.08,zz,.12,.14,'#202d35');
+        part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
+        // Forklift + branded delivery cartons beside open tailgate.
+        part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
+        part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
+        part(root,'loading-forklift-forks',w*.43,.06,d*.24,w*.22,.04,.09,'#697882',.50,.35);
+        for(let i=0;i<3;i++)part(root,'loading-ls-box-'+i,-w*.42+i*w*.12,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
         break;
       }
       case 'busway':electricalBus(root,w,d,h);break;

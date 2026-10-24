@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-facilities';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-scenes';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -420,6 +420,7 @@ export function createSceneAdapter(T, canvas) {
       'site-sign':['LS','DATA CENTER'],
       'visitor-lobby':['LOBBY · BRIEFING ROOM','SAFETY ORIENTATION'],
       'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
+      'visitor-locker':['VISITOR ID CAMERA','ID / CAMERA · USB · LAPTOP'],
       'ups-a':['UPS A','ONLINE UPS · 500 kVA'],
       'ups-b':['UPS B','STANDBY UPS · 500 kVA']
     };

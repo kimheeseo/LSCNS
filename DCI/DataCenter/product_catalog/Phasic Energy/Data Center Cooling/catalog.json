@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "company": "Phasic Energy",
+  "category": "Data Center Cooling",
+  "displayName": "열교환기 · Phasic Energy",
+  "checked": "2026-10-24",
+  "officialUrl": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/",
+  "description": "OCP 2026 Innovation Village의 FTS cooling demo 목록으로만 확인된 제품 개념입니다.",
+  "products": {
+    "modular-additive-heat-exchanger-1mw": {
+      "name": "Phasic Energy Modular Additively Manufactured Heat Exchanger · 1 MW",
+      "description": "2 × 500 kW 용량의 적층제조 물결판 열교환기 데모. OCP Project Deschutes CDU 아키텍처에 맞춰 설계됐다고 소개됐습니다. CDU 전체나 독립 냉각 용량과 혼동하지 않도록 참고용으로 관리합니다.",
+      "officialUrl": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/",
+      "sourceUrls": [
+        "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/innovation-village/"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "confidence": "OCP 공식 Innovation Village 데모 목록; 공급사 SKU·판매 상태 미확인",
+      "specs": {
+        "Type": "Modular heat exchanger",
+        "Published capacity": "1 MW · 2 × 500 kW",
+        "Architecture fit": "OCP Project Deschutes CDU",
+        "OCP 2026 상태": "FTS demo / live thermal-design tool",
+        "BOM 적용": "Reference only · CDU/열교환기 수량 자동 합산 제외"
+      }
+    }
+  }
+}

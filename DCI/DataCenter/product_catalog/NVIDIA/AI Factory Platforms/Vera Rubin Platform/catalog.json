@@ -152,10 +152,10 @@
     "nvidia-dsx-pod-reference-design": {
       "name": "NVIDIA DSX POD reference design",
       "description": "Vera Rubin AI factory용 모듈형 컨테이너 POD 참조 설계. 전력·냉각·네트워크가 준비된 현장에 연결하는 통합 설계로 파트너 글로벌 공급은 2027년 초 예정.",
-      "officialUrl": "https://nvidianews.nvidia.com/news/nvidia-dsx-ai-factory-reference-design",
+      "officialUrl": "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment",
       "checked": "2026-10-24",
       "sourceUrls": [
-        "https://nvidianews.nvidia.com/news/nvidia-dsx-ai-factory-reference-design"
+        "https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment"
       ],
       "referenceOnly": true,
       "specs": {

@@ -345,6 +345,7 @@ test('S19-rack-fill: central passive patching and blanking cover every front U',
 test('S19-product-click: ceiling trays and busduct expose persistent product descriptions',async({page},info)=>{
  await enter(page);
  async function aim(name,zone){
+  await page.locator('#sceneThree').scrollIntoViewIfNeeded();
   await page.evaluate(({name,zone})=>{
    const T=window.__LS3D_TEST__;T.setZone(zone);
    const v={target:[0,3,0],yaw:Math.PI/2,pitch:.25,distance:3};
@@ -360,12 +361,23 @@ test('S19-product-click: ceiling trays and busduct expose persistent product des
    Object.assign(T.cameraDesired,v);Object.assign(T.camera,{...v,target:[...v.target]});
    A.clearInspectionSelection();
   },name);
-  await page.waitForTimeout(180);
+  // Software WebGL can take longer than 180ms to render a new camera.
+  // Wait for the projected target, and scroll the canvas into view on phones.
+  await page.waitForFunction(name=>{
+   const A=window.LS3D_THREE.adapter;let obj;
+   A.scene.traverse(o=>{if(o.name===name)obj=o;});
+   const p=obj.getWorldPosition(new A.THREE.Vector3()).project(A.camera);
+   return Math.abs(p.x)<.025&&Math.abs(p.y)<.025;
+  },name);
+  await page.locator('#sceneThree').scrollIntoViewIfNeeded();
   return page.evaluate(name=>{
    const A=window.LS3D_THREE.adapter;let obj;
    A.scene.traverse(o=>{if(o.name===name)obj=o;});
    const p=obj.getWorldPosition(new A.THREE.Vector3()).project(A.camera),r=A.renderer.domElement.getBoundingClientRect();
-   return {x:r.left+(p.x+1)*r.width/2,y:r.top+(1-p.y)*r.height/2};
+   const point={x:r.left+(p.x+1)*r.width/2,y:r.top+(1-p.y)*r.height/2};
+   const hit=document.elementFromPoint(point.x,point.y);
+   if(hit!==A.renderer.domElement)throw new Error('Click target is obscured: '+hit?.id+' at '+JSON.stringify(point));
+   return point;
   },name);
  }
  let p=await aim('arch:tray:hall-power-tray-rail--0.38','hall');

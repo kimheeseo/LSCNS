@@ -3,7 +3,7 @@
   "company": "NVIDIA",
   "category": "CPO",
   "displayName": "CPO",
-  "checked": "2026-10-11",
+  "checked": "2026-10-24",
   "scope": "CPO 및 NPO 인접 기술·소재·공정·장비 참고 목록. 제품별 원문 상태 유지; 양산 또는 주문 가능한 SKU로 보증하지 않음.",
   "sourceUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
   "sourceRevision": "f9b2f2f623d31835b6d828288d435c83a713a890",
@@ -52,6 +52,23 @@
       },
       "solutionOverviewUrl": "https://kimheeseo.github.io/cpo-supply-chain/",
       "displayModel": "제품군 / 기술 참고 · SKU 별도 확인"
+    },
+    "nvidia-cisco-usfp-12-8t": {
+      "name": "NVIDIA/Cisco USFP 12.8T pluggable optics form factor",
+      "description": "OSFP 크기 기반 400G/lane pluggable optics 생태계 제안. NVIDIA, Cisco, TE Connectivity, Amphenol이 cages/connectors/modules 협력 개발을 발표.",
+      "officialUrl": "https://nvidianews.nvidia.com/news/nvidia-and-cisco-advance-ai-networking-with-800g-and-1-6t",
+      "sourceUrls": [
+        "https://nvidianews.nvidia.com/news/nvidia-and-cisco-advance-ai-networking-with-800g-and-1-6t"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "specs": {
+        "lane 구성": "최초 계획 16 full-duplex lanes × 400 Gb/s",
+        "총 대역폭": "12.8 Tb/s",
+        "폼팩터": "OSFP-size footprint",
+        "개발 상태": "파트너 생태계 개발 및 향후 개방형 사양 목표",
+        "BOM 적용": "참고 전용; 표준/SKU/호환 확인 전 자동 매칭 및 수량 제외"
+      }
     }
   }
 }

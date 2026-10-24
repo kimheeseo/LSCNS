@@ -1,5 +1,34 @@
 // STEP 10 — independent, selectable rack frame and assemblies, 42/48U conceptual layout.
 // This is a physical hierarchy for teaching. Not a manufacturer-certified U allocation/BOM.
+// Allocate only unused front U positions. Passive panels are illustrative and
+// never change active server/NIC counts or the BOM engine.
+export function planRackFrontFill(rackUnits,occupied,network=false){
+ const used=Array(rackUnits+1).fill(false),added=[];
+ function reserve(p){
+  for(let u=p.uStart;u<p.uStart+p.uHeight;u++){
+   if(u<1||u>rackUnits||used[u])throw new Error('Overlapping or out-of-range rack unit '+u);
+   used[u]=true;
+  }
+ }
+ occupied.forEach(reserve);
+ if(network){
+  const lastActive=Math.max(2,...occupied.filter(p=>/^(server|storage|network-switch)-/.test(p.kind)).map(p=>p.uStart+p.uHeight-1));
+  let serial=0;
+  for(let start=lastActive+1;start+2<=rackUnits-5;start+=5){
+   if([start,start+1,start+2].some(u=>used[u]))continue;
+   const panel={kind:'distribution-panel',uStart:start,uHeight:2,serial:++serial};
+   const manager={kind:'horizontal-manager',uStart:start+2,uHeight:1,serial};
+   reserve(panel);reserve(manager);added.push(panel,manager);
+  }
+ }
+ for(let u=1;u<=rackUnits;){
+  if(used[u]){u++;continue;}
+  let units=1;while(units<3&&u+units<=rackUnits&&!used[u+units])units++;
+  const panel={kind:'blanking-panel',uStart:u,uHeight:units};reserve(panel);added.push(panel);u+=units;
+ }
+ return {added,coverage:used.slice(1),occupiedUnits:used.slice(1).filter(Boolean).length};
+}
+
 export function createRackComponentKit(THREE,{cube}){
  const stats={built:0,parts:0,units42:0,units48:0,byType:{}};
  function box(parent,label,x,y,z,w,h,d,color,metal=.55,rough=.39){
@@ -104,6 +133,47 @@ export function createRackComponentKit(THREE,{cube}){
     }
     retain(partGroup);modules.push(partGroup);
   }
+  // Account for active assemblies and the top optical drawer before filling gaps.
+  const occupied=pieces.filter(p=>p.kind==='tor'||p.kind==='patch-panel'||/^(server|storage|network-switch)-/.test(p.kind));
+  occupied.push({kind:'optical-drawer',uStart:count-4,uHeight:2});
+  const frontFill=planRackFrontFill(count,occupied,network);
+  function batch(g,name,points,ww,hh,dd,color){
+    // Instanced sockets/fingers keep repeated passive patch panels inexpensive.
+    if(THREE.InstancedMesh&&THREE.Matrix4&&THREE.Vector3&&THREE.Quaternion){
+      const sample=box(g,name+'-sample',0,0,0,ww,hh,dd,color);
+      g.remove(sample);
+      const mesh=new THREE.InstancedMesh(sample.geometry,sample.material,points.length);
+      const q=new THREE.Quaternion(),scale=new THREE.Vector3(ww,hh,dd);
+      points.forEach(([x,y,z],i)=>mesh.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(x,y+hh*.5,z),q,scale)));
+      mesh.name='rack-shape:'+name;mesh.instanceMatrix.needsUpdate=true;g.add(mesh);return mesh;
+    }
+    points.forEach(([x,y,z],i)=>box(g,name+'-'+i,x,y,z,ww,hh,dd,color));
+  }
+  for(const fill of frontFill.added){
+    const y=lower+(fill.uStart-1)*unit,hh=fill.uHeight*unit-.018;
+    const label=fill.kind==='distribution-panel'?'광패치패널 '+fill.serial+' · LC duplex × 12 (예시)':fill.kind==='horizontal-manager'?'수평 케이블 정리대 '+fill.serial:fill.uHeight+'U 블랭킹 패널 · 예비 공간';
+    const g=group(root,id,fill.kind+'-'+fill.uStart,label,fill.uStart,fill.uHeight);
+    g.userData.rackPart.description=fill.kind==='distribution-panel'?'중앙 광배선 구역의 수동형 패치패널입니다. 12개 LC duplex 아답터와 모듈 하우징을 표시한 교육용 배치이며 실제 접속·용량·BOM 수량을 추가한 결과가 아닙니다.':fill.kind==='horizontal-manager'?'광패치코드와 케이블을 수평으로 정리하는 핑거형 관리 부품입니다.': '미사용 U 공간을 막아 빈 슬롯을 구별하는 마감 패널입니다. 서버나 광모듈이 들어 있는 부품이 아닙니다.';
+    if(fill.kind==='distribution-panel'){
+      box(g,'distribution-housing',0,y,-d*.24,w*.76,hh,d*.52,'#405c70');
+      box(g,'distribution-front',0,y+.012,-d*.525,w*.75,hh-.025,.055,'#8ba2b0');
+      const row=Array.from({length:12},(_,i)=>[-w*.305+i*w*.0555,y+hh*.24,-d*.57]);
+      batch(g,'lc-duplex-adapter',row,w*.045,hh*.47,.045,'#2689b2');
+      const sockets=row.flatMap(([x,yy,z])=>[-1,1].map(side=>[x+side*w*.010,yy+hh*.09,z-.027]));
+      batch(g,'lc-duplex-socket',sockets,w*.012,hh*.23,.012,'#102432');
+      batch(g,'module-divider',[-1,0,1].map(i=>[i*w*.19,y+.02,-d*.59]),.015,hh*.78,.015,'#cad8dd');
+      box(g,'patch-label-strip',0,y+hh*.79,-d*.574,w*.62,.019,.009,'#dce5e7');
+    }else if(fill.kind==='horizontal-manager'){
+      box(g,'manager-back',0,y,-d*.48,w*.76,hh,.08,'#2c4558');
+      batch(g,'manager-fingers',Array.from({length:10},(_,i)=>[-w*.32+i*w*.071,y+.018,-d*.54]),w*.021,hh*.70,.11,'#8aa0ad');
+      box(g,'manager-lower-lip',0,y,-d*.59,w*.75,.018,.025,'#b4c2c9');
+    }else{
+      box(g,'blanking-plate',0,y,-d*.50,w*.76,hh,.035,'#344c5f');
+      box(g,'blanking-top-edge',0,y+hh-.014,-d*.523,w*.74,.011,.01,'#6c8394');
+      batch(g,'blanking-fasteners',[-1,1].map(side=>[side*w*.35,y+hh*.45,-d*.526]),.020,.020,.012,'#b1bec7');
+    }
+    retain(g);
+  }
   const cassette=new THREE.Group();cassette.name='fiber-cassette';root.add(cassette);
   const cassetteParts=group(cassette,id,'cassette-pull','인출형 광카세트',count-4,2);
   // Drawer is an empty carrier; optical kit builds the housing and all modules.
@@ -137,7 +207,7 @@ export function createRackComponentKit(THREE,{cube}){
   const moving={hinge:frontDoor,slide,cassette,reach:d*.67,door:null,rearDoor};
   stats.built++;if(count===48)stats.units48++;else stats.units42++;
   return {moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
-    serverGroups:modules,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
+    serverGroups:modules,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
     frontDoor,rearDoor,slideGroup:slide};
  }
  return {build,stats};

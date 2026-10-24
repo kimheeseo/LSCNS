@@ -6,7 +6,7 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step0
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261015-step09c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261023-ls-rack-detail';
+import { createRackComponentKit } from './rack-components.mjs?v=20261023-ls-rack-detail&fill=20261024';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';

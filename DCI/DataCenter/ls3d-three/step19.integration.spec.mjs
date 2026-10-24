@@ -310,3 +310,33 @@ test('S19-inspector: tool dock, asset/part lists and clicked golden tray stay sy
   await page.locator('#mobileInspectorTools summary').click();await expect(page.locator('#phase5-open')).toBeVisible();
   await page.screenshot({path:info.outputPath('inspector-mobile-dock.png')});
 });
+
+
+test('S19-rack-fill: central passive patching and blanking cover every front U',async({page},info)=>{
+  await enter(page);
+  await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__,A=window.LS3D_THREE.adapter;
+    T.setZone('hall');T.pickAsset(T.assetMap.get('tor-a'),false);
+    A.focusRackSide('tor-a','front');A.toggleRackFrontDoor('tor-a');A.toggleRackCassette('tor-a');
+  });
+  await page.waitForFunction(()=>window.LS3D_INSPECTOR.parts.some(p=>p.kind.startsWith('distribution-panel-')));
+  await page.waitForTimeout(450);
+  const result=await page.evaluate(()=>{
+    const A=window.LS3D_THREE.adapter;let rack=null;A.scene.traverse(o=>{if(o.name==='equipment:tor-a')rack=o;});
+    const mounted=[],slots=Array(49).fill(0);let panels=0,sleds=0,instances=0;
+    rack.traverse(o=>{
+      const p=o.userData?.rackPart;if(p&&(/^(network-switch-|distribution-panel-|horizontal-manager-|blanking-panel-)/.test(p.kind)||['tor','patch-panel','cassette-pull'].includes(p.kind))){
+        mounted.push(p);for(let u=p.uStart;u<p.uStart+p.uHeight;u++)slots[u]++;
+        if(p.kind.startsWith('distribution-panel-'))panels++;
+        if(p.kind.startsWith('network-switch-'))sleds++;
+      }
+      if(o.isInstancedMesh&&o.name==='rack-shape:lc-duplex-adapter')instances+=o.count;
+    });
+    return {coverage:slots.slice(1),panels,sleds,instances,firstPanel:mounted.find(p=>p.kind.startsWith('distribution-panel-'))?.id};
+  });
+  expect(result.coverage).toHaveLength(48);expect(result.coverage.every(n=>n===1)).toBe(true);
+  expect(result.panels).toBe(6);expect(result.sleds).toBe(3);expect(result.instances).toBe(72);
+  await page.locator('#inspectorPartSelect').selectOption(result.firstPanel);
+  await expect(page.locator('#inspectorPartName')).toContainText('광패치패널');
+  await page.screenshot({path:info.outputPath('rack-center-filled-passive-panels.png')});
+});

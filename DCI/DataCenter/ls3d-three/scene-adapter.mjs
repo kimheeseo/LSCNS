@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-facilities';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step09b';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
@@ -414,6 +414,29 @@ export function createSceneAdapter(T, canvas) {
     }
     return selected;
   }
+  function visitorCaption(a) {
+    const explicit={
+      'entry-desk':['SECURITY DESK','VISITOR CHECK-IN'],
+      'site-sign':['LS','DATA CENTER'],
+      'visitor-lobby':['LOBBY · BRIEFING ROOM','SAFETY ORIENTATION'],
+      'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
+      'ups-a':['UPS A','ONLINE UPS · 500 kVA'],
+      'ups-b':['UPS B','STANDBY UPS · 500 kVA']
+    };
+    const text=explicit[a.id];if(!text||typeof document==='undefined')return null;
+    const c=document.createElement('canvas');c.width=640;c.height=150;
+    const ctx=c.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='rgba(8,29,43,.92)';ctx.strokeStyle='#68d9d1';ctx.lineWidth=7;
+    ctx.beginPath();ctx.roundRect?.(8,8,624,134,18);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#f0fbff';ctx.font='700 42px system-ui,sans-serif';ctx.textAlign='center';
+    ctx.fillText(text[0],320,64);ctx.fillStyle='#83e1d5';ctx.font='600 26px system-ui,sans-serif';
+    ctx.fillText(text[1],320,108);
+    const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
+    const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,depthWrite:false}));
+    sprite.name='visitor-caption:'+a.id;sprite.scale.set(Math.max(3.8,a.w*.88),Math.max(.9,a.h*.23),1);
+    sprite.position.set(0,a.h+Math.max(.55,a.h*.15),-a.d*.16);
+    sprite.userData.noPick=true;return sprite;
+  }
   function assetMesh(a) {
     const g=new THREE.Group();
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
@@ -442,6 +465,7 @@ export function createSceneAdapter(T, canvas) {
       kind=result.kind;equipmentLOD=result.lod;g.add(equipmentLOD);
     }
     cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
+    const caption=visitorCaption(a);if(caption)g.add(caption);
     g.position.set(a.x,0,a.z);
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),

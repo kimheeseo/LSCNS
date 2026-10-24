@@ -25,6 +25,9 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
  lampMesh.name='security:scanner-ready';
  const lampWarning=cube(lamp,0,2.8,0,.40,.15,.20,'#f6c66d',.14,.31);
  lampWarning.name='security:scanner-running';lampWarning.visible=false;
+ const registration=new THREE.Group();registration.name='security:registration-paperwork';root.add(registration);
+ cube(registration,0,.04,0,.86,.035,.58,'#f3f0e5',.05,.72).name='security:visitor-form';
+ cube(registration,.25,.075,.06,.055,.035,.52,'#315e85',.24,.36).name='security:signing-pen';
  const gate=new THREE.Group();gate.name='security:gate-barrier-pivot';root.add(gate);
  const bar=cube(gate,2.2,0,0,4.4,.16,.19,'#e8c982',.57,.36);
  bar.name='security:access-barrier';
@@ -66,10 +69,13 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    const smooth=ratio*ratio*(3-2*ratio);
    const pos=lerp(from,to,phase.action==='walk'?smooth:0);
    visitor.position.set(pos[0],.04,pos[1]);
+   registration.position.set(desk.x,1.03,desk.z+desk.d*.15);
+   registration.visible=step===1;
+   registration.rotation.y=Math.sin(time*1.6)*.025;
    const travel=Math.hypot(to[0]-from[0],to[1]-from[1]);
    visitor.rotation.y=travel>.0001?Math.atan2(to[0]-from[0],to[1]-from[1]):0;
    characterFactory.update(visitor,{speed:2.1},{
-     action:phase.action==='walk'?'walk':step===1||step===5?'inspect':'pause'},time);
+     action:phase.action==='walk'?'walk':step===1?'write':step===5?'inspect':'pause'},time);
    // Conveyor motion is represented as a separate bag object, never parented to the visitor rig.
    const bagStart=point(xray,-xray.w*.60,0),bagEnd=point(xray,xray.w*.60,0);
    const conveyor=step===3?ratio:step>3?1:0;
@@ -88,7 +94,7 @@ export function createVisitorSecurity(THREE,T,{cube,characterFactory}) {
    stats.stage=phase.name;stats.updates++;
    return {active:true,stage:phase.name,phaseIndex:step,progress:ratio,
      visitor:{x:pos[0],z:pos[1]},bag:{x:bp[0],z:bp[1]},
-     gateOpen:approved,guardAAction:step===3?'inspect':'idle',
+     gateOpen:approved,guardAAction:step===3?'inspect':'wave',
      guardBAction:step===5||step===6?'inspect':'idle'};
  }
  function diagnostic(){

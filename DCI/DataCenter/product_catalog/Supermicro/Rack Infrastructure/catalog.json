@@ -27,6 +27,25 @@
         "IT 소비전력": "CPU/GPU TDP 또는 PSU 정격 합산으로 단정하지 않음 · OEM 측정/설계값 RFQ",
         "확인 상태": "공식 공개 구성 확인 · 옵션/NIC/전력/공급 검증 필요"
       }
+    },
+    "supermicro-vera-cpu-rack": {
+      "name": "Supermicro NVIDIA Vera CPU Rack",
+      "description": "Rack-scale CPU system for agentic AI workloads; available to quote, with exact configuration confirmed through vendor RFQ.",
+      "officialUrl": "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack",
+      "checked": "2026-10-24",
+      "sourceUrls": [
+        "https://www.supermicro.com/en/pressreleases/supermicro-introduces-nvidia-vera-cpu-rack"
+      ],
+      "confidence": "높음 (제조사 발표; 주문 구성은 견적 확인)",
+      "referenceOnly": false,
+      "specs": {
+        "CPU": "256 NVIDIA Vera CPUs",
+        "코어 / 스레드": "22,528 cores / 45,056 threads",
+        "DPU": "BlueField-4",
+        "냉각": "DLC-2 direct liquid cooling",
+        "전력 구성": "480 VAC feed 또는 800 VDC sidecar power rack/BBU architecture 지원 옵션",
+        "상태": "2026-10-22 발표 · quote 가능; 정확한 SKU·전력/호환 구성은 RFQ 확인"
+      }
     }
   }
 }

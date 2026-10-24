@@ -2,7 +2,7 @@
   "company": "CoolIT",
   "category": "Liquid Cooling",
   "displayName": "CoolIT Liquid Cooling",
-  "checked": "2026-10-05",
+  "checked": "2026-10-24",
   "officialUrl": "https://www.coolitsystems.com/cdus",
   "products": {
     "AHx180": {
@@ -22,6 +22,22 @@
       "specs": {
         "Cooling Capacity": ">2 MW class",
         "Cooling Type": "Row-based CDU"
+      }
+    },
+    "cp-osfp-staubli-mini-qd": {
+      "name": "CoolIT CP-OSFP + Stäubli Mini Quick Disconnect",
+      "description": "OSFP 광트랜시버 직접 냉각용 콜드플레이트와 서비스 탈착형 퀵 디스커넥트 공동 설계; 3.2 Tb/s 이상 차세대 트랜시버 대상.",
+      "officialUrl": "https://www.coolitsystems.com/news/coolit-and-staubli-introduce-direct-to-plug-cooling-for-pluggable-optics",
+      "sourceUrls": [
+        "https://www.coolitsystems.com/news/coolit-and-staubli-introduce-direct-to-plug-cooling-for-pluggable-optics"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "specs": {
+        "구성": "CP-OSFP cold plate + Stäubli Mini Quick Disconnect",
+        "대상": "고전력 OSFP 광트랜시버, 3.2 Tb/s 이상 세대 대상",
+        "SKU/치수/열성능/유량": "공식 발표에 세부 미공개",
+        "BOM 적용": "참고 전용; 주문 SKU 및 엔지니어링 조건 확인 전 수량 자동 계산 제외"
       }
     }
   }

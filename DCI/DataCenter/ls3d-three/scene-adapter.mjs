@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-visitor-security-detail';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-external-infra-detail';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -422,6 +422,15 @@ export function createSceneAdapter(T, canvas) {
       'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
       'visitor-locker':['VISITOR ID CAMERA','ID / CAMERA · USB · LAPTOP'],
       'visitor-mantrap':['BIOMETRIC MANTRAP','IRIS · FINGERPRINT · CARD'],
+      'generator':['EMERGENCY GENERATOR','DIESEL · RADIATOR · EXHAUST'],
+      'tower-a':['COOLING TOWER A','FAN · DRIFT ELIMINATOR'],
+      'tower-b':['COOLING TOWER B','FAN · DRIFT ELIMINATOR'],
+      'chiller':['CHILLER','COMPRESSOR · CONDENSER'],
+      'xfmr-a':['MAIN TRANSFORMER A','UTILITY INTAKE'],
+      'xfmr-b':['MAIN TRANSFORMER B','UTILITY INTAKE'],
+      'switchgear':['SWITCHGEAR','PROTECTION · DISTRIBUTION'],
+      'ats':['ATS','UTILITY / GENERATOR TRANSFER'],
+      'battery-a':['BATTERY BANK A','DC STRING · UPS BACKUP'],
       'ups-a':['UPS A','ONLINE UPS · 500 kVA'],
       'ups-b':['UPS B','STANDBY UPS · 500 kVA']
     };

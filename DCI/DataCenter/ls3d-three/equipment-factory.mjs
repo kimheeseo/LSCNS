@@ -11,6 +11,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     if(/visitor-lobby|briefing|classroom/.test(s))return 'briefing-room';
     if(/visitor-loading|하역장|loading bay/.test(s))return 'loading-bay';
     if(/visitor-locker|camera.*usb|laptop.*register/.test(s))return 'identity-camera';
+    if(/visitor-mantrap|mantrap|iris|fingerprint/.test(s))return 'biometric-mantrap';
     if(/cooling tower|\btower-[ab]\b/.test(s))return 'cooling-tower';
     if(/transformer|xfmr/.test(s))return 'transformer';
     if(/switchgear/.test(s))return 'switchgear';
@@ -113,19 +114,22 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'ups': {
-        // Online UPS: distinct cabinet face, bypass column and battery/DC status bank.
-        part(root,'ups-plinth',0,.03,0,w*.98,.18,d*.93,'#263948',.66,.38);
-        part(root,'ups-main-cabinet',-w*.11,.15,0,w*.68,h*.78,d*.85,'#738897',.59,.35);
-        part(root,'ups-door',-w*.11,h*.18,front,w*.57,h*.57,.065,'#193247',.35,.29);
-        part(root,'ups-hmi-display',-w*.11,h*.61,front-.05,w*.29,.22,.025,'#58e1cd',.12,.18);
-        part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#405d6e',.62,.38);
-        part(root,'ups-input-output-strip',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#e4c66f',.2,.28);
+        // Tall black online-UPS cabinet: HMI screen, dense intake grilles, bypass bay and feet.
+        part(root,'ups-plinth',0,.03,0,w*.98,.18,d*.93,'#131d24',.66,.38);
+        part(root,'ups-main-cabinet',-w*.11,.15,0,w*.68,h*.78,d*.85,'#202b31',.59,.31);
+        part(root,'ups-door',-w*.11,h*.18,front,w*.57,h*.57,.065,'#10191f',.35,.29);
+        part(root,'ups-hmi-bezel',-w*.11,h*.68,front-.052,w*.32,.29,.035,'#a6afb2',.32,.28);
+        part(root,'ups-hmi-display',-w*.11,h*.70,front-.075,w*.23,.16,.018,'#89a8d9',.06,.14);
+        part(root,'ups-hmi-status-bar',-w*.11,h*.59,front-.077,w*.16,.025,.016,'#55df9d',.05,.25);
+        part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#303b40',.62,.33);
+        part(root,'ups-bypass-hmi',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#b7d67a',.1,.20);
+        part(root,'ups-input-output-strip',w*.31,h*.38,front-.38,w*.13,h*.06,.025,'#d6b75e',.2,.28);
+        for(const x of [-w*.34,w*.12])for(const z of [-d*.30,d*.30])
+          round(root,'ups-foot-'+x+'-'+z,x,.02,z,.09,.16,'#2b3338');
         batch(root,'ups-status-leds',Array.from({length:8},(_,i)=>[
-          -w*.34+(i%4)*w*.12,h*.82+Math.floor(i/4)*h*.07,front-.06]),w*.045,.04,.02,
-          '#65e6b5');
-        batch(root,'ups-vent-slots',Array.from({length:12},(_,i)=>[
-          -w*.35+(i%6)*w*.085,h*.28+Math.floor(i/6)*h*.09,front-.07]),w*.05,.035,.025,
-          '#9fb9c3');
+          -w*.34+(i%4)*w*.12,h*.86+Math.floor(i/4)*h*.055,front-.08]),w*.038,.035,.02,'#65e6b5');
+        batch(root,'ups-vent-slots',Array.from({length:24},(_,i)=>[
+          -w*.34+(i%8)*w*.084,h*.20+Math.floor(i/8)*h*.09,front-.075]),w*.045,.025,.018,'#53636b');
         break;
       }
       case 'ats':case 'pdu':case 'cdu': {
@@ -269,10 +273,37 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'identity-camera-privacy-shield',0,h*.93,.03,w*.34,.09,d*.23,'#405968',.43,.38);
         break;
       }
+      case 'biometric-mantrap': {
+        // Two-door interlock with iris camera, fingerprint pad and card reader status pair.
+        part(root,'mantrap-floor',0,.03,0,w*.96,.10,d*.95,'#485f6b',.25,.58);
+        for(const xx of [-w*.40,w*.40]){
+          part(root,'mantrap-frame-'+xx,xx,.05,0,w*.07,h*.92,d*.82,'#8da9b3',.52,.34);
+          part(root,'mantrap-door-glass-'+xx,xx*.54,h*.10,0,w*.32,h*.72,.035,'#6fb2c3',.12,.20,true);
+        }
+        part(root,'mantrap-outer-lintel',0,h*.83,-d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
+        part(root,'mantrap-inner-lintel',0,h*.83,d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
+        part(root,'mantrap-iris-pedestal',-w*.28,.12,-d*.12,w*.13,h*.58,d*.13,'#2c4655',.44,.34);
+        round(root,'mantrap-iris-camera',-w*.28,h*.68,-d*.20,Math.min(w,d)*.075,.10,'#132a3a');
+        round(root,'mantrap-iris-ring',-w*.28,h*.68,-d*.255,Math.min(w,d)*.10,.022,'#5be7db');
+        part(root,'mantrap-fingerprint-pad',-w*.28,h*.37,-d*.23,w*.14,.10,.035,'#8bcfd1',.12,.22);
+        part(root,'mantrap-card-reader',w*.27,h*.32,-d*.30,w*.15,h*.24,.09,'#263f4f',.35,.29);
+        part(root,'mantrap-card-slot',w*.27,h*.43,-d*.355,w*.08,.024,.014,'#d8e9e8',.08,.22);
+        part(root,'mantrap-card-led-red',w*.27,h*.53,-d*.356,w*.07,.055,.014,'#e94750',.08,.20);
+        part(root,'mantrap-card-led-green',w*.27,h*.53,-d*.372,w*.07,.055,.014,'#56e3a0',.08,.20);
+        break;
+      }
       case 'visitor-center': {
         part(root,'visitor-center-building',0,.06,0,w*.96,h*.83,d*.90,'#71808b',.40,.50);
         part(root,'visitor-center-glass',0,h*.43,front,w*.72,h*.42,.055,'#254c62',.12,.23);
         part(root,'visitor-center-ls-plaque',0,h*.73,front-.06,w*.34,.22,.03,'#d9363e',.24,.29);
+        // LS mark is fixed to the façade, rather than only appearing as a floating scene label.
+        part(root,'visitor-center-logo-l-vert',-w*.075,h*.70,front-.085,w*.025,.12,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-l-base',-w*.045,h*.65,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-s-top',w*.07,h*.75,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-s-mid',w*.07,h*.70,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-s-base',w*.07,h*.65,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-s-left',w*.03,h*.725,front-.085,w*.025,.075,.014,'#ffffff',.05,.30);
+        part(root,'visitor-center-logo-s-right',w*.11,h*.675,front-.085,w*.025,.075,.014,'#ffffff',.05,.30);
         part(root,'visitor-center-canopy',0,h*.84,front,w*.88,.12,d*.34,'#d8e3e8',.45,.35);
         break;
       }

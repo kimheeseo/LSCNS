@@ -14,3 +14,10 @@ test('walls and floors do not become click blockers; zones have separate IDs',()
  assert.equal(describeArchitecturePart('wall','wall','hall'),null);
  assert.notEqual(describeArchitecturePart('tray','power-tray-base','hall').id,describeArchitecturePart('tray','power-tray-base','network').id);
 });
+
+test('tray channel click surface shares rail identity and detailed product guidance',()=>{
+ const surface=describeArchitecturePart('tray','hall-power-tray-pick-surface','hall');
+ const rail=describeArchitecturePart('tray','hall-power-tray-rail--0.38','hall');
+ assert.equal(surface.id,rail.id);assert.equal(surface.component,'트레이 본체');
+ for(const word of ['Cable Tray','허용 하중','접지·본딩','천장 행거'])assert.ok(surface.description.includes(word));
+});

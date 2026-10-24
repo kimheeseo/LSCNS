@@ -3,11 +3,11 @@
 // Illustrative coordinates (legacy scene units), NOT CAD/BIM or construction clearances.
 export function describeArchitecturePart(kind,name,zoneId){
  if(kind!=='tray'&&kind!=='beam')return null;
- const component=name.includes('-hanger-')?'천장 행거':name.includes('-rung-')?'가로 지지대':name.includes('-rail-')?'측면 레일':name.endsWith('-base')?'바닥 받침':'구조 부재';
+ const component=name.includes('-hanger-')?'천장 행거':name.includes('-rung-')?'가로 지지대':name.includes('-rail-')?'측면 레일':name.endsWith('-base')?'바닥 받침':name.endsWith('-pick-surface')?'트레이 본체':'구조 부재';
  const power=name.includes('-power-tray'),fiber=name.includes('-fiber-tray');
- const group=kind==='tray'?name.replace(/-(?:base|rail-.*|rung-.*|hanger-.*)$/,''):name;
+ const group=kind==='tray'?name.replace(/-(?:base|rail-.*|rung-.*|hanger-.*|pick-surface)$/,''):name;
  const label=kind==='beam'?'천장 구조 보':power?'전력 케이블 트레이':fiber?'광케이블 트레이':name.includes('-cross-tray')?'교차 케이블 트레이':'설비 케이블 트레이';
- const description=kind==='beam'?'천장과 설비 지지 구조를 구성하는 보입니다. 전기 도체나 광케이블이 아닙니다.':power?'랙 상부에서 전력 케이블을 지지하고 정리하는 트레이입니다. 노란색은 전력 배선 구역을 구별하기 위한 표현이며, 이 부품 자체가 전류를 공급하는 버스웨이는 아닙니다.':fiber?'광케이블을 지지·정리하고 전력 배선과 경로를 구별하는 트레이입니다. 실제 포설 시 허용 굴곡반경과 충전율을 확인해야 합니다.':'구역 사이에서 케이블 경로를 연결하고 지지하는 트레이입니다. 실제 시공 치수와 내하중을 나타내는 모델은 아닙니다.';
+ const description=kind==='beam'?'천장과 설비 지지 구조를 구성하는 보입니다. 전기 도체나 광케이블이 아닙니다.':power?'전력 케이블 트레이(Cable Tray)는 랙 상부에서 전력 케이블을 받치고 배선 경로를 정리하는 지지 설비입니다. 측면 레일·가로 지지대·바닥 받침과 천장 행거로 구성됩니다. 화면의 노란색은 전력 배선 경로를 구별하는 표시이며, 실제 케이블 자체를 뜻하지 않습니다. 전력은 트레이 위에 포설한 케이블을 통해 전달되며, 이 부품 자체가 전류를 공급하는 버스웨이는 아닙니다. 선정 시 케이블 중량에 따른 허용 하중, 지지 간격, 점유율, 접지·본딩 조건을 확인합니다. 교육용 개념 모델로 특정 LS전선 제품의 치수·정격을 나타내지는 않습니다.':fiber?'광케이블을 지지·정리하고 전력 배선과 경로를 구별하는 트레이입니다. 실제 포설 시 허용 굴곡반경과 충전율을 확인해야 합니다.':'구역 사이에서 케이블 경로를 연결하고 지지하는 트레이입니다. 실제 시공 치수와 내하중을 나타내는 모델은 아닙니다.';
  return {id:'structure:'+zoneId+':'+group,kind:kind==='tray'?'cable-tray':'structural-beam',label,description,component,zoneId};
 }
 
@@ -128,6 +128,16 @@ export function createArchitectureKit(THREE, { cube }) {
   }
   function suspendedTray(g,name,x,y,z,length,alongX,tint) {
     const channel=alongX?{w:length,d:.8}:{w:.8,d:length};
+    // A tight transparent pick surface spans the tray channel so a touch does
+    // not have to land precisely on a 0.065-unit rail. It never hides geometry.
+    const pickSurface=part(g,'tray',name+'-pick-surface',x,y,z,channel.w,.29,channel.d,tint);
+    pickSurface.userData.inspectionPickSurface=true;
+    pickSurface.castShadow=false;pickSurface.receiveShadow=false;
+    if(pickSurface.material?.clone){
+      pickSurface.material=pickSurface.material.clone();
+      pickSurface.material.transparent=true;pickSurface.material.opacity=0;
+      pickSurface.material.depthWrite=false;pickSurface.material.colorWrite=false;
+    }
     // U-shaped suspended cable support: base, two rails, ladder rungs, hanging rods.
     part(g,'tray',name+'-base',x,y,z,channel.w,.08,channel.d,'#627e8a',.65,.34);
     if (alongX) {

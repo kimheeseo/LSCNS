@@ -1,7 +1,7 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024';
+import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261015-step05';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261015-step09b';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -146,7 +146,7 @@ export function createSceneAdapter(T, canvas) {
     inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
     const highlightRoot=info.assetId?registry.get(info.assetId)?.g:zoneRoot;
     highlightRoot?.traverse(object=>{
-      if(!object.isMesh||(!info.assetId&&object.userData?.inspectionPart?.id!==info.id)||object.userData?.noPick||!object.material?.clone)return;
+      if(!object.isMesh||object.userData?.inspectionPickSurface||(!info.assetId&&object.userData?.inspectionPart?.id!==info.id)||object.userData?.noPick||!object.material?.clone)return;
       const original=object.material,highlighted=original.clone();
       highlighted.emissive?.set(0xffd65a);highlighted.emissiveIntensity=1.2;
       object.material=highlighted;scenePartMaterials.push({object,original,highlighted});

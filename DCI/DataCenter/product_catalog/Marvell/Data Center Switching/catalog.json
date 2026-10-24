@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "company": "Marvell",
+  "country": "USA",
+  "category": "Data Center Switching",
+  "displayName": "AI 데이터센터 스위칭 · Marvell",
+  "checked": "2026-10-24",
+  "officialUrl": "https://investor.marvell.com/news-events/press-releases/detail/1036/marvell-to-showcase-open-ai-infrastructure-solutions-at-ocp-global-summit-2026",
+  "description": "OCP 2026 공식 전시 품목 기준으로 확인한 스위칭 제품군. 모델·포트 구성·주문 가능 상태는 공급사 확인 필요.",
+  "products": {
+    "teralynx-t100-1024t": {
+      "name": "Marvell Teralynx T100 · 102.4T next-generation data center switch",
+      "description": "Marvell이 OCP 2026에서 전시한다고 발표한 102.4T 데이터센터 스위치 제품군. 공식 전시 발표에서 세부 P/N, 포트 구성, 냉각/전원 및 출하 상태는 기재되지 않아 제품 설계 후보 참고로만 등록합니다.",
+      "officialUrl": "https://investor.marvell.com/news-events/press-releases/detail/1036/marvell-to-showcase-open-ai-infrastructure-solutions-at-ocp-global-summit-2026",
+      "sourceUrls": [
+        "https://investor.marvell.com/news-events/press-releases/detail/1036/marvell-to-showcase-open-ai-infrastructure-solutions-at-ocp-global-summit-2026"
+      ],
+      "checked": "2026-10-24",
+      "referenceOnly": true,
+      "confidence": "제조사 OCP 2026 발표 확인; 세부 SKU/구성 미확인",
+      "specs": {
+        "Type": "Data-center Ethernet switch",
+        "Aggregate switching capacity": "102.4 Tb/s (Marvell 공개 발표)",
+        "OCP 2026 상태": "전시/시연 품목",
+        "Model / port map": "공식 OCP 발표에서 세부 구성 미공개",
+        "BOM 적용": "Reference only · 자동 포트/수량 계산 제외"
+      }
+    }
+  }
+}

@@ -3,17 +3,18 @@
   "company": "Marvell",
   "category": "Optical DSPs",
   "displayName": "광칩 · PAM4 DSP",
-  "checked": "2026-10-05",
+  "checked": "2026-10-24",
   "scope": "공식 공개 자료 기준 대표 제품/제품군. 전체 SKU 목록 아님.",
   "storageMode": "metadata only; official product URLs; no PDF upload",
   "products": {
     "ara": {
       "name": "Marvell Ara",
-      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다.",
+      "description": "AI·클라우드 데이터센터 광모듈용 DSP 제품군. 정확한 하위 SKU·모듈 호환은 별도 확인합니다. OCP Global Summit 2026 전시 항목으로 Ara DSP 기반 1.6T transmit-retimed optics가 공개됨. 특정 모듈 SKU/호환은 미확인.",
       "officialUrl": "https://www.marvell.com/products/pam-dsp.html",
-      "checked": "2026-10-05",
+      "checked": "2026-10-24",
       "sourceUrls": [
-        "https://www.marvell.com/products/pam-dsp.html"
+        "https://www.marvell.com/products/pam-dsp.html",
+        "https://investor.marvell.com/news-events/press-releases/detail/1036/marvell-to-showcase-open-ai-infrastructure-solutions-at-ocp-global-summit-2026"
       ],
       "confidence": "높음 (공식 공개 사양); SKU/공급/호환성 검증 필요",
       "specs": {
@@ -22,7 +23,8 @@
         "모듈 / 인터페이스 속도": "1.6T",
         "특징": "Ethernet / InfiniBand",
         "BOM 적용": "모듈 내부 부품 참고 · 완성 트랜시버/케이블 구매 수량과 중복 합산하지 않음",
-        "확인 상태": "공식 공개 자료 확인 · SKU/공급/호환성 검증 필요"
+        "확인 상태": "OCP 2026 공식 전시 자료 확인 · 세부 SKU/공급/호환성 검증 필요",
+        "OCP 2026 전시": "Ara DSP · 1.6T transmit-retimed optics"
       },
       "referenceOnly": true
     },

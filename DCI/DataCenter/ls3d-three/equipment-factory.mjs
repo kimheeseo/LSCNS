@@ -10,6 +10,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     if(/site-sign|ls data center.*안내/.test(s))return 'visitor-center';
     if(/visitor-lobby|briefing|classroom/.test(s))return 'briefing-room';
     if(/visitor-loading|하역장|loading bay/.test(s))return 'loading-bay';
+    if(/visitor-locker|camera.*usb|laptop.*register/.test(s))return 'identity-camera';
     if(/cooling tower|\btower-[ab]\b/.test(s))return 'cooling-tower';
     if(/transformer|xfmr/.test(s))return 'transformer';
     if(/switchgear/.test(s))return 'switchgear';
@@ -255,6 +256,19 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         break;
       }
+      case 'identity-camera': {
+        // Airport-style visitor identity/check-in camera, status lamp and document reader.
+        part(root,'identity-camera-base',0,.04,0,w*.58,.12,d*.50,'#354f60',.52,.40);
+        part(root,'identity-camera-pedestal',0,.15,0,w*.13,h*.56,d*.13,'#687f8d',.44,.39);
+        part(root,'identity-camera-screen',0,h*.60,-d*.12,w*.48,h*.25,.07,'#1b3448',.22,.25);
+        part(root,'identity-camera-display',0,h*.62,-d*.16,w*.38,h*.16,.018,'#5bd5d2',.10,.16);
+        round(root,'identity-camera-lens',0,h*.79,-d*.18,Math.min(w,d)*.075,.08,'#172937');
+        round(root,'identity-camera-lens-ring',0,h*.79,-d*.225,Math.min(w,d)*.097,.024,'#90e5dc');
+        part(root,'identity-camera-document-reader',w*.22,.16,-d*.16,w*.19,.09,d*.24,'#d6dfe1',.27,.34);
+        part(root,'identity-camera-green-status',-w*.22,h*.24,-d*.18,w*.09,.10,.024,'#55e0a7',.10,.25);
+        part(root,'identity-camera-privacy-shield',0,h*.93,.03,w*.34,.09,d*.23,'#405968',.43,.38);
+        break;
+      }
       case 'visitor-center': {
         part(root,'visitor-center-building',0,.06,0,w*.96,h*.83,d*.90,'#71808b',.40,.50);
         part(root,'visitor-center-glass',0,h*.43,front,w*.72,h*.42,.055,'#254c62',.12,.23);
@@ -264,8 +278,12 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       }
       case 'briefing-room': {
         part(root,'briefing-floor',0,.04,0,w*.94,.12,d*.92,'#536f7f',.28,.60);
+        // Front is intentionally open so the classroom scene is visible during the tour.
         part(root,'briefing-backwall',0,h*.28,d*.38,w*.90,h*.56,.08,'#e0e7e4',.12,.52);
         part(root,'briefing-screen',0,h*.57,d*.32,w*.43,h*.24,.035,'#2f6078',.1,.20);
+        part(root,'briefing-screen-header',0,h*.84,d*.285,w*.47,.07,.02,'#54d4cf',.1,.22);
+        part(root,'briefing-sidewall-left',-w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
+        part(root,'briefing-sidewall-right',w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
         // Classroom desks and chairs face the briefing screen.
         for(const zz of [-d*.20,d*.03])for(const xx of [-w*.27,0,w*.27]){
           part(root,'briefing-desk',xx,.31,zz,w*.17,.08,d*.15,'#ad8f66',.25,.48);
@@ -281,15 +299,22 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-bay-floor',0,.04,0,w*.95,.12,d*.94,'#536b78',.30,.58);
         part(root,'loading-truck-body',-w*.19,.18,0,w*.55,h*.48,d*.46,'#edf1ef',.30,.42);
         part(root,'loading-truck-cab',w*.19,.19,-d*.02,w*.20,h*.34,d*.43,'#b8c9d0',.34,.39);
-        part(root,'loading-truck-open-tail',-w*.48,h*.28,d*.28,w*.09,h*.39,.035,'#d7e3e6',.30,.42);
+        // Raised rear shutter keeps the cargo compartment visibly open.
+        part(root,'loading-truck-open-tail',-w*.48,h*.47,d*.30,w*.12,h*.43,.035,'#d7e3e6',.30,.42);
+        part(root,'loading-truck-cargo-opening',-w*.24,.22,d*.245,w*.48,h*.36,.025,'#243d4d',.12,.24);
         for(const xx of [-w*.33,w*.20])for(const zz of [-d*.22,d*.22])
           round(root,'loading-truck-wheel',xx,.08,zz,.12,.14,'#202d35');
         part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
+        part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         // Forklift + branded delivery cartons beside open tailgate.
         part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
         part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
         part(root,'loading-forklift-forks',w*.43,.06,d*.24,w*.22,.04,.09,'#697882',.50,.35);
-        for(let i=0;i<3;i++)part(root,'loading-ls-box-'+i,-w*.42+i*w*.12,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
+        for(let i=0;i<3;i++){
+          const bx=-w*.42+i*w*.12;
+          part(root,'loading-ls-box-'+i,bx,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
+          part(root,'loading-ls-box-mark-'+i,bx,.20,d*.342,w*.055,.045,.012,'#d9363e',.14,.30);
+        }
         break;
       }
       case 'busway':electricalBus(root,w,d,h);break;

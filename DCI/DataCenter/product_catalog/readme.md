@@ -150,3 +150,8 @@ UPS 배터리/이중화, 발전기 DCC/Standby, 변압기 kVA·전압·보호 �
 - PDF files without same-folder catalog.json: **0**
 - Sumitomo Electric PDF files: **44**
 - USConnec PDF files: **84**
+
+
+## OCP Global Summit 2026 업데이트
+
+OCP 발표·시연에서 확인한 제품/기술은 출처 링크와 함께 등록합니다. 행사 데모 및 프로토타입은 구매 가능 SKU로 간주하지 않고 `referenceOnly`로 표시합니다. 세부 범위와 공식 출처는 [OCP 2026 카탈로그 반영 기록](../OCP_2026_PRODUCT_CATALOG_UPDATE_20261024.md)을 참고하세요.

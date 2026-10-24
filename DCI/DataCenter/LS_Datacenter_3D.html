@@ -803,7 +803,9 @@ const visitorBaseCameraFrame=cameraFrame;
 cameraFrame=function(dt){
  if(!active||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
  const yaw=cameraDesired.yaw,pitch=clamp(walkPitch,-.6,.65),pivot=[walkPos[0],1.55,walkPos[2]];
- const desired=[pivot[0]-Math.sin(yaw)*4.5*Math.cos(pitch),Math.max(.55,3.15+Math.sin(pitch)*3),pivot[2]-Math.cos(yaw)*4.5*Math.cos(pitch)];
+ // Visitor tour: 9 m follow boom (2× the original 4.5 m) keeps the person and surrounding facility in view.
+ const followDistance=9;
+ const desired=[pivot[0]-Math.sin(yaw)*followDistance*Math.cos(pitch),Math.max(.55,4.75+Math.sin(pitch)*6),pivot[2]-Math.cos(yaw)*followDistance*Math.cos(pitch)];
  const boom=sub(desired,pivot),distance=Math.hypot(...boom),dir=norm(boom);
  let safeDistance=distance;
  for(const a of visibleAssets()){const hit=rayBox(pivot,dir,a);if(hit!==null&&hit>0&&hit<safeDistance)safeDistance=Math.max(.45,hit-.3);}
@@ -866,7 +868,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-visitor-3d&camera=20261024&inspector=20261024&fill=20261024&products=20261024&tray=20261024b"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-visitor-follow-9m&camera=20261024&inspector=20261024&fill=20261024&products=20261024&tray=20261024b"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

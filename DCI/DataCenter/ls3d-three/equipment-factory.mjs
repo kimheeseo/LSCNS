@@ -600,11 +600,11 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
-          const bx=[-w*.32,0,w*.32][i],brand=shippingBrands[i];
-          part(root,'loading-box-'+i,bx,.10,d*.31,w*.20,h*.24,d*.18,'#c99b54',.18,.56);
+          const bx=[-w*.34,0,w*.34][i],brand=shippingBrands[i];
+          part(root,'loading-box-'+i,bx,.10,d*.31,w*.10,h*.12,d*.09,'#c99b54',.18,.56);
           // Large, nearly edge-to-edge carton-face labels make the supplier names readable in a wide tour shot.
-          shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.407,w*.194,h*.205);
-          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.213,w*.194,h*.205);
+          shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.359,w*.097,h*.1025);
+          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.261,w*.097,h*.1025);
         }
         break;
       }

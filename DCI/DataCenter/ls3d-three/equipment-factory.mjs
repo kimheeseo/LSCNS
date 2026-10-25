@@ -272,7 +272,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'ups-intake-fan-'+xx+'-'+row,xx,h*.22+row*h*.145,front-.087,Math.min(w,h)*.040,.022,'#48565a');
         batch(root,'ups-vent-slots',Array.from({length:24},(_,i)=>[
           (i%2?-w*.36:w*.34),h*.18+Math.floor(i/2)*h*.056,front-.102]),w*.095,.014,.012,'#3c494c');
-        schneiderLogoPanel(root,'ups-front',-w*.08,h*.84,front-.090,w*.48,h*.15,Math.PI);
+        schneiderLogoPanel(root,'ups-front',-w*.08,h*.84,front-.090,w*.58,h*.18,0);
         // White bypass section with a smaller operational HMI sits to the right, as on a modular UPS lineup.
         part(root,'ups-bypass-column',w*.43,h*.14,0,w*.10,h*.70,d*.76,'#f1f3f2',.50,.30);
         part(root,'ups-bypass-hmi',w*.43,h*.55,front-.39,w*.068,h*.10,.018,'#6ed0df',.06,.16);
@@ -575,26 +575,27 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
         // Parked counterbalance forklift: orange body, black mast/cab frame, driver seat, wheels and raised forks.
-        const forkX=w*.30,forkZ=-d*.26;
-        part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#d96e21',.45,.33);
-        part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#e7822d',.40,.32);
-        part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#ef862e',.34,.30);
+        const forkX=w*.34,forkZ=-d*.34;
+        part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#f47b20',.45,.33);
+        part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#ff9b2d',.40,.32);
+        part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#f68a24',.34,.30);
         for(const xx of [forkX-w*.12,forkX+w*.11])for(const zz of [forkZ-d*.12,forkZ+d*.12])
           round(root,'loading-forklift-wheel-'+xx+'-'+zz,xx,.045,zz,Math.min(w,d)*.045,.11,'#171c20');
-        part(root,'loading-forklift-mast-left',forkX+w*.18,.12,forkZ-d*.09,.040,h*.58,.040,'#222c32',.55,.28);
-        part(root,'loading-forklift-mast-right',forkX+w*.18,.12,forkZ+d*.09,.040,h*.58,.040,'#222c32',.55,.28);
-        part(root,'loading-forklift-mast-crossbar',forkX+w*.18,h*.67,forkZ,.055,.045,d*.26,'#222c32',.55,.28);
+        part(root,'loading-forklift-mast-left',forkX+w*.18,.12,forkZ-d*.09,.040,h*.58,.040,'#314a59',.55,.28);
+        part(root,'loading-forklift-mast-right',forkX+w*.18,.12,forkZ+d*.09,.040,h*.58,.040,'#314a59',.55,.28);
+        part(root,'loading-forklift-mast-crossbar',forkX+w*.18,h*.67,forkZ,.055,.045,d*.26,'#314a59',.55,.28);
         part(root,'loading-forklift-fork-left',forkX+w*.31,.07,forkZ-d*.07,w*.22,.035,.035,'#465158',.50,.32);
         part(root,'loading-forklift-fork-right',forkX+w*.31,.07,forkZ+d*.07,w*.22,.035,.035,'#465158',.50,.32);
         part(root,'loading-forklift-seat',forkX-w*.02,h*.30,forkZ,w*.10,h*.11,d*.12,'#1a2024',.22,.38);
         part(root,'loading-forklift-seatback',forkX-w*.10,h*.32,forkZ,.045,h*.23,d*.13,'#1a2024',.22,.38);
         for(const xx of [forkX-w*.10,forkX+w*.10]) {
-          part(root,'loading-forklift-guard-post-'+xx,xx,h*.18,forkZ-d*.105,.024,h*.51,.024,'#202a30',.52,.30);
-          part(root,'loading-forklift-guard-post-rear-'+xx,xx,h*.18,forkZ+d*.105,.024,h*.51,.024,'#202a30',.52,.30);
+          part(root,'loading-forklift-guard-post-'+xx,xx,h*.18,forkZ-d*.105,.024,h*.51,.024,'#314a59',.52,.30);
+          part(root,'loading-forklift-guard-post-rear-'+xx,xx,h*.18,forkZ+d*.105,.024,h*.51,.024,'#314a59',.52,.30);
         }
-        part(root,'loading-forklift-roof',forkX,h*.69,forkZ,w*.28,.035,d*.27,'#252f35',.46,.30);
+        part(root,'loading-forklift-roof',forkX,h*.69,forkZ,w*.28,.035,d*.27,'#314a59',.46,.30);
+        part(root,'loading-forklift-safety-bumper',forkX+w*.17,.11,forkZ,w*.07,.11,d*.29,'#ffd442',.26,.28);
         part(root,'loading-forklift-steering',forkX+w*.04,h*.44,forkZ-d*.05,.12,.025,.12,'#222a30',.46,.28);
-        decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.135,w*.13,h*.055,'#e9822c','#ffffff');
+        decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=-w*.42+i*w*.12,brand=shippingBrands[i];

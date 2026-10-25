@@ -630,12 +630,22 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
-          const bx=[-w*.34,0,w*.34][i],brand=shippingBrands[i];
+          const bx=[-w*.30,-w*.02,w*.26][i],brand=shippingBrands[i];
           part(root,'loading-box-'+i,bx,.10,d*.31,w*.10,h*.12,d*.09,'#c99b54',.18,.56);
           // Large, nearly edge-to-edge carton-face labels make the supplier names readable in a wide tour shot.
           shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.359,w*.097,h*.1025);
           shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.261,w*.097,h*.1025);
         }
+        // Green platform trolley in front of the cartons: white handrail and red caster wheels.
+        const trolleyX=-w*.02,trolleyZ=d*.04;
+        part(root,'loading-trolley-platform',trolleyX,.09,trolleyZ,w*.23,.055,d*.22,'#62bb7b',.34,.38);
+        part(root,'loading-trolley-edge',trolleyX,.145,trolleyZ,w*.24,.035,d*.23,'#3a9162',.32,.32);
+        for(const xx of [-w*.075,w*.075])for(const zz of [-d*.075,d*.075]){
+          round(root,'loading-trolley-caster-'+xx+'-'+zz,trolleyX+xx,.025,trolleyZ+zz,Math.min(w,d)*.030,.08,'#d9534f');
+          round(root,'loading-trolley-wheel-'+xx+'-'+zz,trolleyX+xx,.022,trolleyZ+zz,Math.min(w,d)*.018,.095,'#3a4650');
+        }
+        for(const xx of [-w*.095,w*.095])part(root,'loading-trolley-handle-post-'+xx,trolleyX+xx,.13,trolleyZ+d*.09,.030,h*.42,.030,'#e8f0ed',.34,.25);
+        part(root,'loading-trolley-handle-top',trolleyX,h*.55,trolleyZ+d*.09,w*.22,.035,.035,'#e8f0ed',.34,.25);
         break;
       }
       case 'busway':electricalBus(root,w,d,h);break;

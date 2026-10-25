@@ -55,7 +55,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     ctx.fillStyle=foreground;ctx.font='700 76px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText(text,256,98);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
-    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false}));
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
     mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
   function batch(root,name,positions,w,h,d,color){

@@ -1,8 +1,8 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261025-zone-front-odf-rack';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-zone-front-odf-rack';
+import { createArchitectureKit } from './architecture.mjs?v=20261025-cdu-busway-odf-noc';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-cdu-busway-odf-noc';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -478,7 +478,7 @@ export function createSceneAdapter(T, canvas) {
     cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
     const caption=visitorCaption(a);if(caption)g.add(caption);
     // Gray Zone and Network/MMR equipment fronts face the default visitor camera.
-    const baseYaw=(a.zone==='gray'||a.zone==='network')?Math.PI:0;
+    const baseYaw=(a.zone==='gray'||a.zone==='network')&&a.id!=='gray-cdu'?Math.PI:0;
     g.position.set(a.x,0,a.z);g.rotation.y=baseYaw;
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),
@@ -486,14 +486,15 @@ export function createSceneAdapter(T, canvas) {
     );
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
-    const mantrapLights={red:null,green:null};
+    const mantrapLights={red:null,green:null},maintenanceActors=[];
     g.traverse(obj=>{
       if(obj.isMesh)obj.userData.assetId=a.id;
       if(obj.name==='equipment-part:mantrap-card-led-red')mantrapLights.red=obj;
       if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
       if(obj.userData?.fuelSmoke)fuelSmoke.push(obj);
+      if(obj.userData?.maintenanceAnimation)maintenanceActors.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke,baseYaw};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke,maintenanceActors,baseYaw};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -549,6 +550,17 @@ export function createSceneAdapter(T, canvas) {
           );
           puff.scale.set(scale,scale*.72,scale*.91);
           if(puff.material)puff.material.opacity=smoke.opacity*(1-rise*.58);
+        }
+      }
+      if(item.maintenanceActors?.length){
+        const now=(T.simTime||performance.now()/1000);
+        for(const worker of item.maintenanceActors){
+          const motion=worker.userData.maintenanceAnimation;
+          const wave=Math.sin(now*.72+motion.phase), pace=Math.cos(now*2.16+motion.phase);
+          worker.position.x=motion.baseX+wave*motion.range;
+          worker.rotation.y=wave>=0?Math.PI/2:-Math.PI/2;
+          const carton=worker.getObjectByName('maintenance-carrying-carton');
+          if(carton){carton.position.y=a.h*.40+Math.abs(pace)*.045;carton.rotation.z=pace*.075;}
         }
       }
       if (item.moving) {
@@ -735,7 +747,18 @@ export function createSceneAdapter(T, canvas) {
       const routeSelection=routeRoot.visible?mepRoutes.pick(hit.object):null;
       if(routeSelection){selectScenePart({id:routeSelection.id,kind:'mep-route',label:routeSelection.label+' 연결 구간',zoneId:routeSelection.fromZone,description:routeSelection.from+' → '+routeSelection.to+' · '+routeSelection.name+' · 교육용 연결 경로입니다.'});return routeSelection.id;}
       const areaSelection=zoneExtras.pick(hit.object);
-      if(areaSelection)return areaSelection.assetId||areaSelection.id;
+      if(areaSelection){
+        // MMR/ODF room meshes previously stopped here, so their bay state
+        // changed without activating the corresponding equipment inspector.
+        const areaAsset=T.assetMap.get(areaSelection.assetId);
+        if(areaAsset){
+          showRackPart(null);
+          T.pickAsset(areaAsset);
+          if(!T.isMechanicalRack(areaAsset))
+            selectScenePart(describeEquipment(areaAsset,registry.get(areaAsset.id)?.kind));
+        }
+        return areaSelection.assetId||areaSelection.id;
+      }
       let obj=hit.object,part=null;
       for(let p=obj;p&&p!==assetRoot;p=p.parent) {
         if(!part&&p.userData.rackPart)part=p.userData.rackPart;

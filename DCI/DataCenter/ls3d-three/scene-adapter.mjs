@@ -1,13 +1,13 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261025-hall-gray-parking';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-hall-gray-parking';
+import { createArchitectureKit } from './architecture.mjs?v=20261026-spine-leaf-plaques';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-spine-leaf-plaques';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261023-ls-rack-detail&fill=20261024';
+import { createRackComponentKit } from './rack-components.mjs?v=20261026-spine-leaf-plaques';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';
@@ -116,6 +116,7 @@ export function createSceneAdapter(T, canvas) {
     rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
+      if(obj.userData?.ownedTexture)obj.userData.ownedTexture.dispose();
       if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
       // LOD levels use cached materials; selected-ring material is per-object.
       if(obj.material && !Array.from(materialCache.values()).includes(obj.material)) {

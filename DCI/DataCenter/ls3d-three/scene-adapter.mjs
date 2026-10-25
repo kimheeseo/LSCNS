@@ -514,7 +514,12 @@ export function createSceneAdapter(T, canvas) {
         const far=T.selected?.id!==a.id && Math.hypot(dx,dy,dz)>96;
         item.rackLOD.high.visible=!far;item.rackLOD.low.visible=far;
       }
-      if(item.equipmentLOD)item.equipmentLOD.update(camera);
+      if(item.equipmentLOD){
+        // Selected/tour-target equipment must never collapse into the low-detail box model.
+        if(T.selected?.id===a.id){
+          item.equipmentLOD.levels.forEach((level,index)=>{level.object.visible=index===0;});
+        }else item.equipmentLOD.update(camera);
+      }
       if(item.kind==='biometric-mantrap'){
         const tour=window.__LS3D_VISITOR__?.state;
         const cardDemo=!!(tour?.active&&tour.index===4&&(tour.task===1||tour.task===2));

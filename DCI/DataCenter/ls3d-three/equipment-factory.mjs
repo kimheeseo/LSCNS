@@ -139,7 +139,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'ups-hmi-bezel',-w*.11,h*.68,front-.052,w*.32,.29,.035,'#a6afb2',.32,.28);
         part(root,'ups-hmi-display',-w*.11,h*.70,front-.075,w*.23,.16,.018,'#89a8d9',.06,.14);
         part(root,'ups-hmi-status-bar',-w*.11,h*.59,front-.077,w*.16,.025,.016,'#55df9d',.05,.25);
-        decal(root,'ups-face-label','UPS · ONLINE',-w*.11,h*.88,front-.087,w*.38,h*.115,'#11191f','#f4f7f5');
+        decal(root,'ups-face-label','Schneider Electric-UPS',-w*.11,h*.88,front-.087,w*.53,h*.115,'#11191f','#f4f7f5');
         part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#303b40',.62,.33);
         part(root,'ups-bypass-hmi',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#b7d67a',.1,.20);
         part(root,'ups-input-output-strip',w*.31,h*.38,front-.38,w*.13,h*.06,.025,'#d6b75e',.2,.28);

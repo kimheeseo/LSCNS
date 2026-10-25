@@ -59,7 +59,15 @@ body.display-mobile .vp-tools button{font-size:9px;padding:6px}
 body.display-mobile .info-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:420px){.display-mode-options{grid-template-columns:1fr}.display-mode-options button{min-height:74px}#displayModeReopen{font-size:9px;padding:6px}}
 </style>
-</head>
+<style>
+/* Labeled Data Hall rack rows · 2026-10-26 */
+.marker.rack-marker{font-size:8px;padding:3px 5px;border-width:1px;background:#0d253bed;letter-spacing:.01em;box-shadow:0 2px 6px #0007}
+.marker.rack-marker[data-rack-kind="gpu"]{border-color:#79bdf2;color:#e1efff}
+.marker.rack-marker[data-rack-kind="storage"]{border-color:#60d2a9;color:#c9f4e3}
+.marker.rack-marker[data-rack-kind="network"]{border-color:#f2c76e;color:#ffe7b0}
+.marker.rack-marker[data-rack-kind="other"]{border-color:#b7a7e8;color:#eadfff}
+@media(max-width:760px){.marker.rack-marker{font-size:7px;padding:2px 3px}}
+</style></head>
 <body>
 <div id="displayModeChoice" class="display-mode-choice" role="dialog" aria-modal="true" aria-labelledby="displayModeTitle" hidden>
  <div class="display-mode-card"><h2 id="displayModeTitle">화면 크기를 선택하세요</h2><p>데이터센터 3D 화면과 정보 패널을 선택한 방식으로 배치합니다. 화면 크기가 달라져도 3D 장면은 창에 맞춰 조정됩니다.</p>
@@ -141,10 +149,12 @@ addAsset('hall','utp-tray','UTP 통신 트레이 · Copper','UTP cable tray',0,1
 addAsset('hall','power-tray','전력 케이블 트레이 · Power','Power cable tray',11,15,7,2,4.3,'—','랙 전원 A/B 피더 케이블을 통신 계통과 분리하여 수용합니다.');
 addAsset('gray','carrier-entry','Carrier Entry','Optical entry',-9,10,6,3,3,'—','외부 통신사업자 인입 구역입니다.');
 addAsset('gray','cross-connect','Cross-connect Panel','ODF',7,10,6,3,4,'—','외부 광회선과 내부 패치를 분배합니다.');
-for(let r=0;r<2;r++)for(let i=0;i<5;i++)addAsset('hall',`gpu-${r}-${i}`,`GPU ROW ${r?'B':'A'} · R${i+1}`,'GPU server rack',-15+i*3.5,-9+r*10,2.7,3.0,6,'60 kW/랙 예시','GPU 서버 · 네트워크 NIC · 이중 PDU 등으로 구성된 고밀도 랙입니다.');
-addAsset('hall','tor-a','NETWORK A · ToR 스위치','Top-of-Rack switch',7,-9,3.4,3.1,6,'1.2 kW 예시','랙 최상단에 ToR 스위치를 배치하여 서버 네트워크를 집선합니다. 아래에는 서버 트레이가 있습니다.','상단 ToR / 중간 서버 / 하단 Rack PDU');
-addAsset('hall','tor-b','NETWORK B · ToR 스위치','Top-of-Rack switch',12,-9,3.4,3.1,6,'1.2 kW 예시','랙 상부 ToR 스위치, 하단 GPU 서버를 분리해 볼 수 있습니다.');
-addAsset('hall','storage','Storage Rack','Storage rack',8,0,3.4,3.1,6,'12 kW 예시','저장 장치와 스토리지 네트워크를 제공합니다.');
+// Regular Data Hall rack grid. Uniform 3.5 m column pitch with separate functional rows.
+const HALL_RACK_PITCH=3.5;
+for(let r=0;r<2;r++)for(let i=0;i<5;i++)addAsset('hall',`gpu-${r}-${i}`,`GPU Rack ${r?'B':'A'}-${String(i+1).padStart(2,'0')}`,'GPU server rack',-15+i*HALL_RACK_PITCH,-9+r*9,2.7,3.0,6,'60 kW/랙 예시','GPU 서버 · NIC · 이중 Rack PDU를 포함한 고밀도 컴퓨팅 랙입니다.');
+addAsset('hall','tor-a','Network Rack A-01 · ToR','Top-of-Rack switch',7,-9,2.7,3.0,6,'1.2 kW 예시','상부 ToR 스위치 및 네트워크 연결이 배치된 랙입니다.','상단 ToR / 중간 서버 / 하단 Rack PDU');
+addAsset('hall','tor-b','Network Rack A-02 · ToR','Top-of-Rack switch',7+HALL_RACK_PITCH,-9,2.7,3.0,6,'1.2 kW 예시','네트워크 스위치·DAC·광 패치 구조를 확인할 수 있는 랙입니다.');
+for(let i=0;i<3;i++)addAsset('hall',i===0?'storage':`storage-${String(i+1).padStart(2,'0')}`,`Storage Rack A-${String(i+1).padStart(2,'0')}`,'Storage rack',-15+i*HALL_RACK_PITCH,9,2.7,3.0,6,'12 kW/랙 예시','스토리지 노드·네트워크 및 Rack PDU로 구성된 저장 랙입니다.');
 addAsset('hall','compute-c','Compute C','Compute rack',13,0,3.4,3.1,6,'25 kW 예시','일반 컴퓨팅 서버 랙입니다.');
 addAsset('hall','odf-hall','Hall ODF · Optical Fiber','ODF',-12,13,3.5,3.1,5,'—','광패치 패널과 광카세트, 패치코드를 수용하는 ODF입니다.');
 addAsset('hall','crah-a','CRAH A','Air handling',-5,13,4.5,3.5,4,'—','서버실 냉각 공기 순환을 담당합니다.');
@@ -673,9 +683,14 @@ function phase1ClipPlanes(){const d=Math.max(LS3D_ZOOM_MIN,camera.distance);phas
 
 const labels=[];
 function initMarkers(){const m=$('markers');for(const z of Z.filter(z=>z.id!=='campus')){let e=document.createElement('div');e.className='marker';e.dataset.z=z.id;e.innerHTML=`<b>${z.symbol}</b>${z.n.toUpperCase()}`;m.appendChild(e);labels.push({z,e})}
- for(const a of assets){let e=document.createElement('div');e.className='marker';e.dataset.a=a.id;e.innerHTML=`<b>◦</b>${a.name}`;m.appendChild(e);labels.push({a,e})}}
+ for(const a of assets){let e=document.createElement('div');e.className='marker';e.dataset.a=a.id;
+ const rack=a.zone==='hall'&&isMechanicalRack(a);
+ if(rack){e.classList.add('rack-marker');e.dataset.rackKind=a.type==='GPU server rack'?'gpu':a.type==='Storage rack'?'storage':a.type==='Top-of-Rack switch'?'network':'other';
+ e.textContent=a.name.replace(/^GPU Rack /,'GPU ').replace(/^Storage Rack /,'STG ').replace(/^Network Rack /,'NET ').replace(/ · ToR$/,'');}
+ else e.textContent='◦ '+a.name;
+ m.appendChild(e);labels.push({a,e})}}
 function moveMarkers(){if(!matVP)return;const inspector=$('detailModal')?.classList.contains('show')&&isMechanicalRack(selected);for(let l of labels){const {e,z,a}=l;if(inspector){e.style.display='none';continue;}let visible=false,p;if(z){p=getProjection([z.pos[0],9.8,z.pos[1]]);visible=activeProfile().zones.includes(z.id)&&currentZone==='campus'&&p?.visible&&camera.distance>49;}
- else{if(visibleAssets().some(v=>v.id===a.id)){p=getProjection([a.x,a.h+1.9,a.z]);visible=p?.visible&&(a.zone===currentZone||a===selected)&&camera.distance<105;if(currentZone==='campus'&&camera.distance>100)visible=false; if(currentZone==='hall'&&a.zone==='hall'&&!['tor-a','tor-b','odf-hall','crah-a'].includes(a.id)&&a!==selected&&camera.distance>47)visible=false; if(renderW<630&&a!==selected&&a.zone==='hall'&&a.id.startsWith('gpu-'))visible=false;}}
+ else{if(visibleAssets().some(v=>v.id===a.id)){p=getProjection([a.x,a.h+1.9,a.z]);visible=p?.visible&&(a.zone===currentZone||a===selected)&&camera.distance<105;if(currentZone==='campus'&&camera.distance>100)visible=false; if(currentZone==='hall'&&a.zone==='hall'&&!isMechanicalRack(a)&&!['odf-hall','crah-a'].includes(a.id)&&a!==selected&&camera.distance>47)visible=false; if(currentZone==='hall'&&a.zone==='hall'&&isMechanicalRack(a))visible=p?.visible&&camera.distance<105;}}
  e.style.display=visible?'block':'none';if(visible){e.style.left=p.x+'px';e.style.top=p.y+'px';e.classList.toggle('active',a===selected);e.classList.toggle('fault',a?isDown(a):false)}}}
 function cameraFrame(dt){phase1CenterFocus();if(workerViewId){const n=npcs.find(x=>x.id===workerViewId);if(n){const p=npcPose(n),heading=p.heading+workerViewYaw;let target;if(workerViewFirstPerson){eye=[p.x-Math.sin(heading)*2.4,2.65,p.z-Math.cos(heading)*2.4];target=[p.x+Math.sin(heading)*.9,1.95,p.z+Math.cos(heading)*.9];}else{eye=[p.x-Math.sin(heading)*3,3.25,p.z-Math.cos(heading)*3];target=[p.x+Math.sin(heading)*.5,1.45,p.z+Math.cos(heading)*.5];}forward=norm(sub(target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));viewMatrix=lookAt(eye,target,[0,1,0]);matVP=mul4(perspective(Math.PI/3.1,renderW/renderH,.08,400),viewMatrix);return;}}if(walk){let x=walkPos[0],y=walkPos[1],z=walkPos[2];eye=[x,y,z];let target=[x+Math.sin(cameraDesired.yaw)*Math.cos(walkPitch),y-Math.sin(walkPitch),z+Math.cos(cameraDesired.yaw)*Math.cos(walkPitch)];forward=norm(sub(target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));viewMatrix=lookAt(eye,target,[0,1,0]);matVP=mul4(perspective(Math.PI/3.1,renderW/renderH,.08,400),viewMatrix);return}
  let t=1-Math.exp(-Math.min(dt,.1)*7);for(let k of ['yaw','pitch','distance'])camera[k]+=(cameraDesired[k]-camera[k])*t;for(let i=0;i<3;i++)camera.target[i]+=(cameraDesired.target[i]-camera.target[i])*t;
@@ -776,7 +791,7 @@ addLog('INFO','캠퍼스 시뮬레이션 세션 시작 · 모든 값은 교육·
 drawLogs();updateNote();updateEnergy();compare();updateMarkers();
 Object.assign(window.__LS3D_TEST__,{scenarioDefs:configs,compareValue:compareValue,addEventLog:addLog,scenarioElapsed:function(){return Math.max(0,simTime-scenarioStart)},get redundancy(){return redundancy},set redundancy(v){redundancy=v},get samples(){return samples},get logs(){return logs},get currentStage(){return currentStage()},get currentMetrics(){return metrics()}});Object.defineProperty(window.__LS3D_TEST__,'scenario',{configurable:true,get:function(){return scenario}});
 })();
-</script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261026-display-mode-entry"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase8.js?v=20261011-phase7-hardening"></script><script>
+</script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261026-display-mode-entry"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261026-hall-ui"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261026-hall-ui"></script><script>
 /* Visitor tour: educational simulation; no identity/biometric collection. */
 (function(){
 'use strict';

@@ -286,16 +286,20 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'identity-camera': {
-        // Airport-style visitor identity/check-in camera, status lamp and document reader.
-        part(root,'identity-camera-base',0,.04,0,w*.58,.12,d*.50,'#354f60',.52,.40);
-        part(root,'identity-camera-pedestal',0,.15,0,w*.13,h*.56,d*.13,'#687f8d',.44,.39);
-        part(root,'identity-camera-screen',0,h*.60,-d*.12,w*.48,h*.25,.07,'#1b3448',.22,.25);
-        part(root,'identity-camera-display',0,h*.62,-d*.16,w*.38,h*.16,.018,'#5bd5d2',.10,.16);
-        round(root,'identity-camera-lens',0,h*.79,-d*.18,Math.min(w,d)*.075,.08,'#172937');
-        round(root,'identity-camera-lens-ring',0,h*.79,-d*.225,Math.min(w,d)*.097,.024,'#90e5dc');
-        part(root,'identity-camera-document-reader',w*.22,.16,-d*.16,w*.19,.09,d*.24,'#d6dfe1',.27,.34);
-        part(root,'identity-camera-green-status',-w*.22,h*.24,-d*.18,w*.09,.10,.024,'#55e0a7',.10,.25);
-        part(root,'identity-camera-privacy-shield',0,h*.93,.03,w*.34,.09,d*.23,'#405968',.43,.38);
+        // Human-height standing airport identity camera: lens, screen, document reader and locker bay.
+        part(root,'identity-camera-floor-base',0,.035,0,w*.62,.10,d*.55,'#263d4a',.52,.40);
+        part(root,'identity-camera-upright',0,.12,0,w*.15,h*.72,d*.15,'#607987',.44,.36);
+        part(root,'identity-camera-head',0,h*.72,-d*.08,w*.55,h*.20,d*.15,'#172d39',.28,.24);
+        part(root,'identity-camera-display',0,h*.74,-d*.17,w*.42,h*.12,.018,'#5bd5d2',.08,.15);
+        round(root,'identity-camera-lens',0,h*.88,-d*.18,Math.min(w,d)*.082,.09,'#111f2a');
+        round(root,'identity-camera-lens-ring',0,h*.88,-d*.234,Math.min(w,d)*.108,.024,'#81ece0');
+        part(root,'identity-camera-privacy-visor',0,h*.97,-d*.04,w*.40,.07,d*.26,'#405968',.43,.38);
+        part(root,'identity-camera-document-reader',w*.25,h*.32,-d*.19,w*.20,.12,d*.26,'#d6dfe1',.27,.34);
+        part(root,'identity-camera-reader-slot',w*.25,h*.38,-d*.335,w*.12,.025,.014,'#467086',.08,.20);
+        part(root,'identity-camera-green-status',-w*.26,h*.42,-d*.19,w*.10,.10,.024,'#55e1a2',.10,.25);
+        part(root,'identity-camera-locker-bay',w*.36,.12,d*.06,w*.22,h*.38,d*.46,'#304b5b',.42,.34);
+        batch(root,'identity-camera-locker-slots',Array.from({length:3},(_,i)=>[
+          w*.36,h*.20+i*h*.105,d*.30]),w*.16,.024,.02,'#87a7b1');
         break;
       }
       case 'biometric-mantrap': {

@@ -2,16 +2,16 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261026-gpu-rack-visuals';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-gpu-rack-visuals';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-rack-odf-v2';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261026-gpu-rack-visuals';
+import { createRackComponentKit } from './rack-components.mjs?v=20261026-rack-odf-v2';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';
-import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261015-step14-b';
+import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-rack-odf-v2';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -253,7 +253,7 @@ export function createSceneAdapter(T, canvas) {
         e.preventDefault();e.stopPropagation();
         if(action==='front-camera')focusRackSide(asset.id,'front');
         else if(action==='rear-camera')focusRackSide(asset.id,'rear');
-        else if(action==='rack-context'){focusedRack=null;T.closeDetail?.();}
+         else if(action==='rack-context'){focusedRack=null;if(T.rackIsolateActive)T.closeRackScene?.();else T.closeDetail?.();}
         else if(action==='front-door')toggleRackFrontDoor(asset.id);
         else if(action==='rear-door')toggleRearRackDoor(asset.id);
         else if(action==='previous-server')cycleRackServer(asset.id,-1);
@@ -272,6 +272,7 @@ export function createSceneAdapter(T, canvas) {
         }
         else if(action==='link-all')rackNetwork.focus(asset.id,'all');
         else if(action==='link-fiber')rackNetwork.focus(asset.id,'fiber');
+        else if(action==='link-dac')rackNetwork.focus(asset.id,'dac');
         else if(action==='link-power-a')rackNetwork.focus(asset.id,'power-A');
         else if(action==='link-power-b')rackNetwork.focus(asset.id,'power-B');
         else if(action==='next-fiber'){
@@ -292,7 +293,7 @@ export function createSceneAdapter(T, canvas) {
       const cablesGrid=document.createElement('div');
       cablesGrid.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:5px;';
       for(const [code,label] of [
-        ['link-all','모든 랙 내부 배선'],['link-fiber','서버 NIC → ToR'],
+        ['link-all','모든 랙 내부 배선'],['link-fiber','광 점퍼 → ToR'],['link-dac','DAC → ToR'],
         ['link-power-a','전원 A / PDU-A'],['link-power-b','전원 B / PDU-B']
       ]){
         const button=document.createElement('button');
@@ -774,7 +775,7 @@ export function createSceneAdapter(T, canvas) {
       if(asset){
         // A tap on any visible rack surface selects the rack as a whole.
         // Components remain available through the dedicated rack-internal view.
-        if(T.isMechanicalRack(asset))part=null;
+         if(T.isMechanicalRack(asset)&&!focusedRack&&!T.rackIsolateActive&&!document.getElementById('detailModal')?.classList.contains('show'))part=null;
         if(part) {
           selectRackPart(id,part.id);
           if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))
@@ -817,7 +818,7 @@ export function createSceneAdapter(T, canvas) {
     get viewportPerformance(){return viewportPolicy.summary();},
     get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
-    selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,setRackServerSelection,cycleRackServer,
+     selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,clearRackFocus(){focusedRack=null;},setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
     get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},

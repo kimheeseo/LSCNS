@@ -275,8 +275,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
         part(root,'generator-cable-termination',w*.37,.18,-d*.33,w*.14,h*.32,.10,'#293d47',.40,.34);
         // KEPCO grid mark on both service faces, matching the supplied emblem rather than plain text.
-        kepcoLogoPanel(root,'generator-grid-front',-w*.10,h*.64,front-.082,w*.43,h*.24,Math.PI);
-        kepcoLogoPanel(root,'generator-grid-rear',-w*.10,h*.64,-front+.082,w*.43,h*.24,0);
+        // Compact utility mark: retain identification without dominating the generator louvre panel.
+        kepcoLogoPanel(root,'generator-grid-front',-w*.10,h*.64,front-.082,w*.215,h*.12,Math.PI);
+        kepcoLogoPanel(root,'generator-grid-rear',-w*.10,h*.64,-front+.082,w*.215,h*.12,0);
         break;
       }
       case 'ups': {

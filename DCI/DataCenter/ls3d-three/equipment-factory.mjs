@@ -445,18 +445,17 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'chiller-chassis',0,.14,0,w*.95,h*.67,d*.85,'#699eb2',.52,.4);
         for(let i=-1;i<=1;i++)
           round(root,'compressor-can-'+i,i*w*.25,h*.69,0,Math.min(w,d)*.13,h*.19,'#c4d5da');
+        // The front is a condenser/louvre service face only: opaque backing keeps
+        // the rear HMI from showing through its fin gaps.
+        part(root,'chiller-front-coil-back',0,h*.25,front+.055,w*.86,h*.45,.035,'#42788e',.38,.44);
         batch(root,'condenser-coil-fins',Array.from({length:14},(_,i)=>[
           -w*.40+i*w*.062,h*.30,front]),w*.04,h*.34,.065,'#a1d2d7');
         for(const x of [-w*.28,w*.28])
           round(root,'fluid-pipe-'+x,x,h*.61,d*.49,.13,.29,'#d8b677');
-        for(const side of [-1,1]){
-          const face=side*d*.48;
-          // Panel is centred in the chassis face, not floating over the roof.
-          // Compact 50%-scale HMI inset into the chiller cabinet.
-          part(root,'chiller-operator-hmi-'+side,0,h*.42,face,w*.30,.20,.040,'#061a25',.16,.18);
-          // Minimal cabinet readout requested for the external chiller.
-          statusPanel(root,'chiller-runtime-'+side,'CHILLER','7.2C',0,h*.52,face+side*.026,w*.25,h*.115,side<0?Math.PI:0);
-        }
+        // Rear-only controller and operating temperature display.
+        const rear=d*.48;
+        part(root,'chiller-operator-hmi-rear',0,h*.42,rear,w*.30,.20,.040,'#061a25',.16,.18);
+        statusPanel(root,'chiller-runtime-rear','CHILLER','7.2C',0,h*.52,rear+.026,w*.25,h*.115,0);
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
       }

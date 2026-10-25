@@ -356,19 +356,19 @@ function drawCage(a){const x=a.x,z=a.z,w=a.w,d=a.d;box(x,.05,z,w,.22,d,'#385b70'
   box(x,.3,z,1.1,2.6,1.2,'#2b5570')}
 function drawConsole(a){const x=a.x,z=a.z;
  if(a.id==='noc'){
-   // View-facing NOC: operators and their consoles are in front, while CCTV/BMS screens are clearly behind.
+   // NOC: CCTV/BMS screens are in front, operators and consoles are behind.
    box(x,.05,z,a.w+.18,.10,a.d+.18,'#253f4e');
-   const rear=z-a.d*.40,front=z+a.d*.16;
+   const display=z+a.d*.40,crew=z-a.d*.16;
    for(const [i,sx] of [-1.35,1.35].entries()){
-     box(x+sx,1.05,rear,2.35,1.58,.13,'#122c3e');
-     box(x+sx,1.16,rear+.07,2.05,1.30,.026,i===0?'#0d475a':'#123a54');
-     if(i===0){for(const dx of [-.48,.48])for(const dy of [-.28,.28])box(x+sx+dx,1.17+dy,rear+.09,.82,.43,.012,'#3c82a0');}
-     else{for(let q=-2;q<=2;q++)box(x+sx+q*.32,.98,rear+.09,.11,.55,.012,q%2?'#f0ba59':'#50d9b8');box(x+sx,1.48,rear+.09,1.72,.045,.014,'#59e3bc');}
+     box(x+sx,1.05,display,2.35,1.58,.13,'#122c3e');
+     box(x+sx,1.16,display-.07,2.05,1.30,.026,i===0?'#0d475a':'#123a54');
+     if(i===0){for(const dx of [-.48,.48])for(const dy of [-.28,.28])box(x+sx+dx,1.17+dy,display-.09,.82,.43,.012,'#3c82a0');}
+     else{for(let q=-2;q<=2;q++)box(x+sx+q*.32,.98,display-.09,.11,.55,.012,q%2?'#f0ba59':'#50d9b8');box(x+sx,1.48,display-.09,1.72,.045,.014,'#59e3bc');}
    }
-   box(x,.28,front,a.w*.78,.20,1.08,'#b58a59');box(x,.12,front+.24,a.w*.82,.34,.12,'#34566a');
+   box(x,.28,crew,a.w*.78,.20,1.08,'#b58a59');box(x,.12,crew-.24,a.w*.82,.34,.12,'#34566a');
    for(const sx of [-.82,.82]){
-     box(x+sx,.10,front+.07,.42,.30,.38,'#1b2730');box(x+sx,.55,front+.12,.52,.56,.38,'#42668a');cylinder(x+sx,1.22,front+.12,.24,.20,'#d8aa83',12);
-     box(x+sx,1.55,front+.12,.42,.08,.34,'#253847');box(x+sx,1.62,front+.06,.32,.17,.025,'#63c8db');
+     box(x+sx,.10,crew-.07,.42,.30,.38,'#1b2730');box(x+sx,.55,crew-.12,.52,.56,.38,'#42668a');cylinder(x+sx,1.22,crew-.12,.24,.20,'#d8aa83',12);
+     box(x+sx,1.55,crew-.12,.42,.08,.34,'#253847');box(x+sx,1.62,crew-.06,.32,.17,.025,'#63c8db');
    }
    return;
  }
@@ -914,7 +914,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-loading-boxes-forklift"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-noc-swap-fire-label"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

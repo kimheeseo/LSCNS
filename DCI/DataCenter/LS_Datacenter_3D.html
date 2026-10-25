@@ -779,6 +779,8 @@ if(a.id==='visitor-mantrap')drawVisitorMantrap(a,vtask);
 line([a.x-1,.2,a.z+a.d/2+1],[a.x+1,.2,a.z+a.d/2+1],'#68f1c7');};
 function log(message){records.push({time:new Date().toLocaleTimeString('ko-KR'),stage:index+1,message});}
 function position(target=task){closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(target,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
+// Briefing room has an open front on negative Z; enter from that side to see the classroom interior.
+if(index===2){x=a.x;z=a.z-a.d/2-4;}
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
 walkPos=[x,1.7,z];
  // Stage 1 opens with a frontal third-person view of the visitor at the security desk.
@@ -872,7 +874,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-carton-logos-stage1-front"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-briefing-hmi-compact"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

@@ -73,38 +73,39 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   }
   function batteryBrandPanel(root,name,x,y,z,w,h){
     if(typeof document==='undefined')return null;
-    const canvas=document.createElement('canvas');canvas.width=720;canvas.height=270;
+    // Reference-style Samsung SDI cabinet decal: clean white field with the official-looking
+    // blue wordmark treatment, kept separate from the yellow electrical warning markings.
+    const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=300;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
-    ctx.fillStyle='#162d3b';ctx.fillRect(0,0,720,270);
-    ctx.strokeStyle='#f5d72d';ctx.lineWidth=11;ctx.strokeRect(7,7,706,256);
-    // Yellow electrical warning bolt.
-    ctx.fillStyle='#ffdf24';ctx.beginPath();ctx.moveTo(80,28);ctx.lineTo(25,145);ctx.lineTo(87,145);ctx.lineTo(50,240);ctx.lineTo(170,105);ctx.lineTo(105,105);ctx.closePath();ctx.fill();
-    ctx.fillStyle='#1677c8';ctx.beginPath();ctx.ellipse(395,88,78,35,0,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='#ffffff';ctx.font='700 31px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('SAMSUNG',395,99);
-    ctx.fillStyle='#eaf7ff';ctx.font='700 52px system-ui,sans-serif';ctx.fillText('SAMSUNG SDI',420,190);
+    ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1200,300);
+    ctx.strokeStyle='#d6dde3';ctx.lineWidth=8;ctx.strokeRect(4,4,1192,292);
+    ctx.fillStyle='#1d32a5';ctx.font='800 152px Arial,Helvetica,sans-serif';
+    ctx.letterSpacing='1px';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('SAMSUNG SDI',600,158);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
     mesh.name='equipment-brand:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
   function shippingBrandPanel(root,name,brand,x,y,z,w,h){
     if(typeof document==='undefined')return null;
-    const canvas=document.createElement('canvas');canvas.width=620;canvas.height=250;
+    const canvas=document.createElement('canvas');canvas.width=900;canvas.height=360;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
-    ctx.fillStyle='#d2aa63';ctx.fillRect(0,0,620,250);
-    ctx.strokeStyle='#714d23';ctx.lineWidth=9;ctx.strokeRect(5,5,610,240);
-    const key=String(brand).toLowerCase();ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillStyle='#dec17d';ctx.fillRect(0,0,900,360);
+    ctx.strokeStyle='#714d23';ctx.lineWidth=14;ctx.strokeRect(7,7,886,346);
+    // Fill the carton label so each company's emblem remains legible from the tour camera.
+    const key=String(brand).toLowerCase();ctx.textAlign='center';ctx.textBaseline='middle';
     if(key==='cisco'){
-      ctx.fillStyle='#1695d2';for(let i=0;i<8;i++){const bh=35+(i%4)*20;ctx.fillRect(42+i*18,92-bh/2,10,bh);}
-      ctx.font='700 68px system-ui,sans-serif';ctx.fillText('Cisco',205,127);
+      ctx.fillStyle='#1695d2';for(let i=0;i<8;i++){const bh=58+(i%4)*34;ctx.fillRect(65+i*31,150-bh/2,19,bh);}
+      ctx.font='800 128px Arial,Helvetica,sans-serif';ctx.fillText('Cisco',575,184);
     }else if(key==='nvidia'){
-      ctx.fillStyle='#76b900';ctx.fillRect(35,46,145,150);ctx.strokeStyle='#fff';ctx.lineWidth=12;
-      ctx.beginPath();ctx.ellipse(108,122,46,34,0,0,Math.PI*2);ctx.stroke();
-      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(108,122,10,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#76b900';ctx.font='700 62px system-ui,sans-serif';ctx.fillText('NVIDIA',205,127);
+      ctx.fillStyle='#76b900';ctx.fillRect(45,55,250,250);ctx.strokeStyle='#fff';ctx.lineWidth=19;
+      ctx.beginPath();ctx.ellipse(170,180,80,60,0,0,Math.PI*2);ctx.stroke();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(170,180,18,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#76b900';ctx.font='800 112px Arial,Helvetica,sans-serif';ctx.fillText('NVIDIA',595,182);
     }else{
-      ctx.fillStyle='#d9363e';ctx.beginPath();ctx.arc(88,125,55,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#fff';ctx.font='800 72px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('LS',88,128);
-      ctx.fillStyle='#d9363e';ctx.textAlign='left';ctx.font='700 54px system-ui,sans-serif';ctx.fillText('LS Cable',175,127);
+      ctx.fillStyle='#d9363e';ctx.beginPath();ctx.arc(150,180,100,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#fff';ctx.font='800 126px Arial,Helvetica,sans-serif';ctx.fillText('LS',150,183);
+      ctx.fillStyle='#d9363e';ctx.font='800 103px Arial,Helvetica,sans-serif';ctx.fillText('LS Cable',585,182);
     }
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
@@ -240,7 +241,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
         part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
         // Brand/safety panel is attached to both cabinet faces, avoiding a blank rear view.
-        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.442,w*.68,h*.28);
+        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.442,w*.82,h*.23);
         for(const x of [-w*.38,w*.38]){
           part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
           part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);
@@ -457,10 +458,10 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         const shippingBrands=['Cisco','LS Cable','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=-w*.42+i*w*.12,brand=shippingBrands[i];
-          part(root,'loading-box-'+i,bx,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
-          // Dedicated delivery label: readable company name plus brand symbol on the carton face.
-          shippingBrandPanel(root,'box-'+i,brand,bx,.21,d*.348,w*.092,h*.072);
-          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.21,d*.192,w*.092,h*.072);
+          part(root,'loading-box-'+i,bx,.10,d*.27,w*.125,h*.24,d*.15,'#c99b54',.18,.56);
+          // Large, nearly edge-to-edge carton-face labels make the supplier names readable in a wide tour shot.
+          shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.352,w*.119,h*.155);
+          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.188,w*.119,h*.155);
         }
         break;
       }

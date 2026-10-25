@@ -57,6 +57,32 @@ export function createArchitectureKit(THREE, { cube }) {
       part(ground,'frame','perimeter-marker-'+x+'-'+z,x,-.05,z,.32,2.4,.32,'#a6b9c1',.64,.34);
     }
     part(ground,'beam','gate-header',0,2.2,54,11,.46,.42,'#b8cbd0',.6,.3);
+    // Three perpendicular parking bays opposite the Gray Zone +Z entrance.
+    // The road at z=30 remains open; the third bay deliberately stays vacant.
+    const parkX=-17,parkZ=39.5;
+    part(ground,'path','gray-visitor-parking-asphalt',parkX,-.115,parkZ,19,.085,10,'#303e49',.08,.94);
+    part(ground,'detail','gray-parking-headline',parkX,-.063,parkZ+4.72,18.2,.026,.10,'#e9edf0',.05,.86);
+    for(let bay=0;bay<3;bay++){
+      const x=-23+bay*6;
+      for(const side of [-1,1])
+        part(ground,'detail','gray-parking-line-'+bay+'-'+side,x+side*2.72,-.061,parkZ,.09,.025,8.8,'#edf1ed',.04,.84);
+      part(ground,'detail','gray-parking-stop-'+bay,x,-.058,parkZ-3.72,2.9,.045,.25,'#e3c56c',.17,.79);
+      if(bay===2)continue;
+      const car=new THREE.Group();car.name='arch:gray-parking:car-'+bay;car.position.set(x,-.055,parkZ+.35);ground.add(car);
+      const paint=bay===0?'#d2d8d9':'#4b687c';
+      part(car,'detail','gray-parked-car-chassis-'+bay,0,.23,0,2.45,.53,4.65,'#26333b',.29,.53);
+      part(car,'detail','gray-parked-car-body-'+bay,0,.42,0,2.28,.55,4.28,paint,.47,.38);
+      part(car,'glass','gray-parked-car-cabin-'+bay,0,.97,-.18,1.97,.57,2.35,'#435d6a',.16,.25);
+      part(car,'roof','gray-parked-car-roof-'+bay,0,1.48,-.18,1.88,.10,2.16,paint,.53,.32);
+      for(const sx of [-1,1])for(const sz of [-1,1]){
+        part(car,'detail','gray-car-tyre-'+bay+'-'+sx+'-'+sz,sx*1.10,.075,sz*1.42,.32,.50,.72,'#151c20',.02,.92);
+        part(car,'detail','gray-car-hub-'+bay+'-'+sx+'-'+sz,sx*1.29,.24,sz*1.42,.035,.19,.27,'#acb9bc',.52,.29);
+      }
+      for(const sx of [-1,1]){
+        part(car,'detail','gray-car-headlamp-'+bay+'-'+sx,sx*.77,.62,2.16,.44,.16,.055,'#dfecdd',.12,.22);
+        part(car,'detail','gray-car-tail-lamp-'+bay+'-'+sx,sx*.77,.60,-2.16,.43,.16,.055,'#c94e4b',.10,.30);
+      }
+    }
     // Service roads and loading aprons: sparse paint markings, no texture downloads.
     for(let x=-54;x<=54;x+=12){
       part(ground,'detail','road-edge-n-'+x,x,-.035,26.93,5,.016,.08,'#d5d8cf',.04,.88);

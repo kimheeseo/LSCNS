@@ -285,8 +285,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         for(const side of [-1,1]){
           const face=side*d*.48;
           // Panel is centred in the chassis face, not floating over the roof.
-          part(root,'chiller-operator-hmi-'+side,0,h*.38,face,w*.58,.40,.040,'#061a25',.16,.18);
-          statusPanel(root,'chiller-runtime-'+side,'CHILLER','CHW 7.2°C · RUN',0,h*.57,face+side*.026,w*.50,h*.23);
+          // Compact 50%-scale HMI inset into the chiller cabinet.
+          part(root,'chiller-operator-hmi-'+side,0,h*.42,face,w*.30,.20,.040,'#061a25',.16,.18);
+          statusPanel(root,'chiller-runtime-'+side,'CHILLER','CHW 7.2°C · RUN',0,h*.52,face+side*.026,w*.25,h*.115);
         }
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
@@ -421,8 +422,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'briefing-floor',0,.04,0,w*.94,.12,d*.92,'#536f7f',.28,.60);
         // Front is intentionally open so the classroom scene is visible during the tour.
         part(root,'briefing-backwall',0,h*.28,d*.38,w*.90,h*.56,.08,'#e0e7e4',.12,.52);
-        part(root,'briefing-screen',0,h*.57,d*.32,w*.43,h*.24,.035,'#2f6078',.1,.20);
-        part(root,'briefing-screen-header',0,h*.84,d*.285,w*.47,.07,.02,'#54d4cf',.1,.22);
+        part(root,'briefing-screen',0,h*.57,d*.32,w*.43,h*.24,.035,'#183c31',.1,.20);
+        part(root,'briefing-screen-header',0,h*.84,d*.285,w*.47,.07,.02,'#d9e9df',.1,.22);
+        statusPanel(root,'briefing-safety-board','안전 수칙','촬영 허용구역',0,h*.62,d*.286,w*.41,h*.20);
         part(root,'briefing-sidewall-left',-w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
         part(root,'briefing-sidewall-right',w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
         // Classroom desks and chairs face the briefing screen.

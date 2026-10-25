@@ -47,32 +47,29 @@ export function createRackComponentKit(THREE,{cube}){
   const part=g.userData.rackPart;
   g.traverse(o=>{if(o.isMesh){o.userData.assetId=assetId;o.userData.partId=part.id;}});
  }
- function networkRackPlaque(asset,gpuVariant=false){
-  if(typeof document==='undefined'||(!gpuVariant&&!['Spine','Leaf'].includes(asset.type)))return null;
-  const c=document.createElement('canvas');c.width=1024;c.height=256;
-  const ctx=c.getContext('2d');if(!ctx)return null;
-  const spine=asset.type==='Spine',which=/[- ]b$/i.test(asset.id)?'B':'A';
-  const title=gpuVariant?'GPU COMPUTE':asset.type.toUpperCase()+' '+which;
-  const subtitle=gpuVariant?'ACCELERATOR TRAYS / LIQUID COOLING':spine?'NETWORK FABRIC / AGGREGATION':'SERVER ACCESS / LEAF SWITCH';
-  ctx.fillStyle='#102b3d';ctx.fillRect(0,0,1024,256);
-  ctx.fillStyle=gpuVariant?'#e5bd62':spine?'#579bfa':'#62d3b9';ctx.fillRect(0,0,25,256);
-  ctx.strokeStyle='#b9d7e0';ctx.lineWidth=8;ctx.strokeRect(5,5,1014,246);
-  ctx.fillStyle='#f5fbff';ctx.font='900 102px system-ui,sans-serif';
-  ctx.textAlign='center';ctx.fillText(title,535,112);
-  ctx.fillStyle='#acd4e1';ctx.font='700 42px system-ui,sans-serif';
-  ctx.fillText(subtitle,535,188);
+ function rackPlaque(asset){
+  if(typeof document==='undefined')return null;
+  const t=asset.type||'',spine=t==='Spine',leaf=t==='Leaf',tor=t==='Top-of-Rack switch',gpu=/gpu/i.test(t),storage=/storage/i.test(t),compute=/compute/i.test(t);
+  const which=/[- ]b$/i.test(asset.id)?'B':'A';
+  const title=tor?'ToR SWITCH':spine?'SPINE '+which:leaf?'LEAF '+which:gpu?'GPU RACK':storage?'STORAGE RACK':compute?'COMPUTE RACK':t==='Core'?'CORE ROUTER':t==='MMR rack'?'MMR RACK':t==='Co-location rack'?'CLIENT RACK':'SERVER RACK';
+  const subtitle=tor?'TOP OF RACK · HIGHEST U':gpu?'GPU ACCELERATORS · LIQUID COOLING':storage?'STORAGE SERVERS · DRIVE BAYS':compute?'COMPUTE SERVERS · NIC':spine?'NETWORK FABRIC / AGGREGATION':leaf?'SERVER ACCESS / LEAF SWITCH':'RACK · SELECT FOR INTERNAL VIEW';
+  const accent=tor?'#f1ca60':gpu?'#e5bd62':storage?'#74d4d3':spine?'#579bfa':'#62d3b9';
+  const c=document.createElement('canvas');c.width=768;c.height=192;const ctx=c.getContext('2d');if(!ctx)return null;
+  ctx.fillStyle='#0d2c3d';ctx.fillRect(0,0,768,192);ctx.fillStyle=accent;ctx.fillRect(0,0,17,192);
+  ctx.strokeStyle='#b9d7e0';ctx.lineWidth=5;ctx.strokeRect(3,3,762,186);
+  ctx.fillStyle='#f5fbff';ctx.font='900 68px system-ui,sans-serif';ctx.textAlign='center';
+  let size=68;while(ctx.measureText(title).width>670&&size>34){size-=3;ctx.font='900 '+size+'px system-ui,sans-serif';}
+  ctx.fillText(title,392,84);ctx.fillStyle='#cce5e9';ctx.font='700 30px system-ui,sans-serif';ctx.fillText(subtitle,392,148);
   const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
   const make=(parent,name,x,y,z,width,height,yaw)=>{
-   const m=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
-     new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,depthWrite:true}));
-   m.name='rack-network-label:'+name+':'+asset.id;
-   m.position.set(x,y,z);m.rotation.y=yaw;parent.add(m);return m;
+   const m=new THREE.Mesh(new THREE.PlaneGeometry(width,height),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,depthWrite:true}));
+   m.name='rack-type-label:'+name+':'+asset.id;m.position.set(x,y,z);m.rotation.y=yaw;parent.add(m);return m;
   };
   return {make,texture};
  }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
-  const gpuVariant=/^(?:gpu-0-[02]|gpu-1-[13]|gpu-dyn-(?:10|15))$/.test(id);
+  const gpuVariant=/gpu/i.test(a.type)&&/^(?:gpu-0-[024]|gpu-1-[13]|gpu-dyn-(?:10|11|12|14|15))$/.test(id);
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
   const unit=(h-.46)/count,lower=.23;
   const pieces=[],map=new Map();
@@ -92,10 +89,11 @@ export function createRackComponentKit(THREE,{cube}){
   box(shell,'bottom-plate',0,.04,0,w,.14,d,'#65839b');
   box(shell,'right-side',w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
   box(shell,'left-side',-w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
-  const networkLabel=networkRackPlaque(a,gpuVariant);
+  const networkLabel=rackPlaque(a);
   if(networkLabel){
    const right=networkLabel.make(shell,'right-wall',w*.508,h*.80,0,d*.57,h*.14,Math.PI/2);
    networkLabel.make(shell,'left-wall',-w*.508,h*.80,0,d*.57,h*.14,-Math.PI/2);
+   networkLabel.make(shell,'front',0,h*.80,-d*.535,w*.77,h*.12,0);
    right.userData.ownedTexture=networkLabel.texture;
   }
   retain(shell);
@@ -143,7 +141,7 @@ export function createRackComponentKit(THREE,{cube}){
     const u=3+i*4;
     if(u+3>=count-reserved)break;
     const units=storage?3:4,y=lower+(u-1)*unit;
-    const kind=serverType,label=(network?'네트워크 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
+    const kind=serverType,label=(a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
     const partGroup=group(slide,id,kind+'-'+(i+1),label,u,units);
     if(gpuVariant){
      // Open service trays expose accelerator packages when the rack door opens.

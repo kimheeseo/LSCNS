@@ -111,7 +111,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const ctx=canvas.getContext('2d');if(!ctx)return null;
     ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1200,300);
     ctx.strokeStyle='#d6dde3';ctx.lineWidth=8;ctx.strokeRect(4,4,1192,292);
-    ctx.fillStyle='#1d32a5';ctx.font='800 152px Arial,Helvetica,sans-serif';
+    // Keep the Samsung SDI mark subordinate to the electrical cabinet rather than filling the whole face.
+    ctx.fillStyle='#1d32a5';ctx.font='800 102px Arial,Helvetica,sans-serif';
     ctx.letterSpacing='1px';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText('SAMSUNG SDI',600,158);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
@@ -135,9 +136,10 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(170,180,18,0,Math.PI*2);ctx.fill();
       ctx.fillStyle='#76b900';ctx.font='800 112px Arial,Helvetica,sans-serif';ctx.fillText('NVIDIA',595,182);
     }else{
-      ctx.fillStyle='#d9363e';ctx.beginPath();ctx.arc(150,180,100,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#fff';ctx.font='800 126px Arial,Helvetica,sans-serif';ctx.fillText('LS',150,183);
-      ctx.fillStyle='#d9363e';ctx.font='800 103px Arial,Helvetica,sans-serif';ctx.fillText('LS Cable',585,182);
+      // LS Cable & System CI: blue LS wordmark with red arrow accent and gray English logotype.
+      ctx.fillStyle='#164fa5';ctx.font='900 172px Arial,Helvetica,sans-serif';ctx.fillText('LS',175,196);
+      ctx.fillStyle='#e8232d';ctx.beginPath();ctx.moveTo(230,49);ctx.lineTo(281,49);ctx.lineTo(256,82);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#68767e';ctx.font='700 72px Arial,Helvetica,sans-serif';ctx.fillText('Cable & System',590,190);
     }
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
@@ -497,7 +499,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
         part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
         part(root,'loading-forklift-forks',w*.43,.06,d*.24,w*.22,.04,.09,'#697882',.50,.35);
-        const shippingBrands=['Cisco','LS Cable','NVIDIA'];
+        const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=-w*.42+i*w*.12,brand=shippingBrands[i];
           part(root,'loading-box-'+i,bx,.10,d*.27,w*.125,h*.24,d*.15,'#c99b54',.18,.56);

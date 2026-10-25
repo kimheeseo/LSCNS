@@ -86,6 +86,30 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
     mesh.name='equipment-brand:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
+  function shippingBrandPanel(root,name,brand,x,y,z,w,h){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=620;canvas.height=250;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#d2aa63';ctx.fillRect(0,0,620,250);
+    ctx.strokeStyle='#714d23';ctx.lineWidth=9;ctx.strokeRect(5,5,610,240);
+    const key=String(brand).toLowerCase();ctx.textAlign='left';ctx.textBaseline='middle';
+    if(key==='cisco'){
+      ctx.fillStyle='#1695d2';for(let i=0;i<8;i++){const bh=35+(i%4)*20;ctx.fillRect(42+i*18,92-bh/2,10,bh);}
+      ctx.font='700 68px system-ui,sans-serif';ctx.fillText('Cisco',205,127);
+    }else if(key==='nvidia'){
+      ctx.fillStyle='#76b900';ctx.fillRect(35,46,145,150);ctx.strokeStyle='#fff';ctx.lineWidth=12;
+      ctx.beginPath();ctx.ellipse(108,122,46,34,0,0,Math.PI*2);ctx.stroke();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(108,122,10,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#76b900';ctx.font='700 62px system-ui,sans-serif';ctx.fillText('NVIDIA',205,127);
+    }else{
+      ctx.fillStyle='#d9363e';ctx.beginPath();ctx.arc(88,125,55,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#fff';ctx.font='800 72px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('LS',88,128);
+      ctx.fillStyle='#d9363e';ctx.textAlign='left';ctx.font='700 54px system-ui,sans-serif';ctx.fillText('LS Cable',175,127);
+    }
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-shipping-brand:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+  }
   function batch(root,name,positions,w,h,d,color){
     if(!positions.length)return;
     const b=new THREE.InstancedMesh(boxGeometry,material(color,.68,.38),positions.length);
@@ -428,12 +452,13 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
         part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
         part(root,'loading-forklift-forks',w*.43,.06,d*.24,w*.22,.04,.09,'#697882',.50,.35);
+        const shippingBrands=['Cisco','LS Cable','NVIDIA'];
         for(let i=0;i<3;i++){
-          const bx=-w*.42+i*w*.12;
-          part(root,'loading-ls-box-'+i,bx,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
-          part(root,'loading-ls-box-mark-'+i,bx,.20,d*.342,w*.055,.045,.012,'#d9363e',.14,.30);
-          decal(root,'loading-box-brand-'+i,i%2===0?'LS CABLE':'NVIDIA',bx,.20,d*.348,w*.09,.055,
-            i%2===0?'#d9363e':'#76b900','#ffffff');
+          const bx=-w*.42+i*w*.12,brand=shippingBrands[i];
+          part(root,'loading-box-'+i,bx,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
+          // Dedicated delivery label: readable company name plus brand symbol on the carton face.
+          shippingBrandPanel(root,'box-'+i,brand,bx,.21,d*.348,w*.092,h*.072);
+          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.21,d*.192,w*.092,h*.072);
         }
         break;
       }

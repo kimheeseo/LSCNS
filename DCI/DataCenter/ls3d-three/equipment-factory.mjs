@@ -7,6 +7,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   function classify(a) {
     const t = String(a.type || '').toLowerCase(), id=String(a.id||'').toLowerCase();
     const s=t+' '+id;
+    if(/visitor-parking|visitor parking|pre-registration parking/.test(s))return 'visitor-parking';
     if(/site-sign|ls data center.*안내/.test(s))return 'visitor-center';
     if(/visitor-lobby|briefing|classroom/.test(s))return 'briefing-room';
     if(/visitor-loading|하역장|loading bay/.test(s))return 'loading-bay';
@@ -532,6 +533,29 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'mantrap-card-slot',w*.27,h*.43,-d*.355,w*.08,.024,.014,'#d8e9e8',.08,.22);
         part(root,'mantrap-card-led-red',w*.27,h*.53,-d*.356,w*.07,.055,.014,'#e94750',.08,.20);
         part(root,'mantrap-card-led-green',w*.27,h*.53,-d*.372,w*.07,.055,.014,'#56e3a0',.08,.20);
+        break;
+      }
+      case 'visitor-parking': {
+        // Stage 1: a separate visitor-parking scene for pre-registration work.
+        part(root,'parking-asphalt',0,.03,0,w*.96,.10,d*.95,'#3d5665',.20,.68);
+        for(const x of [-w*.28,0,w*.28]){
+          part(root,'parking-bay-line-'+x,x,.105,0,.045,.015,d*.64,'#e5edf0',.08,.34);
+          part(root,'parking-bay-stop-'+x,x,.11,-d*.27,w*.20,.018,.05,'#f2dc68',.08,.30);
+        }
+        for(const [i,x] of [-w*.30,0,w*.30].entries()){
+          const carColor=['#557f99','#d8e0e2','#6f8994'][i];
+          part(root,'visitor-car-body-'+i,x,.15,-d*.12,w*.17,h*.14,d*.32,carColor,.42,.35);
+          part(root,'visitor-car-roof-'+i,x,.15+h*.14,-d*.12,w*.12,h*.07,d*.19,'#c8dde4',.25,.28);
+          for(const xx of [-w*.058,w*.058])for(const zz of [-d*.115,d*.115])
+            round(root,'visitor-car-wheel-'+i+'-'+xx+'-'+zz,x+xx,.07,-d*.12+zz,Math.min(w,d)*.025,.10,'#15232c');
+        }
+        part(root,'parking-checkin-kiosk',w*.36,.12,d*.19,w*.16,h*.50,d*.18,'#355867',.42,.36);
+        part(root,'parking-kiosk-screen',w*.36,h*.48,d*.285,w*.12,h*.14,.018,'#61e0d2',.06,.18);
+        part(root,'parking-kiosk-card-slot',w*.36,h*.31,d*.285,w*.07,.026,.016,'#dde9ea',.08,.20);
+        part(root,'parking-barrier-post',-w*.40,.08,d*.30,.10,h*.34,.10,'#d9e1df',.40,.34);
+        part(root,'parking-barrier-arm',-w*.22,h*.42,d*.30,w*.34,.055,.055,'#f4d56d',.18,.27);
+        statusPanel(root,'parking-registration','PRE-REGISTRATION','ID / VISITOR LIST',0,h*.74,front-.06,w*.54,h*.19,0);
+        decal(root,'parking-name','VISITOR PARKING',0,h*.94,front-.07,w*.48,h*.09,'#163845','#bff8ef');
         break;
       }
       case 'visitor-center': {

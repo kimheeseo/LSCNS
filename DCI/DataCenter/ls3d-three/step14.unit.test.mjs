@@ -65,7 +65,8 @@ test('rack ToR has eight independent selectable ports and 2× independent A/B po
     for(const p of ports)assert.equal(f.built.partMap.get(p.id),p);
     const diag=f.cabling.diagnostic(f.asset.id);
     assert.equal(diag.torU,units-1);
-    assert.equal(diag.links.filter(x=>x.kind==='fiber').length,2);
+    assert.equal(diag.links.filter(x=>x.kind==='fiber').length,1);
+    assert.equal(diag.links.filter(x=>x.kind==='dac').length,1);
     assert.equal(diag.links.filter(x=>x.kind==='power-A').length,2);
     assert.equal(diag.links.filter(x=>x.kind==='power-B').length,2);
     assert.ok(diag.links.every(x=>x.from&&x.to));
@@ -92,13 +93,13 @@ test('filter keeps all routes visible and dims unrelated A/B/fiber routes',()=>{
 test('pulled server moves NIC and its own cable source only',()=>{
   const f=fixture();
   const first='server-1',second='server-2';
-  const before1=cableGeometryFor(f,'fiber',first);
+  const before1=cableGeometryFor(f,'dac',first);
   const before2=cableGeometryFor(f,'fiber',second);
   const z1=before1.parameters.path.points[0].z;
   const z2=before2.parameters.path.points[0].z;
   f.built.serverGroups[1].position.z=-.62;
   f.cabling.update(f.asset.id,second);
-  const after1=cableGeometryFor(f,'fiber',first);
+  const after1=cableGeometryFor(f,'dac',first);
   const after2=cableGeometryFor(f,'fiber',second);
   assert.equal(after1,before1);
   assert.notEqual(after2,before2);

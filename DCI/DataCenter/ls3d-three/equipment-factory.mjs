@@ -178,10 +178,31 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       [-w*.33+i*w*.083,h*.28,-d*.512]),w*.055,.045,.04,'#a6cbd7');
   }
   function electricalBus(root,w,d,h){
-    part(root,'busway-conductor',0,h*.65,0,w*.94,.33,d*.34,'#b78e4a',.78,.26);
-    part(root,'busway-shell',0,h*.46,0,w*.98,.33,d*.48,'#9eacb8',.52,.39);
-    batch(root,'busway-hangers',Array.from({length:5},(_,i)=>
-      [-w*.4+i*w*.20,h*.45,-d*.28]),.15,h*.36,.13,'#6f879a');
+    // Compact sandwich busway: a long enclosed aluminium bus duct with bolted
+    // joint packs, a plug-in tap-off breaker and ceiling suspension hardware.
+    const run=d*.91, shellW=Math.min(w*.34,1.34), y=h*.72, face=-shellW*.51;
+    part(root,'busway-aluminium-enclosure',0,y,0,shellW,h*.15,run,'#b7c3c8',.72,.27);
+    part(root,'busway-top-flange',0,y+h*.095,0,shellW*1.13,h*.045,run*.98,'#d9e2e4',.66,.24);
+    part(root,'busway-bottom-flange',0,y-h*.095,0,shellW*1.13,h*.045,run*.98,'#8c9da4',.62,.29);
+    for(let j=-2;j<=2;j++){
+      const z=j*run*.165;
+      part(root,'busway-bolted-joint-'+j,0,y,z,shellW*1.22,h*.22,run*.026,'#687b83',.68,.29);
+      batch(root,'busway-joint-bolts-'+j,[-shellW*.43,shellW*.43].map(x=>[x,y+h*.01,z-run*.021]),.060,.060,.035,'#e5c56a');
+    }
+    // Inspection stripe conveys the R/S/T conductors without turning the run
+    // into a cable tray. It is recessed within the metal protective housing.
+    for(const [i,color] of ['#c94f4f','#e5c35e','#4b94ba'].entries())
+      part(root,'busway-phase-window-'+i,(-1+i)*shellW*.18,y-h*.103,run*.17,shellW*.11,.026,run*.24,color,.28,.27);
+    const tapZ=-run*.13;
+    part(root,'busway-tapoff-body',0,y-h*.29,tapZ,shellW*.72,h*.31,run*.13,'#526d79',.48,.34);
+    part(root,'busway-tapoff-door',0,y-h*.28,tapZ-run*.071,shellW*.49,h*.19,.028,'#203b4a',.26,.29);
+    part(root,'busway-tapoff-breaker',0,y-h*.24,tapZ-run*.089,shellW*.16,h*.09,.018,'#e4bd56',.23,.23);
+    part(root,'busway-tapoff-feeder',0,y-h*.53,tapZ,shellW*.20,h*.23,run*.075,'#314e5d',.44,.36);
+    for(const x of [-shellW*.42,shellW*.42]){
+      part(root,'busway-hanger-rod-'+x,x,y+h*.13,0,.035,h*.52,.035,'#80929a',.54,.30);
+      part(root,'busway-hanger-bracket-'+x,x,y+h*.40,0,shellW*.16,.055,.15,'#647780',.50,.32);
+    }
+    decal(root,'busway-nameplate','BUSWAY · TAP-OFF',0,y+.005,face-.012,shellW*.73,h*.075,'#244656','#edfffc');
   }
   function nocOperationsPanel(root,name,mode,x,y,z,w,h,rotationY=0){
     if(typeof document==='undefined')return null;
@@ -600,8 +621,29 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'maintenance':{
-        part(root,'counter',0,.54,0,w*.86,.18,d*.72,'#7392a4');
-        part(root,'desk-front',0,.06,-d*.28,w*.80,.66,.15,'#325c73');
+        // Maintenance bench with staged spares and an animated technician
+        // carrying a replacement carton between the bench and dispatch side.
+        part(root,'maintenance-bench-top',0,.54,0,w*.86,.18,d*.72,'#7392a4');
+        part(root,'maintenance-bench-front',0,.06,-d*.28,w*.80,.66,.15,'#325c73');
+        part(root,'maintenance-bench-shelf',0,.20,d*.19,w*.68,.11,d*.26,'#253f50',.34,.38);
+        for(const [i,x] of [-w*.24,0,w*.24].entries()){
+          part(root,'maintenance-carton-'+i,x,h*.69,-d*.08,w*.17,h*.18,d*.18,i===1?'#b9854d':'#cc9d5d',.18,.64);
+          part(root,'maintenance-carton-label-'+i,x,h*.77,-d*.181,w*.10,h*.045,.010,'#f1e8cf',.04,.46);
+        }
+        const worker=new THREE.Group();worker.name='equipment-maintenance-technician';
+        worker.position.set(-w*.27,0,d*.25);
+        worker.userData.maintenanceAnimation={baseX:-w*.27,range:w*.44,phase:.35};
+        root.add(worker);
+        part(worker,'maintenance-worker-shoes',0,.045,0,w*.15,.09,d*.13,'#1e2931',.26,.45);
+        part(worker,'maintenance-worker-trousers',0,.12,0,w*.13,h*.22,d*.11,'#334b61',.20,.45);
+        part(worker,'maintenance-worker-shirt',0,h*.31,0,w*.16,h*.27,d*.12,'#e05b50',.18,.42);
+        round(worker,'maintenance-worker-head',0,h*.57,0,Math.min(w,d)*.045,h*.13,'#d9a884');
+        const carrying=new THREE.Group();carrying.name='maintenance-carrying-carton';
+        carrying.position.set(0,h*.40,-d*.16);carrying.userData.maintenanceCarryingCarton=true;worker.add(carrying);
+        part(carrying,'maintenance-carried-box',0,0,0,w*.20,h*.17,d*.18,'#c99554',.14,.62);
+        part(carrying,'maintenance-carried-label',0,h*.02,-d*.096,w*.12,h*.040,.010,'#f4ecd8',.04,.44);
+        for(const side of [-1,1])part(worker,'maintenance-worker-arm-'+side,side*w*.105,h*.39,-d*.08,.045,h*.10,.16,'#d9a884',.10,.37);
+        decal(root,'maintenance-zone-label','SPARES · MAINTENANCE',0,h*.92,-d*.39,w*.67,h*.075,'#254657','#eafffb');
         break;
       }
       case 'identity-camera': {

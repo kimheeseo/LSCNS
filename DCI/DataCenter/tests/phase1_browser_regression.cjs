@@ -180,7 +180,8 @@ async function currentExperience(browser,device,viewport){
    check(device,'kpi-'+kind,body.includes(title)&&body.includes('계산')&&body.includes('현재'),body.slice(0,80));
    await page.locator('#ls3dKpiClose').click();
   }
-  await page.locator('#mobileZone').selectOption('hall');
+  if(device==='mobile')await page.locator('#mobileZone').selectOption('hall');
+  else await page.locator('#zoneList [data-zone="hall"]').click();
   await page.locator('#inspectorAssetSelect').selectOption('gpu-0-0');
   await page.locator('#detailBtn').click();
   check(device,'rack-isolation',await page.locator('#rackIsolateBar').isVisible()&&(await page.locator('#rackIsolateName').innerText()).includes('GPU Rack A-01'));
@@ -190,7 +191,7 @@ async function currentExperience(browser,device,viewport){
   check(device,'rack-return',await page.locator('#rackIsolateBar').isHidden());
   const layout=await page.evaluate(()=>{
    const T=window.__LS3D_TEST__,racks=T.assets.filter(a=>a.zone==='hall'&&T.isMechanicalRack(a));
-   return {gpu:racks.filter(a=>a.type==='gpu').length,storage:racks.filter(a=>a.type==='storage').length,tor:racks.filter(a=>a.type==='tor').length,odf:T.assets.some(a=>a.id==='odf')};
+   return {gpu:racks.filter(a=>/^gpu-/.test(a.id)&&!a.hidden).length,storage:racks.filter(a=>/^storage/.test(a.id)&&!a.hidden).length,tor:racks.filter(a=>/^tor-/.test(a.id)&&!a.hidden).length,odf:T.assets.some(a=>a.id==='odf')};
   });
   check(device,'rack-groups',layout.gpu>=10&&layout.storage>=5&&layout.tor>=2,JSON.stringify(layout));
   check(device,'odf-present',layout.odf);

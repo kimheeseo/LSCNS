@@ -81,9 +81,14 @@ body.display-mobile .info-list{grid-template-columns:repeat(2,minmax(0,1fr))}
  }
  if(mode==='pc'||mode==='mobile')apply(mode);else dialog.hidden=false;
  dialog.querySelectorAll('[data-display-choice]').forEach(button=>button.addEventListener('click',()=>apply(button.dataset.displayChoice)));
+ document.addEventListener('click',event=>{
+  if(!event.target.closest?.('#displayModeReopen'))return;
+  dialog.hidden=false;
+  dialog.querySelector('[data-display-choice="'+(body.classList.contains('display-mobile')?'mobile':'pc')+'"]')?.focus();
+ },true);
  document.addEventListener('DOMContentLoaded',()=>{
   const toggle=document.getElementById('displayModeReopen');
-  if(toggle){toggle.onclick=()=>{dialog.hidden=false;dialog.querySelector('[data-display-choice="'+(body.classList.contains('display-mobile')?'mobile':'pc')+'"]')?.focus()};if(mode==='pc'||mode==='mobile')toggle.textContent=mode==='mobile'?'▯ 모바일 화면':'▣ PC 화면'}
+  if(toggle&&(mode==='pc'||mode==='mobile'))toggle.textContent=mode==='mobile'?'▯ 모바일 화면':'▣ PC 화면';
  });
 })();
 </script>

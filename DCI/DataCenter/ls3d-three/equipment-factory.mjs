@@ -237,20 +237,21 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'switchgear': {
         part(root,'metalclad-main',0,.08,0,w*.98,h*.92,d*.86,'#748a96',.65,.38);
         part(root,'switchgear-plinth',0,.035,0,w*1.02,.13,d*.92,'#2d4656',.62,.36);
-        const cubicles=5;
+        // Service face is intentionally on +Z to align the Utility Yard approach.
+        const operatingFace=-front, cubicles=5;
         for(let i=0;i<cubicles;i++){
           const x=-w*.39+i*w*.195;
-          part(root,'switchgear-bay-'+i,x,h*.09,front,w*.18,h*.78,.065,'#9fb2bc',.59,.39);
-          part(root,'breaker-window-'+i,x,h*.43,front-.055,w*.12,.25,.025,'#102c40',.14,.27);
-          part(root,'breaker-handle-'+i,x,h*.49,front-.083,w*.036,.115,.018,i===0?'#e4b54b':'#e7ecee',.25,.30);
-          part(root,'breaker-lamp-'+i,x,h*.72,front-.073,.065,.075,.035,i%2?'#53d7aa':'#f3cd76',.1,.34);
-          part(root,'feeder-tag-'+i,x,h*.25,front-.078,w*.105,.055,.018,'#365166',.14,.30);
+          part(root,'switchgear-bay-'+i,x,h*.09,operatingFace,w*.18,h*.78,.065,'#9fb2bc',.59,.39);
+          part(root,'breaker-window-'+i,x,h*.43,operatingFace+.055,w*.12,.25,.025,'#102c40',.14,.27);
+          part(root,'breaker-handle-'+i,x,h*.49,operatingFace+.083,w*.036,.115,.018,i===0?'#e4b54b':'#e7ecee',.25,.30);
+          part(root,'breaker-lamp-'+i,x,h*.72,operatingFace+.073,.065,.075,.035,i%2?'#53d7aa':'#f3cd76',.1,.34);
+          part(root,'feeder-tag-'+i,x,h*.25,operatingFace+.078,w*.105,.055,.018,'#365166',.14,.30);
         }
         // Main busbars, metering relay and five individual outgoing feeder bays.
         for(const [name,y,color] of [['r',h*.83,'#d65d59'],['s',h*.78,'#e2c257'],['t',h*.73,'#4c9cba']])
-          part(root,'switchgear-main-bus-'+name,0,y,front-.078,w*.73,.032,.028,color,.45,.25);
-        statusPanel(root,'switchgear-meter','LV SWITCHGEAR','NORMAL',0,h*.87,front-.091,w*.30,h*.105,0);
-        decal(root,'switchgear-purpose','PROTECTION · DISTRIBUTION',0,h*.12,front-.087,w*.48,h*.070,'#244357','#e5fbfa');
+          part(root,'switchgear-main-bus-'+name,0,y,operatingFace+.078,w*.73,.032,.028,color,.45,.25);
+        statusPanel(root,'switchgear-meter','LV SWITCHGEAR','NORMAL',0,h*.87,operatingFace+.091,w*.30,h*.105,0);
+        decal(root,'switchgear-purpose','PROTECTION · DISTRIBUTION',0,h*.12,operatingFace+.087,w*.48,h*.070,'#244357','#e5fbfa');
         break;
       }
       case 'generator': {
@@ -312,23 +313,24 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         // a centre transfer mechanism, and a visible AUTO-transfer controller.
         part(root,'ats-plinth',0,.035,0,w*1.02,.13,d*.92,'#2c4553',.58,.38);
         part(root,'ats-cabinet',0,.12,0,w*.96,h*.86,d*.84,'#65798a',.57,.37);
+        const operatingFace=-front;
         for(const [side,source,color] of [[-1,'UTILITY','#4f9fc0'],[1,'GENERATOR','#d39b54']]){
           const x=side*w*.27;
-          part(root,'ats-source-section-'+source,x,h*.14,front,w*.25,h*.62,.070,'#203e52',.38,.30);
-          part(root,'ats-source-inlet-'+source,x,h*.67,front-.06,w*.17,.16,.026,color,.18,.28);
-          part(root,'ats-source-bus-'+source,x,h*.45,front-.083,w*.16,.035,.024,color,.35,.24);
-          decal(root,'ats-source-label-'+source,source,x,h*.30,front-.087,w*.17,h*.065,'#193442','#efffff');
+          part(root,'ats-source-section-'+source,x,h*.14,operatingFace,w*.25,h*.62,.070,'#203e52',.38,.30);
+          part(root,'ats-source-inlet-'+source,x,h*.67,operatingFace+.06,w*.17,.16,.026,color,.18,.28);
+          part(root,'ats-source-bus-'+source,x,h*.45,operatingFace+.083,w*.16,.035,.024,color,.35,.24);
+          decal(root,'ats-source-label-'+source,source,x,h*.30,operatingFace+.087,w*.17,h*.065,'#193442','#efffff');
         }
-        part(root,'ats-transfer-section',0,h*.15,front,w*.22,h*.59,.077,'#9aaab0',.55,.35);
-        part(root,'ats-transfer-window',0,h*.49,front-.07,w*.13,.24,.026,'#122f42',.15,.25);
-        const handle=part(root,'ats-transfer-handle',0,h*.51,front-.096,w*.055,.18,.018,'#e5b94d',.30,.25);
+        part(root,'ats-transfer-section',0,h*.15,operatingFace,w*.22,h*.59,.077,'#9aaab0',.55,.35);
+        part(root,'ats-transfer-window',0,h*.49,operatingFace+.07,w*.13,.24,.026,'#122f42',.15,.25);
+        const handle=part(root,'ats-transfer-handle',0,h*.51,operatingFace+.096,w*.055,.18,.018,'#e5b94d',.30,.25);
         handle.rotation.z=-.62;
-        part(root,'ats-link-utility',-w*.14,h*.54,front-.091,w*.15,.032,.020,'#4f9fc0',.35,.24);
-        part(root,'ats-link-generator',w*.14,h*.54,front-.091,w*.15,.032,.020,'#d39b54',.35,.24);
-        statusPanel(root,'ats-controller','AUTO TRANSFER','UTILITY ⇄ GEN',0,h*.80,front-.10,w*.38,h*.105,0);
-        part(root,'ats-normal-led',-w*.055,h*.69,front-.106,.040,.040,.016,'#53d7aa',.10,.20);
-        part(root,'ats-alert-led',w*.055,h*.69,front-.106,.040,.040,.016,'#f0c35e',.10,.20);
-        decal(root,'ats-purpose','AUTOMATIC TRANSFER SWITCH',0,h*.12,front-.10,w*.58,h*.070,'#294757','#efffff');
+        part(root,'ats-link-utility',-w*.14,h*.54,operatingFace+.091,w*.15,.032,.020,'#4f9fc0',.35,.24);
+        part(root,'ats-link-generator',w*.14,h*.54,operatingFace+.091,w*.15,.032,.020,'#d39b54',.35,.24);
+        statusPanel(root,'ats-controller','AUTO TRANSFER','UTILITY ⇄ GEN',0,h*.80,operatingFace+.10,w*.38,h*.105,0);
+        part(root,'ats-normal-led',-w*.055,h*.69,operatingFace+.106,.040,.040,.016,'#53d7aa',.10,.20);
+        part(root,'ats-alert-led',w*.055,h*.69,operatingFace+.106,.040,.040,.016,'#f0c35e',.10,.20);
+        decal(root,'ats-purpose','AUTOMATIC TRANSFER SWITCH',0,h*.12,operatingFace+.10,w*.58,h*.070,'#294757','#efffff');
         break;
       }
       case 'pdu':case 'cdu': {

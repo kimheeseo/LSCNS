@@ -328,8 +328,32 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           -w*.38+i*w*.095,h*.86,front-.08]),w*.040,.040,.024,'#83edbc');
         break;
       }
-      case 'fuel-tank':case 'water-tank': {
-        round(root,kind+'-cyl-tank',0,.18,0,Math.min(w,d)*.39,h*.85,kind==='fuel-tank'?'#8f9b7c':'#83b8c9');
+      case 'fuel-tank': {
+        round(root,'fuel-cyl-tank',0,.18,0,Math.min(w,d)*.39,h*.85,'#8f9b7c');
+        part(root,'tank-ring-platform',0,h*.52,0,w*.83,.15,d*.83,'#5d7685',.61,.44);
+        round(root,'tank-vent',w*.18,h*.81,0,.13,.30,'#d9c7a3');
+        // Dedicated vent stack and gentle exhaust plume for the fuel-system exhibit.
+        const stackX=w*.28, stackZ=d*.02, stackRadius=Math.min(w,d)*.058;
+        round(root,'fuel-exhaust-stack',stackX,h*.90,stackZ,stackRadius,h*.95,'#59666d');
+        round(root,'fuel-exhaust-collar',stackX,h*.52,stackZ,stackRadius*1.34,.075,'#343f46');
+        round(root,'fuel-exhaust-cap',stackX,h*1.41,stackZ,stackRadius*1.38,.055,'#303a40');
+        for(let i=0;i<4;i++){
+          const phase=i*.82;
+          const smoke=new THREE.Mesh(
+            new THREE.SphereGeometry(h*(.075+i*.012),12,10),
+            new THREE.MeshStandardMaterial({color:'#c5ced1',transparent:true,opacity:.38-(i*.035),roughness:1,depthWrite:false})
+          );
+          smoke.name='equipment-part:fuel-exhaust-smoke-'+i;
+          smoke.position.set(stackX+Math.sin(phase)*.035,h*(1.49+i*.10),stackZ+Math.cos(phase)*.035);
+          smoke.scale.set(1.18,.82,1.08);
+          smoke.userData.fuelSmoke={baseX:smoke.position.x,baseY:smoke.position.y,baseZ:smoke.position.z,phase,drift:h*.045,rise:h*.28,scale:1.18,opacity:.38-(i*.035)};
+          root.add(smoke);
+        }
+        decal(root,'fuel-tank-label','FUEL TANK',0,h*.38,front-.035,w*.43,h*.12,'#53656a','#ffffff');
+        break;
+      }
+      case 'water-tank': {
+        round(root,'water-cyl-tank',0,.18,0,Math.min(w,d)*.39,h*.85,'#83b8c9');
         part(root,'tank-ring-platform',0,h*.52,0,w*.83,.15,d*.83,'#5d7685',.61,.44);
         round(root,'tank-vent',w*.18,h*.81,0,.13,.30,'#d9c7a3');
         break;

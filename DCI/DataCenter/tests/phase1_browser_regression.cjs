@@ -13,7 +13,7 @@ const server=http.createServer((req,res)=>{
  const file=path.resolve(root,'.'+u);
  if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return}
  fs.readFile(file,(e,data)=>{if(e){res.writeHead(404).end('not found');return}
- const ext=path.extname(file);res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8'}[ext]||'application/octet-stream'));res.writeHead(200).end(data)})
+ const ext=path.extname(file);res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.mjs':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8'}[ext]||'application/octet-stream'));res.writeHead(200).end(data)})
 });
 async function fpsSample(page,seconds=3){return page.evaluate(async seconds=>{
  const ts=[];const begin=performance.now();
@@ -173,6 +173,8 @@ async function currentExperience(browser,device,viewport){
   check(device,'guide-present',await page.locator('#guide').count()===1);
   if(await page.locator('#guide.open').count())await page.locator('#tourSkip').click({timeout:5000});
   check(device,'initialized',await page.evaluate(()=>!!window.__LS3D_TEST__?.gl&&!document.querySelector('#error')?.textContent),await page.title());
+  await page.waitForFunction(()=>window.LS3D_THREE?.adapter||window.LS3D_THREE?.error,undefined,{timeout:20000});
+  check(device,'three-adapter',await page.evaluate(()=>!!window.LS3D_THREE?.adapter),await page.evaluate(()=>String(window.LS3D_THREE?.error||'')));
   check(device,'scale-hud',!!(await page.locator('#phase1-readout').textContent()));
   for(const [kind,title] of [['load','IT 부하'],['facility','시설 전력'],['temperature','냉각 상태']]){
    await page.locator('[data-kpi-explain="'+kind+'"]').click();

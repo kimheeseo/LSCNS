@@ -58,7 +58,39 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
     mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
-  function statusPanel(root,name,title,value,x,y,z,w,h){
+  function kepcoLogoPanel(root,name,x,y,z,w,h,rotationY=0){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=900;canvas.height=420;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#ffffff';ctx.fillRect(0,0,900,420);
+    const cx=205,cy=172,r=132;
+    ctx.fillStyle='#ef1d27';ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();
+    // Red KEPCO sun-disc with diagonal white energy bands.
+    ctx.save();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.clip();
+    ctx.strokeStyle='#ffffff';ctx.lineWidth=22;
+    for(let o=-260;o<=260;o+=45){ctx.beginPath();ctx.moveTo(cx-210,cy+o);ctx.lineTo(cx+210,cy+o-180);ctx.stroke();}
+    ctx.restore();
+    ctx.fillStyle='#164fa5';ctx.font='800 120px Arial,Helvetica,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('kepco',560,300);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-kepco-logo:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
+  }
+  function schneiderLogoPanel(root,name,x,y,z,w,h,rotationY=0){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=390;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1000,390);
+    ctx.fillStyle='#009b4c';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='800 138px Arial,Helvetica,sans-serif';ctx.fillText('Schneider',530,130);
+    ctx.beginPath();ctx.arc(320,270,42,0,Math.PI*2);ctx.strokeStyle='#009b4c';ctx.lineWidth=16;ctx.stroke();
+    ctx.font='800 84px Arial,Helvetica,sans-serif';ctx.fillText('Electric',590,278);
+    ctx.strokeStyle='#ffffff';ctx.lineWidth=12;ctx.beginPath();ctx.moveTo(292,270);ctx.lineTo(348,270);ctx.moveTo(320,242);ctx.lineTo(320,298);ctx.stroke();
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-schneider-logo:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
+  }
+  function statusPanel(root,name,title,value,x,y,z,w,h,rotationY=0){
     if(typeof document==='undefined')return null;
     const canvas=document.createElement('canvas');canvas.width=640;canvas.height=300;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
@@ -69,7 +101,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     ctx.fillText(value,320,220);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
-    mesh.name='equipment-status:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+    mesh.name='equipment-status:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
   }
   function batteryBrandPanel(root,name,x,y,z,w,h){
     if(typeof document==='undefined')return null;
@@ -189,28 +221,36 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         round(root,'exhaust-pipe',w*.28,h*.65,d*.12,.19,h*.22,'#899ca6');
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
         part(root,'generator-cable-termination',w*.37,.18,-d*.33,w*.14,h*.32,.10,'#293d47',.40,.34);
-        decal(root,'generator-kepco-grid-front','KEPCO GRID',-w*.10,h*.73,front-.075,w*.44,h*.14,'#1457a0','#ffffff');
-        decal(root,'generator-kepco-grid-rear','KEPCO GRID',-w*.10,h*.73,-front+.075,w*.44,h*.14,'#1457a0','#ffffff');
+        // KEPCO grid mark on both service faces, matching the supplied emblem rather than plain text.
+        kepcoLogoPanel(root,'generator-grid-front',-w*.10,h*.64,front-.082,w*.43,h*.24,Math.PI);
+        kepcoLogoPanel(root,'generator-grid-rear',-w*.10,h*.64,-front+.082,w*.43,h*.24,0);
         break;
       }
       case 'ups': {
-        // Tall black online-UPS cabinet: HMI screen, dense intake grilles, bypass bay and feet.
-        part(root,'ups-plinth',0,.03,0,w*.98,.18,d*.93,'#131d24',.66,.38);
-        part(root,'ups-main-cabinet',-w*.11,.15,0,w*.68,h*.78,d*.85,'#202b31',.59,.31);
-        part(root,'ups-door',-w*.11,h*.18,front,w*.57,h*.57,.065,'#10191f',.35,.29);
-        part(root,'ups-hmi-bezel',-w*.11,h*.68,front-.052,w*.32,.29,.035,'#a6afb2',.32,.28);
-        part(root,'ups-hmi-display',-w*.11,h*.70,front-.075,w*.23,.16,.018,'#89a8d9',.06,.14);
-        part(root,'ups-hmi-status-bar',-w*.11,h*.59,front-.077,w*.16,.025,.016,'#55df9d',.05,.25);
-        decal(root,'ups-face-label','Schneider Electric-UPS',-w*.11,h*.88,front-.087,w*.53,h*.115,'#11191f','#f4f7f5');
-        part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#303b40',.62,.33);
-        part(root,'ups-bypass-hmi',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#b7d67a',.1,.20);
-        part(root,'ups-input-output-strip',w*.31,h*.38,front-.38,w*.13,h*.06,.025,'#d6b75e',.2,.28);
-        for(const x of [-w*.34,w*.12])for(const z of [-d*.30,d*.30])
-          round(root,'ups-foot-'+x+'-'+z,x,.02,z,.09,.16,'#2b3338');
-        batch(root,'ups-status-leds',Array.from({length:8},(_,i)=>[
-          -w*.34+(i%4)*w*.12,h*.86+Math.floor(i/4)*h*.055,front-.08]),w*.038,.035,.02,'#65e6b5');
+        // White-and-black modular UPS cabinet inspired by the supplied Schneider Galaxy-style reference:
+        // black fan bays, white power modules, a green control spine and central HMI.
+        part(root,'ups-plinth',0,.03,0,w*.98,.16,d*.93,'#151a1d',.66,.38);
+        part(root,'ups-white-chassis',0,.14,0,w*.94,h*.80,d*.86,'#e5e8e7',.50,.30);
+        part(root,'ups-left-fan-bay',-w*.36,h*.14,front,w*.17,h*.66,.070,'#171d20',.42,.28);
+        part(root,'ups-right-fan-bay',w*.34,h*.14,front,w*.19,h*.66,.070,'#171d20',.42,.28);
+        part(root,'ups-main-white-door',-w*.10,h*.14,front-.022,w*.33,h*.67,.043,'#f7f8f7',.36,.27);
+        part(root,'ups-control-spine',w*.12,h*.14,front-.045,w*.15,h*.67,.050,'#d9ece0',.25,.22);
+        part(root,'ups-green-light-column',w*.12,h*.20,front-.074,w*.055,h*.54,.016,'#a6edbf',.05,.12);
+        part(root,'ups-hmi-bezel',w*.12,h*.48,front-.085,w*.10,h*.16,.020,'#2b3840',.16,.20);
+        part(root,'ups-hmi-display',w*.12,h*.51,front-.098,w*.070,h*.085,.010,'#6ed0df',.05,.14);
+        part(root,'ups-status-led',w*.12,h*.43,front-.100,w*.042,.022,.012,'#45d98c',.04,.20);
+        // Circular fan details make the dark intake bays legible from the inspection view.
+        for(const xx of [-w*.36,w*.34])for(let row=0;row<4;row++)
+          round(root,'ups-intake-fan-'+xx+'-'+row,xx,h*.22+row*h*.145,front-.087,Math.min(w,h)*.040,.022,'#48565a');
         batch(root,'ups-vent-slots',Array.from({length:24},(_,i)=>[
-          -w*.34+(i%8)*w*.084,h*.20+Math.floor(i/8)*h*.09,front-.075]),w*.045,.025,.018,'#53636b');
+          (i%2?-w*.36:w*.34),h*.18+Math.floor(i/2)*h*.056,front-.102]),w*.095,.014,.012,'#3c494c');
+        schneiderLogoPanel(root,'ups-front',-w*.08,h*.84,front-.090,w*.48,h*.15,Math.PI);
+        // White bypass section with a smaller operational HMI sits to the right, as on a modular UPS lineup.
+        part(root,'ups-bypass-column',w*.43,h*.14,0,w*.10,h*.70,d*.76,'#f1f3f2',.50,.30);
+        part(root,'ups-bypass-hmi',w*.43,h*.55,front-.39,w*.068,h*.10,.018,'#6ed0df',.06,.16);
+        part(root,'ups-input-output-strip',w*.43,h*.38,front-.395,w*.068,h*.032,.016,'#54d98d',.05,.20);
+        for(const x of [-w*.40,w*.40])for(const z of [-d*.30,d*.30])
+          round(root,'ups-foot-'+x+'-'+z,x,.02,z,.09,.14,'#242a2d');
         break;
       }
       case 'ats':case 'pdu':case 'cdu': {
@@ -288,7 +328,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           // Panel is centred in the chassis face, not floating over the roof.
           // Compact 50%-scale HMI inset into the chiller cabinet.
           part(root,'chiller-operator-hmi-'+side,0,h*.42,face,w*.30,.20,.040,'#061a25',.16,.18);
-          statusPanel(root,'chiller-runtime-'+side,'CHILLER','CHW 7.2°C · RUN',0,h*.52,face+side*.026,w*.25,h*.115);
+          // Minimal cabinet readout requested for the external chiller.
+          statusPanel(root,'chiller-runtime-'+side,'CHILLER','7.2C',0,h*.52,face+side*.026,w*.25,h*.115,side<0?Math.PI:0);
         }
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
@@ -425,7 +466,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'briefing-backwall',0,h*.28,d*.38,w*.90,h*.56,.08,'#e0e7e4',.12,.52);
         part(root,'briefing-screen',0,h*.57,d*.32,w*.43,h*.24,.035,'#183c31',.1,.20);
         part(root,'briefing-screen-header',0,h*.84,d*.285,w*.47,.07,.02,'#d9e9df',.1,.22);
-        statusPanel(root,'briefing-safety-board','안전 수칙','촬영 허용구역',0,h*.62,d*.286,w*.41,h*.20);
+        // Board front is turned toward the open entrance so Korean lettering does not mirror in the tour view.
+        statusPanel(root,'briefing-safety-board','안전 수칙','촬영 허용구역',0,h*.62,d*.286,w*.41,h*.20,Math.PI);
         part(root,'briefing-sidewall-left',-w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
         part(root,'briefing-sidewall-right',w*.45,.20,0,.06,h*.55,d*.72,'#c7d7da',.12,.54);
         // Classroom desks and chairs face the briefing screen.

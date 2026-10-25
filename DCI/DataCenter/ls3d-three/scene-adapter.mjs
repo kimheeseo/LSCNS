@@ -1,8 +1,8 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261025-gray-zone-front';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-switchgear-ats-facing';
+import { createArchitectureKit } from './architecture.mjs?v=20261025-water-tank-gray-flip';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-water-tank-gray-flip';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';

@@ -1,8 +1,8 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261025-gray-network-front';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-gray-network-front';
+import { createArchitectureKit } from './architecture.mjs?v=20261025-zone-front-odf-rack';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-zone-front-odf-rack';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -477,7 +477,9 @@ export function createSceneAdapter(T, canvas) {
     }
     cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
     const caption=visitorCaption(a);if(caption)g.add(caption);
-    g.position.set(a.x,0,a.z);
+    // Gray Zone and Network/MMR equipment fronts face the default visitor camera.
+    const baseYaw=(a.zone==='gray'||a.zone==='network')?Math.PI:0;
+    g.position.set(a.x,0,a.z);g.rotation.y=baseYaw;
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),
       new THREE.MeshBasicMaterial({color:0x63e4d8,side:THREE.DoubleSide,transparent:true,opacity:.94})
@@ -491,7 +493,7 @@ export function createSceneAdapter(T, canvas) {
       if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
       if(obj.userData?.fuelSmoke)fuelSmoke.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke,baseYaw};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -557,7 +559,7 @@ export function createSceneAdapter(T, canvas) {
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         // When using the STEP 11 independent side camera, keep world-space rack
         // orientation fixed. Original legacy rear flip remains otherwise available.
-        item.g.rotation.y=focusedRack?.id===a.id?0:(m.rear?Math.PI:0);
+        item.g.rotation.y=item.baseYaw+(m.rear?Math.PI:0);
       }
     }
     for(const [id,item] of registry)if(!present.has(id)){disposeAsset(item);registry.delete(id);}
@@ -746,6 +748,9 @@ export function createSceneAdapter(T, canvas) {
       const exactPart=clickedPartId&&registry.get(id)?.partMap?.get(clickedPartId);
       if(exactPart)part=exactPart;
       if(asset){
+        // A tap on any visible rack surface selects the rack as a whole.
+        // Components remain available through the dedicated rack-internal view.
+        if(T.isMechanicalRack(asset))part=null;
         if(part) {
           selectRackPart(id,part.id);
           if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))

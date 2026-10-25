@@ -429,28 +429,27 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'valve-'+i,x,h*.81,0,.08,.20,'#cbb991');
         }
         part(root,'pipe-header',0,h*.86,0,w*.78,.12,.12,'#b8b9c4');
+        decal(root,'fire-suppression-label','FIRE SUPPRESSION',0,h*.56,front-.066,w*.64,h*.14,'#742438','#ffffff');
         break;
       }
       case 'control-desk':{
         const deskId=String(a.id||'').toLowerCase(),isNoc=/noc/.test(deskId),isSecurity=/security/.test(deskId);
         if(isNoc){
-          // NOC control room: large displays moved to the rear wall, keeping both on-duty operators visible.
+          // NOC: display wall is at the front; operators and their consoles sit behind it.
           part(root,'noc-floor',0,.04,0,w*.96,.10,d*.94,'#263b48',.26,.52);
-          part(root,'noc-console-main',0,.20,d*.14,w*.84,h*.16,d*.25,'#a98255',.27,.42);
-          part(root,'noc-console-front',0,.09,d*.27,w*.86,h*.31,.09,'#314f62',.40,.34);
+          part(root,'noc-console-main',0,.20,-d*.14,w*.84,h*.16,d*.25,'#a98255',.27,.42);
+          part(root,'noc-console-front',0,.09,-d*.27,w*.86,h*.31,.09,'#314f62',.40,.34);
           for(const x of [-w*.20,w*.20]){
-            part(root,'noc-seat-'+x,x,.08,d*.14,w*.17,h*.26,d*.17,'#17242c',.30,.38);
-            // Taller, forward-set operators remain visible above the shared console.
-            round(root,'noc-operator-head-'+x,x,h*.53,d*.26,Math.min(w,d)*.044,.19,'#d9a884');
-            part(root,'noc-operator-body-'+x,x,h*.30,d*.26,w*.12,h*.26,d*.10,'#405d7c',.24,.42);
-            part(root,'noc-operator-arm-'+x,x+(x<0?w*.09:-w*.09),h*.39,d*.20,.032,h*.08,.14,'#d9a884',.12,.38);
-            part(root,'noc-console-monitor-'+x,x,h*.47,d*.02,w*.17,h*.20,.035,'#142a38',.16,.24);
-            part(root,'noc-console-monitor-live-'+x,x,h*.51,d*.0,w*.14,h*.13,.012,'#52b8d1',.05,.16);
+            part(root,'noc-seat-'+x,x,.08,-d*.14,w*.17,h*.26,d*.17,'#17242c',.30,.38);
+            round(root,'noc-operator-head-'+x,x,h*.53,-d*.26,Math.min(w,d)*.044,.19,'#d9a884');
+            part(root,'noc-operator-body-'+x,x,h*.30,-d*.26,w*.12,h*.26,d*.10,'#405d7c',.24,.42);
+            part(root,'noc-operator-arm-'+x,x+(x<0?w*.09:-w*.09),h*.39,-d*.20,.032,h*.08,.14,'#d9a884',.12,.38);
+            part(root,'noc-console-monitor-'+x,x,h*.47,-d*.02,w*.17,h*.20,.035,'#142a38',.16,.24);
+            part(root,'noc-console-monitor-live-'+x,x,h*.51,-d*.0,w*.14,h*.13,.012,'#52b8d1',.05,.16);
           }
-          // CCTV and BMS panels are on the rear wall in readable orientation.
-          nocOperationsPanel(root,'cctv-wall','cctv',-w*.24,h*.65,-d*.455,w*.34,h*.36,0);
-          nocOperationsPanel(root,'bms-wall','bms',w*.16,h*.65,-d*.455,w*.42,h*.36,0);
-          decal(root,'noc-room-sign','NOC · CCTV / BMS',0,h*.95,-d*.425,w*.58,h*.085,'#102935','#a5fff0');
+          nocOperationsPanel(root,'cctv-wall','cctv',-w*.24,h*.65,d*.455,w*.34,h*.36,0);
+          nocOperationsPanel(root,'bms-wall','bms',w*.16,h*.65,d*.455,w*.42,h*.36,0);
+          decal(root,'noc-room-sign','NOC · CCTV / BMS',0,h*.95,d*.425,w*.58,h*.085,'#102935','#a5fff0');
         }else if(isSecurity){
           // Security operations: a staffed incident-intake desk, not an abstract row of monitors.
           part(root,'security-floor',0,.04,0,w*.96,.10,d*.94,'#344a55',.26,.52);

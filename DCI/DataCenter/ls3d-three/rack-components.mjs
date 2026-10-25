@@ -47,6 +47,27 @@ export function createRackComponentKit(THREE,{cube}){
   const part=g.userData.rackPart;
   g.traverse(o=>{if(o.isMesh){o.userData.assetId=assetId;o.userData.partId=part.id;}});
  }
+ function networkRackPlaque(asset){
+  if(typeof document==='undefined'||!['Spine','Leaf'].includes(asset.type))return null;
+  const c=document.createElement('canvas');c.width=1024;c.height=256;
+  const ctx=c.getContext('2d');if(!ctx)return null;
+  const spine=asset.type==='Spine',which=/[- ]b$/i.test(asset.id)?'B':'A';
+  ctx.fillStyle='#102b3d';ctx.fillRect(0,0,1024,256);
+  ctx.fillStyle=spine?'#579bfa':'#62d3b9';ctx.fillRect(0,0,25,256);
+  ctx.strokeStyle='#b9d7e0';ctx.lineWidth=8;ctx.strokeRect(5,5,1014,246);
+  ctx.fillStyle='#f5fbff';ctx.font='900 102px system-ui,sans-serif';
+  ctx.textAlign='center';ctx.fillText(asset.type.toUpperCase()+' '+which,535,112);
+  ctx.fillStyle='#acd4e1';ctx.font='700 42px system-ui,sans-serif';
+  ctx.fillText(spine?'NETWORK FABRIC / AGGREGATION':'SERVER ACCESS / LEAF SWITCH',535,188);
+  const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
+  const make=(parent,name,x,y,z,width,height,yaw)=>{
+   const m=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
+     new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,depthWrite:true}));
+   m.name='rack-network-label:'+name+':'+asset.id;
+   m.position.set(x,y,z);m.rotation.y=yaw;parent.add(m);return m;
+  };
+  return {make,texture};
+ }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
@@ -68,6 +89,12 @@ export function createRackComponentKit(THREE,{cube}){
   box(shell,'bottom-plate',0,.04,0,w,.14,d,'#65839b');
   box(shell,'right-side',w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
   box(shell,'left-side',-w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
+  const networkLabel=networkRackPlaque(a);
+  if(networkLabel){
+   const right=networkLabel.make(shell,'right-wall',w*.508,h*.80,0,d*.57,h*.14,Math.PI/2);
+   networkLabel.make(shell,'left-wall',-w*.508,h*.80,0,d*.57,h*.14,-Math.PI/2);
+   right.userData.ownedTexture=networkLabel.texture;
+  }
   retain(shell);
   // Each rack unit is proportional to the existing educational scene h.
   const unitGroup=group(root,id,'u-rails','42U/48U 마운팅 레일',1,count);
@@ -197,6 +224,8 @@ export function createRackComponentKit(THREE,{cube}){
   // Perforations/visible strips hint mesh door. Do not equate to real airflow resistance.
   for(let i=0;i<15;i++)box(frontMesh,'perforation-'+i,w*.5,
     .30+i*(h-.75)/15,-.055,w*.75,.046,.034,'#182e43',.19,.68);
+  if(networkLabel)
+   networkLabel.make(frontMesh,'front-door',w*.5,h*.80,-.088,w*.68,h*.16,Math.PI);
   retain(frontMesh);
   const rearDoor=new THREE.Group();rearDoor.name='rear-door-hinge';
   rearDoor.position.set(w*.5,.06,d*.55);root.add(rearDoor);

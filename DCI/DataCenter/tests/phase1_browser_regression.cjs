@@ -158,12 +158,55 @@ async function mobile(browser){
  await page.screenshot({path:path.join(out,'mobile-portrait.png'),fullPage:true});
  await page.close();await context.close();
 }
+// The original phase-one checks above are retained as historical diagnostics.
+// This smoke path follows the current first-visit and isolated-rack UI.
+async function currentExperience(browser,device,viewport){
+ const context=await browser.newContext({viewport,deviceScaleFactor:device==='mobile'?2:1,isMobile:device==='mobile',hasTouch:device==='mobile'});
+ const page=await context.newPage();
+ page.on('pageerror',error=>safeError(device,error));
+ try{
+  await page.goto('http://127.0.0.1:9874/LS_Datacenter_3D.html?engine=three&test=regression',{waitUntil:'domcontentloaded',timeout:30000});
+  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE1&&document.querySelector('#phase1-readout'),{timeout:30000});
+  const choice=await page.locator('#displayModeChoice').isVisible();
+  check(device,'display-choice',choice);
+  if(choice)await page.locator('[data-display-choice="'+(device==='mobile'?'mobile':'pc')+'"]').click();
+  check(device,'guide-present',await page.locator('#guide').count()===1);
+  if(await page.locator('#guide.open').count())await page.locator('#tourSkip').click({timeout:5000});
+  check(device,'initialized',await page.evaluate(()=>!!window.__LS3D_TEST__?.gl&&!document.querySelector('#error')?.textContent),await page.title());
+  check(device,'scale-hud',!!(await page.locator('#phase1-readout').textContent()));
+  for(const [kind,title] of [['load','IT 부하'],['facility','시설 전력'],['temperature','냉각 상태']]){
+   await page.locator('[data-kpi-explain="'+kind+'"]').click();
+   const body=await page.locator('#ls3dKpiExplainer').innerText();
+   check(device,'kpi-'+kind,body.includes(title)&&body.includes('계산')&&body.includes('현재'),body.slice(0,80));
+   await page.locator('#ls3dKpiClose').click();
+  }
+  await page.locator('#mobileZone').selectOption('hall');
+  await page.locator('#inspectorAssetSelect').selectOption('gpu-0-0');
+  await page.locator('#detailBtn').click();
+  check(device,'rack-isolation',await page.locator('#rackIsolateBar').isVisible()&&(await page.locator('#rackIsolateName').innerText()).includes('GPU Rack A-01'));
+  check(device,'rack-view-no-modal',await page.locator('#detailModal.show').count()===0);
+  await page.screenshot({path:path.join(out,device+'-rack.png')});
+  await page.locator('#rackIsolateExit').click();
+  check(device,'rack-return',await page.locator('#rackIsolateBar').isHidden());
+  const layout=await page.evaluate(()=>{
+   const T=window.__LS3D_TEST__,racks=T.assets.filter(a=>a.zone==='hall'&&T.isMechanicalRack(a));
+   return {gpu:racks.filter(a=>a.type==='gpu').length,storage:racks.filter(a=>a.type==='storage').length,tor:racks.filter(a=>a.type==='tor').length,odf:T.assets.some(a=>a.id==='odf')};
+  });
+  check(device,'rack-groups',layout.gpu>=10&&layout.storage>=5&&layout.tor>=2,JSON.stringify(layout));
+  check(device,'odf-present',layout.odf);
+  if(device==='mobile'){
+   const dims=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
+   check(device,'no-horizontal-overflow',dims.scroll<=dims.width+3,JSON.stringify(dims));
+  }
+ }finally{await context.close()}
+}
 (async()=>{
  await new Promise(resolve=>server.listen(9874,'127.0.0.1',resolve));
  let browser;
  try{
  browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-background-timer-throttling','--disable-renderer-backgrounding']});
- await desktop(browser);await mobile(browser);
+ await currentExperience(browser,'desktop',{width:1440,height:900});
+ await currentExperience(browser,'mobile',{width:390,height:844});
  }catch(e){safeError('harness',e);check('harness','completed',false,String(e).slice(0,600))}
  finally{
  if(browser)await browser.close().catch(()=>{});await new Promise(r=>server.close(r));

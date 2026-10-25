@@ -1,13 +1,13 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261026-spine-leaf-plaques';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-spine-leaf-plaques';
+import { createArchitectureKit } from './architecture.mjs?v=20261026-gpu-rack-visuals';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-gpu-rack-visuals';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261026-spine-leaf-plaques';
+import { createRackComponentKit } from './rack-components.mjs?v=20261026-gpu-rack-visuals';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';

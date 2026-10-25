@@ -159,10 +159,10 @@ addAsset('hall','compute-c','Compute C','Compute rack',13,0,3.4,3.1,6,'25 kW 예
 addAsset('hall','odf-hall','Hall ODF · Optical Fiber','ODF',-12,13,3.5,3.1,5,'—','광패치 패널과 광카세트, 패치코드를 수용하는 ODF입니다.');
 addAsset('hall','crah-a','CRAH A','Air handling',-5,13,4.5,3.5,4,'—','서버실 냉각 공기 순환을 담당합니다.');
 addAsset('hall','crah-b','CRAH B','Air handling',3,13,4.5,3.5,4,'—','서버실의 공기 냉각 및 순환을 담당합니다.');
-addAsset('hall','colo','Customer Co-location Cage · A/B/C','Customer cage',15,13,10,7,4,'—','독립된 고객 공간을 울타리로 물리적으로 구획합니다.');
-addAsset('hall','colo-rack-a','Co-location Rack A','Co-location rack',12.8,12.6,2.2,2.6,6,'18 kW/랙 예시','고객 Cage 내부의 전용 랙입니다. 고객별 광·전력 분리를 표현합니다.');
-addAsset('hall','colo-rack-b','Co-location Rack B','Co-location rack',15.3,12.6,2.2,2.6,6,'18 kW/랙 예시','동일 Cage 내부의 두 번째 고객 전용 랙입니다.');
-addAsset('hall','colo-rack-c','Co-location Rack C','Co-location rack',17.8,12.6,2.2,2.6,6,'가상 배치','고객 C 전용 랙 예시입니다. 전력·광 접속은 고객 구획별로 분리해 표현합니다.');
+addAsset('hall','colo','Client Rack Zone · Customer A/B/C','Customer cage',16.5,13.5,13.8,10,4,'—','고객 A/B/C별 독립 Cage를 확장했습니다. 랙 사이와 전면·후면에 유지보수 통로가 있는 교육용 개념 구획입니다.');
+addAsset('hall','colo-rack-a','Client Rack A · Customer A','Co-location rack',12,13.5,2.2,2.6,6,'18 kW/랙 예시','확장된 고객 Cage A의 전용 랙입니다. 전면·후면 접근 통로 및 독립된 광·전력 연결을 나타냅니다.');
+addAsset('hall','colo-rack-b','Client Rack B · Customer B','Co-location rack',16.5,13.5,2.2,2.6,6,'18 kW/랙 예시','확장된 고객 Cage B의 전용 랙입니다. 고객별 케이블·전력 분리를 유지합니다.');
+addAsset('hall','colo-rack-c','Client Rack C · Customer C','Co-location rack',21,13.5,2.2,2.6,6,'가상 배치','확장된 고객 Cage C의 전용 랙입니다. 광·전력 접속은 고객 구획별로 분리해 표현합니다.');
 addAsset('hall','mmr-hall','Hall-side MMR Rack','MMR rack',11.3,6.5,2.6,2.8,6,'—','Data Hall 인접 MMR 성격의 연결 랙으로, 외부 회선과 홀 내부 패치 경계를 설명하기 위한 예시입니다.');
 addAsset('network','carrier','Carrier / DCI','Carrier handoff',-9,-4,4,3,5,'—','외부 통신사업자와 데이터센터의 광회선을 접속합니다.');
 addAsset('network','mmr','Meet-Me Room','MMR',-3,-4,4,3,5,'—','외부 Carrier 접속과 사내 네트워크 사이의 접속 구역입니다.');
@@ -428,8 +428,15 @@ function drawODF(a){let x=a.x,z=a.z,w=a.w,d=a.d,h=a.h;box(x,.12,z,w,h-.45,d,'#47
 function drawNetwork(a){drawRack(a,false);if(['Spine','Leaf','Core'].includes(a.type)){box(a.x,a.h-1.15,a.z+a.d*.45,a.w*.74,.28,.28,a.type==='Core'?'#ffc778':'#5edfb8');for(let i=-3;i<=3;i++)smallLED(a.x+i*a.w*.085,a.h-1.02,a.z+a.d*.61,'#56e1b9')}}
 function drawCRAH(a){box(a.x,.1,a.z,a.w,3.75,a.d,'#75abbe');box(a.x,1.3,a.z+a.d*.5,a.w*.82,1.5,.14,'#2c5b73');for(let i=-2;i<=2;i++)box(a.x+i*a.w*.14,1.35,a.z+a.d*.6,.075,1.35,.09,'#a8cdd8');box(a.x,3.55,a.z,a.w*.82,.24,a.d*.75,'#bed4dc')}
 function drawCage(a){const x=a.x,z=a.z,w=a.w,d=a.d;box(x,.05,z,w,.22,d,'#385b70');for(const sx of [-1,1])for(const sz of [-1,1])pillar(x+sx*w/2,z+sz*d/2,3.7,'#73a1b3');for(let s=-w/2;s<=w/2;s+=1.2){line([x+s,.2,z-d/2],[x+s,3.7,z-d/2],'#7196a7');line([x+s,.2,z+d/2],[x+s,3.7,z+d/2],'#7196a7')}for(let s=-d/2;s<=d/2;s+=1.2){line([x-w/2,.2,z+s],[x-w/2,3.7,z+s],'#7196a7');line([x+w/2,.2,z+s],[x+w/2,3.7,z+s],'#7196a7')}for(let h of [.8,1.7,2.6,3.6]){line([x-w/2,h,z-d/2],[x+w/2,h,z-d/2],'#7495aa');line([x-w/2,h,z+d/2],[x+w/2,h,z+d/2],'#7495aa')}
-  for(const sx of [-1.5,1.5]){for(let yy=.2;yy<3.7;yy+=.18)box(x+sx,yy,z,.045,.055,d,'#96b5c5');line([x+sx,.2,z-d/2],[x+sx,3.7,z-d/2],'#c4d8df')}
-  box(x,.3,z,1.1,2.6,1.2,'#2b5570')}
+  // Match legacy tenant dividers to actual A/B/C rack centers; never bisect racks.
+  const tenantRacks=['colo-rack-a','colo-rack-b','colo-rack-c'].map(id=>assetMap.get(id)).filter(Boolean);
+  for(let i=0;i<tenantRacks.length-1;i++){
+    const left=tenantRacks[i],right=tenantRacks[i+1],dividerX=(left.x+left.w*.5+right.x-right.w*.5)/2;
+    for(let yy=.2;yy<3.7;yy+=.18)box(dividerX,yy,z,.045,.055,d,'#96b5c5');
+    line([dividerX,.2,z-d/2],[dividerX,3.7,z-d/2],'#c4d8df');
+  }
+  // Doors sit at the front fence instead of intersecting the middle client's rack.
+  for(const rack of tenantRacks)box(rack.x,.30,z+d*.5,1.2,2.6,.14,'#2b5570')}
 function drawConsole(a){const x=a.x,z=a.z;
  if(a.id==='noc'){
    // NOC: operators and consoles are in front, with CCTV/BMS displays on the rear wall.

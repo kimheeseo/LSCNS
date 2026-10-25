@@ -798,9 +798,9 @@ function drawLoadingBay(a){const x=a.x,z=a.z;box(x,.04,z,a.w+.4,.08,a.d+.4,'#344
  box(vfx+.48,.22,vfz-.35,.13,1.95,.13,'#1a252b');box(vfx+.48,.22,vfz+.35,.13,1.95,.13,'#1a252b');
  box(vfx+.48,1.98,vfz,.16,.10,.94,'#1a252b');box(vfx+.83,.115,vfz-.25,.78,.05,.075,'#667278');box(vfx+.83,.115,vfz+.25,.78,.05,.075,'#667278');
  for(const xx of [-.52,.52])for(const zz of [-.38,.38])cylinder(vfx+xx,.14,vfz+zz,.31,.20,'#11191e');
- for(const xx of [-.43,.38]){box(vfx+xx,.34,vfz-.44,.07,1.50,.07,'#1e2b30');box(vfx+xx,.34,vfz+.44,.07,1.50,.07');}
+ for(const xx of [-.43,.38]){box(vfx+xx,.34,vfz-.44,.07,1.50,.07,'#1e2b30');box(vfx+xx,.34,vfz+.44,.07,1.50,.07,'#1e2b30');}
  box(vfx,1.74,vfz,.98,.07,.94,'#202b31');box(vfx-.21,1.02,vfz-.05,.16,.05,.18,'#222b30');
- visitorSelected(a);
+ visitorSelected(a);}
 function drawUPS(a){const x=a.x,z=a.z,front=z+a.d*.39;box(x,.05,z,a.w*.88,.12,a.d*.86,'#17232b');for(let i=-1;i<=1;i++){const cx=x+i*1.02;box(cx,.14,z,1.82,a.h-.28,a.d*.74,'#12191e');box(cx,.22,front,1.56,a.h-.54,.06,'#050b0f');box(cx,a.h-.66,front+.035,.62,.42,.025,'#b7bdbe');box(cx,a.h-.60,front+.052,.46,.22,.018,'#48cfe0');box(cx,a.h-.88,front+.052,.88,.07,.018,'#54e39c');for(let y=.46;y<a.h-1.12;y+=.24)box(cx,y,front+.045,1.15,.038,.018,'#48545b');box(cx-.58,.08,z+a.d*.25,.12,.18,.14,'#59636b');box(cx+.58,.08,z+a.d*.25,.12,.18,.14,'#59636b');}box(x,a.h-.16,front+.06,3.18,.30,.025,'#1e8e66');box(x,a.h-.08,front+.08,2.60,.06,.012,'#f1fbf5');visitorSelected(a);}
 function drawRPP(a){const x=a.x,z=a.z;box(x,.08,z,1.52,2.78,1.02,'#344c5c');box(x,.18,z+.54,1.22,2.38,.07,'#101d28');box(x,2.36,z+.59,1.13,.20,.04,'#e8eef0');for(let r=0;r<6;r++){box(x,.43+r*.30,z+.61,1.04,.17,.03,r%2?'#2d4455':'#223746');smallLED(x-.37,.50+r*.30,z+.64,'#5fe0bf');smallLED(x+.37,.50+r*.30,z+.64,'#6faee8');}box(x-.36,2.72,z,.10,.45,.75,'#d4555c');box(x+.36,2.72,z,.10,.45,.75,'#4d9de0');for(let i=-2;i<=2;i++){line([x-.36,2.92,z],[x+i*2.2,.22,z-3.4],'#d45d68');line([x+.36,2.92,z],[x+i*2.2,.22,z-4.4],'#4e9ee1');}visitorSelected(a);}
 function drawVisitorMantrap(a,phase){const x=a.x,z=a.z,p=phase||0,inner=p>=3?1.65+Math.sin(simTime*2)*.12:0,outer=p===0?1.15+Math.sin(simTime*1.5)*.18:0,cardOk=p>=1,scan=cardOk?'#57e2b5':'#eb5e6c';box(x,.04,z,4.35,.09,4.35,'#223b4c');for(const sx of [-1,1])box(x+sx*2,.05,z,.14,3.05,4.2,'#587d93');box(x,.05,z-2+outer,4,2.92,.10,p===0?'#67bcae':'#506b7c');box(x+inner,.05,z+2,4,2.92,.10,p>=3?'#61d6b5':'#506b7c');box(x-.88,1.18,z+1.82,.30,.85,.17,'#192d3b');box(x-.88,1.42,z+1.93,.15,.16,.03,scan);box(x-.88,1.14,z+1.93,.10,.10,.03,scan);box(x+.90,1.36,z+1.82,.42,.62,.17,'#20394b');cylinder(x+.90,1.72,z+1.93,.16,.05,p>=2?'#6ee6c6':'#5c7f96',14);box(x+.90,1.20,z+1.93,.22,.12,.03,p>=2?'#6ee6c6':'#efbb65');if(p===1)for(let q=0;q<3;q++)box(x-.88,1.22+q*.13,z+2.03,.66,.025,.02,'#ec656f');if(p>=3)for(let q=0;q<4;q++)box(x+1.2+q*.15,.15,z+2,.08,.09,1.0,'#65e1b7');visitorSelected(a);}
@@ -914,7 +914,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-loading-forklift-front"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-loading-forklift-frontfix"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

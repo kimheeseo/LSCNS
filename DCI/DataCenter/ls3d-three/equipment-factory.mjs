@@ -121,8 +121,11 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     if(typeof document==='undefined')return null;
     const canvas=document.createElement('canvas');canvas.width=900;canvas.height=360;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
-    ctx.fillStyle='#dec17d';ctx.fillRect(0,0,900,360);
-    ctx.strokeStyle='#714d23';ctx.lineWidth=14;ctx.strokeRect(7,7,886,346);
+    ctx.fillStyle='#d3a35b';ctx.fillRect(0,0,900,360);
+    ctx.fillStyle='rgba(108,70,23,.16)';for(let x=-360;x<980;x+=52){ctx.save();ctx.translate(x,0);ctx.rotate(-.23);ctx.fillRect(0,0,21,650);ctx.restore();}
+    ctx.strokeStyle='#6e451d';ctx.lineWidth=14;ctx.strokeRect(7,7,886,346);
+    ctx.fillStyle='#5c3817';ctx.font='700 30px Arial,Helvetica,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('DATA CENTER EQUIPMENT  ·  HANDLE WITH CARE',450,38);
+    ctx.font='900 44px Arial,Helvetica,sans-serif';ctx.fillText('↑   ↑',750,310);
     // Fill the carton label so each company's emblem remains legible from the tour camera.
     const key=String(brand).toLowerCase();ctx.textAlign='center';ctx.textBaseline='middle';
     if(key==='cisco'){
@@ -575,7 +578,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
         // Parked counterbalance forklift: orange body, black mast/cab frame, driver seat, wheels and raised forks.
-        const forkX=w*.34,forkZ=-d*.34;
+        const forkX=w*.24,forkZ=d*.18;
         part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#f47b20',.45,.33);
         part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#ff9b2d',.40,.32);
         part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#f68a24',.34,.30);
@@ -601,8 +604,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           const bx=-w*.42+i*w*.12,brand=shippingBrands[i];
           part(root,'loading-box-'+i,bx,.10,d*.27,w*.125,h*.24,d*.15,'#c99b54',.18,.56);
           // Large, nearly edge-to-edge carton-face labels make the supplier names readable in a wide tour shot.
-          shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.352,w*.119,h*.155);
-          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.188,w*.119,h*.155);
+          shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.352,w*.122,h*.205);
+          shippingBrandPanel(root,'box-rear-'+i,brand,bx,.225,d*.188,w*.122,h*.205);
         }
         break;
       }

@@ -525,24 +525,44 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'odf':{
-        // Dedicated Optical Distribution Frame: carrier/in-building fibre patch field.
-        part(root,'odf-plinth',0,.035,0,w*.96,.12,d*.92,'#263d50',.58,.38);
-        part(root,'odf-frame',0,.14,0,w*.90,h*.88,d*.84,'#405f76',.62,.34);
+        // Open optical distribution frame: visible splice cassettes, green adapters,
+        // yellow patch cords, side slack-management loops and incoming trunk.
+        const face=front-.055;
+        part(root,'odf-plinth',0,.035,0,w*.96,.13,d*.92,'#263d50',.58,.38);
+        part(root,'odf-backboard',0,.15,d*.12,w*.89,h*.83,d*.18,'#a3afb5',.55,.40);
+        part(root,'odf-recess',0,.17,front+.14,w*.82,h*.76,.075,'#132838',.30,.55);
+        for(const sx of [-1,1]){
+          part(root,'odf-rack-rail-'+sx,sx*w*.43,.16,front+.03,w*.055,h*.81,.10,'#aabac1',.67,.30);
+          part(root,'odf-cable-duct-'+sx,sx*w*.38,.20,face,w*.07,h*.69,.13,'#415766',.42,.45);
+        }
+        part(root,'odf-top-header',0,h*.84,front+.02,w*.88,h*.075,d*.22,'#798e9c',.62,.36);
+        const connectors=[],cordColor=material('#f3d02c',.12,.46);
         for(let row=0;row<6;row++){
-          const y=h*.18+row*h*.115;
-          part(root,'odf-patch-tray-'+row,0,y,front,w*.70,h*.075,.08,'#172f43',.35,.30);
+          const y=h*.18+row*h*.108;
+          part(root,'odf-silver-cassette-'+row,0,y,front,w*.68,h*.072,.15,'#c8d2d5',.67,.33);
+          part(root,'odf-adapter-plate-'+row,0,y+h*.024,face,w*.60,h*.041,.04,'#647a82',.49,.38);
+          for(let col=0;col<16;col++)connectors.push([-w*.285+col*w*.038,y+h*.032,face-.032]);
+          // Three representative jumper bundles per cassette, routed to the
+          // vertical manager rather than a featureless horizontal stripe.
+          for(let bundle=0;bundle<3;bundle++){
+            const x=-w*.23+bundle*w*.17,side=bundle===0?-1:1;
+            const points=[new THREE.Vector3(x,y+h*.036,face-.070),
+              new THREE.Vector3(x+side*w*.045,y-h*.035,face-.15),
+              new THREE.Vector3(side*w*.35,y-h*.078,face-.18),
+              new THREE.Vector3(side*w*.385,y-h*.16,face-.10)];
+            const curve=new THREE.CatmullRomCurve3(points);
+            const cord=new THREE.Mesh(new THREE.TubeGeometry(curve,10,Math.max(.008,w*.003),4,false),cordColor);
+            cord.name='equipment-part:odf-yellow-patch-cord-'+row+'-'+bundle;root.add(cord);
+          }
         }
-        const ports=[];
-        for(let row=0;row<6;row++)for(let col=0;col<12;col++)
-          ports.push([-w*.30+col*w*.055,h*.23+row*h*.115,front-.065]);
-        batch(root,'odf-lc-mpo-ports',ports,w*.026,.035,.020,'#67e4d0');
-        for(const side of [-1,1]){
-          part(root,'odf-cable-manager-'+side,side*w*.39,h*.18,front,w*.070,h*.64,.12,'#a8c1cb',.52,.35);
-          batch(root,'odf-patch-cords-'+side,Array.from({length:6},(_,i)=>[
-            side*w*.28,h*.21+i*h*.115,front-.095]),w*.13,.018,.018,side<0?'#e3bf62':'#63c5e5');
+        batch(root,'odf-green-lc-adapters',connectors,w*.028,h*.023,.028,'#42ce8a');
+        for(const sx of [-1,1])for(let i=0;i<4;i++){
+          const loop=new THREE.Mesh(new THREE.TorusGeometry(w*.058,.014,5,12),material('#eed149',.20,.42));
+          loop.name='equipment-part:odf-slack-loop-'+sx+'-'+i;
+          loop.position.set(sx*w*.375,h*(.19+i*.15),face-.16);root.add(loop);
         }
-        part(root,'odf-splice-cassette',0,h*.86,front,w*.55,.105,.09,'#b7924e',.52,.30);
-        decal(root,'odf-name','ODF · OPTICAL DISTRIBUTION FRAME',0,h*.93,front-.085,w*.70,h*.075,'#163a4e','#e7fffc');
+        part(root,'odf-incoming-yellow-trunk',w*.39,.17,face-.10,w*.035,h*.60,.035,'#edce33',.25,.42);
+        decal(root,'odf-name','ODF · FIBER PATCH FRAME',0,h*.94,face-.09,w*.72,h*.075,'#163a4e','#e7fffc');
         break;
       }
       case 'network':{

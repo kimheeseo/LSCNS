@@ -57,6 +57,14 @@ export function createArchitectureKit(THREE, { cube }) {
       part(ground,'frame','perimeter-marker-'+x+'-'+z,x,-.05,z,.32,2.4,.32,'#a6b9c1',.64,.34);
     }
     part(ground,'beam','gate-header',0,2.2,54,11,.46,.42,'#b8cbd0',.6,.3);
+    // Service roads and loading aprons: sparse paint markings, no texture downloads.
+    for(let x=-54;x<=54;x+=12){
+      part(ground,'detail','road-edge-n-'+x,x,-.035,26.93,5,.016,.08,'#d5d8cf',.04,.88);
+      part(ground,'detail','road-edge-s-'+x,x,-.035,33.07,5,.016,.08,'#d5d8cf',.04,.88);
+    }
+    for(const x of [-48,-40,-32]){
+      part(ground,'detail','service-parking-line-'+x,x,-.034,44,.07,.018,7,'#d5d8cf',.04,.89);
+    }
   }
   function floorAndAisles(g,z,w,d,mode) {
     const color=z.id==='hall'?'#4f6e7d':z.id==='gray'?'#526578':'#5e7a85';
@@ -194,6 +202,20 @@ export function createArchitectureKit(THREE, { cube }) {
       }
       if(!openView)glassGrid(local,z.id+'-facade',w,d,3.32,h-3.45,false,frontSide);
       else part(local,'beam','front-portal-header',0,3.24,frontZ,4.1,.38,.5,trim,.64,.32);
+      // Industrial cladding stays above the section cut, preserving clear views
+      // into an active room and the original clickable equipment geometry.
+      if(!openView){
+        part(local,'beam','facade-canopy',0,3.55,frontZ+frontSide*.56,portal+1.5,.18,1.25,'#41596a',.46,.38);
+        for(let i=-2;i<=2;i++){
+          const xx=i*w*.16;
+          if(Math.abs(xx)<portal/2+.35)continue;
+          part(local,'detail','facade-service-louver-'+i,xx,1.55,frontZ+frontSide*.15,w*.11,1.20,.075,'#345366',.38,.48);
+          for(let j=0;j<5;j++)
+            part(local,'detail','facade-louver-blade-'+i+'-'+j,xx,1.72+j*.18,frontZ+frontSide*.20,w*.095,.035,.095,'#a8bdc3',.57,.35);
+        }
+        for(const side of [-1,1])
+          part(local,'detail','facade-corner-pier-'+side,side*w*.47,.16,frontZ+frontSide*.12,.19,h*.86,.21,'#4c697b',.43,.52);
+      }
       hingedDoor(local,z.id+'-entry',0,frontZ+frontSide*.19,h,frontSide>0);
     } else {
       // Cut-away: keep real frame + roof skeleton instead of deleting the whole building.
@@ -228,6 +250,8 @@ export function createArchitectureKit(THREE, { cube }) {
     const entrySide=1;
     part(local,'path','entry-ramp',0,-.055,entrySide*d*.55,4.4,.09,3.5,'#87a6b0',.24,.73);
     part(local,'detail','entry-threshold',0,.05,entrySide*d*.503,3.45,.06,.24,'#f0cb79',.55,.31);
+    for(const side of [-1,1])
+      part(local,'detail','entry-bollard-'+side,side*2.45,.03,entrySide*d*.59,.16,1.18,.16,'#e2b852',.44,.37);
   }
   function outdoorYard(root,z,current,flags) {
     const [w,d]=z.size,[cx,cz]=z.pos;

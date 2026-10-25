@@ -35,8 +35,9 @@ const row=(label,value)=>'<tr><th>'+label+'</th><td>'+value+'</td></tr>';
 let previousFocus=null;
 function open(kind){
   const c=cfg(),t=twin();if(!c||!t||typeof t.metrics!=='function')return;
-  const m=t.metrics(),sc=t.scenario||'normal',elapsed=t.scenarioElapsed?.()||0;
+  const m=t.metrics(),sc=$('scenarioSelect')?.value||'normal',elapsed=t.scenarioElapsed?.()||0;
   const rackAndOptical=m.rackLoad+m.opticalPower,scenarioMultiplier=rackAndOptical?m.load/rackAndOptical:1;
+  const calculatedIT=(m.coolingPower||0)*(m.effectiveCop||0),baseFacility=calculatedIT+m.coolingPower+m.upsLoss+m.distributionLoss+m.otherPower;
   let content='';
   if(kind==='load'){
     title.textContent='IT 부하 · 계산식';
@@ -48,22 +49,23 @@ function open(kind){
   }else if(kind==='facility'){
     title.textContent='시설 전력 · 계산식';
     content='<h3>전체 시설 소비전력 모델</h3><p><code>시설 전력 = IT 부하 + 냉각 전력 + UPS 손실 + 배전 손실 + 기타 전력</code></p><table>'+
-      row('IT 부하',fmt(m.load)+' kW')+
-      row('냉각 전력',fmt(m.load)+' kW ÷ 유효 COP '+fmt(m.effectiveCop)+' = '+fmt(m.coolingPower)+' kW')+
+      row('계산 기준 IT 부하',fmt(calculatedIT)+' kW')+
+      row('냉각 전력',fmt(calculatedIT)+' kW ÷ 유효 COP '+fmt(m.effectiveCop)+' = '+fmt(m.coolingPower)+' kW')+
       row('UPS 손실',fmt(m.upsLoss)+' kW · UPS 효율 '+fmt(c.upsEfficiencyPct)+'%')+
       row('배전 손실',fmt(m.distributionLoss)+' kW · 손실률 '+fmt(c.distributionLossPct)+'%')+
       row('기타 전력',fmt(m.otherPower)+' kW · 비율 '+fmt(c.otherPct)+'%')+
-      row('시설 전력',fmt(m.facility)+' kW')+
+      row('시나리오 전력 조정',fmt(m.facility-baseFacility)+' kW · '+sc)+
+      row('현재 시설 전력',fmt(m.facility)+' kW')+
       row('실제 계산 PUE',fmt(m.pue)+' = 시설 전력 ÷ IT 부하')+'</table><p>목표 PUE 설정과 구분하여, 현재 전력 구성에서 계산한 PUE를 사용합니다. 유효 COP는 냉각 방식·외기 온도·부하율 가정을 반영합니다.</p>';
   }else{
     title.textContent='냉각 상태 · 온도 계산식';
-    const cap=Math.max(1,c.coolingKw),ratio=m.load/cap,baseline=c.baselineRackInletC??22;
+    const cap=Math.max(1,c.coolingKw),ratio=calculatedIT/cap,baseline=c.baselineRackInletC??22;
     const loadExtra=Math.max(0,ratio-.7)*4,outdoorExtra=Math.max(0,c.outdoorC-24)*.08;
-    const scenarioExtra=sc==='fire'?13:sc==='dlc-leak'?9:sc==='rack-hotspot'?Math.min(17,elapsed/10):0;
+    const scenarioExtra=m.temperature-baseline-loadExtra-outdoorExtra;
     content='<h3>현재 카드의 지표는 냉각 여유율이 아닌 랙 입구 추정 온도(°C)입니다.</h3><p><code>추정 온도 = 기준 온도 + max(0, IT 부하 / 냉각 용량 − 0.7) × 4 + max(0, 외기 − 24) × 0.08 + 시나리오 보정</code></p><table>'+
       row('기준 온도',fmt(baseline)+' °C')+
       row('냉각 설비 용량',fmt(c.coolingKw)+' kW')+
-      row('IT 부하 / 냉각 용량',fmt(m.load)+' / '+fmt(c.coolingKw)+' = '+fmt(ratio*100)+'%')+
+      row('계산 기준 IT 부하 / 냉각 용량',fmt(calculatedIT)+' / '+fmt(c.coolingKw)+' = '+fmt(ratio*100)+'%')+
       row('부하 온도 가산',fmt(loadExtra)+' °C')+
       row('외기 온도 가산',fmt(outdoorExtra)+' °C · 외기 '+fmt(c.outdoorC)+' °C')+
       row('시나리오 온도 가산',fmt(scenarioExtra)+' °C · '+sc)+

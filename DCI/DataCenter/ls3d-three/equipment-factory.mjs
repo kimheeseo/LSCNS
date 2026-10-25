@@ -333,16 +333,26 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         decal(root,'ats-purpose','AUTOMATIC TRANSFER SWITCH',0,h*.12,operatingFace+.10,w*.58,h*.070,'#294757','#efffff');
         break;
       }
-      case 'pdu':case 'cdu': {
-        panel(root,kind,w,h,d,kind==='cdu'?'#4d8799':'#677e92');
-        if(kind==='cdu'){
-          for(const x of [-w*.25,w*.25]){
-            round(root,'coolant-manifold-'+x,x,.03,d*.54,.14,h*.56,'#6abed0');
-            round(root,'coolant-port-'+x,x,h*.66,d*.55,.19,.14,'#e3b76a');
-          }
-          batch(root,'cdu-indicators',Array.from({length:6},(_,i)=>[
-            -w*.32+i*w*.13,h*.11,front-.08]),w*.065,.055,.045,'#5ee4d1');
+      case 'pdu': {
+        panel(root,kind,w,h,d,'#677e92');
+        break;
+      }
+      case 'cdu': {
+        // Reverse the CDU service orientation: operating cabinet face on +Z,
+        // coolant manifolds and ports on the opposite (-Z) side.
+        const serviceFace=-front, manifoldFace=front;
+        part(root,'cdu-case',0,.12,0,w*.92,h*.93,d*.90,'#4d8799',.62,.37);
+        part(root,'cdu-door',0,h*.16,serviceFace,w*.80,h*.56,.06,'#1b374c',.41,.37);
+        part(root,'cdu-display',0,h*.61,serviceFace+.057,w*.37,.24,.05,'#4bd6cb',.15,.25);
+        batch(root,'cdu-vents',Array.from({length:9},(_,i)=>
+          [-w*.33+i*w*.083,h*.28,serviceFace+.068]),w*.055,.045,.04,'#a6cbd7');
+        for(const x of [-w*.25,w*.25]){
+          round(root,'coolant-manifold-'+x,x,.03,manifoldFace-.06,.14,h*.56,'#6abed0');
+          round(root,'coolant-port-'+x,x,h*.66,manifoldFace-.07,.19,.14,'#e3b76a');
         }
+        batch(root,'cdu-indicators',Array.from({length:6},(_,i)=>[
+          -w*.32+i*w*.13,h*.11,serviceFace+.08]),w*.065,.055,.045,'#5ee4d1');
+        decal(root,'cdu-service-label','COOLANT DISTRIBUTION UNIT',0,h*.82,serviceFace+.09,w*.56,h*.075,'#164455','#e8fffc');
         break;
       }
       case 'battery-bank': {

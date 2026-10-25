@@ -52,7 +52,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const ctx=canvas.getContext('2d');if(!ctx)return null;
     ctx.fillStyle=background;ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.strokeStyle='#d8f7f2';ctx.lineWidth=9;ctx.strokeRect(5,5,502,182);
-    ctx.fillStyle=foreground;ctx.font='700 76px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillStyle=foreground;ctx.textAlign='center';ctx.textBaseline='middle';
+    let size=76;ctx.font='700 '+size+'px system-ui,sans-serif';
+    while(ctx.measureText(text).width>450&&size>28){size-=2;ctx.font='700 '+size+'px system-ui,sans-serif';}
     ctx.fillText(text,256,98);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
@@ -96,8 +98,12 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const ctx=canvas.getContext('2d');if(!ctx)return null;
     ctx.fillStyle='#071b26';ctx.fillRect(0,0,640,300);
     ctx.strokeStyle='#62e8d9';ctx.lineWidth=12;ctx.strokeRect(8,8,624,284);
-    ctx.fillStyle='#b9f9f1';ctx.font='700 68px system-ui,sans-serif';ctx.textAlign='center';
-    ctx.fillText(title,320,100);ctx.fillStyle='#67f6c9';ctx.font='700 82px ui-monospace,monospace';
+    ctx.fillStyle='#b9f9f1';ctx.textAlign='center';
+    let titleSize=68;ctx.font='700 '+titleSize+'px system-ui,sans-serif';
+    while(ctx.measureText(title).width>570&&titleSize>24){titleSize-=2;ctx.font='700 '+titleSize+'px system-ui,sans-serif';}
+    ctx.fillText(title,320,100);ctx.fillStyle='#67f6c9';
+    let valueSize=82;ctx.font='700 '+valueSize+'px ui-monospace,monospace';
+    while(ctx.measureText(value).width>570&&valueSize>24){valueSize-=2;ctx.font='700 '+valueSize+'px ui-monospace,monospace';}
     ctx.fillText(value,320,220);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
@@ -463,7 +469,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           part(root,'security-incident-display',w*.16,h*.51,-d*.11,w*.16,h*.12,.012,'#e0b45b',.05,.18);
           part(root,'security-desk-phone',-w*.18,h*.34,-d*.13,w*.11,.045,d*.09,'#20282d',.34,.30);
           part(root,'security-incident-form',-w*.06,h*.35,-d*.16,w*.17,.020,d*.12,'#edf2ef',.05,.45);
-          statusPanel(root,'security-intake-wall','SECURITY DESK','INCIDENT INTAKE',-w*.26,h*.67,d*.46,w*.55,h*.24,0);
+          statusPanel(root,'security-intake-wall','SECURITY DESK','INCIDENT INTAKE',-w*.15,h*.67,-d*.32,w*.58,h*.25,0);
           part(root,'security-event-lamp',-w*.27,h*.37,-d*.12,.045,.045,.045,'#f1b847',.05,.18);
         }else{
           part(root,'counter',0,.54,0,w*.86,.18,d*.72,'#7392a4');

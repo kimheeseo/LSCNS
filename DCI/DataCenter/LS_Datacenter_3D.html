@@ -354,7 +354,25 @@ function drawCRAH(a){box(a.x,.1,a.z,a.w,3.75,a.d,'#75abbe');box(a.x,1.3,a.z+a.d*
 function drawCage(a){const x=a.x,z=a.z,w=a.w,d=a.d;box(x,.05,z,w,.22,d,'#385b70');for(const sx of [-1,1])for(const sz of [-1,1])pillar(x+sx*w/2,z+sz*d/2,3.7,'#73a1b3');for(let s=-w/2;s<=w/2;s+=1.2){line([x+s,.2,z-d/2],[x+s,3.7,z-d/2],'#7196a7');line([x+s,.2,z+d/2],[x+s,3.7,z+d/2],'#7196a7')}for(let s=-d/2;s<=d/2;s+=1.2){line([x-w/2,.2,z+s],[x-w/2,3.7,z+s],'#7196a7');line([x+w/2,.2,z+s],[x+w/2,3.7,z+s],'#7196a7')}for(let h of [.8,1.7,2.6,3.6]){line([x-w/2,h,z-d/2],[x+w/2,h,z-d/2],'#7495aa');line([x-w/2,h,z+d/2],[x+w/2,h,z+d/2],'#7495aa')}
   for(const sx of [-1.5,1.5]){for(let yy=.2;yy<3.7;yy+=.18)box(x+sx,yy,z,.045,.055,d,'#96b5c5');line([x+sx,.2,z-d/2],[x+sx,3.7,z-d/2],'#c4d8df')}
   box(x,.3,z,1.1,2.6,1.2,'#2b5570')}
-function drawConsole(a){const x=a.x,z=a.z;box(x,.08,z,a.w*.98,.52,a.d*.92,'#354e62');box(x,.62,z-a.d*.16,a.w*.88,.16,a.d*.5,'#b7cbd2');for(let i=-1;i<=1;i++){const sx=x+i*a.w*.24;box(sx,.84,z-.30,.22,.82,.2,'#607d90');box(sx,1.45,z-.30,1.42,.96,.12,'#102b42');box(sx,1.56,z-.22,1.18,.68,.045,i===0?'#0a5364':'#173d58');for(let r=-1;r<=1;r++)box(sx+r*.28,1.57,z-.175,.04,.50,.018,'#4bd8c6');for(let c=-1;c<=1;c++)box(sx+c*.31,1.56,z-.17,.62,.035,.018,'#55aac5');box(sx-.36,1.69,z-.15,.16,.12,.02,'#f35f6f');box(sx+.32,1.82,z-.15,.18,.14,.02,'#e9c56d');}box(x,.08,z+a.d*.20,2.0,1.34,1.0,'#5f7887')}
+function drawConsole(a){const x=a.x,z=a.z;
+ if(a.id==='noc'){
+   // View-facing NOC: operators and their consoles are in front, while CCTV/BMS screens are clearly behind.
+   box(x,.05,z,a.w+.18,.10,a.d+.18,'#253f4e');
+   const rear=z-a.d*.40,front=z+a.d*.16;
+   for(const [i,sx] of [-1.35,1.35].entries()){
+     box(x+sx,1.05,rear,2.35,1.58,.13,'#122c3e');
+     box(x+sx,1.16,rear+.07,2.05,1.30,.026,i===0?'#0d475a':'#123a54');
+     if(i===0){for(const dx of [-.48,.48])for(const dy of [-.28,.28])box(x+sx+dx,1.17+dy,rear+.09,.82,.43,.012,'#3c82a0');}
+     else{for(let q=-2;q<=2;q++)box(x+sx+q*.32,.98,rear+.09,.11,.55,.012,q%2?'#f0ba59':'#50d9b8');box(x+sx,1.48,rear+.09,1.72,.045,.014,'#59e3bc');}
+   }
+   box(x,.28,front,a.w*.78,.20,1.08,'#b58a59');box(x,.12,front+.24,a.w*.82,.34,.12,'#34566a');
+   for(const sx of [-.82,.82]){
+     box(x+sx,.10,front+.07,.42,.30,.38,'#1b2730');box(x+sx,.55,front+.12,.52,.56,.38,'#42668a');cylinder(x+sx,1.22,front+.12,.24,.20,'#d8aa83',12);
+     box(x+sx,1.55,front+.12,.42,.08,.34,'#253847');box(x+sx,1.62,front+.06,.32,.17,.025,'#63c8db');
+   }
+   return;
+ }
+ box(x,.08,z,a.w*.98,.52,a.d*.92,'#354e62');box(x,.62,z-a.d*.16,a.w*.88,.16,a.d*.5,'#b7cbd2');for(let i=-1;i<=1;i++){const sx=x+i*a.w*.24;box(sx,.84,z-.30,.22,.82,.2,'#607d90');box(sx,1.45,z-.30,1.42,.96,.12,'#102b42');box(sx,1.56,z-.22,1.18,.68,.045,i===0?'#0a5364':'#173d58');for(let r=-1;r<=1;r++)box(sx+r*.28,1.57,z-.175,.04,.50,.018,'#4bd8c6');for(let c=-1;c<=1;c++)box(sx+c*.31,1.56,z-.17,.62,.035,.018,'#55aac5');box(sx-.36,1.69,z-.15,.16,.12,.02,'#f35f6f');box(sx+.32,1.82,z-.15,.18,.14,.02,'#e9c56d');}box(x,.08,z+a.d*.20,2.0,1.34,1.0,'#5f7887')}
 function drawGuardAsset(a){const x=a.x,z=a.z;box(x,.05,z,a.w,.16,a.d,'#415e74');
   // Reception, badge reader, waist-high turnstile arms and bollards.
   box(x-a.w*.3,.16,z,.42,1.05,.7,'#31577b');box(x-a.w*.3,.98,z-.08,.52,.13,.75,'#b2cbd3');box(x-a.w*.3,1.18,z-.08,.44,.46,.07,'#173247');box(x-a.w*.3,1.22,z-.02,.33,.31,.035,'#54c5bc');
@@ -887,7 +905,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-battery-logo-forklift-visible"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-noc-layout-reposition"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

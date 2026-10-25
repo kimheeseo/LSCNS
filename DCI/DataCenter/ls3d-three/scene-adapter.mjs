@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261015-step04&inspector=20261024&tray=20261024b';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-parking-wide-two-cars';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261025-fuel-tank-smoke';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -452,7 +452,7 @@ export function createSceneAdapter(T, canvas) {
     const g=new THREE.Group();
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
-    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null;
+    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null,fuelSmoke=[];
     let serverSession=null,opticsSession=null,networkSession=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
@@ -489,8 +489,9 @@ export function createSceneAdapter(T, canvas) {
       if(obj.isMesh)obj.userData.assetId=a.id;
       if(obj.name==='equipment-part:mantrap-card-led-red')mantrapLights.red=obj;
       if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
+      if(obj.userData?.fuelSmoke)fuelSmoke.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -534,6 +535,20 @@ export function createSceneAdapter(T, canvas) {
       ));
       if (fault) item.g.scale.y = 1 + Math.sin((T.simTime || 0) * 5) * .008;
       else item.g.scale.y = 1;
+      if(item.fuelSmoke?.length){
+        const now=(T.simTime||performance.now()/1000);
+        for(const puff of item.fuelSmoke){
+          const smoke=puff.userData.fuelSmoke, rise=(now*.17+smoke.phase)%1;
+          const scale=smoke.scale*(.82+rise*.72);
+          puff.position.set(
+            smoke.baseX+Math.sin(now*.70+smoke.phase)*smoke.drift*(.5+rise),
+            smoke.baseY+rise*smoke.rise,
+            smoke.baseZ+Math.cos(now*.52+smoke.phase)*smoke.drift*(.35+rise)
+          );
+          puff.scale.set(scale,scale*.72,scale*.91);
+          if(puff.material)puff.material.opacity=smoke.opacity*(1-rise*.58);
+        }
+      }
       if (item.moving) {
         const m=T.mechanical(a);
         rackDoors.tick(a.id,item.moving,m,dt);

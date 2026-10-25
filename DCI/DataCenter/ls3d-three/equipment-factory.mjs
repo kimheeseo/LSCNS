@@ -487,17 +487,37 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'supply-vent',0,h*.76,front,w*.80,.18,.10,'#4b8395');
         break;
       }
-      case 'odf':case 'network':{
+      case 'odf':{
+        // Dedicated Optical Distribution Frame: carrier/in-building fibre patch field.
+        part(root,'odf-plinth',0,.035,0,w*.96,.12,d*.92,'#263d50',.58,.38);
+        part(root,'odf-frame',0,.14,0,w*.90,h*.88,d*.84,'#405f76',.62,.34);
+        for(let row=0;row<6;row++){
+          const y=h*.18+row*h*.115;
+          part(root,'odf-patch-tray-'+row,0,y,front,w*.70,h*.075,.08,'#172f43',.35,.30);
+        }
+        const ports=[];
+        for(let row=0;row<6;row++)for(let col=0;col<12;col++)
+          ports.push([-w*.30+col*w*.055,h*.23+row*h*.115,front-.065]);
+        batch(root,'odf-lc-mpo-ports',ports,w*.026,.035,.020,'#67e4d0');
+        for(const side of [-1,1]){
+          part(root,'odf-cable-manager-'+side,side*w*.39,h*.18,front,w*.070,h*.64,.12,'#a8c1cb',.52,.35);
+          batch(root,'odf-patch-cords-'+side,Array.from({length:6},(_,i)=>[
+            side*w*.28,h*.21+i*h*.115,front-.095]),w*.13,.018,.018,side<0?'#e3bf62':'#63c5e5');
+        }
+        part(root,'odf-splice-cassette',0,h*.86,front,w*.55,.105,.09,'#b7924e',.52,.30);
+        decal(root,'odf-name','ODF · OPTICAL DISTRIBUTION FRAME',0,h*.93,front-.085,w*.70,h*.075,'#163a4e','#e7fffc');
+        break;
+      }
+      case 'network':{
         part(root,'network-cabinet',0,.06,0,w*.9,h*.95,d*.87,'#3b5673',.65,.37);
         for(let i=0;i<5;i++) {
           const y=.72+i*(h*.69/5);
-          part(root,'optical-switch-tray-'+i,0,y,front,w*.78,.25,.09,
-            kind==='odf'?'#af994f':'#315f7d',.65,.4);
+          part(root,'optical-switch-tray-'+i,0,y,front,w*.78,.25,.09,'#315f7d',.65,.4);
         }
         const led=[];
         for(let i=0;i<36;i++)led.push([-w*.34+(i%12)*w*.063,
           .86+Math.floor(i/12)*h*.23,front-.10]);
-        batch(root,kind+'-ports',led,w*.034,.045,.025,'#70ecce');
+        batch(root,'network-ports',led,w*.034,.045,.025,'#70ecce');
         part(root,'cable-management-duct',w*.43,.25,front,w*.07,h*.67,.15,'#bac9d1',.5,.39);
         break;
       }

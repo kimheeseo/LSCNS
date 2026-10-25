@@ -112,7 +112,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1200,300);
     ctx.strokeStyle='#d6dde3';ctx.lineWidth=8;ctx.strokeRect(4,4,1192,292);
     // Keep the Samsung SDI mark subordinate to the electrical cabinet rather than filling the whole face.
-    ctx.fillStyle='#1d32a5';ctx.font='800 102px Arial,Helvetica,sans-serif';
+    // 50%-scale wordmark requested: label remains identifiable without dominating the cabinet face.
+    ctx.fillStyle='#1d32a5';ctx.font='800 51px Arial,Helvetica,sans-serif';
     ctx.letterSpacing='1px';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText('SAMSUNG SDI',600,158);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
@@ -174,6 +175,34 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     part(root,'busway-shell',0,h*.46,0,w*.98,.33,d*.48,'#9eacb8',.52,.39);
     batch(root,'busway-hangers',Array.from({length:5},(_,i)=>
       [-w*.4+i*w*.20,h*.45,-d*.28]),.15,h*.36,.13,'#6f879a');
+  }
+  function nocOperationsPanel(root,name,mode,x,y,z,w,h,rotationY=Math.PI){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=700;canvas.height=400;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#07131d';ctx.fillRect(0,0,700,400);
+    ctx.strokeStyle='#4c7891';ctx.lineWidth=8;ctx.strokeRect(5,5,690,390);
+    ctx.font='800 45px Arial,Helvetica,sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+    if(mode==='cctv'){
+      ctx.fillStyle='#8eeaf0';ctx.fillText('CCTV · LIVE',36,42);
+      for(let r=0;r<2;r++)for(let c=0;c<2;c++){
+        const px=35+c*330,py=82+r*145;ctx.fillStyle='#163246';ctx.fillRect(px,py,300,115);
+        ctx.strokeStyle='#6fd9e4';ctx.lineWidth=4;ctx.strokeRect(px,py,300,115);
+        ctx.fillStyle='#4b9dc2';ctx.fillRect(px+15,py+25,120,54);
+        ctx.fillStyle='#9fd7d2';ctx.fillRect(px+155,py+33,105,16);
+        ctx.fillStyle='#52e9a3';ctx.beginPath();ctx.arc(px+274,py+22,7,0,Math.PI*2);ctx.fill();
+      }
+    }else{
+      ctx.fillStyle='#72f0bf';ctx.fillText('BMS · LIVE',36,42);
+      ctx.strokeStyle='#24485b';ctx.lineWidth=2;
+      for(let row=0;row<4;row++){ctx.beginPath();ctx.moveTo(35,86+row*60);ctx.lineTo(665,86+row*60);ctx.stroke();}
+      ctx.strokeStyle='#5af0bc';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(45,270);ctx.lineTo(150,225);ctx.lineTo(250,250);ctx.lineTo(360,150);ctx.lineTo(470,195);ctx.lineTo(650,110);ctx.stroke();
+      ctx.fillStyle='#e6bf56';ctx.fillRect(50,300,80,54);ctx.fillRect(160,275,80,79);ctx.fillRect(270,230,80,124);
+      ctx.fillStyle='#73cff0';ctx.font='700 31px ui-monospace,monospace';ctx.fillText('PUE 1.34   IT 1.219MW   23.4°C',38,382);
+    }
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-noc-display:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
   }
   function detailed(root,a,kind) {
     const {w,d,h}=a;
@@ -402,13 +431,38 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'pipe-header',0,h*.86,0,w*.78,.12,.12,'#b8b9c4');
         break;
       }
-      case 'control-desk':case 'maintenance':{
+      case 'control-desk':{
+        const isNoc=/noc/.test(String(a.id||'').toLowerCase());
+        if(isNoc){
+          // NOC control room: two resident operators at consoles, with large CCTV and BMS wall displays.
+          part(root,'noc-floor',0,.04,0,w*.96,.10,d*.94,'#263b48',.26,.52);
+          part(root,'noc-console-main',0,.22,-d*.10,w*.82,h*.18,d*.28,'#a98255',.27,.42);
+          part(root,'noc-console-front',0,.10,-d*.23,w*.84,h*.32,.09,'#314f62',.40,.34);
+          for(const x of [-w*.20,w*.20]){
+            part(root,'noc-seat-'+x,x,.08,-d*.28,w*.15,h*.22,d*.15,'#17242c',.30,.38);
+            // Two on-duty operators, visible from the room entrance.
+            round(root,'noc-operator-head-'+x,x,h*.47,-d*.13,Math.min(w,d)*.030,.16,'#d9a884');
+            part(root,'noc-operator-body-'+x,x,h*.27,-d*.13,w*.10,h*.21,d*.09,'#405d7c',.24,.42);
+            part(root,'noc-operator-arm-'+x,x+(x<0?w*.075:-w*.075),h*.33,-d*.20,.030,h*.07,.12,'#d9a884',.12,.38);
+            part(root,'noc-console-monitor-'+x,x,h*.50,-d*.02,w*.16,h*.22,.035,'#142a38',.16,.24);
+            part(root,'noc-console-monitor-live-'+x,x,h*.54,-d*.045,w*.13,h*.14,.012,'#52b8d1',.05,.16);
+          }
+          nocOperationsPanel(root,'cctv-wall','cctv',-w*.24,h*.63,d*.40,w*.34,h*.35,Math.PI);
+          nocOperationsPanel(root,'bms-wall','bms',w*.16,h*.63,d*.40,w*.42,h*.35,Math.PI);
+          decal(root,'noc-room-sign','NOC · CCTV / BMS',0,h*.95,d*.375,w*.58,h*.085,'#102935','#a5fff0');
+        }else{
+          part(root,'counter',0,.54,0,w*.86,.18,d*.72,'#7392a4');
+          part(root,'desk-front',0,.06,-d*.28,w*.80,.66,.15,'#325c73');
+          for(const x of [-w*.24,0,w*.24]){
+            part(root,'monitor-'+x,x,.87,-d*.12,w*.18,.58,.12,'#1d384e');
+            part(root,'display-'+x,x,.94,-d*.20,w*.16,.37,.03,'#49b4ce',.1,.14);
+          }
+        }
+        break;
+      }
+      case 'maintenance':{
         part(root,'counter',0,.54,0,w*.86,.18,d*.72,'#7392a4');
         part(root,'desk-front',0,.06,-d*.28,w*.80,.66,.15,'#325c73');
-        if(kind==='control-desk') for(const x of [-w*.24,0,w*.24]){
-          part(root,'monitor-'+x,x,.87,-d*.12,w*.18,.58,.12,'#1d384e');
-          part(root,'display-'+x,x,.94,-d*.20,w*.16,.37,.03,'#49b4ce',.1,.14);
-        }
         break;
       }
       case 'identity-camera': {
@@ -507,10 +561,27 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
-        // Forklift + branded delivery cartons beside open tailgate.
-        part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
-        part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
-        part(root,'loading-forklift-forks',w*.43,.06,d*.24,w*.22,.04,.09,'#697882',.50,.35);
+        // Parked counterbalance forklift: orange body, black mast/cab frame, driver seat, wheels and raised forks.
+        const forkX=w*.30,forkZ=d*.23;
+        part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#d96e21',.45,.33);
+        part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#e7822d',.40,.32);
+        part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#ef862e',.34,.30);
+        for(const xx of [forkX-w*.12,forkX+w*.11])for(const zz of [forkZ-d*.12,forkZ+d*.12])
+          round(root,'loading-forklift-wheel-'+xx+'-'+zz,xx,.045,zz,Math.min(w,d)*.045,.11,'#171c20');
+        part(root,'loading-forklift-mast-left',forkX+w*.18,.12,forkZ-d*.09,.040,h*.58,.040,'#222c32',.55,.28);
+        part(root,'loading-forklift-mast-right',forkX+w*.18,.12,forkZ+d*.09,.040,h*.58,.040,'#222c32',.55,.28);
+        part(root,'loading-forklift-mast-crossbar',forkX+w*.18,h*.67,forkZ,.055,.045,d*.26,'#222c32',.55,.28);
+        part(root,'loading-forklift-fork-left',forkX+w*.31,.07,forkZ-d*.07,w*.22,.035,.035,'#465158',.50,.32);
+        part(root,'loading-forklift-fork-right',forkX+w*.31,.07,forkZ+d*.07,w*.22,.035,.035,'#465158',.50,.32);
+        part(root,'loading-forklift-seat',forkX-w*.02,h*.30,forkZ,w*.10,h*.11,d*.12,'#1a2024',.22,.38);
+        part(root,'loading-forklift-seatback',forkX-w*.10,h*.32,forkZ,.045,h*.23,d*.13,'#1a2024',.22,.38);
+        for(const xx of [forkX-w*.10,forkX+w*.10]) {
+          part(root,'loading-forklift-guard-post-'+xx,xx,h*.18,forkZ-d*.105,.024,h*.51,.024,'#202a30',.52,.30);
+          part(root,'loading-forklift-guard-post-rear-'+xx,xx,h*.18,forkZ+d*.105,.024,h*.51,.024,'#202a30',.52,.30);
+        }
+        part(root,'loading-forklift-roof',forkX,h*.69,forkZ,w*.28,.035,d*.27,'#252f35',.46,.30);
+        part(root,'loading-forklift-steering',forkX+w*.04,h*.44,forkZ-d*.05,.12,.025,.12,'#222a30',.46,.28);
+        decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.135,w*.13,h*.055,'#e9822c','#ffffff');
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=-w*.42+i*w*.12,brand=shippingBrands[i];

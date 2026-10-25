@@ -38,6 +38,9 @@ body.ls3d-2d-active #viewport .vp-top,body.ls3d-2d-active #viewport .vp-bottom,
 body.ls3d-2d-active #viewport .worker-follow-hud,body.ls3d-2d-active #viewport #error,
 body.ls3d-2d-active #viewport .ux-fallback{display:none!important}
 @media(max-width:790px){
+  #telemetryDrawer.is-closed{left:auto!important;right:8px!important;width:154px!important;max-width:calc(100vw - 16px)!important}
+  #telemetryDrawer.is-closed #telemetryToggle{padding:7px 9px;min-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #telemetryDrawer.is-closed #telemetryStatus{display:none}
   #ls3dMobileInspectorToggle,#ls3dScenarioSummaryToggle{display:block;cursor:pointer;width:100%;padding:11px 12px;background:#17354a;border:1px solid #426e83;border-radius:8px;color:#ecfaff;font:750 12px system-ui;text-align:left;min-height:42px}
   #ls3dMobileInspectorContent{display:none}
   .right.ls3d-inspector-open #ls3dMobileInspectorContent{display:block}
@@ -60,16 +63,6 @@ body.ls3d-2d-active #viewport .ux-fallback{display:none!important}
   #ls3dModeToggle{font-size:10px;padding:6px}
   .top-actions{overflow-x:auto}
 }
-/* Emulated phone layout on a wide desktop viewport must follow the same rules. */
-body.display-mobile #ls3dMobileInspectorToggle,body.display-mobile #ls3dScenarioSummaryToggle{display:block}
-body.display-mobile #ls3dMobileInspectorContent{display:none}
-body.display-mobile .right.ls3d-inspector-open #ls3dMobileInspectorContent{display:block}
-body.display-mobile #scenarioStepPanel.ls3d-scenario-collapsed .scenario-step-head,
-body.display-mobile #scenarioStepPanel.ls3d-scenario-collapsed .scenario-step-rail{display:none!important}
-body.display-mobile #viewport{height:clamp(340px,60dvh,630px)!important;min-height:0!important}
-body.display-mobile .phase58-panel:not([hidden]){inset:auto 6px max(7px,env(safe-area-inset-bottom)) 6px!important;width:auto!important;max-height:62dvh!important;min-height:0!important;z-index:98!important}
-body.display-mobile .detail-modal.show{z-index:97!important;align-items:flex-end!important;justify-content:center!important;padding:5px 5px max(5px,env(safe-area-inset-bottom))!important;background:#030e17a8!important;pointer-events:auto!important}
-body.display-mobile .detail-modal.show .detail-card{width:100%!important;max-height:65dvh!important;border-radius:14px!important}
 @media(max-width:420px){
   #ls3dPortable2D{padding:7px}
   #ls3dPortable2D .lite-header strong{font-size:12px}

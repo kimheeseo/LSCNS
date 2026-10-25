@@ -180,18 +180,22 @@ export function createArchitectureKit(THREE, { cube }) {
         Math.max(.2,sideVisible-1.65),d*.52,'#81c0d6',.04,.2,true);
     }
     if(!section){
-      part(local,'wall','rear-wall',0,.1,-d/2,w,selected?1.7:h,.26,facade,.28,.55);
-      if(!openView)glassGrid(local,z.id+'-rear',w,d,2.3,h-2.5,false,-1);
+      // Gray Zone circulation approaches from the opposite side of the campus.
+      // Mirror only its entrance envelope so the building's practical front,
+      // door swing and ramp match the tour route without rotating the equipment.
+      const frontSide=z.id==='gray'?-1:1, rearSide=-frontSide;
+      part(local,'wall','rear-wall',0,.1,rearSide*d/2,w,selected?1.7:h,.26,facade,.28,.55);
+      if(!openView)glassGrid(local,z.id+'-rear',w,d,2.3,h-2.5,false,rearSide);
       // A meaningful open doorway, not a solid front wall overlapping the entrance.
       const portal=3.3, wing=Math.max(1,w/2-portal/2);
-      const frontZ=d/2;
+      const frontZ=frontSide*d/2;
       for(const side of [-1,1]){
         part(local,'wall','front-wing-'+side,side*(portal/2+wing/2),.1,frontZ,wing,wallBase,.24,facade,.38,.46);
         structuralColumn(local,'front-jamb-'+side,side*portal/2,frontZ,h,mullion);
       }
-      if(!openView)glassGrid(local,z.id+'-facade',w,d,3.32,h-3.45,false);
+      if(!openView)glassGrid(local,z.id+'-facade',w,d,3.32,h-3.45,false,frontSide);
       else part(local,'beam','front-portal-header',0,3.24,frontZ,4.1,.38,.5,trim,.64,.32);
-      hingedDoor(local,z.id+'-entry',0,frontZ+.19,h,true);
+      hingedDoor(local,z.id+'-entry',0,frontZ+frontSide*.19,h,frontSide>0);
     } else {
       // Cut-away: keep real frame + roof skeleton instead of deleting the whole building.
       for(const sx of [-1,1])for(const sz of [-1,1])
@@ -222,8 +226,9 @@ export function createArchitectureKit(THREE, { cube }) {
       // Partial ceiling can still be inspected under the open roof.
       part(local,'ceiling','overhead-grille',0,h-.3,-d*.42,w*.58,.09,d*.09,'#718f9d',.53,.35);
     }
-    part(local,'path','entry-ramp',0,-.055,d*.55,4.4,.09,3.5,'#87a6b0',.24,.73);
-    part(local,'detail','entry-threshold',0,.05,d*.503,3.45,.06,.24,'#f0cb79',.55,.31);
+    const entrySide=z.id==='gray'?-1:1;
+    part(local,'path','entry-ramp',0,-.055,entrySide*d*.55,4.4,.09,3.5,'#87a6b0',.24,.73);
+    part(local,'detail','entry-threshold',0,.05,entrySide*d*.503,3.45,.06,.24,'#f0cb79',.55,.31);
   }
   function outdoorYard(root,z,current,flags) {
     const [w,d]=z.size,[cx,cz]=z.pos;

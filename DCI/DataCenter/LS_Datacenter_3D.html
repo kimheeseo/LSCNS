@@ -780,7 +780,10 @@ line([a.x-1,.2,a.z+a.d/2+1],[a.x+1,.2,a.z+a.d/2+1],'#68f1c7');};
 function log(message){records.push({time:new Date().toLocaleTimeString('ko-KR'),stage:index+1,message});}
 function position(target=task){closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(target,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
-walkPos=[x,1.7,z];cameraDesired.yaw=Math.atan2(a.x-x,a.z-z);cameraDesired.distance=20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
+walkPos=[x,1.7,z];
+ // Stage 1 opens with a frontal third-person view of the visitor at the security desk.
+ cameraDesired.yaw=index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z);
+ cameraDesired.distance=20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
 function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
 function render(){const s=steps[index],rows=s[2];el('visitorProgress').innerHTML=steps.map((step,i)=>'<button type="button" data-visit-stage="'+i+'" class="'+(i===index?'current':i<index?'complete':'')+'">'+(i<index?'✓ ':i+1)+'. '+step[0]+'</button>').join('');el('visitorProgress').querySelectorAll('[data-visit-stage]').forEach(b=>b.onclick=()=>selectStage(Number(b.dataset.visitStage)));el('visitorTitle').textContent='단계 '+(index+1)+' · '+s[0];el('visitorIntro').textContent=s[1];el('visitorTaskTitle').textContent='이 단계의 업무 체크리스트 · '+rows.length+'개 · 항목을 눌러 이동';el('visitorTaskCopy').innerHTML='<ul class="visitor-checklist">'+rows.map((row,i)=>'<li><button type="button" data-visit-task="'+i+'" class="'+(focusedTask===i?'focused':'')+'"><i>'+(i<task||done?'✓':'□')+'</i><div><b>'+row[1]+'</b><small>'+row[2]+'</small></div></button></li>').join('')+'</ul>';el('visitorTaskCopy').querySelectorAll('[data-visit-task]').forEach(b=>b.onclick=()=>focusChecklistTask(Number(b.dataset.visitTask)));el('visitorAction').hidden=true;el('visitorPrevious').disabled=index===0;el('visitorInspect').hidden=true;renderAutoStatus();}
@@ -869,7 +872,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-face-panels"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-carton-logos-stage1-front"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

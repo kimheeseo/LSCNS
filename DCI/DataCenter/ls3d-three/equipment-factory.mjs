@@ -46,6 +46,18 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   function round(root,name,x,y,z,r,h,color){
     const m=cylinder(root,x,y,z,r,h,color);m.name='equipment-part:'+name;return m;
   }
+  function decal(root,name,text,x,y,z,w,h,background='#153344',foreground='#f2ffff'){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=512;canvas.height=192;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle=background;ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle='#d8f7f2';ctx.lineWidth=9;ctx.strokeRect(5,5,502,182);
+    ctx.fillStyle=foreground;ctx.font='700 76px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(text,256,98);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false}));
+    mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+  }
   function batch(root,name,positions,w,h,d,color){
     if(!positions.length)return;
     const b=new THREE.InstancedMesh(boxGeometry,material(color,.68,.38),positions.length);
@@ -116,6 +128,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         round(root,'exhaust-pipe',w*.28,h*.65,d*.12,.19,h*.22,'#899ca6');
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
         part(root,'generator-cable-termination',w*.37,.18,-d*.33,w*.14,h*.32,.10,'#293d47',.40,.34);
+        decal(root,'generator-kepco-grid','KEPCO GRID',-w*.10,h*.73,front-.075,w*.38,h*.12,'#1457a0','#ffffff');
         break;
       }
       case 'ups': {
@@ -126,6 +139,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'ups-hmi-bezel',-w*.11,h*.68,front-.052,w*.32,.29,.035,'#a6afb2',.32,.28);
         part(root,'ups-hmi-display',-w*.11,h*.70,front-.075,w*.23,.16,.018,'#89a8d9',.06,.14);
         part(root,'ups-hmi-status-bar',-w*.11,h*.59,front-.077,w*.16,.025,.016,'#55df9d',.05,.25);
+        decal(root,'ups-face-label','UPS · ONLINE',-w*.11,h*.88,front-.087,w*.38,h*.115,'#11191f','#f4f7f5');
         part(root,'ups-bypass-column',w*.31,.14,0,w*.19,h*.76,d*.72,'#303b40',.62,.33);
         part(root,'ups-bypass-hmi',w*.31,h*.56,front-.38,w*.13,h*.15,.025,'#b7d67a',.1,.20);
         part(root,'ups-input-output-strip',w*.31,h*.38,front-.38,w*.13,h*.06,.025,'#d6b75e',.2,.28);
@@ -164,6 +178,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
         part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
+        decal(root,'battery-face-label','BATTERY BANK · DC',0,h*.94,front-.088,w*.63,h*.11,'#253843','#f0fbff');
         for(const x of [-w*.38,w*.38]){
           part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
           part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);
@@ -207,6 +222,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'fluid-pipe-'+x,x,h*.61,d*.49,.13,.29,'#d8b677');
         part(root,'chiller-operator-hmi',w*.33,h*.55,front-.06,w*.16,.20,.022,'#183c52',.14,.20);
         part(root,'chiller-hmi-screen',w*.33,h*.60,front-.08,w*.105,.09,.014,'#70d8d0',.06,.20);
+        decal(root,'chiller-running-display','CHW 7.2°C · RUN',w*.12,h*.76,front-.085,w*.42,h*.105,'#123747','#63f0c7');
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
       }
@@ -366,6 +382,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'loading-truck-wheel',xx,.08,zz,.12,.14,'#202d35');
         part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
+        decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
         // Forklift + branded delivery cartons beside open tailgate.
         part(root,'loading-forklift-body',w*.29,.10,d*.24,w*.22,h*.20,d*.18,'#e5a94d',.42,.36);
         part(root,'loading-forklift-mast',w*.39,.14,d*.24,.05,h*.46,.05,'#3e4f58',.52,.38);
@@ -374,6 +391,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           const bx=-w*.42+i*w*.12;
           part(root,'loading-ls-box-'+i,bx,.12,d*.27,w*.10,h*.18,d*.13,'#c99b54',.18,.56);
           part(root,'loading-ls-box-mark-'+i,bx,.20,d*.342,w*.055,.045,.012,'#d9363e',.14,.30);
+          decal(root,'loading-box-brand-'+i,i%2===0?'LS CABLE':'NVIDIA',bx,.20,d*.348,w*.09,.055,
+            i%2===0?'#d9363e':'#76b900','#ffffff');
         }
         break;
       }

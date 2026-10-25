@@ -188,6 +188,8 @@ async function currentExperience(browser,device,viewport){
   await page.locator('#detailBtn').click();
   check(device,'rack-isolation',await page.locator('#rackIsolateBar').isVisible()&&(await page.locator('#rackIsolateName').innerText()).includes('GPU Rack A-01'));
   check(device,'rack-view-no-modal',await page.locator('#detailModal.show').count()===0);
+  const rackHeight=await page.locator('#viewport').evaluate(el=>el.getBoundingClientRect().height);
+  check(device,'rack-view-room',rackHeight>=395,'viewport height='+Math.round(rackHeight)+'px');
   await page.waitForFunction(()=>!window.LS3D_THREE?.adapter||window.LS3D_THREE?.diagnostics?.isolatedRack==='gpu-0-0',undefined,{timeout:8000});
   await page.waitForTimeout(900);
   check(device,'three-rack-isolation',await page.evaluate(()=>!window.LS3D_THREE?.adapter||window.LS3D_THREE?.diagnostics?.isolatedRack==='gpu-0-0'));

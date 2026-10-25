@@ -218,13 +218,20 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'transformer': {
         part(root,'oil-filled-main-tank',0,.34,0,w*.86,h*.66,d*.82,'#718b9a',.61,.42);
         part(root,'protective-base',0,.05,0,w*.95,.28,d*.9,'#334c5e');
-        const fins=Array.from({length:11},(_,i)=>[-w*.35+i*w*.07,h*.31,d*.447]);
-        batch(root,'transformer-radiator-fins',fins,w*.038,h*.56,.10,'#b4c5c9');
+        // Twin radiator banks make the transformer recognisable from front and rear.
+        for(const side of [-1,1]){
+          const face=side*d*.447;
+          const fins=Array.from({length:11},(_,i)=>[-w*.35+i*w*.07,h*.31,face]);
+          batch(root,'transformer-radiator-fins-'+side,fins,w*.038,h*.56,.10,'#b4c5c9');
+          part(root,'transformer-radiator-header-top-'+side,0,h*.62,face,w*.78,.065,.085,'#899fa9',.52,.36);
+          part(root,'transformer-radiator-header-bottom-'+side,0,h*.12,face,w*.78,.065,.085,'#899fa9',.52,.36);
+        }
         for(let i=-1;i<=1;i++){
           round(root,'porcelain-bushing-'+i,i*w*.23,h*.72,0,.18,h*.2,'#dedac4');
           round(root,'bushing-terminal-'+i,i*w*.23,h*.89,0,.09,.16,'#bd9864');
         }
         part(root,'transformer-top-cover',0,h*.74,0,w*.90,.19,d*.88,'#a9bdc4',.63,.33);
+        for(const side of [-1,1])decal(root,'transformer-rating-'+side,'MAIN TRANSFORMER',0,h*.42,side*d*.505,w*.42,h*.085,'#3e5a67','#edf8f8',side<0?Math.PI:0);
         break;
       }
       case 'switchgear': {
@@ -727,7 +734,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       /transformer|switchgear|generator|ups|battery|pdu|ats/.test(kind)?'#879aa3':'#507589';
     // Tour cameras often show assets at medium LOD: retain the operational
     // identity of switching and cooling equipment instead of a plain cabinet.
-    if(['ats','switchgear','cooling-tower'].includes(kind))detailed(mid,dims,kind);
+    if(['transformer','ats','switchgear','cooling-tower'].includes(kind))detailed(mid,dims,kind);
     else {
       part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
       part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');

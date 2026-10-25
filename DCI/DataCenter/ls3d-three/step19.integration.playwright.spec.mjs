@@ -40,6 +40,9 @@ async function ready(page,zone='campus'){
   expect(status.state,status.error||'Three bootstrap failure').toBe('ready');
   expect(status.gl).toBe(true);
   await page.waitForFunction(()=>window.LS3D_THREE.renders>=3,null,{timeout:30000});
+  const displayChoice=page.locator('#displayModeChoice');
+  if(await displayChoice.isVisible())
+    await page.locator('[data-display-choice="'+(page.viewportSize()?.width<=790?'mobile':'pc')+'"]').click();
   // The legacy tour dialog can be opened by a separate initializer even when
   // the newer first-visit localStorage flag is pre-seeded. Dismiss the actual
   // overlay before testing independent rack/MMR/mobile controls.

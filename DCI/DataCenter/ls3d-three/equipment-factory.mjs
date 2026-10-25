@@ -538,11 +538,11 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'visitor-parking': {
         // Stage 1: a separate visitor-parking scene for pre-registration work.
         part(root,'parking-asphalt',0,.03,0,w*.96,.10,d*.95,'#3d5665',.20,.68);
-        for(const x of [-w*.28,0,w*.28]){
+        for(const x of [-w*.22,w*.22]){
           part(root,'parking-bay-line-'+x,x,.105,0,.045,.015,d*.64,'#e5edf0',.08,.34);
           part(root,'parking-bay-stop-'+x,x,.11,-d*.27,w*.20,.018,.05,'#f2dc68',.08,.30);
         }
-        for(const [i,x] of [-w*.30,0,w*.30].entries()){
+        for(const [i,x] of [-w*.22,w*.22].entries()){
           const carColor=['#557f99','#d8e0e2','#6f8994'][i];
           part(root,'visitor-car-body-'+i,x,.15,-d*.12,w*.17,h*.14,d*.32,carColor,.42,.35);
           part(root,'visitor-car-roof-'+i,x,.15+h*.14,-d*.12,w*.12,h*.07,d*.19,'#c8dde4',.25,.28);

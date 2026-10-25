@@ -117,7 +117,15 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       }
       case 'generator': {
         part(root,'genset-skid',0,.12,0,w*.98,.33,d*.88,'#384958',.66,.46);
-        part(root,'diesel-generator-housing',0,.55,0,w*.84,h*.61,d*.78,'#9ca98f',.46,.53);
+        part(root,'diesel-generator-housing',0,.55,0,w*.84,h*.61,d*.78,'#7f8788',.46,.48);
+        // Outdoor container genset: elevated radiator tower, exhaust stack and service ducting.
+        part(root,'generator-radiator-tower',-w*.31,h*.16,0,w*.23,h*.78,d*.72,'#68747a',.44,.42);
+        part(root,'generator-radiator-head',-w*.31,h*.93,0,w*.29,h*.20,d*.78,'#768288',.42,.38);
+        round(root,'generator-exhaust-stack',w*.12,h*.58,d*.10,Math.min(w,d)*.10,h*.56,'#b6bec0');
+        round(root,'generator-exhaust-cap',w*.12,h*1.13,d*.10,Math.min(w,d)*.15,.10,'#273f4c');
+        part(root,'generator-exhaust-duct',w*.28,h*.58,d*.10,w*.26,.16,d*.20,'#aeb8ba',.44,.34);
+        for(const side of [-1,1])batch(root,'generator-louvers-'+side,Array.from({length:10},(_,i)=>[
+          w*.08,h*.24+i*h*.052,side*d*.405]),w*.54,.022,.018,'#263e49');
         part(root,'generator-service-door',w*.08,.54,front,w*.42,h*.43,.04,'#566c65',.42,.40);
         part(root,'generator-control-panel',w*.13,h*.63,front-.052,w*.15,.16,.016,'#58d8bd',.08,.20);
         part(root,'radiator-hood',-w*.35,.8,0,w*.16,h*.37,d*.73,'#3d6675',.52,.38);
@@ -128,7 +136,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         round(root,'exhaust-pipe',w*.28,h*.65,d*.12,.19,h*.22,'#899ca6');
         part(root,'exhaust-weather-cap',w*.28,h*.89,d*.12,.55,.09,.55,'#d3b878');
         part(root,'generator-cable-termination',w*.37,.18,-d*.33,w*.14,h*.32,.10,'#293d47',.40,.34);
-        decal(root,'generator-kepco-grid','KEPCO GRID',-w*.10,h*.73,front-.075,w*.38,h*.12,'#1457a0','#ffffff');
+        decal(root,'generator-kepco-grid-front','KEPCO GRID',-w*.10,h*.73,front-.075,w*.44,h*.14,'#1457a0','#ffffff');
+        decal(root,'generator-kepco-grid-rear','KEPCO GRID',-w*.10,h*.73,-front+.075,w*.44,h*.14,'#1457a0','#ffffff');
         break;
       }
       case 'ups': {
@@ -220,9 +229,12 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           -w*.40+i*w*.062,h*.30,front]),w*.04,h*.34,.065,'#a1d2d7');
         for(const x of [-w*.28,w*.28])
           round(root,'fluid-pipe-'+x,x,h*.61,d*.49,.13,.29,'#d8b677');
-        part(root,'chiller-operator-hmi',w*.33,h*.55,front-.06,w*.16,.20,.022,'#183c52',.14,.20);
-        part(root,'chiller-hmi-screen',w*.33,h*.60,front-.08,w*.105,.09,.014,'#70d8d0',.06,.20);
-        decal(root,'chiller-running-display','CHW 7.2°C · RUN',w*.12,h*.76,front-.085,w*.42,h*.105,'#123747','#63f0c7');
+        for(const side of [-1,1]){
+          const face=side*d*.48;
+          part(root,'chiller-operator-hmi-'+side,w*.18,h*.48,face,w*.36,.32,.028,'#102f40',.14,.18);
+          part(root,'chiller-hmi-screen-'+side,w*.18,h*.54,face+side*.020,w*.27,.15,.012,'#64e4d7',.06,.16);
+          decal(root,'chiller-running-display-'+side,'CHW 7.2°C · RUN',w*.02,h*.78,face+side*.025,w*.72,h*.16,'#0b3141','#67f4cf');
+        }
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;
       }

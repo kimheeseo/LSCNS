@@ -23,10 +23,73 @@
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"}}
 </script>
 <style>.viewport #sceneThree{position:absolute;inset:0;width:100%;height:100%;display:none;touch-action:none;z-index:1;cursor:grab}.viewport #sceneThree:active{cursor:grabbing}</style>
+<style>
+.display-mode-choice[hidden]{display:none!important}
+.display-mode-choice{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:18px;background:#04111de8;color:#eafaff}
+.display-mode-card{width:min(520px,100%);padding:26px;border:1px solid #4b8198;border-radius:18px;background:linear-gradient(150deg,#173348,#0a1c2b);box-shadow:0 24px 70px #0009;font-family:Inter,Pretendard,"Malgun Gothic",system-ui,sans-serif}
+.display-mode-card h2{font-size:23px;margin:4px 0 9px}.display-mode-card p{font-size:12px;line-height:1.6;color:#b9cfda;margin:0 0 20px}
+.display-mode-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.display-mode-options button{border:1px solid #53788a;background:#133044;border-radius:12px;color:#eefbff;min-height:104px;padding:16px;text-align:left}
+.display-mode-options button:hover,.display-mode-options button:focus-visible{border-color:#57dcca;background:#1a4658}
+.display-mode-options b{display:block;font-size:16px;margin-bottom:7px}.display-mode-options small{color:#afd0d9;font-size:11px;line-height:1.5}
+#displayModeReopen{white-space:nowrap}
+body.display-mobile{height:auto;overflow:auto;background:#051420}
+body.display-mobile #shell{width:min(480px,100%);height:auto;min-height:100dvh;margin:auto;grid-template-columns:minmax(0,1fr);grid-template-rows:59px auto auto;box-shadow:0 0 42px #0007}
+body.display-mobile .side{display:none}
+body.display-mobile .top{grid-area:1/1/2/2;padding:0 10px;min-width:0}
+body.display-mobile .crumb,body.display-mobile .online{display:none}
+body.display-mobile .top:before{content:"LS · DC 3D";white-space:nowrap;font-size:11px;font-weight:900;color:#def7ff}
+body.display-mobile .top-actions{flex:1;justify-content:flex-end;gap:4px;min-width:0;overflow-x:auto}
+body.display-mobile .top-actions .small-btn{font-size:9px;padding:7px}
+body.display-mobile .main{grid-area:2/1/3/2;padding:12px 10px;min-width:0}
+body.display-mobile .heading h1{font-size:19px}
+body.display-mobile .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+body.display-mobile .metric{padding:10px 8px}
+body.display-mobile .viewport{height:clamp(370px,58dvh,620px);min-height:0;flex:none}
+body.display-mobile .right{grid-area:3/1/4/2;border-left:0;border-top:1px solid var(--stroke);overflow:visible}
+body.display-mobile .right-inner{padding:14px}
+body.display-mobile .mobile-zone{display:block;max-width:120px;font-size:10px}
+body.display-mobile .mobile-operations{display:block;border:1px solid #315268;border-radius:10px;background:#102338;overflow:hidden}
+body.display-mobile .mobile-ops-toggle{display:flex;width:100%;min-height:43px;border:0;background:#102b3e;color:#dff7f7;align-items:center;justify-content:space-between;padding:8px 11px;text-align:left}
+body.display-mobile .mobile-ops-body{display:grid;gap:8px;padding:0 8px 8px}
+body.display-mobile .mobile-operations.is-collapsed .mobile-ops-body{display:none}
+body.display-mobile .mobile-ops-body .facility-switch,body.display-mobile .mobile-ops-body .crew-summary,body.display-mobile .mobile-ops-body .redundancy-strip{margin:0}
+body.display-mobile .vp-tools{max-width:145px;flex-wrap:wrap;justify-content:flex-end}
+body.display-mobile .vp-tools button{font-size:9px;padding:6px}
+body.display-mobile .info-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:420px){.display-mode-options{grid-template-columns:1fr}.display-mode-options button{min-height:74px}#displayModeReopen{font-size:9px;padding:6px}}
+</style>
 </head>
-<body><div id="shell">
+<body>
+<div id="displayModeChoice" class="display-mode-choice" role="dialog" aria-modal="true" aria-labelledby="displayModeTitle" hidden>
+ <div class="display-mode-card"><h2 id="displayModeTitle">화면 크기를 선택하세요</h2><p>데이터센터 3D 화면과 정보 패널을 선택한 방식으로 배치합니다. 화면 크기가 달라져도 3D 장면은 창에 맞춰 조정됩니다.</p>
+ <div class="display-mode-options"><button type="button" data-display-choice="pc"><b>▣ PC 화면</b><small>넓은 3열 화면 · 설비 정보와 3D를 함께 보기</small></button><button type="button" data-display-choice="mobile"><b>▯ 모바일 화면</b><small>좁은 1열 화면 · 큰 3D 화면과 접기형 정보</small></button></div></div>
+</div>
+<script>
+(function(){
+ const KEY='ls3d-display-mode-v1',body=document.body,dialog=document.getElementById('displayModeChoice');
+ let mode=null;try{mode=localStorage.getItem(KEY)}catch(e){}
+ function apply(next){
+  body.classList.toggle('display-mobile',next==='mobile');
+  body.classList.toggle('display-pc',next==='pc');
+  dialog.hidden=true;
+  const toggle=document.getElementById('displayModeReopen');
+  if(toggle){toggle.textContent=next==='mobile'?'▯ 모바일 화면':'▣ PC 화면';toggle.setAttribute('aria-label','현재 '+(next==='mobile'?'모바일':'PC')+' 화면 · 화면 모드 변경')}
+  try{localStorage.setItem(KEY,next)}catch(e){}
+  window.dispatchEvent(new Event('ls3d-display-mode-changed'));
+  requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+ }
+ if(mode==='pc'||mode==='mobile')apply(mode);else dialog.hidden=false;
+ dialog.querySelectorAll('[data-display-choice]').forEach(button=>button.addEventListener('click',()=>apply(button.dataset.displayChoice)));
+ document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.getElementById('displayModeReopen');
+  if(toggle){toggle.onclick=()=>{dialog.hidden=false;dialog.querySelector('[data-display-choice="'+(body.classList.contains('display-mobile')?'mobile':'pc')+'"]')?.focus()};if(mode==='pc'||mode==='mobile')toggle.textContent=mode==='mobile'?'▯ 모바일 화면':'▣ PC 화면'}
+ });
+})();
+</script>
+<div id="shell">
 <aside class="side"><div class="logo"><span class="logo-mark">LS</span><div><b>LS · DATACENTER</b><small>3D DIGITAL TWIN STUDIO</small></div></div><div class="side-section"><div class="section-label">7-ZONE CAMPUS EXPLORER</div><div class="zone-list" id="zoneList"></div></div><div class="side-bottom"><a href="./LS_Datacenter_Campus.html" id="back2D">← 기존 2D Gold Pixel Tour</a><a href="./index.html">↗ 데이터센터 설계 · BOM 툴</a><a href="./LS_Datacenter_3D_Guidebook_v4.5.3.docx" download>▣ 운영·계산 Word 가이드북</a><span>v4.7.0 계산 코어 · Three.js v4.8.1 · 개념 모델 · WEBGL</span><p>실측 CAD/BIM이 아닌 교육·설계 검토용 3D 개념 모델입니다.</p></div></aside>
-<header class="top"><div class="crumb">LSCNS <span>›</span> DATA CENTER <span>›</span> <b>3D DIGITAL TWIN</b></div><div class="top-actions"><select id="mobileZone" class="mobile-zone" aria-label="구역 선택"></select></div></header>
+<header class="top"><div class="crumb">LSCNS <span>›</span> DATA CENTER <span>›</span> <b>3D DIGITAL TWIN</b></div><div class="top-actions"><button id="displayModeReopen" class="small-btn" type="button" aria-label="화면 모드 변경">▣ 화면 선택</button><select id="mobileZone" class="mobile-zone" aria-label="구역 선택"></select></div></header>
 <main class="main"><div class="heading"><div><div class="eyebrow">LS DATACENTER CAMPUS · INTERACTIVE</div><h1>Campus 3D Digital Twin</h1><p id="facilityMainSubtitle">AI 데이터센터 7개 구역 · GPU 랙/전력/냉각/광 네트워크</p></div><span class="chip" id="liveTag">● SIMULATING</span></div>
 <section id="mobileOperations" class="mobile-operations is-collapsed" aria-label="운영 정보"><button id="mobileOpsToggle" class="mobile-ops-toggle" type="button" aria-expanded="false" aria-controls="mobileOpsBody"><span><b>운영 정보</b><small>작업자 근무 · 이중화 · 운영 형태</small></span><i aria-hidden="true">⌄</i></button><div id="mobileOpsBody" class="mobile-ops-body"><section class="facility-switch" aria-label="데이터센터 유형 선택"><label for="facilityModeSelect">운영 형태</label><select id="facilityModeSelect" aria-label="운영 형태 선택"><option value="aidc">AI Data Center · 고밀도 GPU 캠퍼스</option><option value="server-room">회사 서버실 · 소규모 IT 설비실</option><option value="onprem">On-Premises · 기업 자체 데이터센터</option></select><div class="facility-copy"><p id="facilityModeNote"></p></div></section><section class="crew-summary" aria-label="작업자 근무 현황"><div class="crew-summary-head"><strong id="crewSummaryTitle">👷 작업자 4명 · 근무 현황</strong><button id="btnWorkersInline" type="button">업무 목록 · 시점 선택</button></div><div id="crewSummaryGrid" class="crew-summary-grid"></div></section><section class="redundancy-strip" aria-label="이중화 구성"><div class="redundancy-controls"><strong>이중화 구성</strong><select id="redundancySelect" aria-label="이중화 구성"><option value="N">N · 단일 계통</option><option value="N+1">N+1 · 예비 1계통</option><option value="2N">2N · 이중 계통</option></select><button id="compareBtn" type="button">비교 실행</button></div><span id="redundancyNote" class="redundancy-note">장애 영향 추정 · 교육용 가정값</span></section></div></section><section class="metrics" aria-label="시뮬레이션 지표"><div class="metric"><div class="mt">IT 부하 <i>▰</i></div><strong id="kpiLoad">계산 중<small>kW</small></strong><div class="foot" id="kpiLoadMeta">AI Data Center · 가정값</div></div><div class="metric"><div class="mt">시설 전력 <i>⚡</i></div><strong id="kpiFacility">계산 중<small>kW</small></strong><div class="foot" id="kpiFacilityMeta">계산 대기 · 가정값</div></div><div class="metric"><div class="mt">운영 가용성 <i>◎</i></div><strong id="kpiAvailability">계산 중<small>%</small></strong><div class="foot">선택 시나리오 기반</div></div><div class="metric"><div class="mt">냉각 상태 <i>❄</i></div><strong id="kpiTemp">계산 중<small>°C</small></strong><div class="foot">가상 모델 · 실측값 아님</div></div></section>
 <div class="viewport" id="viewport"><canvas id="scene" aria-label="3D 데이터센터 캠퍼스: 드래그 회전, Shift 드래그 이동, 휠 확대, 설비 클릭"></canvas><div class="marker-layer" id="markers"></div><div class="vp-top"><div class="vp-title"><b><span style="color:#55ded1">◈</span><span id="sceneName">CAMPUS · 3D OVERVIEW</span></b><small id="sceneInfo">구역 선택 → 줌 · 설비 클릭 → 상세정보</small></div><div class="vp-tools"><button id="btnHome">전체</button><button id="btnIso" class="active">3D</button><button id="btnTop">평면</button><button id="btnRoof">지붕 켜기</button><button id="btnSection">단면 보기</button><button id="btnWorkers" aria-label="작업자 4명 선택 및 시점 보기" title="4명 업무 현황과 1인칭 시점 선택">👷 작업자 4명</button><button id="btnWalk">걷기</button><button id="btnFull">전체 화면</button><label class="scene-search"><input id="assetSearch" type="search" placeholder="설비 검색" aria-label="설비 검색"><button id="searchBtn" aria-label="설비 찾기">⌕</button></label></div></div><div id="scenarioOverlay" class="scenario-overlay" role="status"></div><div class="vp-bottom"><div class="legend"><span><i style="background:#f9cb6c"></i>전력</span><span><i style="background:#48c4e8"></i>냉각</span><span><i style="background:#63debd"></i>광통신</span><span><i style="background:#fa738b"></i>장애</span></div><div class="tip" id="cameraHint">드래그 회전 · Shift+드래그 이동 · 휠 줌 · 설비 클릭</div><span class="online sim-local-bottom"><i></i> SIMULATION LOCAL</span></div><div class="worker-follow-hud" id="workerFollowHud" hidden><div class="worker-hud-title"><span>작업자 POV</span><button id="btnWorkerRoster" type="button">직원 선택</button><button id="btnWorkerCamera" type="button">근접 눈높이 보기</button></div><strong id="workerFollowName"></strong><div id="workerFollowRole" class="worker-hud-role"></div><p id="workerFollowTask"></p><button id="btnWorkerExit" class="worker-exit" type="button">직원 시점 종료</button></div></div>
@@ -713,7 +776,7 @@ addLog('INFO','캠퍼스 시뮬레이션 세션 시작 · 모든 값은 교육·
 drawLogs();updateNote();updateEnergy();compare();updateMarkers();
 Object.assign(window.__LS3D_TEST__,{scenarioDefs:configs,compareValue:compareValue,addEventLog:addLog,scenarioElapsed:function(){return Math.max(0,simTime-scenarioStart)},get redundancy(){return redundancy},set redundancy(v){redundancy=v},get samples(){return samples},get logs(){return logs},get currentStage(){return currentStage()},get currentMetrics(){return metrics()}});Object.defineProperty(window.__LS3D_TEST__,'scenario',{configurable:true,get:function(){return scenario}});
 })();
-</script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261025-hall-rack-layout"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase8.js?v=20261011-phase7-hardening"></script><script>
+</script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261026-display-mode-entry"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase8.js?v=20261011-phase7-hardening"></script><script>
 /* Visitor tour: educational simulation; no identity/biometric collection. */
 (function(){
 'use strict';
@@ -920,7 +983,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-gpu-rack-visuals"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-display-mode-entry"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

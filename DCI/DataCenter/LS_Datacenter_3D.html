@@ -41,7 +41,7 @@ const Z=[
  {id:'utility',n:'Utility Yard',ko:'수전 · 발전 야드',sub:'변압기 · 수배전 · ATS · 발전기',color:'#efc46d',symbol:'⚡',pos:[-47,-26],size:[31,25]},
  {id:'cooling',n:'Cooling Plant',ko:'냉각 플랜트',sub:'냉각탑 · 칠러 · 펌프 · CDU',color:'#55bee7',symbol:'❄',pos:[47,-26],size:[31,25]},
  {id:'gray',n:'Gray Zone',ko:'Gray Zone · 전기실',sub:'UPS · 배터리 · PDU · 분배',color:'#ca9af4',symbol:'▣',pos:[-25,10],size:[35,30]},
- {id:'hall',n:'Data Hall',ko:'Data Hall · 서버실',sub:'GPU · ToR · ODF · CRAH',color:'#62d9bb',symbol:'▥',pos:[15,7],size:[42,36]},
+ {id:'hall',n:'Data Hall',ko:'Data Hall · 서버실',sub:'GPU · ToR · ODF · CRAH',color:'#62d9bb',symbol:'▥',pos:[18,7],size:[50,42]},
  {id:'network',n:'Network / MMR',ko:'Network · MMR',sub:'Carrier · Core · Spine · Leaf',color:'#8dacf7',symbol:'◎',pos:[44,39],size:[28,20]},
  {id:'ops',n:'NOC / Safety',ko:'NOC · Safety',sub:'관제 · 보안 · 소방',color:'#f58ca2',symbol:'◈',pos:[-43,38],size:[27,21]}
 ];
@@ -138,7 +138,7 @@ const flowPaths={
 };
 let notices={},lastNotice=0;
 const npcRoutes={
- campusLoop:[[-22,42],[-5,42],[8,42],[18,42],[28,35],[10,29],[-8,29],[-18,35]],
+ campusLoop:[[-22,47],[-5,47],[8,42],[18,42],[28,35],[10,29],[-8,29],[-18,35],[-22,47]],
  hallLoop:[[-2,3.5],[31,3.5],[31,12],[4,12],[-2,12],[-2,3.5]],
  opsLoop:[[-59,26],[-29,26],[-29,50],[-59,50],[-59,26]],
  utilityLoop:[[-62,-16],[-31,-16],[-31,-34],[-62,-34],[-62,-16]]
@@ -920,7 +920,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-realistic-campus-pass"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-hall-gray-parking"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

@@ -431,12 +431,24 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'biometric-mantrap': {
         // Two-door interlock with iris camera, fingerprint pad and card reader status pair.
         part(root,'mantrap-floor',0,.03,0,w*.96,.10,d*.95,'#485f6b',.25,.58);
-        for(const xx of [-w*.40,w*.40]){
+        for(const xx of [-w*.40,w*.40])
           part(root,'mantrap-frame-'+xx,xx,.05,0,w*.07,h*.92,d*.82,'#8da9b3',.52,.34);
-          part(root,'mantrap-door-glass-'+xx,xx*.54,h*.10,0,w*.32,h*.72,.035,'#6fb2c3',.12,.20,true);
-        }
         part(root,'mantrap-outer-lintel',0,h*.83,-d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
         part(root,'mantrap-inner-lintel',0,h*.83,d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
+        // Authentication-complete state: both glass leaves are visibly swung open on their outer hinges.
+        // This leaves a clear centre passage instead of presenting a closed glass wall.
+        const openDoors=[
+          {name:'left',hinge:-w*.40,offset:w*.16,angle:-1.05},
+          {name:'right',hinge:w*.40,offset:-w*.16,angle:1.05}
+        ];
+        for(const door of openDoors){
+          const leaf=new THREE.Group();leaf.name='equipment-mantrap-open-door:'+door.name;
+          leaf.position.set(door.hinge,h*.10,-d*.35);leaf.rotation.y=door.angle;root.add(leaf);
+          part(leaf,'mantrap-open-glass-'+door.name,door.offset,0,0,w*.32,h*.72,.035,'#6fb2c3',.12,.20);
+          part(leaf,'mantrap-open-door-edge-'+door.name,door.offset,0,-.025,w*.34,h*.025,.050,'#c2d4d8',.42,.28);
+          part(leaf,'mantrap-open-handle-'+door.name,door.offset+(door.name==='left'?w*.08:-w*.08),h*.33,-.05,.035,h*.14,.025,'#3b5664',.45,.25);
+        }
+        part(root,'mantrap-entry-open-light',0,.11,-d*.405,w*.55,.035,.025,'#57e3a2',.06,.20);
         part(root,'mantrap-iris-pedestal',-w*.28,.12,-d*.12,w*.13,h*.58,d*.13,'#2c4655',.44,.34);
         round(root,'mantrap-iris-camera',-w*.28,h*.68,-d*.20,Math.min(w,d)*.075,.10,'#132a3a');
         round(root,'mantrap-iris-ring',-w*.28,h*.68,-d*.255,Math.min(w,d)*.10,.022,'#5be7db');

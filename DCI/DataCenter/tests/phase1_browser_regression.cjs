@@ -180,12 +180,17 @@ async function currentExperience(browser,device,viewport){
    check(device,'kpi-'+kind,body.includes(title)&&body.includes('계산')&&body.includes('현재'),body.slice(0,80));
    await page.locator('#ls3dKpiClose').click();
   }
-  if(device==='mobile')await page.locator('#mobileZone').selectOption('hall');
-  else await page.locator('#zoneList [data-zone="hall"]').click();
+  if(device==='mobile'){
+   await page.locator('#mobileZone').selectOption('hall');
+   await page.locator('#ls3dMobileInspectorToggle').click();
+  }else await page.locator('#zoneList [data-zone="hall"]').click();
   await page.locator('#inspectorAssetSelect').selectOption('gpu-0-0');
   await page.locator('#detailBtn').click();
   check(device,'rack-isolation',await page.locator('#rackIsolateBar').isVisible()&&(await page.locator('#rackIsolateName').innerText()).includes('GPU Rack A-01'));
   check(device,'rack-view-no-modal',await page.locator('#detailModal.show').count()===0);
+  await page.waitForFunction(()=>!window.LS3D_THREE?.adapter||window.LS3D_THREE?.diagnostics?.isolatedRack==='gpu-0-0',undefined,{timeout:8000});
+  await page.waitForTimeout(900);
+  check(device,'three-rack-isolation',await page.evaluate(()=>!window.LS3D_THREE?.adapter||window.LS3D_THREE?.diagnostics?.isolatedRack==='gpu-0-0'));
   await page.screenshot({path:path.join(out,device+'-rack.png')});
   await page.locator('#rackIsolateExit').click();
   check(device,'rack-return',await page.locator('#rackIsolateBar').isHidden());

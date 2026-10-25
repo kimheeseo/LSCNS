@@ -96,16 +96,25 @@ export function createRackNetworkCabling(THREE,{cube}) {
       if(!info)return;
       const yy=low+(info.uStart-1)*u+info.uHeight*u*.26;
       const sx=index%2?1:-1;
+      const isDac=index%2===0;
       const cable=wire(network,'nic-to-tor-'+index,[
         [sx*w*.18,yy,d*.382],[sx*w*.31,yy+.13,d*.28],
         [sx*w*.34,yy+.35,-d*.04],[sx*w*.33,torY+.12,-d*.14],
         [sx*w*.22,torY+.15,-d*.57]
-      ],'#5fdccf',.025);
-      cable.userData.cableSystem='fiber';
+      ],isDac?'#77b8dc':'#e7ce62',.025);
+      const cableRecord={id:id+':nic-link:'+index,assetId:id,kind:isDac?'dac-cable':'fiber-patch-cable',
+        label:(isDac?'DAC twinax':'광 패치 코드')+' · 서버 NIC '+(index+1)+' → 상단 ToR',
+        description:isDac?'서버 NIC와 랙 최상단 ToR 포트를 짧은 구리 직결 케이블(DAC)로 연결하는 교육용 경로입니다.':'서버 NIC와 상단 ToR을 광 점퍼로 연결하는 교육용 경로입니다.',
+        uStart:info.uStart,uHeight:info.uHeight};
+      built.parts.push(cableRecord);built.partMap.set(cableRecord.id,cableRecord);
+      const markCable=object=>{if(object.isMesh){object.userData.assetId=id;object.userData.partId=cableRecord.id;object.userData.noPick=false;}};
+      if(typeof cable.traverse==='function')cable.traverse(markCable);
+      else for(const child of cable.children||[])markCable(child);
+      cable.userData.cableSystem=isDac?'dac':'fiber';
       cable.userData.from=info.id;
       cable.userData.to=torPart?.id;
       stats.nicLinks++;
-      links.push({kind:'fiber',from:info.id,to:torPart?.id,group:cable});
+      links.push({kind:isDac?'dac':'fiber',from:info.id,to:torPart?.id,group:cable});
       for(const side of ['A','B']){
         const px=(side==='A'?-1:1)*w*.405;
         const cord=wire(network,'server-'+index+'-pdu-'+side,[
@@ -126,7 +135,7 @@ export function createRackNetworkCabling(THREE,{cube}) {
   }
   function focus(id,filter='all'){
     const rec=records.get(id);if(!rec)return null;
-    const value=['all','fiber','power-A','power-B'].includes(filter)?filter:'all';
+    const value=['all','fiber','dac','power-A','power-B'].includes(filter)?filter:'all';
     rec.filter=value;stats.highlights++;
     update(id,rec.selectedServer);
     return value;

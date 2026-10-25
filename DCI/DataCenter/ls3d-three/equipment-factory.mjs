@@ -395,9 +395,26 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'water-tank': {
-        round(root,'water-cyl-tank',0,.18,0,Math.min(w,d)*.39,h*.85,'#83b8c9');
-        part(root,'tank-ring-platform',0,h*.52,0,w*.83,.15,d*.83,'#5d7685',.61,.44);
-        round(root,'tank-vent',w*.18,h*.81,0,.13,.30,'#d9c7a3');
+        // Chilled-water buffer tank: insulated vessel, level indication, service ladder and pipework.
+        const radius=Math.min(w,d)*.38;
+        part(root,'water-tank-foundation',0,.04,0,w*.84,.12,d*.84,'#365a6c',.54,.40);
+        round(root,'water-tank-insulated-shell',0,.19,0,radius,h*.88,'#74b7cc');
+        for(const [name,y] of [['lower',h*.16],['mid',h*.49],['upper',h*.78]])
+          part(root,'water-tank-band-'+name,0,y,0,w*.75,.050,d*.75,'#447f97',.48,.34);
+        round(root,'water-tank-top-dome',0,h*.91,0,radius*.56,.14,'#abd9e2');
+        round(root,'water-tank-manhole',0,h*.99,0,radius*.23,.075,'#4b7183');
+        // Front service ladder and compact sight-level column.
+        const ladderX=w*.31;
+        for(const rail of [-1,1])part(root,'water-ladder-rail-'+rail,ladderX+rail*w*.07,h*.42,front-.07,.030,h*.70,.030,'#d8e7e9',.58,.27);
+        for(let i=0;i<7;i++)part(root,'water-ladder-rung-'+i,ladderX,h*.16+i*h*.095,front-.085,w*.18,.025,.022,'#d8e7e9',.58,.27);
+        part(root,'water-level-gauge',-w*.28,h*.41,front-.08,.055,h*.54,.025,'#102f43',.18,.24);
+        part(root,'water-level-blue',-w*.28,h*.28,front-.095,.030,h*.28,.018,'#51c8ec',.08,.18);
+        // Blue supply and darker return risers identify the chilled-water circuit.
+        round(root,'chilled-water-supply',-w*.43,h*.31,d*.15,.10,h*.60,'#48bfe1');
+        round(root,'chilled-water-return',w*.43,h*.27,-d*.15,.10,h*.52,'#397eaa');
+        part(root,'water-pipe-bridge',0,h*.68,d*.15,w*.72,.075,.12,'#4ab9d8',.47,.28);
+        statusPanel(root,'water-tank-level','CHILLED WATER','LEVEL 78%',0,h*.56,front-.10,w*.43,h*.115,Math.PI);
+        decal(root,'water-tank-label','CHILLED WATER TANK',0,h*.36,front-.115,w*.46,h*.070,'#285a72','#effdff');
         break;
       }
       case 'cooling-tower':{

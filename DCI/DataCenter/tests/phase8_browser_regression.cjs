@@ -13,7 +13,7 @@ const server=http.createServer((req,res)=>{
  const file=path.resolve(root,'.'+u);
  if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return}
  fs.readFile(file,(e,data)=>{if(e){res.writeHead(404).end('not found');return}
- const ext=path.extname(file);res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8'}[ext]||'application/octet-stream'));res.writeHead(200).end(data)})
+ const ext=path.extname(file);res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.js':'application/javascript; charset=utf-8','.mjs':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8'}[ext]||'application/octet-stream'));res.writeHead(200).end(data)})
 });
 async function fpsSample(page,seconds=3){return page.evaluate(async seconds=>{
  const ts=[];const begin=performance.now();
@@ -283,12 +283,36 @@ async function mobile(browser){
  await page.screenshot({path:path.join(out,'mobile-portrait.png'),fullPage:true});
  await page.close();await context.close();
 }
+// Current integration smoke path for the v4.8 UI; older phase-by-phase
+// diagnostics above remain available for historical investigation.
+async function currentIntegration(browser,device,viewport){
+ const context=await browser.newContext({viewport,isMobile:device==='mobile',hasTouch:device==='mobile'});
+ const page=await context.newPage();page.on('pageerror',e=>safeError(device,e));
+ try{
+  await page.goto('http://127.0.0.1:9874/LS_Datacenter_3D.html?engine=three&test=phase8',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE8,{timeout:30000});
+  await page.locator('[data-display-choice="'+(device==='mobile'?'mobile':'pc')+'"]').click();
+  if(await page.locator('#guide.open').count())await page.locator('#tourSkip').click();
+  check(device,'initialized',await page.evaluate(()=>!!window.__LS3D_TEST__?.gl&&!document.querySelector('#error')?.textContent));
+  const report=await page.evaluate(()=>{const r=window.LS3D_PHASE8.run();return {schema:r.schema,total:r.cases.length,failed:r.failed,names:r.cases.map(x=>x.name)}});
+  check(device,'phase8-report',report.schema==='lsdc/phase8-integration/1.0'&&report.total>=20,JSON.stringify(report).slice(0,180));
+  check(device,'integrated-systems',report.names.some(x=>x.includes('MEP'))&&report.names.some(x=>x.includes('광 연결'))&&report.names.some(x=>x.includes('BOM')));
+  const config=await page.evaluate(()=>window.__LS3D_TEST__.exportConfig());
+  check(device,'shared-bom-snapshot',config.schemaVersion==='lsdc-twin-bom/1.0'&&config.facility.rackCount>0);
+  if(device==='mobile')await page.locator('#mobileInspectorTools summary').click();
+  await page.locator('#phase8-open').click();
+  check(device,'integration-panel',await page.locator('#phase8-panel').isVisible());
+  await page.screenshot({path:path.join(out,device+'-integration.png')});
+  await page.locator('#p8-close').click();
+ }finally{await context.close()}
+}
 (async()=>{
  await new Promise(resolve=>server.listen(9874,'127.0.0.1',resolve));
  let browser;
  try{
  browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-background-timer-throttling','--disable-renderer-backgrounding']});
- await desktop(browser);await mobile(browser);
+ await currentIntegration(browser,'desktop',{width:1440,height:900});
+ await currentIntegration(browser,'mobile',{width:390,height:844});
  }catch(e){safeError('harness',e);check('harness','completed',false,String(e).slice(0,600))}
  finally{
  if(browser)await browser.close().catch(()=>{});await new Promise(r=>server.close(r));

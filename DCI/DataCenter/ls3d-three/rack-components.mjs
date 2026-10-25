@@ -47,18 +47,20 @@ export function createRackComponentKit(THREE,{cube}){
   const part=g.userData.rackPart;
   g.traverse(o=>{if(o.isMesh){o.userData.assetId=assetId;o.userData.partId=part.id;}});
  }
- function networkRackPlaque(asset){
-  if(typeof document==='undefined'||!['Spine','Leaf'].includes(asset.type))return null;
+ function networkRackPlaque(asset,gpuVariant=false){
+  if(typeof document==='undefined'||(!gpuVariant&&!['Spine','Leaf'].includes(asset.type)))return null;
   const c=document.createElement('canvas');c.width=1024;c.height=256;
   const ctx=c.getContext('2d');if(!ctx)return null;
   const spine=asset.type==='Spine',which=/[- ]b$/i.test(asset.id)?'B':'A';
+  const title=gpuVariant?'GPU COMPUTE':asset.type.toUpperCase()+' '+which;
+  const subtitle=gpuVariant?'ACCELERATOR TRAYS / LIQUID COOLING':spine?'NETWORK FABRIC / AGGREGATION':'SERVER ACCESS / LEAF SWITCH';
   ctx.fillStyle='#102b3d';ctx.fillRect(0,0,1024,256);
-  ctx.fillStyle=spine?'#579bfa':'#62d3b9';ctx.fillRect(0,0,25,256);
+  ctx.fillStyle=gpuVariant?'#e5bd62':spine?'#579bfa':'#62d3b9';ctx.fillRect(0,0,25,256);
   ctx.strokeStyle='#b9d7e0';ctx.lineWidth=8;ctx.strokeRect(5,5,1014,246);
   ctx.fillStyle='#f5fbff';ctx.font='900 102px system-ui,sans-serif';
-  ctx.textAlign='center';ctx.fillText(asset.type.toUpperCase()+' '+which,535,112);
+  ctx.textAlign='center';ctx.fillText(title,535,112);
   ctx.fillStyle='#acd4e1';ctx.font='700 42px system-ui,sans-serif';
-  ctx.fillText(spine?'NETWORK FABRIC / AGGREGATION':'SERVER ACCESS / LEAF SWITCH',535,188);
+  ctx.fillText(subtitle,535,188);
   const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
   const make=(parent,name,x,y,z,width,height,yaw)=>{
    const m=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
@@ -70,6 +72,7 @@ export function createRackComponentKit(THREE,{cube}){
  }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
+  const gpuVariant=/^(?:gpu-0-[02]|gpu-1-[13]|gpu-dyn-(?:10|15))$/.test(id);
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
   const unit=(h-.46)/count,lower=.23;
   const pieces=[],map=new Map();
@@ -89,7 +92,7 @@ export function createRackComponentKit(THREE,{cube}){
   box(shell,'bottom-plate',0,.04,0,w,.14,d,'#65839b');
   box(shell,'right-side',w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
   box(shell,'left-side',-w*.48,.14,0,w*.038,h-.30,d*.78,'#3c5b75');
-  const networkLabel=networkRackPlaque(a);
+  const networkLabel=networkRackPlaque(a,gpuVariant);
   if(networkLabel){
    const right=networkLabel.make(shell,'right-wall',w*.508,h*.80,0,d*.57,h*.14,Math.PI/2);
    networkLabel.make(shell,'left-wall',-w*.508,h*.80,0,d*.57,h*.14,-Math.PI/2);
@@ -134,18 +137,37 @@ export function createRackComponentKit(THREE,{cube}){
   }
   const slide=new THREE.Group();slide.name='server-tray';root.add(slide);
   // Server sled groups are independent pick targets and move together with original slide state.
-  const maxServers=network?3:storage?7:isGpu?7:6;
+  const maxServers=network?3:storage?7:gpuVariant?4:isGpu?7:6;
   const modules=[],reserved=9;
   for(let i=0;i<maxServers;i++){
     const u=3+i*4;
     if(u+3>=count-reserved)break;
     const units=storage?3:4,y=lower+(u-1)*unit;
-    const kind=serverType,label=(network?'네트워크 모듈':storage?'스토리지 서버':'GPU/Compute 서버')+' '+(i+1);
+    const kind=serverType,label=(network?'네트워크 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
     const partGroup=group(slide,id,kind+'-'+(i+1),label,u,units);
-    box(partGroup,'sled'+i,0,y,-d*.15,w*.72,units*unit-.035,d*.57,
+    if(gpuVariant){
+     // Open service trays expose accelerator packages when the rack door opens.
+     box(partGroup,'gpu-tray-floor-'+i,0,y,-d*.15,w*.72,.075,d*.57,'#344a5a',.65,.35);
+     for(const side of [-1,1])
+      box(partGroup,'gpu-tray-rail-'+i+'-'+side,side*w*.34,y+.075,-d*.15,w*.035,units*unit-.12,d*.55,'#92a8b3',.56,.32);
+     for(let chip=0;chip<4;chip++){
+      const gx=-w*.255+chip*w*.17;
+      box(partGroup,'gpu-accelerator-'+i+'-'+chip,gx,y+.11,-d*.12,w*.135,.19,d*.29,'#263f50',.52,.34);
+      box(partGroup,'gpu-coldplate-'+i+'-'+chip,gx,y+.31,-d*.12,w*.115,.045,d*.25,'#a8c9d0',.61,.27);
+      box(partGroup,'gpu-power-link-'+i+'-'+chip,gx,y+.12,d*.055,w*.08,.035,.07,'#d5b467',.44,.28);
+     }
+     for(const side of [-1,1])
+      box(partGroup,'gpu-coolant-line-'+i+'-'+side,side*w*.31,y+.22,d*.12,.035,.045,d*.27,side<0?'#54b9cf':'#d49367',.46,.30);
+     partGroup.userData.rackPart.description='GPU 가속기 4개, 냉각판과 공급/회수 배관을 표시한 교육용 서버 트레이입니다. 실제 GPU 모델·수량·정격은 지정하지 않습니다.';
+    }else box(partGroup,'sled'+i,0,y,-d*.15,w*.72,units*unit-.035,d*.57,
       network?'#304e6d':storage?'#587a82':'#304659',.63,.33);
     box(partGroup,'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,
-      '#1d354e',.49,.37);
+      gpuVariant?'#3d4e56':'#1d354e',.49,.37);
+    if(gpuVariant){
+     for(let chip=0;chip<4;chip++)
+      box(partGroup,'gpu-front-badge-'+i+'-'+chip,-w*.255+chip*w*.17,y+units*unit*.46,-d*.524,w*.12,.085,.016,'#d2ad57',.46,.27);
+     box(partGroup,'gpu-inlet-indicator-'+i,w*.30,y+units*unit*.72,-d*.54,.045,.05,.017,'#60c6dc',.08,.20);
+    }
     for(let j=0;j<8;j++){
       box(partGroup,'server-port-'+i+'-'+j,-w*.26+j*w*.075,y+units*unit*.38,
         -d*.52,.057,.075,.027,j%2?'#68d8e9':'#63eaba',.2,.26);
@@ -220,7 +242,12 @@ export function createRackComponentKit(THREE,{cube}){
   const frontDoor=new THREE.Group();frontDoor.name='front-door-hinge';
   frontDoor.position.set(-w*.5,.06,-d*.56);root.add(frontDoor);
   const frontMesh=group(frontDoor,id,'front-door','전면 랙 도어',1,count);
-  box(frontMesh,'door-frame',w*.5,0,0,w*.95,h-.13,.075,'#516e86',.59,.44);
+  if(gpuVariant){
+   for(const side of [-1,1])
+    box(frontMesh,'gpu-door-stile-'+side,w*.5+side*w*.46,0,0,w*.035,h-.13,.075,'#607a8b',.59,.44);
+   box(frontMesh,'gpu-door-header',w*.5,h-.17,0,w*.95,.14,.075,'#607a8b',.59,.44);
+   box(frontMesh,'gpu-door-kickplate',w*.5,0,0,w*.95,.19,.075,'#607a8b',.59,.44);
+  }else box(frontMesh,'door-frame',w*.5,0,0,w*.95,h-.13,.075,'#516e86',.59,.44);
   // Perforations/visible strips hint mesh door. Do not equate to real airflow resistance.
   for(let i=0;i<15;i++)box(frontMesh,'perforation-'+i,w*.5,
     .30+i*(h-.75)/15,-.055,w*.75,.046,.034,'#182e43',.19,.68);

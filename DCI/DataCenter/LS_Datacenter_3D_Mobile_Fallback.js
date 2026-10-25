@@ -60,6 +60,16 @@ body.ls3d-2d-active #viewport .ux-fallback{display:none!important}
   #ls3dModeToggle{font-size:10px;padding:6px}
   .top-actions{overflow-x:auto}
 }
+/* Emulated phone layout on a wide desktop viewport must follow the same rules. */
+body.display-mobile #ls3dMobileInspectorToggle,body.display-mobile #ls3dScenarioSummaryToggle{display:block}
+body.display-mobile #ls3dMobileInspectorContent{display:none}
+body.display-mobile .right.ls3d-inspector-open #ls3dMobileInspectorContent{display:block}
+body.display-mobile #scenarioStepPanel.ls3d-scenario-collapsed .scenario-step-head,
+body.display-mobile #scenarioStepPanel.ls3d-scenario-collapsed .scenario-step-rail{display:none!important}
+body.display-mobile #viewport{height:clamp(340px,60dvh,630px)!important;min-height:0!important}
+body.display-mobile .phase58-panel:not([hidden]){inset:auto 6px max(7px,env(safe-area-inset-bottom)) 6px!important;width:auto!important;max-height:62dvh!important;min-height:0!important;z-index:98!important}
+body.display-mobile .detail-modal.show{z-index:97!important;align-items:flex-end!important;justify-content:center!important;padding:5px 5px max(5px,env(safe-area-inset-bottom))!important;background:#030e17a8!important;pointer-events:auto!important}
+body.display-mobile .detail-modal.show .detail-card{width:100%!important;max-height:65dvh!important;border-radius:14px!important}
 @media(max-width:420px){
   #ls3dPortable2D{padding:7px}
   #ls3dPortable2D .lite-header strong{font-size:12px}

@@ -489,11 +489,11 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           part(root,'mantrap-frame-'+xx,xx,.05,0,w*.07,h*.92,d*.82,'#8da9b3',.52,.34);
         part(root,'mantrap-outer-lintel',0,h*.83,-d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
         part(root,'mantrap-inner-lintel',0,h*.83,d*.35,w*.88,.15,.10,'#7ca7b3',.48,.35);
-        // Authentication-complete state: both glass leaves are visibly swung open on their outer hinges.
+        // Authentication-complete state: both glass leaves are fully swung 90° open on their outer hinges.
         // This leaves a clear centre passage instead of presenting a closed glass wall.
         const openDoors=[
-          {name:'left',hinge:-w*.40,offset:w*.16,angle:-1.05},
-          {name:'right',hinge:w*.40,offset:-w*.16,angle:1.05}
+          {name:'left',hinge:-w*.40,offset:w*.16,angle:-Math.PI/2},
+          {name:'right',hinge:w*.40,offset:-w*.16,angle:Math.PI/2}
         ];
         for(const door of openDoors){
           const leaf=new THREE.Group();leaf.name='equipment-mantrap-open-door:'+door.name;

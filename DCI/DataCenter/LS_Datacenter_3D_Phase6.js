@@ -12,11 +12,11 @@ el.innerHTML=[
 '<label><input type="checkbox" id="p6-rack" checked> 랙 서버/ToR 구획 · 케이블 경로</label>',
 '<label>배관 경로 Z 오프셋 (가상 m)<input id="p6-offset" type="range" min="-4" max="4" value="0" step=".5"><output id="p6-offset-out">0 m</output></label>',
 '<label>요구 이격 거리 (가정 m)<input id="p6-clearance" type="number" min=".1" max="2" step=".1" value=".5"></label>',
-'<div class="p58-actions"><button id="p6-check" type="button">충돌·간섭 검사</button><button id="p6-go" type="button">Data Hall 이동</button><button id="p6-csv" type="button">검사 CSV</button></div>',
+'<div class="p58-actions"><button id="p6-check" type="button">충돌·간섭 검사</button></div>',
 '<div id="p6-status" role="status">검사 전</div><div id="p6-results"></div>',
 '<small class="p58-foot">검사 범위: 축 평행 간격이 지정된 이격 미만인 배관/버스웨이와 rack footprint. 3D 기계 조립체, 유체압력, 굽힘 반경, 화재구획 및 내진 검토는 미포함.</small>'
 ].join('');document.body.appendChild(el);
-const btn=document.createElement('button');btn.id='phase6-open';btn.className='phase58-launch p6';btn.textContent='▥ 랙 / MEP 검사';btn.type='button';view.appendChild(btn);
+const btn=document.createElement('button');btn.id='phase6-open';btn.className='phase58-launch p6';btn.textContent='▥ 랙·전력/냉각 설비 검사';btn.type='button';view.appendChild(btn);
 let opened=false,last=[];
 function options(){return {pipe:$('p6-pipe').checked,power:$('p6-power').checked,rack:$('p6-rack').checked,offset:Number($('p6-offset').value),clearance:Number($('p6-clearance').value)}}
 function pipes(opt,mode=T.facilityMode){const h=T.Z.find(z=>z.id==='hall'),x=h.pos[0],z=h.pos[1],o=opt.offset;
@@ -92,13 +92,8 @@ function render(){let v;try{v=check()}catch(e){$('p6-status').textContent=e.mess
 }
 function toggle(v){opened=v;el.hidden=!v;btn.setAttribute('aria-expanded',String(v));if(v)render()}
 btn.onclick=()=>toggle(!opened);$('p6-close').onclick=()=>toggle(false);
-$('p6-go').onclick=()=>{T.setZone('hall',true);render()};
 $('p6-check').onclick=render;
 $('p6-offset').oninput=e=>{$('p6-offset-out').value=e.target.value+' m';render()};
 $('p6-clearance').onchange=render;for(const id of ['p6-pipe','p6-power','p6-rack'])$(id).onchange=render;
-$('p6-csv').onclick=()=>{
- const data=last.length?last:check().rows,s='\uFEFFroute,asset,name,spacing_m,required_m,collision\n'+data.map(x=>[x.route,x.asset,'"'+String(x.name).replace(/"/g,'""')+'"',x.spacingM,x.requiredM,x.collision].join(',')).join('\n');
- const url=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='LS_Datacenter_MEP_clearance_concept.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
-};
 window.LS3D_PHASE6={serverRoomDrawings:()=>pipes(options(),'server-room'),draw,open:()=>toggle(true),get options(){return options()},get checks(){return check()},get drawings(){return pipes(options())},get roomBounds(){return T.roomBounds?.()||null},get externalRoutes(){const b=T.roomBounds?.();return b?pipes(options()).filter(p=>![p.from,p.to].every(q=>q[0]>=b.minX&&q[0]<=b.maxX&&q[1]>=b.minY&&q[1]<=b.maxY&&q[2]>=b.minZ&&q[2]<=b.maxZ)):[]},clearance,run:render};
 })();

@@ -176,7 +176,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     batch(root,'busway-hangers',Array.from({length:5},(_,i)=>
       [-w*.4+i*w*.20,h*.45,-d*.28]),.15,h*.36,.13,'#6f879a');
   }
-  function nocOperationsPanel(root,name,mode,x,y,z,w,h,rotationY=Math.PI){
+  function nocOperationsPanel(root,name,mode,x,y,z,w,h,rotationY=0){
     if(typeof document==='undefined')return null;
     const canvas=document.createElement('canvas');canvas.width=700;canvas.height=400;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
@@ -432,24 +432,40 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'control-desk':{
-        const isNoc=/noc/.test(String(a.id||'').toLowerCase());
+        const deskId=String(a.id||'').toLowerCase(),isNoc=/noc/.test(deskId),isSecurity=/security/.test(deskId);
         if(isNoc){
-          // NOC control room: two resident operators at consoles, with large CCTV and BMS wall displays.
+          // NOC control room: large displays moved to the rear wall, keeping both on-duty operators visible.
           part(root,'noc-floor',0,.04,0,w*.96,.10,d*.94,'#263b48',.26,.52);
-          part(root,'noc-console-main',0,.22,-d*.10,w*.82,h*.18,d*.28,'#a98255',.27,.42);
-          part(root,'noc-console-front',0,.10,-d*.23,w*.84,h*.32,.09,'#314f62',.40,.34);
+          part(root,'noc-console-main',0,.20,-d*.18,w*.84,h*.16,d*.25,'#a98255',.27,.42);
+          part(root,'noc-console-front',0,.09,-d*.30,w*.86,h*.31,.09,'#314f62',.40,.34);
           for(const x of [-w*.20,w*.20]){
-            part(root,'noc-seat-'+x,x,.08,-d*.28,w*.15,h*.22,d*.15,'#17242c',.30,.38);
-            // Two on-duty operators, visible from the room entrance.
-            round(root,'noc-operator-head-'+x,x,h*.47,-d*.13,Math.min(w,d)*.030,.16,'#d9a884');
-            part(root,'noc-operator-body-'+x,x,h*.27,-d*.13,w*.10,h*.21,d*.09,'#405d7c',.24,.42);
-            part(root,'noc-operator-arm-'+x,x+(x<0?w*.075:-w*.075),h*.33,-d*.20,.030,h*.07,.12,'#d9a884',.12,.38);
-            part(root,'noc-console-monitor-'+x,x,h*.50,-d*.02,w*.16,h*.22,.035,'#142a38',.16,.24);
-            part(root,'noc-console-monitor-live-'+x,x,h*.54,-d*.045,w*.13,h*.14,.012,'#52b8d1',.05,.16);
+            part(root,'noc-seat-'+x,x,.08,-d*.20,w*.17,h*.26,d*.17,'#17242c',.30,.38);
+            // Taller, forward-set operators remain visible above the shared console.
+            round(root,'noc-operator-head-'+x,x,h*.53,-d*.31,Math.min(w,d)*.044,.19,'#d9a884');
+            part(root,'noc-operator-body-'+x,x,h*.30,-d*.31,w*.12,h*.26,d*.10,'#405d7c',.24,.42);
+            part(root,'noc-operator-arm-'+x,x+(x<0?w*.09:-w*.09),h*.39,-d*.37,.032,h*.08,.14,'#d9a884',.12,.38);
+            part(root,'noc-console-monitor-'+x,x,h*.47,-d*.10,w*.17,h*.20,.035,'#142a38',.16,.24);
+            part(root,'noc-console-monitor-live-'+x,x,h*.51,-d*.13,w*.14,h*.13,.012,'#52b8d1',.05,.16);
           }
-          nocOperationsPanel(root,'cctv-wall','cctv',-w*.24,h*.63,d*.40,w*.34,h*.35,Math.PI);
-          nocOperationsPanel(root,'bms-wall','bms',w*.16,h*.63,d*.40,w*.42,h*.35,Math.PI);
-          decal(root,'noc-room-sign','NOC · CCTV / BMS',0,h*.95,d*.375,w*.58,h*.085,'#102935','#a5fff0');
+          // CCTV and BMS panels are on the rear wall in readable orientation.
+          nocOperationsPanel(root,'cctv-wall','cctv',-w*.24,h*.65,d*.475,w*.34,h*.36,0);
+          nocOperationsPanel(root,'bms-wall','bms',w*.16,h*.65,d*.475,w*.42,h*.36,0);
+          decal(root,'noc-room-sign','NOC · CCTV / BMS',0,h*.95,d*.445,w*.58,h*.085,'#102935','#a5fff0');
+        }else if(isSecurity){
+          // Security operations: a staffed incident-intake desk, not an abstract row of monitors.
+          part(root,'security-floor',0,.04,0,w*.96,.10,d*.94,'#344a55',.26,.52);
+          part(root,'security-reception-table',0,.18,-d*.10,w*.78,h*.14,d*.29,'#90765a',.25,.44);
+          part(root,'security-reception-front',0,.08,-d*.25,w*.80,h*.30,.10,'#345d6d',.36,.33);
+          part(root,'security-operator-chair',0,.08,d*.03,w*.18,h*.26,d*.18,'#1c252a',.28,.40);
+          round(root,'security-operator-head',0,h*.51,d*.01,Math.min(w,d)*.047,.20,'#d8aa86');
+          part(root,'security-operator-uniform',0,h*.29,d*.01,w*.14,h*.27,d*.11,'#293f59',.25,.40);
+          part(root,'security-operator-arm',w*.09,h*.37,-d*.07,.035,h*.08,.14,'#d8aa86',.12,.36);
+          part(root,'security-incident-monitor',w*.16,h*.47,-d*.08,w*.20,h*.20,.04,'#162b37',.18,.23);
+          part(root,'security-incident-display',w*.16,h*.51,-d*.11,w*.16,h*.12,.012,'#e0b45b',.05,.18);
+          part(root,'security-desk-phone',-w*.18,h*.34,-d*.13,w*.11,.045,d*.09,'#20282d',.34,.30);
+          part(root,'security-incident-form',-w*.06,h*.35,-d*.16,w*.17,.020,d*.12,'#edf2ef',.05,.45);
+          statusPanel(root,'security-intake-wall','SECURITY DESK','INCIDENT INTAKE',0,h*.67,d*.46,w*.55,h*.24,0);
+          part(root,'security-event-lamp',-w*.27,h*.37,-d*.12,.045,.045,.045,'#f1b847',.05,.18);
         }else{
           part(root,'counter',0,.54,0,w*.86,.18,d*.72,'#7392a4');
           part(root,'desk-front',0,.06,-d*.28,w*.80,.66,.15,'#325c73');
@@ -562,7 +578,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
         // Parked counterbalance forklift: orange body, black mast/cab frame, driver seat, wheels and raised forks.
-        const forkX=w*.30,forkZ=d*.23;
+        const forkX=w*.30,forkZ=-d*.26;
         part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#d96e21',.45,.33);
         part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#e7822d',.40,.32);
         part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#ef862e',.34,.30);

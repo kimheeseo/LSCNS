@@ -58,6 +58,34 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
     mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
+  function statusPanel(root,name,title,value,x,y,z,w,h){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=640;canvas.height=300;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#071b26';ctx.fillRect(0,0,640,300);
+    ctx.strokeStyle='#62e8d9';ctx.lineWidth=12;ctx.strokeRect(8,8,624,284);
+    ctx.fillStyle='#b9f9f1';ctx.font='700 68px system-ui,sans-serif';ctx.textAlign='center';
+    ctx.fillText(title,320,100);ctx.fillStyle='#67f6c9';ctx.font='700 82px ui-monospace,monospace';
+    ctx.fillText(value,320,220);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-status:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+  }
+  function batteryBrandPanel(root,name,x,y,z,w,h){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=720;canvas.height=270;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#162d3b';ctx.fillRect(0,0,720,270);
+    ctx.strokeStyle='#f5d72d';ctx.lineWidth=11;ctx.strokeRect(7,7,706,256);
+    // Yellow electrical warning bolt.
+    ctx.fillStyle='#ffdf24';ctx.beginPath();ctx.moveTo(80,28);ctx.lineTo(25,145);ctx.lineTo(87,145);ctx.lineTo(50,240);ctx.lineTo(170,105);ctx.lineTo(105,105);ctx.closePath();ctx.fill();
+    ctx.fillStyle='#1677c8';ctx.beginPath();ctx.ellipse(395,88,78,35,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#ffffff';ctx.font='700 31px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('SAMSUNG',395,99);
+    ctx.fillStyle='#eaf7ff';ctx.font='700 52px system-ui,sans-serif';ctx.fillText('SAMSUNG SDI',420,190);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    mesh.name='equipment-brand:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+  }
   function batch(root,name,positions,w,h,d,color){
     if(!positions.length)return;
     const b=new THREE.InstancedMesh(boxGeometry,material(color,.68,.38),positions.length);
@@ -187,7 +215,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
         part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
-        decal(root,'battery-face-label','BATTERY BANK · DC',0,h*.94,front-.088,w*.63,h*.11,'#253843','#f0fbff');
+        // Brand/safety panel is attached to both cabinet faces, avoiding a blank rear view.
+        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.442,w*.68,h*.28);
         for(const x of [-w*.38,w*.38]){
           part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
           part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);
@@ -231,9 +260,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'fluid-pipe-'+x,x,h*.61,d*.49,.13,.29,'#d8b677');
         for(const side of [-1,1]){
           const face=side*d*.48;
-          part(root,'chiller-operator-hmi-'+side,w*.18,h*.48,face,w*.36,.32,.028,'#102f40',.14,.18);
-          part(root,'chiller-hmi-screen-'+side,w*.18,h*.54,face+side*.020,w*.27,.15,.012,'#64e4d7',.06,.16);
-          decal(root,'chiller-running-display-'+side,'CHW 7.2°C · RUN',w*.02,h*.78,face+side*.025,w*.72,h*.16,'#0b3141','#67f4cf');
+          // Panel is centred in the chassis face, not floating over the roof.
+          part(root,'chiller-operator-hmi-'+side,0,h*.38,face,w*.58,.40,.040,'#061a25',.16,.18);
+          statusPanel(root,'chiller-runtime-'+side,'CHILLER','CHW 7.2°C · RUN',0,h*.57,face+side*.026,w*.50,h*.23);
         }
         batch(root,'chiller-top-fans',[-w*.22,w*.22].map(x=>[x,h*.90,0]),w*.25,.05,d*.25,'#314c5a');
         break;

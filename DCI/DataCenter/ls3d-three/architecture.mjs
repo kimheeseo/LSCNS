@@ -180,9 +180,9 @@ export function createArchitectureKit(THREE, { cube }) {
         Math.max(.2,sideVisible-1.65),d*.52,'#81c0d6',.04,.2,true);
     }
     if(!section){
-      // Gray Zone and Network/MMR frontages are flipped toward their visitor approaches;
-      // only the building envelope moves, while equipment coordinates stay fixed.
-      const frontSide=(z.id==='gray'||z.id==='network')?-1:1, rearSide=-frontSide;
+      // Campus camera approaches Gray Zone and Network/MMR from +Z, so their
+      // entrance façades remain on that visible side while equipment faces rotate.
+      const frontSide=1, rearSide=-frontSide;
       part(local,'wall','rear-wall',0,.1,rearSide*d/2,w,selected?1.7:h,.26,facade,.28,.55);
       if(!openView)glassGrid(local,z.id+'-rear',w,d,2.3,h-2.5,false,rearSide);
       // A meaningful open doorway, not a solid front wall overlapping the entrance.
@@ -225,7 +225,7 @@ export function createArchitectureKit(THREE, { cube }) {
       // Partial ceiling can still be inspected under the open roof.
       part(local,'ceiling','overhead-grille',0,h-.3,-d*.42,w*.58,.09,d*.09,'#718f9d',.53,.35);
     }
-    const entrySide=(z.id==='gray'||z.id==='network')?-1:1;
+    const entrySide=1;
     part(local,'path','entry-ramp',0,-.055,entrySide*d*.55,4.4,.09,3.5,'#87a6b0',.24,.73);
     part(local,'detail','entry-threshold',0,.05,entrySide*d*.503,3.45,.06,.24,'#f0cb79',.55,.31);
   }

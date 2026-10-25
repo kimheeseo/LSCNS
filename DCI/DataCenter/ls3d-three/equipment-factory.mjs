@@ -355,7 +355,18 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         break;
       }
       case 'pdu': {
-        panel(root,kind,w,h,d,'#677e92');
+        // Distribution switchboard: independently serviceable outgoing feeders.
+        part(root,'pdu-plinth',0,.035,0,w*.99,.13,d*.92,'#344b59',.60,.38);
+        part(root,'pdu-cabinet',0,.11,0,w*.94,h*.87,d*.84,'#778e9d',.55,.38);
+        for(let bay=0;bay<4;bay++){
+          const x=-w*.34+bay*w*.225;
+          part(root,'pdu-feeder-door-'+bay,x,h*.12,front,w*.20,h*.67,.06,'#a7b7bd',.45,.38);
+          part(root,'pdu-feeder-breaker-'+bay,x,h*.61,front-.048,w*.12,h*.12,.025,'#1d3b50',.15,.31);
+          part(root,'pdu-feeder-handle-'+bay,x,h*.64,front-.068,w*.045,.085,.018,'#e3c269',.32,.29);
+          part(root,'pdu-feeder-status-'+bay,x,h*.48,front-.068,.035,.035,.020,bay%2?'#6ed5bb':'#8bc9dc',.08,.22);
+          part(root,'pdu-feeder-slot-'+bay,x,h*.29,front-.053,w*.12,.035,.018,'#406175',.28,.29);
+        }
+        statusPanel(root,'pdu-load-meter','PDU · FEEDER','A / B POWER',0,h*.85,front-.09,w*.46,h*.09,0);
         break;
       }
       case 'cdu': {
@@ -365,6 +376,11 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'cdu-case',0,.12,0,w*.92,h*.93,d*.90,'#4d8799',.62,.37);
         part(root,'cdu-door',0,h*.16,serviceFace,w*.80,h*.56,.06,'#1b374c',.41,.37);
         part(root,'cdu-display',0,h*.61,serviceFace+.057,w*.37,.24,.05,'#4bd6cb',.15,.25);
+        statusPanel(root,'cdu-controls','SUPPLY / RETURN','FLOW · NORMAL',0,h*.64,serviceFace+.090,w*.32,h*.095,0);
+        for(const x of [-w*.39,w*.39]){
+          part(root,'cdu-service-hinge-'+x,x,h*.22,serviceFace+.062,.045,h*.43,.055,'#b9d0d2',.61,.32);
+          part(root,'cdu-pipe-gland-'+x,x,h*.74,manifoldFace-.02,.13,.12,.13,'#d7a765',.60,.28);
+        }
         batch(root,'cdu-vents',Array.from({length:9},(_,i)=>
           [-w*.33+i*w*.083,h*.28,serviceFace+.068]),w*.055,.045,.04,'#a6cbd7');
         for(const x of [-w*.25,w*.25]){
@@ -540,6 +556,13 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           .86+Math.floor(i/12)*h*.23,front-.10]);
         batch(root,'network-ports',led,w*.034,.045,.025,'#70ecce');
         part(root,'cable-management-duct',w*.43,.25,front,w*.07,h*.67,.15,'#bac9d1',.5,.39);
+        for(let i=0;i<5;i++){
+          const y=.72+i*(h*.69/5);
+          part(root,'network-optics-slot-'+i,0,y+h*.045,front-.073,w*.60,.055,.02,'#132d3e',.24,.29);
+          part(root,'network-module-handle-'+i,w*.32,y,front-.095,.055,.14,.035,'#a6c8d1',.57,.29);
+        }
+        part(root,'network-vertical-patch-zone',-w*.41,.25,front-.05,w*.075,h*.66,.10,'#a8c3cd',.48,.41);
+        decal(root,'network-equipment-label',a.name.toUpperCase(),0,h*.87,front-.09,w*.60,h*.075,'#1c4057','#e9fbff');
         break;
       }
       case 'xray':{
@@ -825,7 +848,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       /transformer|switchgear|generator|ups|battery|pdu|ats/.test(kind)?'#879aa3':'#507589';
     // Tour cameras often show assets at medium LOD: retain the operational
     // identity of switching and cooling equipment instead of a plain cabinet.
-    if(['transformer','ats','switchgear','cooling-tower'].includes(kind))detailed(mid,dims,kind);
+    if(['transformer','ats','switchgear','cooling-tower','generator','chiller','ups','battery-bank','pdu','cdu','air-handler','busway','odf','network'].includes(kind))detailed(mid,dims,kind);
     else {
       part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
       part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');

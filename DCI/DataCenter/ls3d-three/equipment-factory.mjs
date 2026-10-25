@@ -229,13 +229,21 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       }
       case 'switchgear': {
         part(root,'metalclad-main',0,.08,0,w*.98,h*.92,d*.86,'#748a96',.65,.38);
+        part(root,'switchgear-plinth',0,.035,0,w*1.02,.13,d*.92,'#2d4656',.62,.36);
         const cubicles=5;
         for(let i=0;i<cubicles;i++){
           const x=-w*.39+i*w*.195;
           part(root,'switchgear-bay-'+i,x,h*.09,front,w*.18,h*.78,.065,'#9fb2bc',.59,.39);
-          part(root,'breaker-window-'+i,x,h*.53,front-.055,w*.12,.34,.025,'#1b3e57',.14,.27);
-          part(root,'breaker-lamp-'+i,x,h*.77,front-.073,.065,.095,.035,i%2?'#53d7aa':'#f3cd76',.1,.34);
+          part(root,'breaker-window-'+i,x,h*.43,front-.055,w*.12,.25,.025,'#102c40',.14,.27);
+          part(root,'breaker-handle-'+i,x,h*.49,front-.083,w*.036,.115,.018,i===0?'#e4b54b':'#e7ecee',.25,.30);
+          part(root,'breaker-lamp-'+i,x,h*.72,front-.073,.065,.075,.035,i%2?'#53d7aa':'#f3cd76',.1,.34);
+          part(root,'feeder-tag-'+i,x,h*.25,front-.078,w*.105,.055,.018,'#365166',.14,.30);
         }
+        // Main busbars, metering relay and five individual outgoing feeder bays.
+        for(const [name,y,color] of [['r',h*.83,'#d65d59'],['s',h*.78,'#e2c257'],['t',h*.73,'#4c9cba']])
+          part(root,'switchgear-main-bus-'+name,0,y,front-.078,w*.73,.032,.028,color,.45,.25);
+        statusPanel(root,'switchgear-meter','LV SWITCHGEAR','NORMAL',0,h*.87,front-.091,w*.30,h*.105,0);
+        decal(root,'switchgear-purpose','PROTECTION · DISTRIBUTION',0,h*.12,front-.087,w*.48,h*.070,'#244357','#e5fbfa');
         break;
       }
       case 'generator': {
@@ -291,7 +299,31 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'ups-foot-'+x+'-'+z,x,.02,z,.09,.14,'#242a2d');
         break;
       }
-      case 'ats':case 'pdu':case 'cdu': {
+      case 'ats': {
+        // ATS is intentionally unlike a distribution cubicle: two source sections,
+        // a centre transfer mechanism, and a visible AUTO-transfer controller.
+        part(root,'ats-plinth',0,.035,0,w*1.02,.13,d*.92,'#2c4553',.58,.38);
+        part(root,'ats-cabinet',0,.12,0,w*.96,h*.86,d*.84,'#65798a',.57,.37);
+        for(const [side,source,color] of [[-1,'UTILITY','#4f9fc0'],[1,'GENERATOR','#d39b54']]){
+          const x=side*w*.27;
+          part(root,'ats-source-section-'+source,x,h*.14,front,w*.25,h*.62,.070,'#203e52',.38,.30);
+          part(root,'ats-source-inlet-'+source,x,h*.67,front-.06,w*.17,.16,.026,color,.18,.28);
+          part(root,'ats-source-bus-'+source,x,h*.45,front-.083,w*.16,.035,.024,color,.35,.24);
+          decal(root,'ats-source-label-'+source,source,x,h*.30,front-.087,w*.17,h*.065,'#193442','#efffff');
+        }
+        part(root,'ats-transfer-section',0,h*.15,front,w*.22,h*.59,.077,'#9aaab0',.55,.35);
+        part(root,'ats-transfer-window',0,h*.49,front-.07,w*.13,.24,.026,'#122f42',.15,.25);
+        const handle=part(root,'ats-transfer-handle',0,h*.51,front-.096,w*.055,.18,.018,'#e5b94d',.30,.25);
+        handle.rotation.z=-.62;
+        part(root,'ats-link-utility',-w*.14,h*.54,front-.091,w*.15,.032,.020,'#4f9fc0',.35,.24);
+        part(root,'ats-link-generator',w*.14,h*.54,front-.091,w*.15,.032,.020,'#d39b54',.35,.24);
+        statusPanel(root,'ats-controller','AUTO TRANSFER','UTILITY ⇄ GEN',0,h*.80,front-.10,w*.38,h*.105,0);
+        part(root,'ats-normal-led',-w*.055,h*.69,front-.106,.040,.040,.016,'#53d7aa',.10,.20);
+        part(root,'ats-alert-led',w*.055,h*.69,front-.106,.040,.040,.016,'#f0c35e',.10,.20);
+        decal(root,'ats-purpose','AUTOMATIC TRANSFER SWITCH',0,h*.12,front-.10,w*.58,h*.070,'#294757','#efffff');
+        break;
+      }
+      case 'pdu':case 'cdu': {
         panel(root,kind,w,h,d,kind==='cdu'?'#4d8799':'#677e92');
         if(kind==='cdu'){
           for(const x of [-w*.25,w*.25]){
@@ -361,8 +393,15 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'cooling-tower':{
         part(root,'concrete-basin',0,.08,0,w*.98,h*.17,d*.98,'#365e73',.37,.55);
         part(root,'tower-filled-media',0,h*.17,0,w*.90,h*.53,d*.86,'#83bac9',.28,.59);
-        batch(root,'louver-blades',Array.from({length:14},(_,i)=>[
-          -w*.39+i*w*.06,h*.28,front]),w*.036,h*.38,.13,'#d5e8e7');
+        // Mirror the air-intake louvres on front and rear, so the tower
+        // remains recognisable from either side of the visitor route.
+        for(const side of [-1,1]){
+          const face=side*d*.48;
+          batch(root,'louver-blades-'+side,Array.from({length:14},(_,i)=>[
+            -w*.39+i*w*.06,h*.28,face]),w*.036,h*.38,.13,'#d5e8e7');
+          batch(root,'tower-drift-eliminators-'+side,Array.from({length:8},(_,i)=>[
+            -w*.31+i*w*.09,h*.66,face+side*.06]),w*.06,.15,.025,'#d6e8eb');
+        }
         round(root,'fan-housing',0,h*.72,0,Math.min(w,d)*.34,.30,'#427185');
         const vanes=[];
         for(let i=0;i<8;i++){
@@ -373,8 +412,6 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'fan-protective-grille',0,h*.95,0,w*.75,.07,d*.75,'#2c5367',.49,.53);
         part(root,'tower-hot-water-inlet',w*.39,h*.52,d*.20,.14,.22,.14,'#cc9d53');
         part(root,'tower-cold-water-outlet',-w*.39,.23,-d*.20,.14,.22,.14,'#5bb9d5');
-        batch(root,'tower-drift-eliminators',Array.from({length:8},(_,i)=>[
-          -w*.31+i*w*.09,h*.66,front-.06]),w*.06,.15,.025,'#d6e8eb');
         break;
       }
       case 'chiller':{
@@ -688,8 +725,13 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const mid=new THREE.Group();mid.name='equipment-medium:'+kind;
     const shellColor=kind.includes('cool')||kind==='cdu'||kind==='chiller'?'#679eaf':
       /transformer|switchgear|generator|ups|battery|pdu|ats/.test(kind)?'#879aa3':'#507589';
-    part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
-    part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');
+    // Tour cameras often show assets at medium LOD: retain the operational
+    // identity of switching and cooling equipment instead of a plain cabinet.
+    if(['ats','switchgear','cooling-tower'].includes(kind))detailed(mid,dims,kind);
+    else {
+      part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
+      part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');
+    }
     const low=new THREE.Group();low.name='equipment-low:'+kind;
     part(low,'low-silhouette',0,.04,0,w*.89,h*.87,d*.85,shellColor,.22,.78);
     lod.addLevel(high,0);

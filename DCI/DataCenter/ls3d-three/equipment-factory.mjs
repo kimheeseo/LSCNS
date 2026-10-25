@@ -103,22 +103,19 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
     mesh.name='equipment-status:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
   }
-  function batteryBrandPanel(root,name,x,y,z,w,h){
+  function batteryBrandPanel(root,name,x,y,z,w,h,rotationY=0){
     if(typeof document==='undefined')return null;
-    // Reference-style Samsung SDI cabinet decal: clean white field with the official-looking
-    // blue wordmark treatment, kept separate from the yellow electrical warning markings.
+    // Half-size centred Samsung SDI logo plate: smaller overall mark, but legible wordmark.
     const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=300;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
     ctx.fillStyle='#ffffff';ctx.fillRect(0,0,1200,300);
     ctx.strokeStyle='#d6dde3';ctx.lineWidth=8;ctx.strokeRect(4,4,1192,292);
-    // Keep the Samsung SDI mark subordinate to the electrical cabinet rather than filling the whole face.
-    // 50%-scale wordmark requested: label remains identifiable without dominating the cabinet face.
-    ctx.fillStyle='#1d32a5';ctx.font='800 51px Arial,Helvetica,sans-serif';
+    ctx.fillStyle='#1d32a5';ctx.font='800 102px Arial,Helvetica,sans-serif';
     ctx.letterSpacing='1px';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText('SAMSUNG SDI',600,158);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
-    mesh.name='equipment-brand:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+    mesh.name='equipment-brand:'+name;mesh.position.set(x,y,z);mesh.rotation.y=rotationY;root.add(mesh);return mesh;
   }
   function shippingBrandPanel(root,name,brand,x,y,z,w,h){
     if(typeof document==='undefined')return null;
@@ -311,8 +308,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
         part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
-        // Brand/safety panel is attached to both cabinet faces, avoiding a blank rear view.
-        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.442,w*.82,h*.23);
+        // Correct 50%-scale mark centred on both faces; orient each panel toward its viewing side.
+        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.451,w*.41,h*.115,side<0?Math.PI:0);
         for(const x of [-w*.38,w*.38]){
           part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
           part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);

@@ -776,7 +776,7 @@ const controls=document.createElement('div');controls.id='visitorControls';contr
 const baseAssetDraw=drawAsset;
 function visitorSelected(a){if(a===selected){ring(a.x,.16,a.z,Math.max(a.w,a.d)*.8,'#45f2e4');ring(a.x,.16,a.z,Math.max(a.w,a.d)*.87,'#97ffea');}}
 function lsMark(x,y,z,scale=1,rot=0){box(x-.26*scale,y,z,.15*scale,.62*scale,.06*scale,'#fff',rot);box(x+.02*scale,y-.22*scale,z,.48*scale,.14*scale,.06*scale,'#fff',rot);box(x+.39*scale,y+.17*scale,z,.32*scale,.14*scale,.06*scale,'#fff',rot-.42);box(x+.42*scale,y-.18*scale,z,.36*scale,.14*scale,.06*scale,'#fff',rot+.42);}
-function drawVisitorParking(a){const x=a.x,z=a.z;box(x,.03,z,a.w+.3,.08,a.d+.3,'#3b5765');for(const dx of [-a.w*.28,0,a.w*.28]){box(x+dx,.10,z,.045,.018,a.d*.64,'#e6edf0');box(x+dx,.11,z-a.d*.27,a.w*.20,.02,.05,'#f0d96c');}for(const [i,dx] of [-a.w*.30,0,a.w*.30].entries()){const col=['#557f99','#d8e0e2','#6f8994'][i];box(x+dx,.13,z-a.d*.12,a.w*.17,.36,a.d*.32,col);box(x+dx,.49,z-a.d*.12,a.w*.12,.18,a.d*.19,'#c8dde4');for(const sx of [-.28,.28])for(const sz of [-.32,.32])cylinder(x+dx+sx,.08,z-a.d*.12+sz,.13,.10,'#15232c');}box(x+a.w*.36,.12,z+a.d*.19,a.w*.16,1.55,a.d*.18,'#355867');box(x+a.w*.36,1.34,z+a.d*.29,a.w*.12,.38,.02,'#61e0d2');box(x-a.w*.40,.08,z+a.d*.30,.10,1.05,.10,'#d9e1df');box(x-a.w*.22,1.08,z+a.d*.30,a.w*.34,.055,.055,'#f4d56d');visitorSelected(a);}
+function drawVisitorParking(a){const x=a.x,z=a.z;box(x,.03,z,a.w+.3,.08,a.d+.3,'#3b5765');for(const dx of [-a.w*.22,a.w*.22]){box(x+dx,.10,z,.045,.018,a.d*.64,'#e6edf0');box(x+dx,.11,z-a.d*.27,a.w*.20,.02,.05,'#f0d96c');}for(const [i,dx] of [-a.w*.22,a.w*.22].entries()){const col=['#557f99','#d8e0e2','#6f8994'][i];box(x+dx,.13,z-a.d*.12,a.w*.17,.36,a.d*.32,col);box(x+dx,.49,z-a.d*.12,a.w*.12,.18,a.d*.19,'#c8dde4');for(const sx of [-.28,.28])for(const sz of [-.32,.32])cylinder(x+dx+sx,.08,z-a.d*.12+sz,.13,.10,'#15232c');}box(x+a.w*.36,.12,z+a.d*.19,a.w*.16,1.55,a.d*.18,'#355867');box(x+a.w*.36,1.34,z+a.d*.29,a.w*.12,.38,.02,'#61e0d2');box(x-a.w*.40,.08,z+a.d*.30,.10,1.05,.10,'#d9e1df');box(x-a.w*.22,1.08,z+a.d*.30,a.w*.34,.055,.055,'#f4d56d');visitorSelected(a);}
 function drawVisitorSecurityDesk(a){const x=a.x,z=a.z;box(x,.07,z,a.w+.5,.14,a.d+.35,'#34586d');box(x,.18,z+.34,a.w,.9,.25,'#24445b');box(x,.98,z+.34,a.w+.15,.12,.30,'#cfd8d8');box(x-.9,1.13,z+.5,1.15,.48,.09,'#11566b');box(x-.9,1.13,z+.55,.98,.31,.03,'#163044');box(x+.75,1.16,z+.5,.17,.15,.04,'#5ce6c1');box(x-.05,1.7,z+.39,3.1,.44,.12,'#0b5671');box(x-.05,1.7,z+.46,2.7,.13,.04,'#56e0d0');box(x-1.17,.1,z-.22,.75,1.25,.7,'#2a4a60');box(x+.95,.1,z-.18,.62,1.02,.58,'#315166');visitorSelected(a);}
 function drawStandingIdentityCamera(a){const x=a.x,z=a.z;box(x,.05,z,1.50,.10,1.30,'#283e4b');box(x,.12,z,.42,2.45,.42,'#657d89');box(x,2.38,z,.92,.58,.24,'#172c39');box(x,2.40,z+.14,.68,.37,.035,'#64d9d4');cylinder(x,2.83,z+.16,.15,.09,'#192b37',16);cylinder(x,2.83,z+.21,.21,.025,'#63e4da',16);box(x,1.22,z+.25,.36,.17,.12,'#d5e1e2');box(x,1.24,z+.33,.24,.055,.02,'#416e83');box(x-.47,.82,z+.18,.16,.32,.16,'#1d3949');box(x-.47,1.02,z+.28,.10,.08,.025,'#55e1a2');box(x+.58,.40,z,.48,.64,.52,'#314c5c');for(let row=0;row<3;row++)box(x+.58,.45+row*.18,z+.29,.33,.04,.02,'#7596a3');visitorSelected(a);}
 function drawLSVisitorCenter(a){const x=a.x,z=a.z;box(x,.12,z,a.w,2.8,a.d,'#8ea7af');box(x,2.95,z,a.w+.2,.22,a.d+.1,'#506f80');box(x,1.85,z+a.d/2+.06,4.0,1.05,.10,'#d62d3f');lsMark(x-.7,1.85,z+a.d/2+.13,1.15);box(x+1.2,1.85,z+a.d/2+.13,1.05,.13,.04,'#fff');box(x+1.2,1.62,z+a.d/2+.13,.75,.10,.04,'#fff');box(x+1.2,2.08,z+a.d/2+.13,.78,.10,.04,'#fff');visitorSelected(a);}
@@ -823,10 +823,12 @@ function position(target=task){closeDetail();pressedKeys.clear();const row=steps
 // Briefing room has an open front on negative Z. Keep the guide at the entrance so the classroom screen stays in frame.
 if(index===2){x=a.x;z=a.z-a.d/2-.6;walkPitch=.11;}
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
-walkPos=[x,1.7,z];
- // Stage 1 opens with a frontal third-person view of the visitor at the security desk.
- cameraDesired.yaw=index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z);
- cameraDesired.distance=20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
+const parkingView=index===0&&a.id==='visitor-parking';
+ if(parkingView){x=a.x;z=a.z+a.d/2+10;walkPitch=.16;}
+ walkPos=[x,1.7,z];
+ // Stage 1 parking view faces the parked vehicles rather than looking away from them.
+ cameraDesired.yaw=parkingView?Math.PI:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
+ cameraDesired.distance=parkingView?30:20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
 function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
 function render(){const s=steps[index],rows=s[2];el('visitorProgress').innerHTML=steps.map((step,i)=>'<button type="button" data-visit-stage="'+i+'" class="'+(i===index?'current':i<index?'complete':'')+'">'+(i<index?'✓ ':i+1)+'. '+step[0]+'</button>').join('');el('visitorProgress').querySelectorAll('[data-visit-stage]').forEach(b=>b.onclick=()=>selectStage(Number(b.dataset.visitStage)));el('visitorTitle').textContent='단계 '+(index+1)+' · '+s[0];el('visitorIntro').textContent=s[1];el('visitorTaskTitle').textContent='이 단계의 업무 체크리스트 · '+rows.length+'개 · 항목을 눌러 이동';el('visitorTaskCopy').innerHTML='<ul class="visitor-checklist">'+rows.map((row,i)=>'<li><button type="button" data-visit-task="'+i+'" class="'+(focusedTask===i?'focused':'')+'"><i>'+(i<task||done?'✓':'□')+'</i><div><b>'+row[1]+'</b><small>'+row[2]+'</small></div></button></li>').join('')+'</ul>';el('visitorTaskCopy').querySelectorAll('[data-visit-task]').forEach(b=>b.onclick=()=>focusChecklistTask(Number(b.dataset.visitTask)));el('visitorAction').hidden=true;el('visitorPrevious').disabled=index===0;el('visitorInspect').hidden=true;renderAutoStatus();}
@@ -915,7 +917,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-loading-carton-trolley"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261025-parking-wide-two-cars"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

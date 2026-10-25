@@ -105,7 +105,37 @@ function optics(){
  return m
 }
 c.calculate=calc;
-function layout(){const desired=Math.max(1,Math.min(40,Math.round(Number(c.rackCount)||20))),rows=Math.ceil(desired/5),rackType='GPU server rack';for(let i=0;i<desired;i++){let rack=T.assets.find(a=>a.id==='gpu-'+Math.floor(i/5)+'-'+(i%5));if(!rack){const id='gpu-dyn-'+i;rack=T.assetMap.get(id)||T.addAsset('hall',id,'GPU ROW · R'+(i+1),rackType,0,0,3.2,3.2,6,Number(c.rackPowerKw).toFixed(1)+' kW 가정','설정 패널의 랙 수·랙당 전력을 반영한 대표 3D 배치입니다.')}rack.hidden=false;const hall=T.Z.find(z=>z.id==='hall'),pitchZ=Math.min(7.2,(hall.size[1]-7)/Math.max(1,rows-1)),spanZ=(rows-1)*pitchZ;rack.x=hall.pos[0]-16+(i%5)*7.2;rack.z=hall.pos[1]-spanZ/2+Math.floor(i/5)*pitchZ;rack.w=3.2;rack.d=3.2;rack.h=6;rack.power=Number(c.rackPowerKw).toFixed(1)+' kW 가정';rack.desc='설정값 반영 · '+Number(c.rackPowerKw).toFixed(1)+' kW/랙 · '+c.gpuRatio+'% GPU 서버 비율 (교육·설계 검토용 가정값).'}T.assets.filter(a=>a.type===rackType).forEach(a=>{const i=T.assets.filter(x=>x.type===rackType).indexOf(a);if(i>=desired)a.hidden=true});const note=$('warn');if(note&&c.rackCount>40)note.textContent='3D 랙은 성능을 위해 40개까지만 대표 표시하며, 전력 계산에는 입력한 '+c.rackCount+'개 랙 전체를 반영합니다. 교육·설계 검토용 가정값.';if(T.selected&&T.selected.hidden)T.pickAsset(T.visibleAssets().find(a=>!a.hidden)||T.selected,false)}
+function layout(){
+ const total=Math.max(1,Math.min(40,Math.round(Number(c.rackCount)||20)));
+ const fixedIds=['storage','storage-02','storage-03','storage-04','storage-05','tor-a','tor-b','compute-c'];
+ const gpuCount=Math.max(0,total-fixedIds.length),cols=5,rows=Math.ceil(gpuCount/cols);
+ const hall=T.Z.find(z=>z.id==='hall'),pitchX=4.25,pitchZ=Math.min(7,32/Math.max(1,rows));
+ const left=hall.pos[0]-16,front=hall.pos[1]-13;
+ // Regular GPU rows followed by a dedicated storage row; a separate right-hand strip houses ToR/compute.
+ for(let i=0;i<gpuCount;i++){
+  const row=Math.floor(i/cols),col=i%cols,id=row<2?'gpu-'+row+'-'+col:'gpu-dyn-'+i;
+  let rack=T.assetMap.get(id);
+  if(!rack)rack=T.addAsset('hall',id,'GPU Rack '+String.fromCharCode(65+row)+'-'+String(col+1).padStart(2,'0'),'GPU server rack',0,0,2.7,3,6,Number(c.rackPowerKw).toFixed(1)+' kW/랙 평균 가정','GPU 서버 · NIC · 이중 Rack PDU를 포함한 대표 랙입니다.');
+  rack.hidden=false;rack.type='GPU server rack';rack.name='GPU Rack '+String.fromCharCode(65+row)+'-'+String(col+1).padStart(2,'0');
+  rack.x=left+col*pitchX;rack.z=front+row*pitchZ;rack.w=2.7;rack.d=3;rack.h=6;
+  rack.power=Number(c.rackPowerKw).toFixed(1)+' kW/랙 평균 가정';
+  rack.desc='GPU 가속 서버와 NIC, 상단 ToR 연결 및 이중 Rack PDU를 포함합니다. 전력 계산은 입력된 랙당 평균 전력 가정을 사용합니다.';
+  T.ensureAssetMarker?.(rack);
+ }
+ T.assets.filter(a=>/^gpu-(?:\d+-\d+|dyn-\d+)$/.test(a.id)).forEach(a=>{
+  const match=a.id.match(/^gpu-(\d+)-(\d+)$/),index=match?Number(match[1])*cols+Number(match[2]):Number(a.id.slice(8));
+  a.hidden=index>=gpuCount;
+ });
+ const storageZ=front+rows*pitchZ;
+ fixedIds.forEach((id,index)=>{
+  const asset=T.assetMap.get(id);if(!asset)return;
+  asset.hidden=index>=Math.min(total,fixedIds.length);
+  if(id.startsWith('storage')){const column=fixedIds.indexOf(id);asset.x=left+column*pitchX;asset.z=storageZ;asset.w=2.7;asset.d=3;asset.name='Storage Rack A-'+String(column+1).padStart(2,'0');}
+  T.ensureAssetMarker?.(asset);
+ });
+ const note=$('warn');if(note&&c.rackCount>40)note.textContent='3D 랙은 성능을 위해 40개까지만 대표 표시하며, 전력 계산에는 입력한 '+c.rackCount+'개 랙 전체를 반영합니다. 교육·설계 검토용 가정값.';
+ if(T.selected&&T.selected.hidden)T.pickAsset(T.visibleAssets().find(a=>!a.hidden)||T.selected,false);
+}
 function buildPayload(){return {schemaVersion:'lsdc-twin-bom/1.0',layoutData:LAYOUT_DATA,createdAt:new Date().toISOString(),source:'LS Datacenter 3D Twin v4.7.0',units:{power:'kW',length:'m',temperature:'degC',flow:'L/min',loss:'dB',time:'min'},assumptionNotice:'교육·설계 검토용 가정값 · 공식 제품 사양 아님',facility:{profile:T.facilityMode,name:{aidc:'AI 데이터센터', 'server-room':'회사 서버실',onprem:'On-Premise'}[T.facilityMode]||T.facilityMode,rackCount:c.rackCount,rackPowerKw:c.rackPowerKw,gpuServerRatio:c.gpuRatio/100,redundancy:c.redundancy,cooling:{mode:c.cooling,airPct:c.air,rearDoorPct:c.rear,dlcPct:c.dlc,capacityKw:c.coolingKw},pueRange:{min:c.pueMin,max:c.pueMax},targetPue:c.targetPue,outdoorC:c.outdoorC,generatorKw:c.generatorKw,upsKw:c.upsKw,batteryMinutes:c.batteryMin,upsEfficiencyPct:c.upsEfficiencyPct,distributionLossPct:c.distributionLossPct,coolingCop:c.coolingCop},optical:{cpoMode:c.mode,assumptions:{pluggablePortW:c.plugW,cpoPortW:c.cpoW,pluggableSwitchKw:c.plugKw,cpoSwitchKw:c.cpoKw,portCount:c.portCount,portSpeed:c.linkSpeed,radix:c.radix},topology:{type:c.topology,radix:c.radix,portSpeed:c.linkSpeed,nodes:nodes.map(n=>({id:n.id,name:n.name,layer:n.id==='server'?'Rack':n.id.startsWith('tor')?'Leaf':n.id.startsWith('sp')?'Spine':n.id==='core'?'Core':n.id==='odf'?'MMR':'External',assetId:n.asset})),links:links.map(l=>({id:l.id,from:l.from,to:l.to,type:l.type,fiber:l.media,media:l.media,cores:l.cores,connectorType:l.connector,speed:l.speed,lengthM:l.length,connectors:l.conn,splices:l.splice,budgetDb:l.budget,route:l.route,down:!!l.down}))}}}}
 T.exportConfig=buildPayload; // Read-only snapshot API consumed by Phase 7 reconciliation.
 function saveJson(){const blob=new Blob([JSON.stringify(buildPayload(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='LS_Datacenter_3D_Config.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);if(window.toast)toast('공유 스키마 v1.0 JSON 저장 완료')}

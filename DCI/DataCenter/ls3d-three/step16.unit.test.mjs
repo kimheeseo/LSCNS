@@ -25,10 +25,10 @@ function cube(parent,x,y,z,w,h,d,color){
   mesh.scale={x:w,y:h,z:d};parent.add(mesh);return mesh;
 }
 const zone={id:'hall',pos:[18,7],size:[50,42]};
-// Mirror the actual 2026-10-26 expanded Client Rack zone footprint.
-const cage={id:'colo',zone:'hall',x:34.5,z:20.5,w:13.8,d:10,h:4};
-const racks=[30,34.5,39].map((x,i)=>({
-  id:'colo-rack-'+['a','b','c'][i],zone:'hall',x,z:20.5,w:2.2,d:2.6,h:6
+// Mirror the 2x-area Client Rack zone and its wider tenant aisles.
+const cage={id:'colo',zone:'hall',x:32.7,z:17.8,w:18.4,d:15,h:4};
+const racks=[26.3,32.7,39.1].map((x,i)=>({
+  id:'colo-rack-'+['a','b','c'][i],zone:'hall',x,z:17.8,w:2.2,d:2.6,h:6
 }));
 const assets=[cage,...racks];
 function kit(){return createColocationCages(THREE,{cube});}
@@ -52,14 +52,14 @@ test('rack coordinates determine safe independent A/B/C fence boundaries and 3 m
 test('expanded client area has independent spacious A/B/C rack bays and service aisles',()=>{
   const sim=kit(),state=sim.build(assets,'aidc',{});
   assert.equal(state.ready,true);assert.equal(state.layoutIssue,null);
-  assert.equal(cage.w*cage.d,138);
-  assert.deepEqual(state.boundaries.map(x=>Number(x.toFixed(2))),[-6.9,-2.25,2.25,6.9]);
-  assert.ok(state.boundaries.slice(1).every((x,i)=>x-state.boundaries[i]>=4.5));
+  assert.equal(cage.w*cage.d,276);
+  assert.deepEqual(state.boundaries.map(x=>Number(x.toFixed(2))),[-9.2,-3.2,3.2,9.2]);
+  assert.ok(state.boundaries.slice(1).every((x,i)=>x-state.boundaries[i]>=6-1e-8));
   for(let i=1;i<racks.length;i++)
-    assert.ok(racks[i].x-racks[i].w/2-(racks[i-1].x+racks[i-1].w/2)>=2.3-1e-8);
+    assert.ok(racks[i].x-racks[i].w/2-(racks[i-1].x+racks[i-1].w/2)>=4.2-1e-8);
   const front=cage.z+cage.d/2-Math.max(...racks.map(x=>x.z+x.d/2));
   const rear=Math.min(...racks.map(x=>x.z-x.d/2))-(cage.z-cage.d/2);
-  assert.ok(front>=3.7-1e-8);assert.ok(rear>=3.7-1e-8);
+  assert.ok(front>=6.2-1e-8);assert.ok(rear>=6.2-1e-8);
   assert.ok(cage.x+cage.w/2<=zone.pos[0]+zone.size[0]/2);
   assert.ok(cage.z+cage.d/2<=zone.pos[1]+zone.size[1]/2);
   assert.equal(state.stats.doors,3);

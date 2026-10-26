@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261026-gpu-rack-visuals';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-forklift-parked-v1';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-odf-patch-frame-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -97,7 +97,7 @@ export function createSceneAdapter(T, canvas) {
     const available=T.visibleZones();
     const sig=[mode,current,!!flags.showRoof,!!flags.showSection,
       ...available.map(z=>[z.id,z.pos.join(','),z.size.join(',')].join(':'))].join('|');
-    zoneRoot.visible=!flags.inspect;
+    zoneRoot.visible=!flags.inspect&&!flags.coloTour;
     if(sig!==zoneSignature) {
       zoneSignature=sig;
       cameraOcclusion.restore();
@@ -527,7 +527,9 @@ export function createSceneAdapter(T, canvas) {
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
     if(selectedRackPart&&selectedRackPart.assetId!==T.selected?.id)showRackPart(null);
-    const visible = T.visibleAssets().filter(a => (T.currentZone === 'campus' || a.zone === T.currentZone) && (!showDetail || a.id === T.selected?.id));
+    const visible = T.visibleAssets().filter(a => (T.currentZone === 'campus' || a.zone === T.currentZone) &&
+      (!showDetail || a.id === T.selected?.id) &&
+      (!flags.coloTour || a.id==='colo' || /^colo-rack-[abc]$/.test(a.id)));
     const present = new Set();
     for (const a of visible) {
       present.add(a.id);

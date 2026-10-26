@@ -542,6 +542,15 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           part(root,'odf-cable-duct-'+sx,sx*w*.38,.20,face,w*.07,h*.69,.13,'#415766',.42,.45);
         }
         part(root,'odf-top-header',0,h*.84,front+.02,w*.88,h*.075,d*.22,'#798e9c',.62,.36);
+        // Inbound fiber fans out above the patch field; the two blue columns
+        // separate provider trunks from customer-side cross-connects.
+        part(root,'odf-incoming-trunk',-w*.30,h*.785,face-.13,w*.035,h*.13,.035,'#f5d243',.12,.38);
+        part(root,'odf-trunk-fanout',0,h*.79,face-.13,w*.62,.045,.04,'#f5d243',.12,.38);
+        for(const sx of [-1,1]){
+          part(root,'odf-blue-fiber-module-'+sx,sx*w*.17,h*.77,face-.065,w*.27,h*.075,.055,'#28759b',.35,.43);
+          part(root,'odf-module-adapter-'+sx,sx*w*.17,h*.77,face-.11,w*.19,h*.028,.035,'#82d8c9',.18,.45);
+        }
+        part(root,'odf-center-divider',0,h*.15,face-.025,w*.018,h*.63,.075,'#d2dde0',.48,.36);
         const connectors=[],cordColor=material('#f3d02c',.12,.46);
         for(let row=0;row<6;row++){
           const y=h*.18+row*h*.108;
@@ -567,8 +576,30 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           loop.name='equipment-part:odf-slack-loop-'+sx+'-'+i;
           loop.position.set(sx*w*.375,h*(.19+i*.15),face-.16);root.add(loop);
         }
+        // Visible lower splice trays and a pair of cross-connected jumpers
+        // distinguish an optical distribution frame from a generic server rack.
+        for(const sx of [-1,1]){
+          part(root,'odf-splice-tray-'+sx,sx*w*.18,h*.105,face-.035,w*.26,h*.055,.10,'#d9e1df',.41,.38);
+          batch(root,'odf-splice-adapters-'+sx,Array.from({length:8},(_,i)=>[
+            sx*w*.18+(i-3.5)*w*.025,h*.137,face-.105]),w*.018,h*.019,.03,'#49c39a');
+        }
+        for(const [i,start,end] of [[0,-.18,.18],[1,.18,-.18]]){
+          const curve=new THREE.CatmullRomCurve3([
+            new THREE.Vector3(start*w,h*.63,face-.10),
+            new THREE.Vector3(start*w,h*.56,face-.30),
+            new THREE.Vector3(end*w,h*.45,face-.31),
+            new THREE.Vector3(end*w,h*.39,face-.12)]);
+          const cord=new THREE.Mesh(new THREE.TubeGeometry(curve,16,Math.max(.009,w*.003),5,false),cordColor);
+          cord.name='equipment-part:odf-cross-connect-jumper-'+i;root.add(cord);
+        }
         part(root,'odf-incoming-yellow-trunk',w*.39,.17,face-.10,w*.035,h*.60,.035,'#edce33',.25,.42);
-        decal(root,'odf-name','ODF · FIBER PATCH FRAME',0,h*.94,face-.09,w*.72,h*.075,'#163a4e','#e7fffc');
+        // A canvas plane faces +Z by default; turn front labels toward -Z.
+        const title=decal(root,'odf-name','ODF · OPTICAL DISTRIBUTION FRAME',0,h*.94,face-.11,w*.83,h*.09,'#163a4e','#e7fffc');
+        if(title)title.rotation.y=Math.PI;
+        const input=decal(root,'odf-input-label','CARRIER IN',-w*.20,h*.83,face-.13,w*.30,h*.065,'#173c56','#d6f5ff');
+        const output=decal(root,'odf-output-label','CROSS CONNECT',w*.20,h*.83,face-.13,w*.34,h*.065,'#173c56','#d6f5ff');
+        if(input)input.rotation.y=Math.PI;
+        if(output)output.rotation.y=Math.PI;
         break;
       }
       case 'network':{

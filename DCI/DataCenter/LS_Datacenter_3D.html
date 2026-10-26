@@ -887,7 +887,7 @@ function drawStandingIdentityCamera(a){const x=a.x,z=a.z;box(x,.05,z,1.50,.10,1.
 function drawLSVisitorCenter(a){const x=a.x,z=a.z;box(x,.12,z,a.w,2.8,a.d,'#8ea7af');box(x,2.95,z,a.w+.2,.22,a.d+.1,'#506f80');box(x,1.85,z+a.d/2+.06,4.0,1.05,.10,'#d62d3f');lsMark(x-.7,1.85,z+a.d/2+.13,1.15);box(x+1.2,1.85,z+a.d/2+.13,1.05,.13,.04,'#fff');box(x+1.2,1.62,z+a.d/2+.13,.75,.10,.04,'#fff');box(x+1.2,2.08,z+a.d/2+.13,.78,.10,.04,'#fff');visitorSelected(a);}
 function drawBriefingInstructor(x,z){box(x,.12,z,.42,1.08,.28,'#c62e43');box(x,.96,z,.32,.25,.25,'#f0b58f');cylinder(x,1.22,z,.19,.15,'#3b2730',10);box(x+.38,.88,z,.7,.07,.07,'#f0b58f',-.25);box(x+.72,.9,z,.12,.42,.07,'#f0b58f',-.25);box(x-.14,.05,z,.13,.28,.15,'#27394b');box(x+.14,.05,z,.13,.28,.15,'#27394b');}
 function drawVisitorLobby(a){const x=a.x,z=a.z;box(x,.04,z,a.w+.3,.08,a.d+.3,'#2b4657');box(x,2.4,z-a.d/2+.12,a.w,3.1,.16,'#3f6577');box(x-a.w/2+.14,1.55,z,.16,3.0,a.d,'#3f6577');box(x+a.w/2-.14,1.55,z,.16,3.0,a.d,'#3f6577');box(x,2.05,z-a.d/2+.22,3.8,1.55,.08,'#f0f2ea');box(x,2.05,z-a.d/2+.29,3.1,.10,.04,'#457e8a');for(const sx of [-2.8,-.9,.9,2.8]){box(x+sx,.35,z+.45,1.3,.10,.62,'#a7784e');box(x+sx,.12,z+.45,.11,.35,.11,'#263f52');box(x+sx-.42,.13,z+1.0,.24,.30,.24,'#c4d4dc');box(x+sx+.42,.13,z+1.0,.24,.30,.24,'#c4d4dc');}box(x,.2,z-1.05,1.5,.45,.45,'#497084');drawBriefingInstructor(x,z-.72);visitorSelected(a);}
-function drawLoadingBay(a){const x=a.x,z=a.z;box(x,.04,z,a.w+.4,.08,a.d+.4,'#344c5b');for(let i=0;i<4;i++){const bx=x-3.8+i*.78,bz=z+1.72,isNvidia=i%2===1,brand=isNvidia?'#76b900':'#d62d3f';box(bx,.18,bz,.68,.38,.56,'#c99b54');for(const side of [-1,1]){const fz=bz+side*.292;box(bx,.29,fz,.52,.17,.022,brand);if(isNvidia){box(bx,.32,fz+side*.014,.30,.065,.012,'#fff');box(bx-.13,.27,fz+side*.014,.075,.15,.012,'#fff');box(bx+.12,.27,fz+side*.014,.075,.15,.012,'#76b900');}else{lsMark(bx-.11,.25,fz+side*.018,.22);}}}box(x-2.4,.55,z-.2,4.8,1.15,2.05,'#e6eef0');box(x-4.55,.55,z-.2,.75,1.05,2.03,'#d63242');box(x-5.0,1.2,z-.2,.10,.65,1.9,'#b7d1d9');box(x-.05,.9,z-.2,.12,1.75,2.25,'#6c7d85');box(x+.05,1.22,z-.2,1.18,.12,2.18,'#334c5c');box(x+1.45,.52,z-.25,1.35,.95,1.25,'#ba8050');box(x+1.45,1.02,z-.25,1.04,.32,1.30,'#d83945');lsMark(x+1.2,1.02,z+.43,.62);box(x+3.3,.12,z+.78,.22,1.65,.18,'#e49a30');box(x+3.5,.12,z+.78,.9,.12,.22,'#e49a30');box(x+3.75,.12,z+.78,.65,.12,.22,'#e49a30');box(x+2.8,.65,z+.78,1.3,.18,1.3,'#e2b13a');box(x+2.62,.12,z+.18,.35,.70,.35,'#d88d22');cylinder(x+2.55,.14,z+1.25,.30,.18,'#1a2630');cylinder(x+3.15,.14,z+1.25,.30,.18,'#1a2630');cylinder(x+2.55,.14,z+.28,.30,.18,'#1a2630');cylinder(x+3.15,.14,z+.28,.30,.18,'#1a2630');
+function drawLoadingBay(a){const x=a.x,z=a.z;box(x,.04,z,a.w+.4,.08,a.d+.4,'#344c5b');for(let i=0;i<4;i++){const bx=x-3.8+i*.78,bz=z+1.72,isNvidia=i%2===1,brand=isNvidia?'#76b900':'#d62d3f';box(bx,.18,bz,.68,.38,.56,'#c99b54');for(const side of [-1,1]){const fz=bz+side*.292;box(bx,.29,fz,.52,.17,.022,brand);if(isNvidia){box(bx,.32,fz+side*.014,.30,.065,.012,'#fff');box(bx-.13,.27,fz+side*.014,.075,.15,.012,'#fff');box(bx+.12,.27,fz+side*.014,.075,.15,.012,'#76b900');}else{lsMark(bx-.11,.25,fz+side*.018,.22);}}}box(x-2.4,.55,z-.2,4.8,1.15,2.05,'#e6eef0');box(x-4.55,.55,z-.2,.75,1.05,2.03,'#d63242');box(x-5.0,1.2,z-.2,.10,.65,1.9,'#b7d1d9');box(x-.05,.9,z-.2,.12,1.75,2.25,'#6c7d85');box(x+.05,1.22,z-.2,1.18,.12,2.18,'#334c5c');box(x+1.45,.52,z-.25,1.35,.95,1.25,'#ba8050');box(x+1.45,1.02,z-.25,1.04,.32,1.30,'#d83945');lsMark(x+1.2,1.02,z+.43,.62);
  // Prominent parked forklift in the near-right loading lane so it is not hidden by the truck.
  const fx=x+2.15,fz=z-1.13;
  box(fx,.10,fz,1.50,.20,1.08,'#db7620');box(fx-.25,.28,fz,1.05,.28,1.00,'#f18a2c');
@@ -897,8 +897,10 @@ function drawLoadingBay(a){const x=a.x,z=a.z;box(x,.04,z,a.w+.4,.08,a.d+.4,'#344
  for(const xx of [-.52,.52])for(const zz of [-.37,.37])cylinder(fx+xx,.12,fz+zz,.29,.18,'#161d22');
  for(const xx of [-.43,.38]){box(fx+xx,.30,fz-.43,.06,1.27,.06,'#222c31');box(fx+xx,.30,fz+.43,.06,1.27,.06,'#222c31');}
  box(fx,1.55,fz,.98,.06,.92,'#242e34');box(fx+.08,.96,fz-.08,.18,.04,.18,'#263238');
- // Front-left forklift: deliberately clear of the truck and branded cartons in the visitor camera view.
- const vfx=x-4.72,vfz=z+.34;
+ // Parked forklift in its own marked bay, clear of the truck and branded cartons.
+ const vfx=x+3.75,vfz=z+2.35;
+ for(const zz of [vfz-.78,vfz+.78])box(vfx,.165,zz,2.10,.015,.04,'#f8d660');
+ for(const xx of [vfx-1.05,vfx+1.05])box(xx,.165,vfz,.04,.015,1.60,'#f8d660');
  box(vfx,.12,vfz,1.52,.24,1.08,'#e87b19');box(vfx-.18,.34,vfz,1.04,.34,.94,'#f59a23');
  box(vfx-.40,.72,vfz,.40,.28,.70,'#26333a');box(vfx-.10,.83,vfz,.44,.15,.52,'#26333a');
  box(vfx+.48,.22,vfz-.35,.13,1.95,.13,'#1a252b');box(vfx+.48,.22,vfz+.35,.13,1.95,.13,'#1a252b');
@@ -1028,7 +1030,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-loading-bay-front-v1"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-forklift-parked-v1"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

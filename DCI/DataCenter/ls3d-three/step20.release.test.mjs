@@ -19,7 +19,7 @@ const report=load(prefix+'architecture/STEP20_RELEASE_REPORT.md');
 test('Three preview version appears in real HTML title and sidebar while core baseline remains declared',()=>{
   assert.match(html,/<title>LS Datacenter Campus · 3D Digital Twin v4\.8\.\d+<\/title>/);
   assert.match(html,/v4\.7\.0 계산 코어 · Three\.js v4\.8\.\d+/);
-  assert.match(html,/bootstrap\.mjs\?v=20261026-[\w-]+/);
+  assert.match(html,/bootstrap\.mjs\?v=\d{8}-[\w-]+/);
   assert.match(html,/three@0\.186\.1\/build\/three\.module\.js/);
 });
 test('root README and DataCenter guide link to the correct Three and rollback URLs',()=>{

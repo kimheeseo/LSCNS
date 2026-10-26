@@ -47,6 +47,8 @@ export function createRackNetworkCabling(THREE,{cube}) {
     const torPart=built.parts.find(p=>p.kind==='tor');
     const torU=torPart?.uStart||built.rackUnits-4;
     const torY=low+(torU-1)*u+u*.76;
+    const leafBPart=built.parts.find(p=>p.kind==='leaf-b');
+    const leafBY=leafBPart?low+(leafBPart.uStart-1)*u+u*.76:null;
     const network=new THREE.Group();network.name='rack-link:assembly:'+id;
     high.add(network);
     const tor= new THREE.Group();tor.name='rack-link:tor-chassis';
@@ -115,6 +117,23 @@ export function createRackNetworkCabling(THREE,{cube}) {
       cable.userData.to=torPart?.id;
       stats.nicLinks++;
       links.push({kind:isDac?'dac':'fiber',from:info.id,to:torPart?.id,group:cable});
+      if(leafBPart){
+        const redundant=wire(network,'nic-to-leaf-b-'+index,[
+          [-sx*w*.18,yy,d*.382],[-sx*w*.30,yy+.12,d*.26],
+          [-sx*w*.33,yy+.35,-d*.04],[-sx*w*.30,leafBY+.12,-d*.14],
+          [-sx*w*.20,leafBY+.15,-d*.57]
+        ],'#54c3d4',.023);
+        const route={id:id+':leaf-b-link:'+index,assetId:id,kind:'fiber-patch-cable',
+          label:'서버 NIC '+(index+1)+' → Leaf B (ToR)',
+          description:'Leaf A와 별개로 Leaf B에 연결하는 이중화 데이터 경로 예시입니다. Leaf A/B는 각각 Spine 1/2로 상향 연결합니다.',
+          uStart:info.uStart,uHeight:info.uHeight};
+        built.parts.push(route);built.partMap.set(route.id,route);
+        redundant.traverse(o=>{if(o.isMesh){o.userData.assetId=id;o.userData.partId=route.id;o.userData.noPick=false;}});
+        redundant.userData.cableSystem='fiber';redundant.userData.from=info.id;
+        redundant.userData.to=leafBPart.id;
+        links.push({kind:'fiber',from:info.id,to:leafBPart.id,group:redundant});
+        stats.nicLinks++;
+      }
       for(const side of ['A','B']){
         const px=(side==='A'?-1:1)*w*.405;
         const cord=wire(network,'server-'+index+'-pdu-'+side,[

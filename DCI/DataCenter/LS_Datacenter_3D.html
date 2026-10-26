@@ -933,13 +933,12 @@ const parkingView=index===0&&a.id==='visitor-parking';
  // Stand just outside the parking bays, offset from the center so the writing
  // avatar does not hide either of the two parked cars.
  if(parkingView){x=a.x+2.5;z=a.z+a.d/2+3.5;walkPitch=.26;}
-// Gray Zone models face the opposite way in world space. The loading cartons
-// are at the negative-Z edge after that rotation, so approach from that side.
+// Loading Bay faces the +Z visitor side, with cartons and forklift in view.
 const loadingView=index===3&&a.id==='visitor-loading';
-if(loadingView){x=a.x+2;z=a.z-a.d/2-2.2;walkPitch=.13;}
+if(loadingView){x=a.x+2;z=a.z+a.d/2+2.2;walkPitch=.13;}
  walkPos=[x,1.7,z];
  // Stage 1 aims through the full parking area, including the two parked cars.
- cameraDesired.yaw=parkingView?Math.PI+.15:loadingView?-.14:briefingView?0:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
+ cameraDesired.yaw=parkingView?Math.PI+.15:loadingView?Math.PI-.14:briefingView?0:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
  cameraDesired.distance=parkingView?30:20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
 function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
@@ -1029,7 +1028,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-gpu-hot-swap-v1"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261026-loading-bay-front-v1"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

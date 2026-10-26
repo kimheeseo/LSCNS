@@ -638,7 +638,7 @@ export function createSceneAdapter(T, canvas) {
   // STEP 17: calibrated as *example geometry*, unlike the old WebGL2 flat lines.
   // This layer anchors curves to actual equipment IDs and shares the scene RAF.
   function routeScene(flags) {
-    diagnostic.mep=mepRoutes.update(flags);
+    diagnostic.mep=mepRoutes.update(flags.coloTour?{...flags,inspect:true}:flags);
   }
   // STEP 06 replaces simple block people with reusable articulated Three.Group rigs.
   // Position/heading/action are still sampled from original T.npcPose; pathfinding is STEP 07.
@@ -655,7 +655,7 @@ export function createSceneAdapter(T, canvas) {
       if(T.facilityMode!=='aidc' && n.role==='guard')continue;
       if(n.role!=='guard' && !staff.includes(n.id))continue;
       if(T.currentZone!=='campus' && n.zone!==T.currentZone)continue;
-      if(flags.inspect)continue;
+      if(flags.inspect||flags.coloTour)continue;
       const rawPose=T.npcPose(n);
       if(!rawPose||!Number.isFinite(rawPose.x)||!Number.isFinite(rawPose.z))continue;
       const checked=inspection.update(n,rawPose,T.simTime||0,flags.scenario||'normal');
@@ -752,7 +752,7 @@ export function createSceneAdapter(T, canvas) {
       rack:rackControls
     });
     securityState=security.simulate(T.simTime||0);
-    security.root.visible=securityState.active&&!flags.inspect;
+    security.root.visible=securityState.active&&!flags.inspect&&!flags.coloTour;
     refreshPeople(flags);
     diagnostic.security=security.diagnostic();
     renderer.render(scene,camera);

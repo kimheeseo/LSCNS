@@ -320,7 +320,9 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'ups-intake-fan-'+xx+'-'+row,xx,h*.22+row*h*.145,front-.087,Math.min(w,h)*.040,.022,'#48565a');
         batch(root,'ups-vent-slots',Array.from({length:24},(_,i)=>[
           (i%2?-w*.36:w*.34),h*.18+Math.floor(i/2)*h*.056,front-.102]),w*.095,.014,.012,'#3c494c');
-        schneiderLogoPanel(root,'ups-front',-w*.08,h*.84,front-.090,w*.58,h*.18,0);
+        // The service face points toward local -Z. Turn the textured panel
+        // with that face so its wordmark reads normally after the Gray Zone rotation.
+        schneiderLogoPanel(root,'ups-front',-w*.08,h*.84,front-.090,w*.58,h*.18,Math.PI);
         // White bypass section with a smaller operational HMI sits to the right, as on a modular UPS lineup.
         part(root,'ups-bypass-column',w*.43,h*.14,0,w*.10,h*.70,d*.76,'#f1f3f2',.50,.30);
         part(root,'ups-bypass-hmi',w*.43,h*.55,front-.39,w*.068,h*.10,.018,'#6ed0df',.06,.16);
@@ -407,14 +409,18 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         }
         part(root,'battery-dc-bus-red',-w*.36,h*.77,front-.08,w*.72,.045,.03,'#d85058',.30,.26);
         part(root,'battery-dc-bus-blue',-w*.36,h*.70,front-.08,w*.72,.045,.03,'#4389bb',.30,.26);
-        // Correct 50%-scale mark centred on both faces; orient each panel toward its viewing side.
-        for(const side of [-1,1])batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.49,side*d*.451,w*.41,h*.115,side<0?Math.PI:0);
+        // A compact raised nameplate sits above the module drawers and in front
+        // of their terminals. Keep a correctly oriented plate on both faces.
+        for(const side of [-1,1]){
+          part(root,'battery-brand-plate-'+side,0,h*.85,side*d*.515,w*.39,h*.13,.035,'#eff2f1',.31,.27);
+          batteryBrandPanel(root,'samsung-sdi-'+side,0,h*.85,side*d*.54,w*.36,h*.10,side<0?Math.PI:0);
+        }
         for(const x of [-w*.38,w*.38]){
           part(root,'battery-cable-exit-'+x,x,h*.34,d*.42,.065,h*.46,.065,'#26343e',.46,.36);
           part(root,'battery-cable-red-'+x,x+w*.025,h*.34,d*.46,.018,h*.42,.018,'#d85058',.20,.26);
         }
-        batch(root,'battery-leds',Array.from({length:9},(_,i)=>[
-          -w*.38+i*w*.095,h*.86,front-.08]),w*.040,.040,.024,'#83edbc');
+        batch(root,'battery-leds',[-.42,-.36,-.30,.30,.36,.42].map(x=>[
+          w*x,h*.86,front-.08]),w*.032,.040,.024,'#83edbc');
         break;
       }
       case 'fuel-tank': {

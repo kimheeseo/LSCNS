@@ -814,31 +814,38 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
         decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
-        // Parked counterbalance forklift: orange body, black mast/cab frame, driver seat, wheels and raised forks.
-        const forkX=w*.24,forkZ=d*.18;
-        part(root,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#f47b20',.45,.33);
-        part(root,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#ff9b2d',.40,.32);
-        part(root,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#f68a24',.34,.30);
+        // Separate parking bay keeps the orange forklift clear of the truck cab and cartons.
+        const parkX=w*.31,parkZ=d*.37;
+        for(const z of [parkZ-d*.17,parkZ+d*.17])
+          part(root,'loading-forklift-parking-line-z-'+z,parkX,.165,z,w*.38,.015,.045,'#f8d660',.12,.72);
+        for(const x of [parkX-w*.19,parkX+w*.19])
+          part(root,'loading-forklift-parking-line-x-'+x,x,.165,parkZ,.045,.015,d*.34,'#f8d660',.12,.72);
+        const forklift=new THREE.Group();forklift.name='loading-forklift-parked';
+        forklift.position.set(parkX,0,parkZ);forklift.rotation.y=Math.PI;root.add(forklift);
+        const forkX=0,forkZ=0;
+        part(forklift,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#f47b20',.45,.33);
+        part(forklift,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#ff9b2d',.40,.32);
+        part(forklift,'loading-forklift-engine-cover',forkX-w*.09,h*.31,forkZ,w*.16,h*.14,d*.22,'#f68a24',.34,.30);
         for(const xx of [forkX-w*.12,forkX+w*.11])for(const zz of [forkZ-d*.12,forkZ+d*.12])
-          round(root,'loading-forklift-wheel-'+xx+'-'+zz,xx,.045,zz,Math.min(w,d)*.045,.11,'#171c20');
-        part(root,'loading-forklift-mast-left',forkX+w*.18,.12,forkZ-d*.09,.040,h*.58,.040,'#314a59',.55,.28);
-        part(root,'loading-forklift-mast-right',forkX+w*.18,.12,forkZ+d*.09,.040,h*.58,.040,'#314a59',.55,.28);
-        part(root,'loading-forklift-mast-crossbar',forkX+w*.18,h*.67,forkZ,.055,.045,d*.26,'#314a59',.55,.28);
-        part(root,'loading-forklift-fork-left',forkX+w*.31,.07,forkZ-d*.07,w*.22,.035,.035,'#465158',.50,.32);
-        part(root,'loading-forklift-fork-right',forkX+w*.31,.07,forkZ+d*.07,w*.22,.035,.035,'#465158',.50,.32);
-        part(root,'loading-forklift-seat',forkX-w*.02,h*.30,forkZ,w*.10,h*.11,d*.12,'#1a2024',.22,.38);
-        part(root,'loading-forklift-seatback',forkX-w*.10,h*.32,forkZ,.045,h*.23,d*.13,'#1a2024',.22,.38);
+          round(forklift,'loading-forklift-wheel-'+xx+'-'+zz,xx,.045,zz,Math.min(w,d)*.045,.11,'#171c20');
+        part(forklift,'loading-forklift-mast-left',forkX+w*.18,.12,forkZ-d*.09,.040,h*.58,.040,'#314a59',.55,.28);
+        part(forklift,'loading-forklift-mast-right',forkX+w*.18,.12,forkZ+d*.09,.040,h*.58,.040,'#314a59',.55,.28);
+        part(forklift,'loading-forklift-mast-crossbar',forkX+w*.18,h*.67,forkZ,.055,.045,d*.26,'#314a59',.55,.28);
+        part(forklift,'loading-forklift-fork-left',forkX+w*.25,.07,forkZ-d*.07,w*.08,.035,.035,'#465158',.50,.32);
+        part(forklift,'loading-forklift-fork-right',forkX+w*.25,.07,forkZ+d*.07,w*.08,.035,.035,'#465158',.50,.32);
+        part(forklift,'loading-forklift-seat',forkX-w*.02,h*.30,forkZ,w*.10,h*.11,d*.12,'#1a2024',.22,.38);
+        part(forklift,'loading-forklift-seatback',forkX-w*.10,h*.32,forkZ,.045,h*.23,d*.13,'#1a2024',.22,.38);
         for(const xx of [forkX-w*.10,forkX+w*.10]) {
-          part(root,'loading-forklift-guard-post-'+xx,xx,h*.18,forkZ-d*.105,.024,h*.51,.024,'#314a59',.52,.30);
-          part(root,'loading-forklift-guard-post-rear-'+xx,xx,h*.18,forkZ+d*.105,.024,h*.51,.024,'#314a59',.52,.30);
+          part(forklift,'loading-forklift-guard-post-'+xx,xx,h*.18,forkZ-d*.105,.024,h*.51,.024,'#314a59',.52,.30);
+          part(forklift,'loading-forklift-guard-post-rear-'+xx,xx,h*.18,forkZ+d*.105,.024,h*.51,.024,'#314a59',.52,.30);
         }
-        part(root,'loading-forklift-roof',forkX,h*.69,forkZ,w*.28,.035,d*.27,'#314a59',.46,.30);
-        part(root,'loading-forklift-safety-bumper',forkX+w*.17,.11,forkZ,w*.07,.11,d*.29,'#ffd442',.26,.28);
-        part(root,'loading-forklift-steering',forkX+w*.04,h*.44,forkZ-d*.05,.12,.025,.12,'#222a30',.46,.28);
-        decal(root,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
+        part(forklift,'loading-forklift-roof',forkX,h*.69,forkZ,w*.28,.035,d*.27,'#314a59',.46,.30);
+        part(forklift,'loading-forklift-safety-bumper',forkX+w*.17,.11,forkZ,w*.07,.11,d*.29,'#ffd442',.26,.28);
+        part(forklift,'loading-forklift-steering',forkX+w*.04,h*.44,forkZ-d*.05,.12,.025,.12,'#222a30',.46,.28);
+        decal(forklift,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
-          const bx=[-w*.30,-w*.02,w*.26][i],brand=shippingBrands[i];
+          const bx=[-w*.35,-w*.20,-w*.05][i],brand=shippingBrands[i];
           part(root,'loading-box-'+i,bx,.10,d*.31,w*.10,h*.12,d*.09,'#c99b54',.18,.56);
           // Large, nearly edge-to-edge carton-face labels make the supplier names readable in a wide tour shot.
           shippingBrandPanel(root,'box-'+i,brand,bx,.225,d*.359,w*.097,h*.1025);
@@ -874,7 +881,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       /transformer|switchgear|generator|ups|battery|pdu|ats/.test(kind)?'#879aa3':'#507589';
     // Tour cameras often show assets at medium LOD: retain the operational
     // identity of switching and cooling equipment instead of a plain cabinet.
-    if(['transformer','ats','switchgear','cooling-tower','generator','chiller','ups','battery-bank','pdu','cdu','air-handler','busway','odf','network'].includes(kind))detailed(mid,dims,kind);
+    if(['transformer','ats','switchgear','cooling-tower','generator','chiller','ups','battery-bank','pdu','cdu','air-handler','busway','odf','network','loading-bay'].includes(kind))detailed(mid,dims,kind);
     else {
       part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
       part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');

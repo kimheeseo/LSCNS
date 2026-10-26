@@ -925,16 +925,21 @@ if(a.id==='visitor-mantrap')drawVisitorMantrap(a,vtask);
 line([a.x-1,.2,a.z+a.d/2+1],[a.x+1,.2,a.z+a.d/2+1],'#68f1c7');};
 function log(message){records.push({time:new Date().toLocaleTimeString('ko-KR'),stage:index+1,message});}
 function position(target=task){closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(target,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
-// Briefing room has an open front on negative Z. Keep the guide at the entrance so the classroom screen stays in frame.
-if(index===2){x=a.x;z=a.z-a.d/2-.6;walkPitch=.11;}
+// The briefing room is open on its negative-Z side; frame its board, desks and instructor from the entrance.
+const briefingView=index===2&&a.id==='visitor-lobby';
+if(briefingView){x=a.x;z=a.z-a.d/2-.2;walkPitch=.11;}
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
 const parkingView=index===0&&a.id==='visitor-parking';
  // Stand just outside the parking bays, offset from the center so the writing
  // avatar does not hide either of the two parked cars.
  if(parkingView){x=a.x+2.5;z=a.z+a.d/2+3.5;walkPitch=.26;}
+// Gray Zone models face the opposite way in world space. The loading cartons
+// are at the negative-Z edge after that rotation, so approach from that side.
+const loadingView=index===3&&a.id==='visitor-loading';
+if(loadingView){x=a.x+2;z=a.z-a.d/2-2.2;walkPitch=.13;}
  walkPos=[x,1.7,z];
  // Stage 1 aims through the full parking area, including the two parked cars.
- cameraDesired.yaw=parkingView?Math.PI+.15:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
+ cameraDesired.yaw=parkingView?Math.PI+.15:loadingView?-.14:briefingView?0:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
  cameraDesired.distance=parkingView?30:20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
 function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}

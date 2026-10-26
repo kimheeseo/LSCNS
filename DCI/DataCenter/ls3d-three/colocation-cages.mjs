@@ -37,7 +37,7 @@ export function createColocationCages(THREE,{cube}) {
     }
     const geometry=new THREE.BufferGeometry();
     geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
-    const wire=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#19242a',transparent:true,opacity:.78,depthWrite:false}));
+    const wire=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#839399',transparent:true,opacity:.72,depthWrite:false}));
     wire.name='colo:chain-mesh:'+name;wire.userData.noPick=true;parent.add(wire);
     stats.meshWires+=vertices.length/6;stats.chainPanels++;
     return wire;

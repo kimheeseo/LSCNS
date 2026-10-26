@@ -7,9 +7,9 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visit
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261026-rack-odf-v2';
+import { createRackComponentKit } from './rack-components.mjs?v=20261026-gpu-hot-swap-v1';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
-import { createRackServerRails } from './rack-server-rails.mjs?v=20261015-step12';
+import { createRackServerRails } from './rack-server-rails.mjs?v=20261026-gpu-hot-swap-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261023-ls-rack-detail';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-rack-odf-v2';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261015-step16-cages-b';
@@ -190,6 +190,23 @@ export function createSceneAdapter(T, canvas) {
     if(!ids.length)return null;
     return setRackServerSelection(assetId,ids[(index+step+ids.length)%ids.length]);
   }
+  function cycleRackGpu(assetId,step=1){
+    const a=T.assetMap.get(assetId),gpu=a&&/gpu/i.test(a.type)?rackRails.cycleGpu(assetId,step):null;
+    if(!gpu)return null;
+    const motion=T.mechanical(a);
+    if(!motion.targetSlide)T.setMechanical(a,'slide'); // opens the door as well
+    selectRackPart(assetId,gpu.id);
+    return gpu;
+  }
+  function toggleRackGpu(assetId){
+    const a=T.assetMap.get(assetId);
+    if(!a||!/gpu/i.test(a.type))return null;
+    const motion=T.mechanical(a);
+    if(!motion.targetSlide)T.setMechanical(a,'slide');
+    const gpu=rackRails.toggleGpu(assetId);
+    if(gpu)selectRackPart(assetId,gpu.id);
+    return gpu;
+  }
   function toggleRearRackDoor(assetId){return rackDoors.toggleRear(assetId);}
   function toggleRackServerSlide(assetId) {
     const a=T.assetMap.get(assetId);
@@ -238,12 +255,13 @@ export function createSceneAdapter(T, canvas) {
         ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],['rack-context','주변 시설 보기'],
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['previous-server','이전 서버'],['next-server','다음 서버'],
-        ['server-slide','선택 서버 인출/복귀'],['cassette-slide','광 카세트 인출/복귀'],
+        ['server-slide','선택 서버 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],['cassette-slide','광 카세트 인출/복귀'],
         ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
         button.type='button';button.dataset.rackAction=code;button.textContent=label;
+        if(code==='next-gpu'||code==='gpu-toggle')button.dataset.gpuOnly='1';
         button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
         grid.appendChild(button);
       }
@@ -259,6 +277,8 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='previous-server')cycleRackServer(asset.id,-1);
         else if(action==='next-server')cycleRackServer(asset.id,1);
         else if(action==='server-slide')toggleRackServerSlide(asset.id);
+        else if(action==='next-gpu')cycleRackGpu(asset.id,1);
+        else if(action==='gpu-toggle')toggleRackGpu(asset.id);
         else if(action==='cassette-slide')toggleRackCassette(asset.id);
         else if(action==='optical-detail'||action==='optical-explode'){
           focusRackSide(asset.id,'front');
@@ -314,12 +334,17 @@ export function createSceneAdapter(T, canvas) {
       canvas.parentElement.appendChild(rackControls);
     }
     rackControls.hidden=false;
+    const gpuRack=/gpu/i.test(a.type);
+    rackControls.querySelectorAll('[data-gpu-only]').forEach(button=>button.hidden=!gpuRack);
     if(rackPanelHeading)rackPanelHeading.textContent='랙 조작 · '+a.id;
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
+    const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
+    const gpuButton=rackControls.querySelector('[data-rack-action="gpu-toggle"]');
+    if(gpuButton)gpuButton.textContent=server?.gpuTarget?'선택 GPU 다시 장착':'선택 GPU 인출';
     const fiberSelected=selectedRackPart?.assetId===a.id&&selectedRackPart.kind==='fiber-port';
     rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 3인칭':'전면 시점 · 3인칭'):'기본 시점')+
-      ' · 서버 '+serverLabel+
+      ' · 서버 '+serverLabel+gpuStatus+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
       (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
@@ -568,7 +593,7 @@ export function createSceneAdapter(T, canvas) {
       if (item.moving) {
         const m=T.mechanical(a);
         rackDoors.tick(a.id,item.moving,m,dt);
-        rackRails.update(a.id,item.moving,m);
+        rackRails.update(a.id,item.moving,m,dt);
         rackOptics.update(a.id,item.moving,m);
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         // When using the STEP 11 independent side camera, keep world-space rack
@@ -782,6 +807,7 @@ export function createSceneAdapter(T, canvas) {
          if(T.isMechanicalRack(asset)&&!focusedRack&&!T.rackIsolateActive&&!document.getElementById('detailModal')?.classList.contains('show'))part=null;
         if(part) {
           selectRackPart(id,part.id);
+          if(part.kind?.startsWith('gpu-module-'))rackRails.selectGpu(id,part.id);
           if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))
             rackRails.select(id,part.id);
         } else showRackPart(null);
@@ -823,7 +849,7 @@ export function createSceneAdapter(T, canvas) {
     get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
      selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,clearRackFocus(){focusedRack=null;},setRackServerSelection,cycleRackServer,
-    toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,
+    toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,cycleRackGpu,toggleRackGpu,
     get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},
     inspection,securityController:security,navigation,

@@ -423,3 +423,28 @@ test('19-K: only Loading Bay faces the cargo-side camera in Gray Zone',async({pa
   await snapshot(page,info,'step19-loading-bay-front.png');
   verify(errors);
 });
+
+test('19-L: colocation racks sit inside labeled black diamond-mesh cages',async({page},info)=>{
+  const errors=await ready(page,'hall');
+  await page.waitForFunction(()=>window.LS3D_THREE.adapter.colocation?.ready===true);
+  const scene=await page.evaluate(()=>{
+    const cage=window.LS3D_THREE.adapter.colocationController;
+    const root=cage.root;
+    const sign=root.getObjectByName('colo:sign:main');
+    const customerSigns=['A','B','C'].map(id=>root.getObjectByName('colo:sign:customer-'+id)?.userData.coloSign);
+    const stile=root.getObjectByName('colo:mesh-stile-0-0');
+    const gateMesh=root.getObjectByName('colo:gate-hinge:A')?.getObjectByName('colo:chain-mesh:gate-A');
+    return {label:sign?.userData.coloSign,customerSigns,
+      panelCount:cage.summary().stats.chainPanels,
+      rackClearance:stile.position.y+stile.scale.y/2-6,
+      gateMesh:!!gateMesh,gateCount:cage.summary().stats.doors};
+  });
+  expect(scene.label).toBe('COLOCATION CAGE');
+  expect(scene.customerSigns).toEqual(['CUSTOMER A','CUSTOMER B','CUSTOMER C']);
+  expect(scene.panelCount).toBeGreaterThanOrEqual(16);
+  expect(scene.rackClearance).toBeGreaterThan(0);
+  expect(scene.gateMesh).toBe(true);
+  expect(scene.gateCount).toBe(3);
+  await snapshot(page,info,'step19-colocation-diamond-mesh.png');
+  verify(errors);
+});

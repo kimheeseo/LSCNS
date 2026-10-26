@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {planRackFrontFill,createRackComponentKit} from './rack-components.mjs';
 import {createRackServerRails} from './rack-server-rails.mjs';
+import {createRackNetworkCabling} from './rack-network-cabling.mjs';
 class Group{constructor(){this.children=[];this.userData={};this.position={set(x,y,z){Object.assign(this,{x,y,z})}};this.rotation={};}add(o){this.children.push(o);o.parent=this;}remove(o){this.children=this.children.filter(x=>x!==o);}traverse(fn){fn(this);this.children.forEach(o=>o.traverse?o.traverse(fn):fn(o));}}
 function cube(parent,x,y,z,w,h,d,color){const m={isMesh:true,userData:{},position:{x,y,z},scale:{x:w,y:h,z:d},name:'',material:{color}};parent.add(m);return m;}
 for(const [id,type,units,servers] of [['tor-a','Top-of-Rack switch',48,3],['odf','ODF',42,3],['gpu-0-0','GPU rack',48,4],['storage','Storage rack',42,7],['compute','Compute rack',42,6]]){
@@ -36,4 +37,29 @@ test('GPU rack modules can be selected, extracted and reinstalled independently'
  assert.equal(rails.toggleGpu(asset.id).target,0);
  rails.update(asset.id,built.moving,{slide:1},.2);
  assert.equal(gpu.position.z,0);
+});
+test('GPU rack allocates two top Leaf switches above four server trays without overlapping the optical drawer',()=>{
+ const a={id:'gpu-0-0',type:'GPU server rack',w:2.7,d:3,h:6};
+ const built=createRackComponentKit({Group},{cube}).build(new Group(),a);
+ const find=kind=>built.parts.find(p=>p.kind===kind);
+ assert.equal(find('tor').label,'Leaf A · Top-of-Rack 스위치');
+ assert.equal(find('leaf-b').label,'Leaf B · Top-of-Rack 스위치');
+ assert.ok(find('tor').uStart>find('leaf-b').uStart);
+ assert.ok(find('leaf-b').uStart>find('patch-panel').uStart);
+ assert.ok(find('patch-panel').uStart>find('cassette-pull').uStart);
+ assert.equal(built.cassetteU,42);
+ assert.equal(built.serverModules,4);
+ const cabling=createRackNetworkCabling({Group},{cube});
+ cabling.decorate(a,built,new Group());
+ assert.equal(cabling.diagnostic(a.id).links.filter(l=>l.to===find('leaf-b').id).length,4);
+});
+test('network rack exposes Spine 1/2 modules above its expansion and blanking space',()=>{
+ const built=createRackComponentKit({Group},{cube}).build(new Group(),
+   {id:'tor-a',type:'Top-of-Rack switch',w:2.7,d:3,h:6});
+ const switchParts=built.parts.filter(p=>p.kind.startsWith('network-switch-'));
+ assert.deepEqual(switchParts.map(p=>p.label),[
+   'Spine 1 · 네트워크 스위치','Spine 2 · 네트워크 스위치','네트워크 확장 모듈']);
+ assert.ok(switchParts[0].uStart>switchParts[1].uStart);
+ assert.ok(switchParts[1].uStart>switchParts[2].uStart);
+ assert.ok(built.frontFill.added.some(p=>p.kind==='horizontal-manager'));
 });

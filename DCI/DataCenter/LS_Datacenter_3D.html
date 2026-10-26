@@ -929,10 +929,12 @@ function position(target=task){closeDetail();pressedKeys.clear();const row=steps
 if(index===2){x=a.x;z=a.z-a.d/2-.6;walkPitch=.11;}
 if(index===5&&task===0){x=7;z=3.5;}if(index===5&&task===1){x=7;z=-5.8;}
 const parkingView=index===0&&a.id==='visitor-parking';
- if(parkingView){x=a.x;z=a.z+a.d/2+10;walkPitch=.16;}
+ // Stand just outside the parking bays, offset from the center so the writing
+ // avatar does not hide either of the two parked cars.
+ if(parkingView){x=a.x+2.5;z=a.z+a.d/2+3.5;walkPitch=.26;}
  walkPos=[x,1.7,z];
- // Stage 1 parking view faces the parked vehicles rather than looking away from them.
- cameraDesired.yaw=parkingView?Math.PI:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
+ // Stage 1 aims through the full parking area, including the two parked cars.
+ cameraDesired.yaw=parkingView?Math.PI+.15:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
  cameraDesired.distance=parkingView?30:20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
 function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
@@ -957,8 +959,8 @@ const visitorBaseCameraFrame=cameraFrame;
 cameraFrame=function(dt){
  if(!active||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
  const yaw=cameraDesired.yaw,pitch=clamp(walkPitch,-.6,.65),pivot=[walkPos[0],1.55,walkPos[2]];
- // Most scenes retain the 9 m follow boom. The briefing room uses a closer boom so the safety board and instructor remain legible.
- const followDistance=index===2?4.5:9;
+ // The parking and briefing scenes use closer booms to show their actual work areas.
+ const followDistance=index===0?7.2:index===2?4.5:9;
  const desired=[pivot[0]-Math.sin(yaw)*followDistance*Math.cos(pitch),Math.max(.55,4.75+Math.sin(pitch)*6),pivot[2]-Math.cos(yaw)*followDistance*Math.cos(pitch)];
  const boom=sub(desired,pivot),distance=Math.hypot(...boom),dir=norm(boom);
  let safeDistance=distance;

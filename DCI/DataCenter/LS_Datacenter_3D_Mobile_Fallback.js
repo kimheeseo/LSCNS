@@ -13,7 +13,6 @@ const style=document.createElement('style');
 style.textContent=`
 /* Default mobile mode is 3D canvas first; all secondary inspection panels are opt-in. */
 #ls3dMobileInspectorToggle,#ls3dScenarioSummaryToggle{display:none}
-#ls3dModeToggle{border:1px solid #5d9aa9;border-radius:8px;background:#174356;color:#e7fff9;padding:8px 10px;font:750 11px system-ui;min-height:36px;cursor:pointer;white-space:nowrap}
 #ls3dPortable2D[hidden]{display:none!important}
 #ls3dPortable2D{position:absolute;inset:0;z-index:14;background:#0a1b2b;color:#e9f8ff;display:flex;flex-direction:column;gap:8px;padding:10px;overflow:hidden}
 #ls3dPortable2D .lite-header{display:flex;align-items:center;justify-content:space-between;gap:6px}
@@ -61,7 +60,6 @@ body.ls3d-2d-active #viewport .ux-fallback{display:none!important}
   .detail-modal.show{z-index:97!important;align-items:flex-end!important;justify-content:center!important;padding:5px 5px max(5px,env(safe-area-inset-bottom))!important;background:#030e17a8!important;pointer-events:auto!important}
   .detail-modal.show .detail-card{width:100%!important;max-height:65dvh!important;border-radius:14px!important}
   .telemetry{max-height:55dvh;overflow:auto}
-  #ls3dModeToggle{font-size:10px;padding:6px}
   .top-actions{overflow-x:auto}
 }
 @media(max-width:420px){
@@ -72,10 +70,6 @@ body.ls3d-2d-active #viewport .ux-fallback{display:none!important}
 }
 `;
 document.head.appendChild(style);
-const actions=document.querySelector('.top-actions');
-const toggle=document.createElement('button');
-toggle.type='button';toggle.id='ls3dModeToggle';toggle.textContent='▤ 2D 경량';toggle.setAttribute('aria-label','2D 경량 배치도로 전환');
-actions?.appendChild(toggle);
 const right=$('viewport')?.closest('#shell')?.querySelector('.right')||document.querySelector('.right');
 const inner=right?.querySelector('.right-inner'),head=inner?.querySelector('.right-head');
 if(inner&&head){
@@ -219,16 +213,13 @@ function activate(why='manual'){
  document.body.classList.add('ls3d-2d-active');layer.hidden=false;
  $('ls3dLiteReason').textContent=unsupported?'WebGL 미지원 또는 그래픽 오류 · 경량 도면':'수동 전환 · GPU 렌더링 일시 중단';
  $('ls3dLiteReturn').hidden=unsupported;
- toggle.textContent='▤ 2D 보기 중';toggle.setAttribute('aria-pressed','true');toggle.setAttribute('aria-label','2D 경량 보기 활성화');
  sync(true);
 }
 function deactivate(){
  if(unsupported||!T.gl)return false;
  active=false;layer.hidden=true;document.body.classList.remove('ls3d-2d-active');
- toggle.textContent='▤ 2D 경량';toggle.setAttribute('aria-pressed','false');toggle.setAttribute('aria-label','2D 경량 배치도로 전환');
  return true;
 }
-toggle.addEventListener('click',()=>{if(active){deactivate();return}activate('manual');});
 $('ls3dLiteReturn')?.addEventListener('click',deactivate);
 for(const id of ['scene','sceneThree'])$(id)?.addEventListener('webglcontextlost',e=>{e.preventDefault();activate('webglcontextlost')});
 window.LS3D_FALLBACK={activate,deactivate,sync,get active(){return active},get reason(){return reason}};

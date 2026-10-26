@@ -51,8 +51,8 @@ export function createRackComponentKit(THREE,{cube}){
   if(typeof document==='undefined')return null;
   const t=asset.type||'',spine=t==='Spine',leaf=t==='Leaf',tor=t==='Top-of-Rack switch',gpu=/gpu/i.test(t),storage=/storage/i.test(t),compute=/compute/i.test(t);
   const which=/[- ]b$/i.test(asset.id)?'B':'A';
-  const title=tor?'ToR SWITCH':spine?'SPINE '+which:leaf?'LEAF '+which:gpu?'GPU RACK':storage?'STORAGE RACK':compute?'COMPUTE RACK':t==='Core'?'CORE ROUTER':t==='MMR rack'?'MMR RACK':t==='Co-location rack'?'CLIENT RACK':'SERVER RACK';
-  const subtitle=tor?'TOP OF RACK · HIGHEST U':gpu?'GPU ACCELERATORS · LIQUID COOLING':storage?'STORAGE SERVERS · DRIVE BAYS':compute?'COMPUTE SERVERS · NIC':spine?'NETWORK FABRIC / AGGREGATION':leaf?'SERVER ACCESS / LEAF SWITCH':'RACK · SELECT FOR INTERNAL VIEW';
+  const title=tor?'NETWORK RACK':spine?'SPINE '+which:leaf?'LEAF '+which:gpu?'GPU SERVER RACK':storage?'STORAGE RACK':compute?'COMPUTE RACK':t==='Core'?'CORE ROUTER':t==='MMR rack'?'MMR RACK':t==='Co-location rack'?'CLIENT RACK':'SERVER RACK';
+  const subtitle=tor?'PATCH · CABLE MANAGER · SPINE':gpu?'LEAF A/B (ToR) · GPU SERVERS':storage?'STORAGE SERVERS · DRIVE BAYS':compute?'COMPUTE SERVERS · NIC':spine?'NETWORK FABRIC / AGGREGATION':leaf?'SERVER ACCESS / LEAF SWITCH':'RACK · SELECT FOR INTERNAL VIEW';
   const accent=tor?'#f1ca60':gpu?'#e5bd62':storage?'#74d4d3':spine?'#579bfa':'#62d3b9';
   const c=document.createElement('canvas');c.width=768;c.height=192;const ctx=c.getContext('2d');if(!ctx)return null;
   ctx.fillStyle='#0d2c3d';ctx.fillRect(0,0,768,192);ctx.fillStyle=accent;ctx.fillRect(0,0,17,192);
@@ -67,9 +67,24 @@ export function createRackComponentKit(THREE,{cube}){
   };
   return {make,texture};
  }
+ function moduleLabel(parent,assetId,name,text,x,y,z,width,height,accent){
+  if(typeof document==='undefined')return null;
+  const c=document.createElement('canvas');c.width=512;c.height=128;
+  const ctx=c.getContext('2d');if(!ctx)return null;
+  ctx.fillStyle='#edf3f4';ctx.fillRect(0,0,512,128);ctx.fillStyle=accent;ctx.fillRect(0,0,13,128);
+  ctx.strokeStyle='#8eacb5';ctx.lineWidth=5;ctx.strokeRect(3,3,506,122);
+  ctx.fillStyle='#122c3a';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.font='bold 60px Arial,sans-serif';ctx.fillText(text,260,65,470);
+  const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
+  const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
+    new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,depthWrite:false}));
+  mesh.name='rack-module-label:'+name+':'+assetId;mesh.position.set(x,y,z);
+  mesh.userData.ownedTexture=texture;parent.add(mesh);return mesh;
+ }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
   const gpuVariant=/gpu/i.test(a.type);
+  const networkRack=a.type==='Top-of-Rack switch';
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
   const unit=(h-.46)/count,lower=.23;
   const pieces=[],map=new Map();
@@ -93,7 +108,7 @@ export function createRackComponentKit(THREE,{cube}){
   if(networkLabel){
    const right=networkLabel.make(shell,'right-wall',w*.508,h*.80,0,d*.57,h*.14,Math.PI/2);
    networkLabel.make(shell,'left-wall',-w*.508,h*.80,0,d*.57,h*.14,-Math.PI/2);
-   networkLabel.make(shell,'front',0,h*.80,-d*.535,w*.77,h*.12,0);
+   networkLabel.make(shell,'front',0,h+.18,-d*.535,w*.77,h*.13,0);
    right.userData.ownedTexture=networkLabel.texture;
   }
   retain(shell);
@@ -106,10 +121,12 @@ export function createRackComponentKit(THREE,{cube}){
     box(unitGroup,'mounting-aperture-'+u,xx,lower+u*unit+unit*.34,-d*.470,.035,.026,.009,'#182a39',.1,.7);
   }
   retain(unitGroup);
+  const cassetteU=gpuVariant?count-6:count-4;
   const pickSlots=[
     // STEP 14: reserve the physically highest U positions for the ToR.
-    {kind:'tor',label:'Top-of-Rack 네트워크 스위치',top:count,units:2,color:'#36718a'},
-    {kind:'patch-panel',label:'광 패치패널',top:count-2,units:1,color:'#be9e68'},
+    {kind:'tor',label:gpuVariant?'Leaf A · Top-of-Rack 스위치':'Top-of-Rack 네트워크 스위치',top:count,units:2,color:'#36718a'},
+    ...(gpuVariant?[{kind:'leaf-b',label:'Leaf B · Top-of-Rack 스위치',top:count-2,units:2,color:'#206d76'}]:[]),
+    {kind:'patch-panel',label:'광 패치패널',top:gpuVariant?count-4:count-2,units:1,color:'#be9e68'},
     {kind:'odf',label:'ODF 및 광 카세트',top:count-3,units:2,color:'#537e94'}
   ];
   const network=/core|spine|leaf|odf|mmr|switch/i.test(a.type);
@@ -127,6 +144,13 @@ export function createRackComponentKit(THREE,{cube}){
       box(g,'port-'+i,-w*.27+i*w*.049,lower+(start-1)*unit+Math.max(.045,slot.units*unit*.37),
         -d*.613,w*.033,.05,.022,i%2?'#72d3e6':'#69e5b9',.12,.24);
     }
+    if(gpuVariant&&(slot.kind==='tor'||slot.kind==='leaf-b')){
+      const name=slot.kind==='tor'?'LEAF A (ToR)':'LEAF B (ToR)';
+      moduleLabel(g,id,'leaf-'+(slot.kind==='tor'?'a':'b'),name,0,
+        lower+(start-1)*unit+slot.units*unit*.76,-d*.640,w*.49,.088,
+        slot.kind==='tor'?'#268bdf':'#148a9d');
+      g.userData.rackPart.description=name+' · GPU 서버 NIC의 이중화 접속을 수용하고, 네트워크 랙 Spine 1/2로 각각 상향 연결하는 교육용 예시입니다.';
+    }
     if(slot.kind==='odf'){
       const cassette=group(root,id,'fiber-cassette','광 카세트',start,slot.units);
       box(cassette,'cassette-body',0,lower+(start-1)*unit+.08,-d*.39,w*.62,.17,d*.18,'#d9b270');
@@ -138,10 +162,10 @@ export function createRackComponentKit(THREE,{cube}){
   const maxServers=network?3:storage?7:gpuVariant?4:isGpu?7:6;
   const modules=[],gpuGroups=[],reserved=9;
   for(let i=0;i<maxServers;i++){
-    const u=3+i*4;
+    const u=networkRack?[27,20,13][i]:3+i*4;
     if(u+3>=count-reserved)break;
     const units=storage?3:4,y=lower+(u-1)*unit;
-    const kind=serverType,label=(a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
+    const kind=serverType,label=networkRack?(i<2?'Spine '+(i+1)+' · 네트워크 스위치':'네트워크 확장 모듈'): (a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
     const partGroup=group(slide,id,kind+'-'+(i+1),label,u,units);
     if(gpuVariant){
      // Open service trays expose accelerator packages when the rack door opens.
@@ -165,6 +189,14 @@ export function createRackComponentKit(THREE,{cube}){
      partGroup.userData.rackPart.description='GPU 가속기 4개, 냉각판과 공급/회수 배관을 표시한 교육용 서버 트레이입니다. 실제 GPU 모델·수량·정격은 지정하지 않습니다.';
     }else box(partGroup,'sled'+i,0,y,-d*.15,w*.72,units*unit-.035,d*.57,
       network?'#304e6d':storage?'#587a82':'#304659',.63,.33);
+    if(networkRack){
+      box(partGroup,'fabric-switch-face-'+i,0,y+.038,-d*.522,w*.68,units*unit-.11,.045,i<2?'#2b8554':'#334d5d');
+      for(let port=0;port<16;port++)box(partGroup,'fabric-port-'+i+'-'+port,
+        -w*.285+port*w*.038,y+units*unit*.43,-d*.560,w*.028,.07,.014,'#163340');
+      moduleLabel(partGroup,id,'fabric-'+i,i<2?'SPINE '+(i+1):'EXPANSION',0,
+        y+units*unit*.76,-d*.595,w*.50,.095,i<2?'#3aa66a':'#617e8e');
+      partGroup.userData.rackPart.description=i<2?'Leaf A/B의 이중 상향 링크를 수용하는 Spine '+(i+1)+' 스위치 예시입니다. 실제 포트·장비 수량은 별도 설계 자료로 검증합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
+    }
     if(gpuVariant){
      // Open front slots leave the four removable accelerators visible.
      box(partGroup,'gpu-front-header-'+i,0,y+units*unit-.06,-d*.47,w*.70,.055,.08,'#3d4e56');
@@ -176,6 +208,8 @@ export function createRackComponentKit(THREE,{cube}){
      for(let chip=0;chip<4;chip++)
       box(partGroup,'gpu-front-badge-'+i+'-'+chip,-w*.255+chip*w*.17,y+units*unit*.84,-d*.524,w*.12,.045,.016,'#d2ad57',.46,.27);
      box(partGroup,'gpu-inlet-indicator-'+i,w*.30,y+units*unit*.72,-d*.54,.045,.05,.017,'#60c6dc',.08,.20);
+     moduleLabel(partGroup,id,'gpu-server-'+i,'H100 GPU SERVER '+(i+1),0,
+       y+units*unit*.93,-d*.557,w*.48,.085,'#416da1');
     }
     for(let j=0;!gpuVariant&&j<8;j++){
       box(partGroup,'server-port-'+i+'-'+j,-w*.26+j*w*.075,y+units*unit*.38,
@@ -194,8 +228,8 @@ export function createRackComponentKit(THREE,{cube}){
     modules.push(partGroup);
   }
   // Account for active assemblies and the top optical drawer before filling gaps.
-  const occupied=pieces.filter(p=>p.kind==='tor'||p.kind==='patch-panel'||/^(server|storage|network-switch)-/.test(p.kind));
-  occupied.push({kind:'optical-drawer',uStart:count-4,uHeight:2});
+  const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel'].includes(p.kind)||/^(server|storage|network-switch)-/.test(p.kind));
+  occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){
     // Instanced sockets/fingers keep repeated passive patch panels inexpensive.
@@ -235,7 +269,7 @@ export function createRackComponentKit(THREE,{cube}){
     retain(g);
   }
   const cassette=new THREE.Group();cassette.name='fiber-cassette';root.add(cassette);
-  const cassetteParts=group(cassette,id,'cassette-pull','인출형 광카세트',count-4,2);
+  const cassetteParts=group(cassette,id,'cassette-pull','인출형 광카세트',cassetteU,2);
   // Drawer is an empty carrier; optical kit builds the housing and all modules.
   retain(cassetteParts);
   for(const side of [-1,1]){
@@ -253,7 +287,7 @@ export function createRackComponentKit(THREE,{cube}){
   const frontDoor=new THREE.Group();frontDoor.name='front-door-hinge';
   frontDoor.position.set(-w*.5,.06,-d*.56);root.add(frontDoor);
   const frontMesh=group(frontDoor,id,'front-door','전면 랙 도어',1,count);
-  if(gpuVariant){
+  if(gpuVariant||networkRack){
    for(const side of [-1,1])
     box(frontMesh,'gpu-door-stile-'+side,w*.5+side*w*.46,0,0,w*.035,h-.13,.075,'#607a8b',.59,.44);
    box(frontMesh,'gpu-door-header',w*.5,h-.17,0,w*.95,.14,.075,'#607a8b',.59,.44);
@@ -262,7 +296,7 @@ export function createRackComponentKit(THREE,{cube}){
   // Perforations/visible strips hint mesh door. Do not equate to real airflow resistance.
   for(let i=0;i<15;i++)box(frontMesh,'perforation-'+i,w*.5,
     .30+i*(h-.75)/15,-.055,w*.75,.046,.034,'#182e43',.19,.68);
-  if(networkLabel)
+  if(networkLabel&&!gpuVariant&&!networkRack)
    networkLabel.make(frontMesh,'front-door',w*.5,h*.80,-.088,w*.68,h*.16,Math.PI);
   retain(frontMesh);
   const rearDoor=new THREE.Group();rearDoor.name='rear-door-hinge';
@@ -275,7 +309,7 @@ export function createRackComponentKit(THREE,{cube}){
   stats.built++;if(count===48)stats.units48++;else stats.units42++;
   return {moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
     serverGroups:modules,gpuGroups,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
-    frontDoor,rearDoor,slideGroup:slide};
+    frontDoor,rearDoor,slideGroup:slide,cassetteU};
  }
  return {build,stats};
 }

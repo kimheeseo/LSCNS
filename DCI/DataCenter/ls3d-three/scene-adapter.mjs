@@ -504,8 +504,9 @@ export function createSceneAdapter(T, canvas) {
     }
     cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
     const caption=visitorCaption(a);if(caption)g.add(caption);
-    // Gray Zone and Network/MMR equipment fronts face the default visitor camera.
-    const baseYaw=(a.zone==='gray'||a.zone==='network')&&a.id!=='gray-cdu'?Math.PI:0;
+    // Loading Bay is approached from its cargo/carton side (+Z); unlike the
+    // other Gray Zone rooms it must face the default visitor camera directly.
+    const baseYaw=(a.zone==='gray'||a.zone==='network')&&!['gray-cdu','visitor-loading'].includes(a.id)?Math.PI:0;
     g.position.set(a.x,0,a.z);g.rotation.y=baseYaw;
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),

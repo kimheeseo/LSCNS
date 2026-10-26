@@ -39,6 +39,8 @@ test('rack coordinates determine safe independent A/B/C fence boundaries and 3 m
   assert.equal(s.ready,true);assert.equal(s.layoutIssue,null);
   assert.equal(s.bays.length,3);assert.equal(s.stats.doors,3);
   assert.equal(s.stats.meshPanels,4);assert.ok(s.stats.meshWires>=150);
+  const stile=traverse(sim.root).find(o=>o.name==='colo:mesh-stile-0-0');
+  assert.ok(stile.position.y+stile.scale.y>racks[0].h);
   for(let i=0;i<3;i++){
     assert.ok(racks[i].x-racks[i].w/2>=cage.x+s.boundaries[i]);
     assert.ok(racks[i].x+racks[i].w/2<=cage.x+s.boundaries[i+1]);

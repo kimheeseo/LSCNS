@@ -32,29 +32,67 @@ export function createRackServerRails(THREE,{cube}) {
       for(const mesh of [nic,led]){mesh.userData.assetId=id;mesh.userData.partId=info.id;}
       stats.nics++;stats.sleds++;
     }
-    const session={id,groups,selected:groups.keys().next().value||null,current:0};
+    const gpuGroups=new Map(),gpuOrder=[];
+    for(const gpu of built.gpuGroups||[]){
+      const partId=gpu.userData.rackPart?.id;
+      if(!partId)continue;
+      gpuGroups.set(partId,{group:gpu,serverPartId:gpu.userData.serverPartId,target:0,progress:0});
+      gpuOrder.push(partId);
+    }
+    const session={id,groups,selected:groups.keys().next().value||null,current:0,
+      gpuGroups,gpuOrder,selectedGpu:gpuOrder[0]||null,depth:d};
     sessions.set(id,session);stats.enhanced++;
     return session;
   }
   function select(assetId,partId){
     const s=sessions.get(assetId);if(!s||!s.groups.has(partId))return null;
-    s.selected=partId;return partId;
+    s.selected=partId;
+    const first=s.gpuOrder.find(id=>s.gpuGroups.get(id).serverPartId===partId);
+    if(first&&s.gpuGroups.get(s.selectedGpu)?.serverPartId!==partId)s.selectedGpu=first;
+    return partId;
   }
-  function update(assetId,moving,legacy) {
+  function selectGpu(assetId,partId){
+    const s=sessions.get(assetId),gpu=s?.gpuGroups.get(partId);
+    if(!gpu)return null;
+    for(const [id,other] of s.gpuGroups)if(id!==partId)other.target=0;
+    s.selected=gpu.serverPartId;s.selectedGpu=partId;
+    return {id:partId,serverPartId:gpu.serverPartId,slot:s.gpuOrder.indexOf(partId)+1,total:s.gpuOrder.length};
+  }
+  function cycleGpu(assetId,step=1){
+    const s=sessions.get(assetId);if(!s?.gpuOrder.length)return null;
+    const index=s.gpuOrder.indexOf(s.selectedGpu);
+    return selectGpu(assetId,s.gpuOrder[(index+step+s.gpuOrder.length)%s.gpuOrder.length]);
+  }
+  function toggleGpu(assetId){
+    const s=sessions.get(assetId),gpu=s?.gpuGroups.get(s.selectedGpu);
+    if(!gpu)return null;
+    gpu.target=gpu.target?0:1;
+    return {id:s.selectedGpu,target:gpu.target};
+  }
+  function update(assetId,moving,legacy,dt=.016) {
     const session=sessions.get(assetId);
     if(!session)return null;
     const pull=Math.max(0,Math.min(1,Number(legacy?.slide)||0))*(moving?.reach||1);
     // Do not move every server: keep the original shared parent stationary.
     if(moving?.slide)moving.slide.position.z=0;
     for(const [key,group] of session.groups)group.position.z=key===session.selected?-pull:0;
+    const amount=Math.min(1,Math.max(0,dt)*7);
+    for(const gpu of session.gpuGroups.values()){
+      gpu.progress+=(gpu.target-gpu.progress)*amount;
+      gpu.group.position.z=gpu.progress?-gpu.progress*session.depth*.56:0;
+    }
     session.current=pull;stats.updates++;
     return {assetId,selected:session.selected,pull,serverCount:session.groups.size};
   }
   function state(id){
     const s=sessions.get(id);
-    return s?{selected:s.selected,pull:s.current,serverCount:s.groups.size}:null;
+    return s?{selected:s.selected,pull:s.current,serverCount:s.groups.size,
+      selectedGpu:s.selectedGpu,gpuCount:s.gpuOrder.length,
+      gpuSlot:s.gpuOrder.indexOf(s.selectedGpu)+1,
+      gpuTarget:s.gpuGroups.get(s.selectedGpu)?.target||0,
+      gpuProgress:s.gpuGroups.get(s.selectedGpu)?.progress||0}:null;
   }
   function drop(id){sessions.delete(id);}
   function reset(){sessions.clear();}
-  return {decorate,select,update,state,drop,reset,stats};
+  return {decorate,select,selectGpu,cycleGpu,toggleGpu,update,state,drop,reset,stats};
 }

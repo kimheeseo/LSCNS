@@ -388,16 +388,28 @@ test('19-K: only Loading Bay faces the cargo-side camera in Gray Zone',async({pa
     const bay=root.getObjectByName('equipment:visitor-loading');
     const staging=root.getObjectByName('equipment:visitor-staging');
     const carton=bay.getObjectByName('equipment-part:loading-box-0');
-    const forklift=bay.getObjectByName('equipment-part:loading-forklift-chassis');
-    const boxWorld=new window.LS3D_THREE.adapter.THREE.Vector3();
+    const forklift=bay.getObjectByName('loading-forklift-parked');
+    const truckCab=bay.getObjectByName('equipment-part:loading-truck-cab');
+    const boxWorld=new window.LS3D_THREE.adapter.THREE.Vector3(),
+      forkWorld=boxWorld.clone(),cabWorld=boxWorld.clone();
     carton.getWorldPosition(boxWorld);
+    forklift?.getWorldPosition(forkWorld);truckCab.getWorldPosition(cabWorld);
+    let parking=false;bay.traverse(o=>{if(o.name.startsWith('equipment-part:loading-forklift-parking-line'))parking=true;});
     return {bayYaw:bay.rotation.y,stagingYaw:staging.rotation.y,
-      cartonZ:boxWorld.z,bayZ:bay.position.z,forklift:!!forklift};
+      cartonZ:boxWorld.z,bayZ:bay.position.z,
+      forklift:!!forklift?.getObjectByName('equipment-part:loading-forklift-chassis'),
+      parking,
+      forkliftX:forkWorld.x,forkliftZ:forkWorld.z,cabX:cabWorld.x,cabZ:cabWorld.z,
+      mediumForklift:!!bay.getObjectByName('equipment-medium:loading-bay')?.getObjectByName('loading-forklift-parked')};
   });
   expect(world.bayYaw).toBe(0);
   expect(world.stagingYaw).toBeCloseTo(Math.PI);
   expect(world.cartonZ).toBeGreaterThan(world.bayZ);
   expect(world.forklift).toBe(true);
+  expect(world.parking).toBe(true);
+  expect(world.forkliftX).toBeGreaterThan(world.cabX+1);
+  expect(world.forkliftZ).toBeGreaterThan(world.cabZ+1);
+  expect(world.mediumForklift).toBe(true);
   await page.evaluate(()=>window.__LS3D_VISITOR__.start());
   await page.locator('[data-visit-stage="3"]').click();
   const tour=await page.evaluate(()=>({

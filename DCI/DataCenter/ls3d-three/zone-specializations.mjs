@@ -1,6 +1,6 @@
 // STEP 15/16 scene + DOM bridge. No additional animation frame, no BOM mutation.
 import {createMMRRoom} from './mmr-room.mjs?v=20261015-step15-detail-b';
-import {createColocationCages} from './colocation-cages.mjs?v=20261015-step16-cages-b';
+import {createColocationCages} from './colocation-cages.mjs?v=20261026-black-mesh-cage-v1';
 export function createZoneSpecializations(THREE,T,{cube,world,canvas}){
   const mmr=createMMRRoom(THREE,{cube});
   const colocation=createColocationCages(THREE,{cube});

@@ -69,7 +69,7 @@ export function createRackComponentKit(THREE,{cube}){
  }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
-  const gpuVariant=/gpu/i.test(a.type)&&/^(?:gpu-0-[024]|gpu-1-[13]|gpu-dyn-(?:10|11|12|14|15))$/.test(id);
+  const gpuVariant=/gpu/i.test(a.type);
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
   const unit=(h-.46)/count,lower=.23;
   const pieces=[],map=new Map();
@@ -136,7 +136,7 @@ export function createRackComponentKit(THREE,{cube}){
   const slide=new THREE.Group();slide.name='server-tray';root.add(slide);
   // Server sled groups are independent pick targets and move together with original slide state.
   const maxServers=network?3:storage?7:gpuVariant?4:isGpu?7:6;
-  const modules=[],reserved=9;
+  const modules=[],gpuGroups=[],reserved=9;
   for(let i=0;i<maxServers;i++){
     const u=3+i*4;
     if(u+3>=count-reserved)break;
@@ -149,24 +149,35 @@ export function createRackComponentKit(THREE,{cube}){
      for(const side of [-1,1])
       box(partGroup,'gpu-tray-rail-'+i+'-'+side,side*w*.34,y+.075,-d*.15,w*.035,units*unit-.12,d*.55,'#92a8b3',.56,.32);
      for(let chip=0;chip<4;chip++){
+      const gpu=group(partGroup,id,'gpu-module-'+i+'-'+chip,'GPU 모듈 · 트레이 '+(i+1)+' / 슬롯 '+(chip+1),u,units);
+      gpu.userData.serverPartId=partGroup.userData.partId;
+      gpu.userData.slotIndex=chip;
       const gx=-w*.255+chip*w*.17;
-      box(partGroup,'gpu-accelerator-'+i+'-'+chip,gx,y+.11,-d*.12,w*.135,.19,d*.29,'#263f50',.52,.34);
-      box(partGroup,'gpu-coldplate-'+i+'-'+chip,gx,y+.31,-d*.12,w*.115,.045,d*.25,'#a8c9d0',.61,.27);
-      box(partGroup,'gpu-power-link-'+i+'-'+chip,gx,y+.12,d*.055,w*.08,.035,.07,'#d5b467',.44,.28);
+      box(gpu,'gpu-accelerator-'+i+'-'+chip,gx,y+.11,-d*.12,w*.135,.19,d*.29,'#263f50',.52,.34);
+      box(gpu,'gpu-coldplate-'+i+'-'+chip,gx,y+.31,-d*.12,w*.115,.045,d*.25,'#a8c9d0',.61,.27);
+      box(gpu,'gpu-power-link-'+i+'-'+chip,gx,y+.12,d*.055,w*.08,.035,.07,'#d5b467',.44,.28);
+      box(gpu,'gpu-pull-tab-'+i+'-'+chip,gx,y+.15,-d*.31,w*.085,.07,.025,'#edc567',.35,.25);
+      gpu.userData.rackPart.description='선택한 GPU 모듈을 서버 트레이에서 앞으로 인출하거나 다시 장착하는 교육용 동작입니다. 실제 장비의 전원 차단·냉각 분리 절차를 대신하지 않습니다.';
+      gpuGroups.push(gpu);
      }
      for(const side of [-1,1])
       box(partGroup,'gpu-coolant-line-'+i+'-'+side,side*w*.31,y+.22,d*.12,.035,.045,d*.27,side<0?'#54b9cf':'#d49367',.46,.30);
      partGroup.userData.rackPart.description='GPU 가속기 4개, 냉각판과 공급/회수 배관을 표시한 교육용 서버 트레이입니다. 실제 GPU 모델·수량·정격은 지정하지 않습니다.';
     }else box(partGroup,'sled'+i,0,y,-d*.15,w*.72,units*unit-.035,d*.57,
       network?'#304e6d':storage?'#587a82':'#304659',.63,.33);
-    box(partGroup,'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,
-      gpuVariant?'#3d4e56':'#1d354e',.49,.37);
+    if(gpuVariant){
+     // Open front slots leave the four removable accelerators visible.
+     box(partGroup,'gpu-front-header-'+i,0,y+units*unit-.06,-d*.47,w*.70,.055,.08,'#3d4e56');
+     box(partGroup,'gpu-front-lip-'+i,0,y+.015,-d*.47,w*.70,.045,.08,'#3d4e56');
+     for(let edge=0;edge<=4;edge++)
+      box(partGroup,'gpu-slot-divider-'+i+'-'+edge,-w*.34+edge*w*.17,y+.06,-d*.47,w*.014,units*unit-.12,.07,'#607d8a');
+    }else box(partGroup,'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,'#1d354e',.49,.37);
     if(gpuVariant){
      for(let chip=0;chip<4;chip++)
-      box(partGroup,'gpu-front-badge-'+i+'-'+chip,-w*.255+chip*w*.17,y+units*unit*.46,-d*.524,w*.12,.085,.016,'#d2ad57',.46,.27);
+      box(partGroup,'gpu-front-badge-'+i+'-'+chip,-w*.255+chip*w*.17,y+units*unit*.84,-d*.524,w*.12,.045,.016,'#d2ad57',.46,.27);
      box(partGroup,'gpu-inlet-indicator-'+i,w*.30,y+units*unit*.72,-d*.54,.045,.05,.017,'#60c6dc',.08,.20);
     }
-    for(let j=0;j<8;j++){
+    for(let j=0;!gpuVariant&&j<8;j++){
       box(partGroup,'server-port-'+i+'-'+j,-w*.26+j*w*.075,y+units*unit*.38,
         -d*.52,.057,.075,.027,j%2?'#68d8e9':'#63eaba',.2,.26);
     }
@@ -174,11 +185,13 @@ export function createRackComponentKit(THREE,{cube}){
       box(partGroup,'server-mount-ear',sign*w*.373,y,-d*.48,w*.05,units*unit-.035,.038,'#92a9b5');
       box(partGroup,'server-pull-handle',sign*w*.304,y+unit*.6,-d*.54,w*.028,unit*1.7,.05,'#acbdc7');
     }
-    for(let bay=0;bay<4;bay++){
+    for(let bay=0;!gpuVariant&&bay<4;bay++){
       box(partGroup,'hot-swap-drive-bay-'+bay,-w*.17+bay*w*.105,y+unit*.45,-d*.52,w*.09,unit*1.9,.025,'#536c7d');
       box(partGroup,'drive-release-tab-'+bay,-w*.17+bay*w*.105,y+unit*.65,-d*.54,w*.046,.022,.015,'#b4c1c7');
     }
-    retain(partGroup);modules.push(partGroup);
+    retain(partGroup);
+    for(const gpu of gpuGroups.filter(g=>g.parent===partGroup))retain(gpu);
+    modules.push(partGroup);
   }
   // Account for active assemblies and the top optical drawer before filling gaps.
   const occupied=pieces.filter(p=>p.kind==='tor'||p.kind==='patch-panel'||/^(server|storage|network-switch)-/.test(p.kind));
@@ -261,7 +274,7 @@ export function createRackComponentKit(THREE,{cube}){
   const moving={hinge:frontDoor,slide,cassette,reach:d*.67,door:null,rearDoor};
   stats.built++;if(count===48)stats.units48++;else stats.units42++;
   return {moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
-    serverGroups:modules,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
+    serverGroups:modules,gpuGroups,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
     frontDoor,rearDoor,slideGroup:slide};
  }
  return {build,stats};

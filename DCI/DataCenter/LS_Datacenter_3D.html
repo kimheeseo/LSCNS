@@ -737,7 +737,11 @@ function render3D(dt){if(window.LS3D_FALLBACK?.active){window.LS3D_FALLBACK.sync
        eye:eye.slice(),forward:forward.slice(),up:upVec.slice(),
        near:phase1Near,far:phase1Far,
        fov:(walk||workerViewId)?Math.PI/3.1:Math.PI/4,
-       flags:{showRoof,showSection,flow:{...flow},scenario,inspect:phase1Inspecting()}
+       // The briefing is viewed from inside its open entrance.  Campus room
+       // envelopes and neighboring assets otherwise occlude the entire scene
+       // on narrow viewports; show just the selected classroom during stage 3.
+       flags:{showRoof,showSection,flow:{...flow},scenario,inspect:phase1Inspecting()||
+         (window.__LS3D_VISITOR__?.state.active&&window.__LS3D_VISITOR__.state.index===2&&selected?.id==='visitor-lobby')}
      });
      moveMarkers();
      LS3D_RENDER_METRICS.renderMs=performance.now()-start;
@@ -977,7 +981,9 @@ cameraFrame=function(dt){
  const desired=[pivot[0]-Math.sin(yaw)*followDistance*Math.cos(pitch),Math.max(.55,4.75+Math.sin(pitch)*6),pivot[2]-Math.cos(yaw)*followDistance*Math.cos(pitch)];
  const boom=sub(desired,pivot),distance=Math.hypot(...boom),dir=norm(boom);
  let safeDistance=distance;
- for(const a of visibleAssets()){const hit=rayBox(pivot,dir,a);if(hit!==null&&hit>0&&hit<safeDistance)safeDistance=Math.max(.45,hit-.3);}
+ // The stage-3 camera intentionally looks through the open side of the
+ // classroom; nearby campus assets must not shorten its camera boom.
+ if(index!==2)for(const a of visibleAssets()){const hit=rayBox(pivot,dir,a);if(hit!==null&&hit>0&&hit<safeDistance)safeDistance=Math.max(.45,hit-.3);}
  // Keep the follow camera inside the active support room/server hall.
  const zone=Z.find(z=>z.id===currentZone);
  if(zone&&currentZone!=='campus')for(const axis of [0,2]){

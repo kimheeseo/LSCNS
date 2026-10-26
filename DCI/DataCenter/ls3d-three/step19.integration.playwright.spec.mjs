@@ -378,3 +378,36 @@ test('19-J: selected GPU module extracts and reinstalls inside the isolated rack
   expect(await page.evaluate(()=>window.LS3D_THREE.adapter.rackInteraction.selectedServer.gpuTarget)).toBe(0);
   verify(errors);
 });
+
+test('19-K: only Loading Bay faces the cargo-side camera in Gray Zone',async({page},info)=>{
+  const errors=await ready(page,'gray');
+  await page.evaluate(()=>window.__LS3D_TEST__.pickAsset(window.__LS3D_TEST__.assetMap.get('visitor-loading')));
+  await page.waitForFunction(()=>!!window.LS3D_THREE.adapter.scene.getObjectByName('equipment:visitor-loading'));
+  const world=await page.evaluate(()=>{
+    const root=window.LS3D_THREE.adapter.scene;
+    const bay=root.getObjectByName('equipment:visitor-loading');
+    const staging=root.getObjectByName('equipment:visitor-staging');
+    const carton=bay.getObjectByName('equipment-part:loading-box-0');
+    const forklift=bay.getObjectByName('equipment-part:loading-forklift-chassis');
+    const boxWorld=new window.LS3D_THREE.adapter.THREE.Vector3();
+    carton.getWorldPosition(boxWorld);
+    return {bayYaw:bay.rotation.y,stagingYaw:staging.rotation.y,
+      cartonZ:boxWorld.z,bayZ:bay.position.z,forklift:!!forklift};
+  });
+  expect(world.bayYaw).toBe(0);
+  expect(world.stagingYaw).toBeCloseTo(Math.PI);
+  expect(world.cartonZ).toBeGreaterThan(world.bayZ);
+  expect(world.forklift).toBe(true);
+  await page.evaluate(()=>window.__LS3D_VISITOR__.start());
+  await page.locator('[data-visit-stage="3"]').click();
+  const tour=await page.evaluate(()=>({
+    state:window.__LS3D_VISITOR__.state,
+    bay:window.__LS3D_TEST__.assetMap.get('visitor-loading'),
+    yaw:window.__LS3D_TEST__.cameraDesired.yaw
+  }));
+  expect(tour.state.index).toBe(3);
+  expect(tour.state.position[2]).toBeGreaterThan(tour.bay.z+tour.bay.d/2);
+  expect(Math.cos(tour.yaw)).toBeLessThan(-.9);
+  await snapshot(page,info,'step19-loading-bay-front.png');
+  verify(errors);
+});

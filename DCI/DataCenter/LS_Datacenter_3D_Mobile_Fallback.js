@@ -22,6 +22,7 @@ style.textContent=`
 #ls3dPortable2D button{cursor:pointer}
 #ls3dPortable2D .lite-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:6px}
 #ls3dPortable2D .lite-controls[hidden]{display:none}
+#ls3dPortable2D #ls3dLiteDoor[hidden]{display:none}
 #ls3dPortable2D label{display:flex;flex-direction:column;gap:3px;font-size:10px;color:#a8c5d5;min-width:0}
 #ls3dPortable2D .lite-map{min-height:100px;flex:1;overflow:hidden;border:1px solid #365c74;border-radius:9px;background:linear-gradient(140deg,#123348,#0b1d2d)}
 #ls3dPortable2D svg{display:block;width:100%;height:100%;touch-action:manipulation}
@@ -94,7 +95,7 @@ if(scenario){
 }
 const view=$('viewport'),layer=document.createElement('section');
 layer.id='ls3dPortable2D';layer.setAttribute('aria-label','경량 2D 데이터센터 구역 및 랙 배치');layer.hidden=true;
-layer.innerHTML='<div class="lite-header"><div><strong>▤ 2D 설비 배치도</strong><small id="ls3dLiteReason">3D를 대신하는 경량 도면</small></div><button type="button" id="ls3dLiteReturn">3D 돌아가기</button></div><div class="lite-controls"><label>구역 선택<select id="ls3dLiteZone"></select></label><label>설비·랙 선택<select id="ls3dLiteAsset"></select></label></div><div class="lite-map"><svg id="ls3dLiteSvg" role="img" aria-label="설비 개념 평면도" viewBox="0 0 760 470" preserveAspectRatio="xMidYMid meet"></svg></div><div class="lite-selected"><strong id="ls3dLiteSelected">구역 또는 설비를 선택하세요</strong><span id="ls3dLiteSelectedDesc">선택하면 기존 설비 검사와 정보가 연동됩니다.</span></div><div class="lite-footer"><span>개념 좌표 · BIM 실측 아님</span><a href="./LS_Datacenter_Campus.html">기존 2D Tour 보기</a></div>';
+layer.innerHTML='<div class="lite-header"><div><strong>▤ 2D 설비 배치도</strong><small id="ls3dLiteReason">3D를 대신하는 경량 도면</small></div><button type="button" id="ls3dLiteReturn">3D 돌아가기</button></div><div class="lite-controls"><label>구역 선택<select id="ls3dLiteZone"></select></label><label>설비·랙 선택<select id="ls3dLiteAsset"></select></label></div><button type="button" id="ls3dLiteDoor" hidden>선택 랙 문 열기</button><div class="lite-map"><svg id="ls3dLiteSvg" role="img" aria-label="설비 개념 평면도" viewBox="0 0 760 470" preserveAspectRatio="xMidYMid meet"></svg></div><div class="lite-selected"><strong id="ls3dLiteSelected">구역 또는 설비를 선택하세요</strong><span id="ls3dLiteSelectedDesc">선택하면 기존 설비 검사와 정보가 연동됩니다.</span></div><div class="lite-footer"><span>개념 좌표 · BIM 실측 아님</span><a href="./LS_Datacenter_Campus.html">기존 2D Tour 보기</a></div>';
 view?.appendChild(layer);
 const zonePicker=$('ls3dLiteZone'),assetPicker=$('ls3dLiteAsset'),map=$('ls3dLiteSvg');
 let active=false,reason='',lastSignature='',lastSynced=0,unsupported=false,selectedLitePart=null;
@@ -109,43 +110,64 @@ function colorOf(a){
 function shortName(a){return a.name.replace(/^GPU Rack /,'GPU ').replace(/^Storage Rack /,'STG ').replace(/^Network Rack /,'NET ').replace(/^Client Rack /,'Client ').replace(/ · ToR/,'').slice(0,18);}
 function option(value,label){const op=document.createElement('option');op.value=value;op.textContent=label;return op;}
 function rackParts(a){
- const gpu=a.type==='GPU server rack',storage=a.type==='Storage rack';
+ const gpu=a.type==='GPU server rack',storage=a.type==='Storage rack',network=a.type==='Top-of-Rack switch';
+ const special=gpu?[
+  ['top','Leaf A/B (ToR)','GPU 서버의 NIC를 Spine 1/2에 이중으로 연결합니다.'],
+  ['module-a','GPU 서버 트레이','GPU 가속기와 NIC를 수용하는 서버 트레이입니다.'],
+  ['module-b','GPU 가속기 모듈','GPU 카드를 개별로 장착하거나 인출하는 개념입니다.']
+ ]:storage?[
+  ['top','ToR · 스토리지망','스토리지 쉘프를 상위 네트워크에 연결합니다.'],
+  ['module-a','스토리지 쉘프','드라이브·컨트롤러를 수용하는 저장 장치입니다.'],
+  ['module-b','개별 드라이브 베이','드라이브를 베이 단위로 선택·인출합니다.']
+ ]:network?[
+  ['top','광 패치패널 · 케이블 관리자','광 트렁크를 스위치 포트와 연결합니다.'],
+  ['module-a','Spine 1 / Spine 2 스위치','Leaf A/B의 이중 상향 링크를 수용합니다.'],
+  ['module-b','광 트랜시버 · 포트','Spine 스위치의 착탈형 광모듈과 포트입니다.']
+ ]:[
+  ['top','ToR 스위치','컴퓨팅 서버 NIC를 상위 네트워크에 연결합니다.'],
+  ['module-a','CPU 서버 트레이','서버 섀시와 CPU 모듈을 수용합니다.'],
+  ['module-b','메모리 DIMM','CPU 서버의 메모리 장착 영역입니다.']
+ ];
  return [
-  {id:'tor',label:'ToR 스위치 · Top of Rack',description:'최상단 42U에 설치된 스위치로 서버 NIC와 상위 Leaf/Spine 망을 연결합니다.',uStart:42},
-  {id:'manager',label:'케이블 매니저',description:'광·UTP·DAC 패치 코드를 정리하고 굴곡 반경과 작업 공간을 확보합니다.',uStart:38},
-  {id:'module-a',label:gpu?'GPU 서버 트레이 · GPU/NIC':storage?'스토리지 모듈 · 드라이브':'네트워크 모듈 · 스위치',description:gpu?'GPU 카드와 NIC, 하우징이 장착된 서버 트레이입니다.':storage?'드라이브와 컨트롤러가 장착된 저장 모듈입니다.':'스위치 또는 라우터 모듈이 장착된 랙 구성품입니다.',uStart:30},
-  {id:'module-b',label:gpu?'GPU 서버 트레이 · GPU/NIC':storage?'스토리지 모듈 · 드라이브':'라우터 / 광모듈',description:gpu?'두 번째 GPU 서버 트레이와 네트워크 모듈입니다.':storage?'두 번째 저장 모듈과 백업 연결입니다.':'상위 네트워크에 연결되는 라우터와 광모듈입니다.',uStart:19},
-  {id:'dac',label:'DAC / 광 패치 케이블',description:'서버 NIC에서 최상단 ToR 스위치로 연결되는 짧은 DAC와 광 패치 코드입니다.',uStart:12},
-  {id:'pdu',label:'랙 PDU · A/B 전원',description:'양쪽 전원 분배 장치가 서버에 이중 전원을 공급합니다.',uStart:3},
-  {id:'housing',label:'42U 하우징 · 문/레일',description:'랙 프레임, 장착 레일과 통풍 도어를 포함한 외함입니다.',uStart:1}
+  {id:special[0][0],label:special[0][1],description:special[0][2],uStart:42},
+  {id:'manager',label:'케이블 매니저 · 광 패치',description:'광·데이터 케이블을 정리하고 굴곡 반경을 유지합니다.',uStart:38},
+  {id:special[1][0],label:special[1][1],description:special[1][2],uStart:30},
+  {id:special[2][0],label:special[2][1],description:special[2][2],uStart:19},
+  {id:'dac',label:storage?'스토리지 데이터 링크':network?'광 점퍼 · 상향 링크':'NIC · DAC/광 패치',description:'선택한 랙의 데이터 연결 경로를 나타냅니다.',uStart:12},
+  {id:'pdu',label:'후면 PDU · A/B 전원',description:'이중 전원 분배 경로입니다.',uStart:3},
+  {id:'housing',label:'랙 하우징 · 전면 문',description:'프레임, 장착 레일과 문이 선택한 랙마다 독립적으로 동작합니다.',uStart:1}
  ].map(p=>({...p,id:a.id+'-lite-'+p.id,assetId:a.id,zoneId:a.zone,kind:'rack-part'}));
 }
 function drawRackInterior(a){
  const parts=rackParts(a),named=id=>parts.find(p=>p.id.endsWith('-'+id));
+ const doorOpen=!!T.mechanical(a).targetDoor;
+ $('ls3dLiteDoor').hidden=false;$('ls3dLiteDoor').textContent=doorOpen?'선택 랙 문 닫기':'선택 랙 문 열기';
  map.replaceChildren();
  map.append(svgEl('rect',{x:25,y:18,width:710,height:428,rx:10,fill:'#11283c',stroke:'#43768d'}));
  map.append(svgEl('text',{x:380,y:48,'text-anchor':'middle',fill:'#dcf8ff','font-size':19,'font-weight':800},a.name+' · 42U 내부'));
  map.append(svgEl('rect',{x:220,y:66,width:320,height:348,rx:8,fill:'#172d41',stroke:'#9ac7d5','stroke-width':8}));
- for(const [id,y,h,color] of [['tor',78,42,'#116b71'],['manager',126,27,'#436071'],['module-a',162,80,'#2a607b'],['module-b',255,80,'#2a607b'],['dac',344,25,'#6b657f'],['pdu',377,27,'#7e6244']]){
+ for(const [id,y,h,color] of [['top',78,42,'#116b71'],['manager',126,27,'#436071'],['module-a',162,80,'#2a607b'],['module-b',255,80,'#2a607b'],['dac',344,25,'#6b657f'],['pdu',377,27,'#7e6244']]){
   const p=named(id),g=svgEl('g',{role:'button',tabindex:0,'data-part':p.id,'aria-label':p.label});
   g.append(svgEl('rect',{x:255,y,width:250,height:h,rx:5,fill:color,stroke:selectedLitePart?.id===p.id?'#ffe5a0':'#8ab6c6','stroke-width':selectedLitePart?.id===p.id?3:1.5}));
-  g.append(svgEl('text',{x:380,y:y+h/2+5,'text-anchor':'middle',fill:'#e7fbff','font-size':id==='tor'?15:13,'font-weight':800,'pointer-events':'none'},p.label));
+  g.append(svgEl('text',{x:380,y:y+h/2+5,'text-anchor':'middle',fill:'#e7fbff','font-size':id==='top'?15:13,'font-weight':800,'pointer-events':'none'},p.label));
   map.append(g);
  }
  for(const x of [236,520])map.append(svgEl('rect',{x,y:80,width:9,height:322,rx:3,fill:'#d2ad65'}));
  map.append(svgEl('path',{d:'M 493 355 C 586 309 585 135 498 101',fill:'none',stroke:'#72c0f8','stroke-width':6,'stroke-dasharray':'8 5'}));
  map.append(svgEl('text',{x:620,y:216,'text-anchor':'middle',fill:'#c6e9f7','font-size':12},'DAC / 광'));
  map.append(svgEl('text',{x:620,y:235,'text-anchor':'middle',fill:'#c6e9f7','font-size':12},'NIC → ToR'));
+ if(!doorOpen){map.append(svgEl('rect',{x:250,y:76,width:260,height:310,rx:6,fill:'#162b3b','fill-opacity':'.91',stroke:'#a9c2cc','stroke-width':6,'pointer-events':'none'}));map.append(svgEl('text',{x:380,y:232,'text-anchor':'middle',fill:'#e3f6fc','font-size':15,'font-weight':800,'pointer-events':'none'},'전면 문 닫힘 · 위 버튼으로 열기'));}
  map.setAttribute('aria-label',a.name+' 내부 구조 · 부품을 선택하면 설명 표시');
  const p=selectedLitePart;
  $('ls3dLiteSelected').textContent=p?.label||a.name+' · 내부 구조';
- $('ls3dLiteSelectedDesc').textContent=p?.description||'상단 ToR, GPU/저장 모듈, 케이블 매니저, DAC, A/B 전원을 선택해 확인하세요.';
+ $('ls3dLiteSelectedDesc').textContent=p?.description||'선택 랙의 문을 열고 종류별 모듈을 눌러 확인하세요.';
  if(!window.LS3D_THREE?.adapter)window.LS3D_INSPECTOR?.setParts(parts);
 }
 function draw(){
  if(!active||!map)return;
  layer.querySelector('.lite-controls').hidden=!!T.rackIsolateActive;
  if(T.rackIsolateActive&&T.selected&&T.isMechanicalRack(T.selected)){drawRackInterior(T.selected);return}
+ $('ls3dLiteDoor').hidden=true;
  const z=T.Z.find(x=>x.id===T.currentZone)||T.Z[0],home=z.id==='campus';
  const border=home?T.Z[0]:z;
  const minX=border.pos[0]-border.size[0]/2,maxX=border.pos[0]+border.size[0]/2,minZ=border.pos[1]-border.size[1]/2,maxZ=border.pos[1]+border.size[1]/2;
@@ -187,7 +209,7 @@ function sync(force=false){
  if(!T.rackIsolateActive||selectedLitePart?.assetId!==T.selected?.id)selectedLitePart=null;
  const zones=T.visibleZones(),zone=T.currentZone;
  const assets=T.visibleAssets().filter(a=>zone==='campus'||a.zone===zone);
- const signature=zone+'|'+T.facilityMode+'|'+(T.selected?.id||'')+'|'+T.rackIsolateActive+'|'+(selectedLitePart?.id||'')+'|'+assets.map(a=>a.id).join(',');
+ const signature=zone+'|'+T.facilityMode+'|'+(T.selected?.id||'')+'|'+T.rackIsolateActive+'|'+(T.rackIsolateActive&&T.selected?T.mechanical(T.selected).targetDoor:'')+'|'+(selectedLitePart?.id||'')+'|'+assets.map(a=>a.id).join(',');
  if(!force&&signature===lastSignature)return;
  lastSignature=signature;
  const oldZone=zonePicker.value;
@@ -202,7 +224,8 @@ const liteAction=(kind,id)=>{
  else {const a=T.assetMap.get(id);if(a)T.pickAsset(a,false);}
  sync(true);
 };
-function mapAction(e){const part=e.target.closest?.('[data-part]');if(part&&T.rackIsolateActive){selectedLitePart=rackParts(T.selected).find(p=>p.id===part.dataset.part)||null;if(selectedLitePart&&!window.LS3D_THREE?.adapter)window.LS3D_INSPECTOR?.setSelection(selectedLitePart);sync(true);return}const target=e.target.closest?.('[data-target]');if(target)liteAction(target.dataset.type,target.dataset.target)}
+function mapAction(e){const part=e.target.closest?.('[data-part]');if(part&&T.rackIsolateActive){if(!T.mechanical(T.selected).targetDoor)return;selectedLitePart=rackParts(T.selected).find(p=>p.id===part.dataset.part)||null;if(selectedLitePart&&!window.LS3D_THREE?.adapter)window.LS3D_INSPECTOR?.setSelection(selectedLitePart);sync(true);return}const target=e.target.closest?.('[data-target]');if(target)liteAction(target.dataset.type,target.dataset.target)}
+$('ls3dLiteDoor').addEventListener('click',()=>{if(!T.rackIsolateActive||!T.selected)return;T.setMechanical(T.selected,'door');selectedLitePart=null;sync(true);});
 map?.addEventListener('click',mapAction);
 map?.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();mapAction(e)});
 zonePicker?.addEventListener('change',()=>liteAction('zone',zonePicker.value));

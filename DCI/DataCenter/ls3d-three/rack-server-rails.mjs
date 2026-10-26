@@ -39,8 +39,16 @@ export function createRackServerRails(THREE,{cube}) {
       gpuGroups.set(partId,{group:gpu,serverPartId:gpu.userData.serverPartId,target:0,progress:0});
       gpuOrder.push(partId);
     }
+    const driveGroups=new Map(),driveOrder=[];
+    for(const drive of built.storageDrives||[]){
+      const partId=drive.userData.rackPart?.id;
+      if(!partId)continue;
+      driveGroups.set(partId,{group:drive,shelfPartId:drive.userData.storageShelfId,target:0,progress:0});
+      driveOrder.push(partId);
+    }
     const session={id,groups,selected:groups.keys().next().value||null,current:0,
-      gpuGroups,gpuOrder,selectedGpu:gpuOrder[0]||null,depth:d};
+      gpuGroups,gpuOrder,selectedGpu:gpuOrder[0]||null,
+      driveGroups,driveOrder,selectedDrive:driveOrder[0]||null,depth:d};
     sessions.set(id,session);stats.enhanced++;
     return session;
   }
@@ -49,6 +57,8 @@ export function createRackServerRails(THREE,{cube}) {
     s.selected=partId;
     const first=s.gpuOrder.find(id=>s.gpuGroups.get(id).serverPartId===partId);
     if(first&&s.gpuGroups.get(s.selectedGpu)?.serverPartId!==partId)s.selectedGpu=first;
+    const firstDrive=s.driveOrder.find(id=>s.driveGroups.get(id).shelfPartId===partId);
+    if(firstDrive&&s.driveGroups.get(s.selectedDrive)?.shelfPartId!==partId)s.selectedDrive=firstDrive;
     return partId;
   }
   function selectGpu(assetId,partId){
@@ -69,6 +79,24 @@ export function createRackServerRails(THREE,{cube}) {
     gpu.target=gpu.target?0:1;
     return {id:s.selectedGpu,target:gpu.target};
   }
+  function selectDrive(assetId,partId){
+    const s=sessions.get(assetId),drive=s?.driveGroups.get(partId);
+    if(!drive)return null;
+    for(const [id,other] of s.driveGroups)if(id!==partId)other.target=0;
+    s.selected=drive.shelfPartId;s.selectedDrive=partId;
+    return {id:partId,shelfPartId:drive.shelfPartId,slot:s.driveOrder.indexOf(partId)+1,total:s.driveOrder.length};
+  }
+  function cycleDrive(assetId,step=1){
+    const s=sessions.get(assetId);if(!s?.driveOrder.length)return null;
+    const index=s.driveOrder.indexOf(s.selectedDrive);
+    return selectDrive(assetId,s.driveOrder[(index+step+s.driveOrder.length)%s.driveOrder.length]);
+  }
+  function toggleDrive(assetId){
+    const s=sessions.get(assetId),drive=s?.driveGroups.get(s.selectedDrive);
+    if(!drive)return null;
+    drive.target=drive.target?0:1;
+    return {id:s.selectedDrive,target:drive.target};
+  }
   function update(assetId,moving,legacy,dt=.016) {
     const session=sessions.get(assetId);
     if(!session)return null;
@@ -81,6 +109,10 @@ export function createRackServerRails(THREE,{cube}) {
       gpu.progress+=(gpu.target-gpu.progress)*amount;
       gpu.group.position.z=gpu.progress?-gpu.progress*session.depth*.56:0;
     }
+    for(const drive of session.driveGroups.values()){
+      drive.progress+=(drive.target-drive.progress)*amount;
+      drive.group.position.z=drive.progress?-drive.progress*session.depth*.32:0;
+    }
     session.current=pull;stats.updates++;
     return {assetId,selected:session.selected,pull,serverCount:session.groups.size};
   }
@@ -90,9 +122,12 @@ export function createRackServerRails(THREE,{cube}) {
       selectedGpu:s.selectedGpu,gpuCount:s.gpuOrder.length,
       gpuSlot:s.gpuOrder.indexOf(s.selectedGpu)+1,
       gpuTarget:s.gpuGroups.get(s.selectedGpu)?.target||0,
-      gpuProgress:s.gpuGroups.get(s.selectedGpu)?.progress||0}:null;
+      gpuProgress:s.gpuGroups.get(s.selectedGpu)?.progress||0,
+      selectedDrive:s.selectedDrive,driveCount:s.driveOrder.length,
+      driveSlot:s.driveOrder.indexOf(s.selectedDrive)+1,
+      driveTarget:s.driveGroups.get(s.selectedDrive)?.target||0}:null;
   }
   function drop(id){sessions.delete(id);}
   function reset(){sessions.clear();}
-  return {decorate,select,selectGpu,cycleGpu,toggleGpu,update,state,drop,reset,stats};
+  return {decorate,select,selectGpu,cycleGpu,toggleGpu,selectDrive,cycleDrive,toggleDrive,update,state,drop,reset,stats};
 }

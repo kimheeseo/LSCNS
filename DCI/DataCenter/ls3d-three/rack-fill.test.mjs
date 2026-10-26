@@ -62,4 +62,30 @@ test('network rack exposes Spine 1/2 modules above its expansion and blanking sp
  assert.ok(switchParts[0].uStart>switchParts[1].uStart);
  assert.ok(switchParts[1].uStart>switchParts[2].uStart);
  assert.ok(built.frontFill.added.some(p=>p.kind==='horizontal-manager'));
+ assert.equal(built.parts.filter(p=>p.kind.startsWith('optical-transceiver-')).length,4);
+ assert.equal(built.parts.filter(p=>p.kind.startsWith('gpu-module-')||p.kind.startsWith('storage-drive-')).length,0);
+});
+test('storage drive bays are selectable and move independently of the other drives and rack',()=>{
+ const asset={id:'storage',type:'Storage rack',w:3,d:3,h:6};
+ const built=createRackComponentKit({Group},{cube}).build(new Group(),asset);
+ const driveParts=built.parts.filter(p=>p.kind.startsWith('storage-drive-'));
+ assert.equal(driveParts.length,28);
+ assert.equal(built.parts.some(p=>p.kind.startsWith('gpu-module-')),false);
+ const rails=createRackServerRails({Group},{cube});rails.decorate(asset,built,new Group());
+ const first=built.storageDrives[0],second=built.storageDrives[1];
+ assert.equal(rails.selectDrive(asset.id,first.userData.partId).slot,1);
+ assert.equal(rails.toggleDrive(asset.id).target,1);
+ rails.update(asset.id,built.moving,{slide:0},.2);
+ assert.ok(first.position.z<0);
+ assert.equal(second.position.z,0);
+ assert.equal(rails.toggleDrive(asset.id).target,0);
+ rails.update(asset.id,built.moving,{slide:0},.2);
+ assert.equal(first.position.z,0);
+});
+test('compute rack exposes CPU and memory without GPU and storage-specific parts',()=>{
+ const built=createRackComponentKit({Group},{cube}).build(new Group(),
+   {id:'compute',type:'Compute rack',w:3,d:3,h:6});
+ assert.equal(built.parts.filter(p=>p.kind.startsWith('compute-cpu-')).length,6);
+ assert.equal(built.parts.filter(p=>p.kind.startsWith('compute-memory-')).length,6);
+ assert.equal(built.parts.some(p=>p.kind.startsWith('gpu-module-')||p.kind.startsWith('storage-drive-')),false);
 });

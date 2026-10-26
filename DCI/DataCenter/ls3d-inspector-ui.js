@@ -11,6 +11,7 @@ style.textContent=`
 .tool-dock .phase58-launch,.tool-dock #phase2-bar button{position:static!important;inset:auto!important;display:block;width:100%;max-width:100%;margin:0!important;transform:none!important;padding:9px 10px;border:1px solid #456c81;border-radius:7px;background:#17394d;color:#d4edf8;font:600 11px system-ui;text-align:left;min-height:36px;white-space:normal}
 #mobileInspectorTools{margin:4px 0;border:1px solid #365c73;border-radius:8px;background:#102b3e;padding:9px;color:#cae6f4;font-size:12px}#mobileInspectorTools summary{cursor:pointer}#mobileInspectorTools .tool-dock{margin-top:9px;grid-template-columns:1fr 1fr}
 .inspector-selectors{display:grid;gap:10px;padding:13px 0 14px}.inspector-selectors label{display:grid;gap:6px;color:#9bbdd0;font-size:11px}.inspector-selectors select{width:100%;min-width:0;padding:9px;border:1px solid #4a7187;background:#112d42;border-radius:7px;color:#edf8ff;font-size:12px}.inspector-part{margin-bottom:13px;border:1px solid #458d9c;border-left:4px solid #f0c663;background:#123449;border-radius:9px;padding:12px}.inspector-part[hidden]{display:none}.inspector-part small{display:block;color:#9ac6d9;font-size:10px}.inspector-part strong{display:block;color:#f2f9fc;font-size:15px;line-height:1.5;margin:5px 0}.inspector-part p{font-size:12px;line-height:1.7;color:#c1dce8;margin:6px 0}.inspector-part button{border:1px solid #588399;border-radius:6px;background:#21465c;color:#e9f6fc;padding:6px 9px;font-size:11px;cursor:pointer}
+.inspector-rack-open{width:100%;padding:10px;border:1px solid #63b8b3;border-radius:8px;background:#15515b;color:#e5fffb;font:700 12px system-ui;cursor:pointer}.inspector-rack-open[hidden]{display:none}
 body.visitor-tour .inspector-tools,body.visitor-tour #mobileInspectorTools{display:none!important}
 @media(min-width:791px){#mobileInspectorTools{display:none!important}}
 `;
@@ -26,7 +27,7 @@ function moveTools(){
 }
 moveTools();window.addEventListener('resize',moveTools);
 const selector=document.createElement('section');selector.className='inspector-selectors';
-selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
+selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><button id="inspectorRackOpen" class="inspector-rack-open" type="button" hidden>선택 랙 단독 보기 · 문 열기/닫기</button><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
 document.querySelector('.right-head').insertAdjacentElement('afterend',selector);
 const card=document.createElement('section');card.id='inspectorPartDetails';card.className='inspector-part';card.hidden=true;card.setAttribute('aria-live','polite');
 card.innerHTML='<small id="inspectorPartContext"></small><strong id="inspectorPartName"></strong><p id="inspectorPartDescription"></p><button type="button" id="inspectorPartClear">부품 선택 해제</button>';
@@ -57,8 +58,11 @@ function sync(){
  const sig=assets.map(a=>a.id).join('|');if(sig!==assetSignature){assetSignature=sig;assetSelect.replaceChildren(option('','설비를 선택하세요'));for(const a of assets)assetSelect.appendChild(option(a.id,a.name));}
  if(part&&contextAsset!==T.selected?.id)setSelection(null);
  assetSelect.value=part&&!part.assetId?'':T.selected?.id||'';
+ const rackButton=$('inspectorRackOpen');rackButton.hidden=!T.isMechanicalRack(T.selected);
+ rackButton.textContent=T.rackIsolateActive?'← 선택 랙 단독 보기 닫기':'▣ '+(T.selected?.name||'선택 랙')+' 단독 보기 · 문 열기/닫기';
 }
 assetSelect.addEventListener('change',()=>{const a=T.assetMap.get(assetSelect.value);if(!a)return;window.LS3D_THREE?.adapter?.clearInspectionSelection();setSelection(null);T.pickAsset(a,true);sync();});
+$('inspectorRackOpen').addEventListener('click',()=>{if(T.rackIsolateActive)T.closeRackScene();else $('detailBtn')?.click();sync();});
 partSelect.addEventListener('change',()=>{const A=window.LS3D_THREE?.adapter;if(partSelect.value)A?.selectInspectionPart(partSelect.value);else{A?.clearInspectionSelection();setSelection(null);}});
 $('inspectorPartClear').addEventListener('click',()=>{window.LS3D_THREE?.adapter?.clearInspectionSelection();setSelection(null);});
 window.LS3D_INSPECTOR={sync,setParts,setSelection,get selection(){return part;},get parts(){return parts.slice();}};

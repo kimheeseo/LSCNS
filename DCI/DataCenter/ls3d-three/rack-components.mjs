@@ -160,12 +160,12 @@ export function createRackComponentKit(THREE,{cube}){
   const slide=new THREE.Group();slide.name='server-tray';root.add(slide);
   // Server sled groups are independent pick targets and move together with original slide state.
   const maxServers=network?3:storage?7:gpuVariant?4:isGpu?7:6;
-  const modules=[],gpuGroups=[],reserved=9;
+  const modules=[],gpuGroups=[],storageDrives=[],networkOptics=[],computeParts=[],reserved=9;
   for(let i=0;i<maxServers;i++){
     const u=networkRack?[27,20,13][i]:3+i*4;
     if(u+3>=count-reserved)break;
     const units=storage?3:4,y=lower+(u-1)*unit;
-    const kind=serverType,label=networkRack?(i<2?'Spine '+(i+1)+' · 네트워크 스위치':'네트워크 확장 모듈'): (a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 서버':gpuVariant?'GPU 가속기 트레이':'GPU/Compute 서버')+' '+(i+1);
+    const kind=serverType,label=networkRack?(i<2?'Spine '+(i+1)+' · 네트워크 스위치':'네트워크 확장 모듈'): (a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 쉘프':gpuVariant?'GPU 가속기 트레이':'컴퓨팅 서버')+' '+(i+1);
     const partGroup=group(slide,id,kind+'-'+(i+1),label,u,units);
     if(gpuVariant){
      // Open service trays expose accelerator packages when the rack door opens.
@@ -189,6 +189,14 @@ export function createRackComponentKit(THREE,{cube}){
      partGroup.userData.rackPart.description='GPU 가속기 4개, 냉각판과 공급/회수 배관을 표시한 교육용 서버 트레이입니다. 실제 GPU 모델·수량·정격은 지정하지 않습니다.';
     }else box(partGroup,'sled'+i,0,y,-d*.15,w*.72,units*unit-.035,d*.57,
       network?'#304e6d':storage?'#587a82':'#304659',.63,.33);
+    if(a.type==='Compute rack'&&!gpuVariant){
+      for(const [subKind,subLabel,xx,color] of [['cpu','CPU 모듈',-w*.17,'#9cb4c5'],['memory','메모리 DIMM',w*.17,'#76bb9e']]){
+        const component=group(partGroup,id,'compute-'+subKind+'-'+i,subLabel+' · 서버 '+(i+1),u,units);
+        box(component,'compute-'+subKind+'-face',xx,y+units*unit*.68,-d*.545,w*.21,.08,.045,color);
+        component.userData.rackPart.description=subKind==='cpu'?'컴퓨팅 서버의 CPU 프로세서 영역을 나타냅니다. 코어 수와 성능은 지정되지 않았습니다.':'컴퓨팅 서버의 메모리 DIMM 장착 영역을 나타냅니다. 용량과 채널 수는 지정되지 않았습니다.';
+        computeParts.push(component);
+      }
+    }
     if(networkRack){
       box(partGroup,'fabric-switch-face-'+i,0,y+.038,-d*.522,w*.68,units*unit-.11,.045,i<2?'#2b8554':'#334d5d');
       for(let port=0;port<16;port++)box(partGroup,'fabric-port-'+i+'-'+port,
@@ -196,6 +204,13 @@ export function createRackComponentKit(THREE,{cube}){
       moduleLabel(partGroup,id,'fabric-'+i,i<2?'SPINE '+(i+1):'EXPANSION',0,
         y+units*unit*.76,-d*.595,w*.50,.095,i<2?'#3aa66a':'#617e8e');
       partGroup.userData.rackPart.description=i<2?'Leaf A/B의 이중 상향 링크를 수용하는 Spine '+(i+1)+' 스위치 예시입니다. 실제 포트·장비 수량은 별도 설계 자료로 검증합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
+      if(i<2)for(let port=0;port<2;port++){
+        const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
+        box(optic,'transceiver-cage',-w*.18+port*w*.12,y+units*unit*.25,-d*.596,w*.085,.08,.08,'#b8ccd5');
+        box(optic,'transceiver-latch',-w*.18+port*w*.12,y+units*unit*.30,-d*.65,w*.055,.026,.021,'#69e8c0');
+        optic.userData.rackPart.description='Spine 스위치의 착탈형 광 트랜시버 예시입니다. 포트 속도와 광모듈 규격은 별도 설계값입니다.';
+        networkOptics.push(optic);
+      }
     }
     if(gpuVariant){
      // Open front slots leave the four removable accelerators visible.
@@ -220,15 +235,27 @@ export function createRackComponentKit(THREE,{cube}){
       box(partGroup,'server-pull-handle',sign*w*.304,y+unit*.6,-d*.54,w*.028,unit*1.7,.05,'#acbdc7');
     }
     for(let bay=0;!gpuVariant&&bay<4;bay++){
-      box(partGroup,'hot-swap-drive-bay-'+bay,-w*.17+bay*w*.105,y+unit*.45,-d*.52,w*.09,unit*1.9,.025,'#536c7d');
-      box(partGroup,'drive-release-tab-'+bay,-w*.17+bay*w*.105,y+unit*.65,-d*.54,w*.046,.022,.015,'#b4c1c7');
+      if(storage){
+        const drive=group(partGroup,id,'storage-drive-'+i+'-'+bay,'스토리지 드라이브 · 쉘프 '+(i+1)+' / 베이 '+(bay+1),u,units);
+        drive.userData.storageShelfId=partGroup.userData.partId;
+        box(drive,'drive-carrier',-w*.17+bay*w*.105,y+unit*.45,-d*.48,w*.09,unit*1.9,d*.19,'#536c7d');
+        box(drive,'drive-release-tab',-w*.17+bay*w*.105,y+unit*.65,-d*.595,w*.046,.032,.025,'#b4c1c7');
+        drive.userData.rackPart.description='스토리지 쉘프의 개별 드라이브 베이입니다. 문을 열고 선택한 드라이브만 인출하거나 장착합니다. 용량과 RAID 구성은 지정하지 않은 교육용 예시입니다.';
+        storageDrives.push(drive);
+      }else{
+        box(partGroup,'hot-swap-drive-bay-'+bay,-w*.17+bay*w*.105,y+unit*.45,-d*.52,w*.09,unit*1.9,.025,'#536c7d');
+        box(partGroup,'drive-release-tab-'+bay,-w*.17+bay*w*.105,y+unit*.65,-d*.54,w*.046,.022,.015,'#b4c1c7');
+      }
     }
     retain(partGroup);
     for(const gpu of gpuGroups.filter(g=>g.parent===partGroup))retain(gpu);
+    for(const drive of storageDrives.filter(g=>g.parent===partGroup))retain(drive);
+    for(const optic of networkOptics.filter(g=>g.parent===partGroup))retain(optic);
+    for(const component of computeParts.filter(g=>g.parent===partGroup))retain(component);
     modules.push(partGroup);
   }
   // Account for active assemblies and the top optical drawer before filling gaps.
-  const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel'].includes(p.kind)||/^(server|storage|network-switch)-/.test(p.kind));
+  const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel'].includes(p.kind)||/^(server|storage|network-switch)-\d+$/.test(p.kind));
   occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){
@@ -308,7 +335,7 @@ export function createRackComponentKit(THREE,{cube}){
   const moving={hinge:frontDoor,slide,cassette,reach:d*.67,door:null,rearDoor};
   stats.built++;if(count===48)stats.units48++;else stats.units42++;
   return {moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
-    serverGroups:modules,gpuGroups,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
+    serverGroups:modules,gpuGroups,storageDrives,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
     frontDoor,rearDoor,slideGroup:slide,cassetteU};
  }
  return {build,stats};

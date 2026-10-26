@@ -6,11 +6,12 @@ export function createRackOpticalCassette(THREE,{cube}) {
  function decorate(asset,built){
   if(!built.cassetteDrawer)return null;
   const {w,d,h,id}=asset,unit=(h-.46)/built.rackUnits;
-  const base=.23+(built.rackUnits-5)*unit,ht=unit*1.80,front=-d*.52,back=-d*.07;
+  const cassetteU=built.cassetteU||built.rackUnits-4;
+  const base=.23+(cassetteU-1)*unit,ht=unit*1.80,front=-d*.52,back=-d*.07;
   const tray=new THREE.Group();tray.name='rack-optical:LS-four-slot-tray';built.cassetteDrawer.add(tray);
   const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built};
   function info(key,kind,label,description,extra={}){
-   const p={id:id+':'+key,assetId:id,kind,label,description,uStart:built.rackUnits-4,uHeight:2,source,...extra};
+   const p={id:id+':'+key,assetId:id,kind,label,description,uStart:cassetteU,uHeight:2,source,...extra};
    built.parts.push(p);built.partMap.set(p.id,p);return p;
   }
   function box(parent,p,name,x,y,z,ww,hh,dd,color,transparent=false){

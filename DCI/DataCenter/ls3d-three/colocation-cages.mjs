@@ -8,7 +8,7 @@ export function createColocationCages(THREE,{cube}) {
     {id:'B',rack:'colo-rack-b',color:'#e0b56c',power:'#e6c15d',powerB:'#db9676',fiber:'#7ec7ee'},
     {id:'C',rack:'colo-rack-c',color:'#b89bdc',power:'#efca6a',powerB:'#e79779',fiber:'#b2a2ec'}
   ];
-  const stats={builds:0,bays:0,doors:0,meshPanels:0,powerPaths:0,fiberPaths:0,selectionChanges:0,meshWires:0};
+  const stats={builds:0,bays:0,doors:0,meshPanels:0,chainPanels:0,powerPaths:0,fiberPaths:0,selectionChanges:0,meshWires:0};
   const routeKinds=['fiber','power-A','power-B'];
   const labels={fiber:'광 패치/분배', 'power-A':'Rack PDU A 전원', 'power-B':'Rack PDU B 전원'};
   // This is an illustrative visual connection model, NOT electrical/optical engineering proof.
@@ -22,6 +22,41 @@ export function createColocationCages(THREE,{cube}) {
     const obj=cube(parent,x,y,z,w,h,d,color,.41,.47,transparent);
     obj.name='colo:'+name;return obj;
   };
+  // One batched line mesh per fence face makes the black diamond wire visible
+  // without hundreds of separate draw calls or an opaque texture over racks.
+  function chainMesh(parent,name,axis,fixed,min,max,height,bottom=.18){
+    if(!THREE.BufferGeometry||!THREE.Float32BufferAttribute||!THREE.LineSegments||!THREE.LineBasicMaterial)return null;
+    const vertices=[],pitch=.34;
+    for(const slope of [-1,1])for(let intercept=min-height;intercept<=max+height;intercept+=pitch){
+      const y0=Math.max(0,slope>0?min-intercept:intercept-max);
+      const y1=Math.min(height,slope>0?max-intercept:intercept-min);
+      if(y1-y0<.04)continue;
+      const u0=intercept+slope*y0,u1=intercept+slope*y1;
+      if(axis==='x')vertices.push(fixed,bottom+y0,u0,fixed,bottom+y1,u1);
+      else vertices.push(u0,bottom+y0,fixed,u1,bottom+y1,fixed);
+    }
+    const geometry=new THREE.BufferGeometry();
+    geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+    const wire=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#19242a',transparent:true,opacity:.78,depthWrite:false}));
+    wire.name='colo:chain-mesh:'+name;wire.userData.noPick=true;parent.add(wire);
+    stats.meshWires+=vertices.length/6;stats.chainPanels++;
+    return wire;
+  }
+  function nameSign(parent,name,title,subtitle,x,y,z,width,height){
+    if(typeof document==='undefined')return null;
+    const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=256;
+    const ctx=canvas.getContext('2d');if(!ctx)return null;
+    ctx.fillStyle='#17242e';ctx.fillRect(0,0,1024,256);
+    ctx.strokeStyle='#8ca5aa';ctx.lineWidth=9;ctx.strokeRect(6,6,1012,244);
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#f5f7f6';
+    ctx.font='bold 94px Arial,sans-serif';ctx.fillText(title,512,subtitle?104:131,940);
+    if(subtitle){ctx.fillStyle='#8cd4dd';ctx.font='bold 43px Arial,sans-serif';ctx.fillText(subtitle,512,196,930);}
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const sign=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
+      new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
+    sign.name='colo:sign:'+name;sign.position.set(x,y,z);sign.userData.noPick=true;
+    sign.userData.coloSign=title;parent.add(sign);return sign;
+  }
   function cable(parent,name,points,color,radius=.035,meta=null){
     const layer=new THREE.Group();layer.name='colo:circuit:'+name;parent.add(layer);
     if(meta)Object.assign(layer.userData,{coloTenant:meta.tenant,coloSystem:meta.kind,coloRoute:meta});
@@ -40,8 +75,8 @@ export function createColocationCages(THREE,{cube}) {
   }
   function clear(){
     root.traverse(obj=>{
-      if(obj.name?.startsWith('colo:wire:')){
-        obj.geometry?.dispose();obj.material?.dispose();
+      if(/^(colo:wire:|colo:chain-mesh:|colo:sign:)/.test(obj.name||'')){
+        obj.geometry?.dispose();obj.material?.map?.dispose();obj.material?.dispose();
       }
     });
     while(root.children.length)root.remove(root.children[0]);
@@ -59,7 +94,8 @@ export function createColocationCages(THREE,{cube}) {
     const oldGates=new Map([...gates].map(([id,g])=>[id,{opening:g.opening,target:g.target}]));
     clear();lastSignature=signature;root.visible=true;ready=true;layoutIssue=null;stats.builds++;
     root.position.set(cage.x,0,cage.z);
-    const w=cage.w,d=cage.d,h=Math.min(4.6,Math.max(3.5,cage.h));
+    // The enclosure rises above the 6 m customer racks, as in a full-height cage.
+    const w=cage.w,d=cage.d,h=Math.max(3.5,cage.h,...racks.map(r=>r.h+.45));
     const front=d/2,back=-d/2,barH=h-.2;
     // Derive fence positions from ORIGINAL rack footprints so partitions cannot
     // slice through customer racks; equal thirds would cut across Customer A.
@@ -89,22 +125,25 @@ export function createColocationCages(THREE,{cube}) {
       const xx=thresholds[partition];
       for(let s=0;s<8;s++){
         const zz=back+(s+.5)*d/8;
-        const pole=part(root,'mesh-stile-'+partition+'-'+s,xx,.08,zz,.060,barH,.065,'#8ca5b0');
+        const pole=part(root,'mesh-stile-'+partition+'-'+s,xx,.08,zz,.060,barH,.065,'#273239');
         pole.userData.noPick=true;
       }
       // Open steel lattice, not an opaque wall or a textured 2D plane.
       for(let row=0;row<9;row++){
         const y=.19+row*barH/9;
-        part(root,'partition-horizontal-'+partition+'-'+row,xx,y,0,.045,.038,d-.10,'#93b3bd').userData.noPick=true;
+        part(root,'partition-horizontal-'+partition+'-'+row,xx,y,0,.045,.038,d-.10,'#273239').userData.noPick=true;
         stats.meshWires++;
       }
       for(let col=0;col<14;col++){
         const z=back+(col+.5)*(d-.08)/14;
-        part(root,'partition-vertical-'+partition+'-'+col,xx,.21,z,.039,barH*.81,.039,'#7f9eac').userData.noPick=true;
+        part(root,'partition-vertical-'+partition+'-'+col,xx,.21,z,.039,barH*.93,.039,'#273239').userData.noPick=true;
         stats.meshWires++;
       }
       stats.meshPanels++;
+      chainMesh(root,'side-'+partition,'x',xx,back+.04,front-.04,barH-.32);
+      part(root,'side-top-rail-'+partition,xx,h-.13,0,.075,.075,d,'#1e292f').userData.noPick=true;
     }
+    nameSign(root,'main','COLOCATION CAGE','CUSTOMER A · B · C',0,h-.33,front+.20,4.9,.60);
     for(let section=0;section<3;section++){
       const bayWidth=thresholds[section+1]-thresholds[section];
       const center=(thresholds[section]+thresholds[section+1])/2;
@@ -114,38 +153,46 @@ export function createColocationCages(THREE,{cube}) {
       // Fence behind and two front gate jambs, leaving a real 1.48m concept gap.
       for(let j=0;j<=12;j++){
         const xx=thresholds[section]+.07+(bayWidth-.14)*j/12;
-        part(tenantGroup,'rear-mesh-vertical-'+cfg.id+'-'+j,xx,.2,back,.045,barH*.78,.045,cfg.color).userData.noPick=true;
+        part(tenantGroup,'rear-mesh-vertical-'+cfg.id+'-'+j,xx,.2,back,.045,barH*.93,.045,'#263238').userData.noPick=true;
         stats.meshWires++;
       }
       for(let j=0;j<9;j++){
         part(tenantGroup,'rear-mesh-horizontal-'+cfg.id+'-'+j,center,.23+j*barH*.76/9,back,
-          bayWidth-.14,.04,.048,cfg.color).userData.noPick=true;
+          bayWidth-.14,.04,.048,'#263238').userData.noPick=true;
         stats.meshWires++;
       }
+      chainMesh(tenantGroup,'rear-'+cfg.id,'z',back+.012,thresholds[section]+.06,thresholds[section+1]-.06,barH-.32);
       const sideWidth=Math.max(.15,(bayWidth-1.48)/2);
       for(const sign of [-1,1]){
         const xx=center+sign*(.74+sideWidth/2);
-        part(tenantGroup,'front-rail-'+cfg.id+'-'+sign,xx,2.87,front,sideWidth,.08,.068,'#b0c2ca').userData.noPick=true;
+        part(tenantGroup,'front-rail-'+cfg.id+'-'+sign,xx,h-.13,front,sideWidth,.08,.068,'#1e292f').userData.noPick=true;
         for(let j=0;j<5;j++){
           part(tenantGroup,'front-lattice-h-'+cfg.id+'-'+sign+'-'+j,xx,.2+j*barH*.70/5,front,
-            sideWidth,.035,.043,cfg.color).userData.noPick=true;
+            sideWidth,.035,.043,'#263238').userData.noPick=true;
           stats.meshWires++;
         }
         for(let j=0;j<Math.max(2,Math.ceil(sideWidth/.26));j++){
           const count=Math.max(2,Math.ceil(sideWidth/.26)),px=xx-sideWidth/2+(j+.5)*sideWidth/count;
           part(tenantGroup,'front-lattice-v-'+cfg.id+'-'+sign+'-'+j,px,.22,front,
-            .042,barH*.79,.042,cfg.color).userData.noPick=true;stats.meshWires++;
+            .042,barH*.93,.042,'#263238').userData.noPick=true;stats.meshWires++;
         }
+        chainMesh(tenantGroup,'front-'+cfg.id+'-'+sign,'z',front+.012,
+          xx-sideWidth/2+.045,xx+sideWidth/2-.045,barH-.32);
       }
       const entry=new THREE.Group();entry.name='colo:gate-hinge:'+cfg.id;
       entry.userData.coloTenant=cfg.id;
       entry.position.set(center-.72,.08,front);
       tenantGroup.add(entry);
-      const door=part(entry,'gate-leaf-'+cfg.id,.70,.02,0,1.40,barH-.17,.067,cfg.color,true);
+      const door=part(entry,'gate-leaf-'+cfg.id,.70,barH-.20,0,1.40,.075,.067,'#1e292f');
       door.userData.coloTenant=cfg.id;
+      part(entry,'gate-bottom-'+cfg.id,.70,.03,0,1.40,.075,.067,'#1e292f').userData.coloTenant=cfg.id;
+      for(const edge of [.03,1.37])part(entry,'gate-post-'+cfg.id+'-'+edge,edge,.06,0,.075,barH-.19,.075,'#1e292f').userData.coloTenant=cfg.id;
+      chainMesh(entry,'gate-'+cfg.id,'z',.004,.07,1.33,barH-.38);
       part(entry,'gate-handle-'+cfg.id,1.28,1.25,-.09,.095,.30,.13,'#e3d3b4').userData.coloTenant=cfg.id;
-      const label=part(tenantGroup,'tenant-nameplate-'+cfg.id,center,h-.10,front+.05,1.67,.32,.16,cfg.color);
+      const label=part(tenantGroup,'tenant-nameplate-'+cfg.id,center,h-.92,front+.06,1.76,.38,.07,'#17242e');
       label.userData.coloTenant=cfg.id;
+      nameSign(tenantGroup,'customer-'+cfg.id,'CUSTOMER '+cfg.id,'PRIVATE CAGE',center,h-.72,front+.12,1.73,.37);
+      for(const zz of [back,front])part(tenantGroup,'roof-rail-'+cfg.id+'-'+zz,center,h-.04,zz,bayWidth,.08,.07,'#1e292f').userData.noPick=true;
       const prior=oldGates.get(cfg.id);
       gates.set(cfg.id,{entry,target:prior?.target||0,opening:prior?.opening||0});
       entry.rotation.y=-(prior?.opening||0)*1.28;

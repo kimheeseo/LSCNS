@@ -448,3 +448,32 @@ test('19-L: colocation racks sit inside labeled black diamond-mesh cages',async(
   await snapshot(page,info,'step19-colocation-diamond-mesh.png');
   verify(errors);
 });
+
+test('19-M: GPU Leaf A/B, four GPU servers and network Spine 1/2 are visible rack parts',async({page},info)=>{
+  const errors=await ready(page,'hall');
+  const rack=await page.evaluate(()=>{
+    const adapter=window.LS3D_THREE.adapter;
+    const gpu=adapter.scene.getObjectByName('equipment:gpu-0-0');
+    const network=adapter.scene.getObjectByName('equipment:tor-a');
+    const a=gpu.getObjectByName('rack-part:tor:gpu-0-0')?.userData.rackPart;
+    const b=gpu.getObjectByName('rack-part:leaf-b:gpu-0-0')?.userData.rackPart;
+    const drawer=gpu.getObjectByName('rack-part:cassette-pull:gpu-0-0')?.userData.rackPart;
+    const labels=['leaf-a','leaf-b','gpu-server-0','gpu-server-1','gpu-server-2','gpu-server-3']
+      .map(name=>!!gpu.getObjectByName('rack-module-label:'+name+':gpu-0-0'));
+    const fabric=[0,1,2].map(i=>!!network.getObjectByName('rack-module-label:fabric-'+i+':tor-a'));
+    const routes=adapter.rackCabling.diagnostic('gpu-0-0')?.links||[];
+    return {a,b,drawer,labels,fabric,
+      redundant:routes.filter(link=>link.to===b?.id).length,
+      gpuCount:gpu.children.length,networkCount:network.children.length};
+  });
+  expect(rack.a.label).toContain('Leaf A');
+  expect(rack.b.label).toContain('Leaf B');
+  expect(rack.a.uStart).toBeGreaterThan(rack.b.uStart);
+  expect(rack.b.uStart).toBeGreaterThan(rack.drawer.uStart);
+  expect(rack.labels.every(Boolean)).toBe(true);
+  expect(rack.fabric.every(Boolean)).toBe(true);
+  expect(rack.redundant).toBe(4);
+  await page.evaluate(()=>window.__LS3D_TEST__.pickAsset(window.__LS3D_TEST__.assetMap.get('gpu-0-0')));
+  await snapshot(page,info,'step19-gpu-leaf-a-b-front.png');
+  verify(errors);
+});

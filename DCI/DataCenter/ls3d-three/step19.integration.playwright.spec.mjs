@@ -352,3 +352,29 @@ test('19-I: mobile rack controls fold/unfold and keep rack mechanisms intact',as
   verify(errors);
   await context.close();
 });
+
+test('19-J: selected GPU module extracts and reinstalls inside the isolated rack',async({page},info)=>{
+  const errors=await ready(page,'hall');
+  await page.evaluate(()=>window.__LS3D_TEST__.pickAsset(window.__LS3D_TEST__.assetMap.get('gpu-0-0')));
+  await page.locator('#detailBtn').click();
+  const action=page.locator('[data-rack-action="gpu-toggle"]');
+  await expect(action).toBeVisible();
+  const initial=await page.evaluate(()=>window.LS3D_THREE.adapter.rackInteraction.selectedServer);
+  expect(initial.gpuCount).toBe(16);
+  expect(initial.gpuTarget).toBe(0);
+  await action.click();
+  await page.waitForFunction(()=>window.LS3D_THREE.adapter.rackInteraction.selectedServer.gpuProgress>.95);
+  const extracted=await page.evaluate(()=>({
+    state:window.LS3D_THREE.adapter.rackInteraction.selectedServer,
+    z:window.LS3D_THREE.adapter.scene.getObjectByName('rack-part:gpu-module-0-0:gpu-0-0')?.position.z,
+    door:window.__LS3D_TEST__.mechanical(window.__LS3D_TEST__.assetMap.get('gpu-0-0')).targetDoor
+  }));
+  expect(extracted.state.gpuTarget).toBe(1);
+  expect(extracted.z).toBeLessThan(-1);
+  expect(extracted.door).toBe(1);
+  await snapshot(page,info,'step19-gpu-module-extracted.png');
+  await action.click();
+  await page.waitForFunction(()=>window.LS3D_THREE.adapter.rackInteraction.selectedServer.gpuProgress<.05);
+  expect(await page.evaluate(()=>window.LS3D_THREE.adapter.rackInteraction.selectedServer.gpuTarget)).toBe(0);
+  verify(errors);
+});

@@ -1,3 +1,4 @@
+import {buildStagingRoom} from './staging-room.mjs?v=20261029-staging-workshop-v1';
 // STEP 05 / 20 — distinguishing 3D equipment + geometry LOD and real GPU instancing.
 // Original asset ids/types, positions, dimensions and BOM values remain authoritative.
 // All sizes/shapes are illustrative; manufacturer CAD fidelity is NOT claimed.
@@ -10,6 +11,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     if(/visitor-parking|visitor parking|pre-registration parking/.test(s))return 'visitor-parking';
     if(/site-sign|ls data center.*안내/.test(s))return 'visitor-center';
     if(/visitor-lobby|briefing|classroom/.test(s))return 'briefing-room';
+    if(/visitor-staging|staging.room/.test(s))return 'staging-room';
     if(/visitor-loading|하역장|loading bay/.test(s))return 'loading-bay';
     if(/visitor-locker|camera.*usb|laptop.*register/.test(s))return 'identity-camera';
     if(/visitor-mantrap|mantrap|iris|fingerprint/.test(s))return 'biometric-mantrap';
@@ -812,6 +814,10 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(root,'visitor-center-canopy',0,h*.84,front,w*.88,.12,d*.34,'#d8e3e8',.45,.35);
         break;
       }
+      case 'staging-room': {
+        buildStagingRoom({part,round,decal},root,a);
+        break;
+      }
       case 'briefing-room': {
         part(root,'briefing-floor',0,.04,0,w*.94,.12,d*.92,'#536f7f',.28,.60);
         // Front is intentionally open so the classroom scene is visible during the tour.
@@ -912,7 +918,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       /transformer|switchgear|generator|ups|battery|pdu|ats/.test(kind)?'#879aa3':'#507589';
     // Tour cameras often show assets at medium LOD: retain the operational
     // identity of switching and cooling equipment instead of a plain cabinet.
-    if(['transformer','ats','switchgear','cooling-tower','generator','chiller','ups','battery-bank','pdu','cdu','air-handler','busway','odf','network','loading-bay'].includes(kind))detailed(mid,dims,kind);
+    if(['transformer','ats','switchgear','cooling-tower','generator','chiller','ups','battery-bank','pdu','cdu','air-handler','busway','odf','network','loading-bay','staging-room'].includes(kind))detailed(mid,dims,kind);
     else {
       part(mid,'mid-shell',0,.08,0,w*.88,h*.84,d*.84,shellColor,.43,.52);
       part(mid,'mid-door',0,h*.24,-d*.44,w*.7,h*.43,.08,'#2e5269');

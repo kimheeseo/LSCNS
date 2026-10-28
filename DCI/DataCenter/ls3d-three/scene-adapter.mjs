@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-odf-patch-frame-v1';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261029-staging-workshop-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -474,6 +474,7 @@ export function createSceneAdapter(T, canvas) {
       'entry-desk':['SECURITY DESK','VISITOR CHECK-IN'],
       'site-sign':['LS','DATA CENTER'],
       'visitor-lobby':['LOBBY · BRIEFING ROOM','SAFETY ORIENTATION'],
+      'visitor-staging':['STAGING · 서버 설치 전 준비실','입고·개봉 → 검수·설정·시험 → 서버홀'],
       'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
       'visitor-locker':['VISITOR ID CAMERA','ID / CAMERA · USB · LAPTOP'],
       'visitor-mantrap':['BIOMETRIC MANTRAP','IRIS · FINGERPRINT · CARD'],
@@ -534,7 +535,7 @@ export function createSceneAdapter(T, canvas) {
     const caption=visitorCaption(a);if(caption)g.add(caption);
     // Loading Bay is approached from its cargo/carton side (+Z); unlike the
     // other Gray Zone rooms it must face the default visitor camera directly.
-    const baseYaw=a.id==='visitor-mantrap'?Math.PI:(a.zone==='gray'||a.zone==='network')&&!['gray-cdu','visitor-loading'].includes(a.id)?Math.PI:0;
+    const baseYaw=a.id==='visitor-mantrap'?Math.PI:(a.zone==='gray'||a.zone==='network')&&!['gray-cdu','visitor-loading','visitor-staging'].includes(a.id)?Math.PI:0;
     g.position.set(a.x,0,a.z);g.rotation.y=baseYaw;
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),

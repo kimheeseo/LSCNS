@@ -850,7 +850,7 @@ const steps=[
 ['visitor-lobby','촬영 허용 구역 확인','이 교육 시나리오는 로비의 안내 표지 앞만 촬영 허용 구역으로 가정합니다. 서버홀·전기실·NOC는 촬영 제한입니다.']]],
 ['Gray Zone · 지원 시설','설비 내부 출입은 승인된 안전 동선에서 관찰하는 체험입니다.',[
 ['visitor-loading','하역장 관찰','장비가 도착하면 검수·입고 기록을 남기고 운반 경로를 확보합니다.'],
-['visitor-staging','스테이징룸 관찰','서버와 부품을 개봉·검수하고 초기 설정한 뒤 서버홀로 반입합니다.'],
+['visitor-staging','스테이징룸 관찰','① 입고·개봉: 모델·수량·파손 확인 → ② 작업대: 부품 장착, IP·펌웨어 설정, 전원·통신 시험 → ③ 검수 완료 라벨을 붙여 카트로 서버홀 반입. 포장재는 이곳에서 분리합니다.'],
 ['ups-a','전기실 · UPS 관찰','UPS는 전원 이상 때 부하를 이어받습니다. 배터리·발전기와 역할이 다릅니다.'],
 ['battery-a','배터리 관찰','배터리는 발전기 기동·절체 동안 UPS에 저장 에너지를 공급합니다.'],
 ['generator','외부 발전기 관찰','외부 Utility Yard의 발전기는 UPS·배터리와 분리된 비상 전원 설비입니다.'],
@@ -886,7 +886,7 @@ const stageDuration=()=>index===4?tourPolicy.gateDuration*1000:AUTO_STEP_MS;
 function gateDemo(){return {active:active&&index===4,...tourPolicy.gateMotion(gateDemoStart===null?0:(performance.now()-gateDemoStart)/1000)};}
 let avatarWalking=false;
 
-const newAssets=[['campus','visitor-parking','방문자 주차장 · 사전 등록 확인',-10,53,12,8,3.6],['campus','visitor-locker','스탠딩 본인확인 카메라 · 보관/등록',-16,46,2.6,2.4,3.8],['campus','visitor-lobby','로비 · 브리핑룸 · CLASSROOM',-2,35,10,6,3.4],['gray','visitor-loading','LS CABLE · 하역장',-12,8,12,7,4],['gray','visitor-staging','스테이징룸',0,9,6,3,2.5],['campus','visitor-mantrap','MANTRAP · 카드/홍채 인증',15,29,4,4,3],['hall','visitor-rpp','RPP · 랙 회로 분배반',18,-3,2,2,3]];
+const newAssets=[['campus','visitor-parking','방문자 주차장 · 사전 등록 확인',-10,53,12,8,3.6],['campus','visitor-locker','스탠딩 본인확인 카메라 · 보관/등록',-16,46,2.6,2.4,3.8],['campus','visitor-lobby','로비 · 브리핑룸 · CLASSROOM',-2,35,10,6,3.4],['gray','visitor-loading','LS CABLE · 하역장',-12,8,12,7,4],['gray','visitor-staging','스테이징룸 · 검수·설정·시험',0,9,9,5,3.5],['campus','visitor-mantrap','MANTRAP · 카드/홍채 인증',15,29,4,4,3],['hall','visitor-rpp','RPP · 랙 회로 분배반',18,-3,2,2,3]];
 for(const a of newAssets){const obj=addAsset(...a.slice(0,3),'Visitor tour',...a.slice(3),'—','방문자 교육 투어용 개념 설비');obj.visitorOnly=true;}
 // Align the mantrap centreline and rear edge with the actual Hall entrance portal.
 Object.assign(assetMap.get('visitor-mantrap'),tourPolicy.gatePosition(Z.find(z=>z.id==='hall')));
@@ -989,13 +989,19 @@ function coolingPlantShot(zone,aspect){
  const direction=norm([.48,.62,.75]);
  return {eye:add(center,scale(direction,distance)),target:center};
 }
+function stagingRoomShot(a,aspect){
+ const center=[a.x,a.h*.45,a.z],radius=Math.hypot(a.w,a.d,a.h)/2;
+ const half=Math.min(Math.PI/6.2,Math.atan(Math.tan(Math.PI/6.2)*Math.max(.1,aspect)));
+ return {eye:add(center,scale(norm([.20,.42,1]),radius/Math.sin(half)*1.15)),target:center};
+}
 const visitorBaseCameraFrame=cameraFrame;
 cameraFrame=function(dt){
  if(!active||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
  // Frame the branded cartons / open truck from +Z, independently of the follow boom.
- if(index===3&&['visitor-loading','chiller'].includes(selected?.id)){
+ if(index===3&&['visitor-loading','visitor-staging','chiller'].includes(selected?.id)){
    const shot=selected.id==='chiller'
      ?coolingPlantShot(Z.find(z=>z.id==='cooling'),renderW/Math.max(1,renderH))
+     :selected.id==='visitor-staging'?stagingRoomShot(selected,renderW/Math.max(1,renderH))
      :tourPolicy.loadingShot(selected);
    eye=shot.eye;
    forward=norm(sub(shot.target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));
@@ -1070,7 +1076,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261029-tour-gate-v1"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261029-staging-workshop-v1"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

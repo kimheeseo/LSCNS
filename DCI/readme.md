@@ -6,7 +6,7 @@ AI 데이터센터 탐색, CPO 공급망 조사, 인프라 설계 및 광학 수
 
 - **목적:** 데이터센터 구조와 주요 설비를 3D로 탐색하는 교육·설계 검토용 투어.
 - **주요 기능:** 캠퍼스 7개 구역 탐색, 설비 정보 조회, 랙 전·후면 및 내부 점검, 작업자 시점 전환.
-- **실행:** [3D Datacenter Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html)
+- **실행 (Three.js 3D):** [3D Datacenter Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261026-display-mode-fix10)
 - **참고:** [사용 안내](./DataCenter/LS_Datacenter_3D_사용법.txt) · [2D Campus Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html)
 
 교육·검토용 개념 모델이며, 실측 CAD/BIM 또는 실시간 시설 데이터 기반 모델은 아닙니다.

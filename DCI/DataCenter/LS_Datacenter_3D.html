@@ -153,8 +153,9 @@ addAsset('gray','cable-tray','부스덕트 · Power Busway','Busway',9,1,7,4,2,'
 addAsset('hall','fiber-tray','광 케이블 트레이 · Fiber','Fiber cable tray',-11,15,7,2,4.9,'—','MPO/LC 광케이블을 랙 및 ODF로 수용·보호하는 전용 트레이입니다.');
 addAsset('hall','utp-tray','UTP 통신 트레이 · Copper','UTP cable tray',0,15,7,2,4.6,'—','UTP/구리 기반 관리·접속 네트워크 케이블을 광 트레이와 분리해 수용합니다.');
 addAsset('hall','power-tray','전력 케이블 트레이 · Power','Power cable tray',11,15,7,2,4.3,'—','랙 전원 A/B 피더 케이블을 통신 계통과 분리하여 수용합니다.');
-addAsset('gray','carrier-entry','Carrier Entry','Optical entry',-9,10,6,3,3,'—','외부 통신사업자 인입 구역입니다.');
-addAsset('gray','cross-connect','Cross-connect Panel','ODF',7,10,6,3,4,'—','외부 광회선과 내부 패치를 분배합니다.');
+// Keep optical entrance / cross-connect cabinets inside Network/MMR, clear of the Gray Zone loading bay.
+addAsset('network','carrier-entry','Carrier Entry','Optical entry',-7,8.5,6,2,3,'—','외부 통신사업자 인입 구역입니다.');
+addAsset('network','cross-connect','Cross-connect Panel','ODF',7,8.5,6,2,4,'—','외부 광회선과 내부 패치를 분배합니다.');
 // Regular Data Hall rack grid. Uniform 3.5 m column pitch with separate functional rows.
 const HALL_RACK_PITCH=4.25;
 for(let r=0;r<2;r++)for(let i=0;i<5;i++)addAsset('hall',`gpu-${r}-${i}`,`GPU Rack ${r?'B':'A'}-${String(i+1).padStart(2,'0')}`,'GPU server rack',-15+i*HALL_RACK_PITCH,-9+r*9,2.7,3.0,6,'60 kW/랙 예시','상단 Leaf A/B(ToR), 인출형 GPU 서버 4대, NIC 및 후면 Rack PDU A/B를 구분한 교육용 랙입니다. H100 표시는 도면 참고용 예시이며 BOM 사양을 확정하지 않습니다.');

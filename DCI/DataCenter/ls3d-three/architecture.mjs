@@ -158,7 +158,7 @@ export function createArchitectureKit(THREE, { cube }) {
     }
     part(g,'frame',name+'-lintel',x,leafHeight+.05,z,leafWidth*2.12,.29,.34,'#b5cbd0',.64,.27);
     part(g,'frame',name+'-access-panel',x+leafWidth*1.3,1.22,z+.20,.21,.38,.13,'#40ab9b',.45,.4);
-    const rec={joints,phase:0,openToOutside,zone:lastZone};doors.push(rec);return rec;
+    const rec={name,joints,phase:0,openToOutside,zone:lastZone};doors.push(rec);return rec;
   }
   function suspendedTray(g,name,x,y,z,length,alongX,tint) {
     const channel=alongX?{w:length,d:.8}:{w:.8,d:length};
@@ -330,7 +330,8 @@ export function createArchitectureKit(THREE, { cube }) {
   function tick(dt,current,flags={}) {
     for (const door of doors) {
       // Automatic opening when entering a section/zone; keeps the main input API unchanged.
-      const target=(current!=='campus'||flags.showSection)?1:0;
+      const demo=flags.visitorGate;
+      const target=demo?.active&&door.name==='hall-entry'?demo.openness:(current!=='campus'||flags.showSection)?1:0;
       door.phase+=(target-door.phase)*(1-Math.exp(-Math.max(0,Math.min(.10,dt))*4.7));
       for(const {hinge,dir} of door.joints)
         hinge.rotation.y=dir * (door.openToOutside?1:-1) * door.phase * 1.17;

@@ -828,11 +828,13 @@ addLog('INFO','캠퍼스 시뮬레이션 세션 시작 · 모든 값은 교육·
 drawLogs();updateNote();updateEnergy();compare();updateMarkers();
 Object.assign(window.__LS3D_TEST__,{scenarioDefs:configs,compareValue:compareValue,addEventLog:addLog,scenarioElapsed:function(){return Math.max(0,simTime-scenarioStart)},get redundancy(){return redundancy},set redundancy(v){redundancy=v},get samples(){return samples},get logs(){return logs},get currentStage(){return currentStage()},get currentMetrics(){return metrics()}});Object.defineProperty(window.__LS3D_TEST__,'scenario',{configurable:true,get:function(){return scenario}});
 })();
-</script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261026-rack-odf-v2"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261026-hall-ui"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261026-hall-ui"></script><script>
+</script><script src="./visitor-tour-policy.js?v=20261029-tour-gate-v1"></script><script src="./server-room-geometry.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Extensions.js?v=20261026-rack-odf-v2"></script><script src="./LS_Datacenter_3D_Phase2A.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase2B.js?v=20261011-462-phase4"></script><script src="./LS_Datacenter_3D_Phase45.js?v=20261011-470-phase8"></script><script src="./phase7-bom-engine.js?v=20261011-phase7-hardening"></script><script src="./phase7-compatibility.js?v=20261011-phase7-hardening"></script><script src="./LS_Datacenter_3D_Phase6.js?v=20261026-hall-ui"></script><script src="./LS_Datacenter_3D_Phase7.js?v=20261026-hall-ui"></script><script>
 /* Visitor tour: educational simulation; no identity/biometric collection. */
 (function(){
 'use strict';
 const T=window.__LS3D_TEST__,el=id=>document.getElementById(id);if(!T)return;
+const tourPolicy=window.LS3D_VISITOR_POLICY;
+let gateDemoStart=null;
 const steps=[
 ['방문 전 · 사전 절차','방문 허가를 받은 동행 견학입니다. 실제 개인정보를 수집하지 않습니다.',[
 ['visitor-parking','방문자 명단·신분증 사전 등록 확인 · 확인서 작성','방문자 V-001의 사전등록 명단과 신분증 정보를 대조하는 교육용 장면입니다. 3인칭에서는 방문자가 확인서에 서명하는 동작을 보입니다. 실제 개인정보는 수집·저장하지 않습니다.'],
@@ -853,7 +855,7 @@ const steps=[
 ['battery-a','배터리 관찰','배터리는 발전기 기동·절체 동안 UPS에 저장 에너지를 공급합니다.'],
 ['generator','외부 발전기 관찰','외부 Utility Yard의 발전기는 UPS·배터리와 분리된 비상 전원 설비입니다.'],
 ['chiller','외부 냉각 플랜트 · 산업용 칠러 관찰','외부 냉각 플랜트의 칠러·냉각탑·펌프가 냉수를 순환시켜 열을 이동시킵니다.']]],
-['White Zone · 진입 게이트','문 1 닫힘 → 인증 → 문 2 열림 순서를 체험합니다.',[
+['White Zone · 진입 게이트','문 앞에 정렬된 진입 게이트를 관찰합니다. 문 열림·닫힘을 5초 주기로 5회 재생합니다.',[
 ['visitor-mantrap','맨트랩 외문 진입 · 외문 닫힘','첫 번째 문으로 진입한 뒤 외문이 닫혀 인터록 상태가 되는 과정을 관찰합니다.'],
 ['visitor-mantrap','방문 카드 인증 체험','카드 리더의 적색 대기등이 승인 뒤 녹색으로 바뀌는 교육용 인증 장면입니다.'],
 ['visitor-mantrap','홍채·지문 인증 체험','홍채 카메라와 지문 리더를 통한 2차 인증 과정을 가정합니다. 실제 생체정보는 입력·저장하지 않습니다.'],
@@ -880,10 +882,14 @@ const steps=[
 let active=false,index=0,task=0,done=false,records=[],saved=null,internal=false,focusedTask=null;
 let tourMode='auto',autoPaused=false,finished=false,autoTimer=null,remainingMs=20000,lastAutoTime=0;
 const AUTO_STEP_MS=20000;
+const stageDuration=()=>index===4?tourPolicy.gateDuration*1000:AUTO_STEP_MS;
+function gateDemo(){return {active:active&&index===4,...tourPolicy.gateMotion(gateDemoStart===null?0:(performance.now()-gateDemoStart)/1000)};}
 let avatarWalking=false;
 
 const newAssets=[['campus','visitor-parking','방문자 주차장 · 사전 등록 확인',-10,53,12,8,3.6],['campus','visitor-locker','스탠딩 본인확인 카메라 · 보관/등록',-16,46,2.6,2.4,3.8],['campus','visitor-lobby','로비 · 브리핑룸 · CLASSROOM',-2,35,10,6,3.4],['gray','visitor-loading','LS CABLE · 하역장',-12,8,12,7,4],['gray','visitor-staging','스테이징룸',0,9,6,3,2.5],['campus','visitor-mantrap','MANTRAP · 카드/홍채 인증',15,29,4,4,3],['hall','visitor-rpp','RPP · 랙 회로 분배반',18,-3,2,2,3]];
 for(const a of newAssets){const obj=addAsset(...a.slice(0,3),'Visitor tour',...a.slice(3),'—','방문자 교육 투어용 개념 설비');obj.visitorOnly=true;}
+// Align the mantrap centreline and rear edge with the actual Hall entrance portal.
+Object.assign(assetMap.get('visitor-mantrap'),tourPolicy.gatePosition(Z.find(z=>z.id==='hall')));
 const css=document.createElement('style');css.textContent=`
 #visitorPanel{display:none;padding:18px;border-bottom:1px solid #345a70;background:#102b40}body.visitor-tour #visitorPanel{display:block}#visitorPanel h2{font-size:19px;margin:9px 0}#visitorPanel p{font-size:12px;line-height:1.75;color:#b2ccdb}#visitorPanel button{padding:11px;border:1px solid #39738a;border-radius:8px;background:#174457;color:#e7fcff;min-height:42px;font:inherit;font-size:12px}#visitorPanel button:disabled{opacity:.4;cursor:default}#visitorAction{width:100%;background:#17665f!important;font-weight:800!important}#visitorProgress{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}#visitorProgress button{min-height:0;padding:5px 8px;background:#17354b;border:1px solid #244e63;border-radius:5px;color:#d8f3f6;font-size:11px;text-align:left}#visitorProgress button.current{outline:1px solid #52d7c9;background:#174b58}#visitorProgress button.complete{color:#60e1bb}#visitorTask{background:#092033;border-left:3px solid #5bddca;padding:12px;margin:10px 0}#visitorTask strong{font-size:13px}#visitorTask p{margin-bottom:0}#visitorResult{color:#79e8c4;min-height:20px;font-size:12px;margin:10px 0}#visitorControls{display:none;position:absolute;bottom:48px;left:12px;gap:5px;z-index:7;flex-wrap:wrap;max-width:240px}body.visitor-tour #visitorControls{display:flex}#visitorControls button{background:#12394eee;border:1px solid #53a5ac;color:white;border-radius:8px;min-width:44px;min-height:44px;touch-action:none}body.visitor-tour #guide,body.visitor-tour .phase2-bar,body.visitor-tour #phase5-open,body.visitor-tour #phase6-open,body.visitor-tour #phase7-open,body.visitor-tour #phase8-open,body.visitor-tour #phase1-hud,body.visitor-tour .crew-summary-panel,body.visitor-tour .redundancy-bar{display:none!important}body.visitor-tour .right-inner{display:none}body.visitor-tour .vp-tools>*,body.visitor-tour .side-section,body.visitor-tour .worker-follow-hud,body.visitor-tour .crew-summary,body.visitor-tour .control,body.visitor-tour .facility-switch,body.visitor-tour .metrics,body.visitor-tour .telemetry-drawer{display:none!important}body.visitor-tour .vp-tools #btnFull{display:block!important}body.visitor-tour .legend{display:none}#visitorLogs{max-height:160px;overflow:auto;font-size:10px;color:#9fb9cb;line-height:1.7}.sim-local-bottom{opacity:.42;font-size:9px;align-self:flex-end;margin-left:8px}.sim-local-bottom i{width:5px;height:5px}body.visitor-tour .sim-local-bottom{display:none}#visitorAutoBadge{display:inline-block;margin-top:12px;padding:7px 9px;border-radius:7px;background:#0d5a5a;color:#bffdf2;font-size:11px;font-weight:800}#visitorTaskCopy{margin:8px 0 0}#visitorTaskCopy .visitor-checklist{list-style:none;margin:0;padding:0;display:grid;gap:8px}#visitorTaskCopy .visitor-checklist li{display:block;padding:0;border:0;background:transparent}#visitorTaskCopy .visitor-checklist i{font-style:normal;color:#6ce4c5;font-size:15px;line-height:1.1}#visitorTaskCopy .visitor-checklist b{display:block;color:#e5fbff;font-size:11px}#visitorTaskCopy .visitor-checklist small{display:block;color:#a9c1ce;font-size:10px;line-height:1.45;margin-top:2px}#visitorTaskCopy .visitor-checklist li:first-child{border-color:#52d7c9;background:#10374a}#visitorTaskCopy .visitor-checklist button{display:grid;grid-template-columns:19px 1fr;gap:7px;width:100%;min-height:0;padding:7px;text-align:left;background:#0d273a;border:1px solid #214a61}#visitorTaskCopy .visitor-checklist button:hover,#visitorTaskCopy .visitor-checklist button.focused{border-color:#5be1ce;background:#114257}body.visitor-tour .heading p{display:none}@media(max-width:790px){body.visitor-tour .viewport{height:52dvh;min-height:280px}body.visitor-tour #visitorPanel{padding:14px}body.visitor-tour .main{gap:7px}body.visitor-tour .heading h1{font-size:16px}body.visitor-tour .top-actions .small-btn:not(#visitorToggle){display:none}body.visitor-tour .mobile-zone{display:none}body.visitor-tour #visitorControls{bottom:12px}}`;
 document.head.append(css);
@@ -933,13 +939,13 @@ setZone=function(id,focus=true){if(active&&!internal){toast('방문자 투어: �
 pickAsset=function(a,focus=false){if(active&&a.zone!==currentZone)return;return basePick(a,active?false:focus);};T.setZone=setZone;T.pickAsset=pickAsset;
 updateWalk=function(dt){if(!active)return baseUpdate(dt);if(!walk)return;const before=walkPos.slice();baseUpdate(Math.min(dt,.05)*.32);const z=Z.find(z=>z.id===currentZone);if(currentZone!=='campus'&&(Math.abs(walkPos[0]-z.pos[0])>z.size[0]/2-.7||Math.abs(walkPos[2]-z.pos[1])>z.size[1]/2-.7))walkPos=before;walkPos[1]=1.7;avatarWalking=Math.hypot(walkPos[0]-before[0],walkPos[2]-before[2])>.0001;};
 function visitorTaskAction(){return index===0&&task===0?'write':avatarWalking?'walk':'idle';}
-function visualTaskIndex(){const rows=steps[index]?.[2]||[];if(!active||!rows.length)return task;if(focusedTask!==null)return focusedTask;return Math.min(rows.length-1,Math.floor(((AUTO_STEP_MS-remainingMs)/AUTO_STEP_MS)*rows.length));}
+function visualTaskIndex(){const rows=steps[index]?.[2]||[];if(!active||!rows.length)return task;if(focusedTask!==null)return focusedTask;return Math.min(rows.length-1,Math.floor(((stageDuration()-remainingMs)/stageDuration())*rows.length));}
 drawScene=function(){baseDraw();if(!active||el('detailModal').classList.contains('show'))return;if(eye&&Math.hypot(eye[0]-walkPos[0],eye[2]-walkPos[2])>.8)drawVisitorAvatar(visitorTaskAction());const vtask=visualTaskIndex(),a=assetMap.get(steps[index][2][vtask][0]);if(!a)return;
 if(currentZone==='hall'){box(7,.16,3.5,20,.05,1.7,'#195c95');box(7,.16,-5.8,20,.05,1.7,'#94402f');box(7,6.3,3.5,20,.08,2,'#497b91');for(let k=0;k<6;k++){const dx=((simTime*1.3+k*3)%18)-9;box(7+dx,.19,3.5,.85,.035,.34,'#5bcff2');box(7-dx,.19,-5.8,.85,.035,.34,'#f27b54');}}
 if(a.id==='visitor-mantrap')drawVisitorMantrap(a,vtask);
 line([a.x-1,.2,a.z+a.d/2+1],[a.x+1,.2,a.z+a.d/2+1],'#68f1c7');};
 function log(message){records.push({time:new Date().toLocaleTimeString('ko-KR'),stage:index+1,message});}
-function position(target=task){closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(target,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
+function position(target=task){if(index===4&&gateDemoStart===null)gateDemoStart=performance.now();if(index!==4)gateDemoStart=null;closeDetail();pressedKeys.clear();const row=steps[index][2][Math.min(target,steps[index][2].length-1)],a=assetMap.get(row[0]);internal=true;try{baseSet(a.zone,false);basePick(a,false);}finally{internal=false;}showRoof=false;showSection=false;walk=true;workerViewId=null;walkPitch=.02;let x=a.x,z=a.z+a.d/2+3; // front viewing position outside equipment bounds
 // The briefing room is open on its negative-Z side; frame its board, desks and instructor from the entrance.
 const briefingView=index===2&&a.id==='visitor-lobby';
 if(briefingView){x=a.x;z=a.z-a.d/2-.2;walkPitch=.11;}
@@ -950,24 +956,24 @@ const parkingView=index===0&&a.id==='visitor-parking';
  if(parkingView){x=a.x+2.5;z=a.z+a.d/2+3.5;walkPitch=.26;}
 // Loading Bay faces the +Z visitor side, with cartons and forklift in view.
 const loadingView=index===3&&a.id==='visitor-loading';
-if(loadingView){x=a.x+2;z=a.z+a.d/2+2.2;walkPitch=.13;}
+if(loadingView){x=a.x+2.8;z=a.z+a.d/2+2.2;walkPitch=.13;}
  walkPos=[x,1.7,z];
  // Stage 1 aims through the full parking area, including the two parked cars.
  cameraDesired.yaw=parkingView?Math.PI+.15:loadingView?Math.PI-.14:briefingView?0:(index===0?Math.atan2(x-a.x,z-a.z):Math.atan2(a.x-x,a.z-z));
  cameraDesired.distance=parkingView?30:20;el('sceneName').textContent='방문자 · '+steps[index][0];el('sceneInfo').textContent='3인칭 따라보기 · '+a.name;updateViewUI();}
 function focusChecklistTask(i){if(!active)return;focusedTask=i;autoPaused=true;position(i);render();}
-function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
+function selectStage(i){if(!active||i<0||i>=steps.length)return;stopAuto();index=i;task=0;focusedTask=null;done=false;finished=false;autoPaused=true;remainingMs=stageDuration();gateDemoStart=null;el('visitorResult').textContent='선택한 단계 보기 · 자동 진행은 「자동 진행 재개」로 계속할 수 있습니다.';position();render();}
 function render(){const s=steps[index],rows=s[2];el('visitorProgress').innerHTML=steps.map((step,i)=>'<button type="button" data-visit-stage="'+i+'" class="'+(i===index?'current':i<index?'complete':'')+'">'+(i<index?'✓ ':i+1)+'. '+step[0]+'</button>').join('');el('visitorProgress').querySelectorAll('[data-visit-stage]').forEach(b=>b.onclick=()=>selectStage(Number(b.dataset.visitStage)));el('visitorTitle').textContent='단계 '+(index+1)+' · '+s[0];el('visitorIntro').textContent=s[1];el('visitorTaskTitle').textContent='이 단계의 업무 체크리스트 · '+rows.length+'개 · 항목을 눌러 이동';el('visitorTaskCopy').innerHTML='<ul class="visitor-checklist">'+rows.map((row,i)=>'<li><button type="button" data-visit-task="'+i+'" class="'+(focusedTask===i?'focused':'')+'"><i>'+(i<task||done?'✓':'□')+'</i><div><b>'+row[1]+'</b><small>'+row[2]+'</small></div></button></li>').join('')+'</ul>';el('visitorTaskCopy').querySelectorAll('[data-visit-task]').forEach(b=>b.onclick=()=>focusChecklistTask(Number(b.dataset.visitTask)));el('visitorAction').hidden=true;el('visitorPrevious').disabled=index===0;el('visitorInspect').hidden=true;renderAutoStatus();}
 function start(){if(active)return; saved={mode:facilityMode,zone:currentZone,running:simRunning,scenario,roof:showRoof,section:showSection,walk,pos:walkPos.slice(),pitch:walkPitch,desired:JSON.parse(JSON.stringify(cameraDesired)),selected,config:{...window.LS3D_CONFIG},scenarioStart,downs:assets.map(a=>[a.id,a.down])};if(workerViewId)stopWorkerView(false);applyFacilityMode('aidc');scenarioApply('normal');simRunning=false;active=true;document.body.classList.add('visitor-tour');toggle.textContent='방문자 모드 종료';toggle.setAttribute('aria-pressed','true');index=task=0;focusedTask=null;done=false;finished=false;tourMode='auto';autoPaused=false;remainingMs=AUTO_STEP_MS;stopAuto();records=[];log('견학 시작 · 자동 체크리스트 투어');position();render();startAuto();}
-function exit(){if(!active)return;stopAuto();active=false;document.body.classList.remove('visitor-tour');toggle.textContent='방문자 투어 · 3인칭';toggle.setAttribute('aria-pressed','false');pressedKeys.clear();closeDetail();applyFacilityMode(saved.mode);Object.assign(window.LS3D_CONFIG,saved.config);scenarioApply(saved.scenario);scenarioStart=saved.scenarioStart;saved.downs.forEach(([id,down])=>{if(assetMap.has(id))assetMap.get(id).down=down;});simRunning=saved.running;showRoof=saved.roof;showSection=saved.section;baseSet(saved.zone,false);basePick(saved.selected,false);walk=saved.walk;walkPos=saved.pos;walkPitch=saved.pitch;Object.assign(cameraDesired,saved.desired);refresh();}
+function exit(){if(!active)return;stopAuto();gateDemoStart=null;active=false;document.body.classList.remove('visitor-tour');toggle.textContent='방문자 투어 · 3인칭';toggle.setAttribute('aria-pressed','false');pressedKeys.clear();closeDetail();applyFacilityMode(saved.mode);Object.assign(window.LS3D_CONFIG,saved.config);scenarioApply(saved.scenario);scenarioStart=saved.scenarioStart;saved.downs.forEach(([id,down])=>{if(assetMap.has(id))assetMap.get(id).down=down;});simRunning=saved.running;showRoof=saved.roof;showSection=saved.section;baseSet(saved.zone,false);basePick(saved.selected,false);walk=saved.walk;walkPos=saved.pos;walkPitch=saved.pitch;Object.assign(cameraDesired,saved.desired);refresh();}
 function confirm(){if(!active||done||finished)return false;const rows=steps[index][2];log(rows[task][1]);el('visitorResult').textContent='✓ '+rows[task][1];task++;done=task===rows.length;if(!done)position();render();return true;}
-function next(){if(!active||!done||finished)return false;if(index===steps.length-1){finished=true;stopAuto();log('퇴장 완료 · 방문 권한 종료');el('visitorResult').textContent='✓ 견학 완료 · 보관품 반환 / 방문증 회수 / 퇴장 이력 기록 완료';renderAutoStatus();return true;}index++;task=0;focusedTask=null;done=false;el('visitorResult').textContent='';position();render();return true;}function previous(){if(!active||index===0)return false;stopAuto();index--;task=0;focusedTask=null;done=false;finished=false;autoPaused=false;remainingMs=AUTO_STEP_MS;el('visitorResult').textContent='';log('이전 단계로 돌아감 · '+steps[index][0]);position();render();startAuto();return true;}
+function next(){if(!active||!done||finished)return false;if(index===steps.length-1){finished=true;stopAuto();log('퇴장 완료 · 방문 권한 종료');el('visitorResult').textContent='✓ 견학 완료 · 보관품 반환 / 방문증 회수 / 퇴장 이력 기록 완료';renderAutoStatus();return true;}index++;remainingMs=stageDuration();gateDemoStart=null;task=0;focusedTask=null;done=false;el('visitorResult').textContent='';position();render();return true;}function previous(){if(!active||index===0)return false;stopAuto();index--;gateDemoStart=null;task=0;focusedTask=null;done=false;finished=false;autoPaused=false;remainingMs=stageDuration();el('visitorResult').textContent='';log('이전 단계로 돌아감 · '+steps[index][0]);position();render();startAuto();return true;}
 toggle.onclick=()=>active?exit():start();el('visitorAction').onclick=confirm;el('visitorNext').onclick=next;el('visitorPrevious').onclick=previous;el('visitorExit').onclick=exit;el('visitorRestart').onclick=()=>{stopAuto();index=task=0;focusedTask=null;done=false;finished=false;autoPaused=false;remainingMs=AUTO_STEP_MS;records=[];log('견학 재시작');el('visitorResult').textContent='';position();render();if(tourMode==='auto')startAuto();};el('visitorRecenter').onclick=position;el('visitorInspect').onclick=()=>{basePick(assetMap.get('tor-a'),false);openDetail();};
 controls.querySelectorAll('[data-vkey]').forEach(b=>{b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);pressedKeys.add(b.dataset.vkey);};for(const name of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(name,()=>pressedKeys.delete(b.dataset.vkey));});controls.querySelectorAll('[data-vlook]').forEach(b=>b.onclick=()=>cameraDesired.yaw+=Number(b.dataset.vlook)*.25);
 document.addEventListener('keydown',e=>{if(!active)return;if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();if(el('detailModal').classList.contains('show'))closeDetail();else exit();}},true);
 // Guard competing navigation/UI shortcuts while the guided visitor session is active.
 document.addEventListener('click',e=>{if(!active)return;const allowed=e.target.closest('#visitorPanel,#visitorControls,#visitorToggle,#scene,#detailModal,#btnFull');if(!allowed){e.preventDefault();e.stopImmediatePropagation();}},true);
-window.__LS3D_VISITOR__={start,exit,confirm,next,steps,setMode,toggleAutoPause,get mode(){return tourMode;},get active(){return active;},get state(){return {index,task,done,finished,view:'third',mode:tourMode,paused:autoPaused,remainingMs,zone:currentZone,position:walkPos.slice(),records:records.slice()};}};
+window.__LS3D_VISITOR__={start,exit,confirm,next,steps,setMode,toggleAutoPause,get mode(){return tourMode;},get active(){return active;},get state(){return {index,task:visualTaskIndex(),active,gateDemo:gateDemo(),done,finished,view:'third',mode:tourMode,paused:autoPaused,remainingMs,zone:currentZone,position:walkPos.slice(),records:records.slice()};}};
 
 
 function updateViewUI(){
@@ -977,6 +983,12 @@ function updateViewUI(){
 const visitorBaseCameraFrame=cameraFrame;
 cameraFrame=function(dt){
  if(!active||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
+ // Frame the branded cartons / open truck from +Z, independently of the follow boom.
+ if(index===3&&selected?.id==='visitor-loading'){
+   const shot=tourPolicy.loadingShot(selected);eye=shot.eye;
+   forward=norm(sub(shot.target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));
+   viewMatrix=lookAt(eye,shot.target,[0,1,0]);matVP=mul4(perspective(Math.PI/3.1,renderW/Math.max(1,renderH),.08,400),viewMatrix);return;
+ }
  const yaw=cameraDesired.yaw,pitch=clamp(walkPitch,-.6,.65),pivot=[walkPos[0],1.55,walkPos[2]];
  // The parking and briefing scenes use closer booms to show their actual work areas.
  const followDistance=index===0?7.2:index===2?4.5:index===7&&selected?.id==='colo'?20:9;
@@ -1015,6 +1027,7 @@ function drawVisitorAvatar(action='idle'){
 
 function stopAuto(){if(autoTimer!==null)clearTimeout(autoTimer);autoTimer=null;lastAutoTime=0;}
 function renderAutoStatus(){
+ el('visitorAutoBadge').textContent=index===4?'자동 모드 · 게이트 개폐 5회 / 25초':'자동 모드 · 단계당 20초';
  el('visitorPause').hidden=finished;
  el('visitorPause').textContent=autoPaused?'자동 진행 재개':'일시정지';
  el('visitorAutoStatus').textContent=finished?'견학 완료 · 자동 진행 종료':autoPaused?'자동 모드 · 일시정지':document.hidden?'자동 모드 · 다른 탭에서는 대기':'자동 모드 · 이 단계 완료까지 '+Math.ceil(remainingMs/1000)+'초';
@@ -1036,7 +1049,7 @@ function autoTick(){
 function startAuto(){stopAuto();lastAutoTime=performance.now();autoTimer=setTimeout(autoTick,250);renderAutoStatus();}
 function setMode(mode){
  if(!active||mode!=='auto')return;
- tourMode='auto';autoPaused=false;remainingMs=AUTO_STEP_MS;render();if(!finished)startAuto();
+ tourMode='auto';autoPaused=false;remainingMs=stageDuration();if(index===4)gateDemoStart=performance.now();render();if(!finished)startAuto();
 }
 function toggleAutoPause(){if(!active||tourMode!=='auto'||finished)return;autoPaused=!autoPaused;lastAutoTime=performance.now();renderAutoStatus();}
 el('visitorPause').onclick=toggleAutoPause;
@@ -1045,7 +1058,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261027-rack-roles-v1"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261029-tour-gate-v1"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

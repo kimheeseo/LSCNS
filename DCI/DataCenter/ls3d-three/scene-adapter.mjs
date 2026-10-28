@@ -1,7 +1,7 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261026-gpu-rack-visuals';
+import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261026-odf-patch-frame-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
@@ -534,7 +534,7 @@ export function createSceneAdapter(T, canvas) {
     const caption=visitorCaption(a);if(caption)g.add(caption);
     // Loading Bay is approached from its cargo/carton side (+Z); unlike the
     // other Gray Zone rooms it must face the default visitor camera directly.
-    const baseYaw=(a.zone==='gray'||a.zone==='network')&&!['gray-cdu','visitor-loading'].includes(a.id)?Math.PI:0;
+    const baseYaw=a.id==='visitor-mantrap'?Math.PI:(a.zone==='gray'||a.zone==='network')&&!['gray-cdu','visitor-loading'].includes(a.id)?Math.PI:0;
     g.position.set(a.x,0,a.z);g.rotation.y=baseYaw;
     const selection=new THREE.Mesh(
       new THREE.RingGeometry(Math.max(w,d)*.56,Math.max(w,d)*.66,36),
@@ -542,15 +542,16 @@ export function createSceneAdapter(T, canvas) {
     );
     selection.rotation.x=-Math.PI/2;selection.position.y=.027;
     selection.name='selection-ring';selection.userData.noPick=true;g.add(selection);
-    const mantrapLights={red:null,green:null},maintenanceActors=[];
+    const mantrapLights={red:null,green:null},mantrapDoors=[],maintenanceActors=[];
     g.traverse(obj=>{
       if(obj.isMesh)obj.userData.assetId=a.id;
+      if(obj.name?.startsWith('equipment-mantrap-open-door:'))mantrapDoors.push({joint:obj,openAngle:obj.rotation.y});
       if(obj.name==='equipment-part:mantrap-card-led-red')mantrapLights.red=obj;
       if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
       if(obj.userData?.fuelSmoke)fuelSmoke.push(obj);
       if(obj.userData?.maintenanceAnimation)maintenanceActors.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,fuelSmoke,maintenanceActors,baseYaw};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,mantrapDoors,fuelSmoke,maintenanceActors,baseYaw};
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -584,8 +585,9 @@ export function createSceneAdapter(T, canvas) {
       }
       if(item.kind==='biometric-mantrap'){
         const tour=window.__LS3D_VISITOR__?.state;
-        const cardDemo=!!(tour?.active&&tour.index===4&&(tour.task===1||tour.task===2));
-        const approved=cardDemo&&Math.sin(performance.now()*.004)>0;
+        const demo=tour?.gateDemo;
+        const approved=!!(demo?.active&&demo.openness>.5);
+        for(const door of item.mantrapDoors||[])door.joint.rotation.y=door.openAngle*(demo?.active?demo.openness:1);
         if(item.mantrapLights?.red)item.mantrapLights.red.visible=!approved;
         if(item.mantrapLights?.green)item.mantrapLights.green.visible=approved;
       }
@@ -746,7 +748,7 @@ export function createSceneAdapter(T, canvas) {
     // or a campus MEP/cage layer fill the front/rear camera view.
     if(focusedRack&&!rackFocusActive(focusedRack,T))focusedRack=null;
     const isolatedRack=!!focusedRack;
-    const flags = {...(view.flags||{}),inspect:!!view.flags?.inspect||isolatedRack};
+    const flags = {...(view.flags||{}),visitorGate:window.__LS3D_VISITOR__?.state?.gateDemo,inspect:!!view.flags?.inspect||isolatedRack};
     diagnostic.isolatedRack=isolatedRack?focusedRack.id:null;
     const eye = view.eye, direction = view.forward, up = view.up;
     camera.position.set(eye[0],eye[1],eye[2]);

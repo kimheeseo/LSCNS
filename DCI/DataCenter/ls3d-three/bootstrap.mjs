@@ -135,7 +135,7 @@ if (requested && T) {
     try {
       const support=document.createElement('canvas').getContext('webgl2');
       if(!support)throw new Error('Three.js 0.186.1 requires WebGL2; browser only supports legacy WebGL.');
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261027-rack-roles-v1');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261029-tour-gate-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

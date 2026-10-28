@@ -24,9 +24,13 @@
 
 ## 1. 실행 링크
 
+**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261026-display-mode-fix10)
+
+`engine=three`로 Three.js 엔진을 선택하며, `v=20261026-display-mode-fix10`은 브라우저 캐시 갱신용 쿼리입니다.
+
 | 구분 | 바로가기 |
 |---|---|
-| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three) |
+| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261026-display-mode-fix10) |
 | **기존 3D 렌더 복귀** | [Legacy 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) |
 | **원본 2D Gold Pixel Tour** | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) |
 | **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |

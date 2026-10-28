@@ -980,12 +980,24 @@ function updateViewUI(){
  el('visitorViewLabel').textContent='VISITOR V-001 · 안내자 동행 · 3인칭 따라보기';
  el('cameraHint').textContent='방문자 3인칭 따라보기 · WASD 이동 / 드래그 시야';
 }
+function coolingPlantShot(zone,aspect){
+ const center=[zone.pos[0],4.5,zone.pos[1]];
+ // A bounding sphere includes the complete yard footprint and tallest cooling towers.
+ const radius=Math.hypot(zone.size[0],zone.size[1],10)/2;
+ const halfFov=Math.min(Math.PI/6.2,Math.atan(Math.tan(Math.PI/6.2)*Math.max(.1,aspect)));
+ const distance=radius/Math.sin(halfFov)*1.12;
+ const direction=norm([.48,.62,.75]);
+ return {eye:add(center,scale(direction,distance)),target:center};
+}
 const visitorBaseCameraFrame=cameraFrame;
 cameraFrame=function(dt){
  if(!active||!walk||el('detailModal').classList.contains('show'))return visitorBaseCameraFrame(dt);
  // Frame the branded cartons / open truck from +Z, independently of the follow boom.
- if(index===3&&selected?.id==='visitor-loading'){
-   const shot=tourPolicy.loadingShot(selected);eye=shot.eye;
+ if(index===3&&['visitor-loading','chiller'].includes(selected?.id)){
+   const shot=selected.id==='chiller'
+     ?coolingPlantShot(Z.find(z=>z.id==='cooling'),renderW/Math.max(1,renderH))
+     :tourPolicy.loadingShot(selected);
+   eye=shot.eye;
    forward=norm(sub(shot.target,eye));rightVec=norm(cross(forward,[0,1,0]));upVec=norm(cross(rightVec,forward));
    viewMatrix=lookAt(eye,shot.target,[0,1,0]);matVP=mul4(perspective(Math.PI/3.1,renderW/Math.max(1,renderH),.08,400),viewMatrix);return;
  }

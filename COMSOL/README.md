@@ -1,4 +1,4 @@
-> **공개 자료 기반 비교 완료:** [M1·M7·MCF·HCF 결과·오차·한계](public_reference_benchmarks/results/COMPARISON_REPORT.md) · [재현 코드·출처](public_reference_benchmarks/README.md). 공개 COMSOL 예제의 조건과 논문을 재현했으며, COMSOL 프로그램 자체를 실행한 비교는 아닙니다.
+> **2026-10-30 · Universal Silica Fiber Colab v0.1:** [직접 단면을 설정하고 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb) · [지원 범위/한계](universal_silica_v01/README.md) · [수치 검증](universal_silica_v01/VALIDATION_REPORT.md). Step-index·Graded·Trench·동심원 다층 **스칼라 radial LP01 FEM만 지원**, 비원형 MCF/HCF/PCF·full-vector·손실은 미구현.\n\n> **공개 자료 기반 비교 완료:** [M1·M7·MCF·HCF 결과·오차·한계](public_reference_benchmarks/results/COMPARISON_REPORT.md) · [재현 코드·출처](public_reference_benchmarks/README.md). 공개 COMSOL 예제의 조건과 논문을 재현했으며, COMSOL 프로그램 자체를 실행한 비교는 아닙니다.
 
 > **설치·사용·결과 해석 가이드:** [이 도구로 알 수 있는 것, Windows 설치, 화면 사용 순서, 실제 계산 예시 3개](workbench/USER_GUIDE.md) · [입력 예제 JSON](workbench/examples/README.md)
 

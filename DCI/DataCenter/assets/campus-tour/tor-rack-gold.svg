@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 740" role="img" aria-labelledby="title desc">
-<title id="title">Top-of-Rack switch detail</title><desc id="desc">Gold Pixel Tour style diagram showing fiber patch panel and cassette above a yellow highlighted one unit ToR switch, connected to five lower servers and an upper Spine Core layer.</desc>
+<title id="title">Top-of-Rack switch detail with cable management</title><desc id="desc">Gold Pixel Tour style diagram showing fiber patch panel, cassette, horizontal and vertical cable managers, neatly routed colored patch cords, a highlighted one unit ToR switch, five lower servers and an upper Spine Core layer.</desc>
 <defs>
  <pattern id="pixel" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 7.5H8M7.5 0V8" stroke="#ffffff" stroke-opacity=".055"/></pattern>
  <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3e93d1"/></marker>
@@ -37,6 +37,43 @@
 <g><rect x="270" y="481" width="560" height="48" rx="3" fill="#53615e"/><text x="292" y="511" font-size="15" stroke="none">SERVER 03</text><rect x="500" y="494" width="145" height="20" fill="#26383a"/><rect x="778" y="493" width="34" height="21" fill="#163c43" stroke="#64b5c0"/></g>
 <g><rect x="270" y="539" width="560" height="48" rx="3" fill="#53615e"/><text x="292" y="569" font-size="15" stroke="none">SERVER 04</text><rect x="500" y="552" width="145" height="20" fill="#26383a"/><rect x="778" y="551" width="34" height="21" fill="#163c43" stroke="#64b5c0"/></g>
 <g><rect x="270" y="597" width="560" height="48" rx="3" fill="#53615e"/><text x="292" y="627" font-size="15" stroke="none">SERVER 05</text><rect x="500" y="610" width="145" height="20" fill="#26383a"/><rect x="778" y="609" width="34" height="21" fill="#163c43" stroke="#64b5c0"/></g></g>
+<!-- CABLE MANAGEMENT UPGRADE 2026-10-30 -->
+<!-- horizontal and vertical cable managers -->
+<g filter="url(#shadow)">
+ <rect x="247" y="342" width="606" height="17" rx="2" fill="#1e292c" stroke="#738185" stroke-width="3"/>
+ <path d="M270 347H830M270 353H830" stroke="#59696d" stroke-width="3" stroke-dasharray="18 8"/>
+ <text x="550" y="354" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#d7dfd7">HORIZONTAL CABLE MANAGER</text>
+ <rect x="232" y="269" width="26" height="387" rx="3" fill="#202b2e" stroke="#6f7d80" stroke-width="3"/>
+ <rect x="842" y="269" width="26" height="387" rx="3" fill="#202b2e" stroke="#6f7d80" stroke-width="3"/>
+ <g stroke="#849195" stroke-width="4"><path d="M237 285H253M847 285H863"/><path d="M237 314H253M847 314H863"/><path d="M237 343H253M847 343H863"/><path d="M237 372H253M847 372H863"/><path d="M237 401H253M847 401H863"/><path d="M237 430H253M847 430H863"/><path d="M237 459H253M847 459H863"/><path d="M237 488H253M847 488H863"/><path d="M237 517H253M847 517H863"/><path d="M237 546H253M847 546H863"/><path d="M237 575H253M847 575H863"/><path d="M237 604H253M847 604H863"/></g>
+ <text x="247" y="650" transform="rotate(-90 247 650)" font-family="monospace" font-size="9" font-weight="bold" fill="#dce4dc">VERTICAL CABLE MANAGER</text>
+ <text x="853" y="650" transform="rotate(-90 853 650)" font-family="monospace" font-size="9" font-weight="bold" fill="#dce4dc">VERTICAL CABLE MANAGER</text>
+</g>
+<!-- neatly routed in-rack patch cords -->
+<g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".98">
+ <path d="M330 335V350H855V389H812" stroke="#e2b73e" marker-end="url(#arrowGold)"/>
+ <path d="M354 335V350H849V447H812" stroke="#38c8bd"/>
+ <path d="M378 335V350H861V505H812" stroke="#9870cf"/>
+ <path d="M402 335V350H847V563H812" stroke="#4b9ed3"/>
+ <path d="M426 335V350H859V621H812" stroke="#ed8742"/>
+ <path d="M450 335V350H841V389H786" stroke="#38c8bd"/>
+ <path d="M474 335V350H835V447H786" stroke="#e2b73e"/>
+ <path d="M498 335V350H853V505H786" stroke="#4b9ed3"/>
+ <path d="M522 335V350H829V563H786" stroke="#9870cf"/>
+ <path d="M546 335V350H823V621H786" stroke="#38c8bd"/>
+</g>
+<!-- hook-and-loop tie points -->
+<g fill="#dce1de" stroke="#586669" stroke-width="2">
+ <rect x="843" y="374" width="24" height="8" rx="3"/><rect x="843" y="432" width="24" height="8" rx="3"/>
+ <rect x="843" y="490" width="24" height="8" rx="3"/><rect x="843" y="548" width="24" height="8" rx="3"/>
+ <rect x="843" y="606" width="24" height="8" rx="3"/>
+</g>
+<g font-family="monospace" font-size="10" font-weight="bold" fill="#425b52">
+ <rect x="903" y="502" width="168" height="66" rx="4" fill="#fff8db" stroke="#b89739" stroke-width="2"/>
+ <text x="987" y="523" text-anchor="middle">COLOR-CODED PATCH CORDS</text>
+ <text x="987" y="542" text-anchor="middle">D-RING / FINGER DUCT</text>
+ <text x="987" y="558" text-anchor="middle">HOOK-AND-LOOP TIES</text>
+</g>
 <!-- short in-rack connections -->
 <g fill="none" stroke="#e2b73e" stroke-width="4" opacity=".95">
 <path d="M345 335V350Q345 360 390 360V377" marker-end="url(#arrowGold)"/>

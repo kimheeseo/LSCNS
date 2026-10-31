@@ -10,7 +10,7 @@ import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createRackComponentKit } from './rack-components.mjs?v=20261031-rack-controls-label-v3';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261031-rack-optics-storage-v1';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261031-mpo-step2-v1';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackPatchPanel } from './rack-patch-panel.mjs?v=20261031-patch-step1-v1';
@@ -249,7 +249,7 @@ export function createSceneAdapter(T, canvas) {
     focusRackSide(assetId,'front');
     const motion=T.mechanical(asset);
     if(!motion.targetDoor)T.setMechanical(asset,'door');
-    if(action==='optical-mtp'&&!motion.targetCassette)T.setMechanical(asset,'cassette');
+    if(action==='optical-mtp')rackOptics.selectModule(assetId,0);
     selectRackPart(assetId,part.id);
     const d=T.cameraDesired;
     if(d){
@@ -318,7 +318,10 @@ export function createSceneAdapter(T, canvas) {
         ['patch-select','광 패치패널 선택'],['panel-slide','패치패널 인출/복귀'],
         ['panel-cover','커버 열기/닫기'],['panel-port','다음 LC 포트·내부 경로'],
         ['cable-patch','케이블 · 패치패널 연결/분리'],
-        ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
+        ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],
+        ['mpo-next','다음 MPO/MTP 카세트'],['mpo-slide','선택 카세트 인출/복귀'],
+        ['mpo-path','12F → LC 광경로 강조'],['mpo-rear','후면 MPO/MTP 입력 보기'],
+        ['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
@@ -341,6 +344,22 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='panel-port'){
           const state=rackPanel.state(asset.id);
           if(state)rackPanel.selectPort(asset.id,state.port+1);
+        }
+        else if(action==='mpo-next'){
+          const state=rackOptics.state(asset.id);
+          const part=rackOptics.selectModule(asset.id,(state?.selectedModule??-1)+1);
+          if(part)selectRackPart(asset.id,part.id);
+        }
+        else if(action==='mpo-slide'){
+          if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+          rackOptics.toggleModule(asset.id);
+        }
+        else if(action==='mpo-path')rackOptics.togglePath(asset.id);
+        else if(action==='mpo-rear'){
+          focusRackSide(asset.id,'rear');
+          if(!rackDoors.state(asset.id)?.targetRear)toggleRearRackDoor(asset.id);
+          const part=registry.get(asset.id)?.rackParts.find(p=>p.kind==='mpo-input'&&p.moduleIndex===rackOptics.state(asset.id)?.selectedModule);
+          if(part)selectRackPart(asset.id,part.id);
         }
         else if(action==='cable-patch'){
           if(focusRackOpticalAssembly(asset.id,'optical-patch'))rackPatch.toggle(asset.id);
@@ -490,6 +509,13 @@ export function createSceneAdapter(T, canvas) {
     }
     const coverButton=rackControls.querySelector('[data-rack-action="panel-cover"]');
     if(coverButton){coverButton.disabled=!panelState?.targetSlide;coverButton.textContent=panelState?.targetCover?'커버 닫기':'커버 열기';}
+    const mpoState=rackOptics.state(a.id);
+    for(const code of ['mpo-next','mpo-slide','mpo-path','mpo-rear']){
+      const button=rackControls.querySelector('[data-rack-action="'+code+'"]');
+      if(button)button.hidden=!networkRack||!mpoState;
+    }
+    const mpoSlide=rackControls.querySelector('[data-rack-action="mpo-slide"]');
+    if(mpoSlide)mpoSlide.textContent=mpoState?.moduleTarget?'선택 카세트 복귀':'선택 카세트 인출';
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
@@ -524,7 +550,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|panel-slide|panel-cover|panel-port|cable-patch)$/;
+    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|panel-slide|panel-cover|panel-port|cable-patch|mpo-next|mpo-slide|mpo-path|mpo-rear)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;

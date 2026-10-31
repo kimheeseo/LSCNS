@@ -234,6 +234,45 @@ export function createSceneAdapter(T, canvas) {
     const a=T.assetMap.get(assetId);
     return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'door'));
   }
+  function focusRackOpticalAssembly(assetId,action){
+    const asset=T.assetMap.get(assetId),item=registry.get(assetId);
+    if(!asset||!item)return false;
+    const kindByAction={'optical-patch':'patch-panel','optical-mtp':'optical-module',
+      'optical-lc':'lc-adapter-panel','optical-transceiver':'optical-transceiver-'};
+    const kind=kindByAction[action];
+    const part=item.rackParts.find(p=>p.kind===kind||((action==='optical-transceiver')&&p.kind.startsWith('optical-transceiver-')));
+    if(!part)return false;
+    focusRackSide(assetId,'front');
+    const motion=T.mechanical(asset);
+    if(!motion.targetDoor)T.setMechanical(asset,'door');
+    if(action==='optical-mtp'&&!motion.targetCassette)T.setMechanical(asset,'cassette');
+    selectRackPart(assetId,part.id);
+    const d=T.cameraDesired;
+    if(d){
+      const unit=(asset.h-.46)/(item.rackUnits||42);
+      const yy=.23+(part.uStart-1+part.uHeight*.50)*unit;
+      d.target=[asset.x,yy,asset.z-asset.d*.55-(action==='optical-mtp'?.40:0)];
+      d.distance=Math.max(3.15,asset.w*1.30);d.yaw=Math.PI;d.pitch=.10;
+    }
+    return true;
+  }
+  function focusRackStoragePart(assetId,action){
+    const asset=T.assetMap.get(assetId),item=registry.get(assetId);
+    if(!asset||!item||asset.type!=='Storage rack')return false;
+    focusRackSide(assetId,'front');
+    const motion=T.mechanical(asset);
+    if(!motion.targetDoor)T.setMechanical(asset,'door');
+    let part=null;
+    if(action==='storage-controller')part=item.rackParts.find(p=>p.kind==='storage-controller');
+    else if(action==='storage-psu')part=item.rackParts.find(p=>p.kind==='storage-psu-fan');
+    else if(action==='storage-shelf')part=item.rackParts.find(p=>p.kind==='storage-1');
+    if(part){if(action==='storage-shelf')rackRails.select(assetId,part.id);selectRackPart(assetId,part.id);}
+    const d=T.cameraDesired;
+    if(d&&part){const u=(asset.h-.46)/(item.rackUnits||42);
+      d.target=[asset.x,.23+(part.uStart-1+part.uHeight*.5)*u,asset.z-asset.d*.48];
+      d.distance=Math.max(3.2,asset.w*1.35);d.yaw=Math.PI;d.pitch=.10;}
+    return !!part;
+  }
   function showControls() {
     if(typeof document==='undefined'||!canvas.parentElement)return;
     const a=currentRackAsset();
@@ -241,7 +280,7 @@ export function createSceneAdapter(T, canvas) {
     if(!rackControls){
       rackControls=document.createElement('div');
       rackControls.id='ls3dRackMotionControls';
-      rackControls.style.cssText='position:absolute;right:10px;bottom:10px;z-index:30;width:min(302px,calc(100% - 20px));padding:10px;background:rgba(13,29,45,.94);border:1px solid #6aa8bc;border-radius:10px;color:#f0fbff;font:12px system-ui;box-shadow:0 4px 20px #0008;pointer-events:auto;';
+      rackControls.style.cssText='position:absolute;right:10px;bottom:10px;z-index:30;width:min(325px,calc(100% - 20px));max-height:min(72dvh,650px);overflow-y:auto;padding:10px;background:rgba(13,29,45,.94);border:1px solid #6aa8bc;border-radius:10px;color:#f0fbff;font:12px system-ui;box-shadow:0 4px 20px #0008;pointer-events:auto;';
       const bar=document.createElement('div');
       bar.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:31px;';
       rackPanelHeading=document.createElement('strong');
@@ -285,7 +324,19 @@ export function createSceneAdapter(T, canvas) {
         const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
-        if(action==='front-camera')focusRackSide(asset.id,'front');
+        if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
+        else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
+        else if(action==='storage-shelf-pull'){
+          focusRackStoragePart(asset.id,'storage-shelf');
+          toggleRackServerSlide(asset.id);
+        }else if(action==='storage-drive-pull'){
+          if(!rackRails.state(asset.id)?.selectedDrive)cycleRackDrive(asset.id);
+          toggleRackDrive(asset.id);
+        }else if(action==='storage-rear'){
+          focusRackSide(asset.id,'rear');const motion=T.mechanical(asset);
+          if(!motion.targetRear)toggleRearRackDoor(asset.id);
+        }
+        else if(action==='front-camera')focusRackSide(asset.id,'front');
         else if(action==='rear-camera')focusRackSide(asset.id,'rear');
          else if(action==='rack-context'){focusedRack=null;if(T.rackIsolateActive)T.closeRackScene?.();else T.closeDetail?.();}
         else if(action==='front-door')toggleRackFrontDoor(asset.id);
@@ -322,6 +373,33 @@ export function createSceneAdapter(T, canvas) {
         showControls();
       });
       controlsBody.appendChild(grid);
+      const createAccessoryButtons=(id,title,description,items)=>{
+        const panel=document.createElement('details');panel.id=id;panel.open=true;
+        panel.style.cssText='border-top:1px solid #477384;margin-top:9px;padding-top:8px;';
+        const heading=document.createElement('summary');heading.textContent=title;
+        heading.style.cssText='cursor:pointer;font-size:12px;font-weight:800;color:#bdeefa;';
+        panel.appendChild(heading);
+        const note=document.createElement('p');note.textContent=description;
+        note.style.cssText='color:#bad4e2;font-size:11px;line-height:1.65;margin:6px 0;';
+        panel.appendChild(note);
+        const buttons=document.createElement('div');
+        buttons.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
+        for(const [code,label] of items){
+          const button=document.createElement('button');button.type='button';button.dataset.rackAction=code;button.textContent=label;
+          button.style.cssText='padding:8px 5px;border-radius:6px;border:1px solid #4a91aa;background:#173d51;color:#edfaff;cursor:pointer;text-align:center;font:600 11px "Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;line-height:1.5;';
+          buttons.appendChild(button);
+        }
+        panel.appendChild(buttons);controlsBody.appendChild(panel);
+      };
+      createAccessoryButtons('ls3dNetworkOpticalAccessories','◎ 네트워크 랙 광배선 장치',
+        '문을 열어 패치패널·MPO/MTP 카세트·LC 어댑터·광모듈을 선택하면 오른쪽 설명에 구성과 역할이 나옵니다.',
+        [['optical-patch','1 · 광 패치패널'],['optical-mtp','2 · MPO/MTP 카세트'],
+         ['optical-lc','3 · LC 어댑터 패널'],['optical-transceiver','4 · 광 트랜시버']]);
+      createAccessoryButtons('ls3dStorageRackAccessories','▣ 스토리지 랙 내부 확인',
+        '8-bay 스토리지 쉘프, 컨트롤러, PSU/팬을 구분해 확인하고 쉘프/드라이브를 각각 인출해 보세요.',
+        [['storage-shelf','스토리지 쉘프 선택'],['storage-shelf-pull','쉘프 꺼내기/넣기'],
+         ['storage-controller','컨트롤러 확인'],['storage-psu','PSU / 팬 확인'],
+         ['storage-drive-pull','선택 드라이브 인출'],['storage-rear','후면 연결 확인']]);
       const details=document.createElement('details');
       details.style.cssText='border-top:1px solid #477384;margin-top:7px;padding-top:7px;';
       const title=document.createElement('summary');
@@ -353,6 +431,10 @@ export function createSceneAdapter(T, canvas) {
     }
     rackControls.hidden=false;
     const gpuRack=/gpu/i.test(a.type),storageRack=a.type==='Storage rack',networkRack=a.type==='Top-of-Rack switch'||['Core','Spine','Leaf','MMR rack'].includes(a.type);
+    const networkPanel=rackControls.querySelector('#ls3dNetworkOpticalAccessories');
+    const storagePanel=rackControls.querySelector('#ls3dStorageRackAccessories');
+    if(networkPanel)networkPanel.hidden=!networkRack;
+    if(storagePanel)storagePanel.hidden=!storageRack;
     rackControls.querySelectorAll('[data-gpu-only]').forEach(button=>button.hidden=!gpuRack);
     rackControls.querySelectorAll('[data-storage-only]').forEach(button=>button.hidden=!storageRack);
     if(rackPanelHeading)rackPanelHeading.textContent=(gpuRack?'GPU 서버':storageRack?'스토리지':networkRack?'네트워크':'서버')+' 랙 조작 · '+a.id;
@@ -369,9 +451,13 @@ export function createSceneAdapter(T, canvas) {
     const driveButton=rackControls.querySelector('[data-rack-action="drive-toggle"]');
     if(driveButton)driveButton.textContent=server?.driveTarget?'선택 드라이브 다시 장착':'선택 드라이브 인출';
     const fiberSelected=selectedRackPart?.assetId===a.id&&selectedRackPart.kind==='fiber-port';
+    const storageSelected=storageRack?selectedRackPart?.label||'스토리지 부품을 선택하세요':'';
+    const storageInfo=storageRack&&server?.driveCount?' · 드라이브 '+server.driveSlot+'/'+server.driveCount+(server.driveTarget?' 인출':' 장착'):'';
+    const storageSummary=storageRack?' · '+storageSelected:'';
+
     rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 3인칭':'전면 시점 · 3인칭'):'기본 시점')+
       ' · '+(networkRack?'스위치 ':storageRack?'쉘프 ':'서버 ')+serverLabel+gpuStatus+
-      (storageRack&&server?.driveCount?' · 드라이브 '+server.driveSlot+'/'+server.driveCount+(server.driveTarget?' 인출':' 장착'):'')+
+      storageInfo+storageSummary+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
       (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+

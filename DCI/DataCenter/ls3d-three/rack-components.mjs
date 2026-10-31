@@ -211,7 +211,7 @@ export function createRackComponentKit(THREE,{cube}){
       for(let port=0;port<16;port++)box(partGroup,'fabric-port-'+i+'-'+port,
         -w*.285+port*w*.038,y+units*unit*.43,-d*.560,w*.028,.07,.014,'#163340');
       moduleLabel(partGroup,id,'fabric-'+i,i===0?'SPINE':'EXPANSION',0,
-        y+units*unit*.76,-d*.595,w*.50,.095,i===0?'#3aa66a':'#617e8e');
+        y+units*unit*.76,-d*.515,w*.50,.095,i===0?'#3aa66a':'#617e8e');
       partGroup.userData.rackPart.description=i===0?'Leaf A/B 상향 링크를 수용하는 네트워크 스위치 예시입니다. 논리적 Spine A/B 이중화는 별도 네트워크 계층도에서 확인합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
       if(i===0)for(let port=0;port<2;port++){
         const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
@@ -288,20 +288,20 @@ export function createRackComponentKit(THREE,{cube}){
     controller.userData.rackPart.description='스토리지 컨트롤러는 호스트 I/O, 캐시·RAID/EC 관리, 디스크 백플레인 및 후면 네트워크 연결을 조정합니다. 실제 벤더별 Active/Active·Active/Standby 구조와 프로세서는 별도 사양 검증이 필요합니다.';
     box(controller,'storage-controller-chassis',0,y,-d*.16,w*.75,unit*1.85,d*.58,'#276171');
     box(controller,'storage-controller-face',0,y+unit*.12,-d*.48,w*.71,unit*1.55,.055,'#264356');
-    moduleLabel(controller,id,'storage-controller-label','STORAGE CONTROLLER / I-O',0,y+units*unit*.81,-d*.53,w*.62,.082,'#237c9a');
+    moduleLabel(controller,id,'storage-controller-label','STORAGE CONTROLLER / I-O',0,y+units*unit*.81,-d*.506,w*.62,.082,'#237c9a');
     for(let p=0;p<4;p++){
-      box(controller,'storage-controller-ethernet-'+p,-w*.235+p*w*.15,y+unit*.52,-d*.523,w*.090,.060,.028,'#173046');
-      box(controller,'storage-controller-link-led-'+p,-w*.23+p*w*.15,y+unit*.92,-d*.533,w*.026,.026,.020,'#6ee2b7');
+      box(controller,'storage-controller-ethernet-'+p,-w*.235+p*w*.15,y+unit*.52,-d*.504,w*.090,.060,.028,'#173046');
+      box(controller,'storage-controller-link-led-'+p,-w*.23+p*w*.15,y+unit*.92,-d*.508,w*.026,.026,.020,'#6ee2b7');
     }
-    for(const side of [-1,1])box(controller,'storage-controller-handle-'+side,side*w*.34,y+.04,-d*.535,w*.022,unit*1.52,.055,'#d0c1a0');
+    for(const side of [-1,1])box(controller,'storage-controller-handle-'+side,side*w*.34,y+.04,-d*.509,w*.022,unit*1.52,.055,'#d0c1a0');
     retain(controller);
     // PSU/fan module at U30 is separately selectable (no server count added).
     const psu=group(root,id,'storage-psu-fan','스토리지 PSU / 팬 모듈 · A/B (개념)',30,1);
     psu.userData.rackPart.description='스토리지 쉘프의 이중 전원 공급·냉각 경로를 나타내는 PSU/팬 상태 패널입니다. 실제 전력 정격과 풍량은 제조사 사양을 확인해야 합니다.';
     box(psu,'storage-psu-case',0,lower+29*unit,-d*.28,w*.75,unit*.94,d*.48,'#4c6875');
     for(const side of [-1,1]){
-      box(psu,'storage-psu-a-b',side*w*.17,lower+29*unit+unit*.12,-d*.535,w*.28,unit*.60,.034,'#304957');
-      box(psu,'storage-psu-led',side*w*.26,lower+29*unit+unit*.39,-d*.563,.056,.036,.030,'#86dfaf');
+      box(psu,'storage-psu-a-b',side*w*.17,lower+29*unit+unit*.12,-d*.500,w*.28,unit*.60,.034,'#304957');
+      box(psu,'storage-psu-led',side*w*.26,lower+29*unit+unit*.39,-d*.507,.056,.036,.030,'#86dfaf');
     }
     retain(psu);
   }

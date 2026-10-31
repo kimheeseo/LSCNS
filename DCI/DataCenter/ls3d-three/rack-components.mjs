@@ -85,6 +85,7 @@ export function createRackComponentKit(THREE,{cube}){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
   const gpuVariant=/gpu/i.test(a.type);
   const networkRack=a.type==='Top-of-Rack switch';
+  const storageRack=a.type==='Storage rack';
   const count=/gpu|tor-a|tor-b|server rack/i.test(a.type+' '+a.id)?48:42;
   const unit=(h-.46)/count,lower=.23;
   const pieces=[],map=new Map();
@@ -126,7 +127,8 @@ export function createRackComponentKit(THREE,{cube}){
     // STEP 14: reserve the physically highest U positions for the ToR.
     {kind:'tor',label:gpuVariant?'Leaf A · Top-of-Rack 스위치':'Top-of-Rack 네트워크 스위치',top:count,units:2,color:'#36718a'},
     ...(gpuVariant?[{kind:'leaf-b',label:'Leaf B · Top-of-Rack 스위치',top:count-2,units:2,color:'#206d76'}]:[]),
-    {kind:'patch-panel',label:'광 패치패널',top:gpuVariant?count-4:count-2,units:1,color:'#be9e68'},
+    {kind:'patch-panel',label:'광 패치패널 · Fiber Patch Panel',top:gpuVariant?count-4:count-2,units:1,color:'#be9e68'},
+    ...(networkRack?[{kind:'lc-adapter-panel',label:'LC duplex 어댑터 패널 · 12포트 예시',top:count-6,units:1,color:'#337ba3'}]:[]),
     {kind:'odf',label:'ODF 및 광 카세트',top:count-3,units:2,color:'#537e94'}
   ];
   const network=/core|spine|leaf|odf|mmr|switch/i.test(a.type);
@@ -137,12 +139,19 @@ export function createRackComponentKit(THREE,{cube}){
     const start=Math.max(1,slot.top-slot.units+1);
     if(slot.kind==='odf')continue; // Open, four-slot chassis is supplied by rack-optical-cassette.
     const g=part(slot.kind,slot.label,start,slot.units,w*.76,null,d*.46,-d*.29,slot.color);
+    if(slot.kind==='patch-panel')g.userData.rackPart.description='19인치 수동 광 패치패널입니다. 광 트렁크/점퍼를 분배하며 MPO/MTP 카세트 및 LC 어댑터 패널과는 별개의 부품입니다. 본 화면은 구조 이해용이며 실제 제조사 BOM이 아닙니다.';
+    if(slot.kind==='lc-adapter-panel')g.userData.rackPart.description='LC duplex 어댑터 패널: 전면 LC 커넥터 12개를 수용하는 수동 패널 예시입니다. 어댑터는 광파워를 증폭하지 않으며 실제 연결 포트 수는 장착 제품을 확인해야 합니다.';
     const yh=(slot.units*unit)*.5;
     const face=box(g,'port-face',0,lower+(start-1)*unit+.015,-d*.555,w*.68,
       Math.max(.055,slot.units*unit-.04),.09,'#1a364a',.42,.38);
     for(let i=0;i<12;i++){
       box(g,'port-'+i,-w*.27+i*w*.049,lower+(start-1)*unit+Math.max(.045,slot.units*unit*.37),
         -d*.613,w*.033,.05,.022,i%2?'#72d3e6':'#69e5b9',.12,.24);
+    }
+    if(slot.kind==='patch-panel'||slot.kind==='lc-adapter-panel'){
+      moduleLabel(g,id,'panel-'+slot.kind,slot.kind==='patch-panel'?'FIBER PATCH PANEL':'LC ADAPTER PANEL',0,
+        lower+(start-1)*unit+slot.units*unit*.87,-d*.650,w*.59,.080,
+        slot.kind==='patch-panel'?'#d4ae63':'#3f9cd1');
     }
     if(gpuVariant&&(slot.kind==='tor'||slot.kind==='leaf-b')){
       const name=slot.kind==='tor'?'LEAF A (ToR)':'LEAF B (ToR)';
@@ -218,7 +227,17 @@ export function createRackComponentKit(THREE,{cube}){
      box(partGroup,'gpu-front-lip-'+i,0,y+.015,-d*.47,w*.70,.045,.08,'#3d4e56');
      for(let edge=0;edge<=4;edge++)
       box(partGroup,'gpu-slot-divider-'+i+'-'+edge,-w*.34+edge*w*.17,y+.06,-d*.47,w*.014,units*unit-.12,.07,'#607d8a');
-    }else box(partGroup,'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,'#1d354e',.49,.37);
+    }else box(partGroup,storage?'storage-bay-backplane-'+i:'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,storage?'#162b3a':'#1d354e',.49,.37);
+    if(storage){
+      // Shelf chassis, visible eight-bay front, redundant shelf-controller status LEDs.
+      box(partGroup,'storage-array-face-'+i,0,y+unit*.21,-d*.549,w*.74,units*unit*.82,.045,'#1f4050',.48,.35);
+      moduleLabel(partGroup,id,'storage-shelf-title-'+i,'STORAGE SHELF '+(i+1)+' / 8 BAY',
+        0,y+units*unit*.86,-d*.593,w*.61,.083,'#16759c');
+      for(const side of [-1,1]){
+        box(partGroup,'shelf-handle-'+i+'-'+side,side*w*.350,y+unit*.72,-d*.592,w*.025,units*unit*.57,.065,'#b8cbd4');
+      }
+      partGroup.userData.rackPart.description='스토리지 쉘프 '+(i+1)+' · 8개 전면 드라이브 베이(교육용 예시), 핫스왑 캐리어, 상태 LED, 후면 NIC/전원 접속으로 구성됩니다. 선택 쉘프를 인출해 내부 구조를 관찰하세요. 실제 RAID·용량·SSD/HDD 규격은 확정하지 않았습니다.';
+    }
     if(gpuVariant){
      for(let chip=0;chip<4;chip++)
       box(partGroup,'gpu-front-badge-'+i+'-'+chip,-w*.255+chip*w*.17,y+units*unit*.84,-d*.524,w*.12,.045,.016,'#d2ad57',.46,.27);
@@ -226,7 +245,7 @@ export function createRackComponentKit(THREE,{cube}){
      moduleLabel(partGroup,id,'gpu-server-'+i,'H100 GPU SERVER '+(i+1),0,
        y+units*unit*.93,-d*.557,w*.48,.085,'#416da1');
     }
-    for(let j=0;!gpuVariant&&j<8;j++){
+    for(let j=0;!gpuVariant&&!storage&&j<8;j++){
       box(partGroup,'server-port-'+i+'-'+j,-w*.26+j*w*.075,y+units*unit*.38,
         -d*.52,.057,.075,.027,j%2?'#68d8e9':'#63eaba',.2,.26);
     }
@@ -234,13 +253,16 @@ export function createRackComponentKit(THREE,{cube}){
       box(partGroup,'server-mount-ear',sign*w*.373,y,-d*.48,w*.05,units*unit-.035,.038,'#92a9b5');
       box(partGroup,'server-pull-handle',sign*w*.304,y+unit*.6,-d*.54,w*.028,unit*1.7,.05,'#acbdc7');
     }
-    for(let bay=0;!gpuVariant&&bay<4;bay++){
+    for(let bay=0;!gpuVariant&&bay<(storage?8:4);bay++){
       if(storage){
         const drive=group(partGroup,id,'storage-drive-'+i+'-'+bay,'스토리지 드라이브 · 쉘프 '+(i+1)+' / 베이 '+(bay+1),u,units);
         drive.userData.storageShelfId=partGroup.userData.partId;
-        box(drive,'drive-carrier',-w*.17+bay*w*.105,y+unit*.45,-d*.48,w*.09,unit*1.9,d*.19,'#536c7d');
-        box(drive,'drive-release-tab',-w*.17+bay*w*.105,y+unit*.65,-d*.595,w*.046,.032,.025,'#b4c1c7');
-        drive.userData.rackPart.description='스토리지 쉘프의 개별 드라이브 베이입니다. 문을 열고 선택한 드라이브만 인출하거나 장착합니다. 용량과 RAID 구성은 지정하지 않은 교육용 예시입니다.';
+        const dx=-w*.290+bay*w*.083;
+        box(drive,'storage-hot-swap-carrier',dx,y+unit*.38,-d*.590,w*.073,unit*1.96,d*.205,'#6b8a9e');
+        box(drive,'storage-drive-face',dx,y+unit*.42,-d*.696,w*.062,unit*1.72,.036,'#1c3544');
+        box(drive,'storage-drive-release-handle',dx,y+unit*.27,-d*.728,w*.036,.025,.029,'#e1bd78');
+        box(drive,'storage-drive-activity-led',dx,y+unit*1.80,-d*.721,w*.024,.024,.025,bay%2?'#67e4bd':'#67c4f4');
+        drive.userData.rackPart.description='스토리지 쉘프 '+(i+1)+'의 8개 전면 핫스왑 베이 중 '+(bay+1)+'번 드라이브 캐리어입니다. 인출/장착으로 드라이브 슬롯과 후면 백플레인의 차이를 확인합니다. 실제 RAID/용량/전원 차단 절차는 모델에 포함하지 않습니다.';
         storageDrives.push(drive);
       }else{
         box(partGroup,'hot-swap-drive-bay-'+bay,-w*.17+bay*w*.105,y+unit*.45,-d*.52,w*.09,unit*1.9,.025,'#536c7d');
@@ -254,8 +276,33 @@ export function createRackComponentKit(THREE,{cube}){
     for(const component of computeParts.filter(g=>g.parent===partGroup))retain(component);
     modules.push(partGroup);
   }
+  if(storageRack){
+    // Independent controller inside each Storage Rack, above disk shelves.
+    // The controller is intentionally selectable, not a duplicate server sled.
+    const u=31,units=2,y=lower+(u-1)*unit;
+    const controller=group(root,id,'storage-controller','스토리지 컨트롤러 · 이중 경로/캐시/관리 포트 (개념)',u,units);
+    controller.userData.rackPart.description='스토리지 컨트롤러는 호스트 I/O, 캐시·RAID/EC 관리, 디스크 백플레인 및 후면 네트워크 연결을 조정합니다. 실제 벤더별 Active/Active·Active/Standby 구조와 프로세서는 별도 사양 검증이 필요합니다.';
+    box(controller,'storage-controller-chassis',0,y,-d*.16,w*.75,unit*1.85,d*.58,'#276171');
+    box(controller,'storage-controller-face',0,y+unit*.12,-d*.48,w*.71,unit*1.55,.055,'#264356');
+    moduleLabel(controller,id,'storage-controller-label','STORAGE CONTROLLER / I-O',0,y+units*unit*.81,-d*.53,w*.62,.082,'#237c9a');
+    for(let p=0;p<4;p++){
+      box(controller,'storage-controller-ethernet-'+p,-w*.235+p*w*.15,y+unit*.52,-d*.523,w*.090,.060,.028,'#173046');
+      box(controller,'storage-controller-link-led-'+p,-w*.23+p*w*.15,y+unit*.92,-d*.533,w*.026,.026,.020,'#6ee2b7');
+    }
+    for(const side of [-1,1])box(controller,'storage-controller-handle-'+side,side*w*.34,y+.04,-d*.535,w*.022,unit*1.52,.055,'#d0c1a0');
+    retain(controller);
+    // PSU/fan module at U30 is separately selectable (no server count added).
+    const psu=group(root,id,'storage-psu-fan','스토리지 PSU / 팬 모듈 · A/B (개념)',30,1);
+    psu.userData.rackPart.description='스토리지 쉘프의 이중 전원 공급·냉각 경로를 나타내는 PSU/팬 상태 패널입니다. 실제 전력 정격과 풍량은 제조사 사양을 확인해야 합니다.';
+    box(psu,'storage-psu-case',0,lower+29*unit,-d*.28,w*.75,unit*.94,d*.48,'#4c6875');
+    for(const side of [-1,1]){
+      box(psu,'storage-psu-a-b',side*w*.17,lower+29*unit+unit*.12,-d*.535,w*.28,unit*.60,.034,'#304957');
+      box(psu,'storage-psu-led',side*w*.26,lower+29*unit+unit*.39,-d*.563,.056,.036,.030,'#86dfaf');
+    }
+    retain(psu);
+  }
   // Account for active assemblies and the top optical drawer before filling gaps.
-  const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel'].includes(p.kind)||/^(server|storage|network-switch)-\d+$/.test(p.kind));
+  const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel','lc-adapter-panel','storage-controller','storage-psu-fan'].includes(p.kind)||/^(server|storage|network-switch)-\d+$/.test(p.kind));
   occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){

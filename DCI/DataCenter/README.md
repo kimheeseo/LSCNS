@@ -1,5 +1,19 @@
 # LS Datacenter 3D Digital Twin — 사용 설명서
 
+## 2026-10-31 · 광 네트워크 전체화면 / 계층도 / 링크 마진 v1
+
+- Network Rack 내 Spine 모듈 중 중복으로 보이는 1개를 제거하고 한 랙에는 Spine 스위치 개념 모듈 한 개와 확장 패널을 표시합니다. 논리적 Spine A/B 이중화 노드 및 회선은 유지합니다.
+- 상단 **◎ 광** 버튼을 눌렀을 때 광 토폴로지 팝업이 브라우저 화면 전체(100vw × 100dvh)를 사용하도록 변경했습니다.
+- 첨부 참고 도식에 맞춰 **Internet → Firewall A/B → Edge Router A/B → Core → Spine A/B → Leaf/ToR → GPU·Storage·Compute·Server Rack**의 계층도를 SVG로 추가했습니다. ODF/MMR는 별도의 수동 광배선 계층입니다.
+- Firewall·Edge Router 및 Leaf C/D는 **개념상 확장 예시**이며 실제 3D 모델 자산 수량으로 표기하지 않습니다. Spine/Leaf 실 장비에 대한 근거 없는 사양 추정은 피합니다.
+- 선택한 링크(원본 포트맵과 동기화), 포트 속도(400G/800G/1.6T), 모듈 예시, 매체, 거리, Tx 최소 출력, Rx 감도, 섬유 dB/km, 커넥터·융착·기타 손실 및 설계 예비 마진을 변경할 수 있습니다.
+- 광 손실(dB) = 거리(km) × 감쇠(dB/km) + 커넥터 수 × 커넥터 손실 + 융착 수 × 융착 손실 + 기타 손실.
+- 수신 최소 파워(dBm) = Tx 최소 출력(dBm) − 총 광손실(dB). **설계 Link Margin(dB)** = 수신 최소 파워 − Rx 감도 − 예비 마진.
+- 광모듈 프로파일의 Tx/Rx는 제조사 사양이 아닌 **교육용 가정값**입니다. DAC/AEC·AOC에는 수동 광 예산식을 그대로 적용하지 않으며, 실제 인증은 모듈 데이터시트의 OMA/TDECQ/FEC·최대 거리·호환성 등을 별도로 검증해야 합니다.
+- 기존 광 포트맵·단선/복구·CSV 기능은 전체화면 패널 하단에 유지했습니다.
+- 소스: `ls3d-optical-fullscreen.js`, `ls3d-optical-fullscreen.css`, `ls3d-three/rack-components.mjs`.
+- 바로 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-optical-hierarchy-v1
+
 ## 2026-10-31 · LS CABLE LOADING BAY 작업 애니메이션
 
 - 4단계 Gray Zone의 LS CABLE LOADING BAY에서 지게차 **차체·마스트·바퀴·포크를 50% 비율**로 축소했습니다 (`scale=0.5`).

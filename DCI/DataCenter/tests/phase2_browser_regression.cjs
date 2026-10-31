@@ -217,19 +217,35 @@ async function currentPhase2(browser,device,viewport){
  const page=await context.newPage();page.on('pageerror',e=>safeError(device,e));
  try{
   await page.goto('http://127.0.0.1:9874/LS_Datacenter_3D.html?engine=three&test=phase2',{waitUntil:'domcontentloaded'});
-  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE2_A&&window.LS3D_PHASE2_B,{timeout:30000});
+  await page.waitForFunction(()=>window.__LS3D_TEST__&&window.LS3D_PHASE2_B,{timeout:30000});
   await page.locator('[data-display-choice="'+(device==='mobile'?'mobile':'pc')+'"]').click();
   if(await page.locator('#guide.open').count())await page.locator('#tourSkip').click();
   check(device,'initialized',await page.evaluate(()=>!!window.__LS3D_TEST__?.gl&&!document.querySelector('#error')?.textContent));
   const fov=await page.evaluate(()=>Math.abs(window.LS3D_PHASE1.widthForDistance(1,Math.PI/2,1)-2)<1e-10);
   check(device,'fov-formula',fov);
-  const phase=await page.evaluate(()=>({tasks:window.LS3D_PHASE2_A.totalCount,optical:!!window.LS3D_PHASE2_B.opticalState}));
-  check(device,'mep-catalog',phase.tasks===35,JSON.stringify(phase));
+  const phase=await page.evaluate(()=>({removed:!document.querySelector('#phase2-mep-open,#phase2-mep-panel,#phase5-open,#phase5-panel'),optical:!!window.LS3D_PHASE2_B.opticalState}));
+  check(device,'MEP-and-FPS-panels-removed',phase.removed,JSON.stringify(phase));
   check(device,'optical-model',phase.optical);
+  if(device==='desktop'){
+   await page.waitForFunction(()=>window.LS3D_THREE?.status==='ready');
+   await page.evaluate(()=>Object.assign(window.__LS3D_TEST__.cameraDesired,{target:[0,0,0],distance:40,yaw:0,pitch:.7}));
+   await page.locator('#cameraDragMode').selectOption('pan');
+   const rect=await page.locator('#sceneThree').boundingBox(),x=rect.x+rect.width*.55,y=rect.y+rect.height*.6;
+   await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+45,y,{steps:5});await page.mouse.up();
+   check(device,'left-drag-pan',await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.target[0]<0));
+   await page.locator('#cameraDragMode').selectOption('zoom');
+   await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x,y-40,{steps:5});await page.mouse.up();
+   check(device,'left-drag-zoom',await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.distance<40));
+   const before=await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.target[0]);
+   await page.keyboard.down('ArrowRight');await page.waitForTimeout(250);await page.keyboard.up('ArrowRight');
+   check(device,'orbit-arrow-movement',await page.evaluate(x=>window.__LS3D_TEST__.cameraDesired.target[0]>x,before));
+   await page.locator('#assetSearch').focus();
+   const target=await page.evaluate(()=>JSON.stringify(window.__LS3D_TEST__.cameraDesired.target));
+   await page.keyboard.down('ArrowLeft');await page.waitForTimeout(150);await page.keyboard.up('ArrowLeft');
+   check(device,'search-protects-camera',await page.evaluate(t=>JSON.stringify(window.__LS3D_TEST__.cameraDesired.target)===t,target));
+  }
+
   if(device==='mobile')await page.locator('#mobileInspectorTools summary').click();
-  await page.locator('#phase2-mep-open').click();
-  check(device,'mep-panel',await page.locator('#phase2-mep-panel').isVisible());
-  await page.locator('#phase2-mep-close').click();
   await page.locator('#phase2-opt-open').click();
   check(device,'optical-panel',await page.locator('#phase2-opt-panel').isVisible());
   await page.screenshot({path:path.join(out,device+'-optical.png')});
@@ -258,3 +274,4 @@ async function currentPhase2(browser,device,viewport){
  }
  process.exitCode=(T.summary.fail||T.summary.pageErrors)?1:0;
 })().catch(e=>{console.error(e);process.exitCode=1});
+

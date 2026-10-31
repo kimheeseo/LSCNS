@@ -942,7 +942,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           worker:worker,armLeft:armLeft,armRight:armRight,
           carriedBox:carriedBox,loadedBox:loadedBox,
           workerHomeX:parkX+w*.12,workerNearX:parkX-w*.06,
-          workerSideZ:parkZ-d*.12,seatOffsetX:w*.011,
+          workerSideZ:parkZ-d*.12,seatOffsetX:w*.011,loadOffsetX:w*.275*.5,
           loopSeconds:12
         };
 

@@ -42,3 +42,44 @@ p, dd, .note, .asset-description, #visitorTaskCopy {
   .vp-tools button, .vp-tools select { font-size: 11px; }
   .scenario-step { flex-basis: 150px; }
 }
+
+/* v2 · crisp Korean signage and legibility, 2026-10-31.
+   Preserve panel geometry while eliminating 7–9 px Korean labels. */
+:root { 
+  --ls3d-font: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  font-synthesis: none;
+}
+body { 
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+}
+button, select, input, textarea, .marker, .vp-title, .phase2-side-panel, .phase58-panel {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.zone-btn { font-size: 12px !important; line-height: 1.45; letter-spacing: 0; word-break: keep-all; }
+.zone-btn .zinfo small { font-size: 10.5px !important; }
+.side-bottom, .side-bottom span, .section-label, .crumb, .vp-title b,
+.metric .mt, .metric .foot, .scenario-step-heading b,
+.scenario-step-heading small, .scenario-step-metrics,
+.control-text, .control-text strong, .asset-sub, .info-list dt, .info-list dd {
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+.vp-title small, .info-list dt, .metric .foot, .scenario-step-metrics,
+.scenario-step small, .equipment-list button span { font-size: 10.5px !important; }
+.marker { font-family: var(--ls3d-font) !important; font-size: 11px; font-weight: 750; line-height: 1.4; letter-spacing: 0; text-shadow: 0 1px 1px rgba(0, 0, 0, .45); }
+.marker b { font-size: 10px; }
+.marker.rack-marker { font-size: 10px; padding: 4px 6px; line-height: 1.35; }
+.phase2-buttons-top button, .phase58-launch { font-size: 11px; line-height: 1.4; }
+.phase2-side-panel, .phase58-panel { font-size: 12px; line-height: 1.6; }
+.phase2-side-panel .phase2-notice, .phase58-panel .p58-note { font-size: 11px; }
+.phase2-side-panel label, .phase58-panel label { font-size: 12px; }
+.phase2-side-panel select, .phase58-panel select, .phase58-panel input[type=number] { font-size: 12px; }
+.optical-svg text { font-size: 11px; }
+@media (max-width: 790px) {
+  .marker { font-size: 10.5px; }
+  .marker.rack-marker { font-size: 9.5px; padding: 4px 5px; }
+  .phase2-buttons-top button, .phase58-launch { font-size: 10.5px; }
+}

@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-korean-font-v2';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-staging-front-v3';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';

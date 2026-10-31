@@ -333,8 +333,8 @@ export function createSceneAdapter(T, canvas) {
           if(!rackRails.state(asset.id)?.selectedDrive)cycleRackDrive(asset.id);
           toggleRackDrive(asset.id);
         }else if(action==='storage-rear'){
-          focusRackSide(asset.id,'rear');const motion=T.mechanical(asset);
-          if(!motion.targetRear)toggleRearRackDoor(asset.id);
+          focusRackSide(asset.id,'rear');
+          if(!rackDoors.state(asset.id)?.targetRear)toggleRearRackDoor(asset.id);
         }
         else if(action==='front-camera')focusRackSide(asset.id,'front');
         else if(action==='rear-camera')focusRackSide(asset.id,'rear');

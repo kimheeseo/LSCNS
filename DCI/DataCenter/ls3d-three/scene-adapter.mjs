@@ -134,7 +134,7 @@ export function createSceneAdapter(T, canvas) {
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
-  let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null;
+  let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
   let focusedRack=null;
   let inspectedScenePart=null,sceneInspectionContext='',scenePartMaterials=[];
   function clearSceneInspection(){
@@ -277,7 +277,7 @@ export function createSceneAdapter(T, canvas) {
     if(typeof document==='undefined'||!canvas.parentElement)return;
     const a=currentRackAsset();
     // Rack-only motion controls are shown exclusively inside ‘랙 단독 보기’.
-    if(!a||!T.rackIsolateActive){if(rackControls)rackControls.hidden=true;return;}
+    if(!a||!T.rackIsolateActive){if(rackControls)rackControls.hidden=true;rackControlsActiveRack=null;return;}
     if(!rackControls){
       rackControls=document.createElement('div');
       rackControls.id='ls3dRackMotionControls';
@@ -436,6 +436,13 @@ export function createSceneAdapter(T, canvas) {
       });
       canvas.parentElement.appendChild(rackControls);
     }
+    // Restore the old open/close workflow: entering rack-only view must reveal
+    // all mechanical controls, even when the canvas width is phone-sized.
+    // Preserve manual collapse within the same inspection session.
+    if(rackControlsActiveRack!==a.id){
+      rackPanelDisclosure?.setCollapsed(false);
+      rackControlsActiveRack=a.id;
+    }
     rackControls.hidden=false;
     const gpuRack=/gpu/i.test(a.type),storageRack=a.type==='Storage rack',networkRack=a.type==='Top-of-Rack switch'||['Core','Spine','Leaf','MMR rack'].includes(a.type);
     const networkPanel=rackControls.querySelector('#ls3dNetworkOpticalAccessories');
@@ -469,6 +476,24 @@ export function createSceneAdapter(T, canvas) {
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
       (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
       ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all');
+  }
+  function expandRackControls(){
+    if(!T.rackIsolateActive||!currentRackAsset())return false;
+    showControls();
+    rackPanelDisclosure?.setCollapsed(false);
+    return !!rackControls&&!rackControls.hidden;
+  }
+  function runRackAction(action){
+    // Single action implementation: sidebar shortcuts reuse the same
+    // proven 3D rack buttons; avoid divergent state between two panels.
+    if(!T.rackIsolateActive||!currentRackAsset())return false;
+    showControls();
+    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode)$/;
+    if(!allowed.test(action))return false;
+    const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
+    if(!button||button.hidden||button.closest('[hidden]'))return false;
+    button.click();
+    return true;
   }
   let selectedPartVisuals=[], selectedPartRing=null;
   function clearRackPartEmphasis() {
@@ -1023,7 +1048,7 @@ export function createSceneAdapter(T, canvas) {
     mepRoutes.dispose();
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
-    rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;
+    rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;rackControlsActiveRack=null;
     rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
@@ -1044,7 +1069,7 @@ export function createSceneAdapter(T, canvas) {
     get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
      selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,clearRackFocus(){focusedRack=null;},setRackServerSelection,cycleRackServer,
-    toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,cycleRackGpu,toggleRackGpu,
+    toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,cycleRackGpu,toggleRackGpu,expandRackControls,runRackAction,
     get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},
     inspection,securityController:security,navigation,

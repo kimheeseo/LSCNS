@@ -560,7 +560,7 @@ function bindInspector(){const controls=$('rackControls'),filters=$('cableFilter
  filters.addEventListener('click',e=>{const b=e.target.closest('button[data-cable]');if(!b)return;mechanical(selected).cables=b.dataset.cable;syncInspector()});
  syncInspector();
 }
-function openRackScene(){const a=selected;if(!isMechanicalRack(a))return false;if(workerViewId)stopWorkerView(false);if(walk)toggleWalk();if($('detailModal').classList.contains('show'))closeDetail();rackIsolateActive=true;document.body.classList.add('rack-inspecting');$('rackIsolateName').textContent=a.name+' · 내부 부품';$('rackIsolateBar').hidden=false;const adapter=window.LS3D_THREE?.adapter;if(!adapter?.focusRackSide?.(a.id,'front'))setRackInspectionView(false);$('sceneName').textContent='RACK INTERNAL · '+a.name.toUpperCase();$('sceneInfo').textContent='선택한 랙만 표시 · 오른쪽에서 부품을 선택하세요';refresh();return true}
+function openRackScene(){const a=selected;if(!isMechanicalRack(a))return false;if(workerViewId)stopWorkerView(false);if(walk)toggleWalk();if($('detailModal').classList.contains('show'))closeDetail();rackIsolateActive=true;document.body.classList.add('rack-inspecting');$('rackIsolateName').textContent=a.name+' · 내부 부품';$('rackIsolateBar').hidden=false;const adapter=window.LS3D_THREE?.adapter;if(!adapter?.focusRackSide?.(a.id,'front'))setRackInspectionView(false);$('sceneName').textContent='RACK INTERNAL · '+a.name.toUpperCase();$('sceneInfo').textContent='마우스 드래그 회전 · 우클릭 이동 · 휠 확대 · WASD/방향키 이동 · Q/E 높이 · 오른쪽에서 부품 선택';refresh();return true}
 function closeRackScene(restore=true){if(!rackIsolateActive)return;rackIsolateActive=false;document.body.classList.remove('rack-inspecting');$('rackIsolateBar').hidden=true;window.LS3D_THREE?.adapter?.clearRackFocus?.();window.LS3D_THREE?.adapter?.clearInspectionSelection?.();const z=Z.find(x=>x.id===currentZone);$('sceneName').textContent=currentZone==='campus'?'CAMPUS · 3D OVERVIEW':z.n.toUpperCase()+' · CUTAWAY';$('sceneInfo').textContent=z.sub;if(restore){cameraDesired.distance=currentZone==='campus'?activeProfile().distance:currentZone==='hall'?64:46;cameraDesired.pitch=.8;cameraDesired.yaw=-.68;cameraDesired.target=[z.pos[0],1,z.pos[1]]}refresh()}
 function openDetail(){const a=selected;if(!a)return;const modal=$('detailModal');const d=detailTemplate(a);$('detailTitle').textContent=a.name;$('detailSubtitle').textContent=`${a.type} · ${a.zone.toUpperCase()} · ${a.power}`;$('detailPanelTitle').textContent=d.panelTitle;$('detailVisual').innerHTML=(isMechanicalRack(a)?inspectorMarkup(a):d.visual)+d.chipHtml;$('detailInfo').innerHTML=d.items.map(v=>`<div class="detail-item"><b>${v[0]}</b>${v[1]}</div>`).join('');modal.classList.toggle('detail-nonrack',!isMechanicalRack(a));modal.classList.add('show');modal.setAttribute('aria-hidden','false');if(isMechanicalRack(a)){bindInspector();pickAsset(a,true);setRackInspectionView(false);$('sceneName').textContent='RACK SERVICE · 3D MODEL';$('sceneInfo').textContent='문 열기 · 서버 인출 → 3D 모델 반영';}}
 function closeDetail(){const m=$('detailModal');m.classList.remove('show');m.setAttribute('aria-hidden','true');const z=Z.find(x=>x.id===currentZone);$('sceneName').textContent=currentZone==='campus'?'CAMPUS · 3D OVERVIEW':z.n.toUpperCase()+' · CUTAWAY';$('sceneInfo').textContent=z.sub;cameraDesired.distance=currentZone==='campus'?161:currentZone==='hall'?64:46;cameraDesired.pitch=.8;cameraDesired.yaw=-.68;cameraDesired.target=[z.pos[0],1,z.pos[1]];}
@@ -711,7 +711,7 @@ function drawScene(){tri=[];wire=[];transparent=[];ls3dStaticFrameKeys.length=0;
 let cameraDesired={yaw:-.7,pitch:.74,distance:164,target:[0,2,0]},camera={yaw:-.7,pitch:.74,distance:164,target:[0,2,0]};let lastFrame=0,lastUI=0;
 const LS3D_ZOOM_MIN=1e-10;let phase1Local=false,phase1Near=.25,phase1Far=500;
 function phase1Inspecting(){return !!(selected&&isMechanicalRack(selected)&&(rackIsolateActive||$('detailModal')?.classList.contains('show')))}
-function phase1CenterFocus(){if(phase1Inspecting()&&!mechanical(selected).targetSlide&&cameraDesired.distance<.85)cameraDesired.distance=.85;const on=phase1Inspecting()&&cameraDesired.distance<2.5;if(on===phase1Local)return;phase1Local=on;const target=on?[0,0,0]:phase1Inspecting()?[selected.x,selected.h*.51,selected.z]:cameraDesired.target;cameraDesired.target=target.slice();camera.target=target.slice();camera.distance=cameraDesired.distance;}
+function phase1CenterFocus(){if(rackIsolateActive){phase1Local=false;return;}if(phase1Inspecting()&&!mechanical(selected).targetSlide&&cameraDesired.distance<.85)cameraDesired.distance=.85;const on=phase1Inspecting()&&cameraDesired.distance<2.5;if(on===phase1Local)return;phase1Local=on;const target=on?[0,0,0]:phase1Inspecting()?[selected.x,selected.h*.51,selected.z]:cameraDesired.target;cameraDesired.target=target.slice();camera.target=target.slice();camera.distance=cameraDesired.distance;}
 function phase1ClipPlanes(){const d=Math.max(LS3D_ZOOM_MIN,camera.distance);phase1Near=phase1Local?Math.max(d*.008,1e-13):d<12?Math.max(.012,d*.006):.25;phase1Far=phase1Local?Math.max(d*35,5e-9):d<12?120:500;return [phase1Near,phase1Far]}
 
 const labels=[];
@@ -760,19 +760,20 @@ function updateWalk(dt){
  if(!pressedKeys.size||workerViewId||cameraInputBlocked())return;
  const left=pressedKeys.has('a')||pressedKeys.has('arrowleft'),right=pressedKeys.has('d')||pressedKeys.has('arrowright');
  const up=pressedKeys.has('w')||pressedKeys.has('arrowup'),down=pressedKeys.has('s')||pressedKeys.has('arrowdown');
+ const rise=Number(pressedKeys.has('e'))-Number(pressedKeys.has('q'));
  const horizontal=Number(right)-Number(left),vertical=Number(up)-Number(down),len=Math.hypot(horizontal,vertical);
  if(!walk){
   const zoom=Number(pressedKeys.has('-'))-Number(pressedKeys.has('+')||pressedKeys.has('='));
   if(zoom)zoomCamera(zoom*dt*1.5);
  }
- if(!len)return;
+ if(!len&&!rise)return;
  const yaw=cameraDesired.yaw,speed=walk?10:clamp(cameraDesired.distance*.45,1,65);
- const step=speed*(pressedKeys.has('shift')?2:1)*Math.min(dt,.07)/len;
+ const step=speed*(pressedKeys.has('shift')?2:1)*Math.min(dt,.07)/Math.max(1,len);
  // Walking looks along +Z; an orbit camera looks back toward its target along -Z.
  const sign=walk?-1:1;
  const dx=sign*(horizontal*Math.cos(yaw)-vertical*Math.sin(yaw))*step;
  const dz=sign*(-horizontal*Math.sin(yaw)-vertical*Math.cos(yaw))*step;
- if(!walk){cameraDesired.target[0]+=dx;cameraDesired.target[2]+=dz;return;}
+ if(!walk){cameraDesired.target[0]+=dx;cameraDesired.target[2]+=dz;if(rackIsolateActive)cameraDesired.target[1]=clamp(cameraDesired.target[1]+rise*speed*Math.min(dt,.07),-.5,12);return;}
  const nx=walkPos[0]+dx,nz=walkPos[2]+dz;
  if(!collide(nx,walkPos[2]))walkPos[0]=nx;
  if(!collide(walkPos[0],nz))walkPos[2]=nz;
@@ -808,7 +809,7 @@ function toggleWalk(){walk=!walk;$('btnWalk').classList.toggle('active',walk);if
 function initControls(){let drag=false,moved=false,button=0,prev=[0,0],touchDistance=0,touchCenter=null;canvas.tabIndex=0;canvas.addEventListener('pointerdown',e=>{e.preventDefault();canvas.focus({preventScroll:true});drag=true;moved=false;button=e.button;prev=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag||touchDistance)return;let dx=e.clientX-prev[0],dy=e.clientY-prev[1];if(Math.abs(dx)+Math.abs(dy)>1.2)moved=true;dragCamera(dx,dy,{button,shiftKey:e.shiftKey,ctrlKey:e.ctrlKey,metaKey:e.metaKey});prev=[e.clientX,e.clientY]});canvas.addEventListener('pointerup',e=>{if(!moved&&button===0&&!workerViewId&&!touchDistance)pickAt(e.clientX,e.clientY);drag=false});canvas.addEventListener('pointercancel',()=>drag=false);canvas.addEventListener('lostpointercapture',()=>drag=false);canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('wheel',e=>{e.preventDefault();if(workerViewId)workerViewPitch=clamp(workerViewPitch+Math.sign(e.deltaY)*.035,-.72,.72);else if(!walk)cameraDesired.distance=clamp(cameraDesired.distance*Math.exp(e.deltaY*(cameraDesired.distance<.2?.006:cameraDesired.distance<12?.0013:.001)),(phase1Inspecting()?LS3D_ZOOM_MIN:.12),260)},{passive:false});canvas.addEventListener('touchstart',e=>{if(e.touches.length===2){touchDistance=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);touchCenter=[(e.touches[0].clientX+e.touches[1].clientX)/2,(e.touches[0].clientY+e.touches[1].clientY)/2]}},{passive:false});canvas.addEventListener('touchmove',e=>{if(e.touches.length===2&&touchDistance&&touchCenter){e.preventDefault();let d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY),center=[(e.touches[0].clientX+e.touches[1].clientX)/2,(e.touches[0].clientY+e.touches[1].clientY)/2],v=clamp(cameraDesired.distance*.0024,.02,.55);cameraDesired.target=add(cameraDesired.target,add(scale(rightVec,-(center[0]-touchCenter[0])*v),scale(upVec,(center[1]-touchCenter[1])*v)));cameraDesired.distance=clamp(cameraDesired.distance*Math.pow(touchDistance/Math.max(1,d),cameraDesired.distance<.2?2.2:cameraDesired.distance<12?.95:1),(phase1Inspecting()?LS3D_ZOOM_MIN:.12),260);touchDistance=d;touchCenter=center}},{passive:false});canvas.addEventListener('touchend',e=>{if(e.touches.length<2){touchDistance=0;touchCenter=null}},{passive:true});document.addEventListener('keydown',e=>{
  if(cameraInputBlocked()||e.ctrlKey||e.metaKey||e.altKey)return;
  const k=e.key.toLowerCase();
- if(['w','a','s','d','shift','arrowup','arrowdown','arrowleft','arrowright','+','=','-'].includes(k)){e.preventDefault();pressedKeys.add(k);}
+ if(['w','a','s','d','q','e','shift','arrowup','arrowdown','arrowleft','arrowright','+','=','-'].includes(k)){e.preventDefault();pressedKeys.add(k);}
  if(e.key==='Escape'&&walk)toggleWalk();
 });
 document.addEventListener('keyup',e=>pressedKeys.delete(e.key.toLowerCase()));

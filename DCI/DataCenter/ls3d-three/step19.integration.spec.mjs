@@ -275,9 +275,10 @@ test('S19-rack-camera: front and rear show the selected rack at desktop and mobi
 
 test('S19-inspector: tool dock, asset/part lists and clicked golden tray stay synchronized',async({page},info)=>{
   await enter(page);
-  const ids=['phase2-bar','phase5-open','phase6-open','phase7-open','phase8-open'];
+  const ids=['phase2-bar','phase6-open','phase7-open','phase8-open'];
   for(const id of ids){expect(await page.locator('#'+id).evaluate(el=>el.parentElement.id)).toBe('ls3dToolDock');expect(await page.locator('#viewport #'+id).count()).toBe(0);}
-  await page.locator('#phase5-open').click();await expect(page.locator('#phase5-panel')).toBeVisible();await page.locator('#p5-close').click();
+  await expect(page.locator('#phase5-open,#phase5-panel,#phase2-mep-open,#phase2-mep-panel')).toHaveCount(0);
+  await page.locator('#phase2-opt-open').click();await expect(page.locator('#phase2-opt-panel')).toBeVisible();await page.locator('#phase2-opt-close').click();
   await page.locator('#inspectorAssetSelect').selectOption('tor-b');await expect(page.locator('#assetName')).toContainText('NETWORK B');
   await page.waitForFunction(()=>window.LS3D_INSPECTOR.parts.some(p=>p.id==='tor-b:optical-housing'));
   await page.locator('#inspectorPartSelect').selectOption('tor-b:optical-housing');
@@ -306,8 +307,8 @@ test('S19-inspector: tool dock, asset/part lists and clicked golden tray stay sy
   await expect(page.locator('#inspectorPartName')).toHaveText('전력 케이블 트레이');
   await page.screenshot({path:info.outputPath('inspector-golden-tray-sidebar.png')});
   await page.setViewportSize({width:390,height:844});
-  await page.waitForFunction(()=>document.getElementById('phase5-open').parentElement.id==='ls3dMobileToolDock');
-  await page.locator('#mobileInspectorTools summary').click();await expect(page.locator('#phase5-open')).toBeVisible();
+  await page.waitForFunction(()=>document.getElementById('phase2-bar').parentElement.id==='ls3dMobileToolDock');
+  await page.locator('#mobileInspectorTools summary').click();await expect(page.locator('#phase2-opt-open')).toBeVisible();
   await page.screenshot({path:info.outputPath('inspector-mobile-dock.png')});
 });
 
@@ -398,3 +399,4 @@ test('S19-product-click: ceiling trays and busduct expose persistent product des
  await expect(page.locator('#inspectorPartName')).toHaveText('광케이블 트레이');
  await expect(page.locator('#inspectorPartDescription')).toContainText('굴곡반경');
 });
+

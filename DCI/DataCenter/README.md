@@ -5,6 +5,12 @@
 **상태:** v4.8.1은 첫 방문 가이드 투어/추천 시나리오 자동 재생, 가정값·계산식 출처 공개, 광 네트워크 상세 진입을 개선했습니다. 모든 값은 교육용 가정이며 현장 설계 검증을 대체하지 않습니다.
 
 
+## 2026-10-31 · 카메라 조작 개선
+
+- MEP 작업 체크리스트와 FPS/기기 검증 메뉴를 제거했습니다.
+- 상단 **드래그** 선택에서 회전, 이동, 확대/축소를 선택합니다. 확대/축소 모드는 위로 드래그하면 확대, 아래로 드래그하면 축소합니다.
+- 일반 3D 화면에서도 방향키/WASD로 이동하며 Shift를 함께 누르면 빠르게 이동합니다. 검색창·입력 필드에서는 카메라가 움직이지 않습니다.
+
 ## 2026-10-16 · Step 19 반복 실패 복구 검증
 
 - **통합 Chromium/WebGL QA: [#57 — 9/9 PASS](https://github.com/kimheeseo/LSCNS/actions/runs/38820787435)** (`7e3b5b9`)
@@ -24,13 +30,13 @@
 
 ## 1. 실행 링크
 
-**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261026-display-mode-fix10)
+**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-navigation-v1)
 
-`engine=three`로 Three.js 엔진을 선택하며, `v=20261026-display-mode-fix10`은 브라우저 캐시 갱신용 쿼리입니다.
+`engine=three`로 Three.js 엔진을 선택하며, `v=20261031-navigation-v1`은 브라우저 캐시 갱신용 쿼리입니다.
 
 | 구분 | 바로가기 |
 |---|---|
-| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261026-display-mode-fix10) |
+| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-navigation-v1) |
 | **기존 3D 렌더 복귀** | [Legacy 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) |
 | **원본 2D Gold Pixel Tour** | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) |
 | **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |
@@ -67,15 +73,17 @@
 
 | 기능 | PC | 모바일 |
 |---|---|---|
-| 회전 | 드래그 | 한 손가락 드래그 |
-| 확대·축소 | 휠 | 두 손가락 핀치 |
-| 화면 이동 | Shift + 드래그 / 우클릭 드래그 | 두 손가락 함께 이동 |
+| 회전 | **드래그: 회전** 선택 후 왼쪽 드래그 | 한 손가락 드래그 |
+| 확대·축소 | 휠 / 가운데 버튼 드래그 / Ctrl+드래그 / **드래그: 확대/축소** / +·− 키 | 두 손가락 핀치 |
+| 화면 이동 | 우클릭 또는 Shift+드래그 / **드래그: 이동** / 방향키·WASD (Shift: 빠르게) | 두 손가락 함께 이동 |
 | 설비 선택 | 클릭 | 탭 |
 | 전체 캠퍼스 | **전체** 버튼 | **전체** 버튼 |
 | 카메라 각도 | **3D** / **평면** | 같은 버튼 |
 | 건물 내부 | **지붕 켜기** / **단면 보기** | 같은 버튼 |
 | 탐방 | **걷기**, WASD 또는 방향키 | 기기별 조작 일부 제한 가능 |
 | 화면 확대 | **전체 화면** | 브라우저 지원 시 사용 |
+
+걷기·방문자 투어에서는 방향키/WASD로 이동하고 드래그로 시야를 바꿉니다. 위의 확대/축소와 화면 이동 드래그는 일반 3D 관찰 화면에서 사용합니다.
 
 랙을 가까이 볼 때 일부 건축 벽/지붕을 일시적으로 숨기는 기능이 있습니다. 실제 CAD 충돌해석 기능은 아닙니다.
 
@@ -148,3 +156,4 @@
 기존 2D Gold Pixel Tour와 DataCenter BOM의 원본은 이 Three.js 릴리스 범위에서 변경하지 않습니다.
 
 > 주의: 이 도구는 교육/시각화/설계 검토용입니다. 제조사 성능 검증, 도면/CAD/BIM 적합성, 방재·보안·전력보호·통신 광손실 검사의 대체물이 아닙니다.
+

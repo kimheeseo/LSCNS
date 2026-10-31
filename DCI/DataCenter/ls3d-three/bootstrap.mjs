@@ -14,7 +14,8 @@ if (requested && T) {
   const oldCanvas = document.getElementById('scene');
   const canvas = document.createElement('canvas');
   canvas.id = 'sceneThree';
-  canvas.setAttribute('aria-label','Three.js 3D 데이터센터 화면: 드래그 회전, 휠 확대, 설비 선택');
+  canvas.tabIndex=0;
+  canvas.setAttribute('aria-label','Three.js 3D 데이터센터: 왼쪽 드래그 회전 또는 선택한 동작, 오른쪽 드래그 이동, 가운데 드래그 확대, 방향키 이동');
   canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:none;z-index:1;touch-action:none;cursor:grab;';
   oldCanvas.insertAdjacentElement('afterend',canvas);
   const label = document.createElement('span');
@@ -50,7 +51,8 @@ if (requested && T) {
   canvas.addEventListener('pointerdown',e=>{
     if (status.status!=='ready')return;
     e.preventDefault();
-    const p={id:e.pointerId,x:e.clientX,y:e.clientY,originX:e.clientX,originY:e.clientY,button:e.button,shift:e.shiftKey,moved:false};
+    canvas.focus({preventScroll:true});
+    const p={id:e.pointerId,x:e.clientX,y:e.clientY,originX:e.clientX,originY:e.clientY,button:e.button,moved:false};
     if(!pointer)pointer=p;
     else if(!second){second=p;multiTouch=true;pointer.moved=true;second.moved=true;}
     canvas.setPointerCapture(e.pointerId);
@@ -68,39 +70,20 @@ if (requested && T) {
       const center={x:(pointer.x+second.x)/2,y:(pointer.y+second.y)/2};
       if(!T.walkActive&&!T.workerViewId){
         if(lastPinch && pinch>3)
-          T.cameraDesired.distance=clamp(T.cameraDesired.distance*lastPinch/pinch,.8,260);
+          T.zoomCamera(Math.log(lastPinch/pinch));
         if(lastMid){
           const shiftX=center.x-lastMid.x,shiftY=center.y-lastMid.y;
-          const yaw=T.cameraDesired.yaw;
-          const factor=clamp(T.cameraDesired.distance*.0017,.012,.35);
-          // Two-finger translation pans the camera target independently of pinch.
-          T.cameraDesired.target[0]+=(-shiftX*Math.cos(yaw)+shiftY*Math.sin(yaw)*.30)*factor;
-          T.cameraDesired.target[2]+=(shiftX*Math.sin(yaw)+shiftY*Math.cos(yaw)*.30)*factor;
+          T.panCamera(shiftX,shiftY);
         }
       }
       lastPinch=pinch;lastMid=center;
       return;
     }
-    if(T.workerViewId) {
-      T.workerYaw=T.workerYaw-dx*.005;
-      T.workerPitch=clamp(T.workerPitch+dy*.004,-.72,.72);
-    } else if(T.walkActive) {
-      T.cameraDesired.yaw-=dx*.005;
-      T.walkPitch=clamp(T.walkPitch+dy*.004,-1.15,1.15);
-    } else if(p.button===2 || p.shift) {
-      const factor=clamp(T.cameraDesired.distance*.0024,.02,.55);
-      const yaw=T.cameraDesired.yaw;
-      T.cameraDesired.target[0]+=(-dx*Math.cos(yaw)+dy*Math.sin(yaw)*.25)*factor;
-      T.cameraDesired.target[2]+=(dx*Math.sin(yaw)+dy*Math.cos(yaw)*.25)*factor;
-      T.cameraDesired.target[1]+=dy*factor*.55;
-    } else {
-      T.cameraDesired.yaw-=dx*.006;
-      T.cameraDesired.pitch=clamp(T.cameraDesired.pitch+dy*.006,.08,1.56);
-    }
+    T.dragCamera(dx,dy,{button:p.button,shiftKey:e.shiftKey,ctrlKey:e.ctrlKey,metaKey:e.metaKey});
   });
   canvas.addEventListener('pointerup',e=>{
     const p=pointer?.id===e.pointerId?pointer:second?.id===e.pointerId?second:null;
-    if(p&&!p.moved&&!multiTouch&&!second&&p.button===0)
+    if(p&&!p.moved&&!multiTouch&&!second&&p.button===0&&!e.shiftKey&&!e.ctrlKey&&!e.metaKey)
       status.adapter?.pick(e.clientX,e.clientY);
     if(pointer?.id===e.pointerId)pointer=second,second=null;
     else if(second?.id===e.pointerId)second=null;
@@ -121,7 +104,7 @@ if (requested && T) {
     e.preventDefault();
     if(status.status!=='ready')return;
     if(T.workerViewId)T.workerPitch=clamp(T.workerPitch+Math.sign(e.deltaY)*.035,-.72,.72);
-    else if(!T.walkActive)T.cameraDesired.distance=clamp(T.cameraDesired.distance*Math.exp(e.deltaY*(T.cameraDesired.distance<12?.0013:.001)),.12,260);
+    else if(!T.walkActive)T.zoomCamera(e.deltaY*(T.cameraDesired.distance<12?.0013:.001));
   },{passive:false});
   status.render=function(dt,view) {
     if(status.status!=='ready')return;
@@ -151,4 +134,5 @@ if (requested && T) {
   status.status='failed';status.error='LS3D host API unavailable';
   console.warn(status.error);
 }
+
 

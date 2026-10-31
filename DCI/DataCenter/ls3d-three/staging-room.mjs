@@ -5,7 +5,10 @@ export function buildStagingRoom({part,round,decal},root,{w,d,h}){
   const colors=['#ce9e55','#53bbcd','#64cb98'];
   part(root,'staging-floor',0,.02,0,w,.10,d,'#344f60');
   part(root,'staging-rear-wall',0,.10,-d*.47,w,h*.78,.10,'#7898a7');
-  decal(root,'staging-title','STAGING · 서버 설치 전 준비실',0,h*.89,-d*.455,w*.90,.48);
+  // Two stacked high-contrast signs: avoid squeezing a long Hangul title into one texture.
+  // Front entrance is +Z, and the rear board is readable from the +Z visitor camera.
+  decal(root,'staging-title','STAGING',0,h*.90,-d*.455,w*.72,.52,'#133a4e','#f4fdff');
+  decal(root,'staging-subtitle','서버 설치 전 준비실',0,h*.76,-d*.454,w*.72,.46,'#16465a','#e8f9ff');
   const titles=['① 입고 · 개봉','② 검수 · 설정 · 시험','③ 서버홀 반입 대기'];
   const subtitles=['모델·수량·파손 확인','부품 장착 · IP/펌웨어 · 전원/통신','라벨 부착 · 카트 운반 → 서버홀'];
   for(let i=0;i<3;i++){

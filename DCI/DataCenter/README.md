@@ -17,7 +17,7 @@
 - 전/후면 랙 도어와 기존 Rack Inspector, 선택 부품 정보, 서버 드로어 움직임은 유지합니다.
 - 광모듈·스토리지 실장 개수와 용량, RAID/EC 및 케이블은 교육용 구조 표현이며 실제 장비 스펙·BOM·측정값이 아닙니다.
 
-**실행:** https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-rack-optics-storage-v1
+**실행:** https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-rack-optics-storage-v2
 
 ## 2026-10-31 · 추이 그래프 / 이벤트 로그 UI 제거
 

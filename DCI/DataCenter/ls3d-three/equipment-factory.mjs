@@ -881,7 +881,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         for(const x of [parkX-w*.19,parkX+w*.19])
           part(root,'loading-forklift-parking-line-x-'+x,x,.165,parkZ,.045,.015,d*.34,'#f8d660',.12,.72);
         const forklift=new THREE.Group();forklift.name='loading-forklift-parked';
-        forklift.position.set(parkX,0,parkZ);forklift.rotation.y=Math.PI;root.add(forklift);
+        // User request: 50% of the original forklift in all dimensions; correct ride height above bay floor.
+        forklift.position.set(parkX,.12,parkZ);forklift.rotation.y=Math.PI;forklift.scale.setScalar(.5);root.add(forklift);
         const forkX=0,forkZ=0;
         part(forklift,'loading-forklift-chassis',forkX,.07,forkZ,w*.30,h*.14,d*.26,'#f47b20',.45,.33);
         part(forklift,'loading-forklift-counterweight',forkX-w*.10,.16,forkZ,w*.14,h*.19,d*.24,'#ff9b2d',.40,.32);
@@ -903,6 +904,48 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
         part(forklift,'loading-forklift-safety-bumper',forkX+w*.17,.11,forkZ,w*.07,.11,d*.29,'#ffd442',.26,.28);
         part(forklift,'loading-forklift-steering',forkX+w*.04,h*.44,forkZ-d*.05,.12,.025,.12,'#222a30',.46,.28);
         decal(forklift,'loading-forklift-mark','FORKLIFT',forkX-w*.10,h*.45,forkZ-d*.145,w*.17,h*.065,'#f47b20','#ffffff');
+        // One and only one loading employee: carry a carton, load the forks,
+        // board the seat, drive forward/back, dismount. Updated by the existing Three.js frame.
+        const worker=new THREE.Group();worker.name='loading-bay-operator';
+        worker.position.set(parkX+w*.12,.12,parkZ-d*.12);
+        root.add(worker);
+        part(worker,'loading-worker-boots-left',-.13,.07,0,.16,.14,.24,'#202c35',.1,.77);
+        part(worker,'loading-worker-boots-right',.13,.07,0,.16,.14,.24,'#202c35',.1,.77);
+        part(worker,'loading-worker-leg-left',-.13,.39,0,.17,.57,.22,'#29475e',.1,.78);
+        part(worker,'loading-worker-leg-right',.13,.39,0,.17,.57,.22,'#29475e',.1,.78);
+        part(worker,'loading-worker-hi-vis-vest',0,.98,0,.51,.68,.30,'#e0a737',.08,.74);
+        part(worker,'loading-worker-vest-stripe',0,1.00,.167,.44,.11,.018,'#e8f3df',.02,.62);
+        round(worker,'loading-worker-face',0,1.49,0,.19,.29,'#d7a17f');
+        part(worker,'loading-worker-hard-hat',0,1.70,0,.43,.16,.40,'#f6d551',.12,.66);
+        const armLeft=new THREE.Group(),armRight=new THREE.Group();
+        armLeft.name='loading-worker-left-arm';armRight.name='loading-worker-right-arm';
+        armLeft.position.set(-.34,1.22,.01);armRight.position.set(.34,1.22,.01);
+        worker.add(armLeft,armRight);
+        part(armLeft,'loading-worker-arm-left',0,-.24,0,.15,.52,.17,'#dfb346',.08,.73);
+        part(armRight,'loading-worker-arm-right',0,-.24,0,.15,.52,.17,'#dfb346',.08,.73);
+        part(armLeft,'loading-worker-glove-left',0,-.50,0,.18,.13,.20,'#30424c',.1,.72);
+        part(armRight,'loading-worker-glove-right',0,-.50,0,.18,.13,.20,'#30424c',.1,.72);
+
+        const carriedBox=new THREE.Group();carriedBox.name='loading-hand-carried-carton';
+        root.add(carriedBox);
+        part(carriedBox,'loading-hand-carton',0,0,0,.49,.33,.41,'#c89352',.08,.78);
+        part(carriedBox,'loading-hand-carton-tape',0,.17,0,.08,.01,.38,'#f2e0ac',.04,.72);
+        const loadedBox=new THREE.Group();loadedBox.name='loading-fork-carton';
+        loadedBox.position.set(w*.275,.39,0);
+        forklift.add(loadedBox);
+        part(loadedBox,'loading-fork-carton-box',0,0,0,.98,.66,.82,'#c89352',.08,.78);
+        part(loadedBox,'loading-fork-carton-tape',0,.335,0,.15,.02,.70,'#f1e0ae',.06,.72);
+        loadedBox.visible=false;
+        // Keep metadata on the forklift; both HIGH and MEDIUM LOD own their own animation state.
+        forklift.userData.loadingBayAnimation={
+          homeX:parkX,homeY:.12,parkZ:parkZ,travel:Math.min(1.45,w*.12),
+          worker:worker,armLeft:armLeft,armRight:armRight,
+          carriedBox:carriedBox,loadedBox:loadedBox,
+          workerHomeX:parkX+w*.12,workerNearX:parkX-w*.06,
+          workerSideZ:parkZ-d*.12,seatOffsetX:w*.011,
+          loopSeconds:12
+        };
+
         const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=[-w*.35,-w*.20,-w*.05][i],brand=shippingBrands[i];

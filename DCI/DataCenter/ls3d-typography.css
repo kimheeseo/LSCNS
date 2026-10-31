@@ -1,0 +1,44 @@
+/* Korean typography shared by the static UI and dynamically mounted panels. */
+:root {
+  --ls3d-font: "Pretendard Variable", Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  font-family: var(--ls3d-font);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body, body * {
+  /* Some panels use inline font shorthands; keep their size but unify the family. */
+  font-family: var(--ls3d-font) !important;
+}
+body { font-weight: 400; letter-spacing: 0; }
+button, select, input, textarea { font-weight: 600; }
+button, select { line-height: 1.45; }
+p, dd, .note, .asset-description, #visitorTaskCopy {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.heading h1, .asset-name { letter-spacing: -.02em; line-height: 1.4; }
+.zone-btn, .small-btn, .vp-tools button, .vp-tools select,
+.scene-search input, .action-row button, .scenario-select {
+  font-size: 12px;
+}
+.zinfo small, .section-label, .vp-title small, .metric .foot,
+.metric .mt, .asset-sub, .note, .tip, .scenario-step small,
+.scenario-step b, .scenario-step-metrics, .scenario-step-heading small,
+.equipment-list small, .worker-hud-role, #visitorLogs,
+#visitorTaskCopy .visitor-checklist small, .ls3d-start-actions button small {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0;
+}
+.asset-description, #visitorPanel p, #visitorTaskCopy .visitor-checklist b {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+#cameraHint { white-space: normal; max-width: 100%; }
+/* Preserve room for the larger Korean labels in compact controls. */
+.vp-tools select { flex: 0 0 auto; max-width: 100%; }
+.scenario-step { min-height: 44px; }
+@media (max-width: 790px) {
+  .vp-tools button, .vp-tools select { font-size: 11px; }
+  .scenario-step { flex-basis: 150px; }
+}

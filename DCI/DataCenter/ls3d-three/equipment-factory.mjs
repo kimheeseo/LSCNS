@@ -51,14 +51,17 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   }
   function decal(root,name,text,x,y,z,w,h,background='#153344',foreground='#f2ffff'){
     if(typeof document==='undefined')return null;
-    const canvas=document.createElement('canvas');canvas.width=512;canvas.height=192;
+    // Match the sign aspect ratio so Korean glyphs are not stretched horizontally.
+    const logicalHeight=Math.max(16,Math.round(512*h/Math.max(w,.01)));
+    const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=logicalHeight*2;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
-    ctx.fillStyle=background;ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.strokeStyle='#d8f7f2';ctx.lineWidth=9;ctx.strokeRect(5,5,502,182);
+    ctx.scale(2,2);
+    ctx.fillStyle=background;ctx.fillRect(0,0,512,logicalHeight);
+    ctx.strokeStyle='#d8f7f2';ctx.lineWidth=Math.min(5,logicalHeight*.04);ctx.strokeRect(3,3,506,logicalHeight-6);
     ctx.fillStyle=foreground;ctx.textAlign='center';ctx.textBaseline='middle';
-    let size=76;ctx.font='700 '+size+'px system-ui,sans-serif';
-    while(ctx.measureText(text).width>450&&size>28){size-=2;ctx.font='700 '+size+'px system-ui,sans-serif';}
-    ctx.fillText(text,256,98);
+    let size=Math.min(76,Math.floor(logicalHeight*.60));ctx.font='700 '+size+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;
+    while(ctx.measureText(text).width>450&&size>10){size-=2;ctx.font='700 '+size+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;}
+    ctx.fillText(text,256,logicalHeight/2);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
     mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
@@ -102,8 +105,8 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
     ctx.fillStyle='#071b26';ctx.fillRect(0,0,640,300);
     ctx.strokeStyle='#62e8d9';ctx.lineWidth=12;ctx.strokeRect(8,8,624,284);
     ctx.fillStyle='#b9f9f1';ctx.textAlign='center';
-    let titleSize=68;ctx.font='700 '+titleSize+'px system-ui,sans-serif';
-    while(ctx.measureText(title).width>570&&titleSize>24){titleSize-=2;ctx.font='700 '+titleSize+'px system-ui,sans-serif';}
+    let titleSize=68;ctx.font='700 '+titleSize+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;
+    while(ctx.measureText(title).width>570&&titleSize>24){titleSize-=2;ctx.font='700 '+titleSize+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;}
     ctx.fillText(title,320,100);ctx.fillStyle='#67f6c9';
     let valueSize=82;ctx.font='700 '+valueSize+'px ui-monospace,monospace';
     while(ctx.measureText(value).width>570&&valueSize>24){valueSize-=2;ctx.font='700 '+valueSize+'px ui-monospace,monospace';}
@@ -933,3 +936,4 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   }
   return {build,classify,diagnostics};
 }
+

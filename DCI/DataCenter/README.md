@@ -5,6 +5,12 @@
 **상태:** v4.8.1은 첫 방문 가이드 투어/추천 시나리오 자동 재생, 가정값·계산식 출처 공개, 광 네트워크 상세 진입을 개선했습니다. 모든 값은 교육용 가정이며 현장 설계 검증을 대체하지 않습니다.
 
 
+## 2026-10-31 · 한글 가독성 개선
+
+- Pretendard Variable 웹폰트를 적용하고, 불러오지 못하면 맑은 고딕/Apple SD Gothic Neo로 표시합니다.
+- 작은 설명 글자의 크기와 줄 간격을 조정했습니다.
+- 3D 한글 표지판은 글꼴을 불러온 후 생성하며, 표지판 비율에 맞춰 글자를 그려 가로로 늘어나는 현상을 줄였습니다.
+
 ## 2026-10-31 · 카메라 조작 개선
 
 - MEP 작업 체크리스트와 FPS/기기 검증 메뉴를 제거했습니다.
@@ -30,13 +36,13 @@
 
 ## 1. 실행 링크
 
-**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-navigation-v1)
+**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v1)
 
-`engine=three`로 Three.js 엔진을 선택하며, `v=20261031-navigation-v1`은 브라우저 캐시 갱신용 쿼리입니다.
+`engine=three`로 Three.js 엔진을 선택하며, `v=20261031-korean-font-v1`은 브라우저 캐시 갱신용 쿼리입니다.
 
 | 구분 | 바로가기 |
 |---|---|
-| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-navigation-v1) |
+| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v1) |
 | **기존 3D 렌더 복귀** | [Legacy 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) |
 | **원본 2D Gold Pixel Tour** | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) |
 | **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |
@@ -156,4 +162,5 @@
 기존 2D Gold Pixel Tour와 DataCenter BOM의 원본은 이 Three.js 릴리스 범위에서 변경하지 않습니다.
 
 > 주의: 이 도구는 교육/시각화/설계 검토용입니다. 제조사 성능 검증, 도면/CAD/BIM 적합성, 방재·보안·전력보호·통신 광손실 검사의 대체물이 아닙니다.
+
 

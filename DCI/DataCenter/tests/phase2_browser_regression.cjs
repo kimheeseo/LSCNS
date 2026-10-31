@@ -226,6 +226,14 @@ async function currentPhase2(browser,device,viewport){
   const phase=await page.evaluate(()=>({removed:!document.querySelector('#phase2-mep-open,#phase2-mep-panel,#phase5-open,#phase5-panel'),optical:!!window.LS3D_PHASE2_B.opticalState}));
   check(device,'MEP-and-FPS-panels-removed',phase.removed,JSON.stringify(phase));
   check(device,'optical-model',phase.optical);
+  const type=await page.evaluate(()=>({
+   family:getComputedStyle(document.getElementById('cameraHint')).fontFamily,
+   size:parseFloat(getComputedStyle(document.getElementById('cameraHint')).fontSize),
+   koreanFont:document.fonts.check('600 16px "Pretendard Variable"','데이터센터'),
+   broken:document.body.textContent.includes('\uFFFD')
+  }));
+  check(device,'Korean-font-and-readable-hint',type.family.includes('Pretendard')&&type.size>=11&&type.koreanFont&&!type.broken,JSON.stringify(type));
+
   if(device==='desktop'){
    await page.waitForFunction(()=>window.LS3D_THREE?.status==='ready');
    await page.evaluate(()=>Object.assign(window.__LS3D_TEST__.cameraDesired,{target:[0,0,0],distance:40,yaw:0,pitch:.7}));
@@ -274,4 +282,5 @@ async function currentPhase2(browser,device,viewport){
  }
  process.exitCode=(T.summary.fail||T.summary.pageErrors)?1:0;
 })().catch(e=>{console.error(e);process.exitCode=1});
+
 

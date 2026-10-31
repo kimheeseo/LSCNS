@@ -6,7 +6,7 @@ AI 데이터센터 탐색, CPO 공급망 조사, 인프라 설계 및 광학 수
 
 - **목적:** 데이터센터 구조와 주요 설비를 3D로 탐색하는 교육·설계 검토용 투어.
 - **주요 기능:** 캠퍼스 7개 구역 탐색, 설비 정보 조회, 랙 전·후면 및 내부 점검, 작업자 시점 전환.
-- **실행 (Three.js 3D):** [3D Datacenter Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-navigation-v1)
+- **실행 (Three.js 3D):** [3D Datacenter Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v1)
 - **참고:** [사용 안내](./DataCenter/LS_Datacenter_3D_사용법.txt) · [2D Campus Tour](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html)
 
 교육·검토용 개념 모델이며, 실측 CAD/BIM 또는 실시간 시설 데이터 기반 모델은 아닙니다.
@@ -38,4 +38,5 @@ AI 데이터센터 탐색, CPO 공급망 조사, 인프라 설계 및 광학 수
 - **자료:** [프로젝트 안내](../COMSOL/README.md) · [설치·사용 가이드](../COMSOL/workbench/USER_GUIDE.md) · [광섬유 계산 예제·Colab 안내](../COMSOL/fiber_simulation_guide/readme.md) · [공개 자료 비교 결과](../COMSOL/public_reference_benchmarks/results/COMPARISON_REPORT.md)
 
 Python 기반 연구 프로젝트입니다. 웹은 해석식·저장 결과 보간 또는 미리보기를 제공하며, 새 FEM 해석은 로컬 Python·Colab에서 수행합니다. COMSOL 프로그램 자체를 실행한 검증이나 실제 제품 적합성 검증을 의미하지 않으며, HCF는 이상적 모세관 모델 범위입니다.
+
 

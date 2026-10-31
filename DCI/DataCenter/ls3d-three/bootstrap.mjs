@@ -118,7 +118,17 @@ if (requested && T) {
     try {
       const support=document.createElement('canvas').getContext('webgl2');
       if(!support)throw new Error('Three.js 0.186.1 requires WebGL2; browser only supports legacy WebGL.');
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261029-staging-workshop-v1');
+      // Canvas signs are rasterized once. Load the Korean face before building them.
+      // A blocked font CDN must not prevent the scene from opening with system fonts.
+      if(document.fonts?.load){
+        let fontTimeout;
+        try{await Promise.race([
+          document.fonts.load('600 16px "Pretendard Variable"','데이터센터'),
+          new Promise(resolve=>{fontTimeout=setTimeout(resolve,5000);})
+        ]);}catch(_){/* Korean system fonts remain available as fallback. */}
+        finally{clearTimeout(fontTimeout);}
+      }
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261031-korean-font-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';
@@ -134,5 +144,6 @@ if (requested && T) {
   status.status='failed';status.error='LS3D host API unavailable';
   console.warn(status.error);
 }
+
 
 

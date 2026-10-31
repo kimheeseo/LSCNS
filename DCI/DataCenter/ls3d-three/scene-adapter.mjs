@@ -2,7 +2,7 @@ import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261029-staging-workshop-v1';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-korean-font-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
@@ -495,8 +495,8 @@ export function createSceneAdapter(T, canvas) {
     const ctx=c.getContext('2d');if(!ctx)return null;
     ctx.fillStyle='rgba(8,29,43,.92)';ctx.strokeStyle='#68d9d1';ctx.lineWidth=7;
     ctx.beginPath();ctx.roundRect?.(8,8,624,134,18);ctx.fill();ctx.stroke();
-    ctx.fillStyle='#f0fbff';ctx.font='700 42px system-ui,sans-serif';ctx.textAlign='center';
-    ctx.fillText(text[0],320,64);ctx.fillStyle='#83e1d5';ctx.font='600 26px system-ui,sans-serif';
+    ctx.fillStyle='#f0fbff';ctx.font='700 42px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;ctx.textAlign='center';
+    ctx.fillText(text[0],320,64);ctx.fillStyle='#83e1d5';ctx.font='600 26px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;
     ctx.fillText(text[1],320,108);
     const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
     const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,depthWrite:false}));
@@ -890,4 +890,5 @@ export function createSceneAdapter(T, canvas) {
     inspection,securityController:security,navigation,
     get disposed(){return disposed;} };
 }
+
 

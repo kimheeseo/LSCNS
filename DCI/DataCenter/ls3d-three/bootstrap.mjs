@@ -128,7 +128,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261031-loading-crew-v1');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261031-optical-hierarchy-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

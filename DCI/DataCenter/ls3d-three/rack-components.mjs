@@ -234,11 +234,11 @@ export function createRackComponentKit(THREE,{cube}){
     }else box(partGroup,storage?'storage-bay-backplane-'+i:'server-bezel'+i,0,y+.015,-d*.47,w*.67,Math.max(.08,units*unit-.09),.08,storage?'#162b3a':'#1d354e',.49,.37);
     if(storage){
       // Shelf chassis, visible eight-bay front, redundant shelf-controller status LEDs.
-      box(partGroup,'storage-array-face-'+i,0,y+unit*.21,-d*.549,w*.74,units*unit*.82,.045,'#1f4050',.48,.35);
+      box(partGroup,'storage-array-face-'+i,0,y+unit*.21,-d*.497,w*.74,units*unit*.82,.045,'#1f4050',.48,.35);
       moduleLabel(partGroup,id,'storage-shelf-title-'+i,'STORAGE SHELF '+(i+1)+' / 8 BAY',
-        0,y+units*unit*.86,-d*.593,w*.61,.083,'#16759c');
+        0,y+units*unit*.86,-d*.507,w*.61,.083,'#16759c');
       for(const side of [-1,1]){
-        box(partGroup,'shelf-handle-'+i+'-'+side,side*w*.350,y+unit*.72,-d*.592,w*.025,units*unit*.57,.065,'#b8cbd4');
+        box(partGroup,'shelf-handle-'+i+'-'+side,side*w*.350,y+unit*.72,-d*.512,w*.025,units*unit*.57,.065,'#b8cbd4');
       }
       partGroup.userData.rackPart.description='스토리지 쉘프 '+(i+1)+' · 8개 전면 드라이브 베이(교육용 예시), 핫스왑 캐리어, 상태 LED, 후면 NIC/전원 접속으로 구성됩니다. 선택 쉘프를 인출해 내부 구조를 관찰하세요. 실제 RAID·용량·SSD/HDD 규격은 확정하지 않았습니다.';
     }
@@ -262,10 +262,10 @@ export function createRackComponentKit(THREE,{cube}){
         const drive=group(partGroup,id,'storage-drive-'+i+'-'+bay,'스토리지 드라이브 · 쉘프 '+(i+1)+' / 베이 '+(bay+1),u,units);
         drive.userData.storageShelfId=partGroup.userData.partId;
         const dx=-w*.290+bay*w*.083;
-        box(drive,'storage-hot-swap-carrier',dx,y+unit*.38,-d*.590,w*.073,unit*1.96,d*.205,'#6b8a9e');
-        box(drive,'storage-drive-face',dx,y+unit*.42,-d*.696,w*.062,unit*1.72,.036,'#1c3544');
-        box(drive,'storage-drive-release-handle',dx,y+unit*.27,-d*.728,w*.036,.025,.029,'#e1bd78');
-        box(drive,'storage-drive-activity-led',dx,y+unit*1.80,-d*.721,w*.024,.024,.025,bay%2?'#67e4bd':'#67c4f4');
+        box(drive,'storage-hot-swap-carrier',dx,y+unit*.38,-d*.445,w*.073,unit*1.96,d*.205,'#6b8a9e');
+        box(drive,'storage-drive-face',dx,y+unit*.42,-d*.503,w*.062,unit*1.72,.036,'#1c3544');
+        box(drive,'storage-drive-release-handle',dx,y+unit*.27,-d*.512,w*.036,.025,.029,'#e1bd78');
+        box(drive,'storage-drive-activity-led',dx,y+unit*1.80,-d*.513,w*.024,.024,.025,bay%2?'#67e4bd':'#67c4f4');
         drive.userData.rackPart.description='스토리지 쉘프 '+(i+1)+'의 8개 전면 핫스왑 베이 중 '+(bay+1)+'번 드라이브 캐리어입니다. 인출/장착으로 드라이브 슬롯과 후면 백플레인의 차이를 확인합니다. 실제 RAID/용량/전원 차단 절차는 모델에 포함하지 않습니다.';
         storageDrives.push(drive);
       }else{

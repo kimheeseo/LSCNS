@@ -508,7 +508,7 @@ export function createSceneAdapter(T, canvas) {
     const g=new THREE.Group();
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
-    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null,fuelSmoke=[];
+    let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null,fuelSmoke=[],loadingBayActors=[];
     let serverSession=null,opticsSession=null,networkSession=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
@@ -551,8 +551,68 @@ export function createSceneAdapter(T, canvas) {
       if(obj.name==='equipment-part:mantrap-card-led-green')mantrapLights.green=obj;
       if(obj.userData?.fuelSmoke)fuelSmoke.push(obj);
       if(obj.userData?.maintenanceAnimation)maintenanceActors.push(obj);
+      if(obj.userData?.loadingBayAnimation)loadingBayActors.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,mantrapDoors,fuelSmoke,maintenanceActors,baseYaw};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,mantrapDoors,fuelSmoke,maintenanceActors,loadingBayActors,baseYaw};
+  }
+  // Twelve-second educational operation. One employee loads a box, boards the
+  // 50%-size forklift, drives forward, reverses, and dismounts. The vehicle
+  // never moves until the employee has boarded. The existing frame drives it.
+  const clamp01=x=>Math.max(0,Math.min(1,x));
+  const smooth01=x=>{const t=clamp01(x);return t*t*(3-2*t);};
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  function animateLoadingBay(forklift,now) {
+    const m=forklift.userData.loadingBayAnimation;if(!m)return;
+    const t=(now%m.loopSeconds+m.loopSeconds)%m.loopSeconds;
+    const approach=smooth01(t/1.5);
+    const load=smooth01((t-1.5)/1.15);
+    const board=smooth01((t-2.65)/1.20);
+    const forward=smooth01((t-3.90)/2.15);
+    const reverse=smooth01((t-6.35)/2.15);
+    const exit=smooth01((t-8.55)/1.20);
+    const travel=forward-reverse;
+    const vehicleX=m.homeX-m.travel*travel;
+    forklift.position.set(vehicleX,m.homeY,m.parkZ);
+    // Employee remains alongside the fork during loading, and moves to the
+    // driver's seat before forward movement begins. The same rig is reused.
+    const worker=m.worker;
+    let x,y,z,scale;
+    if(t<2.65){
+      x=lerp(m.workerHomeX,m.workerNearX,approach);
+      y=.12+Math.sin(Math.PI*approach)*.018;
+      z=m.workerSideZ;scale=1;
+    }else if(t<3.85){
+      x=lerp(m.workerNearX,m.homeX+m.seatOffsetX,board);
+      y=lerp(.12,.39,board);
+      z=lerp(m.workerSideZ,m.parkZ,board);
+      scale=lerp(1,.67,board);
+    }else if(t<8.55){
+      x=vehicleX+m.seatOffsetX;y=.39;z=m.parkZ;scale=.67;
+    }else{
+      x=lerp(vehicleX+m.seatOffsetX,m.workerHomeX,exit);
+      y=lerp(.39,.12,exit);
+      z=lerp(m.parkZ,m.workerSideZ,exit);
+      scale=lerp(.67,1,exit);
+    }
+    worker.position.set(x,y,z);
+    worker.scale.setScalar(scale);
+    worker.rotation.y=-Math.PI/2;
+    const holding=t<2.65;
+    m.armLeft.rotation.x=holding?-.9:t<8.55?-.46:-.22;
+    m.armRight.rotation.x=holding?-.9:t<8.55?-.46:-.22;
+    m.carriedBox.visible=holding;
+    m.loadedBox.visible=t>=2.65&&t<11.70;
+    if(holding){
+      const from=[x-.30,y+.90,z+.10];
+      const to=[m.homeX-m.seatOffsetX*(.275/.011),m.homeY+.39*.5,m.parkZ];
+      m.carriedBox.position.set(
+        lerp(from[0],to[0],load),lerp(from[1],to[1],load),lerp(from[2],to[2],load)
+      );
+      m.carriedBox.rotation.y=lerp(-.18,0,load);
+    }
+    return t<1.5?'직원 접근':t<2.65?'포크 적재':t<3.85?'운전석 탑승':
+      t<6.05?'전진':t<6.35?'정지':t<8.50?'후진':
+      t<9.75?'하차':'다음 작업 준비';
   }
   function refreshAssets(flags,dt=.016) {
     const showDetail = !!flags.inspect;
@@ -583,6 +643,13 @@ export function createSceneAdapter(T, canvas) {
         if(T.selected?.id===a.id){
           item.equipmentLOD.levels.forEach((level,index)=>{level.object.visible=index===0;});
         }else item.equipmentLOD.update(camera);
+      }
+      if(item.loadingBayActors?.length){
+        const now=performance.now()/1000;
+        // Both high- and mid-LOD copies receive the same deterministic pose.
+        // No independent animation timers; the hidden tab does not advance frames.
+        for(const forklift of item.loadingBayActors)
+          diagnostic.loadingBayPhase=animateLoadingBay(forklift,now);
       }
       if(item.kind==='biometric-mantrap'){
         const tour=window.__LS3D_VISITOR__?.state;

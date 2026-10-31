@@ -79,6 +79,9 @@ export function createRackComponentKit(THREE,{cube}){
   const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
     new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,depthWrite:false}));
   mesh.name='rack-module-label:'+name+':'+assetId;mesh.position.set(x,y,z);
+  // PlaneGeometry faces +Z by default; rack fronts are viewed from -Z.
+  // Turn the text towards the visitor to avoid mirror-reversed labels.
+  mesh.rotation.y=Math.PI;
   mesh.userData.ownedTexture=texture;parent.add(mesh);return mesh;
  }
  function build(root,a){
@@ -109,7 +112,7 @@ export function createRackComponentKit(THREE,{cube}){
   if(networkLabel){
    const right=networkLabel.make(shell,'right-wall',w*.508,h*.80,0,d*.57,h*.14,Math.PI/2);
    networkLabel.make(shell,'left-wall',-w*.508,h*.80,0,d*.57,h*.14,-Math.PI/2);
-   networkLabel.make(shell,'front',0,h+.18,-d*.535,w*.77,h*.13,0);
+   networkLabel.make(shell,'front',0,h+.18,-d*.535,w*.77,h*.13,Math.PI);
    right.userData.ownedTexture=networkLabel.texture;
   }
   retain(shell);

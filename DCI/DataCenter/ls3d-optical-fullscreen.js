@@ -67,7 +67,10 @@ function sync(){
 }
 function setLink(id){
  const l=(topo()?.links||[]).find(x=>x.id===id);if(!l)return;
- cfg.link=id;cfg.length=Math.max(0,numeric(l.lengthM));
+ cfg.link=id;
+ // Keep original optical route/highlight, CSV, and cut/recover controls in sync.
+ if(window.LS3D_CONFIG?.selected!==id){const old=document.querySelector('#optList [data-link="'+id+'"]');if(old)old.click();}
+ cfg.length=Math.max(0,numeric(l.lengthM));
  cfg.connectors=Math.max(0,numeric(l.connectors));
  cfg.splices=Math.max(0,numeric(l.splices));
  cfg.media=l.type==='DAC/AEC'?'DAC/AEC':l.type==='AOC'?'AOC':l.media==='MMF'?'MMF':'SMF';

@@ -907,15 +907,19 @@ export function createSceneAdapter(T, canvas) {
       totalAnimationUpdates:npcFactory.metrics.animated
     };
   }
-  let viewportWidth=0, viewportHeight=0, viewportDpr=0;
+  let viewportWidth=0, viewportHeight=0, viewportDpr=0, rackAutoFocused=null;
   function render(dt, view) {
     if (disposed) throw new Error('Three.js adapter was disposed');
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 1 || rect.height < 1) return;
-    // The visitor can open a rack before the Three adapter finishes loading.
-    // Adopt the already active inspection as soon as the renderer starts.
-    if(T.rackIsolateActive&&!focusedRack&&T.selected&&T.isMechanicalRack(T.selected))
-      focusRackSide(T.selected.id,'front');
+    // Frame only once on entering an isolated rack or switching rack.
+    // Do not fight the visitor's mouse/keyboard movements by re-centering
+    // every time the camera passes the old focusedRack distance threshold.
+    const inspectedId=T.rackIsolateActive&&T.selected&&T.isMechanicalRack(T.selected)?T.selected.id:null;
+    if(inspectedId!==rackAutoFocused){
+      rackAutoFocused=inspectedId;
+      if(inspectedId)focusRackSide(inspectedId,'front');
+    }
     // STEP 18: sustained slow frames reduce MEDIUM DPR only; explicit low/high stays fixed.
     viewportPolicy.sample(dt);
     const quality = window.LS3D_CONFIG?.quality || 'medium';

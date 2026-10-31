@@ -313,6 +313,7 @@ export function createSceneAdapter(T, canvas) {
         ['previous-server','이전 모듈'],['next-server','다음 모듈'],
         ['server-slide','선택 모듈 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],
         ['next-drive','다음 드라이브 선택'],['drive-toggle','선택 드라이브 인출/장착'],['cassette-slide','광 카세트 인출/복귀'],
+        ['patch-select','광 패치패널 선택'],['cable-patch','케이블 · 패치패널 연결/분리'],
         ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
@@ -327,7 +328,11 @@ export function createSceneAdapter(T, canvas) {
         const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
-        if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
+        if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
+        else if(action==='cable-patch'){
+          if(focusRackOpticalAssembly(asset.id,'optical-patch'))rackPatch.toggle(asset.id);
+        }
+        else if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
         else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
         else if(action==='storage-shelf-pull'){
           const selected=rackRails.state(asset.id)?.selected;
@@ -459,6 +464,12 @@ export function createSceneAdapter(T, canvas) {
       const noun=networkRack?'스위치':storageRack?'스토리지 쉘프':'서버';
       button.textContent=code==='server-slide'?'선택 '+noun+' 인출/복귀':(code==='previous-server'?'이전 ':'다음 ')+noun;
     }
+    const patchStatus=rackPatch.state(a.id);
+    const patchAction=rackControls.querySelector('[data-rack-action="cable-patch"]');
+    if(patchAction)patchAction.textContent=patchStatus?.connected?'케이블 분리 · 패치패널에서 빼기':'케이블 연결 · 패치패널에 꽂기';
+    const patchSelect=rackControls.querySelector('[data-rack-action="patch-select"]');
+    if(patchSelect)patchSelect.hidden=!patchStatus;
+    if(patchAction)patchAction.hidden=!patchStatus;
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
@@ -477,7 +488,8 @@ export function createSceneAdapter(T, canvas) {
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+
       ' · 광포트 '+(fiber?.ports.length||0)+'개'+
       (fiberSelected?' · 포트 '+(selectedRackPart.portIndex+1)+'/24 선택 · 노란색/광섬유 경로 강조':' · 광 포트 클릭 또는 선택·확대로 확인')+
-      ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all');
+      ' · 배선 '+(rackNetwork.diagnostic(a.id)?.filter||'all')+
+      (patchStatus?' · 패치패널 LC 케이블 '+(patchStatus.plugged?'체결':patchStatus.connected?'체결 중':'분리'):'');
   }
   function expandRackControls(){
     if(!T.rackIsolateActive||!currentRackAsset())return false;
@@ -492,7 +504,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode)$/;
+    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|cable-patch)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;

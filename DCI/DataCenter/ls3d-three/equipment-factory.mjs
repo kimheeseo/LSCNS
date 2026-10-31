@@ -51,20 +51,40 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
   }
   function decal(root,name,text,x,y,z,w,h,background='#153344',foreground='#f2ffff'){
     if(typeof document==='undefined')return null;
-    // Match the sign aspect ratio so Korean glyphs are not stretched horizontally.
-    const logicalHeight=Math.max(16,Math.round(512*h/Math.max(w,.01)));
-    const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=logicalHeight*2;
+    // Respect the physical sign aspect ratio; increase raster pixels rather than stretching Hangul.
+    // The extra sampling helps labels viewed obliquely or on high-DPI displays.
+    const logicalWidth=768;
+    const logicalHeight=Math.max(24,Math.round(logicalWidth*h/Math.max(w,.01)));
+    const rasterScale=2;
+    const canvas=document.createElement('canvas');
+    canvas.width=logicalWidth*rasterScale;
+    canvas.height=logicalHeight*rasterScale;
     const ctx=canvas.getContext('2d');if(!ctx)return null;
-    ctx.scale(2,2);
-    ctx.fillStyle=background;ctx.fillRect(0,0,512,logicalHeight);
-    ctx.strokeStyle='#d8f7f2';ctx.lineWidth=Math.min(5,logicalHeight*.04);ctx.strokeRect(3,3,506,logicalHeight-6);
+    ctx.scale(rasterScale,rasterScale);
+    ctx.fillStyle=background;ctx.fillRect(0,0,logicalWidth,logicalHeight);
+    ctx.strokeStyle='#d8f7f2';
+    ctx.lineWidth=Math.min(6,Math.max(1.5,logicalHeight*.045));
+    ctx.strokeRect(4,4,logicalWidth-8,logicalHeight-8);
     ctx.fillStyle=foreground;ctx.textAlign='center';ctx.textBaseline='middle';
-    let size=Math.min(76,Math.floor(logicalHeight*.60));ctx.font='700 '+size+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;
-    while(ctx.measureText(text).width>450&&size>10){size-=2;ctx.font='700 '+size+'px "Pretendard Variable","Malgun Gothic","Apple SD Gothic Neo",sans-serif' ;}
-    ctx.fillText(text,256,logicalHeight/2);
-    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
-    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
-    mesh.name='equipment-decal:'+name;mesh.position.set(x,y,z);root.add(mesh);return mesh;
+    const face='"Pretendard Variable",Pretendard,"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif';
+    let size=Math.max(12,Math.min(108,Math.floor(logicalHeight*.62)));
+    ctx.font='750 '+size+'px '+face;
+    while(ctx.measureText(text).width>logicalWidth-62&&size>12){
+      size-=2;
+      ctx.font='750 '+size+'px '+face;
+    }
+    ctx.fillText(text,logicalWidth/2,logicalHeight/2);
+    const texture=new THREE.CanvasTexture(canvas);
+    texture.colorSpace=THREE.SRGBColorSpace;
+    texture.generateMipmaps=true;
+    texture.minFilter=THREE.LinearMipmapLinearFilter;
+    texture.magFilter=THREE.LinearFilter;
+    texture.anisotropy=4;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),
+      new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
+    mesh.name='equipment-decal:'+name;
+    mesh.userData.ownedTexture=texture;
+    mesh.position.set(x,y,z);root.add(mesh);return mesh;
   }
   function kepcoLogoPanel(root,name,x,y,z,w,h,rotationY=0){
     if(typeof document==='undefined')return null;

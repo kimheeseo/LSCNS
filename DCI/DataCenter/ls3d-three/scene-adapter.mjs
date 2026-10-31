@@ -327,7 +327,13 @@ export function createSceneAdapter(T, canvas) {
         if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
         else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
         else if(action==='storage-shelf-pull'){
-          focusRackStoragePart(asset.id,'storage-shelf');
+          const selected=rackRails.state(asset.id)?.selected;
+          const part=selected&&registry.get(asset.id)?.partMap?.get(selected);
+          if(part&&part.kind?.startsWith('storage-')){
+            focusRackSide(asset.id,'front');
+            if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+            selectRackPart(asset.id,part.id);
+          }else focusRackStoragePart(asset.id,'storage-shelf');
           toggleRackServerSlide(asset.id);
         }else if(action==='storage-drive-pull'){
           if(!rackRails.state(asset.id)?.selectedDrive)cycleRackDrive(asset.id);

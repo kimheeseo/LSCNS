@@ -488,6 +488,8 @@ export function createSceneAdapter(T, canvas) {
     // proven 3D rack buttons; avoid divergent state between two panels.
     if(!T.rackIsolateActive||!currentRackAsset())return false;
     showControls();
+    // A sidebar shortcut must work even if the floating controls were folded manually.
+    rackPanelDisclosure?.setCollapsed(false);
     const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);

@@ -276,7 +276,8 @@ export function createSceneAdapter(T, canvas) {
   function showControls() {
     if(typeof document==='undefined'||!canvas.parentElement)return;
     const a=currentRackAsset();
-    if(!a){if(rackControls)rackControls.hidden=true;return;}
+    // Rack-only motion controls are shown exclusively inside ‘랙 단독 보기’.
+    if(!a||!T.rackIsolateActive){if(rackControls)rackControls.hidden=true;return;}
     if(!rackControls){
       rackControls=document.createElement('div');
       rackControls.id='ls3dRackMotionControls';
@@ -305,7 +306,7 @@ export function createSceneAdapter(T, canvas) {
       const grid=document.createElement('div');
       grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
       const actions=[
-        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],['rack-context','주변 시설 보기'],
+        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['previous-server','이전 모듈'],['next-server','다음 모듈'],
         ['server-slide','선택 모듈 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],
@@ -344,7 +345,7 @@ export function createSceneAdapter(T, canvas) {
         }
         else if(action==='front-camera')focusRackSide(asset.id,'front');
         else if(action==='rear-camera')focusRackSide(asset.id,'rear');
-         else if(action==='rack-context'){focusedRack=null;if(T.rackIsolateActive)T.closeRackScene?.();else T.closeDetail?.();}
+
         else if(action==='front-door')toggleRackFrontDoor(asset.id);
         else if(action==='rear-door')toggleRearRackDoor(asset.id);
         else if(action==='previous-server')cycleRackServer(asset.id,-1);

@@ -159,13 +159,13 @@ export function createRackComponentKit(THREE,{cube}){
   }
   const slide=new THREE.Group();slide.name='server-tray';root.add(slide);
   // Server sled groups are independent pick targets and move together with original slide state.
-  const maxServers=network?3:storage?7:gpuVariant?4:isGpu?7:6;
+  const maxServers=networkRack?2:network?3:storage?7:gpuVariant?4:isGpu?7:6;
   const modules=[],gpuGroups=[],storageDrives=[],networkOptics=[],computeParts=[],reserved=9;
   for(let i=0;i<maxServers;i++){
-    const u=networkRack?[27,20,13][i]:3+i*4;
+    const u=networkRack?[27,13][i]:3+i*4;
     if(u+3>=count-reserved)break;
     const units=storage?3:4,y=lower+(u-1)*unit;
-    const kind=serverType,label=networkRack?(i<2?'Spine '+(i+1)+' · 네트워크 스위치':'네트워크 확장 모듈'): (a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 쉘프':gpuVariant?'GPU 가속기 트레이':'컴퓨팅 서버')+' '+(i+1);
+    const kind=serverType,label=networkRack?(i===0?'Spine · 네트워크 스위치':'네트워크 확장 모듈'): (a.type==='Core'?'코어 라우터 섀시 / 라우팅 모듈':network?'네트워크 스위치 모듈':storage?'스토리지 쉘프':gpuVariant?'GPU 가속기 트레이':'컴퓨팅 서버')+' '+(i+1);
     const partGroup=group(slide,id,kind+'-'+(i+1),label,u,units);
     if(gpuVariant){
      // Open service trays expose accelerator packages when the rack door opens.
@@ -201,10 +201,10 @@ export function createRackComponentKit(THREE,{cube}){
       box(partGroup,'fabric-switch-face-'+i,0,y+.038,-d*.522,w*.68,units*unit-.11,.045,i<2?'#2b8554':'#334d5d');
       for(let port=0;port<16;port++)box(partGroup,'fabric-port-'+i+'-'+port,
         -w*.285+port*w*.038,y+units*unit*.43,-d*.560,w*.028,.07,.014,'#163340');
-      moduleLabel(partGroup,id,'fabric-'+i,i<2?'SPINE '+(i+1):'EXPANSION',0,
-        y+units*unit*.76,-d*.595,w*.50,.095,i<2?'#3aa66a':'#617e8e');
-      partGroup.userData.rackPart.description=i<2?'Leaf A/B의 이중 상향 링크를 수용하는 Spine '+(i+1)+' 스위치 예시입니다. 실제 포트·장비 수량은 별도 설계 자료로 검증합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
-      if(i<2)for(let port=0;port<2;port++){
+      moduleLabel(partGroup,id,'fabric-'+i,i===0?'SPINE':'EXPANSION',0,
+        y+units*unit*.76,-d*.595,w*.50,.095,i===0?'#3aa66a':'#617e8e');
+      partGroup.userData.rackPart.description=i===0?'Leaf A/B 상향 링크를 수용하는 네트워크 스위치 예시입니다. 논리적 Spine A/B 이중화는 별도 네트워크 계층도에서 확인합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
+      if(i===0)for(let port=0;port<2;port++){
         const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
         box(optic,'transceiver-cage',-w*.18+port*w*.12,y+units*unit*.25,-d*.596,w*.085,.08,.08,'#b8ccd5');
         box(optic,'transceiver-latch',-w*.18+port*w*.12,y+units*unit*.30,-d*.65,w*.055,.026,.021,'#69e8c0');

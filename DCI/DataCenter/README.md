@@ -7,6 +7,9 @@
 
 ## 2026-10-31 · 한글 가독성 개선
 
+- **2차 개선:** 데이터홀 랙 라벨 글자 크기(PC 8→10px, 모바일 7→9.5px)와 안내창·작은 UI 문구를 확대하고, 한글용 폰트 우선순위를 통일했습니다.
+- **3D 표지판 품질:** Canvas 표지판의 논리 폭을 512→768px로 높이고, mipmap 및 이방성 필터링을 적용했습니다. 표지판 자체의 형상/명칭/좌표와 계산 코어는 유지합니다.
+- CSS 및 Three.js 모듈 경로를 `20261031-korean-font-v2`로 갱신하여 GitHub Pages 캐시 교체를 유도합니다. WebGL 렌더링 실기기 검증은 별도입니다.
 - Pretendard Variable 웹폰트를 적용하고, 불러오지 못하면 맑은 고딕/Apple SD Gothic Neo로 표시합니다.
 - 작은 설명 글자의 크기와 줄 간격을 조정했습니다.
 - 3D 한글 표지판은 글꼴을 불러온 후 생성하며, 표지판 비율에 맞춰 글자를 그려 가로로 늘어나는 현상을 줄였습니다.
@@ -36,13 +39,13 @@
 
 ## 1. 실행 링크
 
-**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v1)
+**데이터센터 3D 툴 바로 실행:** [Three.js 3D 화면 열기](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v2)
 
-`engine=three`로 Three.js 엔진을 선택하며, `v=20261031-korean-font-v1`은 브라우저 캐시 갱신용 쿼리입니다.
+`engine=three`로 Three.js 엔진을 선택하며, `v=20261031-korean-font-v2`은 브라우저 캐시 갱신용 쿼리입니다.
 
 | 구분 | 바로가기 |
 |---|---|
-| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v1) |
+| **최신 Three.js 3D 탐방** | [Three.js 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261031-korean-font-v2) |
 | **기존 3D 렌더 복귀** | [Legacy 엔진 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=legacy) |
 | **원본 2D Gold Pixel Tour** | [2D 탐방](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Campus.html) |
 | **Gold Anatomy 개선 탐방** | [Gold Anatomy 실행](https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_Gold_Anatomy.html) |

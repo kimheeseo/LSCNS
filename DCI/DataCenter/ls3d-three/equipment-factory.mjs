@@ -1,4 +1,4 @@
-import {buildStagingRoom} from './staging-room.mjs?v=20261029-staging-workshop-v1';
+import {buildStagingRoom} from './staging-room.mjs?v=20261031-staging-front-v2';
 // STEP 05 / 20 — distinguishing 3D equipment + geometry LOD and real GPU instancing.
 // Original asset ids/types, positions, dimensions and BOM values remain authoritative.
 // All sizes/shapes are illustrative; manufacturer CAD fidelity is NOT claimed.

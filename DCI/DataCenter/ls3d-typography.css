@@ -83,3 +83,72 @@ button, select, input, textarea, .marker, .vp-title, .phase2-side-panel, .phase5
   .marker.rack-marker { font-size: 9.5px; padding: 4px 5px; }
   .phase2-buttons-top button, .phase58-launch { font-size: 10.5px; }
 }
+
+/* Staging visitor panel / v3 · crisp Korean explanation text (2026-10-31) */
+#visitorPanel {
+  font-family: var(--ls3d-font) !important;
+  font-size: 13px !important;
+  font-weight: 450;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0;
+  word-break: keep-all;
+}
+#visitorTitle { font-size: 19px !important; line-height: 1.5 !important; letter-spacing: -.015em; }
+#visitorIntro, #visitorPanel > p, #visitorAutoStatus {
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  color: #d3e8f3;
+  letter-spacing: 0;
+  word-break: keep-all;
+}
+#visitorTaskTitle {
+  display: block;
+  color: #e8fbff;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+#visitorTaskCopy .visitor-checklist button {
+  min-height: 56px;
+  padding: 10px 11px;
+  gap: 10px;
+  border-radius: 9px;
+  align-items: start;
+}
+#visitorTaskCopy .visitor-checklist button > div { min-width: 0; }
+#visitorTaskCopy .visitor-checklist b {
+  font-size: 13px !important;
+  font-weight: 750;
+  line-height: 1.6 !important;
+  letter-spacing: 0;
+  color: #f1faff;
+  overflow-wrap: anywhere;
+}
+#visitorTaskCopy .visitor-checklist small {
+  font-family: var(--ls3d-font) !important;
+  font-size: 12.5px !important;
+  font-weight: 450;
+  line-height: 1.8 !important;
+  color: #c9e0ed;
+  letter-spacing: 0;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+#visitorProgress button { font-size: 11.5px !important; line-height: 1.45; }
+#visitorStagingFront {
+  background: #16615b !important;
+  color: #f0fffb !important;
+  border-color: #74ddd1 !important;
+  font-size: 12.5px !important;
+  font-weight: 800;
+  min-height: 42px;
+}
+#visitorStagingFront[hidden] { display: none !important; }
+@media (max-width: 790px) {
+  #visitorPanel { font-size: 12.5px !important; }
+  #visitorIntro, #visitorPanel > p { font-size: 12.5px !important; }
+  #visitorTaskCopy .visitor-checklist b { font-size: 12.5px !important; }
+  #visitorTaskCopy .visitor-checklist small { font-size: 12px !important; }
+}

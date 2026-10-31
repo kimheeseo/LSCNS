@@ -12,6 +12,7 @@ import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261031-rack-optics-storage-v1';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
+import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -113,7 +114,7 @@ export function createSceneAdapter(T, canvas) {
     if(!item)return;
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
-    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);
+    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
       if(obj.userData?.ownedTexture)obj.userData.ownedTexture.dispose();
@@ -132,6 +133,7 @@ export function createSceneAdapter(T, canvas) {
   const rackRails=createRackServerRails(THREE,{cube});
   const rackOptics=createRackOpticalCassette(THREE,{cube});
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
+  const rackPatch=createRackPatchCord(THREE);
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
@@ -636,6 +638,7 @@ export function createSceneAdapter(T, canvas) {
       serverSession=rackRails.decorate(a,built,high);
       opticsSession=rackOptics.decorate(a,built);
       networkSession=rackNetwork.decorate(a,built,high);
+      rackPatch.decorate(a,built,high);
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
@@ -817,6 +820,7 @@ export function createSceneAdapter(T, canvas) {
         rackRails.update(a.id,item.moving,m,dt);
         rackOptics.update(a.id,item.moving,m);
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
+        rackPatch.update(a.id,dt);
         // When using the STEP 11 independent side camera, keep world-space rack
         // orientation fixed. Original legacy rear flip remains otherwise available.
         item.g.rotation.y=item.baseYaw+(m.rear?Math.PI:0);
@@ -1055,7 +1059,7 @@ export function createSceneAdapter(T, canvas) {
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
     rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;rackControlsActiveRack=null;
-    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();focusedRack=null;
+    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();rackPatch.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);
@@ -1069,6 +1073,7 @@ export function createSceneAdapter(T, canvas) {
     get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
     get rackNetwork(){return diagnostic.rackNetwork;},
+    get rackPatch(){return currentRackAsset()?rackPatch.state(currentRackAsset().id):null;},
     get mmr(){return diagnostic.mmr;},get colocation(){return diagnostic.colocation;},
     get mep(){return diagnostic.mep;},mepController:mepRoutes,
     get viewportPerformance(){return viewportPolicy.summary();},

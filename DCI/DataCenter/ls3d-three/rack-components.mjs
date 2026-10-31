@@ -215,9 +215,13 @@ export function createRackComponentKit(THREE,{cube}){
       partGroup.userData.rackPart.description=i===0?'Leaf A/B 상향 링크를 수용하는 네트워크 스위치 예시입니다. 논리적 Spine A/B 이중화는 별도 네트워크 계층도에서 확인합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
       if(i===0)for(let port=0;port<2;port++){
         const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
-        box(optic,'transceiver-cage',-w*.18+port*w*.12,y+units*unit*.25,-d*.596,w*.085,.08,.08,'#b8ccd5');
-        box(optic,'transceiver-latch',-w*.18+port*w*.12,y+units*unit*.30,-d*.65,w*.055,.026,.021,'#69e8c0');
-        optic.userData.rackPart.description='Spine 스위치의 착탈형 광 트랜시버 예시입니다. 포트 속도와 광모듈 규격은 별도 설계값입니다.';
+        const txX=-w*.18+port*w*.12;
+        box(optic,'transceiver-cage',txX,y+units*unit*.25,-d*.596,w*.085,.08,.11,'#b8ccd5');
+        box(optic,'transceiver-pluggable-body',txX,y+units*unit*.26,-d*.684,w*.070,.063,.115,'#c9d9dc');
+        box(optic,'transceiver-optical-receptacle',txX,y+units*unit*.27,-d*.749,w*.046,.045,.020,'#153c4c');
+        box(optic,'transceiver-latch',txX,y+units*unit*.33,-d*.75,w*.055,.018,.040,'#69e8c0');
+        box(optic,'transceiver-identification-strip',txX,y+units*unit*.42,-d*.724,w*.060,.015,.010,'#e5ca79');
+        optic.userData.rackPart.description='네트워크 스위치 포트에 장착되는 착탈형 광 트랜시버(광 Tx/Rx, 전기 인터페이스, 커넥터부)의 시각적 예시입니다. 포트 속도(400G/800G 등), QSFP/OSFP 규격, Rx 감도/Tx 출력과 호환성은 별도 모듈 데이터시트로 검증합니다.';
         networkOptics.push(optic);
       }
     }

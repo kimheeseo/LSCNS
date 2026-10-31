@@ -312,6 +312,7 @@ export function createRackComponentKit(THREE,{cube}){
   const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel','lc-adapter-panel','storage-controller','storage-psu-fan'].includes(p.kind)||/^(server|storage|network-switch)-\d+$/.test(p.kind));
   occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
   if(networkRack)occupied.push({kind:'lc-adapter-panel',uStart:count-6,uHeight:1});
+  if(networkRack)occupied.push({kind:'small-fiber-box',uStart:count-9,uHeight:2});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){
     // Instanced sockets/fingers keep repeated passive patch panels inexpensive.

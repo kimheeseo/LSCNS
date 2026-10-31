@@ -15,6 +15,7 @@ import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackPatchPanel } from './rack-patch-panel.mjs?v=20261031-patch-step1-v1';
 import { createRackLcAdapterPanel } from './rack-lc-adapter-panel.mjs?v=20261031-lc-step3-v1';
+import { createRackSmallFiberBox } from './rack-small-fiber-box.mjs?v=20261031-odf-step4-v1';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -116,7 +117,7 @@ export function createSceneAdapter(T, canvas) {
     if(!item)return;
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
-    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPanel.drop(id);rackLc.drop(id);
+    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPanel.drop(id);rackLc.drop(id);rackBox.drop(id);
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
       if(obj.userData?.ownedTexture)obj.userData.ownedTexture.dispose();
@@ -138,6 +139,7 @@ export function createSceneAdapter(T, canvas) {
   const rackPatch=createRackPatchCord(THREE);
   const rackPanel=createRackPatchPanel(THREE);
   const rackLc=createRackLcAdapterPanel(THREE);
+  const rackBox=createRackSmallFiberBox(THREE);
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
@@ -244,7 +246,7 @@ export function createSceneAdapter(T, canvas) {
     const asset=T.assetMap.get(assetId),item=registry.get(assetId);
     if(!asset||!item)return false;
     const kindByAction={'optical-patch':'patch-panel','optical-mtp':'optical-module',
-      'optical-lc':'lc-adapter-panel','optical-transceiver':'optical-transceiver-'};
+      'optical-lc':'lc-adapter-panel','optical-box':'small-fiber-box','optical-transceiver':'optical-transceiver-'};
     const kind=kindByAction[action];
     const part=item.rackParts.find(p=>p.kind===kind||((action==='optical-transceiver')&&p.kind.startsWith('optical-transceiver-')));
     if(!part)return false;
@@ -274,6 +276,17 @@ export function createSceneAdapter(T, canvas) {
     const unit=(asset.h-.46)/(registry.get(assetId)?.rackUnits||42);
     d.target=[asset.x+port.x,.23+(s.uStart-.5)*unit,asset.z-(side==='rear'?asset.d*.23:asset.d*.50)];
     d.distance=Math.max(1.85,asset.w*.75);d.yaw=side==='rear'?0:Math.PI;d.pitch=.08;
+    return true;
+  }
+  function focusSmallBoxDetail(assetId,part,port=false){
+    const asset=T.assetMap.get(assetId),state=rackBox.state(assetId),d=T.cameraDesired;
+    if(!asset||!state||!d||!part)return false;
+    focusRackSide(assetId,'front');
+    if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+    selectRackPart(assetId,part.id);
+    const unit=(asset.h-.46)/(registry.get(assetId)?.rackUnits||42);
+    d.target=[asset.x+(port?asset.w*.27:0),.23+(state.uStart-.10)*unit,asset.z-asset.d*.47];
+    d.distance=Math.max(2.25,asset.w*.83);d.yaw=port?Math.PI*.78:Math.PI;d.pitch=.30;
     return true;
   }
   function focusRackStoragePart(assetId,action){
@@ -339,6 +352,9 @@ export function createSceneAdapter(T, canvas) {
         ['mpo-path','12F → LC 광경로 강조'],['mpo-rear','후면 MPO/MTP 입력 보기'],
         ['lc-next','다음 LC 어댑터 포트 확대'],['lc-front','LC 전면 커넥터 보기'],
         ['lc-rear','LC 후면 연결 보기'],['lc-path','선택 LC 피그테일 강조'],['lc-reset','LC 패널 전체 보기'],
+        ['box-select','ODF 소형 광단자함 선택'],['box-cover','광단자함 커버 열기/닫기'],
+        ['box-holder','Splice holder 내부 보기'],['box-next','다음 측면 LC 어댑터'],
+        ['box-path','LC 피그테일 경로 강조'],['box-reset','광단자함 전체 보기'],
         ['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
@@ -384,10 +400,29 @@ export function createSceneAdapter(T, canvas) {
         else if(action==='lc-rear')focusLcAdapterPort(asset.id,Math.max(0,rackLc.state(asset.id)?.selected??0),'rear');
         else if(action==='lc-path')rackLc.togglePath(asset.id);
         else if(action==='lc-reset')focusRackOpticalAssembly(asset.id,'optical-lc');
+        else if(action==='box-select'||action==='box-reset')focusRackOpticalAssembly(asset.id,'optical-box');
+        else if(action==='box-cover'){
+          if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+          rackBox.toggleCover(asset.id);
+        }
+        else if(action==='box-holder'){
+          const part=registry.get(asset.id)?.partMap.get(rackBox.state(asset.id)?.holderId);
+          if(part){rackBox.selectHolder(asset.id);focusSmallBoxDetail(asset.id,part);}
+        }
+        else if(action==='box-next'){
+          const state=rackBox.state(asset.id),port=rackBox.selectPort(asset.id,(state?.selected??-1)+1);
+          if(port)focusSmallBoxDetail(asset.id,port,true);
+        }
+        else if(action==='box-path'){
+          if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+          const state=rackBox.state(asset.id);
+          if(state?.selected<0){const port=rackBox.selectPort(asset.id,0);if(port)focusSmallBoxDetail(asset.id,port,true);}
+          else rackBox.togglePath(asset.id);
+        }
         else if(action==='cable-patch'){
           if(focusRackOpticalAssembly(asset.id,'optical-patch'))rackPatch.toggle(asset.id);
         }
-        else if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
+        else if(['optical-patch','optical-mtp','optical-lc','optical-box','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
         else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
         else if(action==='storage-shelf-pull'){
           const selected=rackRails.state(asset.id)?.selected;
@@ -461,9 +496,9 @@ export function createSceneAdapter(T, canvas) {
         panel.appendChild(buttons);controlsBody.appendChild(panel);
       };
       createAccessoryButtons('ls3dNetworkOpticalAccessories','◎ 네트워크 랙 광배선 장치',
-        '문을 열어 패치패널·MPO/MTP 카세트·LC 어댑터·광모듈을 선택하면 오른쪽 설명에 구성과 역할이 나옵니다.',
+        '문을 열어 패치패널·MPO/MTP 카세트·LC 어댑터·소형 광단자함·광모듈을 선택하면 오른쪽 설명에 구성과 역할이 나옵니다.',
         [['optical-patch','1 · 광 패치패널'],['optical-mtp','2 · MPO/MTP 카세트'],
-         ['optical-lc','3 · LC 어댑터 패널'],['optical-transceiver','4 · 광 트랜시버']]);
+         ['optical-lc','3 · LC 어댑터 패널'],['optical-box','4 · ODF 소형 광단자함'],['optical-transceiver','광 트랜시버']]);
       createAccessoryButtons('ls3dStorageRackAccessories','▣ 스토리지 랙 내부 확인',
         '8-bay 스토리지 쉘프, 컨트롤러, PSU/팬을 구분해 확인하고 쉘프/드라이브를 각각 인출해 보세요.',
         [['storage-shelf','스토리지 쉘프 선택'],['storage-shelf-pull','쉘프 꺼내기/넣기'],
@@ -546,6 +581,15 @@ export function createSceneAdapter(T, canvas) {
     }
     const lcPath=rackControls.querySelector('[data-rack-action="lc-path"]');
     if(lcPath)lcPath.textContent=lcState?.highlight?'선택 LC 피그테일 강조 해제':'선택 LC 피그테일 강조';
+    const boxState=rackBox.state(a.id);
+    for(const code of ['box-select','box-cover','box-holder','box-next','box-path','box-reset']){
+      const button=rackControls.querySelector('[data-rack-action="'+code+'"]');
+      if(button)button.hidden=!boxState;
+    }
+    const boxCover=rackControls.querySelector('[data-rack-action="box-cover"]');
+    if(boxCover)boxCover.textContent=boxState?.targetCover?'광단자함 커버 닫기':'광단자함 커버 열기';
+    const boxPath=rackControls.querySelector('[data-rack-action="box-path"]');
+    if(boxPath)boxPath.textContent=boxState?.highlight?'LC 피그테일 강조 해제':'LC 피그테일 경로 강조';
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
@@ -607,7 +651,7 @@ export function createSceneAdapter(T, canvas) {
     let anchor=null;
     item.g.updateMatrixWorld(true);
     item.g.traverse(object=>{
-      if(!object.isMesh||object.userData?.partId!==partId||!object.material)return;
+      if(!object.isMesh||object.userData?.partId!==partId||object.userData?.skipPartEmphasis||!object.material)return;
       const original=object.material;
       const highlighted=Array.isArray(original)?original.map(m=>m.clone()):original.clone();
       const mats=Array.isArray(highlighted)?highlighted:[highlighted];
@@ -679,6 +723,12 @@ export function createSceneAdapter(T, canvas) {
     }else if(part?.kind==='lc-adapter-port'||part?.kind==='lc-adapter-rear-port'){
       rackLc.selectPort(assetId,part.portIndex);
       emphasizeRackPart(assetId,partId);
+    }else if(part?.kind==='fiber-box-lc-port'){
+      rackBox.selectPort(assetId,part.portIndex);
+      emphasizeRackPart(assetId,partId);
+    }else if(part?.kind==='fiber-box-splice-holder'){
+      rackBox.selectHolder(assetId);
+      emphasizeRackPart(assetId,partId);
     }else if(part){
       emphasizeRackPart(assetId,partId);
     }
@@ -734,6 +784,7 @@ export function createSceneAdapter(T, canvas) {
       networkSession=rackNetwork.decorate(a,built,high);
       rackPanel.decorate(a,built);
       rackLc.decorate(a,built);
+      rackBox.decorate(a,built);
       rackPatch.decorate(a,built,high);
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
@@ -917,6 +968,7 @@ export function createSceneAdapter(T, canvas) {
         rackOptics.update(a.id,item.moving,m);
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         const panelState=rackPanel.update(a.id,dt);
+        rackBox.update(a.id,dt);
         if(panelState)rackPatch.setPanelOffset(a.id,-panelState.slide*.48);
         rackPatch.update(a.id,dt);
         // When using the STEP 11 independent side camera, keep world-space rack
@@ -1157,7 +1209,7 @@ export function createSceneAdapter(T, canvas) {
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
     rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;rackControlsActiveRack=null;
-    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();rackPatch.reset();rackLc.reset();focusedRack=null;
+    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();rackPatch.reset();rackLc.reset();rackBox.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);

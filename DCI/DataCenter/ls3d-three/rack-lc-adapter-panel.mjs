@@ -61,7 +61,8 @@ export function createRackLcAdapterPanel(THREE){
      new THREE.Vector3(start.x+bend,py+height*.54,rear+.19),end],false,'centripetal');
     const material=new THREE.MeshStandardMaterial({color:colors[n%colors.length],roughness:.65,emissive:0x000000});
     const fiber=new THREE.Mesh(new THREE.TubeGeometry(curve,18,.004,4,false),material);
-    fiber.name='lc-adapter:pigtail-'+n+'-'+side;fiber.userData.assetId=id;fiber.userData.partId=back.id;panel.add(fiber);
+    fiber.name='lc-adapter:pigtail-'+n+'-'+side;fiber.userData.assetId=id;fiber.userData.partId=back.id;
+    fiber.userData.skipPartEmphasis=true;panel.add(fiber);
     (paths[n]??=[]).push(fiber);
    }
    ports.push({front:port,back,x});

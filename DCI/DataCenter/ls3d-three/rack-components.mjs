@@ -142,15 +142,15 @@ export function createRackComponentKit(THREE,{cube}){
     if(slot.kind==='patch-panel')g.userData.rackPart.description='19인치 수동 광 패치패널입니다. 광 트렁크/점퍼를 분배하며 MPO/MTP 카세트 및 LC 어댑터 패널과는 별개의 부품입니다. 본 화면은 구조 이해용이며 실제 제조사 BOM이 아닙니다.';
     if(slot.kind==='lc-adapter-panel')g.userData.rackPart.description='LC duplex 어댑터 패널: 전면 LC 커넥터 12개를 수용하는 수동 패널 예시입니다. 어댑터는 광파워를 증폭하지 않으며 실제 연결 포트 수는 장착 제품을 확인해야 합니다.';
     const yh=(slot.units*unit)*.5;
-    const face=box(g,'port-face',0,lower+(start-1)*unit+.015,-d*.555,w*.68,
+    const face=box(g,'port-face',0,lower+(start-1)*unit+.015,-d*.468,w*.68,
       Math.max(.055,slot.units*unit-.04),.09,'#1a364a',.42,.38);
     for(let i=0;i<12;i++){
       box(g,'port-'+i,-w*.27+i*w*.049,lower+(start-1)*unit+Math.max(.045,slot.units*unit*.37),
-        -d*.613,w*.033,.05,.022,i%2?'#72d3e6':'#69e5b9',.12,.24);
+        -d*.512,w*.033,.05,.022,i%2?'#72d3e6':'#69e5b9',.12,.24);
     }
     if(slot.kind==='patch-panel'||slot.kind==='lc-adapter-panel'){
       moduleLabel(g,id,'panel-'+slot.kind,slot.kind==='patch-panel'?'FIBER PATCH PANEL':'LC ADAPTER PANEL',0,
-        lower+(start-1)*unit+slot.units*unit*.87,-d*.650,w*.59,.080,
+        lower+(start-1)*unit+slot.units*unit*.87,-d*.518,w*.59,.080,
         slot.kind==='patch-panel'?'#d4ae63':'#3f9cd1');
     }
     if(gpuVariant&&(slot.kind==='tor'||slot.kind==='leaf-b')){
@@ -216,11 +216,11 @@ export function createRackComponentKit(THREE,{cube}){
       if(i===0)for(let port=0;port<2;port++){
         const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
         const txX=-w*.18+port*w*.12;
-        box(optic,'transceiver-cage',txX,y+units*unit*.25,-d*.596,w*.085,.08,.11,'#b8ccd5');
-        box(optic,'transceiver-pluggable-body',txX,y+units*unit*.26,-d*.684,w*.070,.063,.115,'#c9d9dc');
-        box(optic,'transceiver-optical-receptacle',txX,y+units*unit*.27,-d*.749,w*.046,.045,.020,'#153c4c');
-        box(optic,'transceiver-latch',txX,y+units*unit*.33,-d*.75,w*.055,.018,.040,'#69e8c0');
-        box(optic,'transceiver-identification-strip',txX,y+units*unit*.42,-d*.724,w*.060,.015,.010,'#e5ca79');
+        box(optic,'transceiver-cage',txX,y+units*unit*.25,-d*.456,w*.085,.08,.11,'#b8ccd5');
+        box(optic,'transceiver-pluggable-body',txX,y+units*unit*.26,-d*.446,w*.070,.063,.115,'#c9d9dc');
+        box(optic,'transceiver-optical-receptacle',txX,y+units*unit*.27,-d*.501,w*.046,.045,.020,'#153c4c');
+        box(optic,'transceiver-latch',txX,y+units*unit*.33,-d*.506,w*.055,.018,.040,'#69e8c0');
+        box(optic,'transceiver-identification-strip',txX,y+units*unit*.42,-d*.491,w*.060,.015,.010,'#e5ca79');
         optic.userData.rackPart.description='네트워크 스위치 포트에 장착되는 착탈형 광 트랜시버(광 Tx/Rx, 전기 인터페이스, 커넥터부)의 시각적 예시입니다. 포트 속도(400G/800G 등), QSFP/OSFP 규격, Rx 감도/Tx 출력과 호환성은 별도 모듈 데이터시트로 검증합니다.';
         networkOptics.push(optic);
       }

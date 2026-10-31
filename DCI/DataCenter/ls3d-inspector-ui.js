@@ -63,7 +63,9 @@ rackOps.innerHTML='<h3>랙 내부 부품 열기 · 넣기</h3>'+
  '<button type="button" data-rack-quick="gpu-toggle" data-rack-quick-kind="gpu">GPU 모듈 인출 · 장착</button>'+
  '<button type="button" data-rack-quick="next-drive" data-rack-quick-kind="storage">다음 드라이브</button>'+
  '<button type="button" data-rack-quick="drive-toggle" data-rack-quick-kind="storage">드라이브 인출 · 장착</button>'+
- '</div><div id="inspectorRackOpStatus" role="status">랙 단독 보기에서 인출·복귀 버튼을 눌러 주세요.</div>';
+ '<button type="button" data-rack-quick="patch-select">광 패치패널 선택</button>'+
+ '<button type="button" data-rack-quick="cable-patch">케이블 연결 · 분리</button>'+
+ '</div><div id="inspectorRackOpStatus" role="status">랙 단독 보기에서 인출·복귀 또는 케이블 연결 버튼을 눌러 주세요.</div>';
 card.insertAdjacentElement('afterend',rackOps);
 rackOps.addEventListener('click',event=>{
  const code=event.target.closest?.('[data-rack-quick]')?.dataset.rackQuick;
@@ -110,6 +112,11 @@ function sync(){
  const active=!!(T.rackIsolateActive&&T.isMechanicalRack(T.selected));
  rackOps.hidden=!active;
  if(active){
+  const patchState=window.LS3D_THREE?.adapter?.rackPatch;
+  const patchButton=rackOps.querySelector('[data-rack-quick="cable-patch"]');
+  const patchSelect=rackOps.querySelector('[data-rack-quick="patch-select"]');
+  if(patchButton){patchButton.hidden=!patchState;patchButton.textContent=patchState?.connected?'케이블 분리 · 패치패널에서 빼기':'케이블 연결 · 패치패널에 꽂기';}
+  if(patchSelect)patchSelect.hidden=!patchState;
   const gpu=/gpu/i.test(T.selected?.type||'');
   const storage=T.selected?.type==='Storage rack';
   for(const button of rackOps.querySelectorAll('[data-rack-quick-kind]')){

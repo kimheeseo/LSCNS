@@ -388,7 +388,7 @@ export function createRackComponentKit(THREE,{cube}){
   // Keep STEP 03 controls: returning exactly the original moving mechanical API.
   const moving={hinge:frontDoor,slide,cassette,reach:d*.67,door:null,rearDoor};
   stats.built++;if(count===48)stats.units48++;else stats.units42++;
-  return {moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
+  return {root,moving,parts:pieces,partMap:map,rackUnits:count,serverModules:modules.length,
     serverGroups:modules,gpuGroups,storageDrives,frontFill,cassetteGroup:cassette,cassetteDrawer:cassetteParts,
     frontDoor,rearDoor,slideGroup:slide,cassetteU};
  }

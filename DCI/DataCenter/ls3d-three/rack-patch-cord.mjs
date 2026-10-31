@@ -50,7 +50,7 @@ export function createRackPatchCord(THREE){
      const jacket=cableMesh('optical-patch-cord-'+index,colors[index]);group.add(jacket);
      lines.push({x,y,guideX,index,plug,jacket,lastStep:-1});
    }
-   const record={assetId:asset.id,group,lines,faceZ,d,target:0,progress:0,plugged:false,panelId:panel.id};
+   const record={assetId:asset.id,group,lines,faceZ,baseFaceZ:faceZ,d,target:0,progress:0,plugged:false,panelId:panel.id};
    registry.set(asset.id,record);metrics.created++;paint(record,true);
    return {panelId:panel.id};
  }
@@ -78,6 +78,7 @@ export function createRackPatchCord(THREE){
      }
    });
  }
+ function setPanelOffset(id,offset){const r=registry.get(id);if(r&&Math.abs(r.faceZ-r.baseFaceZ-offset)>.0002){r.faceZ=r.baseFaceZ+offset;paint(r,true);}}
  function toggle(id){
    const r=registry.get(id);if(!r)return null;
    r.target=r.target?0:1;metrics.connections++;
@@ -112,5 +113,5 @@ export function createRackPatchCord(THREE){
    registry.delete(id);
  }
  function reset(){for(const id of [...registry.keys()])drop(id);}
- return {decorate,toggle,update,state,drop,reset,metrics};
+ return {decorate,toggle,setPanelOffset,update,state,drop,reset,metrics};
 }

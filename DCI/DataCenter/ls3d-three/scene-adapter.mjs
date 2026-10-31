@@ -604,7 +604,7 @@ export function createSceneAdapter(T, canvas) {
     m.loadedBox.visible=t>=2.65&&t<11.70;
     if(holding){
       const from=[x-.30,y+.90,z+.10];
-      const to=[m.homeX-m.seatOffsetX*(.275/.011),m.homeY+.39*.5,m.parkZ];
+      const to=[m.homeX-m.loadOffsetX,m.homeY+.39*.5,m.parkZ];
       m.carriedBox.position.set(
         lerp(from[0],to[0],load),lerp(from[1],to[1],load),lerp(from[2],to[2],load)
       );

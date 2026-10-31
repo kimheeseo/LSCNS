@@ -140,7 +140,7 @@ export function createRackComponentKit(THREE,{cube}){
   const serverType=network?'network-switch':storage?'storage':'server';
   for(const slot of pickSlots){
     const start=Math.max(1,slot.top-slot.units+1);
-    if(slot.kind==='odf')continue; // Open, four-slot chassis is supplied by rack-optical-cassette.
+    if(slot.kind==='odf'||(networkRack&&slot.kind==='lc-adapter-panel'))continue; // Optical assemblies own their separate physical geometry.
     const g=part(slot.kind,slot.label,start,slot.units,w*.76,null,d*.46,-d*.29,slot.color);
     if(slot.kind==='patch-panel')g.userData.rackPart.description='19인치 수동 광 패치패널입니다. 광 트렁크/점퍼를 분배하며 MPO/MTP 카세트 및 LC 어댑터 패널과는 별개의 부품입니다. 본 화면은 구조 이해용이며 실제 제조사 BOM이 아닙니다.';
     if(slot.kind==='lc-adapter-panel')g.userData.rackPart.description='LC duplex 어댑터 패널: 전면 LC 커넥터 12개를 수용하는 수동 패널 예시입니다. 어댑터는 광파워를 증폭하지 않으며 실제 연결 포트 수는 장착 제품을 확인해야 합니다.';
@@ -311,6 +311,7 @@ export function createRackComponentKit(THREE,{cube}){
   // Account for active assemblies and the top optical drawer before filling gaps.
   const occupied=pieces.filter(p=>['tor','leaf-b','patch-panel','lc-adapter-panel','storage-controller','storage-psu-fan'].includes(p.kind)||/^(server|storage|network-switch)-\d+$/.test(p.kind));
   occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
+  if(networkRack)occupied.push({kind:'lc-adapter-panel',uStart:count-6,uHeight:1});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){
     // Instanced sockets/fingers keep repeated passive patch panels inexpensive.

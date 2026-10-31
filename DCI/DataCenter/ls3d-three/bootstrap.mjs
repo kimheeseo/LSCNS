@@ -128,7 +128,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261031-mpo-step2-v1');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261031-lc-step3-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

@@ -30,11 +30,13 @@ export function createRackOpticalCassette(THREE,{cube}) {
   box(tray,housing,'back-wall',0,base,back,w*.75,ht,.025,'#23394b');
   for(let m=0;m<4;m++){
    const x=(m-1.5)*w*.181,mw=w*.17;
-   const p=info('cassette-module-'+m,'optical-module','카세트 '+(m+1)+' · MPO 12F → LC duplex × 6','후면 MPO 1개에서 12개 광섬유를 전면 LC duplex 6개로 분기합니다. 4개 모듈 합계 48심/24 duplex인 교육용 예시입니다.',{moduleIndex:m});
+   const p=info('cassette-module-'+m,'optical-module','MPO/MTP 카세트 '+(m+1)+' · 후면 12F → 전면 LC duplex × 6','MPO/MTP 계열 다심 커넥터의 12F를 LC duplex 6포트로 분기하는 독립형 카세트입니다. 4개 모듈 합계 48심/24 duplex 예시이며 실제 극성 A/B/C, 피복, 커넥터 성별과 MTP 상표 제품 호환성은 데이터시트로 확인해야 합니다.',{moduleIndex:m});
    const group=new THREE.Group();group.name='rack-optical:module-'+m;tray.add(group);
    box(group,p,'module-base',x,base+.028,(front+back)/2,mw,.018,back-front-.07,'#b5c4ca');
    for(const side of [-1,1])box(group,p,'module-side',x+side*mw*.49,base+.038,(front+back)/2,.013,ht*.76,back-front-.07,'#253e52');
    box(group,p,'adapter-plate',x,base+.035,front+.025,mw,ht*.73,.020,'#192d3e');
+   box(group,p,'mpo-mtp-cassette-front-identity',x,base+ht*.76,front-.016,mw*.86,ht*.10,.018,'#56c7d1');
+   box(group,p,'cassette-pull-bar',x,base+ht*.13,front-.083,mw*.70,.025,.060,'#d6c8ab');
    box(group,p,'release-tab',x,base+.025,front-.040,mw*.38,.023,.055,'#ba3658');
    box(group,p,'id-label-'+(m+1),x,base+ht*.80,front+.013,mw*.76,.021,.009,'#e7edf0');
    // Six duplex adapters, each with two visible LC sockets; no false light sources.
@@ -49,7 +51,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
     }
     stats.adapters++;stats.connectors+=2;
    }
-   const mpo=info('mpo-input-'+m,'mpo-input','카세트 '+(m+1)+' · 후면 MPO 12F 입력','사전 종단된 다심 트렁크 케이블이 후면 MPO 아답터에 연결됩니다. MTP는 MPO 계열의 상표이며 적용 제품에 따라 선택합니다.',{moduleIndex:m});
+   const mpo=info('mpo-input-'+m,'mpo-input','카세트 '+(m+1)+' · 후면 MPO/MTP 12F 입력','사전 종단된 다심 트렁크 케이블이 후면 MPO/MTP 계열 어댑터에 연결됩니다. MTP®는 US Conec의 상표로, 기계적 호환성·극성·핀 구성은 구매 사양 확인이 필요합니다.',{moduleIndex:m});
    box(group,mpo,'mpo-adapter',x,base+ht*.18,back-.033,mw*.48,ht*.45,.070,'#323842');
    box(group,mpo,'mpo-key',x,base+ht*.58,back-.025,mw*.16,.014,.036,'#c9d5df');
    box(group,mpo,'mpo-connector-boot',x,base+ht*.25,back+.04,mw*.33,ht*.27,.08,'#d7b648');

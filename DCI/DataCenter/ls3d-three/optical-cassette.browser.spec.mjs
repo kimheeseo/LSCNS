@@ -23,7 +23,10 @@ async function start(page){
  await page.evaluate(()=>{
   const T=window.__LS3D_TEST__;T.setZone('hall');T.pickAsset(T.assetMap.get('tor-a'));
  });
- await page.locator('#detailBtn').click();
+ if(page.viewportSize().width<640){
+  await page.getByRole('button',{name:/설비 검사·상세 펼치기/}).click();
+  await page.locator('#inspectorRackOpen').click();
+ }else await page.locator('#detailBtn').click();
  await page.waitForFunction(()=>window.__LS3D_TEST__.rackIsolateActive&&!!window.LS3D_THREE.adapter.rackInteraction);
  await page.locator('[data-rack-action="optical-mtp"]').click();
  await page.waitForFunction(()=>{

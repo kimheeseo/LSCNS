@@ -599,6 +599,8 @@ export function createSceneAdapter(T, canvas) {
       if(selectedRackPart.kind==='patch-panel')rackPatchDesign.includeCable(selectedRackPart.assetId,false);
     }
     if(rackOptics.owns(selectedRackPart))rackOptics.isolate(selectedRackPart.assetId,true);
+    if(selectedRackPart?.kind==='patch-panel'||selectedRackPart?.kind==='optical-module')
+      rackPanelDisclosure?.setCollapsed(true);
     window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
@@ -629,12 +631,15 @@ export function createSceneAdapter(T, canvas) {
         const unit=(asset.h-.46)/(record.rackUnits||42),u=record.opticsSession?.base||.23+(part.uStart-1)*unit;
         const mid=rear?record.opticsSession?.back:(record.opticsSession?.front+record.opticsSession?.back)*.5;
         const extension=(record.moving?.reach||asset.d*.67)*.70;
-        const point=new THREE.Vector3(0,u+unit*.9,mid-extension);
+        const module=record.opticsSession?.modules?.[part.moduleIndex??0];
+        const point=new THREE.Vector3(rear?(module?.x||0):0,rear?u+unit*.65:u+unit*.9,
+          mid-extension+(rear?.035:0));
         record.g.updateMatrixWorld(true);record.g.localToWorld(point);
         const rect=canvas.getBoundingClientRect();
         const usable=(rect.width-(rect.width>640?330:20))/Math.max(1,rect.height);
         desired.target=[point.x,point.y,point.z];
-        desired.distance=Math.max(2.4,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.30);
+        desired.distance=rear?Math.max(1.15,asset.w*.68):
+          Math.max(2.4,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.30);
         desired.yaw=rear?0:Math.PI;desired.pitch=rear?.28:.88;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }
@@ -822,7 +827,9 @@ export function createSceneAdapter(T, canvas) {
         const model = assetMesh(a);
         item = { ...model, sig }; registry.set(a.id, item); assetRoot.add(item.g);
       }
-      item.selection.visible=T.selected?.id===a.id;
+      const opticalIsolated=selectedRackPart?.assetId===a.id&&
+        (rackOptics.owns(selectedRackPart)||rackPatchDesign.owns(selectedRackPart));
+      item.selection.visible=T.selected?.id===a.id&&!opticalIsolated;
       if(selectedRackPart && selectedRackPart.assetId===a.id && !item.partMap?.has(selectedRackPart.id))
         showRackPart(null);
       if(item.rackLOD) {

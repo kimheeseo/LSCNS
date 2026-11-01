@@ -1,0 +1,84 @@
+name: OFC 2026 COSMOS LR-controlled diagnostic
+
+on:
+  push:
+    paths:
+      - .github/workflows/ofc26-cosmos-transfer-lr-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: "3"
+      MKL_NUM_THREADS: "3"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1
+          python -m pip install numpy pandas scikit-learn matplotlib
+      - name: Get official dataset CSVs
+        run: |
+          git lfs install
+          GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --filter=blob:none --sparse https://github.com/ofc-ml-challenge/ofc-ml-challenge-data-code.git /tmp/ofcdata
+          git -C /tmp/ofcdata sparse-checkout set Features
+          git -C /tmp/ofcdata lfs pull --include='Features/Train/COSMOS_features.csv,Features/Train/COSMOS_labels.csv,Features/Train/train_features.csv,Features/Train/train_labels.csv,Features/Test/test_features.csv' --exclude=''
+      - name: Run equal-learning-rate transfer control
+        run: |
+          python -u 26OFC_ML_challenge/COSMOS_Transfer_Learning/train_transfer.py \
+            --data-root /tmp/ofcdata --output /tmp/lr-audit \
+            --models pi-edfa transformer \
+            --cosmos-max-rows 4000 --cosmos-val-max-rows 500 \
+            --pretrain-epochs 6 --pretrain-patience 6 \
+            --finetune-epochs 55 --finetune-patience 17 \
+            --pretrain-batch-size 128 --batch-size 64 \
+            --finetune-lr 0.002 --scratch-lr 0.002 --cpu
+      - name: Publish diagnosis evidence
+        if: success()
+        run: |
+          mkdir -p 26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control
+          cp /tmp/lr-audit/comparison.json /tmp/lr-audit/comparison.csv 26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control/
+          for model in pi-edfa transformer; do
+            mkdir -p "26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control/$model"
+            cp /tmp/lr-audit/$model/*validation_rows.csv /tmp/lr-audit/$model/*worst_channels.csv /tmp/lr-audit/$model/*feature_domain_shift.csv "26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control/$model/"
+          done
+          python - <<'PY'
+          import pathlib,json
+          p=pathlib.Path('26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control')
+          r=json.loads((p/'comparison.json').read_text())
+          lines=['# Equal Learning Rate COSMOS Transfer Diagnostic','',
+            'Reproduces pilot using 4,000 COSMOS samples / 6 epochs pretrain / 55 epochs fine-tuning / seed 2026 / same recent Train split. Both transfer and scratch use LR=0.002 (pilot transfer LR=0.0001).',
+            'All score values in this report use **best restored checkpoint** metrics, unlike the earlier pilot summary bug.','',
+            '| Model | Transfer best recent-val | Scratch best recent-val | Difference (transfer-scratch) |',
+            '|---|---:|---:|---:|']
+          for model, obj in r.items():
+              t=obj['transfer_val']['score']; s=obj['scratch_val']['score']
+              lines.append(f'| {model} | {t:.6f} | {s:.6f} | {t-s:+.6f} |')
+          lines.extend(['','See each model folder for per-row SHB error, worst channels, and 10 COSMOS-scaled feature z-score summaries. These are internal Train validation, not public TestGround.'])
+          (p/'README.md').write_text('\n'.join(lines)+'\n')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 26OFC_ML_challenge/COSMOS_Transfer_Learning/benchmarks/lr_control
+          git commit -m "Record COSMOS LR-controlled transfer and SHB diagnostic results"
+          git pull --rebase origin main
+          git push
+      - name: Upload full run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ofc26-cosmos-lr-controlled
+          path: /tmp/lr-audit/
+          retention-days: 14
+          if-no-files-found: warn

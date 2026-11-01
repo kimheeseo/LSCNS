@@ -170,6 +170,54 @@ def category_score(module, df, y, predictions):
     return summary
 
 
+def save_validation_diagnostics(out, name, module, processor, df, y, pred):
+    """Write sample-ID error audit on held-out recent Train only."""
+    mask = module.extract_mask(df).astype(bool)
+    categories = df['Category'].astype(str).tolist() if 'Category' in df else ['unknown'] * len(df)
+    ids = df['ID'].tolist() if 'ID' in df else list(df.index)
+    gx = processor.transform(df)[0]
+    global_names = ['target_gain', 'target_gain_tilt', 'EDFA_input_power_total',
+                    'EDFA_output_power_total', 'occupancy', 'spectral_mean',
+                    'spectral_std', 'delta_power', 'centroid', 'log_total_input_mw']
+    byrow = []
+    worst = []
+    for k in range(len(df)):
+        on = np.flatnonzero(mask[k])
+        if not len(on):
+            continue
+        err = pred[k, on] - y[k, on]
+        ae = np.abs(err)
+        rid = str(ids[k])
+        byrow.append({'ID': rid, 'Category': categories[k], 'row_index': str(df.index[k]),
+                      'target_gain': df.iloc[k]['target_gain'],
+                      'target_gain_tilt': df.iloc[k]['target_gain_tilt'],
+                      'loaded_channels': len(on),
+                      'mae_db': float(ae.mean()), 'max_error_db': float(ae.max()),
+                      'worst_channel': int(on[np.argmax(ae)]),
+                      'max_abs_scaled_global_feature': float(np.abs(gx[k]).max()),
+                      'num_scaled_features_above_5': int((np.abs(gx[k]) > 5).sum())})
+        for j in np.argsort(ae)[-min(5,len(on)):][::-1]:
+            ci = int(on[j])
+            worst.append({'ID': rid, 'Category': categories[k], 'channel': ci,
+                          'measured_db': float(y[k,ci]),
+                          'predicted_db': float(pred[k,ci]),
+                          'signed_error_db': float(pred[k,ci]-y[k,ci]),
+                          'abs_error_db': float(ae[j])})
+    dfrow = pd.DataFrame(byrow).sort_values('max_error_db',ascending=False)
+    dfrow.to_csv(out / (name + '_validation_rows.csv'),index=False)
+    pd.DataFrame(worst).sort_values('abs_error_db',ascending=False).head(100).to_csv(
+        out / (name + '_worst_channels.csv'),index=False)
+    # COSMOS fitted z-score distribution on this same target holdout.
+    z_report = []
+    for i, col in enumerate(global_names):
+        z = np.abs(gx[:,i])
+        z_report.append({'feature':col, 'median_abs_z':float(np.median(z)),
+                         'p95_abs_z':float(np.quantile(z,.95)),
+                         'max_abs_z':float(z.max()),
+                         'fraction_abs_z_over_5':float(np.mean(z>5))})
+    pd.DataFrame(z_report).to_csv(out / (name + '_feature_domain_shift.csv'),index=False)
+
+
 def evaluate_final(args, net, processor, module, root, out, name, device):
     ground = root / "Features" / "TestGround"
     gx = transformer_edfa.read_table(ground / "test_features.csv").reset_index(drop=True)
@@ -227,6 +275,9 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
                             recent_x.iloc[recent_val_idx], device)
     transfer_bycat = category_score(module, recent_x.iloc[recent_val_idx],
                                      recent_y[recent_val_idx], transfer_pred)
+    save_validation_diagnostics(out, "transfer", module, source_processor,
+                                recent_x.iloc[recent_val_idx],
+                                recent_y[recent_val_idx], transfer_pred)
 
     results = {"source_val": source_metrics, "transfer_val": ft_metrics,
                "transfer_val_by_category": transfer_bycat,
@@ -249,10 +300,14 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
             out, args.finetune_epochs, args.scratch_lr, args.finetune_patience,
             args.batch_size, device)
         results["scratch_val"] = scratch_metric
+        scratch_pred = predict(scratch_net, scratch_proc, module,
+                               recent_x.iloc[recent_val_idx], device)
         results["scratch_val_by_category"] = category_score(
             module, recent_x.iloc[recent_val_idx], recent_y[recent_val_idx],
-            predict(scratch_net, scratch_proc, module,
-                    recent_x.iloc[recent_val_idx], device))
+            scratch_pred)
+        save_validation_diagnostics(out, "scratch", module, scratch_proc,
+                                    recent_x.iloc[recent_val_idx],
+                                    recent_y[recent_val_idx], scratch_pred)
         if args.evaluate_testground:
             results["scratch_testground"] = evaluate_final(
                 local_args, scratch_net, scratch_proc, module, root, out, "scratch", device)

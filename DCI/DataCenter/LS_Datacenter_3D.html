@@ -63,6 +63,10 @@ body.display-mobile .info-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 body.rack-inspecting .viewport{height:clamp(480px,68dvh,760px);min-height:480px;flex:none}
 body.rack-inspecting .viewport .vp-top,body.rack-inspecting .viewport .vp-bottom{display:none}
 body.rack-inspecting .rack-isolate-bar{top:12px}
+/* Give rack-only view the page-level space marked below the viewer in the
+   reference screenshot. Keep the 3D canvas at its existing usable height. */
+body.rack-inspecting{overflow-y:auto}
+body.rack-inspecting #shell{margin-bottom:clamp(80px,12dvh,120px)}
 @media(max-width:790px){.rack-isolate-bar{top:88px;max-width:calc(100% - 20px)}}
 @media(max-width:790px){body.rack-inspecting #viewport{height:70dvh!important;min-height:400px!important}body.rack-inspecting .rack-isolate-bar{top:12px}}
 @media(max-width:420px){.display-mode-options{grid-template-columns:1fr}.display-mode-options button{min-height:74px}#displayModeReopen{font-size:9px;padding:6px}}

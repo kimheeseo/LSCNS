@@ -37,6 +37,13 @@ async function metrics(page,id,prefix){return page.evaluate(({id,prefix})=>{
 test('PC LC adapter front, rear and selected pigtail',async({page},info)=>{
  const errors=await start(page,'tor-a','hall');
  await page.locator('#viewport').screenshot({path:info.outputPath('network-rack-bottom-space.png')});
+ const pageGap=await page.evaluate(()=>({
+  extra:document.body.scrollHeight-document.body.clientHeight,
+  margin:parseFloat(getComputedStyle(document.querySelector('#shell')).marginBottom)
+ }));
+ expect(pageGap.margin).toBeGreaterThanOrEqual(80);
+ expect(pageGap.extra).toBeGreaterThanOrEqual(80);
+ await page.screenshot({path:info.outputPath('network-rack-page-gap.png'),fullPage:true});
  await page.locator('[data-rack-action="optical-lc"]').click();
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.rackInteraction.selectedLcPanel?.isolated);
  const front=await metrics(page,'tor-a','rack-lc:');

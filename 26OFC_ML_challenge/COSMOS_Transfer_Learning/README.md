@@ -7,6 +7,7 @@
 - 이 폴더의 [physics_edfa.py](physics_edfa.py)는 원본 노트북의 `%%writefile` 셀을 분리한 동일한 Python 모델 코드입니다.
 - [train_transfer.py](train_transfer.py): 두 모델 공통 COSMOS 사전학습 → 최근 Train 미세조정 → 동일 검증셋 Scratch 대조 → 선택적 TestGround 평가
 - [COSMOS_Transfer_Colab.ipynb](COSMOS_Transfer_Colab.ipynb): Colab에서 저장소·Git LFS 데이터 준비 후 두 모델 실행
+- [COSMOS_Transfer_Error_Analysis_Report.ipynb](COSMOS_Transfer_Error_Analysis_Report.ipynb): **2026-11-02 실험 결과, 점수 보고 오류의 원인·수정, SHB 이상 샘플 ID, 입력 분포 이동, 학습률 통제 재실험 및 향후 검증계획을 기록한 연구 보고서**
 
 ## 데이터
 
@@ -82,3 +83,16 @@ cosmos_results/
 2026-11-02 원본 실험에서는 **COSMOS 사전학습 없이** PI-EDFA 0.382980, Transformer 0.333409의 공개 TestGround 전체 점수를 얻었습니다(대회 종료 후 사후평가). **이 숫자들은 새 전이학습의 결과가 아닙니다.** 이번 코드는 아직 실제 COSMOS 전체 데이터로 학습 실행·성능 측정되지 않았으며, Colab 실행 결과가 생성되어야 개선 여부를 결론낼 수 있습니다.
 
 데이터와 모델 구조가 서로 호환되더라도 COSMOS→최근 Train 간 장비·시간·목표 gain/tilt 분포가 다르면 음의 전이가 발생할 수 있으므로 scratch 대조를 반드시 확인하세요.
+
+## 2026-11-02 실제 COSMOS 예비 실험 (정식 전체 데이터 실험 아님)
+
+공식 Git LFS의 COSMOS 4,000개 학습 표본, 6 epoch 사전학습 및 최신 Train 397/93 분할을 사용한 GitHub Actions 결과입니다. 검증 점수는 **최고 checkpoint 기준**이며 낮을수록 좋습니다.
+
+| 모델 | Transfer + LR=0.002 | Scratch + LR=0.002 | 결과 |
+|---|---:|---:|---|
+| PI-EDFA | **0.219143** | 0.231684 | Transfer 5.4% 개선 |
+| Transformer | 0.302495 | **0.274992** | Transfer 10.0% 악화 |
+
+기존 LR=0.0001 Transfer에서는 SHB 극단 오차 약 29 dB로 점수가 3.6~3.7까지 악화되었습니다. 동일 LR=0.002 대조실험에서는 해당 극단오차가 해소되었습니다. **저학습률로 인한 미세조정 적응 부족**이 강하게 의심되지만, 공식 TestGround 재평가가 아니며 전체 COSMOS 사전학습 결론은 아닙니다.
+
+오류 감사 기록: [연구 보고서 노트북](COSMOS_Transfer_Error_Analysis_Report.ipynb) · [최초 pilot](benchmarks/pilot/README.md) · [LR 통제 진단](benchmarks/lr_control/README.md)

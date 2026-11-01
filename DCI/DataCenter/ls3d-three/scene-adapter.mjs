@@ -279,7 +279,8 @@ export function createSceneAdapter(T, canvas) {
   function focusOdfSmallBox(assetId){
     const asset=T.assetMap.get(assetId),item=registry.get(assetId);
     if(asset?.id!=='odf'||!item?.odfSmallSession)return false;
-    focusRackSide(assetId,'front');
+    // The network zone turns this rack by PI; its enclosure front faces world +Z.
+    focusRackSide(assetId,'rear');
     if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
     selectRackPart(assetId,assetId+':odf-small:housing');
     return true;
@@ -742,11 +743,11 @@ export function createSceneAdapter(T, canvas) {
     }else if(odfBox.owns(part)){
       const asset=T.assetMap.get(assetId),desired=T.cameraDesired,s=record.odfSmallSession;
       if(asset&&desired&&s&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
-        focusRackSide(assetId,'front');
+        focusRackSide(assetId,'rear');
         const point=new THREE.Vector3(0,s.height*.5,0);
         s.root.updateMatrixWorld(true);s.root.localToWorld(point);
         desired.target=[point.x,point.y,point.z];desired.distance=canvas.getBoundingClientRect().width<640?3.05:2.35;
-        desired.yaw=Math.PI;desired.pitch=.24;
+        desired.yaw=0;desired.pitch=.24;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }
       if(part.kind==='odf-small-port')emphasizeRackPart(assetId,partId);

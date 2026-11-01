@@ -60,6 +60,7 @@ test('PC ODF enclosure closes, hinges open and highlights LC pigtail',async({pag
  const errors=await start(page,'odf','network');
  await page.locator('[data-rack-action="odf-select"]').click();
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.rackInteraction.selectedOdfBox?.isolated);
+ expect(await page.evaluate(()=>window.__LS3D_TEST__.cameraDesired.yaw)).toBe(0);
  const closed=await metrics(page,'odf','odf-small:');
  expect(closed.odf.portCount).toBe(6);expect(closed.odf.open).toBe(0);
  expect(closed.objects.filter(x=>x.startsWith('odf-small:pigtail-'))).toHaveLength(6);

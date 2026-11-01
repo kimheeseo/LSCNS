@@ -13,7 +13,7 @@ import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-r
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v3';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
-import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-optical-design-step2-v2';
+import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-patch-depth-v8';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -663,13 +663,13 @@ export function createSceneAdapter(T, canvas) {
       if(asset&&desired&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
         focusRackSide(assetId,'front');
         const unit=(asset.h-.46)/(record.rackUnits||42);
-        const point=new THREE.Vector3(0,.23+(part.uStart-.5)*unit,-asset.d*.347);
+        const point=new THREE.Vector3(0,.23+(part.uStart-.5)*unit+asset.d*.09,-asset.d*.347);
         record.g.updateMatrixWorld(true);record.g.localToWorld(point);
         const rect=canvas.getBoundingClientRect();
         const usable=(rect.width-(rect.width>640?330:20))/Math.max(1,rect.height);
         desired.target=[point.x,point.y,point.z];
-        desired.distance=Math.max(2.2,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.25);
-        desired.yaw=Math.PI;desired.pitch=1.20;
+        desired.distance=Math.max(2.85,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.38);
+        desired.yaw=Math.PI-.19;desired.pitch=.83;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }
     }else if(part){

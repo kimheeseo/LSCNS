@@ -115,6 +115,7 @@ test('19-C: rack front/rear, selected sled, cassette, ToR and independent PDU A/
     if(!rack)throw Error('interactive rack missing');
     T.pickAsset(rack,true);return rack.id;
   });
+  await page.locator('#detailBtn').click();
   await page.waitForFunction(()=>!!document.querySelector('#ls3dRackMotionControls')&&
     !document.querySelector('#ls3dRackMotionControls').hidden);
   // Browser actions below are real DOM interactions.
@@ -315,10 +316,15 @@ test('19-I: mobile rack controls fold/unfold and keep rack mechanisms intact',as
   await page.evaluate(()=>{
     const T=window.__LS3D_TEST__;T.pickAsset(T.assetMap.get('gpu-0-0'),true);
   });
+  await page.getByRole('button',{name:/설비 검사·상세 펼치기/}).click();
+  await page.locator('#inspectorRackOpen').click();
   await page.waitForFunction(()=>!!document.getElementById('ls3dRackPanelToggle')&&
     !document.getElementById('ls3dRackMotionControls').hidden);
   const btn=page.locator('#ls3dRackPanelToggle');
   const body=page.locator('#ls3dRackMotionBody');
+  await expect(btn).toHaveAttribute('aria-expanded','true');
+  await expect(body).toBeVisible();
+  await btn.click();
   await expect(btn).toHaveAttribute('aria-expanded','false');
   await expect(body).toBeHidden();
   await expect(page.locator('#ls3dRackMotionControls')).toHaveAttribute('data-rack-collapsed','true');
@@ -379,7 +385,7 @@ test('19-J: selected GPU module extracts and reinstalls inside the isolated rack
   verify(errors);
 });
 
-test('19-K: only Loading Bay faces the cargo-side camera in Gray Zone',async({page},info)=>{
+test('19-K: Loading Bay cargo-side camera and staging tour remain operational',async({page},info)=>{
   const errors=await ready(page,'gray');
   await page.evaluate(()=>window.__LS3D_TEST__.pickAsset(window.__LS3D_TEST__.assetMap.get('visitor-loading')));
   await page.waitForFunction(()=>!!window.LS3D_THREE.adapter.scene.getObjectByName('equipment:visitor-loading'));
@@ -403,7 +409,7 @@ test('19-K: only Loading Bay faces the cargo-side camera in Gray Zone',async({pa
       mediumForklift:!!bay.getObjectByName('equipment-medium:loading-bay')?.getObjectByName('loading-forklift-parked')};
   });
   expect(world.bayYaw).toBe(0);
-  expect(world.stagingYaw).toBeCloseTo(Math.PI);
+  expect(world.stagingYaw).toBe(0);
   expect(world.cartonZ).toBeGreaterThan(world.bayZ);
   expect(world.forklift).toBe(true);
   expect(world.parking).toBe(true);

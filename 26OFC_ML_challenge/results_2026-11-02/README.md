@@ -1,30 +1,37 @@
-# PI-EDFA 공식 공개 데이터 사후 검증 (2026-11-02)
+# Physics-Guided PI-EDFA | Official Data Benchmark (2026-11-02)
 
-[PI-EDFA 원본 노트북](../OFC_2026_Physics_Guided_EDFA_Colab.ipynb)을 공식 데이터 저장소의 Train CSV로 학습하고 공개 TestGround 정답으로 평가한 실행 기록입니다. 점수는 낮을수록 좋습니다.
+**목적:** 물리 기반 특성·스펙트럼 보정형 PI-EDFA 모델을 OFC 2026 공식 데이터로 학습하고 공개 TestGround에서 **사후 검증한 결과 기록**입니다.
 
-| 팀 | Aging | SHB | Unseen | 종합 |
+## 모델 및 검증
+- 원본 코드: [OFC_2026_Physics_Guided_EDFA_Colab.ipynb](../OFC_2026_Physics_Guided_EDFA_Colab.ipynb)
+- 학습: 공식 Train **490개**, 내부 검증 **93개** (seed 2026)
+- 모델 구성: 물리적 Gain/Tilt 기준선 + 학습 가능한 스펙트럼 보정
+- 평가: TestGround **21,056개** (Aging 4,400 / SHB 864 / Unseen 15,792)
+- 데이터 누출 방지: TestGround 정답은 훈련·스케일링·체크포인트 선택에 사용하지 않음
+
+## 결과
+*점수는 낮을수록 좋습니다.*
+
+| 구분 | Aging | SHB | Unseen | 종합 |
 |---|---:|---:|---:|---:|
-| SJTU (제공된 비교표) | 0.1302 | 0.0798 | 0.0987 | 0.1080 |
-| IPOC (제공된 비교표) | 0.1215 | 0.1130 | 0.1155 | 0.1173 |
-| SIL (제공된 비교표) | 0.1212 | 0.0706 | 0.1242 | 0.1212 |
-| NU (제공된 비교표) | 0.1164 | 0.0724 | 0.3130 | 0.2408 |
-| **PI-EDFA (이번 실행)** | **0.144064** | **0.147435** | **0.440072** | **0.382980** |
+| **PI-EDFA 공개 TestGround** | 0.144064 | 0.147435 | 0.440072 | **0.382980** |
 
-PI-EDFA의 공개 TestGround 샘플 수는 Aging 4,400, SHB 864, Unseen 15,792, 총 21,056개입니다. Train에서 분리한 검증 점수는 0.225505입니다. 이 검증 세트는 조기 종료와 최고 체크포인트 선택에도 사용되었습니다.
+- Train 내부 검증: **0.225505**
+- 상대적으로 **Unseen의 오차가 큼** → 미학습 조건 일반화 개선 필요
+- [Spectral Transformer 비교](../PI_EDFA_Transformer/README.md): 공개 TestGround 종합 **0.333409**
+- 본 실험의 숫자는 **비공개 대회 리더보드 순위가 아닙니다.**
 
-**해석 범위:** PI-EDFA 수치는 공개 TestGround에 대한 사후 재현 결과입니다. 다른 팀의 네 행은 사용자가 제공한 비교표의 숫자이며, 이번 실행으로 재평가한 값이 아닙니다. 같은 비공개 Kaggle 리더보드 조건에서 직접 측정한 순위라고 주장할 수 없습니다. 종합 점수는 세 카테고리 점수의 산술평균이 아니라 전체 유효 채널을 합쳐 계산한 값입니다.
+## 결과 파일
+- [testground_metrics.json](testground_metrics.json) — 종합·Aging·SHB·Unseen 점수
+- [validation_metrics.json](validation_metrics.json) · [validation_by_category.json](validation_by_category.json) — 내부 검증
+- [training_history.csv](training_history.csv) — Epoch별 학습 이력
 
 ## 재현
+공식 [데이터 저장소](https://github.com/ofc-ml-challenge/ofc-ml-challenge-data-code)의 실제 CSV를 준비한 뒤, 원본 Colab에서 생성한 `physics_edfa.py`를 실행합니다.
 
-1. 공식 저장소 `ofc-ml-challenge/ofc-ml-challenge-data-code`를 클론하고 Git LFS 파일을 받습니다.
-2. 노트북의 `%%writefile /content/physics_edfa.py` 셀에서 생성되는 Python 스크립트를 실행합니다.
-3. 실행 명령: `python physics_edfa.py --data-root /path/to/ofc-ml-challenge-data-code --output physics_results --epochs 250 --patience 40 --cpu --evaluate-testground`
+```bash
+python physics_edfa.py --data-root /path/to/ofc-ml-challenge-data-code \
+  --output physics_results --epochs 250 --patience 40 --evaluate-testground
+```
 
-설정: seed 2026, batch size 64, hidden 96, learning rate 0.002, validation fraction 0.2 (스크립트 기본값). CPU에서 epoch 124에 조기 종료되었습니다. 원본 Train 490행, 검증 대상 93행입니다. 학습에는 TestGround 정답을 사용하지 않았습니다.
-
-- [TestGround 전체·카테고리별 지표](testground_metrics.json)
-- [학습 중 검증 지표](validation_metrics.json)
-- [검증 카테고리별 지표](validation_by_category.json)
-- [학습 곡선 수치](training_history.csv)
-
-공식 자료: [대회 설명](https://ofc-ml-challenge.github.io/ofc-ml-challenge/ml-challenge/) · [데이터/코드 저장소](https://github.com/ofc-ml-challenge/ofc-ml-challenge-data-code)
+**상태:** 공개 TestGround 검증 기록 보존; 독립 Train 검증과 사후 TestGround 점수를 구분해 해석.

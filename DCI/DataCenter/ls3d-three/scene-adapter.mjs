@@ -7,10 +7,10 @@ import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visit
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261031-rack-controls-label-v3';
+import { createRackComponentKit } from './rack-components.mjs?v=20261102-rack-part-name-role-v1';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v3';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261102-patch-component-guide-v1';
@@ -340,13 +340,15 @@ export function createSceneAdapter(T, canvas) {
         ['previous-server','이전 모듈'],['next-server','다음 모듈'],
         ['server-slide','선택 모듈 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],
         ['next-drive','다음 드라이브 선택'],['drive-toggle','선택 드라이브 인출/장착'],['cassette-slide','광 카세트 인출/복귀'],
-        ['patch-select','광 패치패널 선택'],['cable-patch','케이블 · 패치패널 연결/분리'],
+        ['patch-select','광 패치패널 선택'],['switch-select','네트워크 스위치 선택'],
+        ['cassette-select','MPO/MTP 카세트 선택'],['gpu-select','GPU 모듈 선택'],
+        ['cable-patch','케이블 · 패치패널 연결/분리'],
         ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
         button.type='button';button.dataset.rackAction=code;button.textContent=label;
-        if(code==='next-gpu'||code==='gpu-toggle')button.dataset.gpuOnly='1';
+        if(code==='next-gpu'||code==='gpu-toggle'||code==='gpu-select')button.dataset.gpuOnly='1';
         if(code==='next-drive'||code==='drive-toggle')button.dataset.storageOnly='1';
         button.style.cssText='padding:7px 5px;border-radius:6px;border:1px solid #508497;background:#24465a;color:#eefaff;cursor:pointer;text-align:center;font:inherit;';
         grid.appendChild(button);
@@ -356,6 +358,12 @@ export function createSceneAdapter(T, canvas) {
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
         if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
+        else if(action==='switch-select'){
+          const switchPart=registry.get(asset.id)?.rackParts.find(p=>p.kind==='tor');
+          if(switchPart)selectRackPart(asset.id,switchPart.id);
+        }
+        else if(action==='cassette-select')focusRackOpticalAssembly(asset.id,'optical-mtp');
+        else if(action==='gpu-select')cycleRackGpu(asset.id,0);
         else if(action==='cable-patch'){
           if(focusRackOpticalAssembly(asset.id,'optical-patch')){
             rackPatch.toggle(asset.id);
@@ -571,7 +579,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
+    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;

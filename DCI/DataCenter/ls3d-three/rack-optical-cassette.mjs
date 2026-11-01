@@ -14,6 +14,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
    root:built.cassetteGroup.parent,carrier:built.cassetteGroup,partIds:new Set(),isolated:false,visibility:null};
   function info(key,kind,label,description,extra={}){
    const p={id:id+':'+key,assetId:id,kind,label,description,uStart:cassetteU,uHeight:2,source,...extra};
+   if(kind==='optical-module')p.role='후면 MPO/MTP 12심 광연결을 전면 LC duplex 6포트로 분기합니다.';
    built.parts.push(p);built.partMap.set(p.id,p);session.partIds.add(p.id);return p;
   }
   function box(parent,p,name,x,y,z,ww,hh,dd,color,transparent=false){

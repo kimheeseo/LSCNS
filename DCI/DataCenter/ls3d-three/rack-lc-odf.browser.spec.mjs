@@ -88,6 +88,28 @@ test('PC opened patch panel identifies cover, splice and LC components',async({p
  expect(errors).toEqual([]);
  await page.screenshot({path:info.outputPath('patch-components-explained.png'),fullPage:true});
 });
+test('rack shortcuts show component names and roles for patch, switch, cassette and GPU',async({page},info)=>{
+ const errors=await start(page,'tor-a','hall');
+ for(const [action,name,role] of [
+  ['patch-select','광 패치패널','광케이블을 종단'],
+  ['switch-select','네트워크 스위치','서버의 네트워크 트래픽'],
+  ['cassette-select','MPO/MTP 카세트','MPO/MTP 12심']
+ ]){
+  await page.locator('[data-rack-quick="'+action+'"]').click();
+  await expect(page.locator('#inspectorPartName')).toContainText(name);
+  await expect(page.locator('#inspectorPartRole')).toContainText(role);
+ }
+ await page.screenshot({path:info.outputPath('network-components-name-role.png'),fullPage:true});
+ expect(errors).toEqual([]);
+});
+test('GPU shortcut shows selected module name and role',async({page},info)=>{
+ const errors=await start(page,'gpu-0-0','hall');
+ await page.locator('[data-rack-quick="gpu-select"]').click();
+ await expect(page.locator('#inspectorPartName')).toContainText('GPU 모듈');
+ await expect(page.locator('#inspectorPartRole')).toContainText('병렬 연산');
+ expect(errors).toEqual([]);
+ await page.screenshot({path:info.outputPath('gpu-component-name-role.png'),fullPage:true});
+});
 test('PC ODF enclosure closes, hinges open and highlights LC pigtail',async({page},info)=>{
  const errors=await start(page,'odf','network');
  await page.locator('[data-rack-action="odf-select"]').click();

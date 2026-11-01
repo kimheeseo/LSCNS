@@ -142,7 +142,14 @@ export function createRackComponentKit(THREE,{cube}){
     const start=Math.max(1,slot.top-slot.units+1);
     if(slot.kind==='odf')continue; // Open, four-slot chassis is supplied by rack-optical-cassette.
     const g=part(slot.kind,slot.label,start,slot.units,w*.76,null,d*.46,-d*.29,slot.color);
-    if(slot.kind==='patch-panel')g.userData.rackPart.description='19인치 수동 광 패치패널입니다. 광 트렁크/점퍼를 분배하며 MPO/MTP 카세트 및 LC 어댑터 패널과는 별개의 부품입니다. 본 화면은 구조 이해용이며 실제 제조사 BOM이 아닙니다.';
+    if(slot.kind==='patch-panel'){
+      g.userData.rackPart.role='광케이블을 종단하고 LC 포트로 광경로를 연결·관리합니다.';
+      g.userData.rackPart.description='19인치 수동 광 패치패널입니다. 광 트렁크/점퍼를 분배하며 MPO/MTP 카세트 및 LC 어댑터 패널과는 별개의 부품입니다. 본 화면은 구조 이해용이며 실제 제조사 BOM이 아닙니다.';
+    }
+    if(slot.kind==='tor'||slot.kind==='leaf-b'){
+      g.userData.rackPart.role='서버의 네트워크 트래픽을 모아 상위 네트워크로 전달합니다.';
+      g.userData.rackPart.description='랙 상단의 네트워크 스위치입니다. 서버 NIC의 접속과 상향 링크를 담당하며 포트 구성은 교육용 예시입니다.';
+    }
     if(slot.kind==='lc-adapter-panel')g.userData.rackPart.description='LC duplex 어댑터 패널: 전면 LC 커넥터 12개를 수용하는 수동 패널 예시입니다. 어댑터는 광파워를 증폭하지 않으며 실제 연결 포트 수는 장착 제품을 확인해야 합니다.';
     const yh=(slot.units*unit)*.5;
     const face=box(g,'port-face',0,lower+(start-1)*unit+.015,-d*.468,w*.68,
@@ -194,6 +201,7 @@ export function createRackComponentKit(THREE,{cube}){
       box(gpu,'gpu-power-link-'+i+'-'+chip,gx,y+.12,d*.055,w*.08,.035,.07,'#d5b467',.44,.28);
       box(gpu,'gpu-pull-tab-'+i+'-'+chip,gx,y+.15,-d*.31,w*.085,.07,.025,'#edc567',.35,.25);
       gpu.userData.rackPart.description='선택한 GPU 모듈을 서버 트레이에서 앞으로 인출하거나 다시 장착하는 교육용 동작입니다. 실제 장비의 전원 차단·냉각 분리 절차를 대신하지 않습니다.';
+      gpu.userData.rackPart.role='AI 학습·추론을 위한 대량의 병렬 연산을 수행합니다.';
       gpuGroups.push(gpu);
      }
      for(const side of [-1,1])
@@ -216,6 +224,7 @@ export function createRackComponentKit(THREE,{cube}){
       moduleLabel(partGroup,id,'fabric-'+i,i===0?'SPINE':'EXPANSION',0,
         y+units*unit*.76,-d*.515,w*.50,.095,i===0?'#3aa66a':'#617e8e');
       partGroup.userData.rackPart.description=i===0?'Leaf A/B 상향 링크를 수용하는 네트워크 스위치 예시입니다. 논리적 Spine A/B 이중화는 별도 네트워크 계층도에서 확인합니다.':'추가 네트워크 장비를 위한 예시 공간입니다.';
+      partGroup.userData.rackPart.role='하위 스위치의 트래픽을 집선해 상위 네트워크로 전달합니다.';
       if(i===0)for(let port=0;port<2;port++){
         const optic=group(partGroup,id,'optical-transceiver-'+i+'-'+port,'Spine '+(i+1)+' 광 트랜시버 · 포트 '+(port+1),u,units);
         const txX=-w*.18+port*w*.12;

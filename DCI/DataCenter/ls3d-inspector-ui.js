@@ -10,7 +10,7 @@ style.textContent=`
 .tool-dock #phase2-bar{position:static!important;display:grid!important;grid-template-columns:1fr 1fr;gap:6px;max-width:none!important;margin:0!important;transform:none!important}
 .tool-dock .phase58-launch,.tool-dock #phase2-bar button{position:static!important;inset:auto!important;display:block;width:100%;max-width:100%;margin:0!important;transform:none!important;padding:9px 10px;border:1px solid #456c81;border-radius:7px;background:#17394d;color:#d4edf8;font:600 11px system-ui;text-align:left;min-height:36px;white-space:normal}
 #mobileInspectorTools{margin:4px 0;border:1px solid #365c73;border-radius:8px;background:#102b3e;padding:9px;color:#cae6f4;font-size:12px}#mobileInspectorTools summary{cursor:pointer}#mobileInspectorTools .tool-dock{margin-top:9px;grid-template-columns:1fr 1fr}
-.inspector-selectors{display:grid;gap:10px;padding:13px 0 14px}.inspector-selectors label{display:grid;gap:6px;color:#9bbdd0;font-size:11px}.inspector-selectors select{width:100%;min-width:0;padding:9px;border:1px solid #4a7187;background:#112d42;border-radius:7px;color:#edf8ff;font-size:12px}.inspector-part{margin-bottom:13px;border:1px solid #458d9c;border-left:4px solid #f0c663;background:#123449;border-radius:9px;padding:12px}.inspector-part[hidden]{display:none}.inspector-part small{display:block;color:#9ac6d9;font-size:10px}.inspector-part strong{display:block;color:#f2f9fc;font-size:15px;line-height:1.5;margin:5px 0}.inspector-part p{font-size:12px;line-height:1.7;color:#c1dce8;margin:6px 0}.inspector-part button{border:1px solid #588399;border-radius:6px;background:#21465c;color:#e9f6fc;padding:6px 9px;font-size:11px;cursor:pointer}
+.inspector-selectors{display:grid;gap:10px;padding:13px 0 14px}.inspector-selectors label{display:grid;gap:6px;color:#9bbdd0;font-size:11px}.inspector-selectors select{width:100%;min-width:0;padding:9px;border:1px solid #4a7187;background:#112d42;border-radius:7px;color:#edf8ff;font-size:12px}.inspector-part{margin-bottom:13px;border:1px solid #458d9c;border-left:4px solid #f0c663;background:#123449;border-radius:9px;padding:12px}.inspector-part[hidden]{display:none}.inspector-part small{display:block;color:#9ac6d9;font-size:10px}.inspector-part strong{display:block;color:#f2f9fc;font-size:15px;line-height:1.5;margin:5px 0}.inspector-part p{font-size:12px;line-height:1.7;color:#c1dce8;margin:6px 0}.inspector-part .inspector-part-role{color:#fff0bd;font-weight:700}.inspector-part .inspector-part-role[hidden]{display:none}.inspector-part button{border:1px solid #588399;border-radius:6px;background:#21465c;color:#e9f6fc;padding:6px 9px;font-size:11px;cursor:pointer}
 .inspector-rack-open{width:100%;padding:10px;border:1px solid #63b8b3;border-radius:8px;background:#15515b;color:#e5fffb;font:700 12px system-ui;cursor:pointer}.inspector-rack-open[hidden]{display:none}
 .inspector-rack-ops{border:1px solid #4d8e9c;border-radius:10px;background:#113145;padding:12px;margin:8px 0 14px;color:#e8f8ff}
 .inspector-rack-ops[hidden],.inspector-rack-ops button[hidden]{display:none!important}
@@ -39,7 +39,7 @@ const selector=document.createElement('section');selector.className='inspector-s
 selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><button id="inspectorRackOpen" class="inspector-rack-open" type="button" hidden>선택 랙 단독 보기 · 문 열기/닫기</button><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
 document.querySelector('.right-head').insertAdjacentElement('afterend',selector);
 const card=document.createElement('section');card.id='inspectorPartDetails';card.className='inspector-part';card.hidden=true;card.setAttribute('aria-live','polite');
-card.innerHTML='<small id="inspectorPartContext"></small><strong id="inspectorPartName"></strong><p id="inspectorPartDescription"></p><button type="button" id="inspectorPartClear">부품 선택 해제</button>';
+card.innerHTML='<small id="inspectorPartContext"></small><strong id="inspectorPartName"></strong><p id="inspectorPartRole" class="inspector-part-role" hidden></p><p id="inspectorPartDescription"></p><button type="button" id="inspectorPartClear">부품 선택 해제</button>';
 selector.insertAdjacentElement('afterend',card);
 // Persistent drawer controls in the inspector: they cannot be lost behind
 // the 3D canvas or a collapsed floating rack toolbar.
@@ -64,6 +64,9 @@ rackOps.innerHTML='<h3>랙 내부 부품 열기 · 넣기</h3>'+
  '<button type="button" data-rack-quick="next-drive" data-rack-quick-kind="storage">다음 드라이브</button>'+
  '<button type="button" data-rack-quick="drive-toggle" data-rack-quick-kind="storage">드라이브 인출 · 장착</button>'+
  '<button type="button" data-rack-quick="patch-select">광 패치패널 선택</button>'+
+ '<button type="button" data-rack-quick="switch-select">네트워크 스위치 선택</button>'+
+ '<button type="button" data-rack-quick="cassette-select">MPO/MTP 카세트 선택</button>'+
+ '<button type="button" data-rack-quick="gpu-select" data-rack-quick-kind="gpu">GPU 모듈 선택</button>'+
  '<button type="button" data-rack-quick="cable-patch">케이블 연결 · 분리</button>'+
  '<button type="button" data-rack-quick="optical-lc" data-rack-quick-kind="lc">LC 어댑터 패널 선택</button>'+
  '<button type="button" data-rack-quick="lc-rear" data-rack-quick-kind="lc">LC 패널 후면 연결 보기</button>'+
@@ -79,7 +82,7 @@ rackOps.addEventListener('click',event=>{
  const adapter=window.LS3D_THREE?.adapter;
  const successful=!!adapter?.runRackAction?.(code);
  if(successful){
-  if(!/^(patch-select|optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
+  if(!/^(patch-select|cassette-select|optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
   $('inspectorRackOpStatus').textContent=
     event.target.textContent+' · 3D 랙 조작을 실행했습니다. 같은 버튼을 다시 누르면 복귀합니다.';
  }else{
@@ -95,6 +98,7 @@ function renderPart(){
  card.hidden=!part;
  if(part){
   $('inspectorPartName').textContent=part.label||part.name||'선택 부품';
+  const role=$('inspectorPartRole');role.hidden=!part.role;role.textContent=part.role?'역할 · '+part.role:'';
   $('inspectorPartDescription').textContent=part.description||'선택한 설비의 구성 부품입니다. 교육용 개념 모델입니다.';
   const parent=T.assetMap.get(part.assetId);
   $('inspectorPartContext').textContent=(parent?parent.name:zoneName(part.zoneId))+(Number.isFinite(part.uStart)?' · U '+part.uStart+'–'+(part.uStart+(part.uHeight||1)-1):'')+(part.component?' · '+part.component:'');

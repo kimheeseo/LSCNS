@@ -9,7 +9,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
   const cassetteU=built.cassetteU||built.rackUnits-4;
   const base=.23+(cassetteU-1)*unit,ht=unit*1.80,front=-d*.52,back=-d*.07;
   const tray=new THREE.Group();tray.name='rack-optical:LS-four-slot-tray';built.cassetteDrawer.add(tray);
-  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built,selectedModule:0,moduleTarget:0,moduleSlide:0,highlight:false};
+  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built};
   function info(key,kind,label,description,extra={}){
    const p={id:id+':'+key,assetId:id,kind,label,description,uStart:cassetteU,uHeight:2,source,...extra};
    built.parts.push(p);built.partMap.set(p.id,p);return p;
@@ -27,9 +27,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
    box(tray,housing,'rack-ear',sign*w*.402,base,front,w*.043,ht,.035,'#b1c2ce');
    for(const yy of [.20,.78])box(tray,housing,'rack-ear-fastener',sign*w*.402,base+ht*yy,front-.025,.026,.026,.017,'#1b2530');
   }
-  // Leave the rear connector bay open so the MPO input is visible from behind.
-  box(tray,housing,'back-lower-rail',0,base+ht*.04,back,w*.75,ht*.08,.025,'#23394b');
-  box(tray,housing,'back-upper-rail',0,base+ht*.85,back,w*.75,ht*.08,.025,'#23394b');
+  box(tray,housing,'back-wall',0,base,back,w*.75,ht,.025,'#23394b');
   for(let m=0;m<4;m++){
    const x=(m-1.5)*w*.181,mw=w*.17;
    const p=info('cassette-module-'+m,'optical-module','MPO/MTP 카세트 '+(m+1)+' · 후면 12F → 전면 LC duplex × 6','MPO/MTP 계열 다심 커넥터의 12F를 LC duplex 6포트로 분기하는 독립형 카세트입니다. 4개 모듈 합계 48심/24 duplex 예시이며 실제 극성 A/B/C, 피복, 커넥터 성별과 MTP 상표 제품 호환성은 데이터시트로 확인해야 합니다.',{moduleIndex:m});
@@ -61,8 +59,6 @@ export function createRackOpticalCassette(THREE,{cube}) {
    lid.position.set(x,base+ht*.90,back-.045);
    box(lid,p,'module-lid',0,0,-(back-front)*.45,mw,.015,(back-front)*.88,'#2f5065');
    session.modules.push({group,x,mw,p,mpo});session.covers.push(lid);
-   // Each cassette has its own fixed pair of slide guides and a mechanical latch.
-   for(const sign of [-1,1])box(tray,housing,'module-guide-'+m+'-'+sign,x+sign*mw*.47,base+.018,(front+back)/2,.012,.026,back-front-.06,'#8ea7b4');
   }
   // Fixed guide rails are attached to the rack, not the moving drawer.
   for(const sign of [-1,1])box(built.cassetteGroup.parent,housing,'fixed-slide-rail',sign*w*.39,base+.035,(front+back)/2,.028,.045,back-front,'#bac8ce');
@@ -80,7 +76,6 @@ export function createRackOpticalCassette(THREE,{cube}) {
   for(let m=0;m<4;m++){
    const {group,x,mw,p,mpo}=s.modules[m],zmid=(front+back)/2;
    const detail=new THREE.Group();detail.name='rack-optical:fanout-detail-'+m;group.add(detail);
-   s.modules[m].detail=detail;
    const spool=info('fiber-manager-'+m,'fiber-management','카세트 '+(m+1)+' · 여장 및 굴곡 관리','광섬유 팬아웃과 여장을 가이드 안에 정리합니다. 이 화면의 곡률과 치수는 실제 최소 굴곡반경 검증값이 아닙니다.',{moduleIndex:m});
    for(const side of [-1,1]){
     box(detail,spool,'fiber-guide',x+side*mw*.28,base+ht*.22,zmid,mw*.10,ht*.29,d*.14,'#d9cdb2');
@@ -90,8 +85,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
    for(let f=0;f<12;f++){
     const px=x+(Math.floor(f/2)-2.5)*mw*.151+(f%2?1:-1)*mw*.030;
     const yy=base+ht*.34+(f%3)*.004;
-    const fiber=tube(detail,s.portDefs[m*6+Math.floor(f/2)],'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);
-    (s.modules[m].fibers??=[]).push(fiber);stats.fibers++;
+    tube(detail,s.portDefs[m*6+Math.floor(f/2)],'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);stats.fibers++;
    }
    tube(detail,mpo,'mpo-trunk-'+m,[[x,base+ht*.40,back+.08],[x,base+ht*.48,back+d*.12],[x+w*.10,base+ht*.62,back+d*.21]],.019,'#ebd45e');
    box(detail,mpo,'trunk-strain-relief',x,base+ht*.20,back+.10,mw*.42,ht*.45,.030,'#161f2d');
@@ -106,21 +100,13 @@ export function createRackOpticalCassette(THREE,{cube}) {
  function update(id,moving,legacy){
   const s=registry.get(id);if(!s)return null;
   const open=Math.max(0,Math.min(1,Number(legacy?.cassette)||0));
-  if(open>.02||s.moduleTarget>.02||s.moduleSlide>.02||s.highlight)details(s);
+  if(open>.02)details(s);
   if(moving?.cassette)moving.cassette.position.z=-open*(moving.reach||1)*.70;
-  s.moduleSlide+=(s.moduleTarget-s.moduleSlide)*.16;
-  s.covers.forEach((lid,i)=>{lid.rotation.x=-Math.max(open,i===s.selectedModule?s.moduleSlide:0)*1.38;});
-  s.modules.forEach((m,i)=>{
-   m.group.position.y=s.exploded?open*(i===1?.42:.12):0;
-   m.group.position.z=i===s.selectedModule?-s.moduleSlide*.38:0;
-   m.fibers?.forEach(f=>{f.material.emissive.setHex(s.highlight&&i===s.selectedModule?0xe3aa24:0);f.material.emissiveIntensity=s.highlight&&i===s.selectedModule?.65:0;});
-  });
+  s.covers.forEach(lid=>{lid.rotation.x=-open*1.38;});
+  s.modules.forEach((m,i)=>{m.group.position.y=s.exploded?open*(i===1?.42:.12):0;});
   s.open=open;stats.updates++;return {open,portCount:24,moduleCount:4,drawerZ:moving?.cassette?.position.z||0};
  }
- function state(id){const s=registry.get(id);return s?{open:s.open,ports:s.portDefs.map(p=>p.id),moduleCount:4,fibers:48,duplexPorts:24,detail:s.detail,exploded:s.exploded,selectedModule:s.selectedModule,moduleTarget:s.moduleTarget,moduleSlide:s.moduleSlide,highlight:s.highlight}:null;}
+ function state(id){const s=registry.get(id);return s?{open:s.open,ports:s.portDefs.map(p=>p.id),moduleCount:4,fibers:48,duplexPorts:24,detail:s.detail,exploded:s.exploded}:null;}
  function explode(id){const s=registry.get(id);if(!s)return false;s.exploded=!s.exploded;return s.exploded;}
- function selectModule(id,index){const s=registry.get(id);if(!s)return null;s.moduleTarget=0;s.moduleSlide=0;s.modules.forEach(m=>m.group.position.z=0);s.selectedModule=(index+4)%4;s.highlight=false;return s.modules[s.selectedModule].p;}
- function toggleModule(id){const s=registry.get(id);if(!s)return false;s.moduleTarget=1-s.moduleTarget;if(s.moduleTarget)details(s);return true;}
- function togglePath(id){const s=registry.get(id);if(!s)return false;details(s);s.highlight=!s.highlight;if(s.highlight)s.moduleTarget=1;return s.highlight;}
- return {decorate,update,state,explode,selectModule,toggleModule,togglePath,drop:id=>registry.delete(id),reset:()=>registry.clear(),stats};
+ return {decorate,update,state,explode,drop:id=>registry.delete(id),reset:()=>registry.clear(),stats};
 }

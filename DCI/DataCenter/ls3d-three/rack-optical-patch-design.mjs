@@ -18,14 +18,24 @@ export function createRackOpticalPatchDesign(THREE,{cube}){
     label,description,uStart:part.uStart,uHeight:1};
    built.parts.push(entry);built.partMap.set(entry.id,entry);return entry;
   };
-  const splice=subpart('splice-holder','패치패널 · 융착접속 트레이와 보호슬리브',
-   '트렁크 광섬유와 LC 피그테일의 융착접속부를 보호슬리브 및 홀더에 정리합니다.');
-  const guides=subpart('fiber-guides','패치패널 · 광섬유 여장과 고정 클립',
-   '다색 광섬유 여장을 완만한 루프로 정리하고 클립·케이블 타이로 인입 케이블을 고정합니다.');
+  const housing=subpart('housing','패치패널 하우징 · 19인치 1U',
+   '랙에 고정되는 금속 트레이와 전면 베젤입니다. 내부의 접속 트레이·피그테일·LC 어댑터를 보호하고 정리합니다. 교육용 형상이며 특정 제조사 제품은 아닙니다.');
+  const lid=subpart('hinged-lid','패치패널 상단 커버 · 힌지',
+   '후면 힌지에 연결된 금속 덮개입니다. 닫으면 내부 광섬유와 접속부를 가리고 열면 점검할 수 있습니다.');
+  const splice=subpart('splice-tray','융착접속 트레이 · 홀더',
+   '인입 광섬유와 LC 피그테일의 접속점을 중앙에 정리하는 트레이와 홀더입니다. 섬유 여장을 확보하고 접속부가 흔들리지 않도록 받칩니다.');
+  const sleeves=subpart('splice-sleeves','융착접속 보호슬리브',
+   '융착접속한 광섬유의 접속점을 감싸 기계적으로 보호하는 슬리브입니다. 이 모델에서는 중앙 홀더 위에 여러 개를 배열했습니다.');
+  const guides=subpart('fiber-guides','광섬유 여장 루프 · 라우팅 가이드',
+   '다색 광섬유 피그테일을 완만한 루프로 안내하는 구조입니다. 급격한 꺾임을 피하고 점검·재접속에 필요한 여장을 정리합니다.');
+  const clips=subpart('retention-clips','케이블 고정 클립 · 타이',
+   '인입 케이블과 내부 광섬유를 트레이에 고정해 당김이 접속부에 전달되지 않게 합니다.');
+  const entry=subpart('rear-entry','후면 광케이블 인입부',
+   '외부 광케이블이 패치패널 안으로 들어오는 지점입니다. 인입 케이블은 고정한 뒤 개별 심선을 접속 트레이로 안내합니다.');
   const ports=Array.from({length:12},(_,i)=>subpart('lc-port-'+(i+1),
-   '패치패널 · LC duplex '+(i+1)+'번',
-   '전면 LC duplex 수동 어댑터입니다. 내부 피그테일을 융착 트레이의 접속부와 연결해 표시합니다.'));
-  function box(parent,name,x,base,z,sx,sy,sz,color,selected=part){
+   'LC duplex '+(i+1)+'번 · 내부 피그테일',
+   '전면 '+(i+1)+'번 수동 LC duplex 어댑터와 연결된 내부 피그테일 경로입니다. 광신호를 증폭하지 않으며 피그테일의 다른 끝은 융착접속 트레이로 이어집니다.'));
+  function box(parent,name,x,base,z,sx,sy,sz,color,selected=housing){
    const mesh=cube(parent,x,base,z,sx,sy,sz,color,.38,.46);
    mesh.name='rack-optical-patch:'+name;mesh.userData.assetId=id;mesh.userData.partId=selected.id;mesh.castShadow=true;mesh.receiveShadow=true;
    return mesh;
@@ -37,12 +47,12 @@ export function createRackOpticalPatchDesign(THREE,{cube}){
    box(path,'side-wall-'+sign,sign*width*.49,lower+.012,mid,.018,height-.02,depth,'#2d3b42');
    box(path,'mounting-ear-'+sign,sign*w*.395,lower+.004,front,w*.07,height-.008,.030,'#a7b9c1');
    box(path,'fastener-'+sign,sign*w*.395,lower+height*.43,front-.020,.029,.028,.012,'#24313b');
-   box(path,'cable-clip-'+sign,sign*width*.37,lower+height*.18,rear-depth*.23,.040,.029,.055,'#b4c4c7',guides);
+   box(path,'cable-clip-'+sign,sign*width*.37,lower+height*.18,rear-depth*.23,.040,.029,.055,'#b4c4c7',clips);
   }
-  box(path,'rear-entry-gland',-width*.29,lower+height*.21,rear+.024,.082,.067,.070,'#586c76',guides);
+  box(path,'rear-entry-gland',-width*.29,lower+height*.21,rear+.024,.082,.067,.070,'#586c76',entry);
   for(const sign of [-1,1])box(path,'fiber-retainer-'+sign,sign*width*.28,lower+height*.16,mid,
    .025,.026,depth*.11,'#c9c8b8',guides);
-  box(path,'cable-tie',-width*.29,lower+height*.37,rear-depth*.12,.013,.012,.075,'#e3e2d9',guides);
+  box(path,'cable-tie',-width*.29,lower+height*.37,rear-depth*.12,.013,.012,.075,'#e3e2d9',clips);
   box(path,'front-bezel',0,lower+.009,front+.020,width*.94,height-.015,.040,'#1c2c35');
   box(path,'port-label-strip',0,lower+height*.77,front-.008,width*.88,.018,.014,'#dde5e6');
   // Twelve duplex adapters. The original LC cord still enters ports 4 and 5.
@@ -78,7 +88,7 @@ export function createRackOpticalPatchDesign(THREE,{cube}){
    mid-depth*.10+i*depth*.053,width*.34,.012,.011,'#d0d9d9',splice);
   for(let i=0;i<12;i++){
    box(path,'protection-sleeve-'+i,(i-5.5)*width*.031,lower+height*.22,mid+depth*.07,
-    width*.021,.014,depth*.15,'#e4ddd0',splice);
+    width*.021,.014,depth*.15,'#e4ddd0',sleeves);
   }
   // Two elevated oval routing guides make the 12 separate pigtails legible.
   for(const ratio of [1,1.12]){
@@ -117,18 +127,18 @@ export function createRackOpticalPatchDesign(THREE,{cube}){
   // rather than appearing as a flat wing to its right.
   const cover=new THREE.Group();cover.name='rack-optical-patch:top-cover-hinge';
   cover.position.set(-width*.5,lower+height,rear);path.add(cover);
-  box(cover,'brushed-metal-lid',width*.5,-.018,-depth*.5,width,.026,depth,'#839398');
-  box(cover,'pressed-inner-stamping',width*.5,-.021,-depth*.5,width*.87,.008,depth*.80,'#5e747d');
+  box(cover,'brushed-metal-lid',width*.5,-.018,-depth*.5,width,.026,depth,'#839398',lid);
+  box(cover,'pressed-inner-stamping',width*.5,-.021,-depth*.5,width*.87,.008,depth*.80,'#5e747d',lid);
   for(const sign of [-1,1]){
-   box(cover,'lid-rib-'+sign,width*(.5+sign*.46),-.040,-depth*.5,.025,.034,depth*.87,'#b4bfc0');
+   box(cover,'lid-rib-'+sign,width*(.5+sign*.46),-.040,-depth*.5,.025,.034,depth*.87,'#b4bfc0',lid);
    for(let j=0;j<3;j++)box(cover,'lid-rivet-'+sign+'-'+j,width*(.5+sign*.46),-.026,
-    -depth*(.22+j*.28),.018,.011,.018,'#d9dfdf');
+    -depth*(.22+j*.28),.018,.011,.018,'#d9dfdf',lid);
   }
-  box(cover,'lid-front-return',width*.5,-height*.15,-depth,width,.036,.026,'#c3cfd0');
-  box(cover,'front-grip',width*.5,-height*.25,-depth-.022,width*.17,.038,.050,'#283d48');
-  box(path,'rear-piano-hinge',0,lower+height-.014,rear,.028,.032,.045,'#b2c0c3');
+  box(cover,'lid-front-return',width*.5,-height*.15,-depth,width,.036,.026,'#c3cfd0',lid);
+  box(cover,'front-grip',width*.5,-height*.25,-depth-.022,width*.17,.038,.050,'#283d48',lid);
+  box(path,'rear-piano-hinge',0,lower+height-.014,rear,.028,.032,.045,'#b2c0c3',lid);
   for(let i=-5;i<=5;i++)box(path,'hinge-knuckle-'+i,i*width*.083,
-   lower+height-.019,rear+.010,width*.047,.024,.040,'#d0d9d9');
+   lower+height-.019,rear+.010,width*.047,.024,.040,'#d0d9d9',lid);
   part.description='Network Rack의 19인치 1U 수동 광 패치패널입니다. 선택하면 패널만 분리해 사선 시점에서 보며 후면 힌지 커버가 열립니다. 파란 LC duplex 12포트, 다색 피그테일 여장 루프, 융착 트레이·보호슬리브, 케이블 클립과 인입부를 클릭해 확인할 수 있습니다. 기존 케이블 연결/분리 버튼은 4·5번 LC 포트에 그대로 작동합니다. 첨부 소형 광단자함은 내부 배치 참고용이며 교육용 형상입니다.';
   const s={cover,target:0,angle:0,partId:part.id,root:rackRoot,panel,isolated:false,visibility:null,cableVisible:false};
   sessions.set(id,s);return s;

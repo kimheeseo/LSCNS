@@ -13,7 +13,7 @@ import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-r
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v3';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
-import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-patch-depth-v8';
+import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261102-patch-component-guide-v1';
 import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=20261101-lc-odf-design-v1';
 import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v4';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
@@ -592,7 +592,7 @@ export function createSceneAdapter(T, canvas) {
       selectedPartRing=null;
     }
   }
-  function emphasizeRackPart(assetId,partId) {
+  function emphasizeRackPart(assetId,partId,{ring=true,intensity=2.2,colorMix=.72}={}) {
     clearRackPartEmphasis();
     const item=registry.get(assetId);if(!item)return null;
     const rearMpo=partId.includes(':mpo-input-');
@@ -605,14 +605,14 @@ export function createSceneAdapter(T, canvas) {
       const highlighted=Array.isArray(original)?original.map(m=>m.clone()):original.clone();
       const mats=Array.isArray(highlighted)?highlighted:[highlighted];
       for(const material of mats){
-        if(material.emissive){material.emissive.set(0xffdf55);material.emissiveIntensity=2.2;}
-        if(material.color)material.color.lerp(new THREE.Color(0xffef8a),.72);
+        if(material.emissive){material.emissive.set(0xffdf55);material.emissiveIntensity=intensity;}
+        if(material.color)material.color.lerp(new THREE.Color(0xffef8a),colorMix);
       }
       object.material=highlighted;
       selectedPartVisuals.push({object,original,highlighted});
       if(!anchor||object.name.includes('connector-boot'))anchor=object;
     });
-    if(anchor&&THREE.TorusGeometry&&THREE.MeshBasicMaterial){
+    if(ring&&anchor&&THREE.TorusGeometry&&THREE.MeshBasicMaterial){
       selectedPartRing=new THREE.Mesh(
         new THREE.TorusGeometry(.105,.018,8,24),
         new THREE.MeshBasicMaterial({color:0xffef68,depthTest:false,toneMapped:false})
@@ -765,6 +765,9 @@ export function createSceneAdapter(T, canvas) {
         desired.yaw=Math.PI-.19;desired.pitch=.83;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }
+    }else if(part?.kind==='patch-internal'){
+      // Keep the open-panel view while indicating the selected internal part.
+      emphasizeRackPart(assetId,partId,{ring:false,intensity:.75,colorMix:.28});
     }else if(part){
       emphasizeRackPart(assetId,partId);
     }

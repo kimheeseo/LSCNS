@@ -9,6 +9,7 @@ on:
       - 'DCI/DataCenter/ls3d-three/scene-adapter.mjs'
       - 'DCI/DataCenter/ls3d-three/rack-lc-adapter-design.mjs'
       - 'DCI/DataCenter/ls3d-three/odf-small-fiber-box.mjs'
+      - 'DCI/DataCenter/ls3d-three/rack-optical-patch-design.mjs'
       - 'DCI/DataCenter/ls3d-three/rack-lc-odf.browser.spec.mjs'
       - '.github/workflows/ls3d-lc-odf-browser.yml'
   workflow_dispatch:
@@ -29,7 +30,7 @@ jobs:
         run: npm install --no-save @playwright/test@1.56.1 three@0.186.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Check LC and ODF models
+      - name: Check LC ODF and patch models
         run: node --test DCI/DataCenter/ls3d-three/rack-lc-odf.design.test.mjs
       - name: Render desktop and mobile LC ODF states
         run: npx playwright test --config=DCI/DataCenter/ls3d-three/rack-lc-odf.playwright.config.mjs

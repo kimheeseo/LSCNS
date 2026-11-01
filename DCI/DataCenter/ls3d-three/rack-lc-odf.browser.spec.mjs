@@ -64,6 +64,29 @@ test('PC LC adapter front, rear and selected pigtail',async({page},info)=>{
  await page.waitForFunction(()=>!window.LS3D_THREE.adapter.rackInteraction.selectedLcPanel?.isolated);
  await writeFile(info.outputPath('lc-metrics.json'),JSON.stringify({front,port,errors},null,2));
 });
+test('PC opened patch panel identifies cover, splice and LC components',async({page},info)=>{
+ const errors=await start(page,'tor-a','hall');
+ await page.locator('[data-rack-quick="patch-select"]').click();
+ await page.waitForFunction(()=>window.LS3D_THREE.adapter.scene.getObjectByName('rack-optical-patch:top-cover-hinge')?.rotation.x>1.3);
+ const picked=await page.evaluate(()=>{
+  const a=window.LS3D_THREE.adapter,mesh=a.scene.getObjectByName('rack-optical-patch:brushed-metal-lid');
+  mesh.updateWorldMatrix(true,false);
+  const p=mesh.getWorldPosition(new a.THREE.Vector3()).project(a.camera);
+  const rect=document.getElementById('sceneThree').getBoundingClientRect();
+  a.pick(rect.left+(p.x+1)*rect.width/2,rect.top+(1-p.y)*rect.height/2);
+  return a.selectedPart?.id;
+ });
+ expect(picked).toBe('tor-a:patch-hinged-lid');
+ await expect(page.locator('#inspectorPartName')).toContainText('상단 커버');
+ for(const [key,name] of [['splice-tray','융착접속 트레이'],['splice-sleeves','보호슬리브'],
+  ['fiber-guides','여장 루프'],['retention-clips','고정 클립'],['rear-entry','인입부'],['lc-port-1','LC duplex 1번']]){
+  await page.locator('#inspectorPartSelect').selectOption('tor-a:patch-'+key);
+  await expect(page.locator('#inspectorPartName')).toContainText(name);
+  expect(await page.evaluate(()=>window.LS3D_THREE.adapter.selectedPart?.kind)).toBe('patch-internal');
+ }
+ expect(errors).toEqual([]);
+ await page.screenshot({path:info.outputPath('patch-components-explained.png'),fullPage:true});
+});
 test('PC ODF enclosure closes, hinges open and highlights LC pigtail',async({page},info)=>{
  const errors=await start(page,'odf','network');
  await page.locator('[data-rack-action="odf-select"]').click();

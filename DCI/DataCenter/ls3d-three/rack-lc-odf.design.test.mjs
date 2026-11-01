@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import * as THREE from '../vendor/three.module.js';
 import {createRackLcAdapterDesign} from './rack-lc-adapter-design.mjs';
 import {createOdfSmallFiberBox} from './odf-small-fiber-box.mjs';
+import {createRackOpticalPatchDesign} from './rack-optical-patch-design.mjs';
 
 function cube(parent,x,y,z,w,h,d,color){
  const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshStandardMaterial({color}));
@@ -50,4 +51,22 @@ test('ODF small enclosure closes over six fiber paths and opens on the left hing
  assert.ok(s.cover.rotation.y<.01);assert.equal(kit.state('odf').selectedPort,-1);
  kit.isolate('odf',false);assert.equal(rack.other.visible,true);
  kit.drop('odf');assert.equal(kit.state('odf'),null);
+});
+test('open patch panel maps visible components to separate explanations',()=>{
+ const rack=model('tor-a','Top-of-Rack switch');
+ const part={id:'tor-a:patch-panel',assetId:'tor-a',kind:'patch-panel',uStart:34,uHeight:1};
+ const panel=new THREE.Group();panel.userData.rackPart=part;rack.high.add(panel);
+ rack.built.parts.push(part);rack.built.partMap.set(part.id,part);
+ const kit=createRackOpticalPatchDesign(THREE,{cube});
+ assert.ok(kit.decorate(rack.asset,rack.built,rack.high));
+ const items=['housing','hinged-lid','splice-tray','splice-sleeves','fiber-guides','retention-clips','rear-entry','lc-port-1'];
+ for(const key of items){
+  const p=rack.built.partMap.get('tor-a:patch-'+key);
+  assert.ok(p?.description,key+' needs a distinct explanation');
+  assert.ok(kit.owns(p));
+  let visibleMesh=false;panel.traverse(o=>{if(o.isMesh&&o.userData.partId===p.id)visibleMesh=true;});
+  assert.ok(visibleMesh,key+' needs a selectable 3D surface');
+ }
+ assert.equal(panel.getObjectByName('rack-optical-patch:brushed-metal-lid').userData.partId,'tor-a:patch-hinged-lid');
+ assert.equal(panel.getObjectByName('rack-optical-patch:protection-sleeve-0').userData.partId,'tor-a:patch-splice-sleeves');
 });

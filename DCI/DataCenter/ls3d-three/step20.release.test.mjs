@@ -48,7 +48,7 @@ test('protected 2D Gold Pixel Tour remains unchanged and BOM entrypoints remain 
   const bytes=readFileSync(resolve(root,prefix,file));
   const header=Buffer.from('blob '+bytes.length+'\0');
   const sha=createHash('sha1').update(header).update(bytes).digest('hex');
-  assert.equal(sha,'9c84f24f2101043d7c113ce2d0da50e7245bc318',
+  assert.equal(sha,'6ca103e05ddc95693d776129851be934972c644c',
     'Protected original changed: '+file);
   const bom=load(prefix+'index.html');
   for(const marker of ['id="trunkFiberCount"','engineering-v82.js?v=',

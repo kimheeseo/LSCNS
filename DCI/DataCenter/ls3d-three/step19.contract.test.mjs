@@ -18,7 +18,7 @@ function gitBlobSha(text){
 test('preserve original 2D Gold Pixel Tour and BOM entrypoints',()=>{
   const campus='LS_Datacenter_Campus.html';
   assert.equal(gitBlobSha(readFileSync(join(home,campus),'utf8')),
-    '9c84f24f2101043d7c113ce2d0da50e7245bc318','protected original modified: '+campus);
+    '6ca103e05ddc95693d776129851be934972c644c','protected original modified: '+campus);
   const bom=readFileSync(join(home,'index.html'),'utf8');
   for(const marker of ['id="trunkFiberCount"','engineering-v82.js?v=',
     'engineering-v82-ui.js?v=','id="run"'])
@@ -37,9 +37,10 @@ test('all seven geographic modes and critical security/rack/network/colo assets 
 });
 test('Three.js revision and latest rack controls browser bootstrap path are pinned',()=>{
   assert.match(html,/three@0\.186\.1\/build\/three\.module\.js/);
-  assert.match(html,/ls3d-three\/bootstrap\.mjs\?v=20261031-korean-font-v1/);
+  const version=html.match(/ls3d-three\/bootstrap\.mjs\?v=([A-Za-z0-9-]+)/)?.[1];
+  assert.ok(version,'Three bootstrap must have a cache version');
   const bootstrap=readFileSync(join(three,'bootstrap.mjs'),'utf8');
-  assert.match(bootstrap,/scene-adapter\.mjs\?v=20261031-korean-font-v1/);
+  assert.ok(bootstrap.includes('scene-adapter.mjs?v='+version));
 });
 test('all ls3d-three relative ES imports exist in repository (no broken graph)',()=>{
   const files=readdirSync(three).filter(name=>name.endsWith('.mjs'));

@@ -541,10 +541,12 @@ export function createSceneAdapter(T, canvas) {
   function emphasizeRackPart(assetId,partId) {
     clearRackPartEmphasis();
     const item=registry.get(assetId);if(!item)return null;
+    const rearMpo=partId.includes(':mpo-input-');
     let anchor=null;
     item.g.updateMatrixWorld(true);
     item.g.traverse(object=>{
       if(!object.isMesh||object.userData?.partId!==partId||!object.material)return;
+      if(rearMpo&&!object.name.includes('mpo-keyed-receptacle-'))return;
       const original=object.material;
       const highlighted=Array.isArray(original)?original.map(m=>m.clone()):original.clone();
       const mats=Array.isArray(highlighted)?highlighted:[highlighted];
@@ -563,7 +565,7 @@ export function createSceneAdapter(T, canvas) {
       );
       selectedPartRing.name='rack-optical:selected-port-ring';
       selectedPartRing.userData.assetId=assetId;selectedPartRing.userData.partId=partId;
-      selectedPartRing.position.set(0,0,-.058);
+      selectedPartRing.position.set(0,0,rearMpo?.058:-.058);
       selectedPartRing.renderOrder=1001;
       anchor.add(selectedPartRing);
     }

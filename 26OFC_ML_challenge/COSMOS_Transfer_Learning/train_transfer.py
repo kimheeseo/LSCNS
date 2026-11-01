@@ -141,6 +141,8 @@ def train_stage(net, module, processor, x, y, train_idx, val_idx, args, stage, o
             print(f"{stage}: early stop at epoch {epoch}", flush=True)
             break
     net.load_state_dict(best_state)
+    # Report metrics of the BEST selected checkpoint, not the last training epoch.
+    selected_metrics = evaluate_loader(net, va, module, device)
     ckpt = {"model": args.model, "stage": stage, "state_dict": best_state,
             "input_scaler_mean": torch.tensor(processor.scaler.mean_, dtype=torch.float64),
             "input_scaler_scale": torch.tensor(processor.scaler.scale_, dtype=torch.float64),
@@ -148,7 +150,7 @@ def train_stage(net, module, processor, x, y, train_idx, val_idx, args, stage, o
                        "hidden": int(args.hidden)}, "seed": args.seed}
     torch.save(ckpt, out / (stage + ".pt"))
     pd.DataFrame(history).to_csv(out / (stage + "_history.csv"), index=False)
-    return metrics, history
+    return selected_metrics, history
 
 
 @torch.no_grad()

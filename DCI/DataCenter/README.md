@@ -1,7 +1,7 @@
 ## 2026-11-01 · 랙 단독 보기 하단 여백
 
-- 랙 전체 보기의 시선 중심을 조금 아래로 조정해 랙 하단과 화면 경계 사이에 추가 공간을 확보했습니다. 카메라 거리와 광부품별 확대 시점, PC·모바일 조작은 유지합니다.
-- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-rack-bottom-space-v1
+- 랙 전체 보기의 시선 중심을 조금 아래로 조정해 랙 하단과 화면 경계 사이에 추가 공간을 확보했습니다. PC에서는 패널 간격과 아래쪽 패딩도 줄여 뷰포트 높이를 늘렸습니다. 카메라 거리와 광부품별 확대 시점, PC·모바일 조작은 유지합니다.
+- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-rack-bottom-space-v2
 
 ## 2026-11-01 · LC 어댑터 패널과 ODF 소형 광단자함 디자인
 

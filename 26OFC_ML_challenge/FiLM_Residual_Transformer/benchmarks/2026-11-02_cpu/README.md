@@ -25,3 +25,10 @@ GitHub Actions CPU run. COSMOS 12,000 training samples (source subset), 18 max p
 - `recent_per_sample.csv` and `scratch_per_sample.csv` list error by held-out Train sample.
 - Best checkpoints and `submission.csv` provided as GitHub Actions artifacts, not committed due to file size.
 - This is one seed and one curvature weight; further ablations needed before robust claims.
+
+## Observed limitations and immediate diagnosis
+
+- The target Train holdout has two extreme SHB outliers: **ID 219** (max active-channel error **30.5405 dB**), **ID 223** (**30.2297 dB**). Both have `target_gain=18 dB`, 33 active channels. These two observations dominate the internal validation penalty; this is not evidence of a failed download.
+- The new `data.py` sends only `pin_dbm`, WSS mask, aging, target gain and target tilt into the network. In contrast, the earlier PI-EDFA/Transformer used the official `EDFA_input_power_total` and **`EDFA_output_power_total`** as global feature inputs. This input regression is **confirmed in code** and is a plausible explanation for the failure to distinguish unusual SHB conditions. Whether it accounts for the observed errors requires an ablation with matched train/test conditions.
+- Original scratch/transfer TestGround performances (1.5404 vs 1.5728) are far worse than historical PI-EDFA / Transformer reports. The structural changes should NOT be advertised as accuracy improvements yet.
+- Recommended next experiment: preserve residual + per-block FiLM + curvature objective, but incorporate **input/output total powers**, with consistent source/target scaling; test `curvature=0` vs `0.02` and inspect ID 219/223 predictions. Avoid using TestGround for hyperparameter tuning.

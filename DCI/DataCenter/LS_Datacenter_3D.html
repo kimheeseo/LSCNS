@@ -69,9 +69,9 @@ body.rack-inspecting .rack-isolate-bar{top:12px}
 /* v9 rack viewport: respect the remaining grid height instead of forcing 68dvh below the KPIs.
    Hide only the simulation transport while inspecting a rack; it is restored on exit. */
 @media(min-width:791px){
- body.rack-inspecting .viewport{height:0;min-height:0;max-height:none;flex:1 1 0}
- body.rack-inspecting .main>#scenarioStepPanel,body.rack-inspecting .main>.control{display:none}
- body.rack-inspecting .main{min-height:0}
+ body:not(.display-mobile).rack-inspecting .viewport{height:0;min-height:0;max-height:none;flex:1 1 0}
+ body:not(.display-mobile).rack-inspecting .main>#scenarioStepPanel,body:not(.display-mobile).rack-inspecting .main>.control{display:none}
+ body:not(.display-mobile).rack-inspecting .main{min-height:0}
 }
 .rack-isolate-actions{display:flex;flex-wrap:wrap;gap:7px}
 .rack-isolate-actions button{flex:none}

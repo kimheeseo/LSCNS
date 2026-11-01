@@ -50,6 +50,7 @@ async function inspect(page){return page.evaluate(()=>{
  return {status:window.LS3D_THREE.status,renders:window.LS3D_THREE.renders,
   calls:a.diagnostic.calls,selected:a.selectedPart?.kind,parts:objects,
   visibleHigh:high.children.filter(o=>o.visible).map(o=>o.name),
+  scaleCollapsed:document.querySelector('.phase1-scale')?.classList.contains('is-collapsed'),
   coverOffset:rack.getObjectByName('rack-optical:module-cover-0').position.z,
   camera:{pitch:window.__LS3D_TEST__.cameraDesired.pitch,yaw:window.__LS3D_TEST__.cameraDesired.yaw}};
 });}
@@ -60,6 +61,7 @@ test('desktop WebGL2: cassette front, rear MPO, LC path and rack restoration',as
  expect(front.calls).toBeGreaterThan(0);
  expect(front.parts).toEqual({modules:4,lc:24,mpo:4,fibers:48,covers:4});
  expect(front.visibleHigh).toEqual(['fiber-cassette']);
+ expect(front.scaleCollapsed).toBe(true);
  expect(front.camera.pitch).toBeGreaterThan(.6);
  await page.screenshot({path:info.outputPath('cassette-front-open.png')});
  await page.evaluate(()=>window.LS3D_THREE.adapter.selectRackPart('tor-a','tor-a:mpo-input-0'));
@@ -74,6 +76,7 @@ test('desktop WebGL2: cassette front, rear MPO, LC path and rack restoration',as
   return rack.getObjectByName('rack-high').children.filter(o=>o.visible).length;
  });
  expect(restored).toBeGreaterThan(1);
+ expect(await page.locator('.phase1-scale').evaluate(el=>el.classList.contains('is-collapsed'))).toBe(false);
  expect(errors).toEqual([]);
  await writeFile(info.outputPath('desktop-metrics.json'),JSON.stringify({front,restored,errors},null,2));
 });
@@ -84,6 +87,7 @@ test('mobile WebGL2: cassette opens and renders without clipping errors',async({
  const errors=await start(page),mobile=await inspect(page);
  expect(mobile.parts.fibers).toBe(48);expect(mobile.calls).toBeGreaterThan(0);
  expect(mobile.visibleHigh).toEqual(['fiber-cassette']);expect(errors).toEqual([]);
+ expect(mobile.scaleCollapsed).toBe(true);
  await page.locator('#viewport').screenshot({path:info.outputPath('cassette-mobile-open.png')});
  await writeFile(info.outputPath('mobile-metrics.json'),JSON.stringify({mobile,errors},null,2));
 });

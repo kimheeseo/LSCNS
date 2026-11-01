@@ -139,6 +139,7 @@ export function createSceneAdapter(T, canvas) {
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
+  let opticalScaleAutoCollapsed=false;
   let focusedRack=null;
   let inspectedScenePart=null,sceneInspectionContext='',scenePartMaterials=[];
   function clearSceneInspection(){
@@ -599,8 +600,19 @@ export function createSceneAdapter(T, canvas) {
       if(selectedRackPart.kind==='patch-panel')rackPatchDesign.includeCable(selectedRackPart.assetId,false);
     }
     if(rackOptics.owns(selectedRackPart))rackOptics.isolate(selectedRackPart.assetId,true);
-    if(selectedRackPart?.kind==='patch-panel'||selectedRackPart?.kind==='optical-module')
+    const opticalInspect=selectedRackPart?.kind==='patch-panel'||rackOptics.owns(selectedRackPart);
+    if(opticalInspect)
       rackPanelDisclosure?.setCollapsed(true);
+    // Keep the mobile lens ruler from covering one of the four cassettes.
+    // Its own toggle remains usable; restore only when we collapsed it.
+    const scaleButton=typeof document!=='undefined'?document.getElementById('phase1-toggle'):null;
+    const scale=scaleButton?.closest('.phase1-scale');
+    if(opticalInspect&&scaleButton&&!scale?.classList.contains('is-collapsed')){
+      scaleButton.click();opticalScaleAutoCollapsed=true;
+    }else if(!opticalInspect&&opticalScaleAutoCollapsed){
+      if(scale?.classList.contains('is-collapsed'))scaleButton?.click();
+      opticalScaleAutoCollapsed=false;
+    }
     window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
@@ -638,7 +650,7 @@ export function createSceneAdapter(T, canvas) {
         const rect=canvas.getBoundingClientRect();
         const usable=(rect.width-(rect.width>640?330:20))/Math.max(1,rect.height);
         desired.target=[point.x,point.y,point.z];
-        desired.distance=rear?Math.max(1.5,asset.w*.95):
+        desired.distance=rear?Math.max(1.45,asset.w*.62):
           Math.max(2.4,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.30);
         desired.yaw=rear?0:Math.PI;desired.pitch=rear?.14:.88;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});

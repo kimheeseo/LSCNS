@@ -2,10 +2,11 @@
 
 - WebGL2 PC 캡처를 다시 확인해 선택 표시 원호가 카세트 단독 화면을 가리고, 랙 조작창이 오른쪽 카세트 하나를 덮는 문제를 수정했습니다. 카세트 선택 시 조작창을 접고 선택 원호를 숨깁니다. 후면 MPO 입력 선택은 해당 모듈에 가까이 맞춥니다.
 - 후면 렌더에서 스트레인 부트가 키드 MPO 입력 면을 가리던 배치를 바로잡고, 후면 카메라 목표 높이를 커넥터 중심에 맞췄습니다.
+- 최종 캡처에서 모바일 FOV 눈금자가 네 번째 모듈을 가려, 광부품 단독 검사 중에는 눈금자를 접고 선택 해제 시 원래 표시로 돌립니다. 후면 MPO 입력은 선택 모듈 가까이 볼 수 있게 했습니다.
 - 모바일 브라우저 검증은 실제 좁은 화면의 `설비 검사·상세 펼치기` 경로를 통해 랙 단독 보기에 진입합니다. 이 테스트는 PC 전면·후면·LC 경로 및 모바일 화면의 실물 렌더 결과를 저장합니다.
 - Network Rack에서 `2 · MPO/MTP 카세트` 선택 시 2U 4슬롯 광 카세트 하우징만 남기고 내부 fan-out이 보이는 높은 시점으로 전환합니다. 후면 MPO 입력부 선택은 후면 시점, LC 포트 선택은 해당 전면 포트와 연결 광섬유 강조로 이어집니다. 부품 선택 해제 시 랙 전체가 복원되며 이후 자유 카메라 조작은 자동으로 초기화되지 않습니다.
 - 단독 선택, 인출/복귀, 상판 후방 슬라이드, 4개 12F MPO 입력과 24개 LC duplex 포트/48심 fan-out, 다른 GPU 랙의 기존 동작을 모델 테스트로 검증합니다. 별도 Chromium WebGL2 브라우저 검사에서 PC·모바일 3D 캡처와 전면·후면·포트 상태를 검증하도록 추가했습니다.
-- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-rack-optical-design-step2-v5
+- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-rack-optical-design-step2-v6
 
 ## 2026-11-01 · Network Rack 광부품 디자인 2/4: MPO/MTP 카세트
 

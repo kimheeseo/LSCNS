@@ -68,6 +68,7 @@ test('PC opened patch panel identifies cover, splice and LC components',async({p
  const errors=await start(page,'tor-a','hall');
  await page.locator('[data-rack-quick="patch-select"]').click();
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.scene.getObjectByName('rack-optical-patch:top-cover-hinge')?.rotation.x>1.3);
+ expect(await page.evaluate(()=>window.LS3D_THREE.adapter.rackPanel?.collapsed)).toBe(true);
  const picked=await page.evaluate(()=>{
   const a=window.LS3D_THREE.adapter,mesh=a.scene.getObjectByName('rack-optical-patch:brushed-metal-lid');
   mesh.updateWorldMatrix(true,false);

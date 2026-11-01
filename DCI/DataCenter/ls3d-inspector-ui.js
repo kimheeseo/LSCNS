@@ -79,7 +79,7 @@ rackOps.addEventListener('click',event=>{
  const adapter=window.LS3D_THREE?.adapter;
  const successful=!!adapter?.runRackAction?.(code);
  if(successful){
-  if(!/^(optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
+  if(!/^(patch-select|optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
   $('inspectorRackOpStatus').textContent=
     event.target.textContent+' · 3D 랙 조작을 실행했습니다. 같은 버튼을 다시 누르면 복귀합니다.';
  }else{

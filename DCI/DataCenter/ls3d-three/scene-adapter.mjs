@@ -1,5 +1,5 @@
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
-import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261024-front-camera';
+import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-loading-crew-v1';

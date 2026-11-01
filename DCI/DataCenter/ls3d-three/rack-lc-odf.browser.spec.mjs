@@ -36,6 +36,7 @@ async function metrics(page,id,prefix){return page.evaluate(({id,prefix})=>{
 },{id,prefix});}
 test('PC LC adapter front, rear and selected pigtail',async({page},info)=>{
  const errors=await start(page,'tor-a','hall');
+ await page.locator('#viewport').screenshot({path:info.outputPath('network-rack-bottom-space.png')});
  await page.locator('[data-rack-action="optical-lc"]').click();
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.rackInteraction.selectedLcPanel?.isolated);
  const front=await metrics(page,'tor-a','rack-lc:');

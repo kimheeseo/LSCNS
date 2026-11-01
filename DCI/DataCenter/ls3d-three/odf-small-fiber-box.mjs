@@ -8,6 +8,9 @@ export function createOdfSmallFiberBox(THREE,{cube}){
   const width=Math.min(1.18,w*.56),height=Math.max(.48,unit*4.65);
   const root=new THREE.Group();root.name='odf-small:enclosure';
   root.position.set(0,.23+(uStart-1)*unit,-d*.465);
+  // This network-zone rack faces world +Z; mirror the enclosure so the
+  // visible hinge sits left and its blue LC adapter rail sits right.
+  root.scale.x=-1;
   high.add(root);
   const parts=new Set(),paths=[],portMeshes=[];
   function info(key,kind,label,description,extra={}){

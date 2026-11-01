@@ -15,7 +15,7 @@ import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-patch-depth-v8';
 import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=20261101-lc-odf-design-v1';
-import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v2';
+import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v4';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -549,7 +549,7 @@ export function createSceneAdapter(T, canvas) {
     const storageInfo=storageRack&&server?.driveCount?' · 드라이브 '+server.driveSlot+'/'+server.driveCount+(server.driveTarget?' 인출':' 장착'):'';
     const storageSummary=storageRack?' · '+storageSelected:'';
 
-    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?'후면 시점 · 3인칭':'전면 시점 · 3인칭'):'기본 시점')+
+    rackControlsLabel.textContent='랙 '+a.id+' · '+(focusedRack?.id===a.id?(focusedRack.side==='rear'?(a.id==='odf'?'광단자함 전면 · 3인칭':'후면 시점 · 3인칭'):'전면 시점 · 3인칭'):'기본 시점')+
       ' · '+(networkRack?'스위치 ':storageRack?'쉘프 ':'서버 ')+serverLabel+gpuStatus+
       storageInfo+storageSummary+
       ' · 후면문 '+(door.targetRear?'열림':'닫힘')+

@@ -41,7 +41,7 @@ export function createOdfSmallFiberBox(THREE,{cube}){
    box(root,guide,'fiber-clip-'+i,x*width,y*height,-.014,.053,.025,.028,'#c4c8ba');
   }
   box(root,guide,'cable-tie',-width*.28,height*.64,-.032,.018,.095,.019,'#d3d0b8');
-  box(root,splice,'splice-holder',0,height*.34,-.016,width*.38,height*.30,.037,'#454d50');
+  box(root,splice,'splice-holder',0,height*.34,-.016,width*.38,height*.30,.037,'#667176');
   for(let i=0;i<6;i++){
    box(root,splice,'splice-sleeve-'+i,0,height*(.365+i*.037),-.047,width*.28,.012,.014,
     i%2?'#ccd5d1':'#e9d9ae');
@@ -65,8 +65,8 @@ export function createOdfSmallFiberBox(THREE,{cube}){
    pts.push(new THREE.Vector3(width*.10,height*(.38+i*.035),-.052));
    pts.push(new THREE.Vector3(width*.36,py,-.047));
    const curve=new THREE.CatmullRomCurve3(pts);
-   const fiber=new THREE.Mesh(new THREE.TubeGeometry(curve,48,.0038,5,false),
-    new THREE.MeshStandardMaterial({color:colors[i],roughness:.56,metalness:0}));
+   const fiber=new THREE.Mesh(new THREE.TubeGeometry(curve,48,.0058,5,false),
+    new THREE.MeshStandardMaterial({color:colors[i],emissive:colors[i],emissiveIntensity:.28,roughness:.56,metalness:0}));
    fiber.name='odf-small:pigtail-'+i;fiber.userData.assetId=id;fiber.userData.partId=p.id;
    root.add(fiber);paths.push(fiber);stats.fibers++;
   }
@@ -96,8 +96,8 @@ export function createOdfSmallFiberBox(THREE,{cube}){
   const s=sessions.get(id);if(!s)return false;
   s.selectedPort=Number.isInteger(index)&&index>=0&&index<6?index:-1;
   s.paths.forEach((path,i)=>{
-   path.material.emissive.set(i===s.selectedPort?0xffcc46:0x000000);
-   path.material.emissiveIntensity=i===s.selectedPort?.9:0;
+   path.material.emissive.set(i===s.selectedPort?0xffcc46:path.material.color);
+   path.material.emissiveIntensity=i===s.selectedPort?.9:.28;
    path.material.transparent=s.selectedPort>=0&&i!==s.selectedPort;
    path.material.opacity=s.selectedPort>=0&&i!==s.selectedPort?.26:1;
   });

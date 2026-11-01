@@ -3,7 +3,7 @@
 - Network Rack의 기존 1U LC 어댑터 패널을 독립 수동 접속부로 다시 모델링했습니다. 전면 LC duplex 12포트(각 2소켓), 후면 커넥터와 24가닥 피그테일, 포트 번호 스트립·케이블 가이드를 표시합니다. 패널 선택 시 단독 보기, 후면 보기, 포트별 광경로 강조를 제공합니다.
 - Network/MMR 구역의 ODF 랙에 사진을 참고한 검은 소형 6포트 광단자함을 배치했습니다. 왼쪽 힌지의 불투명 커버를 열면 6색 피그테일 여장 루프, 접속 홀더·보호슬리브, 케이블 고정 클립·타이, 오른쪽 측면의 파란 LC 어댑터가 드러납니다. 부품 선택·커버 열기/닫기·포트별 내부 경로를 PC와 모바일에서 조작할 수 있습니다.
 - 사진은 형상 참고이며 실제 LEVITON 제조 치수, 굽힘 반경 및 접속 손실을 재현한 CAD가 아닙니다. 기존 광 패치패널과 MPO/MTP 카세트 모델은 유지합니다.
-- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-lc-odf-design-v1
+- 실행: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261101-lc-odf-design-v2
 
 ## 2026-11-01 · MPO/MTP 카세트 단독 확인 및 WebGL2 검증
 

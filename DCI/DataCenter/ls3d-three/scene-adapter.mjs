@@ -15,7 +15,7 @@ import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-patch-depth-v8';
 import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=20261101-lc-odf-design-v1';
-import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v1';
+import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v2';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -745,7 +745,7 @@ export function createSceneAdapter(T, canvas) {
         focusRackSide(assetId,'front');
         const point=new THREE.Vector3(0,s.height*.5,0);
         s.root.updateMatrixWorld(true);s.root.localToWorld(point);
-        desired.target=[point.x,point.y,point.z];desired.distance=Math.max(1.65,asset.w*.88);
+        desired.target=[point.x,point.y,point.z];desired.distance=canvas.getBoundingClientRect().width<640?3.05:2.35;
         desired.yaw=Math.PI;desired.pitch=.24;
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }

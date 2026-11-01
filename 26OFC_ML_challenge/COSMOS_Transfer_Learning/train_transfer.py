@@ -178,8 +178,10 @@ def evaluate_final(args, net, processor, module, root, out, name, device):
         raise ValueError("TestGround feature/label IDs do not align")
     ycols = module.ordered_cols(gy, module.PREFIXES["gain"])
     actual = gy[ycols].apply(pd.to_numeric, errors="coerce").to_numpy(np.float32)
-    if not np.isfinite(actual[module.extract_mask(gx).astype(bool)]).all():
+    ground_mask = module.extract_mask(gx).astype(bool)
+    if not np.isfinite(actual[ground_mask]).all():
         raise ValueError("Non-finite active TestGround label")
+    actual = np.where(ground_mask, actual, 0.0)
     result = category_score(module, gx, actual, predict(net, processor, module, gx, device))
     (out / (name + "_testground.json")).write_text(json.dumps(result, indent=2))
     return result
@@ -195,8 +197,10 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
     device = "cpu" if args.cpu or not torch.cuda.is_available() else "cuda"
     out = Path(args.output) / model_name
     out.mkdir(parents=True, exist_ok=True)
-    args.model = model_name
     hidden = args.hidden if args.hidden else (96 if model_name == "pi-edfa" else 64)
+    local_args = copy.copy(args)
+    local_args.model = model_name
+    local_args.hidden = hidden
 
     def fresh_model(processor):
         return module.PhysicalSpectralNet(
@@ -206,23 +210,21 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
     # for fine-tuning so the pretrained network sees consistent feature units.
     source_processor = module.EDFAFeatures().fit(cosmos_x.iloc[cosmos_train_idx])
     net = fresh_model(source_processor)
-    args.hidden = hidden
     source_metrics, source_history = train_stage(
         net, module, source_processor, cosmos_x, cosmos_y, cosmos_train_idx,
-        cosmos_val_idx, args, "cosmos_pretrain", out, args.pretrain_epochs,
+        cosmos_val_idx, local_args, "cosmos_pretrain", out, args.pretrain_epochs,
         args.pretrain_lr, args.pretrain_patience, args.pretrain_batch_size, device)
 
     # Fine-tune ALL layers with a smaller LR. The recent holdout never
     # contributes to optimizer, scaler fitting, or pretraining.
     ft_metrics, ft_history = train_stage(
         net, module, source_processor, recent_x, recent_y, recent_train_idx,
-        recent_val_idx, args, "recent_finetune", out, args.finetune_epochs,
+        recent_val_idx, local_args, "recent_finetune", out, args.finetune_epochs,
         args.finetune_lr, args.finetune_patience, args.batch_size, device)
     transfer_pred = predict(net, source_processor, module,
                             recent_x.iloc[recent_val_idx], device)
     transfer_bycat = category_score(module, recent_x.iloc[recent_val_idx],
                                      recent_y[recent_val_idx], transfer_pred)
-    module.make_submission  # shared submission contract
 
     results = {"source_val": source_metrics, "transfer_val": ft_metrics,
                "transfer_val_by_category": transfer_bycat,
@@ -231,7 +233,7 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
                "recent_val_rows": int(len(recent_val_idx))}
     if args.evaluate_testground:
         results["transfer_testground"] = evaluate_final(
-            args, net, source_processor, module, root, out, "transfer", device)
+            local_args, net, source_processor, module, root, out, "transfer", device)
 
     # Fair scratch control: same train/validation indices and seed, but scale
     # using recent training data ONLY and do not load COSMOS weights.
@@ -241,7 +243,7 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
         scratch_net = fresh_model(scratch_proc)
         scratch_metric, _ = train_stage(
             scratch_net, module, scratch_proc, recent_x, recent_y,
-            recent_train_idx, recent_val_idx, args, "recent_scratch",
+            recent_train_idx, recent_val_idx, local_args, "recent_scratch",
             out, args.finetune_epochs, args.scratch_lr, args.finetune_patience,
             args.batch_size, device)
         results["scratch_val"] = scratch_metric
@@ -251,7 +253,7 @@ def model_run(args, model_name, root, recent_x, recent_y, cosmos_x, cosmos_y,
                     recent_x.iloc[recent_val_idx], device))
         if args.evaluate_testground:
             results["scratch_testground"] = evaluate_final(
-                args, scratch_net, scratch_proc, module, root, out, "scratch", device)
+                local_args, scratch_net, scratch_proc, module, root, out, "scratch", device)
 
     (out / "results.json").write_text(json.dumps(results, indent=2, ensure_ascii=False))
     testfile = root / "Features" / "Test" / "test_features.csv"
@@ -314,8 +316,6 @@ def main():
     cv = subset_indices(cv, args.cosmos_val_max_rows, args.seed + 1)
     scores = {}
     for name in args.models:
-        # Restore the model-specific original hidden size independently.
-        args.hidden = 0 if args.hidden == 0 else args.hidden
         scores[name] = model_run(
             args, name, root, recent_x, recent_y, cosmos_x, cosmos_y, rt, rv, ct, cv)
     (out / "comparison.json").write_text(

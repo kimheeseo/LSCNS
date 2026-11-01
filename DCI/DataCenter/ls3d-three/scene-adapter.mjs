@@ -10,7 +10,7 @@ import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createRackComponentKit } from './rack-components.mjs?v=20261031-rack-controls-label-v3';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v1';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v3';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-optical-design-step2-v2';
@@ -148,7 +148,11 @@ export function createSceneAdapter(T, canvas) {
   function clearInspectionSelection(){showRackPart(null);}
   function selectScenePart(info){
     clearRackPartEmphasis();clearSceneInspection();
-    if(selectedRackPart){rackPatchDesign.isolate(selectedRackPart.assetId,false);rackPatchDesign.select(selectedRackPart.assetId,false);}
+    if(selectedRackPart){
+      rackPatchDesign.isolate(selectedRackPart.assetId,false);
+      rackPatchDesign.select(selectedRackPart.assetId,false);
+      rackOptics.isolate(selectedRackPart.assetId,false);
+    }
     selectedRackPart=null;if(rackHud)rackHud.hidden=true;
     inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
     const highlightRoot=info.assetId?registry.get(info.assetId)?.g:zoneRoot;
@@ -253,7 +257,7 @@ export function createSceneAdapter(T, canvas) {
     if(!motion.targetDoor)T.setMechanical(asset,'door');
     if(action==='optical-mtp'&&!motion.targetCassette)T.setMechanical(asset,'cassette');
     selectRackPart(assetId,part.id);
-    if(action==='optical-patch')return true; // The isolated patch has its own top-down view.
+    if(action==='optical-patch'||action==='optical-mtp')return true; // Each assembly has its own inspection view.
     const d=T.cameraDesired;
     if(d){
       const unit=(asset.h-.46)/(item.rackUnits||42);
@@ -581,9 +585,12 @@ export function createSceneAdapter(T, canvas) {
   function showRackPart(info) {
     clearSceneInspection();
     clearRackPartEmphasis();
-    if(selectedRackPart&&!rackPatchDesign.owns(info)){
-      rackPatchDesign.select(selectedRackPart.assetId,false);
-      rackPatchDesign.isolate(selectedRackPart.assetId,false);
+    if(selectedRackPart){
+      if(!rackPatchDesign.owns(info)){
+        rackPatchDesign.select(selectedRackPart.assetId,false);
+        rackPatchDesign.isolate(selectedRackPart.assetId,false);
+      }
+      if(!rackOptics.owns(info))rackOptics.isolate(selectedRackPart.assetId,false);
     }
     selectedRackPart=info?{...info}:null;
     if(rackPatchDesign.owns(selectedRackPart)){
@@ -591,6 +598,7 @@ export function createSceneAdapter(T, canvas) {
       rackPatchDesign.isolate(selectedRackPart.assetId,true);
       if(selectedRackPart.kind==='patch-panel')rackPatchDesign.includeCable(selectedRackPart.assetId,false);
     }
+    if(rackOptics.owns(selectedRackPart))rackOptics.isolate(selectedRackPart.assetId,true);
     window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
@@ -614,6 +622,23 @@ export function createSceneAdapter(T, canvas) {
     if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);
       focusOpticalPort(assetId,anchor);
+    }else if(part?.kind==='optical-module'||part?.kind==='mpo-input'){
+      const asset=T.assetMap.get(assetId),desired=T.cameraDesired;
+      if(asset&&desired&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
+        const rear=part.kind==='mpo-input';focusRackSide(assetId,rear?'rear':'front');
+        const unit=(asset.h-.46)/(record.rackUnits||42),u=record.opticsSession?.base||.23+(part.uStart-1)*unit;
+        const mid=rear?record.opticsSession?.back:(record.opticsSession?.front+record.opticsSession?.back)*.5;
+        const extension=(record.moving?.reach||asset.d*.67)*.70;
+        const point=new THREE.Vector3(0,u+unit*.9,mid-extension);
+        record.g.updateMatrixWorld(true);record.g.localToWorld(point);
+        const rect=canvas.getBoundingClientRect();
+        const usable=(rect.width-(rect.width>640?330:20))/Math.max(1,rect.height);
+        desired.target=[point.x,point.y,point.z];
+        desired.distance=Math.max(2.4,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.30);
+        desired.yaw=rear?0:Math.PI;desired.pitch=rear?.28:.88;
+        if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
+      }
+      if(part.kind==='mpo-input')emphasizeRackPart(assetId,partId);
     }else if(part?.kind==='patch-panel'){
       const asset=T.assetMap.get(assetId),desired=T.cameraDesired;
       if(asset&&desired&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
@@ -864,6 +889,7 @@ export function createSceneAdapter(T, canvas) {
         rackRails.update(a.id,item.moving,m,dt);
         rackOptics.update(a.id,item.moving,m);
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
+        if(rackOptics.owns(selectedRackPart))rackOptics.isolate(a.id,true);
         rackPatchDesign.update(a.id,dt);
         rackPatch.update(a.id,dt);
         const cord=rackPatch.state(a.id);

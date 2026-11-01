@@ -10,10 +10,11 @@ export function createRackOpticalCassette(THREE,{cube}) {
   const cassetteU=built.cassetteU||built.rackUnits-4;
   const base=.23+(cassetteU-1)*unit,ht=unit*1.80,front=-d*.52,back=-d*.07;
   const tray=new THREE.Group();tray.name='rack-optical:LS-four-slot-tray';built.cassetteDrawer.add(tray);
-  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built,refined};
+  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built,refined,
+   root:built.cassetteGroup.parent,carrier:built.cassetteGroup,partIds:new Set(),isolated:false,visibility:null};
   function info(key,kind,label,description,extra={}){
    const p={id:id+':'+key,assetId:id,kind,label,description,uStart:cassetteU,uHeight:2,source,...extra};
-   built.parts.push(p);built.partMap.set(p.id,p);return p;
+   built.parts.push(p);built.partMap.set(p.id,p);session.partIds.add(p.id);return p;
   }
   function box(parent,p,name,x,y,z,ww,hh,dd,color,transparent=false){
    const mesh=cube(parent,x,y,z,ww,hh,dd,color,.48,.36,transparent);
@@ -134,7 +135,17 @@ export function createRackOpticalCassette(THREE,{cube}) {
   s.modules.forEach((m,i)=>{m.group.position.y=s.exploded?open*(i===1?.42:.12):0;});
   s.open=open;stats.updates++;return {open,portCount:24,moduleCount:4,drawerZ:moving?.cassette?.position.z||0};
  }
- function state(id){const s=registry.get(id);return s?{open:s.open,ports:s.portDefs.map(p=>p.id),moduleCount:4,fibers:48,duplexPorts:24,detail:s.detail,exploded:s.exploded}:null;}
+ function state(id){const s=registry.get(id);return s?{open:s.open,ports:s.portDefs.map(p=>p.id),moduleCount:4,fibers:48,duplexPorts:24,detail:s.detail,exploded:s.exploded,isolated:s.isolated}:null;}
  function explode(id){const s=registry.get(id);if(!s)return false;s.exploded=!s.exploded;return s.exploded;}
- return {decorate,update,state,explode,drop:id=>registry.delete(id),reset:()=>registry.clear(),stats};
+ function owns(info){const s=info&&registry.get(info.assetId);return !!(s?.refined&&s.partIds.has(info.id));}
+ function isolate(id,active){
+  const s=registry.get(id);if(!s||!s.refined)return false;
+  if(active&&!s.isolated){s.visibility=s.root.children.map(child=>[child,child.visible]);s.isolated=true;}
+  if(!active&&s.isolated){for(const [child,visible] of s.visibility)child.visible=visible;s.visibility=null;s.isolated=false;}
+  if(s.isolated)for(const child of s.root.children)child.visible=child===s.carrier;
+  return true;
+ }
+ function drop(id){isolate(id,false);registry.delete(id);}
+ function reset(){for(const id of [...registry.keys()])drop(id);}
+ return {decorate,update,state,explode,owns,isolate,drop,reset,stats};
 }

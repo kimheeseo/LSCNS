@@ -1,0 +1,44 @@
+name: LS Datacenter optical cassette WebGL2 verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'DCI/DataCenter/LS_Datacenter_3D.html'
+      - 'DCI/DataCenter/ls3d-three/bootstrap.mjs'
+      - 'DCI/DataCenter/ls3d-three/scene-adapter.mjs'
+      - 'DCI/DataCenter/ls3d-three/rack-optical-cassette.mjs'
+      - 'DCI/DataCenter/ls3d-three/optical-cassette.browser.spec.mjs'
+      - 'DCI/DataCenter/ls3d-three/optical-cassette.playwright.config.mjs'
+      - '.github/workflows/ls3d-optical-cassette-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  webgl2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Three.js and Playwright
+        run: npm install --no-save @playwright/test@1.56.1 three@0.186.1
+      - name: Install Chromium and Linux dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Check cassette scene-graph regression
+        run: node --test DCI/DataCenter/ls3d-three/rack-optical-cassette.design.test.mjs
+      - name: Render cassette in desktop and mobile WebGL2
+        run: npx playwright test --config=DCI/DataCenter/ls3d-three/optical-cassette.playwright.config.mjs
+      - name: Upload screenshots and render metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3d-optical-cassette-${{ github.run_number }}
+          path: |
+            DCI/DataCenter/ls3d-three/optical-cassette-browser-results/
+            DCI/DataCenter/ls3d-three/optical-cassette-browser-results.json
+          if-no-files-found: warn
+          retention-days: 14

@@ -483,3 +483,45 @@ test('19-M: GPU Leaf A/B, four GPU servers and network Spine 1/2 are visible rac
   await snapshot(page,info,'step19-gpu-leaf-a-b-front.png');
   verify(errors);
 });
+
+test('19-I: rack viewport and controls remain within desktop window after zoom/reset',async({page},info)=>{
+  await page.setViewportSize({width:1918,height:948});
+  const issues=await ready(page,'hall');
+  await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    const rack=T.assetMap.get('gpu-1-3')||T.visibleAssets().find(a=>a.zone==='hall'&&a.type==='GPU server rack');
+    if(!rack)throw Error('GPU rack missing');
+    T.pickAsset(rack,true);
+  });
+  await page.locator('#detailBtn').click();
+  await page.waitForFunction(()=>window.__LS3D_TEST__.rackIsolateActive&&
+    !!document.getElementById('ls3dRackMotionControls'));
+  const getLayout=()=>page.evaluate(()=>{
+    const rect=id=>{const r=document.getElementById(id).getBoundingClientRect();
+      return {top:r.top,bottom:r.bottom,height:r.height};};
+    return {viewport:rect('viewport'),dock:rect('ls3dRackMotionControls'),
+      bottom:window.innerHeight,simDisplay:getComputedStyle(document.getElementById('scenarioStepPanel')).display,
+      fitVisible:document.getElementById('rackIsolateFit').getBoundingClientRect().width>0,
+      distance:window.__LS3D_TEST__.cameraDesired.distance};
+  });
+  const assertFits=v=>{
+    expect(v.viewport.height).toBeGreaterThan(150);
+    expect(v.viewport.bottom).toBeLessThanOrEqual(v.bottom+2);
+    expect(v.dock.top).toBeGreaterThanOrEqual(v.viewport.top-2);
+    expect(v.dock.bottom).toBeLessThanOrEqual(v.bottom+2);
+    expect(v.fitVisible).toBe(true);
+    expect(v.simDisplay).toBe('none');
+  };
+  const initial=await getLayout();assertFits(initial);
+  // Intentionally zoom too close, then restore the complete rack with the new control.
+  await page.evaluate(()=>{const T=window.__LS3D_TEST__;T.cameraDesired.distance=3;T.camera.distance=3;});
+  await page.locator('#rackIsolateFit').click();
+  const fitted=await getLayout();assertFits(fitted);
+  expect(fitted.distance).toBeGreaterThan(3);
+  await snapshot(page,info,'step19-rack-viewport-1918x948.png');
+  await page.setViewportSize({width:1280,height:720});
+  await page.locator('#rackIsolateFit').click();
+  const smaller=await getLayout();assertFits(smaller);
+  await snapshot(page,info,'step19-rack-viewport-1280x720.png');
+  verify(issues);
+});

@@ -10,10 +10,10 @@ import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createRackComponentKit } from './rack-components.mjs?v=20261031-rack-controls-label-v3';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261031-rack-optics-storage-v1';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261101-rack-optical-design-step2-v1';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
-import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-optical-design-step1-v1';
+import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-optical-design-step2-v2';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -147,7 +147,9 @@ export function createSceneAdapter(T, canvas) {
   }
   function clearInspectionSelection(){showRackPart(null);}
   function selectScenePart(info){
-    clearRackPartEmphasis();clearSceneInspection();selectedRackPart=null;if(rackHud)rackHud.hidden=true;
+    clearRackPartEmphasis();clearSceneInspection();
+    if(selectedRackPart){rackPatchDesign.isolate(selectedRackPart.assetId,false);rackPatchDesign.select(selectedRackPart.assetId,false);}
+    selectedRackPart=null;if(rackHud)rackHud.hidden=true;
     inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
     const highlightRoot=info.assetId?registry.get(info.assetId)?.g:zoneRoot;
     highlightRoot?.traverse(object=>{
@@ -251,6 +253,7 @@ export function createSceneAdapter(T, canvas) {
     if(!motion.targetDoor)T.setMechanical(asset,'door');
     if(action==='optical-mtp'&&!motion.targetCassette)T.setMechanical(asset,'cassette');
     selectRackPart(assetId,part.id);
+    if(action==='optical-patch')return true; // The isolated patch has its own top-down view.
     const d=T.cameraDesired;
     if(d){
       const unit=(asset.h-.46)/(item.rackUnits||42);
@@ -332,7 +335,10 @@ export function createSceneAdapter(T, canvas) {
         e.preventDefault();e.stopPropagation();
         if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
         else if(action==='cable-patch'){
-          if(focusRackOpticalAssembly(asset.id,'optical-patch'))rackPatch.toggle(asset.id);
+          if(focusRackOpticalAssembly(asset.id,'optical-patch')){
+            rackPatch.toggle(asset.id);
+            rackPatchDesign.includeCable(asset.id,true);
+          }
         }
         else if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
         else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
@@ -575,9 +581,16 @@ export function createSceneAdapter(T, canvas) {
   function showRackPart(info) {
     clearSceneInspection();
     clearRackPartEmphasis();
-    if(selectedRackPart?.kind==='patch-panel')rackPatchDesign.select(selectedRackPart.assetId,false);
+    if(selectedRackPart&&!rackPatchDesign.owns(info)){
+      rackPatchDesign.select(selectedRackPart.assetId,false);
+      rackPatchDesign.isolate(selectedRackPart.assetId,false);
+    }
     selectedRackPart=info?{...info}:null;
-    if(selectedRackPart?.kind==='patch-panel')rackPatchDesign.select(selectedRackPart.assetId,true);
+    if(rackPatchDesign.owns(selectedRackPart)){
+      rackPatchDesign.select(selectedRackPart.assetId,true);
+      rackPatchDesign.isolate(selectedRackPart.assetId,true);
+      if(selectedRackPart.kind==='patch-panel')rackPatchDesign.includeCable(selectedRackPart.assetId,false);
+    }
     window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
@@ -601,6 +614,20 @@ export function createSceneAdapter(T, canvas) {
     if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);
       focusOpticalPort(assetId,anchor);
+    }else if(part?.kind==='patch-panel'){
+      const asset=T.assetMap.get(assetId),desired=T.cameraDesired;
+      if(asset&&desired&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
+        focusRackSide(assetId,'front');
+        const unit=(asset.h-.46)/(record.rackUnits||42);
+        const point=new THREE.Vector3(0,.23+(part.uStart-.5)*unit,-asset.d*.347);
+        record.g.updateMatrixWorld(true);record.g.localToWorld(point);
+        const rect=canvas.getBoundingClientRect();
+        const usable=(rect.width-(rect.width>640?330:20))/Math.max(1,rect.height);
+        desired.target=[point.x,point.y,point.z];
+        desired.distance=Math.max(2.2,asset.w*.78/(2*Math.tan(Math.PI/8)*Math.max(.55,usable))*1.25);
+        desired.yaw=Math.PI;desired.pitch=1.20;
+        if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
+      }
     }else if(part){
       emphasizeRackPart(assetId,partId);
     }
@@ -839,6 +866,8 @@ export function createSceneAdapter(T, canvas) {
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         rackPatchDesign.update(a.id,dt);
         rackPatch.update(a.id,dt);
+        const cord=rackPatch.state(a.id);
+        if(cord&&!cord.connected&&cord.progress<.01)rackPatchDesign.includeCable(a.id,false);
         // When using the STEP 11 independent side camera, keep world-space rack
         // orientation fixed. Original legacy rear flip remains otherwise available.
         item.g.rotation.y=item.baseYaw+(m.rear?Math.PI:0);

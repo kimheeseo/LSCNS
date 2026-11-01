@@ -5,11 +5,12 @@ export function createRackOpticalCassette(THREE,{cube}) {
  const source='https://www.lssimple.co.kr/kr/product/prodView.asp?cate1=&cate2=&cate3=238&prd_seq=1213';
  function decorate(asset,built){
   if(!built.cassetteDrawer)return null;
+  const refined=asset.type==='Top-of-Rack switch';
   const {w,d,h,id}=asset,unit=(h-.46)/built.rackUnits;
   const cassetteU=built.cassetteU||built.rackUnits-4;
   const base=.23+(cassetteU-1)*unit,ht=unit*1.80,front=-d*.52,back=-d*.07;
   const tray=new THREE.Group();tray.name='rack-optical:LS-four-slot-tray';built.cassetteDrawer.add(tray);
-  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built};
+  const session={id,drawer:built.cassetteDrawer,tray,portDefs:[],modules:[],covers:[],open:0,detail:false,exploded:false,base,ht,front,back,w,d,unit,built,refined};
   function info(key,kind,label,description,extra={}){
    const p={id:id+':'+key,assetId:id,kind,label,description,uStart:cassetteU,uHeight:2,source,...extra};
    built.parts.push(p);built.partMap.set(p.id,p);return p;
@@ -39,6 +40,17 @@ export function createRackOpticalCassette(THREE,{cube}) {
    box(group,p,'cassette-pull-bar',x,base+ht*.13,front-.083,mw*.70,.025,.060,'#d6c8ab');
    box(group,p,'release-tab',x,base+.025,front-.040,mw*.38,.023,.055,'#ba3658');
    box(group,p,'id-label-'+(m+1),x,base+ht*.80,front+.013,mw*.76,.021,.009,'#e7edf0');
+   if(refined){
+    // A narrow, self-contained cartridge, not another full-width patch panel.
+    box(group,p,'cassette-front-handle-'+m,x,base+ht*.66,front-.079,mw*.52,.036,.054,'#d9e2e5');
+    box(group,p,'cassette-release-lock-'+m,x+mw*.38,base+ht*.64,front-.052,mw*.095,.037,.032,'#e7a24c');
+    for(const side of [-1,1]){
+     box(group,p,'cartridge-guide-'+m+'-'+side,x+side*mw*.44,base+.016,(front+back)*.5,
+      .012,.022,(back-front)*.85,'#a7bac1');
+     box(group,p,'case-rib-'+m+'-'+side,x+side*mw*.42,base+ht*.68,(front+back)*.5,
+      .015,.045,(back-front)*.76,'#5a7483');
+    }
+   }
    // Six duplex adapters, each with two visible LC sockets; no false light sources.
    for(let j=0;j<6;j++){
     const px=x+(j-2.5)*mw*.151,py=base+ht*.24;
@@ -55,9 +67,18 @@ export function createRackOpticalCassette(THREE,{cube}) {
    box(group,mpo,'mpo-adapter',x,base+ht*.18,back-.033,mw*.48,ht*.45,.070,'#323842');
    box(group,mpo,'mpo-key',x,base+ht*.58,back-.025,mw*.16,.014,.036,'#c9d5df');
    box(group,mpo,'mpo-connector-boot',x,base+ht*.25,back+.04,mw*.33,ht*.27,.08,'#d7b648');
+   if(refined){
+    box(group,mpo,'mpo-rear-flange-'+m,x,base+ht*.12,back+.012,mw*.63,ht*.57,.025,'#94a9b1');
+    box(group,mpo,'mpo-keyed-receptacle-'+m,x,base+ht*.28,back+.029,mw*.31,ht*.20,.012,'#101e2a');
+    box(group,mpo,'mpo-rear-strain-boot-'+m,x,base+ht*.19,back+.092,mw*.32,ht*.24,.083,'#476374');
+   }
    const lid=new THREE.Group();lid.name='rack-optical:module-cover-'+m;group.add(lid);
    lid.position.set(x,base+ht*.90,back-.045);
    box(lid,p,'module-lid',0,0,-(back-front)*.45,mw,.015,(back-front)*.88,'#2f5065');
+   if(refined){
+    box(lid,p,'lid-raised-spine-'+m,0,.015,-(back-front)*.45,mw*.73,.016,(back-front)*.75,'#607b88');
+    box(lid,p,'lid-front-mark-'+m,0,.032,-(back-front)*.76,mw*.46,.009,.034,'#b1d8e1');
+   }
    session.modules.push({group,x,mw,p,mpo});session.covers.push(lid);
   }
   // Fixed guide rails are attached to the rack, not the moving drawer.
@@ -102,7 +123,14 @@ export function createRackOpticalCassette(THREE,{cube}) {
   const open=Math.max(0,Math.min(1,Number(legacy?.cassette)||0));
   if(open>.02)details(s);
   if(moving?.cassette)moving.cassette.position.z=-open*(moving.reach||1)*.70;
-  s.covers.forEach(lid=>{lid.rotation.x=-open*1.38;});
+  s.covers.forEach(lid=>{
+   if(s.refined){
+    // Rearward sliding access shell exposes the fan-out without sweeping into
+    // the patch panel in the adjacent U. The whole drawer moves forward first.
+    lid.rotation.x=0;
+    lid.position.z=s.back-.045+open*(s.back-s.front)*.55;
+   }else lid.rotation.x=-open*1.38;
+  });
   s.modules.forEach((m,i)=>{m.group.position.y=s.exploded?open*(i===1?.42:.12):0;});
   s.open=open;stats.updates++;return {open,portCount:24,moduleCount:4,drawerZ:moving?.cassette?.position.z||0};
  }

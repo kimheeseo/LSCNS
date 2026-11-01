@@ -65,6 +65,12 @@ rackOps.innerHTML='<h3>랙 내부 부품 열기 · 넣기</h3>'+
  '<button type="button" data-rack-quick="drive-toggle" data-rack-quick-kind="storage">드라이브 인출 · 장착</button>'+
  '<button type="button" data-rack-quick="patch-select">광 패치패널 선택</button>'+
  '<button type="button" data-rack-quick="cable-patch">케이블 연결 · 분리</button>'+
+ '<button type="button" data-rack-quick="optical-lc" data-rack-quick-kind="lc">LC 어댑터 패널 선택</button>'+
+ '<button type="button" data-rack-quick="lc-rear" data-rack-quick-kind="lc">LC 패널 후면 연결 보기</button>'+
+ '<button type="button" data-rack-quick="lc-next-port" data-rack-quick-kind="lc">LC 포트 · 피그테일 선택</button>'+
+ '<button type="button" data-rack-quick="odf-select" data-rack-quick-kind="odf">ODF 소형 단자함 선택</button>'+
+ '<button type="button" data-rack-quick="odf-cover" data-rack-quick-kind="odf">단자함 커버 열기 · 닫기</button>'+
+ '<button type="button" data-rack-quick="odf-next-port" data-rack-quick-kind="odf">LC 포트 · 광경로 선택</button>'+
  '</div><div id="inspectorRackOpStatus" role="status">랙 단독 보기에서 인출·복귀 또는 케이블 연결 버튼을 눌러 주세요.</div>';
 card.insertAdjacentElement('afterend',rackOps);
 rackOps.addEventListener('click',event=>{
@@ -73,7 +79,7 @@ rackOps.addEventListener('click',event=>{
  const adapter=window.LS3D_THREE?.adapter;
  const successful=!!adapter?.runRackAction?.(code);
  if(successful){
-  adapter.expandRackControls?.();
+  if(!/^(optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
   $('inspectorRackOpStatus').textContent=
     event.target.textContent+' · 3D 랙 조작을 실행했습니다. 같은 버튼을 다시 누르면 복귀합니다.';
  }else{
@@ -119,8 +125,10 @@ function sync(){
   if(patchSelect)patchSelect.hidden=!patchState;
   const gpu=/gpu/i.test(T.selected?.type||'');
   const storage=T.selected?.type==='Storage rack';
+  const odf=T.selected?.id==='odf';
+  const lc=T.selected?.type==='Top-of-Rack switch';
   for(const button of rackOps.querySelectorAll('[data-rack-quick-kind]')){
-   button.hidden=button.dataset.rackQuickKind==='gpu'?!gpu:!storage;
+   button.hidden=button.dataset.rackQuickKind==='gpu'?!gpu:button.dataset.rackQuickKind==='storage'?!storage:button.dataset.rackQuickKind==='lc'?!lc:!odf;
   }
  }
 }

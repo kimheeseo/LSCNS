@@ -14,6 +14,8 @@ import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=2026110
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261101-rack-patch-depth-v8';
+import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=20261101-lc-odf-design-v1';
+import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v1';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
@@ -115,7 +117,7 @@ export function createSceneAdapter(T, canvas) {
     if(!item)return;
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
-    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPatchDesign.drop(id);
+    rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPatchDesign.drop(id);rackLcDesign.drop(id);odfBox.drop(id);
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
       if(obj.userData?.ownedTexture)obj.userData.ownedTexture.dispose();
@@ -136,6 +138,8 @@ export function createSceneAdapter(T, canvas) {
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
   const rackPatch=createRackPatchCord(THREE);
   const rackPatchDesign=createRackOpticalPatchDesign(THREE,{cube});
+  const rackLcDesign=createRackLcAdapterDesign(THREE,{cube});
+  const odfBox=createOdfSmallFiberBox(THREE,{cube});
   const zoneExtras=createZoneSpecializations(THREE,T,{cube,world,canvas});
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
@@ -153,6 +157,10 @@ export function createSceneAdapter(T, canvas) {
       rackPatchDesign.isolate(selectedRackPart.assetId,false);
       rackPatchDesign.select(selectedRackPart.assetId,false);
       rackOptics.isolate(selectedRackPart.assetId,false);
+      rackLcDesign.isolate(selectedRackPart.assetId,false);
+      rackLcDesign.highlight(selectedRackPart.assetId,-1);
+      odfBox.isolate(selectedRackPart.assetId,false);
+      odfBox.highlight(selectedRackPart.assetId,-1);
     }
     selectedRackPart=null;if(rackHud)rackHud.hidden=true;
     inspectedScenePart={...info};sceneInspectionContext=T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id;
@@ -258,7 +266,7 @@ export function createSceneAdapter(T, canvas) {
     if(!motion.targetDoor)T.setMechanical(asset,'door');
     if(action==='optical-mtp'&&!motion.targetCassette)T.setMechanical(asset,'cassette');
     selectRackPart(assetId,part.id);
-    if(action==='optical-patch'||action==='optical-mtp')return true; // Each assembly has its own inspection view.
+    if(action==='optical-patch'||action==='optical-mtp'||action==='optical-lc')return true; // Each assembly has its own inspection view.
     const d=T.cameraDesired;
     if(d){
       const unit=(asset.h-.46)/(item.rackUnits||42);
@@ -266,6 +274,14 @@ export function createSceneAdapter(T, canvas) {
       d.target=[asset.x,yy,asset.z-asset.d*.55-(action==='optical-mtp'?.40:0)];
       d.distance=Math.max(3.15,asset.w*1.30);d.yaw=Math.PI;d.pitch=.10;
     }
+    return true;
+  }
+  function focusOdfSmallBox(assetId){
+    const asset=T.assetMap.get(assetId),item=registry.get(assetId);
+    if(asset?.id!=='odf'||!item?.odfSmallSession)return false;
+    focusRackSide(assetId,'front');
+    if(!T.mechanical(asset).targetDoor)T.setMechanical(asset,'door');
+    selectRackPart(assetId,assetId+':odf-small:housing');
     return true;
   }
   function focusRackStoragePart(assetId,action){
@@ -346,6 +362,31 @@ export function createSceneAdapter(T, canvas) {
           }
         }
         else if(['optical-patch','optical-mtp','optical-lc','optical-transceiver'].includes(action))focusRackOpticalAssembly(asset.id,action);
+        else if(action==='lc-next-port'){
+          if(!rackLcDesign.owns(selectedRackPart))focusRackOpticalAssembly(asset.id,'optical-lc');
+          const next=((rackLcDesign.state(asset.id)?.selectedPort??-1)+1)%12;
+          selectRackPart(asset.id,asset.id+':lc-adapter-port-'+next);
+        }else if(action==='lc-rear'){
+          if(!rackLcDesign.owns(selectedRackPart))focusRackOpticalAssembly(asset.id,'optical-lc');
+          const s=registry.get(asset.id)?.lcSession,desired=T.cameraDesired;
+          if(s&&desired){
+            focusRackSide(asset.id,'rear');
+            const point=new THREE.Vector3(0,s.lower+s.height*.6,s.rear+.20);
+            registry.get(asset.id).g.updateMatrixWorld(true);registry.get(asset.id).g.localToWorld(point);
+            desired.target=[point.x,point.y,point.z];desired.distance=Math.max(2.15,asset.w*1.05);
+            desired.yaw=0;desired.pitch=.16;
+            if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
+          }
+        }
+        else if(action==='odf-select')focusOdfSmallBox(asset.id);
+        else if(action==='odf-cover'){
+          if(!odfBox.owns(selectedRackPart))focusOdfSmallBox(asset.id);
+          odfBox.toggle(asset.id);
+        }else if(action==='odf-next-port'){
+          if(!odfBox.owns(selectedRackPart))focusOdfSmallBox(asset.id);
+          const next=((odfBox.state(asset.id)?.selectedPort??-1)+1)%6;
+          selectRackPart(asset.id,asset.id+':odf-small:lc-port-'+next);
+        }
         else if(['storage-controller','storage-psu','storage-shelf'].includes(action))focusRackStoragePart(asset.id,action);
         else if(action==='storage-shelf-pull'){
           const selected=rackRails.state(asset.id)?.selected;
@@ -421,12 +462,16 @@ export function createSceneAdapter(T, canvas) {
       createAccessoryButtons('ls3dNetworkOpticalAccessories','◎ 네트워크 랙 광배선 장치',
         '문을 열어 패치패널·MPO/MTP 카세트·LC 어댑터·광모듈을 선택하면 오른쪽 설명에 구성과 역할이 나옵니다.',
         [['optical-patch','1 · 광 패치패널'],['optical-mtp','2 · MPO/MTP 카세트'],
-         ['optical-lc','3 · LC 어댑터 패널'],['optical-transceiver','4 · 광 트랜시버']]);
+         ['optical-lc','3 · LC 어댑터 패널'],['lc-rear','LC 패널 후면 보기'],
+         ['lc-next-port','다음 LC 포트·피그테일'],['optical-transceiver','4 · 광 트랜시버']]);
       createAccessoryButtons('ls3dStorageRackAccessories','▣ 스토리지 랙 내부 확인',
         '8-bay 스토리지 쉘프, 컨트롤러, PSU/팬을 구분해 확인하고 쉘프/드라이브를 각각 인출해 보세요.',
         [['storage-shelf','스토리지 쉘프 선택'],['storage-shelf-pull','쉘프 꺼내기/넣기'],
          ['storage-controller','컨트롤러 확인'],['storage-psu','PSU / 팬 확인'],
          ['storage-drive-pull','선택 드라이브 인출'],['storage-rear','후면 연결 확인']]);
+      createAccessoryButtons('ls3dODFSmallBoxAccessories','◎ ODF 소형 광단자함',
+        '검은 힌지 커버를 열고 6색 피그테일 루프·접속 홀더와 측면 LC 어댑터를 확인합니다.',
+        [['odf-select','소형 단자함 선택'],['odf-cover','커버 열기 / 닫기'],['odf-next-port','다음 LC 포트·광경로']]);
       const details=document.createElement('details');
       details.style.cssText='border-top:1px solid #477384;margin-top:7px;padding-top:7px;';
       const title=document.createElement('summary');
@@ -467,8 +512,14 @@ export function createSceneAdapter(T, canvas) {
     const gpuRack=/gpu/i.test(a.type),storageRack=a.type==='Storage rack',networkRack=a.type==='Top-of-Rack switch'||['Core','Spine','Leaf','MMR rack'].includes(a.type);
     const networkPanel=rackControls.querySelector('#ls3dNetworkOpticalAccessories');
     const storagePanel=rackControls.querySelector('#ls3dStorageRackAccessories');
+    const odfPanel=rackControls.querySelector('#ls3dODFSmallBoxAccessories');
     if(networkPanel)networkPanel.hidden=!networkRack;
     if(storagePanel)storagePanel.hidden=!storageRack;
+    if(odfPanel)odfPanel.hidden=a.id!=='odf';
+    for(const code of ['lc-rear','lc-next-port']){
+      const button=rackControls.querySelector('[data-rack-action="'+code+'"]');
+      if(button)button.hidden=!rackLcDesign.state(a.id);
+    }
     rackControls.querySelectorAll('[data-gpu-only]').forEach(button=>button.hidden=!gpuRack);
     rackControls.querySelectorAll('[data-storage-only]').forEach(button=>button.hidden=!storageRack);
     if(rackPanelHeading)rackPanelHeading.textContent=(gpuRack?'GPU 서버':storageRack?'스토리지':networkRack?'네트워크':'서버')+' 랙 조작 · '+a.id;
@@ -483,6 +534,8 @@ export function createSceneAdapter(T, canvas) {
     const patchSelect=rackControls.querySelector('[data-rack-action="patch-select"]');
     if(patchSelect)patchSelect.hidden=!patchStatus;
     if(patchAction)patchAction.hidden=!patchStatus;
+    const odfCover=rackControls.querySelector('[data-rack-action="odf-cover"]');
+    if(odfCover)odfCover.textContent=odfBox.state(a.id)?.target?'커버 닫기':'커버 열기';
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
@@ -517,7 +570,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|cable-patch)$/;
+    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;
@@ -594,6 +647,14 @@ export function createSceneAdapter(T, canvas) {
         rackPatchDesign.isolate(selectedRackPart.assetId,false);
       }
       if(!rackOptics.owns(info))rackOptics.isolate(selectedRackPart.assetId,false);
+      if(!rackLcDesign.owns(info)){
+        rackLcDesign.isolate(selectedRackPart.assetId,false);
+        rackLcDesign.highlight(selectedRackPart.assetId,-1);
+      }
+      if(!odfBox.owns(info)){
+        odfBox.isolate(selectedRackPart.assetId,false);
+        odfBox.highlight(selectedRackPart.assetId,-1);
+      }
     }
     selectedRackPart=info?{...info}:null;
     if(rackPatchDesign.owns(selectedRackPart)){
@@ -602,7 +663,16 @@ export function createSceneAdapter(T, canvas) {
       if(selectedRackPart.kind==='patch-panel')rackPatchDesign.includeCable(selectedRackPart.assetId,false);
     }
     if(rackOptics.owns(selectedRackPart))rackOptics.isolate(selectedRackPart.assetId,true);
-    const opticalInspect=selectedRackPart?.kind==='patch-panel'||rackOptics.owns(selectedRackPart);
+    if(rackLcDesign.owns(selectedRackPart)){
+      rackLcDesign.isolate(selectedRackPart.assetId,true);
+      rackLcDesign.highlight(selectedRackPart.assetId,selectedRackPart.kind==='lc-adapter-port'?selectedRackPart.portIndex:-1);
+    }
+    if(odfBox.owns(selectedRackPart)){
+      odfBox.isolate(selectedRackPart.assetId,true);
+      odfBox.highlight(selectedRackPart.assetId,selectedRackPart.kind==='odf-small-port'?selectedRackPart.portIndex:-1);
+      if(['odf-small-port','odf-small-splice','odf-small-guide'].includes(selectedRackPart.kind))odfBox.open(selectedRackPart.assetId);
+    }
+    const opticalInspect=selectedRackPart?.kind==='patch-panel'||rackOptics.owns(selectedRackPart)||rackLcDesign.owns(selectedRackPart)||odfBox.owns(selectedRackPart);
     if(opticalInspect)
       rackPanelDisclosure?.setCollapsed(true);
     // Keep the mobile lens ruler from covering one of the four cassettes.
@@ -658,6 +728,28 @@ export function createSceneAdapter(T, canvas) {
         if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
       }
       if(part.kind==='mpo-input')emphasizeRackPart(assetId,partId);
+    }else if(rackLcDesign.owns(part)){
+      const asset=T.assetMap.get(assetId),desired=T.cameraDesired,s=record.lcSession;
+      if(asset&&desired&&s&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
+        focusRackSide(assetId,'front');
+        const point=new THREE.Vector3(0,s.lower+s.height*.5,s.front);
+        record.g.updateMatrixWorld(true);record.g.localToWorld(point);
+        desired.target=[point.x,point.y,point.z];desired.distance=Math.max(2.15,asset.w*1.03);
+        desired.yaw=Math.PI;desired.pitch=.13;
+        if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
+      }
+      if(part.kind==='lc-adapter-port')emphasizeRackPart(assetId,partId);
+    }else if(odfBox.owns(part)){
+      const asset=T.assetMap.get(assetId),desired=T.cameraDesired,s=record.odfSmallSession;
+      if(asset&&desired&&s&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
+        focusRackSide(assetId,'front');
+        const point=new THREE.Vector3(0,s.height*.5,0);
+        s.root.updateMatrixWorld(true);s.root.localToWorld(point);
+        desired.target=[point.x,point.y,point.z];desired.distance=Math.max(1.65,asset.w*.88);
+        desired.yaw=Math.PI;desired.pitch=.24;
+        if(T.camera)Object.assign(T.camera,{target:desired.target.slice(),distance:desired.distance,yaw:desired.yaw,pitch:desired.pitch});
+      }
+      if(part.kind==='odf-small-port')emphasizeRackPart(assetId,partId);
     }else if(part?.kind==='patch-panel'){
       const asset=T.assetMap.get(assetId),desired=T.cameraDesired;
       if(asset&&desired&&T.rackIsolateActive&&!T.workerViewId&&!T.walkActive){
@@ -718,7 +810,7 @@ export function createSceneAdapter(T, canvas) {
     g.name='equipment:'+a.id;g.userData.assetId=a.id;
     const {w,d,h}=a;
     let moving=null,rackLOD=null,equipmentLOD=null,kind='rack',rackParts=[],partMap=null,rackUnits=null,fuelSmoke=[],loadingBayActors=[];
-    let serverSession=null,opticsSession=null,networkSession=null;
+    let serverSession=null,opticsSession=null,networkSession=null,odfSmallSession=null,lcSession=null;
     if(T.isMechanicalRack(a)){
       const high=new THREE.Group();high.name='rack-high';g.add(high);
       const built=rackKit.build(high,a);
@@ -727,6 +819,8 @@ export function createSceneAdapter(T, canvas) {
       networkSession=rackNetwork.decorate(a,built,high);
       rackPatchDesign.decorate(a,built,high);
       rackPatch.decorate(a,built,high);
+      lcSession=rackLcDesign.decorate(a,built,high);
+      odfSmallSession=odfBox.decorate(a,built,high);
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
@@ -764,7 +858,7 @@ export function createSceneAdapter(T, canvas) {
       if(obj.userData?.maintenanceAnimation)maintenanceActors.push(obj);
       if(obj.userData?.loadingBayAnimation)loadingBayActors.push(obj);
     });
-    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,mantrapLights,mantrapDoors,fuelSmoke,maintenanceActors,loadingBayActors,baseYaw};
+    return {g,moving,selection,kind,equipmentLOD,rackLOD,rackParts,partMap,rackUnits,serverSession,opticsSession,networkSession,odfSmallSession,lcSession,mantrapLights,mantrapDoors,fuelSmoke,maintenanceActors,loadingBayActors,baseYaw};
   }
   // Twelve-second educational operation. One employee loads a box, boards the
   // 50%-size forklift, drives forward, reverses, and dismounts. The vehicle
@@ -842,7 +936,7 @@ export function createSceneAdapter(T, canvas) {
         item = { ...model, sig }; registry.set(a.id, item); assetRoot.add(item.g);
       }
       const opticalIsolated=selectedRackPart?.assetId===a.id&&
-        (rackOptics.owns(selectedRackPart)||rackPatchDesign.owns(selectedRackPart));
+        (rackOptics.owns(selectedRackPart)||rackPatchDesign.owns(selectedRackPart)||rackLcDesign.owns(selectedRackPart)||odfBox.owns(selectedRackPart));
       item.selection.visible=T.selected?.id===a.id&&!opticalIsolated;
       if(selectedRackPart && selectedRackPart.assetId===a.id && !item.partMap?.has(selectedRackPart.id))
         showRackPart(null);
@@ -909,8 +1003,11 @@ export function createSceneAdapter(T, canvas) {
         rackDoors.tick(a.id,item.moving,m,dt);
         rackRails.update(a.id,item.moving,m,dt);
         rackOptics.update(a.id,item.moving,m);
+        odfBox.update(a.id,dt);
         rackNetwork.update(a.id,rackRails.state(a.id)?.selected||null);
         if(rackOptics.owns(selectedRackPart))rackOptics.isolate(a.id,true);
+        if(rackLcDesign.owns(selectedRackPart))rackLcDesign.isolate(a.id,true);
+        if(odfBox.owns(selectedRackPart))odfBox.isolate(a.id,true);
         rackPatchDesign.update(a.id,dt);
         rackPatch.update(a.id,dt);
         const cord=rackPatch.state(a.id);
@@ -935,7 +1032,9 @@ export function createSceneAdapter(T, canvas) {
       rails:{...rackRails.stats},
       optics:{...rackOptics.stats},
       selectedServer:currentRackAsset()?rackRails.state(currentRackAsset().id):null,
-      selectedOptics:currentRackAsset()?rackOptics.state(currentRackAsset().id):null
+      selectedOptics:currentRackAsset()?rackOptics.state(currentRackAsset().id):null,
+      selectedOdfBox:currentRackAsset()?odfBox.state(currentRackAsset().id):null,
+      selectedLcPanel:currentRackAsset()?rackLcDesign.state(currentRackAsset().id):null
     };
     diagnostic.rackComponents={
       rackCount:[...registry.values()].filter(x=>x.rackUnits).length,
@@ -1153,7 +1252,7 @@ export function createSceneAdapter(T, canvas) {
     if(rackHud){rackHud.remove();rackHud=null;}selectedRackPart=null;
     if(rackControls){rackControls.remove();rackControls=null;}
     rackPanelDisclosure=null;rackPanelHeading=null;rackControlsLabel=null;rackControlsActiveRack=null;
-    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();rackPatch.reset();rackPatchDesign.reset();focusedRack=null;
+    rackDoors.reset();rackRails.reset();rackOptics.reset();rackNetwork.reset();rackPatch.reset();rackPatchDesign.reset();rackLcDesign.reset();odfBox.reset();focusedRack=null;
     security.root.removeFromParent?.();
     clearGroup(security.root);
     clearGroup(routeRoot);clearGroup(zoneRoot);clearGroup(peopleRoot);

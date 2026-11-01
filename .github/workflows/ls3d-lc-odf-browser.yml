@@ -1,0 +1,45 @@
+name: LS Datacenter LC and ODF WebGL2 verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'DCI/DataCenter/LS_Datacenter_3D.html'
+      - 'DCI/DataCenter/ls3d-inspector-ui.js'
+      - 'DCI/DataCenter/ls3d-three/bootstrap.mjs'
+      - 'DCI/DataCenter/ls3d-three/scene-adapter.mjs'
+      - 'DCI/DataCenter/ls3d-three/rack-lc-adapter-design.mjs'
+      - 'DCI/DataCenter/ls3d-three/odf-small-fiber-box.mjs'
+      - 'DCI/DataCenter/ls3d-three/rack-lc-odf.browser.spec.mjs'
+      - '.github/workflows/ls3d-lc-odf-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  webgl2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Three.js and Playwright
+        run: npm install --no-save @playwright/test@1.56.1 three@0.186.1
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Check LC and ODF models
+        run: node --test DCI/DataCenter/ls3d-three/rack-lc-odf.design.test.mjs
+      - name: Render desktop and mobile LC ODF states
+        run: npx playwright test --config=DCI/DataCenter/ls3d-three/rack-lc-odf.playwright.config.mjs
+      - name: Upload visual checks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls3d-lc-odf-${{ github.run_number }}
+          path: |
+            DCI/DataCenter/ls3d-three/rack-lc-odf-browser-results/
+            DCI/DataCenter/ls3d-three/rack-lc-odf-browser-results.json
+          if-no-files-found: warn
+          retention-days: 14

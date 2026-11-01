@@ -1,0 +1,60 @@
+name: OFC 2026 Residual FiLM Transformer smoke
+on:
+  push:
+    paths:
+      - .github/workflows/ofc26-film-residual-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-data-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - name: Checkout minimal model folder
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            26OFC_ML_challenge/FiLM_Residual_Transformer
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install PyTorch CPU and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1
+          python -m pip install numpy pandas scikit-learn matplotlib
+      - name: Synthetic model-loss-training regression tests
+        run: |
+          python 26OFC_ML_challenge/FiLM_Residual_Transformer/test_pipeline.py
+      - name: Official OFC CSV download (Git LFS)
+        run: |
+          git lfs install
+          GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --filter=blob:none --sparse https://github.com/ofc-ml-challenge/ofc-ml-challenge-data-code.git /tmp/ofcdata
+          git -C /tmp/ofcdata sparse-checkout set Features
+          git -C /tmp/ofcdata lfs pull --include='Features/Train/train_features.csv,Features/Train/train_labels.csv,Features/Train/COSMOS_features.csv,Features/Train/COSMOS_labels.csv,Features/Test/test_features.csv' --exclude=''
+      - name: Official data 2-epoch architecture smoke
+        run: |
+          python -u 26OFC_ML_challenge/FiLM_Residual_Transformer/train.py \
+            --data-root /tmp/ofcdata --output /tmp/film_results \
+            --cpu --pretrain-cosmos --cosmos-max-rows 500 \
+            --pretrain-epochs 2 --epochs 2 --patience 2 \
+            --hidden 32 --heads 4 --layers 2 --batch-size 32 \
+            --lr 0.002 --scratch-control
+          test -s /tmp/film_results/recent_best.pt
+          test -s /tmp/film_results/comparison.json
+          test -s /tmp/film_results/submission.csv
+      - name: Upload smoke checkpoints and metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ofc26-film-residual-smoke
+          path: /tmp/film_results/
+          if-no-files-found: warn
+          retention-days: 7

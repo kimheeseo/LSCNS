@@ -69,9 +69,11 @@ export function createRackOpticalCassette(THREE,{cube}) {
    box(group,mpo,'mpo-key',x,base+ht*.58,back-.025,mw*.16,.014,.036,'#c9d5df');
    box(group,mpo,'mpo-connector-boot',x,base+ht*.25,back+.04,mw*.33,ht*.27,.08,'#d7b648');
    if(refined){
-    box(group,mpo,'mpo-rear-flange-'+m,x,base+ht*.12,back+.012,mw*.63,ht*.57,.025,'#94a9b1');
-    box(group,mpo,'mpo-keyed-receptacle-'+m,x,base+ht*.28,back+.029,mw*.31,ht*.20,.012,'#101e2a');
-    box(group,mpo,'mpo-rear-strain-boot-'+m,x,base+ht*.19,back+.092,mw*.32,ht*.24,.083,'#476374');
+    box(group,mpo,'mpo-rear-flange-'+m,x,base+ht*.12,back+.065,mw*.63,ht*.57,.025,'#94a9b1');
+    // The keyed socket face must remain visible from the rear; the strain
+    // boot sits behind and below it rather than covering the opening.
+    box(group,mpo,'mpo-keyed-receptacle-'+m,x,base+ht*.33,back+.145,mw*.31,ht*.20,.012,'#101e2a');
+    box(group,mpo,'mpo-rear-strain-boot-'+m,x,base+ht*.12,back+.092,mw*.28,ht*.14,.080,'#476374');
    }
    const lid=new THREE.Group();lid.name='rack-optical:module-cover-'+m;group.add(lid);
    lid.position.set(x,base+ht*.90,back-.045);

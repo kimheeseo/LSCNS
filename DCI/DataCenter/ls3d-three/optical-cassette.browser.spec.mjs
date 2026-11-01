@@ -84,7 +84,7 @@ test('mobile WebGL2: cassette opens and renders without clipping errors',async({
  const errors=await start(page),mobile=await inspect(page);
  expect(mobile.parts.fibers).toBe(48);expect(mobile.calls).toBeGreaterThan(0);
  expect(mobile.visibleHigh).toEqual(['fiber-cassette']);expect(errors).toEqual([]);
- await page.screenshot({path:info.outputPath('cassette-mobile-open.png')});
+ await page.locator('#viewport').screenshot({path:info.outputPath('cassette-mobile-open.png')});
  await writeFile(info.outputPath('mobile-metrics.json'),JSON.stringify({mobile,errors},null,2));
 });
 });

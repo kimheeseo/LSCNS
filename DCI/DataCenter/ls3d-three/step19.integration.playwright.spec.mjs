@@ -525,3 +525,51 @@ test('19-I: rack viewport and controls remain within desktop window after zoom/r
   await snapshot(page,info,'step19-rack-viewport-1280x720.png');
   verify(issues);
 });
+
+test('19-J: rack free pan, temporary rotate and camera fit survive pointer drags',async({page},info)=>{
+  const errors=await ready(page,'hall');
+  await page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    T.pickAsset(T.assetMap.get('tor-a'),true);
+  });
+  await page.locator('#detailBtn').click();
+  await page.waitForFunction(()=>window.__LS3D_TEST__?.rackIsolateActive&&
+    document.getElementById('sceneThree')?.style.display==='block');
+  const read=()=>page.evaluate(()=>{
+    const T=window.__LS3D_TEST__;
+    return {target:T.cameraDesired.target.slice(),yaw:T.cameraDesired.yaw,
+      pitch:T.cameraDesired.pitch,distance:T.cameraDesired.distance};
+  });
+  await expect(page.locator('[data-rack-drag-mode="pan"]')).toHaveAttribute('aria-pressed','true');
+  const box=await page.locator('#sceneThree').boundingBox();
+  const x=box.x+box.width*.40,y=box.y+box.height*.43;
+  const before=await read();
+  await page.mouse.move(x,y);await page.mouse.down();
+  await page.mouse.move(x+95,y+72,{steps:8});await page.mouse.up();
+  const moved=await read();
+  expect(Math.abs(moved.target[0]-before.target[0])+Math.abs(moved.target[2]-before.target[2])).toBeGreaterThan(.05);
+  expect(Math.abs(moved.target[1]-before.target[1])).toBeGreaterThan(.05);
+  expect(moved.yaw).toBeCloseTo(before.yaw,5);
+  // Reverse the drag: camera should translate in both axes, not only orbit.
+  await page.mouse.move(x+95,y+72);await page.mouse.down();
+  await page.mouse.move(x,y,{steps:8});await page.mouse.up();
+  const reversed=await read();
+  expect(reversed.target[0]).toBeCloseTo(before.target[0],2);
+  expect(reversed.target[1]).toBeCloseTo(before.target[1],2);
+  await page.keyboard.down('Shift');
+  await page.mouse.move(x,y);await page.mouse.down();
+  await page.mouse.move(x+70,y+12,{steps:6});await page.mouse.up();
+  await page.keyboard.up('Shift');
+  const rotated=await read();
+  expect(Math.abs(rotated.yaw-before.yaw)).toBeGreaterThan(.05);
+  await page.locator('[data-rack-drag-mode="rotate"]').click();
+  await expect(page.locator('[data-rack-drag-mode="rotate"]')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('[data-rack-drag-mode="pan"]')).toHaveAttribute('aria-pressed','false');
+  await page.locator('#rackIsolateFit').click();
+  const fitted=await read();
+  expect(fitted.distance).toBeGreaterThan(1);
+  await snapshot(page,info,'step19-rack-free-pan.png');
+  await page.locator('#rackIsolateExit').click();
+  expect(await page.evaluate(()=>window.__LS3D_TEST__.rackIsolateActive)).toBe(false);
+  verify(errors);
+});

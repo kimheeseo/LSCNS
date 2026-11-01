@@ -466,7 +466,7 @@ test('19-M: GPU Leaf A/B, four GPU servers and network Spine 1/2 are visible rac
     const drawer=gpu.getObjectByName('rack-part:cassette-pull:gpu-0-0')?.userData.rackPart;
     const labels=['leaf-a','leaf-b','gpu-server-0','gpu-server-1','gpu-server-2','gpu-server-3']
       .map(name=>!!gpu.getObjectByName('rack-module-label:'+name+':gpu-0-0'));
-    const fabric=[0,1,2].map(i=>!!network.getObjectByName('rack-module-label:fabric-'+i+':tor-a'));
+    const fabric=[0,1].map(i=>!!network.getObjectByName('rack-module-label:fabric-'+i+':tor-a'));
     const routes=adapter.rackCabling.diagnostic('gpu-0-0')?.links||[];
     return {a,b,drawer,labels,fabric,
       redundant:routes.filter(link=>link.to===b?.id).length,

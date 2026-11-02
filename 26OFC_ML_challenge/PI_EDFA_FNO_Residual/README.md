@@ -78,6 +78,8 @@ python train.py --data-root /path/to/ofc-ml-challenge-data-code \
 
 ## 공식 데이터 실측 평가 결과 (2026-11-03, 최초 실험)
 
+**영구 저장 결과:** [2026-11-03 평가 폴더](results_2026-11-03/) · [TestGround 점수 JSON](results_2026-11-03/testground_comparison.json) · [비교 CSV](results_2026-11-03/testground_scores.csv)
+
 **평가 실행:** [GitHub Actions · 공식 데이터 학습·사후 TestGround 평가](https://github.com/kimheeseo/LSCNS/actions/runs/41540664667)
 · [원본 JSON, 학습 이력, 체크포인트, submission.csv 아티팩트](https://github.com/kimheeseo/LSCNS/actions/runs/41540664667/artifacts/13185463032)
 

@@ -1,3 +1,12 @@
+## 2026-11-02 · 광 네트워크 일반 구조 / 디지털 트윈 설계 버전 분리
+
+- 3D 데이터센터 상단 **◎ 광** 전체화면에서 두 개의 탭 제공: **일반 구조 · 아키텍처** / **디지털 트윈 · 설계 버전**.
+- 일반 구조는 Internet → Firewall → Router → Core → Spine → Leaf → Server의 개념도를 유지합니다. 방화벽, 엣지 라우터, Leaf C/D는 실제 3D 설치 수량에 포함되지 않는 예시임을 명시합니다.
+- 디지털 트윈 설계 버전은 `T.exportConfig().optical.topology`의 노드/링크/매체/설계 거리/단선 상태를 읽어 SVG 연결도와 링크 목록을 동적으로 표시합니다. 링크 클릭 시 기존 광 예산 계산·포트 목록 연계 기능을 사용합니다.
+- 내보낸 광 설계 데이터는 교육용 대표 토폴로지입니다. 물리적 장비 위치·전 포트·실측 케이블 길이를 3D로부터 자동 산출한 배선도는 아니라는 안내를 함께 제공합니다.
+- 소스: `ls3d-optical-fullscreen.js`, `ls3d-optical-fullscreen.css`, `LS_Datacenter_3D.html`.
+- 접속: https://kimheeseo.github.io/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&v=20261102-network-dual-view-v1
+
 ## 2026-11-02 · 랙 부품 이름과 역할 표시
 
 - 랙 단독 보기 오른쪽 조작창에 광 패치패널, 네트워크 스위치, MPO/MTP 카세트, GPU 모듈 선택 버튼을 마련했습니다. 해당 랙에서 선택하면 설명창에 부품 이름과 한 줄 역할을 분리해서 보여 줍니다. 스위치와 GPU는 3D 부품 선택과 일치하고, 패치패널·카세트는 기존 단독 관찰 동작을 사용합니다.

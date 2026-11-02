@@ -1327,10 +1327,13 @@ document.addEventListener('DOMContentLoaded',init,{once:true});
  if(!view||!button)return;
  const shade=document.createElement('div');
  shade.id='ls3dExpandShade';shade.hidden=true;shade.setAttribute('aria-hidden','true');document.body.appendChild(shade);
- let expanded=false,baseWidth=0,baseHeight=0;
+ let expanded=false,baseWidth=0,baseHeight=0,notifyingResize=false;
  const refreshRenderer=()=>requestAnimationFrame(()=>{
-   window.dispatchEvent(new Event('resize'));
-   window.LS3D_THREE?.adapter?.resize?.();
+   notifyingResize=true;
+   try{
+     window.dispatchEvent(new Event('resize'));
+     window.LS3D_THREE?.adapter?.resize?.();
+   }finally{notifyingResize=false;}
  });
  function sizeExpanded(){
    const maxW=Math.max(180,window.innerWidth-20),maxH=Math.max(180,window.innerHeight-20);
@@ -1364,7 +1367,7 @@ document.addEventListener('DOMContentLoaded',init,{once:true});
  },true);
  full?.addEventListener('click',closeExpanded,true);
  document.addEventListener('fullscreenchange',()=>{if(document.fullscreenElement)closeExpanded()});
- window.addEventListener('resize',()=>{if(expanded)sizeExpanded()});
+ window.addEventListener('resize',()=>{if(expanded&&!notifyingResize)sizeExpanded()});
 })();
 </script>
 </body></html>

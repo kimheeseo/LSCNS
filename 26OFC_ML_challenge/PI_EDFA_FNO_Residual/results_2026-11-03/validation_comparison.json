@@ -1,0 +1,100 @@
+{
+  "protocol": "recent Train grouped holdout, no TestGround model selection",
+  "seed": 2026,
+  "train_rows": 397,
+  "validation_rows": 93,
+  "cosmos_pretrain_epochs": 0,
+  "PI_EDFA": {
+    "ALL": {
+      "score": 0.22853231667856225,
+      "mae": 0.2062505692018044,
+      "std": 0.048664256046224166,
+      "p95": 0.4162483215332031,
+      "max_error": 1.2660694122314453,
+      "penalty_p95": 0,
+      "penalty_max": 0.14982109069824223,
+      "samples": 93,
+      "loaded_points": 1985
+    },
+    "aging": {
+      "score": 0.13900234148670526,
+      "mae": 0.13234966754792551,
+      "std": 0.04435115959186504,
+      "p95": 0.32277345657348633,
+      "max_error": 0.48583984375,
+      "penalty_p95": 0,
+      "penalty_max": 0,
+      "samples": 28,
+      "loaded_points": 596
+    },
+    "shb": {
+      "score": 0.16154421706378327,
+      "mae": 0.14971954074580957,
+      "std": 0.07883117545315811,
+      "p95": 0.4308136999607086,
+      "max_error": 0.67333984375,
+      "penalty_p95": 0,
+      "penalty_max": 0,
+      "samples": 18,
+      "loaded_points": 484
+    },
+    "unseen": {
+      "score": 0.29036019697932236,
+      "mae": 0.2719268193830069,
+      "std": 0.03968047203339957,
+      "p95": 0.4412563443183899,
+      "max_error": 1.2660694122314453,
+      "penalty_p95": 0,
+      "penalty_max": 0.12481306791305546,
+      "samples": 47,
+      "loaded_points": 905
+    }
+  },
+  "PI_EDFA_FNO": {
+    "ALL": {
+      "score": 0.22659484608270955,
+      "mae": 0.20438848558195477,
+      "std": 0.04868581958414341,
+      "p95": 0.42207375168800354,
+      "max_error": 1.271108627319336,
+      "penalty_p95": 0,
+      "penalty_max": 0.14903487563133244,
+      "samples": 93,
+      "loaded_points": 1985
+    },
+    "aging": {
+      "score": 0.13696118524380993,
+      "mae": 0.13027534411187836,
+      "std": 0.04457227421287719,
+      "p95": 0.32303953170776367,
+      "max_error": 0.4843273162841797,
+      "penalty_p95": 0,
+      "penalty_max": 0,
+      "samples": 28,
+      "loaded_points": 596
+    },
+    "shb": {
+      "score": 0.15492041272905036,
+      "mae": 0.14354370453926257,
+      "std": 0.07584472126525191,
+      "p95": 0.4379219114780426,
+      "max_error": 0.69970703125,
+      "penalty_p95": 0,
+      "penalty_max": 0,
+      "samples": 18,
+      "loaded_points": 484
+    },
+    "unseen": {
+      "score": 0.29072284252786057,
+      "mae": 0.271843251963457,
+      "std": 0.04073516086362215,
+      "p95": 0.44341546297073364,
+      "max_error": 1.271108627319336,
+      "penalty_p95": 0,
+      "penalty_max": 0.12769316434860234,
+      "samples": 47,
+      "loaded_points": 905
+    }
+  },
+  "fno_best_val_score": 0.22659484608270955
+}

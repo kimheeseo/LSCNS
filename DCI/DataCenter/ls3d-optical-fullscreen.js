@@ -105,6 +105,19 @@ function renderDiagram(){
  host.innerHTML=twin?twinSchematic(t):schematic();
  const h=$('lo-viewTitle'),note=$('lo-viewNote'),meta=$('lo-viewSummary');
  if(h)h.textContent=twin?'디지털 트윈 설계 구성도 · 내 모델':'일반 데이터센터 네트워크 아키텍처';
+
+ const generalHelp=$('loGeneralHelp'),twinHelp=$('loTwinHelp');
+ if(generalHelp)generalHelp.hidden=twin;
+ if(twinHelp){
+  twinHelp.hidden=!twin;
+  if(twin){
+   const labels=new Map((t?.nodes||[]).map(n=>[n.id,n.name||n.id]));
+   const rows=(t?.links||[]).map(l=>'<tr><td>'+esc(labels.get(l.from)||l.from)+' → '+esc(labels.get(l.to)||l.to)+'</td><td>'+esc(l.type||l.media||'미설정')+'</td><td>'+esc(String(l.lengthM??'미설정'))+' m</td><td>'+(l.down?'단선':'연결')+'</td></tr>').join('');
+   twinHelp.innerHTML='<b>디지털 트윈 공유 설계 링크 목록</b><div class="lo-twin-table"><table><thead><tr><th>구간</th><th>매체</th><th>설계 거리</th><th>상태</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+    '<p>표와 구성도는 현재 내보내기 설정에 저장된 대표 노드 및 링크입니다. 물리 랙 전체 포트·커넥터·케이블 수량을 실측하거나 3D 모델로부터 자동 추출한 결과가 아닙니다.</p>';
+  }
+ }
+
  if(note)note.textContent=twin
   ?'3D 툴의 공유 설계 설정(노드/링크/매체/거리/단선 상태)을 읽어 자동 구성합니다. 실제 설치 장비 수량·현장 광배선·포트 접속도와 1:1 검증된 도면은 아닙니다.'
   :'일반적인 통신 계층의 설명용 예시입니다. Firewall A/B, Edge Router A/B, Leaf C/D는 3D 모델에 설치된 실제 장비가 아닙니다.';
@@ -187,13 +200,13 @@ function init(){
  ].join('');
  section.innerHTML='<div class="lo-topline"><div><h3>데이터센터 네트워크 · 전체 계층 구조</h3><div class="lo-sub">참고 그림 기반의 설계 개념도입니다. Firewall·Edge Router·Leaf C/D는 확장 예시로, 현재 툴의 실제 설치 수량에 포함되지 않습니다.</div></div><button id="lo-close" type="button">전체화면 닫기</button></div>'+
  '<div class="lo-viewbar" role="tablist" aria-label="광 네트워크 구성도 선택"><button type="button" role="tab" data-lo-view="general" aria-selected="true">일반 구조 · 아키텍처</button><button type="button" role="tab" data-lo-view="twin" aria-selected="false">디지털 트윈 · 설계 버전</button></div>'+  '<div class="lo-grid"><section class="lo-section"><h4 id="lo-viewTitle">일반 데이터센터 네트워크 아키텍처</h4><p id="lo-viewNote" class="lo-sub"></p><div id="lo-viewSummary" class="lo-summary" aria-live="polite"></div><div id="loNetworkDiagram">'+schematic()+'</div>'+
- '<div class="lo-bottom"><b>전체 네트워크 랙 · 계층별 역할</b><table><thead><tr><th>계층</th><th>랙/장비</th><th>역할</th></tr></thead><tbody>'+
+ '<div id="loGeneralHelp" class="lo-bottom"><b>전체 네트워크 랙 · 계층별 역할</b><table><thead><tr><th>계층</th><th>랙/장비</th><th>역할</th></tr></thead><tbody>'+
  '<tr><td>보안 · WAN</td><td>Firewall / Edge Router</td><td>외부 트래픽 보안·경계 라우팅 (개념)</td></tr>'+
  '<tr><td>Core / Spine</td><td>Core Router · Spine A/B</td><td>IP Fabric·ECMP 트래픽 집선</td></tr>'+
  '<tr><td>Leaf / ToR</td><td>Leaf A/B · Network Rack</td><td>서버 NIC 직접 연결 및 Uplink</td></tr>'+
  '<tr><td>서버</td><td>GPU / Compute / Storage Rack</td><td>연산·처리·저장, NIC 탑재</td></tr>'+
  '<tr><td>광 배선</td><td>ODF / MMR / Patch Panel</td><td>수동 광 접속·분배, L3 스위칭 아님</td></tr></tbody></table>'+
- '<p>MLAG는 일부 Leaf 쌍에 적용할 수 있는 L2 이중화 기술이며, Spine 간 모든 연결에 MLAG가 필요한 것은 아닙니다. VXLAN/EVPN 및 BGP는 구성에 따라 선택됩니다.</p></div></section>'+
+ '<p>MLAG는 일부 Leaf 쌍에 적용할 수 있는 L2 이중화 기술이며, Spine 간 모든 연결에 MLAG가 필요한 것은 아닙니다. VXLAN/EVPN 및 BGP는 구성에 따라 선택됩니다.</p></div><div id="loTwinHelp" class="lo-bottom" hidden></div></section>'+
  '<section class="lo-section"><h4>광모듈·포트속도별 링크 마진 계산</h4><div class="lo-fields">'+
  '<label class="lo-field"><span>링크 선택</span><select id="lo-link"></select></label>'+
  '<label class="lo-field"><span>포트 속도</span><select id="lo-speed"><option>400G</option><option>800G</option><option>1.6T</option></select></label>'+

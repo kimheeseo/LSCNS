@@ -76,10 +76,32 @@ python train.py --data-root /path/to/ofc-ml-challenge-data-code \
 | `best_pi_edfa_fno.pt` | PI/FNO 가중치·입력 정규화 정보·모델 설정 |
 | `recent_pi_history.csv` · `recent_fno_history.csv` | 학습 이력 |
 
+## 공식 데이터 실측 평가 결과 (2026-11-03, 최초 실험)
+
+**평가 실행:** [GitHub Actions · 공식 데이터 학습·사후 TestGround 평가](https://github.com/kimheeseo/LSCNS/actions/runs/41540664667)
+· [원본 JSON, 학습 이력, 체크포인트, submission.csv 아티팩트](https://github.com/kimheeseo/LSCNS/actions/runs/41540664667/artifacts/13185463032)
+
+- **공식 측정 데이터:** 최신 Train **490개**(학습 397 / 그룹 홀드아웃 93); 공개 TestGround **21,056개**(Aging 4,400 / SHB 864 / Unseen 15,792)
+- **학습:** PI-EDFA 60 Epoch(상한), 동결한 PI 기반 FNO 잔차 60 Epoch(상한), `seed=2026`, `patience=15`, **COSMOS 사용 안 함**. 최적 검증 체크포인트를 선택한 뒤 TestGround 사후 평가.
+- **공식 스타일 평가식:** 활성 채널 row-MAE + 0.15×row-STD + 0.3×P95 penalty + 0.1×max-error penalty. 점수가 낮을수록 좋습니다.
+
+| 공개 TestGround | PI-EDFA 단독 | PI-EDFA + FNO | 차이(FNO−PI) |
+|---|---:|---:|---:|
+| Aging | 0.149418 | **0.147972** | −0.001446 |
+| SHB | 0.149192 | **0.147722** | −0.001470 |
+| Unseen | 0.450383 | **0.449606** | −0.000777 |
+| **Overall** | 0.393592 | **0.392948** | −0.000644 |
+
+**동일 최신 Train 93개 내부 검증:** PI-only 0.228532 → PI+FNO 0.226595.
+
+**해석:** 모든 항목에서 아주 소폭 개선되었으나 **Unseen ≈0.45**로 여전히 가장 큰 과제입니다. 전체 공개 TestGround MAE는 PI-only **0.315234 dB** → FNO **0.313462 dB**로 낮아졌지만 최댓값은 **1.972767 → 1.979719 dB**로 약간 증가했습니다. 따라서 **FNO가 극단 오차를 해결했다고 해석하면 안 됩니다.**
+
+**주의:** 본 값은 **OFC 공식 측정 CSV**에 기반한 *대회 종료 후 공개 TestGround 로컬 재현 결과*이며 **실제 Kaggle 비공개 리더보드 점수가 아닙니다.** 기존 PI·Transformer 결과표와 학습 Epoch·세부 설정이 다르므로 직접 순위 비교는 부적절합니다. COSMOS 전이학습, 복수 seed, FNO hyperparameter ablation은 아직 미실시입니다.
+
 ## 현재 검증 수준
 
 **완료:** PyTorch 복소 FFT 역전파, 합성 데이터 end-to-end 학습/추론, CSV 출력, TestGround 경로 기능 점검.
 
-**미완료:** OFC 공식 측정 CSV 기반 성능 측정. 이 실행 환경에서는 공식 Git LFS 실측 CSV를 내려받지 못했으므로 **실제 공식 데이터 점수를 아직 주장하지 않습니다.** 합성 smoke-test 수치는 Kaggle 점수가 아닙니다.
+**완료:** GitHub Actions에서 공식 Git LFS 실측 CSV를 내려받아 공개 TestGround 전체 21,056개에 대한 PI-only/FNO 사후 평가 수행. **미완료:** COSMOS 결합, 복수 seed, 모델 개선 재검증. 합성 smoke-test 수치는 Kaggle 점수가 아닙니다.
 
 기존 [COSMOS 전이학습 예비 결과](../COSMOS_Transfer_Learning/README.md)와 [PI-EDFA / Spectral Transformer 검증](../PI_EDFA_Transformer/README.md)은 **다른 실험**이므로 이 신규 FNO의 결과처럼 취급하지 마세요.

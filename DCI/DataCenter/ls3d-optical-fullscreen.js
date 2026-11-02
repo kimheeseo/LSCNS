@@ -12,9 +12,11 @@ const presets={
  custom:{label:'사용자 지정 모듈',speed:null,tx:0,rx:-7,alpha:.35}
 };
 const cfg={link:'tor-spine-a',speed:'800G',optic:'800-dr8',media:'SMF',length:34,tx:-1,rx:-7,alpha:.35,connectors:4,connLoss:.25,splices:2,spliceLoss:.1,extra:.15,reserve:1.5};
+let viewMode='general';
 const numeric=x=>Number.isFinite(Number(x))?Number(x):0;
 const fixed=x=>numeric(x).toFixed(3);
-function topo(){try{return window.__LS3D_TEST__?.exportConfig?.()?.optical?.topology||null;}catch(_){return null;}}
+function snapshot(){try{return window.__LS3D_TEST__?.exportConfig?.()||null;}catch(_){return null;}}
+function topo(){return snapshot()?.optical?.topology||null;}
 function activeLink(){return (topo()?.links||[]).find(l=>l.id===cfg.link);}
 function profile(id){return presets[id]||presets.custom;}
 function numField(id,label,step,min){
@@ -57,6 +59,74 @@ function schematic(){
  '<text x="550" y="495" text-anchor="middle" fill="#8bebd6" font-size="13">Spine ↔ Leaf · L3 ECMP · 선택적 EVPN/VXLAN</text>'+
  '<text x="550" y="708" text-anchor="middle" fill="#bad4e0" font-size="13">실선: 주 경로 예시 · 점선: 이중 경로 · 선을 클릭해 광 예산 확인</text></svg>';
 }
+
+/* The twin view is driven only by exported design nodes/links, never by the
+   illustrative firewall/router/expansion nodes in the general view. */
+function twinSchematic(t){
+ const nodes=Array.isArray(t?.nodes)?t.nodes.filter(n=>n&&n.id):[];
+ const links=Array.isArray(t?.links)?t.links.filter(l=>l&&l.id):[];
+ if(!nodes.length)return '<div class="lo-empty">현재 디지털 트윈에서 광 토폴로지 데이터를 가져올 수 없습니다. 3D 모델이 로딩되었는지 확인해 주세요.</div>';
+ const layers=['External','MMR','Core','Spine','Leaf','Rack'];
+ const byLayer=new Map();
+ nodes.forEach(n=>{
+  const layer=layers.includes(n.layer)?n.layer:'Other';
+  if(!byLayer.has(layer))byLayer.set(layer,[]);
+  byLayer.get(layer).push(n);
+ });
+ const active=[...layers,'Other'].filter(layer=>byLayer.has(layer));
+ const width=1100,height=Math.max(670,active.length*110+45),positions=new Map();
+ const visuals={External:'cloud',MMR:'odf',Core:'core',Spine:'spine',Leaf:'leaf',Rack:'server',Other:'router'};
+ const wires=[],items=[];
+ active.forEach((layer,row)=>{
+  const list=byLayer.get(layer),count=list.length,y=55+row*110;
+  list.forEach((n,i)=>{
+   const x=width*(i+1)/(count+1);
+   positions.set(n.id,{x,y});
+   const boxWidth=Math.max(115,Math.min(190,Math.floor(1000/count)-14));
+   const name=String(n.name||n.id);
+   const label=name.length>23?name.slice(0,22)+'…':name;
+   items.push(node(x,y,boxWidth,47,label,layer+' · '+String(n.id),visuals[layer]));
+  });
+ });
+ links.forEach(l=>{
+  const a=positions.get(l.from),b=positions.get(l.to);
+  if(!a||!b)return;
+  const chosen=l.id===cfg.link,down=!!l.down,backup=l.route==='B';
+  const color=down?'#ff8794':chosen?'#ffe28f':backup?'#96b9ff':'#5adaca';
+  const dash=down?' stroke-dasharray="5 4"':backup?' stroke-dasharray="8 5"':'';
+  const attrs=' data-lo-link="'+esc(l.id)+'" tabindex="0" role="button" class="lo-pick-link" aria-label="'+esc((l.from||'')+' → '+(l.to||'')+' · '+l.id)+' 링크 선택"';
+  wires.push('<path d="M'+a.x+' '+(a.y+24)+' L'+b.x+' '+(b.y-24)+'" fill="none" stroke="'+color+'" stroke-width="'+(chosen?5:down?3:2.4)+'"'+dash+attrs+'/>');
+ });
+ return '<svg id="loHierarchy" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="디지털 트윈 공유 설계 데이터에서 생성한 광 네트워크 연결도">'+wires.join('')+items.join('')+'</svg>';
+}
+function renderDiagram(){
+ const host=$('loNetworkDiagram');if(!host)return;
+ const twin=viewMode==='twin',t=topo(),s=snapshot();
+ host.innerHTML=twin?twinSchematic(t):schematic();
+ const h=$('lo-viewTitle'),note=$('lo-viewNote'),meta=$('lo-viewSummary');
+ if(h)h.textContent=twin?'디지털 트윈 설계 구성도 · 내 모델':'일반 데이터센터 네트워크 아키텍처';
+ if(note)note.textContent=twin
+  ?'3D 툴의 공유 설계 설정(노드/링크/매체/거리/단선 상태)을 읽어 자동 구성합니다. 실제 설치 장비 수량·현장 광배선·포트 접속도와 1:1 검증된 도면은 아닙니다.'
+  :'일반적인 통신 계층의 설명용 예시입니다. Firewall A/B, Edge Router A/B, Leaf C/D는 3D 모델에 설치된 실제 장비가 아닙니다.';
+ if(meta){
+  const nodes=t?.nodes||[],links=t?.links||[];
+  meta.innerHTML=twin
+   ?'<span>설계 프로필: <b>'+esc(s?.facility?.name||s?.facility?.profile||'미확인')+'</b></span>'+
+    '<span>토폴로지: <b>'+esc(t?.type||'미확인')+'</b></span>'+
+    '<span>노드: <b>'+nodes.length+'개</b></span>'+
+    '<span>링크: <b>'+links.length+'개</b></span>'+
+    '<span>단선: <b>'+links.filter(l=>l.down).length+'개</b></span>'+
+    '<span>포트 속도 가정: <b>'+esc(t?.portSpeed||'미설정')+'</b></span>'
+   :'<span>개념 계층: Internet / Firewall / Router / Core / Spine / Leaf / Rack</span><span>실선: 주 경로 예시 · 점선: 이중 경로 예시</span>';
+ }
+ document.querySelectorAll('#loDashboard [data-lo-view]').forEach(b=>{
+  const selected=b.dataset.loView===viewMode;
+  b.classList.toggle('active',selected);
+  b.setAttribute('aria-selected',String(selected));
+  b.tabIndex=selected?0:-1;
+ });
+}
+
 function calc(){
  const fiber=cfg.length/1000*cfg.alpha,conn=cfg.connectors*cfg.connLoss,splice=cfg.splices*cfg.spliceLoss;
  const loss=fiber+conn+splice+cfg.extra,rx=cfg.tx-loss,budget=cfg.tx-cfg.rx,gross=rx-cfg.rx,margin=gross-cfg.reserve;
@@ -81,9 +151,7 @@ function setLink(id){
 function render(){
  const links=topo()?.links||[],sel=$('lo-link');
  if(sel){sel.innerHTML=links.map(l=>'<option value="'+esc(l.id)+'">'+esc(l.from+' → '+l.to+' · '+l.type)+'</option>').join('');sel.value=cfg.link;}
- $('loHierarchy')?.querySelectorAll('[data-lo-link]').forEach(path=>{
-  const b=path.dataset.loLink===cfg.link;path.setAttribute('stroke',b?'#ffe28f':path.hasAttribute('stroke-dasharray')?'#8ba8ff':'#64e0d3');path.setAttribute('stroke-width',b?5:2.4);
- });
+ renderDiagram();
  const v=calc(),p=profile(cfg.optic),l=activeLink();
  const warning=[];
  if(l?.down)warning.push('원본 토폴로지에서 이 링크는 단선 상태입니다.');
@@ -118,7 +186,7 @@ function init(){
   numField('extra','기타 결합·패널 손실 (dB)',.01,0),numField('reserve','설계 예비 마진 (dB)',.1,0)
  ].join('');
  section.innerHTML='<div class="lo-topline"><div><h3>데이터센터 네트워크 · 전체 계층 구조</h3><div class="lo-sub">참고 그림 기반의 설계 개념도입니다. Firewall·Edge Router·Leaf C/D는 확장 예시로, 현재 툴의 실제 설치 수량에 포함되지 않습니다.</div></div><button id="lo-close" type="button">전체화면 닫기</button></div>'+
- '<div class="lo-grid"><section class="lo-section"><h4>Internet → Firewall → Router → Core → Spine → Leaf → Server</h4>'+schematic()+
+ '<div class="lo-viewbar" role="tablist" aria-label="광 네트워크 구성도 선택"><button type="button" role="tab" data-lo-view="general" aria-selected="true">일반 구조 · 아키텍처</button><button type="button" role="tab" data-lo-view="twin" aria-selected="false">디지털 트윈 · 설계 버전</button></div>'+  '<div class="lo-grid"><section class="lo-section"><h4 id="lo-viewTitle">일반 데이터센터 네트워크 아키텍처</h4><p id="lo-viewNote" class="lo-sub"></p><div id="lo-viewSummary" class="lo-summary" aria-live="polite"></div><div id="loNetworkDiagram">'+schematic()+'</div>'+
  '<div class="lo-bottom"><b>전체 네트워크 랙 · 계층별 역할</b><table><thead><tr><th>계층</th><th>랙/장비</th><th>역할</th></tr></thead><tbody>'+
  '<tr><td>보안 · WAN</td><td>Firewall / Edge Router</td><td>외부 트래픽 보안·경계 라우팅 (개념)</td></tr>'+
  '<tr><td>Core / Spine</td><td>Core Router · Spine A/B</td><td>IP Fabric·ECMP 트래픽 집선</td></tr>'+
@@ -144,17 +212,17 @@ function init(){
  $('lo-speed').addEventListener('change',()=>{cfg.speed=$('lo-speed').value;cfg.optic=cfg.speed==='400G'?'400-fr4':cfg.speed==='1.6T'?'1600-dr8':'800-dr8';const p=profile(cfg.optic);cfg.tx=p.tx;cfg.rx=p.rx;cfg.alpha=p.alpha;
    const original=$('optSpeed');if(original){original.value=cfg.speed;original.dispatchEvent(new Event('change',{bubbles:true}));}sync();render();});
  $('lo-link').addEventListener('change',()=>setLink($('lo-link').value));
- section.querySelectorAll('[data-lo-link]').forEach(path=>{
-  path.addEventListener('click',()=>setLink(path.dataset.loLink));
-  path.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setLink(path.dataset.loLink)}});
- });
+ section.querySelectorAll('[data-lo-view]').forEach(b=>b.addEventListener('click',()=>{viewMode=b.dataset.loView;renderDiagram();}));
+ const diagram=$('loNetworkDiagram');
+ diagram.addEventListener('click',e=>{const link=e.target.closest('[data-lo-link]');if(link)setLink(link.dataset.loLink);});
+ diagram.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const link=e.target.closest('[data-lo-link]');if(link){e.preventDefault();setLink(link.dataset.loLink);}}});
  button.addEventListener('click',()=>{
   if($('optSpeed')&&$('optSpeed').value!==cfg.speed){cfg.speed=$('optSpeed').value;cfg.optic=cfg.speed==='400G'?'400-fr4':cfg.speed==='1.6T'?'1600-dr8':'800-dr8';const p=profile(cfg.optic);cfg.tx=p.tx;cfg.rx=p.rx;cfg.alpha=p.alpha;}
   const id=window.LS3D_CONFIG?.selected;
   setLink((topo()?.links||[]).some(l=>l.id===id)?id:cfg.link);
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))modal.classList.remove('open')});
- const current=topo()?.links||[];if(current.length)setLink(current.some(l=>l.id===cfg.link)?cfg.link:current[0].id);
+ const current=topo()?.links||[];if(current.length)setLink(current.some(l=>l.id===cfg.link)?cfg.link:current[0].id);else renderDiagram();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

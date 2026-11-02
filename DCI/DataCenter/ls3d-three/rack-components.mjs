@@ -177,7 +177,7 @@ export function createRackComponentKit(THREE,{cube}){
     if(gpuVariant&&(slot.kind==='tor'||slot.kind==='leaf-b')){
       const name=slot.kind==='tor'?'LEAF A (ToR)':'LEAF B (ToR)';
       moduleLabel(g,id,'leaf-'+(slot.kind==='tor'?'a':'b'),name,0,
-        lower+(start-1)*unit+slot.units*unit*.76,-d*.640,w*.49,.088,
+        lower+(start-1)*unit+slot.units*unit*.76,-d*.530,w*.49,.088,
         slot.kind==='tor'?'#268bdf':'#148a9d');
       g.userData.rackPart.description=name+' · GPU 서버 NIC의 이중화 접속을 수용하고, 네트워크 랙 Spine 1/2로 각각 상향 연결하는 교육용 예시입니다.';
     }
@@ -352,16 +352,16 @@ export function createRackComponentKit(THREE,{cube}){
     if(fill.kind==='distribution-panel'){
       box(g,'distribution-housing',0,y,-d*.24,w*.76,hh,d*.52,'#405c70');
       box(g,'distribution-front',0,y+.012,-d*.525,w*.75,hh-.025,.055,'#8ba2b0');
-      const row=Array.from({length:12},(_,i)=>[-w*.305+i*w*.0555,y+hh*.24,-d*.57]);
+      const row=Array.from({length:12},(_,i)=>[-w*.305+i*w*.0555,y+hh*.24,-d*.54]);
       batch(g,'lc-duplex-adapter',row,w*.045,hh*.47,.045,'#2689b2');
       const sockets=row.flatMap(([x,yy,z])=>[-1,1].map(side=>[x+side*w*.010,yy+hh*.09,z-.027]));
       batch(g,'lc-duplex-socket',sockets,w*.012,hh*.23,.012,'#102432');
-      batch(g,'module-divider',[-1,0,1].map(i=>[i*w*.19,y+.02,-d*.59]),.015,hh*.78,.015,'#cad8dd');
-      box(g,'patch-label-strip',0,y+hh*.79,-d*.574,w*.62,.019,.009,'#dce5e7');
+      batch(g,'module-divider',[-1,0,1].map(i=>[i*w*.19,y+.02,-d*.54]),.015,hh*.78,.015,'#cad8dd');
+      box(g,'patch-label-strip',0,y+hh*.79,-d*.54,w*.62,.019,.009,'#dce5e7');
     }else if(fill.kind==='horizontal-manager'){
       box(g,'manager-back',0,y,-d*.48,w*.76,hh,.08,'#2c4558');
       batch(g,'manager-fingers',Array.from({length:10},(_,i)=>[-w*.32+i*w*.071,y+.018,-d*.54]),w*.021,hh*.70,.11,'#8aa0ad');
-      box(g,'manager-lower-lip',0,y,-d*.59,w*.75,.018,.025,'#b4c2c9');
+      box(g,'manager-lower-lip',0,y,-d*.54,w*.75,.018,.025,'#b4c2c9');
     }else{
       box(g,'blanking-plate',0,y,-d*.50,w*.76,hh,.035,'#344c5f');
       box(g,'blanking-top-edge',0,y+hh-.014,-d*.523,w*.74,.011,.01,'#6c8394');

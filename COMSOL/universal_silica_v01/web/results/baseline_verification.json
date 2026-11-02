@@ -1,0 +1,425 @@
+{
+  "version": "0.2.0",
+  "generated_at_utc": "2026-11-02T22:54:33.365Z",
+  "source": "Web radial FEM JS compared with existing Python universal_radial.py at matching 750-element presets",
+  "scope": "Silica rotationally symmetric scalar LP01, delta-n constant across wavelength; not actual manufacturer validation",
+  "records": [
+    {
+      "preset": "g654",
+      "model": {
+        "profile": "step",
+        "wavelength_nm": 1550,
+        "core_radius_um": 5.5,
+        "delta_n_core": 0.0034785793846155,
+        "outer_radius_um": 40,
+        "graded_alpha": 2,
+        "trench_start_um": 7,
+        "trench_end_um": 10,
+        "trench_delta_n": -0.001,
+        "shells": [
+          [
+            4,
+            0.006
+          ],
+          [
+            5,
+            0.002
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            -0.0008
+          ]
+        ],
+        "n2_m2_per_W": 2.2e-20,
+        "elements": 750
+      },
+      "result": {
+        "profile": "step",
+        "wavelength_nm": 1550,
+        "n_clad": 1.4440236217032607,
+        "n_eff": 1.4457189679091202,
+        "n_max": 1.4475022010878762,
+        "Aeff_um2": 121.9238953090936,
+        "MFD_2nd_um": 12.819940258807282,
+        "MFD_PII_um": 12.500052522796532,
+        "gamma_Wkm": 0.7314455829717694,
+        "residual": 6.718732579802263e-13,
+        "elements": 750,
+        "iterations": 48,
+        "iteration_converged": true,
+        "guided_proxy": true,
+        "D_ps_nm_km": 19.825664231522584
+      },
+      "python_comparison": {
+        "reference_neff": 1.445718967909122,
+        "reference_MFD_PII_um": 12.500052522436938,
+        "reference_Aeff_um2": 121.92389530338414,
+        "reference_D_ps_nm_km": 19.825664345368367,
+        "neff_abs_error": 1.7763568394002505e-15,
+        "mfd_abs_error_um": 3.595932440703109e-10,
+        "aeff_abs_error_um2": 5.7094524663625634e-9,
+        "D_abs_error_ps_nm_km": 1.1384578257889189e-7
+      }
+    },
+    {
+      "preset": "g652",
+      "model": {
+        "profile": "step",
+        "wavelength_nm": 1550,
+        "core_radius_um": 4.1,
+        "delta_n_core": 0.005,
+        "outer_radius_um": 40,
+        "graded_alpha": 2,
+        "trench_start_um": 7,
+        "trench_end_um": 10,
+        "trench_delta_n": -0.001,
+        "shells": [
+          [
+            4,
+            0.006
+          ],
+          [
+            5,
+            0.002
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            -0.0008
+          ]
+        ],
+        "n2_m2_per_W": 2.6e-20,
+        "elements": 750
+      },
+      "result": {
+        "profile": "step",
+        "wavelength_nm": 1550,
+        "n_clad": 1.4440236217032607,
+        "n_eff": 1.446104728174543,
+        "n_max": 1.4490236217032606,
+        "Aeff_um2": 79.29336129096376,
+        "MFD_2nd_um": 10.59382375549602,
+        "MFD_PII_um": 10.182785332592127,
+        "gamma_Wkm": 1.3291827301439323,
+        "residual": 1.1679271518493919e-12,
+        "elements": 750,
+        "iterations": 54,
+        "iteration_converged": true,
+        "guided_proxy": true,
+        "D_ps_nm_km": 16.9928875566912
+      },
+      "python_comparison": {
+        "reference_neff": 1.4461047281745436,
+        "reference_MFD_PII_um": 10.182785332301778,
+        "reference_Aeff_um2": 79.29336128699885,
+        "reference_D_ps_nm_km": 16.99288790683873,
+        "neff_abs_error": 6.661338147750939e-16,
+        "mfd_abs_error_um": 2.9034907811364974e-10,
+        "aeff_abs_error_um2": 3.96491373066965e-9,
+        "D_abs_error_ps_nm_km": 3.501475305256463e-7
+      }
+    },
+    {
+      "preset": "graded",
+      "model": {
+        "profile": "graded",
+        "wavelength_nm": 1550,
+        "core_radius_um": 5,
+        "delta_n_core": 0.006,
+        "outer_radius_um": 40,
+        "graded_alpha": 2,
+        "trench_start_um": 7,
+        "trench_end_um": 10,
+        "trench_delta_n": -0.001,
+        "shells": [
+          [
+            4,
+            0.006
+          ],
+          [
+            5,
+            0.002
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            -0.0008
+          ]
+        ],
+        "n2_m2_per_W": 2.6e-20,
+        "elements": 750
+      },
+      "result": {
+        "profile": "graded",
+        "wavelength_nm": 1550,
+        "n_clad": 1.4440236217032607,
+        "n_eff": 1.445828815012516,
+        "n_max": 1.450023620208995,
+        "Aeff_um2": 76.8841326978277,
+        "MFD_2nd_um": 10.7590409664889,
+        "MFD_PII_um": 10.192939528309598,
+        "gamma_Wkm": 1.3708337825340424,
+        "residual": 1.8602822106123e-12,
+        "elements": 750,
+        "iterations": 74,
+        "iteration_converged": true,
+        "guided_proxy": true,
+        "D_ps_nm_km": 14.919171784564464
+      },
+      "python_comparison": {
+        "reference_neff": 1.4458288150125134,
+        "reference_MFD_PII_um": 10.192939527752662,
+        "reference_Aeff_um2": 76.88413268997199,
+        "reference_D_ps_nm_km": 14.919171294740607,
+        "neff_abs_error": 2.6645352591003757e-15,
+        "mfd_abs_error_um": 5.569358307866423e-10,
+        "aeff_abs_error_um2": 7.855703643144807e-9,
+        "D_abs_error_ps_nm_km": 4.898238561423796e-7
+      }
+    },
+    {
+      "preset": "trench",
+      "model": {
+        "profile": "trench",
+        "wavelength_nm": 1550,
+        "core_radius_um": 4.1,
+        "delta_n_core": 0.005,
+        "outer_radius_um": 40,
+        "graded_alpha": 2,
+        "trench_start_um": 6,
+        "trench_end_um": 9,
+        "trench_delta_n": -0.001,
+        "shells": [
+          [
+            4,
+            0.006
+          ],
+          [
+            5,
+            0.002
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            -0.0008
+          ]
+        ],
+        "n2_m2_per_W": 2.6e-20,
+        "elements": 750
+      },
+      "result": {
+        "profile": "trench",
+        "wavelength_nm": 1550,
+        "n_clad": 1.4440236217032607,
+        "n_eff": 1.4460435091028088,
+        "n_max": 1.4490236217032606,
+        "Aeff_um2": 74.82460400259428,
+        "MFD_2nd_um": 10.157003841463448,
+        "MFD_PII_um": 9.839323631718809,
+        "gamma_Wkm": 1.4085656429181792,
+        "residual": 1.0988762784984155e-12,
+        "elements": 750,
+        "iterations": 56,
+        "iteration_converged": true,
+        "guided_proxy": true,
+        "D_ps_nm_km": 17.80387925775665
+      },
+      "python_comparison": {
+        "reference_neff": 1.4460435091028094,
+        "reference_MFD_PII_um": 9.839323631520045,
+        "reference_Aeff_um2": 74.82460399998054,
+        "reference_D_ps_nm_km": 17.8038792615834,
+        "neff_abs_error": 6.661338147750939e-16,
+        "mfd_abs_error_um": 1.9876367218785163e-10,
+        "aeff_abs_error_um2": 2.6137456643482437e-9,
+        "D_abs_error_ps_nm_km": 3.8267522484147776e-9
+      }
+    },
+    {
+      "preset": "multi",
+      "model": {
+        "profile": "multilayer",
+        "wavelength_nm": 1550,
+        "core_radius_um": 4,
+        "delta_n_core": 0.006,
+        "outer_radius_um": 40,
+        "graded_alpha": 2,
+        "trench_start_um": 7,
+        "trench_end_um": 10,
+        "trench_delta_n": -0.001,
+        "shells": [
+          [
+            4,
+            0.006
+          ],
+          [
+            5,
+            0.002
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            -0.0008
+          ]
+        ],
+        "n2_m2_per_W": 2.6e-20,
+        "elements": 750
+      },
+      "result": {
+        "profile": "multilayer",
+        "wavelength_nm": 1550,
+        "n_clad": 1.4440236217032607,
+        "n_eff": 1.447001785935374,
+        "n_max": 1.4500236217032607,
+        "Aeff_um2": 71.68879956968254,
+        "MFD_2nd_um": 9.752827042393177,
+        "MFD_PII_um": 9.582447747061527,
+        "gamma_Wkm": 1.4701789829883618,
+        "residual": 1.2567733451910066e-12,
+        "elements": 751,
+        "iterations": 43,
+        "iteration_converged": true,
+        "guided_proxy": true,
+        "D_ps_nm_km": 19.162570615215405
+      },
+      "python_comparison": {
+        "reference_neff": 1.447001785935375,
+        "reference_MFD_PII_um": 9.582447746912562,
+        "reference_Aeff_um2": 71.68879956793322,
+        "reference_D_ps_nm_km": 19.16257095579606,
+        "neff_abs_error": 8.881784197001252e-16,
+        "mfd_abs_error_um": 1.48965284552105e-10,
+        "aeff_abs_error_um2": 1.7493277937319363e-9,
+        "D_abs_error_ps_nm_km": 3.4058065523367986e-7
+      }
+    }
+  ],
+  "mesh_convergence": [
+    {
+      "elements": 201,
+      "n_eff": 1.4457186766007994,
+      "MFD_PII_um": 12.500740263387883,
+      "Aeff_um2": 121.94193293776527,
+      "residual": 1.1234036184054917e-12
+    },
+    {
+      "elements": 350,
+      "n_eff": 1.4457188866186639,
+      "MFD_PII_um": 12.50024260049799,
+      "Aeff_um2": 121.92887277630092,
+      "residual": 1.1132855260702387e-12
+    },
+    {
+      "elements": 550,
+      "n_eff": 1.4457189485136253,
+      "MFD_PII_um": 12.500098270159253,
+      "Aeff_um2": 121.9250964672356,
+      "residual": 6.737397811312451e-13
+    },
+    {
+      "elements": 850,
+      "n_eff": 1.4457189729287954,
+      "MFD_PII_um": 12.500040827098548,
+      "Aeff_um2": 121.92358915690161,
+      "residual": 6.728783029295232e-13
+    }
+  ],
+  "g654_spectrum": [
+    {
+      "wavelength_nm": 1530,
+      "n_eff": 1.4459858503861935,
+      "MFD_PII_um": 12.382262246092669,
+      "Aeff_um2": 119.93492399603215,
+      "D_ps_nm_km": 18.625212746908712,
+      "gamma_Wkm": 0.753295640562064
+    },
+    {
+      "wavelength_nm": 1540,
+      "n_eff": 1.4458525963019186,
+      "MFD_PII_um": 12.440943820892377,
+      "Aeff_um2": 120.9230731257351,
+      "D_ps_nm_km": 19.22889727695142,
+      "gamma_Wkm": 0.7422883638528919
+    },
+    {
+      "wavelength_nm": 1550,
+      "n_eff": 1.4457189679091202,
+      "MFD_PII_um": 12.500052522796532,
+      "Aeff_um2": 121.9238953090936,
+      "D_ps_nm_km": 19.825664231522584,
+      "gamma_Wkm": 0.7314455829717694
+    },
+    {
+      "wavelength_nm": 1560,
+      "n_eff": 1.4455849560795966,
+      "MFD_PII_um": 12.559593136726741,
+      "Aeff_um2": 122.9376027970908,
+      "D_ps_nm_km": 20.415817634477815,
+      "gamma_Wkm": 0.720764205147539
+    },
+    {
+      "wavelength_nm": 1570,
+      "n_eff": 1.4454505519293,
+      "MFD_PII_um": 12.619570506653558,
+      "Aeff_um2": 123.96441194445936,
+      "D_ps_nm_km": 20.999649111777824,
+      "gamma_Wkm": 0.7102412175933442
+    },
+    {
+      "wavelength_nm": 1580,
+      "n_eff": 1.4453157468080975,
+      "MFD_PII_um": 12.679989537915734,
+      "Aeff_um2": 125.004543324062,
+      "D_ps_nm_km": 21.57744169282646,
+      "gamma_Wkm": 0.6998736848014477
+    },
+    {
+      "wavelength_nm": 1590,
+      "n_eff": 1.4451805322899631,
+      "MFD_PII_um": 12.740855197355428,
+      "Aeff_um2": 126.05822180860035,
+      "D_ps_nm_km": 22.149466660760098,
+      "gamma_Wkm": 0.6896587461441447
+    },
+    {
+      "wavelength_nm": 1600,
+      "n_eff": 1.4450449001636265,
+      "MFD_PII_um": 12.802172513665035,
+      "Aeff_um2": 127.12567665734993,
+      "D_ps_nm_km": 22.715989327752393,
+      "gamma_Wkm": 0.679593613543408
+    },
+    {
+      "wavelength_nm": 1610,
+      "n_eff": 1.4449088424235836,
+      "MFD_PII_um": 12.863946579558773,
+      "Aeff_um2": 128.20714163484254,
+      "D_ps_nm_km": 23.277261498855722,
+      "gamma_Wkm": 0.6696755690679522
+    },
+    {
+      "wavelength_nm": 1620,
+      "n_eff": 1.444772351261562,
+      "MFD_PII_um": 12.92618255099998,
+      "Aeff_um2": 129.30285508344966,
+      "D_ps_nm_km": 23.833530757625883,
+      "gamma_Wkm": 0.6599019628778476
+    }
+  ]
+}

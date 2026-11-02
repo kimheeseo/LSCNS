@@ -1,3 +1,9 @@
+## 웹 UI v0.2 — Python 없이 GitHub Pages에서 실제 FEM 실행
+
+[**▶ Universal Silica Fiber Workbench 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [미리보기](web/ui_preview_baseline.png) · [사용 안내](web/README.md) · [검증 결과](web/VALIDATION_REPORT.md) · [기본 시뮬레이션 CSV](web/results/baseline_summary.csv)
+
+브라우저 JavaScript로 원형 축대칭 **Scalar LP01 Radial FEM**을 계산하며 Step-index·Graded-index·Trench-assisted·Multilayer 입력, 파장 스윕, 메시 수렴, PNG·CSV·JSON 저장을 제공합니다. 브라우저에서 입력을 바꾸어 계산한 결과는 **자동으로 GitHub에 커밋되지 않고** 파일 다운로드로 저장합니다. 실제 상용제품 인증 및 Full-vector FEM/MCF/HCF는 지원하지 않습니다.
+
 # Universal Silica Fiber FEM Lab — v0.1 (Google Colab)
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb)

@@ -137,7 +137,7 @@ function renderDiagram(){
   const selected=b.dataset.loView===viewMode;
   b.classList.toggle('active',selected);
   b.setAttribute('aria-selected',String(selected));
-  b.tabIndex=selected?0:-1;
+  b.tabIndex=0; // Keep both views reachable with Tab on desktop/mobile keyboards.
  });
 }
 

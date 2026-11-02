@@ -84,6 +84,45 @@ export function createRackComponentKit(THREE,{cube}){
   mesh.rotation.y=Math.PI;
   mesh.userData.ownedTexture=texture;parent.add(mesh);return mesh;
  }
+ // Perforated grille with actual open holes (not an opaque door with painted stripes).
+ // One shared alpha-cutout material per rack kit keeps draw calls low.
+ let doorGrilleMaterial=null;
+ function perforatedDoor(parent,name,x,y,z,width,height){
+  if(typeof document!=='undefined'&&THREE.CanvasTexture&&THREE.MeshBasicMaterial&&THREE.PlaneGeometry&&THREE.Mesh){
+   if(!doorGrilleMaterial){
+    const canvas=document.createElement('canvas');canvas.width=64;canvas.height=64;
+    const ctx=canvas.getContext('2d');
+    if(ctx){
+     ctx.clearRect(0,0,64,64);
+     ctx.fillStyle='#607789';ctx.fillRect(0,0,64,64);
+     ctx.clearRect(3,3,58,58); // ~82% open area; interior can be seen through the holes.
+     const texture=new THREE.CanvasTexture(canvas);
+     texture.colorSpace=THREE.SRGBColorSpace;
+     texture.wrapS=THREE.RepeatWrapping;texture.wrapT=THREE.RepeatWrapping;
+     texture.repeat.set(12,34);
+     doorGrilleMaterial=new THREE.MeshBasicMaterial({
+      map:texture,side:THREE.DoubleSide,alphaTest:.5,depthWrite:true,
+      transparent:false,toneMapped:false
+     });
+    }
+   }
+   if(doorGrilleMaterial){
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,height),doorGrilleMaterial);
+    mesh.name='rack-shape:'+name;
+    mesh.position.set(x,y+height*.5,z);
+    mesh.castShadow=false;mesh.receiveShadow=false;
+    mesh.userData.rackDoorGrille=true;
+    mesh.raycast=()=>{}; // Clicks pass through the open mesh to the rack modules.
+    parent.add(mesh);return mesh;
+   }
+  }
+  // No-canvas fallback keeps the front and rear open using only thin rails.
+  for(let i=1;i<=6;i++)box(parent,name+'-vertical-'+i,x-width*.5+i*width/7,y,z,
+    width*.008,height,.027,'#607789',.37,.65);
+  for(let i=1;i<=12;i++)box(parent,name+'-horizontal-'+i,x,y+i*height/13,z,
+    width,.012,.027,'#607789',.37,.65);
+  return null;
+ }
  function build(root,a){
   const id=a.id,w=a.w||3,d=a.d||3,h=a.h||6;
   const gpuVariant=/gpu/i.test(a.type);
@@ -377,22 +416,26 @@ export function createRackComponentKit(THREE,{cube}){
   const frontDoor=new THREE.Group();frontDoor.name='front-door-hinge';
   frontDoor.position.set(-w*.5,.06,-d*.56);root.add(frontDoor);
   const frontMesh=group(frontDoor,id,'front-door','전면 랙 도어',1,count);
-  if(gpuVariant||networkRack){
-   for(const side of [-1,1])
-    box(frontMesh,'gpu-door-stile-'+side,w*.5+side*w*.46,0,0,w*.035,h-.13,.075,'#607a8b',.59,.44);
-   box(frontMesh,'gpu-door-header',w*.5,h-.17,0,w*.95,.14,.075,'#607a8b',.59,.44);
-   box(frontMesh,'gpu-door-kickplate',w*.5,0,0,w*.95,.19,.075,'#607a8b',.59,.44);
-  }else box(frontMesh,'door-frame',w*.5,0,0,w*.95,h-.13,.075,'#516e86',.59,.44);
-  // Perforations/visible strips hint mesh door. Do not equate to real airflow resistance.
-  for(let i=0;i<15;i++)box(frontMesh,'perforation-'+i,w*.5,
-    .30+i*(h-.75)/15,-.055,w*.75,.046,.034,'#182e43',.19,.68);
+  // Front door: open frame + perforated metal mesh. Closed no longer blocks the contents.
+  for(const side of [-1,1])
+   box(frontMesh,'front-door-stile-'+side,w*.5+side*w*.455,0,0,w*.038,h-.13,.075,'#607a8b',.59,.44);
+  box(frontMesh,'front-door-header',w*.5,h-.17,0,w*.95,.14,.075,'#607a8b',.59,.44);
+  box(frontMesh,'front-door-kickplate',w*.5,0,0,w*.95,.19,.075,'#607a8b',.59,.44);
+  box(frontMesh,'front-door-handle',w*.91,h*.47,-.08,w*.026,h*.14,.085,'#b8cbd4',.49,.39);
+  perforatedDoor(frontMesh,'front-door-perforated-mesh',w*.5,.19,-.048,w*.87,h-.40);
   if(networkLabel&&!gpuVariant&&!networkRack)
    networkLabel.make(frontMesh,'front-door',w*.5,h*.80,-.088,w*.68,h*.16,Math.PI);
   retain(frontMesh);
   const rearDoor=new THREE.Group();rearDoor.name='rear-door-hinge';
   rearDoor.position.set(w*.5,.06,d*.55);root.add(rearDoor);
   const rearPart=group(rearDoor,id,'rear-door','후면 랙 도어',1,count);
-  box(rearPart,'rear-door-leaf',-w*.5,0,0,w*.90,h-.13,.085,'#466078',.57,.46);
+  // Rear grille leaves PDUs, patch cords and server backplanes visible when shut.
+  for(const side of [-1,1])
+   box(rearPart,'rear-door-stile-'+side,-w*.5+side*w*.455,0,0,w*.038,h-.13,.075,'#607a8b',.59,.44);
+  box(rearPart,'rear-door-header',-w*.5,h-.17,0,w*.95,.14,.075,'#607a8b',.59,.44);
+  box(rearPart,'rear-door-kickplate',-w*.5,0,0,w*.95,.19,.075,'#607a8b',.59,.44);
+  box(rearPart,'rear-door-handle',-w*.91,h*.47,.08,w*.026,h*.14,.085,'#b8cbd4',.49,.39);
+  perforatedDoor(rearPart,'rear-door-perforated-mesh',-w*.5,.19,.048,w*.87,h-.40);
   retain(rearPart);
   // Keep STEP 03 controls: returning exactly the original moving mechanical API.
   const moving={hinge:frontDoor,slide,cassette,reach:d*.67,door:null,rearDoor};

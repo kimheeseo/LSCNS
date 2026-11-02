@@ -89,3 +89,24 @@ test('compute rack exposes CPU and memory without GPU and storage-specific parts
  assert.equal(built.parts.filter(p=>p.kind.startsWith('compute-memory-')).length,6);
  assert.equal(built.parts.some(p=>p.kind.startsWith('gpu-module-')||p.kind.startsWith('storage-drive-')),false);
 });
+
+test('closed front and rear rack doors are see-through meshes, not opaque panels',()=>{
+ for(const [id,type] of [['gpu-0-0','GPU server rack'],['storage','Storage rack'],['tor-a','Top-of-Rack switch'],['compute','Compute rack']]){
+  const root=new Group(),built=createRackComponentKit({Group},{cube}).build(root,{id,type,w:2.7,d:3,h:6});
+  const names=group=>{
+   const out=[];group.traverse(obj=>{if(obj.name)out.push(obj.name);});return out;
+  };
+  const front=names(built.frontDoor),rear=names(built.rearDoor);
+  assert.equal(front.some(name=>name.endsWith('door-frame')),false,type+' no opaque front slab');
+  assert.equal(rear.some(name=>name.endsWith('rear-door-leaf')),false,type+' no opaque rear slab');
+  // The Node test uses the canvas-free, genuinely open rail fallback.
+  assert.ok(front.some(name=>name.includes('front-door-perforated-mesh-vertical-1')),type+' front open grille');
+  assert.ok(rear.some(name=>name.includes('rear-door-perforated-mesh-vertical-1')),type+' rear open grille');
+  assert.ok(front.some(name=>name.includes('front-door-header')),type+' front hinge frame');
+  assert.ok(rear.some(name=>name.includes('rear-door-header')),type+' rear hinge frame');
+  assert.equal(built.moving.hinge,built.frontDoor);
+  assert.equal(built.moving.rearDoor,built.rearDoor);
+  assert.ok(built.parts.some(p=>p.kind==='front-door'));
+  assert.ok(built.parts.some(p=>p.kind==='rear-door'));
+ }
+});

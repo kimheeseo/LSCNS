@@ -95,7 +95,8 @@ function twinSchematic(t){
   const color=down?'#ff8794':chosen?'#ffe28f':backup?'#96b9ff':'#5adaca';
   const dash=down?' stroke-dasharray="5 4"':backup?' stroke-dasharray="8 5"':'';
   const attrs=' data-lo-link="'+esc(l.id)+'" tabindex="0" role="button" class="lo-pick-link" aria-label="'+esc((l.from||'')+' → '+(l.to||'')+' · '+l.id)+' 링크 선택"';
-  wires.push('<path d="M'+a.x+' '+(a.y+24)+' L'+b.x+' '+(b.y-24)+'" fill="none" stroke="'+color+'" stroke-width="'+(chosen?5:down?3:2.4)+'"'+dash+attrs+'/>');
+  const aEdge=a.y<b.y?a.y+24:a.y-24,bEdge=a.y<b.y?b.y-24:b.y+24;
+  wires.push('<path d="M'+a.x+' '+aEdge+' L'+b.x+' '+bEdge+'" fill="none" stroke="'+color+'" stroke-width="'+(chosen?5:down?3:2.4)+'"'+dash+attrs+'/>');
  });
  return '<svg id="loHierarchy" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="디지털 트윈 공유 설계 데이터에서 생성한 광 네트워크 연결도">'+wires.join('')+items.join('')+'</svg>';
 }
@@ -233,6 +234,13 @@ function init(){
   if($('optSpeed')&&$('optSpeed').value!==cfg.speed){cfg.speed=$('optSpeed').value;cfg.optic=cfg.speed==='400G'?'400-fr4':cfg.speed==='1.6T'?'1600-dr8':'800-dr8';const p=profile(cfg.optic);cfg.tx=p.tx;cfg.rx=p.rx;cfg.alpha=p.alpha;}
   const id=window.LS3D_CONFIG?.selected;
   setLink((topo()?.links||[]).some(l=>l.id===id)?id:cfg.link);
+ });
+ // Original link cut/recover and distance controls mutate the source design state.
+ // Refresh after their listeners complete rather than keeping a separate copy.
+ ['cutLinkBtn','restoreLinkBtn','optDistance','optCable'].forEach(id=>{
+  const control=$(id);if(!control)return;
+  const event=id==='optDistance'||id==='optCable'?'change':'click';
+  control.addEventListener(event,()=>queueMicrotask(()=>{if(modal.classList.contains('open')){const active=topo()?.links?.find(l=>l.id===cfg.link);if(active)setLink(cfg.link);else renderDiagram();}}));
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))modal.classList.remove('open')});
  const current=topo()?.links||[];if(current.length)setLink(current.some(l=>l.id===cfg.link)?cfg.link:current[0].id);else renderDiagram();

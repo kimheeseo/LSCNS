@@ -221,7 +221,7 @@ const rackTypes=new Set(['GPU server rack','Top-of-Rack switch','Storage rack','
 const isMechanicalRack=a=>!!a&&rackTypes.has(a.type);
 function mechanical(a){let k=rackMotion.get(a.id);if(!k){k={door:0,slide:0,cassette:0,targetDoor:0,targetSlide:0,targetCassette:0,cables:'all',rear:false};rackMotion.set(a.id,k)}return k}
 function setMechanical(a,what){if(!isMechanicalRack(a))return false;const k=mechanical(a);
- if(what==='door'){k.targetDoor=k.targetDoor?0:1;if(!k.targetDoor)k.targetSlide=0}
+ if(what==='door'){k.targetDoor=k.targetDoor?0:1;if(!k.targetDoor){k.targetSlide=0;k.targetCassette=0}}
  else if(what==='slide'){if(!k.targetDoor)k.targetDoor=1;k.targetSlide=k.targetSlide?0:1}
  else if(what==='cassette'){k.targetCassette=k.targetCassette?0:1;if(k.targetCassette)k.targetDoor=1}
   else if(what==='rear'){k.rear=!k.rear}

@@ -199,7 +199,7 @@ function init(){
   numField('splices','융착접속 수 (개)',1,0),numField('spliceLoss','융착당 손실 (dB)',.01,0),
   numField('extra','기타 결합·패널 손실 (dB)',.01,0),numField('reserve','설계 예비 마진 (dB)',.1,0)
  ].join('');
- section.innerHTML='<div class="lo-topline"><div><h3>데이터센터 네트워크 · 전체 계층 구조</h3><div class="lo-sub">참고 그림 기반의 설계 개념도입니다. Firewall·Edge Router·Leaf C/D는 확장 예시로, 현재 툴의 실제 설치 수량에 포함되지 않습니다.</div></div><button id="lo-close" type="button">전체화면 닫기</button></div>'+
+ section.innerHTML='<div class="lo-topline"><div><h3>데이터센터 네트워크 · 전체 계층 구조</h3><div class="lo-sub">두 탭을 전환해 일반 네트워크 계층도와 현재 3D 디지털 트윈의 설계 토폴로지를 각각 확인할 수 있습니다.</div></div><button id="lo-close" type="button">전체화면 닫기</button></div>'+
  '<div class="lo-viewbar" role="tablist" aria-label="광 네트워크 구성도 선택"><button type="button" role="tab" data-lo-view="general" aria-selected="true">일반 구조 · 아키텍처</button><button type="button" role="tab" data-lo-view="twin" aria-selected="false">디지털 트윈 · 설계 버전</button></div>'+  '<div class="lo-grid"><section class="lo-section"><h4 id="lo-viewTitle">일반 데이터센터 네트워크 아키텍처</h4><p id="lo-viewNote" class="lo-sub"></p><div id="lo-viewSummary" class="lo-summary" aria-live="polite"></div><div id="loNetworkDiagram">'+schematic()+'</div>'+
  '<div id="loGeneralHelp" class="lo-bottom"><b>전체 네트워크 랙 · 계층별 역할</b><table><thead><tr><th>계층</th><th>랙/장비</th><th>역할</th></tr></thead><tbody>'+
  '<tr><td>보안 · WAN</td><td>Firewall / Edge Router</td><td>외부 트래픽 보안·경계 라우팅 (개념)</td></tr>'+

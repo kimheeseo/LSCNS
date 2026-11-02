@@ -12,7 +12,7 @@
 | **02 · Residual-FiLM Transformer** | [FiLM_Residual_Transformer](FiLM_Residual_Transformer/) | Analytical Baseline + FiLM 조건부 특징 주입 + SHB 곡률 손실 | 예비 실험 완료, SHB 오차 개선 필요 |
 | **03 · Spectral Attention Transformer** | [PI_EDFA_Transformer](PI_EDFA_Transformer/) | 95채널 입력 파워·Mask·위치의 관계를 Attention으로 학습 | 공개 TestGround 사후 검증 완료 |
 | **04 · Physics-Guided EDFA Benchmark** | [results_2026-11-02](results_2026-11-02/) | PI-EDFA 기준선 및 공개 데이터 검증 기록 | 비교 기준 자료 |
-| **05 · PI-EDFA + FNO Residual** | [PI_EDFA_FNO_Residual](PI_EDFA_FNO_Residual/) | 물리 기반 PI-EDFA에 Fourier Neural Operator 스펙트럼 잔차 보정 결합 | 합성 데이터 기능 테스트 완료, 공식 TestGround 점수 미산출 |
+| **05 · PI-EDFA + FNO Residual** | [PI_EDFA_FNO_Residual](PI_EDFA_FNO_Residual/) | 물리 기반 PI-EDFA + Fourier Neural Operator 스펙트럼 잔차 보정 | 공식 TestGround 21,056개 사후 평가: **0.392948** (동일 조건 PI 0.393592) |
 
 > 표의 01~05는 문서상의 분류입니다. **실제 폴더 이름은 변경하지 않았습니다.**
 
@@ -119,7 +119,7 @@ python 26OFC_ML_challenge/COSMOS_Transfer_Learning/train_transfer.py \
 - **학습:** 최신 Train 학습/검증 그룹 분리 → PI-EDFA 학습 → PI 동결 → FNO 잔차 학습. COSMOS를 사용한 PI 백본 사전학습은 옵션입니다.
 - **비교:** 동일 홀드아웃에서 PI-only와 PI+FNO를 Aging / SHB / Unseen / 종합으로 비교하고, 모델 확정 후 공개 TestGround로 사후 평가할 수 있습니다.
 - **실행:** [FNO 모델 및 평가 코드](PI_EDFA_FNO_Residual/) · [Google Colab 실행](PI_EDFA_FNO_Residual/PI_EDFA_FNO_Residual_Colab.ipynb)
-- **검증 상태:** 합성 데이터 기반 실행·CSV 출력은 확인했으나, 공식 대용량 Git LFS 측정 데이터의 **실제 FNO 점수는 아직 산출되지 않았습니다.** 기존 PI/Transformer 점수를 새 FNO 성능으로 오인하지 마세요.
+- **검증 상태 (2026-11-03):** GitHub Actions에서 공식 Git LFS 데이터를 받아 공개 TestGround 전체 **21,056개** 사후 평가를 완료했습니다. 동일 60+60 Epoch 실험에서 **PI-only 0.393592 → PI+FNO 0.392948**, Aging **0.147972**, SHB **0.147722**, Unseen **0.449606**. 개선 폭은 작습니다. [실행 기록](https://github.com/kimheeseo/LSCNS/actions/runs/41540664667) · [상세 분석](PI_EDFA_FNO_Residual/README.md). **이 값은 Kaggle 비공개 리더보드 점수가 아닙니다.**
 
 ## 8. 다음 연구 과제
 
@@ -129,4 +129,4 @@ python 26OFC_ML_challenge/COSMOS_Transfer_Learning/train_transfer.py \
 4. **공정한 최종 비교:** 동일 학습 분할과 고정된 평가 프로토콜에서 Scratch/Transfer/PI-EDFA/Transformer/Residual-FiLM/FNO 비교
 
 ---
-**연구 업데이트 기준:** 2026-11-02 · **기준 저장소:** [kimheeseo/LSCNS](https://github.com/kimheeseo/LSCNS) · 공식 데이터/평가 운영 권한은 OFC ML Challenge 주최 측에 있습니다.
+**연구 업데이트 기준:** 2026-11-03 · **기준 저장소:** [kimheeseo/LSCNS](https://github.com/kimheeseo/LSCNS) · 공식 데이터/평가 운영 권한은 OFC ML Challenge 주최 측에 있습니다.

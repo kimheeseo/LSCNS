@@ -259,7 +259,7 @@ window.LS3D_RESPONSE_VISUALS=window.LS3D_RESPONSE_VISUALS||[];window.LS3D_RESPON
 const baseResponseScenario=scenarioApply;
 scenarioApply=function(id){baseResponseScenario(id);if(id==='normal'){responseDispatch=null}else startResponse()};
 T.scenarioApply=scenarioApply;
-if(!T.gl){const f=document.createElement('div');f.className='ux-fallback';f.setAttribute('role','status');f.innerHTML='<strong>3D 그래픽을 사용할 수 없습니다</strong><p>브라우저의 WebGL 지원을 확인하거나 2D 탐방 페이지에서 캠퍼스를 살펴보세요.</p><a href="./LS_Datacenter_Campus.html">2D Gold Pixel Tour 열기 ↗</a>';document.getElementById('viewport').append(f)}
+if(!T.gl){const f=document.createElement('div');f.className='ux-fallback';f.setAttribute('role','status');f.innerHTML='<strong>3D 그래픽을 사용할 수 없습니다</strong><p>브라우저의 WebGL 지원 여부와 그래픽 가속 설정을 확인한 후 페이지를 새로고침하세요.</p>';document.getElementById('viewport').append(f)}
 layout();try{if(!localStorage.getItem('ls3d-tour-v45'))openTour()}catch(e){openTour()}
 
 function syncTopology(){

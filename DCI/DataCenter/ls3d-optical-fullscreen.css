@@ -33,3 +33,16 @@
 #lo-close{padding:10px 15px;border-radius:8px;border:1px solid #5c91a1;background:#164457;color:#f0fcff;cursor:pointer;font-size:13px;font-weight:750}
 @media(max-width:950px){.lo-grid{grid-template-columns:1fr}#loHierarchy{min-height:0}.lo-section{padding:11px}}
 @media(max-width:620px){.lo-fields{grid-template-columns:1fr 1fr}.lo-amounts b{font-size:16px}#optModal>.twin-panel{padding:13px!important}}
+/* General architecture vs live digital-twin design switch. */
+.lo-viewbar{display:flex;flex-wrap:wrap;gap:9px;margin:4px 0 16px}
+.lo-viewbar button{padding:11px 17px;border:1px solid #3b6278;background:#102c40;color:#bbd9e7;border-radius:9px;font:750 13px "Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;cursor:pointer;min-height:42px}
+.lo-viewbar button.active,.lo-viewbar button[aria-selected="true"]{border-color:#58d8c7;background:#1b515a;color:#f1ffff}
+.lo-viewbar button:focus-visible{outline:2px solid #ffe28f;outline-offset:2px}
+.lo-summary{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0 13px}
+.lo-summary span{background:#113143;border:1px solid #2d5265;border-radius:7px;color:#b4d3df;padding:7px 9px;font-size:11px;line-height:1.5}
+.lo-summary b{color:#e0f9ff}
+.lo-empty{padding:28px 14px;border:1px dashed #4a7181;border-radius:9px;text-align:center;color:#c6e0e9;font-size:13px;line-height:1.7}
+#loNetworkDiagram{width:100%;min-width:0;overflow-x:auto}
+#loNetworkDiagram svg{width:100%;max-width:100%;height:auto}
+#lo-viewNote{margin:0 0 7px}
+@media(max-width:620px){.lo-viewbar{display:grid;grid-template-columns:1fr 1fr;gap:6px}.lo-viewbar button{padding:9px 6px;font-size:11px}.lo-summary span{font-size:10px;padding:6px}}

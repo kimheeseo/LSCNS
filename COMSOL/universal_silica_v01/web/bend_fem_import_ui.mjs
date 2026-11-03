@@ -54,7 +54,7 @@ function load(data,label){
  if(data.mesh.length<2||data.pml.length<2)throw Error('수렴 비교에는 메시 및 PML 결과가 각각 2개 이상 필요합니다.');
  const meshChange=data.mesh_last_two_change_pct,pmlChange=data.pml_last_two_change_pct;
  if(!finite(meshChange)||!finite(pmlChange))throw Error('수렴 변화율이 유효하지 않습니다.');
- const accepted=(data.last_two_sweeps_passed===true&&meshChange<=data.tolerance_percent&&pmlChange<=data.tolerance_percent);
+ const accepted=(im>=0&&finite(ownLoss)&&finite(base.core_fraction)&&data.last_two_sweeps_passed===true&&finite(data.tolerance_percent)&&meshChange<=data.tolerance_percent&&pmlChange<=data.tolerance_percent);
  last=data;
  $('bend2d-neff').textContent=base.neff_real.toFixed(9);
  $('bend2d-imag').textContent=im.toExponential(6);

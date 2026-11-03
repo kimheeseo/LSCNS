@@ -156,6 +156,30 @@
   <p class="eng-note">데이터에 기반한 <strong>경험적 보간</strong>이며 복소 β나 누설 방사 모드를 직접 계산하지 않습니다. 실제 광섬유 단면의 물리적 굽힘손실을 예측하려면 2D FEM/PML 및 실험 검증이 추가로 필요합니다. IEC 60793-1-47 시험과 같은 파장·반경·권선수 조건으로 참조값을 준비하세요.</p>
 </section>
 
+      <section class="engineering-panel" id="pmd-tool">
+ <div class="eng-head"><div><span class="kicker">PHASE 3 / PMD · STATISTICAL DGD</span><h2>PMD 계수와 길이별 편광 지연 분포</h2></div><span class="eng-tag">강한 랜덤 모드결합 · 통계 모델</span></div>
+ <p class="eng-help"><strong>PMD 계수의 정의(평균/RMS)를 명시적으로 선택</strong>한 뒤 DGD 평균·RMS·95/99 분위수를 계산합니다. 실제 편광모드 벡터 FEM, Jones matrix 실측, 표준화된 케이블 PMD Q 인증과 다른 계산입니다. 초기값 0.05 ps/√km는 <strong>시연용</strong>입니다.</p>
+ <div class="eng-inputs">
+  <label>PMD 계수 (ps/√km)<input id="pmd-coef" type="number" min="0" max="100" step="0.005" value="0.05"></label>
+  <label>광섬유 길이 (km)<input id="pmd-length" type="number" min="0" max="50000" step="10" value="80"></label>
+  <label>PMD 계수의 정의<select id="pmd-definition">
+   <option value="mean" selected>평균 DGD / √km</option>
+   <option value="rms">RMS DGD / √km</option>
+  </select></label>
+ </div>
+ <div class="eng-controls"><button type="button" id="pmd-run">PMD 통계 계산</button><button type="button" id="pmd-json">결과 JSON</button><span class="eng-status" id="pmd-status" aria-live="polite">계산 전</span></div>
+ <div class="eng-results">
+  <article><small>평균 DGD</small><strong id="pmd-mean">—</strong></article>
+  <article><small>RMS DGD</small><strong id="pmd-rms">—</strong></article>
+  <article><small>DGD 95th percentile</small><strong id="pmd-p95">—</strong></article>
+  <article><small>DGD 99th percentile</small><strong id="pmd-p99">—</strong></article>
+ </div>
+ <p class="eng-help" id="pmd-explain">계산 대기</p>
+ <canvas class="eng-canvas" id="pmd-chart" width="900" height="320" aria-label="Maxwell DGD probability density with mean and 95 percentile"></canvas>
+ <textarea id="pmd-json-cache" hidden aria-hidden="true"></textarea>
+ <p class="eng-note">강한 랜덤 모드결합 가정에서 DGD는 Maxwell 분포로 근사합니다. PMD 계수 D와 길이 L로 평균 또는 RMS 지연 규모 ∝ D√L를 정합니다. P95/P99는 <strong>한 링크의 DGD 통계 분위수</strong>이며 ITU 케이블 PMD Q와 동일하지 않습니다. 실제 응력/복굴절/축 회전/주파수 의존성은 반영되지 않았습니다.</p>
+</section>
+
       <div class="lower-grid"><section class="table-card"><div class="chart-head"><div><span class="chart-num">05 · NUMERICAL VERIFICATION</span><h3>메시 수렴 검사</h3></div><span class="mini-tag" id="meshStatus">검사 대기</span></div><div class="scroll-table"><table><thead><tr><th>Elements</th><th>neff</th><th>MFD (µm)</th><th>Aeff (µm²)</th><th>Δneff</th></tr></thead><tbody id="meshRows"><tr><td colspan="5">메시 수렴 버튼을 누르면 계산됩니다.</td></tr></tbody></table></div></section>
         <section class="table-card"><div class="chart-head"><div><span class="chart-num">06 · SOLVER DIAGNOSTICS</span><h3>수치해석 정보</h3></div></div><dl class="diagnostic"><div><dt>고유값 상대 잔차</dt><dd id="residual">—</dd></div><div><dt>MFD (Second-moment)</dt><dd id="mfd2">—</dd></div><div><dt>비선형 계수 γ</dt><dd id="gamma">—</dd></div><div><dt>기준 클래딩 굴절률</dt><dd id="nclad">—</dd></div><div><dt>실제 계산 요소</dt><dd id="nElements">—</dd></div><div><dt>계산 대상</dt><dd id="calcTime">—</dd></div></dl></section></div>
       <div class="disclaimer"><strong>모델 범위</strong> · 단일코어: 원형/동심원 · 약유도 스칼라 Radial FEM(P1) · LP01 모드. MCF 선택 시: 별도 저장된 2코어 M8 FEM 참조점의 로그 보간 + 이상적 무손실 결합 방정식만 사용하며 <strong>새 FEM/실측 XT/랜덤 누화를 계산하지 않습니다.</strong> 코어 도핑·응력·복굴절·PML·누설/굽힘/재료 감쇠·HCF는 이 버전에서 미지원. 입력이 바뀌면 기존 결과는 자동으로 무효화됩니다. 로컬 GitHub Pages는 로그인·서버 없이 동작하며 다운로드 파일은 사용자의 기기에만 저장됩니다.</div>
@@ -164,5 +188,6 @@
   <script type="module" src="./app.mjs?v=20261103-slope-v1"></script>
   <script type="module" src="./attenuation_ui.mjs?v=20261103-phase1"></script>
   <script type="module" src="./bending_ui.mjs?v=20261103-phase2"></script>
+  <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
 </body>
 </html>

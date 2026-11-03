@@ -109,7 +109,7 @@ f"이 통합 시연의 선택된 수치 확인은 {r['passed']}/{r['total']} 통
 '| `results/radial_domain.csv` | 외부 영역 영향 |',
 '| `results/summary.json` | 환경·설정·판정·원시 수치 |','',
 '## 10. 제품별 기존 보고서·자료','',
-'- [G.654.E 기존 보고서](../../g654e_validation/README.md)',
+'- [G.654.E 기존 보고서](../../validation_report/LS_PremierLinkLE125_G.654.E/README.md)',
 '- [G.657.A1 기존 보고서](../../g657a1_validation/README.md)',
 '- [기존 M7 연구용 수치 검증](../../research/README.md)',
 '- 제품 MFD 입력의 배경: [LS 2025 브로셔 p.3](https://fliphtml5.com/plzsm/rgkq/20250925_%ED%86%B5%EC%8B%A0_%EB%B8%8C%EB%A1%9C%EC%85%94/) — 실제 프로파일을 제공하는 자료로 사용한 것은 아닙니다.']

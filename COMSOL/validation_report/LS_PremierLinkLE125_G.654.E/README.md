@@ -2,7 +2,7 @@
 
 ## Google Colab에서 직접 시뮬레이션하기
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g654e_validation/G654E_Colab_Validation.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/validation_report/LS_PremierLinkLE125_G.654.E/G654E_Colab_Validation.ipynb)
 
 - [실행 결과(그래프 포함)를 저장한 노트북](G654E_Colab_Validation.ipynb): Colab의 `런타임 → 모두 실행` 또는 각 셀의 실행 버튼으로 실제 1D radial FEM, 2D P1 FEM과 분산 그래프를 계산합니다.
 - [기본 실행 결과 ZIP](G654E_Colab_Results.zip): 저장된 그래프 8개, CSV 표, 실행 보고서, JSON. 파라미터를 바꿨다면 Colab에서 다시 계산 후 새 ZIP을 생성하세요.

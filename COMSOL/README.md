@@ -18,7 +18,7 @@
 
 [▶ G.654.E / G.657.A1 입력·출력 설명서](COMSOL_Install/fiber_simulation_guide/readme.md) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [실행 결과 ZIP](COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Results.zip)
 
-직접 Δn 입력과 MFD 보정 모드를 구분하고, 두 광섬유의 **실제 계산 예시 6개**, 분석 파장 변경, 코어 반경 변경, Mesh 수·외부 계산영역의 영향을 설명합니다. 사용자 Mesh·파장 입력을 바꾼 실제 재실행도 확인했습니다. [G.654.E 입력/출력](g654e_validation/readme.md) · [G.657.A1 입력/출력](g657a1_validation/readme.md)
+직접 Δn 입력과 MFD 보정 모드를 구분하고, 두 광섬유의 **실제 계산 예시 6개**, 분석 파장 변경, 코어 반경 변경, Mesh 수·외부 계산영역의 영향을 설명합니다. 사용자 Mesh·파장 입력을 바꾼 실제 재실행도 확인했습니다. [G.654.E 입력/출력](validation_report/LS_PremierLinkLE125_G.654.E/readme.md) · [G.657.A1 입력/출력](g657a1_validation/readme.md)
 
 
 ## G.657.A1 Google Colab 실행 보고서 (2026-10-19)
@@ -30,14 +30,14 @@
 
 ## G.654.E Google Colab 실행 보고서 (2026-10-19)
 
-[▶ Colab에서 G.654.E FEM 시뮬레이션 직접 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g654e_validation/G654E_Colab_Validation.ipynb) · [실행 결과가 포함된 ipynb](g654e_validation/G654E_Colab_Validation.ipynb) · [계산 그래프/표 ZIP](g654e_validation/G654E_Colab_Results.zip)
+[▶ Colab에서 G.654.E FEM 시뮬레이션 직접 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/validation_report/LS_PremierLinkLE125_G.654.E/G654E_Colab_Validation.ipynb) · [실행 결과가 포함된 ipynb](validation_report/LS_PremierLinkLE125_G.654.E/G654E_Colab_Validation.ipynb) · [계산 그래프/표 ZIP](validation_report/LS_PremierLinkLE125_G.654.E/G654E_Colab_Results.zip)
 
 코어 반경·파장·MFD 설정 후 **Bessel 독립 해석해, radial FEM, 기존 M7 2D FEM, 파장별 분산, 메시 수렴성**을 Colab에서 재계산하며, 기본 조건으로 실행한 그래프도 노트북에 저장했습니다. **기록된 수치 검사 11/12 통과; 2D 메시 기준 1건 미달. 실제 LE125 제품 내부 굴절률 프로파일 검증 아님.**
 
 
 ## G.654.E 검증 (2026-10-19)
 
-[▶ PremierLink LE125 G.654.E 기준 수치 검증 보고서·재현 코드·그래프](g654e_validation/README.md) — 이상적 Step-index FEM/Bessel 일치성 11/12 검사 통과, 2D FEM 메시 수렴 문제 1건 확인. **실제 LE125 굴절률 프로파일·감쇠·제품 적합성 검증 아님.**
+[▶ PremierLink LE125 G.654.E 기준 수치 검증 보고서·재현 코드·그래프](validation_report/LS_PremierLinkLE125_G.654.E/README.md) — 이상적 Step-index FEM/Bessel 일치성 11/12 검사 통과, 2D FEM 메시 수렴 문제 1건 확인. **실제 LE125 굴절률 프로파일·감쇠·제품 적합성 검증 아님.**
 
 
 ## 2026-10-19 연구용 수치 검증 업데이트

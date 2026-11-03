@@ -1,6 +1,6 @@
 # G.654.E (LS PremierLink LE125) — FEM verification report
 
-> [**Google Colab 실행형 보고서 열기**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/g654e_validation/G654E_Colab_Validation.ipynb) — 직접 FEM 계산을 실행하고 모드·분산·메시 오차 그래프를 볼 수 있습니다. [기본 시뮬레이션 출력 ZIP](G654E_Colab_Results.zip).
+> [**Google Colab 실행형 보고서 열기**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/validation_report/LS_PremierLinkLE125_G.654.E/G654E_Colab_Validation.ipynb) — 직접 FEM 계산을 실행하고 모드·분산·메시 오차 그래프를 볼 수 있습니다. [기본 시뮬레이션 출력 ZIP](G654E_Colab_Results.zip).
 
 
 **Date:** 2026-10-19  

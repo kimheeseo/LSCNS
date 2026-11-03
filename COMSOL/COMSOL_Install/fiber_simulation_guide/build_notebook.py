@@ -194,7 +194,7 @@ md('''## 11. 결과의 의미와 사용 제한
 - 스칼라 근사, 파장에 대해 일정한 Δn, 유한 계산영역의 영향이 있습니다. 실제 제품·굽힘 손실·전체 벡터 해석 정확도를 이 결과만으로 주장하지 않습니다.
 - MFD_PII와 MFD_2nd는 정의가 다릅니다. Aeff를 단순히 pi*(MFD/2)^2로 바꾸지 않습니다.
 
-원본 제품별 실행 보고서: [G.654.E](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/g654e_validation) · [G.657.A1](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/g657a1_validation)
+원본 제품별 실행 보고서: [G.654.E](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/validation_report/LS_PremierLinkLE125_G.654.E) · [G.657.A1](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/g657a1_validation)
 ''')
 code('''# @title 12. 입력·출력·예시·검증 결과 저장 및 ZIP
 checks_df=pd.DataFrame(checks);display(checks_df)

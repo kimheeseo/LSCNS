@@ -142,7 +142,7 @@ def assemble(f):
     keep=np.flatnonzero(interior.ravel())
     return matA[keep,:][:,keep],matM[keep,:][:,keep],coords[keep],nx,h
 
-def solve(f):
+def solve(f, include_field=False):
     A,M,coords,nx,h=assemble(f)
     k0=2*pi/(f.wavelength_nm/1000)
     n_guess=silica_index(f.wavelength_nm)+.45*f.delta_n_core
@@ -170,7 +170,7 @@ def solve(f):
     alpha_db_m=20/log(10)*k0*1e6*imag
     bend_db_turn=(alpha_db_m*pi*f.bend_diameter_mm/1000
                   if f.bend_diameter_mm>0 and imag>=0 else None)
-    return dict(
+    result=dict(
         input=asdict(f),neff_real=selected["neff_real"],neff_imag=imag,
         bend_loss_dB_per_turn=bend_db_turn,loss_dB_per_m=alpha_db_m,
         core_fraction=selected["core_fraction"],
@@ -183,6 +183,17 @@ def solve(f):
             "Requires independent PML thickness, mesh, domain and mode-tracking convergence",
             "Optional linear beam/Poisson stress proxy is NOT GEBT",
             "No experimental product or paper profile-level validation"])
+    if include_field:
+        chosen=selected["index"]
+        # Resize only the DISPLAY intensity; the mode was computed on the full mesh.
+        intensity=np.abs(vecs[:,chosen].reshape((nx-2,nx-2)))**2
+        intensity=intensity/max(float(intensity.max()),1e-30)
+        stride=max(1,int(np.ceil((nx-2)/101)))
+        result["mode_intensity_image"]=intensity[::stride,::stride].tolist()
+        result["mode_image_stride"]=stride
+        result["mode_image_origin_um"]=-f.window_um-f.pml_thickness_um+h
+        result["mode_image_h_um"]=h*stride
+    return result
 
 def convergence_study(f,mesh_values=(.8,.65,.55),
                       pml_values=(6.2,9.3,10.85),tolerance_percent=2.):

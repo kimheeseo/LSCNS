@@ -47,7 +47,7 @@
 
 ## M4 3D 전체 구현 보고서와 첨부사진 검증 추가
 
-[2026-10-11 결과 보고서 및 재현 소스](reports/M4_3D_2026-10-11/)를 추가했습니다. 3D Nédélec·PML·직사각형 포트·S 행렬 구현의 기존 104개 실제 시험과 사진 기준 추가 검사 9개를 구분해 수록했습니다. 기존 아래 `waveoptics_m4` 공동 재구현은 유지하며 전체 주파수 응답 구현은 새 보고서 폴더의 소스 ZIP으로 제공합니다. 공동 주파수 0.1% 기준은 추가 세분화 메시에서 충족했으며 기존 기본 메시를 통과로 바꾼 것은 아닙니다. 3D 구 Mie 산란·임의 구조 전체 스퓨리어스 배제·사람 또는 별도 모델의 독립 검토는 미검증입니다.
+[2026-10-11 결과 보고서 및 재현 소스](COMSOL_Install/reports/M4_3D_2026-10-11/)를 추가했습니다. 3D Nédélec·PML·직사각형 포트·S 행렬 구현의 기존 104개 실제 시험과 사진 기준 추가 검사 9개를 구분해 수록했습니다. 기존 아래 `waveoptics_m4` 공동 재구현은 유지하며 전체 주파수 응답 구현은 새 보고서 폴더의 소스 ZIP으로 제공합니다. 공동 주파수 0.1% 기준은 추가 세분화 메시에서 충족했으며 기존 기본 메시를 통과로 바꾼 것은 아닙니다. 3D 구 Mie 산란·임의 구조 전체 스퓨리어스 배제·사람 또는 별도 모델의 독립 검토는 미검증입니다.
 
 > **두 가지 사용 방식 지원:** ① Python 소스를 직접 불러와 FEM 연구 및 파라미터 수정 ② 설치 없이 웹에서 광모드·분산·MCF/HCF 그래프 확인.
 >
@@ -167,7 +167,7 @@ M8 MCF는 스칼라 FEM, HCF는 이상적 모세관 해석식입니다. **HCF의
 | **M7** | Step-index optical fiber LP01 scalar FEM, MFD, Aeff | [M7](COMSOL_Install/waveoptics_m7/) · [검증 보고서](COMSOL_Install/waveoptics_m7/M7_VALIDATION_REPORT.md) |
 | **M8** | Two-core MCF scalar FEM + HCF capillary reference | [M8](COMSOL_Install/waveoptics_m8/) · [검증 보고서](COMSOL_Install/waveoptics_m8/M8_VALIDATION_REPORT.md) |
 
-M1~M3은 원본 소스와 수치 검증을 제공합니다. M4는 `waveoptics_m4`의 PEC 공동 솔버와 `reports/M4_3D_2026-10-11`의 전체 3D PML·포트 구현 보관 ZIP을 구분합니다. M5·M6은 1D 독립 해석 오라클입니다. MATLAB/COMSOL 소프트웨어 자체의 검증서나 상용 광섬유 제품 사양서와의 정량 비교는 아닙니다.
+M1~M3은 원본 소스와 수치 검증을 제공합니다. M4는 `waveoptics_m4`의 PEC 공동 솔버와 `COMSOL_Install/reports/M4_3D_2026-10-11`의 전체 3D PML·포트 구현 보관 ZIP을 구분합니다. M5·M6은 1D 독립 해석 오라클입니다. MATLAB/COMSOL 소프트웨어 자체의 검증서나 상용 광섬유 제품 사양서와의 정량 비교는 아닙니다.
 
 ## 자동 테스트
 

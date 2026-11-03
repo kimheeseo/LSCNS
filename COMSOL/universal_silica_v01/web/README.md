@@ -89,7 +89,7 @@ The workbench now has a separate **02+ · 굽힘 물리식 / COMSOL 후처리** 
 - Verify arithmetic via the paper's 1550 nm, **10 mm bend diameter**, BIF simulated `0.0119 dB/turn` example: the inverse imaginary mode index `1.0758076e-8` gives the same loss. **This is mathematical inversion, not a new FEM prediction.**
 - Provide optional diagnostic for **user-supplied** PML thickness / imaginary mode index data; display the paper's 7λ example as a physical thickness. Neither PML nor a complex 2D mode solver is implemented in the browser.
 
-The prior measured-data `bending_loss.mjs` module is retained. Detailed math, caveats, tests and [paper reference](ENGINEERING_MODULES.md#2-velamuri-2018--bending-physical-model-bridge-2026-11-03) are in [ENGINEERING_MODULES.md](ENGINEERING_MODULES.md).
+The prior measured-data `bending_loss.mjs` module is retained. Detailed math, caveats, tests and paper reference are in [ENGINEERING_MODULES.md](ENGINEERING_MODULES.md), with a numerical [Velamuri paper implementation and validation note](VELAMURI_PAPER_VALIDATION.md).
 
 ```sh
 node COMSOL/universal_silica_v01/web/tests/test_bend_physics.mjs

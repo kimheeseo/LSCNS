@@ -52,8 +52,14 @@ details{border:1px solid var(--border);border-radius:11px;padding:10px 14px;back
 <table><thead><tr><th>구간</th><th>반경 r</th><th>굴절률 n(1550 nm)</th><th>설명</th></tr></thead><tbody><tr><td>코어</td><td>0–5.4 µm</td><td>1.4480236</td><td>실리카 기준값 + Δn</td></tr><tr><td>클래딩</td><td>5.4 µm 이후</td><td>1.4440236</td><td>실리카 Sellmeier 굴절률</td></tr><tr><td>차이 Δn</td><td>—</td><td>0.0040</td><td>코어−클래딩 굴절률 차</td></tr></tbody></table>
 <p class="annotation"><strong>주의:</strong> 실제 광섬유 클래딩 외경 125±1 µm와 FEM 외부 계산 경계의 반경 R=40 µm는 서로 다른 항목입니다. YOFC 제품의 실제 내부 굴절률 프로파일은 제공되지 않았습니다.</p>
 </section>
-<section class="section" id="spectrum"><span class="kicker">04 / SPECTRAL CHARACTERISTICS</span><h2>파장이 바뀌면 MFD·Aeff·D가 어떻게 달라지나요?</h2>
-<img class="figure" src="assets/spectrum_mesh.svg" alt="1530–1620 nm에서 MFD, Aeff, 색분산 변화와 메시 수렴도">
+<section class="section" id="spectrum"><span class="kicker">04 / SPECTRAL CHARACTERISTICS</span><h2>파장이 바뀌면 MFD·Aeff·D가 어떻게 달라지나요? — 1550 nm 기준 강조</h2>
+<img class="figure" src="assets/spectrum_mesh.svg" alt="1530–1620 nm 계산 곡선, X로 표시된 YOFC 1550 nm 기준값, 원형 마커로 표시된 1550 nm FEM 결과, 강조된 1550 nm x축 및 수치 메시 수렴" loading="lazy">
+<p class="annotation"><strong>기호:</strong> <span style="color:#ffca80">● FEM 계산값</span> / <span style="color:#ff7995">× YOFC 대표값 또는 상한</span>. 세 그래프 모두 세로 점선과 강조된 X축 눈금이 <strong>1550 nm</strong>입니다. 두 기호가 가까운 것은 모델 입력을 YOFC 대표 MFD/Aeff에 맞추었기 때문입니다.</p>
+<table aria-label="1550 nm 기준 제조사 사양과 FEM 계산값 대조"><thead><tr><th>1550 nm 항목</th><th>● FEM 계산</th><th>× YOFC 기준</th><th>해석</th></tr></thead><tbody>
+<tr><td>MFD (Petermann-II)</td><td>11.8340 µm</td><td>대표 11.8 µm, 범위 11.4–12.2</td><td>대표값에 맞춰 모델 설정한 결과 · 실측 검증 아님</td></tr>
+<tr><td>Aeff</td><td>110.3678 µm²</td><td>대표 110 µm²</td><td>Typical은 허용상한/하한이 아님</td></tr>
+<tr><td>D(1550)</td><td>20.1031 ps/(nm·km)</td><td><strong>상한 ≤22 ps/(nm·km)</strong></td><td>상한은 오직 1550 nm에 적용 · 모델값이 상한 이하</td></tr>
+</tbody></table>
 <div class="info-grid"><article><h3>MFD / Aeff의 변화</h3><p>1530→1620 nm에서 모델의 <strong>MFD 11.730→12.209 µm</strong>, <strong>Aeff 108.713→116.478 µm²</strong>로 증가합니다. 빛이 더 넓게 퍼지는 현상을 반영합니다.</p></article>
 <article><h3>색분산 D의 변화</h3><p>1550 nm에서 <strong>D=20.103 ps/(nm·km)</strong>, 근방 기울기는 <strong>0.059088 ps/(nm²·km)</strong>입니다. YOFC 1550 nm 상한인 D≤22, slope≤0.070과 모델값을 비교할 수 있습니다.</p></article></div>
 <div class="notice">YOFC 사양표에서 <strong>≤22 ps/(nm·km)는 1550 nm 조건</strong>입니다. 그래프의 D(1590–1620 nm)가 22를 넘는다고 해서 전체 파장에 같은 규격을 적용할 수는 없습니다.</div>

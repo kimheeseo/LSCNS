@@ -78,6 +78,16 @@ The paper modeled a `3.05 µm` core radius, `62.5 µm` cladding radius in its st
 
 For product comparison, explicitly label estimates **"Measured-anchor"**, **"Conformal-index illustration"** or **"External-complex-neff postprocessor"**. Do not label these **"2D COMSOL-equivalent FEM result"**.
 
+## 2++ Numerical 2D scalar FEM + PML: real eigenmodes, NOT full-vector/GEBT
+
+New stand-alone [`../bending_fem/solver.py`](../bending_fem/solver.py) **directly assembles P1 triangular FEM matrices** on a 2D cross section with a complex coordinate-stretched PML and solves the complex eigenvalue equation using SciPy. A [pinned Colab notebook](../bending_fem/Velamuri_Bend_2D_PML.ipynb) generates actual mode intensity maps, independently reruns mesh/PML sensitivity studies, and exports JSON for the newly added `#bend2d-fem` browser results display.
+
+**Do not confuse three different bending functions:** (1) measured-anchor log interpolation (`bending_loss.mjs`), (2) conformal-index illustration and *external* complex index postprocessor (`bend_physics_bridge.mjs`), and (3) *direct* 2D complex eigensolver (`../bending_fem/solver.py`). The third is a substantial numerical capability upgrade but **remains scalar, uses a truncated numerical cladding window, and is neither GEBT nor the paper's full-vector COMSOL EWFD**.
+
+The actual test example **fails** a user-selected 2% last-two-point relative change screening: **mesh 4.729% and PML 3.507%**. The quoted loss **67.556 dB/turn** is therefore **unconverged, not product-validated and not comparable to Velamuri's BIF 0.0119 dB/turn**.
+
+**Full numerical report and caveats:** [../bending_fem/VALIDATION_REPORT.md](../bending_fem/VALIDATION_REPORT.md).
+
 ## Development/testing
 
 Run in repository root (Node.js 18+):

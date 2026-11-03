@@ -5,7 +5,7 @@
  * Units: transverse micrometres, wavelength nanometres, n2 m²/W.
  * No COMSOL code, server, static lookup, or manufacturer-profile claim.
  */
-export const VERSION = '0.2.0';
+export const VERSION = '0.2.1';
 export const C0 = 299792458;
 const B=[0.6961663,0.4079426,0.8974794];
 const C=[0.0684043**2,0.1162414**2,9.896161**2];
@@ -121,4 +121,65 @@ export function spectrum(m,start,end,step){
 export function meshStudy(m,levels=[200,350,550,850]){
  return levels.map(el=>{const x=solve({...m,elements:el});return {elements:x.elements,n_eff:x.n_eff,MFD_PII_um:x.MFD_PII_um,Aeff_um2:x.Aeff_um2,residual:x.residual};});
 }
+/**
+ * Dispersion slopes for the current hypothetical circular silica-index model.
+ * S_1550 = dD/dlambda at 1550 nm, S0 = dD/dlambda where D(lambda0)=0.
+ * The two quantities must never be used interchangeably.
+ * Not a measured manufacturer RIP or product qualification.
+ * Differentiation uses the same five-point n_eff stencil as dispersion().
+ */
+export function dispersionDiagnostics(m, opts={}) {
+ validate(m);
+ const from=opts.fromNm??1100, to=opts.toNm??1550;
+ const step=opts.scanStepNm??50, h=opts.diffStepNm??5, ds=opts.slopeStepNm??10;
+ if(!(from>=250 && to<=3400 && to>from && step>=5 && step<=150 && h>=2 && ds>=5))
+  throw Error('영분산 스캔 범위/미분 간격을 확인하세요.');
+ const neffCache=new Map(), dCache=new Map();
+ const nAt=nm=>{
+  const k=nm.toFixed(8);
+  if(!neffCache.has(k)){
+   const s=solve({...m,wavelength_nm:nm});
+   if(!s.guided_proxy || !Number.isFinite(s.n_eff))throw Error('파장 스윕에서 유도 모드를 찾지 못했습니다.');
+   neffCache.set(k,s.n_eff);
+  }
+  return neffCache.get(k);
+ };
+ const dAt=nm=>{
+  const k=nm.toFixed(8);
+  if(!dCache.has(k)){
+   if(nm-2*h<=211||nm+2*h>=3690)throw Error('분산 계산이 Sellmeier 파장 유효범위를 벗어납니다.');
+   const vals=[-2,-1,0,1,2].map(j=>nAt(nm+j*h));
+   const d2=(-vals[4]+16*vals[3]-30*vals[2]+16*vals[1]-vals[0])/(12*(h/1000)**2);
+   dCache.set(k,-(nm/1000)/C0*1e12*d2);
+  }
+  return dCache.get(k);
+ };
+ const slopeAt=nm=>(dAt(nm+ds)-dAt(nm-ds))/(2*ds);
+ const s1550=slopeAt(1550);
+ let low=from, dl=dAt(low), hi=null, dh=null;
+ for(let nm=from+step; nm<=to+1e-9; nm+=step){
+   const dv=dAt(nm);
+   if(dl===0 || dv===0 || dl*dv<0){hi=nm;dh=dv;break;}
+   low=nm;dl=dv;
+ }
+ if(hi===null) {
+  return {slope_1550_ps_nm2_km:s1550,lambda0_nm:null,slope_zero_ps_nm2_km:null,
+   zero_found:false,search_nm:[from,to],difference_step_nm:ds,neff_step_nm:h};
+ }
+ let root=null;
+ if(dl===0)root=low;
+ else if(dh===0)root=hi;
+ else for(let i=0;i<16;i++){
+   const sec=(low*dh-hi*dl)/(dh-dl);
+   const mid=(low+hi)/2;
+   const x=Number.isFinite(sec)&&sec>low+0.05*(hi-low)&&sec<hi-0.05*(hi-low)?sec:mid;
+   const d=dAt(x);
+   if(Math.abs(d)<1e-4 || hi-low<0.025){root=x;break;}
+   if(dl*d<=0){hi=x;dh=d;}else{low=x;dl=d;}
+ }
+ if(root===null)root=(low+hi)/2;
+ return {slope_1550_ps_nm2_km:s1550,lambda0_nm:root,slope_zero_ps_nm2_km:slopeAt(root),
+  zero_found:true,search_nm:[from,to],difference_step_nm:ds,neff_step_nm:h};
+}
+
 export function outputSummary(sol){const {r,field,...rest}=sol;return rest;}

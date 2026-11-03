@@ -25,7 +25,7 @@ A standalone engineering-style interface for the existing `universal_radial.py` 
 - **Solver:** axisymmetric scalar P1 finite elements of `∇²⊥ψ + k0² n² ψ = β² ψ`, transformed to radial form and solved as generalized tridiagonal eigenproblem via shifted inverse iteration. Natural regularity at `r=0`, Dirichlet field at outer computational radius.
 - **Materials:** pure silica Malitson Sellmeier `n_cladding(λ)`, other layers are **wavelength-independent Δn offsets**. This is **not** a calibrated dopant-dependent Ge/F dispersion model.
 - **Outputs:** eigenmode metrics are scalar approximations. Dispersion is a five-point finite difference of newly solved eigenvalues on identical radial geometry, not a fitted value or a manufacturer's measured dispersion. `γ` uses input `n₂` and computed `Aeff`.
-- **Not supported:** arbitrary 2D cross sections, MCF, microstructured PCF, ARF/NANF HCF, full-vector electromagnetic modes, polarization, birefringence, true attenuation, bending loss, confinement loss, PML, and model inversion of unknown manufacturer profiles.
+- **Not supported by the LP01 physical FEM:** arbitrary 2D cross sections, microstructured PCF, ARF/NANF HCF, full-vector electromagnetic modes, polarization, birefringence, material attenuation from geometry alone, bending radiation loss from complex modes/PML, confinement loss, or model inversion of unknown manufacturer profiles. **Separate** MCF interpolation, measured-anchor attenuation/bend estimation, and statistical PMD modules are documented below.
 - **Domain:** model calculator radius is a numerical boundary, **not** actual 125 µm fiber cladding. Edge-truncation and mesh convergence should be checked for research use. Small solver residual does not establish physical accuracy.
 - A G.654.E-like preset uses **assumed 5.5 µm core radius and fitted Δn** to target MFD ≈12.5 µm. This is not independent LE125 certification or COMSOL license-equivalent validation.
 
@@ -58,6 +58,27 @@ All snapshot numbers on GitHub reflect the checked-in baseline **only**. Changin
 - [Original Python/Colab FEM code](../Universal_Silica_Fiber_v0_1.ipynb)
 - [Original v0.1 description](../README.md)
 - [Original numerical verification](../VALIDATION_REPORT.md)
+
+## New engineering-analysis modules — attenuation → macrobend → PMD (2026-11-03)
+
+All three modules have been added to the **same GitHub Pages workbench**, beneath the original LP₀₁ mode analysis. At the top of the results area, use the **01 감쇠 / 링크 버짓**, **02 굽힘손실** and **03 PMD / DGD** shortcuts to jump directly to the new sections.
+
+- **Phase 1 — attenuation**: enter measured/specification α1550 and α1625, interpolate only for 1550–1625 nm, combine fiber length, connector and splice losses, compute output optical power and plot length-vs-loss. Initial numbers are illustrative, not real YOFC/LE125 measurements.
+- **Phase 2 — macrobending**: input four measured dB/turn anchors at two bending radii and 1550/1625 nm; interpolate **only** between measured radii/wavelengths, combine turn count with an optional baseline from Phase 1 and draw the radius-vs-loss curve. This is **not** a complex-neff curved-fiber FEM/PML model.
+- **Phase 3 — PMD**: use input PMD coefficient and length in a **strong random coupling / Maxwell DGD statistical** model. Explicitly select whether the input coefficient refers to mean or RMS DGD. Output mean, RMS, median/P95/P99 DGD and statistical density plot. It **does not** compute actual vector-polarized fiber modes, Jones matrices, or standardized cable PMD_Q.
+
+Each section exports JSON results with model provenance and limitations. Existing LP₀₁ solver, MCF illustration, YOFC and LE125 settings remain available.
+
+**Full instructions, limitations, formulas and verification examples:** [ENGINEERING_MODULES.md](./ENGINEERING_MODULES.md).
+
+**New regression tests:**
+```sh
+node COMSOL/universal_silica_v01/web/tests/test_attenuation.mjs
+node COMSOL/universal_silica_v01/web/tests/test_bending_loss.mjs
+node COMSOL/universal_silica_v01/web/tests/test_pmd.mjs
+```
+
+**Fidelity caveat:** the phrase "prediction" for these new outputs is limited to **measurement-input-driven extrapolation-free interpolation or theoretical statistics**. The current scalar LP₀₁ FEM still does not independently predict material attenuation, radiation macro-bending leakage or actual fiber PMD from geometrical input alone.
 
 ## MCF · Ideal two-core Cross-talk (2026-11-03)
 

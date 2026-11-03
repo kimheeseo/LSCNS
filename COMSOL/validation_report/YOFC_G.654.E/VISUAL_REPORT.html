@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YOFC G.654.E · 광섬유 FEM 시각화 검증 리포트 | LSCNS</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1121;--panel:#15223a;--panel2:#101d32;--border:#304664;--text:#ebf7ff;--muted:#aec2d5;--cyan:#51ced8;--blue:#6eafff;--gold:#f5be6d;--green:#71deb3}*{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans KR","Malgun Gothic",system-ui,Arial,sans-serif;line-height:1.7}
+a{color:#8ed8fc;text-underline-offset:3px}a:hover{color:#fff}h1,h2,h3{line-height:1.3}h1{font-size:clamp(26px,3vw,42px);letter-spacing:-.8px;margin:10px 0 17px}h2{font-size:clamp(22px,2vw,28px);margin:10px 0 16px}h3{font-size:18px;margin:18px 0 6px}
+small,.small{font-size:13px;color:var(--muted)}.layout{display:grid;grid-template-columns:254px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--border);background:#101e35;padding:30px 22px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{font-size:17px;font-weight:800;color:var(--cyan);letter-spacing:1px}.kicker{font-size:12px;color:var(--cyan);font-weight:750;letter-spacing:1.5px}
+.sidebar nav{display:grid;gap:5px;margin:23px 0}.sidebar nav a{display:block;border-radius:9px;padding:11px 13px;text-decoration:none;color:#c6d9ec;font-size:14px}.sidebar nav a:hover,.sidebar nav a:focus-visible{background:#213a58;color:#fff}.sidebox{border:1px solid var(--border);background:var(--panel2);padding:15px;border-radius:12px}.sidebox strong{display:block;color:var(--text)}.sidebox span{display:block;font-size:13px;color:var(--muted)}
+main{width:min(1500px,100%);margin:auto;padding:34px clamp(22px,3.5vw,55px) 90px}.hero{border:1px solid var(--border);padding:30px;border-radius:18px;background:linear-gradient(125deg,#152c4a,#121c32 65%);margin-bottom:22px}.hero p{max-width:1000px;color:#c4d6e6}
+.notice{border:1px solid #846341;border-left:4px solid var(--gold);border-radius:9px;background:#282131;padding:12px 16px;color:#ffdfac;margin-top:18px}
+.section{border:1px solid var(--border);background:var(--panel2);border-radius:16px;margin:22px 0;padding:24px;scroll-margin-top:20px}
+.figure{display:block;width:100%;height:auto;background:#0b1324;border-radius:12px;border:1px solid #293d58}.annotation{color:var(--muted);font-size:14px;margin-top:10px}.pill{display:inline-block;padding:4px 11px;background:#183951;border-radius:20px;color:#91e2eb;font-size:12px;font-weight:700}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:23px 0}.stat{border:1px solid var(--border);border-radius:12px;background:var(--panel);padding:17px}.stat strong{display:block;font-size:clamp(18px,1.7vw,25px);letter-spacing:-.4px}.stat small{font-size:12px}.stat .name{font-size:13px;color:#a9c1d4}.stats{color:var(--cyan)}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}th,td{text-align:left;border-bottom:1px solid #2c435f;padding:12px 10px;vertical-align:top}th{background:#1d304b;color:#bce2f7}td{color:#d8e6f4}td:nth-child(2),td:nth-child(3){font-variant-numeric:tabular-nums}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.info-grid>article{padding:19px;background:#162944;border:1px solid #354861;border-radius:12px}
+.info-grid h3{margin-top:0;color:#83dded}.explainer{margin:16px 0;padding:0 0 0 21px}.explainer li{padding:4px 0;color:#d4e7f3}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.btn{padding:10px 15px;background:#1b4765;border:1px solid #4b8fbb;border-radius:10px;color:#ecf9ff;text-decoration:none;font-weight:650}.btn:hover{background:#225b80}
+details{border:1px solid var(--border);border-radius:11px;padding:10px 14px;background:#12243c;margin:12px 0}summary{cursor:pointer;font-weight:700;color:#bee5f8}code{color:#f2c888}footer{color:var(--muted);margin-top:30px;padding-top:22px;border-top:1px solid var(--border);font-size:13px}
+@media(max-width:970px){.layout{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0;border-bottom:1px solid var(--border);padding:17px 22px}.sidebar nav{display:flex;gap:3px;flex-wrap:wrap;margin:10px 0}.sidebar nav a{padding:7px 9px}.sidebox{display:none}.info-grid{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:23px 13px 60px}.section{padding:17px}.hero{padding:22px}}@media(max-width:520px){.summary{grid-template-columns:1fr}table{font-size:12px}th,td{padding:8px 6px}.section{overflow:auto}}
+@media print{.layout{display:block}.sidebar{display:none}main{width:100%;padding:5mm}.section{break-inside:avoid}.hero{background:#fff;color:#111}.figure{max-height:140mm}.notice{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<div class="layout"><aside class="sidebar">
+<div class="logo">LSCNS · COMSOL</div><p class="small">YOFC G.654.E<br>Visual Validation Report<br>2026-11-03</p>
+<nav aria-label="보고서 목차">
+<a href="#summary">01 · 핵심 계산 결과</a><a href="#geometry">02 · 광섬유 단면 / 모드</a><a href="#index">03 · 굴절률 분포</a><a href="#spectrum">04 · 파장별 특성</a><a href="#convergence">05 · 메시 수렴 검토</a><a href="#limitations">06 · 검증 범위</a><a href="#files">07 · 재실행 자료</a>
+</nav>
+<div class="sidebox"><strong>MODEL INPUT</strong><span>Step-index · LP₀₁</span><span>λ = 1550 nm</span><span>Core radius = 5.4 µm</span><span>Core Δn = 0.004</span><span>FEM R = 40 µm</span><span>n₂ = 2.2×10⁻²⁰ m²/W</span><span>Elements = 750</span></div></aside>
+<main>
+<section class="hero"><div class="kicker">FIBER OPTICS · NUMERICAL BENCHMARK</div><h1>YOFC G.654.E<br>광섬유 FEM 시각화 검증 보고서</h1>
+<p>숫자만으로 이해하기 어려운 MFD·Aeff·색분산 결과를 <strong>광섬유 단면, LP₀₁ 모드 강도, 굴절률 프로파일 및 파장별 곡선</strong>과 연결해 설명합니다. 그래프의 값은 Python/SciPy 원통대칭 반경 P1 FEM 계산 결과입니다.</p>
+<div class="notice"><strong>검증 범위:</strong> YOFC 실물 제품의 독립 검증이 아닙니다. 코어 반경 5.4 µm와 Δn=0.004는 제품의 실제 제조 파라미터가 아닌, 제공된 MFD·Aeff 대표값에 맞춰 설정한 <strong>가상 Step-index 모델</strong>입니다.</div>
+<div class="links"><a class="btn" href="VALIDATION_REPORT.md">Markdown 검증 보고서</a><a class="btn" href="YOFC_G.654.E_validation.ipynb">Jupyter Notebook</a><a class="btn" href="https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/">웹 솔버 열기</a></div>
+</section>
+<section class="section" id="summary"><span class="kicker">01 / COMPUTED OUTPUT</span><h2>핵심 결과는 무엇을 뜻하나요?</h2>
+<img class="figure" src="assets/dashboard.svg" alt="유효굴절률, 모드 필드 직경, 유효면적, 색분산의 1550 nm 해석값 카드" loading="eager">
+<div class="summary"><div class="stat"><div class="name">n_eff</div><strong>1.446099217</strong><small>파동 전파상수 β/k₀ · 직접 비교 사양 없음</small></div>
+<div class="stat"><div class="name">MFD_PII</div><strong>11.8340 µm</strong><small>빛이 퍼지는 모드 크기 · YOFC 11.4–12.2</small></div><div class="stat"><div class="name">Aeff</div><strong>110.3678 µm²</strong><small>유효 광 면적 · YOFC typical 110</small></div><div class="stat"><div class="name">D @1550 nm</div><strong>20.1031</strong><small>ps/(nm·km) · YOFC 상한 ≤22</small></div></div>
+<div class="info-grid"><article><h3>왜 코어 직경과 MFD는 다를까요?</h3>물리적인 코어 직경은 <strong>10.8 µm</strong>이지만, LP₀₁ 필드가 클래딩까지 연장되므로 Petermann-II MFD가 <strong>11.834 µm</strong>로 다르게 계산됩니다.</article><article><h3>왜 Aeff를 계산하나요?</h3>광의 강도 분포로 정의되는 면적입니다. 물리적인 코어 면적 π(5.4)²≈91.6 µm²와 달리, 본 모델의 Aeff는 <strong>110.368 µm²</strong>입니다. 비선형계수 γ 산출에도 쓰입니다.</article></div>
+</section>
+<section class="section" id="geometry"><span class="kicker">02 / GEOMETRY AND MODE</span><h2>광섬유 단면과 LP₀₁ 빛의 분포</h2><img class="figure" src="assets/mode_index.svg" alt="FEM LP01 모드 강도 단면 및 반경별 굴절률 변화">
+<ol class="explainer"><li><strong>왼쪽 중앙의 밝은 영역</strong>은 상대 강도가 큰 LP₀₁ 모드입니다. 외곽으로 갈수록 약해집니다.</li><li><strong>금색 점선</strong>은 코어의 경계(r=5.4 µm)이며, 빛은 이 경계를 넘어서도 일부 분포합니다.</li><li><strong>그림의 2D 강도</strong>는 1D 반경 FEM 강도를 회전해 나타낸 시각화입니다. 2D FEM 해석 결과는 아닙니다.</li></ol>
+<details><summary>MFD와 Aeff의 수학적 정의 보기</summary><p>유효면적 Aeff = (∫|E|² dA)² / ∫|E|⁴ dA, 단위 µm². 본 연구의 MFD는 Petermann-II 정의를 사용하므로 단순히 '코어 직경×상수'로 계산하지 않습니다. 서로 다른 MFD 정의(second moment 등)는 같은 필드에서도 값이 달라질 수 있습니다.</p></details>
+</section>
+<section class="section" id="index"><span class="kicker">03 / REFRACTIVE INDEX</span><h2>n(r) · 계단형 굴절률을 이해하기</h2>
+<p>위 오른쪽 그래프의 <strong>계단형 곡선</strong>은 r=5.4 µm에서 코어와 클래딩의 굴절률이 바뀌는 Step-index 가정을 나타냅니다.</p>
+<table><thead><tr><th>구간</th><th>반경 r</th><th>굴절률 n(1550 nm)</th><th>설명</th></tr></thead><tbody><tr><td>코어</td><td>0–5.4 µm</td><td>1.4480236</td><td>실리카 기준값 + Δn</td></tr><tr><td>클래딩</td><td>5.4 µm 이후</td><td>1.4440236</td><td>실리카 Sellmeier 굴절률</td></tr><tr><td>차이 Δn</td><td>—</td><td>0.0040</td><td>코어−클래딩 굴절률 차</td></tr></tbody></table>
+<p class="annotation"><strong>주의:</strong> 실제 광섬유 클래딩 외경 125±1 µm와 FEM 외부 계산 경계의 반경 R=40 µm는 서로 다른 항목입니다. YOFC 제품의 실제 내부 굴절률 프로파일은 제공되지 않았습니다.</p>
+</section>
+<section class="section" id="spectrum"><span class="kicker">04 / SPECTRAL CHARACTERISTICS</span><h2>파장이 바뀌면 MFD·Aeff·D가 어떻게 달라지나요?</h2>
+<img class="figure" src="assets/spectrum_mesh.svg" alt="1530–1620 nm에서 MFD, Aeff, 색분산 변화와 메시 수렴도">
+<div class="info-grid"><article><h3>MFD / Aeff의 변화</h3><p>1530→1620 nm에서 모델의 <strong>MFD 11.730→12.209 µm</strong>, <strong>Aeff 108.713→116.478 µm²</strong>로 증가합니다. 빛이 더 넓게 퍼지는 현상을 반영합니다.</p></article>
+<article><h3>색분산 D의 변화</h3><p>1550 nm에서 <strong>D=20.103 ps/(nm·km)</strong>, 근방 기울기는 <strong>0.059088 ps/(nm²·km)</strong>입니다. YOFC 1550 nm 상한인 D≤22, slope≤0.070과 모델값을 비교할 수 있습니다.</p></article></div>
+<div class="notice">YOFC 사양표에서 <strong>≤22 ps/(nm·km)는 1550 nm 조건</strong>입니다. 그래프의 D(1590–1620 nm)가 22를 넘는다고 해서 전체 파장에 같은 규격을 적용할 수는 없습니다.</div>
+</section>
+<section class="section" id="convergence"><span class="kicker">05 / NUMERICAL CONVERGENCE</span><h2>메시 수를 늘려도 결과가 유지되나요?</h2>
+<p>위 그림의 아랫줄은 300, 500, 750, 1000개 반경 요소에서 Aeff가 <strong>110.373769 → 110.367343 µm²</strong>로 수렴하는 모습을 보여 줍니다.</p>
+<table><thead><tr><th>Elements</th><th>MFD PII (µm)</th><th>Aeff (µm²)</th><th>D1550</th></tr></thead><tbody>
+<tr><td>300</td><td>11.834270</td><td>110.373769</td><td>20.102564</td></tr><tr><td>500</td><td>11.834089</td><td>110.369281</td><td>20.102950</td></tr><tr><td><strong>750</strong></td><td><strong>11.834031</strong></td><td><strong>110.367841</strong></td><td><strong>20.103068</strong></td></tr><tr><td>1000</td><td>11.834011</td><td>110.367343</td><td>20.103109</td></tr></tbody></table>
+<p>750→1000에서 Aeff 상대 차이는 약 <strong>0.000451%</strong>입니다. 이는 <strong>FEM 수치 안정성</strong>을 의미하고 실제 제품과의 비교 실험을 의미하지 않습니다.</p>
+</section>
+<section class="section" id="limitations"><span class="kicker">06 / SCOPE AND LIMITS</span><h2>가능한 계산과 아직 검증할 수 없는 항목</h2>
+<table><thead><tr><th>항목</th><th>현재 상태</th><th>이유 / 추가 자료</th></tr></thead><tbody>
+<tr><td>LP₀₁ 모드, n_eff, MFD, Aeff, D, D slope</td><td>가상 모델 계산 완료</td><td>반경 P1 FEM과 Sellmeier + 상수 Δn 가정</td></tr>
+<tr><td>실제 YOFC 내부 단면</td><td>검증 불가</td><td>측정 RIP/도핑 물성 미제공</td></tr>
+<tr><td>감쇠, Cable cut-off, PMD, 굽힘 손실</td><td>계산하지 않음</td><td>제품별 추가 물성/측정 모델 필요</td></tr>
+<tr><td>상용 COMSOL Wave Optics 결과</td><td>실행 안 함</td><td>본 보고서는 SciPy 기반 scalar radial FEM</td></tr>
+</tbody></table></section>
+<section class="section" id="files"><span class="kicker">07 / REPRODUCIBILITY</span><h2>원본 코드와 검증 결과 다시 확인하기</h2>
+<div class="links"><a class="btn" href="YOFC_G.654.E_validation.ipynb">검증 Notebook</a><a class="btn" href="VALIDATION_REPORT.md">텍스트 보고서</a><a class="btn" href="comparison.csv">사양 비교 CSV</a><a class="btn" href="spectrum.csv">파장 스윕 CSV</a><a class="btn" href="mesh_convergence.csv">메시 수렴 CSV</a><a class="btn" href="summary.json">조건/결과 JSON</a></div>
+<p class="annotation">Model input: Step-index · λ=1550 nm · core radius=5.4 µm · Δn=0.004 · R=40 µm · n₂=2.2×10⁻²⁰ m²/W · elements=750.</p>
+</section>
+<footer>LSCNS / COMSOL · YOFC G.654.E illustration · 2026-11-03 · 과학적 모델 한계를 명시한 참고 검증 보고서</footer></main></div></body></html>

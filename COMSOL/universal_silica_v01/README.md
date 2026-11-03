@@ -1,3 +1,11 @@
+## 2026-11-03 추가 — Velamuri 논문 기반 2D 스칼라 FEM/PML 굽힘모드 연구
+
+- [**Python/SciPy 2D FEM + 복소 PML Colab 노트북**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/Velamuri_Bend_2D_PML.ipynb)
+- [**해석 소스 및 README**](bending_fem/) · [검증 보고서](bending_fem/VALIDATION_REPORT.md) · [시험 실행 데이터](bending_fem/example_validation.json)
+- [**기존 웹 툴에서 2D FEM 결과 JSON 가져오기**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261103-complex-pml-1#bend2d-fem)
+
+**구분:** 기존 웹의 1D LP01 모드 솔버와 독립적으로, Python에서 2D 삼각형 P1 FEM으로 실제 복소 모드 고유값을 계산합니다. 웹은 그 JSON 결과 및 메시·PML 수렴성만 표시합니다. **논문의 Full-vector EWFD·GEBT는 아직 구현되지 않았고**, 2D 시험 사례의 메시·PML 2% 조건도 실패했습니다(각각 4.729%, 3.507%). **실제 광섬유 굽힘손실 검증값으로 사용 금지**입니다.
+
 ## 웹 UI v0.2 — Python 없이 GitHub Pages에서 실제 FEM 실행
 
 [**▶ Universal Silica Fiber Workbench 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [미리보기](web/ui_preview_baseline.png) · [사용 안내](web/README.md) · [검증 결과](web/VALIDATION_REPORT.md) · [기본 시뮬레이션 CSV](web/results/baseline_summary.csv)

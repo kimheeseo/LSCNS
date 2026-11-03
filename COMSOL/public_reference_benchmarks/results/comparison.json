@@ -20,7 +20,7 @@
         "abs_error": 0.00011248623568138605,
         "relative_error_pct": 0.008018055992956873,
         "field_relative_l2_error": 0.0006386951129793041,
-        "runtime_seconds": 0.11271601199999992
+        "runtime_seconds": 0.026599746000002256
       },
       {
         "mode": "TE1",
@@ -32,7 +32,7 @@
         "abs_error": 0.0006171397708087945,
         "relative_error_pct": 0.055282221880156454,
         "field_relative_l2_error": 0.0028276090751079364,
-        "runtime_seconds": 0.11271601199999992
+        "runtime_seconds": 0.026599746000002256
       },
       {
         "mode": "TE0",
@@ -44,7 +44,7 @@
         "abs_error": 2.8118565867707446e-05,
         "relative_error_pct": 0.0020043006524595812,
         "field_relative_l2_error": 0.00015973991731678844,
-        "runtime_seconds": 0.004940266999994947
+        "runtime_seconds": 0.004902672000000052
       },
       {
         "mode": "TE1",
@@ -56,7 +56,7 @@
         "abs_error": 0.00015515854108305582,
         "relative_error_pct": 0.01389881077266108,
         "field_relative_l2_error": 0.0016047938124355567,
-        "runtime_seconds": 0.004940266999994947
+        "runtime_seconds": 0.004902672000000052
       },
       {
         "mode": "TE0",
@@ -68,7 +68,7 @@
         "abs_error": 7.029458339857797e-06,
         "relative_error_pct": 0.0005010621097569916,
         "field_relative_l2_error": 3.997450461176188e-05,
-        "runtime_seconds": 0.005802608999999848
+        "runtime_seconds": 0.005888741999996228
       },
       {
         "mode": "TE1",
@@ -80,7 +80,7 @@
         "abs_error": 3.955649241671466e-05,
         "relative_error_pct": 0.0035433963163898296,
         "field_relative_l2_error": 0.0015144682946838688,
-        "runtime_seconds": 0.005802608999999848
+        "runtime_seconds": 0.005888741999996228
       },
       {
         "mode": "TE0",
@@ -92,7 +92,7 @@
         "abs_error": 1.7573561532646664e-06,
         "relative_error_pct": 0.00012526492642490544,
         "field_relative_l2_error": 1.0135843533893223e-05,
-        "runtime_seconds": 0.007980269000000817
+        "runtime_seconds": 0.008746129999991581
       },
       {
         "mode": "TE1",
@@ -104,7 +104,7 @@
         "abs_error": 1.0649335404622207e-05,
         "relative_error_pct": 0.0009539474695383561,
         "field_relative_l2_error": 0.0015133312914570286,
-        "runtime_seconds": 0.007980269000000817
+        "runtime_seconds": 0.008746129999991581
       }
     ],
     "domain": [
@@ -112,19 +112,19 @@
         "padding_um": 3.0,
         "neff_TE0": 1.402909818469644,
         "neff_TE1": 1.1163333575076284,
-        "runtime_seconds": 0.007860794999999143
+        "runtime_seconds": 0.00787309700000094
       },
       {
         "padding_um": 5.0,
         "neff_TE0": 1.4029098184738387,
         "neff_TE1": 1.1163343706887234,
-        "runtime_seconds": 0.011472573999995461
+        "runtime_seconds": 0.0121058459999972
       },
       {
         "padding_um": 7.0,
         "neff_TE0": 1.4029098184738382,
         "neff_TE1": 1.1163343710134344,
-        "runtime_seconds": 0.01641376199999911
+        "runtime_seconds": 0.017358459000007542
       }
     ],
     "reference_kind": "published analytical equations; not raw COMSOL output",
@@ -177,7 +177,7 @@
         "Aeff_um2": 143.48960526383084,
         "MFD_2nd_um": 13.044766593292719,
         "residual": 2.1221665072161033e-15,
-        "runtime_seconds": 0.0023358420000008095
+        "runtime_seconds": 0.002461334000003035
       },
       {
         "core_elements": 160,
@@ -189,7 +189,7 @@
         "Aeff_um2": 143.49347451045728,
         "MFD_2nd_um": 13.044860959519449,
         "residual": 7.88132039664494e-15,
-        "runtime_seconds": 0.002150657999997918
+        "runtime_seconds": 0.002151017000002753
       },
       {
         "core_elements": 320,
@@ -201,7 +201,7 @@
         "Aeff_um2": 143.494441548329,
         "MFD_2nd_um": 13.044884546879338,
         "residual": 3.1988753968777764e-14,
-        "runtime_seconds": 0.0027230059999965306
+        "runtime_seconds": 0.003221737999993479
       },
       {
         "core_elements": 640,
@@ -213,7 +213,7 @@
         "Aeff_um2": 143.4946832870633,
         "MFD_2nd_um": 13.044890443348123,
         "residual": 1.290348730174217e-13,
-        "runtime_seconds": 0.004490636999996411
+        "runtime_seconds": 0.004905059999998684
       }
     ],
     "domain": [
@@ -221,19 +221,19 @@
         "outer_radius_um": 32.0,
         "clad_elements": 1920,
         "neff": 1.444401843034193,
-        "runtime_seconds": 0.003845147000006932
+        "runtime_seconds": 0.005383340999998154
       },
       {
         "outer_radius_um": 40.0,
         "clad_elements": 2560,
         "neff": 1.4444018430341945,
-        "runtime_seconds": 0.004258301000000131
+        "runtime_seconds": 0.004791710000006333
       },
       {
         "outer_radius_um": 48.0,
         "clad_elements": 3200,
         "neff": 1.444401843034195,
-        "runtime_seconds": 0.004950162000000091
+        "runtime_seconds": 0.005157690999993747
       }
     ],
     "production_ui_range_changed": false
@@ -264,7 +264,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514272950292,
-        "runtime_seconds": 1.048893151999998
+        "runtime_seconds": 1.1005782419999974
       },
       {
         "n_even": 1.4450729309419295,
@@ -279,7 +279,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514361695165,
-        "runtime_seconds": 1.3603899949999985
+        "runtime_seconds": 1.4413295239999968
       },
       {
         "n_even": 1.4450729309420203,
@@ -294,7 +294,7 @@
         ],
         "reference": "independent scalar Fourier-Bessel matching; infinite cladding",
         "kappa_per_m": 1506.3514363139818,
-        "runtime_seconds": 1.6671084630000053
+        "runtime_seconds": 1.7824776340000028
       }
     ],
     "mesh": [
@@ -310,7 +310,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.00881780993608728,
         "Lc_error_pct": 0.00881703246691102,
-        "runtime_seconds": 0.16051482099999959
+        "runtime_seconds": 0.1647529789999993
       },
       {
         "h_um": 0.7,
@@ -324,7 +324,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008660437151177225,
         "Lc_error_pct": 0.008659687184404427,
-        "runtime_seconds": 0.40503621299999537
+        "runtime_seconds": 0.4422139420000093
       },
       {
         "h_um": 0.5,
@@ -338,7 +338,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008618005746166535,
         "Lc_error_pct": 0.008617263109925935,
-        "runtime_seconds": 1.0030664149999993
+        "runtime_seconds": 1.0080611730000015
       },
       {
         "h_um": 0.35,
@@ -352,7 +352,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008630925251973242,
         "Lc_error_pct": 0.008630180387544838,
-        "runtime_seconds": 2.4463660170000026
+        "runtime_seconds": 2.626837551999998
       }
     ],
     "domain": [
@@ -360,19 +360,19 @@
         "halfwidth_um": 32.0,
         "kappa_per_m": 1507.455739498702,
         "Lc_mm": 1.0420182069937645,
-        "runtime_seconds": 0.5400861429999964
+        "runtime_seconds": 0.5352384870000009
       },
       {
         "halfwidth_um": 36.0,
         "kappa_per_m": 1506.7288652082034,
         "Lc_mm": 1.0425208961386958,
-        "runtime_seconds": 0.7246401999999961
+        "runtime_seconds": 0.7387532529999987
       },
       {
         "halfwidth_um": 40.0,
         "kappa_per_m": 1506.4812537673208,
         "Lc_mm": 1.0426922491512858,
-        "runtime_seconds": 0.9370925289999974
+        "runtime_seconds": 0.9969501310000055
       }
     ],
     "gap_sweep": [
@@ -383,7 +383,7 @@
         "reference_kappa_per_m": 1924.5711962371486,
         "Lc_mm": 0.8159943963931905,
         "kappa_error_pct": 0.022733460822659524,
-        "runtime_seconds": 0.9471897899999959
+        "runtime_seconds": 1.0734414730000026
       },
       {
         "gap_um": 2.0,
@@ -392,7 +392,7 @@
         "reference_kappa_per_m": 1506.3514363139818,
         "Lc_mm": 1.0426922491512858,
         "kappa_error_pct": 0.008618005746166535,
-        "runtime_seconds": 0.9709414780000003
+        "runtime_seconds": 0.9773085090000109
       },
       {
         "gap_um": 4.0,
@@ -401,7 +401,7 @@
         "reference_kappa_per_m": 925.775755522162,
         "Lc_mm": 1.6966766065087777,
         "kappa_error_pct": 0.0034543881255756728,
-        "runtime_seconds": 1.026536452000002
+        "runtime_seconds": 1.0472370939999962
       },
       {
         "gap_um": 6.0,
@@ -410,7 +410,7 @@
         "reference_kappa_per_m": 576.3952040777198,
         "Lc_mm": 2.7251280472637203,
         "kappa_error_pct": 0.002902424511689184,
-        "runtime_seconds": 1.0079716770000005
+        "runtime_seconds": 1.059346670999986
       }
     ],
     "delta_sensitivity": [
@@ -451,7 +451,7 @@
         "Lc_mm": 1.0427712736840853,
         "kappa_error_pct": 0.0010390337191424348,
         "Lc_error_pct": 0.0010390229233402284,
-        "runtime_seconds": 4.217991776999995
+        "runtime_seconds": 4.5746203000000065
       },
       {
         "halfwidth_um": 56.0,
@@ -464,7 +464,7 @@
         "Lc_mm": 1.0427807980301584,
         "kappa_error_pct": 0.00012566390525061991,
         "Lc_error_pct": 0.00012566374732791044,
-        "runtime_seconds": 7.349005485000006
+        "runtime_seconds": 7.548902553000005
       },
       {
         "halfwidth_um": 64.0,
@@ -477,7 +477,7 @@
         "Lc_mm": 1.0427819605022868,
         "kappa_error_pct": 1.4185798295965496e-05,
         "Lc_error_pct": 1.418579628342208e-05,
-        "runtime_seconds": 9.970474070999998
+        "runtime_seconds": 10.91888590900001
       }
     ],
     "published_comsol_comparison": "parameters/trend and approximate published raster comparison; no raw COMSOL beta/kappa",
@@ -516,7 +516,7 @@
         "D_ps_nm_km": 3.3732144574097203,
         "D_error_pct": 0.001399059892000696,
         "kt2_error_pct": 0.001395781596504452,
-        "runtime_seconds": 0.001740952000005791
+        "runtime_seconds": 0.0017733379999924637
       },
       {
         "elements": 160,
@@ -527,7 +527,7 @@
         "D_ps_nm_km": 3.3731790696458193,
         "D_error_pct": 0.0003499638607871399,
         "kt2_error_pct": 0.0003491438294610917,
-        "runtime_seconds": 0.0014781160000012505
+        "runtime_seconds": 0.001516862000016772
       },
       {
         "elements": 320,
@@ -538,7 +538,7 @@
         "D_ps_nm_km": 3.373170216465917,
         "D_error_pct": 8.750489545482082e-05,
         "kt2_error_pct": 8.729985548879633e-05,
-        "runtime_seconds": 0.0015287519999986898
+        "runtime_seconds": 0.0016210290000060468
       },
       {
         "elements": 640,
@@ -549,7 +549,7 @@
         "D_ps_nm_km": 3.373168002735622,
         "D_error_pct": 2.1877248756426862e-05,
         "kt2_error_pct": 2.18259864007628e-05,
-        "runtime_seconds": 0.0017386990000005653
+        "runtime_seconds": 0.0018366029999867806
       }
     ],
     "radius_sweep": [
@@ -587,11 +587,11 @@
     "rejected_comparison": "Official microstructured fiber is silica core with vector modes/PML, not the same HCF geometry."
   },
   "metadata": {
-    "executed_utc": "2026-10-20T21:54:40.172849+00:00",
-    "source_commit": "57d6805103243fb584d8118d3141264db11bca29",
-    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/39503951722",
+    "executed_utc": "2026-11-03T00:32:57.742884+00:00",
+    "source_commit": "14dd2fa40cf45c1c2e1c1b5caab1e4130bc57414",
+    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/41553493306",
     "python": "3.12.15",
-    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
     "packages": {
       "numpy": "2.3.5",
       "scipy": "1.17.0",
@@ -600,17 +600,17 @@
       "gmsh": "4.15.2"
     },
     "source_sha256": {
-      "public_reference_benchmarks/run_comparison.py": "c5cab19612de65bd29ef68d2c26dccb79cdf9a0337c29198ab4e4421f3e62dff",
+      "public_reference_benchmarks/run_comparison.py": "1c8dce39f9a5fb8068ebf841af373638625e4ce425861facebc559981258a267",
       "public_reference_benchmarks/reference_equations.py": "1a6bdce01f336b205695d18cc56eee78896c2547c0fd88237e5429be4b947d41",
       "public_reference_benchmarks/references.json": "6bfe80aa13cf5710146e85c70fc79a9824c9ab814251d274d76417d4b13d5fa7",
-      "waveoptics_m1/waveoptics/slab.py": "5ac59e742553658ebdb3c654a5e2874bf8b5e664a74800b7381880db4c891c3b",
-      "waveoptics_m1/waveoptics/mesh.py": "a15e1e6a438eff7cb22ec49c6df8195ea667fad82c3bec27320c0bcd123b24dd",
-      "waveoptics_m1/tests/analytic_slab.py": "aa5c74c4a2dd571944f9f263e97f72b7269d080d899d42b4719ec7260a47fb34",
-      "waveoptics_m7/src/fiber_modes.py": "ea33af7093a041cd0e0c10d581e5a2aaa5dfc65eb20c297bdbae763cb4cf2abe",
-      "waveoptics_m7/src/radial_fem.py": "4a0f94fe88e6a1f2fd5cc931319e6fd650b1daf94725515da0850c4005a6b95f",
-      "waveoptics_m8/src/conforming_mcf.py": "5482e76e775bec42c43dcceb867a72febba4cafd5861a02d3fe6177284e824cd",
-      "waveoptics_m8/src/multipole_reference.py": "77f413dbd2d05cc78aae29f3adb5085c61e61233b3131571fc6538e00edd04a3",
-      "waveoptics_m8/src/capillary_fem.py": "a501e437a6c093caedcd063e1b8dba93d382ce0cafefb80b71523c0b0c058d33"
+      "COMSOL_Install/waveoptics_m1/waveoptics/slab.py": "5ac59e742553658ebdb3c654a5e2874bf8b5e664a74800b7381880db4c891c3b",
+      "COMSOL_Install/waveoptics_m1/waveoptics/mesh.py": "a15e1e6a438eff7cb22ec49c6df8195ea667fad82c3bec27320c0bcd123b24dd",
+      "COMSOL_Install/waveoptics_m1/tests/analytic_slab.py": "aa5c74c4a2dd571944f9f263e97f72b7269d080d899d42b4719ec7260a47fb34",
+      "COMSOL_Install/waveoptics_m7/src/fiber_modes.py": "ea33af7093a041cd0e0c10d581e5a2aaa5dfc65eb20c297bdbae763cb4cf2abe",
+      "COMSOL_Install/waveoptics_m7/src/radial_fem.py": "4a0f94fe88e6a1f2fd5cc931319e6fd650b1daf94725515da0850c4005a6b95f",
+      "COMSOL_Install/waveoptics_m8/src/conforming_mcf.py": "5482e76e775bec42c43dcceb867a72febba4cafd5861a02d3fe6177284e824cd",
+      "COMSOL_Install/waveoptics_m8/src/multipole_reference.py": "77f413dbd2d05cc78aae29f3adb5085c61e61233b3131571fc6538e00edd04a3",
+      "COMSOL_Install/waveoptics_m8/src/capillary_fem.py": "a501e437a6c093caedcd063e1b8dba93d382ce0cafefb80b71523c0b0c058d33"
     },
     "comsol_executed": false,
     "comsol_runtime_speedup": null
@@ -661,7 +661,7 @@
         "abs_error": 1.7573561532646664e-06,
         "relative_error_pct": 0.00012526492642490544,
         "field_relative_l2_error": 1.0135843533893223e-05,
-        "runtime_seconds": 0.007980269000000817
+        "runtime_seconds": 0.008746129999991581
       }
     },
     {
@@ -709,7 +709,7 @@
         "Aeff_um2": 143.4946832870633,
         "MFD_2nd_um": 13.044890443348123,
         "residual": 1.290348730174217e-13,
-        "runtime_seconds": 0.004490636999996411
+        "runtime_seconds": 0.004905059999998684
       }
     },
     {
@@ -752,7 +752,7 @@
           "Lc_mm": 1.0427712736840853,
           "kappa_error_pct": 0.0010390337191424348,
           "Lc_error_pct": 0.0010390229233402284,
-          "runtime_seconds": 4.217991776999995
+          "runtime_seconds": 4.5746203000000065
         },
         {
           "halfwidth_um": 56.0,
@@ -765,7 +765,7 @@
           "Lc_mm": 1.0427807980301584,
           "kappa_error_pct": 0.00012566390525061991,
           "Lc_error_pct": 0.00012566374732791044,
-          "runtime_seconds": 7.349005485000006
+          "runtime_seconds": 7.548902553000005
         },
         {
           "halfwidth_um": 64.0,
@@ -778,7 +778,7 @@
           "Lc_mm": 1.0427819605022868,
           "kappa_error_pct": 1.4185798295965496e-05,
           "Lc_error_pct": 1.418579628342208e-05,
-          "runtime_seconds": 9.970474070999998
+          "runtime_seconds": 10.91888590900001
         }
       ]
     },
@@ -796,7 +796,7 @@
         "Lc_mm": 1.0427819605022868,
         "kappa_error_pct": 1.4185798295965496e-05,
         "Lc_error_pct": 1.418579628342208e-05,
-        "runtime_seconds": 9.970474070999998
+        "runtime_seconds": 10.91888590900001
       }
     },
     {
@@ -819,7 +819,7 @@
         "kappa_reference_per_m": 1506.3514363139818,
         "kappa_error_pct": 0.008630925251973242,
         "Lc_error_pct": 0.008630180387544838,
-        "runtime_seconds": 2.4463660170000026
+        "runtime_seconds": 2.626837551999998
       }
     },
     {
@@ -830,19 +830,19 @@
           "halfwidth_um": 32.0,
           "kappa_per_m": 1507.455739498702,
           "Lc_mm": 1.0420182069937645,
-          "runtime_seconds": 0.5400861429999964
+          "runtime_seconds": 0.5352384870000009
         },
         {
           "halfwidth_um": 36.0,
           "kappa_per_m": 1506.7288652082034,
           "Lc_mm": 1.0425208961386958,
-          "runtime_seconds": 0.7246401999999961
+          "runtime_seconds": 0.7387532529999987
         },
         {
           "halfwidth_um": 40.0,
           "kappa_per_m": 1506.4812537673208,
           "Lc_mm": 1.0426922491512858,
-          "runtime_seconds": 0.9370925289999974
+          "runtime_seconds": 0.9969501310000055
         }
       ]
     },
@@ -857,7 +857,7 @@
           "reference_kappa_per_m": 1924.5711962371486,
           "Lc_mm": 0.8159943963931905,
           "kappa_error_pct": 0.022733460822659524,
-          "runtime_seconds": 0.9471897899999959
+          "runtime_seconds": 1.0734414730000026
         },
         {
           "gap_um": 2.0,
@@ -866,7 +866,7 @@
           "reference_kappa_per_m": 1506.3514363139818,
           "Lc_mm": 1.0426922491512858,
           "kappa_error_pct": 0.008618005746166535,
-          "runtime_seconds": 0.9709414780000003
+          "runtime_seconds": 0.9773085090000109
         },
         {
           "gap_um": 4.0,
@@ -875,7 +875,7 @@
           "reference_kappa_per_m": 925.775755522162,
           "Lc_mm": 1.6966766065087777,
           "kappa_error_pct": 0.0034543881255756728,
-          "runtime_seconds": 1.026536452000002
+          "runtime_seconds": 1.0472370939999962
         },
         {
           "gap_um": 6.0,
@@ -884,7 +884,7 @@
           "reference_kappa_per_m": 576.3952040777198,
           "Lc_mm": 2.7251280472637203,
           "kappa_error_pct": 0.002902424511689184,
-          "runtime_seconds": 1.0079716770000005
+          "runtime_seconds": 1.059346670999986
         }
       ]
     },
@@ -900,7 +900,7 @@
         "D_ps_nm_km": 3.373168002735622,
         "D_error_pct": 2.1877248756426862e-05,
         "kt2_error_pct": 2.18259864007628e-05,
-        "runtime_seconds": 0.0017386990000005653
+        "runtime_seconds": 0.0018366029999867806
       }
     },
     {

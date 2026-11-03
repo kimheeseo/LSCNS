@@ -2,9 +2,9 @@
 
 이 실행의 Python FEM 결과로 자동 생성했습니다. **COMSOL 소프트웨어를 실행하지 않았습니다.** 해석식·독립 기준 오차를 COMSOL 실측 오차로 표시하지 않습니다.
 
-- 실행 UTC: 2026-10-20T21:54:40.172849+00:00
-- 소스 커밋: 57d6805103243fb584d8118d3141264db11bca29
-- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/39503951722
+- 실행 UTC: 2026-11-03T00:32:57.742884+00:00
+- 소스 커밋: 14dd2fa40cf45c1c2e1c1b5caab1e4130bc57414
+- 실행 기록: https://github.com/kimheeseo/LSCNS/actions/runs/41553493306
 - 검사 결과: 24/24 통과
 
 ## 핵심 수치

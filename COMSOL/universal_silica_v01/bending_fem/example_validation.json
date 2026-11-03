@@ -1,0 +1,104 @@
+{
+  "file_kind": "LSCNS_BEND_2D_SCALAR_FEM_PML_V1",
+  "source": "local independently executed Python P1 scalar FEM complex PML prototype; illustrative G.652-like step-index only",
+  "reference": "Velamuri et al. 2018 COMSOL Conference (not exact profile or full-vector method)",
+  "base": {
+    "input": {
+      "wavelength_nm": 1550,
+      "core_radius_um": 4.1,
+      "delta_n_core": 0.005,
+      "profile": "step",
+      "bend_diameter_mm": 10,
+      "stress_mode": "none",
+      "window_um": 22,
+      "pml_thickness_um": 10.85,
+      "grid_h_um": 0.7,
+      "n_modes": 10
+    },
+    "neff_real": 1.4463275264161273,
+    "neff_imag": 0.00006107349465500099,
+    "bend_loss_dB_per_turn": 67.55618574191858,
+    "core_fraction": 0.8308348110509498,
+    "nonnegative_imag": true,
+    "solver_level": "2D scalar P1 triangular FEM with complex PML",
+    "is_fully_validated": false
+  },
+  "straight": {
+    "neff_real": 1.4461081022479847,
+    "neff_imag": -4.526349505919031e-12,
+    "bend_loss_dB_per_turn": null,
+    "core_fraction": 0.9798730305122161,
+    "solver_level": "2D scalar P1 triangular FEM with complex PML",
+    "is_fully_validated": false
+  },
+  "mesh": [
+    {
+      "input": {
+        "grid_h_um": 0.8
+      },
+      "grid_h_requested_um": 0.8,
+      "grid_n": 85,
+      "neff_imag": 0.00006404383082595083,
+      "bend_loss_dB_per_turn": 70.8418104341712
+    },
+    {
+      "input": {
+        "grid_h_um": 0.65
+      },
+      "grid_h_requested_um": 0.65,
+      "grid_n": 103,
+      "neff_imag": 0.00006526160779714277,
+      "bend_loss_dB_per_turn": 72.18884923918475
+    },
+    {
+      "input": {
+        "grid_h_um": 0.55
+      },
+      "grid_h_requested_um": 0.55,
+      "grid_n": 121,
+      "neff_imag": 0.00006231476532190722,
+      "bend_loss_dB_per_turn": 68.92921199828737
+    }
+  ],
+  "pml": [
+    {
+      "input": {
+        "pml_thickness_um": 6.2
+      },
+      "pml_thickness_requested_um": 6.2,
+      "grid_n": 83,
+      "neff_imag": 0.000056705518500564966,
+      "bend_loss_dB_per_turn": 62.724567540401665
+    },
+    {
+      "input": {
+        "pml_thickness_um": 9.3
+      },
+      "pml_thickness_requested_um": 9.3,
+      "grid_n": 91,
+      "neff_imag": 0.00006321526285514903,
+      "bend_loss_dB_per_turn": 69.92529350564946
+    },
+    {
+      "input": {
+        "pml_thickness_um": 10.85
+      },
+      "pml_thickness_requested_um": 10.85,
+      "grid_n": 95,
+      "neff_imag": 0.00006107349465500095,
+      "bend_loss_dB_per_turn": 67.55618574191863
+    }
+  ],
+  "mesh_last_two_change_pct": 4.7289634487310925,
+  "pml_last_two_change_pct": 3.506870226186862,
+  "last_two_sweeps_passed": false,
+  "tolerance_percent": 2,
+  "is_fully_validated": false,
+  "warnings": [
+    "FAIL: mesh and PML last-two losses exceed 2 percent",
+    "NO product-level validity",
+    "physical 125um glass cladding/coating omitted",
+    "full vector/GEBT not solved",
+    "this step example is NOT the BIF profile whose paper loss was 0.0119 dB/turn"
+  ]
+}

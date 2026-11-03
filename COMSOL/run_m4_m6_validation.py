@@ -5,7 +5,7 @@ PEC-cavity benchmark, not a restoration of missing prior PML/port implementation
 from pathlib import Path
 import json,sys
 ROOT=Path(__file__).resolve().parent
-for k in (4,5,6):sys.path.insert(0,str(ROOT/f'waveoptics_m{k}'/'src'))
+for k in (4,5,6):sys.path.insert(0,str(ROOT/'COMSOL_Install'/f'waveoptics_m{k}'/'src'))
 from m4_cavity import run as m4run,solve as m4solve,analytic_te101
 from m5_spectral import run as m5run,spectrum,silica_index,silica_group_index
 from m6_inverse_design import run as m6run,reflectance
@@ -13,7 +13,7 @@ import numpy as np
 def check(condition,message):
     if not condition:raise AssertionError(message)
 def main():
-    m4dir=ROOT/'waveoptics_m4';m5dir=ROOT/'waveoptics_m5';m6dir=ROOT/'waveoptics_m6'
+    m4dir=ROOT/'COMSOL_Install'/'waveoptics_m4';m5dir=ROOT/'COMSOL_Install'/'waveoptics_m5';m6dir=ROOT/'COMSOL_Install'/'waveoptics_m6'
     for p in (m4dir,m5dir,m6dir):(p/'screenshots').mkdir(parents=True,exist_ok=True)
     m4=m4run(m4dir/'screenshots')
     check(len(m4)==3,'three mesh convergence runs')

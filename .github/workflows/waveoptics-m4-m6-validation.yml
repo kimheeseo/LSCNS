@@ -4,9 +4,9 @@ on:
   push:
     paths:
       - 'COMSOL/run_m4_m6_validation.py'
-      - 'COMSOL/waveoptics_m4/src/**'
-      - 'COMSOL/waveoptics_m5/src/**'
-      - 'COMSOL/waveoptics_m6/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m4/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m5/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m6/src/**'
       - '.github/workflows/waveoptics-m4-m6-validation.yml'
 permissions:
   contents: read
@@ -34,12 +34,12 @@ jobs:
         with:
           name: waveoptics-m4-m5-m6-validated-numerical-results
           path: |
-            COMSOL/waveoptics_m4/screenshots
-            COMSOL/waveoptics_m5/screenshots
-            COMSOL/waveoptics_m6/screenshots
-            COMSOL/waveoptics_m4/M4_VALIDATION_REPORT.md
-            COMSOL/waveoptics_m5/M5_VALIDATION_REPORT.md
-            COMSOL/waveoptics_m6/M6_VALIDATION_REPORT.md
+            COMSOL/COMSOL_Install/waveoptics_m4/screenshots
+            COMSOL/COMSOL_Install/waveoptics_m5/screenshots
+            COMSOL/COMSOL_Install/waveoptics_m6/screenshots
+            COMSOL/COMSOL_Install/waveoptics_m4/M4_VALIDATION_REPORT.md
+            COMSOL/COMSOL_Install/waveoptics_m5/M5_VALIDATION_REPORT.md
+            COMSOL/COMSOL_Install/waveoptics_m6/M6_VALIDATION_REPORT.md
             COMSOL/WAVEOPTICS_M4_M6_EXECUTION_SUMMARY.json
           if-no-files-found: warn
           retention-days: 60

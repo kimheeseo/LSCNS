@@ -24,9 +24,9 @@ jobs:
         with:
           sparse-checkout: |
             COMSOL/public_reference_benchmarks
-            COMSOL/waveoptics_m1
-            COMSOL/waveoptics_m7/src
-            COMSOL/waveoptics_m8/src
+            COMSOL/COMSOL_Install/waveoptics_m1
+            COMSOL/COMSOL_Install/waveoptics_m7/src
+            COMSOL/COMSOL_Install/waveoptics_m8/src
             COMSOL/research/requirements.txt
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5

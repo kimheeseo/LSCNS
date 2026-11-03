@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 ROOT=Path(__file__).resolve().parent
-for n in [7,8]:sys.path.insert(0,str(ROOT/f'waveoptics_m{n}'/'src'))
+for n in [7,8]:sys.path.insert(0,str(ROOT/'COMSOL_Install'/f'waveoptics_m{n}'/'src'))
 from fiber_modes import Fiber,lp01_analytic,radial_lp01_aeff,solve_modes,scalar_metrics,dispersion_lp01,silica_index
 from mcf_hcf import solve_two_core,capillary_neff,capillary_dispersion,run as run_mcf
 checks=[]
@@ -14,7 +14,7 @@ def chk(name,ok):
  checks.append(dict(name=name,passed=bool(ok)))
  if not ok:raise AssertionError(name)
 def stage7():
- p=ROOT/'waveoptics_m7';out=p/'screenshots';out.mkdir(parents=True,exist_ok=True)
+ p=ROOT/'COMSOL_Install'/'waveoptics_m7';out=p/'screenshots';out.mkdir(parents=True,exist_ok=True)
  f=Fiber();ref=lp01_analytic(f);oracle=radial_lp01_aeff(f)
  meshes=[]
  for n in (41,61,81):
@@ -61,7 +61,7 @@ def stage7():
  (p/'M7_VALIDATION_REPORT.md').write_text('\n'.join(lines)+'\n')
  return data
 def stage8():
- p=ROOT/'waveoptics_m8';out=p/'screenshots';data=run_mcf(out);m=data['MCF']
+ p=ROOT/'COMSOL_Install'/'waveoptics_m8';out=p/'screenshots';data=run_mcf(out);m=data['MCF']
  split=[r['index_split'] for r in m]
  chk('M8 positive two-core supermode splitting',all(s>0 for s in split))
  chk('M8 coupling decreases with separation',all(split[i]>split[i+1] for i in range(len(split)-1)))

@@ -80,7 +80,7 @@ FEM은 이 근을 입력하지 않고 `−(rψ′)′=kt²rψ`, 중심에서 자
 
 현재 코드로 실제 HCF 손실을 출력하거나, 위 오차율을 상용 HCF 정확도로 해석하면 안 됩니다. 다음 개발에는 구체적인 HCF 단면과 재료·실측 또는 공개 벡터 기준 데이터가 필요합니다.
 
-[원시 데이터](validation/results/hcf_mesh.csv) · [Colab 보고서](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
+[원시 데이터](validation/results/hcf_mesh.csv) · [Colab 보고서](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
 
 {source}'''
     mcf=f'''# 2코어 MCF 검증 보고서 — M8 개선
@@ -173,7 +173,7 @@ FEM은 이 근을 입력하지 않고 `−(rψ′)′=kt²rψ`, 중심에서 자
 
 - [HCF 상세 보고서](HCF_VALIDATION_REPORT.md)
 - [2코어 MCF 상세 보고서](MCF_2CORE_VALIDATION_REPORT.md)
-- [Colab: 실행 결과 포함](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
+- [Colab: 실행 결과 포함](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
 - [입력·실행 방법](README.md)
 
 ![메시와 영역 수렴](validation/results/01_convergence.png)
@@ -187,7 +187,7 @@ FEM은 이 근을 입력하지 않고 `−(rψ′)′=kt²rψ`, 중심에서 자
 
 [통합 결과 보고서](M8_VALIDATION_REPORT.md) · [HCF 보고서](HCF_VALIDATION_REPORT.md) · [2코어 MCF 보고서](MCF_2CORE_VALIDATION_REPORT.md)
 
-[▶ Colab에서 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
+[▶ Colab에서 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb)
 
 Colab에서 런타임 연결 후 **런타임 → 모두 실행**을 선택하십시오. `CONFIG`에서 입력을 바꾸면 재계산합니다. 엔진은 노트북에 내장되어 저장소 복제 없이 실행할 수 있습니다. Python 환경에서 내장 셀 재실행을 검증했으며, Colab 브라우저 UI의 수동 실행은 확인하지 않았습니다.
 
@@ -209,10 +209,10 @@ Colab에서 런타임 연결 후 **런타임 → 모두 실행**을 선택하십
 ```bash
 # Ubuntu/Colab의 Gmsh 공유 라이브러리
 sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
-python -m pip install -r COMSOL/waveoptics_m8/requirements-tested.txt
-python COMSOL/waveoptics_m8/validation/run_validation.py
-python -m pytest COMSOL/waveoptics_m8/tests -q
-python COMSOL/waveoptics_m8/validation/make_report.py
+python -m pip install -r COMSOL/COMSOL_Install/waveoptics_m8/requirements-tested.txt
+python COMSOL/COMSOL_Install/waveoptics_m8/validation/run_validation.py
+python -m pytest COMSOL/COMSOL_Install/waveoptics_m8/tests -q
+python COMSOL/COMSOL_Install/waveoptics_m8/validation/make_report.py
 ```
 
 원시 결과는 `validation/results/`에 CSV·JSON·PNG로 저장됩니다. 판정 실패 시 CLI는 오류 종료하며, 실패 수치를 저장합니다. 노트북은 실패 항목도 화면에 표시합니다. 전체 실행 시간은 이 환경에서 약 {s['runtime_seconds']:.0f}초이며 하드웨어와 메시 크기에 따라 달라집니다.
@@ -222,7 +222,7 @@ python COMSOL/waveoptics_m8/validation/make_report.py
 ```python
 from pathlib import Path
 import sys
-base = Path('COMSOL')
+base = Path('COMSOL/COMSOL_Install')
 sys.path[:0] = [str(base/'waveoptics_m7'/'src'), str(base/'waveoptics_m8'/'src')]
 from fiber_modes import Fiber
 from mcf_hcf import solve_two_core_conforming

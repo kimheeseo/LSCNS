@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'COMSOL/run_m7_m8_validation.py'
-      - 'COMSOL/waveoptics_m7/src/**'
-      - 'COMSOL/waveoptics_m8/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m7/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m8/src/**'
       - '.github/workflows/waveoptics-m7-m8-validation.yml'
 permissions:
   contents: read
@@ -40,7 +40,7 @@ jobs:
           path: |
             COMSOL/M7_M8_EXECUTION_SUMMARY.json
             COMSOL/M1_M8_FINAL_REPORT.md
-            COMSOL/waveoptics_m7/M7_VALIDATION_REPORT.md
-            COMSOL/waveoptics_m7/screenshots/
-            COMSOL/waveoptics_m8/M8_VALIDATION_REPORT.md
-            COMSOL/waveoptics_m8/screenshots/
+            COMSOL/COMSOL_Install/waveoptics_m7/M7_VALIDATION_REPORT.md
+            COMSOL/COMSOL_Install/waveoptics_m7/screenshots/
+            COMSOL/COMSOL_Install/waveoptics_m8/M8_VALIDATION_REPORT.md
+            COMSOL/COMSOL_Install/waveoptics_m8/screenshots/

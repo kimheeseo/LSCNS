@@ -3,27 +3,27 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'COMSOL/workbench/*.py'
-      - 'COMSOL/workbench/*.js'
-      - 'COMSOL/workbench/*.html'
-      - 'COMSOL/workbench/*.css'
-      - 'COMSOL/workbench/catalog.json'
-      - 'COMSOL/workbench/sample_result.json'
-      - 'COMSOL/workbench/requirements.txt'
-      - 'COMSOL/workbench/START_WINDOWS.bat'
-      - 'COMSOL/workbench/qa/**'
+      - 'COMSOL/COMSOL_Install/workbench/*.py'
+      - 'COMSOL/COMSOL_Install/workbench/*.js'
+      - 'COMSOL/COMSOL_Install/workbench/*.html'
+      - 'COMSOL/COMSOL_Install/workbench/*.css'
+      - 'COMSOL/COMSOL_Install/workbench/catalog.json'
+      - 'COMSOL/COMSOL_Install/workbench/sample_result.json'
+      - 'COMSOL/COMSOL_Install/workbench/requirements.txt'
+      - 'COMSOL/COMSOL_Install/workbench/START_WINDOWS.bat'
+      - 'COMSOL/COMSOL_Install/workbench/qa/**'
       - '.github/workflows/waveoptics-workbench.yml'
   pull_request:
     paths:
-      - 'COMSOL/workbench/*.py'
-      - 'COMSOL/workbench/*.js'
-      - 'COMSOL/workbench/*.html'
-      - 'COMSOL/workbench/*.css'
-      - 'COMSOL/workbench/catalog.json'
-      - 'COMSOL/workbench/sample_result.json'
-      - 'COMSOL/workbench/requirements.txt'
-      - 'COMSOL/workbench/START_WINDOWS.bat'
-      - 'COMSOL/workbench/qa/**'
+      - 'COMSOL/COMSOL_Install/workbench/*.py'
+      - 'COMSOL/COMSOL_Install/workbench/*.js'
+      - 'COMSOL/COMSOL_Install/workbench/*.html'
+      - 'COMSOL/COMSOL_Install/workbench/*.css'
+      - 'COMSOL/COMSOL_Install/workbench/catalog.json'
+      - 'COMSOL/COMSOL_Install/workbench/sample_result.json'
+      - 'COMSOL/COMSOL_Install/workbench/requirements.txt'
+      - 'COMSOL/COMSOL_Install/workbench/START_WINDOWS.bat'
+      - 'COMSOL/COMSOL_Install/workbench/qa/**'
 permissions:
   contents: read
 concurrency:
@@ -41,9 +41,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            COMSOL/workbench
-            COMSOL/waveoptics_m7/src
-            COMSOL/waveoptics_m8/src
+            COMSOL/COMSOL_Install/workbench
+            COMSOL/COMSOL_Install/waveoptics_m7/src
+            COMSOL/COMSOL_Install/waveoptics_m8/src
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -54,25 +54,25 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
-          python -m pip install -r COMSOL/workbench/requirements.txt
+          python -m pip install -r COMSOL/COMSOL_Install/workbench/requirements.txt
           python -m pip install pytest==9.1.1 playwright==1.56.0
           python -m playwright install --with-deps chromium
       - name: Check browser code syntax
-        run: node --check COMSOL/workbench/app.js
+        run: node --check COMSOL/COMSOL_Install/workbench/app.js
       - name: Verify numerical adapters and real HTTP jobs
-        run: python -m pytest COMSOL/workbench/qa/test_workbench.py -q --junitxml=COMSOL/workbench/evidence/tests.xml
+        run: python -m pytest COMSOL/COMSOL_Install/workbench/qa/test_workbench.py -q --junitxml=COMSOL/COMSOL_Install/workbench/evidence/tests.xml
       - name: Verify browser workflow, exports and offline preview
-        run: python COMSOL/workbench/qa/browser_check.py
+        run: python COMSOL/COMSOL_Install/workbench/qa/browser_check.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: wave-optics-workbench-qa
-          path: COMSOL/workbench/evidence
+          path: COMSOL/COMSOL_Install/workbench/evidence
       - name: Save the exact portable source for Windows verification
         uses: actions/upload-artifact@v4
         with:
           name: wave-optics-workbench-source
-          path: COMSOL/workbench/LS_WaveOptics_Workbench_v0.1.zip
+          path: COMSOL/COMSOL_Install/workbench/LS_WaveOptics_Workbench_v0.1.zip
   windows-python:
     needs: verify
     runs-on: windows-latest
@@ -99,10 +99,10 @@ jobs:
           python-version: '3.12'
       - name: Install Windows numerical dependencies
         run: |
-          python -m pip install -r COMSOL/workbench/requirements.txt
+          python -m pip install -r COMSOL/COMSOL_Install/workbench/requirements.txt
           python -m pip install pytest==9.1.1
       - name: Verify Windows solvers and local server worker processes
-        run: python -m pytest COMSOL/workbench/qa/test_workbench.py -q --junitxml=COMSOL/workbench/evidence/windows_tests.xml
+        run: python -m pytest COMSOL/COMSOL_Install/workbench/qa/test_workbench.py -q --junitxml=COMSOL/COMSOL_Install/workbench/evidence/windows_tests.xml
       - uses: actions/upload-artifact@v4
         if: always()
         with:

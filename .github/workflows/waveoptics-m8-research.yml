@@ -3,13 +3,13 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'COMSOL/waveoptics_m8/**'
-      - 'COMSOL/waveoptics_m7/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m8/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m7/src/**'
       - '.github/workflows/waveoptics-m8-research.yml'
   pull_request:
     paths:
-      - 'COMSOL/waveoptics_m8/**'
-      - 'COMSOL/waveoptics_m7/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m8/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m7/src/**'
 permissions:
   contents: read
 concurrency:
@@ -27,10 +27,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            COMSOL/waveoptics_m5
-            COMSOL/waveoptics_m6
-            COMSOL/waveoptics_m7
-            COMSOL/waveoptics_m8
+            COMSOL/COMSOL_Install/waveoptics_m5
+            COMSOL/COMSOL_Install/waveoptics_m6
+            COMSOL/COMSOL_Install/waveoptics_m7
+            COMSOL/COMSOL_Install/waveoptics_m8
             COMSOL/research/tests
       - uses: actions/setup-python@v5
         with:
@@ -39,19 +39,19 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y libglu1-mesa libxft2 libxrender1 libxinerama1 libxcursor1
-          python -m pip install -r COMSOL/waveoptics_m8/requirements-tested.txt
+          python -m pip install -r COMSOL/COMSOL_Install/waveoptics_m8/requirements-tested.txt
       - name: Physical reference and regression tests
-        run: python -m pytest COMSOL/waveoptics_m8/tests COMSOL/research/tests/test_research.py -q --junitxml=COMSOL/waveoptics_m8/validation/results/tests.xml
+        run: python -m pytest COMSOL/COMSOL_Install/waveoptics_m8/tests COMSOL/research/tests/test_research.py -q --junitxml=COMSOL/COMSOL_Install/waveoptics_m8/validation/results/tests.xml
       - name: Independent references and mesh/domain study
-        run: python COMSOL/waveoptics_m8/validation/run_validation.py
+        run: python COMSOL/COMSOL_Install/waveoptics_m8/validation/run_validation.py
       - name: Replay embedded Colab cells
-        run: python COMSOL/waveoptics_m8/validation/replay_notebook.py
+        run: python COMSOL/COMSOL_Install/waveoptics_m8/validation/replay_notebook.py
       - name: Replay changed input parameters
-        run: python COMSOL/waveoptics_m8/validation/replay_notebook.py --edited
+        run: python COMSOL/COMSOL_Install/waveoptics_m8/validation/replay_notebook.py --edited
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: m8-hcf-mcf-verification
           path: |
-            COMSOL/waveoptics_m8/validation/results
-            COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb
+            COMSOL/COMSOL_Install/waveoptics_m8/validation/results
+            COMSOL/COMSOL_Install/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb

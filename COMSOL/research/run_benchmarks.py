@@ -13,11 +13,11 @@ import time
 import numpy as np
 import scipy
 ROOT=Path(__file__).resolve().parents[1]
-for stage in (7,8):sys.path.insert(0,str(ROOT/f'waveoptics_m{stage}'/'src'))
+for stage in (7,8):sys.path.insert(0,str(ROOT/'COMSOL_Install'/f'waveoptics_m{stage}'/'src'))
 from fiber_modes import Fiber,lp01_analytic,radial_lp01_aeff,solve_modes,scalar_metrics,dispersion_lp01
 from radial_fem import solve_radial,radial_dispersion
 from mcf_hcf import solve_two_core
-sys.path.insert(0,str(ROOT/"waveoptics_m2/tests"))
+sys.path.insert(0,str(ROOT/'COMSOL_Install'/"waveoptics_m2/tests"))
 from analytic_vector import FiberReference
 
 

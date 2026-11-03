@@ -2,11 +2,11 @@
 
 > **2026-10-30 · Universal Silica Fiber Colab v0.1:** [직접 단면을 설정하고 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb) · [지원 범위/한계](universal_silica_v01/README.md) · [수치 검증](universal_silica_v01/VALIDATION_REPORT.md). Step-index·Graded·Trench·동심원 다층 **스칼라 radial LP01 FEM만 지원**, 비원형 MCF/HCF/PCF·full-vector·손실은 미구현.\n\n> **공개 자료 기반 비교 완료:** [M1·M7·MCF·HCF 결과·오차·한계](public_reference_benchmarks/results/COMPARISON_REPORT.md) · [재현 코드·출처](public_reference_benchmarks/README.md). 공개 COMSOL 예제의 조건과 논문을 재현했으며, COMSOL 프로그램 자체를 실행한 비교는 아닙니다.
 
-> **설치·사용·결과 해석 가이드:** [이 도구로 알 수 있는 것, Windows 설치, 화면 사용 순서, 실제 계산 예시 3개](workbench/USER_GUIDE.md) · [입력 예제 JSON](workbench/examples/README.md)
+> **설치·사용·결과 해석 가이드:** [이 도구로 알 수 있는 것, Windows 설치, 화면 사용 순서, 실제 계산 예시 3개](COMSOL_Install/workbench/USER_GUIDE.md) · [입력 예제 JSON](COMSOL_Install/workbench/examples/README.md)
 
-> **2026-10-20 Workbench UI:** [모델 트리·설정·메시·결과 화면](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [회사 PC에서 실제 Python FEM 실행하기](workbench/README.md). GitHub 화면은 저장 결과 미리보기이며 새 해석은 로컬 Python 앱에서 실행합니다.
+> **2026-10-20 Workbench UI:** [모델 트리·설정·메시·결과 화면](https://kimheeseo.github.io/LSCNS/COMSOL/COMSOL_Install/workbench/) · [회사 PC에서 실제 Python FEM 실행하기](COMSOL_Install/workbench/README.md). GitHub 화면은 저장 결과 미리보기이며 새 해석은 로컬 Python 앱에서 실행합니다.
 
-> **2026-10-20 M8 개선:** [HCF 오차 보고서](waveoptics_m8/HCF_VALIDATION_REPORT.md) · [2코어 MCF 검증](waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md) · [실행 가능한 Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb). 곡선 P2 FEM·독립 기준·메시/영역 수렴을 추가했습니다. HCF는 이상적 모세관 모델 검증입니다.
+> **2026-10-20 M8 개선:** [HCF 오차 보고서](COMSOL_Install/waveoptics_m8/HCF_VALIDATION_REPORT.md) · [2코어 MCF 검증](COMSOL_Install/waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md) · [실행 가능한 Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/M8_HCF_MCF_2Core_Validation.ipynb). 곡선 P2 FEM·독립 기준·메시/영역 수렴을 추가했습니다. HCF는 이상적 모세관 모델 검증입니다.
 
 # Python Wave Optics — M1–M8
 
@@ -59,7 +59,7 @@
 - **M8 · MCF:** 검증된 M8 2코어 FEM 참조점(12/16/20/24 µm)을 코어 간격 기준으로 로그 보간해 \`Δn_eff\`, 결합 길이 및 그래프 표시. **웹에서 새 FEM을 계산하지 않습니다.**
 - **M8 · HCF:** 공기 코어 반경·파장·공기 굴절률 → *ideal hollow capillary* 근사 \`n_eff\`, \`D\` 및 개념 모드 그림. NANF/ARF 반공진·PML·confinement loss는 계산하지 않습니다.
 - **결과 저장:** 메인 그래프 PNG 및 CSV 다운로드.
-- **원본 웹 소스:** [COMSOL/index.html](index.html) · [web/app.js](web/app.js) · [web/style.css](web/style.css)
+- **원본 웹 소스:** [COMSOL/index.html](index.html) · [web/app.js](COMSOL_Install/web/app.js) · [web/style.css](COMSOL_Install/web/style.css)
 
 웹페이지가 보이지 않을 경우 [GitHub Pages 배포 상태](https://github.com/kimheeseo/LSCNS/actions)에서 최신 배포가 성공했는지 확인하세요. 단순 정적 HTML/JS 페이지이므로 계산 서버와 새 외부 JavaScript 라이브러리를 요구하지 않습니다.
 
@@ -86,9 +86,9 @@ un_m7_m8_validation.py
 
 실행 결과는 아래 파일로 저장됩니다.
 
-- `COMSOL/waveoptics_m7/screenshots/` → `m7_mode_and_convergence.png`, `m7_dispersion.png`, `m7_dispersion.csv`, `m7_summary.json`
-- `COMSOL/waveoptics_m8/screenshots/` → `m8_mcf_supermodes.png`, `m8_coupling_and_hcf.png`, `m8_summary.json`
-- `COMSOL/waveoptics_m7/M7_VALIDATION_REPORT.md`, `COMSOL/waveoptics_m8/M8_VALIDATION_REPORT.md`
+- `COMSOL/COMSOL_Install/waveoptics_m7/screenshots/` → `m7_mode_and_convergence.png`, `m7_dispersion.png`, `m7_dispersion.csv`, `m7_summary.json`
+- `COMSOL/COMSOL_Install/waveoptics_m8/screenshots/` → `m8_mcf_supermodes.png`, `m8_coupling_and_hcf.png`, `m8_summary.json`
+- `COMSOL/COMSOL_Install/waveoptics_m7/M7_VALIDATION_REPORT.md`, `COMSOL/COMSOL_Install/waveoptics_m8/M8_VALIDATION_REPORT.md`
 - `COMSOL/M7_M8_EXECUTION_SUMMARY.json`, `COMSOL/M1_M8_FINAL_REPORT.md`
 
 M4–M6을 재실행하려면 다음 명령어를 사용합니다.
@@ -109,7 +109,7 @@ from pathlib import Path
 import sys
 
 # 연구용 Python 모듈 경로 추가
-sys.path.insert(0, str(Path("COMSOL/waveoptics_m7/src").resolve()))
+sys.path.insert(0, str(Path("COMSOL/COMSOL_Install/waveoptics_m7/src").resolve()))
 
 from fiber_modes import Fiber, solve_modes, scalar_metrics, lp01_analytic
 
@@ -139,7 +139,7 @@ PowerShell에서 실행합니다.
 같은 스크립트 또는 별도 파일에서 아래 코드를 사용할 수 있습니다.
 
 ```python
-sys.path.insert(0, str(Path("COMSOL/waveoptics_m8/src").resolve()))
+sys.path.insert(0, str(Path("COMSOL/COMSOL_Install/waveoptics_m8/src").resolve()))
 from mcf_hcf import solve_two_core, capillary_neff, capillary_dispersion
 
 mcf = solve_two_core(separation_um=16.0, n=101)
@@ -156,14 +156,14 @@ M8 MCF는 스칼라 FEM, HCF는 이상적 모세관 해석식입니다. **HCF의
 
 | 단계 | 해석 목적 | 소스 · 검증 자료 |
 |---|---|---|
-| M1 | Slab scalar waveguide | [waveoptics_m1](waveoptics_m1/) |
-| M2 | Vector-mode baseline | [waveoptics_m2](waveoptics_m2/) |
-| M3 | TE/TM 2D scattering · PML · S parameters | [M3](waveoptics_m3/) · [검증 보고서](waveoptics_m3/M3_VALIDATION_REPORT.md) |
-| M4 | 3D Nédélec PEC cavity 부분 재구현 | [M4](waveoptics_m4/) · [검증 보고서](waveoptics_m4/M4_VALIDATION_REPORT.md) |
-| M5 | Material dispersion · spectral S (1D) | [waveoptics_m5](waveoptics_m5/) |
-| M6 | Coating inverse design (1D) | [waveoptics_m6](waveoptics_m6/) |
-| **M7** | Step-index optical fiber LP01 scalar FEM, MFD, Aeff | [M7](waveoptics_m7/) · [검증 보고서](waveoptics_m7/M7_VALIDATION_REPORT.md) |
-| **M8** | Two-core MCF scalar FEM + HCF capillary reference | [M8](waveoptics_m8/) · [검증 보고서](waveoptics_m8/M8_VALIDATION_REPORT.md) |
+| M1 | Slab scalar waveguide | [waveoptics_m1](COMSOL_Install/waveoptics_m1/) |
+| M2 | Vector-mode baseline | [waveoptics_m2](COMSOL_Install/waveoptics_m2/) |
+| M3 | TE/TM 2D scattering · PML · S parameters | [M3](COMSOL_Install/waveoptics_m3/) · [검증 보고서](COMSOL_Install/waveoptics_m3/M3_VALIDATION_REPORT.md) |
+| M4 | 3D Nédélec PEC cavity 부분 재구현 | [M4](COMSOL_Install/waveoptics_m4/) · [검증 보고서](COMSOL_Install/waveoptics_m4/M4_VALIDATION_REPORT.md) |
+| M5 | Material dispersion · spectral S (1D) | [waveoptics_m5](COMSOL_Install/waveoptics_m5/) |
+| M6 | Coating inverse design (1D) | [waveoptics_m6](COMSOL_Install/waveoptics_m6/) |
+| **M7** | Step-index optical fiber LP01 scalar FEM, MFD, Aeff | [M7](COMSOL_Install/waveoptics_m7/) · [검증 보고서](COMSOL_Install/waveoptics_m7/M7_VALIDATION_REPORT.md) |
+| **M8** | Two-core MCF scalar FEM + HCF capillary reference | [M8](COMSOL_Install/waveoptics_m8/) · [검증 보고서](COMSOL_Install/waveoptics_m8/M8_VALIDATION_REPORT.md) |
 
 M1~M3은 원본 소스와 수치 검증을 제공합니다. M4는 `waveoptics_m4`의 PEC 공동 솔버와 `reports/M4_3D_2026-10-11`의 전체 3D PML·포트 구현 보관 ZIP을 구분합니다. M5·M6은 1D 독립 해석 오라클입니다. MATLAB/COMSOL 소프트웨어 자체의 검증서나 상용 광섬유 제품 사양서와의 정량 비교는 아닙니다.
 

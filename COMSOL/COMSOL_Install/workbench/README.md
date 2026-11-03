@@ -4,9 +4,11 @@
 
 회사 PC에서 실행하는 **Python FEM + 브라우저 UI**입니다. 모델 트리 → 기하·재료 → 실제 메시 → 연구 → 결과·오차 확인 순서로 사용합니다. COMSOL 소프트웨어나 COMSOL API를 사용하지 않습니다.
 
-[설치용 소스 ZIP](https://github.com/kimheeseo/LSCNS/raw/refs/heads/main/COMSOL/workbench/LS_WaveOptics_Workbench_v0.1.zip) · [화면 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [전체 소스](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/workbench)
+[설치용 소스 ZIP](https://github.com/kimheeseo/LSCNS/raw/refs/heads/main/COMSOL/COMSOL_Install/workbench/LS_WaveOptics_Workbench_v0.1.zip) · [화면 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/COMSOL_Install/workbench/) · [전체 소스](https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/COMSOL_Install/workbench)
 
 GitHub Pages에서는 Python을 실행할 수 없으므로 **저장된 실제 실행 결과와 단면 미리보기**를 제공합니다. 입력값을 바꾸면 이전 결과를 현재 결과로 표시하지 않고 재계산 필요 상태로 전환합니다. 새 계산은 아래 로컬 Python 앱에서 실행하십시오.
+
+**경로 구분:** GitHub 저장소 내 원본은 `COMSOL/COMSOL_Install/workbench/`에 있습니다. 기존 설치 ZIP을 풀면 내부 경로는 `COMSOL/workbench/`입니다.
 
 ## Windows에서 시작
 
@@ -75,8 +77,8 @@ COMSOL Wave Optics는 벡터 모드·전자기파·포트·PML 등의 기능을 
 
 - [COMSOL 공식 Wave Optics 개요](https://doc.comsol.com/6.3/doc/com.comsol.help.woptics/woptics_ug_intro.4.03.html)
 - [M7/M8 연구용 검증](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/research/README.md)
-- [2코어 MCF 검증 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md)
-- [HCF 검증 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/HCF_VALIDATION_REPORT.md)
+- [2코어 MCF 검증 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md)
+- [HCF 검증 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/HCF_VALIDATION_REPORT.md)
 
 SCUBA 125 예시는 반경 5.5 µm를 가정하고 MFD에 보정한 단순 등가 모델입니다. 실제 단면을 의미하지 않습니다. [Lightera 기술자료 ET07179 v3](https://datasheet.lightera.com/versao_et_pdf?id=a0ATT000002m1nm2AA&lang=en-us)의 MFD 공칭 12.3 µm, Aeff 공칭 125 µm² 중 MFD만 보정했고, 예측 Aeff는 약 118.56 µm²로 공칭값보다 약 5.15% 작습니다. 감쇠와 PMD는 이 모델로 예측하지 않습니다.
 
@@ -84,7 +86,7 @@ SCUBA 125 예시는 반경 5.5 µm를 가정하고 MFD에 보정한 단순 등�
 
 ```bash
 python -m pip install pytest==9.1.1
-python -m pytest COMSOL/workbench/qa/test_workbench.py -q
+python -m pytest COMSOL/COMSOL_Install/workbench/qa/test_workbench.py -q
 ```
 
 GitHub Actions는 수치/HTTP 테스트와 Chromium에서 실제 계산·파라미터 변경·모델 저장·CSV 다운로드·MCF 메시·HCF 수렴·파장 스윕·정적 미리보기·모바일 레이아웃을 확인합니다. 실행 결과와 스크린샷은 해당 Actions 실행의 `wave-optics-workbench-qa` 아티팩트로 저장합니다.

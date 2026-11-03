@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'COMSOL/index.html'
-      - 'COMSOL/web/**'
+      - 'COMSOL/COMSOL_Install/web/**'
       - '.github/workflows/waveoptics-web-smoke.yml'
 permissions:
   contents: read
@@ -19,9 +19,9 @@ jobs:
           node-version: '22'
       - name: JavaScript syntax and mathematical oracle smoke
         run: |
-          node --check COMSOL/web/app.js
-          node --check COMSOL/web/browser-smoke.cjs
-          node COMSOL/web/smoke.cjs
+          node --check COMSOL/COMSOL_Install/web/app.js
+          node --check COMSOL/COMSOL_Install/web/browser-smoke.cjs
+          node COMSOL/COMSOL_Install/web/smoke.cjs
       - name: Install Chromium for desktop and mobile preview
         run: |
           mkdir -p /tmp/waveoptics-playwright
@@ -30,13 +30,13 @@ jobs:
       - name: Desktop and mobile Chromium UI regression
         env:
           NODE_PATH: /tmp/waveoptics-playwright/node_modules
-        run: node COMSOL/web/browser-smoke.cjs
+        run: node COMSOL/COMSOL_Install/web/browser-smoke.cjs
       - name: Upload screenshots and test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: waveoptics-web-desktop-mobile-smoke
           path: |
-            COMSOL/web/test-results/*.png
-            COMSOL/web/test-results/report.json
+            COMSOL/COMSOL_Install/web/test-results/*.png
+            COMSOL/COMSOL_Install/web/test-results/report.json
           retention-days: 30

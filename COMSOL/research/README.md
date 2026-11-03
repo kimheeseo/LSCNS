@@ -41,7 +41,7 @@ Linux에서 M1–M4를 실행할 때 gmsh의 OS 라이브러리가 필요합니�
 ```python
 from pathlib import Path
 import sys
-sys.path.insert(0, str(Path('COMSOL/waveoptics_m7/src').resolve()))
+sys.path.insert(0, str(Path('COMSOL/COMSOL_Install/waveoptics_m7/src').resolve()))
 from fiber_modes import Fiber
 from radial_fem import solve_radial, radial_dispersion
 

@@ -11,7 +11,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 ROOT=Path(__file__).resolve().parent;COMSOL=ROOT.parent;OUT=ROOT/'results'
 OUT.mkdir(exist_ok=True)
-sys.path[:0]=[str(COMSOL/'waveoptics_m1'),str(COMSOL/'waveoptics_m7/src'),str(COMSOL/'waveoptics_m8/src')]
+sys.path[:0]=[str(COMSOL/'COMSOL_Install'/'waveoptics_m1'),str(COMSOL/'COMSOL_Install'/'waveoptics_m7/src'),str(COMSOL/'COMSOL_Install'/'waveoptics_m8/src')]
 from waveoptics.slab import solve_slab
 from fiber_modes import Fiber
 from radial_fem import solve_radial
@@ -19,7 +19,7 @@ from conforming_mcf import solve_conforming
 from multipole_reference import solve_reference
 from capillary_fem import solve_capillary
 from reference_equations import scalar_circular_fundamental,vector_he11
-spec=importlib.util.spec_from_file_location('independent_slab',COMSOL/'waveoptics_m1/tests/analytic_slab.py')
+spec=importlib.util.spec_from_file_location('independent_slab',COMSOL/'COMSOL_Install'/'waveoptics_m1/tests/analytic_slab.py')
 analytic=importlib.util.module_from_spec(spec);sys.modules[spec.name]=analytic;spec.loader.exec_module(analytic)
 CHECKS=[]
 def check(name,passed,detail=None):
@@ -182,10 +182,10 @@ def main():
     try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=COMSOL,text=True).strip()
     except Exception:commit='unknown'
     paths=[Path(__file__),ROOT/'reference_equations.py',ROOT/'references.json',
-        COMSOL/'waveoptics_m1/waveoptics/slab.py',COMSOL/'waveoptics_m1/waveoptics/mesh.py',
-        COMSOL/'waveoptics_m1/tests/analytic_slab.py',COMSOL/'waveoptics_m7/src/fiber_modes.py',
-        COMSOL/'waveoptics_m7/src/radial_fem.py',COMSOL/'waveoptics_m8/src/conforming_mcf.py',
-        COMSOL/'waveoptics_m8/src/multipole_reference.py',COMSOL/'waveoptics_m8/src/capillary_fem.py']
+        COMSOL/'COMSOL_Install'/'waveoptics_m1/waveoptics/slab.py',COMSOL/'COMSOL_Install'/'waveoptics_m1/waveoptics/mesh.py',
+        COMSOL/'COMSOL_Install'/'waveoptics_m1/tests/analytic_slab.py',COMSOL/'COMSOL_Install'/'waveoptics_m7/src/fiber_modes.py',
+        COMSOL/'COMSOL_Install'/'waveoptics_m7/src/radial_fem.py',COMSOL/'COMSOL_Install'/'waveoptics_m8/src/conforming_mcf.py',
+        COMSOL/'COMSOL_Install'/'waveoptics_m8/src/multipole_reference.py',COMSOL/'COMSOL_Install'/'waveoptics_m8/src/capillary_fem.py']
     data['metadata']=dict(executed_utc=datetime.now(timezone.utc).isoformat(),source_commit=commit,
         run_url=('https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']) if 'GITHUB_RUN_ID' in os.environ else None,
         python=platform.python_version(),platform=platform.platform(),

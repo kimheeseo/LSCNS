@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pytest
 ROOT=Path(__file__).resolve().parents[2]
-for stage in (5,6,7,8):sys.path.insert(0,str(ROOT/f'waveoptics_m{stage}'/'src'))
+for stage in (5,6,7,8):sys.path.insert(0,str(ROOT/'COMSOL_Install'/f'waveoptics_m{stage}'/'src'))
 from fiber_modes import Fiber, solve_modes, scalar_metrics, lp01_analytic, radial_lp01_aeff, dispersion_lp01
 from radial_fem import solve_radial, radial_dispersion
 from mcf_hcf import capillary_neff, capillary_dispersion

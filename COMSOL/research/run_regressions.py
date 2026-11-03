@@ -49,7 +49,7 @@ def main():
         (args.out/'regression_summary.json').write_text(json.dumps(record,indent=2)+'\n')
         print(f'{name}: exit {code}; {row["summary"]}',flush=True)
     for n in (1,2,3):
-        p=ROOT/f'waveoptics_m{n}'
+        p=ROOT/'COMSOL_Install'/f'waveoptics_m{n}'
         if wanted(f'M{n}'):execute(f'M{n}',[sys.executable,'-m','pytest',str(p/'tests'),'-q','--tb=short',f'--junitxml={logs}/M{n}.xml'],[p])
     if wanted('research'):execute('research',[sys.executable,'-m','pytest',str(ROOT/'research/tests'),'-q','--tb=short',f'--junitxml={logs}/research.xml'])
     if wanted('M4_M6'):execute('M4_M6',[sys.executable,str(ROOT/'run_m4_m6_validation.py')])

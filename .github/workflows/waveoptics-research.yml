@@ -11,7 +11,7 @@ on:
       - 'COMSOL/research/**'
       - '!COMSOL/research/results/**'
       - '!COMSOL/research/*.md'
-      - 'COMSOL/waveoptics_m*/src/**'
+      - 'COMSOL/COMSOL_Install/waveoptics_m*/src/**'
       - '.github/workflows/waveoptics-research.yml'
   pull_request:
     paths:
@@ -64,4 +64,4 @@ jobs:
             COMSOL/research/results/
             COMSOL/M7_M8_EXECUTION_SUMMARY.json
             COMSOL/WAVEOPTICS_M4_M6_EXECUTION_SUMMARY.json
-            COMSOL/waveoptics_m*/screenshots/
+            COMSOL/COMSOL_Install/waveoptics_m*/screenshots/

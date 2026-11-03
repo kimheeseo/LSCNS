@@ -43,7 +43,7 @@ def build():
 
 HCF는 이상적 모세관 J0/Dirichlet 모델입니다. 실제 ARF/NANF의 누설 손실 검증은 포함하지 않습니다. MCF는 동일 원형 코어 2개의 약도파 스칼라 모델입니다. 오차율은 동일 모델의 독립 기준 해 대비 값이며, 실물 제품 대비 오차가 아닙니다.
 
-[HCF 상세 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/HCF_VALIDATION_REPORT.md) · [MCF 상세 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md)'''),
+[HCF 상세 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/HCF_VALIDATION_REPORT.md) · [MCF 상세 보고서](https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md)'''),
     code('''# 설치: Colab/Linux에서 Gmsh 공유 라이브러리가 필요합니다.
 import sys,subprocess,importlib.util
 try:

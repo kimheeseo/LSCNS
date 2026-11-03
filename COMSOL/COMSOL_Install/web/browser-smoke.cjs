@@ -1,7 +1,7 @@
 /* GitHub Actions Playwright smoke for standalone GitHub Pages Wave Optics Lab */
 'use strict';
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path');
-const root=path.resolve(__dirname,'..'),results=path.join(__dirname,'test-results');
+const root=path.resolve(__dirname,'../..'),results=path.join(__dirname,'test-results');
 fs.mkdirSync(results,{recursive:true});
 const server=http.createServer((req,res)=>{
  const p=decodeURIComponent(new URL(req.url,'http://localhost').pathname);

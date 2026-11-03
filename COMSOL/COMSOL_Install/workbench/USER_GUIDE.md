@@ -1,8 +1,10 @@
 # LS Wave Optics Workbench 설치·사용·결과 해석 가이드
 
+> GitHub 원본 폴더는 `COMSOL/COMSOL_Install/workbench/`로 이동했습니다. 아래 설치 설명은 기존 배포 ZIP 내부의 `COMSOL/workbench/` 경로를 기준으로 합니다.
+
 이 도구는 **회사 PC의 Python에서 광섬유 FEM 계산을 실행하고 브라우저로 조작하는 앱**입니다. 원형 단일 코어, 동일한 직선 2코어 MCF, 이상적 중공 모세관의 설계 경향과 수치 수렴을 확인할 수 있습니다. COMSOL 설치나 라이선스는 필요하지 않습니다. COMSOL과의 직접 비교 검증은 아직 수행하지 않았습니다.
 
-[설치 ZIP 다운로드](https://github.com/kimheeseo/LSCNS/raw/refs/heads/main/COMSOL/workbench/LS_WaveOptics_Workbench_v0.1.zip) · [화면 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/) · [검증 기록](FINAL_VERIFICATION.md)
+[설치 ZIP 다운로드](https://github.com/kimheeseo/LSCNS/raw/refs/heads/main/COMSOL/COMSOL_Install/workbench/LS_WaveOptics_Workbench_v0.1.zip) · [화면 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/COMSOL_Install/workbench/) · [검증 기록](FINAL_VERIFICATION.md)
 
 **미리보기 주소는 저장된 실제 계산 결과를 보여 줍니다. 입력값을 바꾼 새 계산은 PC에 설치한 앱에서만 실행됩니다.**
 

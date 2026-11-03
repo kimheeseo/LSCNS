@@ -1,3 +1,7 @@
+## Full-vector 2D Eigenmode — 유효굴절률/MFD/Aeff 업그레이드 (2026-11-04)
+
+[Colab 실제 Full-vector FDFD 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb) · [소스·결과](full_vector/) · [웹 Full-vector 결과 보기](web/#full-vector-tool) · [정밀도/제약 보고서](full_vector/VALIDATION_REPORT.md). 독립 2D 결합 벡터 H 모드로 neff를 계산하며 Ex/Ey/Ez를 복원한 뒤 MFD 및 Aeff를 2D 수치 적분합니다. 기존 원형 Scalar FEM은 유지합니다. **Full-vector FDFD ≠ Full-vector FEM, HCF 누설손실/PMD 인증 미구현.**
+
 ## 2026-11-03 추가 — Velamuri 논문 기반 2D 스칼라 FEM/PML 굽힘모드 연구
 
 - [**Python/SciPy 2D FEM + 복소 PML Colab 노트북**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/Velamuri_Bend_2D_PML.ipynb)

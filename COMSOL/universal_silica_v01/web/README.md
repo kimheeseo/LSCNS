@@ -1,3 +1,9 @@
+## Full-vector Fiber Mode Lab v0.1 — 2026-11-04
+
+[**▶ 기존 웹의 Full-vector 결과 보기**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#full-vector-tool) · [**Google Colab 실제 벡터 계산**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb) · [수치 검증](../full_vector/VALIDATION_REPORT.md) · [기본 결과 JSON](../full_vector/results/vector_mode_result.json)
+
+원형 실리카 Step/Graded/Trench/Multilayer에 대한 **별도 2D Full-vector FDFD (Hx,Hy 결합 고유문제)** 계산 엔진입니다. Ex/Ey/Ez 장을 복원해 **MFD (전기장 적분)**와 **Aeff (전기장 분포 적분)**를 계산하며 독립 HE11 해석해와 비교했습니다. **웹 UI는 Colab에서 계산한 결과를 가져와 보기만 하며, Full-vector 고유값을 직접 계산하지 않습니다.** 기존 웹 Scalar FEM은 그대로 유지됩니다. FEM/복소 PML/HCF 누설손실 기능으로 오인하지 마세요.
+
 ## 2026-11-04 · HCF / Nested Tube Designer v0.1
 
 [**▶ 기존 웹에서 HCF 설계 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-designer) · [모듈 사용법](hcf_designer/README.md) · [14개 테스트 검증](hcf_designer/VALIDATION_REPORT.md) · [6×2 단면 미리보기](hcf_designer/HCF_Designer_Preview.png) · [8×3 단면 미리보기](hcf_designer/HCF_3Nested_8Tube_Preview.png)

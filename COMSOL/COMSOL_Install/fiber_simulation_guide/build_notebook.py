@@ -10,7 +10,7 @@ md('''# 광섬유 시뮬레이션 — 입력 → 출력 → 예시 → Mesh 검�
 
 **G.654.E / G.657.A1 통합 실행형 보고서 · 2026-10-19**
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb)
 
 `런타임 → 모두 실행`으로 두 광섬유의 기본 예시, 입력 변경 예시, radial/2D Mesh 비교와 외부 영역 검사를 실제 재계산합니다. **기본 예시의 코드 실행 출력과 그림도 저장**했습니다.
 

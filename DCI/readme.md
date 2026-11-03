@@ -35,7 +35,7 @@ AI 데이터센터 탐색, CPO 공급망 조사, 인프라 설계 및 광학 수
 - **주요 범위:** M1~M8 도파관·모드 해석, PML·산란 S-파라미터, 분산·코팅 설계, SMF·2코어 MCF·이상적 HCF 모델.
 - **주요 결과:** 유효굴절률(`n_eff`), 모드 분포, MFD, 유효면적(`Aeff`), 분산, 결합 길이 및 메시·영역 수렴 검토.
 - **실행:** [Wave Optics Lab](https://kimheeseo.github.io/LSCNS/COMSOL/) · [Workbench 미리보기](https://kimheeseo.github.io/LSCNS/COMSOL/workbench/)
-- **자료:** [프로젝트 안내](../COMSOL/README.md) · [설치·사용 가이드](../COMSOL/workbench/USER_GUIDE.md) · [광섬유 계산 예제·Colab 안내](../COMSOL/fiber_simulation_guide/readme.md) · [공개 자료 비교 결과](../COMSOL/public_reference_benchmarks/results/COMPARISON_REPORT.md)
+- **자료:** [프로젝트 안내](../COMSOL/README.md) · [설치·사용 가이드](../COMSOL/COMSOL_Install/workbench/USER_GUIDE.md) · [광섬유 계산 예제·Colab 안내](../COMSOL/COMSOL_Install/fiber_simulation_guide/README.md) · [공개 자료 비교 결과](../COMSOL/public_reference_benchmarks/results/COMPARISON_REPORT.md)
 
 Python 기반 연구 프로젝트입니다. 웹은 해석식·저장 결과 보간 또는 미리보기를 제공하며, 새 FEM 해석은 로컬 Python·Colab에서 수행합니다. COMSOL 프로그램 자체를 실행한 검증이나 실제 제품 적합성 검증을 의미하지 않으며, HCF는 이상적 모세관 모델 범위입니다.
 

@@ -284,10 +284,10 @@ v0.1은 Linux·Windows에서 각각 Python 수치/HTTP 테스트 15개와 Chromi
 
 독립 기준은 단일 코어의 원형 Bessel 해, MCF의 무한 클래딩 원통함수 경계 정합, HCF의 J0 모세관 해입니다. 모두 해당 이상화 스칼라 모델에 대한 검증입니다.
 
-- [단일 코어 및 M7/M8 연구용 검증](../research/README.md)
+- [단일 코어 및 M7/M8 연구용 검증](../../research/README.md)
 - [2코어 MCF 검증 보고서](../waveoptics_m8/MCF_2CORE_VALIDATION_REPORT.md)
 - [이상적 HCF 검증 보고서](../waveoptics_m8/HCF_VALIDATION_REPORT.md)
-- [입력·출력 Colab 보고서](../fiber_simulation_guide/readme.md): 별도 노트북의 실행·검증 조건을 확인하십시오. 현재 브라우저 앱과 동일한 모든 조건을 사용하는 것은 아닙니다.
+- [입력·출력 Colab 보고서](../fiber_simulation_guide/README.md): 별도 노트북의 실행·검증 조건을 확인하십시오. 현재 브라우저 앱과 동일한 모든 조건을 사용하는 것은 아닙니다.
 
 **UI가 COMSOL과 비슷해도 풀고 있는 물리 모델은 제한적입니다.** 실제 COMSOL 벡터 Wave Optics 결과와 비교하려면 같은 형상·재료·경계·모드·수렴 조건을 맞춘 별도의 비교가 필요합니다. 현재 도구는 위 세 모델의 설계 경향과 수치 검증에 사용할 수 있으며, 범용 COMSOL 대체 도구나 실제 제품 인증 도구로 검증된 상태는 아닙니다.
 

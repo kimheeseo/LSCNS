@@ -1,6 +1,6 @@
 # G.657.A1 입력·출력 및 실행 예시
 
-[통합 Colab 실행형 보고서](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [전체 입력/출력 설명서](../fiber_simulation_guide/readme.md)
+[통합 Colab 실행형 보고서](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [전체 입력/출력 설명서](../COMSOL_Install/fiber_simulation_guide/README.md)
 
 ## 기본 입력
 

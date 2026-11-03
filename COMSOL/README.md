@@ -1,3 +1,5 @@
+> **2026-11-03 · MCF Cross-talk 웹 계산 추가:** [Universal Silica MCF XT 분석](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [구현·가정 설명](universal_silica_v01/web/README.md). 2코어 M8 FEM 참조값의 로그 보간과 무손실 coherent 결합을 통한 XT(dB), P₁/P₂, κ, Lc 계산이며, **실제 제품 누화 실측 또는 XT(dB/km) 아님.**
+
 > **폴더 정리 · 2026-11-03:** 메인 안내문은 이 `README.md` 하나로 통일했습니다. 기존 연구 산출물·ZIP·구형 웹페이지·Fiber I/O 가이드는 [COMSOL_Install](COMSOL_Install/)에 보관합니다. 기존 `/COMSOL/` 웹 주소는 설치 폴더의 대시보드로 자동 이동합니다.
 
 > **2026-11-03 · 실시간 웹 UI v0.2:** [Universal Silica Fiber Workbench 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [소스·입력 가이드](universal_silica_v01/web/README.md) · [Python 기준 대조 결과](universal_silica_v01/web/VALIDATION_REPORT.md). GitHub Pages 브라우저에서 원형 Step·Graded·Trench·Multilayer 스칼라 FEM을 **실제로 다시 계산**합니다. 입력값을 바꾼 후 새 계산 실행 필요하며 결과 JSON/CSV는 로컬 다운로드입니다. **실제 LE125 인증/Full-vector/손실/임의 2D 구조 미지원.**

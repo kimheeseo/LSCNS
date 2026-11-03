@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - 'COMSOL/universal_silica_v01/web/**'
       - 'COMSOL/index.html'
       - 'COMSOL/COMSOL_Install/index.html'
       - 'COMSOL/COMSOL_Install/web/**'
@@ -18,6 +19,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Universal Silica radial FEM and MCF XT regression
+        run: |
+          node --check COMSOL/universal_silica_v01/web/app.mjs
+          node --check COMSOL/universal_silica_v01/web/mcf_xt.mjs
+          node COMSOL/universal_silica_v01/web/tests/test_solver.mjs
       - name: JavaScript syntax and mathematical oracle smoke
         run: |
           node --check COMSOL/COMSOL_Install/web/app.js

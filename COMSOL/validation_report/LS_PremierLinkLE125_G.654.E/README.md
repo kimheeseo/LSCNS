@@ -1,3 +1,17 @@
+## 2026-11-03 추가: LE125 굽힘손실 2D FEM/PML 계산·사양 비교
+
+**[R=30 mm · 100 turns · 1550/1625 nm 상세 비교 보고서](./LE125_BENDING_VALIDATION_2026-11-03.md)**
+
+- [동일 코드 기반 Colab 재실행 노트북](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/validation_report/LS_PremierLinkLE125_G.654.E/LE125_Bending_Validation_2026_11_03.ipynb)
+- [1550 nm 2D FEM/PML 시연 JSON](./LE125_BEND_1550_UNVALIDATED.json) · [1625 nm 2D FEM/PML 시연 JSON](./LE125_BEND_1625_UNVALIDATED.json)
+- [GitHub Pages의 2D FEM 결과 가져오기](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261103-complex-pml-1#bend2d-fem)
+
+**제공된 LE125 사양표:** 1550 / 1625 nm 각각 반경 **30 mm × 100 turns**에서 추가 굽힘손실 **≤0.1 dB**.
+
+**가상 Step-index 계산값:** 1550 nm **0.9741 dB/100 turns**, 1625 nm **4.9800 dB/100 turns** (h≈0.55 µm, PML=7λ, 계산창 63 µm). **두 파장 모두 PML 수렴성 검증 실패**, 1550 nm 메시 수렴성도 미달입니다. 실제 LE125 굴절률 분포(RIP), 코팅/외부 경계, 편광·GEBT 응력장이 미확보·미구현이므로 **실제 제품 합격/불합격은 판정할 수 없습니다**. 숫자와 사양의 차이는 **근사 모델 불일치**로 해석해야 합니다.
+
+---
+
 # G.654.E / PremierLink LE125: numerical benchmark (2026-10-19)
 
 ## Google Colab에서 직접 시뮬레이션하기

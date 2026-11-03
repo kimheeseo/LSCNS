@@ -93,7 +93,7 @@ def stage8():
 if __name__=='__main__':
  t=time.time();a=stage7();b=stage8()
  rec=dict(passed=sum(x['passed'] for x in checks),failed=sum(not x['passed'] for x in checks),checks=checks,M7=a,M8=b,seconds=round(time.time()-t,2))
- (ROOT/'M7_M8_EXECUTION_SUMMARY.json').write_text(json.dumps(rec,indent=2))
+ (ROOT/'COMSOL_Install'/'M7_M8_EXECUTION_SUMMARY.json').write_text(json.dumps(rec,indent=2))
  # This runner covers M7/M8 only. Do not overwrite the global M1-M8 status
  # using incomplete knowledge of archived full-vector M4 and other milestones.
  print(json.dumps(dict(passed=rec['passed'],failed=rec['failed'],neff=a['meshes'][-1]['neff'],Aeff=a['meshes'][-1]['Aeff_um2'],M8_split_16=b['MCF'][1]['index_split']),indent=2))

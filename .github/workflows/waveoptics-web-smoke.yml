@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'COMSOL/index.html'
+      - 'COMSOL/COMSOL_Install/index.html'
       - 'COMSOL/COMSOL_Install/web/**'
       - '.github/workflows/waveoptics-web-smoke.yml'
 permissions:

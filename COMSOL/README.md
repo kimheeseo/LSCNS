@@ -1,3 +1,5 @@
+> **폴더 정리 · 2026-11-03:** 메인 안내문은 이 `README.md` 하나로 통일했습니다. 기존 연구 산출물·ZIP·구형 웹페이지·Fiber I/O 가이드는 [COMSOL_Install](COMSOL_Install/)에 보관합니다. 기존 `/COMSOL/` 웹 주소는 설치 폴더의 대시보드로 자동 이동합니다.
+
 > **2026-11-03 · 실시간 웹 UI v0.2:** [Universal Silica Fiber Workbench 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [소스·입력 가이드](universal_silica_v01/web/README.md) · [Python 기준 대조 결과](universal_silica_v01/web/VALIDATION_REPORT.md). GitHub Pages 브라우저에서 원형 Step·Graded·Trench·Multilayer 스칼라 FEM을 **실제로 다시 계산**합니다. 입력값을 바꾼 후 새 계산 실행 필요하며 결과 JSON/CSV는 로컬 다운로드입니다. **실제 LE125 인증/Full-vector/손실/임의 2D 구조 미지원.**
 
 > **2026-10-30 · Universal Silica Fiber Colab v0.1:** [직접 단면을 설정하고 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb) · [지원 범위/한계](universal_silica_v01/README.md) · [수치 검증](universal_silica_v01/VALIDATION_REPORT.md). Step-index·Graded·Trench·동심원 다층 **스칼라 radial LP01 FEM만 지원**, 비원형 MCF/HCF/PCF·full-vector·손실은 미구현.\n\n> **공개 자료 기반 비교 완료:** [M1·M7·MCF·HCF 결과·오차·한계](public_reference_benchmarks/results/COMPARISON_REPORT.md) · [재현 코드·출처](public_reference_benchmarks/README.md). 공개 COMSOL 예제의 조건과 논문을 재현했으며, COMSOL 프로그램 자체를 실행한 비교는 아닙니다.
@@ -12,7 +14,7 @@
 
 ## 입력값·출력값·예시·Mesh 비교 — 통합 Colab 보고서
 
-[▶ G.654.E / G.657.A1 입력·출력 설명서](fiber_simulation_guide/readme.md) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [실행 결과 ZIP](fiber_simulation_guide/Fiber_Input_Output_Results.zip)
+[▶ G.654.E / G.657.A1 입력·출력 설명서](COMSOL_Install/fiber_simulation_guide/readme.md) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb) · [실행 결과 ZIP](COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Results.zip)
 
 직접 Δn 입력과 MFD 보정 모드를 구분하고, 두 광섬유의 **실제 계산 예시 6개**, 분석 파장 변경, 코어 반경 변경, Mesh 수·외부 계산영역의 영향을 설명합니다. 사용자 Mesh·파장 입력을 바꾼 실제 재실행도 확인했습니다. [G.654.E 입력/출력](g654e_validation/readme.md) · [G.657.A1 입력/출력](g657a1_validation/readme.md)
 
@@ -59,7 +61,7 @@
 - **M8 · MCF:** 검증된 M8 2코어 FEM 참조점(12/16/20/24 µm)을 코어 간격 기준으로 로그 보간해 \`Δn_eff\`, 결합 길이 및 그래프 표시. **웹에서 새 FEM을 계산하지 않습니다.**
 - **M8 · HCF:** 공기 코어 반경·파장·공기 굴절률 → *ideal hollow capillary* 근사 \`n_eff\`, \`D\` 및 개념 모드 그림. NANF/ARF 반공진·PML·confinement loss는 계산하지 않습니다.
 - **결과 저장:** 메인 그래프 PNG 및 CSV 다운로드.
-- **원본 웹 소스:** [COMSOL/index.html](index.html) · [web/app.js](COMSOL_Install/web/app.js) · [web/style.css](COMSOL_Install/web/style.css)
+- **원본 웹 소스:** [COMSOL_Install/index.html](COMSOL_Install/index.html) · [web/app.js](COMSOL_Install/web/app.js) · [web/style.css](COMSOL_Install/web/style.css)
 
 웹페이지가 보이지 않을 경우 [GitHub Pages 배포 상태](https://github.com/kimheeseo/LSCNS/actions)에서 최신 배포가 성공했는지 확인하세요. 단순 정적 HTML/JS 페이지이므로 계산 서버와 새 외부 JavaScript 라이브러리를 요구하지 않습니다.
 
@@ -89,7 +91,7 @@ un_m7_m8_validation.py
 - `COMSOL/COMSOL_Install/waveoptics_m7/screenshots/` → `m7_mode_and_convergence.png`, `m7_dispersion.png`, `m7_dispersion.csv`, `m7_summary.json`
 - `COMSOL/COMSOL_Install/waveoptics_m8/screenshots/` → `m8_mcf_supermodes.png`, `m8_coupling_and_hcf.png`, `m8_summary.json`
 - `COMSOL/COMSOL_Install/waveoptics_m7/M7_VALIDATION_REPORT.md`, `COMSOL/COMSOL_Install/waveoptics_m8/M8_VALIDATION_REPORT.md`
-- `COMSOL/M7_M8_EXECUTION_SUMMARY.json`, `COMSOL/M1_M8_FINAL_REPORT.md`
+- `COMSOL/COMSOL_Install/M7_M8_EXECUTION_SUMMARY.json`, `COMSOL/COMSOL_Install/M1_M8_FINAL_REPORT.md`
 
 M4–M6을 재실행하려면 다음 명령어를 사용합니다.
 
@@ -171,6 +173,6 @@ M1~M3은 원본 소스와 수치 검증을 제공합니다. M4는 `waveoptics_m4
 
 - [M7·M8 실제 Python FEM 수치 검증](https://github.com/kimheeseo/LSCNS/actions/workflows/waveoptics-m7-m8-validation.yml)
 - [웹 해석식·화면 smoke test](https://github.com/kimheeseo/LSCNS/actions/workflows/waveoptics-web-smoke.yml)
-- [M1–M8 통합 검증 현황](M1_M8_FINAL_REPORT.md)
+- [M1–M8 통합 검증 현황](COMSOL_Install/M1_M8_FINAL_REPORT.md)
 
 웹과 Python 계산 엔진은 명확히 분리돼 있습니다. 새 제품 사양을 비교할 때는 **Python FEM의 메시 수렴·해석해 오차**를 확인한 결과를 연구용 근거로 사용하고, 웹 미리보기 결과를 FEM 검증값으로 보고하지 마십시오.

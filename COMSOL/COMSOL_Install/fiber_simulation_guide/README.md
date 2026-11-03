@@ -1,6 +1,6 @@
 # 광섬유 시뮬레이션 입력·출력 사용 설명서
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/COMSOL_Install/fiber_simulation_guide/Fiber_Input_Output_Examples.ipynb)
 
 **G.654.E·G.657.A1 · 실행 결과가 포함된 통합 Colab 보고서 · 2026-10-19**
 
@@ -163,7 +163,7 @@ python run_report.py --in-process
 
 ## 10. 제품별 기존 보고서·자료
 
-- [G.654.E 기존 보고서](../g654e_validation/README.md)
-- [G.657.A1 기존 보고서](../g657a1_validation/README.md)
-- [기존 M7 연구용 수치 검증](../research/README.md)
+- [G.654.E 기존 보고서](../../g654e_validation/README.md)
+- [G.657.A1 기존 보고서](../../g657a1_validation/README.md)
+- [기존 M7 연구용 수치 검증](../../research/README.md)
 - 제품 MFD 입력의 배경: [LS 2025 브로셔 p.3](https://fliphtml5.com/plzsm/rgkq/20250925_%ED%86%B5%EC%8B%A0_%EB%B8%8C%EB%A1%9C%EC%85%94/) — 실제 프로파일을 제공하는 자료로 사용한 것은 아닙니다.

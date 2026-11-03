@@ -61,7 +61,7 @@ All snapshot numbers on GitHub reflect the checked-in baseline **only**. Changin
 
 ## New engineering-analysis modules — attenuation → macrobend → PMD (2026-11-03)
 
-All three modules have been added to the **same GitHub Pages workbench**, beneath the original LP₀₁ mode analysis. At the top of the results area, use the **01 감쇠 / 링크 버짓**, **02 굽힘손실** and **03 PMD / DGD** shortcuts to jump directly to the new sections.
+All three modules have been added to the **same GitHub Pages workbench**, beneath the original LP₀₁ mode analysis. At the top of the results area, use the **01 감쇠 / 링크 버짓**, **02 굽힘손실**, **02+ 굽힘 물리식 / COMSOL 후처리** and **03 PMD / DGD** shortcuts to jump directly to the sections.
 
 - **Phase 1 — attenuation**: enter measured/specification α1550 and α1625, interpolate only for 1550–1625 nm, combine fiber length, connector and splice losses, compute output optical power and plot length-vs-loss. Initial numbers are illustrative, not real YOFC/LE125 measurements.
 - **Phase 2 — macrobending**: input four measured dB/turn anchors at two bending radii and 1550/1625 nm; interpolate **only** between measured radii/wavelengths, combine turn count with an optional baseline from Phase 1 and draw the radius-vs-loss curve. This is **not** a complex-neff curved-fiber FEM/PML model.
@@ -79,6 +79,21 @@ node COMSOL/universal_silica_v01/web/tests/test_pmd.mjs
 ```
 
 **Fidelity caveat:** the phrase "prediction" for these new outputs is limited to **measurement-input-driven extrapolation-free interpolation or theoretical statistics**. The current scalar LP₀₁ FEM still does not independently predict material attenuation, radiation macro-bending leakage or actual fiber PMD from geometrical input alone.
+
+## Velamuri 2018 bending paper extension — conformal mapping + loss postprocessing
+
+The workbench now has a separate **02+ · 굽힘 물리식 / COMSOL 후처리** section, implemented in [bend_physics_bridge.mjs](bend_physics_bridge.mjs) with a dedicated [browser UI](bend_physics_ui.mjs). It references Ashitosh Velamuri et al., 2018, [*Study of Bending Losses in Optical Fibers using COMSOL*](https://www.comsol.com/paper/study-of-bending-losses-in-optical-fibers-using-comsol-multiphysics-61111).
+
+- Visualize `n_equiv(x)=n_stress(x)(1+x/R)` for the currently selected step/graded/trench/multilayer index design; stress OFF or **simple beam/Poisson proxy (not GEBT)**.
+- Convert **externally computed** complex mode `|Im(n_eff)|` to dB/m and dB/turn (bend **diameter**, not radius, is the UI input).
+- Verify arithmetic via the paper's 1550 nm, **10 mm bend diameter**, BIF simulated `0.0119 dB/turn` example: the inverse imaginary mode index `1.0758076e-8` gives the same loss. **This is mathematical inversion, not a new FEM prediction.**
+- Provide optional diagnostic for **user-supplied** PML thickness / imaginary mode index data; display the paper's 7λ example as a physical thickness. Neither PML nor a complex 2D mode solver is implemented in the browser.
+
+The prior measured-data `bending_loss.mjs` module is retained. Detailed math, caveats, tests and [paper reference](ENGINEERING_MODULES.md#2-velamuri-2018--bending-physical-model-bridge-2026-11-03) are in [ENGINEERING_MODULES.md](ENGINEERING_MODULES.md).
+
+```sh
+node COMSOL/universal_silica_v01/web/tests/test_bend_physics.mjs
+```
 
 ## MCF · Ideal two-core Cross-talk (2026-11-03)
 

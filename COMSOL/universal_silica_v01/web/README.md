@@ -95,6 +95,27 @@ The prior measured-data `bending_loss.mjs` module is retained. Detailed math, ca
 node COMSOL/universal_silica_v01/web/tests/test_bend_physics.mjs
 ```
 
+## Paper-based 2D scalar FEM/PML mode solver (2026-11-03)
+
+This extends the earlier Velamuri complex-index *postprocessor* with a separate **actual 2D scalar P1 triangular FEM + complex-coordinate PML eigensolver** written in Python/SciPy. It **computes its own complex eigenvalue** and the corresponding 2D intensity distribution (not just interpolating measured loss or receiving Im(n_eff)).
+
+- [**2D Python FEM source**](../bending_fem/solver.py)
+- [**Colab simulation notebook**](../bending_fem/Velamuri_Bend_2D_PML.ipynb)
+- [**Executed numerical record / not converged**](../bending_fem/example_validation.json)
+- [**Detailed validation report**](../bending_fem/VALIDATION_REPORT.md)
+- [**Full instructions and limits**](../bending_fem/README.md)
+
+The web workbench now includes shortcut **02++ · 실제 2D FEM/PML 결과**. Run the Colab notebook and import `bend2d_pml_result.json`. The **browser does not execute the SciPy eigenvalue solve**; it displays imported numerical results and mesh/PML sensitivity, warning if numerical convergence criteria are not met.
+
+**Actual illustrative run:** G.652-like hypothetical step index, λ1550, core radius 4.1µm, Δn=.005, bend **diameter** 10mm: Re(neff)=1.446327526, Im(neff)=6.1073e−5. It converts to **67.5562 dB/turn**, but **FAILED numerical convergence screening** (mesh last-two change 4.729%, PML 6λ→7λ change 3.507%, both > user-selected 2%). This value is **NOT a reliable or certified fiber bend-loss prediction** and is **NOT the paper's BIF geometry**.
+
+The research solver is **scalar, not full-vector**; GEBT mechanics, physical 125µm cladding/coating, actual manufacturer RIP, and measured product verification are not implemented. The earlier 1D LP01 web solver and separate measured-anchor bending module remain unchanged.
+
+```sh
+pip install numpy scipy matplotlib pandas pytest
+python -m pytest COMSOL/universal_silica_v01/bending_fem/tests/test_solver.py -q
+```
+
 ## MCF · Ideal two-core Cross-talk (2026-11-03)
 
 Select the **MCF · 2코어 XT 분석** preset/profile in the existing web UI.

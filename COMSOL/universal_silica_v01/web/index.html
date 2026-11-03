@@ -44,6 +44,12 @@
 .eng-shortcuts a{border:1px solid #426782;background:#1a3750;padding:10px 13px;color:#b7e4f6;text-decoration:none;font-size:12px;font-weight:700;border-radius:9px}
 .eng-shortcuts a:hover,.eng-shortcuts a:focus-visible{background:#245575;color:#fff}
 .engineering-panel{scroll-margin-top:82px}
+.eng-link{font-size:12px;border-radius:9px;padding:10px 13px;background:#245678;color:#e1f7ff;border:1px solid #3c88ac;text-decoration:none;font-weight:700;display:inline-block}
+.eng-link:hover{background:#36749c}
+#bend2d-fem .eng-results{grid-template-columns:repeat(3,minmax(0,1fr))}
+#bend2d-fem .eng-results strong{font-size:clamp(16px,1.75vw,23px)}
+@media(max-width:850px){#bend2d-fem .eng-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){#bend2d-fem .eng-results{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -88,6 +94,7 @@
  <a href="#attenuation-tool">01 · 감쇠 / 링크 버짓</a>
  <a href="#bending-tool">02 · 굽힘손실</a>
  <a href="#bend-physics-tool">02+ · 굽힘 물리식 / COMSOL 후처리</a>
+ <a href="#bend2d-fem">02++ · 실제 2D FEM/PML 결과</a>
  <a href="#pmd-tool">03 · PMD / DGD</a>
  <a href="./ENGINEERING_MODULES.md" target="_blank" rel="noopener">모델 한계 및 실행 설명</a>
  </nav>
@@ -203,6 +210,33 @@
   <p class="eng-help">출처: <a href="https://www.comsol.com/paper/study-of-bending-losses-in-optical-fibers-using-comsol-multiphysics-61111" target="_blank" rel="noopener">Velamuri et al. (2018), COMSOL Conference</a>. <strong>논문의 10 mm는 굽힘 반경이 아닌 직경</strong>입니다. BIF의 0.0119 dB/turn은 논문 시뮬레이션 값이고, 초기 Im(n<sub>eff</sub>)=1e−8은 시연용 값입니다.</p>
 </section>
 
+      <section class="engineering-panel" id="bend2d-fem">
+ <div class="eng-head"><div><span class="kicker">PAPER IMPLEMENTATION / 2D SCALAR FEM + COMPLEX PML</span>
+ <h2>2D 굽힘모드 FEM · 실제 복소 n<sub>eff</sub> 해석 결과 가져오기</h2></div>
+ <span class="eng-tag">Python / Colab 실행 · 현재 웹은 JSON 결과 표시</span></div>
+ <p class="eng-help"><strong>이번 추가 해석:</strong> 2D 삼각형 P1 스칼라 FEM으로 굽힘 등가 굴절률과 복소 좌표 PML을 적용하여 복소 모드 고유값을 직접 계산합니다. **논문의 Full-vector EWFD/GEBT와 동일하지 않으며, 실제 물리 클래딩/코팅도 완전히 모델링하지 않았습니다.** 따라서 수렴과 실측 검증 전에는 연구용 결과로만 사용하십시오.</p>
+ <div class="eng-controls">
+  <a class="eng-link" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/Velamuri_Bend_2D_PML.ipynb" target="_blank" rel="noopener">Colab에서 Python 2D FEM 실행</a>
+  <a class="eng-link" href="https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/solver.py" target="_blank" rel="noopener">Python FEM 소스 코드</a>
+  <button type="button" id="bend2d-example">시연용 수치 실행 사례 보기</button>
+ </div>
+ <div class="eng-inputs">
+  <label>Colab이 생성한 결과 JSON 불러오기<input id="bend2d-file" type="file" accept=".json,application/json"></label>
+ </div>
+ <div class="eng-results">
+   <article><small>복소 n<sub>eff</sub> 실수부</small><strong id="bend2d-neff">—</strong></article>
+   <article><small>|Im(n<sub>eff</sub>)| 계산값</small><strong id="bend2d-imag">—</strong></article>
+   <article><small>굽힘손실 (수렴 전 잠정치)</small><strong id="bend2d-loss">—</strong></article>
+   <article><small>메시 변화율</small><strong id="bend2d-mesh">—</strong></article>
+   <article><small>PML 변화율</small><strong id="bend2d-pml">—</strong></article>
+   <article><small>수치 검증 상태</small><strong id="bend2d-conclusion">—</strong></article>
+ </div>
+ <p class="eng-status" role="status" aria-live="polite" id="bend2d-status">계산 결과 대기</p>
+ <p class="eng-help" id="bend2d-summary">Colab에서 복소 모드와 PML/메시를 재계산한 뒤 결과 JSON을 가져오세요.</p>
+ <canvas class="eng-canvas" id="bend2d-sweep" width="980" height="330" aria-label="메시 및 PML 수렴성 비교 그래프"></canvas>
+ <p class="eng-note">**주의:** 화면에서 직접 실행되는 브라우저 FEM은 기존 1D LP₀₁ 코드입니다. 여기의 **2D FEM은 Colab/Python**에서 실행합니다. 이 화면은 JSON을 읽어 해석값과 수렴성을 표시하며, 수렴 실패 결과를 제조사 성능으로 표시하지 않습니다. 사용된 코어/굴절률은 시연용 가상 모델로 논문의 실제 BIF와 다릅니다.</p>
+ </section>
+
       <section class="engineering-panel" id="pmd-tool">
  <div class="eng-head"><div><span class="kicker">PHASE 3 / PMD · STATISTICAL DGD</span><h2>PMD 계수와 길이별 편광 지연 분포</h2></div><span class="eng-tag">강한 랜덤 모드결합 · 통계 모델</span></div>
  <p class="eng-help"><strong>PMD 계수의 정의(평균/RMS)를 명시적으로 선택</strong>한 뒤 DGD 평균·RMS·95/99 분위수를 계산합니다. 실제 편광모드 벡터 FEM, Jones matrix 실측, 표준화된 케이블 PMD Q 인증과 다른 계산입니다. 초기값 0.05 ps/√km는 <strong>시연용</strong>입니다.</p>
@@ -237,5 +271,6 @@
   <script type="module" src="./bending_ui.mjs?v=20261103-phase2"></script>
   <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
   <script type="module" src="./bend_physics_ui.mjs?v=20261103-velamuri-v1"></script>
+  <script type="module" src="./bend_fem_import_ui.mjs?v=20261103-complex-pml-1"></script>
 </body>
 </html>

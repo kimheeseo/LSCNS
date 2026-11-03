@@ -1,0 +1,36 @@
+{
+  "run_date": "2026-11-03",
+  "source": "COMSOL/universal_silica_v01/universal_radial.py",
+  "source_blob_sha": "6feabf558786931e87d684375c6a4a6645aa79a9",
+  "description": "fit to target, not independently verified YOFC product",
+  "model": "rotationally symmetric step-index silica weak-guidance LP01 radial P1 FEM",
+  "input": {
+    "profile": "step",
+    "wavelength_nm": 1550,
+    "core_radius_um": 5.4,
+    "delta_n_core": 0.004,
+    "outer_radius_um": 40,
+    "n2_m2_per_W": 2.2e-20,
+    "elements": 750
+  },
+  "computed": {
+    "MFD_PII_um": 11.834031124815226,
+    "MFD_2nd_um": 12.085654964049706,
+    "Aeff_um2": 110.36784066177046,
+    "dispersion_ps_nm_km": 20.103067591662743,
+    "dispersion_slope_ps_nm2_km": 0.059088425662447895,
+    "neff": 1.4460992174593232,
+    "gamma_Wkm": 0.8080315257399037
+  },
+  "specification": {
+    "MFD_min_um": 11.4,
+    "MFD_max_um": 12.2,
+    "MFD_typical_um": 11.8,
+    "Aeff_typical_um2": 110,
+    "dispersion_max_ps_nm_km": 22,
+    "dispersion_slope_max_ps_nm2_km": 0.07
+  },
+  "numeric_convergence": {
+    "mesh_750_to_1000_Aeff_pct": 0.00045092961069581605
+  }
+}

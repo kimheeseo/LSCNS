@@ -59,7 +59,18 @@ function mcf(pitch){
  const split=Math.exp(Math.log(a[1])*(1-t)+Math.log(b[1])*t);
  return{pitch,split,Lmm:1.55/(2*split)/1000,source:'M8 fixed-parameter FEM output, log interpolation (NOT new FEM)'};
 }
-const API={fiber,capillary,mcf,silica,J0,J1,K0,K1,MCF};
+function mcfXT(pitch,length_mm){
+  const m=mcf(pitch),z=Number(length_mm);
+  if(!Number.isFinite(z)||z<0||z>100)throw Error('MCF 길이는 0–100 mm 사이여야 합니다.');
+  const kappa=Math.PI*m.split/(1.55e-6),phi=(Math.PI/2)*(z/m.Lmm);
+  const p1=Math.cos(phi)**2<1e-24?0:Math.cos(phi)**2;
+  const p2=Math.sin(phi)**2<1e-24?0:Math.sin(phi)**2;
+  const xtDb=p2===0?-Infinity:p1===0?Infinity:10*Math.log10(p2/p1);
+  return{...m,length_mm:z,kappa_per_m:kappa,core1_power:p1,core2_power:p2,xtDb,
+    xt_label:xtDb===Infinity?'+∞ dB':xtDb===-Infinity?'−∞ dB':xtDb.toFixed(2)+' dB',
+    model:'M8 legacy reference interpolation + lossless coherent two-core transfer; NOT measured cable XT'};
+ }
+const API={fiber,capillary,mcf,mcfXT,silica,J0,J1,K0,K1,MCF};
 if(typeof module!=='undefined'&&module.exports)module.exports=API;
 if(typeof document==='undefined')return;
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
@@ -114,14 +125,16 @@ function run(){
    if(spect.length>1)chart($('#chart-b'),spect,{title:'LP01 effective index · wavelength sweep',xLabel:'Wavelength (µm)',yLabel:'n_eff',tone:'#eabc72'});
    series=r.radialSeries.map(([rr,y])=>[rr,y]);validation(r.singleMode?'해석식 LP01 결과입니다. 동일 파라미터의 실제 2D FEM은 Python M7에서 실행하십시오.':'주의: V ≥ 2.405로 고차 모드가 존재할 수 있습니다. 화면에는 LP01만 표시합니다.',!r.singleMode);
   }else if(mode==='mcf'){
-   const pitch=num('pitch');result=mcf(pitch);
-   $('#metrics').innerHTML=metric('Core spacing',fmt(pitch,1),'µm')+metric('Δn_eff',result.split.toExponential(5),'even − odd · log interpolation')+metric('Coupling length',fmt(result.Lmm,2),'mm · 1.55 µm');
+   const pitch=num('pitch'),length=num('mcf_length_mm');result=mcfXT(pitch,length);
+   $('#metrics').innerHTML=metric('Core spacing',fmt(pitch,1),'µm')+metric('Δn_eff',result.split.toExponential(5),'even − odd · log interpolation')+metric('Coupling length',fmt(result.Lmm,2),'mm · 1.55 µm')+metric('XT · P₂ / P₁',result.xt_label,'dB · ideal coherent')+metric('Core 2 power',fmt(result.core2_power*100,3),'% · length '+fmt(length,2)+' mm')+metric('κ',fmt(result.kappa_per_m,3),'1/m');
    const r=4.1,sigma=5.3;
    heatmap({a:r,range:Math.max(16,pitch/2+7),cores:[-pitch/2,pitch/2],intensity:(rad,x,y)=>Math.min(1,Math.exp(-((x-pitch/2)**2+y*y)/sigma**2)+Math.exp(-((x+pitch/2)**2+y*y)/sigma**2))});
    const rows=Array.from({length:97},(_,i)=>{let p=12+i/8;return[p,mcf(p).split*1e6]});
    chart($('#chart-a'),rows,{title:'MCF supermode splitting · reference interpolation',xLabel:'Core pitch (µm)',yLabel:'Δn_eff × 10⁶',tone:'#55e0ca'});
-   chart($('#chart-b'),rows.map(([p])=>[p,mcf(p).Lmm]),{title:'MCF power-transfer coupling length',xLabel:'Core pitch (µm)',yLabel:'Length (mm)',tone:'#eabc72'});
-   series=rows.map(([p,val])=>[p,val]);validation('M8 고정 조건(λ=1.55 µm, a=4.1 µm, Δn=0.005)의 FEM 참조값을 로그 보간합니다. 새 FEM 계산이 아닙니다.',true);
+   const maxZ=Math.min(100,Math.max(20,length*1.3,result.Lmm*2));
+   const xtRows=Array.from({length:201},(_,i)=>{const z=maxZ*i/200,rx=mcfXT(pitch,z);return[z,Math.max(-60,Math.min(40,rx.xtDb))]});
+   chart($('#chart-b'),xtRows,{title:'Ideal coherent XT vs length (−60 to +40 dB clip)',xLabel:'Propagation length (mm)',yLabel:'XT · 10log(P₂/P₁) dB',yMin:-60,yMax:40,tone:'#eabc72'});
+   series=xtRows;validation('XT는 저장된 M8 FEM 참조보간과 무손실 동일 2코어 coherent 결합 예측입니다. 새 FEM/실측 XT(dB/km)가 아니며 길이에 따라 진동합니다. 그래프는 −60~+40 dB로 제한합니다.',true);
   }else{
    result=capillary(num('hwl'),num('hradius'),num('air'));
    $('#metrics').innerHTML=metric('Effective index',fmt(result.neff,9))+metric('Dispersion D',fmt(result.D,3),'ps/(nm·km) · capillary')+metric('Core diameter',fmt(result.radius*2,1),'µm');
@@ -139,7 +152,7 @@ function run(){
 function downloadFile(name,blob){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function csv(){
  if(!latest||!series.length)return validation('먼저 계산을 실행해 주세요.',true);
- const hdr=mode==='fiber'?'radius_um,intensity_relative':mode==='mcf'?'pitch_um,index_split_times_1e6':'wavelength_um,n_eff';
+ const hdr=mode==='fiber'?'radius_um,intensity_relative':mode==='mcf'?'length_mm,xt_db_plot_clipped':'wavelength_um,n_eff';
  const str='\ufeff'+hdr+'\n'+series.map(r=>r.map(v=>Number(v).toPrecision(12)).join(',')).join('\n');
  downloadFile('waveoptics_'+mode+'.csv',new Blob([str],{type:'text/csv;charset=utf-8'}));
 }

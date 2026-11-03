@@ -46,3 +46,25 @@ All snapshot numbers on GitHub reflect the checked-in baseline **only**. Changin
 - [Original Python/Colab FEM code](../Universal_Silica_Fiber_v0_1.ipynb)
 - [Original v0.1 description](../README.md)
 - [Original numerical verification](../VALIDATION_REPORT.md)
+
+## MCF · Ideal two-core Cross-talk (2026-11-03)
+
+Select the **MCF · 2코어 XT 분석** preset/profile in the existing web UI.
+Inputs: two-core pitch 12–24 µm and propagation length 0–100 mm.
+Outputs: even/odd supermode Δneff, κ, complete-transfer length Lc,
+ideal coherent core 1/2 fractions, and **XT = 10 log10(P2/P1)** in dB.
+The cross-talk curve is drawn against propagation length and included in
+downloadable CSV/JSON; graph values are visually clipped to [-60, 40] dB,
+while the exact transfer null/full-transfer results display −∞/+∞.
+
+**Interpretation:** the browser does NOT calculate a new 2D FEM solution.
+It log-interpolates four previously archived legacy M8 scalar-FEM supermode
+splittings (pitch 12/16/20/24 µm) at λ=1550 nm, a=4.1 µm and Δn=0.005.
+The resulting oscillatory coupling is a lossless, identical-core coherent
+model. It cannot predict real **MCF cable XT (dB/km)**, random long-distance
+coupling, bend/twist, wavelength-dependent XT, polarization, or measured
+product performance. The improved M8 conforming-FEM validation is distinct
+from these archived legacy pitch references.
+
+Numerical source: [mcf_xt.mjs](mcf_xt.mjs). Tests:
+`node COMSOL/universal_silica_v01/web/tests/test_solver.mjs`.

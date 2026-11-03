@@ -48,6 +48,8 @@
       </div>
       <div class="input-block" data-for="mcf" hidden>
        <label for="pitch">Core-to-core pitch <small>µm</small></label><input id="pitch" type="number" min="12" max="24" step=".5" value="16">
+       <label for="mcf_length_mm">Propagation length <small>mm (0–100)</small></label><input id="mcf_length_mm" type="number" min="0" max="100" step="0.1" value="5">
+       <div class="hint">XT = 10log₁₀(P₂/P₁) · 이상적인 동일 2코어의 무손실 전력 교환 모델. XT(dB/km) 실측/랜덤 누화가 아닙니다.</div>
        <div class="hint">기준: λ=1.55 µm, a=4.1 µm, Δn=0.005. M8 FEM에서 검증한 12/16/20/24 µm 참조점 사이를 로그 보간합니다. 파라미터를 바꿔 새 FEM을 수행하지 않습니다.</div>
       </div>
       <div class="input-block" data-for="hcf" hidden>

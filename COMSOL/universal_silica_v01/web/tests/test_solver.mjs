@@ -17,3 +17,16 @@ const mesh=meshStudy(PRESETS.g654,[200,350,550,850]);assert.ok(Math.abs(mesh[3].
 const sw=spectrum(PRESETS.g654,1530,1620,10);assert.equal(sw.length,10);assert.ok(sw[0].D_ps_nm_km<sw.at(-1).D_ps_nm_km);checks+=2;
 assert.throws(()=>validate({...PRESETS.g654,outer_radius_um:5}));assert.throws(()=>validate({...PRESETS.multi,shells:[[6,0.003],[4,0.001]]}));checks+=2;
 console.log(`PASS ${checks} numerical / validation assertions. 5 profiles compared against Python radial FEM; mesh and sweep checked.`);
+
+import {calculateMCF,mcfLengthSeries,MCF_REFERENCE} from '../mcf_xt.mjs';
+const mcf=calculateMCF(16,5);
+assert.ok(Math.abs(mcf.delta_neff-MCF_REFERENCE[1].delta_neff)<1e-14);
+assert.ok(Math.abs(mcf.core1_power+mcf.core2_power-1)<1e-12);
+assert.equal(calculateMCF(16,0).xt_db,-Infinity);
+assert.ok(Math.abs(calculateMCF(16,mcf.coupling_length_mm/2).xt_db)<1e-9);
+assert.equal(calculateMCF(16,mcf.coupling_length_mm).xt_db,Infinity);
+assert.ok(calculateMCF(12,5).coupling_length_mm<mcf.coupling_length_mm);
+assert.ok(calculateMCF(24,5).coupling_length_mm>mcf.coupling_length_mm);
+assert.throws(()=>calculateMCF(11,5));assert.throws(()=>calculateMCF(16,101));
+assert.equal(mcfLengthSeries(16,100).length,201);
+console.log('PASS 10 MCF XT oracle, energy-conservation and input-boundary checks.');

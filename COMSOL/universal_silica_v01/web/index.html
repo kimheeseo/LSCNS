@@ -44,13 +44,7 @@
 .eng-shortcuts a{border:1px solid #426782;background:#1a3750;padding:10px 13px;color:#b7e4f6;text-decoration:none;font-size:12px;font-weight:700;border-radius:9px}
 .eng-shortcuts a:hover,.eng-shortcuts a:focus-visible{background:#245575;color:#fff}
 .engineering-panel{scroll-margin-top:82px}
-.eng-link{font-size:12px;border-radius:9px;padding:10px 13px;background:#245678;color:#e1f7ff;border:1px solid #3c88ac;text-decoration:none;font-weight:700;display:inline-block}
-.eng-link:hover{background:#36749c}
-#bend2d-fem .eng-results{grid-template-columns:repeat(3,minmax(0,1fr))}
-#bend2d-fem .eng-results strong{font-size:clamp(16px,1.75vw,23px)}
-@media(max-width:850px){#bend2d-fem .eng-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){#bend2d-fem .eng-results{grid-template-columns:1fr}}
-</style>
+@media(max-width:850px){@media(max-width:520px){</style>
 </head>
 <body>
   <header class="topbar">
@@ -91,12 +85,12 @@
     <main class="workspace">
       <div class="page-intro"><div><div class="eyebrow">OPTICAL SIMULATION / DESIGN WORKSPACE</div><h1>Universal Silica Fiber <span>Lab</span></h1><p>실리카 광섬유 단면을 설계하고 실제 Radial FEM 고유모드를 해석합니다.</p></div><div class="version-pill">SCALAR LP₀₁ <span>·</span> FEM P1</div></div>
       <nav class="eng-shortcuts" aria-label="추가 광학 분석 도구">
- <a href="#attenuation-tool">01 · 감쇠 / 링크 버짓</a>
- <a href="#bending-tool">02 · 굽힘손실</a>
- <a href="#bend-physics-tool">02+ · 굽힘 물리식 / COMSOL 후처리</a>
- <a href="#bend2d-fem">02++ · 실제 2D FEM/PML 결과</a>
- <a href="#pmd-tool">03 · PMD / DGD</a>
- <a href="./ENGINEERING_MODULES.md" target="_blank" rel="noopener">모델 한계 및 실행 설명</a>
+ 
+ 
+ 
+ 
+ <a href="#pmd-tool">PMD / DGD 통계</a>
+ 
  </nav>
       <div id="notice" role="status" aria-live="polite" class="notice warning">현재 모델은 이상적인 스칼라 근사입니다. 제조사 제품 인증, 벡터 모드 및 실제 손실을 계산하지 않습니다.</div>
       <div class="metrics">
@@ -120,123 +114,13 @@
         <section class="chart-card"><div class="chart-head"><div><span class="chart-num">03 · MODE ANALYSIS</span><h3>LP01 전기장 강도 I(r)</h3></div><span class="mini-tag">FEM MODE</span></div><canvas id="modeChart" width="800" height="450"></canvas><p class="chart-foot">모드 강도는 최대값 1로 정규화하여 표시합니다.</p></section>
         <section class="chart-card"><div class="chart-head"><div><span class="chart-num">04 · SPECTRAL CHARACTERISTICS</span><h3 id="spectrumTitle">파장별 분산 D(λ)</h3></div><span class="mini-tag" id="spectrumTag">계산 대기</span></div><canvas id="spectrumChart" width="800" height="450"></canvas><p class="chart-foot" id="spectrumFoot">파장 스윕 버튼으로 각 파장에서 FEM을 다시 계산합니다.</p></section>
       </div>
-      <section class="engineering-panel" id="attenuation-tool">
-  <div class="eng-head"><div><span class="kicker">PHASE 1 / ATTENUATION · MEASUREMENT-ANCHORED</span><h2>광섬유 감쇠 및 광 링크 버짓</h2></div><span class="eng-tag">입력값 기반 · 물성 예측 아님</span></div>
-  <p class="eng-help">1550 / 1625 nm의 실제 측정값 또는 사양값을 입력해 선형 보간합니다. <strong>기본 0.160 / 0.175 dB/km는 계산 시연용 가정값이며 YOFC/LE125의 측정값이 아닙니다.</strong> 보간 범위 외 파장은 계산하지 않습니다.</p>
-  <div class="eng-inputs">
-   <label>α @1550 (dB/km)<input id="att-alpha1550" type="number" step="0.001" value="0.160"></label>
-   <label>α @1625 (dB/km)<input id="att-alpha1625" type="number" step="0.001" value="0.175"></label>
-   <label>해석 파장 (nm)<input id="att-wave" type="number" step="1" min="1550" max="1625" value="1550"></label>
-   <label>섬유 길이 (km)<input id="att-length" type="number" step="1" min="0" value="80"></label>
-   <label>입사 파워 Pin (dBm)<input id="att-pin" type="number" step="0.1" value="0"></label>
-   <label>커넥터 개수 (개)<input id="att-connectors" type="number" step="1" min="0" value="2"></label>
-   <label>커넥터당 손실 (dB)<input id="att-connloss" type="number" step="0.01" min="0" value="0.2"></label>
-   <label>융착 접속점 수 (개)<input id="att-splices" type="number" step="1" min="0" value="1"></label>
-   <label>융착점당 손실 (dB)<input id="att-spliceloss" type="number" step="0.01" min="0" value="0.05"></label>
-  </div>
-  <div class="eng-controls"><button type="button" id="att-run">감쇠 계산 실행</button><button type="button" id="att-json">결과 JSON 저장</button><span class="eng-status" id="att-status" aria-live="polite">계산 전</span></div>
-  <div class="eng-results">
-    <article><small>보간 감쇠 계수</small><strong id="att-alpha-out">—</strong></article>
-    <article><small>섬유 구간 손실</small><strong id="att-fiber-out">—</strong></article>
-    <article><small>총 링크 손실</small><strong id="att-total-out">—</strong></article>
-    <article><small>출사 파워 Pout</small><strong id="att-pout-out">—</strong></article>
-  </div>
-  <p class="eng-help" id="att-breakdown">계산 대기</p>
-  <canvas class="eng-canvas" id="att-chart" width="900" height="320" aria-label="섬유 길이에 따른 전체 광손실 그래프"></canvas>
-  <textarea id="att-result-json" hidden aria-hidden="true"></textarea>
-  <p class="eng-note">기본 모델: α(λ) 두 측정 기준점의 선형 보간 · 총 손실 = α(λ)L + N커넥터×손실 + N융착×손실 · Pout = Pin−총손실. 레일리 산란, OH, 온도 변화, 굽힘손실은 여기서 직접 예측하지 않습니다.</p>
-</section>
+      
 
-      <section class="engineering-panel" id="bending-tool">
-  <div class="eng-head"><div><span class="kicker">PHASE 2 / MACROBENDING · MEASURED-ANCHOR MODEL</span><h2>굽힘 반경·파장별 추가 손실</h2></div><span class="eng-tag">측정값 4개 기반 · FEM/PML 아님</span></div>
-  <p class="eng-help">굽힘 시험으로 측정한 <strong>두 반경 × 두 파장</strong>의 손실(dB/turn)을 입력하면 반경의 역수(1/R) 및 파장에 대해 로그 보간합니다. 측정 범위 밖에서는 계산하지 않습니다. 아래 초기 숫자는 전부 <strong>시연용 가상값</strong>입니다.</p>
-  <div class="eng-inputs">
-   <label>작은 기준 반경 (mm)<input id="bend-rsmall" type="number" step="0.5" min="1" value="10"></label>
-   <label>큰 기준 반경 (mm)<input id="bend-rlarge" type="number" step="0.5" min="1" value="20"></label>
-   <label>1550 nm / 작은 반경 (dB/turn)<input id="bend-1550small" type="number" step="0.001" min="0.000001" value="0.150"></label>
-   <label>1550 nm / 큰 반경 (dB/turn)<input id="bend-1550large" type="number" step="0.001" min="0.000001" value="0.005"></label>
-   <label>1625 nm / 작은 반경 (dB/turn)<input id="bend-1625small" type="number" step="0.001" min="0.000001" value="0.320"></label>
-   <label>1625 nm / 큰 반경 (dB/turn)<input id="bend-1625large" type="number" step="0.001" min="0.000001" value="0.015"></label>
-   <label>계산 굽힘 반경 R (mm)<input id="bend-radius" type="number" step="0.5" min="1" value="15"></label>
-   <label>해석 파장 (nm)<input id="bend-wave" type="number" step="5" min="1550" max="1625" value="1550"></label>
-   <label>권선 수 / turns<input id="bend-turns" type="number" step="1" min="0" value="10"></label>
-   <label>기존 직선부 링크손실 (dB)<input id="bend-linkbase" type="number" step="0.1" min="0" value="13.25"></label>
-  </div>
-  <div class="eng-controls"><button type="button" id="bend-run">굽힘손실 계산</button><button type="button" id="bend-import-link">1단계 링크손실 가져오기</button><button type="button" id="bend-json">결과 JSON</button><span class="eng-status" id="bend-status" aria-live="polite">계산 전</span></div>
-  <div class="eng-results">
-   <article><small>추정 손실 / 1 turn</small><strong id="bend-perturn">—</strong></article>
-   <article><small>전체 추가 굽힘손실</small><strong id="bend-added">—</strong></article>
-   <article><small>직선부 + 굽힘 총손실</small><strong id="bend-linktotal">—</strong></article>
-   <article><small>실제 권선 길이</small><strong id="bend-length">—</strong></article>
-  </div>
-  <canvas class="eng-canvas" id="bend-chart" width="900" height="320" aria-label="해당 파장에서 굽힘 반경별 dB/turn 추정 그래프"></canvas>
-  <textarea id="bend-json-cache" hidden aria-hidden="true"></textarea>
-  <p class="eng-note">데이터에 기반한 <strong>경험적 보간</strong>이며 복소 β나 누설 방사 모드를 직접 계산하지 않습니다. 실제 광섬유 단면의 물리적 굽힘손실을 예측하려면 2D FEM/PML 및 실험 검증이 추가로 필요합니다. IEC 60793-1-47 시험과 같은 파장·반경·권선수 조건으로 참조값을 준비하세요.</p>
-</section>
+      
 
-      <section class="engineering-panel" id="bend-physics-tool">
-  <div class="eng-head"><div><span class="kicker">VELAMURI 2018 / COMSOL BENDING PHYSICS BRIDGE</span><h2>굽힘 등가 굴절률 · 복소 n<sub>eff</sub> 후처리</h2></div><span class="eng-tag">논문식 적용 · 2D FEM/PML 직접 계산 아님</span></div>
-  <p class="eng-help">위의 <strong>굽힘손실 측정값 보간</strong>과 별개입니다. 논문의 <strong>conformal mapping</strong>으로 등가 굴절률을 표시하고, <strong>외부 COMSOL/모드 솔버에서 얻은 Im(n<sub>eff</sub>)</strong>를 넣어 dB/turn으로 변환합니다. 응력 옵션은 단순 빔 스트레인 <strong>근사 예시</strong>이며 논문의 GEBT를 구현한 결과가 아닙니다.</p>
-  <div class="eng-inputs">
-   <label>해석 파장 λ (nm)<input type="number" id="bendphys-wave" value="1550" min="211" step="5"></label>
-   <label>굽힘 <strong>직경</strong> d (mm)<input type="number" id="bendphys-diameter" value="10" min="0.1" step="0.5"></label>
-   <label>외부 모드 솔버 |Im(n<sub>eff</sub>)|<input type="number" id="bendphys-neffimag" value="1e-8" min="0" step="1e-9"></label>
-   <label>권선 수 (turn)<input type="number" id="bendphys-turns" value="1" min="0" step="1"></label>
-   <label>클래딩 <strong>반경</strong> (µm)<input type="number" id="bendphys-clad" value="62.5" min="1" step="0.5"></label>
-   <label>응력-광학 표시 모드<select id="bendphys-stress"><option value="none">기하학적 효과만 · stress OFF</option><option value="beam_proxy">단순 빔 변형률 근사 · GEBT 아님</option></select></label>
-   <label>Poisson ratio ν (근사 모드)<input type="number" id="bendphys-poisson" value="0.17" min="0" max="0.499" step="0.01"></label>
-   <label>PML 비교 허용 변화율 (%)<input type="number" id="bendphys-pml-tolerance" value="2" min="0.01" max="100" step="0.5"></label>
-  </div>
-  <div class="eng-controls">
-   <button type="button" id="bendphys-run">등가 굴절률 / 손실 계산</button>
-   <button type="button" id="bendphys-from-radius">2단계 반경×2 가져오기</button>
-   <button type="button" id="bendphys-example">논문 BIF 결과 역산 예시</button>
-   <button type="button" id="bendphys-json">결과 JSON</button>
-   <span class="eng-status" id="bendphys-status" role="status" aria-live="polite">계산 대기</span>
-  </div>
-  <div class="eng-results">
-   <article><small>외부 복소 n<sub>eff</sub> → 굽힘손실</small><strong id="bendphys-dbturn">—</strong></article>
-   <article><small>굽힘 구간의 환산 감쇠</small><strong id="bendphys-dbperkm">—</strong></article>
-   <article><small>권선 전체 굽힘손실</small><strong id="bendphys-total">—</strong></article>
-   <article><small>논문 PML 두께 7λ 환산</small><strong id="bendphys-pml">—</strong></article>
-  </div>
-  <canvas class="eng-canvas" id="bendphys-profile-chart" width="900" height="340" aria-label="직선 굴절률, 굽힘 기하학적 굴절률, 단순 응력 보정 굴절률 분포 비교"></canvas>
-  <p class="eng-note">그래프: <strong>직선 n(x)</strong> · <strong>기하학 보정 n(x)(1+x/R)</strong> · <strong>선택적 단순 응력광학 보정</strong>. 기존 사이드바의 코어·Trench·다층 단면 구조를 참조합니다. 실제 <strong>GEBT 변형률장, 복소 고유모드, PML 흡수</strong>를 계산하지 않으므로 그래프만으로 굽힘손실을 예측할 수 없습니다.</p>
-  <div class="field"><label for="bendphys-pml-data">선택: 외부 FEM PML 두께 스윕 결과 · 행마다 <code>두께(λ), Im(n_eff)</code></label>
-    <textarea id="bendphys-pml-data" rows="3" spellcheck="false" placeholder="5,1.20e-8&#10;7,1.18e-8"></textarea>
-    <small>예: 5λ와 7λ에 대해 COMSOL에서 따로 구한 허수부를 붙여 넣으세요. 비워 두면 PML 수렴은 미검증으로 표시합니다. 7λ는 논문의 시험조건이지 보편적인 수렴 보장은 아닙니다.</small>
-  </div>
-  <p class="eng-note" id="bendphys-pmlstatus">외부 PML 스윕 미입력 · 수렴 미검증</p>
-  <p class="eng-help">출처: <a href="https://www.comsol.com/paper/study-of-bending-losses-in-optical-fibers-using-comsol-multiphysics-61111" target="_blank" rel="noopener">Velamuri et al. (2018), COMSOL Conference</a>. <strong>논문의 10 mm는 굽힘 반경이 아닌 직경</strong>입니다. BIF의 0.0119 dB/turn은 논문 시뮬레이션 값이고, 초기 Im(n<sub>eff</sub>)=1e−8은 시연용 값입니다.</p>
-</section>
+      
 
-      <section class="engineering-panel" id="bend2d-fem">
- <div class="eng-head"><div><span class="kicker">PAPER IMPLEMENTATION / 2D SCALAR FEM + COMPLEX PML</span>
- <h2>2D 굽힘모드 FEM · 실제 복소 n<sub>eff</sub> 해석 결과 가져오기</h2></div>
- <span class="eng-tag">Python / Colab 실행 · 현재 웹은 JSON 결과 표시</span></div>
- <p class="eng-help"><strong>이번 추가 해석:</strong> 2D 삼각형 P1 스칼라 FEM으로 굽힘 등가 굴절률과 복소 좌표 PML을 적용하여 복소 모드 고유값을 직접 계산합니다. **논문의 Full-vector EWFD/GEBT와 동일하지 않으며, 실제 물리 클래딩/코팅도 완전히 모델링하지 않았습니다.** 따라서 수렴과 실측 검증 전에는 연구용 결과로만 사용하십시오.</p>
- <div class="eng-controls">
-  <a class="eng-link" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/Velamuri_Bend_2D_PML.ipynb" target="_blank" rel="noopener">Colab에서 Python 2D FEM 실행</a>
-  <a class="eng-link" href="https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/bending_fem/solver.py" target="_blank" rel="noopener">Python FEM 소스 코드</a>
-  <button type="button" id="bend2d-example">시연용 수치 실행 사례 보기</button>
-  <a class="eng-link" href="../bending_fem/example_validation.json" target="_blank" rel="noopener">실행 예제 JSON 원본 확인</a>
- </div>
- <div class="eng-inputs">
-  <label>Colab이 생성한 결과 JSON 불러오기<input id="bend2d-file" type="file" accept=".json,application/json"></label>
- </div>
- <div class="eng-results">
-   <article><small>복소 n<sub>eff</sub> 실수부</small><strong id="bend2d-neff">—</strong></article>
-   <article><small>|Im(n<sub>eff</sub>)| 계산값</small><strong id="bend2d-imag">—</strong></article>
-   <article><small>굽힘손실 (수렴 전 잠정치)</small><strong id="bend2d-loss">—</strong></article>
-   <article><small>메시 변화율</small><strong id="bend2d-mesh">—</strong></article>
-   <article><small>PML 변화율</small><strong id="bend2d-pml">—</strong></article>
-   <article><small>수치 검증 상태</small><strong id="bend2d-conclusion">—</strong></article>
- </div>
- <p class="eng-status" role="status" aria-live="polite" id="bend2d-status">계산 결과 대기</p>
- <p class="eng-help" id="bend2d-summary">Colab에서 복소 모드와 PML/메시를 재계산한 뒤 결과 JSON을 가져오세요.</p>
- <canvas class="eng-canvas" id="bend2d-sweep" width="980" height="330" aria-label="메시 및 PML 수렴성 비교 그래프"></canvas>
- <p class="eng-note">**주의:** 화면에서 직접 실행되는 브라우저 FEM은 기존 1D LP₀₁ 코드입니다. 여기의 **2D FEM은 Colab/Python**에서 실행합니다. 이 화면은 JSON을 읽어 해석값과 수렴성을 표시하며, 수렴 실패 결과를 제조사 성능으로 표시하지 않습니다. 사용된 코어/굴절률은 시연용 가상 모델로 논문의 실제 BIF와 다릅니다.</p>
- </section>
+      
 
       <section class="engineering-panel" id="pmd-tool">
  <div class="eng-head"><div><span class="kicker">PHASE 3 / PMD · STATISTICAL DGD</span><h2>PMD 계수와 길이별 편광 지연 분포</h2></div><span class="eng-tag">강한 랜덤 모드결합 · 통계 모델</span></div>
@@ -268,10 +152,8 @@
     </main>
   </div>
   <script type="module" src="./app.mjs?v=20261103-slope-v1"></script>
-  <script type="module" src="./attenuation_ui.mjs?v=20261103-phase1"></script>
-  <script type="module" src="./bending_ui.mjs?v=20261103-phase2"></script>
+
   <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
-  <script type="module" src="./bend_physics_ui.mjs?v=20261103-velamuri-v1"></script>
-  <script type="module" src="./bend_fem_import_ui.mjs?v=20261103-complex-pml-1"></script>
+
 </body>
 </html>

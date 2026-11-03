@@ -25,7 +25,7 @@ A standalone engineering-style interface for the existing `universal_radial.py` 
 - **Solver:** axisymmetric scalar P1 finite elements of `∇²⊥ψ + k0² n² ψ = β² ψ`, transformed to radial form and solved as generalized tridiagonal eigenproblem via shifted inverse iteration. Natural regularity at `r=0`, Dirichlet field at outer computational radius.
 - **Materials:** pure silica Malitson Sellmeier `n_cladding(λ)`, other layers are **wavelength-independent Δn offsets**. This is **not** a calibrated dopant-dependent Ge/F dispersion model.
 - **Outputs:** eigenmode metrics are scalar approximations. Dispersion is a five-point finite difference of newly solved eigenvalues on identical radial geometry, not a fitted value or a manufacturer's measured dispersion. `γ` uses input `n₂` and computed `Aeff`.
-- **Not supported by the LP01 physical FEM:** arbitrary 2D cross sections, microstructured PCF, ARF/NANF HCF, full-vector electromagnetic modes, polarization, birefringence, material attenuation from geometry alone, bending radiation loss from complex modes/PML, confinement loss, or model inversion of unknown manufacturer profiles. **Separate** MCF interpolation, measured-anchor attenuation/bend estimation, and statistical PMD modules are documented below.
+- **Not supported by the LP01 physical FEM:** arbitrary 2D cross sections, microstructured PCF, ARF/NANF HCF, full-vector electromagnetic modes, polarization, birefringence, material attenuation from geometry alone, bending radiation loss from complex modes/PML, confinement loss, or model inversion of unknown manufacturer profiles. **Separate** MCF demonstration and statistical PMD modules remain visible; attenuation/bending-loss research is archived outside the live interface.
 - **Domain:** model calculator radius is a numerical boundary, **not** actual 125 µm fiber cladding. Edge-truncation and mesh convergence should be checked for research use. Small solver residual does not establish physical accuracy.
 - A G.654.E-like preset uses **assumed 5.5 µm core radius and fitted Δn** to target MFD ≈12.5 µm. This is not independent LE125 certification or COMSOL license-equivalent validation.
 
@@ -59,62 +59,15 @@ All snapshot numbers on GitHub reflect the checked-in baseline **only**. Changin
 - [Original v0.1 description](../README.md)
 - [Original numerical verification](../VALIDATION_REPORT.md)
 
-## New engineering-analysis modules — attenuation → macrobend → PMD (2026-11-03)
+## Current web tools and archived loss research (2026-11-03)
 
-All three modules have been added to the **same GitHub Pages workbench**, beneath the original LP₀₁ mode analysis. At the top of the results area, use the **01 감쇠 / 링크 버짓**, **02 굽힘손실**, **02+ 굽힘 물리식 / COMSOL 후처리** and **03 PMD / DGD** shortcuts to jump directly to the sections.
+The **live GitHub Pages interface no longer displays the attenuation/link-budget or bending-loss tools**, as requested. The PMD/DGD statistical tool remains available alongside the original LP₀₁ radial FEM, dispersion slopes, and MCF demonstration.
 
-- **Phase 1 — attenuation**: enter measured/specification α1550 and α1625, interpolate only for 1550–1625 nm, combine fiber length, connector and splice losses, compute output optical power and plot length-vs-loss. Initial numbers are illustrative, not real YOFC/LE125 measurements.
-- **Phase 2 — macrobending**: input four measured dB/turn anchors at two bending radii and 1550/1625 nm; interpolate **only** between measured radii/wavelengths, combine turn count with an optional baseline from Phase 1 and draw the radius-vs-loss curve. This is **not** a complex-neff curved-fiber FEM/PML model.
-- **Phase 3 — PMD**: use input PMD coefficient and length in a **strong random coupling / Maxwell DGD statistical** model. Explicitly select whether the input coefficient refers to mean or RMS DGD. Output mean, RMS, median/P95/P99 DGD and statistical density plot. It **does not** compute actual vector-polarized fiber modes, Jones matrices, or standardized cable PMD_Q.
+- **Active in the web UI:** mode analysis (n_eff, MFD, Aeff, D), S₁₅₅₀ / λ₀ / S₀, wavelength and mesh sweeps, illustrative two-core MCF, statistical PMD/DGD.
+- **Removed from the web UI:** attenuation estimator, measured-anchor bend loss, conformal-index/complex-n_eff bend loss postprocessor and external 2D PML/FEM results viewer. Their module scripts are no longer imported by `index.html`.
+- **Code and past results are retained as research archives** in the repository, not deleted: [engineering-module documentation](ENGINEERING_MODULES.md), [Velamuri paper note](VELAMURI_PAPER_VALIDATION.md), and [standalone 2D bending FEM notebook/source](../bending_fem/). Previously published experiment reports remain accessible but should not be interpreted as live web functionality.
 
-Each section exports JSON results with model provenance and limitations. Existing LP₀₁ solver, MCF illustration, YOFC and LE125 settings remain available.
-
-**Full instructions, limitations, formulas and verification examples:** [ENGINEERING_MODULES.md](./ENGINEERING_MODULES.md).
-
-**New regression tests:**
-```sh
-node COMSOL/universal_silica_v01/web/tests/test_attenuation.mjs
-node COMSOL/universal_silica_v01/web/tests/test_bending_loss.mjs
-node COMSOL/universal_silica_v01/web/tests/test_pmd.mjs
-```
-
-**Fidelity caveat:** the phrase "prediction" for these new outputs is limited to **measurement-input-driven extrapolation-free interpolation or theoretical statistics**. The current scalar LP₀₁ FEM still does not independently predict material attenuation, radiation macro-bending leakage or actual fiber PMD from geometrical input alone.
-
-## Velamuri 2018 bending paper extension — conformal mapping + loss postprocessing
-
-The workbench now has a separate **02+ · 굽힘 물리식 / COMSOL 후처리** section, implemented in [bend_physics_bridge.mjs](bend_physics_bridge.mjs) with a dedicated [browser UI](bend_physics_ui.mjs). It references Ashitosh Velamuri et al., 2018, [*Study of Bending Losses in Optical Fibers using COMSOL*](https://www.comsol.com/paper/study-of-bending-losses-in-optical-fibers-using-comsol-multiphysics-61111).
-
-- Visualize `n_equiv(x)=n_stress(x)(1+x/R)` for the currently selected step/graded/trench/multilayer index design; stress OFF or **simple beam/Poisson proxy (not GEBT)**.
-- Convert **externally computed** complex mode `|Im(n_eff)|` to dB/m and dB/turn (bend **diameter**, not radius, is the UI input).
-- Verify arithmetic via the paper's 1550 nm, **10 mm bend diameter**, BIF simulated `0.0119 dB/turn` example: the inverse imaginary mode index `1.0758076e-8` gives the same loss. **This is mathematical inversion, not a new FEM prediction.**
-- Provide optional diagnostic for **user-supplied** PML thickness / imaginary mode index data; display the paper's 7λ example as a physical thickness. Neither PML nor a complex 2D mode solver is implemented in the browser.
-
-The prior measured-data `bending_loss.mjs` module is retained. Detailed math, caveats, tests and paper reference are in [ENGINEERING_MODULES.md](ENGINEERING_MODULES.md), with a numerical [Velamuri paper implementation and validation note](VELAMURI_PAPER_VALIDATION.md).
-
-```sh
-node COMSOL/universal_silica_v01/web/tests/test_bend_physics.mjs
-```
-
-## Paper-based 2D scalar FEM/PML mode solver (2026-11-03)
-
-This extends the earlier Velamuri complex-index *postprocessor* with a separate **actual 2D scalar P1 triangular FEM + complex-coordinate PML eigensolver** written in Python/SciPy. It **computes its own complex eigenvalue** and the corresponding 2D intensity distribution (not just interpolating measured loss or receiving Im(n_eff)).
-
-- [**2D Python FEM source**](../bending_fem/solver.py)
-- [**Colab simulation notebook**](../bending_fem/Velamuri_Bend_2D_PML.ipynb)
-- [**Executed numerical record / not converged**](../bending_fem/example_validation.json)
-- [**Detailed validation report**](../bending_fem/VALIDATION_REPORT.md)
-- [**Full instructions and limits**](../bending_fem/README.md)
-
-The web workbench now includes shortcut **02++ · 실제 2D FEM/PML 결과**. Run the Colab notebook and import `bend2d_pml_result.json`. The **browser does not execute the SciPy eigenvalue solve**; it displays imported numerical results and mesh/PML sensitivity, warning if numerical convergence criteria are not met.
-
-**Actual illustrative run:** G.652-like hypothetical step index, λ1550, core radius 4.1µm, Δn=.005, bend **diameter** 10mm: Re(neff)=1.446327526, Im(neff)=6.1073e−5. It converts to **67.5562 dB/turn**, but **FAILED numerical convergence screening** (mesh last-two change 4.729%, PML 6λ→7λ change 3.507%, both > user-selected 2%). This value is **NOT a reliable or certified fiber bend-loss prediction** and is **NOT the paper's BIF geometry**.
-
-The research solver is **scalar, not full-vector**; GEBT mechanics, physical 125µm cladding/coating, actual manufacturer RIP, and measured product verification are not implemented. The earlier 1D LP01 web solver and separate measured-anchor bending module remain unchanged.
-
-```sh
-pip install numpy scipy matplotlib pandas pytest
-python -m pytest COMSOL/universal_silica_v01/bending_fem/tests/test_solver.py -q
-```
+The PMD module is a **statistical Maxwell-DGD approximation**, not a vector-mode PMD calculation or certified cable PMD_Q value. The core LP₀₁ scalar FEM does not predict intrinsic attenuation or bending radiation loss.
 
 ## MCF · Ideal two-core Cross-talk (2026-11-03)
 

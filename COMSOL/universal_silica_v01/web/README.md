@@ -1,4 +1,4 @@
-# Universal Silica Fiber Workbench — Web UI v0.2
+# Universal Silica Fiber Workbench — Web UI v0.2.1
 
 **Live browser app:** https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/
 
@@ -28,6 +28,18 @@ A standalone engineering-style interface for the existing `universal_radial.py` 
 - **Not supported:** arbitrary 2D cross sections, MCF, microstructured PCF, ARF/NANF HCF, full-vector electromagnetic modes, polarization, birefringence, true attenuation, bending loss, confinement loss, PML, and model inversion of unknown manufacturer profiles.
 - **Domain:** model calculator radius is a numerical boundary, **not** actual 125 µm fiber cladding. Edge-truncation and mesh convergence should be checked for research use. Small solver residual does not establish physical accuracy.
 - A G.654.E-like preset uses **assumed 5.5 µm core radius and fitted Δn** to target MFD ≈12.5 µm. This is not independent LE125 certification or COMSOL license-equivalent validation.
+
+## Dispersion-slope diagnostics (2026-11-03)
+
+The web UI now displays three **separate calculated quantities** directly beneath the four original mode metrics, after **모드 계산 실행**:
+
+- **S₁₅₅₀**, the dispersion slope at 1550 nm: \([D(1560)-D(1540)]/20\), units ps/(nm²·km).
+- **λ₀**, the zero-dispersion wavelength where \(D(λ₀)=0\), located by scanning 1100–1550 nm and a bracketed root search.
+- **S₀**, the dispersion slope **at λ₀**, not at 1550 nm.
+
+All dispersion values use five-point finite differences of freshly calculated radial-FEM `neff(λ)`. The output is recomputed after model changes and stored in exported JSON/CSV. If no zero crossing is found in the search window, λ₀ and S₀ appear as **not available** rather than guessed.
+
+**G.654.E-like example** (`a=5.5 µm`, `Δn≈0.003478579`, 750 elements): S₁₅₅₀ ≈ **0.059346 ps/(nm²·km)**, λ₀ ≈ **1278.901 nm**, S₀ ≈ **0.093321 ps/(nm²·km)**. These are **fitted surrogate-model calculations**, not measured PremierLink LE125 specifications. Always verify whether a manufacturer document refers to `S₀` or `S₁₅₅₀` before comparing.
 
 ## Files and verification
 

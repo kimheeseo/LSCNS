@@ -1,0 +1,273 @@
+{
+  "modelVersion": "hcf-analytical-designer-v0.1",
+  "source": "ARROW wall resonance + ideal J0 capillary; NO full-vector FEM",
+  "input": {
+    "coreDiameterUm": 32,
+    "tubeCount": 6,
+    "nesting": 2,
+    "outerTubeRatio": 0.78,
+    "innerRatio": 0.61,
+    "thirdRatio": 0.55,
+    "gapCoreUm": 0.25,
+    "minNeighborGapUm": 0.35,
+    "nestedClearanceUm": 0.2,
+    "wall1Um": 0.58,
+    "wall2Um": 0.45,
+    "wall3Um": 0.36,
+    "wavelengthNm": 1550,
+    "airIndex": 1.00027,
+    "autoFit": true,
+    "scanMinNm": 700,
+    "scanMaxNm": 2300
+  },
+  "geometry": {
+    "input": {
+      "coreDiameterUm": 32,
+      "tubeCount": 6,
+      "nesting": 2,
+      "outerTubeRatio": 0.78,
+      "innerRatio": 0.61,
+      "thirdRatio": 0.55,
+      "gapCoreUm": 0.25,
+      "minNeighborGapUm": 0.35,
+      "nestedClearanceUm": 0.2,
+      "wall1Um": 0.58,
+      "wall2Um": 0.45,
+      "wall3Um": 0.36,
+      "wavelengthNm": 1550,
+      "airIndex": 1.00027,
+      "autoFit": true,
+      "scanMinNm": 700,
+      "scanMaxNm": 2300
+    },
+    "coreRadiusUm": 16,
+    "outerTubeDiameterUm": 24.96,
+    "requestedOuterTubeDiameterUm": 24.96,
+    "autoFitted": false,
+    "maxAllowedOuterTubeDiameterUm": 31.799999999999994,
+    "ringRadiusUm": 28.73,
+    "minAdjacentGapUm": 3.769999999999996,
+    "angularCoverageFraction": 0.8582143431830433,
+    "radiiUm": [
+      12.48,
+      7.6128
+    ],
+    "wallsUm": [
+      0.58,
+      0.45
+    ],
+    "extentUm": 41.21
+  },
+  "mode": {
+    "model": "ideal-air-capillary-J0-Dirichlet—not-nested-fiber-FEM",
+    "wavelengthNm": 1550,
+    "neff": 0.9995825630483459,
+    "Aeff_um2": 383.27525143178116,
+    "MFD_2nd_um": 21.132438550373966,
+    "MFD_PII_um": 18.81834374687431,
+    "D_ps_per_nm_km": 2.9638547986567185,
+    "nAirAssumed": 1.00027,
+    "confinementLossDbKm": null,
+    "modelIncludesTubeCount": false,
+    "modelIncludesNestedGeometry": false
+  },
+  "currentWallDetuning": [
+    {
+      "layer": 1,
+      "phase": 0.7794242856228891,
+      "detuning": 0.6388165429283119
+    },
+    {
+      "layer": 2,
+      "phase": 0.6047257388453451,
+      "detuning": 0.9463641003125323
+    }
+  ],
+  "resonances": [
+    {
+      "layer": 1,
+      "kind": "resonance",
+      "order": 1,
+      "wallUm": 0.58,
+      "wavelengthNm": 1214.3145088762722,
+      "frequencyTHz": 246.88205222667415
+    },
+    {
+      "layer": 1,
+      "kind": "antiresonance",
+      "order": 1,
+      "wallUm": 0.58,
+      "wavelengthNm": 2377.4643118969393,
+      "frequencyTHz": 126.09756390446113
+    },
+    {
+      "layer": 1,
+      "kind": "resonance",
+      "order": 2,
+      "wallUm": 0.58,
+      "wavelengthNm": 614.8911641627764,
+      "frequencyTHz": 487.5536931941306
+    },
+    {
+      "layer": 1,
+      "kind": "antiresonance",
+      "order": 2,
+      "wallUm": 0.58,
+      "wavelengthNm": 815.0679486114688,
+      "frequencyTHz": 367.812841261541
+    },
+    {
+      "layer": 1,
+      "kind": "resonance",
+      "order": 3,
+      "wallUm": 0.58,
+      "wavelengthNm": 415.7257575866875,
+      "frequencyTHz": 721.130342609303
+    },
+    {
+      "layer": 1,
+      "kind": "antiresonance",
+      "order": 3,
+      "wallUm": 0.58,
+      "wavelengthNm": 495.1250464166226,
+      "frequencyTHz": 605.4883714118149
+    },
+    {
+      "layer": 2,
+      "kind": "resonance",
+      "order": 1,
+      "wallUm": 0.45,
+      "wavelengthNm": 946.155980138556,
+      "frequencyTHz": 316.8531027580655
+    },
+    {
+      "layer": 2,
+      "kind": "antiresonance",
+      "order": 1,
+      "wallUm": 0.45,
+      "wavelengthNm": 1864.5990843429972,
+      "frequencyTHz": 160.78118911317264
+    },
+    {
+      "layer": 2,
+      "kind": "resonance",
+      "order": 2,
+      "wallUm": 0.45,
+      "wavelengthNm": 480.7146478086071,
+      "frequencyTHz": 623.6391159841672
+    },
+    {
+      "layer": 2,
+      "kind": "antiresonance",
+      "order": 2,
+      "wallUm": 0.45,
+      "wavelengthNm": 635.5829770362864,
+      "frequencyTHz": 471.68106892655874
+    },
+    {
+      "layer": 2,
+      "kind": "resonance",
+      "order": 3,
+      "wallUm": 0.45,
+      "wavelengthNm": 327.67785732804964,
+      "frequencyTHz": 914.8999582839293
+    },
+    {
+      "layer": 2,
+      "kind": "antiresonance",
+      "order": 3,
+      "wallUm": 0.45,
+      "wavelengthNm": 388.494840466605,
+      "frequencyTHz": 771.6768069298727
+    }
+  ],
+  "warnings": [
+    "No quantitative nested-tube confinement-loss prediction. Loss in dB/km requires independently converged complex vector FEM/PML.",
+    "Tube count/diameter/nesting do NOT modify capillary neff/MFD/Aeff/D in this proxy.",
+    "Wall-resonance estimates are local thin-wall ARROW approximations; tube coupling shifts spectral features.",
+    "Air index is constant with wavelength; material/gas dispersion, scattering and absorption are excluded."
+  ],
+  "countSweep": [
+    {
+      "tubeCount": 4,
+      "valid": true,
+      "autoFitted": false,
+      "actualD1Um": 24.96,
+      "coverageFraction": 0.5721428954553622,
+      "neighborGapUm": 15.670355646979019,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 5,
+      "valid": true,
+      "autoFitted": false,
+      "actualD1Um": 24.96,
+      "coverageFraction": 0.7151786193192029,
+      "neighborGapUm": 8.814140596725508,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 6,
+      "valid": true,
+      "autoFitted": false,
+      "actualD1Um": 24.96,
+      "coverageFraction": 0.8582143431830433,
+      "neighborGapUm": 3.769999999999996,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 7,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 24.290454932147195,
+      "coverageFraction": 0.984783285688072,
+      "neighborGapUm": 0.3500000000000014,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 8,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 19.58024810216007,
+      "coverageFraction": 0.9815042996896272,
+      "neighborGapUm": 0.34999999999999787,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 9,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 16.361678171270704,
+      "coverageFraction": 0.9781923206346472,
+      "neighborGapUm": 0.3500000000000014,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 10,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 14.027917095323646,
+      "coverageFraction": 0.9748553405037519,
+      "neighborGapUm": 0.34999999999999964,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 11,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 12.260486231452811,
+      "coverageFraction": 0.97149898244369,
+      "neighborGapUm": 0.34999999999999787,
+      "confinementLossDbKm": null
+    },
+    {
+      "tubeCount": 12,
+      "valid": true,
+      "autoFitted": true,
+      "actualD1Um": 10.876721686604878,
+      "coverageFraction": 0.9681273101762763,
+      "neighborGapUm": 0.3500000000000014,
+      "confinementLossDbKm": null
+    }
+  ]
+}

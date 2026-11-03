@@ -1,3 +1,9 @@
+## 2026-11-04 · HCF / Nested Tube Designer v0.1
+
+[**▶ 기존 웹에서 HCF 설계 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-designer) · [모듈 사용법](hcf_designer/README.md) · [14개 테스트 검증](hcf_designer/VALIDATION_REPORT.md) · [6×2 단면 미리보기](hcf_designer/HCF_Designer_Preview.png) · [8×3 단면 미리보기](hcf_designer/HCF_3Nested_8Tube_Preview.png)
+
+튜브 개수 4–12개, nested 1/2/3중, 코어 직경, 튜브 직경 비율/벽 두께를 입력하면 실제 입력에 대응하는 **2D 단면 SVG를 즉시 변경**하고 공진·반공진 파장, 기하학적 튜브 커버율, 이상적 J₀ 모세관의 neff·MFD·Aeff·D를 갱신합니다. A/B 비교 및 CSV·JSON·SVG 저장 지원. **손실 dB/km는 직접 계산하지 않습니다.** 사용자 제공 복소 neff의 dB/km 환산 기능은 FEM 예측이 아니라 외부값 후처리입니다. 전체 HCF Full-vector/PML 검증 및 튜브 수에 따른 물리 손실 예측은 향후 과제입니다.
+
 # Universal Silica Fiber Workbench — Web UI v0.2.1
 
 **Live browser app:** https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/

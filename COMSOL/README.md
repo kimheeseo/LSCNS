@@ -1,3 +1,5 @@
+> **2026-11-04 · HCF Nested Tube 설계 UI:** [**HCF Designer 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-designer) · [코어·튜브 수·비율·벽 두께 동적 단면과 광특성](universal_silica_v01/web/hcf_designer/README.md) · [테스트 보고서](universal_silica_v01/web/hcf_designer/VALIDATION_REPORT.md). **공진식+이상적 모세관 근사**, 실제 중첩 구조의 벡터 FEM/손실 dB/km 직접 예측 아님.
+
 > **2026-11-03 · MCF Cross-talk 웹 계산 추가:** [Universal Silica MCF XT 분석](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) · [구현·가정 설명](universal_silica_v01/web/README.md). 2코어 M8 FEM 참조값의 로그 보간과 무손실 coherent 결합을 통한 XT(dB), P₁/P₂, κ, Lc 계산이며, **실제 제품 누화 실측 또는 XT(dB/km) 아님.**
 
 > **폴더 정리 · 2026-11-03:** 메인 안내문은 이 `README.md` 하나로 통일했습니다. 기존 연구 산출물·ZIP·구형 웹페이지·Fiber I/O 가이드는 [COMSOL_Install](COMSOL_Install/)에 보관합니다. 기존 `/COMSOL/` 웹 주소는 설치 폴더의 대시보드로 자동 이동합니다.

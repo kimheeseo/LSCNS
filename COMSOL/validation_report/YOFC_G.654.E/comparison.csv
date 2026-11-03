@@ -1,0 +1,5 @@
+parameter,YOFC_reference,calculated,relative_error_vs_typical_pct,notes
+MFD Petermann II @1550,"11.4-12.2 um; typical 11.8",11.834031124815226,0.2883993628408933,fit target
+Effective area @1550,"typical 110 um2; no tolerance",110.36784066177046,0.3344006016095074,fit target
+Dispersion @1550,"max 22 ps/nm/km",20.103067591662743,,model-only compliance comparison
+Dispersion slope @1550,"max 0.070 ps/nm2/km",0.059088425662447895,,finite-difference model prediction

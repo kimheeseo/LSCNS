@@ -87,6 +87,7 @@
       <nav class="eng-shortcuts" aria-label="추가 광학 분석 도구">
  <a href="#attenuation-tool">01 · 감쇠 / 링크 버짓</a>
  <a href="#bending-tool">02 · 굽힘손실</a>
+ <a href="#bend-physics-tool">02+ · 굽힘 물리식 / COMSOL 후처리</a>
  <a href="#pmd-tool">03 · PMD / DGD</a>
  <a href="./ENGINEERING_MODULES.md" target="_blank" rel="noopener">모델 한계 및 실행 설명</a>
  </nav>
@@ -166,6 +167,42 @@
   <p class="eng-note">데이터에 기반한 <strong>경험적 보간</strong>이며 복소 β나 누설 방사 모드를 직접 계산하지 않습니다. 실제 광섬유 단면의 물리적 굽힘손실을 예측하려면 2D FEM/PML 및 실험 검증이 추가로 필요합니다. IEC 60793-1-47 시험과 같은 파장·반경·권선수 조건으로 참조값을 준비하세요.</p>
 </section>
 
+      <section class="engineering-panel" id="bend-physics-tool">
+  <div class="eng-head"><div><span class="kicker">VELAMURI 2018 / COMSOL BENDING PHYSICS BRIDGE</span><h2>굽힘 등가 굴절률 · 복소 n<sub>eff</sub> 후처리</h2></div><span class="eng-tag">논문식 적용 · 2D FEM/PML 직접 계산 아님</span></div>
+  <p class="eng-help">위의 <strong>굽힘손실 측정값 보간</strong>과 별개입니다. 논문의 <strong>conformal mapping</strong>으로 등가 굴절률을 표시하고, <strong>외부 COMSOL/모드 솔버에서 얻은 Im(n<sub>eff</sub>)</strong>를 넣어 dB/turn으로 변환합니다. 응력 옵션은 단순 빔 스트레인 <strong>근사 예시</strong>이며 논문의 GEBT를 구현한 결과가 아닙니다.</p>
+  <div class="eng-inputs">
+   <label>해석 파장 λ (nm)<input type="number" id="bendphys-wave" value="1550" min="211" step="5"></label>
+   <label>굽힘 <strong>직경</strong> d (mm)<input type="number" id="bendphys-diameter" value="10" min="0.1" step="0.5"></label>
+   <label>외부 모드 솔버 |Im(n<sub>eff</sub>)|<input type="number" id="bendphys-neffimag" value="1e-8" min="0" step="1e-9"></label>
+   <label>권선 수 (turn)<input type="number" id="bendphys-turns" value="1" min="0" step="1"></label>
+   <label>클래딩 <strong>반경</strong> (µm)<input type="number" id="bendphys-clad" value="62.5" min="1" step="0.5"></label>
+   <label>응력-광학 표시 모드<select id="bendphys-stress"><option value="none">기하학적 효과만 · stress OFF</option><option value="beam_proxy">단순 빔 변형률 근사 · GEBT 아님</option></select></label>
+   <label>Poisson ratio ν (근사 모드)<input type="number" id="bendphys-poisson" value="0.17" min="0" max="0.499" step="0.01"></label>
+   <label>PML 비교 허용 변화율 (%)<input type="number" id="bendphys-pml-tolerance" value="2" min="0.01" max="100" step="0.5"></label>
+  </div>
+  <div class="eng-controls">
+   <button type="button" id="bendphys-run">등가 굴절률 / 손실 계산</button>
+   <button type="button" id="bendphys-from-radius">2단계 반경×2 가져오기</button>
+   <button type="button" id="bendphys-example">논문 BIF 결과 역산 예시</button>
+   <button type="button" id="bendphys-json">결과 JSON</button>
+   <span class="eng-status" id="bendphys-status" role="status" aria-live="polite">계산 대기</span>
+  </div>
+  <div class="eng-results">
+   <article><small>외부 복소 n<sub>eff</sub> → 굽힘손실</small><strong id="bendphys-dbturn">—</strong></article>
+   <article><small>굽힘 구간의 환산 감쇠</small><strong id="bendphys-dbperkm">—</strong></article>
+   <article><small>권선 전체 굽힘손실</small><strong id="bendphys-total">—</strong></article>
+   <article><small>논문 PML 두께 7λ 환산</small><strong id="bendphys-pml">—</strong></article>
+  </div>
+  <canvas class="eng-canvas" id="bendphys-profile-chart" width="900" height="340" aria-label="직선 굴절률, 굽힘 기하학적 굴절률, 단순 응력 보정 굴절률 분포 비교"></canvas>
+  <p class="eng-note">그래프: <strong>직선 n(x)</strong> · <strong>기하학 보정 n(x)(1+x/R)</strong> · <strong>선택적 단순 응력광학 보정</strong>. 기존 사이드바의 코어·Trench·다층 단면 구조를 참조합니다. 실제 <strong>GEBT 변형률장, 복소 고유모드, PML 흡수</strong>를 계산하지 않으므로 그래프만으로 굽힘손실을 예측할 수 없습니다.</p>
+  <div class="field"><label for="bendphys-pml-data">선택: 외부 FEM PML 두께 스윕 결과 · 행마다 <code>두께(λ), Im(n_eff)</code></label>
+    <textarea id="bendphys-pml-data" rows="3" spellcheck="false" placeholder="5,1.20e-8&#10;7,1.18e-8"></textarea>
+    <small>예: 5λ와 7λ에 대해 COMSOL에서 따로 구한 허수부를 붙여 넣으세요. 비워 두면 PML 수렴은 미검증으로 표시합니다. 7λ는 논문의 시험조건이지 보편적인 수렴 보장은 아닙니다.</small>
+  </div>
+  <p class="eng-note" id="bendphys-pmlstatus">외부 PML 스윕 미입력 · 수렴 미검증</p>
+  <p class="eng-help">출처: <a href="https://www.comsol.com/paper/study-of-bending-losses-in-optical-fibers-using-comsol-multiphysics-61111" target="_blank" rel="noopener">Velamuri et al. (2018), COMSOL Conference</a>. <strong>논문의 10 mm는 굽힘 반경이 아닌 직경</strong>입니다. BIF의 0.0119 dB/turn은 논문 시뮬레이션 값이고, 초기 Im(n<sub>eff</sub>)=1e−8은 시연용 값입니다.</p>
+</section>
+
       <section class="engineering-panel" id="pmd-tool">
  <div class="eng-head"><div><span class="kicker">PHASE 3 / PMD · STATISTICAL DGD</span><h2>PMD 계수와 길이별 편광 지연 분포</h2></div><span class="eng-tag">강한 랜덤 모드결합 · 통계 모델</span></div>
  <p class="eng-help"><strong>PMD 계수의 정의(평균/RMS)를 명시적으로 선택</strong>한 뒤 DGD 평균·RMS·95/99 분위수를 계산합니다. 실제 편광모드 벡터 FEM, Jones matrix 실측, 표준화된 케이블 PMD Q 인증과 다른 계산입니다. 초기값 0.05 ps/√km는 <strong>시연용</strong>입니다.</p>
@@ -199,5 +236,6 @@
   <script type="module" src="./attenuation_ui.mjs?v=20261103-phase1"></script>
   <script type="module" src="./bending_ui.mjs?v=20261103-phase2"></script>
   <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
+  <script type="module" src="./bend_physics_ui.mjs?v=20261103-velamuri-v1"></script>
 </body>
 </html>

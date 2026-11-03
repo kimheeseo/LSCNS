@@ -1,4 +1,6 @@
-# Universal Silica Fiber Lab — Engineering Loss & PMD Modules
+# Universal Silica Fiber Lab — Engineering Loss & PMD Modules (Archived Research)
+
+> **Web UI update (2026-11-03):** Attenuation and every bending-loss feature have been **removed from the live workbench interface** at the user's request. The source scripts, tests and original numerical reports described below are retained as an **archive**. They are **not loaded by the current `index.html`**. The PMD/DGD statistical module remains available in the web tool. See [current UI README](./README.md).
 
 **Added 2026-11-03 · Phases 1→2→3 completed in order.**
 

@@ -40,6 +40,10 @@
 .eng-canvas{display:block;max-width:100%;height:auto;background:#0d192c;border-radius:10px;border:1px solid #2d415d;margin:12px 0}
 @media(max-width:830px){.eng-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.eng-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.eng-inputs{grid-template-columns:1fr}.engineering-panel{padding:15px}}
+.eng-shortcuts{display:flex;flex-wrap:wrap;gap:9px;margin:-4px 0 20px}
+.eng-shortcuts a{border:1px solid #426782;background:#1a3750;padding:10px 13px;color:#b7e4f6;text-decoration:none;font-size:12px;font-weight:700;border-radius:9px}
+.eng-shortcuts a:hover,.eng-shortcuts a:focus-visible{background:#245575;color:#fff}
+.engineering-panel{scroll-margin-top:82px}
 </style>
 </head>
 <body>
@@ -80,6 +84,12 @@
     </aside>
     <main class="workspace">
       <div class="page-intro"><div><div class="eyebrow">OPTICAL SIMULATION / DESIGN WORKSPACE</div><h1>Universal Silica Fiber <span>Lab</span></h1><p>실리카 광섬유 단면을 설계하고 실제 Radial FEM 고유모드를 해석합니다.</p></div><div class="version-pill">SCALAR LP₀₁ <span>·</span> FEM P1</div></div>
+      <nav class="eng-shortcuts" aria-label="추가 광학 분석 도구">
+ <a href="#attenuation-tool">01 · 감쇠 / 링크 버짓</a>
+ <a href="#bending-tool">02 · 굽힘손실</a>
+ <a href="#pmd-tool">03 · PMD / DGD</a>
+ <a href="./ENGINEERING_MODULES.md" target="_blank" rel="noopener">모델 한계 및 실행 설명</a>
+ </nav>
       <div id="notice" role="status" aria-live="polite" class="notice warning">현재 모델은 이상적인 스칼라 근사입니다. 제조사 제품 인증, 벡터 모드 및 실제 손실을 계산하지 않습니다.</div>
       <div class="metrics">
         <article class="metric"><span>유효굴절률 · n<sub>eff</sub></span><strong id="neff">—</strong><small id="neffSub">모드 고유값</small></article>

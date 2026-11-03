@@ -19,7 +19,28 @@
 .slope-note strong{color:#f0d6a7}
 @media(max-width:760px){.slope-grid{grid-template-columns:1fr}.slope-head{align-items:flex-start}}
 
-  </style>
+  
+.engineering-panel{border:1px solid #315573;background:linear-gradient(145deg,#16263d,#111e33);border-radius:13px;padding:22px;margin:21px 0 18px;min-width:0}
+.eng-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.eng-head h2{font-size:18px;color:#f0f7ff;margin:5px 0}
+.eng-tag{font-size:11px;border:1px solid #426680;color:#a4d1e8;border-radius:7px;padding:7px 10px}
+.eng-help,.eng-note{font-size:12px;color:#b0cadd;line-height:1.7;margin:10px 0}
+.eng-help strong,.eng-note strong{color:#f1d3a2}
+.eng-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}
+.eng-inputs label{font-size:12px;color:#c7dff0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.eng-inputs input,.eng-inputs select{background:#0e2036;color:#e4f5ff;border:1px solid #3d5a76;border-radius:8px;padding:10px 11px;width:100%;font-size:13px;min-width:0}
+.eng-controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0}
+.eng-controls button{border:1px solid #388bb0;color:#e8faff;background:#23506e;border-radius:9px;padding:10px 15px;font-size:12px;font-weight:700;cursor:pointer}
+.eng-controls button:hover{background:#326584}
+.eng-status{font-size:12px;color:#b4cde2}.eng-status.success{color:#7bdfbd}.eng-status.error{color:#ffabab}
+.eng-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.eng-results article{min-width:0;padding:14px;background:#0f2137;border:1px solid #324d68;border-radius:10px}
+.eng-results small{display:block;font-size:11px;color:#a7c2d9}
+.eng-results strong{display:block;font-size:clamp(17px,1.9vw,25px);color:#f1f9ff;margin-top:8px;overflow-wrap:anywhere}
+.eng-canvas{display:block;max-width:100%;height:auto;background:#0d192c;border-radius:10px;border:1px solid #2d415d;margin:12px 0}
+@media(max-width:830px){.eng-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.eng-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.eng-inputs{grid-template-columns:1fr}.engineering-panel{padding:15px}}
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -81,11 +102,39 @@
         <section class="chart-card"><div class="chart-head"><div><span class="chart-num">03 · MODE ANALYSIS</span><h3>LP01 전기장 강도 I(r)</h3></div><span class="mini-tag">FEM MODE</span></div><canvas id="modeChart" width="800" height="450"></canvas><p class="chart-foot">모드 강도는 최대값 1로 정규화하여 표시합니다.</p></section>
         <section class="chart-card"><div class="chart-head"><div><span class="chart-num">04 · SPECTRAL CHARACTERISTICS</span><h3 id="spectrumTitle">파장별 분산 D(λ)</h3></div><span class="mini-tag" id="spectrumTag">계산 대기</span></div><canvas id="spectrumChart" width="800" height="450"></canvas><p class="chart-foot" id="spectrumFoot">파장 스윕 버튼으로 각 파장에서 FEM을 다시 계산합니다.</p></section>
       </div>
+      <section class="engineering-panel" id="attenuation-tool">
+  <div class="eng-head"><div><span class="kicker">PHASE 1 / ATTENUATION · MEASUREMENT-ANCHORED</span><h2>광섬유 감쇠 및 광 링크 버짓</h2></div><span class="eng-tag">입력값 기반 · 물성 예측 아님</span></div>
+  <p class="eng-help">1550 / 1625 nm의 실제 측정값 또는 사양값을 입력해 선형 보간합니다. <strong>기본 0.160 / 0.175 dB/km는 계산 시연용 가정값이며 YOFC/LE125의 측정값이 아닙니다.</strong> 보간 범위 외 파장은 계산하지 않습니다.</p>
+  <div class="eng-inputs">
+   <label>α @1550 (dB/km)<input id="att-alpha1550" type="number" step="0.001" value="0.160"></label>
+   <label>α @1625 (dB/km)<input id="att-alpha1625" type="number" step="0.001" value="0.175"></label>
+   <label>해석 파장 (nm)<input id="att-wave" type="number" step="1" min="1550" max="1625" value="1550"></label>
+   <label>섬유 길이 (km)<input id="att-length" type="number" step="1" min="0" value="80"></label>
+   <label>입사 파워 Pin (dBm)<input id="att-pin" type="number" step="0.1" value="0"></label>
+   <label>커넥터 개수 (개)<input id="att-connectors" type="number" step="1" min="0" value="2"></label>
+   <label>커넥터당 손실 (dB)<input id="att-connloss" type="number" step="0.01" min="0" value="0.2"></label>
+   <label>융착 접속점 수 (개)<input id="att-splices" type="number" step="1" min="0" value="1"></label>
+   <label>융착점당 손실 (dB)<input id="att-spliceloss" type="number" step="0.01" min="0" value="0.05"></label>
+  </div>
+  <div class="eng-controls"><button type="button" id="att-run">감쇠 계산 실행</button><button type="button" id="att-json">결과 JSON 저장</button><span class="eng-status" id="att-status" aria-live="polite">계산 전</span></div>
+  <div class="eng-results">
+    <article><small>보간 감쇠 계수</small><strong id="att-alpha-out">—</strong></article>
+    <article><small>섬유 구간 손실</small><strong id="att-fiber-out">—</strong></article>
+    <article><small>총 링크 손실</small><strong id="att-total-out">—</strong></article>
+    <article><small>출사 파워 Pout</small><strong id="att-pout-out">—</strong></article>
+  </div>
+  <p class="eng-help" id="att-breakdown">계산 대기</p>
+  <canvas class="eng-canvas" id="att-chart" width="900" height="320" aria-label="섬유 길이에 따른 전체 광손실 그래프"></canvas>
+  <textarea id="att-result-json" hidden aria-hidden="true"></textarea>
+  <p class="eng-note">기본 모델: α(λ) 두 측정 기준점의 선형 보간 · 총 손실 = α(λ)L + N커넥터×손실 + N융착×손실 · Pout = Pin−총손실. 레일리 산란, OH, 온도 변화, 굽힘손실은 여기서 직접 예측하지 않습니다.</p>
+</section>
+
       <div class="lower-grid"><section class="table-card"><div class="chart-head"><div><span class="chart-num">05 · NUMERICAL VERIFICATION</span><h3>메시 수렴 검사</h3></div><span class="mini-tag" id="meshStatus">검사 대기</span></div><div class="scroll-table"><table><thead><tr><th>Elements</th><th>neff</th><th>MFD (µm)</th><th>Aeff (µm²)</th><th>Δneff</th></tr></thead><tbody id="meshRows"><tr><td colspan="5">메시 수렴 버튼을 누르면 계산됩니다.</td></tr></tbody></table></div></section>
         <section class="table-card"><div class="chart-head"><div><span class="chart-num">06 · SOLVER DIAGNOSTICS</span><h3>수치해석 정보</h3></div></div><dl class="diagnostic"><div><dt>고유값 상대 잔차</dt><dd id="residual">—</dd></div><div><dt>MFD (Second-moment)</dt><dd id="mfd2">—</dd></div><div><dt>비선형 계수 γ</dt><dd id="gamma">—</dd></div><div><dt>기준 클래딩 굴절률</dt><dd id="nclad">—</dd></div><div><dt>실제 계산 요소</dt><dd id="nElements">—</dd></div><div><dt>계산 대상</dt><dd id="calcTime">—</dd></div></dl></section></div>
       <div class="disclaimer"><strong>모델 범위</strong> · 단일코어: 원형/동심원 · 약유도 스칼라 Radial FEM(P1) · LP01 모드. MCF 선택 시: 별도 저장된 2코어 M8 FEM 참조점의 로그 보간 + 이상적 무손실 결합 방정식만 사용하며 <strong>새 FEM/실측 XT/랜덤 누화를 계산하지 않습니다.</strong> 코어 도핑·응력·복굴절·PML·누설/굽힘/재료 감쇠·HCF는 이 버전에서 미지원. 입력이 바뀌면 기존 결과는 자동으로 무효화됩니다. 로컬 GitHub Pages는 로그인·서버 없이 동작하며 다운로드 파일은 사용자의 기기에만 저장됩니다.</div>
     </main>
   </div>
   <script type="module" src="./app.mjs?v=20261103-slope-v1"></script>
+  <script type="module" src="./attenuation_ui.mjs?v=20261103-phase1"></script>
 </body>
 </html>

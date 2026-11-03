@@ -1,0 +1,307 @@
+{
+  "timestamp_date": "2026-11-03",
+  "engine": "Universal Silica Fiber Web v0.2.1",
+  "solver_repository_file": "COMSOL/universal_silica_v01/web/solver.mjs",
+  "solver_blob_sha": "a05fc21585d1d164bb95ef0db7abd97547acae9f",
+  "method": "axisymmetric scalar LP01 radial P1 FEM, silica Sellmeier plus wavelength-independent delta n",
+  "actual_product_validation": false,
+  "step_index_fitted_to_MFD_Aeff": true,
+  "model": {
+    "profile": "step",
+    "wavelength_nm": 1550,
+    "core_radius_um": 5.4,
+    "delta_n_core": 0.004,
+    "outer_radius_um": 40,
+    "graded_alpha": 2,
+    "trench_start_um": 7,
+    "trench_end_um": 10,
+    "trench_delta_n": -0.001,
+    "shells": [
+      [
+        4,
+        0.006
+      ],
+      [
+        5,
+        0.002
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        9,
+        -0.0008
+      ]
+    ],
+    "n2_m2_per_W": 2.2e-20,
+    "elements": 750
+  },
+  "output": {
+    "n_eff": 1.446099217459323,
+    "MFD_PII_um": 11.834031125189526,
+    "MFD_2nd_um": 12.085654964898618,
+    "Aeff_um2": 110.36784066727965,
+    "gamma_Wkm": 0.8080315256995695,
+    "D1550_ps_nm_km": 20.103067631843608,
+    "eigen_residual": 1.0016128413366348e-12,
+    "guided_proxy": true,
+    "actual_mesh_elements": 750,
+    "slope_1550_ps_nm2_km": 0.0590885086559906,
+    "lambda0_nm": 1275.457178224494,
+    "slope_zero_ps_nm2_km": 0.0939788195507043,
+    "zero_found": true
+  },
+  "dispersion_slope_method": {
+    "scan_range_nm": [
+      1100,
+      1550
+    ],
+    "neff_finite_difference_step_nm": 5,
+    "slope_center_step_nm": 10,
+    "s1550_formula": "(D(1560 nm)-D(1540 nm))/20 nm",
+    "S0_formula": "(D(lambda0+10 nm)-D(lambda0-10 nm))/20 nm; lambda0 root of D(lambda)"
+  },
+  "manufacturer_reference": {
+    "basis": "provided screenshot",
+    "MFD_min_um": 11.4,
+    "MFD_max_um": 12.2,
+    "MFD_typical_um": 11.8,
+    "Aeff_typical_um2": 110,
+    "D1550_max_ps_nm_km": 22,
+    "S1550_max_ps_nm2_km": 0.07,
+    "S0_reference": null,
+    "lambda0_reference": null
+  },
+  "fitted_model_mesh_relative_Aeff_pct_750_vs_1000": 0.0004509317390276513,
+  "spectrum": [
+    {
+      "wavelength_nm": 1530,
+      "n_eff": 1.446369319729971,
+      "MFD_PII_um": 11.729990885364831,
+      "Aeff_um2": 108.71335309472956,
+      "D_ps_nm_km": 18.907628712388867,
+      "gamma_Wkm": 0.8310520540988954
+    },
+    {
+      "wavelength_nm": 1540,
+      "n_eff": 1.44623445847374,
+      "MFD_PII_um": 11.781836742073075,
+      "Aeff_um2": 109.53572895124694,
+      "D_ps_nm_km": 19.50884136289246,
+      "gamma_Wkm": 0.8194567285211252
+    },
+    {
+      "wavelength_nm": 1550,
+      "n_eff": 1.446099217459323,
+      "MFD_PII_um": 11.834031125189526,
+      "Aeff_um2": 110.36784066727965,
+      "D_ps_nm_km": 20.103067631843608,
+      "gamma_Wkm": 0.8080315256995695
+    },
+    {
+      "wavelength_nm": 1560,
+      "n_eff": 1.4459635876428187,
+      "MFD_PII_um": 11.886577719727605,
+      "Aeff_um2": 111.20984040974179,
+      "D_ps_nm_km": 20.690610114288646,
+      "gamma_Wkm": 0.7967732283071152
+    },
+    {
+      "wavelength_nm": 1570,
+      "n_eff": 1.4458275602247477,
+      "MFD_PII_um": 11.939480254617138,
+      "Aeff_um2": 112.06188310589212,
+      "D_ps_nm_km": 21.2717608928367,
+      "gamma_Wkm": 0.7856787021370911
+    },
+    {
+      "wavelength_nm": 1580,
+      "n_eff": 1.4456911266398018,
+      "MFD_PII_um": 11.992742502027609,
+      "Aeff_um2": 112.92412648182203,
+      "D_ps_nm_km": 21.846802438315883,
+      "gamma_Wkm": 0.7747448935743309
+    },
+    {
+      "wavelength_nm": 1590,
+      "n_eff": 1.4455542785470383,
+      "MFD_PII_um": 12.046368279479843,
+      "Aeff_um2": 113.79673114341325,
+      "D_ps_nm_km": 22.416006947523574,
+      "gamma_Wkm": 0.763968826873564
+    },
+    {
+      "wavelength_nm": 1600,
+      "n_eff": 1.4454170078205124,
+      "MFD_PII_um": 12.100361448992969,
+      "Aeff_um2": 114.67986061433112,
+      "D_ps_nm_km": 22.979637456439967,
+      "gamma_Wkm": 0.7533476018449484
+    },
+    {
+      "wavelength_nm": 1610,
+      "n_eff": 1.4452793065403176,
+      "MFD_PII_um": 12.154725919247323,
+      "Aeff_um2": 115.57368142060258,
+      "D_ps_nm_km": 23.537947827285066,
+      "gamma_Wkm": 0.742878391321915
+    },
+    {
+      "wavelength_nm": 1620,
+      "n_eff": 1.4451411669840173,
+      "MFD_PII_um": 12.209465644690077,
+      "Aeff_um2": 116.47836313011581,
+      "D_ps_nm_km": 24.091183314254106,
+      "gamma_Wkm": 0.7325584390292373
+    }
+  ],
+  "mesh": [
+    {
+      "requested_elements": 300,
+      "elements": 301,
+      "n_eff": 1.4460990718278826,
+      "MFD_PII_um": 11.834271126797107,
+      "Aeff_um2": 110.37382179505532,
+      "residual": 1.00797466566086e-12
+    },
+    {
+      "requested_elements": 500,
+      "elements": 501,
+      "n_eff": 1.4460991827557967,
+      "MFD_PII_um": 11.834088345907167,
+      "Aeff_um2": 110.36926775635276,
+      "residual": 1.0052158136625079e-12
+    },
+    {
+      "requested_elements": 750,
+      "elements": 750,
+      "n_eff": 1.446099217459323,
+      "MFD_PII_um": 11.834031125189526,
+      "Aeff_um2": 110.36784066727965,
+      "residual": 1.0016128413366348e-12
+    },
+    {
+      "requested_elements": 1000,
+      "elements": 1000,
+      "n_eff": 1.4460992297348418,
+      "MFD_PII_um": 11.834011114558304,
+      "Aeff_um2": 110.3673429859006,
+      "residual": 5.726881113683308e-13
+    }
+  ],
+  "dispersion_curve": [
+    {
+      "wavelength_nm": 1100,
+      "D_ps_nm_km": -20.838029870019305
+    },
+    {
+      "wavelength_nm": 1120,
+      "D_ps_nm_km": -17.909515496152263
+    },
+    {
+      "wavelength_nm": 1140,
+      "D_ps_nm_km": -15.153524179779032
+    },
+    {
+      "wavelength_nm": 1160,
+      "D_ps_nm_km": -12.554672474215181
+    },
+    {
+      "wavelength_nm": 1180,
+      "D_ps_nm_km": -10.099139708540427
+    },
+    {
+      "wavelength_nm": 1200,
+      "D_ps_nm_km": -7.774475544840457
+    },
+    {
+      "wavelength_nm": 1220,
+      "D_ps_nm_km": -5.569451753705077
+    },
+    {
+      "wavelength_nm": 1240,
+      "D_ps_nm_km": -3.4739129281121697
+    },
+    {
+      "wavelength_nm": 1260,
+      "D_ps_nm_km": -1.4786584583937232
+    },
+    {
+      "wavelength_nm": 1275.457178224494,
+      "D_ps_nm_km": -6.140429670331282e-7
+    },
+    {
+      "wavelength_nm": 1280,
+      "D_ps_nm_km": 0.42465544606539873
+    },
+    {
+      "wavelength_nm": 1300,
+      "D_ps_nm_km": 2.243621750118486
+    },
+    {
+      "wavelength_nm": 1320,
+      "D_ps_nm_km": 3.985149931046378
+    },
+    {
+      "wavelength_nm": 1340,
+      "D_ps_nm_km": 5.655551682623326
+    },
+    {
+      "wavelength_nm": 1360,
+      "D_ps_nm_km": 7.260588138185967
+    },
+    {
+      "wavelength_nm": 1380,
+      "D_ps_nm_km": 8.805537202502409
+    },
+    {
+      "wavelength_nm": 1400,
+      "D_ps_nm_km": 10.29523969619179
+    },
+    {
+      "wavelength_nm": 1420,
+      "D_ps_nm_km": 11.734140038212775
+    },
+    {
+      "wavelength_nm": 1440,
+      "D_ps_nm_km": 13.12632743377919
+    },
+    {
+      "wavelength_nm": 1460,
+      "D_ps_nm_km": 14.475569441959461
+    },
+    {
+      "wavelength_nm": 1480,
+      "D_ps_nm_km": 15.78534657249868
+    },
+    {
+      "wavelength_nm": 1500,
+      "D_ps_nm_km": 17.05886912647642
+    },
+    {
+      "wavelength_nm": 1520,
+      "D_ps_nm_km": 18.299116684898955
+    },
+    {
+      "wavelength_nm": 1540,
+      "D_ps_nm_km": 19.508839402930427
+    },
+    {
+      "wavelength_nm": 1560,
+      "D_ps_nm_km": 20.69060957605024
+    },
+    {
+      "wavelength_nm": 1580,
+      "D_ps_nm_km": 21.84680163864881
+    },
+    {
+      "wavelength_nm": 1600,
+      "D_ps_nm_km": 22.97963810032133
+    },
+    {
+      "wavelength_nm": 1620,
+      "D_ps_nm_km": 24.091182193374664
+    }
+  ]
+}

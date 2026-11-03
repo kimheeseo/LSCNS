@@ -1,36 +1,81 @@
 {
   "run_date": "2026-11-03",
-  "source": "COMSOL/universal_silica_v01/universal_radial.py",
-  "source_blob_sha": "6feabf558786931e87d684375c6a4a6645aa79a9",
-  "description": "fit to target, not independently verified YOFC product",
-  "model": "rotationally symmetric step-index silica weak-guidance LP01 radial P1 FEM",
+  "engine": "Universal Silica Fiber Web v0.2.1",
+  "source": "COMSOL/universal_silica_v01/web/solver.mjs",
+  "source_blob_sha": "a05fc21585d1d164bb95ef0db7abd97547acae9f",
+  "description": "fitted to YOFC typical MFD/Aeff, not independent product verification",
+  "model": "axisymmetric scalar LP01 radial P1 FEM, silica Sellmeier plus wavelength-independent delta n",
   "input": {
     "profile": "step",
     "wavelength_nm": 1550,
     "core_radius_um": 5.4,
     "delta_n_core": 0.004,
     "outer_radius_um": 40,
+    "graded_alpha": 2,
+    "trench_start_um": 7,
+    "trench_end_um": 10,
+    "trench_delta_n": -0.001,
+    "shells": [
+      [
+        4,
+        0.006
+      ],
+      [
+        5,
+        0.002
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        9,
+        -0.0008
+      ]
+    ],
     "n2_m2_per_W": 2.2e-20,
     "elements": 750
   },
   "computed": {
-    "MFD_PII_um": 11.834031124815226,
-    "MFD_2nd_um": 12.085654964049706,
-    "Aeff_um2": 110.36784066177046,
-    "dispersion_ps_nm_km": 20.103067591662743,
-    "dispersion_slope_ps_nm2_km": 0.059088425662447895,
-    "neff": 1.4460992174593232,
-    "gamma_Wkm": 0.8080315257399037
+    "n_eff": 1.446099217459323,
+    "MFD_PII_um": 11.834031125189526,
+    "MFD_2nd_um": 12.085654964898618,
+    "Aeff_um2": 110.36784066727965,
+    "gamma_Wkm": 0.8080315256995695,
+    "D1550_ps_nm_km": 20.103067631843608,
+    "eigen_residual": 1.0016128413366348e-12,
+    "guided_proxy": true,
+    "actual_mesh_elements": 750,
+    "slope_1550_ps_nm2_km": 0.0590885086559906,
+    "lambda0_nm": 1275.457178224494,
+    "slope_zero_ps_nm2_km": 0.0939788195507043,
+    "zero_found": true,
+    "S_1550_ps_nm2_km": 0.0590885086559906,
+    "S0_ps_nm2_km": 0.0939788195507043,
+    "zero_dispersion_wavelength_nm": 1275.457178224494
+  },
+  "slope_method": {
+    "scan_range_nm": [
+      1100,
+      1550
+    ],
+    "neff_finite_difference_step_nm": 5,
+    "slope_center_step_nm": 10,
+    "s1550_formula": "(D(1560 nm)-D(1540 nm))/20 nm",
+    "S0_formula": "(D(lambda0+10 nm)-D(lambda0-10 nm))/20 nm; lambda0 root of D(lambda)"
   },
   "specification": {
+    "basis": "provided screenshot",
     "MFD_min_um": 11.4,
     "MFD_max_um": 12.2,
     "MFD_typical_um": 11.8,
     "Aeff_typical_um2": 110,
-    "dispersion_max_ps_nm_km": 22,
-    "dispersion_slope_max_ps_nm2_km": 0.07
+    "D1550_max_ps_nm_km": 22,
+    "S1550_max_ps_nm2_km": 0.07,
+    "S0_reference": null,
+    "lambda0_reference": null
   },
   "numeric_convergence": {
-    "mesh_750_to_1000_Aeff_pct": 0.00045092961069581605
+    "mesh_750_to_1000_Aeff_pct": 0.0004509317390276513
   }
 }

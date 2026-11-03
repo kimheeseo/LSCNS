@@ -4,6 +4,8 @@
 
 이 보고서는 **그림 → 물리적 의미 → 시뮬레이션 값 → 제조사 비교** 순서로 읽도록 구성했습니다. YOFC에서 실제 굴절률 단면을 제공한 자료가 아니라 **MFD=11.8 µm, Aeff=110 µm²** 등의 성능 사양만 제공한 상태입니다. 따라서 **코어 반경 5.4 µm / Δn=0.004**는 제조사 설계값이 아니라 결과를 맞추기 위해 선택한 **Step-index 가상 모델의 입력값**입니다.
 
+**화면형 보고서:** [HTML 대시보드 보고서 열기](./VISUAL_REPORT.html) · [GitHub Pages에서 열기](https://kimheeseo.github.io/LSCNS/COMSOL/validation_report/YOFC_G.654.E/VISUAL_REPORT.html) (배포 반영 후 사용 가능)
+
 **바로가기:** [① 결과 대시보드](#1-한눈에-보는-1550-nm-결과) · [② 코어 단면과-모드](#2-광섬유-단면과-lp₀₁-모드-강도) · [③ 굴절률](#3-굴절률-프로파일-nr) · [④ 스펙트럼](#4-파장에-따른-mfd--aeff--색분산) · [⑤ 메시 검증](#5-fem-메시-수렴성) · [⑥ 한계](#6-무엇을-검증했고-무엇은-검증하지-않았나)
 
 ## 1. 한눈에 보는 1550 nm 결과
@@ -93,6 +95,7 @@
 ## 7. 재실행 및 원본 데이터
 
 - **웹 시뮬레이터:** [Universal Silica Fiber Lab 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/) — 설계유형 **Step-index**, 파장 **1550 nm**, 코어 반경 **5.4 µm**, 코어 Δn **0.004**, R **40 µm**, n₂(×10⁻²⁰) **2.2**, Mesh **750**.
+- **화면형 시각화 보고서:** [VISUAL_REPORT.html](./VISUAL_REPORT.html) — 첨부 화면처럼 좌측 목차, 지표 카드, 단면/굴절률/스펙트럼 설명을 제공합니다.
 - **노트북:** [YOFC_G.654.E_validation.ipynb](./YOFC_G.654.E_validation.ipynb) — FEM 계산, 모드 단면/굴절률 시각화, 파장별 특성, 메시 수렴.
 - **원본 솔버:** [universal_radial.py](../../universal_silica_v01/universal_radial.py) — Scipy radial P1 FEM.
 - **결과 데이터:** [comparison.csv](./comparison.csv) · [spectrum.csv](./spectrum.csv) · [mesh_convergence.csv](./mesh_convergence.csv) · [summary.json](./summary.json)

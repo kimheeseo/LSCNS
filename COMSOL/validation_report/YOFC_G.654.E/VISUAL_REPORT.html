@@ -22,18 +22,25 @@ table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}th,td{tex
 details{border:1px solid var(--border);border-radius:11px;padding:10px 14px;background:#12243c;margin:12px 0}summary{cursor:pointer;font-weight:700;color:#bee5f8}code{color:#f2c888}footer{color:var(--muted);margin-top:30px;padding-top:22px;border-top:1px solid var(--border);font-size:13px}
 @media(max-width:970px){.layout{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0;border-bottom:1px solid var(--border);padding:17px 22px}.sidebar nav{display:flex;gap:3px;flex-wrap:wrap;margin:10px 0}.sidebar nav a{padding:7px 9px}.sidebox{display:none}.info-grid{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:23px 13px 60px}.section{padding:17px}.hero{padding:22px}}@media(max-width:520px){.summary{grid-template-columns:1fr}table{font-size:12px}th,td{padding:8px 6px}.section{overflow:auto}}
 @media print{.layout{display:block}.sidebar{display:none}main{width:100%;padding:5mm}.section{break-inside:avoid}.hero{background:#fff;color:#111}.figure{max-height:140mm}.notice{background:#fff;color:#333}}
+.slope-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0 20px}
+.slope-item{min-width:0;border:1px solid #38536d;background:#1a3049;border-radius:12px;padding:16px}
+.slope-item strong{display:block;font-size:clamp(18px,2.4vw,28px);font-variant-numeric:tabular-nums;margin:6px 0;color:#e8faff;overflow-wrap:anywhere}
+.slope-item small{display:block;font-size:12px;color:#b7cde0}
+.viz-container{display:block;max-width:100%;overflow-x:auto;border-radius:12px}
+.viz-container .figure{display:block;width:100%;max-width:100%;height:auto;margin:auto}
+@media(max-width:900px){.slope-grid{grid-template-columns:1fr}} 
 </style>
 </head>
 <body>
 <div class="layout"><aside class="sidebar">
 <div class="logo">LSCNS · COMSOL</div><p class="small">YOFC G.654.E<br>Visual Validation Report<br>2026-11-03</p>
 <nav aria-label="보고서 목차">
-<a href="#summary">01 · 핵심 계산 결과</a><a href="#geometry">02 · 광섬유 단면 / 모드</a><a href="#index">03 · 굴절률 분포</a><a href="#spectrum">04 · 파장별 특성</a><a href="#convergence">05 · 메시 수렴 검토</a><a href="#limitations">06 · 검증 범위</a><a href="#files">07 · 재실행 자료</a>
+<a href="#summary">01 · 핵심 계산 결과</a><a href="#geometry">02 · 광섬유 단면 / 모드</a><a href="#index">03 · 굴절률 분포</a><a href="#spectrum">04 · 파장별 특성</a><a href="#slopes">05 · S₁₅₅₀ / λ₀ / S₀</a><a href="#convergence">06 · 메시 수렴 검토</a><a href="#limitations">07 · 검증 범위</a><a href="#files">08 · 재실행 자료</a>
 </nav>
 <div class="sidebox"><strong>MODEL INPUT</strong><span>Step-index · LP₀₁</span><span>λ = 1550 nm</span><span>Core radius = 5.4 µm</span><span>Core Δn = 0.004</span><span>FEM R = 40 µm</span><span>n₂ = 2.2×10⁻²⁰ m²/W</span><span>Elements = 750</span></div></aside>
 <main>
 <section class="hero"><div class="kicker">FIBER OPTICS · NUMERICAL BENCHMARK</div><h1>YOFC G.654.E<br>광섬유 FEM 시각화 검증 보고서</h1>
-<p>숫자만으로 이해하기 어려운 MFD·Aeff·색분산 결과를 <strong>광섬유 단면, LP₀₁ 모드 강도, 굴절률 프로파일 및 파장별 곡선</strong>과 연결해 설명합니다. 그래프의 값은 Python/SciPy 원통대칭 반경 P1 FEM 계산 결과입니다.</p>
+<p>숫자만으로 이해하기 어려운 MFD·Aeff·색분산 결과를 <strong>광섬유 단면, LP₀₁ 모드 강도, 굴절률 프로파일 및 파장별 곡선</strong>과 연결해 설명합니다. 기존 SciPy FEM 검증을 바탕으로 최신 웹 솔버 JavaScript v0.2.1의 원통대칭 반경 P1 FEM을 다시 실행한 결과입니다.</p>
 <div class="notice"><strong>검증 범위:</strong> YOFC 실물 제품의 독립 검증이 아닙니다. 코어 반경 5.4 µm와 Δn=0.004는 제품의 실제 제조 파라미터가 아닌, 제공된 MFD·Aeff 대표값에 맞춰 설정한 <strong>가상 Step-index 모델</strong>입니다.</div>
 <div class="links"><a class="btn" href="VALIDATION_REPORT.md">Markdown 검증 보고서</a><a class="btn" href="YOFC_G.654.E_validation.ipynb">Jupyter Notebook</a><a class="btn" href="https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/">웹 솔버 열기</a></div>
 </section>
@@ -41,6 +48,7 @@ details{border:1px solid var(--border);border-radius:11px;padding:10px 14px;back
 <img class="figure" src="assets/dashboard.svg" alt="유효굴절률, 모드 필드 직경, 유효면적, 색분산의 1550 nm 해석값 카드" loading="eager">
 <div class="summary"><div class="stat"><div class="name">n_eff</div><strong>1.446099217</strong><small>파동 전파상수 β/k₀ · 직접 비교 사양 없음</small></div>
 <div class="stat"><div class="name">MFD_PII</div><strong>11.8340 µm</strong><small>빛이 퍼지는 모드 크기 · YOFC 11.4–12.2</small></div><div class="stat"><div class="name">Aeff</div><strong>110.3678 µm²</strong><small>유효 광 면적 · YOFC typical 110</small></div><div class="stat"><div class="name">D @1550 nm</div><strong>20.1031</strong><small>ps/(nm·km) · YOFC 상한 ≤22</small></div></div>
+<p class="annotation">새로 추가된 <strong>분산 기울기 S₁₅₅₀ / 영분산 파장 λ₀ / S₀</strong>는 동일한 가상 단면 모델에서 웹 솔버 v0.2.1로 계산했습니다. 수치 데이터와 소스 SHA는 아래 다운로드 섹션에서 확인할 수 있습니다.</p>
 <div class="info-grid"><article><h3>왜 코어 직경과 MFD는 다를까요?</h3>물리적인 코어 직경은 <strong>10.8 µm</strong>이지만, LP₀₁ 필드가 클래딩까지 연장되므로 Petermann-II MFD가 <strong>11.834 µm</strong>로 다르게 계산됩니다.</article><article><h3>왜 Aeff를 계산하나요?</h3>광의 강도 분포로 정의되는 면적입니다. 물리적인 코어 면적 π(5.4)²≈91.6 µm²와 달리, 본 모델의 Aeff는 <strong>110.368 µm²</strong>입니다. 비선형계수 γ 산출에도 쓰입니다.</article></div>
 </section>
 <section class="section" id="geometry"><span class="kicker">02 / GEOMETRY AND MODE</span><h2>광섬유 단면과 LP₀₁ 빛의 분포</h2><img class="figure" src="assets/mode_index.svg" alt="FEM LP01 모드 강도 단면 및 반경별 굴절률 변화">
@@ -64,21 +72,32 @@ details{border:1px solid var(--border);border-radius:11px;padding:10px 14px;back
 <article><h3>색분산 D의 변화</h3><p>1550 nm에서 <strong>D=20.103 ps/(nm·km)</strong>, 근방 기울기는 <strong>0.059088 ps/(nm²·km)</strong>입니다. YOFC 1550 nm 상한인 D≤22, slope≤0.070과 모델값을 비교할 수 있습니다.</p></article></div>
 <div class="notice">YOFC 사양표에서 <strong>≤22 ps/(nm·km)는 1550 nm 조건</strong>입니다. 그래프의 D(1590–1620 nm)가 22를 넘는다고 해서 전체 파장에 같은 규격을 적용할 수는 없습니다.</div>
 </section>
-<section class="section" id="convergence"><span class="kicker">05 / NUMERICAL CONVERGENCE</span><h2>메시 수를 늘려도 결과가 유지되나요?</h2>
-<p>위 그림의 아랫줄은 300, 500, 750, 1000개 반경 요소에서 Aeff가 <strong>110.373769 → 110.367343 µm²</strong>로 수렴하는 모습을 보여 줍니다.</p>
-<table><thead><tr><th>Elements</th><th>MFD PII (µm)</th><th>Aeff (µm²)</th><th>D1550</th></tr></thead><tbody>
-<tr><td>300</td><td>11.834270</td><td>110.373769</td><td>20.102564</td></tr><tr><td>500</td><td>11.834089</td><td>110.369281</td><td>20.102950</td></tr><tr><td><strong>750</strong></td><td><strong>11.834031</strong></td><td><strong>110.367841</strong></td><td><strong>20.103068</strong></td></tr><tr><td>1000</td><td>11.834011</td><td>110.367343</td><td>20.103109</td></tr></tbody></table>
-<p>750→1000에서 Aeff 상대 차이는 약 <strong>0.000451%</strong>입니다. 이는 <strong>FEM 수치 안정성</strong>을 의미하고 실제 제품과의 비교 실험을 의미하지 않습니다.</p>
+<section class="section" id="slopes"><span class="kicker">05 / DISPERSION SLOPE DIAGNOSTICS · WEB SOLVER 0.2.1</span>
+<h2>1550 nm 분산 기울기와 영분산 기울기는 어디에서 다른가요?</h2>
+<div class="slope-grid">
+<article class="slope-item"><small>S₁₅₅₀ (1550 nm에서의 기울기)</small><strong>0.059089</strong><small>ps/(nm²·km) · YOFC @1550 상한 ≤0.070</small></article>
+<article class="slope-item"><small>λ₀ (D=0인 영분산 파장)</small><strong>1275.457 nm</strong><small>YOFC 사양표에 미제공</small></article>
+<article class="slope-item"><small>S₀ (λ₀에서의 기울기)</small><strong>0.093979</strong><small>ps/(nm²·km) · YOFC 사양표에 미제공</small></article>
+</div>
+<div class="viz-container"><img class="figure" src="assets/dispersion_slopes.svg" alt="D(lambda)=0인 영분산 파장 lambda0, S0 접선과 1550 nm에서 S1550 접선을 별도로 표시" loading="lazy"></div>
+<div class="info-grid"><article><h3>S₁₅₅₀ · 1550 nm에서 계산</h3><p>현재 모델의 1540 nm와 1560 nm 색분산 차이를 20 nm로 나누어 계산합니다. <strong>0.059089 ps/(nm²·km)</strong>이며, YOFC 표의 <strong>1550 nm 분산 기울기 상한 ≤0.070</strong>과 비교할 수 있습니다.</p></article>
+<article><h3>S₀ · 영분산점에서 계산</h3><p>1100~1550 nm를 검색하여 <strong>D(λ₀)=0</strong>인 지점을 찾고, λ₀±10 nm에서 D의 기울기를 구합니다. <strong>0.093979 ps/(nm²·km)</strong>이나 YOFC가 제공한 제품 S₀ 값은 없습니다.</p></article></div>
+<div class="notice"><strong>정의 혼동 주의:</strong> S₁₅₅₀와 S₀를 같은 규격과 비교하면 안 됩니다. <strong>YOFC의 0.070 상한은 1550 nm 조건에 해당</strong>합니다. λ₀=1275.457 nm와 S₀는 이 가상 모델의 계산 예측값입니다. COMSOL Wave Optics 실험이나 YOFC 실측 데이터가 아닙니다.</div>
+<p class="annotation">방법: D(λ)는 FEM n_eff(λ)의 5점 파장 차분(5 nm), S는 D(λ±10 nm)의 중앙 차분이며, λ₀는 D(λ) 부호 변경으로 bracket한 후 근을 세분 탐색합니다.</p>
 </section>
-<section class="section" id="limitations"><span class="kicker">06 / SCOPE AND LIMITS</span><h2>가능한 계산과 아직 검증할 수 없는 항목</h2>
+
+<section class="section" id="convergence"><span class="kicker">06 / NUMERICAL CONVERGENCE</span><h2>최신 Web v0.2.1 메시 수렴 확인</h2>
+<p>기존 Python SciPy 계산값과 별개로, <strong>현재 웹 솔버</strong>가 요청한 요소 수와 실제 FEM 요소 수를 표시합니다. 내부 구간 분할 반올림 때문에 300/500 요청이 각각 301/501 실제 요소로 계산될 수 있습니다.</p>
+<table><thead><tr><th>요청</th><th>실제 요소</th><th>MFD_PII (µm)</th><th>Aeff (µm²)</th><th>n_eff</th></tr></thead><tbody><tr><td>300</td><td>301</td><td>11.834271</td><td>110.373822</td><td>1.446099072</td></tr><tr><td>500</td><td>501</td><td>11.834088</td><td>110.369268</td><td>1.446099183</td></tr><tr><td>750</td><td>750</td><td>11.834031</td><td>110.367841</td><td>1.446099217</td></tr><tr><td>1000</td><td>1000</td><td>11.834011</td><td>110.367343</td><td>1.446099230</td></tr></tbody></table><p>750→1000에서 <strong>Aeff 변화율 0.000451%</strong>. 이 값은 수치해의 안정성 확인이지 실제 제조사 제품 검증을 의미하지 않습니다.</p></section>
+<section class="section" id="limitations"><span class="kicker">07 / SCOPE AND LIMITS</span><h2>가능한 계산과 아직 검증할 수 없는 항목</h2>
 <table><thead><tr><th>항목</th><th>현재 상태</th><th>이유 / 추가 자료</th></tr></thead><tbody>
 <tr><td>LP₀₁ 모드, n_eff, MFD, Aeff, D, D slope</td><td>가상 모델 계산 완료</td><td>반경 P1 FEM과 Sellmeier + 상수 Δn 가정</td></tr>
 <tr><td>실제 YOFC 내부 단면</td><td>검증 불가</td><td>측정 RIP/도핑 물성 미제공</td></tr>
 <tr><td>감쇠, Cable cut-off, PMD, 굽힘 손실</td><td>계산하지 않음</td><td>제품별 추가 물성/측정 모델 필요</td></tr>
-<tr><td>상용 COMSOL Wave Optics 결과</td><td>실행 안 함</td><td>본 보고서는 SciPy 기반 scalar radial FEM</td></tr>
+<tr><td>상용 COMSOL Wave Optics 결과</td><td>실행 안 함</td><td>본 보고서의 재실행 엔진은 JavaScript Web v0.2.1 scalar radial FEM (이전 SciPy 결과와 대조)</td></tr>
 </tbody></table></section>
-<section class="section" id="files"><span class="kicker">07 / REPRODUCIBILITY</span><h2>원본 코드와 검증 결과 다시 확인하기</h2>
-<div class="links"><a class="btn" href="YOFC_G.654.E_validation.ipynb">검증 Notebook</a><a class="btn" href="VALIDATION_REPORT.md">텍스트 보고서</a><a class="btn" href="comparison.csv">사양 비교 CSV</a><a class="btn" href="spectrum.csv">파장 스윕 CSV</a><a class="btn" href="mesh_convergence.csv">메시 수렴 CSV</a><a class="btn" href="summary.json">조건/결과 JSON</a></div>
+<section class="section" id="files"><span class="kicker">08 / REPRODUCIBILITY</span><h2>원본 코드와 검증 결과 다시 확인하기</h2>
+<div class="links"><a class="btn" href="YOFC_G.654.E_validation.ipynb">검증 Notebook</a><a class="btn" href="VALIDATION_REPORT.md">텍스트 보고서</a><a class="btn" href="comparison.csv">사양 비교 CSV</a><a class="btn" href="spectrum.csv">파장 스윕 CSV</a><a class="btn" href="mesh_convergence.csv">메시 수렴 CSV</a><a class="btn" href="summary.json">조건/결과 JSON</a><a class="btn" href="web_solver_rerun.json">최신 웹 솔버 실행값</a><a class="btn" href="dispersion_curve_web.csv">분산 곡선 CSV</a><a class="btn" href="web_mesh_convergence.csv">웹 메시 수렴 CSV</a></div>
 <p class="annotation">Model input: Step-index · λ=1550 nm · core radius=5.4 µm · Δn=0.004 · R=40 µm · n₂=2.2×10⁻²⁰ m²/W · elements=750.</p>
 </section>
-<footer>LSCNS / COMSOL · YOFC G.654.E illustration · 2026-11-03 · 과학적 모델 한계를 명시한 참고 검증 보고서</footer></main></div></body></html>
+<footer>LSCNS / COMSOL · Web v0.2.1 YOFC G.654.E rerun · 2026-11-03 · fitted surrogate FEM only; not manufacturer certification</footer></main></div></body></html>

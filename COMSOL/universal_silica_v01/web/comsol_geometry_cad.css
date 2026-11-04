@@ -1,0 +1,78 @@
+
+/* COMSOL-inspired dynamic 2D geometry CAD / Circle / Rotate settings */
+body.ls-comsol-shell.ls-cad-active .layout{grid-template-columns:228px minmax(395px,510px) minmax(0,1fr)!important}
+body.ls-comsol-shell.ls-cad-active .ls-study-pane{display:none!important}
+body.ls-comsol-shell.ls-cad-active .ls-output-console{grid-column:3/4!important}
+body.ls-comsol-shell.ls-cad-active main.workspace>*:not(.ls-graphics-head):not(#ls-cad-graphics){display:none!important}
+body.ls-comsol-shell.ls-cad-active .sidebar.ls-config-active{padding:0!important}
+body.ls-comsol-shell.ls-cad-active .sidebar.ls-config-active > :not(#ls-cad-pane){display:none!important}
+body.ls-comsol-shell .ls-cad-pane{display:flex;flex-direction:column;min-height:100%;background:white;color:#324b63}
+body.ls-comsol-shell .ls-cad-pane[hidden],body.ls-comsol-shell #ls-cad-graphics[hidden],.ls-cad-pane [hidden],#ls-cad-menu[hidden]{display:none!important}
+body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
+.ls-cad-tools{display:flex;gap:10px;padding:9px 14px 4px;flex-wrap:wrap}
+.ls-cad-tools button{border:0;background:transparent;color:#377bb1;padding:5px 6px;font-size:11px;border-radius:2px}
+.ls-cad-tools button:hover{background:#e3f1fc}
+.ls-cad-section{margin:8px 0 11px;border:1px solid #d8e2ea;border-radius:2px;overflow:hidden;background:white}
+.ls-cad-section>summary{list-style:none;padding:7px 10px;background:#e7f0f8;font-size:12px;color:#486884;font-weight:650;cursor:pointer}
+.ls-cad-section>summary::-webkit-details-marker{display:none}
+.ls-cad-section>summary:before{content:"▾";margin-right:6px;color:#6d7e8e}
+.ls-cad-section:not([open])>summary:before{content:"▸"}
+.ls-cad-field{display:grid;grid-template-columns:120px minmax(0,1fr) 26px;align-items:center;gap:8px;min-height:38px;padding:3px 9px}
+.ls-cad-field label{font-size:11px;color:#50657a;font-weight:550}
+.ls-cad-field input,.ls-cad-field select{width:100%;min-width:0;min-height:28px;border:1px solid #c4d0dc;background:#fff;padding:5px 7px;border-radius:2px;color:#2b465e;font-size:12px}
+.ls-cad-field span{font-size:10px;color:#688096}
+.ls-cad-layer{display:grid;grid-template-columns:120px 1fr;gap:0;padding:8px 10px 12px}
+.ls-cad-layer>span{background:#edf2f7;border:1px solid #d2dce5;padding:7px 9px;font-size:10px}
+.ls-cad-layer>label{padding:8px 10px;font-size:11px;border:1px solid #d2dce5}
+.ls-cad-layer>input{min-width:0;width:100%;border:1px solid #d2dce5;background:#fff;padding:5px 7px;color:#314a60}
+.ls-cad-check{display:flex;align-items:center;gap:8px;padding:10px 10px 5px;font-size:11px;color:#405975}
+.ls-cad-check input{accent-color:#2685bb}
+.ls-cad-block-label{font-size:11px;color:#566d80;display:block;padding:10px 10px 5px}
+.ls-cad-inputs{border:1px solid #d0dce8;background:#f8fbfe;margin:2px 10px 6px;padding:5px;min-height:59px;max-height:136px;overflow:auto;font-size:11px}
+.ls-cad-inputs label{display:block;padding:5px 6px}
+.ls-cad-section>small{padding:6px 10px 10px;display:block;color:#7c8c9c;font-size:10px}
+.ls-cad-mini{border:1px solid #d0dce6;margin:13px 0;overflow:hidden;border-radius:3px}
+.ls-cad-mini svg{width:100%;display:block;max-height:180px;background:white}
+#ls-cad-graphics{order:1!important;flex:1;min-height:320px;display:flex;flex-direction:column;border:1px solid #c3d0dc;background:#fff;margin:8px 0 14px}
+.ls-cad-graphics-bar{min-height:40px;display:flex;align-items:center;gap:12px;padding:5px 12px;background:#f6f9fc;border-bottom:1px solid #c7d5e3}
+.ls-cad-graphics-bar b{font-size:12px;color:#326e9d}
+.ls-cad-graphics-bar span{font-size:10px;color:#7690a3}
+.ls-cad-graphics-bar div{margin-left:auto;display:flex;gap:4px}
+.ls-cad-graphics-bar button{border:1px solid #cbd9e5;background:#fff;color:#337eb6;min-width:30px;height:29px;border-radius:3px;font-size:15px}
+#ls-cad-view{width:100%;height:auto;max-height:min(68vh,590px);flex:1;min-height:0;touch-action:pan-y}
+#ls-cad-legend{padding:9px 12px;color:#657e92;font-size:11px;background:#f8fafb;border-top:1px solid #e0e7ee;line-height:1.45}
+.ls-cad-symbol{color:#cc8555;font-size:15px;display:inline-grid;place-items:center;width:17px;flex:none}
+.ls-cad-node-disabled{opacity:.5;text-decoration:line-through}
+.ls-cad-node>span:last-child{overflow:hidden;text-overflow:ellipsis}
+.ls-tree-preset-group{border-top:1px solid #e3eaf1;margin:7px 0 3px;padding-top:5px}
+.ls-tree-preset-group>small{display:block;padding:4px 6px;color:#8091a1}
+#ls-cad-menu{position:fixed;z-index:999999;width:300px;background:#fff;color:#31495f;box-shadow:0 6px 20px #182c4260;border:1px solid #adbfd2;border-radius:2px;font-size:12px;max-height:calc(100vh - 14px);overflow:visible}
+#ls-cad-menu>ul{max-height:calc(100vh - 18px);overflow-y:auto}
+#ls-cad-menu ul{margin:0;padding:5px 0;list-style:none;background:#fff;min-width:230px}
+#ls-cad-menu li{position:relative}
+#ls-cad-menu li>button{height:27px;display:flex;align-items:center;gap:8px;width:100%;padding:3px 13px;border:0;background:white;color:#364d61;font-size:12px;text-align:left;white-space:nowrap;cursor:pointer;border-radius:0}
+#ls-cad-menu li>button:hover{background:#d9e9fb;color:#135c98}
+#ls-cad-menu li.disabled>button{color:#99a6b4;cursor:not-allowed}
+#ls-cad-menu li.disabled>button:hover{background:white}
+#ls-cad-menu li>button kbd{margin-left:auto;background:transparent;font-size:10px;color:#718397;font-family:inherit}
+#ls-cad-menu li>button .arrow{margin-left:auto}
+#ls-cad-menu .ls-cad-menu-sep{height:1px;background:#e2e7ed;margin:5px 0}
+#ls-cad-menu li>ul{display:none;position:absolute;left:calc(100% - 2px);top:-5px;border:1px solid #b7c6d5;box-shadow:0 5px 15px #162e4640;min-width:200px}
+#ls-cad-menu li:hover>ul,#ls-cad-menu li:focus-within>ul{display:block}
+@media(max-width:1180px){
+ body.ls-comsol-shell.ls-cad-active .layout{grid-template-columns:195px minmax(340px,445px) minmax(0,1fr)!important}
+}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-cad-active .layout{grid-template-columns:minmax(315px,50%) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-cad-active .sidebar{grid-column:1!important}
+ body.ls-comsol-shell.ls-cad-active main.workspace{grid-column:2!important}
+ body.ls-comsol-shell.ls-cad-active .ls-output-console{grid-column:2!important}
+}
+@media(max-width:635px){
+ body.ls-comsol-shell.ls-cad-active .layout{display:block!important}
+ body.ls-comsol-shell.ls-cad-active .ls-cad-pane{min-height:0}
+ body.ls-comsol-shell.ls-cad-active main.workspace{display:flex!important;min-height:400px!important}
+ body.ls-comsol-shell.ls-cad-active #ls-cad-graphics{min-height:400px}
+ #ls-cad-menu{max-width:90vw}
+ #ls-cad-menu li>ul{left:0;top:25px;z-index:10}
+}

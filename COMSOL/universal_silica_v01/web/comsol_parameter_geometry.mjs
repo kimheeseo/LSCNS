@@ -282,6 +282,7 @@
  get("ls-geo-apply").addEventListener("click",apply);
  get("preset")?.addEventListener("change",()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});
  get("resetBtn")?.addEventListener("click",()=>{queueMicrotask(()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});});
+ document.addEventListener("ls-open-wave-optics",()=>{if(view)close();},true);
  document.addEventListener("ls-open-settings",e=>open(e.detail?.kind==="geometry"?"geometry":"parameters",e.detail?.circle));
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&view)close();});
 })();

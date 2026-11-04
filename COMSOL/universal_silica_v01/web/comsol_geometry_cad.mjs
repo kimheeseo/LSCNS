@@ -6,11 +6,21 @@
  const unit=n=>Number(n.toPrecision(10)).toString();
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
- let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um";
+ let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0;
+ const undoStack=[],redoStack=[];
+ function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn};}
+ function updateHistoryButtons(){
+  if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
+  if($("ls-cad-redo"))$("ls-cad-redo").disabled=!redoStack.length;
+  document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
+ }
+ function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
  <div class="ls-config-heading"><div><strong>Settings</strong><small id="ls-cad-subtitle">Circle</small></div><button type="button" id="ls-cad-close">← Fiber settings</button></div>
- <div class="ls-cad-tools"><button id="ls-cad-build-selected" type="button">▣ Build Selected</button><button id="ls-cad-build-all" type="button">▦ Build All Objects</button></div>
+ <div class="ls-cad-tools"><button id="ls-cad-build-selected" type="button">▣ Build Selected</button><button id="ls-cad-build-all" type="button">▦ Build All Objects</button><button id="ls-cad-undo" type="button" disabled title="Ctrl+Z">↶ Undo</button><button id="ls-cad-redo" type="button" disabled title="Ctrl+Shift+Z">↷ Redo</button></div>
  <div class="ls-config-body">
   <div id="ls-cad-root-settings" hidden>
    <div class="ls-setting-line"><label for="ls-cad-root-label">Label</label><input id="ls-cad-root-label" value="Geometry 1"/></div>
@@ -179,24 +189,31 @@
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
  function add(kind,pos=nodes.length){
-  const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;open();say(`${n.label} added. Configure and Build All.`);
+  checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;open();say(`${n.label} added. Configure and Build All.`);
  }
  function modify(cmd,arg){
   const idx=index(selected),n=cur();
+   if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
    case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":limit=null;draw();say("All Geometry features built in preview.");return;
-   case "build-selected":if(!n)return;limit=idx;draw();say("Build Selected finished (preview).");return;
-   case "build-preceding":if(!n)return;limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
-   case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
-   case "duplicate":{const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
-   case "delete":{nodes.splice(idx,1);if(!nodes.length)nodes=defaults();selected=nodes[Math.min(idx,nodes.length-1)].id;limit=null;loadFields();return;}
-   case "toggle":{n.enabled=!n.enabled;limit=null;loadFields();say(`${n.label} ${n.enabled?"enabled":"disabled"}.`);return;}
-   case "rename":open();$("ls-cad-label").focus();$("ls-cad-label").select();return;
+   case "build-all":checkpoint();limit=null;draw();say("All Geometry features built in preview.");return;
+   case "build-selected":if(!n)return;checkpoint();limit=idx;draw();say("Build Selected finished (preview).");return;
+   case "build-preceding":if(!n)return;checkpoint();limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
+   case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
+   case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
+   case "delete":{if(!n)return;checkpoint();nodes.splice(idx,1);if(!nodes.length)nodes=defaults();selected=nodes[Math.min(idx,nodes.length-1)].id;limit=null;loadFields();return;}
+   case "toggle":{if(!n)return;checkpoint();n.enabled=!n.enabled;limit=null;loadFields();say(`${n.label} ${n.enabled?"enabled":"disabled"}.`);return;}
+   case "rename":if(!n)return;open();$("ls-cad-label").focus();$("ls-cad-label").select();return;
    case "settings":open();return;
-   case "copy":clipboard=structuredClone(n);say(n.label+" copied in Geometry editor.");return;
+   case "copy":if(!n)return;clipboard=structuredClone(n);say(n.label+" copied in Geometry editor.");return;
+   case "paste":if(!clipboard)return;{
+    checkpoint();const obj=structuredClone(clipboard),item=fresh(obj.kind,Math.max(idx+1,0));
+    obj.id=item.id;obj.label=item.label;
+    nodes.splice(Math.max(idx+1,0),0,obj);selected=obj.id;limit=null;loadFields();
+    say("Pasted "+obj.label+" into Geometry sequence.");return;
+   }
    case "copy-code":{
-    const body=JSON.stringify(n,null,2);
+    if(!n)return;const body=JSON.stringify(n,null,2);
     if(navigator.clipboard?.writeText)navigator.clipboard.writeText(body).then(()=>say("Feature JSON copied.")).catch(()=>say("Clipboard unavailable; use Export JSON.",true));
     else say("Clipboard unavailable; use Export JSON.",true);
     return;
@@ -243,7 +260,7 @@
    menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"})]}),
    menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
-   menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
+   menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
    menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:"F3"}),menuAction("Rename","rename",{shortcut:"F2"}),
    {sep:true},menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];

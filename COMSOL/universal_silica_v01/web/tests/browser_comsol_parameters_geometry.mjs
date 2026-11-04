@@ -11,7 +11,7 @@ try{
  page.on("pageerror",err=>errors.push(err.message));
  await page.goto(url,{waitUntil:"load",timeout:90000});
  await page.waitForSelector(".ls-model-tree");
- await page.waitForSelector("#ls-config-pane");
+ await page.waitForSelector("#ls-config-pane",{state:"attached"});
  await page.locator('.ls-model-tree [data-action="settings"]').click();
  assert.equal(await page.locator("#ls-parameters-view").isVisible(),true);
  assert.equal(await page.locator("#ls-parameter-rows tr").count(),10);

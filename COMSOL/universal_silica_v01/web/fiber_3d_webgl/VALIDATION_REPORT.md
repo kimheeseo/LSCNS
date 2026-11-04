@@ -1,3 +1,11 @@
+## v0.3 visible playback upgrade — 2026-11-04
+
+- 연속적인 z 재생 위치를 셰이더에서 사용하여 발광 강도 선단 및 잔광을 표시. 입력 광장은 기존 BPM 계산된 snapshots만 사용.
+- 단면 링은 실제 입구 XY 형상으로부터 추출하여 z 방향으로 이동. 위치 표시이지 새로운 물리장 또는 경계조건이 아님.
+- 기존 700 ms setInterval 슬라이드 대신 requestAnimationFrame, 3/6/12초 재생과 계산 완료 후 자동 시작.
+- 웹 단위 검사에서 광장 형상, moving-ring geometry, HCF geometry 및 UI 연결 확인.
+- 실제 소비자 GPU의 픽셀 품질/프레임 속도는 별도 기기 검증이 필요. 기존 Web Smoke CI 실패는 별도의 COMSOL_Install/web/smoke.cjs 단계에서 발생했으며 이 3D 검증과 구분해야 함.
+
 # WebGL 3D Fiber Visualization — Validation record
 
 Date: 2026-11-04 · Research prototype v0.2

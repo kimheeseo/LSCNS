@@ -1,0 +1,27 @@
+name: COMSOL Fiber 3D WebGL Playback
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "COMSOL/universal_silica_v01/web/fiber_3d_ui.mjs"
+      - "COMSOL/universal_silica_v01/web/fiber_3d_webgl.mjs"
+      - "COMSOL/universal_silica_v01/web/tests/test_fiber_3d_webgl.mjs"
+      - ".github/workflows/waveoptics-3d-webgl-playback.yml"
+permissions:
+  contents: read
+jobs:
+  webgl3d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript module parse
+        run: |
+          node --check COMSOL/universal_silica_v01/web/fiber_3d_webgl.mjs
+          node --check COMSOL/universal_silica_v01/web/fiber_3d_ui.mjs
+          node --check COMSOL/universal_silica_v01/web/fiber_3d_core.mjs
+      - name: 3D optical volume, moving cursor and continuous playback regression
+        run: node COMSOL/universal_silica_v01/web/tests/test_fiber_3d_webgl.mjs

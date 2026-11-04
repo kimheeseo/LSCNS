@@ -1,3 +1,9 @@
+## 2026-11-04 · 3D 광장 이동 효과 강화 (WebGL v0.3)
+
+[**3D 광 전파 및 애니메이션**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [WebGL 소스](fiber_3d_webgl.mjs) · [재생 단위 검사](tests/test_fiber_3d_webgl.mjs)
+
+**BPM 전파 계산**을 누르면 3D 광장이 자동으로 재생됩니다. 발광 선단 및 단면 링이 입구→출구로 이동하며 3/6/12초 속도, 수동 z 슬라이더, 자동 회전, 일시정지를 지원합니다. 움직이는 링/펄스는 **시각화용 진행 표시**로 실제 광학 시간 펄스 해석이 아닙니다. HCF 광 전파/손실 계산 미지원.
+
 ## 2026-11-04 · 실제 WebGL 3D 광장 애니메이션 v0.2
 
 [**▶ 기존 웹 툴에서 3D 회전·전파 애니메이션 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [실제 3D 렌더러 소스](fiber_3d_webgl.mjs) · [사용 설명서](fiber_3d_webgl/README.md) · [검증 범위](fiber_3d_webgl/VALIDATION_REPORT.md) · [소스 ZIP](fiber_3d_webgl/Fiber_3D_WebGL_Upgrade_v0_2.zip)

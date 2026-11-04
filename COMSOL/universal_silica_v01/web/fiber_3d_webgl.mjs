@@ -4,7 +4,7 @@
  * No external libraries/CDN or GitHub token required.
  * Fiber shell/tubes are physical geometry EXTRUSIONS (not 3D FEM meshes).
  */
-export const VIEWER_VERSION = '1.0.0';
+export const VIEWER_VERSION = '1.1.0';
 const TAU = Math.PI * 2;
 const clamp = (x,a,b) => Math.min(b,Math.max(a,x));
 function perspective(fovy,aspect,near,far){
@@ -28,9 +28,15 @@ layout(location=0) in vec3 aPos;
 layout(location=1) in vec4 aColor;
 uniform mat4 uMVP;
 uniform float uPointScale;
+uniform float uPulsePos;
+uniform bool uCursor;
 out vec4 vColor;
 out float vFrac;
-void main(){gl_Position=uMVP*vec4(aPos,1.0);vColor=aColor;vFrac=(aPos.z+2.6)/5.2;
+void main(){
+ float z=uCursor?(-2.6+5.2*uPulsePos):aPos.z;
+ gl_Position=uMVP*vec4(aPos.xy,z,1.0);
+ vColor=aColor;
+ vFrac=(z+2.6)/5.2;
  gl_PointSize=clamp(uPointScale/max(gl_Position.w,0.8),1.8,15.0);
 }`;
 const FS=`#version 300 es
@@ -40,15 +46,22 @@ in float vFrac;
 uniform bool uPoints;
 uniform float uReveal;
 uniform float uTime;
+uniform float uPulsePos;
+uniform bool uPulseOn;
 out vec4 outColor;
 void main(){
  if(uPoints){
-   if(vFrac>uReveal+0.006)discard;
+   if(vFrac>uReveal+0.032)discard;
    vec2 p=gl_PointCoord*2.0-1.0;
-   float halo=exp(-dot(p,p)*3.7);
+   float halo=exp(-dot(p,p)*3.8);
    if(halo<0.035)discard;
-   float pulse=0.73+0.27*cos((vFrac*20.0-uTime*2.6)*6.2831853);
-   outColor=vec4(vColor.rgb*(0.70+0.3*pulse),vColor.a*halo*0.75);
+   float delta=vFrac-uPulsePos;
+   float norm=delta/0.065;
+   float head=exp(-norm*norm);
+   float tail=delta<=0.0?exp(delta*7.0):0.0;
+   float bright=uPulseOn?(0.12+2.8*head+0.62*tail):0.85;
+   vec3 tone=mix(vColor.rgb,vec3(0.58,1.0,0.97),clamp(head*0.9,0.0,1.0));
+   outColor=vec4(tone*bright,vColor.a*halo*min(2.7,bright));
  } else outColor=vColor;
 }`;
 function pushVertex(out,x,y,z,color){out.push(x,y,z,...color);}
@@ -122,17 +135,26 @@ export function volumeFromBpm(data,{visualRadiusUm=15,axialSamples=42,maxPoints=
  }
  return {points:Float32Array.from(out),pointCount:out.length/7,peak,axialSamples:nz,stride};
 }
+/** Ring sweeps along z using entrance-outline geometry; display-only marker. */
+export function scanRingFromWireframe(geo){
+ const input=geo?.lines||[],out=[];
+ for(let i=0;i+13<input.length;i+=14){
+  if(Math.abs(input[i+2]+2.6)>1e-4||Math.abs(input[i+9]+2.6)>1e-4)continue;
+  for(const j of [i,i+7])out.push(input[j],input[j+1],0,.86,1,.51,.98);
+ }
+ return {lines:Float32Array.from(out),lineCount:out.length/14};
+}
 function gpuBuffer(gl,arr){const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);return b;}
 /** Attaches a genuine WebGL2 3D canvas above the old projected 2D fallback canvas. */
 export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()=>({})}){
  const scene2D=q('f3-scene'),parent=scene2D.parentElement;
- const toolbar=document.createElement('div');toolbar.className='f3-webgl-controls';toolbar.innerHTML='<button type="button" id="f3-view-3d" aria-pressed="true">◉ 3D WebGL</button><button type="button" id="f3-view-2d" aria-pressed="false">2D 투영</button><button type="button" id="f3-auto-orbit" aria-pressed="false">↻ 자동 회전</button><span id="f3-webgl-label">마우스 드래그: 회전 · 휠: 확대/축소</span>';
+ const toolbar=document.createElement('div');toolbar.className='f3-webgl-controls';toolbar.innerHTML='<button type="button" id="f3-view-3d" aria-pressed="true">◉ 3D WebGL</button><button type="button" id="f3-view-2d" aria-pressed="false">2D 투영</button><button type="button" id="f3-auto-orbit" aria-pressed="true">↻ 자동 회전</button><span id="f3-webgl-label">발광 전파 표시 · 마우스 회전 · 휠 확대/축소</span>';
  const c=document.createElement('canvas');c.id='f3-webgl';c.width=970;c.height=460;c.setAttribute('aria-label','3D WebGL animated optical fiber and BPM intensity volume');c.style.cssText='width:100%;height:auto;aspect-ratio:970/460;display:block;background:#071423;border:1px solid #38617b;border-radius:9px;touch-action:none';
  const css=document.createElement('style');css.textContent='#fiber-3d .f3-webgl-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 8px}#fiber-3d .f3-webgl-controls button{padding:6px 10px;font-size:11px}#fiber-3d .f3-webgl-controls [aria-pressed="true"]{border-color:#78e0e0;background:#16607a}#fiber-3d .f3-webgl-controls span{color:#a4c0d4;font-size:11px}';document.head.appendChild(css);
  parent.insertBefore(toolbar,scene2D);parent.insertBefore(c,scene2D);
  const label=toolbar.querySelector('#f3-webgl-label');
- let gl=null,p=null,vertexBuffer=null,volumeBuffer=null,wireframe=null,cloud=null;
- let active='3d',yaw=1.06,pitch=.36,distance=10,autoOrbit=false,now=0,reveal=0;
+ let gl=null,p=null,vertexBuffer=null,volumeBuffer=null,cursorBuffer=null,wireframe=null,cursorRing=null,cloud=null;
+ let active='3d',yaw=1.06,pitch=.36,distance=10,autoOrbit=true,now=0,reveal=0,playhead=0,pulseOn=false;
  let prev=0,raf=0,lastGeometryKey='',lastData=null,disposed=false,pointer=null,failed=false;
  try{
   gl=c.getContext('webgl2',{alpha:false,antialias:true,preserveDrawingBuffer:true});
@@ -158,7 +180,10 @@ export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()
    if(vertexBuffer)gl.deleteBuffer(vertexBuffer);
    vertexBuffer=gpuBuffer(gl,geo.lines);
    wireframe=geo;
-   lastGeometryKey=key;
+    if(cursorBuffer){gl.deleteBuffer(cursorBuffer);cursorBuffer=null;}
+    cursorRing=scanRingFromWireframe(geo);
+    if(cursorRing.lineCount)cursorBuffer=gpuBuffer(gl,cursorRing.lines);
+    lastGeometryKey=key;
    // Rebuild light volume for the new visual scaling.
    if(lastData)updateVolume(lastData);
   }catch(e){if(vertexBuffer){gl.deleteBuffer(vertexBuffer);vertexBuffer=null;}wireframe=null;lastGeometryKey='';label.textContent='3D 구조 오류: '+e.message;}
@@ -167,7 +192,7 @@ export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()
   if(failed)return;
   if(volumeBuffer){gl.deleteBuffer(volumeBuffer);volumeBuffer=null;}
   lastData=data;
-  if(!data?.slices?.length||!wireframe||q('f3-profile').value==='hcf'){cloud=null;return;}
+  if(!data?.slices?.length||!wireframe||q('f3-profile').value==='hcf'){cloud=null;pulseOn=false;return;}
   try{cloud=volumeFromBpm(data,{visualRadiusUm:wireframe.visualRadiusUm});volumeBuffer=gpuBuffer(gl,cloud.points);}
   catch(e){cloud=null;label.textContent='광장 3D 변환 실패: '+e.message;}
  }
@@ -183,8 +208,19 @@ export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()
   gl.uniform1f(gl.getUniformLocation(p,'uPointScale'),Math.max(9,Math.min(24,16*dpr)));
   gl.uniform1f(gl.getUniformLocation(p,'uReveal'),reveal);
   gl.uniform1f(gl.getUniformLocation(p,'uTime'),now);
+   gl.uniform1f(gl.getUniformLocation(p,'uPulsePos'),playhead);
+   gl.uniform1i(gl.getUniformLocation(p,'uPulseOn'),pulseOn?1:0);
+   gl.uniform1i(gl.getUniformLocation(p,'uCursor'),0);
   if(wireframe&&vertexBuffer){gl.depthMask(true);gl.disable(gl.BLEND);gl.uniform1i(gl.getUniformLocation(p,'uPoints'),0);bind(vertexBuffer);gl.drawArrays(gl.LINES,0,wireframe.lineCount*2);}
   if(cloud?.pointCount&&volumeBuffer){gl.depthMask(false);gl.disable(gl.DEPTH_TEST);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);gl.uniform1i(gl.getUniformLocation(p,'uPoints'),1);bind(volumeBuffer);gl.drawArrays(gl.POINTS,0,cloud.pointCount);gl.disable(gl.BLEND);gl.enable(gl.DEPTH_TEST);gl.depthMask(true);}
+   if(cloud?.pointCount&&cursorBuffer&&cursorRing?.lineCount){
+    gl.disable(gl.DEPTH_TEST);gl.depthMask(false);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);
+    gl.uniform1i(gl.getUniformLocation(p,'uCursor'),1);
+    gl.uniform1i(gl.getUniformLocation(p,'uPoints'),0);
+    bind(cursorBuffer);gl.drawArrays(gl.LINES,0,cursorRing.lineCount*2);
+    gl.uniform1i(gl.getUniformLocation(p,'uCursor'),0);
+    gl.disable(gl.BLEND);gl.enable(gl.DEPTH_TEST);gl.depthMask(true);
+   }
  }
  function tick(ts){if(disposed)return;const dt=prev?Math.min(.07,(ts-prev)/1000):0;prev=ts;now+=dt;if(autoOrbit)yaw+=dt*.18;draw();raf=requestAnimationFrame(tick);}
  if(!failed){scene2D.hidden=true;raf=requestAnimationFrame(tick);}
@@ -195,10 +231,11 @@ export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()
  c.addEventListener('wheel',e=>{e.preventDefault();distance=clamp(distance*Math.exp(e.deltaY*.0013),4.1,27);draw();},{passive:false});
  c.addEventListener('webglcontextlost',e=>{e.preventDefault();failed=true;setActive('2d');label.textContent='WebGL 컨텍스트 손실: 2D 화면으로 전환';});
  return {
-  update(data){if(failed)return;updateGeometry();if(data!==lastData)updateVolume(data);const idx=Number(q('f3-frame').value)||0;const total=data?.slices?.length||1;reveal=data?.slices?.length?clamp(idx/(total-1),0,1):0;draw();},
+  update(data){if(failed)return;updateGeometry();if(data!==lastData)updateVolume(data);if(!pulseOn){const idx=Number(q('f3-frame').value)||0;const total=data?.slices?.length||1;reveal=data?.slices?.length?clamp(idx/(total-1),0,1):0;playhead=reveal;}draw();},
+  setPlayhead(fraction,animated=true){playhead=clamp(Number(fraction)||0,0,1);reveal=playhead;pulseOn=Boolean(animated)&&Boolean(cloud?.pointCount);},
   png(){if(failed||active!=='3d')return null;draw();return c.toDataURL('image/png');},
   is3D(){return !failed&&active==='3d';},
-  stats(){return {webgl:!failed,active,points:cloud?.pointCount||0,lines:wireframe?.lineCount||0,reveal,version:VIEWER_VERSION};},
-  dispose(){disposed=true;if(raf)cancelAnimationFrame(raf);if(gl){if(vertexBuffer)gl.deleteBuffer(vertexBuffer);if(volumeBuffer)gl.deleteBuffer(volumeBuffer);if(p)gl.deleteProgram(p);}}
+  stats(){return {webgl:!failed,active,points:cloud?.pointCount||0,lines:wireframe?.lineCount||0,scanLines:cursorRing?.lineCount||0,reveal,playhead,pulseOn,version:VIEWER_VERSION};},
+  dispose(){disposed=true;if(raf)cancelAnimationFrame(raf);if(gl){if(vertexBuffer)gl.deleteBuffer(vertexBuffer);if(volumeBuffer)gl.deleteBuffer(volumeBuffer);if(cursorBuffer)gl.deleteBuffer(cursorBuffer);if(p)gl.deleteProgram(p);}}
  };
 }

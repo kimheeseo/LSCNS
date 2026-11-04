@@ -1,6 +1,6 @@
 /** Existing Universal Silica Fiber Lab: interactive 3D geometry and real scalar BPM viewer. */
 import {run3D,DEFAULT_3D} from './fiber_3d_core.mjs';
-import {mountFiberWebGL} from './fiber_3d_webgl.mjs';
+import {mountFiberWebGL} from './fiber_3d_webgl.mjs?v=20261104-visible-motion-v03';
 import {buildGeometry,DEFAULT as HD} from './hcf_designer.mjs';
 const css='#fiber-3d{margin:22px 0;padding:18px;background:#10223b;border:1px solid #35516b;border-radius:16px;color:#e6f4ff;scroll-margin-top:15px}#fiber-3d h2{font-size:23px;margin:5px 0 7px}#fiber-3d p{font-size:12px;color:#a8bdcf;line-height:1.7}#fiber-3d .f3-layout{display:grid;grid-template-columns:minmax(250px,300px) minmax(0,1fr);gap:13px;margin-top:16px}#fiber-3d .f3-form,#fiber-3d .f3-view{border:1px solid #36516b;background:#192d46;border-radius:12px;padding:12px;min-width:0}#fiber-3d label{display:block;font-size:12px;color:#bad6e6;margin:9px 0}#fiber-3d input,#fiber-3d select{width:100%;background:#0d1c30;border:1px solid #47617c;color:#ecf7ff;padding:9px;border-radius:7px;margin-top:5px}#fiber-3d button{background:#0a7085;border:1px solid #2cb4c8;color:#fff;padding:10px;border-radius:7px;cursor:pointer}#fiber-3d button:disabled{opacity:.42;cursor:not-allowed}#fiber-3d .f3-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}#fiber-3d .f3-buttons{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}#fiber-3d canvas{width:100%;display:block;background:#081729;border:1px solid #28435b;border-radius:7px}#fiber-3d .f3-charts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}#fiber-3d .f3-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}#fiber-3d .f3-stats div{background:#0a1c2e;border-radius:7px;padding:8px;font-size:11px}#fiber-3d .f3-stats strong{display:block;font-size:16px;margin-top:5px}#fiber-3d [hidden]{display:none!important}#fiber-3d .f3-status{font-size:11px;line-height:1.6;margin-top:9px;color:#f8dc9e}@media(max-width:950px){#fiber-3d .f3-layout{grid-template-columns:1fr}#fiber-3d .f3-stats{grid-template-columns:1fr 1fr}}';
 const style=document.createElement('style');style.textContent=css;document.head.append(style);
@@ -17,13 +17,13 @@ const panel=document.createElement('section');panel.id='fiber-3d';panel.innerHTM
 '<div class="f3-buttons"><button id="f3-run">BPM 전파 계산</button><button id="f3-csv" disabled>CSV</button><button id="f3-json" disabled>JSON</button><button id="f3-png">3D PNG</button></div><div id="f3-status" class="f3-status">계산 조건을 설정하세요. 실물 손실 및 HCF 전파는 지원하지 않습니다.</div>',
 '<p>FFT 경계는 <b>주기적</b>이며 PML이 아닙니다. z축은 시각화를 위해 압축했습니다. 입력을 변경하면 이전 계산은 무효화됩니다.</p></div>',
 '<div class="f3-view"><div class="f3-stats"><div>z 위치<strong id="f3-z">—</strong></div><div>MFD (2nd)<strong id="f3-mfd">—</strong></div><div>Aeff<strong id="f3-aeff">—</strong></div><div>Power error<strong id="f3-power">—</strong></div></div><canvas id="f3-scene" width="970" height="460"></canvas>',
-'<p>3D WebGL: 드래그로 시점 회전 · 휠 확대/축소 · 계산된 BPM 3D 강도 분포의 광장 재생. 2D 투영 전환 가능. HCF는 구조만 표시하며 3D Maxwell/FEM 계산이 아닙니다.</p><div class="f3-fields" style="align-items:end"><label>z 슬라이스 위치<input id="f3-frame" type="range" min="0" max="8" value="0"></label><button id="f3-play">▶ 애니메이션</button></div><div class="f3-charts"><canvas id="f3-slice" width="460" height="360"></canvas><canvas id="f3-chart" width="460" height="360"></canvas></div><p>왼쪽: 실제 BPM 횡단면 |A|² · 오른쪽: 전파 거리별 MFD (둘 다 Scalar intensity 기반)</p></div></div>'
+'<p><b>3D 광장 스캔:</b> 밝은 발광 선단이 광섬유 내부의 z 방향으로 연속 이동합니다. 단면 링과 강도 구름은 실제 BPM 공간 분포를 시각화합니다. <b>움직이는 발광 펄스는 광학 시간영역 펄스 해석이 아닌 시각 효과</b>입니다. HCF는 구조만 표시합니다.</p><div class="f3-fields" style="align-items:end"><label>광장 진행 위치<input id="f3-frame" type="range" min="0" max="8" value="0"></label><label>재생 속도<select id="f3-speed"><option value="3">빠름 · 3초</option><option selected value="6">보통 · 6초</option><option value="12">느림 · 12초</option></select></label><button id="f3-play">▶ 3D 광장 재생</button></div><div class="f3-charts"><canvas id="f3-slice" width="460" height="360"></canvas><canvas id="f3-chart" width="460" height="360"></canvas></div><p>왼쪽: 실제 BPM 횡단면 |A|² · 오른쪽: 전파 거리별 MFD (둘 다 Scalar intensity 기반)</p></div></div>'
 ].join('');
 const main=document.querySelector('main.workspace')||document.querySelector('main')||document.body;
 const intro=main.querySelector('.page-intro');if(intro)intro.insertAdjacentElement('afterend',panel);else main.prepend(panel);
 const top=document.querySelector('.top-right');if(top){const a=document.createElement('a');a.href='#fiber-3d';a.textContent='3D 전파';a.className='top-link';top.prepend(a);}
 const q=id=>document.getElementById(id),v=id=>Number(q(id).value);
-let data=null,angle=.7,drag=null,playing=null;
+let data=null,angle=.7,drag=null,playing=false,animationFrame=0,lastTs=0,progress=0,lastPaint=0;
 const view3d=mountFiberWebGL({
  panel,q,getData:()=>data,
  getSolidModel:()=>({...DEFAULT_3D,core_radius_um:v('f3-radius'),delta_n_core:v('f3-dn')}),
@@ -41,13 +41,41 @@ if(data){const snaps=data.slices,N=data.grid,step=Math.max(1,Math.floor(N/24)),a
 function slice(){const ca=q('f3-slice'),cx=ca.getContext('2d');cx.fillStyle='#081827';cx.fillRect(0,0,ca.width,ca.height);if(!data)return;const sn=data.slices[v('f3-frame')],n=data.grid,img=cx.createImageData(n,n),max=Math.max(...sn.intensity);for(let j=0;j<n*n;j++){const t=Math.pow(sn.intensity[j]/max,.55);img.data[j*4]=Math.round(12+240*t);img.data[j*4+1]=Math.round(15+135*t*t);img.data[j*4+2]=Math.round(80+110*(1-t));img.data[j*4+3]=255;}const temp=document.createElement('canvas');temp.width=n;temp.height=n;temp.getContext('2d').putImageData(img,0,0);cx.imageSmoothingEnabled=false;cx.drawImage(temp,70,40,310,310);cx.fillStyle='#d7edf7';cx.font='16px sans-serif';cx.fillText('|A|², z='+sn.z_um.toFixed(1)+' µm',15,24);}
 function chart(){const ca=q('f3-chart'),cx=ca.getContext('2d'),W=ca.width,H=ca.height;cx.fillStyle='#081827';cx.fillRect(0,0,W,H);if(!data)return;const h=data.history,max=Math.max(...h.map(x=>x.MFD_2nd_um))*1.12,l=48,t=44,r=W-16,b=H-39;cx.strokeStyle='#42617b';cx.beginPath();cx.moveTo(l,t);cx.lineTo(l,b);cx.lineTo(r,b);cx.stroke();cx.strokeStyle='#40dacd';cx.lineWidth=3;cx.beginPath();h.forEach((m,i)=>{const x=l+(r-l)*m.z_um/data.config.length_um,y=b-(b-t)*m.MFD_2nd_um/max;i?cx.lineTo(x,y):cx.moveTo(x,y);});cx.stroke();cx.fillStyle='#d7edf7';cx.font='16px sans-serif';cx.fillText('MFD (µm) vs propagation z (µm)',16,25);}
 function refresh(){scene();slice();chart();view3d.update(data);if(!data){for(const id of ['f3-z','f3-mfd','f3-aeff','f3-power'])q(id).textContent='—';return;}const sn=data.slices[v('f3-frame')],i=Math.round(sn.z_um/data.config.length_um*(data.history.length-1)),m=data.history[i];q('f3-z').textContent=sn.z_um.toFixed(1)+' µm';q('f3-mfd').textContent=m.MFD_2nd_um.toFixed(2)+' µm';q('f3-aeff').textContent=m.Aeff_um2.toFixed(2)+' µm²';q('f3-power').textContent=data.max_power_error.toExponential(1);}
-function invalidate(){if(playing){clearInterval(playing);playing=null;q('f3-play').textContent='▶ 애니메이션';}data=null;q('f3-csv').disabled=true;q('f3-json').disabled=true;q('f3-status').textContent='설계 변경: 이전 BPM 결과 무효화, 재계산 필요';refresh();}
+function stopPlayback(){
+ playing=false;
+ if(animationFrame)cancelAnimationFrame(animationFrame);
+ animationFrame=0;lastTs=0;
+ q('f3-play').textContent='▶ 3D 광장 재생';
+}
+function animate(ts){
+ if(!playing||!data)return;
+ if(lastTs)progress=(progress+Math.min((ts-lastTs)/1000,.15)/Math.max(2,Number(q('f3-speed').value)||6))%1;
+ lastTs=ts;
+ view3d.setPlayhead(progress,true);
+ const frame=Math.min(data.slices.length-1,Math.round(progress*(data.slices.length-1)));
+ if(Number(q('f3-frame').value)!==frame||ts-lastPaint>230){
+  q('f3-frame').value=frame;
+  refresh();
+  lastPaint=ts;
+ }
+ animationFrame=requestAnimationFrame(animate);
+}
+function startPlayback(){
+ if(!data)return;
+ stopPlayback();
+ progress=0;lastPaint=0;
+ q('f3-frame').value=0;
+ playing=true;q('f3-play').textContent='■ 재생 일시정지';
+ view3d.setPlayhead(0,true);
+ animationFrame=requestAnimationFrame(animate);
+}
+function invalidate(){stopPlayback();data=null;q('f3-csv').disabled=true;q('f3-json').disabled=true;q('f3-status').textContent='설계 변경: 이전 BPM 결과 무효화, 재계산 필요';refresh();}
 function updateMode(){const h=q('f3-profile').value==='hcf';for(const x of panel.querySelectorAll('[data-solid]'))x.hidden=h;q('f3-hcf').hidden=!h;q('f3-run').disabled=h;invalidate();if(h)q('f3-status').textContent='HCF: 3D 튜브 형상만 계산. 광장 전파·누설손실 미지원';}
-q('f3-profile').onchange=updateMode;for(const el of panel.querySelectorAll('input,select')){if(el.id==='f3-profile'||el.id==='f3-frame')continue;el.addEventListener('input',()=>{if(q('f3-profile').value==='hcf'){scene();view3d.update(null);return;}invalidate();});}
-q('f3-run').onclick=()=>{const btn=q('f3-run');btn.disabled=true;q('f3-status').textContent='실제 FFT Beam Propagation 계산 중...';setTimeout(()=>{try{const p={...DEFAULT_3D,profile:q('f3-profile').value,wavelength_nm:v('f3-lambda'),core_radius_um:v('f3-radius'),delta_n_core:v('f3-dn'),length_um:v('f3-length'),waist_um:v('f3-waist'),offset_um:v('f3-offset'),grid:v('f3-grid'),steps:v('f3-steps'),half_width_um:v('f3-width')};data=run3D(p);q('f3-frame').max=data.slices.length-1;q('f3-frame').value=data.slices.length-1;q('f3-json').disabled=false;q('f3-csv').disabled=false;const edge=data.history.at(-1).edge_power_fraction;q('f3-status').textContent='계산 완료: '+data.grid+'² × '+data.config.steps+' steps · Power error '+data.max_power_error.toExponential(2)+' · Edge energy '+(100*edge).toFixed(3)+'%'+(edge>.01?' (경계 오염 가능)':'')+' · loss dB/km 미계산';}catch(e){data=null;q('f3-status').textContent='계산 오류: '+e.message;}finally{btn.disabled=q('f3-profile').value==='hcf';refresh();}},25);};
-q('f3-frame').oninput=refresh;const save=(name,txt,type)=>{const url=URL.createObjectURL(new Blob([txt],{type})),a=document.createElement('a');a.download=name;a.href=url;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+q('f3-profile').onchange=updateMode;for(const el of panel.querySelectorAll('input,select')){if(el.id==='f3-profile'||el.id==='f3-frame'||el.id==='f3-speed')continue;el.addEventListener('input',()=>{if(q('f3-profile').value==='hcf'){scene();view3d.update(null);return;}invalidate();});}
+q('f3-run').onclick=()=>{const btn=q('f3-run');btn.disabled=true;q('f3-status').textContent='실제 FFT Beam Propagation 계산 중...';setTimeout(()=>{try{const p={...DEFAULT_3D,profile:q('f3-profile').value,wavelength_nm:v('f3-lambda'),core_radius_um:v('f3-radius'),delta_n_core:v('f3-dn'),length_um:v('f3-length'),waist_um:v('f3-waist'),offset_um:v('f3-offset'),grid:v('f3-grid'),steps:v('f3-steps'),half_width_um:v('f3-width')};data=run3D(p);q('f3-frame').max=data.slices.length-1;q('f3-frame').value=0;q('f3-json').disabled=false;q('f3-csv').disabled=false;const edge=data.history.at(-1).edge_power_fraction;q('f3-status').textContent='계산 완료: '+data.grid+'² × '+data.config.steps+' steps · Power error '+data.max_power_error.toExponential(2)+' · Edge energy '+(100*edge).toFixed(3)+'%'+(edge>.01?' (경계 오염 가능)':'')+' · loss dB/km 미계산';}catch(e){data=null;q('f3-status').textContent='계산 오류: '+e.message;}finally{btn.disabled=q('f3-profile').value==='hcf';refresh();if(data)startPlayback();}},25);};
+q('f3-frame').oninput=()=>{stopPlayback();refresh();if(data)view3d.setPlayhead(v('f3-frame')/Math.max(1,data.slices.length-1),true);};const save=(name,txt,type)=>{const url=URL.createObjectURL(new Blob([txt],{type})),a=document.createElement('a');a.download=name;a.href=url;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 q('f3-json').onclick=()=>data&&save('fiber_3d_bpm.json',JSON.stringify(data),'application/json');
 q('f3-csv').onclick=()=>{if(!data)return;const keys=['z_um','MFD_2nd_um','Aeff_um2','power','edge_power_fraction'];save('fiber_3d_bpm.csv',[keys.join(','),...data.history.map(h=>keys.map(k=>h[k]).join(','))].join('\n'),'text/csv');};
 q('f3-png').onclick=()=>{const a=document.createElement('a');a.href=view3d.png()||cn.toDataURL('image/png');a.download='fiber_3d.png';a.click();};
-q('f3-play').onclick=()=>{if(playing){clearInterval(playing);playing=null;q('f3-play').textContent='▶ 애니메이션';return;}if(!data)return;playing=setInterval(()=>{q('f3-frame').value=(v('f3-frame')+1)%data.slices.length;refresh();},700);q('f3-play').textContent='■ 일시정지';};
+q('f3-play').onclick=()=>{if(playing){stopPlayback();return;}startPlayback();};
 cn.addEventListener('pointerdown',e=>{drag=e.clientX;cn.setPointerCapture(e.pointerId);});cn.addEventListener('pointermove',e=>{if(drag!==null){angle+=(e.clientX-drag)*.009;drag=e.clientX;scene();}});cn.addEventListener('pointerup',()=>drag=null);updateMode();

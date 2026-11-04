@@ -1,3 +1,11 @@
+## v0.3 — 눈에 보이는 3D 광장 이동 애니메이션 (2026-11-04)
+
+- BPM 전파 계산 후 **자동 재생**: 예전에는 마지막 z 단면에 멈췄지만 이제 첫 z 위치부터 연속 재생.
+- **움직이는 발광 선단과 실제 단면으로부터 추출한 스캔 링**: 계산된 BPM 공간 강도를 따라 z 축으로 진행.
+- 3/6/12초 재생 속도, 일시정지/재생, z 슬라이더, 3D 카메라 회전, 기존 2D 모드 유지.
+- **시각 효과와 실제 물리 계산 구분**: 발광 펄스와 링은 공간 강도 스캔을 보여주는 시각 효과. 실제 시간영역 광 펄스를 계산하지 않음. 물리 계산은 2+1D Scalar FFT BPM, HCF는 형상만 지원.
+- WebGL2 미지원이면 기존 2D 화면으로 전환. 실제 모바일/PC GPU 성능과 프레임 속도는 기기에 따라 다름.
+
 ## v0.2 — Native WebGL2 3D Animation (2026-11-04)
 
 [기존 툴 내 실제 3D 모드 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [3D WebGL 모듈](../web/fiber_3d_webgl.mjs) · [UI 사용법](../web/fiber_3d_webgl/README.md) · [구현·검증 한계](../web/fiber_3d_webgl/VALIDATION_REPORT.md).

@@ -128,7 +128,7 @@ def main():
     history.to_csv(out / "training_history.csv", index=False)
     (out / "cosmos_split_scores.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
     progress.reach(100, f"Validation/Test 평가·결과 저장 완료: {out.resolve()}")
-    print(f"\\nSaved results to {out.resolve()}", flush=True)
+    print(f"\nSaved results to {out.resolve()}", flush=True)
     print("Note: COSMOS does not carry the OFC Aging/SHB/Unseen benchmark labels; those category scores require the labelled official TestGround.")
 
 

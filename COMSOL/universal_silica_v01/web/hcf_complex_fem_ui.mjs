@@ -23,7 +23,7 @@ const section=document.createElement('section');section.id='hcf-fem';section.inn
 <button id="fem-example" type="button">저장된 FEM 예시 보기</button>
 </div>
 <p id="fem-status" class="fem-status" role="status" aria-live="polite">현재 설계를 JSON으로 저장한 다음 Colab에서 FEM을 실행하고 계산 결과를 다시 가져오세요.</p>
-<div class="fem-warning" id="fem-warning">주의: 이 모듈의 dB/km 값은 전부 **수렴 미검증 예비 FEM 수치**입니다. 이를 인증 손실 또는 정확한 반공진 파장으로 해석하지 마세요. 공진·반공진 후보는 FEM 파장 스윕에서 검출한 국소 극값입니다.</div>
+<div class="fem-warning" id="fem-warning">주의: 이 모듈의 dB/km 값은 전부 수렴 미검증 예비 FEM 수치입니다. 이를 인증 손실 또는 정확한 반공진 파장으로 해석하지 마세요. 공진·반공진 후보는 FEM 파장 스윕에서 검출한 국소 극값입니다.</div>
 <div class="fem-metrics">
  <div class="fem-metric"><span>Re(neff) · Scalar FEM</span><strong id="fem-re">—</strong></div>
  <div class="fem-metric"><span>Im(neff) · Scalar FEM/PML</span><strong id="fem-im">—</strong></div>
@@ -98,6 +98,6 @@ function show(out){
 }
 q('fem-download').onclick=()=>{try{const d=getCurrent();save({...d,background_h_um:1.8,wall_edge_h_um:.65,domain_buffer_um:5,pml_thickness_um:8,pml_strength:2,pml_exponent:3,n_modes:6,max_nodes:28000},'HCF_design_for_scalar_complex_FEM.json');updateStatus('현재 HCF 설계 JSON을 저장했습니다. Colab에서 업로드한 뒤 실제 FEM을 실행하세요.');}catch(e){updateStatus('설계 오류: '+e.message);}};
 q('fem-import').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const obj=JSON.parse(await file.text());show(obj);}catch(error){clearResults('불러오기 실패: '+error.message);}finally{e.target.value='';}});
-q('fem-example').onclick=async()=>{try{const r=await fetch('./hcf_complex_fem/results/default_sweep.json');if(!r.ok)throw Error('GitHub Pages 배포 파일 확인 필요');show(await r.json());}catch(e){clearResults('예시 불러오기 실패: '+e.message);}};
+q('fem-example').onclick=async()=>{try{const r=await fetch('../hcf_complex_fem/results/default_sweep.json');if(!r.ok)throw Error('GitHub Pages 배포 파일 확인 필요');show(await r.json());}catch(e){clearResults('예시 불러오기 실패: '+e.message);}};
 parent.addEventListener('input',e=>{if(e.target.id==='hcf-external-im')return;if(!output)return;let changed=false;try{changed=!sameGeometry(getCurrent(),(output.results||[output])[0].input);}catch{changed=true;}if(changed)clearResults('설계 치수 변경: 기존 FEM 결과를 무효화했습니다. 새 설계로 Colab에서 다시 계산하세요.');});
 }

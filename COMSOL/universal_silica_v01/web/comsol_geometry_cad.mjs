@@ -291,13 +291,16 @@
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
- $("ls-cad-root-label").addEventListener("input",e=>{rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
- $("ls-cad-root-unit").addEventListener("change",e=>{lengthUnit=e.target.value;draw();});
+ $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
+ $("ls-cad-root-unit").addEventListener("change",e=>{checkpoint();lengthUnit=e.target.value;draw();});
+ $("ls-cad-undo").addEventListener("click",()=>modify("undo"));
+ $("ls-cad-redo").addEventListener("click",()=>modify("redo"));
+ document.addEventListener("ls-cad-command",e=>modify(e.detail?.command));
  $("ls-cad-build-selected").addEventListener("click",()=>modify("build-selected"));
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
- $("ls-cad-reset").addEventListener("click",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;loadFields();say("Geometry restored to original Circle 1 and 2.");});
+ $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;loadFields();say("Geometry restored to original Circle 1 and 2.");});
  $("ls-cad-apply").addEventListener("click",apply);
  $("ls-cad-export").addEventListener("click",()=>{
   const doc={format:"LS Optical Geometry CAD v2",parameters:svc.rows(),geometry:nodes};
@@ -305,17 +308,17 @@
   a.href=url;a.download="LS_Circle_Rotate_Geometry.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  });
  for(const key of ["type","radius","sector","base","x","y","rotation","layer","angle","cx","cy"]){
-  $("ls-cad-"+key).addEventListener("input",e=>{const n=cur();if(!n||!(key in n))return;n[key]=e.target.value;draw();});
+  $("ls-cad-"+key).addEventListener("input",e=>{const n=cur();if(!n||!(key in n))return;checkpoint();n[key]=e.target.value;draw();});
  }
- $("ls-cad-label").addEventListener("input",e=>{cur().label=e.target.value;drawTree();});
- $("ls-cad-keep").addEventListener("change",e=>{cur().keep=e.target.checked;draw();});
+ $("ls-cad-label").addEventListener("input",e=>{if(!cur())return;checkpoint();cur().label=e.target.value;drawTree();});
+ $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
   const b=e.target.closest("[data-cad-input]");if(!b)return;
-  const ids=new Set(cur().inputIds);b.checked?ids.add(b.dataset.cadInput):ids.delete(b.dataset.cadInput);
+  checkpoint();const ids=new Set(cur().inputIds);b.checked?ids.add(b.dataset.cadInput):ids.delete(b.dataset.cadInput);
   cur().inputIds=[...ids];draw();
  });
- $("ls-cad-selection").addEventListener("change",e=>{cur().selection=e.target.checked;$("ls-cad-physics").disabled=!e.target.checked;draw();});
- $("ls-cad-color").addEventListener("change",e=>{cur().color=e.target.value;draw();});
+ $("ls-cad-selection").addEventListener("change",e=>{checkpoint();cur().selection=e.target.checked;$("ls-cad-physics").disabled=!e.target.checked;draw();});
+ $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
  $("ls-cad-fit").addEventListener("click",()=>{zoom=1;draw();});
@@ -324,11 +327,16 @@
  $("ls-cad-view").addEventListener("contextmenu",e=>{const s=e.target.closest("[data-cad-shape]");if(s)showMenu(e,"node",s.dataset.cadShape);});
  document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){if(!context.hidden){context.hidden=true;e.stopImmediatePropagation();}else if(!pane.hidden)close();}
-  if(pane.hidden||["INPUT","TEXTAREA"].includes(document.activeElement?.tagName))return;
+  if(pane.hidden||["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName))return;
+   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();modify(e.shiftKey?"redo":"undo");return;}
+   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="y"){e.preventDefault();modify("redo");return;}
+   if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==="d"){e.preventDefault();modify("duplicate");return;}
+   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="c"){e.preventDefault();modify("copy");return;}
+   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="v"){e.preventDefault();modify("paste");return;}
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"toggle",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();modify(actions[e.key]);}
  });
  $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;drawTree();if(!pane.hidden)close();});
  $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;drawTree();if(!pane.hidden)close();}));
- drawTree();
+ drawTree();updateHistoryButtons();
 })();

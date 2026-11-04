@@ -194,7 +194,15 @@ function init(){
   const cadNode=event.target.closest('[data-cad-node]');
   if(cadNode){document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:cadNode.dataset.cadNode}}));return;}
   const item=event.target.closest('[data-action]');
-  if(item){runAction(item.dataset.action);return;}
+  if(item){
+    if(item.tagName==="SUMMARY"){
+     const r=item.getBoundingClientRect(),arrow=event.clientX-r.left<22;
+     // COMSOL Model Builder: click triangle to expand; click label to open Settings.
+     if(arrow)return;
+     event.preventDefault();
+    }
+    runAction(item.dataset.action);return;
+   }
   const select=event.target.closest('[data-select-preset]');if(select){choosePreset(select.dataset.selectPreset);return;}
   const expand=event.target.closest('[data-tree-expand]');if(expand){
    const opened=expand.dataset.treeExpand==='1';

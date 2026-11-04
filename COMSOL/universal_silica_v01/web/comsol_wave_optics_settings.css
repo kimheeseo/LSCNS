@@ -1,0 +1,46 @@
+
+/* Wave Optics inspired Settings panels; UI layer over original LS Radial FEM. */
+body.ls-comsol-shell.ls-wave-optics-active .layout{grid-template-columns:248px minmax(345px,390px) minmax(0,1fr) 180px}
+body.ls-comsol-shell.ls-wave-optics-active .sidebar.ls-config-active{padding:0!important;background:#fff}
+body.ls-comsol-shell.ls-wave-optics-active .sidebar.ls-config-active > :not(#ls-wave-settings){display:none!important}
+body.ls-comsol-shell .ls-wave-pane{display:flex;flex-direction:column;min-height:100%;background:#fff;color:#31485e}
+body.ls-comsol-shell .ls-wave-pane[hidden]{display:none!important}
+.ls-wave-heading{display:flex;align-items:center;gap:11px;border-bottom:1px solid #d6e0e9;background:#fff;padding:13px 16px}
+.ls-wave-heading-icon{background:#e7f1fa;border:1px solid #c7dce9;border-radius:4px;color:#2e82b9;font-size:25px;line-height:35px;width:39px;height:39px;text-align:center;flex:none}
+.ls-wave-heading h3{margin:0;font-size:15px;font-weight:650;color:#2d5676;line-height:1.3}
+.ls-wave-heading small{font-size:10px;color:#71879d}
+.ls-wave-body{padding:5px 12px 12px;min-height:120px}
+.ls-wave-section{border:1px solid #d6e1eb;border-radius:2px;margin:11px 0;background:#fff;overflow:hidden}
+.ls-wave-section>summary{list-style:none;background:#e8f1f8;padding:8px 11px;cursor:pointer;color:#426783;font-weight:650;font-size:12px}
+.ls-wave-section>summary:before{content:"▾";color:#7893aa;margin-right:7px}
+.ls-wave-section:not([open])>summary:before{content:"▸"}
+.ls-wave-section>summary::-webkit-details-marker{display:none}
+.ls-wave-section-content{padding:9px 10px 11px;display:flex;flex-direction:column;gap:7px}
+.ls-wave-reading{display:flex;align-items:flex-start;justify-content:space-between;gap:9px;padding:5px 0;border-bottom:1px solid #eff2f6;font-size:11px}
+.ls-wave-reading span{min-width:98px;color:#63758a}
+.ls-wave-reading strong{text-align:right;font-weight:650;color:#344e63;overflow-wrap:anywhere}
+.ls-wave-field{display:flex;flex-direction:column;gap:5px;margin:8px 0;font-size:11px;color:#536d83}
+.ls-wave-field>span:first-child{font-weight:600}
+.ls-wave-entry{display:flex;align-items:center;gap:8px;min-width:0}
+.ls-wave-field select,.ls-wave-entry input{min-width:0;width:100%;height:33px;border:1px solid #b5c9da;background:white;border-radius:3px;color:#2b465b;font-size:12px;padding:5px 8px}
+.ls-wave-entry input{flex:1}
+.ls-wave-entry small{font-size:11px;color:#758a9b;min-width:20px}
+.ls-wave-field select:disabled,.ls-wave-entry input:disabled{background:#f2f5f8;color:#8998a6}
+.ls-wave-context{font-size:11px;line-height:1.65;color:#70879b;padding:9px 11px;background:#f5f8fb;border:1px solid #dfe7ee;border-radius:3px;margin:8px 0}
+.ls-wave-link{display:flex;align-items:center;width:100%;padding:8px 9px;text-align:left;color:#276b9d;background:#eff6fc;border:1px solid #d6e6f3;border-radius:3px;font-size:11px;margin:4px 0}
+.ls-wave-link:hover{background:#daebfa;border-color:#94c2e4}
+.ls-wave-primary,.ls-wave-secondary{display:block;width:100%;padding:10px 12px;margin:9px 0;border-radius:3px;font-size:12px;font-weight:650;text-align:center;cursor:pointer}
+.ls-wave-primary{color:#fff;background:#1578b4;border:1px solid #0c6a9f}
+.ls-wave-primary:hover{background:#0b689d}
+.ls-wave-secondary{color:#316b93;background:#eaf3fa;border:1px solid #bbd5e9}
+.ls-wave-secondary:hover{background:#d8ebf8}
+.ls-wave-results{display:flex;flex-direction:column;gap:3px}
+.ls-wave-node-selected{background:#d8eafb!important;border-color:#b2d5f0!important;color:#155d93!important;font-weight:700!important}
+body.ls-comsol-shell.ls-wave-optics-active .ls-tree-scroll{font-size:10.5px}
+body.ls-comsol-shell.ls-wave-optics-active .ls-tree-group summary{font-size:10.5px;line-height:1.4}
+body.ls-comsol-shell.ls-wave-optics-active .ls-tree-leaf{font-size:10.25px}
+body.ls-comsol-shell.ls-wave-optics-active main.workspace{background:#f7f9fc}
+body.ls-comsol-shell.ls-wave-optics-active main.workspace .ls-graphics-head{background:#eef4f9}
+@media(max-width:1300px){body.ls-comsol-shell.ls-wave-optics-active .layout{grid-template-columns:220px minmax(300px,345px) minmax(0,1fr)}body.ls-comsol-shell.ls-wave-optics-active .ls-study-pane{display:none}body.ls-comsol-shell.ls-wave-optics-active .ls-output-console{grid-column:3}}
+@media(max-width:835px){body.ls-comsol-shell.ls-wave-optics-active .layout{grid-template-columns:minmax(270px,315px) minmax(0,1fr)}body.ls-comsol-shell.ls-wave-optics-active .ls-model-tree{display:none}body.ls-comsol-shell.ls-wave-optics-active .sidebar{grid-column:1}body.ls-comsol-shell.ls-wave-optics-active main.workspace{grid-column:2}body.ls-comsol-shell.ls-wave-optics-active .ls-output-console{grid-column:2}}
+@media(max-width:635px){body.ls-comsol-shell.ls-wave-optics-active .layout{display:block!important;height:auto!important}body.ls-comsol-shell.ls-wave-optics-active .sidebar{width:100%;height:auto!important}body.ls-comsol-shell.ls-wave-optics-active main.workspace{width:100%;height:auto;display:flex!important}body.ls-comsol-shell.ls-wave-optics-active .ls-wave-pane{min-height:0}}

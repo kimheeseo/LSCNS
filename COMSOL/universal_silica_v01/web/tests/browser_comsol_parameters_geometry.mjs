@@ -16,7 +16,7 @@ try{
  assert.equal(await page.locator("#ls-parameters-view").isVisible(),true);
  assert.equal(await page.locator("#ls-parameter-rows tr").count(),10);
  assert.equal(await page.locator('#ls-parameter-rows [data-field="name"]').first().inputValue(),"d");
- assert.ok((await page.locator('[data-param-value="8"]').textContent()).includes("µm"),"wlr reference formula evaluates in SI units");
+ assert.ok((await page.locator('[data-param-value="9"]').textContent()).includes("µm"),"wlr reference formula evaluates in SI units");
  await page.locator('#ls-parameter-rows [data-field="expression"]').first().fill("12[um]");
  assert.ok((await page.locator('[data-param-value="0"]').textContent()).includes("12 µm"),"live parameter expressions update");
  await page.screenshot({path:"/tmp/ls_comsol_parameters.png"});

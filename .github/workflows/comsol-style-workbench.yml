@@ -1,0 +1,48 @@
+name: COMSOL-style Workbench UI Regression
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/comsol_workspace.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_workspace.css'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs'
+      - '.github/workflows/comsol-style-workbench.yml'
+permissions:
+  contents: read
+jobs:
+  gui-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check (UI skin and original solver)
+        run: |
+          node --check COMSOL/universal_silica_v01/web/comsol_workspace.mjs
+          node --check COMSOL/universal_silica_v01/web/app.mjs
+          node --check COMSOL/universal_silica_v01/web/solver.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs
+      - name: Install Chromium
+        run: |
+          npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
+          /tmp/comsol-workspace-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Actual GUI and physics feature regression (1277x695 + mobile)
+        env:
+          NODE_PATH: /tmp/comsol-workspace-playwright/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/comsol-workspace-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          node COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs
+      - name: Upload rendered UI screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: comsol-inspired-workbench-ui
+          path: |
+            /tmp/ls_comsol_theme_desktop.png
+            /tmp/ls_comsol_theme_mobile.png
+          if-no-files-found: ignore

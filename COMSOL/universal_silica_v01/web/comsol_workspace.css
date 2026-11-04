@@ -1,0 +1,189 @@
+/*
+ * COMSOL-inspired four-pane optics workbench for LS Wave Optics.
+ * Desktop: ribbon, model tree, Settings, Graphics, Add Study, Messages.
+ * Theme only: all simulation engines and existing control IDs remain unchanged.
+ */
+:root{--ls-bg:#e9edf2;--ls-paper:#fff;--ls-line:#cbd5e0;--ls-ink:#25374b;--ls-muted:#64788c;--ls-blue:#1671b8;--ls-blue-weak:#dbeaf9;--ls-toolbar:#f6f8fa;--ls-top-height:45px;--ls-ribbon-height:111px}
+body.ls-comsol-shell{margin:0;color:var(--ls-ink);background:var(--ls-bg);font-family:"Segoe UI",Arial,"Noto Sans KR","Malgun Gothic",sans-serif}
+body.ls-comsol-shell .topbar{height:var(--ls-top-height);padding:0 18px;background:#fbfcff;color:#27364b;border-bottom:1px solid #bfc9d4;position:relative;z-index:21;box-shadow:none}
+body.ls-comsol-shell .brand{font-size:15px;gap:9px;letter-spacing:0;color:#334355}
+body.ls-comsol-shell .brand-icon{background:#1879bc;box-shadow:none;border-radius:5px;width:31px;height:31px;font-size:19px}
+body.ls-comsol-shell .brand strong{color:#1765a7}
+body.ls-comsol-shell .brand small{color:#74879a;font-size:9px;letter-spacing:.4px}
+body.ls-comsol-shell .top-right{color:#627484;font-size:11px;gap:15px}
+body.ls-comsol-shell .top-link{color:#286d9f;text-decoration:none}
+body.ls-comsol-shell .engine{color:#406f62;font-size:10px}
+body.ls-comsol-shell .status-dot{background:#239b79;box-shadow:0 0 0 3px #249b7916}
+.ls-icon{display:block;width:20px;height:20px;flex:none}
+.ls-ribbon{height:var(--ls-ribbon-height);position:relative;z-index:20;background:#f6f8fa;border-bottom:1px solid #c2ccd7;box-shadow:0 2px 4px #26374e0b;overflow:hidden}
+.ls-ribbon-tabs{display:flex;align-items:stretch;height:34px;background:#f4f7fb;border-bottom:1px solid #d7e0e8;gap:1px;white-space:nowrap;overflow-x:auto;scrollbar-width:thin}
+.ls-ribbon-tab{min-width:55px;border:0;border-bottom:2px solid transparent;background:transparent;color:#405065;font-size:11.5px;padding:0 12px;border-radius:0;flex-shrink:0}
+.ls-ribbon-tab:first-child{background:#126bb0;color:#fff;font-weight:700;padding:0 17px}
+.ls-ribbon-tab:first-child.active{background:#085f9f;border-bottom-color:#085f9f}
+.ls-ribbon-tab.active:not(:first-child){background:#fff;color:#146db6;border-bottom-color:#167ac4;font-weight:650}
+.ls-ribbon-tab:hover:not(.active){background:#e3ebf4}
+.ls-ribbon-context{margin-left:auto;padding:10px 20px 0;color:#788ca1;font-size:10px;letter-spacing:.4px}
+.ls-ribbon-context b{color:#d0a67c}
+.ls-ribbon-body{height:77px;display:flex;align-items:stretch;padding:5px 14px 4px;gap:12px;background:linear-gradient(#fff,#eff3f8)}
+.ls-ribbon-tools{display:flex;align-items:center;gap:0;min-width:0;overflow-x:auto;scrollbar-width:thin;flex:1}
+.ls-ribbon-command{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:0 0 auto;gap:4px;min-width:81px;padding:7px 7px 5px;background:transparent;border:1px solid transparent;color:#35465a;border-radius:4px}
+.ls-ribbon-command:hover{background:#e1edfa;border-color:#9dc2e9}
+.ls-command-icon{width:28px;height:28px;display:grid;place-items:center;color:#1b80c4}
+.ls-command-icon svg{width:25px;height:25px}
+.ls-command-icon.ls-icon-primary{color:#d18433}
+.ls-command-label{font-size:10px;text-align:center;line-height:1.2;white-space:nowrap}
+.ls-ribbon-separator{height:42px;border-left:1px solid #d3dbe5;margin:0 5px;flex:none}
+.ls-ribbon-note{width:185px;border-left:1px solid #d1dbe5;padding:6px 8px 5px 14px;flex:none;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.ls-ribbon-key{font-size:9px;font-weight:750;letter-spacing:1px;color:#347fb4}
+.ls-ribbon-note strong{font-size:10.5px;color:#273f57;line-height:1.4;max-height:31px;overflow:hidden}
+.ls-ribbon-note small{font-size:9px;color:#8493a3}
+/* Main workbench panes - dock is a grid row, never an overlay on solver fields. */
+body.ls-comsol-shell .layout{display:grid;grid-template-columns:228px minmax(290px,330px) minmax(0,1fr) 194px;grid-template-rows:minmax(0,1fr) 106px;min-height:0;height:calc(100vh - var(--ls-top-height) - var(--ls-ribbon-height));width:100%;overflow:hidden;background:#e9eef4;gap:0}
+body.ls-comsol-shell .ls-model-tree{grid-column:1;grid-row:1/3;min-width:0;overflow:hidden;background:#f9fafc;display:flex;flex-direction:column;border-right:1px solid #c7d1dd}
+body.ls-comsol-shell .sidebar{grid-column:2;grid-row:1/3;min-width:0;max-height:none!important;height:100%;top:auto;position:relative;overflow:auto;padding:0 16px 26px;background:#fff;border-right:1px solid #c5d0dd;color:#293a4d}
+body.ls-comsol-shell main.workspace{grid-column:3;grid-row:1;min-width:0;width:100%;height:100%;max-width:none;margin:0;padding:0 15px 29px;overflow-y:auto;overflow-x:hidden;background:#f5f8fb;display:flex;flex-direction:column}
+body.ls-comsol-shell .ls-study-pane{grid-column:4;grid-row:1;min-width:0;overflow-y:auto;background:#f9fafc;border-left:1px solid #c4ceda;display:flex;flex-direction:column;color:#334559}
+body.ls-comsol-shell .ls-output-console{grid-column:3/5;grid-row:2;background:#fff;border-top:1px solid #b8c6d6;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+body.ls-comsol-shell .layout.ls-console-minimized{grid-template-rows:minmax(0,1fr) 29px}
+body.ls-comsol-shell .layout.ls-console-minimized .ls-console-text{display:none}
+/* COMSOL-like title bars / model builder */
+.ls-pane-title{height:34px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;padding:0 11px;font-size:15px;color:#376c9a;background:#eff4f9;border-bottom:1px solid #d4dde7;font-weight:500;letter-spacing:-.2px}
+.ls-pane-glyph{font-size:11px;color:#7e90a4;letter-spacing:2px}
+.ls-tree-toolbar{height:31px;display:flex;align-items:center;gap:2px;border-bottom:1px solid #e0e7ef;padding:2px 7px;flex:none}
+.ls-tree-toolbar button{background:transparent;border:1px solid transparent;color:#5986b4;min-width:27px;height:25px;border-radius:2px}
+.ls-tree-toolbar button:hover{background:#dce9f7;border-color:#b5cde5}
+.ls-tree-toolbar span{margin-left:auto;color:#8aa0b6;font-size:9px;letter-spacing:.8px}
+.ls-tree-scroll{padding:7px 5px 8px 7px;overflow:auto;flex:1;min-height:0;font-size:11px;color:#394b5e}
+.ls-tree-root{display:flex;align-items:center;gap:6px;font-weight:650;font-size:11.5px;padding:5px 5px 9px;color:#385976}
+.ls-tree-root .ls-icon{width:16px;height:16px;color:#1f79b5}
+.ls-tree-group{margin-left:7px;position:relative}
+.ls-tree-group summary{list-style:none;cursor:pointer;display:flex;gap:6px;align-items:center;min-height:26px;padding:4px 3px;color:#41586e;font-weight:600;line-height:1.3}
+.ls-tree-group summary::before{content:'▸';font-size:10px;color:#7a8999;transition:transform .12s;width:10px;flex:none}
+.ls-tree-group[open]>summary::before{transform:rotate(90deg)}
+.ls-tree-group summary::-webkit-details-marker{display:none}
+.ls-tree-group summary:hover{background:#e9f2fd}
+.ls-tree-children{border-left:1px solid #d7e0e9;margin:1px 0 3px 7px;padding-left:9px}
+.ls-tree-leaf{width:100%;display:flex;gap:5px;align-items:center;min-height:25px;padding:3px 5px;text-align:left;border:1px solid transparent;background:transparent;color:#4d6074;font-size:10.5px;border-radius:2px;line-height:1.3;cursor:pointer}
+.ls-tree-leaf:hover{background:#e9f2fd}
+.ls-tree-leaf.active{background:#d7eafe;border:1px solid #abcdf0;color:#155b9f;font-weight:700}
+.ls-tree-leaf .ls-icon{color:#4b9bca;width:14px;height:14px}
+.ls-tree-marker{font-size:13px;width:14px;text-align:center;flex:none;color:#4d9bca}
+.ls-tree-bottom{border-top:1px solid #d8e2ec;height:31px;font-size:10px;padding:8px 9px;color:#7b8c9e;flex:none;display:flex;align-items:center;gap:5px}
+.ls-green-indicator{width:7px;height:7px;border-radius:50%;background:#24a87b}
+#ls-tree-state{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+/* Settings pane - preserve existing fields/select IDs, only restyle. */
+body.ls-comsol-shell .sidebar>.panel-head{position:sticky;top:0;z-index:5;height:48px;background:#f0f5fa;border-bottom:1px solid #d3dde6;margin:0 -16px 16px;padding:0 13px;display:flex;align-items:center}
+body.ls-comsol-shell .sidebar>.panel-head h2{font-size:16px;margin:0;color:#386b9c;letter-spacing:0}
+body.ls-comsol-shell .sidebar>.panel-head .kicker{font-size:9px;color:#8299ad;letter-spacing:.6px}
+body.ls-comsol-shell .sidebar .panel-head.compact{border-bottom:1px solid #d7e0e9;padding-bottom:5px;margin-top:12px;margin-bottom:14px}
+body.ls-comsol-shell .sidebar .panel-head.compact h2{color:#325775;font-size:13px}
+body.ls-comsol-shell .sidebar .panel-head.compact .kicker{color:#648aad;font-size:9px}
+body.ls-comsol-shell .sidebar .field{margin:0 0 11px}
+body.ls-comsol-shell .sidebar .field label{font-size:11px;color:#3b4d60;margin-bottom:5px;font-weight:600}
+body.ls-comsol-shell .sidebar .field label span{color:#788a9c;font-size:10px}
+body.ls-comsol-shell .sidebar .field select,body.ls-comsol-shell .sidebar .field input:not([type=range]),body.ls-comsol-shell .sidebar .field textarea{border:1px solid #bbc9d7;background:#fff;color:#34485b;border-radius:3px;padding:7px 9px;font-size:11px;box-shadow:0 1px 0 #e4e9f1}
+body.ls-comsol-shell .sidebar .field select:focus,body.ls-comsol-shell .sidebar .field input:focus,body.ls-comsol-shell .sidebar .field textarea:focus{border-color:#3291d3;box-shadow:0 0 0 2px #2793e522}
+body.ls-comsol-shell .sidebar .field small{color:#7a8e9f;font-size:10px}
+body.ls-comsol-shell .sidebar .field input[type=range]{accent-color:#2a8ccb}
+body.ls-comsol-shell .sidebar .section-separator{background:#d9e2ea;margin:15px 0}
+body.ls-comsol-shell .sidebar .primary-btn{background:#1476b8;color:#fff;border:1px solid #0d6dab;border-radius:3px;box-shadow:none;padding:10px;font-size:12px}
+body.ls-comsol-shell .sidebar .primary-btn:hover{background:#0d679f}
+body.ls-comsol-shell .sidebar .secondary-btn,body.ls-comsol-shell .sidebar .upload-btn{background:#f0f4f8;color:#3b5b78;border:1px solid #c2cfdd;border-radius:3px;padding:9px 5px}
+body.ls-comsol-shell .sidebar .secondary-btn:hover,body.ls-comsol-shell .sidebar .upload-btn:hover{background:#dfebf7;border-color:#8db9df}
+body.ls-comsol-shell .sidebar .small-ghost{color:#4d799f;border:1px solid #bfcdda;background:#fff;border-radius:2px}
+body.ls-comsol-shell .sidebar .side-hint{color:#75899b;font-size:10px}
+body.ls-comsol-shell .sidebar .special-design-controls{border-color:#d6e0ea}
+body.ls-comsol-shell .sidebar .special-panel-title{color:#2873ac}
+body.ls-comsol-shell .sidebar .special-panel-title span{color:#8097a9}
+/* Graphics pane: plot FIRST, with reusable analytical result cards kept below. */
+body.ls-comsol-shell main.workspace>*{order:20;flex-shrink:0}
+body.ls-comsol-shell main.workspace>.ls-graphics-head{order:0}
+body.ls-comsol-shell main.workspace>.page-intro{order:1}
+body.ls-comsol-shell main.workspace>.eng-shortcuts{order:2}
+body.ls-comsol-shell main.workspace>.notice{order:3}
+body.ls-comsol-shell main.workspace>.charts-grid{order:4}
+body.ls-comsol-shell main.workspace>.metrics{order:5}
+body.ls-comsol-shell main.workspace>#comsol-reference{order:6}
+body.ls-comsol-shell main.workspace>.slope-panel{order:7}
+body.ls-comsol-shell main.workspace>.lower-grid{order:25}
+body.ls-comsol-shell main.workspace>.disclaimer{order:30}
+.ls-graphics-head{position:sticky;top:0;z-index:5;height:35px;display:flex;align-items:center;justify-content:space-between;gap:7px;background:#f1f5fa;border-bottom:1px solid #cfdae5;margin:0 -15px 12px;padding:0 12px;min-width:0}
+.ls-graphics-heading{display:flex;align-items:center;gap:7px;font-size:15px;color:#336e9c;white-space:nowrap}
+.ls-graphics-heading .ls-icon{width:18px;height:18px;color:#277db8}
+.ls-graphics-heading small{font-size:10px;color:#7890a7;font-weight:400;margin-left:4px;overflow:hidden;text-overflow:ellipsis}
+.ls-graphics-toolbar{display:flex;align-items:center;gap:4px;flex:none}
+.ls-graphics-toolbar button{display:grid;place-items:center;background:transparent;border:1px solid transparent;border-radius:3px;color:#5386b4;width:27px;height:26px;padding:3px}
+.ls-graphics-toolbar button:hover{background:#e0edf8;border-color:#aecde9}
+.ls-graphics-toolbar .ls-icon{width:17px;height:17px}
+body.ls-comsol-shell main.workspace .page-intro{align-items:center;margin:0 0 10px;gap:8px}
+body.ls-comsol-shell main.workspace .page-intro h1{font-size:19px;margin:2px 0 3px;color:#2c445e;letter-spacing:-.4px}
+body.ls-comsol-shell main.workspace .page-intro h1 span{color:#237db2}
+body.ls-comsol-shell main.workspace .page-intro .eyebrow{color:#7b90a6;font-size:8px;letter-spacing:.65px}
+body.ls-comsol-shell main.workspace .page-intro p{font-size:10px;color:#6e879e;max-width:550px}
+body.ls-comsol-shell main.workspace .version-pill{border-radius:4px;color:#3575a5;background:#e2eef8;border:1px solid #bdd6eb;font-size:9px;padding:7px;max-width:155px;white-space:normal}
+body.ls-comsol-shell main.workspace .eng-shortcuts{margin:0 0 9px;gap:5px}
+body.ls-comsol-shell main.workspace .eng-shortcuts a{background:#edf3f8;border:1px solid #cbd9e6;color:#376a94;padding:6px 9px;border-radius:3px;font-size:10px}
+body.ls-comsol-shell main.workspace .eng-shortcuts a:hover{color:#175d99;background:#ddeefb}
+body.ls-comsol-shell main.workspace .notice{background:#fffdf4;border:1px solid #e1d8b7;color:#716145;font-size:10px;margin:0 0 10px;border-radius:4px;padding:8px 9px}
+body.ls-comsol-shell main.workspace .notice.success{background:#e7f6ef;border-color:#a8d5bd;color:#276b4a}
+body.ls-comsol-shell main.workspace .notice.error{background:#fff0f1;border-color:#e5b6b9;color:#963e4a}
+body.ls-comsol-shell main.workspace .charts-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
+body.ls-comsol-shell main.workspace .charts-grid>.chart-card:first-child{grid-column:1/-1}
+body.ls-comsol-shell main.workspace .chart-card,body.ls-comsol-shell main.workspace .table-card{background:#fff;border:1px solid #ced9e5;border-radius:4px;padding:12px 12px 10px;box-shadow:0 1px 2px #223c5a0a}
+body.ls-comsol-shell main.workspace .chart-card:first-child canvas{aspect-ratio:1.8;border:1px solid #c7d5e2}
+body.ls-comsol-shell main.workspace .chart-card canvas{border-radius:2px}
+body.ls-comsol-shell main.workspace .chart-head{margin-bottom:8px}
+body.ls-comsol-shell main.workspace .chart-head h3{font-size:12px;color:#344b62;margin:4px 0}
+body.ls-comsol-shell main.workspace .chart-num{color:#337da9;font-size:9px}
+body.ls-comsol-shell main.workspace .mini-tag{color:#547a99;background:#eef5fb;border:1px solid #cbdfe9;border-radius:3px;font-size:9px}
+body.ls-comsol-shell main.workspace .chart-foot{color:#71879c;font-size:9px;margin:6px 0 0}
+body.ls-comsol-shell main.workspace .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+body.ls-comsol-shell main.workspace .metric{background:#fff;border:1px solid #cad6e2;border-radius:4px;min-height:83px;padding:11px 12px}
+body.ls-comsol-shell main.workspace .metric span{font-size:10px;color:#637d93}
+body.ls-comsol-shell main.workspace .metric strong{color:#244d76;font-size:clamp(16px,1.6vw,22px);margin:8px 0 3px}
+body.ls-comsol-shell main.workspace .metric small{color:#8899aa;font-size:9px}
+body.ls-comsol-shell main.workspace .lower-grid{grid-template-columns:1fr;gap:9px;margin-top:10px}
+body.ls-comsol-shell main.workspace th{color:#4c789b;border-bottom-color:#d5e0ea}
+body.ls-comsol-shell main.workspace td{color:#435d73;border-bottom-color:#e1e8ef}
+body.ls-comsol-shell main.workspace .diagnostic dt{color:#617d93}
+body.ls-comsol-shell main.workspace .diagnostic dd{color:#365c7b}
+body.ls-comsol-shell main.workspace .diagnostic>div{border-bottom-color:#e0e8f0}
+body.ls-comsol-shell main.workspace .disclaimer{background:#f7f9fc;color:#667b90;border-color:#d4dfe9;border-radius:3px}
+body.ls-comsol-shell main.workspace .disclaimer strong{color:#376383}
+/* Reference validation output uses the same professional light styling. */
+body.ls-comsol-shell #comsol-reference{background:#f5fbff;border-color:#b8d5eb;color:#365575}
+body.ls-comsol-shell #comsol-reference .comsol-ref-title h2{color:#3a6282}
+body.ls-comsol-shell #comsol-reference .comsol-ref-grid>div{background:#fff;border-color:#cddfed}
+body.ls-comsol-shell #comsol-reference .comsol-ref-grid strong{color:#1b6395}
+body.ls-comsol-shell #comsol-reference .comsol-ref-grid span{color:#647e93}
+body.ls-comsol-shell #comsol-reference p{color:#637d91}
+/* Study pane (only actions the existing tools actually support). */
+.ls-study-pane .ls-add-study{border:0;border-bottom:1px solid #d1dbe5;width:100%;text-align:left;height:36px;padding:0 13px;background:#f9fbfd;color:#3b719b;font-size:11px;font-weight:600}
+.ls-study-pane .ls-add-study:hover{background:#e4effa}
+.ls-study-heading{padding:11px 12px 6px;font-size:12px;border-bottom:1px solid #d7e0e9;color:#4d6a82;font-weight:600}
+.ls-study-list{padding:4px 3px 4px}
+.ls-study-group{color:#566e84;font-size:10px;font-weight:750;padding:12px 7px 5px}
+.ls-study-item{width:100%;display:flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:2px;text-align:left;background:transparent;color:#475a6f;padding:6px 8px;font-size:10.5px;min-height:31px;line-height:1.35}
+.ls-study-item:hover{border-color:#b9d6ed;background:#e8f2fb;color:#14649c}
+.ls-study-item .ls-icon{width:16px;height:16px;color:#438cbc}
+.ls-study-footer{margin-top:auto;border-top:1px solid #d2dee8;padding:12px 10px;display:flex;flex-direction:column;gap:8px}
+.ls-study-footer b{font-size:10px;font-weight:600;color:#64798a}
+.ls-study-footer small{font-size:9px;color:#899aaa;line-height:1.5}
+.ls-study-pane #ls-study-more[hidden]{display:none}
+/* Messages / Progress / Log pane. This reflects real existing messages. */
+.ls-console-tabs{display:flex;align-items:stretch;border-bottom:1px solid #cbd7e2;background:#f6f8fa;min-height:29px;flex:none}
+.ls-console-tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:4px 13px;color:#647a90;font-size:10.5px}
+.ls-console-tabs button.active{background:#fff;border-bottom-color:#2d80bb;color:#21699f;font-weight:650}
+.ls-console-tabs button:hover{background:#e8f1f8}
+.ls-console-spacer{flex:1}
+.ls-console-tabs #ls-console-collapse{color:#66839e;font-size:15px;padding:0 13px}
+.ls-console-text{white-space:pre-wrap;overflow:auto;flex:1;min-height:0;padding:10px 13px;font-size:10.5px;line-height:1.5;color:#465b71;background:#fff;font-family:"Segoe UI",Arial,"Malgun Gothic",sans-serif}
+/* Desktop widths replicate screenshot proportions without hiding studies. */
+@media(max-width:1350px){body.ls-comsol-shell .layout{grid-template-columns:205px minmax(265px,305px) minmax(0,1fr) 174px}.ls-ribbon-note{width:150px}.ls-ribbon-command{min-width:71px}}
+@media(max-width:1090px){body.ls-comsol-shell .layout{grid-template-columns:204px minmax(255px,300px) minmax(0,1fr)}body.ls-comsol-shell .ls-study-pane{display:none}body.ls-comsol-shell .ls-output-console{grid-column:3}}
+@media(max-width:835px){body.ls-comsol-shell .layout{grid-template-columns:minmax(270px,315px) minmax(0,1fr)}body.ls-comsol-shell .ls-model-tree{display:none}body.ls-comsol-shell .sidebar{grid-column:1}body.ls-comsol-shell main.workspace{grid-column:2}body.ls-comsol-shell .ls-output-console{grid-column:2}.ls-ribbon-note{display:none}}
+@media(max-width:635px){:root{--ls-top-height:48px;--ls-ribbon-height:98px}body.ls-comsol-shell .topbar{padding:0 9px}body.ls-comsol-shell .top-right .top-link{display:none}body.ls-comsol-shell .brand{font-size:12px}body.ls-comsol-shell .brand small{display:none}body.ls-comsol-shell .layout{height:auto!important;display:block!important;overflow:visible}body.ls-comsol-shell .sidebar{height:auto!important;max-height:none!important;overflow:visible;position:relative;padding:0 15px 16px;border-bottom:1px solid #c9d6e2}body.ls-comsol-shell main.workspace{height:auto;max-height:none;overflow:visible;padding:0 11px 20px}body.ls-comsol-shell .ls-output-console{min-height:78px;height:auto;overflow:visible}body.ls-comsol-shell .ls-model-tree,body.ls-comsol-shell .ls-study-pane{display:none}body.ls-comsol-shell main.workspace .charts-grid{grid-template-columns:1fr}body.ls-comsol-shell main.workspace .charts-grid>.chart-card:first-child{grid-column:auto}body.ls-comsol-shell main.workspace .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.ls-graphics-head{position:relative}.ls-ribbon-body{height:65px;padding:3px 6px}.ls-ribbon-command{min-width:62px;padding:4px}.ls-command-icon svg{width:19px;height:19px}.ls-command-label{font-size:9px}.ls-ribbon-tabs{height:33px}.ls-ribbon-tab{padding:0 9px;font-size:10px}}
+/* Retain existing research-only view routing (HCF/vector) from the original app. */
+body.ls-comsol-shell.hcf-selection main.workspace>.ls-graphics-head,body.ls-comsol-shell.vector-selection main.workspace>.ls-graphics-head{display:flex!important}
+/* COMSOL-style light graphics viewport without changing underlying drawing/output data. */
+body.ls-comsol-shell main.workspace .charts-grid .chart-card canvas{filter:invert(.94) hue-rotate(180deg) saturate(.92)}

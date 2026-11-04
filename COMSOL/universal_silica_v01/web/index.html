@@ -52,6 +52,19 @@
 body.hcf-selection main.workspace > :not(.page-intro):not(#hcf-designer):not(#hcf-fem){display:none!important}
 body.vector-selection main.workspace > :not(.page-intro):not(#full-vector-tool){display:none!important}
 body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selection #full-vector-tool{display:block!important}
+
+/* Transparent same-input COMSOL reference verification (never substitute the benchmark value into the solver). */
+#clad-fixed-controls[hidden],#comsol-reference[hidden]{display:none!important}
+.comsol-ref{background:#102d3c;border:1px solid #367b85;border-radius:15px;margin:17px 0;padding:20px;color:#eaf9ff}
+.comsol-ref-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
+.comsol-ref-title h2{font-size:18px;margin:7px 0}
+.comsol-ref-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.comsol-ref-grid>div{border:1px solid #2a5f75;border-radius:9px;background:#092638;padding:12px;min-width:0}
+.comsol-ref-grid span{display:block;color:#9ebacc;font-size:11px;margin-bottom:8px}
+.comsol-ref-grid strong{display:block;color:#f2faff;font-size:clamp(15px,1.7vw,21px);overflow-wrap:anywhere}
+.comsol-ref p{font-size:11px;line-height:1.8;color:#b6cfdd;margin:10px 0 0}
+.comsol-ref a{color:#81e2e9}
+@media(max-width:800px){.comsol-ref-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -62,7 +75,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
   <div class="layout">
     <aside class="sidebar">
       <div class="panel-head"><div><span class="kicker">01 / MODEL DEFINITION</span><h2>광섬유 설계</h2></div><button type="button" class="small-ghost" id="resetBtn" title="기본 설계로 복원">초기화</button></div>
-      <div class="field"><label for="preset">설계 예제</label><select id="preset"><option value="g654">G.654.E 유사 · 대유효면적</option><option value="g652">G.652.D 유사 · 표준 SMF</option><option value="graded">Graded-index · 포물선형</option><option value="trench">G.657 개념 · Trench-assisted</option><option value="multi">Multilayer · 다층 설계</option><option value="mcf">MCF · 2코어 XT 분석</option><option value="hcf">HCF / NANF · Nested Tube 설계</option><option value="vector">Full-vector · Colab 결과 분석</option></select></div>
+      <div class="field"><label for="preset">설계 예제</label><select id="preset"><option value="g654">G.654.E 유사 · 대유효면적</option><option value="g652">G.652.D 유사 · 표준 SMF</option><option value="comsol_step">COMSOL 공개 Step-index · neff 검증</option><option value="graded">Graded-index · 포물선형</option><option value="trench">G.657 개념 · Trench-assisted</option><option value="multi">Multilayer · 다층 설계</option><option value="mcf">MCF · 2코어 XT 분석</option><option value="hcf">HCF / NANF · Nested Tube 설계</option><option value="vector">Full-vector · Colab 결과 분석</option></select></div>
       <div id="hcf-sidebar-controls" class="special-design-controls" hidden>
   <div class="special-panel-title">HCF · NESTED TUBE <span>설계 입력</span></div>
   <div class="twocol">
@@ -88,6 +101,8 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
 </div>
 <div id="standard-fiber-options">
 <div class="field"><label for="profile">굴절률 분포 구조</label><select id="profile"><option value="step">Step-index</option><option value="graded">Graded-index</option><option value="trench">Trench-assisted</option><option value="multilayer">Multilayer (동심원)</option><option value="mcf">MCF · 2코어 (XT)</option></select></div>
+      <div class="field fiber-only" data-fiber-only><label for="clad_material">클래딩 굴절률 모델</label><select id="clad_material"><option value="silica">실리카 Sellmeier (기본)</option><option value="fixed">고정 굴절률 n_clad (COMSOL 동조건)</option></select></div>
+      <div class="field fiber-only" data-fiber-only id="clad-fixed-controls" hidden><label for="clad_index_override">고정 클래딩 굴절률 n_clad</label><input type="number" min="1" max="2" step="0.0001" id="clad_index_override" value="1.4378"/><small>COMSOL 예제 값은 λ=1550 nm에서만 제시됨. 다른 파장의 재료 분산 검증용이 아닙니다.</small></div>
       <div class="field fiber-only" data-fiber-only><label for="wavelength_nm">해석 파장 <span>nm</span></label><input type="number" id="wavelength_nm" min="250" max="3600" step="5"/></div>
       <div class="twocol fiber-only" data-fiber-only><div class="field"><label for="core_radius_um">코어 반경 <span>µm</span></label><input type="number" id="core_radius_um" min="0.5" max="60" step="0.1"/></div><div class="field"><label for="delta_n_core">코어 Δn</label><input type="number" id="delta_n_core" min="0.00001" max="0.04" step="0.0001"/></div></div>
       <div class="conditional" data-for="mcf" hidden>
@@ -133,6 +148,17 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
         <article class="metric"><span>유효면적 · A<sub>eff</sub></span><strong id="aeff">—</strong><small>µm²</small></article>
         <article class="metric"><span>색분산 · D</span><strong id="disp">—</strong><small>ps/(nm·km) · FEM 파장 미분</small></article>
       </div>
+      <section id="comsol-reference" class="comsol-ref" hidden aria-label="COMSOL 공개 Step-index neff 비교">
+        <div class="comsol-ref-title"><div><span class="kicker">VALIDATION / SAME MATERIAL AND GEOMETRY</span><h2>COMSOL 공개 Step-index · neff 비교</h2></div><span id="comsol-reference-status" class="mini-tag" role="status">계산 대기</span></div>
+        <div class="comsol-ref-grid">
+          <div><span>COMSOL 공식 neff (4자리)</span><strong>1.4444</strong></div>
+          <div><span>현재 FEM neff</span><strong id="comsol-reference-neff">—</strong></div>
+          <div><span>절대 오차 |Δneff|</span><strong id="comsol-reference-abs">—</strong></div>
+          <div><span>상대오차 (%)</span><strong id="comsol-reference-pct">—</strong></div>
+        </div>
+        <p id="comsol-reference-note">모드 계산 실행 후 1550 nm / n_core 1.4457 / n_clad 1.4378 / 코어 반경 8 µm / 외부 경계 반경 40 µm 조건을 확인합니다.</p>
+        <p>검증 기준: neff 상대오차 <strong>5% 미만</strong>. 별도로 COMSOL 공개값의 반올림 정밀도(±0.00005) 내 일치 여부를 표시합니다. 이 공개 모델은 <strong>G.654.E 제조사 광섬유가 아닌 일반 Step-index 예제</strong>입니다. 고정 굴절률 모델은 소재 분산 검증에 사용할 수 없습니다. <a target="_blank" rel="noopener noreferrer" href="https://doc.comsol.com/6.4/doc/com.comsol.help.models.rf.step_index_fiber/step_index_fiber.html">공식 COMSOL 기준 자료 ↗</a></p>
+      </section>
       <section class="slope-panel fiber-only" data-fiber-only aria-labelledby="slopeHeading">
  <div class="slope-head"><div><span class="kicker">DISPERSION SLOPE / 영분산 분석</span><h2 id="slopeHeading">1550 nm 기울기와 영분산 기울기 비교</h2></div><span class="mini-tag" id="slopeStatus" role="status">모드 계산 전</span></div>
  <div class="slope-grid">
@@ -185,7 +211,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
       <div class="disclaimer"><strong>모델 범위</strong> · 단일코어: 원형/동심원 · 약유도 스칼라 Radial FEM(P1) · LP01 모드. MCF 선택 시: 별도 저장된 2코어 M8 FEM 참조점의 로그 보간 + 이상적 무손실 결합 방정식만 사용하며 <strong>새 FEM/실측 XT/랜덤 누화를 계산하지 않습니다.</strong> 코어 도핑·응력·복굴절·PML·누설/굽힘/재료 감쇠·HCF는 별도 Nested Tube 설계기에서 단면·ARROW 공진식·이상적 모세관 근사만 지원하며, 2D Full-vector FEM과 누설손실 dB/km 직접 예측은 미지원. 입력이 바뀌면 기존 결과는 자동으로 무효화됩니다. 로컬 GitHub Pages는 로그인·서버 없이 동작하며 다운로드 파일은 사용자의 기기에만 저장됩니다.</div>
     </main>
   </div>
-  <script type="module" src="./app.mjs?v=20261103-slope-v1"></script>
+  <script type="module" src="./app.mjs?v=20261104-comsol-step-v1"></script>
 
   <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
 

@@ -1,17 +1,13 @@
-# COMSOL public Step-Index Fiber vs LSCNS radial FEM — reproducible benchmark
+# COMSOL Step-index 직접 웹 FEM 재현 (2026-11-04)
 
-This benchmark uses COMSOL's **public generic step-index fiber example**, **NOT** a commercial or standards-unique G.654.E fiber. See [COMSOL official documented inputs](https://doc.comsol.com/6.4/doc/com.comsol.help.models.rf.step_index_fiber/step_index_fiber.html).
+- 공식 COMSOL 자료: https://doc.comsol.com/6.4/doc/com.comsol.help.models.rf.step_index_fiber/step_index_fiber.html
+- 코어 반경 8 µm, 클래딩 반경 40 µm, λ1550 nm, n_core=1.4457, n_clad=1.4378
+- 공개 COMSOL 기본 모드 neff **1.4444** (반올림 4자리)
+- 실제 LSCNS Scalar FEM (750 요소) neff **1.444401819379**
+- 상대오차 약 **0.000125961%** → 요청 5% 미만 PASS
+- 독립 LP01 Bessel 해석해 **1.444401844409**와 비교 및 200~1800 요소 수렴 검증
+- **테스트용 치환 코드가 아니라**, 현재 정식 브라우저 솔버의 opt-in 고정 굴절률 설계 예제로 계산. 공개 neff를 솔버 계산에 넣거나 피팅하지 않음.
+- 실행: node COMSOL/validation_report/comsol_step_index_benchmark/run.mjs
+- [웹 검증 방법](WEB_PRESET_VALIDATION.md)
 
-**Matching physical conditions:** 1550 nm, core radius 8 µm, cladding radius 40 µm, n(core) 1.4457, n(cladding) 1.4378. COMSOL publishes the fundamental neff rounded as **1.4444** (V≈4.895).
-
-The current production JavaScript radial FEM assumes silica Sellmeier as cladding index, so its standard **G.654.E concept preset cannot be directly compared** to this COMSOL example without changing the material baseline.
-
-`run.mjs` therefore **imports the exact production solver source**, substitutes *only* the two cladding baseline expressions with COMSOL's constant index 1.4378, and solves the same generalized axisymmetric scalar FEM matrix, quadrature and PII/Aeff postprocessors. It performs an independent mesh sweep and compares the neff with COMSOL's published 4-decimal value and separately with the exact analytical **scalar LP01** Bessel solution (1.4444018444092133). The production web model is not mutated or upgraded by this test.
-
-Run: `node COMSOL/validation_report/comsol_step_index_benchmark/run.mjs`.
-
-## Methodological limitations
-- COMSOL: full-vector mode analysis. LSCNS radial FEM: scalar weak-guidance approximation. They will differ, especially for high index contrast.
-- The four-decimal COMSOL value carries rounding uncertainty of roughly ±0.00005; claiming relative agreement more precise than this is not justified.
-- Exact scalar LP01 Bessel equation is a **separate mathematical oracle**, not the COMSOL reported result.
-- Same G.654.E standard classification or same MFD specification is not enough to verify the same material RIP. Actual LE125/YOFC profiles need their own measured RIP input for fair COMSOL-vs-LSCNS performance comparisons.
+COMSOL 원본은 벡터 모드이며 이 구현은 Scalar LP01. 공식 neff가 반올림 4자리로 제공되어 실제 COMSOL 고정밀 오차를 주장할 수 없고, 일반 Step-index 예제이지 제조사 G.654.E 실측 RIP 검증은 아닙니다. 고정 굴절률로 계산한 D는 실제 재료 분산이 아닙니다.

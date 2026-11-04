@@ -1,3 +1,9 @@
+## 2026-11-04 · COMSOL 공개 Step-index neff 직접 검증
+
+[기존 웹에서 COMSOL 공개 Step-index 예제 선택](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-comsol-step-v2)
+
+설계 예제에서 COMSOL 공개 Step-index를 고르면 1550 nm, 코어 반경 8 µm, 계산 반경 40 µm, n_clad 1.4378 및 Δn 0.0079 (n_core 1.4457)를 설정하고, 기존 Scalar Radial P1 FEM을 그대로 계산합니다. n_eff=약 1.444401819 (750 요소), 공개 COMSOL 1.4444 대비 상대오차 약 **0.000126%**: 요청한 5% 미만 통과. 공식 COMSOL 값은 소수 넷째 자리 반올림이므로 이 수준의 고정밀 COMSOL 오차를 주장할 수 없습니다. 고정 굴절률은 COMSOL의 1550 nm 조건이며 소재 색분산 검증용이 아닙니다. 다른 입력에서는 비교를 무효화하고 원래 G.654.E Sellmeier 계산은 유지합니다. [검증법](../../../validation_report/comsol_step_index_benchmark/WEB_PRESET_VALIDATION.md).
+
 ## 2026-11-04 · 설계 예제 HCF / Full-vector Colab 연결
 
 [**▶ 설계 예제 메뉴에서 HCF·Full-vector 선택**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-preset-hcf-vector-v1)

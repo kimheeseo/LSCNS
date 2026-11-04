@@ -31,10 +31,28 @@ try{
  const ae=await page.locator('#fv-aeff').textContent();
  assert.match(ae,/\d/,'Full-vector Aeff rendered from JSON');
  await page.screenshot({path:'/tmp/vector-preset-view.png',fullPage:false});
+ // COMSOL public STEP benchmark: actual browser FEM with opt-in fixed n_clad.
+ await page.selectOption('#preset','comsol_step');
+ await page.waitForFunction(()=>document.querySelector('#comsol-reference-status')?.textContent.startsWith('PASS'),{timeout:30000});
+ assert.equal(await page.locator('#comsol-reference').isVisible(),true,'COMSOL benchmark shown');
+ assert.equal(await page.locator('#clad-fixed-controls').isVisible(),true,'fixed index input displayed');
+ assert.equal(await page.locator('#clad_material').inputValue(),'fixed');
+ assert.equal(await page.locator('#clad_index_override').inputValue(),'1.4378');
+ assert.equal(await page.locator('#core_radius_um').inputValue(),'8');
+ const comsolValue=Number(await page.locator('#neff').textContent());
+ const benchmarkPct=Number((await page.locator('#comsol-reference-pct').textContent()).replace('%',''));
+ assert.ok(Math.abs(comsolValue-1.4444)<0.00005,'computed neff within COMSOL printed precision');
+ assert.ok(benchmarkPct>=0&&benchmarkPct<5,'COMSOL neff requested <5%');
+ assert.equal((await page.locator('#comsol-reference-note').textContent()).includes('반올림 범위'),true);
+ await page.screenshot({path:'/tmp/comsol-step-benchmark.png',fullPage:false});
+ await page.locator('#clad_index_override').fill('1.4380');
+ await page.locator('#calculateBtn').click();
+ await page.waitForFunction(()=>document.querySelector('#comsol-reference-status')?.textContent.includes('조건 불일치'),{timeout:30000});
+ assert.equal(await page.locator('#comsol-reference-pct').textContent(),'—','no misleading comparison for modified material');
  await page.selectOption('#preset','g652');
  assert.equal(await page.locator('#standard-fiber-options').isVisible(),true,'Scalar controls restored');
  assert.equal(await page.locator('#hcf-sidebar-controls').isVisible(),false,'HCF quick controls hidden in standard mode');
  assert.equal(await page.locator('#profile').isVisible(),true,'Original refractive-index profile controls restored');
  // Existing auxiliary vector panel remains accessible in the standard all-tools view.
- console.log('PASS: HCF controls and live geometry, Full-vector Colab JSON results, and scalar restoration. neff='+vec+', Aeff='+ae);
+ console.log('PASS: HCF controls and live geometry, Full-vector Colab JSON results, COMSOL neff <5%, and scalar restoration. neff='+vec+', Aeff='+ae);
 }finally{await browser.close();}

@@ -5,13 +5,14 @@
  * Units: transverse micrometres, wavelength nanometres, n2 m²/W.
  * No COMSOL code, server, static lookup, or manufacturer-profile claim.
  */
-export const VERSION = '0.2.1';
+export const VERSION = '0.2.2';
 export const C0 = 299792458;
 const B=[0.6961663,0.4079426,0.8974794];
 const C=[0.0684043**2,0.1162414**2,9.896161**2];
 const qx=[0.046910077030668,0.230765344947158,0.5,0.769234655052841,0.953089922969332];
 const qw=[0.118463442528095,0.239314335249683,0.284444444444444,0.239314335249683,0.118463442528095];
 export const PRESETS = {
+  'comsol_step':{profile:'step',wavelength_nm:1550,core_radius_um:8,delta_n_core:0.0079,outer_radius_um:40,clad_index_override:1.4378,graded_alpha:2,trench_start_um:10,trench_end_um:12,trench_delta_n:-0.001,shells:[[4,0.006],[5,0.002],[7,0],[9,-0.0008]],n2_m2_per_W:2.6e-20,elements:750},
   'g654':{profile:'step', wavelength_nm:1550,core_radius_um:5.5,delta_n_core:0.0034785793846155,outer_radius_um:40,graded_alpha:2,trench_start_um:7,trench_end_um:10,trench_delta_n:-0.001,shells:[[4,0.006],[5,0.002],[7,0],[9,-0.0008]],n2_m2_per_W:2.2e-20,elements:750},
   'g652':{profile:'step',wavelength_nm:1550,core_radius_um:4.1,delta_n_core:0.005,outer_radius_um:40,graded_alpha:2,trench_start_um:7,trench_end_um:10,trench_delta_n:-0.001,shells:[[4,0.006],[5,0.002],[7,0],[9,-0.0008]],n2_m2_per_W:2.6e-20,elements:750},
   'graded':{profile:'graded',wavelength_nm:1550,core_radius_um:5.0,delta_n_core:0.006,outer_radius_um:40,graded_alpha:2,trench_start_um:7,trench_end_um:10,trench_delta_n:-0.001,shells:[[4,0.006],[5,0.002],[7,0],[9,-0.0008]],n2_m2_per_W:2.6e-20,elements:750},
@@ -19,6 +20,18 @@ export const PRESETS = {
   'multi':{profile:'multilayer',wavelength_nm:1550,core_radius_um:4.0,delta_n_core:0.006,outer_radius_um:40,graded_alpha:2,trench_start_um:7,trench_end_um:10,trench_delta_n:-0.001,shells:[[4,0.006],[5,0.002],[7,0],[9,-0.0008]],n2_m2_per_W:2.6e-20,elements:750}
 };
 export function silicaIndex(wavelengthNm){const w=Number(wavelengthNm)/1000;if(!Number.isFinite(w)||w<=0.21||w>=3.7)throw Error('Silica Sellmeier 유효 범위는 210~3700 nm입니다.'); const w2=w*w;return Math.sqrt(1+B.reduce((v,b,i)=>v+b*w2/(w2-C[i]),0));}
+/** Optional independently specified cladding index for matched material benchmarks.
+ * Standard production presets still use wavelength-dependent silica Sellmeier.
+ * Fixed-index mode must not be interpreted as a measured dispersion model.
+ */
+export function claddingIndex(m){
+ if(m.clad_index_override!==undefined&&m.clad_index_override!==null){
+  const n=m.clad_index_override;
+  if(!Number.isFinite(n)||n<1||n>2)throw Error('고정 클래딩 굴절률은 1~2 범위의 유한한 수여야 합니다.');
+  return n;
+ }
+ return silicaIndex(m.wavelength_nm);
+}
 export function validate(m){
  if(!['step','graded','trench','multilayer'].includes(m.profile))throw Error('지원하지 않는 단면입니다.');
  for(const [key,min] of [['wavelength_nm',210],['core_radius_um',0],['outer_radius_um',0],['graded_alpha',0],['n2_m2_per_W',0]]){if(!(Number.isFinite(m[key])&&m[key]>min))throw Error(`${key} 입력값을 확인하세요.`);}
@@ -31,7 +44,7 @@ export function validate(m){
    if(!Array.isArray(m.shells)||!m.shells.length)throw Error('다층 쉘 데이터를 입력하세요.');
    let p=0;for(const [end,dn] of m.shells){if(!(Number.isFinite(end)&&end>p&&end<m.outer_radius_um&&Number.isFinite(dn)))throw Error('쉘 외경은 증가해야 하며 계산 영역보다 작아야 합니다.');p=end;}
  }
- const ncl=silicaIndex(m.wavelength_nm);let maxDn=m.delta_n_core;
+ const ncl=claddingIndex(m);let maxDn=m.delta_n_core;
  if(m.profile==='multilayer')maxDn=Math.max(...m.shells.map(x=>x[1]));
  if(maxDn<=0)throw Error('기본 유도 모드를 위한 양의 코어 Δn이 필요합니다.');
  if(m.profile==='trench'&&m.trench_delta_n>=0)throw Error('Trench Δn은 음수로 입력하세요.');
@@ -51,7 +64,7 @@ function tridiagMv(d,o,x){const n=d.length,y=new Float64Array(n);for(let i=0;i<n
 function dot(a,b){let s=0;for(let i=0;i<a.length;i++)s+=a[i]*b[i];return s;}
 export function solve(m){
  validate(m);
- const r=radialGrid(m),N=r.length-1,k0=2*Math.PI/(m.wavelength_nm/1000),ncl=silicaIndex(m.wavelength_nm);
+ const r=radialGrid(m),N=r.length-1,k0=2*Math.PI/(m.wavelength_nm/1000),ncl=claddingIndex(m);
  const ad=new Float64Array(N),ao=new Float64Array(N-1),bd=new Float64Array(N),bo=new Float64Array(N-1);
  let maxDn=-Infinity;
  for(let e=0;e<N;e++){

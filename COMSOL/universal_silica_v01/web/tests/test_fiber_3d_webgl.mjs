@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {volumeFromBpm,buildFiberWireframe,VIEWER_VERSION} from '../fiber_3d_webgl.mjs';
+const N=32,axis=Array.from({length:N},(_,i)=>i-N/2),slices=Array.from({length:9},(_,k)=>({z_um:k*10,intensity:axis.flatMap(y=>axis.map(x=>Math.exp(-(x*x+y*y)/(4+k))))}));
+const data={config:{length_um:80},grid:N,axis_um:axis,slices};
+const vol=volumeFromBpm(data);assert.ok(vol.pointCount>100);assert.equal(vol.points.length,vol.pointCount*7);assert.ok(vol.points.every(x=>Number.isFinite(x)));assert.ok(vol.points[2]>=-2.6&&vol.points[2]<=2.6);
+assert.throws(()=>volumeFromBpm({grid:N,axis_um:axis,slices:[{z_um:0,intensity:[1]}]}),/Invalid BPM/);
+const solid=buildFiberWireframe({profile:'step',coreRadiusUm:5.5});assert.ok(solid.lineCount>100);assert.equal(solid.lines.length,solid.lineCount*14);
+const hcf=buildFiberWireframe({profile:'hcf',hcfGeometry:{coreRadiusUm:16,extentUm:50,rings:[{layers:[{x:25,y:0,radius:8,wall:0.6,level:1}]}]}});assert.ok(hcf.lineCount>solid.lineCount/2);
+assert.equal(VIEWER_VERSION,'1.0.0');
+console.log('PASS: 3D BPM point samples, true nested-tube geometry, shape guards, version');

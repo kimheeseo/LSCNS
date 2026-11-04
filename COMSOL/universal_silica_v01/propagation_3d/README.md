@@ -1,3 +1,9 @@
+## v0.2 — Native WebGL2 3D Animation (2026-11-04)
+
+[기존 툴 내 실제 3D 모드 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [3D WebGL 모듈](../web/fiber_3d_webgl.mjs) · [UI 사용법](../web/fiber_3d_webgl/README.md) · [구현·검증 한계](../web/fiber_3d_webgl/VALIDATION_REPORT.md).
+
+기존의 2D Canvas 투영 대신 GPU 기반 **WebGL2 xyz 광섬유 단면 압출 및 BPM 강도 3D 광장 시각화**를 추가했습니다. 기존 2D 화면도 전환할 수 있고, HCF 1/2/3중 튜브는 기하학 구조만 표시합니다. **물리적 전파 계산은 기존 2+1D Scalar BPM 그대로**입니다. 광학 주파수의 실제 시간영역 전자기파나 Full-vector 3D Maxwell 해석으로 해석하지 마십시오.
+
 # 3D Fiber Geometry & Propagation — Research v0.1 (2026-11-04)
 
 **[실행: 기존 Universal Silica Fiber Lab의 3D 광섬유·전파](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d)** · [Colab 연구용 전파 노트북](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/propagation_3d/Universal_Silica_Fiber_3D_Propagation.ipynb) · [검증 보고서](VALIDATION_REPORT.md)

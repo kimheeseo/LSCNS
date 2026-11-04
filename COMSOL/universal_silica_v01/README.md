@@ -1,3 +1,7 @@
+## 2026-11-04 · 3D WebGL 애니메이션 추가
+
+[기존 웹에서 3D 전파 애니메이션 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [3D 인터랙티브 렌더러](web/fiber_3d_webgl.mjs) · [설명·검증](web/fiber_3d_webgl/README.md). xy/z BPM 시뮬레이션의 **실제 계산된 강도 결과**를 WebGL2 3D 점군으로 표시합니다. 마우스 회전·확대·자동 회전 및 애니메이션, 2D 화면 전환이 가능합니다. 구조는 입체이지만 수치해석은 **2+1D Scalar BPM**으로, 3D Maxwell/FEM/HCF 전파손실 계산은 아닙니다.
+
 ## 3D 광섬유 구조 및 실제 Beam Propagation — 2026-11-04
 
 [▶ 기존 웹의 3D Fiber / Propagation](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/propagation_3d/Universal_Silica_Fiber_3D_Propagation.ipynb) · [소스/검증](propagation_3d/README.md). 축방향 전파는 **2+1D Scalar FFT BPM**, 3D 구조는 단면 압출 표시. Solid silica 4종 전파, HCF 튜브 3D 도식 지원. **3D Full-vector Maxwell FEM 및 HCF 누설손실 계산 아님.**

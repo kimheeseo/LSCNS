@@ -1,3 +1,9 @@
+## 2026-11-04 · 실제 WebGL 3D 광장 애니메이션 v0.2
+
+[**▶ 기존 웹 툴에서 3D 회전·전파 애니메이션 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [실제 3D 렌더러 소스](fiber_3d_webgl.mjs) · [사용 설명서](fiber_3d_webgl/README.md) · [검증 범위](fiber_3d_webgl/VALIDATION_REPORT.md) · [소스 ZIP](fiber_3d_webgl/Fiber_3D_WebGL_Upgrade_v0_2.zip)
+
+기존 Canvas 2D 투영에서 **네이티브 WebGL2 실제 xyz 좌표 3D 장면**으로 확장했습니다. 계산된 BPM 강도 슬라이스를 축방향으로 보간한 3D 점군으로 시각화하고, 광섬유 및 Nested HCF 튜브를 입체 원통으로 압출합니다. **3D WebGL / 2D 투영** 전환·시점 회전·휠 확대·자동 회전·z 슬라이더 재생·PNG 저장이 가능합니다. HCF는 기하학 형상만 표시하고 실제 광 전파를 계산하지 않습니다. GPU/WebGL2가 제한된 환경에서는 기존 2D 뷰로 폴백합니다. **계산 엔진은 여전히 2+1D Scalar BPM이며 3D Full-vector Maxwell/FEM을 구현하지 않았습니다.** GPU 렌더링은 실행 환경 정책으로 실제 픽셀 확인이 불가해 미검증이며 브라우저 UI 동작과 메시 생성은 시험했습니다.
+
 ## 2026-11-04 · 3D 구조 / Beam Propagation (2+1D)
 
 [**▶ 웹에서 3D 광섬유 구조·전파 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [Colab 전파 계산](../propagation_3d/Universal_Silica_Fiber_3D_Propagation.ipynb) · [기술 설명](../propagation_3d/README.md) · [수치 검증](../propagation_3d/VALIDATION_REPORT.md)

@@ -42,7 +42,7 @@ const HCF_NOTEBOOK='https://colab.research.google.com/github/kimheeseo/LSCNS/blo
 const ACTIONS={
  home:[['new','New model','file'],['settings','Parameters','settings'],['geometry','Geometry','geometry'],['materials','Materials','material'],['compute','Compute','play'],['mesh','Mesh study','mesh'],['export','Export JSON','save']],
  definitions:[['settings','Parameters','settings'],['comsol','COMSOL test','check'],['g654','G.654.E','geometry'],['hcf','HCF design','layers']],
- geometry:[['geometry','Geometry settings','geometry'],['cadAddCircle','Add Circle','plus'],['cadAddRotate','Rotate','refresh'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
+ geometry:[['geometry','Geometry settings','geometry'],['cadAddCircle','Circle','plus'],['cadAddRotate','Rotate','refresh'],['cadBuildAll','Build All','check'],['cadUndo','Undo','refresh'],['cadRedo','Redo','refresh'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
  sketch:[['geometry','Cross-section','geometry'],['g654','SMF geometry','model'],['hcf','Nested tubes','layers']],
  materials:[['waveMaterials','Materials','material'],['waveCore','Core index','model'],['waveCladding','Cladding index','material'],['comsol','Index benchmark','check']],
  physics:[['wavePhysics','ewfd Settings','physics'],['waveEquation','Wave Equation','wave'],['wavePEC','PEC Boundary','layers'],['waveInitial','Initial Values','settings'],['vector','Full-vector / Colab','wave']],
@@ -75,7 +75,10 @@ function runAction(action){
   case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
   case 'cadAddCircle':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'circle'}}));return;
   case 'cadAddRotate':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'rotate'}}));return;
- case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
+ case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'root'}}));return;
+  case 'cadBuildAll':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'root'}}));document.dispatchEvent(new CustomEvent('ls-cad-command',{detail:{command:'build-all'}}));return;
+  case 'cadUndo':document.dispatchEvent(new CustomEvent('ls-cad-command',{detail:{command:'undo'}}));return;
+  case 'cadRedo':document.dispatchEvent(new CustomEvent('ls-cad-command',{detail:{command:'redo'}}));return;
  case 'materials':case 'waveMaterials':case 'waveCore':case 'waveCladding':case 'wavePhysics':case 'waveEquation':case 'wavePEC':case 'waveInitial':case 'waveMesh':case 'waveSize':case 'waveStudy':case 'waveMode':case 'waveResults':case 'waveField':case 'waveIndex':case 'waveDerived':
    document.dispatchEvent(new CustomEvent('ls-open-wave-optics',{detail:{panel:action}}));return;
  case 'compute':findTarget('#calculateBtn')?.click();return;
@@ -99,7 +102,7 @@ function runAction(action){
 }
 function ribbonHtml(){
  return `<div class="ls-ribbon" role="navigation" aria-label="광학 해석 리본 메뉴">
-  <div class="ls-ribbon-tabs">${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
+  <div class="ls-ribbon-tabs">${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<div class="ls-ribbon-quick" role="toolbar" aria-label="Quick Access Toolbar"><button type="button" title="Undo Geometry (Ctrl+Z)" data-action="cadUndo" disabled>↶</button><button type="button" title="Redo Geometry (Ctrl+Shift+Z)" data-action="cadRedo" disabled>↷</button><button type="button" title="Build All Geometry (F8)" data-action="cadBuildAll">▣</button></div><span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
   <div class="ls-ribbon-body"><div class="ls-ribbon-tools" id="ls-ribbon-tools"></div><div class="ls-ribbon-note"><span class="ls-ribbon-key">MODEL</span><strong id="ls-ribbon-model">G.654.E · Large Aeff</strong><small>2D mode analysis / linked studies</small></div></div>
  </div>`;
 }
@@ -113,7 +116,7 @@ function modelTreeHtml(){
    <div class="ls-tree-root">${icon('model')} LS Wave Optics (Model)</div>
    <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="waveMaterials">${icon('material')} Material Properties</button></div></details>
    <details class="ls-tree-group" open><summary>Component 1 (comp1)</summary><div class="ls-tree-children">
-    <details class="ls-tree-group" open><summary data-action="geometry">Geometry 1</summary><div class="ls-tree-children"><div id="ls-geometry-node-list" aria-label="Geometry feature sequence"></div><div class="ls-tree-preset-group"><small>Design examples</small>${options}</div></div></details>
+    <details class="ls-tree-group" open><summary data-action="geometry"><span id="ls-cad-root-name">Geometry 1</span></summary><div class="ls-tree-children"><div id="ls-geometry-node-list" aria-label="Geometry feature sequence"></div><div class="ls-tree-preset-group"><small>Design examples</small>${options}</div></div></details>
     <details class="ls-tree-group" open><summary data-action="waveMaterials">Materials</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveCore">${icon('material')} Core (n₁)</button><button class="ls-tree-leaf" data-action="waveCladding">${icon('material')} Cladding (n₂)</button></div></details>
     <details class="ls-tree-group" open><summary data-action="wavePhysics">Electromagnetic Waves, Frequency Domain (ewfd)</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveEquation">${icon('wave')} Wave Equation, Electric 1</button><button class="ls-tree-leaf" data-action="wavePEC">${icon('physics')} Perfect Electric Conductor 1</button><button class="ls-tree-leaf" data-action="waveInitial">${icon('settings')} Initial Values 1</button></div></details>
     <details class="ls-tree-group" open><summary data-action="waveMesh">Mesh 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveSize">${icon('mesh')} Size 1 · Radial mesh</button></div></details>
@@ -177,6 +180,12 @@ function init(){
   }
  }
  renderTab('home');
+  document.addEventListener('ls-cad-history',event=>{
+   for(const key of ['cadUndo','cadRedo']){
+    const enabled=key==='cadUndo'?event.detail?.canUndo:event.detail?.canRedo;
+    for(const btn of document.querySelectorAll('.ls-ribbon [data-action="'+key+'"]'))btn.disabled=!enabled;
+   }
+  });
  ribbon.addEventListener('click',event=>{
   const tab=event.target.closest('[data-tab]');if(tab){renderTab(tab.dataset.tab);return;}
   const item=event.target.closest('[data-action]');if(item)runAction(item.dataset.action);

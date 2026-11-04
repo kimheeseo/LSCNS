@@ -29,6 +29,12 @@
   ];
  }
  params=defaults();
+ // Public read-only parameter service for the independent geometry editor.
+ window.LSWaveParameterService={
+  evaluate:()=>evaluateAll(),
+  rows:()=>params.map(p=>({...p})),
+  calculate:(value)=>{const state=evaluateAll();if(state.errors.size)throw Error([...state.errors.values()][0]);return expression(value,name=>{if(!state.values.has(name))throw Error(`Unknown parameter ${name}`);return state.values.get(name);});}
+ };
  function tokenize(input){
   const tokens=[],re=/\s*(?:(\d+(?:\.\d*)?|\.\d+)(?:[eE]([+-]?\d+))?|([a-zA-Z_]\w*)|(\[[a-zA-Zµμ]+\])|([()+\-*/^]))/gy;
   let i=0;

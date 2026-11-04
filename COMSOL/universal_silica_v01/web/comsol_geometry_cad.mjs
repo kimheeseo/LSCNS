@@ -199,7 +199,7 @@
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
    case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":checkpoint();limit=null;draw();say("All Geometry features built in preview.");return;
+   case "build-all":checkpoint();limit=null;draw();say("Built all Geometry features in the 2D Graphics preview.");return;
    case "build-selected":if(!n)return;checkpoint();limit=idx;draw();say("Build Selected finished (preview).");return;
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
@@ -357,7 +357,7 @@
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"toggle",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();modify(actions[e.key]);}
  });
- $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;drawTree();if(!pane.hidden)close();});
- $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;drawTree();if(!pane.hidden)close();}));
+ $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;updateHistoryButtons();drawTree();if(!pane.hidden)close();});
+ $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;updateHistoryButtons();drawTree();if(!pane.hidden)close();}));
  drawTree();updateHistoryButtons();
 })();

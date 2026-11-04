@@ -44,3 +44,18 @@ The UI resembles COMSOL's desktop ribbon/pane structure by user request. **LS Wa
 - **Existing solver compatibility:** only the supported two concentric full Solid circles (Circle 1 as external computation domain, Circle 2 as core) can be applied to the 1D Radial FEM; enabled Rotate nodes or extra circles must be disabled before applying. Off-center circles, sectors, curves and added layers remain geometry previews, **not 2D full-vector FEM calculations**.
 - New files: `comsol_geometry_cad.mjs` and `comsol_geometry_cad.css`. The existing parameter resolver remains the single authority for named expressions; the original FEM solver is unchanged.
 - Browser coverage: `tests/browser_comsol_parameters_geometry.mjs` tests the parameter link, extra Circle addition, `range(0,60,300)` Rotate copies, context-menu operations and Radial FEM safety guards.
+
+## Wave Optics Mode · COMSOL 5.5 UI reference (2026-11-04)
+
+**Source design references**: user-provided *Introduction to COMSOL Multiphysics* (COMSOL 5.5, Model Builder/Settings/Geometry/Materials/Mesh/Study/Results) and COMSOL's Wave Optics Module guide (Electromagnetic Waves, Frequency Domain, `ewfd`, with default Wave Equation, Electric / Perfect Electric Conductor / Initial Values nodes).
+
+- The workbench initially opens **Settings → Electromagnetic Waves, Frequency Domain (ewfd)** in the model tree and retains the existing numerical Graphics and result cards.
+- **Model Builder**: Component 1 → Geometry 1 (Circle/Rotate CAD); Materials → Core, Cladding; Electromagnetic Waves, Frequency Domain (ewfd) → Wave Equation, Electric 1; Perfect Electric Conductor 1; Initial Values 1; Mesh 1 → Size 1; Study 1 → Mode Analysis; Results → Mode Intensity, Refractive Index, Derived Values.
+- Selecting a node changes its **context-specific Settings** without cloning or replacing the original numerical solver. A **Fiber settings** back button restores the prior design inputs.
+- **Connected, functional numerical settings**: core-cladding index difference `delta_n_core`, cladding Sellmeier/fixed index model `clad_material`/`clad_index_override`, analysis wavelength `wavelength_nm`, and the radial FEM mesh size `elements`. Apply and Compute call the original authoritative fields and buttons; Mode Analysis uses the actual existing scalar LP₀₁ solver, and results panels read actual computed values.
+- **Physics GUI reference only**: COMSOL's `ewfd` and its Wave Equation / Perfect Electric Conductor / Initial Values nodes are shown for a familiar workflow, but the web app does **not** claim a general 2D full-vector COMSOL-equivalent Maxwell FEM, PEC/PML boundary conditions, or arbitrary-domain material assignments. Those would require separate physics/mesh implementations. HCF and Full-vector Colab research tools remain available as before.
+- **Mesh GUI reference**: the active mesh is 1D radial P1, not COMSOL's 2D triangle/mapped or 3D tetrahedral mesh. Existing mesh convergence tests remain functional.
+- **Results**: computed `n_eff`, MFD, `A_eff`, D and the existing mode/index plots are available; real results are not fabricated.
+- **Smoke test**: `tests/browser_comsol_wave_optics.mjs` verifies ewfd tree, Materials/Physics/Size/Study/Results settings, parameter applications, actual solver execution, and switching between original Geometry/Parameters/HCF modules. The preexisting COMSOL and CAD tests continue to run.
+
+See `comsol_wave_optics_settings.mjs` and `comsol_wave_optics_settings.css`. This is a COMSOL-inspired independent application, not affiliated with COMSOL AB.

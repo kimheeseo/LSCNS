@@ -44,7 +44,15 @@
 .eng-shortcuts a{border:1px solid #426782;background:#1a3750;padding:10px 13px;color:#b7e4f6;text-decoration:none;font-size:12px;font-weight:700;border-radius:9px}
 .eng-shortcuts a:hover,.eng-shortcuts a:focus-visible{background:#245575;color:#fff}
 .engineering-panel{scroll-margin-top:82px}
-@media(max-width:850px){@media(max-width:520px){</style>
+/* Dedicated design-example workspaces: keep the relevant optical research modules only. */
+.special-design-controls{padding:15px 0 8px;border-top:1px solid #314c66}
+.special-design-controls[hidden]{display:none!important}
+.special-panel-title{font-size:12px;font-weight:800;color:#57d8d1;letter-spacing:.5px;margin-bottom:12px}
+.special-panel-title span{display:block;color:#a4bbd1;font-weight:500;margin-top:4px;font-size:11px}
+body.hcf-selection main.workspace > :not(.page-intro):not(#hcf-designer):not(#hcf-fem){display:none!important}
+body.vector-selection main.workspace > :not(.page-intro):not(#full-vector-tool){display:none!important}
+body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selection #full-vector-tool{display:block!important}
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -54,8 +62,32 @@
   <div class="layout">
     <aside class="sidebar">
       <div class="panel-head"><div><span class="kicker">01 / MODEL DEFINITION</span><h2>광섬유 설계</h2></div><button type="button" class="small-ghost" id="resetBtn" title="기본 설계로 복원">초기화</button></div>
-      <div class="field"><label for="preset">설계 예제</label><select id="preset"><option value="g654">G.654.E 유사 · 대유효면적</option><option value="g652">G.652.D 유사 · 표준 SMF</option><option value="graded">Graded-index · 포물선형</option><option value="trench">G.657 개념 · Trench-assisted</option><option value="multi">Multilayer · 다층 설계</option><option value="mcf">MCF · 2코어 XT 분석</option></select></div>
-      <div class="field"><label for="profile">굴절률 분포 구조</label><select id="profile"><option value="step">Step-index</option><option value="graded">Graded-index</option><option value="trench">Trench-assisted</option><option value="multilayer">Multilayer (동심원)</option><option value="mcf">MCF · 2코어 (XT)</option></select></div>
+      <div class="field"><label for="preset">설계 예제</label><select id="preset"><option value="g654">G.654.E 유사 · 대유효면적</option><option value="g652">G.652.D 유사 · 표준 SMF</option><option value="graded">Graded-index · 포물선형</option><option value="trench">G.657 개념 · Trench-assisted</option><option value="multi">Multilayer · 다층 설계</option><option value="mcf">MCF · 2코어 XT 분석</option><option value="hcf">HCF / NANF · Nested Tube 설계</option><option value="vector">Full-vector · Colab 결과 분석</option></select></div>
+      <div id="hcf-sidebar-controls" class="special-design-controls" hidden>
+  <div class="special-panel-title">HCF · NESTED TUBE <span>설계 입력</span></div>
+  <div class="twocol">
+    <div class="field"><label for="hcf-quick-core">Air core 직경 <span>µm</span></label><input id="hcf-quick-core" data-hcf-target="hcf-coreDiameterUm" type="number" value="32" min="16" max="120" step="1"/></div>
+    <div class="field"><label for="hcf-quick-count">튜브 수 N</label><input id="hcf-quick-count" data-hcf-target="hcf-tubeCount" type="number" value="6" min="4" max="12" step="1"/></div>
+    <div class="field"><label for="hcf-quick-nesting">중첩 단계</label><select id="hcf-quick-nesting" data-hcf-target="hcf-nesting"><option value="1">1중</option><option value="2" selected>2중</option><option value="3">3중</option></select></div>
+    <div class="field"><label for="hcf-quick-ratio">D₁/Dcore</label><input id="hcf-quick-ratio" data-hcf-target="hcf-outerTubeRatio" type="number" value="0.78" min="0.2" max="1.4" step=".02"/></div>
+    <div class="field"><label for="hcf-quick-wall1">튜브 t₁ <span>µm</span></label><input id="hcf-quick-wall1" data-hcf-target="hcf-wall1Um" type="number" value=".58" min=".1" max="1.6" step=".02"/></div>
+    <div class="field"><label for="hcf-quick-wall2">튜브 t₂ <span>µm</span></label><input id="hcf-quick-wall2" data-hcf-target="hcf-wall2Um" type="number" value=".45" min=".1" max="1.6" step=".02"/></div>
+    <div class="field"><label for="hcf-quick-wall3">튜브 t₃ <span>µm</span></label><input id="hcf-quick-wall3" data-hcf-target="hcf-wall3Um" type="number" value=".36" min=".1" max="1.6" step=".02"/></div>
+    <div class="field"><label for="hcf-quick-lambda">파장 <span>nm</span></label><input id="hcf-quick-lambda" data-hcf-target="hcf-wavelengthNm" type="number" value="1550" min="300" max="3000" step="10"/></div>
+  </div>
+  <button type="button" class="primary-btn" id="hcf-quick-open">▶ HCF 단면 및 공진 분석</button>
+  <button type="button" class="secondary-btn" id="hcf-quick-fem" style="width:100%;margin-top:8px">HCF 복소 FEM 결과 · Colab 연동</button>
+  <p class="side-hint">단면·ARROW 공진은 즉시 변경됩니다. HCF 복소 neff는 별도 Scalar FEM+PML Colab 계산 결과를 불러오며, 현재 HCF Full-vector 솔버는 미구현입니다.</p>
+</div>
+<div id="vector-sidebar-controls" class="special-design-controls" hidden>
+  <div class="special-panel-title">FULL-VECTOR <span>Colab 결과 불러오기</span></div>
+  <p class="side-hint">2D Full-vector FDFD로 계산한 실리카 광섬유의 neff, MFD, Aeff, Ex/Ey/Ez를 JSON에서 읽어 표시합니다.</p>
+  <a class="primary-btn" style="display:block;text-align:center;text-decoration:none" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb" target="_blank" rel="noopener">▶ Full-vector Colab 계산</a>
+  <button type="button" class="secondary-btn" id="vector-quick-open" style="width:100%;margin-top:9px">계산된 JSON 결과 보기 / 불러오기</button>
+  <p class="side-hint">기존 2D Scalar FEM과 분리된 계산입니다. <strong>HCF Full-vector와 복소 PML 누설손실 계산은 아직 지원하지 않습니다.</strong></p>
+</div>
+<div id="standard-fiber-options">
+<div class="field"><label for="profile">굴절률 분포 구조</label><select id="profile"><option value="step">Step-index</option><option value="graded">Graded-index</option><option value="trench">Trench-assisted</option><option value="multilayer">Multilayer (동심원)</option><option value="mcf">MCF · 2코어 (XT)</option></select></div>
       <div class="field fiber-only" data-fiber-only><label for="wavelength_nm">해석 파장 <span>nm</span></label><input type="number" id="wavelength_nm" min="250" max="3600" step="5"/></div>
       <div class="twocol fiber-only" data-fiber-only><div class="field"><label for="core_radius_um">코어 반경 <span>µm</span></label><input type="number" id="core_radius_um" min="0.5" max="60" step="0.1"/></div><div class="field"><label for="delta_n_core">코어 Δn</label><input type="number" id="delta_n_core" min="0.00001" max="0.04" step="0.0001"/></div></div>
       <div class="conditional" data-for="mcf" hidden>
@@ -81,6 +113,7 @@
       <div class="side-buttons"><button class="secondary-btn" id="jsonBtn">JSON 결과</button><button class="secondary-btn" id="csvBtn">CSV 결과</button></div>
       <div class="side-buttons"><button class="secondary-btn" id="pngBtn">모드 PNG</button><button class="secondary-btn" id="designBtn">설계 JSON</button></div>
       <label class="upload-btn" for="importDesign">↑ 설계 JSON 불러오기</label><input id="importDesign" type="file" accept=".json,application/json" hidden/>
+      </div><!-- /standard-fiber-options -->
     </aside>
     <main class="workspace">
       <div class="page-intro"><div><div class="eyebrow">OPTICAL SIMULATION / DESIGN WORKSPACE</div><h1>Universal Silica Fiber <span>Lab</span></h1><p>실리카 광섬유 단면을 설계하고 실제 Radial FEM 고유모드를 해석합니다.</p></div><div class="version-pill">SCALAR LP₀₁ <span>·</span> FEM P1</div></div>

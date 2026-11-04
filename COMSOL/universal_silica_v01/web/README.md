@@ -1,3 +1,11 @@
+## 2026-11-04 · 설계 예제 HCF / Full-vector Colab 연결
+
+[**▶ 설계 예제 메뉴에서 HCF·Full-vector 선택**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-preset-hcf-vector-v1)
+
+- **HCF / NANF · Nested Tube 설계:** 좌측 설계 예제에서 HCF를 선택하면 기존 실리카·MCF 입력 대신 Air core 직경, 튜브 수, 중첩 단계, D₁/Dcore, t₁/t₂/t₃, 파장을 표시합니다. 입력을 바꾸면 기존 HCF Designer의 2D 단면·ARROW 공진값이 연동 갱신됩니다. 상세 설계·FEM 결과 패널이 남아 있으며, HCF 복소 결과는 기존 **Scalar FEM+PML Colab** JSON을 가져옵니다. 해당 수치는 메시/PML 수렴 미검증이며 **HCF Full-vector 해석은 아닙니다**.
+- **Full-vector · Colab 결과 분석:** 선택 시 별도 2D Vector FDFD 뷰어로 전환합니다. [Full-vector Colab 노트북](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb)에서 계산한 `LSCNS_vector_mode_v1` 결과 JSON을 불러와 **neff, MFD(2nd/PII-like), Aeff, |E|², |Ex|², |Ey|², |Ez|²**를 실제 결과값으로 표시합니다. 웹 페이지가 직접 Full-vector 고유값을 계산하는 것은 아니며, 현재 노트북은 **실리카 원형/동심원 구조용**입니다. HCF Full-vector FEM/복소 neff/PML은 아직 구현되지 않았습니다.
+- 일반 G.654/G.652/Graded/Trench/Multilayer/MCF 선택으로 돌아가면 기존 설계·해석 UI가 복원됩니다. 새 브라우저 라우팅 회귀 검사: `tests/test_research_preset_routes.mjs`, `tests/browser_research_presets.mjs`.
+
 ## 2026-11-04 · HCF complex scalar FEM + PML 연구용 업그레이드
 
 [**웹 HCF FEM 결과 뷰어**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-fem) · [**실제 계산 Colab**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/hcf_complex_fem/HCF_Complex_FEM_Research.ipynb) · [복소 FEM 계산 코드](../hcf_complex_fem/hcf_complex_fem.py) · [검증 보고서](../hcf_complex_fem/VALIDATION_REPORT.md)

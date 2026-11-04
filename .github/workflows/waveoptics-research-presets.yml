@@ -1,0 +1,50 @@
+name: COMSOL HCF and Full-vector Preset UI
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/app.mjs'
+      - 'COMSOL/universal_silica_v01/web/hcf_designer_ui.mjs'
+      - 'COMSOL/universal_silica_v01/web/vector_mode_ui.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/test_research_preset_routes.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_research_presets.mjs'
+      - '.github/workflows/waveoptics-research-presets.yml'
+permissions:
+  contents: read
+jobs:
+  preset-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and HCF/Full-vector routing contracts
+        run: |
+          node --check COMSOL/universal_silica_v01/web/app.mjs
+          node --check COMSOL/universal_silica_v01/web/hcf_designer_ui.mjs
+          node --check COMSOL/universal_silica_v01/web/vector_mode_ui.mjs
+          node COMSOL/universal_silica_v01/web/tests/test_research_preset_routes.mjs
+      - name: Install Chromium for actual UI smoke test
+        run: |
+          npm install --no-save --prefix /tmp/research-preset-playwright playwright@1.56.1
+          /tmp/research-preset-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Browser test for HCF geometry and Colab vector JSON
+        env:
+          NODE_PATH: /tmp/research-preset-playwright/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/research-presets-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          node COMSOL/universal_silica_v01/web/tests/browser_research_presets.mjs
+      - name: Upload HCF and Full-vector screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-preset-browser-screenshots
+          path: |
+            /tmp/hcf-preset-view.png
+            /tmp/vector-preset-view.png
+          if-no-files-found: ignore

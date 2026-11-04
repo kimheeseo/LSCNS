@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const {chromium}=require('playwright');
+const url=process.env.TEST_BASE_URL||'http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/';
+const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+ await page.goto(url,{waitUntil:'load',timeout:90000});
+ await page.waitForSelector('#hcf-designer',{timeout:30000});
+ await page.waitForSelector('#full-vector-tool',{timeout:30000});
+ await page.waitForSelector('#hcf-fem',{timeout:30000});
+ await page.selectOption('#preset','hcf');
+ assert.equal(await page.locator('#hcf-sidebar-controls').isVisible(),true,'HCF sidebar visible');
+ assert.equal(await page.locator('#hcf-designer').isVisible(),true,'HCF designer visible');
+ assert.equal(await page.locator('#hcf-fem').isVisible(),true,'HCF FEM import visible');
+ assert.equal(await page.locator('#standard-fiber-options').isVisible(),false,'Scalar controls hidden in HCF');
+ await page.locator('#hcf-quick-core').fill('40');
+ await page.waitForFunction(()=>document.querySelector('#hcf-coreDiameterUm')?.value==='40');
+ await page.locator('#hcf-quick-count').fill('8');
+ await page.waitForFunction(()=>document.querySelector('#hcf-geometry-badge')?.textContent.includes('N=8'));
+ await page.screenshot({path:'/tmp/hcf-preset-view.png',fullPage:false});
+ await page.selectOption('#preset','vector');
+ assert.equal(await page.locator('#vector-sidebar-controls').isVisible(),true,'Full-vector sidebar visible');
+ assert.equal(await page.locator('#full-vector-tool').isVisible(),true,'Full-vector results visible');
+ assert.equal(await page.locator('#hcf-designer').isVisible(),false,'HCF designer hidden in vector');
+ await page.locator('#fv-example').click();
+ await page.waitForFunction(()=>document.querySelector('#fv-neff')?.textContent.trim()!=='—',{timeout:30000});
+ const vec=await page.locator('#fv-neff').textContent();
+ assert.match(vec,/\d/,'Full-vector neff rendered from JSON');
+ const ae=await page.locator('#fv-aeff').textContent();
+ assert.match(ae,/\d/,'Full-vector Aeff rendered from JSON');
+ await page.screenshot({path:'/tmp/vector-preset-view.png',fullPage:false});
+ await page.selectOption('#preset','g652');
+ assert.equal(await page.locator('#standard-fiber-options').isVisible(),true,'Scalar controls restored');
+ assert.equal(await page.locator('#full-vector-tool').isVisible(),false,'Vector panel hidden in scalar');
+ console.log('PASS: HCF controls and live geometry, Full-vector Colab JSON results, and scalar restoration. neff='+vec+', Aeff='+ae);
+}finally{await browser.close();}

@@ -35,7 +35,44 @@ function setModeHeadings(isMCF){
  document.querySelectorAll('.diagnostic dt').forEach((el,i)=>el.textContent=diagnostic[i]);
  document.querySelector('.version-pill').textContent=isMCF?'MCF 2 CORE · IDEAL XT':'SCALAR LP₀₁ · FEM P1';
 }
-function applyPreset(name){const p=structuredClone(PRESETS[name==='mcf'?'g652':name]);if(!p)throw Error('알 수 없는 예제');if(name==='mcf'){p.profile='mcf';p.wavelength_nm=1550;p.core_radius_um=4.1;p.delta_n_core=0.005;$('pitch_um').value='16';$('length_mm').value='5';}$('profile').value=p.profile;for(const k of keys){$(k).value=k==='n2_m2_per_W'?(p[k]/1e-20).toString():p[k];}$('shells').value=p.shells.map(x=>x.join(',')).join('\n');$('meshLabel').textContent=p.elements; changeProfile();invalidate();}
+/** Dedicated research views reuse the authoritative HCF and Full-vector modules. */
+function researchView(name){
+ const isHcf=name==='hcf',isVector=name==='vector',research=isHcf||isVector;
+ document.body.classList.toggle('hcf-selection',isHcf);
+ document.body.classList.toggle('vector-selection',isVector);
+ $('standard-fiber-options').hidden=research;
+ $('hcf-sidebar-controls').hidden=!isHcf;
+ $('vector-sidebar-controls').hidden=!isVector;
+ const info=document.querySelector('.page-intro p');
+ if(info)info.textContent=isHcf
+  ?'HCF/NANF: 튜브 단면·ARROW 공진을 즉시 설계하고, Colab Scalar Complex FEM 결과를 불러와 해석합니다.'
+  :isVector
+  ?'Full-vector: Colab의 2D Vector FDFD 계산 결과를 불러와 neff·MFD·Aeff·Ex/Ey/Ez를 표시합니다.'
+  :'실리카 광섬유 단면을 설계하고 실제 Radial FEM 고유모드를 해석합니다.';
+ if(research){
+  document.querySelector('.version-pill').textContent=isHcf?'HCF · ARROW + SCALAR FEM/PML':'2D FULL-VECTOR FDFD · COLAB';
+  $('engineState').innerHTML='<span class="status-dot"></span> '+(isHcf?'HCF 설계기 · FEM Colab 연동':'Full-vector 계산 결과 뷰어');
+ }else{
+  $('engineState').innerHTML='<span class="status-dot"></span> 브라우저 FEM 엔진 준비';
+ }
+}
+function syncHcfSidebar(){
+ document.querySelectorAll('#hcf-sidebar-controls [data-hcf-target]').forEach(el=>{
+  const target=document.getElementById(el.dataset.hcfTarget);
+  if(target)el.value=target.value;
+ });
+}
+function applyPreset(name){
+ if(name==='hcf'||name==='vector'){
+   $('preset').value=name;
+   researchView(name);
+   if(name==='hcf')syncHcfSidebar();
+   const target=document.getElementById(name==='hcf'?'hcf-designer':'full-vector-tool');
+   target?.scrollIntoView?.({behavior:'smooth',block:'start'});
+   return;
+ }
+ researchView('fiber');
+ const p=structuredClone(PRESETS[name==='mcf'?'g652':name]);if(!p)throw Error('알 수 없는 예제');if(name==='mcf'){p.profile='mcf';p.wavelength_nm=1550;p.core_radius_um=4.1;p.delta_n_core=0.005;$('pitch_um').value='16';$('length_mm').value='5';}$('profile').value=p.profile;for(const k of keys){$(k).value=k==='n2_m2_per_W'?(p[k]/1e-20).toString():p[k];}$('shells').value=p.shells.map(x=>x.join(',')).join('\n');$('meshLabel').textContent=p.elements; changeProfile();invalidate();}
 function readModel(){if($('profile').value==='mcf'){
   if(!$('pitch_um').value.trim()||!$('length_mm').value.trim())throw Error('MCF 코어 간격과 길이를 입력하세요.');
   const pitch_um=Number($('pitch_um').value),length_mm=Number($('length_mm').value);
@@ -160,5 +197,22 @@ function exportCSV(){if(last?.isMCF){const lines=[['length_mm','core1_power','co
 function exportPNG(){if(last?.isMCF){const a=document.createElement('a');a.download='mcf_ideal_xt_curve.png';a.href=$('modeChart').toDataURL('image/png');a.click();return;}if(!last){errorText('먼저 모드를 계산하세요.','error');return;}const a=document.createElement('a');a.download='silica_fiber_mode.png';a.href=modeCanvas.toDataURL('image/png');a.click();}
 function exportDesign(){const m=readModel();saveFile('silica_fiber_design.json',JSON.stringify({version:VERSION,model:m},null,2),'application/json');}
 function importDesignFile(f){if(!f)return;if(f.size>500000){errorText('설계 JSON은 500 KB 이하여야 합니다.','error');return;}const reader=new FileReader();reader.onload=()=>{try{let o=JSON.parse(reader.result),m=o.model||o;if(m.profile==='mcf'){calculateMCF(m.pitch_um,m.length_mm);applyPreset('mcf');$('preset').value='mcf';$('profile').value='mcf';$('pitch_um').value=m.pitch_um;$('length_mm').value=m.length_mm;changeProfile();invalidate();errorText('MCF 설계 불러오기 완료. XT 계산 실행을 누르세요.','success');return;}validate(m);$('preset').value='g654';$('profile').value=m.profile;for(const k of keys)$(k).value=k==='n2_m2_per_W'?m[k]/1e-20:m[k];$('shells').value=m.shells.map(s=>s.join(',')).join('\n');$('meshLabel').textContent=m.elements;changeProfile();invalidate();errorText('설계를 불러왔습니다. 모드 계산을 실행하세요.','success');}catch(e){errorText('설계 JSON 오류: '+e.message,'error');}};reader.readAsText(f);}
-$('preset').addEventListener('change',e=>applyPreset(e.target.value));$('profile').addEventListener('change',()=>{changeProfile();invalidate();});for(const el of document.querySelectorAll('.sidebar input:not([type="file"]),.sidebar textarea,.sidebar select:not(#preset):not(#profile)'))el.addEventListener('input',()=>{$('meshLabel').textContent=$('elements').value;invalidate();});$('calculateBtn').addEventListener('click',()=>calc());$('resetBtn').addEventListener('click',()=>{applyPreset('g654');$('preset').value='g654';calc({autoSweep:true});});$('sweepBtn').addEventListener('click',doSweep);$('meshBtn').addEventListener('click',doMesh);$('jsonBtn').addEventListener('click',exportJSON);$('csvBtn').addEventListener('click',exportCSV);$('pngBtn').addEventListener('click',exportPNG);$('designBtn').addEventListener('click',()=>{try{exportDesign();}catch(e){errorText(e.message,'error');}});$('importDesign').addEventListener('change',e=>{importDesignFile(e.target.files?.[0]);e.target.value='';});
+// HCF quick controls update the existing authoritative HCF designer.
+document.querySelectorAll('#hcf-sidebar-controls [data-hcf-target]').forEach(el=>{
+ el.addEventListener('input',()=>{
+  const target=document.getElementById(el.dataset.hcfTarget);
+  if(target){target.value=el.value;target.dispatchEvent(new Event('input',{bubbles:true}));}
+ });
+});
+// Dynamic HCF section is mounted by a separate ES module after the basic UI.
+document.addEventListener('input',event=>{
+ if(event.target.closest?.('#hcf-designer')&&document.body.classList.contains('hcf-selection'))syncHcfSidebar();
+});
+$('hcf-quick-open').addEventListener('click',()=>document.getElementById('hcf-designer')?.scrollIntoView?.({behavior:'smooth',block:'start'}));
+$('hcf-quick-fem').addEventListener('click',()=>document.getElementById('hcf-fem')?.scrollIntoView?.({behavior:'smooth',block:'start'}));
+$('vector-quick-open').addEventListener('click',()=>document.getElementById('full-vector-tool')?.scrollIntoView?.({behavior:'smooth',block:'start'}));
+$('preset').addEventListener('change',e=>applyPreset(e.target.value));$('profile').addEventListener('change',()=>{changeProfile();invalidate();});for(const el of document.querySelectorAll('.sidebar input:not([type="file"]),.sidebar textarea,.sidebar select:not(#preset):not(#profile)')){
+ if(el.closest('.special-design-controls'))continue;
+ el.addEventListener('input',()=>{$('meshLabel').textContent=$('elements').value;invalidate();});
+}$('calculateBtn').addEventListener('click',()=>calc());$('resetBtn').addEventListener('click',()=>{applyPreset('g654');$('preset').value='g654';calc({autoSweep:true});});$('sweepBtn').addEventListener('click',doSweep);$('meshBtn').addEventListener('click',doMesh);$('jsonBtn').addEventListener('click',exportJSON);$('csvBtn').addEventListener('click',exportCSV);$('pngBtn').addEventListener('click',exportPNG);$('designBtn').addEventListener('click',()=>{try{exportDesign();}catch(e){errorText(e.message,'error');}});$('importDesign').addEventListener('change',e=>{importDesignFile(e.target.files?.[0]);e.target.value='';});
 applyPreset('g654');calc({autoSweep:true});

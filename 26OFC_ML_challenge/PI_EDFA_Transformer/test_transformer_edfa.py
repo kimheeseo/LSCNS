@@ -8,7 +8,7 @@ formula overall and by category when category labels exist. Unlabelled COSMOS
 rows are honestly reported as category='COSMOS (unlabelled)'.
 """
 from __future__ import annotations
-import argparse, json, sys
+import argparse, json, sys, time
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -24,6 +24,27 @@ def locate_csv(root: Path, name: str) -> Path:
     if not candidates:
         raise FileNotFoundError(f"Could not find {name} under {root}")
     return candidates[0]
+
+
+class ProgressReporter:
+    """Report approximate end-to-end milestones every 10%.
+
+    0–10%: CSV preparation and splitting
+    10–90%: up to the configured maximum training epochs
+    90–100%: holdout evaluation and artifact export
+    These are work-stage milestones, not measured elapsed-time percentages.
+    """
+    def __init__(self):
+        self.started = time.monotonic()
+        self.next_mark = 10
+
+    def reach(self, percent, description):
+        while self.next_mark <= min(100, percent):
+            elapsed = int(time.monotonic() - self.started)
+            h, rest = divmod(elapsed, 3600)
+            m, sec = divmod(rest, 60)
+            print(f"[진행률 {self.next_mark:3d}% / 100%] {description} | 경과 {h:02d}:{m:02d}:{sec:02d}", flush=True)
+            self.next_mark += 10
 
 
 def main():
@@ -42,6 +63,8 @@ def main():
     ap.add_argument("--cpu", action="store_true")
     args = ap.parse_args()
 
+    progress = ProgressReporter()
+    print("[시작] COSMOS CSV 불러오기 및 데이터 분할 중... (전체 진행률은 단계/epoch 기준입니다.)", flush=True)
     root = Path(args.data_root)
     fx = Path(args.features) if args.features else locate_csv(root, "COSMOS_features.csv")
     fy = Path(args.labels) if args.labels else locate_csv(root, "COSMOS_labels.csv")
@@ -61,13 +84,29 @@ def main():
     val_x, val_y = x.iloc[val_i].reset_index(drop=True), ydf.iloc[val_i].reset_index(drop=True)
     test_x, test_y = x.iloc[test_i].reset_index(drop=True), ydf.iloc[test_i].reset_index(drop=True)
 
+    progress.reach(10, f"CSV 로드 및 분할 완료 (총 {len(x):,}행)")
+    print(f"[학습 준비] Transformer 학습 시작: 최대 {args.epochs} Epoch (조기 종료 가능).", flush=True)
+
     # Reuse the model's own training path; its internal validation split is
     # replaced with a temporary train-only frame, while the external validation
     # and test sets remain untouched for final reporting.
     out = Path(args.output); out.mkdir(parents=True, exist_ok=True)
     cli = argparse.Namespace(seed=args.seed, cpu=args.cpu, val_frac=args.val_frac,
         batch_size=64, hidden=64, lr=.002, epochs=args.epochs, patience=args.patience)
-    net, processor, _, history, *_ = model.train_model(train_x, train_y, cli)
+    def on_epoch_end(epoch, planned_epochs, val_score, best_score):
+        percent = 10 + int(80 * epoch / max(1, planned_epochs))
+        progress.reach(percent,
+                       f"Transformer 학습 Epoch {epoch}/{planned_epochs}, 검증점수 {val_score:.5f}, 최고 {best_score:.5f}")
+
+    net, processor, _, history, *_ = model.train_model(
+        train_x, train_y, cli, progress_callback=on_epoch_end
+    )
+    trained_epochs = len(history)
+    train_summary = (f"Transformer 학습 완료 ({trained_epochs}/{args.epochs} Epoch)"
+                     if trained_epochs >= args.epochs
+                     else f"Early Stopping: {trained_epochs}/{args.epochs} Epoch에서 학습 종료")
+    progress.reach(90, train_summary)
+    print("[평가] Validation/Test 예측 및 점수·그래프 저장 중...", flush=True)
 
     device = next(net.parameters()).device
     result = {"rows": {"total": len(x), "train": len(train_x), "validation": len(val_x), "test": len(test_x)},
@@ -88,7 +127,8 @@ def main():
         print(json.dumps(result[name], indent=2, ensure_ascii=False))
     history.to_csv(out / "training_history.csv", index=False)
     (out / "cosmos_split_scores.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
-    print(f"\nSaved results to {out.resolve()}")
+    progress.reach(100, f"Validation/Test 평가·결과 저장 완료: {out.resolve()}")
+    print(f"\\nSaved results to {out.resolve()}", flush=True)
     print("Note: COSMOS does not carry the OFC Aging/SHB/Unseen benchmark labels; those category scores require the labelled official TestGround.")
 
 

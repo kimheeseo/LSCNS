@@ -33,6 +33,8 @@ try{
  await page.screenshot({path:'/tmp/vector-preset-view.png',fullPage:false});
  await page.selectOption('#preset','g652');
  assert.equal(await page.locator('#standard-fiber-options').isVisible(),true,'Scalar controls restored');
- assert.equal(await page.locator('#full-vector-tool').isVisible(),false,'Vector panel hidden in scalar');
+ assert.equal(await page.locator('#hcf-sidebar-controls').isVisible(),false,'HCF quick controls hidden in standard mode');
+ assert.equal(await page.locator('#profile').isVisible(),true,'Original refractive-index profile controls restored');
+ // Existing auxiliary vector panel remains accessible in the standard all-tools view.
  console.log('PASS: HCF controls and live geometry, Full-vector Colab JSON results, and scalar restoration. neff='+vec+', Aeff='+ae);
 }finally{await browser.close();}

@@ -68,7 +68,7 @@ function shell(out,x,y,r,wall,scale,color,z0=-2.6,z1=2.6){
  }
 }
 /** Convert nested tube circles or solid layers to true xyz line geometry (floats: xyzrgba). */
-export function buildFiberWireframe({profile='step',coreRadiusUm=5.5,coreDiameterUm=32,hcfGeometry=null,solidLayers=null}={}){
+export function buildFiberWireframe({profile='step',coreRadiusUm=5.5,coreDiameterUm=32,hcfGeometry=null,solidLayers=null,trenchStartUm=null,trenchEndUm=null}={}){
  const lines=[];
  if(profile==='hcf'){
   if(!hcfGeometry?.rings?.length)throw Error('HCF geometry is not available');
@@ -80,12 +80,12 @@ export function buildFiberWireframe({profile='step',coreRadiusUm=5.5,coreDiamete
   }
   return {lines:Float32Array.from(lines),visualRadiusUm:ext,kind:'HCF_geometry_only',lineCount:lines.length/14};
  }
- const a=Math.max(.01,coreRadiusUm),visR=Math.max(12,a*2.8);
+ const a=Math.max(.01,profile==='multilayer'&&solidLayers?.length?solidLayers[0]:coreRadiusUm),visR=Math.max(12,a*2.8,profile==='trench'&&trenchEndUm?trenchEndUm*1.25:0,solidLayers?.length?solidLayers.at(-1)*1.25:0);
  shell(lines,0,0,visR*1.02,0,visR,[.24,.62,.93,.20]);
  shell(lines,0,0,a,0,visR,[.38,1,.83,.85]);
  if(profile==='trench'){
-  shell(lines,0,0,Math.max(a*1.38,a+1),0,visR,[.98,.70,.49,.50]);
-  shell(lines,0,0,Math.max(a*2.05,a+2),0,visR,[.98,.70,.49,.38]);
+  shell(lines,0,0,Number.isFinite(trenchStartUm)?trenchStartUm:Math.max(a*1.38,a+1),0,visR,[.98,.70,.49,.50]);
+  shell(lines,0,0,Number.isFinite(trenchEndUm)?trenchEndUm:Math.max(a*2.05,a+2),0,visR,[.98,.70,.49,.38]);
  }else if(profile==='multilayer'&&Array.isArray(solidLayers)){
   for(let i=0;i<solidLayers.length;i++)shell(lines,0,0,solidLayers[i],0,visR,[.45,.72,1,.37]);
  }
@@ -124,7 +124,7 @@ export function volumeFromBpm(data,{visualRadiusUm=15,axialSamples=42,maxPoints=
 }
 function gpuBuffer(gl,arr){const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);return b;}
 /** Attaches a genuine WebGL2 3D canvas above the old projected 2D fallback canvas. */
-export function mountFiberWebGL({panel,q,getData,getHcfGeometry}){
+export function mountFiberWebGL({panel,q,getData,getHcfGeometry,getSolidModel=()=>({})}){
  const scene2D=q('f3-scene'),parent=scene2D.parentElement;
  const toolbar=document.createElement('div');toolbar.className='f3-webgl-controls';toolbar.innerHTML='<button type="button" id="f3-view-3d" aria-pressed="true">◉ 3D WebGL</button><button type="button" id="f3-view-2d" aria-pressed="false">2D 투영</button><button type="button" id="f3-auto-orbit" aria-pressed="false">↻ 자동 회전</button><span id="f3-webgl-label">마우스 드래그: 회전 · 휠: 확대/축소</span>';
  const c=document.createElement('canvas');c.id='f3-webgl';c.width=970;c.height=460;c.setAttribute('aria-label','3D WebGL animated optical fiber and BPM intensity volume');c.style.cssText='width:100%;height:auto;aspect-ratio:970/460;display:block;background:#071423;border:1px solid #38617b;border-radius:9px;touch-action:none';
@@ -146,11 +146,12 @@ export function mountFiberWebGL({panel,q,getData,getHcfGeometry}){
  function updateGeometry(){
   if(failed)return;
   const profile=q('f3-profile').value;
-  let config={profile,coreRadiusUm:Number(q('f3-radius').value),solidLayers:null};
+  const solid=getSolidModel();
+  let config={profile,coreRadiusUm:Number(q('f3-radius').value),solidLayers:solid.shells?.map(x=>x[0])||null,trenchStartUm:solid.trench_start_um,trenchEndUm:solid.trench_end_um};
   if(profile==='hcf'){
    try{config.hcfGeometry=getHcfGeometry();}catch(e){if(vertexBuffer){gl.deleteBuffer(vertexBuffer);vertexBuffer=null;}wireframe=null;lastGeometryKey='';label.textContent='HCF 단면 입력을 확인하세요: '+e.message;return;}
   }
-  const key=JSON.stringify({p:profile,a:config.coreRadiusUm,hcf:profile==='hcf'?config.hcfGeometry.input:null});
+  const key=JSON.stringify({p:profile,a:config.coreRadiusUm,layer:config.solidLayers,trench:[config.trenchStartUm,config.trenchEndUm],hcf:profile==='hcf'?config.hcfGeometry.input:null});
   if(key===lastGeometryKey)return;
   try{
    const geo=buildFiberWireframe(config);

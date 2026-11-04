@@ -17,7 +17,8 @@
   const dn=Number(get("delta_n_core")?.value)||0.005;
   return [
    {name:"d",expression:`${precision(2*rc)}[um]`,description:"Core diameter / Circle 2"},
-   {name:"Delta",expression:precision(dn),description:"Absolute core-cladding index difference"},
+   {name:"Delta",expression:"6.75[um]",description:"Hole separation in reference screenshot (not linked to radial solver)"},
+   {name:"dn_core",expression:precision(dn),description:"Core-cladding index difference for radial FEM"},
    {name:"rb",expression:`${precision(rb)}[um]`,description:"Computation boundary / Circle 1"},
    {name:"nbg",expression:get("clad_material")?.value==="fixed"?String(get("clad_index_override").value):"1.45",description:"Background index (reference; optional fixed nclad)"},
    {name:"nair",expression:"1",description:"Air refractive index (reference)"},
@@ -124,7 +125,7 @@
    <div class="ls-config-section-title">▾ Parameters</div>
    <div class="ls-params-scroll"><table class="ls-params-table" aria-label="Global Definitions Parameters"><thead><tr><th>Name</th><th>Expression</th><th>Value</th><th>Description</th><th></th></tr></thead><tbody id="ls-parameter-rows"></tbody></table></div>
    <div class="ls-config-actions"><button id="ls-params-add" type="button">＋ Add parameter</button><button id="ls-params-reset" type="button">Reset to model</button><button id="ls-params-export" type="button">Export JSON</button></div>
-   <p class="ls-config-help">Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. d / Delta / rb / wl link to the concentric radial FEM only after Apply.</p>
+   <p class="ls-config-help">Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. d / dn_core / rb / wl link to the concentric radial FEM only after Apply. Delta is a separate reference pitch, not refractive-index contrast.</p>
   </section>
   <section id="ls-geometry-view" class="ls-config-body" hidden>
    <div class="ls-config-actions ls-circle-choices"><button data-ls-circle="0" type="button">◯ Circle 1 (c1)</button><button data-ls-circle="1" type="button">◉ Circle 2 (c2)</button></div>
@@ -238,7 +239,7 @@
    if([out,core].some(o=>Math.abs(o.xMeters)>1e-12||Math.abs(o.yMeters)>1e-12))throw Error("The radial FEM requires concentric circles centered at x=y=0.");
    if([out,core].some(o=>o.thickness>1e-12))throw Error("Additional geometric layers are preview-only. Set Layer 1 thickness to 0 to apply the two-circle model.");
    if(!(out.r>core.r))throw Error("Circle 1 must contain Circle 2 (rb > d/2).");
-   const outer=out.r*1e6,inner=core.r*1e6,wl=values.get("wl")*1e9,dn=values.get("Delta");
+   const outer=out.r*1e6,inner=core.r*1e6,wl=values.get("wl")*1e9,dn=values.get("dn_core");
    if(!(outer>=15&&outer<=150&&inner>=0.5&&inner<=60&&outer>inner&&wl>=250&&wl<=3600&&dn>0&&dn<0.1))throw Error("Current radial solver limits: outer radius 15–150 µm, core radius 0.5–60 µm, wavelength 250–3600 nm, 0 < Δn < 0.1.");
    const bg=get("ls-use-background").checked?values.get("nbg"):null;
    if(bg!==null&&!(bg>=1&&bg<2))throw Error("nbg must be 1–2");

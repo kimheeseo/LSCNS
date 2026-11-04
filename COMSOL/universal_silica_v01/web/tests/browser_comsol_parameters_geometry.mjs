@@ -1,0 +1,45 @@
+/** Browser regression: COMSOL Parameters, Geometry and physical solver linkage. */
+import assert from "node:assert/strict";
+import {createRequire} from "node:module";
+const require=createRequire(import.meta.url);
+const {chromium}=require("playwright");
+const url=process.env.TEST_BASE_URL||"http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/";
+const browser=await chromium.launch({headless:true,args:["--no-sandbox","--disable-dev-shm-usage"]});
+try{
+ const page=await browser.newPage({viewport:{width:1366,height:800}});
+ const errors=[];
+ page.on("pageerror",err=>errors.push(err.message));
+ await page.goto(url,{waitUntil:"load",timeout:90000});
+ await page.waitForSelector(".ls-model-tree");
+ await page.waitForSelector("#ls-config-pane");
+ await page.locator('.ls-model-tree [data-action="settings"]').click();
+ assert.equal(await page.locator("#ls-parameters-view").isVisible(),true);
+ assert.equal(await page.locator("#ls-parameter-rows tr").count(),10);
+ assert.equal(await page.locator('#ls-parameter-rows [data-field="name"]').first().inputValue(),"d");
+ assert.ok((await page.locator('[data-param-value="8"]').textContent()).includes("µm"),"wlr reference formula evaluates in SI units");
+ await page.locator('#ls-parameter-rows [data-field="expression"]').first().fill("12[um]");
+ assert.ok((await page.locator('[data-param-value="0"]').textContent()).includes("12 µm"),"live parameter expressions update");
+ await page.screenshot({path:"/tmp/ls_comsol_parameters.png"});
+ await page.locator('.ls-model-tree [data-action="geometryInner"]').click();
+ assert.equal(await page.locator("#ls-geometry-view").isVisible(),true);
+ assert.equal(await page.locator("#ls-geo-radius").inputValue(),"d/2");
+ assert.equal(await page.locator("#ls-geo-sector").inputValue(),"360");
+ await page.locator("#ls-geo-all").click();
+ assert.ok((await page.locator("#ls-geo-info").textContent()).includes("6.000 µm"),"parameter drives Circle 2 radius");
+ await page.locator("#ls-geo-apply").click();
+ assert.ok((await page.locator("#ls-config-status").textContent()).startsWith("Applied:"),"concentric circles applied to FEM inputs");
+ assert.equal(Number(await page.locator("#core_radius_um").inputValue()),6);
+ await page.screenshot({path:"/tmp/ls_comsol_geometry.png"});
+ await page.locator("#ls-geo-x").fill("1[um]");
+ await page.locator("#ls-geo-apply").click();
+ assert.ok((await page.locator("#ls-config-status").textContent()).includes("requires concentric circles"),"off-center geometry is blocked from radial FEM");
+ assert.equal(Number(await page.locator("#core_radius_um").inputValue()),6,"invalid preview does not modify previous FEM input");
+ await page.locator("#ls-geo-x").fill("0[um]");
+ await page.locator("#ls-config-back").click();
+ assert.equal(await page.locator("#ls-config-pane").isVisible(),false);
+ assert.equal(await page.locator("#calculateBtn").isVisible(),true);
+ await page.locator("#calculateBtn").click();
+ await page.waitForFunction(()=>Number(document.querySelector("#neff")?.textContent)>1.4,{timeout:30000});
+ assert.deepEqual(errors,[],"No JS errors in parameters/geometry workflow");
+ console.log("PASS: parameter expressions, dependent circle radius, geometry preview, radial FEM apply, off-axis rejection, original solver");
+}finally{await browser.close();}

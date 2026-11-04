@@ -68,7 +68,16 @@
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
  document.body.append(context);
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
- const physSignature=()=>JSON.stringify(nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]));
+ const physSignature=()=>{
+  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]);
+  // Resolve parameter expressions as well as literal expressions. An edit of d/rb
+  // changes the geometry even if Circle 1/2 still display the same expressions.
+  const evaluated=nodes.filter(n=>n.kind==="circle").map(n=>{
+   try{return [n.id,...[n.radius,n.x,n.y,n.sector,n.layer].map(x=>svc.calculate(x))];}
+   catch(e){return [n.id,"parameter error",e.message];}
+  });
+  return JSON.stringify([structural,evaluated]);
+ };
  let lastAppliedSignature=physSignature();
  function status(){
   const base={kind:"radial",featureCount:nodes.length,pending:physSignature()!==lastAppliedSignature,supported:false,domains:[]};

@@ -70,8 +70,10 @@ function choosePreset(name){
 function runAction(action){
  switch(action){
  case 'new':findTarget('#resetBtn')?.click();return;
- case 'settings':jump('#preset');return;
- case 'geometry':jump(document.body.classList.contains('hcf-selection')?'#hcf-designer':'#crossSection');return;
+ case 'settings':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'parameters'}}));return;
+  case 'geometryOuter':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c1'}}));return;
+  case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c2'}}));return;
+ case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c2'}}));return;
  case 'materials':jump('#clad_material');return;
  case 'compute':findTarget('#calculateBtn')?.click();return;
  case 'mesh':findTarget('#meshBtn')?.click();return;
@@ -108,7 +110,7 @@ function modelTreeHtml(){
    <div class="ls-tree-root">${icon('model')} LS Wave Optics (Model)</div>
    <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="materials">${icon('material')} Material Properties</button></div></details>
    <details class="ls-tree-group" open><summary>Component 1 (comp1)</summary><div class="ls-tree-children">
-    <details class="ls-tree-group" open><summary>Geometry 1</summary><div class="ls-tree-children">${options}</div></details>
+    <details class="ls-tree-group" open><summary data-action="geometry">Geometry 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="geometryOuter" type="button">${icon('geometry')} Circle 1 (c1) · outer domain</button><button class="ls-tree-leaf" data-action="geometryInner" type="button">${icon('geometry')} Circle 2 (c2) · core</button>${options}</div></details>
     <button class="ls-tree-leaf" data-action="materials">${icon('material')} Materials</button>
     <button class="ls-tree-leaf" data-action="compute">${icon('physics')} Electromagnetic Waves</button>
     <button class="ls-tree-leaf" data-action="mesh">${icon('mesh')} Mesh 1</button>

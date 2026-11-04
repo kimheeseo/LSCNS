@@ -135,7 +135,7 @@
    const x=w/2+s.x*scale,y=h/2-s.y*scale,r=s.r*scale;
    const focus=selected===s.owner,stroke=focus?"#1f77ae":s.derived?"#7a8793":"#3f505f";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
-   const fill=s.solid?(s.selection&&colors[s.color]||focus?"#c1d9eb":"#d0d3d7"):"none";
+   const fill=s.solid?(s.selection&&colors[s.color]?colors[s.color]:(focus?"#c1d9eb":"#d0d3d7")):"none";
    const label=mini?"":`<text x="${x}" y="${y-r-7}" font-size="11" text-anchor="middle" fill="${stroke}">${esc(s.owner)}${s.derived?"*":""}</text>`;
    return `<g data-cad-shape="${esc(s.owner)}" fill="${fill}" fill-opacity="${s.derived?".43":".65"}" stroke="${stroke}" stroke-width="${focus?2.2:1.5}" ${s.derived?'stroke-dasharray="5 3"':""}>${drawShape(x,y,r,s.sector,s.deg)}</g>${label}`;
   }).join("");

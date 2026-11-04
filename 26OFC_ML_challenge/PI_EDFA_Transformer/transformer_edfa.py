@@ -328,7 +328,7 @@ def predict_model(model, features, device='cpu', batch=512):
     return np.concatenate(res) if res else np.empty((0,N_CH),np.float32)
 
 
-def train_model(train_df,y_df,args):
+def train_model(train_df,y_df,args,progress_callback=None):
     seed_everything(args.seed)
     train_mask=extract_mask(train_df)
     label_cols=ordered_cols(y_df,PREFIXES['gain'])
@@ -379,6 +379,8 @@ def train_model(train_df,y_df,args):
         else:bad+=1
         if ep==1 or ep%10==0 or ep==args.epochs:
             print(f'Epoch {ep:4d}  train-loss={np.mean(tr):.5f}  val-score={v:.5f}  best={best:.5f}')
+        if progress_callback is not None:
+            progress_callback(ep, args.epochs, v, best)
         if bad>=args.patience:
             print(f'Early stopping at epoch {ep}, best validation score {best:.6f}')
             break

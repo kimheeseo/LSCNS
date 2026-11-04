@@ -1,0 +1,570 @@
+{
+  "base": {
+    "model": "2D_scalar_complex_P1_triangular_FEM_Cartesian_PML",
+    "full_vector": false,
+    "converged_and_validated": false,
+    "input": {
+      "coreDiameterUm": 32.0,
+      "tubeCount": 6,
+      "nesting": 2,
+      "outerTubeRatio": 0.78,
+      "innerRatio": 0.61,
+      "thirdRatio": 0.55,
+      "gapCoreUm": 0.25,
+      "minNeighborGapUm": 0.35,
+      "nestedClearanceUm": 0.2,
+      "wall1Um": 0.58,
+      "wall2Um": 0.45,
+      "wall3Um": 0.36,
+      "wavelengthNm": 1550.0,
+      "airIndex": 1.00027,
+      "autoFit": true,
+      "background_h_um": 1.8,
+      "wall_edge_h_um": 0.65,
+      "domain_buffer_um": 5.0,
+      "pml_thickness_um": 8.0,
+      "pml_strength": 2.0,
+      "pml_exponent": 3,
+      "n_modes": 5,
+      "max_nodes": 28000
+    },
+    "geometry": {
+      "core_radius_um": 16.0,
+      "outer_tube_diameter_um": 24.96,
+      "requested_outer_diameter_um": 24.96,
+      "neighbor_gap_um": 3.769999999999996,
+      "radius_extent_um": 41.21,
+      "tubes": [
+        {
+          "tube": 1,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": -28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 1,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": -32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 2,
+          "layer": 1,
+          "x": 24.880909850726923,
+          "y": -14.365,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 2,
+          "layer": 2,
+          "x": 28.42052888107468,
+          "y": -16.4086,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 3,
+          "layer": 1,
+          "x": 24.880909850726926,
+          "y": 14.364999999999995,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 3,
+          "layer": 2,
+          "x": 28.420528881074684,
+          "y": 16.408599999999993,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 4,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": 28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 4,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": 32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 5,
+          "layer": 1,
+          "x": -24.88090985072692,
+          "y": 14.365000000000009,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 5,
+          "layer": 2,
+          "x": -28.420528881074677,
+          "y": 16.40860000000001,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 6,
+          "layer": 1,
+          "x": -24.880909850726923,
+          "y": -14.365000000000004,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 6,
+          "layer": 2,
+          "x": -28.42052888107468,
+          "y": -16.408600000000003,
+          "r": 7.6128,
+          "wall": 0.45
+        }
+      ],
+      "auto_fitted": false
+    },
+    "neff_real": 0.9997047420869916,
+    "neff_imag": 3.440464896009994e-12,
+    "neff_ideal_capillary": 0.9995825630483459,
+    "confinement_loss_dB_km_unverified": 0.12113777936358618,
+    "air_core_power_fraction": 0.99265223140806,
+    "ideal_J0_overlap": 0.9739160891120766,
+    "mode_identification_pass": true,
+    "mesh": {
+      "nodes": 6874,
+      "elements": 13502,
+      "window_um": 46.21,
+      "halfwidth_um": 54.21
+    },
+    "ranked_modes": [
+      {
+        "neff_real": 0.9997047420869916,
+        "neff_imag": 3.440464896009994e-12,
+        "J0_overlap": 0.9739160891120766,
+        "core_fraction": 0.99265223140806
+      },
+      {
+        "neff_real": 0.9994418779202369,
+        "neff_imag": 0.00023504550413680608,
+        "J0_overlap": 1.093565803071422e-11,
+        "core_fraction": 7.57224744975455e-09
+      },
+      {
+        "neff_real": 0.9994756511097969,
+        "neff_imag": 0.0002163225829726195,
+        "J0_overlap": 1.5892825727177238e-12,
+        "core_fraction": 5.049020080865129e-09
+      },
+      {
+        "neff_real": 0.9998289577467996,
+        "neff_imag": 0.00012629713712837873,
+        "J0_overlap": 1.5290951851840238e-12,
+        "core_fraction": 8.071207945677883e-09
+      },
+      {
+        "neff_real": 0.9994778507958634,
+        "neff_imag": 0.00022370419550005443,
+        "J0_overlap": 9.484229625034353e-13,
+        "core_fraction": 1.5487649178154018e-08
+      }
+    ],
+    "limitations": [
+      "SCALAR FEM; HE11 full-vector boundary continuity is not resolved",
+      "Delaunay point mesh is not formally interface-conforming",
+      "PML and mesh convergence not established by this single solve",
+      "Loss dB/km is preliminary and must not be treated as measured/validated",
+      "Resonance features must be extracted from FEM loss spectrum, not only ARROW formula"
+    ]
+  },
+  "mesh": {
+    "model": "2D_scalar_complex_P1_triangular_FEM_Cartesian_PML",
+    "full_vector": false,
+    "converged_and_validated": false,
+    "input": {
+      "coreDiameterUm": 32.0,
+      "tubeCount": 6,
+      "nesting": 2,
+      "outerTubeRatio": 0.78,
+      "innerRatio": 0.61,
+      "thirdRatio": 0.55,
+      "gapCoreUm": 0.25,
+      "minNeighborGapUm": 0.35,
+      "nestedClearanceUm": 0.2,
+      "wall1Um": 0.58,
+      "wall2Um": 0.45,
+      "wall3Um": 0.36,
+      "wavelengthNm": 1550.0,
+      "airIndex": 1.00027,
+      "autoFit": true,
+      "background_h_um": 1.53,
+      "wall_edge_h_um": 0.507,
+      "domain_buffer_um": 5.0,
+      "pml_thickness_um": 8.0,
+      "pml_strength": 2.0,
+      "pml_exponent": 3,
+      "n_modes": 5,
+      "max_nodes": 28000
+    },
+    "geometry": {
+      "core_radius_um": 16.0,
+      "outer_tube_diameter_um": 24.96,
+      "requested_outer_diameter_um": 24.96,
+      "neighbor_gap_um": 3.769999999999996,
+      "radius_extent_um": 41.21,
+      "tubes": [
+        {
+          "tube": 1,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": -28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 1,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": -32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 2,
+          "layer": 1,
+          "x": 24.880909850726923,
+          "y": -14.365,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 2,
+          "layer": 2,
+          "x": 28.42052888107468,
+          "y": -16.4086,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 3,
+          "layer": 1,
+          "x": 24.880909850726926,
+          "y": 14.364999999999995,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 3,
+          "layer": 2,
+          "x": 28.420528881074684,
+          "y": 16.408599999999993,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 4,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": 28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 4,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": 32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 5,
+          "layer": 1,
+          "x": -24.88090985072692,
+          "y": 14.365000000000009,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 5,
+          "layer": 2,
+          "x": -28.420528881074677,
+          "y": 16.40860000000001,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 6,
+          "layer": 1,
+          "x": -24.880909850726923,
+          "y": -14.365000000000004,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 6,
+          "layer": 2,
+          "x": -28.42052888107468,
+          "y": -16.408600000000003,
+          "r": 7.6128,
+          "wall": 0.45
+        }
+      ],
+      "auto_fitted": false
+    },
+    "neff_real": 0.9997062655546318,
+    "neff_imag": 5.741848072723206e-13,
+    "neff_ideal_capillary": 0.9995825630483459,
+    "confinement_loss_dB_km_unverified": 0.020216881903937785,
+    "air_core_power_fraction": 0.9901286270036463,
+    "ideal_J0_overlap": 0.9734106308904619,
+    "mode_identification_pass": true,
+    "mesh": {
+      "nodes": 9118,
+      "elements": 17950,
+      "window_um": 46.21,
+      "halfwidth_um": 54.21
+    },
+    "ranked_modes": [
+      {
+        "neff_real": 0.9997062655546318,
+        "neff_imag": 5.741848072723206e-13,
+        "J0_overlap": 0.9734106308904619,
+        "core_fraction": 0.9901286270036463
+      },
+      {
+        "neff_real": 0.9994445164085984,
+        "neff_imag": 0.0002354843234178242,
+        "J0_overlap": 6.527938372236021e-11,
+        "core_fraction": 9.667837917286813e-09
+      },
+      {
+        "neff_real": 0.9998297222423932,
+        "neff_imag": 0.00012657869829381445,
+        "J0_overlap": 1.1209747825773203e-12,
+        "core_fraction": 3.439076613415909e-09
+      },
+      {
+        "neff_real": 0.9994773166764517,
+        "neff_imag": 0.00021705346245496816,
+        "J0_overlap": 1.0378139619261207e-12,
+        "core_fraction": 5.806546202257292e-09
+      },
+      {
+        "neff_real": 0.9994795293976446,
+        "neff_imag": 0.00022460613750915982,
+        "J0_overlap": 7.822752165863945e-14,
+        "core_fraction": 4.328720216942915e-09
+      }
+    ],
+    "limitations": [
+      "SCALAR FEM; HE11 full-vector boundary continuity is not resolved",
+      "Delaunay point mesh is not formally interface-conforming",
+      "PML and mesh convergence not established by this single solve",
+      "Loss dB/km is preliminary and must not be treated as measured/validated",
+      "Resonance features must be extracted from FEM loss spectrum, not only ARROW formula"
+    ]
+  },
+  "pml": {
+    "model": "2D_scalar_complex_P1_triangular_FEM_Cartesian_PML",
+    "full_vector": false,
+    "converged_and_validated": false,
+    "input": {
+      "coreDiameterUm": 32.0,
+      "tubeCount": 6,
+      "nesting": 2,
+      "outerTubeRatio": 0.78,
+      "innerRatio": 0.61,
+      "thirdRatio": 0.55,
+      "gapCoreUm": 0.25,
+      "minNeighborGapUm": 0.35,
+      "nestedClearanceUm": 0.2,
+      "wall1Um": 0.58,
+      "wall2Um": 0.45,
+      "wall3Um": 0.36,
+      "wavelengthNm": 1550.0,
+      "airIndex": 1.00027,
+      "autoFit": true,
+      "background_h_um": 1.8,
+      "wall_edge_h_um": 0.65,
+      "domain_buffer_um": 5.0,
+      "pml_thickness_um": 10.4,
+      "pml_strength": 2.0,
+      "pml_exponent": 3,
+      "n_modes": 5,
+      "max_nodes": 28000
+    },
+    "geometry": {
+      "core_radius_um": 16.0,
+      "outer_tube_diameter_um": 24.96,
+      "requested_outer_diameter_um": 24.96,
+      "neighbor_gap_um": 3.769999999999996,
+      "radius_extent_um": 41.21,
+      "tubes": [
+        {
+          "tube": 1,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": -28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 1,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": -32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 2,
+          "layer": 1,
+          "x": 24.880909850726923,
+          "y": -14.365,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 2,
+          "layer": 2,
+          "x": 28.42052888107468,
+          "y": -16.4086,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 3,
+          "layer": 1,
+          "x": 24.880909850726926,
+          "y": 14.364999999999995,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 3,
+          "layer": 2,
+          "x": 28.420528881074684,
+          "y": 16.408599999999993,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 4,
+          "layer": 1,
+          "x": 1.759205126975173e-15,
+          "y": 28.73,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 4,
+          "layer": 2,
+          "x": 2.009473946848926e-15,
+          "y": 32.8172,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 5,
+          "layer": 1,
+          "x": -24.88090985072692,
+          "y": 14.365000000000009,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 5,
+          "layer": 2,
+          "x": -28.420528881074677,
+          "y": 16.40860000000001,
+          "r": 7.6128,
+          "wall": 0.45
+        },
+        {
+          "tube": 6,
+          "layer": 1,
+          "x": -24.880909850726923,
+          "y": -14.365000000000004,
+          "r": 12.48,
+          "wall": 0.58
+        },
+        {
+          "tube": 6,
+          "layer": 2,
+          "x": -28.42052888107468,
+          "y": -16.408600000000003,
+          "r": 7.6128,
+          "wall": 0.45
+        }
+      ],
+      "auto_fitted": false
+    },
+    "neff_real": 0.9997046292039897,
+    "neff_imag": 1.1253693055964912e-11,
+    "neff_ideal_capillary": 0.9995825630483459,
+    "confinement_loss_dB_km_unverified": 0.39623929545684267,
+    "air_core_power_fraction": 0.9935835987358194,
+    "ideal_J0_overlap": 0.973483051117933,
+    "mode_identification_pass": true,
+    "mesh": {
+      "nodes": 7134,
+      "elements": 14014,
+      "window_um": 46.21,
+      "halfwidth_um": 56.61
+    },
+    "ranked_modes": [
+      {
+        "neff_real": 0.9997046292039897,
+        "neff_imag": 1.1253693055964912e-11,
+        "J0_overlap": 0.973483051117933,
+        "core_fraction": 0.9935835987358194
+      },
+      {
+        "neff_real": 0.9995668250816596,
+        "neff_imag": 0.00024081873766593667,
+        "J0_overlap": 4.2715576913431305e-08,
+        "core_fraction": 1.4393016724302285e-07
+      },
+      {
+        "neff_real": 0.9995651298457333,
+        "neff_imag": 0.00022166557740459445,
+        "J0_overlap": 1.0363178214662164e-10,
+        "core_fraction": 3.957133440190527e-08
+      },
+      {
+        "neff_real": 0.9996114688622416,
+        "neff_imag": 0.0002206371332079023,
+        "J0_overlap": 1.6603319522161713e-11,
+        "core_fraction": 3.7578212871020605e-08
+      },
+      {
+        "neff_real": 0.999618665107163,
+        "neff_imag": 0.00023475231208560719,
+        "J0_overlap": 8.122165313365514e-12,
+        "core_fraction": 9.709528035057924e-08
+      }
+    ],
+    "limitations": [
+      "SCALAR FEM; HE11 full-vector boundary continuity is not resolved",
+      "Delaunay point mesh is not formally interface-conforming",
+      "PML and mesh convergence not established by this single solve",
+      "Loss dB/km is preliminary and must not be treated as measured/validated",
+      "Resonance features must be extracted from FEM loss spectrum, not only ARROW formula"
+    ]
+  },
+  "relative_mesh_change_pct": 499.191210292381,
+  "relative_pml_change_pct": 69.4281256926018,
+  "preliminary_loss_convergence_pass": false,
+  "note": "Even 5% 2-point convergence is insufficient for publication-grade HCF confinement loss; domain and mode checks also required."
+}

@@ -1,0 +1,30 @@
+name: COMSOL HCF Complex FEM Prototype
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "COMSOL/universal_silica_v01/hcf_complex_fem/**"
+      - "COMSOL/universal_silica_v01/web/hcf_complex_fem_ui.mjs"
+      - ".github/workflows/hcf-complex-fem.yml"
+permissions:
+  contents: read
+jobs:
+  fem-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install FEM numerical packages
+        run: python -m pip install --disable-pip-version-check numpy scipy pytest
+      - name: HCF complex scalar FEM numerical regression
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+        run: python -m pytest -q COMSOL/universal_silica_v01/hcf_complex_fem/tests/test_hcf_complex_fem.py
+      - name: FEM browser UI parse
+        run: node --check COMSOL/universal_silica_v01/web/hcf_complex_fem_ui.mjs

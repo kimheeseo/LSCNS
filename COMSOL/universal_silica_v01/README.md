@@ -1,3 +1,7 @@
+## HCF Complex Scalar FEM + PML (2026-11-04)
+
+[기존 웹의 HCF FEM 결과 뷰어](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-fem) · [Colab 복소 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/hcf_complex_fem/HCF_Complex_FEM_Research.ipynb) · [소스·검증 결과](hcf_complex_fem/) · [수렴 검증 보고서](hcf_complex_fem/VALIDATION_REPORT.md). 중첩 튜브 HCF의 실제 2D **Scalar FEM + complex PML** 고유값 및 파장별 국소 공진/반공진 후보 계산. **Full-vector Maxwell FEM 미구현, PML/메시 수렴 실패, 손실 dB/km 미검증**. 웹은 Colab 결과 Import/시각화만 수행하며 입력 변경 때 FEM 자동 재계산하지 않음.
+
 ## 2026-11-04 · 3D WebGL 애니메이션 추가
 
 [기존 웹에서 3D 전파 애니메이션 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [3D 인터랙티브 렌더러](web/fiber_3d_webgl.mjs) · [설명·검증](web/fiber_3d_webgl/README.md). xy/z BPM 시뮬레이션의 **실제 계산된 강도 결과**를 WebGL2 3D 점군으로 표시합니다. 마우스 회전·확대·자동 회전 및 애니메이션, 2D 화면 전환이 가능합니다. 구조는 입체이지만 수치해석은 **2+1D Scalar BPM**으로, 3D Maxwell/FEM/HCF 전파손실 계산은 아닙니다.

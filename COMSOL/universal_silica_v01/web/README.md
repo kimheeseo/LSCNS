@@ -1,3 +1,9 @@
+## 2026-11-04 · HCF complex scalar FEM + PML 연구용 업그레이드
+
+[**웹 HCF FEM 결과 뷰어**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-fem) · [**실제 계산 Colab**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/hcf_complex_fem/HCF_Complex_FEM_Research.ipynb) · [복소 FEM 계산 코드](../hcf_complex_fem/hcf_complex_fem.py) · [검증 보고서](../hcf_complex_fem/VALIDATION_REPORT.md)
+
+기존 HCF 설계에서 JSON으로 입력을 내보내고, Colab **2D Scalar P1 FEM + 복소 PML**에서 설계별 복소 neff와 파장별 FEM 재해석 결과를 계산해 웹으로 가져올 수 있습니다. **공진/반공진은 FEM 손실 스펙트럼의 미검증 국소 극값 후보**이며, ARROW 근사 결과와 별도입니다. 본 모듈은 **Full-vector FEM 아님**, 수렴 검사 실패(예제 손실 메시 약 499%, PML 약 69% 변화)로 **dB/km는 예비값만 표시**합니다. HCF 입력값을 변경하면 이전 FEM 결과는 무효화됩니다.
+
 ## 2026-11-04 · 3D 광장 이동 효과 강화 (WebGL v0.3)
 
 [**3D 광 전파 및 애니메이션**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [WebGL 소스](fiber_3d_webgl.mjs) · [재생 단위 검사](tests/test_fiber_3d_webgl.mjs)

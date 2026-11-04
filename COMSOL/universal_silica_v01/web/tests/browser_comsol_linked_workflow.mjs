@@ -79,6 +79,20 @@ try{
  assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Apply");
  await page.locator("#ls-wf-apply-geometry").click();
  assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Ready");
+ // Parameterized geometry: editing d updates the resolved Circle 2 radius, not just its text expression.
+ await page.locator("#ls-linked-workflow [data-wf-step='geometry']").click();
+ await page.locator('[data-cad-node="c2"]').click();
+ await page.locator("#ls-cad-radius").fill("d/2");
+ await page.locator("#ls-cad-close").click();
+ await page.locator("#ls-wf-apply-geometry").click();
+ await page.locator('.ls-model-tree [data-action="settings"]').click();
+ await page.locator('#ls-parameter-rows [data-field="expression"]').first().fill("16[um]");
+ assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Apply");
+ await page.locator("#ls-wf-compute").click();
+ assert.ok((await page.locator("#ls-wf-status").textContent()).includes("not applied"));
+ await page.locator("#ls-wf-apply-geometry").click();
+ assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Ready");
+ assert.equal(Number(await page.locator("#core_radius_um").inputValue()),8);
  await page.screenshot({path:"/tmp/ls_comsol_linked_workflow.png"});
  assert.deepEqual(errors,[],"No browser exceptions");
  console.log("PASS: Stage 3 Geometry-to-domain Materials-to-Mesh-to-Study-to-Results real FEM, stale result detection, unsupported CAD guard");

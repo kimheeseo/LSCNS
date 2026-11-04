@@ -89,6 +89,7 @@ try{
  await page.locator('.ls-model-tree [data-action="settings"]').click();
  await page.locator('#ls-parameter-rows [data-field="expression"]').first().fill("16[um]");
  assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Apply");
+ await page.locator('.ls-model-tree [data-action="waveMode"]').click();
  await page.locator("#ls-wf-compute").click();
  assert.ok((await page.locator("#ls-wf-status").textContent()).includes("not applied"));
  await page.locator("#ls-wf-apply-geometry").click();

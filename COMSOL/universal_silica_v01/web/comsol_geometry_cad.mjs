@@ -6,12 +6,19 @@
  const unit=n=>Number(n.toPrecision(10)).toString();
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
- let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null;
+ let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um";
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
  <div class="ls-config-heading"><div><strong>Settings</strong><small id="ls-cad-subtitle">Circle</small></div><button type="button" id="ls-cad-close">← Fiber settings</button></div>
  <div class="ls-cad-tools"><button id="ls-cad-build-selected" type="button">▣ Build Selected</button><button id="ls-cad-build-all" type="button">▦ Build All Objects</button></div>
  <div class="ls-config-body">
+  <div id="ls-cad-root-settings" hidden>
+   <div class="ls-setting-line"><label for="ls-cad-root-label">Label</label><input id="ls-cad-root-label" value="Geometry 1"/></div>
+   <details class="ls-cad-section" open><summary>Geometry Settings</summary><div class="ls-cad-field"><label for="ls-cad-root-unit">Length unit</label><select id="ls-cad-root-unit"><option value="um">µm</option><option value="nm">nm</option><option value="mm">mm</option><option value="m">m</option></select><span></span></div><div class="ls-cad-field"><label>Space dimension</label><strong>2D</strong><span></span></div></details>
+   <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select Circle/Rotate to edit. Build All regenerates the 2D preview.</p></details>
+   <details class="ls-cad-section" open><summary>Finalization</summary><p class="ls-cad-sequence-note">Form Union (UI reference). General-purpose 2D Boolean domains are not computed by the radial FEM.</p></details>
+  </div>
+  <div id="ls-cad-feature-settings">
   <div class="ls-setting-line"><label for="ls-cad-label">Label</label><input id="ls-cad-label" /></div>
   <div id="ls-cad-circle">
    <details class="ls-cad-section" open><summary>Object Type</summary><div class="ls-cad-field"><label for="ls-cad-type">Type</label><select id="ls-cad-type"><option>Solid</option><option>Curve</option></select><span></span></div></details>
@@ -36,6 +43,7 @@
    <div class="ls-cad-field"><label for="ls-cad-color">Color</label><select id="ls-cad-color"><option>None</option><option>Blue</option><option>Orange</option><option>Green</option></select><span></span></div>
    <div class="ls-cad-field"><label>Contribute to</label><select disabled><option>None</option></select><span></span></div></details>
   <div class="ls-cad-mini"><svg id="ls-cad-mini-svg" viewBox="0 0 460 230" role="img" aria-label="Small geometry preview"></svg></div>
+  </div>
   <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
@@ -63,7 +71,16 @@
   list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
  }
  function loadFields(){
-  const n=cur();if(!n)return;
+  const n=cur();
+   $("ls-cad-root-settings").hidden=!!n;$("ls-cad-feature-settings").hidden=!n;
+   $("ls-cad-build-selected").disabled=!n;
+   if(!n){
+    $("ls-cad-subtitle").textContent="Geometry";
+    $("ls-cad-root-label").value=rootLabel;
+    $("ls-cad-root-unit").value=lengthUnit;
+    $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
+    drawTree();draw();return;
+   }
   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":"Rotate";$("ls-cad-label").value=n.label;
   $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=n.kind!=="rotate";
   if(n.kind==="circle"){
@@ -146,12 +163,12 @@
    $("ls-cad-view").innerHTML=svg(640,500);
    $("ls-cad-mini-svg").innerHTML=svg(460,230,true);
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
-   $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · Not FEM field data`;
+   $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · ${lengthUnit==="um"?"µm":lengthUnit} · Not FEM field data`;
   }catch(e){$("ls-cad-view").innerHTML="";$("ls-cad-mini-svg").innerHTML="";$("ls-cad-legend").textContent=e.message;if(!pane.hidden)say("Preview: "+e.message,true);}
  }
  function open(id){
-  if(id&&nodes.some(n=>n.id===id))selected=id;
-  if(!cur())selected=nodes.at(-1)?.id;
+  if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;
+  if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
   pane.hidden=false;graphics.hidden=false;
   side.classList.add("ls-config-active");document.body.classList.add("ls-configuration-open","ls-cad-active");
@@ -169,8 +186,8 @@
   switch(cmd){
    case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
    case "build-all":limit=null;draw();say("All Geometry features built in preview.");return;
-   case "build-selected":limit=idx;draw();say("Build Selected finished (preview).");return;
-   case "build-preceding":limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
+   case "build-selected":if(!n)return;limit=idx;draw();say("Build Selected finished (preview).");return;
+   case "build-preceding":if(!n)return;limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
    case "delete":{nodes.splice(idx,1);if(!nodes.length)nodes=defaults();selected=nodes[Math.min(idx,nodes.length-1)].id;limit=null;loadFields();return;}
@@ -257,6 +274,8 @@
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
+ $("ls-cad-root-label").addEventListener("input",e=>{rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
+ $("ls-cad-root-unit").addEventListener("change",e=>{lengthUnit=e.target.value;draw();});
  $("ls-cad-build-selected").addEventListener("click",()=>modify("build-selected"));
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));

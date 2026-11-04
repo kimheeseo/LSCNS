@@ -22,8 +22,8 @@
    {name:"nbg",expression:get("clad_material")?.value==="fixed"?String(get("clad_index_override").value):"1.45",description:"Background index (reference; optional fixed nclad)"},
    {name:"nair",expression:"1",description:"Air refractive index (reference)"},
    {name:"wl",expression:`${precision(wl)}[nm]`,description:"Mode-analysis wavelength"},
-   {name:"neffMax",expression:"1.4454",description:"Reference only: max effective index"},
-   {name:"neffMin",expression:"1.429",description:"Reference only: min effective index"},
+   {name:"neffMax",expression:"nbg-0.0046",description:"Illustrative index upper bound (not a solver constraint)"},
+   {name:"neffMin",expression:"nbg-0.021",description:"Illustrative index lower bound (not a solver constraint)"},
    {name:"wlr",expression:"wl/sqrt(nbg^2-neffMax^2)",description:"Derived radial wavelength (reference only)"}
   ];
  }
@@ -240,10 +240,11 @@
    if(!(out.r>core.r))throw Error("Circle 1 must contain Circle 2 (rb > d/2).");
    const outer=out.r*1e6,inner=core.r*1e6,wl=values.get("wl")*1e9,dn=values.get("Delta");
    if(!(outer>=15&&outer<=150&&inner>=0.5&&inner<=60&&outer>inner&&wl>=250&&wl<=3600&&dn>0&&dn<0.1))throw Error("Current radial solver limits: outer radius 15–150 µm, core radius 0.5–60 µm, wavelength 250–3600 nm, 0 < Δn < 0.1.");
+   const bg=get("ls-use-background").checked?values.get("nbg"):null;
+   if(bg!==null&&!(bg>=1&&bg<2))throw Error("nbg must be 1–2");
    const update=(id,v)=>{const e=get(id);if(!e)throw Error(`Missing FEM input: ${id}`);e.value=precision(v);e.dispatchEvent(new Event("input",{bubbles:true}));};
    update("outer_radius_um",outer);update("core_radius_um",inner);update("wavelength_nm",wl);update("delta_n_core",dn);
    if(get("ls-use-background").checked){
-    const bg=values.get("nbg");if(!(bg>=1&&bg<2))throw Error("nbg must be 1–2");
     get("clad_material").value="fixed";get("clad_material").dispatchEvent(new Event("input",{bubbles:true}));update("clad_index_override",bg);
    }
    status("Applied: radial FEM inputs updated. Click Compute / Mode Analysis to solve.");get("ls-geo-info").textContent+=" · Applied to existing radial FEM";

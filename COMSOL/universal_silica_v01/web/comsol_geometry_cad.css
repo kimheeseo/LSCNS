@@ -47,7 +47,7 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 .ls-tree-preset-group{border-top:1px solid #e3eaf1;margin:7px 0 3px;padding-top:5px}
 .ls-tree-preset-group>small{display:block;padding:4px 6px;color:#8091a1}
 #ls-cad-menu{position:fixed;z-index:999999;width:300px;background:#fff;color:#31495f;box-shadow:0 6px 20px #182c4260;border:1px solid #adbfd2;border-radius:2px;font-size:12px;max-height:calc(100vh - 14px);overflow:visible}
-#ls-cad-menu>ul{max-height:calc(100vh - 18px);overflow-y:auto}
+#ls-cad-menu>ul{max-height:none;overflow:visible}
 #ls-cad-menu ul{margin:0;padding:5px 0;list-style:none;background:#fff;min-width:230px}
 #ls-cad-menu li{position:relative}
 #ls-cad-menu li>button{height:27px;display:flex;align-items:center;gap:8px;width:100%;padding:3px 13px;border:0;background:white;color:#364d61;font-size:12px;text-align:left;white-space:nowrap;cursor:pointer;border-radius:0}
@@ -76,3 +76,5 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
  #ls-cad-menu{max-width:90vw}
  #ls-cad-menu li>ul{left:0;top:25px;z-index:10}
 }
+
+@media(max-height:760px){#ls-cad-menu>ul{max-height:calc(100vh - 22px);overflow-y:auto}#ls-cad-menu li>ul{left:auto;right:0;top:22px}}

@@ -68,6 +68,29 @@
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
  document.body.append(context);
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
+ const physSignature=()=>JSON.stringify(nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]));
+ let lastAppliedSignature=physSignature();
+ function status(){
+  const base={kind:"radial",featureCount:nodes.length,pending:physSignature()!==lastAppliedSignature,supported:false,domains:[]};
+  try{
+   const extra=nodes.find(n=>n.enabled&&(!["c1","c2"].includes(n.id)||n.kind!=="circle"));
+   if(extra)throw Error(extra.label+" is preview-only; disable it before radial FEM.");
+   const c1=nodes.find(n=>n.id==="c1"),c2=nodes.find(n=>n.id==="c2");
+   if(!c1?.enabled||!c2?.enabled)throw Error("Original Circle 1 and Circle 2 must be enabled.");
+   const check=n=>{
+    if(n.type!=="Solid"||Math.abs(evalNumber(n.sector)-360)>1e-9||evalNumber(n.layer)>1e-12)throw Error(n.label+" must be a 360° Solid with no layers.");
+    if(Math.abs(evalNumber(n.x))>1e-12||Math.abs(evalNumber(n.y))>1e-12)throw Error("Radial FEM requires circles centered at (0,0).");
+    return evalNumber(n.radius)*1e6;
+   };
+   const outer=check(c1),core=check(c2);
+   if(!(outer>=15&&outer<=150&&core>=.5&&core<=60&&outer>core))throw Error("Core and outer radii exceed supported radial FEM limits.");
+   base.supported=true;base.outerRadiusUm=outer;base.coreRadiusUm=core;
+   base.domains=[{id:1,name:"Core",feature:"c2"},{id:2,name:"Cladding",feature:"c1"}];
+   return base;
+  }catch(e){base.reason=String(e.message||e);return base;}
+ }
+ function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
+ window.LSWaveCADService=Object.freeze({status,apply:()=>apply()});
  const evalNumber=s=>svc.calculate(s);
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
@@ -176,7 +199,7 @@
     const pick=$("ls-cad-object-select");
     if(pick){pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");pick.value=nodes.some(n=>n.id===selected)?selected:"root";}
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
-   $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · ${lengthUnit==="um"?"µm":lengthUnit} · Not FEM field data`;
+   $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · ${lengthUnit==="um"?"µm":lengthUnit} · Not FEM field data`;emitCadState();
   }catch(e){$("ls-cad-view").innerHTML="";$("ls-cad-mini-svg").innerHTML="";$("ls-cad-legend").textContent=e.message;if(!pane.hidden)say("Preview: "+e.message,true);}
  }
  function open(id){
@@ -247,8 +270,10 @@
     $(id).value=unit(value);$(id).dispatchEvent(new Event("input",{bubbles:true}));
    }
    if($("ls-cad-fix-nbg").checked){$("clad_material").value="fixed";$("clad_material").dispatchEvent(new Event("input",{bubbles:true}));$("clad_index_override").value=unit(bg);$("clad_index_override").dispatchEvent(new Event("input",{bubbles:true}));}
-   say("Applied to existing Radial FEM inputs. Run Compute for actual numerical results.");
-  }catch(e){say("Cannot apply: "+e.message,true);}
+   lastAppliedSignature=physSignature();emitCadState();
+   document.dispatchEvent(new CustomEvent("ls-cad-applied",{detail:{outerRadiusUm:outer,coreRadiusUm:inner}}));
+   say("Applied to existing Radial FEM inputs. Domain 1 = Core, Domain 2 = Cladding. Run Compute.");return true;
+  }catch(e){const message="Cannot apply: "+e.message;say(message,true);document.dispatchEvent(new CustomEvent("ls-cad-apply-failed",{detail:{message}}));return false;}
  }
  const menuAction=(label,cmd,props={})=>({label,cmd,...props});
  function menuItems(scope){
@@ -357,7 +382,7 @@
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"toggle",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();modify(actions[e.key]);}
  });
- $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;updateHistoryButtons();drawTree();if(!pane.hidden)close();});
- $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;updateHistoryButtons();drawTree();if(!pane.hidden)close();}));
+ $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
+ $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
  drawTree();updateHistoryButtons();
 })();

@@ -59,3 +59,20 @@ The UI resembles COMSOL's desktop ribbon/pane structure by user request. **LS Wa
 - **Smoke test**: `tests/browser_comsol_wave_optics.mjs` verifies ewfd tree, Materials/Physics/Size/Study/Results settings, parameter applications, actual solver execution, and switching between original Geometry/Parameters/HCF modules. The preexisting COMSOL and CAD tests continue to run.
 
 See `comsol_wave_optics_settings.mjs` and `comsol_wave_optics_settings.css`. This is a COMSOL-inspired independent application, not affiliated with COMSOL AB.
+
+## COMSOL UI / Operation Phase 1–2 (2026-11-04)
+
+The design and numerical backends are deliberately separate. **No eigenmode, HCF, MCF, PMD, FDFD or FEM solver source is altered in this phase.**
+
+### Phase 1 — UI fidelity
+- A COMSOL-style **Model Builder → Settings → Graphics → Add Study** desktop workspace, ribbon actions, and Messages/Progress/Log dock are preserved.
+- **Geometry 1** is now its own Model Builder node, separate from **Circle / Rotate** features: clicking the Geometry label opens root Settings (length-unit display selector, ordered feature sequence, and finalization explanation); clicking the triangle only expands/collapses the tree.
+- Wave Optics **ewfd**, Materials, Mesh, Study, Results remain in the Model Builder; each opens a context-specific Settings panel. The quick-access strip exposes Geometry Undo, Redo, Build All.
+
+### Phase 2 — Operator behavior
+- **Geometry 1 right click**: existing Circle, Transforms → Rotate, Build All menu.
+- **Feature right click**: Build Selected, Build Preceding, insert before/after, Copy, Paste, Duplicate, Move Up/Down, Disable, Delete, Rename. Only commands with actual implementations are enabled; unsupported 2D Boolean operations remain disabled.
+- Geometry edits are undoable and redoable using the Settings toolbar or **Ctrl+Z / Ctrl+Shift+Z** (when focus is outside text controls). Copy/Paste creates distinct feature IDs. History resets when the design preset is changed.
+- Graphics supports click-to-select, object selection dropdown, mouse wheel zoom, pan by dragging the blank canvas, grid toggle and Fit. The 2D view is a **geometry preview, not a solved electromagnetic field**.
+- **Build Selected/All** regenerates the preview of the configured feature sequence. The **Apply supported geometry to Radial FEM** operation remains separate: only the supported concentric two-circle model affects authoritative numerical inputs. No general 2D Maxwell-equivalent FEM is implied.
+- Tests: `tests/browser_comsol_ui_operations.mjs` plus existing `browser_comsol_workspace.mjs`, `browser_comsol_parameters_geometry.mjs`, `browser_comsol_wave_optics.mjs`. CI workflow: `.github/workflows/comsol-style-workbench.yml`.

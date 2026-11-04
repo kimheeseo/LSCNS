@@ -7,6 +7,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/comsol_workspace.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_workspace.css'
       - 'COMSOL/universal_silica_v01/web/comsol_ui_operations.css'
+      - 'COMSOL/universal_silica_v01/web/comsol_workflow_link.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_workflow_link.css'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_linked_workflow.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_ui_operations.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_wave_optics_settings.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_wave_optics_settings.css'
@@ -40,6 +43,8 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/solver.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_ui_operations.mjs
+          node --check COMSOL/universal_silica_v01/web/comsol_workflow_link.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_linked_workflow.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -55,6 +60,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_parameters_geometry.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_wave_optics.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_ui_operations.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_comsol_linked_workflow.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -68,4 +74,5 @@ jobs:
             /tmp/ls_waveoptics_ewfd_desktop.png
             /tmp/ls_waveoptics_results_desktop.png
             /tmp/ls_comsol_ui_operations.png
+            /tmp/ls_comsol_linked_workflow.png
           if-no-files-found: ignore

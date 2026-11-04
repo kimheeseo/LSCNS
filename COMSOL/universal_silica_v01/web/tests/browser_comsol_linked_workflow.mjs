@@ -19,6 +19,7 @@ try{
  await page.locator("#ls-cad-radius").fill("7[um]");
  await page.locator("#ls-cad-close").click();
  assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Apply");
+ await page.locator('.ls-model-tree [data-action="waveMode"]').click();
  await page.locator("#ls-wf-compute").click();
  assert.ok((await page.locator("#ls-wf-status").textContent()).includes("not applied"));
  await page.locator("#ls-wf-apply-geometry").click();

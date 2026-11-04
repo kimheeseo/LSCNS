@@ -38,6 +38,7 @@ const section=document.createElement('section');section.id='hcf-fem';section.inn
 parent.after(section);
 const q=id=>section.querySelector('#'+id);
 const geomKeys=['coreDiameterUm','tubeCount','nesting','outerTubeRatio','innerRatio','thirdRatio','gapCoreUm','minNeighborGapUm','nestedClearanceUm','wall1Um','wall2Um','wall3Um','wavelengthNm','airIndex'];
+const shapeKeys=geomKeys.filter(k=>k!=='wavelengthNm');
 const nf=(x,n=6)=>typeof x==='number'&&Number.isFinite(x)?x.toFixed(n):'—';
 const save=(obj,name)=>{const b=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 function getCurrent(){
@@ -47,7 +48,7 @@ function getCurrent(){
  buildGeometry(d);// rejects invalid geometry
  return d;
 }
-function sameGeometry(a,b){return geomKeys.every(k=>Math.abs(Number(a[k])-Number(b[k]))<Math.max(1e-7,Math.abs(Number(a[k]))*1e-7))&&Boolean(a.autoFit)===Boolean(b.autoFit);}
+function sameGeometry(a,b){return shapeKeys.every(k=>Math.abs(Number(a[k])-Number(b[k]))<Math.max(1e-7,Math.abs(Number(a[k]))*1e-7))&&Boolean(a.autoFit)===Boolean(b.autoFit);}
 let output=null;
 function updateStatus(msg){q('fem-status').textContent=msg;}
 function clearResults(reason){output=null;for(const id of ['re','im','core','loss'])q('fem-'+id).textContent='—';q('fem-spectrum').textContent='FEM 재실행 후 결과 JSON을 불러오세요.';q('fem-features').textContent='결과 없음';q('fem-diagnostics').textContent=reason;paintField(null);updateStatus(reason);}
@@ -69,7 +70,7 @@ function spectrumSvg(results){
  const w=660,h=270,left=61,right=635,top=20,bottom=227;
  const X=l=>left+(right-left)*(l-lamMin)/Math.max(1,lamMax-lamMin);
  const Y=v=>bottom-(bottom-top)*(Math.log10(v)-lo)/Math.max(.001,hi-lo);
- const p=vals.map((x,i)=>`${i===0?'M':'L'}${X(x[0]).toFixed(1)},${Y(x[1]).toFixed(1)}`).join(' ');
+ let connected=false;const p=results.map(v=>{const l=v.input?.wavelengthNm,t=v.confinement_loss_dB_km_unverified;if(!Number.isFinite(l)||!Number.isFinite(t)||t<=0||!v.mode_identification_pass){connected=false;return '';}const cmd=connected?'L':'M';connected=true;return `${cmd}${X(l).toFixed(1)},${Y(t).toFixed(1)}`;}).join(' ');
  const circles=vals.map(v=>`<circle cx="${X(v[0]).toFixed(1)}" cy="${Y(v[1]).toFixed(1)}" r="2.5" fill="#6addd1"/>`).join('');
  const ticks=Array.from({length:5},(_,i)=>{const logval=lo+i*(hi-lo)/4;const yy=bottom-(bottom-top)*i/4;return `<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" stroke="#28455e"/><text x="${left-7}" y="${yy+4}" fill="#a3c2d8" font-size="12" text-anchor="end">10^${logval.toFixed(1)}</text>`}).join('');
  return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="FEM preliminary leakage versus wavelength"><rect width="${w}" height="${h}" fill="#0b192b"/>${ticks}<path d="${p}" fill="none" stroke="#66d6d1" stroke-width="2.1"/>${circles}<text x="${(left+right)/2}" y="259" fill="#c5e0ef" font-size="13" text-anchor="middle">λ (nm): ${lamMin}–${lamMax}</text><text x="${left}" y="13" fill="#aec9d9" font-size="11">예비 loss dB/km · log₁₀ · 검증되지 않음</text></svg>`;
@@ -99,5 +100,5 @@ function show(out){
 q('fem-download').onclick=()=>{try{const d=getCurrent();save({...d,background_h_um:1.8,wall_edge_h_um:.65,domain_buffer_um:5,pml_thickness_um:8,pml_strength:2,pml_exponent:3,n_modes:6,max_nodes:28000},'HCF_design_for_scalar_complex_FEM.json');updateStatus('현재 HCF 설계 JSON을 저장했습니다. Colab에서 업로드한 뒤 실제 FEM을 실행하세요.');}catch(e){updateStatus('설계 오류: '+e.message);}};
 q('fem-import').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const obj=JSON.parse(await file.text());show(obj);}catch(error){clearResults('불러오기 실패: '+error.message);}finally{e.target.value='';}});
 q('fem-example').onclick=async()=>{try{const r=await fetch('../hcf_complex_fem/results/default_sweep.json');if(!r.ok)throw Error('GitHub Pages 배포 파일 확인 필요');show(await r.json());}catch(e){clearResults('예시 불러오기 실패: '+e.message);}};
-parent.addEventListener('input',e=>{if(e.target.id==='hcf-external-im')return;if(!output)return;let changed=false;try{changed=!sameGeometry(getCurrent(),(output.results||[output])[0].input);}catch{changed=true;}if(changed)clearResults('설계 치수 변경: 기존 FEM 결과를 무효화했습니다. 새 설계로 Colab에서 다시 계산하세요.');});
+parent.addEventListener('input',e=>{if(e.target.id==='hcf-external-im')return;if(!output)return;let changed=false;try{changed=!sameGeometry(getCurrent(),(output.results||[output])[0].input);}catch{changed=true;}if(changed)clearResults('설계 치수 변경: 기존 FEM 결과를 무효화했습니다. 새 설계로 Colab에서 다시 계산하세요.');else if(e.target.id==='hcf-wavelengthNm'){try{show(output);}catch(error){clearResults(error.message);}}});
 }

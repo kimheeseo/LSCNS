@@ -33,6 +33,24 @@
  const primary=(action,label)=>`<button type="button" class="ls-wave-primary" data-wave-command="${action}">${label}</button>`;
  const secondary=(action,label)=>`<button type="button" class="ls-wave-secondary" data-wave-command="${action}">${label}</button>`;
  const note=message=>`<p class="ls-wave-context">${message}</p>`;
+ function domainMap(){
+  const g=window.LSWaveCADService?.status();
+  const selected=active==="waveCore"?"core":active==="waveCladding"?"cladding":"";
+  const message=g?.supported?`Core r=${g.coreRadiusUm.toFixed(3)} µm · outer R=${g.outerRadiusUm.toFixed(3)} µm`:"Unsupported 2D geometry: "+(g?.reason||"not ready");
+  return `<div class="ls-wave-domain-map" role="group" aria-label="Radial domain selection">
+    <div class="ls-wave-domain-drawing">
+     <button type="button" class="ls-wave-domain-cladding ${selected==="cladding"?"selected":""}" data-wave-domain="cladding" title="Domain 2 · Cladding">2 · Cladding</button>
+     <button type="button" class="ls-wave-domain-core ${selected==="core"?"selected":""}" data-wave-domain="core" title="Domain 1 · Core">1<br>Core</button>
+    </div>
+    <div class="ls-wave-domain-list"><button type="button" data-wave-domain="core">D1 · Core (Circle 2)</button><button type="button" data-wave-domain="cladding">D2 · Cladding (Circle 1 − Circle 2)</button></div>
+    <p>${message}</p>
+   </div>`;
+ }
+ function linkedStatus(){
+  const w=window.LSWaveWorkflowService?.status();
+  return w?.blocker?note("Linked Study blocked: "+w.blocker):note(w?.resultFresh?"Current FEM result matches configured inputs.":"Changes to Geometry, Materials or Mesh require recomputation for fresh Results.");
+ }
+
  function results(){
   const vals=[["n_eff",val("neff")],["MFD · µm",val("mfd")],["A_eff · µm²",val("aeff")],["D · ps/(nm·km)",val("disp")]];
   return `<div class="ls-wave-results">${vals.map(x=>row(x[0],x[1])).join("")}</div>`;
@@ -42,7 +60,7 @@
   const modeP=read("clad_material");
   const rawN=read("clad_index_override");
   const wavelength=read("wavelength_nm"),delta=read("delta_n_core"),elements=read("elements");
-  const domain=note("Core/Cladding의 재료 구역은 현재 동심원 SMF용 반경 모델입니다. 2D 임의 도형에 대한 실제 물성 Domain Selection은 아직 계산기에 연결되지 않았습니다.");
+  const domain=domainMap()+note("Two radial FEM domains are fixed by the original concentric circles. Core uses n₂ + Δn; Cladding uses Sellmeier silica or fixed n₂. Extra 2D CAD regions are not assigned to the FEM.");
   const noFullVector=note("현재 브라우저 기본 엔진은 1D radial scalar FEM (LP₀₁ 근사)입니다. 아래 ewfd 메뉴는 COMSOL Wave Optics의 화면 구조를 참고한 것입니다. Full-vector Maxwell FEM 또는 PEC/PML 경계의 해석 구현을 의미하지 않습니다.");
   const modeButton=primary("compute","▶ Compute · 기존 Radial FEM");
   switch(panel){

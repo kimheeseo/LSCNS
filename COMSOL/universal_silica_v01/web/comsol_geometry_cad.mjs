@@ -252,6 +252,7 @@
   context.hidden=true;modify(b.dataset.cmd,b.dataset.pos);
  });
  document.addEventListener("pointerdown",e=>{if(!context.hidden&&!context.contains(e.target))context.hidden=true;});
+ document.addEventListener("ls-open-wave-optics",()=>{if(!pane.hidden)close();},true);
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);

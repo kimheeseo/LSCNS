@@ -42,7 +42,7 @@ const HCF_NOTEBOOK='https://colab.research.google.com/github/kimheeseo/LSCNS/blo
 const ACTIONS={
  home:[['new','New model','file'],['settings','Parameters','settings'],['geometry','Geometry','geometry'],['materials','Materials','material'],['compute','Compute','play'],['mesh','Mesh study','mesh'],['export','Export JSON','save']],
  definitions:[['settings','Parameters','settings'],['comsol','COMSOL test','check'],['g654','G.654.E','geometry'],['hcf','HCF design','layers']],
- geometry:[['geometry','View geometry','geometry'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
+ geometry:[['geometry','Geometry settings','geometry'],['cadAddCircle','Add Circle','plus'],['cadAddRotate','Rotate','refresh'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
  sketch:[['geometry','Cross-section','geometry'],['g654','SMF geometry','model'],['hcf','Nested tubes','layers']],
  materials:[['materials','Refractive index','material'],['comsol','Fixed-index ref.','check'],['g654','Silica material','model']],
  physics:[['compute','Mode analysis','physics'],['vector','Full-vector mode','wave'],['pmd','PMD / DGD','physics'],['hcfFem','HCF complex FEM','mesh']],
@@ -71,9 +71,11 @@ function runAction(action){
  switch(action){
  case 'new':findTarget('#resetBtn')?.click();return;
  case 'settings':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'parameters'}}));return;
-  case 'geometryOuter':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c1'}}));return;
-  case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c2'}}));return;
- case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'geometry',circle:'c2'}}));return;
+  case 'geometryOuter':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c1'}}));return;
+  case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
+  case 'cadAddCircle':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'circle'}}));return;
+  case 'cadAddRotate':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'rotate'}}));return;
+ case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
  case 'materials':jump('#clad_material');return;
  case 'compute':findTarget('#calculateBtn')?.click();return;
  case 'mesh':findTarget('#meshBtn')?.click();return;
@@ -110,7 +112,7 @@ function modelTreeHtml(){
    <div class="ls-tree-root">${icon('model')} LS Wave Optics (Model)</div>
    <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="materials">${icon('material')} Material Properties</button></div></details>
    <details class="ls-tree-group" open><summary>Component 1 (comp1)</summary><div class="ls-tree-children">
-    <details class="ls-tree-group" open><summary data-action="geometry">Geometry 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="geometryOuter" type="button">${icon('geometry')} Circle 1 (c1) · outer domain</button><button class="ls-tree-leaf" data-action="geometryInner" type="button">${icon('geometry')} Circle 2 (c2) · core</button>${options}</div></details>
+    <details class="ls-tree-group" open><summary data-action="geometry">Geometry 1</summary><div class="ls-tree-children"><div id="ls-geometry-node-list" aria-label="Geometry feature sequence"></div><div class="ls-tree-preset-group"><small>Design examples</small>${options}</div></div></details>
     <button class="ls-tree-leaf" data-action="materials">${icon('material')} Materials</button>
     <button class="ls-tree-leaf" data-action="compute">${icon('physics')} Electromagnetic Waves</button>
     <button class="ls-tree-leaf" data-action="mesh">${icon('mesh')} Mesh 1</button>
@@ -179,6 +181,8 @@ function init(){
   const item=event.target.closest('[data-action]');if(item)runAction(item.dataset.action);
  });
  layout.addEventListener('click',event=>{
+  const cadNode=event.target.closest('[data-cad-node]');
+  if(cadNode){document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:cadNode.dataset.cadNode}}));return;}
   const item=event.target.closest('[data-action]');
   if(item){runAction(item.dataset.action);return;}
   const select=event.target.closest('[data-select-preset]');if(select){choosePreset(select.dataset.selectPreset);return;}

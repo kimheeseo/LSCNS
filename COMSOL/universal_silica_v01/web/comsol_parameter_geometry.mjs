@@ -182,6 +182,7 @@
    value.closest("tr")?.classList.toggle("ls-param-invalid",!!err);
    value.title=err||"SI value";
   });
+  document.dispatchEvent(new CustomEvent("ls-global-parameters-changed",{detail:{valid:!calc.errors.size}}));
   return calc;
  }
  function renderCircle(){

@@ -86,6 +86,7 @@
  });
  document.addEventListener("ls-workflow-compute-request",run);
  document.addEventListener("ls-cad-state",update);
+ document.addEventListener("ls-global-parameters-changed",()=>{feedback="Global Parameters changed; apply Geometry before Mode Analysis.";feedbackError=false;update();});
  document.addEventListener("ls-cad-applied",()=>{
   resultSignature=null;feedback="Geometry applied: Core and Cladding radii updated in FEM inputs.";feedbackError=false;update();
  });

@@ -20,7 +20,9 @@ const cap=api.capillary(1.55,15,1.00027);near(cap.neff,.9994878124536852,2e-9,'c
 for(const x of [1.3,1.55,1.65])assert.ok(api.capillary(x,15,1.00027).neff<1.00027);
 assert.throws(()=>api.fiber({wavelength_um:3.5,radius_um:4.1,delta_n:.005}));
 assert.throws(()=>api.mcf(25));
-const html=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
+const legacyRedirect=fs.readFileSync(path.join(__dirname,'../../index.html'),'utf8');
+assert.match(legacyRedirect,/COMSOL_Install\/index\.html/,'top-level COMSOL landing page routes to current entry');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 assert.match(html,/web\/app\.js/);assert.match(html,/web\/style\.css/);
 for(const id of ['wl','radius','dn','pitch','hwl','hradius','air','metrics','mode-map','chart-a','chart-b','calculate','export-csv']){
  assert.ok(html.includes('id="'+id+'"'),'missing web control: '+id);

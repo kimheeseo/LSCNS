@@ -1,0 +1,70 @@
+
+/* Screenshot-inspired COMSOL Parameters / Circle settings. Works as an additive
+   editor: the original input fields and radial FEM remain authoritative. */
+body.ls-comsol-shell.ls-configuration-open .layout{
+ grid-template-columns:228px minmax(410px,560px) minmax(0,1fr) !important
+}
+body.ls-comsol-shell.ls-configuration-open .ls-study-pane{display:none!important}
+body.ls-comsol-shell.ls-configuration-open .ls-output-console{grid-column:3!important}
+body.ls-comsol-shell .sidebar.ls-config-active{padding:0!important}
+body.ls-comsol-shell .sidebar.ls-config-active > :not(.ls-config-pane){display:none!important}
+body.ls-comsol-shell .ls-config-pane{display:flex;flex-direction:column;width:100%;min-height:100%;font-family:"Segoe UI",Arial,"Malgun Gothic",sans-serif;font-size:12px;color:#384f65;background:#fff}
+body.ls-comsol-shell .ls-config-pane[hidden],.ls-config-pane [hidden]{display:none!important}
+.ls-config-heading{position:sticky;top:0;z-index:7;background:#f7f9fc;border-bottom:1px solid #ccd8e5;padding:12px 13px 10px;display:flex;align-items:center;justify-content:space-between;gap:9px}
+.ls-config-heading strong{display:block;color:#3586ba;font-size:20px;font-weight:500}
+.ls-config-heading small{display:block;color:#6a8298;font-size:12px;margin-top:2px}
+.ls-config-heading button{border:1px solid #bfcee0;background:#fff;color:#406582;font-size:11px;padding:7px 9px;border-radius:3px}
+.ls-config-body{padding:13px 14px 4px;min-width:0}
+.ls-setting-line{display:flex;align-items:center;gap:9px;margin:0 0 14px}
+.ls-setting-line label{width:66px;font-size:12px;font-weight:600}
+.ls-setting-line input{flex:1;min-width:0}
+.ls-config-pane input:not([type="checkbox"]),.ls-config-pane select{background:#fff;border:1px solid #c0ccda;color:#29435c;border-radius:2px;min-height:29px;padding:5px 7px;font-size:12px;outline-offset:1px;box-shadow:none}
+.ls-config-pane input:focus,.ls-config-pane select:focus{outline:1px solid #65a7d8;border-color:#479bd4}
+.ls-config-section-title{background:#e6f0f8;border:1px solid #d0dfec;color:#355f80;font-size:12px;font-weight:650;padding:7px 9px;margin:8px 0}
+.ls-params-scroll{overflow-x:auto;border:1px solid #cbd4df;max-width:100%}
+.ls-params-table{border-collapse:collapse;table-layout:fixed;min-width:555px;width:100%;font-size:11px}
+.ls-params-table th{background:#eaf0f6;color:#3f5366;border:1px solid #cbd4df;padding:6px;text-align:left;font-weight:600}
+.ls-params-table th:nth-child(1){width:85px}.ls-params-table th:nth-child(2){width:145px}
+.ls-params-table th:nth-child(3){width:98px}.ls-params-table th:nth-child(4){width:184px}.ls-params-table th:nth-child(5){width:29px}
+.ls-params-table td{border:1px solid #d9e1e9;height:32px;padding:2px 4px;vertical-align:middle;color:#314a62;overflow-wrap:anywhere}
+.ls-params-table tr:nth-child(even){background:#f7f9fc}
+.ls-params-table td input{width:100%;min-width:0;max-width:100%;border:none!important;background:transparent!important;padding:3px!important;box-shadow:none!important;outline:none;font-size:11px!important}
+.ls-params-table td input:focus{outline:1px solid #6eb5ed}
+.ls-params-table td span{font-variant-numeric:tabular-nums;font-size:10px;display:block}
+.ls-params-table tr.ls-param-invalid{background:#fff2f0}
+.ls-params-table tr.ls-param-invalid span{color:#ad3e3b;font-weight:600}
+.ls-params-table button{border:0;background:transparent;color:#ad6670;font-size:18px;cursor:pointer}
+.ls-config-actions{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 9px}
+.ls-config-actions button{min-height:30px;padding:6px 9px;border:1px solid #b9cede;color:#356c93;background:#f0f6fc;border-radius:2px;font-size:11px}
+.ls-config-actions button:hover,.ls-config-heading button:hover{background:#dceefc}
+.ls-config-help{font-size:11px;line-height:1.55;color:#6b7c8e;margin:9px 0 13px}
+.ls-config-status{margin:8px 14px 16px;border-left:3px solid #3b98c9;background:#eef6fc;padding:8px 10px;font-size:11px;line-height:1.45;color:#356b8e;min-height:36px}
+.ls-config-status.error{background:#fff4f2;border-left-color:#c54e45;color:#9e3730}
+.ls-circle-choices{margin-top:0}
+.ls-circle-choices button.selected{background:#d2e8fa;border-color:#6ba6d5;color:#176298;font-weight:700}
+.ls-geometry-field{display:grid;grid-template-columns:120px minmax(0,1fr) 27px;gap:8px;align-items:center;min-height:38px;margin:4px 0}
+.ls-geometry-field label{font-size:12px;color:#42586c}
+.ls-geometry-field input,.ls-geometry-field select{width:100%;min-width:0}
+.ls-geometry-field span{font-size:10px;color:#678298}
+.ls-geometry-preview{border:1px solid #cbd8e5;background:#fff;margin:12px 0 7px;border-radius:3px;overflow:hidden}
+.ls-geometry-preview svg{display:block;width:100%;height:auto;max-height:235px}
+#ls-geo-info{font-size:11px;padding:7px 10px;color:#3a6382;min-height:30px;border-top:1px solid #dde6ec}
+.ls-config-check{display:flex;gap:8px;align-items:center;line-height:1.45;font-size:11px;margin:13px 0;color:#476b84;cursor:pointer}
+.ls-config-primary{width:100%;padding:10px 12px;background:#1374b1;border:1px solid #0b689e;border-radius:3px;color:#fff;font-size:12px;font-weight:650;cursor:pointer}
+.ls-config-primary:hover{background:#085e96}
+@media(max-width:1250px){
+ body.ls-comsol-shell.ls-configuration-open .layout{grid-template-columns:190px minmax(370px,475px) minmax(0,1fr)!important}
+}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-configuration-open .layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-configuration-open .sidebar{grid-column:1!important}
+ body.ls-comsol-shell.ls-configuration-open main.workspace{grid-column:2!important}
+ body.ls-comsol-shell.ls-configuration-open .ls-output-console{grid-column:2!important}
+}
+@media(max-width:635px){
+ body.ls-comsol-shell.ls-configuration-open .layout{display:block!important}
+ body.ls-comsol-shell.ls-configuration-open .ls-config-pane{min-height:0}
+ body.ls-comsol-shell.ls-configuration-open .ls-model-tree{display:none!important}
+ body.ls-comsol-shell.ls-configuration-open main.workspace{display:none}
+ .ls-params-table{min-width:525px}
+}

@@ -22,3 +22,13 @@ The UI resembles COMSOL's desktop ribbon/pane structure by user request. **LS Wa
 
 - Browser regression: `COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs`.
 - Includes actual Chromium screenshot and computes the public COMSOL step-index benchmark from the original solver after selecting the model through the tree. The previous independent physics tests and repository workflows remain unchanged.
+
+## Global Definitions → Parameters / Component → Geometry (2026-11-04)
+
+- Click **Model Builder → Global Definitions → Parameters 1** for an editable COMSOL-style table with Name, Expression, Value and Description. Supports user parameters, dependencies, arithmetic, `sqrt()` and `[m]/[mm]/[um]/[nm]` units. Invalid values and cyclic references are marked, and the table and geometry definitions can be exported as JSON.
+- Click **Component 1 → Geometry 1 → Circle 1 / Circle 2** to edit Object Type, Radius, Sector Angle, Position x/y, Rotation Angle and optional Layer 1 thickness. The settings show a live 2D SVG geometry preview. Circle 1 is the outer calculation domain; Circle 2 is the core for the standard concentric radial model.
+- Select **Apply concentric circles to Radial FEM** to copy valid radius / wavelength / core-cladding index contrast into the **existing** authoritatively-bound numerical controls. Run Compute after applying. No original numerical solver is replaced.
+- **Parameter naming:** `d` is Circle 2's diameter for the radial SMF example; `Delta` is a reference hole pitch to match the supplied COMSOL screenshot; `dn_core` (not `Delta`) is the actual refractive-index difference applied to the radial FEM. `rb` is the outer domain radius, `wl` is the wavelength, and `nbg` is an illustrative background index unless its checkbox explicitly fixes the cladding index. `neffMin`, `neffMax`, `wlr`, `nair`, and hole pitch `Delta` are **reference expressions**, not eigenvalue solver bounds or HCF geometry.
+- **Physics limitations:** Only two concentric 360° Solid circles with no additional layers can be passed into the current 1D Radial FEM. Nonzero x/y, partial sectors, Curve objects and geometric layers can be edited/previewed, but must not silently alter numerical results. HCF and Full-vector designs keep their existing specialized workflows and Colab solvers.
+- **Restore original sidebar:** click **Fiber settings** or press Escape. The original geometry charts and numerical controls are retained. This is a COMSOL-inspired editor, not an embedded COMSOL application.
+- Files: `comsol_parameter_geometry.mjs`, `comsol_parameter_geometry.css`. Existing `comsol_workspace.mjs` routes actual tree actions into these views.

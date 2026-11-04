@@ -45,3 +45,26 @@ body.ls-comsol-shell.ls-wave-optics-active main.workspace .ls-graphics-head{back
 @media(max-width:1090px){body.ls-comsol-shell.ls-wave-optics-active .layout{grid-template-columns:200px minmax(260px,310px) minmax(0,1fr)}body.ls-comsol-shell.ls-wave-optics-active .ls-study-pane{display:none}body.ls-comsol-shell.ls-wave-optics-active .ls-output-console{grid-column:3}}
 @media(max-width:835px){body.ls-comsol-shell.ls-wave-optics-active .layout{grid-template-columns:minmax(270px,315px) minmax(0,1fr)}body.ls-comsol-shell.ls-wave-optics-active .ls-model-tree{display:none}body.ls-comsol-shell.ls-wave-optics-active .sidebar{grid-column:1}body.ls-comsol-shell.ls-wave-optics-active main.workspace{grid-column:2}body.ls-comsol-shell.ls-wave-optics-active .ls-output-console{grid-column:2}}
 @media(max-width:635px){body.ls-comsol-shell.ls-wave-optics-active .layout{display:block!important;height:auto!important}body.ls-comsol-shell.ls-wave-optics-active .sidebar{width:100%;height:auto!important}body.ls-comsol-shell.ls-wave-optics-active main.workspace{width:100%;height:auto;display:flex!important}body.ls-comsol-shell.ls-wave-optics-active .ls-wave-pane{min-height:0}}
+
+/* Preserve four-pane Wave Optics desktop layout against generic Parameters / CAD
+   configuration rules that intentionally hide the Add Study column. */
+body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .layout{
+  grid-template-columns:248px minmax(345px,390px) minmax(0,1fr) 180px!important;
+}
+body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .ls-study-pane{display:flex!important}
+body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .ls-output-console{grid-column:3/5!important}
+@media(max-width:1300px){
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .layout{grid-template-columns:205px minmax(275px,315px) minmax(0,1fr) 174px!important}
+}
+@media(max-width:1090px){
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .layout{grid-template-columns:200px minmax(260px,310px) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .ls-study-pane{display:none!important}
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .ls-output-console{grid-column:3!important}
+}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .layout{grid-template-columns:minmax(270px,315px) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .ls-output-console{grid-column:2!important}
+}
+@media(max-width:635px){
+ body.ls-comsol-shell.ls-wave-optics-active.ls-configuration-open .layout{display:block!important;height:auto!important}
+}

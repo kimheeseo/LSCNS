@@ -62,7 +62,7 @@
  side.append(pane);
  const graphics=document.createElement("section");
  graphics.id="ls-cad-graphics";graphics.hidden=true;
- graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
+ graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
  main.prepend(graphics);
  const context=document.createElement("div");
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
@@ -159,19 +159,22 @@
   let grid="";
   if(gridOn){for(let x=0;x<w;x+=30)grid+=`<path d="M ${x} 0 V ${h}" stroke="#e6ecf1" stroke-width=".8"/>`;for(let y=0;y<h;y+=30)grid+=`<path d="M 0 ${y} H ${w}" stroke="#e6ecf1" stroke-width=".8"/>`;}
   const items=shapes.map(s=>{
-   const x=w/2+s.x*scale,y=h/2-s.y*scale,r=s.r*scale;
+   const x=w/2+(mini?0:panX)+s.x*scale,y=h/2+(mini?0:panY)-s.y*scale,r=s.r*scale;
    const focus=selected===s.owner,stroke=focus?"#1f77ae":s.derived?"#7a8793":"#3f505f";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
    const fill=s.solid?(s.selection&&colors[s.color]?colors[s.color]:(focus?"#c1d9eb":"#d0d3d7")):"none";
    const label=mini?"":`<text x="${x}" y="${y-r-7}" font-size="11" text-anchor="middle" fill="${stroke}">${esc(s.owner)}${s.derived?"*":""}</text>`;
    return `<g data-cad-shape="${esc(s.owner)}" fill="${fill}" fill-opacity="${s.derived?".43":".65"}" stroke="${stroke}" stroke-width="${focus?2.2:1.5}" ${s.derived?'stroke-dasharray="5 3"':""}>${drawShape(x,y,r,s.sector,s.deg)}</g>${label}`;
   }).join("");
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${h/2} H${w} M${w/2} 0 V${h}" stroke="#82939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">Geometry · 2D preview</text>`;
+  const ox=w/2+(mini?0:panX),oy=h/2+(mini?0:panY);
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${oy} H${w} M${ox} 0 V${h}" stroke="#82939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">${esc(rootLabel)} · 2D</text>`;
  }
  function draw(){
   try{
    $("ls-cad-view").innerHTML=svg(640,500);
    $("ls-cad-mini-svg").innerHTML=svg(460,230,true);
+    const pick=$("ls-cad-object-select");
+    if(pick){pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");pick.value=nodes.some(n=>n.id===selected)?selected:"root";}
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · ${lengthUnit==="um"?"µm":lengthUnit} · Not FEM field data`;
   }catch(e){$("ls-cad-view").innerHTML="";$("ls-cad-mini-svg").innerHTML="";$("ls-cad-legend").textContent=e.message;if(!pane.hidden)say("Preview: "+e.message,true);}
@@ -321,9 +324,27 @@
  $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
- $("ls-cad-fit").addEventListener("click",()=>{zoom=1;draw();});
+ $("ls-cad-fit").addEventListener("click",()=>{zoom=1;panX=0;panY=0;draw();});
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{const s=e.target.closest("[data-cad-shape]");if(s){selected=s.dataset.cadShape;loadFields();}});
+ $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
+ const viewport=$("ls-cad-view");let gesture=null;
+ viewport.addEventListener("pointerdown",e=>{
+  if(e.button!==0||e.target.closest("[data-cad-shape]"))return;
+  gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};
+  viewport.setPointerCapture(e.pointerId);viewport.classList.add("is-panning");
+ });
+ viewport.addEventListener("pointermove",e=>{
+  if(!gesture||e.pointerId!==gesture.id)return;
+  const b=viewport.getBoundingClientRect();
+  if(!b.width||!b.height)return;
+  panX=gesture.panX+(e.clientX-gesture.x)*640/b.width;
+  panY=gesture.panY+(e.clientY-gesture.y)*500/b.height;
+  draw();
+ });
+ const stop=e=>{if(gesture?.id===e.pointerId){gesture=null;viewport.classList.remove("is-panning");}};
+ viewport.addEventListener("pointerup",stop);viewport.addEventListener("pointercancel",stop);
+ viewport.addEventListener("wheel",e=>{e.preventDefault();zoom=Math.max(.25,Math.min(8,zoom*(e.deltaY<0?1.15:1/1.15)));draw();},{passive:false});
  $("ls-cad-view").addEventListener("contextmenu",e=>{const s=e.target.closest("[data-cad-shape]");if(s)showMenu(e,"node",s.dataset.cadShape);});
  document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){if(!context.hidden){context.hidden=true;e.stopImmediatePropagation();}else if(!pane.hidden)close();}

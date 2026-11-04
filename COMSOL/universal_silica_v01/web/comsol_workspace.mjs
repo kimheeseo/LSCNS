@@ -44,11 +44,11 @@ const ACTIONS={
  definitions:[['settings','Parameters','settings'],['comsol','COMSOL test','check'],['g654','G.654.E','geometry'],['hcf','HCF design','layers']],
  geometry:[['geometry','Geometry settings','geometry'],['cadAddCircle','Add Circle','plus'],['cadAddRotate','Rotate','refresh'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
  sketch:[['geometry','Cross-section','geometry'],['g654','SMF geometry','model'],['hcf','Nested tubes','layers']],
- materials:[['materials','Refractive index','material'],['comsol','Fixed-index ref.','check'],['g654','Silica material','model']],
- physics:[['compute','Mode analysis','physics'],['vector','Full-vector mode','wave'],['pmd','PMD / DGD','physics'],['hcfFem','HCF complex FEM','mesh']],
- mesh:[['mesh','Mesh convergence','mesh'],['compute','Recompute','refresh'],['comsol','Benchmark mesh','chart']],
- study:[['compute','Mode analysis','play'],['sweep','Wavelength sweep','chart'],['mesh','Mesh convergence','mesh'],['vector','Full-vector / Colab','wave'],['hcfFem','HCF FEM / Colab','layers']],
- results:[['results','Results window','chart'],['geometry','Cross-section','geometry'],['fiber3d','3D propagation','eye'],['export','Export JSON','save']],
+ materials:[['waveMaterials','Materials','material'],['waveCore','Core index','model'],['waveCladding','Cladding index','material'],['comsol','Index benchmark','check']],
+ physics:[['wavePhysics','ewfd Settings','physics'],['waveEquation','Wave Equation','wave'],['wavePEC','PEC Boundary','layers'],['waveInitial','Initial Values','settings'],['vector','Full-vector / Colab','wave']],
+ mesh:[['waveMesh','Mesh 1','mesh'],['waveSize','Size settings','settings'],['mesh','Mesh convergence','refresh'],['comsol','Benchmark mesh','chart']],
+ study:[['waveMode','Mode Analysis Settings','physics'],['compute','Compute','play'],['sweep','Wavelength Sweep','chart'],['vector','Full-vector / Colab','wave'],['hcfFem','HCF FEM / Colab','layers']],
+ results:[['waveResults','Results Settings','chart'],['waveField','Mode profile','wave'],['waveIndex','Index profile','chart'],['waveDerived','Derived Values','settings'],['export','Export JSON','save']],
  developer:[['source','Source code','code'],['colab','Vector Colab','wave'],['help','Help / README','book']]
 };
 const LABELS=[['home','Home'],['definitions','Definitions'],['geometry','Geometry'],['sketch','Sketch'],['materials','Materials'],['physics','Physics'],['mesh','Mesh'],['study','Study'],['results','Results'],['developer','Developer']];
@@ -76,7 +76,8 @@ function runAction(action){
   case 'cadAddCircle':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'circle'}}));return;
   case 'cadAddRotate':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'rotate'}}));return;
  case 'geometry':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
- case 'materials':jump('#clad_material');return;
+ case 'materials':case 'waveMaterials':case 'waveCore':case 'waveCladding':case 'wavePhysics':case 'waveEquation':case 'wavePEC':case 'waveInitial':case 'waveMesh':case 'waveSize':case 'waveStudy':case 'waveMode':case 'waveResults':case 'waveField':case 'waveIndex':case 'waveDerived':
+   document.dispatchEvent(new CustomEvent('ls-open-wave-optics',{detail:{panel:action}}));return;
  case 'compute':findTarget('#calculateBtn')?.click();return;
  case 'mesh':findTarget('#meshBtn')?.click();return;
  case 'sweep':findTarget('#sweepBtn')?.click();return;
@@ -110,15 +111,15 @@ function modelTreeHtml(){
   <div class="ls-tree-toolbar"><button type="button" data-tree-expand="1" title="트리 모두 펼치기">⊞</button><button type="button" data-tree-expand="0" title="트리 모두 접기">⊟</button><button type="button" data-action="new" title="기본 모델 복원">↺</button><span>MODEL</span></div>
   <div class="ls-tree-scroll">
    <div class="ls-tree-root">${icon('model')} LS Wave Optics (Model)</div>
-   <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="materials">${icon('material')} Material Properties</button></div></details>
+   <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="waveMaterials">${icon('material')} Material Properties</button></div></details>
    <details class="ls-tree-group" open><summary>Component 1 (comp1)</summary><div class="ls-tree-children">
     <details class="ls-tree-group" open><summary data-action="geometry">Geometry 1</summary><div class="ls-tree-children"><div id="ls-geometry-node-list" aria-label="Geometry feature sequence"></div><div class="ls-tree-preset-group"><small>Design examples</small>${options}</div></div></details>
-    <button class="ls-tree-leaf" data-action="materials">${icon('material')} Materials</button>
-    <button class="ls-tree-leaf" data-action="compute">${icon('physics')} Electromagnetic Waves</button>
-    <button class="ls-tree-leaf" data-action="mesh">${icon('mesh')} Mesh 1</button>
+    <details class="ls-tree-group" open><summary data-action="waveMaterials">Materials</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveCore">${icon('material')} Core (n₁)</button><button class="ls-tree-leaf" data-action="waveCladding">${icon('material')} Cladding (n₂)</button></div></details>
+    <details class="ls-tree-group" open><summary data-action="wavePhysics">Electromagnetic Waves, Frequency Domain (ewfd)</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveEquation">${icon('wave')} Wave Equation, Electric 1</button><button class="ls-tree-leaf" data-action="wavePEC">${icon('physics')} Perfect Electric Conductor 1</button><button class="ls-tree-leaf" data-action="waveInitial">${icon('settings')} Initial Values 1</button></div></details>
+    <details class="ls-tree-group" open><summary data-action="waveMesh">Mesh 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveSize">${icon('mesh')} Size 1 · Radial mesh</button></div></details>
     </div></details>
-   <details class="ls-tree-group" open><summary>Study 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="compute">${icon('play')} Mode Analysis</button><button class="ls-tree-leaf" data-action="sweep">${icon('chart')} Wavelength Sweep</button><button class="ls-tree-leaf" data-action="hcfFem">${icon('wave')} HCF Complex FEM</button></div></details>
-   <details class="ls-tree-group" open><summary>Results</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="results">${icon('chart')} Derived Values</button><button class="ls-tree-leaf" data-action="fiber3d">${icon('eye')} 3D Propagation</button><button class="ls-tree-leaf" data-action="pmd">${icon('physics')} PMD / DGD</button></div></details>
+   <details class="ls-tree-group" open><summary data-action="waveStudy">Study 1</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveMode">${icon('play')} Step 1: Mode Analysis</button><button class="ls-tree-leaf" data-action="sweep">${icon('chart')} Wavelength Sweep</button><button class="ls-tree-leaf" data-action="hcfFem">${icon('wave')} HCF Complex FEM (Colab)</button></div></details>
+   <details class="ls-tree-group" open><summary data-action="waveResults">Results</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveField">${icon('wave')} Mode Intensity · I(r)</button><button class="ls-tree-leaf" data-action="waveIndex">${icon('chart')} Refractive Index · n(r)</button><button class="ls-tree-leaf" data-action="waveDerived">${icon('settings')} Derived Values · n_eff / MFD / A_eff</button><button class="ls-tree-leaf" data-action="fiber3d">${icon('eye')} 3D Propagation</button><button class="ls-tree-leaf" data-action="pmd">${icon('physics')} PMD / DGD</button></div></details>
   </div><div class="ls-tree-bottom">Solution status <span class="ls-green-indicator"></span> <span id="ls-tree-state">Ready</span></div>
  </aside>`;
 }

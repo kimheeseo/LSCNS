@@ -1,0 +1,6 @@
+evidence_case,metric,reference_value,tool_value,absolute_difference,units,notes
+COMSOL_generic_step_index,neff,1.4444,1.444401819379318,0.000001819379318,1,COMSOL is printed to 4 decimals only
+analytical_scalar_LP01_750,neff,1.4444018444092133,1.444401819379318,0.0000000250298953,1,independent Bessel oracle
+analytical_scalar_LP01_1800,neff,1.4444018444092133,1.4444018400635046,0.0000000043457087,1,independent Bessel oracle
+G654_assumed_exact_HE11_vs_scalar,neff,1.445716906244325,1.445718968,0.000002061755675,1,assumed a5.5 and fitted delta n
+G654_assumed_exact_HE11_vs_FDFD,neff,1.445716906244325,1.445711888509771,0.000005017734554,1,FDFD grid69 not converged

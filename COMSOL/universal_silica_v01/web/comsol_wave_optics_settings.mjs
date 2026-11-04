@@ -62,14 +62,14 @@
   const wavelength=read("wavelength_nm"),delta=read("delta_n_core"),elements=read("elements");
   const domain=domainMap()+note("Two radial FEM domains are fixed by the original concentric circles. Core uses n₂ + Δn; Cladding uses Sellmeier silica or fixed n₂. Extra 2D CAD regions are not assigned to the FEM.");
   const noFullVector=note("현재 브라우저 기본 엔진은 1D radial scalar FEM (LP₀₁ 근사)입니다. 아래 ewfd 메뉴는 COMSOL Wave Optics의 화면 구조를 참고한 것입니다. Full-vector Maxwell FEM 또는 PEC/PML 경계의 해석 구현을 의미하지 않습니다.");
-  const modeButton=primary("compute","▶ Compute · 기존 Radial FEM");
+  const modeButton=primary("compute","▶ Compute linked Mode Analysis");
   switch(panel){
    case "waveMaterials":
-    return section("Materials",`${row("Material 1","Silica core · n₁ = n₂ + Δn")}${row("Material 2",modeP==="fixed"?"Fixed cladding n₂ = "+rawN:"Silica Sellmeier n₂(λ)")}${nav("waveCore","Core material settings")}${nav("waveCladding","Cladding material settings")}`)+section("Geometric Entity Selection",domain)+note("실제 계산 입력은 기존 광섬유 설계 패널과 공유합니다.");
+    return section("Materials",`${row("Material 1 · Domain 1","Core n₁ = n₂ + Δn")}${row("Material 2 · Domain 2",modeP==="fixed"?"Fixed cladding n₂ = "+rawN:"Silica Sellmeier n₂(λ)")}${nav("waveCore","Core material settings")}${nav("waveCladding","Cladding material settings")}`)+section("Geometric Entity Selection",domain)+note("실제 계산 입력은 기존 광섬유 설계 패널과 공유합니다.");
    case "waveCore":
-    return section("Material Contents",`${row("Label","Core (n₁)")}${row("Refractive index definition","n_core = n_clad + Δn")}${input("Core − cladding index contrast","ls-wave-delta",delta,"Δn")}`)+section("Domain Selection",domain)+primary("applyDelta","Apply Δn to current solver");
+    return section("Material Contents",`${row("Label","Core (n₁)")}${row("Domain Selection","D1 · Circle 2 (core)")}${row("Refractive index definition","n_core = n_clad + Δn")}${input("Core − cladding index contrast","ls-wave-delta",delta,"Δn")}`)+section("Domain Selection",domain)+primary("applyDelta","Apply Core material to FEM");
    case "waveCladding":
-    return section("Material Contents",`${select("Cladding index model","ls-wave-clad-mode",'<option value="silica">Silica Sellmeier</option><option value="fixed">Constant refractive index</option>')}${input("Constant n_clad","ls-wave-clad-index",rawN,"dimensionless")}`)+section("Material Assignment",domain)+primary("applyClad","Apply cladding model to current solver");
+    return section("Material Contents",`${row("Domain Selection","D2 · Circle 1 outside core")}${select("Cladding index model","ls-wave-clad-mode",'<option value="silica">Silica Sellmeier</option><option value="fixed">Constant refractive index</option>')}${input("Constant n_clad","ls-wave-clad-index",rawN,"dimensionless")}`)+section("Material Assignment",domain)+primary("applyClad","Apply Cladding material to FEM");
    case "wavePhysics":
     return section("Physics Interface",`${row("Label","Electromagnetic Waves, Frequency Domain")}${row("COMSOL interface tag","ewfd")}${row("Linked study","Mode Analysis · LP₀₁ scalar")}${row("Current numerical engine",isScalar?"Radial scalar FEM":"Specialized research mode")}`)+section("Physics Features",`${nav("waveEquation","Wave Equation, Electric 1")}${nav("wavePEC","Perfect Electric Conductor 1")}${nav("waveInitial","Initial Values 1")}`)+noFullVector+nav("waveMode","Configure Mode Analysis");
    case "waveEquation":
@@ -89,13 +89,13 @@
      primary("applyMesh","Apply element count")+secondary("mesh","Mesh convergence study")+note("범위: 100–1800, step 5. 계산 엔진이 사용하는 요소 수에 직접 연결합니다.");
    }
    case "waveStudy":
-    return section("Study Type",`${row("Study 1","Mode Analysis")}${row("Supported","LP₀₁ scalar mode + wavelength sweep")}`)+nav("waveMode","Step 1: Mode Analysis")+modeButton+noFullVector;
+    return section("Study Type",`${row("Study 1","Mode Analysis")}${row("Supported","LP₀₁ scalar mode + wavelength sweep")}`)+nav("waveMode","Step 1: Mode Analysis")+linkedStatus()+modeButton+noFullVector;
    case "waveMode":
     return section("Study Settings",`${input("Free-space wavelength","ls-wave-wavelength",wavelength,"nm")}${row("Mode count","1 (fundamental LP₀₁ only)")}${row("Eigenvalue output","n_eff")}`)+
      section("Solver",`${row("Discretization","Radial P1 FEM")}${row("Core radius",read("core_radius_um")+" µm")}${row("Radial mesh",elements+" elements")}`)+
-     primary("applyCompute","Apply wavelength & Compute")+secondary("sweep","Wavelength sweep")+noFullVector;
+     linkedStatus()+primary("applyCompute","Apply wavelength & Compute linked mode")+secondary("sweep","Wavelength sweep")+noFullVector;
    case "waveResults":
-    return section("Datasets",row("Dataset 1","Last computed scalar LP₀₁ mode"))+
+    return linkedStatus()+section("Datasets",row("Dataset 1","Last computed scalar LP₀₁ mode"))+
      section("Derived Values",results())+section("Plots",`${nav("waveField","Mode Intensity · I(r)")}${nav("waveIndex","Refractive Index · n(r)")}${nav("waveDerived","n_eff / MFD / A_eff / D")}`)+secondary("export","Export solver JSON");
    case "waveField":
     return section("Mode Intensity",`${row("Display","LP₀₁ intensity I(r), normalized")}${row("Source","Existing radial solver field output")}`)+
@@ -152,7 +152,7 @@
  }
  function action(cmd){
   try{
-   if(cmd==="compute"){$("calculateBtn")?.click();showNote="Mode Analysis invoked with current numerical inputs.";error=false;render();return;}
+   if(cmd==="compute"){const started=window.LSWaveWorkflowService?.run();showNote=started?"Linked Mode Analysis started; results update after FEM solve.":"Linked Mode Analysis blocked. See Model Workflow.";error=!started;render();return;}
    if(cmd==="mesh"){$("meshBtn")?.click();showNote="Existing mesh convergence analysis invoked.";error=false;render();return;}
    if(cmd==="sweep"){$("sweepBtn")?.click();showNote="Existing wavelength sweep invoked.";error=false;render();return;}
    if(cmd==="export"){$("jsonBtn")?.click();showNote="Existing solver JSON export invoked.";error=false;render();return;}
@@ -168,8 +168,8 @@
     if(!(wl>=250&&wl<=3600))throw Error("Wavelength must be 250–3600 nm");
     if(cmd!=="applyCompute")setAuthoritative("delta_n_core",n);
     if(cmd!=="applyDelta")setAuthoritative("wavelength_nm",wl);
-    if(cmd==="applyCompute")$("calculateBtn")?.click();
-    showNote=cmd==="applyCompute"?"Wavelength applied; Mode Analysis computation invoked.":"Existing FEM input field(s) updated. Run Compute to solve.";
+    if(cmd==="applyCompute")window.LSWaveWorkflowService?.run();
+    showNote=cmd==="applyCompute"?"Wavelength applied; linked Study requested. Check Model Workflow status.":"Existing FEM input field(s) updated. Run Compute to solve.";
    }else if(cmd==="applyClad"){
     const model=$("ls-wave-clad-mode").value,n=Number($("ls-wave-clad-index").value);
     if(model==="fixed"&&!(n>=1&&n<2))throw Error("Fixed cladding index must be between 1 and 2");
@@ -186,7 +186,14 @@
  }
  pane.addEventListener("click",e=>{
   const back=e.target.closest("#ls-wave-back");if(back){close();return;}
-  const nav=e.target.closest("[data-wave-nav]");if(nav){active=nav.dataset.waveNav;showNote="";error=false;render();sidebar.scrollTop=0;return;}
+  const dom=e.target.closest("[data-wave-domain]");if(dom){
+    if(dom.dataset.waveDomain==="core"||dom.dataset.waveDomain==="cladding"){
+     active=dom.dataset.waveDomain==="core"?"waveCore":"waveCladding";
+     showNote=dom.dataset.waveDomain==="core"?"Domain 1 selected: Core uses Δn.":"Domain 2 selected: Cladding uses n₂.";
+     error=false;render();return;
+    }
+   }
+   const nav=e.target.closest("[data-wave-nav]");if(nav){active=nav.dataset.waveNav;showNote="";error=false;render();sidebar.scrollTop=0;return;}
   const command=e.target.closest("[data-wave-command]");if(command){action(command.dataset.waveCommand);return;}
  });
  pane.addEventListener("change",e=>{

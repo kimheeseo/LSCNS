@@ -1,3 +1,7 @@
+## 3D 광섬유 구조 및 실제 Beam Propagation — 2026-11-04
+
+[▶ 기존 웹의 3D Fiber / Propagation](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [Colab 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/propagation_3d/Universal_Silica_Fiber_3D_Propagation.ipynb) · [소스/검증](propagation_3d/README.md). 축방향 전파는 **2+1D Scalar FFT BPM**, 3D 구조는 단면 압출 표시. Solid silica 4종 전파, HCF 튜브 3D 도식 지원. **3D Full-vector Maxwell FEM 및 HCF 누설손실 계산 아님.**
+
 ## Full-vector 2D Eigenmode — 유효굴절률/MFD/Aeff 업그레이드 (2026-11-04)
 
 [Colab 실제 Full-vector FDFD 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb) · [소스·결과](full_vector/) · [웹 Full-vector 결과 보기](web/#full-vector-tool) · [정밀도/제약 보고서](full_vector/VALIDATION_REPORT.md). 독립 2D 결합 벡터 H 모드로 neff를 계산하며 Ex/Ey/Ez를 복원한 뒤 MFD 및 Aeff를 2D 수치 적분합니다. 기존 원형 Scalar FEM은 유지합니다. **Full-vector FDFD ≠ Full-vector FEM, HCF 누설손실/PMD 인증 미구현.**

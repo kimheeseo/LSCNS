@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-04",
+  "solver": "actual 2+1D scalar BPM / periodic FFT; NOT 3D full-vector FEM",
+  "config": {
+    "profile": "step",
+    "wavelength_nm": 1550,
+    "core_radius_um": 5.5,
+    "delta_n_core": 0.0034785793846155,
+    "graded_alpha": 2,
+    "trench_start_um": 7,
+    "trench_end_um": 10,
+    "trench_delta_n": -0.001,
+    "shells": [
+      [
+        4,
+        0.006
+      ],
+      [
+        5,
+        0.002
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        9,
+        -0.0008
+      ]
+    ],
+    "half_width_um": 36,
+    "length_um": 300,
+    "grid": 128,
+    "steps": 120,
+    "waist_um": 4.5,
+    "offset_um": 1.5,
+    "snapshots": 9
+  },
+  "initial": {
+    "z_um": 0,
+    "power": 1.0000000000000004,
+    "MFD_2nd_um": 8.99999999999999,
+    "Aeff_um2": 63.61725123519327,
+    "edge_power_fraction": 7.003797900129045e-39,
+    "centroid_x_um": 1.499999999999999,
+    "centroid_y_um": 7.713320780274011e-16
+  },
+  "final": {
+    "z_um": 300,
+    "power": 1.000000000000378,
+    "MFD_2nd_um": 23.689094541680635,
+    "Aeff_um2": 169.57001662574558,
+    "edge_power_fraction": 0.0029393325532995067,
+    "centroid_x_um": -1.0669772145735312,
+    "centroid_y_um": -0.0037440438898633066
+  },
+  "max_power_error": 3.779199175824033e-13,
+  "snapshot_z_um": [
+    0,
+    37.5,
+    75,
+    112.5,
+    150,
+    187.5,
+    225,
+    262.5,
+    300
+  ],
+  "limitations": "No HCF leakage, measured loss, bending, polarization or PML"
+}

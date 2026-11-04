@@ -1,3 +1,9 @@
+## 2026-11-04 · 3D 구조 / Beam Propagation (2+1D)
+
+[**▶ 웹에서 3D 광섬유 구조·전파 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#fiber-3d) · [Colab 전파 계산](../propagation_3d/Universal_Silica_Fiber_3D_Propagation.ipynb) · [기술 설명](../propagation_3d/README.md) · [수치 검증](../propagation_3d/VALIDATION_REPORT.md)
+
+Step·Graded·Trench·Multilayer의 고정 실리카 구조에 대해 **브라우저 실시간 2+1D Scalar BPM**으로 z 전파와 실제 강도 단면, MFD·Aeff 변화를 계산합니다. 마우스로 3D 회전, 프레임 애니메이션, CSV·JSON·PNG 저장. **HCF 2·3중 Nested Tube는 3D 단면 형상만** 표시하고 전파·Confinement Loss 계산은 지원하지 않습니다. **Full-vector 3D Maxwell FEM/FDTD 아님**, 경계는 주기적 FFT(PML 미지원).
+
 ## Full-vector Fiber Mode Lab v0.1 — 2026-11-04
 
 [**▶ 기존 웹의 Full-vector 결과 보기**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#full-vector-tool) · [**Google Colab 실제 벡터 계산**](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb) · [수치 검증](../full_vector/VALIDATION_REPORT.md) · [기본 결과 JSON](../full_vector/results/vector_mode_result.json)

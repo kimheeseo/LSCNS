@@ -1,0 +1,21 @@
+name: COMSOL Public Step-Index Fiber Numerical Benchmark
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'COMSOL/validation_report/comsol_step_index_benchmark/run.mjs'
+      - 'COMSOL/universal_silica_v01/web/solver.mjs'
+      - '.github/workflows/comsol-step-index-benchmark.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run real Universal Silica radial FEM with COMSOL-matched material adapter
+        run: node COMSOL/validation_report/comsol_step_index_benchmark/run.mjs

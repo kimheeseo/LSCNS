@@ -36,9 +36,11 @@ try{
  await page.locator("#ls-cad-radius").fill("2.5[um]");
  await page.locator("#ls-cad-y").fill("Delta");
  assert.ok((await page.locator("#ls-cad-legend").textContent()).includes("3 object"));
- // Add Rotate via ribbon action, verify range-generated geometry.
- await page.locator('[data-tab="geometry"]').click();
- await page.locator('#ls-ribbon-tools [data-action="cadAddRotate"]').click();
+ // Add Rotate through the Geometry 1 right-click Transforms submenu.
+ await page.locator('summary[data-action="geometry"]').click({button:"right"});
+ await page.locator('#ls-cad-menu > ul > li.has-children > button').filter({hasText:"Transforms"}).hover();
+ assert.equal(await page.locator('#ls-cad-menu li.has-children > ul [data-cmd="rotate"]').isVisible(),true);
+ await page.locator('#ls-cad-menu li.has-children > ul [data-cmd="rotate"]').click();
  assert.equal(await page.locator("#ls-cad-subtitle").textContent(),"Rotate");
  assert.equal(await page.locator("#ls-cad-angle").inputValue(),"range(0,60,300)");
  assert.equal(await page.locator('#ls-cad-inputs [data-cad-input="c3"]').isChecked(),true);

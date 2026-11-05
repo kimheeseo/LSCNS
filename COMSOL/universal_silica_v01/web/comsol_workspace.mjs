@@ -70,6 +70,8 @@ function choosePreset(name){
 function runAction(action){
  switch(action){
  case 'new':findTarget('#resetBtn')?.click();return;
+ case 'openDesign':findTarget('#importDesign')?.click();return;
+ case 'saveDesign':findTarget('#designBtn')?.click();return;
  case 'settings':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'parameters'}}));return;
   case 'geometryOuter':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c1'}}));return;
   case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
@@ -102,7 +104,7 @@ function runAction(action){
 }
 function ribbonHtml(){
  return `<div class="ls-ribbon" role="navigation" aria-label="광학 해석 리본 메뉴">
-  <div class="ls-ribbon-tabs">${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<div class="ls-ribbon-quick" role="toolbar" aria-label="Quick Access Toolbar"><button type="button" title="Undo Geometry (Ctrl+Z)" data-action="cadUndo" disabled>↶</button><button type="button" title="Redo Geometry (Ctrl+Shift+Z)" data-action="cadRedo" disabled>↷</button><button type="button" title="Build All Geometry (F8)" data-action="cadBuildAll">▣</button></div><span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
+  <div class="ls-ribbon-tabs">${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<div class="ls-ribbon-quick" role="toolbar" aria-label="Quick Access Toolbar"><button type="button" title="Open Design JSON" aria-label="Open Design JSON" data-action="openDesign">Open</button><button type="button" title="Save Design JSON" aria-label="Save Design JSON" data-action="saveDesign">Save</button><span class="ls-quick-separator" aria-hidden="true"></span><button type="button" title="Undo Geometry (Ctrl+Z)" aria-label="Undo Geometry" data-action="cadUndo" disabled>↶</button><button type="button" title="Redo Geometry (Ctrl+Shift+Z)" aria-label="Redo Geometry" data-action="cadRedo" disabled>↷</button><button type="button" title="Build All Geometry (F8)" aria-label="Build All Geometry" data-action="cadBuildAll">▣</button></div><span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
   <div class="ls-ribbon-body"><div class="ls-ribbon-tools" id="ls-ribbon-tools"></div><div class="ls-ribbon-note"><span class="ls-ribbon-key">MODEL</span><strong id="ls-ribbon-model">G.654.E · Large Aeff</strong><small>2D mode analysis / linked studies</small></div></div>
  </div>`;
 }

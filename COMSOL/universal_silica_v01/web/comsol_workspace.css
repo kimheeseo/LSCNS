@@ -187,3 +187,10 @@ body.ls-comsol-shell #comsol-reference p{color:#637d91}
 body.ls-comsol-shell.hcf-selection main.workspace>.ls-graphics-head,body.ls-comsol-shell.vector-selection main.workspace>.ls-graphics-head{display:flex!important}
 /* COMSOL-style light graphics viewport without changing underlying drawing/output data. */
 body.ls-comsol-shell main.workspace .charts-grid .chart-card canvas{filter:invert(.94) hue-rotate(180deg) saturate(.92)}
+
+/* Quick Access Toolbar follows the COMSOL 5.5 desktop reference. */
+.ls-ribbon-quick{display:flex;align-items:center;gap:3px;margin-left:10px;padding-left:9px;border-left:1px solid #d0d9e3;flex:none}
+.ls-ribbon-quick button{height:25px;min-width:29px;padding:0 7px;border:1px solid transparent;border-radius:3px;background:transparent;color:#40566c;font-size:11px}
+.ls-ribbon-quick button:hover:not(:disabled){background:#e1edfa;border-color:#9dc2e9}
+.ls-ribbon-quick button:disabled{opacity:.42;cursor:not-allowed}
+.ls-ribbon-quick .ls-quick-separator{height:18px;border-left:1px solid #d3dbe5;margin:0 2px}

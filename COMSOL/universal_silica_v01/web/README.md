@@ -2,7 +2,7 @@
 
 [**COMSOL 스타일 워크벤치 실행**](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-comsol-style-ui-v1) · [디자인 세부 가이드](COMSOL_STYLE_README.md)
 
-첨부된 COMSOL Multiphysics GUI를 참고해 상단 **Home / Definitions / Geometry / Materials / Physics / Mesh / Study / Results** 리본, 좌측 **Model Builder** 트리, 중앙 **Settings(기존 파라미터 입력)**, 우측 **Graphics(모드 및 성능 그래프)**, **Add Study** 선택패널, 하단 **Messages / Progress / Log**를 추가했습니다. GUI는 밝은 컬러와 4분할 데스크톱 레이아웃 및 모바일 반응형을 사용합니다.
+첨부된 *Introduction to COMSOL Multiphysics* (COMSOL 5.5) GUI를 참고해 상단 **Quick Access (Open/Save, Geometry Undo/Redo, Build All)** 및 **Home / Definitions / Geometry / Materials / Physics / Mesh / Study / Results** 리본, 좌측 **Model Builder** 트리, 중앙 **Settings(기존 파라미터 입력)**, 우측 **Graphics(모드 및 성능 그래프)**, **Add Study** 선택패널, 하단 **Messages / Progress / Log**를 추가했습니다. GUI는 밝은 컬러와 4분할 데스크톱 레이아웃 및 모바일 반응형을 사용합니다.
 
 모든 기존 FEM / FDFD / HCF / MCF / PMD / BPM / COMSOL neff 검증 계산 코드는 **그대로 유지**합니다. 기능을 중복 개발하지 않고 `comsol_workspace.mjs`에서 기존 버튼과 예제 `#preset`의 이벤트를 그대로 호출하며, `comsol_workspace.css`로 배치/색상만 변경합니다. 전체 브라우저 테스트: `tests/browser_comsol_workspace.mjs`.
 

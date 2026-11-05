@@ -65,7 +65,7 @@ See `comsol_wave_optics_settings.mjs` and `comsol_wave_optics_settings.css`. Thi
 The design and numerical backends are deliberately separate. **No eigenmode, HCF, MCF, PMD, FDFD or FEM solver source is altered in this phase.**
 
 ### Phase 1 — UI fidelity
-- A COMSOL-style **Model Builder → Settings → Graphics → Add Study** desktop workspace, ribbon actions, and Messages/Progress/Log dock are preserved.
+- A COMSOL 5.5 guidebook-inspired **Quick Access Toolbar** (Open/Save design JSON, Geometry Undo/Redo, Build All), ribbon, **Model Builder → Settings → Graphics → Add Study** desktop workspace, and Messages/Progress/Log dock are provided.
 - **Geometry 1** is now its own Model Builder node, separate from **Circle / Rotate** features: clicking the Geometry label opens root Settings (length-unit display selector, ordered feature sequence, and finalization explanation); clicking the triangle only expands/collapses the tree.
 - Wave Optics **ewfd**, Materials, Mesh, Study, Results remain in the Model Builder; each opens a context-specific Settings panel. The quick-access strip exposes Geometry Undo, Redo, Build All.
 

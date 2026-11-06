@@ -46,3 +46,19 @@
 | `05_Predictions` | 신규 분석 이미지·보고서·ZIP |
 
 > **해석 시 유의점:** Validation은 모델 선택에 사용되므로 독립 Test 성능이 아닙니다. 자동 그룹화·정보바 제외 결과를 확인해야 하며, Grad-CAM과 빨간 박스는 모델 활성 영역을 나타냅니다. 실제 파괴 기점이나 물리적 원인을 확정하지 않습니다.
+
+## 학습 완료 후 GitHub 자동 업로드
+
+1. GitHub Fine-grained personal access token을 만들고 `LSCNS` 저장소의 **Contents: Read and write** 권한을 부여합니다.
+2. Colab 왼쪽 **보안 비밀(열쇠 아이콘)**에 `GITHUB_TOKEN`으로 저장하고 노트북 접근을 허용합니다.
+3. 최신 노트북을 **모두 실행**하면 마지막 **5. 학습 모델·성능 보고서 GitHub 자동 업로드** 셀이 학습·평가 이후 실행됩니다.
+
+[sem_github_upload.py](./sem_github_upload.py)가 최적 모델 두 개·선택 정보·허용된 성능 CSV/차트를 ZIP으로 묶어 Drive의 `07_GitHub_Exports/`에 보관하고 [GitHub Releases](https://github.com/kimheeseo/LSCNS/releases)에 첨부합니다. 원본·증강·신규 SEM 사진과 optimizer 체크포인트는 제외합니다. 모델과 보고서는 저장소의 접근 범위에 따라 공개됩니다.
+
+- 기존 개인 Drive 노트북은 자동 갱신되지 않습니다. 마지막 안내·업로드 셀을 복사하고 `requests`가 설치되어 있는지 확인하세요. 현재 런타임에서 학습을 마쳤다면 학습 셀을 다시 실행할 필요 없이 업로드 셀만 실행할 수 있습니다.
+- UI 버튼으로 나중에 재학습한 경우 마지막 업로드 셀도 다시 실행해야 합니다.
+- 매번 새 태그로 게시합니다. 네트워크 오류 시 노트북에 안내된 `upload_bundle(sem_export_zip, ...)`로 같은 ZIP을 재시도할 수 있습니다.
+- 업로드 생략: `AUTO_UPLOAD_GITHUB = False`. 2 GiB 이상 ZIP은 모델별 분리가 필요합니다.
+- ZIP은 가중치·보고서 패키지입니다. 다른 PC에서 추론하려면 동일한 Pipeline 코드·전처리가 필요합니다. 추출 후 `model_choice="resnet18"` 또는 `"efficientnet_b0"`로 모델을 지정하거나 선택 정보의 경로를 복원하세요.
+
+업로드 코드의 ZIP 구성·허용 파일·재시도·HTTP 오류 처리는 모의 응답으로 점검했습니다. 실제 Colab 학습 및 GitHub 모델 업로드는 사용자의 런타임에서 실행됩니다.

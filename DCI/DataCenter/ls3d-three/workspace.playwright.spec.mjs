@@ -23,6 +23,21 @@ test('xray, doors, camera controls and topology preserve identity',async({page})
  await ready(page);await page.evaluate(()=>{const T=window.__LS3D_TEST__;T.setZone('hall');T.pickAsset(T.visibleAssets().find(a=>T.isMechanicalRack(a)),true);document.getElementById('detailBtn').click();});
  await expect.poll(()=>page.evaluate(()=>window.LS3D_THREE.diagnostics.isolatedRack)).toBeTruthy();
  const before=await page.evaluate(()=>{const T=window.__LS3D_TEST__;return {id:T.selected.id,door:T.mechanical(T.selected).targetDoor,paths:JSON.stringify(T.flowPaths),cables:JSON.stringify(T.cableItems)}});
+ // Selection and xray both clone materials; changing layers must preserve the base.
+ expect(await page.evaluate(()=>{
+   const a=window.LS3D_THREE.adapter,id=window.__LS3D_TEST__.selected.id;
+   const door=a.scene.getObjectByName('equipment:'+id).getObjectByName('front-door-hinge');
+   const part=door.children[0].userData.rackPart;let mesh;
+   door.traverse(m=>{if(!mesh&&m.isMesh&&m.material?.emissive)mesh=m;});
+   const original=mesh.material;
+   a.selectRackPart(id,part.id);a.setRackXray(true);a.clearInspectionSelection();a.setRackXray(false);
+   const first=mesh.material===original;
+   a.setRackXray(true);a.selectRackPart(id,part.id);a.setRackXray(false);
+   const selectionPreserved=a.selectedPart?.id===part.id;
+   a.clearInspectionSelection();
+   return {first,selectionPreserved,second:mesh.material===original};
+ })).toEqual({first:true,selectionPreserved:true,second:true});
+
  await page.getByRole('button',{name:'투시 꺼짐',exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.LS3D_THREE.adapter.rackXray)).toBe(true);
  expect(await page.evaluate(()=>window.__LS3D_TEST__.mechanical(window.__LS3D_TEST__.selected).targetDoor)).toBe(before.door);
  await page.getByRole('button',{name:'투시 켜짐',exact:true}).click();

@@ -59,8 +59,15 @@ export function createSceneAdapter(T, canvas) {
   const xray=createRackXray();
   function setRackXray(enabled){
     const id=T.rackIsolateActive&&T.selected?.id,item=registry.get(id);
-    if(!enabled||!item?.moving){xray.clear();return false;}
-    return xray.set(id,[item.moving.hinge,item.moving.rearDoor]);
+    // Unwind selection before xray, then reapply it above the new visual layer.
+    // Otherwise the xray controller can retain a disposed highlight as its base.
+    const emphasis=selectedPartEmphasis;
+    clearRackPartEmphasis();
+    let active=false;
+    if(enabled&&item?.moving)active=xray.set(id,[item.moving.hinge,item.moving.rearDoor]);
+    else xray.clear();
+    if(emphasis)emphasizeRackPart(emphasis.assetId,emphasis.partId,emphasis.options);
+    return !!active;
   }
   const raycaster = new THREE.Raycaster(), mouse = new THREE.Vector2();
   let zoneSignature = '', disposed = false, frames = 0, failReason = null;
@@ -122,7 +129,7 @@ export function createSceneAdapter(T, canvas) {
   const equipmentFactory=createEquipmentFactory(THREE,{cube,cylinder,material,boxGeometry});
   function disposeAsset(item) {
     if(!item)return;
-    if(xray.active===item.g.userData.assetId)xray.clear();
+    if(xray.active===item.g.userData.assetId){clearRackPartEmphasis();xray.clear();}
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
     rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPatchDesign.drop(id);rackLcDesign.drop(id);odfBox.drop(id);
@@ -594,14 +601,14 @@ export function createSceneAdapter(T, canvas) {
     button.click();
     return true;
   }
-  let selectedPartVisuals=[], selectedPartRing=null;
+  let selectedPartVisuals=[], selectedPartRing=null, selectedPartEmphasis=null;
   function clearRackPartEmphasis() {
     for(const entry of selectedPartVisuals){
       if(entry.object.material===entry.highlighted)entry.object.material=entry.original;
       const list=Array.isArray(entry.highlighted)?entry.highlighted:[entry.highlighted];
       for(const material of list)material?.dispose?.();
     }
-    selectedPartVisuals=[];
+    selectedPartVisuals=[];selectedPartEmphasis=null;
     if(selectedPartRing){
       selectedPartRing.parent?.remove(selectedPartRing);
       selectedPartRing.geometry?.dispose?.();selectedPartRing.material?.dispose?.();
@@ -611,6 +618,7 @@ export function createSceneAdapter(T, canvas) {
   function emphasizeRackPart(assetId,partId,{ring=true,intensity=.45,colorMix=.35}={}) {
     clearRackPartEmphasis();
     const item=registry.get(assetId);if(!item)return null;
+    selectedPartEmphasis={assetId,partId,options:{ring,intensity,colorMix}};
     const rearMpo=partId.includes(':mpo-input-');
     let anchor=null;
     item.g.updateMatrixWorld(true);
@@ -1154,7 +1162,7 @@ export function createSceneAdapter(T, canvas) {
       if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null;}
       sun.shadow.needsUpdate=true;
     }
-    if(xray.active&&(!T.rackIsolateActive||xray.active!==T.selected?.id))xray.clear();
+    if(xray.active&&(!T.rackIsolateActive||xray.active!==T.selected?.id)){clearRackPartEmphasis();xray.clear();}
     diagnostic.quality=quality;diagnostic.shadowSize=reducedShadows?0:sun.shadow.mapSize.x;
     diagnostic.dpr=dpr;diagnostic.postprocessing='none';
     const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
@@ -1276,7 +1284,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
-    xray.clear();
+    clearRackPartEmphasis();xray.clear();
     clearSceneInspection();
     navigation.reset();inspection.reset();
     cameraOcclusion.dispose();

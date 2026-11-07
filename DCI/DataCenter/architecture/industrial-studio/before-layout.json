@@ -1,0 +1,68 @@
+{
+  "campus": {
+    "canvas": {
+      "width": 865,
+      "height": 440.734375
+    },
+    "quality": "high",
+    "selected": "tor-a",
+    "zone": "campus",
+    "profile": "previous",
+    "dpr": 1
+  },
+  "hall": {
+    "canvas": {
+      "width": 865,
+      "height": 440.734375
+    },
+    "quality": "high",
+    "selected": "tor-a",
+    "zone": "hall",
+    "profile": "previous",
+    "dpr": 1
+  },
+  "rack": {
+    "canvas": {
+      "width": 865,
+      "height": 651.21875
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "previous",
+    "dpr": 1
+  },
+  "open": {
+    "canvas": {
+      "width": 865,
+      "height": 651.21875
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "previous",
+    "dpr": 1
+  },
+  "cable": {
+    "canvas": {
+      "width": 865,
+      "height": 651.21875
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "previous",
+    "dpr": 1
+  },
+  "selected": {
+    "canvas": {
+      "width": 865,
+      "height": 440.734375
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "previous",
+    "dpr": 1
+  }
+}

@@ -1,3 +1,4 @@
+import {createIndustrialStudio} from './industrial-studio.mjs?v=20261108-studio';
 // UI integrates with the host and its render loop; it never owns equipment data.
 export function createWorkspace(T, status) {
   const $=id=>document.getElementById(id), shell=$('shell');
@@ -48,5 +49,7 @@ export function createWorkspace(T, status) {
       stats.textContent=status.status==='ready'?`${Number.isFinite(fps)?fps.toFixed(1):'—'} FPS · ${d.calls??0} calls · ${d.triangles??0} tris · G ${d.memoryGeometries??0} / T ${d.memoryTextures??0}`:'레거시 렌더러';
     }
   }
-  update();return {update};
+  const studio=createIndustrialStudio(T,status);
+  const sync=now=>{update(now);studio.update();};
+  sync();return {update:sync};
 }

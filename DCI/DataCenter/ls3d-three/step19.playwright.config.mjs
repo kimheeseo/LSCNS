@@ -2,7 +2,7 @@ import {defineConfig,devices} from '@playwright/test';
 
 export default defineConfig({
   testDir:'.',
-  testMatch:['step19.integration.playwright.spec.mjs','workspace.playwright.spec.mjs'],
+  testMatch:['step19.integration.playwright.spec.mjs','workspace.playwright.spec.mjs','studio.interaction.playwright.spec.mjs'],
   timeout:60000,
   expect:{timeout:12000},
   fullyParallel:false,

@@ -1,4 +1,4 @@
-import {createWorkspace} from './workspace.mjs?v=20261107-workspace';
+import {createWorkspace} from './workspace.mjs?v=20261108-studio';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);
@@ -130,7 +130,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261107-workspace');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261108-studio');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

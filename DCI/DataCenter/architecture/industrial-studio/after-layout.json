@@ -1,0 +1,68 @@
+{
+  "campus": {
+    "canvas": {
+      "width": 926,
+      "height": 641.359375
+    },
+    "quality": "high",
+    "selected": "tor-a",
+    "zone": "campus",
+    "profile": "industrial-studio",
+    "dpr": 1
+  },
+  "hall": {
+    "canvas": {
+      "width": 926,
+      "height": 641.359375
+    },
+    "quality": "high",
+    "selected": "tor-a",
+    "zone": "hall",
+    "profile": "industrial-studio",
+    "dpr": 1
+  },
+  "rack": {
+    "canvas": {
+      "width": 926,
+      "height": 661.359375
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "industrial-studio",
+    "dpr": 1
+  },
+  "open": {
+    "canvas": {
+      "width": 926,
+      "height": 661.359375
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "industrial-studio",
+    "dpr": 1
+  },
+  "cable": {
+    "canvas": {
+      "width": 926,
+      "height": 661.359375
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "industrial-studio",
+    "dpr": 1
+  },
+  "selected": {
+    "canvas": {
+      "width": 926,
+      "height": 641.359375
+    },
+    "quality": "high",
+    "selected": "gpu-0-0",
+    "zone": "hall",
+    "profile": "industrial-studio",
+    "dpr": 1
+  }
+}

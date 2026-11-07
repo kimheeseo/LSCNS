@@ -1,0 +1,26 @@
+import {test,expect} from './browser-fixtures.mjs';
+test('studio tools, explicit mobile display and native fullscreen stay usable',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});
+ await page.addInitScript(()=>{localStorage.setItem('ls3d-first-guide-v481','done');localStorage.setItem('ls3d-display-mode-v1','pc')});
+ await page.goto('http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html?engine=three',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>window.LS3D_THREE?.status==='ready'&&window.LS3D_THREE.renders>=3);
+ await page.evaluate(()=>document.getElementById('guide')?.classList.remove('open'));
+ expect(await page.evaluate(()=>window.LS3D_THREE.diagnostics.visualProfile)).toBe('industrial-studio');
+ expect(await page.evaluate(()=>{const m=window.LS3D_THREE.adapter.scene.getObjectByName('studio-contact-shadows');return m.count>0&&m.userData.noPick})).toBe(true);
+ await page.getByRole('button',{name:'전체화면',exact:true}).click();
+ await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.id)).toBe('viewport');
+ await page.getByRole('button',{name:'전체화면',exact:true}).click();
+ await expect.poll(()=>page.evaluate(()=>document.fullscreenElement===null)).toBe(true);
+ await page.locator('.studio-commands > summary').click();
+ await expect(page.locator('#cfgOpen')).toBeVisible();
+ await page.locator('#displayModeReopen').click();
+ await page.locator('[data-display-choice="mobile"]').click();
+ await expect(page.locator('body')).toHaveClass(/display-mobile/);
+ expect(await page.locator('#shell').evaluate(e=>e.clientWidth)).toBeLessThanOrEqual(480);
+ expect(await page.locator('#viewport').evaluate(e=>e.clientWidth)).toBeGreaterThan(280);
+ await page.keyboard.press('Escape');
+ await expect(page.locator('.studio-commands')).not.toHaveAttribute('open','');
+ await page.locator('.studio-legend > summary').click();
+ await expect(page.locator('#cameraHint')).toBeVisible();
+ await page.screenshot({path:test.info().outputPath('studio-mobile-choice.png'),fullPage:true});
+});

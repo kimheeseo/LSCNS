@@ -11,12 +11,13 @@ export function describeArchitecturePart(kind,name,zoneId){
  return {id:'structure:'+zoneId+':'+group,kind:kind==='tray'?'cable-tray':'structural-beam',label,description,component,zoneId};
 }
 
-export function createArchitectureKit(THREE, { cube }) {
+export function createArchitectureKit(THREE, { cube,studio=false }) {
   const doors = [];
   let counts = {}, lastMode = '', lastZone = '', lastFlags = {};
   const names = ['floor','wall','glass','door','beam','ceiling','roof','tray','frame','path','fence','detail'];
   function reset() { counts = Object.fromEntries(names.map(n => [n, 0])); doors.length = 0; }
   function part(parent, kind, name, x, y, z, w, h, d, color, metal = .33, rough = .48, transparent = false) {
+    if(studio){const tones={floor:'#79848e',wall:'#9da8b0',ceiling:'#b0bac1',roof:'#7d8a94',beam:'#505c66',frame:'#687681',fence:'#596873'};if(tones[kind])color=tones[kind];if(kind==='floor'){metal=.10;rough=.85;}}
     const mesh = cube(parent, x, y, z, w, h, d, color, metal, rough, transparent);
     mesh.name = 'arch:' + kind + ':' + name;
     mesh.userData.archKind = kind;

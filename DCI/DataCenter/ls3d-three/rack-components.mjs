@@ -29,10 +29,11 @@ export function planRackFrontFill(rackUnits,occupied,network=false){
  return {added,coverage:used.slice(1),occupiedUnits:used.slice(1).filter(Boolean).length};
 }
 
-export function createRackComponentKit(THREE,{cube}){
+export function createRackComponentKit(THREE,{cube,industrial=false,bevel=null,doorMaterial=null}){
  const stats={built:0,parts:0,units42:0,units48:0,byType:{}};
  function box(parent,label,x,y,z,w,h,d,color,metal=.55,rough=.39){
   const m=cube(parent,x,y,z,w,h,d,color,metal,rough);
+  if(bevel&&/^(upright-|top-plate|bottom-plate|.*steel-panel)/.test(label))m.geometry=bevel;
   m.name='rack-shape:'+label;return m;
  }
  function group(parent,assetId,kind,label,uStart,uHeight){
@@ -55,7 +56,7 @@ export function createRackComponentKit(THREE,{cube}){
   const subtitle=tor?'PATCH · CABLE MANAGER · SPINE':gpu?'LEAF A/B (ToR) · GPU SERVERS':storage?'STORAGE SERVERS · DRIVE BAYS':compute?'COMPUTE SERVERS · NIC':spine?'NETWORK FABRIC / AGGREGATION':leaf?'SERVER ACCESS / LEAF SWITCH':'RACK · SELECT FOR INTERNAL VIEW';
   const accent=tor?'#f1ca60':gpu?'#e5bd62':storage?'#74d4d3':spine?'#579bfa':'#62d3b9';
   const c=document.createElement('canvas');c.width=768;c.height=192;const ctx=c.getContext('2d');if(!ctx)return null;
-  ctx.fillStyle='#0d2c3d';ctx.fillRect(0,0,768,192);ctx.fillStyle=accent;ctx.fillRect(0,0,17,192);
+  ctx.fillStyle=industrial?'#222c35':'#0d2c3d';ctx.fillRect(0,0,768,192);ctx.fillStyle=accent;ctx.fillRect(0,0,17,192);
   ctx.strokeStyle='#b9d7e0';ctx.lineWidth=5;ctx.strokeRect(3,3,762,186);
   ctx.fillStyle='#f5fbff';ctx.font='900 68px system-ui,sans-serif';ctx.textAlign='center';
   let size=68;while(ctx.measureText(title).width>670&&size>34){size-=3;ctx.font='900 '+size+'px system-ui,sans-serif';}
@@ -71,9 +72,9 @@ export function createRackComponentKit(THREE,{cube}){
   if(typeof document==='undefined')return null;
   const c=document.createElement('canvas');c.width=512;c.height=128;
   const ctx=c.getContext('2d');if(!ctx)return null;
-  ctx.fillStyle='#edf3f4';ctx.fillRect(0,0,512,128);ctx.fillStyle=accent;ctx.fillRect(0,0,13,128);
+  ctx.fillStyle=industrial?'#27353f':'#edf3f4';ctx.fillRect(0,0,512,128);ctx.fillStyle=accent;ctx.fillRect(0,0,13,128);
   ctx.strokeStyle='#8eacb5';ctx.lineWidth=5;ctx.strokeRect(3,3,506,122);
-  ctx.fillStyle='#122c3a';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle=industrial?'#e1e9ed':'#122c3a';ctx.textAlign='center';ctx.textBaseline='middle';
   ctx.font='bold 60px Arial,sans-serif';ctx.fillText(text,260,65,470);
   const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
   const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,height),
@@ -90,6 +91,7 @@ export function createRackComponentKit(THREE,{cube}){
  function opaqueDoorPanel(parent,name,x,y,z,width,height){
   const panel=box(parent,name+'-steel-panel',x,y,z,width,height,.07,'#263b4d',.66,.46);
   panel.userData.rackDoorOpaque=true;
+  if(doorMaterial)panel.material=doorMaterial;
   // Small embossed seams are decorative only: no cutouts or transparency.
   for(const side of [-1,1])box(parent,name+'-seam-'+side,x+side*width*.43,y+height*.075,z+(z<0?-.038:.038),
    .012,height*.85,.009,'#405d71',.5,.44);

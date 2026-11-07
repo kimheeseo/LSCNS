@@ -12,6 +12,14 @@ for(const size of [{width:1440,height:900},{width:1920,height:1080},{width:390,h
  const explorer=page.getByRole('button',{name:'탐색',exact:true}),inspector=page.getByRole('button',{name:'정보',exact:true});
  if(size.width>790){const width=await page.locator('#sceneThree').evaluate(e=>e.getBoundingClientRect().width);await explorer.click();await inspector.click();await expect.poll(()=>page.locator('#sceneThree').evaluate(e=>e.getBoundingClientRect().width)).toBeGreaterThan(width+450);await explorer.click();await inspector.click();}
  else{await explorer.click();await expect(page.locator('#workspaceExplorer')).toBeVisible();await explorer.click();await expect(page.locator('#workspaceExplorer')).toBeHidden();}
+ if(size.width>790)expect(await page.locator('#viewport').evaluate(e=>e.clientHeight)).toBeGreaterThan(size.height*.62);
+ await expect(page.getByLabel('렌더링 품질',{exact:true})).toBeVisible();
+ if(size.width<=790)await explorer.click();
+ await page.getByLabel('탐색 트리 장비 검색',{exact:true}).fill('gpu-0-0');
+ await expect(page.locator('.workspace-tree [data-asset-id="gpu-0-0"]')).toBeVisible();
+ await expect(page.locator('.workspace-tree [data-asset-id]:visible')).toHaveCount(1);
+ await page.getByLabel('탐색 트리 장비 검색',{exact:true}).fill('');
+ if(size.width<=790)await explorer.click();
  await page.screenshot({path:info.outputPath(`workspace-${size.width}.png`),fullPage:true});
  await page.evaluate(()=>window.__LS3D_TEST__.setZone('hall'));
  await expect(page.locator('.workspace-tree button').first()).toBeAttached();

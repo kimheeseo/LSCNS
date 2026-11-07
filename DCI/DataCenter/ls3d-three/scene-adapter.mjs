@@ -1,14 +1,15 @@
+import {createIndustrialVisuals} from './industrial-visuals.mjs?v=20261108-studio';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
+import { createArchitectureKit } from './architecture.mjs?v=20261108-studio';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-loading-crew-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261102-rack-opaque-door-v2';
+import { createRackComponentKit } from './rack-components.mjs?v=20261108-studio';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -30,19 +31,20 @@ export function createSceneAdapter(T, canvas) {
   renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.10;
+  renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#183247');
   scene.fog = new THREE.Fog('#183247', 115, 310);
+  const studio=createIndustrialVisuals(THREE,renderer,scene);
   const camera = new THREE.PerspectiveCamera(45, 1, 0.08, 1200);
   camera.up.set(0, 1, 0);
   const world = new THREE.Group(); scene.add(world);
   const zoneRoot = new THREE.Group(), assetRoot = new THREE.Group(), routeRoot = new THREE.Group(), peopleRoot = new THREE.Group();
   world.add(zoneRoot, assetRoot, routeRoot, peopleRoot);
-  const hemi = new THREE.HemisphereLight(0xddf3ff, 0x34485b, 2.7); scene.add(hemi);
-  const sun = new THREE.DirectionalLight(0xfff0df, 2.6);
+  const hemi = new THREE.HemisphereLight(0xe5edf4, 0x38424c, 2.2); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xfff2de, 3.2);
   sun.position.set(-75, 130, 64);
   sun.castShadow = true;
   sun.shadow.mapSize.set(1024, 1024);
@@ -51,7 +53,7 @@ export function createSceneAdapter(T, canvas) {
   sun.shadow.camera.near = 1; sun.shadow.camera.far = 340;
   sun.shadow.bias = -0.00025;
   scene.add(sun, sun.target);
-  const cool = new THREE.DirectionalLight(0x80b9dc, 1.6); cool.position.set(55, 35, -45); scene.add(cool);
+  const cool = new THREE.DirectionalLight(0xb3d7ed, 1.8); cool.position.set(55, 35, -45); scene.add(cool);
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 1, 18);
   const materialCache = new Map();
@@ -77,10 +79,10 @@ export function createSceneAdapter(T, canvas) {
   function material(color, metal = 0.28, rough = 0.48, transparent = false) {
     const key = String(color) + '|' + metal + '|' + rough + '|' + transparent;
     if (!materialCache.has(key)) materialCache.set(key, new THREE.MeshStandardMaterial({
-      color, metalness: metal, roughness: rough, transparent, opacity: transparent ? 0.38 : 1,
+      color, metalness: transparent?.05:metal, roughness: transparent?.18:rough, transparent, opacity: transparent ? 0.28 : 1,
       side: transparent ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !transparent
     }));
-    return materialCache.get(key);
+    const cached=materialCache.get(key);studio.finish(cached);return cached;
   }
   function cube(parent, x, baseY, z, w, h, d, color, metal = 0.3, rough = 0.5, transparent = false) {
     const m = new THREE.Mesh(boxGeometry, material(color, metal, rough, transparent));
@@ -109,7 +111,7 @@ export function createSceneAdapter(T, canvas) {
   }
   // STEP 04: real structural building envelope. Dynamic architecture shares
   // the existing source-of-truth zone data and never creates a second RAF loop.
-  const architecture = createArchitectureKit(THREE, {cube});
+  const architecture = createArchitectureKit(THREE, {cube,studio:true});
   function zoneScene(flags, dt) {
     const mode=T.facilityMode, current=T.currentZone;
     const available=T.visibleZones();
@@ -136,7 +138,7 @@ export function createSceneAdapter(T, canvas) {
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
       if(obj.userData?.ownedTexture)obj.userData.ownedTexture.dispose();
-      if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry) obj.geometry.dispose();
+      if(obj.geometry && obj.geometry!==boxGeometry && obj.geometry!==cylinderGeometry && obj.geometry!==studio.bevel) obj.geometry.dispose();
       // LOD levels use cached materials; selected-ring material is per-object.
       if(obj.material && !Array.from(materialCache.values()).includes(obj.material)) {
         if(Array.isArray(obj.material))obj.material.forEach(m=>m.dispose());
@@ -146,9 +148,11 @@ export function createSceneAdapter(T, canvas) {
   }
   // STEP 10: replace the undifferentiated rack visual with separately tagged parts.
   // The original front-door/server-slide/fiber-cassette motion contract is preserved.
-  const rackKit=createRackComponentKit(THREE,{cube});
+  const rackCube=(...args)=>{args[7]=studio.palette.get(args[7])||args[7];return cube(...args);};
+  const doorMaterial=material('#48525c',.62,.65);doorMaterial.map=studio.perforation;doorMaterial.bumpMap=studio.perforation;doorMaterial.bumpScale=.014;
+  const rackKit=createRackComponentKit(THREE,{cube:rackCube,industrial:true,bevel:studio.bevel,doorMaterial});
   const rackDoors=createRackDoorControls();
-  const rackRails=createRackServerRails(THREE,{cube});
+  const rackRails=createRackServerRails(THREE,{cube:rackCube});
   const rackOptics=createRackOpticalCassette(THREE,{cube});
   const rackNetwork=createRackNetworkCabling(THREE,{cube});
   const rackPatch=createRackPatchCord(THREE);
@@ -1157,14 +1161,22 @@ export function createSceneAdapter(T, canvas) {
       (rect.width<=640&&quality==='medium'&&viewportPolicy.summary().degraded);
     renderer.shadowMap.enabled=!reducedShadows;
     if(qualityApplied!==quality){
-      qualityApplied=quality;const size=quality==='high'?2048:1024;
+      qualityApplied=quality;studio.setQuality(quality);
+      doorMaterial.map=quality==='low'?null:studio.perforation;
+      doorMaterial.bumpMap=quality==='high'?studio.perforation:null;doorMaterial.needsUpdate=true;
+      const size=quality==='high'?2048:1024;
       sun.shadow.mapSize.set(size,size);
       if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null;}
       sun.shadow.needsUpdate=true;
+      // Shadow enablement changes shader defines, not only shadow-map rendering.
+      // Re-select the material program once so LOW does not keep PCF sampling.
+      const qualityMaterials=new Set();
+      scene.traverse(object=>{const materials=Array.isArray(object.material)?object.material:[object.material];for(const m of materials)if(m?.isMeshStandardMaterial)qualityMaterials.add(m);});
+      for(const m of qualityMaterials)m.needsUpdate=true;
     }
     if(xray.active&&(!T.rackIsolateActive||xray.active!==T.selected?.id)){clearRackPartEmphasis();xray.clear();}
     diagnostic.quality=quality;diagnostic.shadowSize=reducedShadows?0:sun.shadow.mapSize.x;
-    diagnostic.dpr=dpr;diagnostic.postprocessing='none';
+    diagnostic.dpr=dpr;diagnostic.postprocessing='none';diagnostic.visualProfile='industrial-studio';diagnostic.reflections=quality==='low'?'off':'procedural-128';
     const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
     if(viewportWidth!==pixelWidth || viewportHeight!==pixelHeight || viewportDpr!==dpr) {
       renderer.setPixelRatio(dpr);
@@ -1189,6 +1201,8 @@ export function createSceneAdapter(T, canvas) {
     if(inspectedScenePart&&((flags.inspect&&!inspectedScenePart.assetId)||sceneInspectionContext!==T.currentZone+'|'+T.facilityMode+'|'+T.selected?.id))clearInspectionSelection();
     zoneScene(flags, dt);
     refreshAssets(flags,dt);
+    studio.contacts.update(registry,T.assetMap,quality!=='low');
+    diagnostic.contactShadows=studio.contacts.mesh.visible?studio.contacts.mesh.count:0;
     const rooms=zoneExtras.update(flags,dt);
     diagnostic.mmr=rooms.mmr;
     diagnostic.colocation=rooms.colocation;
@@ -1301,6 +1315,7 @@ export function createSceneAdapter(T, canvas) {
     registry.clear();
     for(const m of materialCache.values())m.dispose();
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
+    studio.dispose();
     renderer.dispose();
   }
   return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, setRackXray,get rackXray(){return !!xray.active;}, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},

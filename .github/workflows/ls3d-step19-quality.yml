@@ -2,7 +2,7 @@ name: LS Datacenter 3D - Step 19 Integrated QA
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/industrial-twin-studio]
     paths:
       - "DCI/DataCenter/ls3d-three/**"
       - "DCI/DataCenter/ls3d-three/step20.release.test.mjs"
@@ -10,6 +10,7 @@ on:
       - "DCI/DataCenter/README.md"
       - "DCI/DataCenter/LS3D_VERSION_UPGRADE_HISTORY.txt"
       - "DCI/DataCenter/architecture/STEP20_RELEASE_REPORT.md"
+      - "DCI/DataCenter/architecture/industrial-studio/**"
       - "README.md"
       - ".github/workflows/ls3d-step19-quality.yml"
   pull_request:
@@ -20,6 +21,7 @@ on:
       - "DCI/DataCenter/README.md"
       - "DCI/DataCenter/LS3D_VERSION_UPGRADE_HISTORY.txt"
       - "DCI/DataCenter/architecture/STEP20_RELEASE_REPORT.md"
+      - "DCI/DataCenter/architecture/industrial-studio/**"
       - "README.md"
       - ".github/workflows/ls3d-step19-quality.yml"
   workflow_dispatch:
@@ -28,7 +30,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ls3d-step19-${{ github.ref }}
+  group: ls3d-step19-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -60,6 +62,7 @@ jobs:
           node --test DCI/DataCenter/ls3d-three/step20.release.test.mjs
           node --test DCI/DataCenter/ls3d-three/step20.rack-panel.unit.test.mjs
           node --test DCI/DataCenter/ls3d-three/rack-xray.test.mjs
+          node --test DCI/DataCenter/ls3d-three/industrial-visuals.test.mjs
       - name: Serve exact checked-out 3D site via localhost
         shell: bash
         run: |
@@ -77,7 +80,7 @@ jobs:
           done
           cat /tmp/ls3d-step19-server.log /tmp/ls3d-step19-prefix-server.log
           exit 1
-      - name: Run 21 Chromium/WebGL regression and workspace scenarios
+      - name: Run Chromium/WebGL regression and studio scenarios
         shell: bash
         run: |
           npx playwright test --config DCI/DataCenter/ls3d-three/step19.playwright.config.mjs --timeout=120000

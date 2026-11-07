@@ -303,7 +303,10 @@ test('19-H: company server-room hides outside 3D routes and legacy mode still ru
   await page.goto(BASE+(BASE.includes('?')?'&':'?')+'engine=legacy',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>window.LS3D_THREE?.status==='legacy');
   expect(await page.evaluate(()=>window.__LS3D_TEST__.Z.length)).toBe(7);
-  expect(await page.locator('#back2D').getAttribute('href')).toContain('LS_Datacenter_Campus.html');
+  // The 2D menu link was removed upstream; verify the actual legacy render path.
+  await page.waitForFunction(()=>window.LS3D_RENDER_METRICS?.visibleAssets>0 &&
+    (window.LS3D_RENDER_METRICS.triVertices+(window.LS3D_RENDER_METRICS.staticVertices||0))>0);
+  await expect(page.locator('#scene')).toBeVisible();
 });
 
 
@@ -391,6 +394,8 @@ test('19-K: Loading Bay cargo-side camera and staging tour remain operational',a
   await page.waitForFunction(()=>!!window.LS3D_THREE.adapter.scene.getObjectByName('equipment:visitor-loading'));
   const world=await page.evaluate(()=>{
     const root=window.LS3D_THREE.adapter.scene;
+    // Include LOD parents updated since the previous render before reading world coordinates.
+    root.updateMatrixWorld(true);
     const bay=root.getObjectByName('equipment:visitor-loading');
     const staging=root.getObjectByName('equipment:visitor-staging');
     const carton=bay.getObjectByName('equipment-part:loading-box-0');
@@ -540,6 +545,8 @@ test('19-J: rack free pan, temporary rotate and camera fit survive pointer drags
     return {target:T.cameraDesired.target.slice(),yaw:T.cameraDesired.yaw,
       pitch:T.cameraDesired.pitch,distance:T.cameraDesired.distance};
   });
+  await expect(page.locator('[data-rack-drag-mode="rotate"]')).toHaveAttribute('aria-pressed','true');
+  await page.locator('[data-rack-drag-mode="pan"]').click();
   await expect(page.locator('[data-rack-drag-mode="pan"]')).toHaveAttribute('aria-pressed','true');
   const box=await page.locator('#sceneThree').boundingBox();
   const x=box.x+box.width*.40,y=box.y+box.height*.43;

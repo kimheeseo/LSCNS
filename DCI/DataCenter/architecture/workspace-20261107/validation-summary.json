@@ -1,0 +1,36 @@
+{
+  "unitTests": {
+    "passed": 39,
+    "failed": 0
+  },
+  "browserFirstRun": {
+    "startTime": "2026-11-07T13:33:23.235Z",
+    "duration": 607524.679,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  },
+  "legacyRetry": {
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 30.3
+  },
+  "remainingRetries": {
+    "startTime": "2026-11-07T13:46:21.613Z",
+    "duration": 58660.54,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "coverage": {
+    "uniqueCasesPassedAfterCorrections": 21,
+    "skipped": 0
+  },
+  "notes": [
+    "Legacy #back2D link assertion replaced with real rendered geometry checks.",
+    "Default rack mode is rotate; test now explicitly selects pan before testing pan gestures.",
+    "Loading Bay world matrices explicitly updated before world-coordinate assertions."
+  ]
+}

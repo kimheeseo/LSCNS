@@ -1,3 +1,4 @@
+import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
@@ -29,7 +30,7 @@ export function createSceneAdapter(T, canvas) {
   renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.28;
+  renderer.toneMappingExposure = 1.10;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
@@ -40,8 +41,8 @@ export function createSceneAdapter(T, canvas) {
   const world = new THREE.Group(); scene.add(world);
   const zoneRoot = new THREE.Group(), assetRoot = new THREE.Group(), routeRoot = new THREE.Group(), peopleRoot = new THREE.Group();
   world.add(zoneRoot, assetRoot, routeRoot, peopleRoot);
-  const hemi = new THREE.HemisphereLight(0xddf3ff, 0x243448, 3.4); scene.add(hemi);
-  const sun = new THREE.DirectionalLight(0xfff0d6, 3.1);
+  const hemi = new THREE.HemisphereLight(0xddf3ff, 0x34485b, 2.7); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xfff0df, 2.6);
   sun.position.set(-75, 130, 64);
   sun.castShadow = true;
   sun.shadow.mapSize.set(1024, 1024);
@@ -50,11 +51,17 @@ export function createSceneAdapter(T, canvas) {
   sun.shadow.camera.near = 1; sun.shadow.camera.far = 340;
   sun.shadow.bias = -0.00025;
   scene.add(sun, sun.target);
-  const cool = new THREE.DirectionalLight(0x4aa3ed, 1.3); cool.position.set(55, 35, -45); scene.add(cool);
+  const cool = new THREE.DirectionalLight(0x80b9dc, 1.6); cool.position.set(55, 35, -45); scene.add(cool);
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 1, 18);
   const materialCache = new Map();
   const registry = new Map(), people = new Map();
+  const xray=createRackXray();
+  function setRackXray(enabled){
+    const id=T.rackIsolateActive&&T.selected?.id,item=registry.get(id);
+    if(!enabled||!item?.moving){xray.clear();return false;}
+    return xray.set(id,[item.moving.hinge,item.moving.rearDoor]);
+  }
   const raycaster = new THREE.Raycaster(), mouse = new THREE.Vector2();
   let zoneSignature = '', disposed = false, frames = 0, failReason = null;
   const diagnostic = { engine: 'three', version: THREE.REVISION, frames: 0, assets: 0, zones: 0, npc: 0, calls: 0, triangles: 0, memoryGeometries: 0, memoryTextures: 0 };
@@ -115,6 +122,7 @@ export function createSceneAdapter(T, canvas) {
   const equipmentFactory=createEquipmentFactory(THREE,{cube,cylinder,material,boxGeometry});
   function disposeAsset(item) {
     if(!item)return;
+    if(xray.active===item.g.userData.assetId)xray.clear();
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
     rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPatchDesign.drop(id);rackLcDesign.drop(id);odfBox.drop(id);
@@ -168,7 +176,7 @@ export function createSceneAdapter(T, canvas) {
     highlightRoot?.traverse(object=>{
       if(!object.isMesh||object.userData?.inspectionPickSurface||(!info.assetId&&object.userData?.inspectionPart?.id!==info.id)||object.userData?.noPick||!object.material?.clone)return;
       const original=object.material,highlighted=original.clone();
-      highlighted.emissive?.set(0xffd65a);highlighted.emissiveIntensity=1.2;
+      highlighted.emissive?.set(0xffd65a);highlighted.emissiveIntensity=.35;
       object.material=highlighted;scenePartMaterials.push({object,original,highlighted});
     });
     window.LS3D_INSPECTOR?.setSelection(info);return info;
@@ -600,7 +608,7 @@ export function createSceneAdapter(T, canvas) {
       selectedPartRing=null;
     }
   }
-  function emphasizeRackPart(assetId,partId,{ring=true,intensity=2.2,colorMix=.72}={}) {
+  function emphasizeRackPart(assetId,partId,{ring=true,intensity=.45,colorMix=.35}={}) {
     clearRackPartEmphasis();
     const item=registry.get(assetId);if(!item)return null;
     const rearMpo=partId.includes(':mpo-input-');
@@ -775,7 +783,7 @@ export function createSceneAdapter(T, canvas) {
       }
     }else if(part?.kind==='patch-internal'){
       // Keep the open-panel view while indicating the selected internal part.
-      emphasizeRackPart(assetId,partId,{ring:false,intensity:.75,colorMix:.28});
+      emphasizeRackPart(assetId,partId,{ring:false,intensity:.35,colorMix:.28});
     }else if(part){
       emphasizeRackPart(assetId,partId);
     }
@@ -954,7 +962,7 @@ export function createSceneAdapter(T, canvas) {
         showRackPart(null);
       if(item.rackLOD) {
         const dx=camera.position.x-a.x, dy=camera.position.y-a.h*.5, dz=camera.position.z-a.z;
-        const far=T.selected?.id!==a.id && Math.hypot(dx,dy,dz)>96;
+        const far=T.selected?.id!==a.id && Math.hypot(dx,dy,dz)>({low:55,medium:96,high:135}[window.LS3D_CONFIG?.quality]||96);
         item.rackLOD.high.visible=!far;item.rackLOD.low.visible=far;
       }
       if(item.equipmentLOD){
@@ -1117,6 +1125,7 @@ export function createSceneAdapter(T, canvas) {
     };
   }
   let viewportWidth=0, viewportHeight=0, viewportDpr=0, rackAutoFocused=null;
+  let qualityApplied=null,fpsStart=performance.now(),fpsFrames=0;
   function render(dt, view) {
     if (disposed) throw new Error('Three.js adapter was disposed');
     const rect = canvas.getBoundingClientRect();
@@ -1139,6 +1148,15 @@ export function createSceneAdapter(T, canvas) {
     const reducedShadows=quality==='low'||
       (rect.width<=640&&quality==='medium'&&viewportPolicy.summary().degraded);
     renderer.shadowMap.enabled=!reducedShadows;
+    if(qualityApplied!==quality){
+      qualityApplied=quality;const size=quality==='high'?2048:1024;
+      sun.shadow.mapSize.set(size,size);
+      if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null;}
+      sun.shadow.needsUpdate=true;
+    }
+    if(xray.active&&(!T.rackIsolateActive||xray.active!==T.selected?.id))xray.clear();
+    diagnostic.quality=quality;diagnostic.shadowSize=reducedShadows?0:sun.shadow.mapSize.x;
+    diagnostic.dpr=dpr;diagnostic.postprocessing='none';
     const pixelWidth=Math.floor(rect.width),pixelHeight=Math.floor(rect.height);
     if(viewportWidth!==pixelWidth || viewportHeight!==pixelHeight || viewportDpr!==dpr) {
       renderer.setPixelRatio(dpr);
@@ -1188,6 +1206,8 @@ export function createSceneAdapter(T, canvas) {
     diagnostic.security=security.diagnostic();
     renderer.render(scene,camera);
     diagnostic.frames = ++frames;
+    fpsFrames++;const now=performance.now(),elapsed=now-fpsStart;
+    if(elapsed>=1000){diagnostic.fps=fpsFrames*1000/elapsed;fpsFrames=0;fpsStart=now;}
     diagnostic.calls = renderer.info.render.calls;
     diagnostic.triangles = renderer.info.render.triangles;
     diagnostic.memoryGeometries = renderer.info.memory.geometries;
@@ -1246,7 +1266,7 @@ export function createSceneAdapter(T, canvas) {
           if(part.kind?.startsWith('server-')||part.kind?.startsWith('network-switch-')||part.kind?.startsWith('storage-'))
             rackRails.select(id,part.id);
         } else showRackPart(null);
-        T.pickAsset(asset);
+        T.pickAsset(asset,!part);
         if(!T.isMechanicalRack(asset))selectScenePart(describeEquipment(asset,registry.get(id)?.kind));
         return id;
       }
@@ -1256,6 +1276,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
+    xray.clear();
     clearSceneInspection();
     navigation.reset();inspection.reset();
     cameraOcclusion.dispose();
@@ -1274,7 +1295,7 @@ export function createSceneAdapter(T, canvas) {
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
     renderer.dispose();
   }
-  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},
+  return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, setRackXray,get rackXray(){return !!xray.active;}, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},
     get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
     get rackNetwork(){return diagnostic.rackNetwork;},

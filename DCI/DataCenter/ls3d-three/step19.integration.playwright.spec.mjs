@@ -2,7 +2,7 @@
 // Tests run against a local, checked-out repository at LS3D_BASE_URL.
 // No deployed GitHub Pages result is claimed by these tests.
 // Run: npx playwright test DCI/DataCenter/ls3d-three/step19.integration.playwright.spec.mjs
-import {test,expect} from '@playwright/test';
+import {test,expect} from './browser-fixtures.mjs';
 import {readFile} from 'node:fs/promises';
 import {mkdir,writeFile} from 'node:fs/promises';
 

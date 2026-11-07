@@ -1,0 +1,40 @@
+/* Kept separate from legacy/operation styles. Collapsing a rail changes grid tracks. */
+.twin-workspace{--bg:#09121c;--surface:#101c28;--panel:#122230;--stroke:#2b404e;--teal:#60d8cb}
+.twin-workspace .top{gap:12px;min-width:0}.workspace-panels{display:flex;gap:5px;flex-shrink:0}
+.workspace-panels button,.workspace-tools button,.workspace-path button{border:1px solid #365665;border-radius:6px;background:#142b38;color:#c5e8e9;padding:7px 9px;font:inherit;font-size:11px;min-height:32px}
+.workspace-panels button[aria-expanded=false]{border-color:#60d8cb;color:#60d8cb}
+.twin-workspace .side{overflow:auto}.workspace-tree{padding:12px 16px;min-height:80px;overflow:auto;flex:1;border-top:1px solid var(--stroke)}
+.workspace-tree h2{font-size:11px;color:#7fb6bf;margin:0 0 10px;letter-spacing:1px}.workspace-tree button{display:block;width:100%;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-left:2px solid #365665;background:transparent;color:#b2c6d2;text-align:left;font:inherit;font-size:11px;border-radius:3px}
+.workspace-tree button:hover,.workspace-tree button[aria-current=true]{background:#183b44;border-color:#448c90;color:#e5fffb}
+.workspace-tools{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:6px;border:1px solid #38515f;background:#0b1b29ed;border-radius:10px;z-index:35;max-width:calc(100% - 20px);overflow:auto;white-space:nowrap;box-shadow:0 8px 24px #0006}
+.workspace-tools button[aria-pressed=true]{background:#285b62;color:#b7fff3}.workspace-tools button:disabled{opacity:.4;cursor:default}
+.workspace-path{position:absolute;left:12px;top:62px;z-index:12;max-width:calc(100% - 24px);background:#0d202deb;border:1px solid #304e60;border-radius:6px;padding:3px 7px;font-size:11px;white-space:nowrap;overflow:auto}
+.workspace-path button{background:transparent;border:0;color:#88e1d8;padding:3px 6px;min-height:24px}
+.workspace-stats{position:absolute;bottom:65px;left:12px;z-index:12;color:#aad1d5;background:#0b1b29df;border-radius:4px;padding:5px 8px;font:10px ui-monospace,monospace;pointer-events:none}
+@media(min-width:791px){
+ .twin-workspace #shell{grid-template-columns:235px minmax(0,1fr) 302px}
+ .twin-workspace #shell.explorer-closed{grid-template-columns:0 minmax(0,1fr) 302px}
+ .twin-workspace #shell.inspector-closed{grid-template-columns:235px minmax(0,1fr) 0}
+ .twin-workspace #shell.explorer-closed.inspector-closed{grid-template-columns:0 minmax(0,1fr) 0}
+ .twin-workspace #shell.explorer-closed .side,.twin-workspace #shell.inspector-closed .right{visibility:hidden;overflow:hidden;padding:0;min-width:0}
+ .twin-workspace .heading{margin-bottom:4px}.twin-workspace .heading h1{font-size:18px}
+ .twin-workspace .viewport{min-height:340px}
+}
+@media(max-width:790px){
+ .twin-workspace .top{flex-wrap:wrap;height:auto;padding:8px;align-content:center}.twin-workspace .crumb{display:none}
+ .twin-workspace #shell{grid-template-rows:auto auto auto}
+ .twin-workspace #shell .side{display:flex;position:fixed;top:70px;left:0;bottom:0;width:min(280px,85vw);z-index:55;box-shadow:10px 0 35px #0008}
+ .twin-workspace #shell.explorer-closed .side{display:none}
+ .twin-workspace #shell.inspector-closed .right{display:none}
+ .workspace-path{top:108px;font-size:10px}.workspace-tools{width:calc(100% - 16px);justify-content:flex-start;bottom:8px}.workspace-stats{bottom:62px;max-width:calc(100% - 20px);font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.twin-workspace *{scroll-behavior:auto}}
+.twin-workspace .workspace-operations-collapsed #mobileOperations{display:none}
+@media(min-width:791px){
+ .twin-workspace .metric{padding:6px 10px;border-radius:7px}.twin-workspace .metric strong{font-size:19px;margin-top:3px}.twin-workspace .metric .foot{margin-top:0}
+ .twin-workspace .viewport{flex:1;min-height:340px}
+}
+/* Leave both the original rack actions and new camera toolbar reachable. */
+.twin-workspace #ls3dRackMotionControls{bottom:74px!important;max-height:calc(100% - 230px)!important}
+.twin-workspace.rack-inspecting .workspace-path{top:156px;max-width:calc(100% - 170px)}
+@media(max-width:790px){.twin-workspace #ls3dRackMotionControls{bottom:74px!important;max-height:calc(100% - 265px)!important}.twin-workspace.rack-inspecting .workspace-path{top:174px}}

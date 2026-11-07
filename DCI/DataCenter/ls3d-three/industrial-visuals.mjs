@@ -46,7 +46,7 @@ export function createIndustrialVisuals(THREE,renderer,scene){
  const palette=new Map([['#829db1','#a6b0b8'],['#9db2c3','#747e88'],['#65839b','#505a63'],['#3c5b75','#353f48'],['#607a8b','#66717b'],['#b8cbd4','#c6cdd2'],['#36718a','#394d5c'],['#206d76','#304a50'],['#537e94','#687985'],['#708a9d','#4d606c'],['#182a39','#161e25'],['#b4c6d1','#b5bec6'],['#7898ac','#697a88'],['#8aa7bd','#9eabb5']]);
  function finish(material){if(material.metalness>=.5&&!material.transparent){finished.add(material);const map=level==='high'?brush:null;if(material.roughnessMap!==map){material.roughnessMap=map;material.needsUpdate=true;}material.envMapIntensity=level==='low'?0:.9;}}
  const lowBackground=new THREE.Color('#536672');
- function setQuality(value){level=value;scene.background=level==='low'?lowBackground:background;scene.environment=level==='low'?null:environment.texture;for(const material of finished)finish(material);} 
+ function setQuality(value){level=value;scene.background=level==='low'?lowBackground:background;scene.environment=level==='low'?null:environment.texture;for(const material of finished)finish(material);}
  function dispose(){contacts.dispose();scene.environment=null;environment.dispose();textures.forEach(t=>t.dispose());bevel.dispose();finished.clear();}
  return {bevel,perforation,palette,finish,dispose,contacts,setQuality,environment:environment.texture};
 }

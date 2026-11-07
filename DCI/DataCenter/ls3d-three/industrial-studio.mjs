@@ -29,7 +29,7 @@ export function createIndustrialStudio(T,status){
  let query='',treeFirst=null,treeCount=-1;
  const filter=()=>{let matches=0;tree.querySelectorAll('[data-asset-id]').forEach(b=>{const a=T.assetMap.get(b.dataset.assetId);const hit=!query||[a?.name,a?.id,a?.type].join(' ').toLocaleLowerCase().includes(query);b.hidden=!hit;if(hit)matches++;});empty.hidden=matches>0;};
  search.addEventListener('input',()=>{query=search.value.trim().toLocaleLowerCase();filter();});
- const inspector=document.querySelector('.right-inner'),intro=make('div','studio-inspector-intro');intro.innerHTML='<small>PROPERTIES</small><strong>선택 항목</strong><span>사양 · 부품 · 연결</span>';inspector.prepend(intro);if($('assetStatus'))intro.append($('assetStatus')); 
+ const inspector=document.querySelector('.right-inner'),intro=make('div','studio-inspector-intro');intro.innerHTML='<small>PROPERTIES</small><strong>선택 항목</strong><span>사양 · 부품 · 연결</span>';inspector.prepend(intro);if($('assetStatus'))intro.append($('assetStatus'));
  const assetVisual=$('assetVisual');if(assetVisual){const details=make('details','studio-model-reference'),s=make('summary','','모델 안내 보기');assetVisual.before(details);details.append(s,assetVisual);}
  const workTools=document.querySelector('.workspace-tools');workTools.setAttribute('aria-label','3D 화면 조작');
  // Dismiss drawers on Escape while preserving the host's rack/inspection Escape handling.

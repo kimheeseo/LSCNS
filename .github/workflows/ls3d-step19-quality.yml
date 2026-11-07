@@ -12,6 +12,16 @@ on:
       - "DCI/DataCenter/architecture/STEP20_RELEASE_REPORT.md"
       - "README.md"
       - ".github/workflows/ls3d-step19-quality.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "DCI/DataCenter/ls3d-three/**"
+      - "DCI/DataCenter/LS_Datacenter_3D.html"
+      - "DCI/DataCenter/README.md"
+      - "DCI/DataCenter/LS3D_VERSION_UPGRADE_HISTORY.txt"
+      - "DCI/DataCenter/architecture/STEP20_RELEASE_REPORT.md"
+      - "README.md"
+      - ".github/workflows/ls3d-step19-quality.yml"
   workflow_dispatch:
 
 permissions:
@@ -37,7 +47,6 @@ jobs:
       - name: Install Playwright and pinned local Three.js
         shell: bash
         run: |
-          npm init -y >/dev/null
           npm install --no-save --no-audit --no-fund @playwright/test@1.56.1 three@0.186.1
           npx playwright install --with-deps chromium
       - name: Run all existing STEP 14-18 source regression tests
@@ -50,21 +59,28 @@ jobs:
           node --test DCI/DataCenter/ls3d-three/step19.source.test.mjs
           node --test DCI/DataCenter/ls3d-three/step20.release.test.mjs
           node --test DCI/DataCenter/ls3d-three/step20.rack-panel.unit.test.mjs
+          node --test DCI/DataCenter/ls3d-three/rack-xray.test.mjs
       - name: Serve exact checked-out 3D site via localhost
         shell: bash
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ls3d-step19-server.log 2>&1 &
           echo $! > /tmp/ls3d-step19-server.pid
+          # Exercise the GitHub Pages repository prefix without assuming checkout name.
+          site_root="$(mktemp -d)"
+          ln -s "$GITHUB_WORKSPACE" "$site_root/LSCNS"
+          python3 -m http.server 8766 --bind 127.0.0.1 --directory "$site_root" > /tmp/ls3d-step19-prefix-server.log 2>&1 &
+          echo $! > /tmp/ls3d-step19-prefix-server.pid
           for n in {1..30}; do
-            if curl --silent --fail -o /dev/null "$LS3D_BASE_URL"; then exit 0; fi
+            if curl --silent --fail -o /dev/null "$LS3D_BASE_URL" &&
+               curl --silent --fail -o /dev/null "http://127.0.0.1:8766/LSCNS/DCI/DataCenter/LS_Datacenter_3D.html"; then exit 0; fi
             sleep 1
           done
-          cat /tmp/ls3d-step19-server.log
+          cat /tmp/ls3d-step19-server.log /tmp/ls3d-step19-prefix-server.log
           exit 1
-      - name: Run eight integrated Chromium/WebGL acceptance scenarios
+      - name: Run 21 Chromium/WebGL regression and workspace scenarios
         shell: bash
         run: |
-          npx playwright test --config DCI/DataCenter/ls3d-three/step19.playwright.config.mjs
+          npx playwright test --config DCI/DataCenter/ls3d-three/step19.playwright.config.mjs --timeout=120000
       - name: Upload HTML results, screenshots, traces and videos
         if: always()
         uses: actions/upload-artifact@v4
@@ -77,3 +93,4 @@ jobs:
             DCI/DataCenter/ls3d-three/step19-test-results/
             DCI/DataCenter/ls3d-three/step19-test-results.json
             /tmp/ls3d-step19-server.log
+            /tmp/ls3d-step19-prefix-server.log

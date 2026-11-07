@@ -1,0 +1,2873 @@
+[
+  {
+    "quality": "low",
+    "engine": "three",
+    "version": "186",
+    "frames": 13,
+    "assets": 32,
+    "zones": 2,
+    "npc": 1,
+    "calls": 19293,
+    "triangles": 346058,
+    "memoryGeometries": 949,
+    "memoryTextures": 204,
+    "isolatedRack": null,
+    "architecture": {
+      "mode": "aidc",
+      "zone": "hall",
+      "flags": {
+        "showRoof": false,
+        "showSection": false
+      },
+      "doors": 1,
+      "counts": {
+        "floor": 4,
+        "wall": 5,
+        "glass": 6,
+        "door": 2,
+        "beam": 6,
+        "ceiling": 13,
+        "roof": 2,
+        "tray": 76,
+        "frame": 8,
+        "path": 8,
+        "fence": 32,
+        "detail": 141
+      }
+    },
+    "loadingBayPhase": "전진",
+    "rackNetwork": {
+      "stats": {
+        "built": 32,
+        "torSwitches": 32,
+        "torPorts": 256,
+        "nicLinks": 186,
+        "powerALinks": 138,
+        "powerBLinks": 138,
+        "ductSegments": 256,
+        "highlights": 0,
+        "cableGeometryUpdates": 0
+      },
+      "selected": {
+        "id": "tor-a",
+        "torU": 47,
+        "torY": 5.626883333333334,
+        "filter": "all",
+        "selectedServer": "tor-a:network-switch-1:27",
+        "links": [
+          {
+            "kind": "dac",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "fiber",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          }
+        ]
+      }
+    },
+    "rackInteraction": {
+      "focus": null,
+      "doors": {
+        "frames": 332,
+        "toggled": 0,
+        "rearOpen": 0
+      },
+      "rails": {
+        "enhanced": 32,
+        "sleds": 138,
+        "nics": 138,
+        "ports": 552,
+        "updates": 332
+      },
+      "optics": {
+        "built": 32,
+        "adapters": 768,
+        "connectors": 1536,
+        "fibers": 0,
+        "updates": 332
+      },
+      "selectedServer": {
+        "selected": "tor-a:network-switch-1:27",
+        "pull": 0,
+        "serverCount": 2,
+        "selectedGpu": null,
+        "gpuCount": 0,
+        "gpuSlot": 0,
+        "gpuTarget": 0,
+        "gpuProgress": 0,
+        "selectedDrive": null,
+        "driveCount": 0,
+        "driveSlot": 0,
+        "driveTarget": 0
+      },
+      "selectedOptics": {
+        "open": 0,
+        "ports": [
+          "tor-a:fiber-port:0",
+          "tor-a:fiber-port:1",
+          "tor-a:fiber-port:2",
+          "tor-a:fiber-port:3",
+          "tor-a:fiber-port:4",
+          "tor-a:fiber-port:5",
+          "tor-a:fiber-port:6",
+          "tor-a:fiber-port:7",
+          "tor-a:fiber-port:8",
+          "tor-a:fiber-port:9",
+          "tor-a:fiber-port:10",
+          "tor-a:fiber-port:11",
+          "tor-a:fiber-port:12",
+          "tor-a:fiber-port:13",
+          "tor-a:fiber-port:14",
+          "tor-a:fiber-port:15",
+          "tor-a:fiber-port:16",
+          "tor-a:fiber-port:17",
+          "tor-a:fiber-port:18",
+          "tor-a:fiber-port:19",
+          "tor-a:fiber-port:20",
+          "tor-a:fiber-port:21",
+          "tor-a:fiber-port:22",
+          "tor-a:fiber-port:23"
+        ],
+        "moduleCount": 4,
+        "fibers": 48,
+        "duplexPorts": 24,
+        "detail": false,
+        "exploded": false,
+        "isolated": false
+      },
+      "selectedOdfBox": null,
+      "selectedLcPanel": {
+        "portCount": 12,
+        "fiberCount": 24,
+        "selectedPort": -1,
+        "isolated": false
+      }
+    },
+    "rackComponents": {
+      "rackCount": 25,
+      "counts": {
+        "built": 32,
+        "parts": 1308,
+        "units42": 18,
+        "units48": 14,
+        "byType": {
+          "frame": 32,
+          "u-rails": 32,
+          "tor": 32,
+          "patch-panel": 32,
+          "network-switch-1": 11,
+          "network-switch-2": 11,
+          "network-switch-3": 9,
+          "distribution-panel-15": 9,
+          "horizontal-manager-17": 9,
+          "distribution-panel-20": 9,
+          "horizontal-manager-22": 9,
+          "distribution-panel-25": 9,
+          "horizontal-manager-27": 9,
+          "distribution-panel-30": 9,
+          "horizontal-manager-32": 9,
+          "distribution-panel-35": 9,
+          "horizontal-manager-37": 9,
+          "blanking-panel-1": 32,
+          "blanking-panel-18": 14,
+          "blanking-panel-23": 11,
+          "blanking-panel-28": 21,
+          "blanking-panel-33": 18,
+          "cassette-pull": 32,
+          "pdu-a": 32,
+          "pdu-b": 32,
+          "cable-manager": 32,
+          "front-door": 32,
+          "rear-door": 32,
+          "leaf-b": 12,
+          "server-1": 16,
+          "gpu-module-0-0": 12,
+          "gpu-module-0-1": 12,
+          "gpu-module-0-2": 12,
+          "gpu-module-0-3": 12,
+          "server-2": 16,
+          "gpu-module-1-0": 12,
+          "gpu-module-1-1": 12,
+          "gpu-module-1-2": 12,
+          "gpu-module-1-3": 12,
+          "server-3": 16,
+          "gpu-module-2-0": 12,
+          "gpu-module-2-1": 12,
+          "gpu-module-2-2": 12,
+          "gpu-module-2-3": 12,
+          "server-4": 16,
+          "gpu-module-3-0": 12,
+          "gpu-module-3-1": 12,
+          "gpu-module-3-2": 12,
+          "gpu-module-3-3": 12,
+          "blanking-panel-19": 12,
+          "blanking-panel-22": 17,
+          "blanking-panel-25": 12,
+          "blanking-panel-31": 12,
+          "blanking-panel-34": 14,
+          "blanking-panel-37": 12,
+          "blanking-panel-40": 12,
+          "lc-adapter-panel": 2,
+          "optical-transceiver-0-0": 2,
+          "optical-transceiver-0-1": 2,
+          "distribution-panel-31": 2,
+          "horizontal-manager-33": 2,
+          "distribution-panel-36": 2,
+          "horizontal-manager-38": 2,
+          "blanking-panel-4": 2,
+          "blanking-panel-7": 2,
+          "blanking-panel-10": 7,
+          "blanking-panel-17": 2,
+          "blanking-panel-20": 2,
+          "blanking-panel-26": 7,
+          "blanking-panel-39": 2,
+          "blanking-panel-43": 2,
+          "storage-1": 5,
+          "storage-drive-0-0": 5,
+          "storage-drive-0-1": 5,
+          "storage-drive-0-2": 5,
+          "storage-drive-0-3": 5,
+          "storage-drive-0-4": 5,
+          "storage-drive-0-5": 5,
+          "storage-drive-0-6": 5,
+          "storage-drive-0-7": 5,
+          "storage-2": 5,
+          "storage-drive-1-0": 5,
+          "storage-drive-1-1": 5,
+          "storage-drive-1-2": 5,
+          "storage-drive-1-3": 5,
+          "storage-drive-1-4": 5,
+          "storage-drive-1-5": 5,
+          "storage-drive-1-6": 5,
+          "storage-drive-1-7": 5,
+          "storage-3": 5,
+          "storage-drive-2-0": 5,
+          "storage-drive-2-1": 5,
+          "storage-drive-2-2": 5,
+          "storage-drive-2-3": 5,
+          "storage-drive-2-4": 5,
+          "storage-drive-2-5": 5,
+          "storage-drive-2-6": 5,
+          "storage-drive-2-7": 5,
+          "storage-4": 5,
+          "storage-drive-3-0": 5,
+          "storage-drive-3-1": 5,
+          "storage-drive-3-2": 5,
+          "storage-drive-3-3": 5,
+          "storage-drive-3-4": 5,
+          "storage-drive-3-5": 5,
+          "storage-drive-3-6": 5,
+          "storage-drive-3-7": 5,
+          "storage-5": 5,
+          "storage-drive-4-0": 5,
+          "storage-drive-4-1": 5,
+          "storage-drive-4-2": 5,
+          "storage-drive-4-3": 5,
+          "storage-drive-4-4": 5,
+          "storage-drive-4-5": 5,
+          "storage-drive-4-6": 5,
+          "storage-drive-4-7": 5,
+          "storage-6": 5,
+          "storage-drive-5-0": 5,
+          "storage-drive-5-1": 5,
+          "storage-drive-5-2": 5,
+          "storage-drive-5-3": 5,
+          "storage-drive-5-4": 5,
+          "storage-drive-5-5": 5,
+          "storage-drive-5-6": 5,
+          "storage-drive-5-7": 5,
+          "storage-7": 5,
+          "storage-drive-6-0": 5,
+          "storage-drive-6-1": 5,
+          "storage-drive-6-2": 5,
+          "storage-drive-6-3": 5,
+          "storage-drive-6-4": 5,
+          "storage-drive-6-5": 5,
+          "storage-drive-6-6": 5,
+          "storage-drive-6-7": 5,
+          "storage-controller": 5,
+          "storage-psu-fan": 5,
+          "blanking-panel-6": 5,
+          "blanking-panel-14": 5,
+          "blanking-panel-36": 9,
+          "compute-cpu-0": 1,
+          "compute-memory-0": 1,
+          "compute-cpu-1": 1,
+          "compute-memory-1": 1,
+          "compute-cpu-2": 1,
+          "compute-memory-2": 1,
+          "compute-cpu-3": 1,
+          "compute-memory-3": 1,
+          "server-5": 4,
+          "compute-cpu-4": 1,
+          "compute-memory-4": 1,
+          "server-6": 4,
+          "compute-cpu-5": 1,
+          "compute-memory-5": 1,
+          "blanking-panel-27": 4,
+          "blanking-panel-30": 4
+        }
+      },
+      "selectedPart": null,
+      "visibleParts": 2364
+    },
+    "equipment": {
+      "kinds": {
+        "access-gate": 1,
+        "xray": 1,
+        "metal-detector": 1,
+        "control-desk": 4,
+        "visitor-center": 1,
+        "transformer": 2,
+        "switchgear": 1,
+        "generator": 1,
+        "ats": 1,
+        "fuel-tank": 1,
+        "cooling-tower": 2,
+        "chiller": 1,
+        "water-tank": 1,
+        "pump-hx": 1,
+        "cdu": 2,
+        "ups": 2,
+        "battery-bank": 1,
+        "pdu": 1,
+        "busway": 4,
+        "odf": 1,
+        "air-handler": 2,
+        "network": 2,
+        "fire-suppression": 1,
+        "maintenance": 1,
+        "visitor-parking": 1,
+        "identity-camera": 1,
+        "briefing-room": 1,
+        "loading-bay": 1,
+        "staging-room": 1,
+        "biometric-mantrap": 1,
+        "generic": 1
+      },
+      "instancedBatches": 113,
+      "instancedParts": 1119,
+      "activeKinds": [
+        "air-handler",
+        "busway",
+        "customer-cage-anchor",
+        "generic",
+        "rack"
+      ],
+      "lodAssets": 31
+    },
+    "mmr": {
+      "ready": false,
+      "selectedBay": null,
+      "selectedLink": "all",
+      "bays": [
+        {
+          "id": "carrier",
+          "label": "Carrier Entrance / ER"
+        },
+        {
+          "id": "handoff",
+          "label": "Meet-Me / Carrier Handoff"
+        },
+        {
+          "id": "cross-connect",
+          "label": "ODF / Cross-connect"
+        },
+        {
+          "id": "core",
+          "label": "Core Router / WAN"
+        }
+      ],
+      "links": [],
+      "doors": [
+        {
+          "id": "carrier",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "handoff",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "cross-connect",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "core",
+          "target": 0,
+          "opening": 0
+        }
+      ],
+      "selectedRoute": null,
+      "stats": {
+        "builds": 0,
+        "bays": 0,
+        "modules": 0,
+        "patchPorts": 0,
+        "localFibers": 0,
+        "selections": 0,
+        "doors": 0
+      }
+    },
+    "colocation": {
+      "ready": true,
+      "selected": "all",
+      "selectedCircuit": "all",
+      "layoutIssue": null,
+      "boundaries": [
+        -9.2,
+        -3.200000000000003,
+        3.200000000000003,
+        9.2
+      ],
+      "bays": [
+        {
+          "id": "A",
+          "rackId": "colo-rack-a",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "A",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "rackId": "colo-rack-b",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "B",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "rackId": "colo-rack-c",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "C",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "builds": 1,
+        "bays": 3,
+        "doors": 3,
+        "meshPanels": 4,
+        "chainPanels": 16,
+        "powerPaths": 6,
+        "fiberPaths": 3,
+        "selectionChanges": 0,
+        "meshWires": 1348
+      }
+    },
+    "mep": {
+      "visible": true,
+      "system": "all",
+      "selected": "all",
+      "total": 12,
+      "builds": 2,
+      "paths": [
+        {
+          "id": "power:pdu:tor-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "tor-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-b",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-b",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-c",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-c",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:gray-cdu:gpu-0-0",
+          "system": "cooling",
+          "source": "gray-cdu",
+          "target": "gpu-0-0",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:pump:crah-a",
+          "system": "cooling",
+          "source": "pump",
+          "target": "crah-a",
+          "fromZone": "cooling",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:leaf-a:tor-a",
+          "system": "fiber",
+          "source": "leaf-a",
+          "target": "tor-a",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:odf:mmr-hall",
+          "system": "fiber",
+          "source": "odf",
+          "target": "mmr-hall",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:odf-hall",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "odf-hall",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-a",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-a",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-b",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-b",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-c",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-c",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        }
+      ],
+      "stats": {
+        "builds": 2,
+        "links": 12,
+        "tubes": 36,
+        "traySegments": 76,
+        "pipeClamps": 32,
+        "discardedGeometries": 24,
+        "clicks": 0
+      }
+    },
+    "occlusion": {
+      "hiddenOccluders": 0,
+      "checkedFrame": 13
+    },
+    "viewport": {
+      "sampleCount": 13,
+      "averageFrameMs": 70,
+      "degraded": false,
+      "slowFrames": 13,
+      "fastFrames": 0,
+      "dpr": 0.8,
+      "quality": "low",
+      "mobile": false
+    },
+    "overlay": {
+      "mobile": false,
+      "short": true,
+      "zonePanel": true,
+      "rackPanel": false,
+      "rackCollapsed": false
+    },
+    "navigation": {
+      "cellSize": 1.25,
+      "agentRadius": 0.39,
+      "plans": 4,
+      "metrics": {
+        "planned": 4,
+        "failedLegs": 0,
+        "expanded": 693,
+        "queries": 9,
+        "cacheHits": 104,
+        "corrections": 0,
+        "stops": 0,
+        "frames": 108,
+        "doorCrossings": 4
+      },
+      "routes": [
+        {
+          "id": "eng-campus",
+          "zone": "campus",
+          "legs": 8,
+          "failed": 0,
+          "routeLength": 139.49
+        },
+        {
+          "id": "eng-hall",
+          "zone": "hall",
+          "legs": 9,
+          "failed": 0,
+          "routeLength": 193.01
+        },
+        {
+          "id": "eng-ops",
+          "zone": "ops",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 117.55
+        },
+        {
+          "id": "eng-utility",
+          "zone": "utility",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 108.91
+        }
+      ]
+    },
+    "inspections": {
+      "metrics": {
+        "transitions": 4,
+        "completed": 0,
+        "restarts": 0,
+        "alerts": 0
+      },
+      "workers": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        }
+      ],
+      "recent": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        }
+      ]
+    },
+    "npcAnimation": {
+      "visible": 1,
+      "ids": [
+        "eng-hall"
+      ],
+      "roles": {
+        "engineer": 1
+      },
+      "actions": {
+        "walk": 1,
+        "inspect": 0,
+        "pause": 0,
+        "idle": 0
+      },
+      "articulated": 1,
+      "totalBuilt": 7,
+      "totalAnimationUpdates": 19
+    },
+    "security": {
+      "cycles": 1,
+      "updates": 1,
+      "stage": "inactive",
+      "ready": false,
+      "stageCount": 8,
+      "cycleSeconds": 60,
+      "visible": false,
+      "visitorPosition": [
+        -17,
+        48.4
+      ],
+      "barrierAngle": 0,
+      "baggagePosition": [
+        4.2,
+        46
+      ]
+    },
+    "fps": 1.1016586082379582,
+    "canvasWidth": 848,
+    "canvasHeight": 498,
+    "width": 1440,
+    "height": 900,
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "consoleErrors": []
+  },
+  {
+    "quality": "medium",
+    "engine": "three",
+    "version": "186",
+    "frames": 27,
+    "assets": 32,
+    "zones": 2,
+    "npc": 1,
+    "calls": 21439,
+    "triangles": 398482,
+    "memoryGeometries": 949,
+    "memoryTextures": 204,
+    "isolatedRack": null,
+    "architecture": {
+      "mode": "aidc",
+      "zone": "hall",
+      "flags": {
+        "showRoof": false,
+        "showSection": false
+      },
+      "doors": 1,
+      "counts": {
+        "floor": 4,
+        "wall": 5,
+        "glass": 6,
+        "door": 2,
+        "beam": 6,
+        "ceiling": 13,
+        "roof": 2,
+        "tray": 76,
+        "frame": 8,
+        "path": 8,
+        "fence": 32,
+        "detail": 141
+      }
+    },
+    "loadingBayPhase": "전진",
+    "rackNetwork": {
+      "stats": {
+        "built": 32,
+        "torSwitches": 32,
+        "torPorts": 256,
+        "nicLinks": 186,
+        "powerALinks": 138,
+        "powerBLinks": 138,
+        "ductSegments": 256,
+        "highlights": 0,
+        "cableGeometryUpdates": 0
+      },
+      "selected": {
+        "id": "tor-a",
+        "torU": 47,
+        "torY": 5.626883333333334,
+        "filter": "all",
+        "selectedServer": "tor-a:network-switch-1:27",
+        "links": [
+          {
+            "kind": "dac",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "fiber",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          }
+        ]
+      }
+    },
+    "rackInteraction": {
+      "focus": null,
+      "doors": {
+        "frames": 682,
+        "toggled": 0,
+        "rearOpen": 0
+      },
+      "rails": {
+        "enhanced": 32,
+        "sleds": 138,
+        "nics": 138,
+        "ports": 552,
+        "updates": 682
+      },
+      "optics": {
+        "built": 32,
+        "adapters": 768,
+        "connectors": 1536,
+        "fibers": 0,
+        "updates": 682
+      },
+      "selectedServer": {
+        "selected": "tor-a:network-switch-1:27",
+        "pull": 0,
+        "serverCount": 2,
+        "selectedGpu": null,
+        "gpuCount": 0,
+        "gpuSlot": 0,
+        "gpuTarget": 0,
+        "gpuProgress": 0,
+        "selectedDrive": null,
+        "driveCount": 0,
+        "driveSlot": 0,
+        "driveTarget": 0
+      },
+      "selectedOptics": {
+        "open": 0,
+        "ports": [
+          "tor-a:fiber-port:0",
+          "tor-a:fiber-port:1",
+          "tor-a:fiber-port:2",
+          "tor-a:fiber-port:3",
+          "tor-a:fiber-port:4",
+          "tor-a:fiber-port:5",
+          "tor-a:fiber-port:6",
+          "tor-a:fiber-port:7",
+          "tor-a:fiber-port:8",
+          "tor-a:fiber-port:9",
+          "tor-a:fiber-port:10",
+          "tor-a:fiber-port:11",
+          "tor-a:fiber-port:12",
+          "tor-a:fiber-port:13",
+          "tor-a:fiber-port:14",
+          "tor-a:fiber-port:15",
+          "tor-a:fiber-port:16",
+          "tor-a:fiber-port:17",
+          "tor-a:fiber-port:18",
+          "tor-a:fiber-port:19",
+          "tor-a:fiber-port:20",
+          "tor-a:fiber-port:21",
+          "tor-a:fiber-port:22",
+          "tor-a:fiber-port:23"
+        ],
+        "moduleCount": 4,
+        "fibers": 48,
+        "duplexPorts": 24,
+        "detail": false,
+        "exploded": false,
+        "isolated": false
+      },
+      "selectedOdfBox": null,
+      "selectedLcPanel": {
+        "portCount": 12,
+        "fiberCount": 24,
+        "selectedPort": -1,
+        "isolated": false
+      }
+    },
+    "rackComponents": {
+      "rackCount": 25,
+      "counts": {
+        "built": 32,
+        "parts": 1308,
+        "units42": 18,
+        "units48": 14,
+        "byType": {
+          "frame": 32,
+          "u-rails": 32,
+          "tor": 32,
+          "patch-panel": 32,
+          "network-switch-1": 11,
+          "network-switch-2": 11,
+          "network-switch-3": 9,
+          "distribution-panel-15": 9,
+          "horizontal-manager-17": 9,
+          "distribution-panel-20": 9,
+          "horizontal-manager-22": 9,
+          "distribution-panel-25": 9,
+          "horizontal-manager-27": 9,
+          "distribution-panel-30": 9,
+          "horizontal-manager-32": 9,
+          "distribution-panel-35": 9,
+          "horizontal-manager-37": 9,
+          "blanking-panel-1": 32,
+          "blanking-panel-18": 14,
+          "blanking-panel-23": 11,
+          "blanking-panel-28": 21,
+          "blanking-panel-33": 18,
+          "cassette-pull": 32,
+          "pdu-a": 32,
+          "pdu-b": 32,
+          "cable-manager": 32,
+          "front-door": 32,
+          "rear-door": 32,
+          "leaf-b": 12,
+          "server-1": 16,
+          "gpu-module-0-0": 12,
+          "gpu-module-0-1": 12,
+          "gpu-module-0-2": 12,
+          "gpu-module-0-3": 12,
+          "server-2": 16,
+          "gpu-module-1-0": 12,
+          "gpu-module-1-1": 12,
+          "gpu-module-1-2": 12,
+          "gpu-module-1-3": 12,
+          "server-3": 16,
+          "gpu-module-2-0": 12,
+          "gpu-module-2-1": 12,
+          "gpu-module-2-2": 12,
+          "gpu-module-2-3": 12,
+          "server-4": 16,
+          "gpu-module-3-0": 12,
+          "gpu-module-3-1": 12,
+          "gpu-module-3-2": 12,
+          "gpu-module-3-3": 12,
+          "blanking-panel-19": 12,
+          "blanking-panel-22": 17,
+          "blanking-panel-25": 12,
+          "blanking-panel-31": 12,
+          "blanking-panel-34": 14,
+          "blanking-panel-37": 12,
+          "blanking-panel-40": 12,
+          "lc-adapter-panel": 2,
+          "optical-transceiver-0-0": 2,
+          "optical-transceiver-0-1": 2,
+          "distribution-panel-31": 2,
+          "horizontal-manager-33": 2,
+          "distribution-panel-36": 2,
+          "horizontal-manager-38": 2,
+          "blanking-panel-4": 2,
+          "blanking-panel-7": 2,
+          "blanking-panel-10": 7,
+          "blanking-panel-17": 2,
+          "blanking-panel-20": 2,
+          "blanking-panel-26": 7,
+          "blanking-panel-39": 2,
+          "blanking-panel-43": 2,
+          "storage-1": 5,
+          "storage-drive-0-0": 5,
+          "storage-drive-0-1": 5,
+          "storage-drive-0-2": 5,
+          "storage-drive-0-3": 5,
+          "storage-drive-0-4": 5,
+          "storage-drive-0-5": 5,
+          "storage-drive-0-6": 5,
+          "storage-drive-0-7": 5,
+          "storage-2": 5,
+          "storage-drive-1-0": 5,
+          "storage-drive-1-1": 5,
+          "storage-drive-1-2": 5,
+          "storage-drive-1-3": 5,
+          "storage-drive-1-4": 5,
+          "storage-drive-1-5": 5,
+          "storage-drive-1-6": 5,
+          "storage-drive-1-7": 5,
+          "storage-3": 5,
+          "storage-drive-2-0": 5,
+          "storage-drive-2-1": 5,
+          "storage-drive-2-2": 5,
+          "storage-drive-2-3": 5,
+          "storage-drive-2-4": 5,
+          "storage-drive-2-5": 5,
+          "storage-drive-2-6": 5,
+          "storage-drive-2-7": 5,
+          "storage-4": 5,
+          "storage-drive-3-0": 5,
+          "storage-drive-3-1": 5,
+          "storage-drive-3-2": 5,
+          "storage-drive-3-3": 5,
+          "storage-drive-3-4": 5,
+          "storage-drive-3-5": 5,
+          "storage-drive-3-6": 5,
+          "storage-drive-3-7": 5,
+          "storage-5": 5,
+          "storage-drive-4-0": 5,
+          "storage-drive-4-1": 5,
+          "storage-drive-4-2": 5,
+          "storage-drive-4-3": 5,
+          "storage-drive-4-4": 5,
+          "storage-drive-4-5": 5,
+          "storage-drive-4-6": 5,
+          "storage-drive-4-7": 5,
+          "storage-6": 5,
+          "storage-drive-5-0": 5,
+          "storage-drive-5-1": 5,
+          "storage-drive-5-2": 5,
+          "storage-drive-5-3": 5,
+          "storage-drive-5-4": 5,
+          "storage-drive-5-5": 5,
+          "storage-drive-5-6": 5,
+          "storage-drive-5-7": 5,
+          "storage-7": 5,
+          "storage-drive-6-0": 5,
+          "storage-drive-6-1": 5,
+          "storage-drive-6-2": 5,
+          "storage-drive-6-3": 5,
+          "storage-drive-6-4": 5,
+          "storage-drive-6-5": 5,
+          "storage-drive-6-6": 5,
+          "storage-drive-6-7": 5,
+          "storage-controller": 5,
+          "storage-psu-fan": 5,
+          "blanking-panel-6": 5,
+          "blanking-panel-14": 5,
+          "blanking-panel-36": 9,
+          "compute-cpu-0": 1,
+          "compute-memory-0": 1,
+          "compute-cpu-1": 1,
+          "compute-memory-1": 1,
+          "compute-cpu-2": 1,
+          "compute-memory-2": 1,
+          "compute-cpu-3": 1,
+          "compute-memory-3": 1,
+          "server-5": 4,
+          "compute-cpu-4": 1,
+          "compute-memory-4": 1,
+          "server-6": 4,
+          "compute-cpu-5": 1,
+          "compute-memory-5": 1,
+          "blanking-panel-27": 4,
+          "blanking-panel-30": 4
+        }
+      },
+      "selectedPart": null,
+      "visibleParts": 2364
+    },
+    "equipment": {
+      "kinds": {
+        "access-gate": 1,
+        "xray": 1,
+        "metal-detector": 1,
+        "control-desk": 4,
+        "visitor-center": 1,
+        "transformer": 2,
+        "switchgear": 1,
+        "generator": 1,
+        "ats": 1,
+        "fuel-tank": 1,
+        "cooling-tower": 2,
+        "chiller": 1,
+        "water-tank": 1,
+        "pump-hx": 1,
+        "cdu": 2,
+        "ups": 2,
+        "battery-bank": 1,
+        "pdu": 1,
+        "busway": 4,
+        "odf": 1,
+        "air-handler": 2,
+        "network": 2,
+        "fire-suppression": 1,
+        "maintenance": 1,
+        "visitor-parking": 1,
+        "identity-camera": 1,
+        "briefing-room": 1,
+        "loading-bay": 1,
+        "staging-room": 1,
+        "biometric-mantrap": 1,
+        "generic": 1
+      },
+      "instancedBatches": 113,
+      "instancedParts": 1119,
+      "activeKinds": [
+        "air-handler",
+        "busway",
+        "customer-cage-anchor",
+        "generic",
+        "rack"
+      ],
+      "lodAssets": 31
+    },
+    "mmr": {
+      "ready": false,
+      "selectedBay": null,
+      "selectedLink": "all",
+      "bays": [
+        {
+          "id": "carrier",
+          "label": "Carrier Entrance / ER"
+        },
+        {
+          "id": "handoff",
+          "label": "Meet-Me / Carrier Handoff"
+        },
+        {
+          "id": "cross-connect",
+          "label": "ODF / Cross-connect"
+        },
+        {
+          "id": "core",
+          "label": "Core Router / WAN"
+        }
+      ],
+      "links": [],
+      "doors": [
+        {
+          "id": "carrier",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "handoff",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "cross-connect",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "core",
+          "target": 0,
+          "opening": 0
+        }
+      ],
+      "selectedRoute": null,
+      "stats": {
+        "builds": 0,
+        "bays": 0,
+        "modules": 0,
+        "patchPorts": 0,
+        "localFibers": 0,
+        "selections": 0,
+        "doors": 0
+      }
+    },
+    "colocation": {
+      "ready": true,
+      "selected": "all",
+      "selectedCircuit": "all",
+      "layoutIssue": null,
+      "boundaries": [
+        -9.2,
+        -3.200000000000003,
+        3.200000000000003,
+        9.2
+      ],
+      "bays": [
+        {
+          "id": "A",
+          "rackId": "colo-rack-a",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "A",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "rackId": "colo-rack-b",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "B",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "rackId": "colo-rack-c",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "C",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "builds": 1,
+        "bays": 3,
+        "doors": 3,
+        "meshPanels": 4,
+        "chainPanels": 16,
+        "powerPaths": 6,
+        "fiberPaths": 3,
+        "selectionChanges": 0,
+        "meshWires": 1348
+      }
+    },
+    "mep": {
+      "visible": true,
+      "system": "all",
+      "selected": "all",
+      "total": 12,
+      "builds": 2,
+      "paths": [
+        {
+          "id": "power:pdu:tor-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "tor-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-b",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-b",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-c",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-c",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:gray-cdu:gpu-0-0",
+          "system": "cooling",
+          "source": "gray-cdu",
+          "target": "gpu-0-0",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:pump:crah-a",
+          "system": "cooling",
+          "source": "pump",
+          "target": "crah-a",
+          "fromZone": "cooling",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:leaf-a:tor-a",
+          "system": "fiber",
+          "source": "leaf-a",
+          "target": "tor-a",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:odf:mmr-hall",
+          "system": "fiber",
+          "source": "odf",
+          "target": "mmr-hall",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:odf-hall",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "odf-hall",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-a",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-a",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-b",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-b",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-c",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-c",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        }
+      ],
+      "stats": {
+        "builds": 2,
+        "links": 12,
+        "tubes": 36,
+        "traySegments": 76,
+        "pipeClamps": 32,
+        "discardedGeometries": 24,
+        "clicks": 0
+      }
+    },
+    "occlusion": {
+      "hiddenOccluders": 0,
+      "checkedFrame": 27
+    },
+    "viewport": {
+      "sampleCount": 27,
+      "averageFrameMs": 70,
+      "degraded": false,
+      "slowFrames": 27,
+      "fastFrames": 0,
+      "dpr": 1,
+      "quality": "medium",
+      "mobile": false
+    },
+    "overlay": {
+      "mobile": false,
+      "short": true,
+      "zonePanel": true,
+      "rackPanel": false,
+      "rackCollapsed": false
+    },
+    "navigation": {
+      "cellSize": 1.25,
+      "agentRadius": 0.39,
+      "plans": 4,
+      "metrics": {
+        "planned": 4,
+        "failedLegs": 0,
+        "expanded": 693,
+        "queries": 9,
+        "cacheHits": 230,
+        "corrections": 0,
+        "stops": 0,
+        "frames": 234,
+        "doorCrossings": 4
+      },
+      "routes": [
+        {
+          "id": "eng-campus",
+          "zone": "campus",
+          "legs": 8,
+          "failed": 0,
+          "routeLength": 139.49
+        },
+        {
+          "id": "eng-hall",
+          "zone": "hall",
+          "legs": 9,
+          "failed": 0,
+          "routeLength": 193.01
+        },
+        {
+          "id": "eng-ops",
+          "zone": "ops",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 117.55
+        },
+        {
+          "id": "eng-utility",
+          "zone": "utility",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 108.91
+        }
+      ]
+    },
+    "inspections": {
+      "metrics": {
+        "transitions": 4,
+        "completed": 0,
+        "restarts": 0,
+        "alerts": 0
+      },
+      "workers": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        }
+      ],
+      "recent": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        }
+      ]
+    },
+    "npcAnimation": {
+      "visible": 1,
+      "ids": [
+        "eng-hall"
+      ],
+      "roles": {
+        "engineer": 1
+      },
+      "actions": {
+        "walk": 1,
+        "inspect": 0,
+        "pause": 0,
+        "idle": 0
+      },
+      "articulated": 1,
+      "totalBuilt": 7,
+      "totalAnimationUpdates": 33
+    },
+    "security": {
+      "cycles": 1,
+      "updates": 1,
+      "stage": "inactive",
+      "ready": false,
+      "stageCount": 8,
+      "cycleSeconds": 60,
+      "visible": false,
+      "visitorPosition": [
+        -17,
+        48.4
+      ],
+      "barrierAngle": 0,
+      "baggagePosition": [
+        4.2,
+        46
+      ]
+    },
+    "fps": 1.066805746526937,
+    "canvasWidth": 848,
+    "canvasHeight": 498,
+    "width": 1440,
+    "height": 900,
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "consoleErrors": []
+  },
+  {
+    "quality": "high",
+    "engine": "three",
+    "version": "186",
+    "frames": 41,
+    "assets": 32,
+    "zones": 2,
+    "npc": 1,
+    "calls": 21439,
+    "triangles": 398482,
+    "memoryGeometries": 949,
+    "memoryTextures": 204,
+    "isolatedRack": null,
+    "architecture": {
+      "mode": "aidc",
+      "zone": "hall",
+      "flags": {
+        "showRoof": false,
+        "showSection": false
+      },
+      "doors": 1,
+      "counts": {
+        "floor": 4,
+        "wall": 5,
+        "glass": 6,
+        "door": 2,
+        "beam": 6,
+        "ceiling": 13,
+        "roof": 2,
+        "tray": 76,
+        "frame": 8,
+        "path": 8,
+        "fence": 32,
+        "detail": 141
+      }
+    },
+    "loadingBayPhase": "전진",
+    "rackNetwork": {
+      "stats": {
+        "built": 32,
+        "torSwitches": 32,
+        "torPorts": 256,
+        "nicLinks": 186,
+        "powerALinks": 138,
+        "powerBLinks": 138,
+        "ductSegments": 256,
+        "highlights": 0,
+        "cableGeometryUpdates": 0
+      },
+      "selected": {
+        "id": "tor-a",
+        "torU": 47,
+        "torY": 5.626883333333334,
+        "filter": "all",
+        "selectedServer": "tor-a:network-switch-1:27",
+        "links": [
+          {
+            "kind": "dac",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-1:27",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "fiber",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:tor:47",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-A",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-a:1",
+            "visible": true,
+            "emphasized": true
+          },
+          {
+            "kind": "power-B",
+            "from": "tor-a:network-switch-2:13",
+            "to": "tor-a:pdu-b:1",
+            "visible": true,
+            "emphasized": true
+          }
+        ]
+      }
+    },
+    "rackInteraction": {
+      "focus": null,
+      "doors": {
+        "frames": 1032,
+        "toggled": 0,
+        "rearOpen": 0
+      },
+      "rails": {
+        "enhanced": 32,
+        "sleds": 138,
+        "nics": 138,
+        "ports": 552,
+        "updates": 1032
+      },
+      "optics": {
+        "built": 32,
+        "adapters": 768,
+        "connectors": 1536,
+        "fibers": 0,
+        "updates": 1032
+      },
+      "selectedServer": {
+        "selected": "tor-a:network-switch-1:27",
+        "pull": 0,
+        "serverCount": 2,
+        "selectedGpu": null,
+        "gpuCount": 0,
+        "gpuSlot": 0,
+        "gpuTarget": 0,
+        "gpuProgress": 0,
+        "selectedDrive": null,
+        "driveCount": 0,
+        "driveSlot": 0,
+        "driveTarget": 0
+      },
+      "selectedOptics": {
+        "open": 0,
+        "ports": [
+          "tor-a:fiber-port:0",
+          "tor-a:fiber-port:1",
+          "tor-a:fiber-port:2",
+          "tor-a:fiber-port:3",
+          "tor-a:fiber-port:4",
+          "tor-a:fiber-port:5",
+          "tor-a:fiber-port:6",
+          "tor-a:fiber-port:7",
+          "tor-a:fiber-port:8",
+          "tor-a:fiber-port:9",
+          "tor-a:fiber-port:10",
+          "tor-a:fiber-port:11",
+          "tor-a:fiber-port:12",
+          "tor-a:fiber-port:13",
+          "tor-a:fiber-port:14",
+          "tor-a:fiber-port:15",
+          "tor-a:fiber-port:16",
+          "tor-a:fiber-port:17",
+          "tor-a:fiber-port:18",
+          "tor-a:fiber-port:19",
+          "tor-a:fiber-port:20",
+          "tor-a:fiber-port:21",
+          "tor-a:fiber-port:22",
+          "tor-a:fiber-port:23"
+        ],
+        "moduleCount": 4,
+        "fibers": 48,
+        "duplexPorts": 24,
+        "detail": false,
+        "exploded": false,
+        "isolated": false
+      },
+      "selectedOdfBox": null,
+      "selectedLcPanel": {
+        "portCount": 12,
+        "fiberCount": 24,
+        "selectedPort": -1,
+        "isolated": false
+      }
+    },
+    "rackComponents": {
+      "rackCount": 25,
+      "counts": {
+        "built": 32,
+        "parts": 1308,
+        "units42": 18,
+        "units48": 14,
+        "byType": {
+          "frame": 32,
+          "u-rails": 32,
+          "tor": 32,
+          "patch-panel": 32,
+          "network-switch-1": 11,
+          "network-switch-2": 11,
+          "network-switch-3": 9,
+          "distribution-panel-15": 9,
+          "horizontal-manager-17": 9,
+          "distribution-panel-20": 9,
+          "horizontal-manager-22": 9,
+          "distribution-panel-25": 9,
+          "horizontal-manager-27": 9,
+          "distribution-panel-30": 9,
+          "horizontal-manager-32": 9,
+          "distribution-panel-35": 9,
+          "horizontal-manager-37": 9,
+          "blanking-panel-1": 32,
+          "blanking-panel-18": 14,
+          "blanking-panel-23": 11,
+          "blanking-panel-28": 21,
+          "blanking-panel-33": 18,
+          "cassette-pull": 32,
+          "pdu-a": 32,
+          "pdu-b": 32,
+          "cable-manager": 32,
+          "front-door": 32,
+          "rear-door": 32,
+          "leaf-b": 12,
+          "server-1": 16,
+          "gpu-module-0-0": 12,
+          "gpu-module-0-1": 12,
+          "gpu-module-0-2": 12,
+          "gpu-module-0-3": 12,
+          "server-2": 16,
+          "gpu-module-1-0": 12,
+          "gpu-module-1-1": 12,
+          "gpu-module-1-2": 12,
+          "gpu-module-1-3": 12,
+          "server-3": 16,
+          "gpu-module-2-0": 12,
+          "gpu-module-2-1": 12,
+          "gpu-module-2-2": 12,
+          "gpu-module-2-3": 12,
+          "server-4": 16,
+          "gpu-module-3-0": 12,
+          "gpu-module-3-1": 12,
+          "gpu-module-3-2": 12,
+          "gpu-module-3-3": 12,
+          "blanking-panel-19": 12,
+          "blanking-panel-22": 17,
+          "blanking-panel-25": 12,
+          "blanking-panel-31": 12,
+          "blanking-panel-34": 14,
+          "blanking-panel-37": 12,
+          "blanking-panel-40": 12,
+          "lc-adapter-panel": 2,
+          "optical-transceiver-0-0": 2,
+          "optical-transceiver-0-1": 2,
+          "distribution-panel-31": 2,
+          "horizontal-manager-33": 2,
+          "distribution-panel-36": 2,
+          "horizontal-manager-38": 2,
+          "blanking-panel-4": 2,
+          "blanking-panel-7": 2,
+          "blanking-panel-10": 7,
+          "blanking-panel-17": 2,
+          "blanking-panel-20": 2,
+          "blanking-panel-26": 7,
+          "blanking-panel-39": 2,
+          "blanking-panel-43": 2,
+          "storage-1": 5,
+          "storage-drive-0-0": 5,
+          "storage-drive-0-1": 5,
+          "storage-drive-0-2": 5,
+          "storage-drive-0-3": 5,
+          "storage-drive-0-4": 5,
+          "storage-drive-0-5": 5,
+          "storage-drive-0-6": 5,
+          "storage-drive-0-7": 5,
+          "storage-2": 5,
+          "storage-drive-1-0": 5,
+          "storage-drive-1-1": 5,
+          "storage-drive-1-2": 5,
+          "storage-drive-1-3": 5,
+          "storage-drive-1-4": 5,
+          "storage-drive-1-5": 5,
+          "storage-drive-1-6": 5,
+          "storage-drive-1-7": 5,
+          "storage-3": 5,
+          "storage-drive-2-0": 5,
+          "storage-drive-2-1": 5,
+          "storage-drive-2-2": 5,
+          "storage-drive-2-3": 5,
+          "storage-drive-2-4": 5,
+          "storage-drive-2-5": 5,
+          "storage-drive-2-6": 5,
+          "storage-drive-2-7": 5,
+          "storage-4": 5,
+          "storage-drive-3-0": 5,
+          "storage-drive-3-1": 5,
+          "storage-drive-3-2": 5,
+          "storage-drive-3-3": 5,
+          "storage-drive-3-4": 5,
+          "storage-drive-3-5": 5,
+          "storage-drive-3-6": 5,
+          "storage-drive-3-7": 5,
+          "storage-5": 5,
+          "storage-drive-4-0": 5,
+          "storage-drive-4-1": 5,
+          "storage-drive-4-2": 5,
+          "storage-drive-4-3": 5,
+          "storage-drive-4-4": 5,
+          "storage-drive-4-5": 5,
+          "storage-drive-4-6": 5,
+          "storage-drive-4-7": 5,
+          "storage-6": 5,
+          "storage-drive-5-0": 5,
+          "storage-drive-5-1": 5,
+          "storage-drive-5-2": 5,
+          "storage-drive-5-3": 5,
+          "storage-drive-5-4": 5,
+          "storage-drive-5-5": 5,
+          "storage-drive-5-6": 5,
+          "storage-drive-5-7": 5,
+          "storage-7": 5,
+          "storage-drive-6-0": 5,
+          "storage-drive-6-1": 5,
+          "storage-drive-6-2": 5,
+          "storage-drive-6-3": 5,
+          "storage-drive-6-4": 5,
+          "storage-drive-6-5": 5,
+          "storage-drive-6-6": 5,
+          "storage-drive-6-7": 5,
+          "storage-controller": 5,
+          "storage-psu-fan": 5,
+          "blanking-panel-6": 5,
+          "blanking-panel-14": 5,
+          "blanking-panel-36": 9,
+          "compute-cpu-0": 1,
+          "compute-memory-0": 1,
+          "compute-cpu-1": 1,
+          "compute-memory-1": 1,
+          "compute-cpu-2": 1,
+          "compute-memory-2": 1,
+          "compute-cpu-3": 1,
+          "compute-memory-3": 1,
+          "server-5": 4,
+          "compute-cpu-4": 1,
+          "compute-memory-4": 1,
+          "server-6": 4,
+          "compute-cpu-5": 1,
+          "compute-memory-5": 1,
+          "blanking-panel-27": 4,
+          "blanking-panel-30": 4
+        }
+      },
+      "selectedPart": null,
+      "visibleParts": 2364
+    },
+    "equipment": {
+      "kinds": {
+        "access-gate": 1,
+        "xray": 1,
+        "metal-detector": 1,
+        "control-desk": 4,
+        "visitor-center": 1,
+        "transformer": 2,
+        "switchgear": 1,
+        "generator": 1,
+        "ats": 1,
+        "fuel-tank": 1,
+        "cooling-tower": 2,
+        "chiller": 1,
+        "water-tank": 1,
+        "pump-hx": 1,
+        "cdu": 2,
+        "ups": 2,
+        "battery-bank": 1,
+        "pdu": 1,
+        "busway": 4,
+        "odf": 1,
+        "air-handler": 2,
+        "network": 2,
+        "fire-suppression": 1,
+        "maintenance": 1,
+        "visitor-parking": 1,
+        "identity-camera": 1,
+        "briefing-room": 1,
+        "loading-bay": 1,
+        "staging-room": 1,
+        "biometric-mantrap": 1,
+        "generic": 1
+      },
+      "instancedBatches": 113,
+      "instancedParts": 1119,
+      "activeKinds": [
+        "air-handler",
+        "busway",
+        "customer-cage-anchor",
+        "generic",
+        "rack"
+      ],
+      "lodAssets": 31
+    },
+    "mmr": {
+      "ready": false,
+      "selectedBay": null,
+      "selectedLink": "all",
+      "bays": [
+        {
+          "id": "carrier",
+          "label": "Carrier Entrance / ER"
+        },
+        {
+          "id": "handoff",
+          "label": "Meet-Me / Carrier Handoff"
+        },
+        {
+          "id": "cross-connect",
+          "label": "ODF / Cross-connect"
+        },
+        {
+          "id": "core",
+          "label": "Core Router / WAN"
+        }
+      ],
+      "links": [],
+      "doors": [
+        {
+          "id": "carrier",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "handoff",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "cross-connect",
+          "target": 0,
+          "opening": 0
+        },
+        {
+          "id": "core",
+          "target": 0,
+          "opening": 0
+        }
+      ],
+      "selectedRoute": null,
+      "stats": {
+        "builds": 0,
+        "bays": 0,
+        "modules": 0,
+        "patchPorts": 0,
+        "localFibers": 0,
+        "selections": 0,
+        "doors": 0
+      }
+    },
+    "colocation": {
+      "ready": true,
+      "selected": "all",
+      "selectedCircuit": "all",
+      "layoutIssue": null,
+      "boundaries": [
+        -9.2,
+        -3.200000000000003,
+        3.200000000000003,
+        9.2
+      ],
+      "bays": [
+        {
+          "id": "A",
+          "rackId": "colo-rack-a",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "A",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "A",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-a",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "rackId": "colo-rack-b",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "B",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "B",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-b",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "rackId": "colo-rack-c",
+          "gateTarget": 0,
+          "gateOpening": 0,
+          "linksVisible": true,
+          "circuits": [
+            {
+              "tenant": "C",
+              "kind": "fiber",
+              "label": "광 패치/분배",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-A",
+              "label": "Rack PDU A 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            },
+            {
+              "tenant": "C",
+              "kind": "power-B",
+              "label": "Rack PDU B 전원",
+              "from": "공용 분배 경계 (개념)",
+              "to": "colo-rack-c",
+              "verified": false,
+              "connector": "미검증 / 장비별 확인 필요",
+              "capacity": "가정값 없음",
+              "highlighted": true,
+              "visible": true
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "builds": 1,
+        "bays": 3,
+        "doors": 3,
+        "meshPanels": 4,
+        "chainPanels": 16,
+        "powerPaths": 6,
+        "fiberPaths": 3,
+        "selectionChanges": 0,
+        "meshWires": 1348
+      }
+    },
+    "mep": {
+      "visible": true,
+      "system": "all",
+      "selected": "all",
+      "total": 12,
+      "builds": 2,
+      "paths": [
+        {
+          "id": "power:pdu:tor-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "tor-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-a",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-a",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-b",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-b",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "power:pdu:colo-rack-c",
+          "system": "power",
+          "source": "pdu",
+          "target": "colo-rack-c",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:gray-cdu:gpu-0-0",
+          "system": "cooling",
+          "source": "gray-cdu",
+          "target": "gpu-0-0",
+          "fromZone": "gray",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "cooling:pump:crah-a",
+          "system": "cooling",
+          "source": "pump",
+          "target": "crah-a",
+          "fromZone": "cooling",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:leaf-a:tor-a",
+          "system": "fiber",
+          "source": "leaf-a",
+          "target": "tor-a",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:odf:mmr-hall",
+          "system": "fiber",
+          "source": "odf",
+          "target": "mmr-hall",
+          "fromZone": "network",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:odf-hall",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "odf-hall",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-a",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-a",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-b",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-b",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        },
+        {
+          "id": "fiber:mmr-hall:colo-rack-c",
+          "system": "fiber",
+          "source": "mmr-hall",
+          "target": "colo-rack-c",
+          "fromZone": "hall",
+          "toZone": "hall",
+          "visible": true,
+          "highlighted": true,
+          "nodeCount": 6,
+          "verified": false,
+          "lengthMeters": null
+        }
+      ],
+      "stats": {
+        "builds": 2,
+        "links": 12,
+        "tubes": 36,
+        "traySegments": 76,
+        "pipeClamps": 32,
+        "discardedGeometries": 24,
+        "clicks": 0
+      }
+    },
+    "occlusion": {
+      "hiddenOccluders": 0,
+      "checkedFrame": 41
+    },
+    "viewport": {
+      "sampleCount": 41,
+      "averageFrameMs": 70,
+      "degraded": false,
+      "slowFrames": 41,
+      "fastFrames": 0,
+      "dpr": 1,
+      "quality": "high",
+      "mobile": false
+    },
+    "overlay": {
+      "mobile": false,
+      "short": true,
+      "zonePanel": true,
+      "rackPanel": false,
+      "rackCollapsed": false
+    },
+    "navigation": {
+      "cellSize": 1.25,
+      "agentRadius": 0.39,
+      "plans": 4,
+      "metrics": {
+        "planned": 4,
+        "failedLegs": 0,
+        "expanded": 693,
+        "queries": 9,
+        "cacheHits": 356,
+        "corrections": 0,
+        "stops": 0,
+        "frames": 360,
+        "doorCrossings": 4
+      },
+      "routes": [
+        {
+          "id": "eng-campus",
+          "zone": "campus",
+          "legs": 8,
+          "failed": 0,
+          "routeLength": 139.49
+        },
+        {
+          "id": "eng-hall",
+          "zone": "hall",
+          "legs": 9,
+          "failed": 0,
+          "routeLength": 193.01
+        },
+        {
+          "id": "eng-ops",
+          "zone": "ops",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 117.55
+        },
+        {
+          "id": "eng-utility",
+          "zone": "utility",
+          "legs": 4,
+          "failed": 0,
+          "routeLength": 108.91
+        }
+      ]
+    },
+    "inspections": {
+      "metrics": {
+        "transitions": 4,
+        "completed": 0,
+        "restarts": 0,
+        "alerts": 0
+      },
+      "workers": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "scenario": "normal",
+          "since": 0
+        }
+      ],
+      "recent": [
+        {
+          "id": "eng-campus",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-hall",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-ops",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        },
+        {
+          "id": "eng-utility",
+          "state": "move",
+          "targetId": null,
+          "time": 0
+        }
+      ]
+    },
+    "npcAnimation": {
+      "visible": 1,
+      "ids": [
+        "eng-hall"
+      ],
+      "roles": {
+        "engineer": 1
+      },
+      "actions": {
+        "walk": 1,
+        "inspect": 0,
+        "pause": 0,
+        "idle": 0
+      },
+      "articulated": 1,
+      "totalBuilt": 7,
+      "totalAnimationUpdates": 47
+    },
+    "security": {
+      "cycles": 1,
+      "updates": 1,
+      "stage": "inactive",
+      "ready": false,
+      "stageCount": 8,
+      "cycleSeconds": 60,
+      "visible": false,
+      "visitorPosition": [
+        -17,
+        48.4
+      ],
+      "barrierAngle": 0,
+      "baggagePosition": [
+        4.2,
+        46
+      ]
+    },
+    "fps": 1.0364365009903616,
+    "canvasWidth": 848,
+    "canvasHeight": 498,
+    "width": 1440,
+    "height": 900,
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "consoleErrors": []
+  }
+]

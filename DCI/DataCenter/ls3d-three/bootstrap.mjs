@@ -1,3 +1,4 @@
+import {createWorkspace} from './workspace.mjs?v=20261107-workspace';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);
@@ -9,6 +10,7 @@ const status = window.LS3D_THREE = {
   error: null, adapter: null, diagnostics: null, renders: 0,
   render() {}, fallback() {}
 };
+window.LS3D_WORKSPACE=T?createWorkspace(T,status):null;
 if (requested && T) {
   const viewport = document.getElementById('viewport');
   const oldCanvas = document.getElementById('scene');
@@ -128,7 +130,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261102-rack-opaque-door-v2');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261107-workspace');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

@@ -1,0 +1,17 @@
+const {chromium}=require('playwright');
+const {execFile}=require('node:child_process');
+const {promisify}=require('node:util');
+const assert=require('node:assert/strict');
+(async()=>{const b=await chromium.launch({executablePath:process.env.LS3D_CHROMIUM_EXECUTABLE||'/usr/bin/chromium',args:['--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-gpu-sandbox']});try{const p=await b.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+// Fetch public CDN assets through curl's existing system CA trust; TLS verification remains enabled.
+await p.route('https://cdn.jsdelivr.net/**',async r=>{const {stdout}=await promisify(execFile)('curl',['--fail','--silent','--show-error','--location','--max-time','30',r.request().url()],{encoding:'buffer',maxBuffer:20*1024*1024});await r.fulfill({status:200,headers:{'access-control-allow-origin':'*'},contentType:r.request().resourceType()==='stylesheet'?'text/css':r.request().resourceType()==='font'?'font/woff2':'text/javascript',body:stdout});});
+
+await p.setViewportSize({width:1440,height:900});
+await p.addInitScript(()=>{let host;Object.defineProperty(window,'__LS3D_TEST__',{configurable:true,get(){return host},set(v){host=v;v.simRunning=false}});localStorage.setItem('ls3d-first-guide-v481','done');localStorage.setItem('ls3d-display-mode-v1','pc')});
+if(process.argv[2]==='before')for(const file of ['LS_Datacenter_3D.html','ls3d-three/bootstrap.mjs','ls3d-three/scene-adapter.mjs'])await p.route('**/'+file+'*',async r=>{const {stdout}=await promisify(execFile)('git',['-C',require('node:path').resolve(__dirname,'../../../..'),'show','d34bfd0ec626313a1550bea5da9b114e21de93c6:DCI/DataCenter/'+file]);await r.fulfill({body:stdout,contentType:file.endsWith('.html')?'text/html':'text/javascript'});});
+await p.goto('http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html?engine=three');await p.waitForFunction(()=>window.LS3D_THREE?.status==='ready');
+await p.evaluate(()=>{document.getElementById('guide')?.classList.remove('open');window.__LS3D_TEST__.simRunning=false;window.__LS3D_TEST__.setZone('hall');Object.assign(document.getElementById('viewport').style,{width:'850px',height:'500px',minHeight:'500px',flex:'none'})});
+const results=[];
+for(const quality of ['low','medium','high']){await p.evaluate(q=>window.LS3D_CONFIG.quality=q,quality);await p.waitForTimeout(3000);const start=await p.evaluate(()=>({time:performance.now(),frame:window.LS3D_THREE.renders}));await p.waitForTimeout(8000);const metric=await p.evaluate(start=>{const s=window.LS3D_THREE;return {...s.diagnostics,fps:(s.renders-start.frame)*1000/(performance.now()-start.time),canvasWidth:document.getElementById('sceneThree').clientWidth,canvasHeight:document.getElementById('sceneThree').clientHeight,width:innerWidth,height:innerHeight,userAgent:navigator.userAgent}},start);results.push({quality,...metric,consoleErrors:[...errors]});}
+require('fs').writeFileSync(__dirname+'/'+process.argv[2]+'-metrics.json',JSON.stringify(results,null,2));console.log('Metrics',process.argv[2]);
+}finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});

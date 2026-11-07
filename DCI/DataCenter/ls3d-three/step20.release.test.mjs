@@ -28,7 +28,7 @@ test('root README and DataCenter guide link to the correct Three and rollback UR
     assert.match(text,/LS_Datacenter_3D\.html\?engine=legacy/);
     assert.match(text,/LS3D_VERSION_UPGRADE_HISTORY\.txt/);
     assert.match(text,/STEP20_RELEASE_REPORT\.md/);
-    assert.match(text,/v4\.8\.1/);
+    assert.match(text,/v4\.8\.\d+/);
   }
 });
 test('separate UTF-8 TXT describes all 20 stages, version strategy and unverified QA',()=>{

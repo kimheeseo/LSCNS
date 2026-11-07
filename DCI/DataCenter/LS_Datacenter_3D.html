@@ -110,6 +110,7 @@ body.ls3d-viewport-double .worker-modal,body.ls3d-viewport-double .detail-modal{
 body.ls3d-viewport-double .toast{z-index:150}
 @media(max-width:790px){body.ls3d-viewport-double #viewport{min-height:0!important;height:min(var(--ls3d-double-h,700px),calc(100dvh - 12px))!important;width:min(var(--ls3d-double-w,500px),calc(100vw - 12px))!important}}
 </style>
+<link rel="stylesheet" href="./ls3d-three/workspace.css?v=20261107-workspace">
 </head>
 <body>
 <div id="displayModeChoice" class="display-mode-choice" role="dialog" aria-modal="true" aria-labelledby="displayModeTitle" hidden>
@@ -839,7 +840,7 @@ function updateWalk(dt){
  if(!collide(nx,walkPos[2]))walkPos[0]=nx;
  if(!collide(walkPos[0],nz))walkPos[2]=nz;
 }
-function render3D(dt){if(window.LS3D_FALLBACK?.active){window.LS3D_FALLBACK.sync();return;}const start=performance.now(),rect=canvas.getBoundingClientRect();if(!rect.width||!rect.height)return;let q=window.LS3D_CONFIG?.quality||'medium',dpr=Math.min(devicePixelRatio||1,q==='low'?.8:q==='high'?1.65:1.1),w=Math.floor(rect.width*dpr),h=Math.floor(rect.height*dpr);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;if(gl)gl.viewport(0,0,w,h)}renderW=rect.width;renderH=rect.height;cameraFrame(dt);
+function render3D(dt){window.LS3D_WORKSPACE?.update();if(window.LS3D_FALLBACK?.active){window.LS3D_FALLBACK.sync();return;}const start=performance.now(),rect=canvas.getBoundingClientRect();if(!rect.width||!rect.height)return;let q=window.LS3D_CONFIG?.quality||'medium',dpr=Math.min(devicePixelRatio||1,q==='low'?.8:q==='high'?1.65:1.1),w=Math.floor(rect.width*dpr),h=Math.floor(rect.height*dpr);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;if(gl)gl.viewport(0,0,w,h)}renderW=rect.width;renderH=rect.height;cameraFrame(dt);
  // STEP 03: only the existing animation loop drives the selected renderer.
  if(window.LS3D_THREE?.status==='ready'){
    try{
@@ -1244,7 +1245,7 @@ if(new URLSearchParams(location.search).get('visitor')==='1'){start();if(new URL
 
 })();
 
-</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261102-rack-opaque-door-v2"></script><script>
+</script><script type="module" src="./ls3d-three/bootstrap.mjs?v=20261107-workspace"></script><script>
 (()=>{'use strict';
 const FIRST_KEY='ls3d-first-guide-v481';
 const css=document.createElement('style');

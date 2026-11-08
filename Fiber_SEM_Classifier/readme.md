@@ -8,6 +8,16 @@
 | --- | --- | --- |
 | [convert_tif_to_png_ipynb.ipynb](./convert_tif_to_png_ipynb.ipynb) | TIF/TIFF → PNG 변환, 파일명 정리, 원본 대응표 저장 | [Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/Fiber_SEM_Classifier/convert_tif_to_png_ipynb.ipynb) |
 | [SEM_CNN_classifier_epoch3.ipynb](./SEM_CNN_classifier_epoch3.ipynb) | 데이터 검사·증강, CNN 학습·검증, 다중 이미지 분류 | [Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/Fiber_SEM_Classifier/SEM_CNN_classifier_epoch3.ipynb) |
+| [SEM_CNN_classifier_regularized_v2.ipynb](./SEM_CNN_classifier_regularized_v2.ipynb) | 과적합 완화: 단계별 전이학습, Dropout·Label Smoothing·Train 전용 명암 증강 | [PR 브랜치 Colab](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/feature/sem-cnn-regularization-v2-20261108/Fiber_SEM_Classifier/SEM_CNN_classifier_regularized_v2.ipynb) |
+
+
+## 과적합 개선 실험 노트북 v2
+
+- **데이터셋 유지:** 기존 원본의 Train/Validation 그룹 분리, Train 10배 증강, Google Drive 이미지 저장·재검증·재로딩 규칙을 그대로 사용합니다. 이미 저장된 증강본을 재사용합니다.
+- **학습 변경:** Head-only 3 Epoch 학습 후 ResNet18 `layer4` 또는 EfficientNet-B0 마지막 feature block만 미세조정합니다. 분류층 Dropout 0.35, Weight Decay 0.001, Label Smoothing 0.05 및 Train 전용 약한 밝기·대비 증강을 사용합니다.
+- **학습률:** Head `3e-4`, 미세조정 block `3e-5`(초기 단계에서는 block 동결). 조기 종료 Patience 4. 기본 Epoch 10이며 GPU 런타임 사용을 권장합니다.
+- **기존 결과 보존:** 모델은 `03_Models/Regularized_v2/`, 보고서는 `04_Training_Reports/Regularized_v2/`로 구분하여 과거 결과 파일을 덮어쓰지 않습니다. 다운로드/모델 Release 파일명 규칙은 유지합니다.
+- **검증 한계:** 이 노트북은 코드를 개선한 실험판이며 **실제 Colab 학습 결과가 검증된 것은 아닙니다.** 물리적으로 동일한 시료가 자동 그룹화에 누락됐는지 점검해야 하고 Validation은 독립 Test가 아닙니다. 기존 모델 가중치와 v2의 분류층 구조는 호환되지 않습니다.
 
 ## 주요 기능
 

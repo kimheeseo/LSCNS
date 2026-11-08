@@ -37,7 +37,12 @@ export function createWorkspace(T, status) {
     .netarch-legend b{color:#76ecdb}.netarch-legend em{color:#ff9ba6;font-style:normal;font-weight:800}
     .netarch-layer{position:absolute;inset:0;z-index:16;pointer-events:none;overflow:hidden}
     .netarch-marker{position:absolute;transform:translate(-50%,-100%);padding:3px 7px;border:2px solid #63e3d2;border-radius:5px;background:#062c34eF;color:white;font:800 10px/1.2 system-ui;white-space:nowrap;box-shadow:0 2px 8px #0009}
-    .netarch-marker.spine{border-color:#ff6d7b;background:#661d2beF}
+    .netarch-marker.spine{border-color:#ff6d7b;background:#661d2bef}
+    .netarch-marker.storage{border-color:#c7a4ff;background:#392063ef}
+    .netarch-marker.mmr{border-color:#ffc66b;background:#5a380bef}
+    .netarch-marker.client{border-color:#86b7ff;background:#163967ef}
+    .netarch-marker.odf{border-color:#f0db74;background:#55470bef}
+    .netarch-marker.server{border-color:#77e3d0;background:#063e3bef}
     @media(max-width:790px){.netarch-toggle{top:52px;right:8px;font-size:11px}.netarch-legend{top:94px;right:8px;max-width:210px;font-size:10px}}
   `;
   document.head.append(style);
@@ -49,7 +54,7 @@ export function createWorkspace(T, status) {
   });
   arch.className='netarch-toggle';arch.id='networkArchitectureToggle';arch.hidden=true;arch.setAttribute('aria-pressed','false');viewport.append(arch);
   const legend=document.createElement('div');legend.className='netarch-legend';legend.hidden=true;
-  legend.innerHTML='<b>LEAF</b> · GPU 랙 상단 ToR 스위치<br><em>SPINE</em> · 네트워크 랙 내부 스위치<br><small>색상은 랙 내부 스위치의 역할을 나타냅니다.</small>';
+  legend.innerHTML='<b>SERVER · LEAF</b> · GPU 서버 랙 / 상단 Leaf<br><em>SPINE</em> · 네트워크 랙 내부 Spine<br>🟪 STORAGE · 저장 랙<br>🟧 MMR · 홀 인접 회선 연결 랙<br>🟦 CLIENT · 고객 랙<br>🟨 ODF · 광 분배반<br><small>LEAF와 SPINE은 랙 내부 스위치의 역할입니다.</small>';
   viewport.append(legend);
   const layer=document.createElement('div');layer.className='netarch-layer';layer.hidden=true;layer.setAttribute('aria-hidden','true');viewport.append(layer);
   let architectureOn=false,architectureSignature='',architectureMarkers=[];
@@ -59,16 +64,26 @@ export function createWorkspace(T, status) {
     arch.hidden=!inHall;
     if(!inHall&&architectureOn){architectureOn=false;arch.setAttribute('aria-pressed','false');arch.textContent='네트워크 아키텍처 보기';}
     arch.disabled=status.status!=='ready'||!adapter;
-    arch.title=arch.disabled?'Three.js 3D 화면에서 사용할 수 있습니다.':'GPU 랙과 네트워크 랙의 스위치 역할을 표시합니다.';
+    arch.title=arch.disabled?'Three.js 3D 화면에서 사용할 수 있습니다.':'서버, 스토리지, 네트워크 및 광 설비의 역할을 표시합니다.';
     const show=inHall&&architectureOn&&!!adapter&&status.status==='ready';
     layer.hidden=legend.hidden=!show;
     if(!show)return;
-    const racks=T.visibleAssets().filter(a=>a.zone==='hall'&&(a.type==='GPU server rack'||a.id==='tor-a'||a.id==='tor-b'));
+    function rackRole(a){
+      if(a.id==='tor-a'||a.id==='tor-b')return {kind:'spine',label:'SPINE'};
+      if(a.type==='GPU server rack')return {kind:'server',label:'SERVER · LEAF'};
+      if(a.type==='Compute rack')return {kind:'server',label:'SERVER'};
+      if(a.type==='Storage rack')return {kind:'storage',label:'STORAGE'};
+      if(a.type==='MMR rack')return {kind:'mmr',label:'MMR'};
+      if(a.type==='Co-location rack')return {kind:'client',label:'CLIENT'};
+      if(a.type==='ODF')return {kind:'odf',label:'ODF'};
+      return null;
+    }
+    const racks=T.visibleAssets().filter(a=>a.zone==='hall'&&rackRole(a));
     const sig=racks.map(a=>a.id).join('|');
     if(sig!==architectureSignature){
       architectureSignature=sig;layer.replaceChildren();architectureMarkers=racks.map(a=>{
-        const el=document.createElement('span'),spine=a.id==='tor-a'||a.id==='tor-b';
-        el.className='netarch-marker'+(spine?' spine':'');el.textContent=spine?'SPINE':'LEAF';el.title=a.name;
+        const el=document.createElement('span'),role=rackRole(a);
+        el.className='netarch-marker '+role.kind;el.textContent=role.label;el.title=a.name+' · '+role.label;
         layer.append(el);return {id:a.id,el};
       });
     }

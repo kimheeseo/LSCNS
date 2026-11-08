@@ -62,3 +62,7 @@
 - ZIP은 가중치·보고서 패키지입니다. 다른 PC에서 추론하려면 동일한 Pipeline 코드·전처리가 필요합니다. 추출 후 `model_choice="resnet18"` 또는 `"efficientnet_b0"`로 모델을 지정하거나 선택 정보의 경로를 복원하세요.
 
 업로드 코드의 ZIP 구성·허용 파일·재시도·HTTP 오류 처리는 모의 응답으로 점검했습니다. 실제 Colab 학습 및 GitHub 모델 업로드는 사용자의 런타임에서 실행됩니다.
+
+## CPU 학습·재개 로그가 혼동될 때
+
+[첨부 로그 진단과 재개 방법](./TRAINING_LOG_DIAGNOSIS.md)을 참고하세요. 노트북 학습 셀은 `REQUIRE_GPU=True`로 GPU 누락을 먼저 확인하고, 기존 체크포인트와 같은 `TRAIN_BATCH_SIZE=16`으로 재개합니다. 의도적인 CPU 실행은 `REQUIRE_GPU=False`로 설정합니다. CPU→GPU 이동 시 빈 AMP scaler 상태를 새로 초기화하고, 완료/조기 종료 모델은 추가 학습 없이 최적 모델을 평가합니다. `EPOCHS`는 추가 Epoch 수가 아닌 총 한도입니다.

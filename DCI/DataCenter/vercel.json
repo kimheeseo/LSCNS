@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/LS_Datacenter_3D.html?engine=three",
+      "permanent": false
+    }
+  ]
+}

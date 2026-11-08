@@ -62,3 +62,7 @@
 - ZIP은 가중치·보고서 패키지입니다. 다른 PC에서 추론하려면 동일한 Pipeline 코드·전처리가 필요합니다. 추출 후 `model_choice="resnet18"` 또는 `"efficientnet_b0"`로 모델을 지정하거나 선택 정보의 경로를 복원하세요.
 
 업로드 코드의 ZIP 구성·허용 파일·재시도·HTTP 오류 처리는 모의 응답으로 점검했습니다. 실제 Colab 학습 및 GitHub 모델 업로드는 사용자의 런타임에서 실행됩니다.
+
+## 30배 증강 모델 학습·검증 보고서 (2026-11-09)
+
+[**SEM CNN 30x Training & Validation Technical Report**](./SEM_CNN_30x_Training_Validation_Report.md) — 원본 678장, 증강 후 20,340장, ResNet18 20 Epoch, Train/Validation/Test 70:20:10 평가 결과 및 Python `import` 재사용 방법을 정리했습니다. 원본 Test 68장 기준 파단 분류 정확도 85%, HCF 구분 100%(HCF 7장)이며, 이 결과는 위에 설명한 기존 10배 증강 파이프라인과 **별도 실험**입니다.

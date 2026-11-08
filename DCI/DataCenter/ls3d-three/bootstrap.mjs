@@ -1,4 +1,4 @@
-import {createWorkspace} from './workspace.mjs?v=20261107-workspace';
+import {createWorkspace} from './workspace.mjs?v=20261108-network-architecture-v1';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);

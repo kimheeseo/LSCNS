@@ -22,7 +22,7 @@ export function createRackOpticalCassette(THREE,{cube}) {
    mesh.name='rack-optical:'+name;mesh.userData.assetId=id;mesh.userData.partId=p.id;return mesh;
   }
   session.box=box;session.info=info;
-  const housing=info('optical-housing','optical-housing','LS 배선 솔루션 · 4슬롯 광패널 하우징','금속 외함·모듈 가이드·케이블 관리 구조. LS 공개 FDF 구성을 참고한 교육용 2U 배치이며 특정 제품의 CAD 치수와 다릅니다.');
+  const housing=info('optical-housing','optical-housing','4슬롯 광패널 하우징','금속 외함·모듈 가이드·케이블 관리 구조. 공개 FDF 구성을 참고한 교육용 2U 배치이며 특정 제품의 CAD 치수와 다릅니다.');
   box(tray,housing,'floor',0,base, (front+back)/2,w*.75,.024,back-front,'#8c9ca6');
   for(const sign of [-1,1]){
    box(tray,housing,'side-wall',sign*w*.378,base, (front+back)/2,.026,ht,back-front,'#2b4153');

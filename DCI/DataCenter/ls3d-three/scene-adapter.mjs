@@ -358,7 +358,7 @@ export function createSceneAdapter(T, canvas) {
         ['patch-select','광 패치패널 선택'],['switch-select','네트워크 스위치 선택'],
         ['cassette-select','MPO/MTP 카세트 선택'],['gpu-select','GPU 모듈 선택'],
         ['cable-patch','케이블 · 패치패널 연결/분리'],
-        ['optical-detail','LS 광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
+        ['optical-detail','광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
         const button=document.createElement('button');
@@ -801,10 +801,10 @@ export function createSceneAdapter(T, canvas) {
   function visitorCaption(a) {
     const explicit={
       'entry-desk':['SECURITY DESK','VISITOR CHECK-IN'],
-      'site-sign':['LS','DATA CENTER'],
+      'site-sign':['DATA','CENTER'],
       'visitor-lobby':['LOBBY · BRIEFING ROOM','SAFETY ORIENTATION'],
       'visitor-staging':['STAGING · 서버 설치 전 준비실','입고·개봉 → 검수·설정·시험 → 서버홀'],
-      'visitor-loading':['LS CABLE · LOADING BAY','DELIVERY / STAGING'],
+      'visitor-loading':['LOADING BAY','DELIVERY / STAGING'],
       'visitor-locker':['VISITOR ID CAMERA','ID / CAMERA · USB · LAPTOP'],
       'visitor-mantrap':['BIOMETRIC MANTRAP','IRIS · FINGERPRINT · CARD'],
       'generator':['EMERGENCY GENERATOR','DIESEL · RADIATOR · EXHAUST'],

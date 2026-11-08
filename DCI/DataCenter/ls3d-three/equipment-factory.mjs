@@ -169,10 +169,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(170,180,18,0,Math.PI*2);ctx.fill();
       ctx.fillStyle='#76b900';ctx.font='800 112px Arial,Helvetica,sans-serif';ctx.fillText('NVIDIA',595,182);
     }else{
-      // LS Cable & System CI: blue LS wordmark with red arrow accent and gray English logotype.
-      ctx.fillStyle='#164fa5';ctx.font='900 172px Arial,Helvetica,sans-serif';ctx.fillText('LS',175,196);
-      ctx.fillStyle='#e8232d';ctx.beginPath();ctx.moveTo(230,49);ctx.lineTo(281,49);ctx.lineTo(256,82);ctx.closePath();ctx.fill();
-      ctx.fillStyle='#68767e';ctx.font='700 72px Arial,Helvetica,sans-serif';ctx.fillText('Cable & System',590,190);
+      ctx.fillStyle='#405a65';ctx.font='800 76px Arial,Helvetica,sans-serif';ctx.fillText('FIBER EQUIPMENT',450,190);
     }
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,depthWrite:false}));
@@ -825,15 +822,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
       case 'visitor-center': {
         part(root,'visitor-center-building',0,.06,0,w*.96,h*.83,d*.90,'#71808b',.40,.50);
         part(root,'visitor-center-glass',0,h*.43,front,w*.72,h*.42,.055,'#254c62',.12,.23);
-        part(root,'visitor-center-ls-plaque',0,h*.73,front-.06,w*.34,.22,.03,'#d9363e',.24,.29);
-        // LS mark is fixed to the façade, rather than only appearing as a floating scene label.
-        part(root,'visitor-center-logo-l-vert',-w*.075,h*.70,front-.085,w*.025,.12,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-l-base',-w*.045,h*.65,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-s-top',w*.07,h*.75,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-s-mid',w*.07,h*.70,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-s-base',w*.07,h*.65,front-.085,w*.085,.025,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-s-left',w*.03,h*.725,front-.085,w*.025,.075,.014,'#ffffff',.05,.30);
-        part(root,'visitor-center-logo-s-right',w*.11,h*.675,front-.085,w*.025,.075,.014,'#ffffff',.05,.30);
+        decal(root,'visitor-center-sign','DATA CENTER',0,h*.73,front-.085,w*.34,.22,'#174a57','#ffffff');
         part(root,'visitor-center-canopy',0,h*.84,front,w*.88,.12,d*.34,'#d8e3e8',.45,.35);
         break;
       }
@@ -873,7 +862,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           round(root,'loading-truck-wheel',xx,.08,zz,.12,.14,'#202d35');
         part(root,'loading-ls-logo',-w*.17,h*.49,-d*.25,w*.22,.13,.02,'#d9363e',.20,.30);
         part(root,'loading-ls-logo-stripe',-w*.17,h*.44,-d*.27,w*.31,.028,.018,'#f3f8f6',.05,.32);
-        decal(root,'loading-truck-ls','LS CABLE',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
+        decal(root,'loading-truck-ls','FIBER',-w*.17,h*.50,-d*.275,w*.30,h*.10,'#d9363e','#ffffff');
         // Separate parking bay keeps the orange forklift clear of the truck cab and cartons.
         const parkX=w*.31,parkZ=d*.37;
         for(const z of [parkZ-d*.17,parkZ+d*.17])
@@ -946,7 +935,7 @@ export function createEquipmentFactory(THREE, { cube, cylinder, material, boxGeo
           loopSeconds:12
         };
 
-        const shippingBrands=['Cisco','LS Cable & System','NVIDIA'];
+        const shippingBrands=['Cisco','Fiber Equipment','NVIDIA'];
         for(let i=0;i<3;i++){
           const bx=[-w*.35,-w*.20,-w*.05][i],brand=shippingBrands[i];
           part(root,'loading-box-'+i,bx,.10,d*.31,w*.10,h*.12,d*.09,'#c99b54',.18,.56);

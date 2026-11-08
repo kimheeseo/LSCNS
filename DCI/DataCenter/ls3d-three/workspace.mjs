@@ -43,13 +43,17 @@ export function createWorkspace(T, status) {
     .netarch-marker.client{border-color:#86b7ff;background:#163967ef}
     .netarch-marker.odf{border-color:#f0db74;background:#55470bef}
     .netarch-marker.server{border-color:#77e3d0;background:#063e3bef}
+    .netarch-marker.network{border-color:#a8b8ff;background:#23346aef}
+    .netarch-marker.gray{border-color:#ffbd72;background:#65400def}
+    .netarch-marker.cooling{border-color:#78d8ff;background:#084461ef}
+    .netarch-marker.utility{border-color:#f7db78;background:#59470def}
     @media(max-width:790px){.netarch-toggle{top:52px;right:8px;font-size:11px}.netarch-legend{top:94px;right:8px;max-width:210px;font-size:10px}}
   `;
   document.head.append(style);
   const viewport=$('viewport'),arch=button('네트워크 아키텍처 보기',()=>{
     architectureOn=!architectureOn;
     arch.setAttribute('aria-pressed',String(architectureOn));
-    arch.textContent=architectureOn?'네트워크 아키텍처 닫기':'네트워크 아키텍처 보기';
+    arch.textContent=architectureOn?(T.currentZone==='hall'?'네트워크 아키텍처 닫기':'설비 이름 닫기'):(T.currentZone==='hall'?'네트워크 아키텍처 보기':'설비 이름 보기');
     syncArchitecture();
   });
   arch.className='netarch-toggle';arch.id='networkArchitectureToggle';arch.hidden=true;arch.setAttribute('aria-pressed','false');viewport.append(arch);
@@ -57,15 +61,20 @@ export function createWorkspace(T, status) {
   legend.innerHTML='<b>SERVER · LEAF</b> · GPU 서버 랙 / 상단 Leaf<br><em>SPINE</em> · 네트워크 랙 내부 Spine<br>🟪 STORAGE · 저장 랙<br>🟧 MMR · 홀 인접 회선 연결 랙<br>🟦 CLIENT · 고객 랙<br>🟨 ODF · 광 분배반<br><small>LEAF와 SPINE은 랙 내부 스위치의 역할입니다.</small>';
   viewport.append(legend);
   const layer=document.createElement('div');layer.className='netarch-layer';layer.hidden=true;layer.setAttribute('aria-hidden','true');viewport.append(layer);
-  let architectureOn=false,architectureSignature='',architectureMarkers=[];
+  let architectureOn=false,architectureSignature='',architectureMarkers=[],architectureZone='';
   function syncArchitecture(){
     const adapter=status.adapter;
-    const inHall=T.currentZone==='hall'&&!T.rackIsolateActive;
-    arch.hidden=!inHall;
-    if(!inHall&&architectureOn){architectureOn=false;arch.setAttribute('aria-pressed','false');arch.textContent='네트워크 아키텍처 보기';}
+    const zone=T.currentZone;
+    const supported=['hall','network','gray','cooling','utility'].includes(zone)&&!T.rackIsolateActive;
+    if(zone!==architectureZone||!supported){
+      architectureZone=zone;architectureOn=false;architectureSignature='';
+      arch.setAttribute('aria-pressed','false');
+      arch.textContent=zone==='hall'?'네트워크 아키텍처 보기':'설비 이름 보기';
+    }
+    arch.hidden=!supported;
     arch.disabled=status.status!=='ready'||!adapter;
-    arch.title=arch.disabled?'Three.js 3D 화면에서 사용할 수 있습니다.':'서버, 스토리지, 네트워크 및 광 설비의 역할을 표시합니다.';
-    const show=inHall&&architectureOn&&!!adapter&&status.status==='ready';
+    arch.title=arch.disabled?'Three.js 3D 화면에서 사용할 수 있습니다.':'현재 구역의 설비 이름을 3D 화면에 표시합니다.';
+    const show=supported&&architectureOn&&!!adapter&&status.status==='ready';
     layer.hidden=legend.hidden=!show;
     if(!show)return;
     function rackRole(a){
@@ -78,11 +87,13 @@ export function createWorkspace(T, status) {
       if(a.type==='ODF')return {kind:'odf',label:'ODF'};
       return null;
     }
-    const racks=T.visibleAssets().filter(a=>a.zone==='hall'&&rackRole(a));
-    const sig=racks.map(a=>a.id).join('|');
+    const racks=T.visibleAssets().filter(a=>a.zone===zone&&(zone!=='hall'||rackRole(a)));
+    const sig=zone+'|'+racks.map(a=>a.id+':'+a.name).join('|');
     if(sig!==architectureSignature){
-      architectureSignature=sig;layer.replaceChildren();architectureMarkers=racks.map(a=>{
-        const el=document.createElement('span'),role=rackRole(a);
+      architectureSignature=sig;layer.replaceChildren();
+      legend.innerHTML=zone==='hall'?'<b>SERVER · LEAF</b> · GPU 서버 랙 / 상단 Leaf<br><em>SPINE</em> · 네트워크 랙 내부 Spine<br>🟪 STORAGE · 저장 랙<br>🟧 MMR · 홀 인접 회선 연결 랙<br>🟦 CLIENT · 고객 랙<br>🟨 ODF · 광 분배반<br><small>LEAF와 SPINE은 랙 내부 스위치의 역할입니다.</small>':'<b>설비 이름 표시</b><br>현재 구역의 설비를 이름으로 구분합니다.<br><small>시점 회전 및 확대 시에도 설비 위치를 따라갑니다.</small>';
+      architectureMarkers=racks.map(a=>{
+        const el=document.createElement('span'),role=zone==='hall'?rackRole(a):{kind:zone,label:a.name};
         el.className='netarch-marker '+role.kind;el.textContent=role.label;el.title=a.name+' · '+role.label;
         layer.append(el);return {id:a.id,el};
       });

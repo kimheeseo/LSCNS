@@ -29,6 +29,14 @@ try{
  const shape=page.locator('#ls-cad-view [data-cad-shape="c1"]');
  assert.equal(await shape.count(),1);
  assert.ok((await page.locator("#ls-cad-legend").textContent()).includes("1 object"));
+ const basePixelRadius=Number(await shape.locator(".ls-cad-rendered-surface circle").getAttribute("r"));
+ assert.ok(basePixelRadius>25,"Base circle should occupy visible graphics area after Build");
+ await page.locator("#ls-cad-radius").fill("rb+wlr/2");
+ const smallerPixelRadius=Number(await shape.locator(".ls-cad-rendered-surface circle").getAttribute("r"));
+ assert.ok(smallerPixelRadius<basePixelRadius*.97,"Radius edit must shrink the actual pixel circle, not merely rescale viewport");
+ await page.locator("#ls-cad-radius").fill("rb+wlr");
+ const restoredPixelRadius=Number(await shape.locator(".ls-cad-rendered-surface circle").getAttribute("r"));
+ assert.ok(Math.abs(restoredPixelRadius-basePixelRadius)<.01,"Restore radius should restore actual SVG radius");
  const initialRadius=await shape.locator("title").textContent();
  assert.ok(initialRadius.includes("Radius")&&initialRadius.includes("µm"),initialRadius);
  await page.screenshot({path:"/tmp/comsol_circle_radius_build.png"});
@@ -45,6 +53,13 @@ try{
  assert.equal(await page.locator('#ls-cad-view [data-cad-shape="c1"] circle.ls-cad-layer-boundary').count(),1);
  assert.equal(await page.locator('#ls-cad-view [data-cad-shape="c1"] line.ls-cad-layer-boundary').count(),4);
  const inner1=Number(await page.locator('#ls-cad-view [data-cad-shape="c1"] circle.ls-cad-layer-boundary').getAttribute("r"));
+ assert.equal(await page.locator('#ls-cad-view [data-cad-shape="c1"] circle.ls-cad-layer-region').count(),1);
+ await page.locator("#ls-cad-layer").fill("wlr/2");
+ const thinnerInner=Number(await page.locator('#ls-cad-view [data-cad-shape="c1"] circle.ls-cad-layer-boundary').getAttribute("r"));
+ assert.ok(thinnerInner>inner1*1.04,"Smaller Layer thickness must enlarge inner domain in actual SVG");
+ await page.locator("#ls-cad-layer").fill("wlr");
+ const restoredInner=Number(await page.locator('#ls-cad-view [data-cad-shape="c1"] circle.ls-cad-layer-boundary').getAttribute("r"));
+ assert.ok(Math.abs(restoredInner-inner1)<.01,"Layer thickness restoration should restore original inner radius");
  await page.locator("#ls-cad-add-layer").click();
  assert.equal(await page.locator('#ls-cad-extra-layers input').count(),1);
  await page.locator('#ls-cad-extra-layers input').fill("wlr/2");
@@ -76,9 +91,11 @@ try{
  await page.locator('[data-cad-node="c1"]').click();
  const changedRadius=await page.locator('#ls-cad-view [data-cad-shape="c1"] title').textContent();
  assert.notEqual(changedRadius,initialRadius,"Parameters edits must update Geometry expressions");
+ const changedPixelRadius=Number(await page.locator('#ls-cad-view [data-cad-shape="c1"] .ls-cad-rendered-surface circle').getAttribute("r"));
+ assert.ok(changedPixelRadius>basePixelRadius*1.03,"Changing global rb must increase SVG radius on locked physical viewport");
  await page.locator('[data-tab="home"]').click();
  assert.ok(await page.locator('#ls-ribbon-tools [data-action="cadBuildAll"]').isVisible());
  assert.ok(await page.locator('#ls-ribbon-tools [data-action="wavePhysics"]').isVisible());
  assert.deepEqual(errors,[],"No browser JavaScript errors");
- console.log("PASS: parametrized circle radius, gray/red hover, 2 radial layers, duplicate and delete confirmation, editable parameter propagation");
+ console.log("PASS: fixed-scale radius pixel growth/shrink, parameter-driven SVG circle size, layer thickness-driven inner radius, gray/red hover, duplicate/delete");
 }finally{await browser.close();}

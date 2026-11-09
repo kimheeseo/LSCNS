@@ -345,9 +345,9 @@
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
    case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":checkpoint();limit=null;try{lockViewIfNeeded();draw();say("Build All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
-   case "build-selected":if(!n)return;checkpoint();limit=idx;try{lockViewIfNeeded();draw();say("Build Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
-   case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Build Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-all":checkpoint();limit=null;try{lockViewIfNeeded();draw();say("Built All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-selected":if(!n)return;checkpoint();limit=idx;try{lockViewIfNeeded();draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Built Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
    case "delete":{

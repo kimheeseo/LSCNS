@@ -12,20 +12,19 @@
  let circles=baseCircle(),selected=1,params=[],view=null;
  const fromInput=(id,other)=>{const n=Number(get(id)?.value);return Number.isFinite(n)&&n>0?n:other;};
  const precision=x=>Number(x.toPrecision(9)).toString();
+ // Reference values transcribed from the user's COMSOL Parameters 1 screenshot.
+ // These model/geometry defaults are intentionally independent of solver presets.
  function defaults(){
-  const wl=fromInput("wavelength_nm",1550),rc=fromInput("core_radius_um",8),rb=fromInput("outer_radius_um",40);
-  const dn=Number(get("delta_n_core")?.value)||0.005;
   return [
-   {name:"d",expression:`${precision(2*rc)}[um]`,description:"Core diameter / Circle 2"},
-   {name:"Delta",expression:"6.75[um]",description:"Hole separation in reference screenshot (not linked to radial solver)"},
-   {name:"dn_core",expression:precision(dn),description:"Core-cladding index difference for radial FEM"},
-   {name:"rb",expression:`${precision(rb)}[um]`,description:"Computation boundary / Circle 1"},
-   {name:"nbg",expression:get("clad_material")?.value==="fixed"?String(get("clad_index_override").value):"1.45",description:"Background index (reference; optional fixed nclad)"},
-   {name:"nair",expression:"1",description:"Air refractive index (reference)"},
-   {name:"wl",expression:`${precision(wl)}[nm]`,description:"Mode-analysis wavelength"},
-   {name:"neffMax",expression:"nbg-0.0046",description:"Illustrative index upper bound (not a solver constraint)"},
-   {name:"neffMin",expression:"nbg-0.021",description:"Illustrative index lower bound (not a solver constraint)"},
-   {name:"wlr",expression:"wl/sqrt(nbg^2-neffMax^2)",description:"Derived radial wavelength (reference only)"}
+   {name:"d",expression:"5[um]",description:"Hole diameter"},
+   {name:"Delta",expression:"6.75[um]",description:"Hole separation"},
+   {name:"rb",expression:"10[um]",description:"Radius for calculation domain"},
+   {name:"nbg",expression:"1.45",description:"Background refractive index"},
+   {name:"nair",expression:"1",description:"Air refractive index"},
+   {name:"wl",expression:"1.45[um]",description:"Wavelength"},
+   {name:"neffMax",expression:"1.4454",description:"Maximum expected effective index"},
+   {name:"neffMin",expression:"1.429",description:"Minimum expected effective index"},
+   {name:"wlr",expression:"wl/sqrt(nbg^2-neffMax^2)",description:"Wavelength in the radial direction"}
   ];
  }
  params=defaults();
@@ -109,11 +108,9 @@
  }
  function showValue(name,value){
   if(!Number.isFinite(value))return "—";
-  if(["d","rb","wl","wlr"].includes(name)){
-   if(Math.abs(value)>=1e-3)return precision(value)+" m";
-   if(Math.abs(value)>=1e-6)return precision(value*1e6)+" µm";
-   if(Math.abs(value)>=1e-9)return precision(value*1e9)+" nm";
-   return value.toExponential(4)+" m";
+  // COMSOL-style display in SI units, e.g. 5E-6 m, 6.75E-6 m, 1.2564E-5 m.
+  if(["d","Delta","rb","wl","wlr"].includes(name)){
+   return Number(value.toPrecision(5)).toExponential().replace("e","E")+" m";
   }
   return precision(value);
  }
@@ -130,8 +127,8 @@
    <div class="ls-setting-line"><label for="ls-param-label">Label</label><input id="ls-param-label" value="Parameters 1" /></div>
    <div class="ls-config-section-title">▾ Parameters</div>
    <div class="ls-params-scroll"><table class="ls-params-table" aria-label="Global Definitions Parameters"><thead><tr><th>Name</th><th>Expression</th><th>Value</th><th>Description</th><th></th></tr></thead><tbody id="ls-parameter-rows"></tbody></table></div>
-   <div class="ls-config-actions"><button id="ls-params-add" type="button">＋ Add parameter</button><button id="ls-params-reset" type="button">Reset to model</button><button id="ls-params-export" type="button">Export JSON</button><button id="ls-params-import" type="button">📂 Load from File</button><input type="file" id="ls-params-file" accept=".txt,.csv,.tsv,.json,text/plain,text/csv,application/json" hidden/></div>
-   <p class="ls-config-help">Load from File: COMSOL-style tab/space-delimited TXT, CSV/TSV (Name, Expression, Description), or an exported parameter JSON file. Unsupported expressions are retained with a validation warning. Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. d / dn_core / rb / wl link to the concentric radial FEM only after Apply. Delta is a separate reference pitch, not refractive-index contrast.</p>
+   <div class="ls-config-actions"><button id="ls-params-add" type="button">＋ Add parameter</button><button id="ls-params-reset" type="button">Restore defaults</button><button id="ls-params-export" type="button">Export JSON</button><button id="ls-params-import" type="button">📂 Load from File</button><input type="file" id="ls-params-file" accept=".txt,.csv,.tsv,.json,text/plain,text/csv,application/json" hidden/></div>
+   <p class="ls-config-help">Load from File: COMSOL-style tab/space-delimited TXT, CSV/TSV (Name, Expression, Description), or an exported parameter JSON file. Unsupported expressions are retained with a validation warning. Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. All nine reference rows can be edited, removed, or supplemented. The screenshot reference settings are not necessarily valid FEM inputs. Radial FEM uses its existing delta_n_core input unless an optional dn_core parameter is added. Delta is a hole pitch, not index contrast.</p>
   </section>
   <section id="ls-geometry-view" class="ls-config-body" hidden>
    <div class="ls-config-actions ls-circle-choices"><button data-ls-circle="0" type="button">◯ Circle 1 (c1)</button><button data-ls-circle="1" type="button">◉ Circle 2 (c2)</button></div>
@@ -246,7 +243,10 @@
    if([out,core].some(o=>Math.abs(o.xMeters)>1e-12||Math.abs(o.yMeters)>1e-12))throw Error("The radial FEM requires concentric circles centered at x=y=0.");
    if([out,core].some(o=>o.thickness>1e-12))throw Error("Additional geometric layers are preview-only. Set Layer 1 thickness to 0 to apply the two-circle model.");
    if(!(out.r>core.r))throw Error("Circle 1 must contain Circle 2 (rb > d/2).");
-   const outer=out.r*1e6,inner=core.r*1e6,wl=values.get("wl")*1e9,dn=values.get("dn_core");
+   const outer=out.r*1e6,inner=core.r*1e6,wl=values.get("wl")*1e9;
+   // The reference table does not have dn_core; retain solver's own material input.
+   // Users may optionally add dn_core to override it.
+   const dn=values.has("dn_core")?values.get("dn_core"):Number(get("delta_n_core")?.value);
    if(!(outer>=15&&outer<=150&&inner>=0.5&&inner<=60&&outer>inner&&wl>=250&&wl<=3600&&dn>0&&dn<0.1))throw Error("Current radial solver limits: outer radius 15–150 µm, core radius 0.5–60 µm, wavelength 250–3600 nm, 0 < Δn < 0.1.");
    const bg=get("ls-use-background").checked?values.get("nbg"):null;
    if(bg!==null&&!(bg>=1&&bg<2))throw Error("nbg must be 1–2");
@@ -267,7 +267,7 @@
   const el=event.target.closest("[data-remove]");if(!el)return;params.splice(Number(el.dataset.remove),1);renderParameters();
  });
  get("ls-params-add").addEventListener("click",()=>{let i=1;while(params.some(p=>p.name==="p"+i))i++;params.push({name:"p"+i,expression:"1",description:"Custom parameter"});renderParameters();});
- get("ls-params-reset").addEventListener("click",()=>{params=defaults();circles=baseCircle();renderParameters();status("Parameters restored from current fiber model.");});
+ get("ls-params-reset").addEventListener("click",()=>{params=defaults();renderParameters();status("Parameters 1 restored to the nine reference defaults. All values remain editable.");});
 
  // COMSOL-style parameter imports, without changing the physical solver on upload.
  function csvCells(line,delimiter=","){
@@ -355,9 +355,10 @@
  document.addEventListener("ls-open-wave-optics",()=>{if(view)close();},true);
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
-  params=[];circles=baseCircle();
-  if(view==="parameters")renderParameters();
-  status("New 2D model created. Use Load from File to import parameters, or Add parameter to define them.");
+  params=defaults();circles=baseCircle();
+  get("ls-param-label").value="Parameters 1";
+  renderParameters();
+  status("New 2D model: nine COMSOL reference parameters loaded. Edit any row or use Load from File.");
  });
  document.addEventListener("ls-open-settings",e=>open(e.detail?.kind==="geometry"?"geometry":"parameters",e.detail?.circle));
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&view)close();});

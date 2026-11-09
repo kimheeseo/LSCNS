@@ -22,6 +22,7 @@ on:
       - 'COMSOL/universal_silica_v01/web/comsol_startup_wizard.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_startup_wizard.css'
       - 'COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs'
       - '.github/workflows/comsol-style-workbench.yml'
 permissions:
   contents: read
@@ -50,6 +51,7 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_linked_workflow.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_startup_wizard.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -67,6 +69,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_ui_operations.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_linked_workflow.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -82,4 +85,8 @@ jobs:
             /tmp/ls_comsol_ui_operations.png
             /tmp/ls_comsol_linked_workflow.png
             /tmp/ls_comsol_ewfd_new_model_wizard.png
+            /tmp/comsol_circle_radius_build.png
+            /tmp/comsol_circle_hover_red.png
+            /tmp/comsol_circle_multi_layer.png
+            /tmp/comsol_circle_duplicate_delete.png
           if-no-files-found: ignore

@@ -284,12 +284,12 @@
    const label=mini?"":`<text x="${x}" y="${Math.max(20,y-r-7)}" font-size="11" text-anchor="middle" fill="#62788c">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
    let layersMarkup="",covered=0,outer=shape.r;
    if(shape.sector>=359.999){
-    for(const thickness of shape.layers||[]){
+    for(const [layerIndex,thickness] of (shape.layers||[]).entries()){
      if(thickness<=0)continue;
      covered+=thickness;const inner=shape.r-covered;
      if(inner<=0)break;
      const innerPx=inner*scale;
-     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${Math.round(covered*1e9)%2?"#d2dbe2":"#e4e7ea"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
+     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${layerIndex%2?"#c6d4df":"#e6eaee"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
       layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#555b60" stroke-width="${mini?1:1.4}" pointer-events="none"/>`;
      for(const deg of [0,90,180,270]){
       const angle=deg*Math.PI/180,cs=Math.cos(angle),sn=Math.sin(angle);

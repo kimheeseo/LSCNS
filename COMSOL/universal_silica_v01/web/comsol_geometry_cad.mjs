@@ -645,6 +645,24 @@
  });
  document.addEventListener("pointerdown",e=>{if(!context.hidden&&!context.contains(e.target))context.hidden=true;});
  document.addEventListener("ls-open-wave-optics",()=>{if(!pane.hidden)close();},true);
+ document.addEventListener("ls-open-material-editor",()=>{
+  if(!pane.hidden)close();
+  graphics.hidden=false;
+  materialPickMode=false;materialHighlightKeys.clear();
+  draw();
+ });
+ document.addEventListener("ls-material-picking",e=>{
+  materialPickMode=!!e.detail?.enabled;
+  materialHighlightKeys=new Set(e.detail?.entityKeys||[]);
+  if(!materialPickMode)materialHighlightKeys.clear();
+  graphics.hidden=!materialPickMode&&pane.hidden;
+  draw();
+ });
+ document.addEventListener("ls-material-highlight",e=>{
+  materialHighlightKeys=new Set(e.detail?.entityKeys||[]);
+  if(!pane.hidden||!graphics.hidden)draw();
+ });
+
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
@@ -659,7 +677,7 @@
  $("ls-cad-build-leave").addEventListener("change",e=>{buildOnLeave=e.target.checked;});
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
-  checkpoint();nodes=[];selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="m";
+  checkpoint();nodes=[];cumulativeSelections.length=0;activeCumulativeId=null;selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="m";
   const label=$("ls-cad-root-name");if(label)label.textContent=rootLabel;
   drawTree();draw();say("New 2D geometry created. Right-click Geometry 1 → Circle to add your first feature.");
  });
@@ -740,6 +758,53 @@
    error.textContent=ex.message;error.hidden=false;
    $("ls-cad-range-start").focus();
   }
+ });
+
+
+ $("ls-cad-contribute").addEventListener("change",e=>{
+  const n=cur();if(!n)return;
+  checkpoint();n.cumulativeId=e.target.value||null;
+  if(n.cumulativeId)n.selection=true;
+  for(const row of cumulativeSelections){
+   row.featureIds=row.featureIds.filter(id=>id!==n.id);
+   if(row.id===n.cumulativeId)row.featureIds.push(n.id);
+  }
+  loadFields();
+  say(n.cumulativeId?"Contribute to "+cumulativeSelections.find(v=>v.id===n.cumulativeId)?.label:"Cumulative contribution removed.");
+ });
+ $("ls-cad-cumulative-new").addEventListener("click",()=>{
+  if(!cur())return;
+  let number=1;
+  while(cumulativeSelections.some(v=>v.label==="Cumulative Selection "+number))number++;
+  $("ls-cad-cumulative-name").value="Cumulative Selection "+number;
+  $("ls-cad-cumulative-error").hidden=true;
+  $("ls-cad-cumulative-error").textContent="";
+  cumulativeDialog.showModal();
+  $("ls-cad-cumulative-name").focus();
+ });
+ cumulativeDialog.addEventListener("close",()=>{
+  if(cumulativeDialog.returnValue!=="ok")return;
+  const value=$("ls-cad-cumulative-name").value.trim(),node=cur();
+  if(!value||!node)return;
+  const newId="csel"+(cumulativeSelections.length+1);
+  const existing=cumulativeSelections.find(v=>v.label.toLowerCase()===value.toLowerCase());
+  if(existing){say("Cumulative selection already exists: "+value,true);return;}
+  for(const row of cumulativeSelections)row.featureIds=row.featureIds.filter(id=>id!==node.id);
+  cumulativeSelections.push({id:newId,label:value,featureIds:[node.id]});
+  node.cumulativeId=newId;node.selection=true;
+  loadFields();
+  say("Created "+value+" under Geometry 1 → Cumulative Selections.");
+  document.dispatchEvent(new CustomEvent("ls-cad-cumulative-created",{detail:{id:newId,label:value,featureId:node.id}}));
+ });
+ cumulativeDialog.querySelector("form").addEventListener("submit",e=>{
+  const name=$("ls-cad-cumulative-name").value.trim();
+  if(e.submitter?.value!=="ok")return;
+  if(!name){e.preventDefault();$("ls-cad-cumulative-error").hidden=false;$("ls-cad-cumulative-error").textContent="Enter a label";return;}
+  if(cumulativeSelections.some(v=>v.label.toLowerCase()===name.toLowerCase())){e.preventDefault();$("ls-cad-cumulative-error").hidden=false;$("ls-cad-cumulative-error").textContent="Selection name already exists.";}
+ });
+ document.querySelector(".ls-model-tree")?.addEventListener("click",e=>{
+  const selection=e.target.closest("[data-cad-cumulative-id]");
+  if(selection)openCumulative(selection.dataset.cadCumulativeId);
  });
 
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});

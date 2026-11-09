@@ -7,6 +7,7 @@
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0;
+ let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false;
  const undoStack=[],redoStack=[];
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn};}
  function updateHistoryButtons(){
@@ -24,7 +25,20 @@
  <div class="ls-config-body">
   <div id="ls-cad-root-settings" hidden>
    <div class="ls-setting-line"><label for="ls-cad-root-label">Label</label><input id="ls-cad-root-label" value="Geometry 1"/></div>
-   <details class="ls-cad-section" open><summary>Geometry Settings</summary><div class="ls-cad-field"><label for="ls-cad-root-unit">Length unit</label><select id="ls-cad-root-unit"><option value="um">µm</option><option value="nm">nm</option><option value="mm">mm</option><option value="m">m</option></select><span></span></div><div class="ls-cad-field"><label>Space dimension</label><strong>2D</strong><span></span></div></details>
+   <details class="ls-cad-section" open><summary>Units</summary>
+    <label class="ls-cad-check"><input id="ls-cad-scale-unit" type="checkbox"/> Scale values when changing units</label>
+    <div class="ls-cad-field"><label for="ls-cad-root-unit">Length unit</label><select id="ls-cad-root-unit"><option value="m">m</option><option value="mm">mm</option><option value="um">µm</option><option value="nm">nm</option></select><span></span></div>
+    <div class="ls-cad-field"><label for="ls-cad-angle-unit">Angular unit</label><select id="ls-cad-angle-unit"><option>Degrees</option><option>Radians</option></select><span></span></div>
+    </details>
+   <details class="ls-cad-section" open><summary>Constraints and Dimensions</summary>
+    <div class="ls-cad-field"><label for="ls-cad-constraints">Use constraints and dimensions</label><select id="ls-cad-constraints"><option>Off</option><option>On</option></select><span></span></div>
+    <p class="ls-cad-sequence-note">Constraint solver is not yet implemented; the selector is for UI parity.</p>
+   </details>
+   <details class="ls-cad-section" open><summary>Advanced</summary>
+    <div class="ls-cad-field"><label for="ls-cad-repair">Default repair tolerance</label><select id="ls-cad-repair"><option>Automatic</option><option>Manual</option></select><span></span></div>
+    <label class="ls-cad-check"><input id="ls-cad-build-new" type="checkbox" checked/> Build new operations automatically</label>
+    <label class="ls-cad-check"><input id="ls-cad-build-leave" type="checkbox" checked/> Build automatically when leaving geometry</label>
+   </details>
    <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select Circle/Rotate to edit. Build All regenerates the 2D preview.</p></details>
    <details class="ls-cad-section" open><summary>Finalization</summary><p class="ls-cad-sequence-note">Form Union (UI reference). General-purpose 2D Boolean domains are not computed by the radial FEM.</p></details>
   </div>
@@ -104,7 +118,7 @@
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
   let i=1,pre=kind==="circle"?"c":"rot";while(nodes.some(n=>n.id===pre+i))i++;
-  if(kind==="circle")return circle(pre+i,"Circle "+i,"2.5[um]");
+  if(kind==="circle")return circle(pre+i,"Circle "+i,"1[m]");
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }
@@ -120,6 +134,12 @@
     $("ls-cad-subtitle").textContent="Geometry";
     $("ls-cad-root-label").value=rootLabel;
     $("ls-cad-root-unit").value=lengthUnit;
+    $("ls-cad-angle-unit").value=angleUnit;
+    $("ls-cad-constraints").value=constraintMode;
+    $("ls-cad-repair").value=repairTolerance;
+    $("ls-cad-scale-unit").checked=scaleWhenUnitsChange;
+    $("ls-cad-build-new").checked=buildOnNew;
+    $("ls-cad-build-leave").checked=buildOnLeave;
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
     drawTree();draw();return;
    }
@@ -161,7 +181,7 @@
    const n=nodes[i];if(!n.enabled)continue;
    if(n.kind==="circle"){
     const r=evalNumber(n.radius),x=evalNumber(n.x),y=evalNumber(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),thick=evalNumber(n.layer);
-    if(!(r>0&&r<1)||!(sector>0&&sector<=360)||thick<0)throw Error(n.label+": invalid radius, sector or layer");
+    if(!(r>0&&r<=10000)||!(sector>0&&sector<=360)||thick<0)throw Error(n.label+": invalid radius, sector or layer");
     const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",selection:n.selection,color:n.color,derived:false};
     shapes.push(s);original.set(n.id,s);
    }else{
@@ -290,7 +310,7 @@
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
    menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
    {sep:true},menuAction("Transforms","submenu",{children:[menuAction("Rotate","rotate"),menuAction("Move","disabled",{disabled:true}),menuAction("Mirror","disabled",{disabled:true})]}),
-   ...["Booleans and Partitions","Conversions","Chamfer","Fillet","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true}))
+   ...["Parts","Programming","Booleans and Partitions","Conversions","Chamfer","Fillet","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
@@ -330,6 +350,18 @@
  $("ls-cad-close").addEventListener("click",close);
  $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
  $("ls-cad-root-unit").addEventListener("change",e=>{checkpoint();lengthUnit=e.target.value;draw();});
+ $("ls-cad-angle-unit").addEventListener("change",e=>{angleUnit=e.target.value;});
+ $("ls-cad-constraints").addEventListener("change",e=>{constraintMode=e.target.value;});
+ $("ls-cad-repair").addEventListener("change",e=>{repairTolerance=e.target.value;});
+ $("ls-cad-scale-unit").addEventListener("change",e=>{scaleWhenUnitsChange=e.target.checked;});
+ $("ls-cad-build-new").addEventListener("change",e=>{buildOnNew=e.target.checked;});
+ $("ls-cad-build-leave").addEventListener("change",e=>{buildOnLeave=e.target.checked;});
+ document.addEventListener("ls-wizard-finished",e=>{
+  if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
+  checkpoint();nodes=[];selected="root";limit=null;zoom=1;panX=0;panY=0;rootLabel="Geometry 1";lengthUnit="m";
+  const label=$("ls-cad-root-name");if(label)label.textContent=rootLabel;
+  drawTree();draw();say("New 2D geometry created. Right-click Geometry 1 → Circle to add your first feature.");
+ });
  $("ls-cad-undo").addEventListener("click",()=>modify("undo"));
  $("ls-cad-redo").addEventListener("click",()=>modify("redo"));
  document.addEventListener("ls-cad-command",e=>modify(e.detail?.command));

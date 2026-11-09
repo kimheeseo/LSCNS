@@ -484,7 +484,15 @@
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{const s=e.target.closest("[data-cad-shape]");if(s){selected=s.dataset.cadShape;loadFields();}});
  $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
- const viewport=$("ls-cad-view");let gesture=null;
+ const viewport=$("ls-cad-view");let gesture=null,hovered=null;
+ viewport.addEventListener("pointermove",e=>{
+  const next=e.target.closest?.('g[data-cad-shape]')||null;
+  if(next===hovered)return;
+  hovered?.classList.remove("is-hovered");
+  hovered=next;
+  hovered?.classList.add("is-hovered");
+ });
+ viewport.addEventListener("pointerleave",()=>{hovered?.classList.remove("is-hovered");hovered=null;});
  viewport.addEventListener("pointerdown",e=>{
   if(e.button!==0||e.target.closest("[data-cad-shape]"))return;
   gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};

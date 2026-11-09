@@ -1,0 +1,57 @@
+/* 2026-11-09: COMSOL-like 2D Materials overview + Blank Material preview editor */
+body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:228px minmax(395px,510px) minmax(0,1fr)!important}
+body.ls-comsol-shell.ls-material-active .ls-study-pane{display:none!important}
+body.ls-comsol-shell.ls-material-active .ls-output-console{grid-column:3/4!important}
+body.ls-comsol-shell.ls-material-active main.workspace>*:not(.ls-graphics-head):not(#ls-cad-graphics){display:none!important}
+body.ls-comsol-shell.ls-material-active .sidebar.ls-config-active{padding:0!important}
+body.ls-comsol-shell.ls-material-active .sidebar.ls-config-active>:not(#ls-materials-editor){display:none!important}
+body.ls-comsol-shell .ls-materials-editor{display:flex;flex-direction:column;min-height:100%;background:#fff;color:#31475c}
+body.ls-comsol-shell .ls-materials-editor[hidden],#ls-materials-context[hidden]{display:none!important}
+.ls-material-editor-body{padding:13px;flex:1;overflow-y:auto;min-height:0}
+.ls-material-section{border:1px solid #d3dfe9;margin:10px 0;background:#fff;border-radius:2px}
+.ls-material-section>summary{cursor:pointer;background:#e6eef7;font-size:12px;font-weight:600;padding:8px 10px;color:#3a5c7b;list-style:none}
+.ls-material-section>summary::-webkit-details-marker{display:none}
+.ls-material-section>summary:before{content:"▾";margin-right:6px}
+.ls-material-section:not([open])>summary:before{content:"▸"}
+.ls-material-section-inner{padding:9px 9px 13px;min-width:0;overflow-x:auto}
+.ls-material-overview,.ls-material-values{width:100%;border-collapse:collapse;font-size:11px;color:#3a4a5a;table-layout:auto}
+.ls-material-overview th,.ls-material-values th{background:#eaf1f8;border:1px solid #c8d3df;padding:6px 7px;text-align:left;font-weight:500}
+.ls-material-overview td,.ls-material-values td{border:1px solid #d1dae5;padding:7px 5px;vertical-align:middle}
+.ls-material-overview td:first-child{min-width:150px}
+.ls-material-warning{color:#bd4148;margin-right:5px}
+.ls-material-explainer,.ls-material-help{font-size:11px;line-height:1.55;color:#778a9a;margin:8px 3px}
+.ls-material-primary{border:1px solid #7faed0;background:#eaf6ff;color:#1a6699;padding:6px 12px;border-radius:3px;font-size:12px;cursor:pointer}
+.ls-material-primary:hover{background:#d8ecfa}
+.ls-material-field{display:flex;flex-direction:column;gap:5px;font-size:12px;margin:8px 0;color:#3f5c75}
+.ls-material-field select{background:#fff;color:#324e64;border:1px solid #b7c8d9;border-radius:2px;padding:6px 5px;width:100%}
+.ls-material-selection-row{display:flex;gap:7px;min-height:110px}
+#ls-material-pick{height:35px;min-width:36px;align-self:flex-start;border:1px solid #a6c5db;background:#f7fcff;color:#2c7eb6;font-size:19px;cursor:pointer}
+#ls-material-pick.active,#ls-material-pick[aria-pressed="true"]{border:2px solid #247bc2;background:#d8e9ff}
+#ls-material-domain-list{background:#fafdff;border:1px solid #d0d9e5;padding:4px;max-height:180px;overflow:auto;flex:1;min-width:0}
+.ls-material-domain-option{display:flex;gap:7px;align-items:center;cursor:pointer;min-width:0;padding:4px 3px;font-size:11px;color:#314d63}
+.ls-material-domain-option:hover{background:#ebf3fb}
+.ls-material-domain-option input{accent-color:#306db0}
+.ls-material-domain-option span{overflow-wrap:anywhere;min-width:0}
+.ls-material-values input{min-width:60px;max-width:115px;width:100%;border:1px solid #bdd0df;font-size:11px;padding:5px;color:#2e4860}
+.ls-materials-editor .ls-setting-line{margin-bottom:12px}
+.ls-materials-editor .ls-config-status{margin:10px 0 0;line-height:1.5}
+#ls-materials-context{position:fixed;z-index:999999;display:flex;flex-direction:column;width:260px;background:#fff;box-shadow:0 8px 23px #142d4566;border:1px solid #91a9bc;color:#354f67;padding:5px 0}
+#ls-materials-context button{display:flex;justify-content:space-between;align-items:center;width:100%;height:29px;text-align:left;padding:5px 13px;font-size:12px;border:0;background:transparent;color:#374f64;cursor:pointer}
+#ls-materials-context button:hover{background:#d5e9fd;color:#145b92}
+#ls-materials-context button small{color:#8a9eb0;font-size:10px}
+.ls-cad-subsection{border-bottom:1px solid #cad5e1;font-size:11px;padding:7px 10px;color:#7891a5;font-weight:600}
+.ls-cad-cumulative-row{grid-template-columns:105px minmax(0,1fr) auto!important}
+#ls-cad-cumulative-new{font-size:11px;border:1px solid #b7c9db;border-radius:2px;background:#eef5fb;color:#376e97;padding:5px 10px}
+#ls-cad-cumulative-dialog{width:min(375px,calc(100vw - 30px));border:1px solid #aabaca;background:#fff;border-radius:3px;box-shadow:0 8px 27px #1e354555;padding:0;color:#324b60}
+#ls-cad-cumulative-dialog::backdrop{background:#1d304334}
+#ls-cad-cumulative-dialog h3{margin:0;padding:13px;background:#ebf2fa;border-bottom:1px solid #c4d3df;font-size:14px}
+#ls-cad-cumulative-dialog label{display:block;font-size:12px;padding:14px 14px 4px}
+#ls-cad-cumulative-dialog input{display:block;width:calc(100% - 28px);margin:3px 14px 15px;border:1px solid #b8cad9;padding:7px 9px;font-size:12px}
+#ls-cad-cumulative-dialog p{margin:2px 14px;color:#b63c39;font-size:11px}
+#ls-cad-cumulative-dialog .ls-cad-dialog-actions{display:flex;justify-content:flex-end;gap:8px;padding:9px 14px;background:#f9fbfd;border-top:1px solid #dbe5eb}
+#ls-cad-cumulative-dialog button{padding:6px 17px;border:1px solid #aec6da;background:#eef5fc;border-radius:2px;color:#236897;font-size:12px}
+#ls-cad-view .ls-cad-rendered-shape.is-material-selected .ls-cad-rendered-surface{fill:#b6b2f4!important;stroke:#3f3dc2!important;stroke-width:2!important;fill-opacity:.76!important}
+#ls-cad-view .ls-cad-rendered-shape.is-cumulative-selected .ls-cad-rendered-surface{stroke:#179c9a;stroke-width:2.5}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-rendered-surface{fill:#a4b2fa!important;stroke:#5350c8!important}
+@media(max-width:1080px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:195px minmax(335px,450px) minmax(0,1fr)!important}}
+@media(max-width:760px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:1fr!important;display:block!important}body.ls-comsol-shell.ls-material-active #ls-cad-graphics{min-height:340px}body.ls-comsol-shell.ls-material-active .sidebar{max-height:480px!important;overflow-y:auto}}

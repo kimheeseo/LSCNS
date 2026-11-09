@@ -29,6 +29,7 @@
  function entityLevel(material){return LEVELS.includes(material?.level)?material.level:"Domain";}
  function getEntities(level="Domain"){
   if(!LEVELS.includes(level))return [];
+  if(level==="Domain"&&geometry()?.domains)return geometry().domains().map(domain=>({id:domain.id,entityKey:domain.entityKey,owner:domain.owner,source:domain.source,label:domain.label,level:"Domain",domainKey:domain.key}));
   try{
    const entities=geometry()?.entities()||[],output=[];
    for(const shape of entities){
@@ -153,12 +154,21 @@
  }
  function highlight(){
   if(pane.hidden)return;
-  document.dispatchEvent(new CustomEvent("ls-material-highlight",{detail:{entityKeys:selectedKeys()}}));
+  const material=materials.find(m=>m.id===activeId);
+  document.dispatchEvent(new CustomEvent("ls-material-highlight",{detail:{
+   entityKeys:selectedKeys(),
+   domainIds:material&&entityLevel(material)==="Domain"?assignedEntities(material,getDomains()).map(d=>d.id):[],
+   level:entityLevel(material)
+  }}));
  }
  function pickChanged(enabled){
   const material=materials.find(m=>m.id===activeId);
   manualPick=!!enabled&&material?.mode!=="cumulative";
-  document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{enabled:manualPick,entityKeys:manualPick?selectedKeys():[]}}));
+  document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{
+   enabled:manualPick,entityKeys:manualPick?selectedKeys():[],
+   domainIds:material&&entityLevel(material)==="Domain"?assignedEntities(material,getDomains()).map(d=>d.id):[],
+   level:entityLevel(material)
+  }}));
   if($("ls-material-pick")){$("ls-material-pick").setAttribute("aria-pressed",String(manualPick));$("ls-material-pick").classList.toggle("active",manualPick);}
  }
  function open(id=null){
@@ -282,7 +292,12 @@
   if(!manualPick||pane.hidden)return;
   const material=materials.find(x=>x.id===activeId);if(!material||material.mode==="cumulative")return;
   const level=entityLevel(material),entities=getEntities(level);
-  const matched=entities.filter(entity=>entity.entityKey===e.detail?.entityKey);
+  // Domain selection is per physical preview region, NOT per whole circle.
+  // Boundary and Point retain feature-based selection for now.
+  const targetId=Number(e.detail?.domainId);
+  const matched=level==="Domain"&&Number.isInteger(targetId)&&targetId>0
+   ?entities.filter(entity=>entity.id===targetId)
+   :entities.filter(entity=>entity.entityKey===e.detail?.entityKey);
   if(!matched.length)return;
   const current=new Set(assignedEntities(material,entities).map(x=>x.id));
   const allSelected=matched.every(d=>current.has(d.id));
@@ -294,7 +309,7 @@
    material.selectedIdsByLevel??={Boundary:[],Point:[]};
    material.selectedIdsByLevel[level]=ids;
   }
-  warning="Changed "+level.toLowerCase()+" preview selection for "+e.detail.entityKey+" ("+matched.length+" entity/ies).";
+  warning="Changed "+level.toLowerCase()+" preview selection for "+(e.detail?.domainId??e.detail?.entityKey)+" ("+matched.length+" entity/ies).";
   render();pickChanged(true);
  });
  document.addEventListener("ls-cad-cumulative-changed",()=>{

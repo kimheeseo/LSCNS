@@ -28,6 +28,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_adjacent_selection.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_adjacent_selection.css'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.css'
       - '.github/workflows/comsol-style-workbench.yml'
@@ -65,6 +68,8 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
+          node --check COMSOL/universal_silica_v01/web/comsol_adjacent_selection.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -88,6 +93,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -119,4 +125,7 @@ jobs:
             /tmp/comsol_material_individual_selected_domains.png
             /tmp/comsol_definitions_tab_desktop.png
             /tmp/comsol_definitions_tab_mobile.png
+            /tmp/comsol_adjacent_material1_before.png
+            /tmp/comsol_adjacent_created.png
+            /tmp/comsol_adjacent_two_boundaries_selected.png
           if-no-files-found: ignore

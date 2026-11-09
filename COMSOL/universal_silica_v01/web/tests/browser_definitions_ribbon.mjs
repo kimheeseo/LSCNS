@@ -46,7 +46,7 @@ try{
  assert.equal(await page.locator(".ls-definitions-groups").count(),0);
  assert.ok(await page.locator('#ls-ribbon-tools [data-action="compute"]').isVisible());
  await definitions.click();
- await page.locator('#ls-ribbon-tools button').filter({hasText:/^View$/}).evaluate(el=>el.click());
+ await page.locator('#ls-ribbon-tools button[aria-label="View"]').evaluate(el=>el.click());
  assert.equal(await page.locator("#ls-cad-subtitle").textContent(),titleBefore);
  assert.ok(await page.locator("#ls-cad-pane").isVisible());
  assert.deepEqual(errors,[]);

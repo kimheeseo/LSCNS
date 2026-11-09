@@ -205,6 +205,7 @@
  document.addEventListener("ls-open-wave-optics",e=>open(e.detail?.panel));
  // Other panels have already opened by the time these handlers run.
  document.addEventListener("ls-open-cad",close);
+ document.addEventListener("ls-open-material-editor",close);
  document.addEventListener("ls-cad-add",close);
  document.addEventListener("ls-open-settings",close);
  const observer=new MutationObserver(()=>{if(!pane.hidden&&["waveResults","waveDerived"].includes(active))render();});

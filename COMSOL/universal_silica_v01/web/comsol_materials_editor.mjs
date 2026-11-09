@@ -156,9 +156,10 @@
   document.dispatchEvent(new CustomEvent("ls-material-highlight",{detail:{entityKeys:selectedKeys()}}));
  }
  function pickChanged(enabled){
-  manualPick=enabled;
-  document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{enabled,entityKeys:enabled?selectedKeys():[]}}));
-  if($("ls-material-pick")){$("ls-material-pick").setAttribute("aria-pressed",String(enabled));$("ls-material-pick").classList.toggle("active",enabled);}
+  const material=materials.find(m=>m.id===activeId);
+  manualPick=!!enabled&&material?.mode!=="cumulative";
+  document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{enabled:manualPick,entityKeys:manualPick?selectedKeys():[]}}));
+  if($("ls-material-pick")){$("ls-material-pick").setAttribute("aria-pressed",String(manualPick));$("ls-material-pick").classList.toggle("active",manualPick);}
  }
  function open(id=null){
   activeId=id;
@@ -231,32 +232,74 @@
  });
  pane.addEventListener("change",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
+  if(e.target.id==="ls-material-entity-level"){
+   const newLevel=e.target.value;
+   if(!LEVELS.includes(newLevel))return;
+   material.level=newLevel;
+   // Keep separately selected IDs per entity level. Switching levels must
+   // never reuse Domain IDs as Boundary or Point assignments.
+   render();pickChanged(manualPick&&material.mode!=="cumulative");
+   return;
+  }
   if(e.target.id==="ls-material-select-mode"){
-   material.mode=e.target.value;
-   if(material.mode==="manual"&&!material.domainIds.length)material.domainIds=getDomains().map(x=>x.id);
-   render();pickChanged(manualPick);
+   const value=e.target.value;
+   if(value.startsWith("cumulative:")){
+    const id=value.slice("cumulative:".length);
+    if(!cumulativeSelections().some(row=>row.id===id)){
+     showMessage("Named Cumulative Selection is no longer available.");render();return;
+    }
+    material.mode="cumulative";material.cumulativeId=id;
+    render();pickChanged(false);
+   }else if(value==="all"||value==="manual"){
+    material.mode=value;material.cumulativeId=null;
+    if(value==="manual"&&!explicitIds(material,entityLevel(material)).length){
+     const ids=getEntities(entityLevel(material)).map(x=>x.id);
+     if(entityLevel(material)==="Domain")material.domainIds=ids;
+     else{
+      material.selectedIdsByLevel??={Boundary:[],Point:[]};
+      material.selectedIdsByLevel[entityLevel(material)]=ids;
+     }
+    }
+    render();pickChanged(manualPick);
+   }
    return;
   }
   const box=e.target.closest("[data-material-domain]");
-  if(box){
-   material.mode="manual";
-   const id=Number(box.dataset.materialDomain);
-   material.domainIds=material.domainIds.filter(x=>x!==id);
-   if(box.checked)material.domainIds.push(id);
+  if(box&&material.mode==="manual"){
+   const level=entityLevel(material),id=Number(box.dataset.materialDomain);
+   const ids=new Set(explicitIds(material,level));
+   if(box.checked)ids.add(id);else ids.delete(id);
+   const saved=[...ids].sort((a,b)=>a-b);
+   if(level==="Domain")material.domainIds=saved;
+   else{
+    material.selectedIdsByLevel??={Boundary:[],Point:[]};
+    material.selectedIdsByLevel[level]=saved;
+   }
    render();pickChanged(manualPick);
   }
  });
  document.addEventListener("ls-material-geometry-click",e=>{
   if(!manualPick||pane.hidden)return;
-  const material=materials.find(x=>x.id===activeId);if(!material)return;
-  const matched=getDomains().filter(d=>d.entityKey===e.detail?.entityKey);
+  const material=materials.find(x=>x.id===activeId);if(!material||material.mode==="cumulative")return;
+  const level=entityLevel(material),entities=getEntities(level);
+  const matched=entities.filter(entity=>entity.entityKey===e.detail?.entityKey);
   if(!matched.length)return;
-  const current=new Set(assignedDomains(material,getDomains()).map(x=>x.id));
+  const current=new Set(assignedEntities(material,entities).map(x=>x.id));
   const allSelected=matched.every(d=>current.has(d.id));
   for(const d of matched){if(allSelected)current.delete(d.id);else current.add(d.id);}
-  material.mode="manual";material.domainIds=[...current].sort((a,b)=>a-b);
-  warning="Changed preview selection for "+e.detail.entityKey+" ("+matched.length+" region(s)).";
+  material.mode="manual";material.cumulativeId=null;
+  const ids=[...current].sort((a,b)=>a-b);
+  if(level==="Domain")material.domainIds=ids;
+  else{
+   material.selectedIdsByLevel??={Boundary:[],Point:[]};
+   material.selectedIdsByLevel[level]=ids;
+  }
+  warning="Changed "+level.toLowerCase()+" preview selection for "+e.detail.entityKey+" ("+matched.length+" entity/ies).";
   render();pickChanged(true);
+ });
+ document.addEventListener("ls-cad-cumulative-changed",()=>{
+  // Refresh the named-selection options and the currently displayed assignments.
+  if(!pane.hidden)render();
  });
  document.addEventListener("ls-cad-state",()=>{
   if(pane.hidden)return;
@@ -269,6 +312,6 @@
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-open-wave-optics",close);
  document.addEventListener("ls-open-settings",close);
- window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds]})),domains:getDomains});
+ window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel}})),domains:getDomains,entities:getEntities});
  treeRender();
 })();

@@ -316,7 +316,7 @@
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    const shapes=compute();
    const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
-   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
+   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
    if($("ls-cad-status").textContent.startsWith("Preview error:"))say("Graphics updated.");
    emitCadState();
   }catch(e){

@@ -7,7 +7,7 @@
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
- let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false;
+ let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false;
  const undoStack=[],redoStack=[];
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
@@ -61,8 +61,8 @@
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
-   <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects</label><div id="ls-cad-inputs" class="ls-cad-inputs"></div><label class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
-   <details class="ls-cad-section" open><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><input id="ls-cad-angle"/><span>deg</span></div><small>range(0,60,300) generates 0°, 60°, ..., 300°</small></details>
+   <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
+   <details class="ls-cad-section" open><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><div class="ls-cad-angle-entry"><input id="ls-cad-angle" spellcheck="false"/><span>deg</span><button type="button" id="ls-cad-range-open" title="Range — Start, Step, Stop" aria-label="Range">▥</button></div><span></span></div><small>Use an angle, range(start,step,stop), or comma-separated ranges. Click Range to open the step dialog.</small></details>
    <details class="ls-cad-section" open><summary>Center of Rotation</summary><div class="ls-cad-field"><label for="ls-cad-cx">x</label><input id="ls-cad-cx"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-cy">y</label><input id="ls-cad-cy"/><span>m</span></div></details>
   </div>
   <details class="ls-cad-section" open><summary>Selections of Resulting Entities</summary>
@@ -90,6 +90,23 @@
  confirmDialog.setAttribute("aria-labelledby","ls-cad-delete-title");
  confirmDialog.innerHTML='<form method="dialog"><h3 id="ls-cad-delete-title">Confirm Delete</h3><p id="ls-cad-delete-message"></p><div class="ls-cad-dialog-actions"><button type="submit" value="yes" class="ls-cad-confirm-yes">Yes</button><button type="submit" value="no" class="ls-cad-confirm-no">No</button></div></form>';
  document.body.append(confirmDialog);
+ const rangeDialog=document.createElement("dialog");
+ rangeDialog.id="ls-cad-range-dialog";
+ rangeDialog.setAttribute("aria-labelledby","ls-cad-range-title");
+ rangeDialog.innerHTML=`<form id="ls-cad-range-form" method="dialog" novalidate>
+   <div class="ls-cad-range-titlebar"><strong id="ls-cad-range-title">Range</strong><button type="button" id="ls-cad-range-close" title="Close">×</button></div>
+   <div class="ls-cad-range-body">
+    <label for="ls-cad-range-method">Entry method:</label><select id="ls-cad-range-method"><option value="Step">Step</option></select>
+    <label for="ls-cad-range-start">Start:</label><input id="ls-cad-range-start" autocomplete="off" spellcheck="false" required/>
+    <label for="ls-cad-range-step">Step:</label><input id="ls-cad-range-step" autocomplete="off" spellcheck="false" required/>
+    <label for="ls-cad-range-stop">Stop:</label><input id="ls-cad-range-stop" autocomplete="off" spellcheck="false" required/>
+    <label for="ls-cad-range-function">Function to apply to all values:</label><select id="ls-cad-range-function"><option value="none">None</option><option value="negate">Negate</option></select>
+    <p id="ls-cad-range-error" role="alert" hidden></p>
+   </div>
+   <div class="ls-cad-range-actions"><button type="submit" value="replace" id="ls-cad-range-replace">Replace</button><button type="submit" value="add" id="ls-cad-range-add">Add</button><button type="button" id="ls-cad-range-cancel">Cancel</button></div>
+  </form>`;
+ document.body.append(rangeDialog);
+
  confirmDialog.addEventListener("close",()=>{
   if(confirmDialog.returnValue!=="yes")return;
   const id=confirmDialog.dataset.deleteId;

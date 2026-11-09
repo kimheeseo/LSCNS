@@ -74,7 +74,27 @@ try{
   const q=point.matrixTransform(svg.getScreenCTM());
   return {x:q.x,y:q.y};
  });
+ await page.evaluate(()=>{
+  window.__lsBoundaryClicks=[];
+  document.addEventListener("click",event=>{
+   window.__lsBoundaryClicks.push({
+    target:event.target?.tagName,
+    html:event.target?.outerHTML?.slice(0,250),
+    adjacent:event.target?.closest?.("[data-adjacent-key]")?.getAttribute("data-adjacent-key")||null
+   });
+  },true);
+ });
  await page.mouse.click(pixel.x,pixel.y);
+ const diagnostic=await page.evaluate(({x,y})=>({
+  pixel:{x,y},hitTag:document.elementFromPoint(x,y)?.tagName,
+  hitHTML:document.elementFromPoint(x,y)?.outerHTML?.slice(0,300),
+  clickEvents:window.__lsBoundaryClicks,
+  paneVisible:!document.querySelector("#ls-adjacent-editor")?.hidden,
+  active:document.querySelector("#ls-cad-view .ls-cad-adjacent-overlay")?.outerHTML?.slice(0,250),
+  body:document.body.className,
+  selection:window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Boundary
+ }),pixel);
+ console.log("Adjacent real click diagnostics:",JSON.stringify(diagnostic));
  let saved=await page.evaluate(()=>window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Boundary);
  assert.equal(saved.length,1,"One ring mouse click adds one boundary only");
  assert.equal(saved[0],a);

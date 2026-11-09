@@ -55,3 +55,13 @@ body.ls-comsol-shell .ls-materials-editor[hidden],#ls-materials-context[hidden]{
 #ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-rendered-surface{fill:#c2c5f3!important;stroke:#5350c8!important}
 @media(max-width:1080px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:195px minmax(335px,450px) minmax(0,1fr)!important}}
 @media(max-width:760px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:1fr!important;display:block!important}body.ls-comsol-shell.ls-material-active #ls-cad-graphics{min-height:340px}body.ls-comsol-shell.ls-material-active .sidebar{max-height:480px!important;overflow-y:auto}}
+
+
+/* Individual Material 1 domain selection: render only the chosen FEM-preview
+ * geometry region in purple, never paint the entire source Circle at once. */
+#ls-cad-view .ls-cad-material-domain-overlay[data-domain-picker="active"] .ls-cad-material-region{cursor:crosshair}
+#ls-cad-view .ls-cad-material-domain-overlay[data-domain-picker="active"] .ls-cad-material-region:hover:not(.is-selected){fill:#9eaeec;fill-opacity:.32;stroke:#5149c7;stroke-width:1}
+#ls-cad-view .ls-cad-material-domain-overlay .ls-cad-material-region.is-selected{fill:#9b94e7;fill-opacity:.63;stroke:#5149cb;stroke-width:1.35}
+#ls-cad-view .ls-cad-material-domain-overlay .ls-cad-material-region.is-selected:hover{fill-opacity:.8;stroke-width:2}
+#ls-material-domain-list .ls-material-domain-option:has(input:checked){background:#e9e8ff;color:#303e85;border-radius:2px}
+#ls-material-domain-list .ls-material-domain-option:has(input:checked) b{color:#3c3fb1}

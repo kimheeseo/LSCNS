@@ -78,3 +78,25 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 }
 
 @media(max-height:760px){#ls-cad-menu>ul{max-height:calc(100vh - 22px);overflow-y:auto}#ls-cad-menu li>ul{left:auto;right:0;top:22px}}
+
+/* 2026-11-09: parameterized Circle + inward material-layer geometry */
+#ls-cad-extra-layers{display:contents}
+#ls-cad-extra-layers>label{padding:8px 10px;font-size:11px;border:1px solid #d2dce5}
+#ls-cad-extra-layers>input{min-width:0;width:100%;border:1px solid #d2dce5;background:#fff;padding:5px 7px;color:#314a60}
+.ls-cad-layer-tools{display:flex;justify-content:flex-end;gap:8px;padding:0 11px 7px}
+.ls-cad-layer-tools button{border:1px solid #b7cce0;border-radius:2px;background:#f6fafd;color:#3173a5;font-size:11px;padding:5px 7px}
+.ls-cad-layer-tools button:hover:not(:disabled){background:#dbeefa}
+.ls-cad-layer-tools button:disabled{opacity:.45;cursor:not-allowed}
+#ls-cad-view .ls-cad-rendered-shape{cursor:pointer;transition:opacity .1s}
+#ls-cad-view .ls-cad-rendered-shape .ls-cad-rendered-surface{transition:fill .08s,fill-opacity .08s,stroke .08s}
+#ls-cad-view .ls-cad-rendered-shape:hover .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-hovered .ls-cad-rendered-surface{fill:#eea7a3;fill-opacity:.8;stroke:#bb4545}
+#ls-cad-view .ls-cad-rendered-shape:hover > .ls-cad-layer-boundary,
+#ls-cad-view .ls-cad-rendered-shape.is-hovered > .ls-cad-layer-boundary{stroke:#b64c4c}
+#ls-cad-delete-dialog{width:min(420px,calc(100vw - 32px));background:#fff;border:1px solid #aab7c4;border-radius:5px;padding:0;box-shadow:0 9px 28px #26354366;color:#27384a;font-size:13px;z-index:1000000}
+#ls-cad-delete-dialog::backdrop{background:rgba(20,35,55,.28)}
+#ls-cad-delete-dialog h3{margin:0;padding:12px 15px;border-bottom:1px solid #d6e1ec;font-size:14px;font-weight:600;background:#f7fafe}
+#ls-cad-delete-dialog p{margin:18px 18px 28px;line-height:1.5}
+#ls-cad-delete-dialog .ls-cad-dialog-actions{display:flex;gap:10px;justify-content:flex-end;padding:11px 18px;border-top:1px solid #e1e7ee}
+#ls-cad-delete-dialog button{min-width:72px;padding:6px 14px;border:1px solid #bccbda;background:#f8fafc;border-radius:3px;color:#2c4055}
+#ls-cad-delete-dialog .ls-cad-confirm-yes{border-color:#589bcf;background:#def0ff}

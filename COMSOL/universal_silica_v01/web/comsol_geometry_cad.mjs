@@ -4,7 +4,7 @@
  if(!side||!main||!svc||$("ls-cad-pane"))return;
  const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const unit=n=>Number(n.toPrecision(10)).toString();
- const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",selection:false,color:"None"});
+ const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0;
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false;
@@ -54,7 +54,11 @@
     <div class="ls-cad-field"><label for="ls-cad-x">x</label><input id="ls-cad-x"/><span>m</span></div>
     <div class="ls-cad-field"><label for="ls-cad-y">y</label><input id="ls-cad-y"/><span>m</span></div></details>
    <details class="ls-cad-section" open><summary>Rotation Angle</summary><div class="ls-cad-field"><label for="ls-cad-rotation">Rotation</label><input id="ls-cad-rotation"/><span>deg</span></div></details>
-   <details class="ls-cad-section" open><summary>Layers</summary><div class="ls-cad-layer"><span>Layer name</span><span>Thickness (m)</span><label for="ls-cad-layer">Layer 1</label><input id="ls-cad-layer"/></div></details>
+   <details class="ls-cad-section" id="ls-cad-layers-section"><summary>Layers</summary>
+     <div class="ls-cad-layer"><span>Layer name</span><span>Thickness (m)</span><label for="ls-cad-layer">Layer 1</label><input id="ls-cad-layer" spellcheck="false" aria-label="Layer 1 thickness"/><div id="ls-cad-extra-layers"></div></div>
+     <div class="ls-cad-layer-tools"><button id="ls-cad-add-layer" type="button">＋ Add Layer</button><button id="ls-cad-remove-layer" type="button">－ Remove Last Layer</button></div>
+     <p class="ls-cad-sequence-note">Layer thickness is drawn inward from the circle boundary. Multiple layers create concentric boundaries in the Graphics preview; not linked to the radial FEM.</p>
+   </details>
   </div>
   <div id="ls-cad-rotate" hidden>
    <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects</label><div id="ls-cad-inputs" class="ls-cad-inputs"></div><label class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
@@ -81,13 +85,26 @@
  const context=document.createElement("div");
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
  document.body.append(context);
+ const confirmDialog=document.createElement("dialog");
+ confirmDialog.id="ls-cad-delete-dialog";
+ confirmDialog.setAttribute("aria-labelledby","ls-cad-delete-title");
+ confirmDialog.innerHTML='<form method="dialog"><h3 id="ls-cad-delete-title">Confirm Delete</h3><p id="ls-cad-delete-message"></p><div class="ls-cad-dialog-actions"><button type="submit" value="yes" class="ls-cad-confirm-yes">Yes</button><button type="submit" value="no" class="ls-cad-confirm-no">No</button></div></form>';
+ document.body.append(confirmDialog);
+ confirmDialog.addEventListener("close",()=>{
+  if(confirmDialog.returnValue!=="yes")return;
+  const id=confirmDialog.dataset.deleteId;
+  if(!nodes.some(n=>n.id===id))return;
+  checkpoint();const i=index(id);nodes.splice(i,1);
+  selected=nodes.length?nodes[Math.min(i,nodes.length-1)].id:"root";
+  limit=null;loadFields();say("Deleted "+id+" from Geometry 1. Undo can restore the object.");
+ });
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
  const physSignature=()=>{
-  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]);
+  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]);
   // Resolve parameter expressions as well as literal expressions. An edit of d/rb
   // changes the geometry even if Circle 1/2 still display the same expressions.
   const evaluated=nodes.filter(n=>n.kind==="circle").map(n=>{
-   try{return [n.id,...[n.radius,n.x,n.y,n.sector,n.layer].map(x=>svc.calculate(x))];}
+   try{return [n.id,...[n.radius,n.x,n.y,n.sector,n.layer,...(n.layerExtra||[])].map(x=>svc.calculate(x))];}
    catch(e){return [n.id,"parameter error",e.message];}
   });
   return JSON.stringify([structural,evaluated]);
@@ -101,7 +118,7 @@
    const c1=nodes.find(n=>n.id==="c1"),c2=nodes.find(n=>n.id==="c2");
    if(!c1?.enabled||!c2?.enabled)throw Error("Original Circle 1 and Circle 2 must be enabled.");
    const check=n=>{
-    if(n.type!=="Solid"||Math.abs(evalNumber(n.sector)-360)>1e-9||evalNumber(n.layer)>1e-12)throw Error(n.label+" must be a 360° Solid with no layers.");
+    if(n.type!=="Solid"||Math.abs(evalNumber(n.sector)-360)>1e-9||getLayers(n).some(t=>t>1e-12))throw Error(n.label+" must be a 360° Solid with no layers.");
     if(Math.abs(evalNumber(n.x))>1e-12||Math.abs(evalNumber(n.y))>1e-12)throw Error("Radial FEM requires circles centered at (0,0).");
     return evalNumber(n.radius)*1e6;
    };
@@ -115,6 +132,23 @@
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
  window.LSWaveCADService=Object.freeze({status,apply:()=>apply()});
  const evalNumber=s=>svc.calculate(s);
+ function getLayers(n){
+  const all=[n.layer??"0[um]",...(n.layerExtra||[])].map(x=>evalNumber(x||"0[um]"));
+  if(all.some(v=>!Number.isFinite(v)||v<0))throw Error(n.label+": layer thickness must be finite and nonnegative.");
+  return all;
+ }
+ function renderExtraLayers(n){
+  const holder=$("ls-cad-extra-layers");if(!holder)return;
+  holder.replaceChildren();
+  (n.layerExtra||[]).forEach((thickness,i)=>{
+   const label=document.createElement("label"),input=document.createElement("input");
+   label.textContent="Layer "+(i+2);input.value=thickness;input.dataset.cadLayerExtra=String(i);
+   input.setAttribute("aria-label","Layer "+(i+2)+" thickness");
+   input.spellcheck=false;
+   holder.append(label,input);
+  });
+  $("ls-cad-remove-layer").disabled=!(n.layerExtra?.length);
+ }
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
   let i=1,pre=kind==="circle"?"c":"rot";while(nodes.some(n=>n.id===pre+i))i++;
@@ -147,6 +181,7 @@
   $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=n.kind!=="rotate";
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
+   renderExtraLayers(n);
   }else{
    $("ls-cad-angle").value=n.angle;$("ls-cad-cx").value=n.cx;$("ls-cad-cy").value=n.cy;$("ls-cad-keep").checked=n.keep;
    const list=$("ls-cad-inputs");list.replaceChildren();
@@ -180,9 +215,10 @@
   for(let i=0;i<=max;i++){
    const n=nodes[i];if(!n.enabled)continue;
    if(n.kind==="circle"){
-    const r=evalNumber(n.radius),x=evalNumber(n.x),y=evalNumber(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),thick=evalNumber(n.layer);
-    if(!(r>0&&r<=10000)||!(sector>0&&sector<=360)||thick<0)throw Error(n.label+": invalid radius, sector or layer");
-    const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",selection:n.selection,color:n.color,derived:false};
+    const r=evalNumber(n.radius),x=evalNumber(n.x),y=evalNumber(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),layers=getLayers(n);
+    if(!(r>0&&r<=10000)||!(sector>0&&sector<=360))throw Error(n.label+": invalid radius or sector");
+    if(layers.reduce((a,b)=>a+b,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
+    const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false};
     shapes.push(s);original.set(n.id,s);
    }else{
     if(!n.inputIds.length)throw Error(n.label+": select input circles");
@@ -256,7 +292,15 @@
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
-   case "delete":{if(!n)return;checkpoint();nodes.splice(idx,1);if(!nodes.length)nodes=defaults();selected=nodes[Math.min(idx,nodes.length-1)].id;limit=null;loadFields();return;}
+   case "delete":{
+    if(!n)return;
+    confirmDialog.dataset.deleteId=n.id;
+    $("ls-cad-delete-message").textContent='Are you sure you want to delete "'+n.label+' ('+n.id+')" ?';
+    confirmDialog.returnValue="no";
+    if(typeof confirmDialog.showModal==="function")confirmDialog.showModal();
+    else if(window.confirm("Delete "+n.label+"?")){confirmDialog.returnValue="yes";confirmDialog.dispatchEvent(new Event("close"));}
+    return;
+   }
    case "toggle":{if(!n)return;checkpoint();n.enabled=!n.enabled;limit=null;loadFields();say(`${n.label} ${n.enabled?"enabled":"disabled"}.`);return;}
    case "rename":if(!n)return;open();$("ls-cad-label").focus();$("ls-cad-label").select();return;
    case "settings":open();return;
@@ -284,10 +328,10 @@
    const c1=nodes.find(n=>n.id==="c1"),c2=nodes.find(n=>n.id==="c2");
    if(!c1?.enabled||!c2?.enabled)throw Error("Circle 1 and Circle 2 must be enabled.");
    function r(c){
-    const x=evalNumber(c.x),y=evalNumber(c.y),a=evalNumber(c.sector),t=evalNumber(c.layer),radius=evalNumber(c.radius);
+    const x=evalNumber(c.x),y=evalNumber(c.y),a=evalNumber(c.sector),layers=getLayers(c),radius=evalNumber(c.radius);
     if(c.type!=="Solid"||a!==360)throw Error("Radial FEM requires 360° solid circles.");
     if(Math.abs(x)>1e-12||Math.abs(y)>1e-12)throw Error("Radial FEM requires concentric centers at (0,0).");
-    if(t>1e-12)throw Error("Extra layers are not supported by two-circle Radial FEM.");
+    if(layers.some(t=>t>1e-12))throw Error("Extra layers are not supported by two-circle Radial FEM.");
     return radius*1e6;
    }
    const outer=r(c1),inner=r(c2),wl=evalNumber("wl")*1e9,dn=evalNumber("dn_core");
@@ -381,6 +425,18 @@
   $("ls-cad-"+key).addEventListener("input",e=>{const n=cur();if(!n||!(key in n))return;checkpoint();n[key]=e.target.value;draw();});
  }
  $("ls-cad-label").addEventListener("input",e=>{if(!cur())return;checkpoint();cur().label=e.target.value;drawTree();});
+
+ $("ls-cad-add-layer").addEventListener("click",()=>{
+  const n=cur();if(!n||n.kind!=="circle")return;
+  if((n.layerExtra||[]).length>=15){say("Maximum 16 layers supported in preview.",true);return;}
+  checkpoint();n.layerExtra??=[];n.layerExtra.push("0[um]");renderExtraLayers(n);draw();
+ });
+ $("ls-cad-remove-layer").addEventListener("click",()=>{const n=cur();if(!n?.layerExtra?.length)return;checkpoint();n.layerExtra.pop();renderExtraLayers(n);draw();});
+ $("ls-cad-extra-layers").addEventListener("input",e=>{
+  const i=Number(e.target.dataset.cadLayerExtra),n=cur();
+  if(!n||!Number.isInteger(i)||i<0||i>=(n.layerExtra?.length||0))return;
+  checkpoint();n.layerExtra[i]=e.target.value;draw();
+ });
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
   const b=e.target.closest("[data-cad-input]");if(!b)return;

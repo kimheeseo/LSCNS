@@ -76,9 +76,9 @@ try{
  await page.locator("#ls-material-imag").fill("0");
  await page.locator("#ls-material-select-mode").selectOption("manual");
  const first=page.locator('#ls-material-domain-list [data-material-domain="1"]');
- await first.uncheck();
+ await first.check();
  assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].mode),"manual");
- assert.ok(!(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].domainIds)).includes(1));
+ assert.ok((await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].domainIds)).includes(1));
  await page.screenshot({path:"/tmp/comsol_blank_material_domains.png"});
  // Material 1: COMSOL Geometric Entity Level must expose Domain/Boundary/Point.
  const level=page.locator("#ls-material-entity-level"),selection=page.locator("#ls-material-select-mode");
@@ -114,7 +114,7 @@ try{
  await level.selectOption("Domain");
  // Return to Manual and confirm its previous domain checkbox edit was preserved.
  await selection.selectOption("manual");
- assert.equal(await page.locator('#ls-material-domain-list [data-material-domain="1"]').isChecked(),false);
+ assert.equal(await page.locator('#ls-material-domain-list [data-material-domain="1"]').isChecked(),true);
  assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].mode),"manual");
  assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].level),"Domain");
 

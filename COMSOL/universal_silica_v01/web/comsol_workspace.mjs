@@ -40,7 +40,7 @@ function icon(name){return `<svg class="ls-icon" viewBox="0 0 24 24" aria-hidden
 const COMSOL_NOTEBOOK='https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/full_vector/LS_Full_Vector_Fiber_v0_1.ipynb';
 const HCF_NOTEBOOK='https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/hcf_complex_fem/HCF_Complex_FEM_Research.ipynb';
 const ACTIONS={
- home:[['new','New model','file'],['settings','Parameters','settings'],['geometry','Geometry','geometry'],['materials','Materials','material'],['compute','Compute','play'],['mesh','Mesh study','mesh'],['export','Export JSON','save']],
+ home:[['component1','Component 1','model'],['settings','Parameters','settings'],['geometry','Geometry 1','geometry'],['cadBuildAll','Build All','check'],['waveMaterials','Add Material','material'],['wavePhysics','ewfd Physics','physics'],['waveMesh','Build Mesh','mesh'],['waveSize','Mesh 1','mesh'],['compute','Compute','play'],['waveStudy','Study 1','settings'],['addStudy','Add Study','plus'],['waveResults','Add Plot Group','chart'],['resetDesktop','Reset Desktop','refresh']],
  definitions:[['settings','Parameters','settings'],['comsol','COMSOL test','check'],['g654','G.654.E','geometry'],['hcf','HCF design','layers']],
  geometry:[['geometry','Geometry settings','geometry'],['cadAddCircle','Circle','plus'],['cadAddRotate','Rotate','refresh'],['cadBuildAll','Build All','check'],['cadUndo','Undo','refresh'],['cadRedo','Redo','refresh'],['hcf','HCF / NANF','layers'],['mcf','MCF two-core','model'],['fiber3d','3D propagation','eye']],
  sketch:[['geometry','Cross-section','geometry'],['g654','SMF geometry','model'],['hcf','Nested tubes','layers']],
@@ -70,6 +70,18 @@ function choosePreset(name){
 function runAction(action){
  switch(action){
  case 'new':findTarget('#resetBtn')?.click();return;
+ case 'component1':{
+   const tree=findTarget('.ls-model-tree');
+   tree?.scrollIntoView({block:'nearest',behavior:'smooth'});
+   const comp=[...document.querySelectorAll('.ls-model-tree .ls-tree-group>summary')].find(x=>x.textContent.includes('Component 1'));
+   if(comp){comp.parentElement.open=true;comp.focus({preventScroll:true});}
+   return;
+ }
+ case 'addStudy':findTarget('#ls-add-study')?.click();return;
+ case 'resetDesktop':{
+   document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'root'}}));
+   return;
+ }
  case 'openDesign':findTarget('#importDesign')?.click();return;
  case 'saveDesign':findTarget('#designBtn')?.click();return;
  case 'settings':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'parameters'}}));return;

@@ -242,20 +242,49 @@
  }
  function svg(w,h,mini=false){
   const shapes=compute();
-  const extent=Math.max(1e-6,...shapes.map(s=>s.r+Math.hypot(s.x,s.y)));
-  const scale=Math.min(w,h)*(mini?.42:.41)*zoom/extent;
+  const actualExtent=Math.max(1e-6,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+  // Stable visual scale against global rb makes a changed radius visibly change the circle.
+  let referenceExtent=actualExtent;
+  try{
+   const rb=evalNumber("rb");
+   if(rb>0&&actualExtent<rb*6&&actualExtent>rb*.005)referenceExtent=Math.max(1e-6,rb*1.6);
+  }catch(_){}
+  const scale=Math.min(w,h)*(mini?.42:.41)*zoom/referenceExtent;
+  const axisExtent=Math.min(w,h)/(2*scale);
   let grid="";
-  if(gridOn){for(let x=0;x<w;x+=30)grid+=`<path d="M ${x} 0 V ${h}" stroke="#e6ecf1" stroke-width=".8"/>`;for(let y=0;y<h;y+=30)grid+=`<path d="M 0 ${y} H ${w}" stroke="#e6ecf1" stroke-width=".8"/>`;}
-  const items=shapes.map(s=>{
-   const x=w/2+(mini?0:panX)+s.x*scale,y=h/2+(mini?0:panY)-s.y*scale,r=s.r*scale;
-   const focus=selected===s.owner,stroke=focus?"#1f77ae":s.derived?"#7a8793":"#3f505f";
+  if(gridOn){
+   for(let x=0;x<w;x+=30)grid+=`<path d="M ${x} 0 V ${h}" stroke="#e6ecf1" stroke-width=".8"/>`;
+   for(let y=0;y<h;y+=30)grid+=`<path d="M 0 ${y} H ${w}" stroke="#e6ecf1" stroke-width=".8"/>`;
+  }
+  const items=shapes.map(shape=>{
+   const x=w/2+(mini?0:panX)+shape.x*scale,y=h/2+(mini?0:panY)-shape.y*scale,r=shape.r*scale;
+   const stroke=shape.derived?"#7a8793":"#52575b";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
-   const fill=s.solid?(s.selection&&colors[s.color]?colors[s.color]:(focus?"#c1d9eb":"#d0d3d7")):"none";
-   const label=mini?"":`<text x="${x}" y="${y-r-7}" font-size="11" text-anchor="middle" fill="${stroke}">${esc(s.owner)}${s.derived?"*":""}</text>`;
-   return `<g data-cad-shape="${esc(s.owner)}" fill="${fill}" fill-opacity="${s.derived?".43":".65"}" stroke="${stroke}" stroke-width="${focus?2.2:1.5}" ${s.derived?'stroke-dasharray="5 3"':""}>${drawShape(x,y,r,s.sector,s.deg)}</g>${label}`;
+   const fill=shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#cbced1"):"none";
+   const label=mini?"":`<text x="${x}" y="${Math.max(20,y-r-7)}" font-size="11" text-anchor="middle" fill="#62788c">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
+   let layersMarkup="",covered=0,outer=shape.r;
+   if(shape.sector>=359.999){
+    for(const thickness of shape.layers||[]){
+     if(thickness<=0)continue;
+     covered+=thickness;const inner=shape.r-covered;
+     if(inner<=0)break;
+     const innerPx=inner*scale;
+     layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#555b60" stroke-width="${mini?1:1.4}" pointer-events="none"/>`;
+     for(const deg of [0,90,180,270]){
+      const angle=deg*Math.PI/180,cs=Math.cos(angle),sn=Math.sin(angle);
+      layersMarkup+=`<line class="ls-cad-layer-boundary" x1="${x+innerPx*cs}" y1="${y+innerPx*sn}" x2="${x+outer*scale*cs}" y2="${y+outer*scale*sn}" stroke="#555b60" stroke-width="${mini?.85:1.25}" pointer-events="none"/>`;
+     }
+     outer=inner;
+    }
+   }
+   const title=`${shape.owner} · Radius ${unit(shape.r*1e6)} µm · ${(shape.layers||[]).filter(v=>v>0).length} active layers`;
+   return `<g class="ls-cad-rendered-shape" data-cad-shape="${esc(shape.owner)}" stroke="${stroke}" stroke-width="${mini?1.3:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(title)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".91"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const ox=w/2+(mini?0:panX),oy=h/2+(mini?0:panY);
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${oy} H${w} M${ox} 0 V${h}" stroke="#82939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">${esc(rootLabel)} · 2D</text>`;
+  const axisUnit=axisExtent<.001?"µm":axisExtent<1?"mm":"m";
+  const axisValue=axisExtent*(axisUnit==="µm"?1e6:axisUnit==="mm"?1e3:1);
+  const axisText=mini?"":`<text x="12" y="${h-16}" font-size="11" fill="#607c92">±${axisValue.toPrecision(3)} ${axisUnit} · zoom ${Math.round(zoom*100)}%</text>`;
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${oy} H${w} M${ox} 0 V${h}" stroke="#83939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">${esc(rootLabel)} · 2D</text>${axisText}`;
  }
  function draw(){
   try{
@@ -436,6 +465,10 @@
   const i=Number(e.target.dataset.cadLayerExtra),n=cur();
   if(!n||!Number.isInteger(i)||i<0||i>=(n.layerExtra?.length||0))return;
   checkpoint();n.layerExtra[i]=e.target.value;draw();
+ });
+ document.addEventListener("ls-global-parameters-changed",()=>{
+  if(!pane.hidden)draw();
+  else emitCadState();
  });
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{

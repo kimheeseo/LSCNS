@@ -7,6 +7,7 @@ try{
  const page=await browser.newPage({viewport:{width:1440,height:850}});
  const errors=[];page.on("pageerror",e=>errors.push(e.message));
  await page.goto(process.env.TEST_BASE_URL||"http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/",{waitUntil:"load"});
+ await page.locator('[data-wizard="cancel"]').click(); // Open legacy workbench for existing solver regression.
  await page.waitForSelector("#ls-cad-root-settings",{state:"attached"});
  const root=page.locator('summary[data-action="geometry"]');
  await root.click();

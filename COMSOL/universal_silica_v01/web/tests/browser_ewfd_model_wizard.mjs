@@ -39,6 +39,8 @@ try{
  assert.equal(await page.locator("#ls-parameter-rows tr").count(),0,"New model Parameters table starts empty");
  const sample=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../examples/COMSOL_microstructured_parameters.txt");
  await page.locator("#ls-params-file").setInputFiles(sample);
+ await page.waitForFunction(()=>/불러왔습니다|실패/.test(document.querySelector("#ls-config-status")?.textContent||""),{timeout:10000});
+ assert.ok(!(await page.locator("#ls-config-status").textContent()).includes("실패"),"Import failed: "+await page.locator("#ls-config-status").textContent());
  assert.equal(await page.locator("#ls-parameter-rows tr").count(),10);
  assert.ok((await page.locator("#ls-parameter-rows").textContent()).includes("Hole pitch"));
  await page.locator('summary[data-action="geometry"]').click();

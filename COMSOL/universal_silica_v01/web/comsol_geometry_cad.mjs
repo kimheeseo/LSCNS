@@ -175,7 +175,7 @@
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
   let i=1,pre=kind==="circle"?"c":"rot";while(nodes.some(n=>n.id===pre+i))i++;
-  if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"1[m]":"2.5[um]");
+  if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }
@@ -263,49 +263,83 @@
   const a=(deg-90)*Math.PI/180,b=a+sector*Math.PI/180,x1=x+r*Math.cos(a),y1=y+r*Math.sin(a),x2=x+r*Math.cos(b),y2=y+r*Math.sin(b);
   return `<path d="M${x} ${y} L${x1} ${y1} A${r} ${r} 0 ${sector>180?1:0} 1 ${x2} ${y2} Z"/>`;
  }
+
+ function niceTick(value){
+  if(!(value>0&&Number.isFinite(value)))return 1;
+  const exponent=Math.floor(Math.log10(value));
+  let chosen=value;
+  let delta=Infinity;
+  for(const exp of [exponent-1,exponent,exponent+1]){
+   const power=Math.pow(10,exp);
+   for(const factor of [1,2,2.5,5,10]){
+    const candidate=power*factor;
+    const error=Math.abs(Math.log(candidate/value));
+    if(error<delta){delta=error;chosen=candidate;}
+   }
+  }
+  return chosen;
+ }
  function svg(w,h,mini=false){
   const shapes=compute();
+  const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
+  const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
   const actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
-  // Do not normalize each edited radius back to the same size.
-  // Before first Build: auto-fit. After Build: lock the viewport physical scale.
   const referenceExtent=viewExtent??actualExtent;
-  const scale=Math.min(w,h)*(mini?.42:.41)*zoom/referenceExtent;
-  const axisExtent=Math.min(w,h)/(2*scale);
-  let grid="";
-  if(gridOn){
-   for(let x=0;x<w;x+=30)grid+=`<path d="M ${x} 0 V ${h}" stroke="#e6ecf1" stroke-width=".8"/>`;
-   for(let y=0;y<h;y+=30)grid+=`<path d="M 0 ${y} H ${w}" stroke="#e6ecf1" stroke-width=".8"/>`;
+  const scale=Math.min(pw,ph)*(mini?.40:.42)*zoom/referenceExtent;
+  const ox=(plot.left+plot.right)/2+(mini?0:panX),oy=(plot.top+plot.bottom)/2+(mini?0:panY);
+  const radiusDisplay=Math.min(pw,ph)/(scale*2);
+  const units=radiusDisplay<1e-3?{mult:1e6,symbol:"µm",power:"−6"}:radiusDisplay<1?{mult:1e3,symbol:"mm",power:"−3"}:{mult:1,symbol:"m",power:"0"};
+  const spacing=niceTick(ph/scale/10);
+  const decimal=value=>{const n=Number(value.toPrecision(6));return Object.is(n,-0)?"0":String(n);};
+  let grid="",xTicks="",yTicks="";
+  const clipId=mini?"ls-cad-plot-clip-small":"ls-cad-plot-clip-main";
+  const lowerX=(plot.left-ox)/scale,upperX=(plot.right-ox)/scale;
+  const lowerY=(oy-plot.bottom)/scale,upperY=(oy-plot.top)/scale;
+  if(gridOn||!mini){
+   // Grid and tick positions are computed in meters, not in arbitrary pixel increments.
+   const firstX=Math.ceil(lowerX/spacing),lastX=Math.floor(upperX/spacing);
+   const firstY=Math.ceil(lowerY/spacing),lastY=Math.floor(upperY/spacing);
+   for(let i=firstX;i<=lastX&&i<firstX+70;i++){
+    const position=i*spacing,x=ox+position*scale;
+    if(gridOn)grid+=`<path d="M ${x} ${plot.top} V ${plot.bottom}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
+    if(!mini)xTicks+=`<path d="M ${x} ${plot.bottom} v 5" stroke="#465361" stroke-width="1"/><text data-axis="x" data-coordinate-m="${position}" x="${x}" y="${plot.bottom+19}" text-anchor="middle" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
+   }
+   for(let i=firstY;i<=lastY&&i<firstY+70;i++){
+    const position=i*spacing,y=oy-position*scale;
+    if(gridOn)grid+=`<path d="M ${plot.left} ${y} H ${plot.right}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
+    if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
+   }
   }
   const items=shapes.map(shape=>{
-   const x=w/2+(mini?0:panX)+shape.x*scale,y=h/2+(mini?0:panY)-shape.y*scale,r=shape.r*scale;
-   const stroke=shape.derived?"#7a8793":"#52575b";
+   const x=ox+shape.x*scale,y=oy-shape.y*scale,r=shape.r*scale;
+   const stroke=shape.derived?"#7a8793":"#41484f";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
-   const fill=shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#cbced1"):"none";
-   const label=mini?"":`<text x="${x}" y="${Math.max(20,y-r-7)}" font-size="11" text-anchor="middle" fill="#62788c">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
+   const fill=shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#ced0d1"):"none";
    let layersMarkup="",covered=0,outer=shape.r;
+   const interior=[];
    if(shape.sector>=359.999){
     for(const [layerIndex,thickness] of (shape.layers||[]).entries()){
      if(thickness<=0)continue;
      covered+=thickness;const inner=shape.r-covered;
      if(inner<=0)break;
      const innerPx=inner*scale;
-     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${layerIndex%2?"#c6d4df":"#e6eaee"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
-      layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#555b60" stroke-width="${mini?1:1.4}" pointer-events="none"/>`;
+     interior.push(inner);
+     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${layerIndex%2?"#e4e7e9":"#b9c2c9"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
+     layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#454d53" stroke-width="${mini?1:1.6}" pointer-events="none"/>`;
+     // Radial spokes match COMSOL's displayed geometric partition guides.
      for(const deg of [0,90,180,270]){
-      const angle=deg*Math.PI/180,cs=Math.cos(angle),sn=Math.sin(angle);
-      layersMarkup+=`<line class="ls-cad-layer-boundary" x1="${x+innerPx*cs}" y1="${y+innerPx*sn}" x2="${x+outer*scale*cs}" y2="${y+outer*scale*sn}" stroke="#555b60" stroke-width="${mini?.85:1.25}" pointer-events="none"/>`;
+      const a=deg*Math.PI/180,cs=Math.cos(a),sn=Math.sin(a);
+      layersMarkup+=`<line class="ls-cad-layer-boundary" x1="${x+innerPx*cs}" y1="${y+innerPx*sn}" x2="${x+outer*scale*cs}" y2="${y+outer*scale*sn}" stroke="#525b64" stroke-width="${mini?1:1.3}" pointer-events="none"/>`;
      }
      outer=inner;
     }
    }
-   const title=`${shape.owner} · Radius ${unit(shape.r*1e6)} µm · ${(shape.layers||[]).filter(v=>v>0).length} active layers`;
-   return `<g class="ls-cad-rendered-shape" data-cad-shape="${esc(shape.owner)}" stroke="${stroke}" stroke-width="${mini?1.3:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(title)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".91"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   const details=`${shape.owner} • outer radius ${unit(shape.r*1e6)} µm${interior.length?" • inner radius "+unit(interior.at(-1)*1e6)+" µm":""}`;
+   const label=mini?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
+   return `<g class="ls-cad-rendered-shape" data-cad-shape="${esc(shape.owner)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
-  const ox=w/2+(mini?0:panX),oy=h/2+(mini?0:panY);
-  const axisUnit=axisExtent<.001?"µm":axisExtent<1?"mm":"m";
-  const axisValue=axisExtent*(axisUnit==="µm"?1e6:axisUnit==="mm"?1e3:1);
-  const axisText=mini?"":`<text x="12" y="${h-16}" font-size="11" fill="#607c92">±${axisValue.toPrecision(3)} ${axisUnit} · zoom ${Math.round(zoom*100)}% · ${viewExtent===null?"Auto-fit":"Fixed scale"}</text>`;
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${oy} H${w} M${ox} 0 V${h}" stroke="#83939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">${esc(rootLabel)} · 2D</text>${axisText}`;
+  const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}</g>${labels}`;
  }
  function draw(){
   try{

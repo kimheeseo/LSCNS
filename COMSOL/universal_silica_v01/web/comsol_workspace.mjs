@@ -85,6 +85,7 @@ function runAction(action){
  case 'openDesign':findTarget('#importDesign')?.click();return;
  case 'saveDesign':findTarget('#designBtn')?.click();return;
  case 'settings':document.dispatchEvent(new CustomEvent('ls-open-settings',{detail:{kind:'parameters'}}));return;
+ case 'definitionsAdjacent':document.dispatchEvent(new CustomEvent('ls-open-adjacent-editor',{detail:{create:true}}));return;
   case 'geometryOuter':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c1'}}));return;
   case 'geometryInner':document.dispatchEvent(new CustomEvent('ls-open-cad',{detail:{id:'c2'}}));return;
   case 'cadAddCircle':document.dispatchEvent(new CustomEvent('ls-cad-add',{detail:{kind:'circle'}}));return;
@@ -137,7 +138,7 @@ const HOME_GROUPS=[
 const DEFINITION_GROUPS=[
  {label:'Variables',columns:[[['Local Variables',null,'variables']]]},
  {label:'Functions',columns:[[['Analytic',null,'analytic'],['Interpolation',null,'interpolation'],['Piecewise',null,'piecewise']],[['More Functions',null,'function',true]]]},
- {label:'Selections',columns:[[['Explicit',null,'explicit'],['Complement',null,'complement'],['Adjacent',null,'adjacent']],[['Ball/Disk',null,'disk'],['Box',null,'box'],['Cylinder',null,'cylinder',false,true]],[['Union',null,'union'],['Intersection',null,'intersection'],['Difference',null,'difference']],[['Colors',null,'palette',true]]]},
+ {label:'Selections',columns:[[['Explicit',null,'explicit'],['Complement',null,'complement'],['Adjacent','definitionsAdjacent','adjacent']],[['Ball/Disk',null,'disk'],['Box',null,'box'],['Cylinder',null,'cylinder',false,true]],[['Union',null,'union'],['Intersection',null,'intersection'],['Difference',null,'difference']],[['Colors',null,'palette',true]]]},
  {label:'Probes',columns:[[['Update Probes',null,'updateProbe']],[['Probes',null,'probe',true]]]},
  {label:'Coupling',columns:[[['Nonlocal Couplings',null,'link',true]],[['Pairs',null,'pairs',true]]]},
  {label:'Coordinate Systems',columns:[[['Coordinate Systems',null,'coordinates',true]],[['Perfectly Matched Layer',null,'pml'],['Infinite Element Domain',null,'infinite',false,true],['Absorbing Layer',null,'absorbing',false,true]]]},
@@ -208,7 +209,7 @@ function modelTreeHtml(){
    <div class="ls-tree-root">${icon('model')} LS Wave Optics (Model)</div>
    <details class="ls-tree-group" open><summary>Global Definitions</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="settings">${icon('settings')} Parameters 1</button><button class="ls-tree-leaf" data-action="waveMaterials">${icon('material')} Material Properties</button></div></details>
    <details class="ls-tree-group" open><summary>Component 1 (comp1)</summary><div class="ls-tree-children">
-    <details class="ls-tree-group"><summary>Definitions</summary><div class="ls-tree-children"><span class="ls-tree-leaf">Component Definitions (2D)</span></div></details>
+    <details id="ls-component-definitions" class="ls-tree-group" open><summary>Definitions</summary><div class="ls-tree-children"><details id="ls-definitions-selections-group" class="ls-tree-group" hidden open><summary>Selections</summary><div class="ls-tree-children" id="ls-definitions-selections-list"></div></details><span class="ls-tree-leaf">Component Definitions (2D)</span></div></details>
     <details class="ls-tree-group" open><summary data-action="geometry"><span id="ls-cad-root-name">Geometry 1</span></summary><div class="ls-tree-children"><div id="ls-geometry-node-list" aria-label="Geometry feature sequence"></div><span class="ls-tree-leaf ls-cad-union-reference">▦ Form Union (fin) · preview only</span><details id="ls-cad-cumulative-group" class="ls-tree-group" hidden open><summary>Cumulative Selections</summary><div class="ls-tree-children" id="ls-cad-cumulative-list"></div></details><div class="ls-tree-preset-group"><small>Design examples</small>${options}</div></div></details>
     <details class="ls-tree-group" open><summary data-action="waveMaterials">Materials</summary><div class="ls-tree-children"><div id="ls-cad-material-list" aria-label="Component material nodes"></div><button class="ls-tree-leaf" data-action="waveCore">${icon('material')} Core (n₁)</button><button class="ls-tree-leaf" data-action="waveCladding">${icon('material')} Cladding (n₂)</button></div></details>
     <details class="ls-tree-group" open><summary data-action="wavePhysics">Electromagnetic Waves, Frequency Domain (ewfd)</summary><div class="ls-tree-children"><button class="ls-tree-leaf" data-action="waveEquation">${icon('wave')} Wave Equation, Electric 1</button><button class="ls-tree-leaf" data-action="wavePEC">${icon('physics')} Perfect Electric Conductor 1</button><button class="ls-tree-leaf" data-action="waveInitial">${icon('settings')} Initial Values 1</button></div></details>

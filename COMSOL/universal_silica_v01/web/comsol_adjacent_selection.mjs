@@ -175,7 +175,7 @@
   render();transmit();
  });
  for(const eventName of ["ls-open-cad","ls-open-material-editor","ls-open-wave-optics","ls-open-settings"]){
-  document.addEventListener(eventName,()=>{if(!pane.hidden)close();});
+  document.addEventListener(eventName,()=>{if(!pane.hidden)close();},true);
  }
  document.addEventListener("ls-wizard-finished",()=>{
   if(!pane.hidden)close();

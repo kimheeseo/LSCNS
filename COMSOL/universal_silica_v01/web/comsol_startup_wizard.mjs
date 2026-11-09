@@ -104,7 +104,8 @@
  function close(panel){
   root.hidden=true;root.replaceChildren();document.documentElement.classList.remove("lsw-open");
   if(!panel)return;
-  document.dispatchEvent(new CustomEvent("ls-open-wave-optics",{detail:{panel:panel}}));
+  if(panel==="geometryRoot")document.dispatchEvent(new CustomEvent("ls-open-cad",{detail:{id:"root"}}));
+  else document.dispatchEvent(new CustomEvent("ls-open-wave-optics",{detail:{panel:panel}}));
  }
  root.addEventListener("click",function(e){
   const dim=e.target.closest("[data-dimension]");
@@ -136,7 +137,7 @@
     if(step==="dimension"){if(dimension==="2D"){step="physics";render();}return;}
     if(step==="study"&&added&&addedSelected&&addedStudy&&dimension==="2D"){
      document.dispatchEvent(new CustomEvent("ls-wizard-finished",{detail:{dimension:"2D",physics:"ewfd",study:"mode"}}));
-     close("waveMode");
+     close("geometryRoot");
     }
     return;
   }

@@ -118,7 +118,7 @@
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
   let i=1,pre=kind==="circle"?"c":"rot";while(nodes.some(n=>n.id===pre+i))i++;
-  if(kind==="circle")return circle(pre+i,"Circle "+i,"1[m]");
+  if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"1[m]":"2.5[um]");
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }

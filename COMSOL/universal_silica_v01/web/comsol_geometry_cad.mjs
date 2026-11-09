@@ -7,8 +7,9 @@
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
- let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false;
- const undoStack=[],redoStack=[];
+ let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
+ const undoStack=[],redoStack=[],cumulativeSelections=[];
+ let materialHighlightKeys=new Set();
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -62,17 +63,19 @@
   </div>
   <div id="ls-cad-rotate" hidden>
    <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
-   <details class="ls-cad-section" open><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><div class="ls-cad-angle-entry"><input id="ls-cad-angle" spellcheck="false"/><span>deg</span><button type="button" id="ls-cad-range-open" title="Range — Start, Step, Stop" aria-label="Range">▥</button></div><span></span></div><small>Use an angle, range(start,step,stop), or comma-separated ranges. Click Range to open the step dialog.</small></details>
-   <details class="ls-cad-section" open><summary>Center of Rotation</summary><div class="ls-cad-field"><label for="ls-cad-cx">x</label><input id="ls-cad-cx"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-cy">y</label><input id="ls-cad-cy"/><span>m</span></div></details>
+   <details class="ls-cad-section" open id="ls-cad-rotate-angle-section"><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><div class="ls-cad-angle-entry"><input id="ls-cad-angle" spellcheck="false"/><span>deg</span><button type="button" id="ls-cad-range-open" title="Range — Start, Step, Stop" aria-label="Range">▥</button></div><span></span></div><small>Use an angle, range(start,step,stop), or comma-separated ranges. Click Range to open the step dialog.</small></details>
+   <details class="ls-cad-section" open id="ls-cad-rotate-center-section"><summary>Center of Rotation</summary><div class="ls-cad-field"><label for="ls-cad-cx">x</label><input id="ls-cad-cx"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-cy">y</label><input id="ls-cad-cy"/><span>m</span></div></details>
+   <details class="ls-cad-section" id="ls-cad-mirror-point-section" hidden open><summary>Point on Line of Reflection</summary><div class="ls-cad-field"><label for="ls-cad-mirror-cx">x</label><input id="ls-cad-mirror-cx" value="0[um]"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-mirror-cy">y</label><input id="ls-cad-mirror-cy" value="0[um]"/><span>m</span></div></details>
+   <details class="ls-cad-section" id="ls-cad-mirror-normal-section" hidden open><summary>Normal Vector to Line of Reflection</summary><div class="ls-cad-field"><label for="ls-cad-mirror-nx">x</label><input id="ls-cad-mirror-nx" value="1"/><span></span></div><div class="ls-cad-field"><label for="ls-cad-mirror-ny">y</label><input id="ls-cad-mirror-ny" value="0"/><span></span></div><p class="ls-cad-sequence-note">Mirror reflects selected circles across this line. Geometry preview only.</p></details>
   </div>
   <details class="ls-cad-section" open><summary>Selections of Resulting Entities</summary>
    <label class="ls-cad-check"><input id="ls-cad-selection" type="checkbox"/> Resulting objects selection</label>
    <div class="ls-cad-field"><label for="ls-cad-physics">Show in physics</label><select id="ls-cad-physics" disabled><option>Domain selection</option><option>Boundary selection</option></select><span></span></div>
    <div class="ls-cad-field"><label for="ls-cad-color">Color</label><select id="ls-cad-color"><option>None</option><option>Blue</option><option>Orange</option><option>Green</option></select><span></span></div>
-   <div class="ls-cad-field"><label>Contribute to</label><select disabled><option>None</option></select><span></span></div></details>
+   <div class="ls-cad-subsection">Cumulative selection</div><div class="ls-cad-field ls-cad-cumulative-row"><label for="ls-cad-contribute">Contribute to</label><select id="ls-cad-contribute"><option value="">None</option></select><button id="ls-cad-cumulative-new" type="button" title="New cumulative selection">New</button></div></details>
   <div class="ls-cad-mini"><svg id="ls-cad-mini-svg" viewBox="0 0 460 230" role="img" aria-label="Small geometry preview"></svg></div>
   </div>
-  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
+  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
   <p class="ls-config-help">Circle and Rotate are interactive 2D geometry features. The 1D Radial FEM only accepts the original two concentric 360° Solid circles without extra layers, added circles or Rotate features. Arbitrary layouts are preview-only.</p>
@@ -90,6 +93,10 @@
  confirmDialog.setAttribute("aria-labelledby","ls-cad-delete-title");
  confirmDialog.innerHTML='<form method="dialog"><h3 id="ls-cad-delete-title">Confirm Delete</h3><p id="ls-cad-delete-message"></p><div class="ls-cad-dialog-actions"><button type="submit" value="yes" class="ls-cad-confirm-yes">Yes</button><button type="submit" value="no" class="ls-cad-confirm-no">No</button></div></form>';
  document.body.append(confirmDialog);
+ const cumulativeDialog=document.createElement("dialog");
+ cumulativeDialog.id="ls-cad-cumulative-dialog";
+ cumulativeDialog.innerHTML='<form method="dialog"><h3>New Cumulative Selection</h3><label for="ls-cad-cumulative-name">Label</label><input id="ls-cad-cumulative-name" value="Cumulative Selection 1" maxlength="80" required/><p id="ls-cad-cumulative-error" hidden role="alert"></p><div class="ls-cad-dialog-actions"><button type="submit" value="ok" id="ls-cad-cumulative-ok">OK</button><button type="submit" value="cancel" id="ls-cad-cumulative-cancel">Cancel</button></div></form>';
+ document.body.append(cumulativeDialog);
  const rangeDialog=document.createElement("dialog");
  rangeDialog.id="ls-cad-range-dialog";
  rangeDialog.setAttribute("aria-labelledby","ls-cad-range-title");
@@ -198,14 +205,15 @@
  }
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
-  let i=1,pre=kind==="circle"?"c":"rot";while(nodes.some(n=>n.id===pre+i))i++;
+  let i=1,pre=kind==="circle"?"c":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
   if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
-  return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
+  if(kind==="mirror")return {id:pre+i,kind:"mirror",label:"Mirror "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,cx:"0[um]",cy:"0[um]",nx:"1",ny:"0",selection:false,color:"None"};
+  return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],inputRefs:null,keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }
  function drawTree(){
   const list=$("ls-geometry-node-list");if(!list)return;
-  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
+  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
  }
  function loadFields(){
   const n=cur();
@@ -224,9 +232,9 @@
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
     drawTree();draw();return;
    }
-  if(n.kind!=="rotate")selectingRotateInputs=false;
-   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":"Rotate";$("ls-cad-label").value=n.label;
-  $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=n.kind!=="rotate";
+  if(!["rotate","mirror"].includes(n.kind))selectingRotateInputs=false;
+   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
+  $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=!["rotate","mirror"].includes(n.kind);
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
    renderExtraLayers(n);
@@ -235,6 +243,11 @@
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
     $("ls-cad-activate-selection").classList.toggle("active",selectingRotateInputs);
     $("ls-cad-selection-hint").textContent=selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
+   $("ls-cad-rotate-angle-section").hidden=n.kind!=="rotate";
+   $("ls-cad-rotate-center-section").hidden=n.kind!=="rotate";
+   $("ls-cad-mirror-point-section").hidden=n.kind!=="mirror";
+   $("ls-cad-mirror-normal-section").hidden=n.kind!=="mirror";
+   if(n.kind==="mirror"){for(const k of ["cx","cy","nx","ny"])$("ls-cad-mirror-"+k).value=n[k];}
    const list=$("ls-cad-inputs");list.replaceChildren();
    const options=nodes.slice(0,index(n.id)).filter(o=>o.kind==="circle"&&o.enabled);
    if(!options.length)list.textContent="Move Rotate below an enabled Circle.";
@@ -245,6 +258,7 @@
    }
   }
   $("ls-cad-selection").checked=n.selection;$("ls-cad-physics").disabled=!n.selection;$("ls-cad-color").value=n.color;
+   updateCumulativeOptions(n);
   drawTree();draw();
  }
 

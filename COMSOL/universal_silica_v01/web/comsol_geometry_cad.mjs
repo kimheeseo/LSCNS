@@ -559,6 +559,44 @@
    return `<g class="ls-cad-adjacent-entity${chosen?" is-adjacent-selected":""}" data-adjacent-key="${esc(entity.key)}" data-adjacent-entity-id="${entity.id}" aria-label="${name}"><title>${name}</title>${geometry}${hit}</g>`;
   }).join("")}</g>`;
  }
+
+ // Reliable geometric click fallback for mouse/touch events. SVG pointer
+ // hit-testing differs across browser engines for transparent stroke-only
+ // circles. Pick the nearest *actual* boundary in SVG user units instead.
+ function nearestAdjacentAtScreen(event){
+  if(!adjacentPickMode||adjacentLevel==="Domain")return null;
+  const svgNode=$("ls-cad-view");
+  if(!svgNode?.getScreenCTM())return null;
+  const mouse=svgNode.createSVGPoint();
+  mouse.x=event.clientX;mouse.y=event.clientY;
+  const p=mouse.matrixTransform(svgNode.getScreenCTM().inverse());
+  const plot={left:55,top:31,right:640-22,bottom:500-48};
+  const shapes=compute();
+  const actual=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+  const reference=viewExtent??actual;
+  const scale=Math.min(plot.right-plot.left,plot.bottom-plot.top)*.42*zoom/reference;
+  const ox=(plot.left+plot.right)/2+panX,oy=(plot.top+plot.bottom)/2+panY;
+  const pointLine=(x,y,a,b,c,d)=>{
+   const vx=c-a,vy=d-b,len=vx*vx+vy*vy;
+   const t=len>0?Math.max(0,Math.min(1,((x-a)*vx+(y-b)*vy)/len)):0;
+   return Math.hypot(x-a-t*vx,y-b-t*vy);
+  };
+  let nearest=null,best=Infinity;
+  for(const entity of adjacentEntities(adjacentLevel)){
+   let distance=Infinity;
+   if(entity.kind==="circle"){
+    const cx=ox+entity.cx*scale,cy=oy-entity.cy*scale;
+    distance=Math.abs(Math.hypot(p.x-cx,p.y-cy)-entity.r*scale);
+   }else if(entity.kind==="line"){
+    distance=pointLine(p.x,p.y,ox+entity.x1*scale,oy-entity.y1*scale,
+      ox+entity.x2*scale,oy-entity.y2*scale);
+   }else if(entity.kind==="point"){
+    distance=Math.hypot(p.x-(ox+entity.cx*scale),p.y-(oy-entity.cy*scale));
+   }
+   if(distance<best){best=distance;nearest=entity;}
+  }
+  return best<=9?nearest:null;
+ }
  function niceTick(value){
   if(!(value>0&&Number.isFinite(value)))return 1;
   const exponent=Math.floor(Math.log10(value));
@@ -1000,9 +1038,13 @@
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
   if(adjacentPickMode){
-   const boundary=e.target.closest("[data-adjacent-key]");
-   if(boundary)document.dispatchEvent(new CustomEvent("ls-adjacent-geometry-click",{detail:{
-    key:boundary.dataset.adjacentKey,id:Number(boundary.dataset.adjacentEntityId),level:adjacentLevel
+   const target=e.target.closest("[data-adjacent-key]");
+   // Prefer the nearest actual ring/line to avoid a coincident SVG hit target
+   // or a transparent fill capturing the pointer over a different circle.
+   const picked=nearestAdjacentAtScreen(e);
+   const key=picked?.key||target?.dataset.adjacentKey;
+   if(key)document.dispatchEvent(new CustomEvent("ls-adjacent-geometry-click",{detail:{
+    key,id:picked?.id??Number(target?.dataset.adjacentEntityId),level:adjacentLevel
    }}));
    return;
   }

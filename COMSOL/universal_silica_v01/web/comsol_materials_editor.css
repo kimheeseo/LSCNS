@@ -52,6 +52,6 @@ body.ls-comsol-shell .ls-materials-editor[hidden],#ls-materials-context[hidden]{
 #ls-cad-cumulative-dialog button{padding:6px 17px;border:1px solid #aec6da;background:#eef5fc;border-radius:2px;color:#236897;font-size:12px}
 #ls-cad-view .ls-cad-rendered-shape.is-material-selected .ls-cad-rendered-surface{fill:#b6b2f4!important;stroke:#3f3dc2!important;stroke-width:2!important;fill-opacity:.76!important}
 #ls-cad-view .ls-cad-rendered-shape.is-cumulative-selected .ls-cad-rendered-surface{stroke:#179c9a;stroke-width:2.5}
-#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-rendered-surface{fill:#a4b2fa!important;stroke:#5350c8!important}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-rendered-surface{fill:#c2c5f3!important;stroke:#5350c8!important}
 @media(max-width:1080px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:195px minmax(335px,450px) minmax(0,1fr)!important}}
 @media(max-width:760px){body.ls-comsol-shell.ls-material-active .layout{grid-template-columns:1fr!important;display:block!important}body.ls-comsol-shell.ls-material-active #ls-cad-graphics{min-height:340px}body.ls-comsol-shell.ls-material-active .sidebar{max-height:480px!important;overflow-y:auto}}

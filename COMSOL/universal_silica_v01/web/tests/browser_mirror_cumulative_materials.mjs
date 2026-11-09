@@ -80,9 +80,47 @@ try{
  assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].mode),"manual");
  assert.ok(!(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].domainIds)).includes(1));
  await page.screenshot({path:"/tmp/comsol_blank_material_domains.png"});
+ // Material 1: COMSOL Geometric Entity Level must expose Domain/Boundary/Point.
+ const level=page.locator("#ls-material-entity-level"),selection=page.locator("#ls-material-select-mode");
+ assert.deepEqual(await level.locator("option").allTextContents(),["Domain","Boundary","Point"]);
+ assert.equal(await level.inputValue(),"Domain");
+ // Named Cumulative Selection contributed by Rotate 1 must appear under Selection.
+ const namedOption=selection.locator('optgroup[label="Cumulative Selections"] option[value="cumulative:csel1"]');
+ assert.equal(await namedOption.textContent(),"Hole rotation outputs");
+ await selection.selectOption("cumulative:csel1");
+ assert.equal(await selection.inputValue(),"cumulative:csel1");
+ assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].mode),"cumulative");
+ assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].cumulativeId),"csel1");
+ const domainSelected=await page.locator("#ls-material-domain-list input:checked").count();
+ assert.ok(domainSelected>0&&domainSelected<available,"Cumulative Selection should include only Rotation 1 output domains");
+ assert.equal(await page.locator("#ls-material-pick").isDisabled(),true);
+ await page.screenshot({path:"/tmp/comsol_material_cumulative_selection.png"});
+ // Named cumulative selection remains available and selects matching entities
+ // for Boundary and Point levels; this is a geometry-only preview.
+ await level.selectOption("Boundary");
+ assert.equal(await level.inputValue(),"Boundary");
+ assert.equal(await selection.inputValue(),"cumulative:csel1");
+ const boundaryCount=await page.locator("#ls-material-domain-list input").count();
+ const boundaryChecked=await page.locator("#ls-material-domain-list input:checked").count();
+ assert.ok(boundaryCount>available&&boundaryChecked>0&&boundaryChecked<boundaryCount);
+ assert.ok((await page.locator("#ls-material-domain-list").textContent()).includes("boundary"));
+ await page.screenshot({path:"/tmp/comsol_material_boundary_level.png"});
+ await level.selectOption("Point");
+ assert.equal(await level.inputValue(),"Point");
+ assert.equal(await selection.inputValue(),"cumulative:csel1");
+ const pointsChecked=await page.locator("#ls-material-domain-list input:checked").count();
+ assert.ok(pointsChecked>0,"Point-level named selection should include rotation results");
+ assert.ok((await page.locator("#ls-material-domain-list").textContent()).includes("center point"));
+ await level.selectOption("Domain");
+ // Return to Manual and confirm its previous domain checkbox edit was preserved.
+ await selection.selectOption("manual");
+ assert.equal(await page.locator('#ls-material-domain-list [data-material-domain="1"]').isChecked(),false);
+ assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].mode),"manual");
+ assert.equal(await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].level),"Domain");
+
  await page.locator('summary[data-action="waveMaterials"]').click();
  assert.ok((await page.locator("#ls-materials-editor").textContent()).includes("Entities needing a material"));
  assert.equal((await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[0].real)),"1.45");
  assert.deepEqual(errors,[],"No uncaught browser errors");
- console.log("PASS: Rotate six individually selectable entities, Mirror two chosen outputs, cumulative selection tree, Blank Material domain list and n_iso/ki_iso edits");
+ console.log("PASS: Rotate/Mirror individual entities, named Cumulative Selection in Material 1, Domain/Boundary/Point levels and preserved manual assignments");
 }finally{await browser.close();}

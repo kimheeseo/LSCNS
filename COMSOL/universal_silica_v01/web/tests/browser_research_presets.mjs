@@ -7,6 +7,7 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disab
 try{
  const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
  await page.goto(url,{waitUntil:'load',timeout:90000});
+ await page.locator('[data-wizard="cancel"]').click();
  await page.waitForSelector('#hcf-designer',{timeout:30000});
  await page.waitForSelector('#full-vector-tool',{timeout:30000});
  await page.waitForSelector('#hcf-fem',{timeout:30000});

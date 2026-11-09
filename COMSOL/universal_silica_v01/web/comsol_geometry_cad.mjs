@@ -454,7 +454,7 @@
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const isSelectedInput=shape=>selectingRotateInputs&&cur()?.kind==="rotate"&&cur().inputIds.includes(shape.source)&&!shape.derived;
+  const isSelectedInput=shape=>selectingRotateInputs&&["rotate","mirror"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
    const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
    const items=orderedShapes.map(shape=>{
@@ -483,7 +483,7 @@
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
   return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}</g>${labels}`;
@@ -681,6 +681,12 @@
  for(const key of ["type","radius","sector","base","x","y","rotation","layer","angle","cx","cy"]){
   $("ls-cad-"+key).addEventListener("input",e=>{const n=cur();if(!n||!(key in n))return;checkpoint();n[key]=e.target.value;draw();});
  }
+ for(const key of ["cx","cy","nx","ny"]){
+  $("ls-cad-mirror-"+key).addEventListener("input",e=>{
+   const n=cur();if(n?.kind!=="mirror")return;
+   checkpoint();n[key]=e.target.value;draw();
+  });
+ }
  $("ls-cad-label").addEventListener("input",e=>{if(!cur())return;checkpoint();cur().label=e.target.value;drawTree();});
 
  $("ls-cad-add-layer").addEventListener("click",()=>{
@@ -700,7 +706,7 @@
  });
  
  $("ls-cad-activate-selection").addEventListener("click",()=>{
-  if(cur()?.kind!=="rotate")return;
+  if(!["rotate","mirror"].includes(cur()?.kind))return;
   selectingRotateInputs=!selectingRotateInputs;
   loadFields();
   say(selectingRotateInputs?"Activate Selection: input circles are highlighted in blue. Click a shape to add/remove its input.":"Graphics input selection deactivated.");
@@ -738,9 +744,14 @@
 
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
-  const b=e.target.closest("[data-cad-input]");if(!b)return;
-  checkpoint();const ids=new Set(cur().inputIds);b.checked?ids.add(b.dataset.cadInput):ids.delete(b.dataset.cadInput);
-  cur().inputIds=[...ids];draw();
+  const box=e.target.closest("[data-cad-input-ref]"),node=cur();
+  if(!box||!node||!["rotate","mirror"].includes(node.kind))return;
+  checkpoint();
+  const ids=selectedInputKeys(node);
+  if(box.checked)ids.add(box.dataset.cadInputRef);else ids.delete(box.dataset.cadInputRef);
+  node.inputRefs=[...ids];
+  node.inputIds=availableInputs(node).filter(s=>ids.has(s.entityKey)&&!s.derived).map(s=>s.source);
+  draw();
  });
  $("ls-cad-selection").addEventListener("change",e=>{checkpoint();cur().selection=e.target.checked;$("ls-cad-physics").disabled=!e.target.checked;draw();});
  $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
@@ -752,14 +763,21 @@
   const shape=e.target.closest("[data-cad-shape]");
   if(!shape)return;
   const node=cur();
-  if(selectingRotateInputs&&node?.kind==="rotate"){
-   const id=shape.dataset.cadSource;
-   const valid=nodes.slice(0,index(node.id)).some(item=>item.kind==="circle"&&item.enabled&&item.id===id);
-   if(!valid){say("Select an enabled Circle preceding Rotate 1.",true);return;}
+  if(materialPickMode){
+   document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape}}));
+   return;
+  }
+  if(selectingRotateInputs&&["rotate","mirror"].includes(node?.kind)){
+   const key=shape.dataset.cadEntity;
+   const available=availableInputs(node);
+   if(!available.some(s=>s.entityKey===key)){say("Select an individual preceding Geometry object (c2/rot1 output).",true);return;}
    checkpoint();
-   node.inputIds=node.inputIds.includes(id)?node.inputIds.filter(item=>item!==id):[...node.inputIds,id];
+   const selectedRefs=selectedInputKeys(node,available);
+   selectedRefs.has(key)?selectedRefs.delete(key):selectedRefs.add(key);
+   node.inputRefs=[...selectedRefs];
+   node.inputIds=available.filter(s=>selectedRefs.has(s.entityKey)&&!s.derived).map(s=>s.source);
    loadFields();
-   say(id+" "+(node.inputIds.includes(id)?"added to":"removed from")+" Rotate input objects.");
+   say(key+(selectedRefs.has(key)?" selected as ":" removed from ")+node.label+" input objects.");
    return;
   }
   selected=shape.dataset.cadShape;loadFields();
@@ -775,7 +793,7 @@
  });
  viewport.addEventListener("pointerleave",()=>{hovered?.classList.remove("is-hovered");hovered=null;});
  viewport.addEventListener("pointerdown",e=>{
-  if(e.button!==0||selectingRotateInputs||e.target.closest("[data-cad-shape]"))return;
+  if(e.button!==0||selectingRotateInputs||materialPickMode||e.target.closest("[data-cad-shape]"))return;
   gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};
   viewport.setPointerCapture(e.pointerId);viewport.classList.add("is-panning");
  });

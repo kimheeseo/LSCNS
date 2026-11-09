@@ -11,7 +11,7 @@ try{
  await page.waitForSelector('#hcf-designer',{timeout:30000});
  await page.waitForSelector('#full-vector-tool',{timeout:30000});
  await page.waitForSelector('#hcf-fem',{timeout:30000});
- await page.selectOption('#preset','hcf');
+ await page.locator('.ls-model-tree [data-select-preset="hcf"]').click();
  assert.equal(await page.locator('#hcf-sidebar-controls').isVisible(),true,'HCF sidebar visible');
  assert.equal(await page.locator('#hcf-designer').isVisible(),true,'HCF designer visible');
  assert.equal(await page.locator('#hcf-fem').isVisible(),true,'HCF FEM import visible');
@@ -21,7 +21,7 @@ try{
  await page.locator('#hcf-quick-count').fill('8');
  await page.waitForFunction(()=>document.querySelector('#hcf-geometry-badge')?.textContent.includes('N=8'));
  await page.screenshot({path:'/tmp/hcf-preset-view.png',fullPage:false});
- await page.selectOption('#preset','vector');
+ await page.locator('.ls-model-tree [data-select-preset="vector"]').click();
  assert.equal(await page.locator('#vector-sidebar-controls').isVisible(),true,'Full-vector sidebar visible');
  assert.equal(await page.locator('#full-vector-tool').isVisible(),true,'Full-vector results visible');
  assert.equal(await page.locator('#hcf-designer').isVisible(),false,'HCF designer hidden in vector');
@@ -33,7 +33,7 @@ try{
  assert.match(ae,/\d/,'Full-vector Aeff rendered from JSON');
  await page.screenshot({path:'/tmp/vector-preset-view.png',fullPage:false});
  // COMSOL public STEP benchmark: actual browser FEM with opt-in fixed n_clad.
- await page.selectOption('#preset','comsol_step');
+ await page.locator('.ls-model-tree [data-select-preset="comsol_step"]').click();
  await page.waitForFunction(()=>document.querySelector('#comsol-reference-status')?.textContent.startsWith('PASS'),{timeout:30000});
  assert.equal(await page.locator('#comsol-reference').isVisible(),true,'COMSOL benchmark shown');
  assert.equal(await page.locator('#clad-fixed-controls').isVisible(),true,'fixed index input displayed');
@@ -50,7 +50,7 @@ try{
  await page.locator('#calculateBtn').click();
  await page.waitForFunction(()=>document.querySelector('#comsol-reference-status')?.textContent.includes('조건 불일치'),{timeout:30000});
  assert.equal(await page.locator('#comsol-reference-pct').textContent(),'—','no misleading comparison for modified material');
- await page.selectOption('#preset','g652');
+ await page.locator('.ls-model-tree [data-select-preset="g652"]').click();
  assert.equal(await page.locator('#standard-fiber-options').isVisible(),true,'Scalar controls restored');
  assert.equal(await page.locator('#hcf-sidebar-controls').isVisible(),false,'HCF quick controls hidden in standard mode');
  assert.equal(await page.locator('#profile').isVisible(),true,'Original refractive-index profile controls restored');

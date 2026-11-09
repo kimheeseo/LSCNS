@@ -1,0 +1,215 @@
+/**
+ * 2D Geometry material assignment editor.
+ * Explicit geometry-domain preview only: custom material values are not silently
+ * passed into the legacy two-domain radial FEM or full-vector Maxwell solvers.
+ */
+(function comsolMaterialsEditor(){
+ "use strict";
+ const $=id=>document.getElementById(id);
+ const sidebar=document.querySelector(".layout > .sidebar");
+ const tree=document.querySelector(".ls-model-tree");
+ if(!sidebar||!tree||$("ls-materials-editor"))return;
+ const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+ const materials=[];
+ let activeId=null,manualPick=false,warning="",menuOpen=false;
+ const pane=document.createElement("section");
+ pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
+ sidebar.append(pane);
+ const menu=document.createElement("div");
+ menu.id="ls-materials-context";menu.hidden=true;menu.setAttribute("role","menu");
+ menu.innerHTML='<button type="button" data-material-command="library">Add Material from Library <small>planned</small></button><button type="button" data-material-command="browse">Browse Materials <small>planned</small></button><button type="button" data-material-command="blank">Blank Material</button><button type="button" data-material-command="layers">Layers <small>planned</small></button><button type="button" data-material-command="more">More Materials <small>planned</small></button><button type="button" data-material-command="help">Help</button>';
+ document.body.append(menu);
+ const showMessage=t=>{warning=t;if($("ls-material-note"))$("ls-material-note").textContent=t;};
+ const geometry=()=>window.LSWaveCADService;
+ function getDomains(){
+  try{
+   const entities=geometry()?.entities()||[];
+   const output=[];
+   for(const shape of entities){
+    const num=(shape.layers||[]).filter(t=>t>0).length+1;
+    for(let layer=0;layer<num;layer++){
+     const id=output.length+1;
+     output.push({id,entityKey:shape.entityKey,owner:shape.owner,source:shape.source,label:(shape.entityKey)+(num>1?(layer===num-1?" · inner domain":" · layer "+(layer+1)):" · disk"),layer});
+    }
+   }
+   return output;
+  }catch(error){warning="Geometry unavailable: "+error.message;return [];}
+ }
+ function assignedDomains(material,domains){
+  if(material.mode==="all")return domains;
+  return domains.filter(d=>material.domainIds.includes(d.id));
+ }
+ function overviewBody(domains){
+  const all=materials.map(m=>'<tr><td>◈ '+safe(m.label)+'</td><td>'+safe(m.mode==="all"?"All domains":m.domainIds.join(", ")||"None")+'</td></tr>').join("");
+  const covered=new Set(materials.flatMap(m=>assignedDomains(m,domains).map(d=>d.id)));
+  const missing=domains.filter(d=>!covered.has(d.id)).map(d=>d.id);
+  const missingText=missing.length?("Domains "+missing.join(", ")):"None";
+  return '<details class="ls-material-section" open><summary>Material Overview</summary><div class="ls-material-section-inner">'+
+   '<table class="ls-material-overview"><thead><tr><th>Material</th><th>Selection</th></tr></thead><tbody>'+
+   '<tr><td><span class="ls-material-warning">⛔</span> Entities needing a material</td><td>'+safe(missingText)+'</td></tr>'+all+'</tbody></table>'+
+   '<p class="ls-material-explainer">Geometry preview: '+domains.length+' selectable region(s). Overlapping circles are not Boolean-unioned and the displayed IDs are not validated COMSOL FEM domains.</p>'+
+   '<button class="ls-material-primary" type="button" data-material-command="blank">＋ Blank Material</button></div></details>';
+ }
+ function detailsBody(material,domains){
+  const selection=assignedDomains(material,domains);
+  const items=domains.map(d=>{
+   const checked=material.mode==="all"||material.domainIds.includes(d.id);
+   return '<label class="ls-material-domain-option"><input type="checkbox" data-material-domain="'+d.id+'" '+(checked?"checked":"")+' '+(material.mode==="all"?"disabled":"")+'/>'+
+    '<span><b>'+d.id+'</b> '+safe(d.label)+'</span></label>';
+  }).join("");
+  return '<div class="ls-setting-line"><label for="ls-material-label">Label</label><input id="ls-material-label" value="'+safe(material.label)+'"/></div>'+
+   '<details class="ls-material-section" open><summary>Geometric Entity Selection</summary><div class="ls-material-section-inner">'+
+   '<label class="ls-material-field"><span>Geometric entity level:</span><select id="ls-material-entity-level"><option>Domain</option></select></label>'+
+   '<label class="ls-material-field"><span>Selection:</span><select id="ls-material-select-mode"><option value="all" '+(material.mode==="all"?"selected":"")+'>All domains</option><option value="manual" '+(material.mode==="manual"?"selected":"")+'>Manual selection</option></select></label>'+
+   '<div class="ls-material-selection-row"><button type="button" id="ls-material-pick" aria-pressed="'+manualPick+'" title="Activate Selection in Graphics">▣</button><div id="ls-material-domain-list">'+(items||"<p>No geometry domains defined</p>")+'</div></div>'+
+   '<p class="ls-material-help">Selected '+selection.length+' of '+domains.length+' preview region(s). '+(manualPick?"Graphics selection is active: click a circle to toggle its associated region(s).":"Switch to Manual selection to choose individual regions.")+'</p>'+
+   '</div></details>'+
+   '<details class="ls-material-section"><summary>Override</summary><p class="ls-material-help">Not linked to the FEM material model.</p></details>'+
+   '<details class="ls-material-section"><summary>Material Properties</summary><p class="ls-material-help">Isotropic refractive index. Enter a real value (e.g. 1.45) and imaginary value (e.g. 0) for material preview.</p></details>'+
+   '<details class="ls-material-section" open><summary>Material Contents</summary><div class="ls-material-section-inner">'+
+   '<table class="ls-material-values"><thead><tr><th>Property</th><th>Variable</th><th>Value</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
+   '<tr><td>Refractive index, real part</td><td>n_iso</td><td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. 1.45"/></td><td>1</td><td>Refractive index</td></tr>'+
+   '<tr><td>Refractive index, imaginary part</td><td>ki_iso</td><td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'"/></td><td>1</td><td>Refractive index</td></tr>'+
+   '</tbody></table><p class="ls-material-help">This Blank Material is a Geometry-domain annotation. It does not change the current radial FEM n(r) or compute a full-vector EWFD solution.</p></div></details>';
+ }
+ function treeRender(){
+  const host=$("ls-cad-material-list");if(!host)return;
+  host.replaceChildren();
+  for(const material of materials){
+   const button=document.createElement("button");
+   button.type="button";button.dataset.lsBlankMaterial=material.id;
+   button.className="ls-tree-leaf"+(material.id===activeId&&!pane.hidden?" active":"");
+   button.textContent="◈ "+material.label+" ("+material.id+")";
+   host.append(button);
+  }
+ }
+ function render(){
+  const domains=getDomains(),material=materials.find(m=>m.id===activeId);
+  pane.innerHTML='<div class="ls-config-heading"><div><strong>Settings</strong><small id="ls-material-subtitle">'+(material?"Material":"Materials")+'</small></div><button type="button" id="ls-material-close">← Fiber settings</button></div>'+
+   '<div class="ls-material-editor-body">'+(material?detailsBody(material,domains):'<div class="ls-setting-line"><label>Label</label><input readonly value="Materials"/></div>'+overviewBody(domains))+
+   '<p class="ls-config-status" id="ls-material-note" role="status">'+safe(warning||"Material assignment is a Geometry preview until a full-vector domain mesh and material solver are implemented.")+'</p></div>';
+  treeRender();
+  highlight();
+ }
+ function selectedKeys(){
+  const m=materials.find(x=>x.id===activeId);
+  if(!m)return [];
+  return [...new Set(assignedDomains(m,getDomains()).map(x=>x.entityKey))];
+ }
+ function highlight(){
+  if(pane.hidden)return;
+  document.dispatchEvent(new CustomEvent("ls-material-highlight",{detail:{entityKeys:selectedKeys()}}));
+ }
+ function pickChanged(enabled){
+  manualPick=enabled;
+  document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{enabled,entityKeys:enabled?selectedKeys():[]}}));
+  if($("ls-material-pick")){$("ls-material-pick").setAttribute("aria-pressed",String(enabled));$("ls-material-pick").classList.toggle("active",enabled);}
+ }
+ function open(id=null){
+  activeId=id;
+  menu.hidden=true;
+  const cad=$("ls-cad-pane"),wave=$("ls-wave-settings"),other=$("ls-config-pane");
+  if(other)other.hidden=true;
+  if(cad)cad.hidden=true;
+  if(wave)wave.hidden=true;
+  pane.hidden=false;
+  sidebar.classList.add("ls-config-active");
+  document.body.classList.remove("ls-wave-optics-active","ls-cad-active");
+  document.body.classList.add("ls-configuration-open","ls-material-active");
+  document.dispatchEvent(new CustomEvent("ls-open-material-editor",{detail:{id}}));
+  render();
+  pickChanged(true);
+ }
+ function close(){
+  if(pane.hidden)return;
+  pickChanged(false);
+  pane.hidden=true;menu.hidden=true;activeId=null;
+  document.body.classList.remove("ls-material-active","ls-configuration-open");
+  sidebar.classList.remove("ls-config-active");
+  const cadGraphics=$("ls-cad-graphics");if(cadGraphics)cadGraphics.hidden=true;
+  treeRender();
+ }
+ function blank(){
+  let i=1;while(materials.some(m=>m.id==="mat"+i))i++;
+  const material={id:"mat"+i,label:"Material "+i,mode:"all",domainIds:[],real:"",imag:"0"};
+  materials.push(material);
+  warning="Blank Material created. Assign a domain and refractive index values to configure this preview.";
+  open(material.id);
+ }
+ function context(e){
+  e.preventDefault();e.stopPropagation();
+  menu.hidden=false;
+  menu.style.left=Math.max(8,Math.min(e.clientX,innerWidth-260))+"px";
+  menu.style.top=Math.max(8,Math.min(e.clientY,innerHeight-225))+"px";
+ }
+ tree.addEventListener("contextmenu",e=>{
+  if(e.target.closest('summary[data-action="waveMaterials"]')||e.target.closest("[data-ls-blank-material]"))context(e);
+ });
+ tree.addEventListener("click",e=>{
+  const material=e.target.closest("[data-ls-blank-material]");
+  if(material){e.preventDefault();e.stopImmediatePropagation();open(material.dataset.lsBlankMaterial);return;}
+  const summary=e.target.closest('summary[data-action="waveMaterials"]');
+  if(summary&&e.clientX-summary.getBoundingClientRect().left>=22){
+   e.preventDefault();e.stopImmediatePropagation();open();
+  }
+ },true);
+ menu.addEventListener("click",e=>{
+  const cmd=e.target.closest("[data-material-command]")?.dataset.materialCommand;
+  if(!cmd)return;
+  menu.hidden=true;
+  if(cmd==="blank"){blank();return;}
+  if(cmd==="help"){window.open("https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/web/","_blank","noopener");return;}
+  warning="This library action is not implemented yet. Use Blank Material for Geometry preview.";
+  open();
+ });
+ document.addEventListener("pointerdown",e=>{if(!menu.hidden&&!menu.contains(e.target))menu.hidden=true;});
+ pane.addEventListener("click",e=>{
+  if(e.target.closest("#ls-material-close")){close();return;}
+  if(e.target.closest('[data-material-command="blank"]')){blank();return;}
+  if(e.target.closest("#ls-material-pick")){pickChanged(!manualPick);render();return;}
+ });
+ pane.addEventListener("input",e=>{
+  const material=materials.find(x=>x.id===activeId);if(!material)return;
+  if(e.target.id==="ls-material-label"){material.label=e.target.value;treeRender();}
+  if(e.target.id==="ls-material-real")material.real=e.target.value;
+  if(e.target.id==="ls-material-imag")material.imag=e.target.value;
+ });
+ pane.addEventListener("change",e=>{
+  const material=materials.find(x=>x.id===activeId);if(!material)return;
+  if(e.target.id==="ls-material-select-mode"){
+   material.mode=e.target.value;
+   if(material.mode==="manual"&&!material.domainIds.length)material.domainIds=getDomains().map(x=>x.id);
+   render();pickChanged(manualPick);
+   return;
+  }
+  const box=e.target.closest("[data-material-domain]");
+  if(box){
+   material.mode="manual";
+   const id=Number(box.dataset.materialDomain);
+   material.domainIds=material.domainIds.filter(x=>x!==id);
+   if(box.checked)material.domainIds.push(id);
+   render();pickChanged(manualPick);
+  }
+ });
+ document.addEventListener("ls-material-geometry-click",e=>{
+  if(!manualPick||pane.hidden)return;
+  const material=materials.find(x=>x.id===activeId);if(!material)return;
+  const matched=getDomains().filter(d=>d.entityKey===e.detail?.entityKey);
+  if(!matched.length)return;
+  const current=new Set(assignedDomains(material,getDomains()).map(x=>x.id));
+  const allSelected=matched.every(d=>current.has(d.id));
+  for(const d of matched){if(allSelected)current.delete(d.id);else current.add(d.id);}
+  material.mode="manual";material.domainIds=[...current].sort((a,b)=>a-b);
+  warning="Changed preview selection for "+e.detail.entityKey+" ("+matched.length+" region(s)).";
+  render();pickChanged(true);
+ });
+ document.addEventListener("ls-cad-state",()=>{
+  if(!pane.hidden)render();
+ });
+ document.addEventListener("ls-wizard-finished",()=>{materials.length=0;activeId=null;treeRender();});
+ document.addEventListener("ls-open-cad",close);
+ document.addEventListener("ls-open-wave-optics",close);
+ document.addEventListener("ls-open-settings",close);
+ window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds]})),domains:getDomains});
+ treeRender();
+})();

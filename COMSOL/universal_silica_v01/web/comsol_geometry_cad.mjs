@@ -75,6 +75,10 @@
    <div class="ls-cad-subsection">Cumulative selection</div><div class="ls-cad-field ls-cad-cumulative-row"><label for="ls-cad-contribute">Contribute to</label><select id="ls-cad-contribute"><option value="">None</option></select><button id="ls-cad-cumulative-new" type="button" title="New cumulative selection">New</button></div></details>
   <div class="ls-cad-mini"><svg id="ls-cad-mini-svg" viewBox="0 0 460 230" role="img" aria-label="Small geometry preview"></svg></div>
   </div>
+  <div id="ls-cad-cumulative-settings" hidden>
+    <div class="ls-setting-line"><label for="ls-cad-cumulative-label">Label</label><input id="ls-cad-cumulative-label" readonly /></div>
+    <details class="ls-cad-section" open><summary>Cumulative Selection</summary><div class="ls-cad-block-label" id="ls-cad-cumulative-summary"></div><p class="ls-cad-sequence-note">This named selection references Geometry results for display and organization. It does not create a full-vector FEM material domain.</p></details>
+  </div>
   <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
@@ -211,11 +215,45 @@
   if(kind==="mirror")return {id:pre+i,kind:"mirror",label:"Mirror "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,cx:"0[um]",cy:"0[um]",nx:"1",ny:"0",selection:false,color:"None"};
   return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],inputRefs:null,keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }
+
+ function renderCumulativeTree(){
+  const list=$("ls-cad-cumulative-list"),group=$("ls-cad-cumulative-group");
+  if(!list||!group)return;
+  group.hidden=!cumulativeSelections.length;
+  list.replaceChildren();
+  for(const row of cumulativeSelections){
+   const button=document.createElement("button");
+   button.type="button";button.dataset.cadCumulativeId=row.id;
+   button.className="ls-tree-leaf"+(activeCumulativeId===row.id?" active":"");
+   button.textContent="▧ "+row.label;
+   list.append(button);
+  }
+ }
+ function updateCumulativeOptions(node){
+  const dropdown=$("ls-cad-contribute");if(!dropdown)return;
+  dropdown.replaceChildren(new Option("None",""));
+  for(const row of cumulativeSelections)dropdown.add(new Option(row.label,row.id));
+  dropdown.value=node.cumulativeId||"";
+ }
+ function cumulativeHighlight(key){
+  const row=cumulativeSelections.find(v=>v.id===activeCumulativeId);
+  return row?.featureIds.some(id=>key.owner===id)||false;
+ }
  function drawTree(){
   const list=$("ls-geometry-node-list");if(!list)return;
+  renderCumulativeTree();
   list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
  }
  function loadFields(){
+  const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
+  $("ls-cad-cumulative-settings").hidden=!cumulative;
+  if(cumulative){
+   $("ls-cad-root-settings").hidden=true;$("ls-cad-feature-settings").hidden=true;$("ls-cad-build-selected").disabled=true;
+   $("ls-cad-subtitle").textContent="Cumulative Selection";
+   $("ls-cad-cumulative-label").value=cumulative.label;
+   $("ls-cad-cumulative-summary").textContent="Contributing Geometry features: "+(cumulative.featureIds.map(id=>nodes.find(n=>n.id===id)?.label||id).join(", ")||"None");
+   drawTree();draw();return;
+  }
   const n=cur();
    $("ls-cad-root-settings").hidden=!!n;$("ls-cad-feature-settings").hidden=!n;
    $("ls-cad-build-selected").disabled=!n;
@@ -249,12 +287,14 @@
    $("ls-cad-mirror-normal-section").hidden=n.kind!=="mirror";
    if(n.kind==="mirror"){for(const k of ["cx","cy","nx","ny"])$("ls-cad-mirror-"+k).value=n[k];}
    const list=$("ls-cad-inputs");list.replaceChildren();
-   const options=nodes.slice(0,index(n.id)).filter(o=>o.kind==="circle"&&o.enabled);
-   if(!options.length)list.textContent="Move Rotate below an enabled Circle.";
-   for(const input of options){
+   const options=availableInputs(n);
+   if(!options.length)list.textContent="Create a preceding Circle or Rotate output, then activate selection.";
+   const checked=selectedInputKeys(n,options);
+   for(const shape of options){
     const label=document.createElement("label"),cb=document.createElement("input");
-    cb.type="checkbox";cb.dataset.cadInput=input.id;cb.checked=n.inputIds.includes(input.id);
-    label.append(cb,document.createTextNode(` ${input.label} (${input.id})`));list.append(label);
+    cb.type="checkbox";cb.dataset.cadInput=shape.source;cb.dataset.cadInputRef=shape.entityKey;
+    cb.checked=checked.has(shape.entityKey);
+    label.append(cb,document.createTextNode(" "+entityLabel(shape)));list.append(label);
    }
   }
   $("ls-cad-selection").checked=n.selection;$("ls-cad-physics").disabled=!n.selection;$("ls-cad-color").value=n.color;
@@ -467,6 +507,7 @@
   }
  }
  function open(id){
+  activeCumulativeId=null;
   if(id&&id!==selected)selectingRotateInputs=false;
   if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;
   if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
@@ -475,9 +516,17 @@
   side.classList.add("ls-config-active");document.body.classList.add("ls-configuration-open","ls-cad-active");
   loadFields();say("Edit Geometry features; 2D Graphics updates immediately. Radial FEM only changes after Apply.");
  }
+ function openCumulative(id){
+  const row=cumulativeSelections.find(r=>r.id===id);if(!row)return;
+  activeCumulativeId=id;selectingRotateInputs=false;
+  $("ls-config-pane").hidden=true;
+  pane.hidden=false;graphics.hidden=false;side.classList.add("ls-config-active");
+  document.body.classList.add("ls-configuration-open","ls-cad-active");
+  loadFields();say("Cumulative Selection "+row.label+": "+row.featureIds.length+" contributing Geometry feature(s).");
+ }
  function hideContext(){context.hidden=true;}
  function close(){
-  selectingRotateInputs=false;
+  selectingRotateInputs=false;activeCumulativeId=null;
   if(rangeDialog.open)rangeDialog.close("cancel");
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
@@ -489,7 +538,7 @@
   const idx=index(selected),n=cur();
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
-   case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
+   case "circle":case "rotate":case "mirror":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
    case "build-all":checkpoint();limit=null;try{lockViewIfNeeded();draw();say("Built All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "build-selected":if(!n)return;checkpoint();limit=idx;try{lockViewIfNeeded();draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Built Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
@@ -560,13 +609,13 @@
   if(scope==="root")return [
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
    menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
-   {sep:true},menuAction("Transforms","submenu",{children:[menuAction("Rotate","rotate"),menuAction("Move","disabled",{disabled:true}),menuAction("Mirror","disabled",{disabled:true})]}),
+   {sep:true},menuAction("Transforms","submenu",{children:[menuAction("Rotate","rotate"),menuAction("Move","disabled",{disabled:true}),menuAction("Mirror","mirror")]}),
    ...["Parts","Programming","Booleans and Partitions","Conversions","Chamfer","Fillet","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
-   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"})]}),
-   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"})]}),
+   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
+   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
    menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
    menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:"F3"}),menuAction("Rename","rename",{shortcut:"F2"}),
@@ -621,6 +670,7 @@
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
+ $("ls-cad-add-mirror").addEventListener("click",()=>add("mirror"));
  $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;viewExtent=null;loadFields();say("Geometry restored to original Circle 1 and 2.");});
  $("ls-cad-apply").addEventListener("click",apply);
  $("ls-cad-export").addEventListener("click",()=>{

@@ -1,0 +1,54 @@
+/* Definitions > Selections > Adjacent — COMSOL-style editor and SVG boundary picker */
+body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:228px minmax(395px,510px) minmax(0,1fr)!important}
+body.ls-comsol-shell.ls-adjacent-active .ls-study-pane{display:none!important}
+body.ls-comsol-shell.ls-adjacent-active .ls-output-console{grid-column:3/4!important}
+body.ls-comsol-shell.ls-adjacent-active main.workspace>*:not(.ls-graphics-head):not(#ls-cad-graphics){display:none!important}
+body.ls-comsol-shell.ls-adjacent-active .sidebar.ls-config-active{padding:0!important}
+body.ls-comsol-shell.ls-adjacent-active .sidebar.ls-config-active>:not(#ls-adjacent-editor){display:none!important}
+body.ls-comsol-shell #ls-adjacent-editor[hidden]{display:none!important}
+body.ls-comsol-shell .ls-adjacent-editor{display:flex;flex-direction:column;background:#fff;color:#31465a;min-height:100%;font:12px "Segoe UI","Malgun Gothic",sans-serif}
+.ls-adjacent-editor .ls-config-heading{flex:none;border-bottom:1px solid #d4e0e9}
+.ls-adjacent-editor .ls-adjacent-body{padding:9px 10px 18px;overflow-y:auto;min-height:0;flex:1}
+.ls-adjacent-editor .ls-setting-line{margin:7px 1px 12px;display:grid;grid-template-columns:43px minmax(0,1fr);gap:8px;align-items:center}
+.ls-adjacent-editor .ls-setting-line label{font-weight:600;font-size:11px}
+.ls-adjacent-editor .ls-setting-line input{width:100%;border:1px solid #b5c6d5;border-radius:2px;padding:6px 8px;color:#304a61;background:#fff}
+.ls-adjacent-section{border:1px solid #d9e2ec;margin:7px 0 13px;background:#fff}
+.ls-adjacent-section>summary{cursor:pointer;background:#e5edf7;color:#344e68;padding:7px 9px;font-weight:600}
+.ls-adjacent-section-content{padding:10px 11px 12px;display:flex;flex-direction:column;gap:7px}
+.ls-adjacent-field{color:#435c73;font-size:11px;font-weight:550}
+.ls-adjacent-section select{width:100%;padding:6px 8px;background:#fff;color:#2e4e67;border:1px solid #b0c4d7;border-radius:2px;font-size:12px}
+#ls-adjacent-list{border:1px solid #c5d2df;min-height:168px;max-height:255px;overflow-y:auto;background:#fff;padding:4px}
+.ls-adjacent-row{display:flex;align-items:center;gap:7px;padding:4px 5px;font-size:11px;cursor:pointer}
+.ls-adjacent-row:hover{background:#ecf3fc}
+.ls-adjacent-row input{accent-color:#265fba}
+.ls-adjacent-row b{font-weight:600;color:#245c90}
+.ls-adjacent-empty{font-size:11px;color:#8da0ae;line-height:1.6;padding:10px;margin:0}
+.ls-adjacent-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ls-adjacent-actions button{background:#edf5fc;color:#226a99;border:1px solid #b5cbdb;border-radius:2px;padding:6px 8px;cursor:pointer;font-size:11px}
+.ls-adjacent-actions button[aria-pressed="true"]{background:#d9e8ff;border-color:#497fd8}
+.ls-adjacent-actions button:hover{background:#d7eafb}
+.ls-adjacent-actions span{font-size:11px;color:#577187}
+.ls-adjacent-check{display:flex;gap:7px;align-items:center;font-size:11px;color:#496278}
+.ls-adjacent-check input{accent-color:#286fbd}
+.ls-adjacent-note{line-height:1.5;color:#718a9b;font-size:11px}
+#ls-adjacent-status{line-height:1.45;color:#3f6f92;font-size:11px;margin:10px 2px}
+#ls-definitions-selections-group[hidden]{display:none!important}
+#ls-definitions-selections-group .ls-tree-leaf.active{background:#d8eaff;color:#175da1}
+#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity{cursor:crosshair}
+#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity:hover:not(.is-adjacent-selected)>:nth-last-child(1){stroke:#4584f0;stroke-opacity:.25}
+#ls-cad-view .ls-cad-adjacent-overlay .is-adjacent-selected{filter:drop-shadow(0 0 1.2px #3d75c6)}
+@media(max-width:1080px){
+ body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:195px minmax(335px,440px) minmax(0,1fr)!important}
+}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:minmax(300px,48%) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-adjacent-active .sidebar{grid-column:1!important}
+ body.ls-comsol-shell.ls-adjacent-active main.workspace{grid-column:2!important}
+ body.ls-comsol-shell.ls-adjacent-active .ls-output-console{grid-column:2!important}
+}
+@media(max-width:630px){
+ body.ls-comsol-shell.ls-adjacent-active .layout{display:block!important}
+ body.ls-comsol-shell.ls-adjacent-active main.workspace{min-height:340px!important}
+ body.ls-comsol-shell.ls-adjacent-active #ls-cad-graphics{min-height:340px}
+ body.ls-comsol-shell.ls-adjacent-active .sidebar{max-height:460px;overflow-y:auto}
+}

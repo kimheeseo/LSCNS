@@ -1,0 +1,12 @@
+% COMSOL-style parameter import example for Optical Fiber FEM Tool
+% Name Expression Description
+d 5[um] Core diameter
+Delta 6.75[um] Hole pitch (reference only)
+dn_core 0.005 Core-cladding refractive index difference
+rb 40[um] Outer computation domain radius
+nbg 1.45 Background refractive index
+nair 1 Air refractive index
+wl 1.45[um] Mode analysis wavelength
+neffMax nbg-0.0046 Reference effective index maximum
+neffMin nbg-0.021 Reference effective index minimum
+wlr wl/sqrt(nbg^2-neffMax^2) Reference radial wavelength

@@ -328,7 +328,8 @@
  }
  function showMenu(event,scope,id){
   event.preventDefault();event.stopPropagation();
-  if(id&&nodes.some(n=>n.id===id)){selected=id;if(!pane.hidden)loadFields();}
+  if(scope==="root"){selected="root";if(!pane.hidden)loadFields();}
+  else if(id&&nodes.some(n=>n.id===id)){selected=id;if(!pane.hidden)loadFields();}
   context.innerHTML=menuHTML(menuItems(scope));context.hidden=false;
   const w=300,h=context.getBoundingClientRect().height;
   context.style.left=Math.max(6,Math.min(event.clientX,window.innerWidth-w-8))+"px";

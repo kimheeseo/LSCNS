@@ -120,7 +120,39 @@ function ribbonHtml(){
   <div class="ls-ribbon-body"><div class="ls-ribbon-tools" id="ls-ribbon-tools"></div><div class="ls-ribbon-note"><span class="ls-ribbon-key">MODEL</span><strong id="ls-ribbon-model">G.654.E · Large Aeff</strong><small>2D mode analysis / linked studies</small></div></div>
  </div>`;
 }
-function toolHtml(tab){return (ACTIONS[tab]||ACTIONS.home).map(([action,label,shape],i)=>`<button class="ls-ribbon-command" data-action="${action}" type="button" title="${label}"><span class="ls-command-icon ${i===0?'ls-icon-primary':''}">${icon(shape)}</span><span class="ls-command-label">${label}</span></button>`).join('<span class="ls-ribbon-separator" aria-hidden="true"></span>');}
+
+/**
+ * Definitions ribbon follows the COMSOL Wave Optics screenshot (v5.6):
+ * groups, relative order and labels. Only existing commands are enabled;
+ * unsupported COMSOL physics functions are intentionally disabled.
+ */
+const DEFINITION_GROUPS=[
+ {label:"Variables",items:[["Local Variables","settings","settings","large"]]},
+ {label:"Functions",items:[["Analytic","definitionsAnalytic","wave"],["Interpolation","definitionsInterpolation","chart"],["Piecewise","definitionsPiecewise","layers"],["More Functions","definitionsMoreFunctions","plus"]]},
+ {label:"Selections",items:[["Explicit","definitionsExplicit","check"],["Complement","definitionsComplement","layers"],["Adjacent","definitionsAdjacent","geometry"],["Ball/Disk","definitionsBallDisk","geometry"],["Box","definitionsBox","geometry"],["Cylinder","definitionsCylinder","geometry"],["Union","definitionsUnion","layers"],["Intersection","definitionsIntersection","layers"],["Difference","definitionsDifference","layers"],["Colors","definitionsColors","material"]]},
+ {label:"Probes",items:[["Update Probes","definitionsUpdateProbes","refresh"],["Probes","definitionsProbes","physics"]]},
+ {label:"Coupling",items:[["Nonlocal Couplings","definitionsNonlocal","wave"],["Pairs","definitionsPairs","layers"]]},
+ {label:"Coordinate Systems",items:[["Coordinate Systems","definitionsCoordinates","geometry","large"]]},
+ {label:"Coordinate Systems",items:[["Perfectly Matched Layer","definitionsPML","wave"],["Infinite Element Domain","definitionsInfinite","layers"],["Absorbing Layer","definitionsAbsorbing","layers"]]},
+ {label:"Deformed Mesh",items:[["Moving Mesh","definitionsMoving","mesh"],["Deformed Geometry","definitionsDeformed","geometry"]]},
+ {label:"Optimization",items:[["Optimization","definitionsOptimization","settings","large"]]},
+ {label:"View",items:[["View","geometry","eye","large"]]}
+];
+const DEFINITION_SUPPORTED=new Set(["settings","geometry"]);
+function definitionsToolHtml(){
+ return '<div class="ls-definitions-groups" role="group" aria-label="Definitions toolbar">'+
+ DEFINITION_GROUPS.map((group,i)=>'<section class="ls-def-group" data-def-group="'+i+'" aria-label="'+group.label+'">'+
+  '<div class="ls-def-group-buttons">'+group.items.map(([label,action,shape,size])=>{
+    const supported=DEFINITION_SUPPORTED.has(action);
+    const upcoming=supported?"":" (UI preview — not implemented)";
+    return '<button type="button" class="ls-def-command'+(size==="large"?" ls-def-command-large":"")+
+     '" data-action="'+action+'"'+(supported?"":' disabled aria-disabled="true"')+
+     ' title="'+label+upcoming+'" aria-label="'+label+upcoming+'">'+
+     '<span class="ls-def-command-icon">'+icon(shape)+'</span><span class="ls-def-command-name">'+label+'</span></button>';
+  }).join('')+'</div><div class="ls-def-group-caption">'+group.label+'</div></section>').join('')+
+ '</div>';
+}
+function toolHtml(tab){if(tab==="definitions")return definitionsToolHtml();return (ACTIONS[tab]||ACTIONS.home).map(([action,label,shape],i)=>`<button class="ls-ribbon-command" data-action="${action}" type="button" title="${label}"><span class="ls-command-icon ${i===0?'ls-icon-primary':''}">${icon(shape)}</span><span class="ls-command-label">${label}</span></button>`).join('<span class="ls-ribbon-separator" aria-hidden="true"></span>');}
 function modelTreeHtml(){
  const options=PRESETS.map(([value,label])=>`<button class="ls-tree-leaf" data-select-preset="${value}" type="button"><span class="ls-tree-marker ls-dot-blue">◇</span><span>${label}</span></button>`).join('');
  return `<aside class="ls-model-tree" aria-label="Model Builder">
@@ -189,6 +221,9 @@ function init(){
  const ribbon=findTarget('.ls-ribbon'),tools=findTarget('#ls-ribbon-tools');
  function renderTab(tab){
   tools.innerHTML=toolHtml(tab);
+  ribbon.classList.toggle("ls-ribbon-is-definitions",tab==="definitions");
+  document.body.classList.toggle("ls-definitions-ribbon",tab==="definitions");
+  const note=findTarget(".ls-ribbon-note");if(note)note.hidden=tab==="definitions";
   for(const button of ribbon.querySelectorAll('.ls-ribbon-tab')){
    const selected=button.dataset.tab===tab;
    button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));

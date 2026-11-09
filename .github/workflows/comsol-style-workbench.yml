@@ -111,6 +111,8 @@ jobs:
             /tmp/comsol_six_rotated_circles.png
             /tmp/comsol_selected_two_mirrors.png
             /tmp/comsol_blank_material_domains.png
+            /tmp/comsol_material_cumulative_selection.png
+            /tmp/comsol_material_boundary_level.png
             /tmp/comsol_definitions_tab_desktop.png
             /tmp/comsol_definitions_tab_mobile.png
           if-no-files-found: ignore

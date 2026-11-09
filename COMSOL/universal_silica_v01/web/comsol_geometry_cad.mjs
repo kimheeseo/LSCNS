@@ -647,15 +647,14 @@
  document.addEventListener("ls-open-wave-optics",()=>{if(!pane.hidden)close();},true);
  document.addEventListener("ls-open-material-editor",()=>{
   if(!pane.hidden)close();
-  graphics.hidden=false;
-  materialPickMode=false;materialHighlightKeys.clear();
+  graphics.hidden=false;materialPickMode=false;materialHighlightKeys.clear();
   draw();
  });
  document.addEventListener("ls-material-picking",e=>{
   materialPickMode=!!e.detail?.enabled;
   materialHighlightKeys=new Set(e.detail?.entityKeys||[]);
   if(!materialPickMode)materialHighlightKeys.clear();
-  graphics.hidden=!materialPickMode&&pane.hidden;
+  graphics.hidden=!document.body.classList.contains("ls-material-active")&&pane.hidden;
   draw();
  });
  document.addEventListener("ls-material-highlight",e=>{

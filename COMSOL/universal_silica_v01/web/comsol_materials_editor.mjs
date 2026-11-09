@@ -11,7 +11,7 @@
  if(!sidebar||!tree||$("ls-materials-editor"))return;
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const materials=[];
- let activeId=null,manualPick=false,warning="",menuOpen=false;
+ let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="";
  const pane=document.createElement("section");
  pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
  sidebar.append(pane);
@@ -85,6 +85,7 @@
  }
  function render(){
   const domains=getDomains(),material=materials.find(m=>m.id===activeId);
+  lastDomainSignature=domains.map(x=>x.id+":"+x.entityKey+":"+x.layer).join("|");
   pane.innerHTML='<div class="ls-config-heading"><div><strong>Settings</strong><small id="ls-material-subtitle">'+(material?"Material":"Materials")+'</small></div><button type="button" id="ls-material-close">← Fiber settings</button></div>'+
    '<div class="ls-material-editor-body">'+(material?detailsBody(material,domains):'<div class="ls-setting-line"><label>Label</label><input readonly value="Materials"/></div>'+overviewBody(domains))+
    '<p class="ls-config-status" id="ls-material-note" role="status">'+safe(warning||"Material assignment is a Geometry preview until a full-vector domain mesh and material solver are implemented.")+'</p></div>';
@@ -118,7 +119,7 @@
   document.body.classList.add("ls-configuration-open","ls-material-active");
   document.dispatchEvent(new CustomEvent("ls-open-material-editor",{detail:{id}}));
   render();
-  pickChanged(true);
+  pickChanged(!!id);
  }
  function close(){
   if(pane.hidden)return;
@@ -204,7 +205,11 @@
   render();pickChanged(true);
  });
  document.addEventListener("ls-cad-state",()=>{
-  if(!pane.hidden)render();
+  if(pane.hidden)return;
+  const domains=getDomains(),signature=domains.map(x=>x.id+":"+x.entityKey+":"+x.layer).join("|");
+  if(signature===lastDomainSignature)return;
+  lastDomainSignature=signature;
+  render();
  });
  document.addEventListener("ls-wizard-finished",()=>{materials.length=0;activeId=null;treeRender();});
  document.addEventListener("ls-open-cad",close);

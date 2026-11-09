@@ -35,8 +35,8 @@ try{
  for(const label of ["Analytic","Interpolation","Piecewise","More Functions"]){
   assert.ok(await page.locator('#ls-ribbon-tools .ls-shot-command').filter({hasText:label}).count());
  }
- assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),0,"Decorative Definitions commands must not dispatch unrelated actions");
- assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),0);
+ assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),1,"Only Adjacent is functional; all other Definitions placeholders must remain disabled");
+ assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),1);
  assert.equal(await page.locator('#ls-ribbon-tools button').count(),27);
  const adjacent=selections.locator('[data-action="definitionsAdjacent"]');
  assert.equal(await adjacent.count(),1,"Definitions Adjacent button is present");

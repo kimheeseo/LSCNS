@@ -138,7 +138,7 @@ const DEFINITION_GROUPS=[
  {label:"Optimization",items:[["Optimization","definitionsOptimization","settings","large"]]},
  {label:"View",items:[["View","geometry","eye","large"]]}
 ];
-const DEFINITION_SUPPORTED=new Set(["settings","geometry"]);
+const DEFINITION_SUPPORTED=new Set(["geometry"]); // View opens the existing Geometry viewer; other screenshot commands remain unavailable.
 function definitionsToolHtml(){
  return '<div class="ls-definitions-groups" role="group" aria-label="Definitions toolbar">'+
  DEFINITION_GROUPS.map((group,i)=>'<section class="ls-def-group" data-def-group="'+i+'" aria-label="'+group.label+'">'+

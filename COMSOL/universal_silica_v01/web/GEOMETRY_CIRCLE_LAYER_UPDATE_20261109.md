@@ -34,3 +34,20 @@ Negative, undefined, or too-large layer thicknesses are rejected. Live SVG previ
 ## Automation
 
 The CI workflow `.github/workflows/comsol-style-workbench.yml` runs the existing interface and solver regressions as well as `tests/browser_geometry_layers_hover.mjs` to check formula, multi-layer boundaries, hover, duplication, deletion and edited Parameters. Chromium tests run on Ubuntu 24.04.
+
+## Screenshot-exact layer and physical XY axes fix (2026-11-09)
+
+The initial Circle in a newly completed 2D/ewfd model now defaults to `Radius = rb+wlr` instead of `1[m]`, preventing a meter-scale starting circle from obscuring a micrometer-scale fiber. In Geometry, enter `Layer 1 = wlr`, then click **Build Selected**.
+
+For the nine default Parameters 1 values:
+
+- `rb = 10[um]` → `10 µm`
+- `wlr = wl/sqrt(nbg^2-neffMax^2)`, with `wl=1.45[um]`, `nbg=1.45`, `neffMax=1.4454` → `12.56419885 µm` (approximately)
+- Outer circle radius: `R = rb+wlr ≈ 22.56419885 µm`
+- One inward layer thickness `wlr` → inner circle radius `R_inner = R-wlr = rb = 10 µm`
+
+A **single Circle 1 object** contains two concentric **boundaries** in the Graphics preview. Two distinct Circle nodes are *not* necessary to display the inner boundary. The Graphics SVG now displays physically calibrated X and Y numeric ticks in µm/mm/m and a scientific unit indicator, rather than fixed, arbitrary-pixel grid spacing. On this reference geometry the Y axis includes approximately −25 to +25 µm. The preview also exposes evaluated outer/inner radii in its legend and SVG attributes. Parameter edits immediately update the geometry. Build Selected retains a stable viewport for normal adjustments and recovers from extreme meter-to-micrometer rescaling; **Fit (⌖)** explicitly reframes the current geometry.
+
+A dedicated browser regression, `tests/browser_comsol_radial_layer_axes.mjs`, creates a fresh ewfd model, verifies nine reference parameters, builds `Circle 1: rb+wlr`, fills `Layer 1: wlr`, checks two SVG circular boundaries, four radial guides, numeric X/Y ticks and expected SI radii; it also edits layer thickness and `rb` to verify that the actual shape geometry changes. It saves `/tmp/comsol_reference_two_circles_axes.png` to the corresponding GitHub Actions run artifact.
+
+**Physics boundary:** Layer-induced inner boundary and 2D plotting are geometry visualization only. They are not automatically meshed as two full-vector EWFD material domains. The original scalar Radial FEM limitation remains unchanged.

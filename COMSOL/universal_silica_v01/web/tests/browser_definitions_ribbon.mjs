@@ -35,7 +35,9 @@ try{
  for(const label of ["Analytic","Interpolation","Piecewise","More Functions"]){
   assert.ok(await page.locator('#ls-ribbon-tools .ls-shot-command').filter({hasText:label}).count());
  }
- assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),0,"Decorative Definitions commands must not dispatch unrelated actions");\n assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),0);\n assert.equal(await page.locator('#ls-ribbon-tools button').count(),27);
+ assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),0,"Decorative Definitions commands must not dispatch unrelated actions");
+ assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),0);
+ assert.equal(await page.locator('#ls-ribbon-tools button').count(),27);
  const layoutHeight=await page.locator(".layout").evaluate(el=>el.getBoundingClientRect().height);
  assert.ok(layoutHeight>350,"Definitions ribbon should not collapse the workbench layout");
  await page.screenshot({path:"/tmp/comsol_definitions_tab_desktop.png",fullPage:true});
@@ -44,7 +46,8 @@ try{
  assert.equal(await page.locator(".ls-definitions-groups").count(),0);
  assert.ok(await page.locator('#ls-ribbon-tools [data-action="compute"]').isVisible());
  await definitions.click();
- await page.locator('#ls-ribbon-tools button').filter({hasText:/^View$/}).evaluate(el=>el.click());\n assert.equal(await page.locator("#ls-cad-subtitle").textContent(),titleBefore);
+ await page.locator('#ls-ribbon-tools button').filter({hasText:/^View$/}).evaluate(el=>el.click());
+ assert.equal(await page.locator("#ls-cad-subtitle").textContent(),titleBefore);
  assert.ok(await page.locator("#ls-cad-pane").isVisible());
  assert.deepEqual(errors,[]);
  const mobile=await browser.newPage({viewport:{width:390,height:850}});

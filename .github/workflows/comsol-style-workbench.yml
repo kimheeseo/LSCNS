@@ -26,6 +26,7 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.css'
@@ -62,6 +63,7 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
       - name: Install Chromium
         run: |
@@ -84,6 +86,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
       - name: Upload rendered UI screenshots
         if: always()
@@ -113,6 +116,7 @@ jobs:
             /tmp/comsol_blank_material_domains.png
             /tmp/comsol_material_cumulative_selection.png
             /tmp/comsol_material_boundary_level.png
+            /tmp/comsol_material_individual_selected_domains.png
             /tmp/comsol_definitions_tab_desktop.png
             /tmp/comsol_definitions_tab_mobile.png
           if-no-files-found: ignore

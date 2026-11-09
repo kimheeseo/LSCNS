@@ -243,3 +243,22 @@ body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-note{display:none!importan
  .ls-def-command-icon{width:23px;height:23px}
  .ls-def-command-icon .ls-icon{width:19px;height:19px}
 }
+
+
+/* COMSOL screenshot: compact two-row commands let all Definitions groups fit a desktop ribbon. */
+.ls-def-group[data-def-group="1"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(2,69px);grid-template-rows:repeat(2,minmax(0,1fr))}
+.ls-def-group[data-def-group="2"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(5,58px);grid-template-rows:repeat(2,minmax(0,1fr))}
+.ls-def-group[data-def-group="3"] .ls-def-group-buttons,
+.ls-def-group[data-def-group="4"] .ls-def-group-buttons,
+.ls-def-group[data-def-group="7"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(2,63px);grid-template-rows:minmax(0,1fr)}
+.ls-def-group[data-def-group="6"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(3,61px);grid-template-rows:minmax(0,1fr)}
+.ls-def-group[data-def-group="1"] .ls-def-command,
+.ls-def-group[data-def-group="2"] .ls-def-command{max-width:none;min-width:0;gap:1px;padding:2px}
+.ls-def-group[data-def-group="1"] .ls-def-command-icon,
+.ls-def-group[data-def-group="2"] .ls-def-command-icon{width:19px;height:19px}
+.ls-def-group[data-def-group="1"] .ls-def-command-icon .ls-icon,
+.ls-def-group[data-def-group="2"] .ls-def-command-icon .ls-icon{width:18px;height:18px}
+.ls-def-group[data-def-group="1"] .ls-def-command-name,
+.ls-def-group[data-def-group="2"] .ls-def-command-name{font-size:9px;line-height:1.1}
+@media(max-width:835px){.ls-def-group[data-def-group="1"] .ls-def-group-buttons{grid-template-columns:repeat(2,57px)}
+.ls-def-group[data-def-group="2"] .ls-def-group-buttons{grid-template-columns:repeat(5,52px)}}

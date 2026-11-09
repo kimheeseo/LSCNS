@@ -319,6 +319,7 @@
   render();
  });
  document.addEventListener("ls-wizard-finished",()=>{materials.length=0;activeId=null;treeRender();});
+ document.addEventListener("ls-adjacent-editor-activated",close);
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-open-wave-optics",close);
  document.addEventListener("ls-open-settings",close);

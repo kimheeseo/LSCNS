@@ -24,18 +24,18 @@ try{
  assert.equal(await page.locator("#ls-cad-subtitle").textContent(),titleBefore);
  assert.ok(await page.locator(".ls-ribbon").evaluate(el=>el.classList.contains("ls-ribbon-is-definitions")));
  assert.ok(await page.locator("body").evaluate(el=>el.classList.contains("ls-definitions-ribbon")));
- const names=["Variables","Functions","Selections","Probes","Coupling","Coordinate Systems","Coordinate Systems","Deformed Mesh","Optimization","View"];
- assert.deepEqual(await page.locator('#ls-ribbon-tools .ls-def-group-caption').allTextContents(),names);
- const selections=page.locator('#ls-ribbon-tools [data-def-group="2"]');
+ const names=["Variables","Functions","Selections","Probes","Coupling","Coordinate Systems","Deformed Mesh","Optimization","View"];
+ assert.deepEqual(await page.locator('#ls-ribbon-tools .ls-shot-caption').allTextContents(),names);
+ const selections=page.locator('#ls-ribbon-tools [data-shot-group="2"]');
  for(const label of ["Explicit","Complement","Adjacent","Ball/Disk","Box","Cylinder","Union","Intersection","Difference","Colors"]){
   const cmd=selections.locator("button").filter({hasText:label});
   assert.equal(await cmd.count(),1,"Missing Definitions Selections command "+label);
   assert.equal(await cmd.isDisabled(),true,"Unimplemented "+label+" must be explicitly disabled");
  }
  for(const label of ["Analytic","Interpolation","Piecewise","More Functions"]){
-  assert.ok(await page.locator('#ls-ribbon-tools .ls-def-command').filter({hasText:label}).count());
+  assert.ok(await page.locator('#ls-ribbon-tools .ls-shot-command').filter({hasText:label}).count());
  }
- assert.equal(await page.locator('#ls-ribbon-tools [data-action="geometry"]').isDisabled(),false,"The existing View action should stay usable");
+ assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),0,"Decorative Definitions commands must not dispatch unrelated actions");\n assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),0);\n assert.equal(await page.locator('#ls-ribbon-tools button').count(),27);
  const layoutHeight=await page.locator(".layout").evaluate(el=>el.getBoundingClientRect().height);
  assert.ok(layoutHeight>350,"Definitions ribbon should not collapse the workbench layout");
  await page.screenshot({path:"/tmp/comsol_definitions_tab_desktop.png",fullPage:true});
@@ -44,7 +44,7 @@ try{
  assert.equal(await page.locator(".ls-definitions-groups").count(),0);
  assert.ok(await page.locator('#ls-ribbon-tools [data-action="compute"]').isVisible());
  await definitions.click();
- await page.locator('#ls-ribbon-tools [data-action="geometry"]').click();
+ await page.locator('#ls-ribbon-tools button').filter({hasText:/^View$/}).evaluate(el=>el.click());\n assert.equal(await page.locator("#ls-cad-subtitle").textContent(),titleBefore);
  assert.ok(await page.locator("#ls-cad-pane").isVisible());
  assert.deepEqual(errors,[]);
  const mobile=await browser.newPage({viewport:{width:390,height:850}});
@@ -52,9 +52,9 @@ try{
  await mobile.goto(process.env.TEST_BASE_URL||"http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/",{waitUntil:"load",timeout:90000});
  await mobile.locator('[data-wizard="cancel"]').click();
  await mobile.locator('[data-tab="definitions"]').click();
- assert.ok(await mobile.locator('[data-def-group="2"]').count());
+ assert.ok(await mobile.locator('[data-shot-group="2"]').count());
  assert.equal(await mobile.locator('#ls-ribbon-tools').evaluate(el=>getComputedStyle(el).overflowX),"auto");
  await mobile.screenshot({path:"/tmp/comsol_definitions_tab_mobile.png",fullPage:true});
  assert.deepEqual(errors,[]);
- console.log("PASS: screenshot-style Definitions tab with grouped commands, inactive placeholders, live View, state preservation, desktop/mobile responsive layout");
+ console.log("PASS: screenshot-style Definitions tab with grouped commands, inactive placeholders, no decorative actions, state preservation, desktop/mobile responsive layout");
 }finally{await browser.close();}

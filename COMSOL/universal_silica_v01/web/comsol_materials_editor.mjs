@@ -262,14 +262,9 @@
     render();pickChanged(false);
    }else if(value==="all"||value==="manual"){
     material.mode=value;material.cumulativeId=null;
-    if(value==="manual"&&!explicitIds(material,entityLevel(material)).length){
-     const ids=getEntities(entityLevel(material)).map(x=>x.id);
-     if(entityLevel(material)==="Domain")material.domainIds=ids;
-     else{
-      material.selectedIdsByLevel??={Boundary:[],Point:[]};
-      material.selectedIdsByLevel[entityLevel(material)]=ids;
-     }
-    }
+    // COMSOL-style Manual selection starts empty. User clicks individual
+    // Geometry domains to add them. Previous manual selections are preserved
+    // when switching away and back; do not auto-select the entire model.
     render();pickChanged(manualPick);
    }
    return;

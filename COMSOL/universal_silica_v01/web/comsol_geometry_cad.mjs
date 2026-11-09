@@ -9,7 +9,7 @@
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
- let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set();
+ let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -461,6 +461,39 @@
   return `<path d="M${x} ${y} L${x1} ${y1} A${r} ${r} 0 ${sector>180?1:0} 1 ${x2} ${y2} Z"/>`;
  }
 
+
+ function materialDomainPath(domain,ox,oy,scale){
+  const x=ox+domain.cx*scale,y=oy-domain.cy*scale,outer=domain.outerR*scale;
+  if(!(outer>0))return "";
+  const circle=(cx,cy,r)=>`M ${cx+r} ${cy} A ${r} ${r} 0 1 0 ${cx-r} ${cy} A ${r} ${r} 0 1 0 ${cx+r} ${cy} Z`;
+  if(domain.startAngle!==null){
+   const inner=domain.innerR*scale;
+   const polar=(r,deg)=>{
+    const t=deg*Math.PI/180;
+    return [x+r*Math.cos(t),y-r*Math.sin(t)];
+   };
+   const [ax,ay]=polar(outer,domain.startAngle),[bx,by]=polar(outer,domain.endAngle);
+   if(inner<=1e-9)return `M ${ax} ${ay} A ${outer} ${outer} 0 0 0 ${bx} ${by} L ${x} ${y} Z`;
+   const [cx,cy]=polar(inner,domain.endAngle),[dx,dy]=polar(inner,domain.startAngle);
+   return `M ${ax} ${ay} A ${outer} ${outer} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${inner} ${inner} 0 0 1 ${dx} ${dy} Z`;
+  }
+  let path=circle(x,y,outer);
+  for(const hole of domain.holeCircles||[]){
+   const cx=ox+hole.cx*scale,cy=oy-hole.cy*scale,r=hole.r*scale;
+   if(r>0)path+=" "+circle(cx,cy,r);
+  }
+  return path;
+ }
+ function materialDomainsSVG(ox,oy,scale,mini){
+  if(mini||!document.body.classList.contains("ls-material-active")||materialEntityLevel!=="Domain")return "";
+  const picking=materialPickMode;
+  const items=materialDomains().map(domain=>{
+   const chosen=materialHighlightDomainIds.has(domain.id),d=materialDomainPath(domain,ox,oy,scale);
+   const name="Domain "+domain.id+" — "+domain.label;
+   return `<path class="ls-cad-material-region${chosen?" is-selected":""}" data-cad-domain-id="${domain.id}" data-cad-domain-key="${esc(domain.key)}" data-domain-owner="${esc(domain.owner)}" aria-label="${esc(name)}" d="${d}" fill-rule="evenodd" fill="${chosen?"#9b94e7":"transparent"}" fill-opacity="${chosen?".63":"0"}" stroke="${chosen?"#5149cb":"none"}" stroke-width="${chosen?"1.35":"0"}" pointer-events="${picking?"visiblePainted":"none"}"><title>${esc(name)}</title></path>`;
+  }).join("");
+  return `<g class="ls-cad-material-domain-overlay" data-domain-picker="${picking?"active":"inactive"}">${items}</g>`;
+ }
  function niceTick(value){
   if(!(value>0&&Number.isFinite(value)))return 1;
   const exponent=Math.floor(Math.log10(value));
@@ -536,10 +569,11 @@
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
+  const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}</g>${labels}`;
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}${materialRegions}</g>${labels}`;
  }
  function draw(){
   try{
@@ -700,18 +734,22 @@
  document.addEventListener("ls-open-wave-optics",()=>{if(!pane.hidden)close();},true);
  document.addEventListener("ls-open-material-editor",()=>{
   if(!pane.hidden)close();
-  graphics.hidden=false;materialPickMode=false;materialHighlightKeys.clear();
+  graphics.hidden=false;materialPickMode=false;materialHighlightKeys.clear();materialHighlightDomainIds.clear();materialEntityLevel="Domain";
   draw();
  });
  document.addEventListener("ls-material-picking",e=>{
   materialPickMode=!!e.detail?.enabled;
+  materialEntityLevel=e.detail?.level||materialEntityLevel;
   materialHighlightKeys=new Set(e.detail?.entityKeys||[]);
+  materialHighlightDomainIds=new Set(e.detail?.domainIds||[]);
   if(!materialPickMode)materialHighlightKeys.clear();
   graphics.hidden=!document.body.classList.contains("ls-material-active")&&pane.hidden;
   draw();
  });
  document.addEventListener("ls-material-highlight",e=>{
+  materialEntityLevel=e.detail?.level||materialEntityLevel;
   materialHighlightKeys=new Set(e.detail?.entityKeys||[]);
+  materialHighlightDomainIds=new Set(e.detail?.domainIds||[]);
   if(!pane.hidden||!graphics.hidden)draw();
  });
 
@@ -879,11 +917,20 @@
  $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
+  if(materialPickMode&&materialEntityLevel==="Domain"){
+   const region=e.target.closest("[data-cad-domain-id]");
+   if(region){
+    document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{
+     level:"Domain",domainId:Number(region.dataset.cadDomainId),domainKey:region.dataset.cadDomainKey,owner:region.dataset.domainOwner
+    }}));
+    return;
+   }
+  }
   const shape=e.target.closest("[data-cad-shape]");
   if(!shape)return;
   const node=cur();
   if(materialPickMode){
-   document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape}}));
+   document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape,level:materialEntityLevel}}));
    return;
   }
   if(selectingRotateInputs&&["rotate","mirror"].includes(node?.kind)){

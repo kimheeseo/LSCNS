@@ -130,8 +130,8 @@
    <div class="ls-setting-line"><label for="ls-param-label">Label</label><input id="ls-param-label" value="Parameters 1" /></div>
    <div class="ls-config-section-title">▾ Parameters</div>
    <div class="ls-params-scroll"><table class="ls-params-table" aria-label="Global Definitions Parameters"><thead><tr><th>Name</th><th>Expression</th><th>Value</th><th>Description</th><th></th></tr></thead><tbody id="ls-parameter-rows"></tbody></table></div>
-   <div class="ls-config-actions"><button id="ls-params-add" type="button">＋ Add parameter</button><button id="ls-params-reset" type="button">Reset to model</button><button id="ls-params-export" type="button">Export JSON</button></div>
-   <p class="ls-config-help">Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. d / dn_core / rb / wl link to the concentric radial FEM only after Apply. Delta is a separate reference pitch, not refractive-index contrast.</p>
+   <div class="ls-config-actions"><button id="ls-params-add" type="button">＋ Add parameter</button><button id="ls-params-reset" type="button">Reset to model</button><button id="ls-params-export" type="button">Export JSON</button><button id="ls-params-import" type="button">📂 Load from File</button><input type="file" id="ls-params-file" accept=".txt,.csv,.tsv,.json,text/plain,text/csv,application/json" hidden/></div>
+   <p class="ls-config-help">Load from File: COMSOL-style tab/space-delimited TXT, CSV/TSV (Name, Expression, Description), or an exported parameter JSON file. Unsupported expressions are retained with a validation warning. Expressions support +, −, ×, ÷, ^, sqrt(), named parameters and [m], [mm], [um], [nm]. Values use SI units internally. d / dn_core / rb / wl link to the concentric radial FEM only after Apply. Delta is a separate reference pitch, not refractive-index contrast.</p>
   </section>
   <section id="ls-geometry-view" class="ls-config-body" hidden>
    <div class="ls-config-actions ls-circle-choices"><button data-ls-circle="0" type="button">◯ Circle 1 (c1)</button><button data-ls-circle="1" type="button">◉ Circle 2 (c2)</button></div>
@@ -268,6 +268,75 @@
  });
  get("ls-params-add").addEventListener("click",()=>{let i=1;while(params.some(p=>p.name==="p"+i))i++;params.push({name:"p"+i,expression:"1",description:"Custom parameter"});renderParameters();});
  get("ls-params-reset").addEventListener("click",()=>{params=defaults();circles=baseCircle();renderParameters();status("Parameters restored from current fiber model.");});
+
+ // COMSOL-style parameter imports, without changing the physical solver on upload.
+ function csvCells(line,delimiter=","){
+  const out=[];let cur="",quoted=false;
+  for(let i=0;i<line.length;i++){
+   const c=line[i];
+   if(c==='"'){if(quoted&&line[i+1]==='"'){cur+='"';i++;}else quoted=!quoted;}
+   else if(c===delimiter&&!quoted){out.push(cur.trim());cur="";}
+   else cur+=c;
+  }
+  out.push(cur.trim());return out;
+ }
+ function importParameters(text,filename){
+  const ext=filename.split(".").pop().toLowerCase();
+  let rows=[];
+  if(ext==="json"){
+   let data;try{data=JSON.parse(text);}catch(e){throw Error("JSON 형식이 올바르지 않습니다.");}
+   if(Array.isArray(data))rows=data;
+   else if(Array.isArray(data.parameters))rows=data.parameters;
+   else throw Error("JSON 파일에 parameters 배열이 없습니다.");
+   rows=rows.map(p=>({name:String(p.name??"").trim(),expression:String(p.expression??"").trim(),description:String(p.description??"").trim()}));
+  }else{
+   for(let raw of text.replace(/^\uFEFF/,"").split(/\r?\n/)){
+    const line=raw.trim();
+    if(!line||/^(?:#|%|\/\/)/.test(line))continue;
+    let cols;
+    if(ext==="csv"||(!line.includes("\t")&&line.includes(",")&&/^[^,]+,[^,]+,/.test(line)))cols=csvCells(line,",");
+    else if(ext==="tsv"||line.includes("\t"))cols=csvCells(line,"\t");
+    else{
+     const m=line.match(/^([A-Za-z_]\w*)\s+(\S+)(?:\s+(.+))?$/);
+     if(!m)throw Error("파라미터 행을 인식할 수 없습니다: "+line.slice(0,90));
+     cols=[m[1],m[2],m[3]||""];
+    }
+    const [name,expr,...rest]=cols.map(x=>x.trim());
+    if(/^(?:Name|Parameter)$/i.test(name||"")&&/^(?:Expression|Value)$/i.test(expr||""))continue;
+    if(!name||!expr)throw Error("Name 또는 Expression이 비어 있습니다.");
+    // A four-column COMSOL export may include a calculated Value before Description.
+    const description=rest.length>=2?rest.slice(1).join(" "):(rest[0]||"");
+    rows.push({name,expression:expr,description});
+   }
+  }
+  if(rows.length<1)throw Error("불러올 파라미터가 없습니다.");
+  if(rows.length>500)throw Error("한 번에 최대 500개 파라미터를 가져올 수 있습니다.");
+  const names=new Set();
+  for(const p of rows){
+   if(!/^[A-Za-z_]\w*$/.test(p.name))throw Error("잘못된 파라미터 이름: "+p.name);
+   if(names.has(p.name))throw Error("중복 파라미터: "+p.name);
+   if(p.expression.length>1000||p.description.length>3000)throw Error(p.name+": 입력 문자열이 너무 깁니다.");
+   names.add(p.name);
+  }
+  // Keep the current model-specific defaults if the import only supplies geometry parameters.
+  // Imported definitions override names, preserving explicit user descriptions.
+  const old=params;
+  params=old.filter(p=>!names.has(p.name)).concat(rows);
+  renderParameters();
+  const evaluation=evaluateAll();
+  status(rows.length+"개 파라미터를 불러왔습니다."+(evaluation.errors.size?" 평가 경고 "+evaluation.errors.size+"개: 표의 빨간 행을 확인하세요.":" Geometry → Apply를 눌러 계산에 반영하세요."),false);
+ }
+ get("ls-params-import").addEventListener("click",()=>get("ls-params-file").click());
+ get("ls-params-file").addEventListener("change",async event=>{
+  const file=event.target.files?.[0];
+  if(!file)return;
+  try{
+   if(file.size>1024*1024*2)throw Error("파일 최대 크기는 2 MB입니다.");
+   importParameters(await file.text(),file.name);
+  }catch(err){status("Load from File 실패: "+err.message,true);}
+  finally{event.target.value="";}
+ });
+
  get("ls-params-export").addEventListener("click",()=>{
   const json=JSON.stringify({format:"LS Wave Optics parameters / geometry v1",label:get("ls-param-label").value,parameters:params,circles},null,2);
   const blob=new Blob([json],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="LS_Fiber_Parameters_Geometry.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);

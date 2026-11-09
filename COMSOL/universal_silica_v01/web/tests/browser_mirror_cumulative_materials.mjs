@@ -50,8 +50,8 @@ try{
  await page.locator("#ls-cad-activate-selection").click();
  assert.equal(await page.locator("#ls-cad-activate-selection").getAttribute("aria-pressed"),"true");
  const one='rot1/c2/1',two='rot1/c2/2';
- await page.locator('[data-cad-entity="'+one+'"] .ls-cad-rendered-surface circle').dispatchEvent("click");
- await page.locator('[data-cad-entity="'+two+'"] .ls-cad-rendered-surface circle').dispatchEvent("click");
+ await page.locator('#ls-cad-view [data-cad-entity="'+one+'"] .ls-cad-rendered-surface circle').dispatchEvent("click");
+ await page.locator('#ls-cad-view [data-cad-entity="'+two+'"] .ls-cad-rendered-surface circle').dispatchEvent("click");
  assert.ok(await page.locator('#ls-cad-inputs [data-cad-input-ref="'+one+'"]').isChecked());
  assert.ok(await page.locator('#ls-cad-inputs [data-cad-input-ref="'+two+'"]').isChecked());
  assert.equal(await page.locator('#ls-cad-view [data-cad-shape="mir1"]').count(),2);

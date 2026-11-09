@@ -10,6 +10,7 @@ try{
  const errors=[];
  page.on('pageerror',err=>errors.push(err.message));
  await page.goto(base,{waitUntil:'load',timeout:90000});
+ await page.locator('[data-wizard="cancel"]').click(); // Open legacy workbench for existing solver regression.
  await page.waitForSelector('.ls-model-tree',{timeout:30000});
  await page.waitForSelector('.ls-ribbon');
  await page.waitForSelector('.ls-study-pane');

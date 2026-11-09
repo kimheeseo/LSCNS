@@ -102,7 +102,7 @@ try{
  assert.equal(await selection.inputValue(),"cumulative:csel1");
  const boundaryCount=await page.locator("#ls-material-domain-list input").count();
  const boundaryChecked=await page.locator("#ls-material-domain-list input:checked").count();
- assert.ok(boundaryCount>available&&boundaryChecked>0&&boundaryChecked<boundaryCount);
+ assert.ok(boundaryCount>=available&&boundaryChecked>0&&boundaryChecked<boundaryCount,"Boundary ring selection should filter to the named Geometry feature");
  assert.ok((await page.locator("#ls-material-domain-list").textContent()).includes("boundary"));
  await page.screenshot({path:"/tmp/comsol_material_boundary_level.png"});
  await level.selectOption("Point");

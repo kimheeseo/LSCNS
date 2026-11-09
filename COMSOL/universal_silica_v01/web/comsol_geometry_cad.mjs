@@ -224,13 +224,17 @@
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
     drawTree();draw();return;
    }
-  $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":"Rotate";$("ls-cad-label").value=n.label;
+  if(n.kind!=="rotate")selectingRotateInputs=false;
+   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":"Rotate";$("ls-cad-label").value=n.label;
   $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=n.kind!=="rotate";
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
    renderExtraLayers(n);
   }else{
    $("ls-cad-angle").value=n.angle;$("ls-cad-cx").value=n.cx;$("ls-cad-cy").value=n.cy;$("ls-cad-keep").checked=n.keep;
+    $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
+    $("ls-cad-activate-selection").classList.toggle("active",selectingRotateInputs);
+    $("ls-cad-selection-hint").textContent=selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
    const list=$("ls-cad-inputs");list.replaceChildren();
    const options=nodes.slice(0,index(n.id)).filter(o=>o.kind==="circle"&&o.enabled);
    if(!options.length)list.textContent="Move Rotate below an enabled Circle.";
@@ -420,6 +424,7 @@
   }
  }
  function open(id){
+  if(id&&id!==selected)selectingRotateInputs=false;
   if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;
   if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
@@ -429,9 +434,12 @@
  }
  function hideContext(){context.hidden=true;}
  function close(){
+  selectingRotateInputs=false;
+  if(rangeDialog.open)rangeDialog.close("cancel");
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
  function add(kind,pos=nodes.length){
+  selectingRotateInputs=false;
   checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;open();say(`${n.label} added. Configure and Build All.`);
  }
  function modify(cmd,arg){

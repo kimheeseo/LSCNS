@@ -148,7 +148,14 @@
   const shapes=compute();
   return Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
  }
- function lockViewIfNeeded(){if(viewExtent===null){viewExtent=visibleExtent();panX=0;panY=0;zoom=1;}}
+ function lockViewIfNeeded(){
+  const extent=visibleExtent();
+  if(viewExtent===null||extent/viewExtent<0.12||extent/viewExtent>8){
+   // Recover automatically from legacy 1 m → micrometer expression changes.
+   // Keep a stable scale for normal radius and layer edits.
+   viewExtent=extent;panX=0;panY=0;zoom=1;
+  }
+ }
  function shapeSummary(shape){
   let consumed=0;const layerInfo=(shape.layers||[]).filter(x=>x>0).map((t,i)=>{
    consumed+=t;return "L"+(i+1)+" "+formatLength(t)+" → inner "+formatLength(shape.r-consumed);

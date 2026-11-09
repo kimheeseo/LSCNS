@@ -154,7 +154,7 @@
   }catch(e){base.reason=String(e.message||e);return base;}
  }
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
- window.LSWaveCADService=Object.freeze({status,apply:()=>apply()});
+ window.LSWaveCADService=Object.freeze({status,apply:()=>apply(),entities:()=>compute().map(({entityKey,owner,source,r,x,y,layers,derived})=>({entityKey,owner,source,r,x,y,layers,derived}))});
  const evalNumber=s=>svc.calculate(s);
  function evalLength(expr){
   const value=evalNumber(expr);
@@ -309,32 +309,58 @@
   rangeDialog.showModal();
   $("ls-cad-range-start").focus();
  }
- function compute(){
-  const p=svc.evaluate();if(p.errors.size)throw Error([...p.errors.values()][0]);
-  const shapes=[],original=new Map();
-  const max=limit===null?nodes.length-1:Math.min(limit,nodes.length-1);
+
+ function compute(upTo=null){
+  const parameters=svc.evaluate();
+  if(parameters.errors.size)throw Error([...parameters.errors.values()][0]);
+  const shapes=[];
+  const max=upTo===null?(limit===null?nodes.length-1:Math.min(limit,nodes.length-1)):Math.min(upTo,nodes.length-1);
   for(let i=0;i<=max;i++){
-   const n=nodes[i];if(!n.enabled)continue;
+   const n=nodes[i];if(!n?.enabled)continue;
    if(n.kind==="circle"){
     const r=evalLength(n.radius),x=evalLength(n.x),y=evalLength(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),layers=getLayers(n);
     if(!(r>0&&r<=10000)||!(sector>0&&sector<=360))throw Error(n.label+": invalid radius or sector");
-    if(layers.reduce((a,b)=>a+b,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
-    const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false};
-    shapes.push(s);original.set(n.id,s);
-   }else{
-    if(!n.inputIds.length)continue; // Empty Rotate inputs are allowed while choosing objects in Graphics.
-    const input=n.inputIds.map(id=>original.get(id));
-    if(input.some(x=>!x))throw Error(n.label+": input must be a preceding enabled Circle");
-    const cx=evalNumber(n.cx),cy=evalNumber(n.cy),angles=angleList(n.angle);
-    if(!n.keep)for(let j=shapes.length-1;j>=0;j--)if(n.inputIds.includes(shapes[j].source)&&!shapes[j].derived)shapes.splice(j,1);
-    for(const s of input)for(const deg of angles){
-     const a=deg*Math.PI/180,dx=s.x-cx,dy=s.y-cy;
-     shapes.push({...s,id:n.id,owner:n.id,x:cx+dx*Math.cos(a)-dy*Math.sin(a),y:cy+dx*Math.sin(a)+dy*Math.cos(a),deg:s.deg+deg,selection:n.selection,color:n.color,derived:true});
+    if(layers.reduce((sum,t)=>sum+t,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
+    shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"circle",r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false});
+   }else if(n.kind==="rotate"||n.kind==="mirror"){
+    const available=[...shapes];
+    const input=Array.isArray(n.inputRefs)?available.filter(shape=>n.inputRefs.includes(shape.entityKey)):available.filter(shape=>n.inputIds.includes(shape.owner));
+    if(!input.length)continue;
+    const px=evalLength(n.cx),py=evalLength(n.cy);
+    if(!n.keep){
+     const keys=new Set(input.map(shape=>shape.entityKey));
+     for(let j=shapes.length-1;j>=0;j--)if(keys.has(shapes[j].entityKey))shapes.splice(j,1);
+    }
+    if(n.kind==="rotate"){
+     const angles=angleList(n.angle);
+     for(const shape of input)for(const [angleIndex,deg] of angles.entries()){
+      const theta=deg*Math.PI/180,dx=shape.x-px,dy=shape.y-py;
+      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+angleIndex,owner:n.id,kind:"rotate",x:px+dx*Math.cos(theta)-dy*Math.sin(theta),y:py+dx*Math.sin(theta)+dy*Math.cos(theta),deg:shape.deg+deg,selection:n.selection,color:n.color,derived:true});
+     }
+    }else{
+     const nx=evalNumber(n.nx),ny=evalNumber(n.ny),norm=nx*nx+ny*ny;
+     if(!Number.isFinite(norm)||norm<=1e-18)throw Error(n.label+": the reflection normal vector must not be zero");
+     for(const [entityIndex,shape] of input.entries()){
+      const projection=((shape.x-px)*nx+(shape.y-py)*ny)/norm;
+      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+entityIndex,owner:n.id,kind:"mirror",x:shape.x-2*projection*nx,y:shape.y-2*projection*ny,deg:-shape.deg,selection:n.selection,color:n.color,derived:true});
+     }
     }
    }
    if(shapes.length>450)throw Error("Too many objects for preview (max 450)");
   }
   return shapes;
+ }
+ function availableInputs(n){
+  const idx=index(n?.id);
+  return idx<0?[]:compute(idx-1);
+ }
+ function selectedInputKeys(n,candidates=availableInputs(n)){
+  return Array.isArray(n.inputRefs)?new Set(n.inputRefs):new Set(candidates.filter(x=>n.inputIds.includes(x.owner)).map(x=>x.entityKey));
+ }
+ function entityLabel(shape){
+  if(!shape.derived)return shape.source+" · "+(nodes.find(n=>n.id===shape.source)?.label||"Circle");
+  const degrees=((shape.deg%360)+360)%360;
+  return shape.entityKey+" ("+unit(degrees)+"°)";
  }
  function drawShape(x,y,r,sector,deg){
   if(sector>=359.999)return `<circle cx="${x}" cy="${y}" r="${r}"/>`;

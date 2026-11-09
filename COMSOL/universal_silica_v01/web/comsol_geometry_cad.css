@@ -100,3 +100,12 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 #ls-cad-delete-dialog .ls-cad-dialog-actions{display:flex;gap:10px;justify-content:flex-end;padding:11px 18px;border-top:1px solid #e1e7ee}
 #ls-cad-delete-dialog button{min-width:72px;padding:6px 14px;border:1px solid #bccbda;background:#f8fafc;border-radius:3px;color:#2c4055}
 #ls-cad-delete-dialog .ls-cad-confirm-yes{border-color:#589bcf;background:#def0ff}
+
+
+/* Radius/layer geometry visualization: visible domains, not just border lines. */
+#ls-cad-view .ls-cad-rendered-shape .ls-cad-layer-region,
+#ls-cad-mini-svg .ls-cad-rendered-shape .ls-cad-layer-region{pointer-events:none}
+#ls-cad-view .ls-cad-rendered-shape:hover .ls-cad-layer-region,
+#ls-cad-view .ls-cad-rendered-shape.is-hovered .ls-cad-layer-region{fill:#f0b6b0;fill-opacity:.92}
+#ls-cad-legend{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#ls-cad-status{white-space:normal;overflow-wrap:anywhere}

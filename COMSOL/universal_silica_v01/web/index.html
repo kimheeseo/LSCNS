@@ -72,8 +72,10 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
   <link rel="stylesheet" href="./comsol_wave_optics_settings.css?v=20261104-ewfd-v1" />
   <link rel="stylesheet" href="./comsol_ui_operations.css?v=20261104-operating-ui-v2" />
   <link rel="stylesheet" href="./comsol_workflow_link.css?v=20261104-linked-workflow-v1" />
+  <link rel="stylesheet" href="./comsol_startup_wizard.css?v=20261109-optics-only-wizard-v1" />
 </head>
 <body>
+  <div id="ls-startup-wizard" role="dialog" aria-modal="true" aria-label="Optical Fiber Model Wizard">모델 설정 화면을 불러오는 중…</div>
   <header class="topbar">
     <div class="brand"><span class="brand-icon">◈</span><span>LS <strong>WAVE OPTICS</strong><small>FIBER DESIGN WORKBENCH · v0.2</small></span></div>
     <div class="top-right"><span id="engineState" class="engine"><span class="status-dot"></span> 브라우저 FEM 엔진 준비</span><a class="top-link" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb" target="_blank" rel="noopener">Colab 소스</a><a class="top-link" href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01" target="_blank" rel="noopener">GitHub ↗</a></div>
@@ -230,5 +232,6 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
   <script type="module" src="./comsol_geometry_cad.mjs?v=20261104-linked-geometry-v2"></script>
   <script type="module" src="./comsol_wave_optics_settings.mjs?v=20261104-ewfd-v2"></script>
   <script type="module" src="./comsol_workflow_link.mjs?v=20261104-linked-workflow-v2"></script>
+  <script type="module" src="./comsol_startup_wizard.mjs?v=20261109-optics-only-wizard-v1"></script>
 </body>
 </html>

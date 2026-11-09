@@ -196,69 +196,34 @@ body.ls-comsol-shell main.workspace .charts-grid .chart-card canvas{filter:inver
 .ls-ribbon-quick .ls-quick-separator{height:18px;border-left:1px solid #d3dbe5;margin:0 2px}
 
 
-/* Screenshot-matched Definitions tab. This is a navigation/layout update:
- * unsupported Definitions physics features are clearly disabled. */
-body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:151px}
-body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{
- height:117px;padding:0 4px 0 6px;gap:0;background:linear-gradient(#fff,#f3f6f9)
-}
-body.ls-comsol-shell.ls-definitions-ribbon #ls-ribbon-tools{
- flex:1;width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;
- scroll-behavior:smooth;scrollbar-width:thin;align-items:stretch
-}
-body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-note{display:none!important}
-.ls-definitions-groups{display:flex;align-items:stretch;gap:0;height:100%;width:max-content;min-width:100%;padding-top:3px}
-.ls-def-group{display:flex;flex-direction:column;flex:0 0 auto;align-items:stretch;
- border-right:1px solid #d2dbe5;padding:1px 6px 0;min-width:68px}
-.ls-def-group-buttons{display:flex;align-items:stretch;justify-content:center;gap:2px;flex:1;min-height:0}
-.ls-def-command{display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center;
- background:transparent;border:1px solid transparent;border-radius:2px;
- padding:4px 5px;min-width:60px;max-width:103px;
- color:#2e4f6b;cursor:pointer;font:11px "Segoe UI","Malgun Gothic",sans-serif}
-.ls-def-command-icon{display:grid;place-items:center;width:29px;height:29px;color:#438ebd}
-.ls-def-command-icon .ls-icon{width:24px;height:24px}
-.ls-def-command-name{text-align:center;white-space:normal;line-height:1.15;font-size:10.5px}
-.ls-def-command-large{min-width:78px;max-width:115px;justify-content:center}
-.ls-def-command-large .ls-def-command-icon{width:36px;height:36px}
-.ls-def-command-large .ls-def-command-icon .ls-icon{width:31px;height:31px}
-.ls-def-command:hover:not(:disabled),.ls-def-command:focus-visible:not(:disabled){
- background:#e4f0fb;border-color:#accce8;color:#1766a2
-}
-.ls-def-command:disabled{opacity:.48;cursor:not-allowed}
-.ls-def-command:disabled .ls-def-command-name{color:#6c7f8c}
-.ls-def-group-caption{text-align:center;border-top:1px solid #e6e9ef;height:21px;min-height:21px;
- display:grid;place-items:center;font-size:10px;color:#7d8b98;letter-spacing:.05px}
-.ls-ribbon-tabs [data-tab="definitions"].active{background:#f7fbff;border-bottom-color:#2f87c4;color:#1c78b8;font-weight:700}
-@media(max-width:835px){
- body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:131px}
- body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{height:97px}
- .ls-def-command{min-width:53px;padding:3px;max-width:91px}
- .ls-def-command-name{font-size:9.5px}
- .ls-def-group-caption{font-size:9px}
-}
-@media(max-width:635px){
- body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:125px}
- body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{height:91px}
- .ls-def-group{padding:0 3px}
- .ls-def-command-icon{width:23px;height:23px}
- .ls-def-command-icon .ls-icon{width:19px;height:19px}
-}
-
-
-/* COMSOL screenshot: compact two-row commands let all Definitions groups fit a desktop ribbon. */
-.ls-def-group[data-def-group="1"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(2,69px);grid-template-rows:repeat(2,minmax(0,1fr))}
-.ls-def-group[data-def-group="2"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(5,58px);grid-template-rows:repeat(2,minmax(0,1fr))}
-.ls-def-group[data-def-group="3"] .ls-def-group-buttons,
-.ls-def-group[data-def-group="4"] .ls-def-group-buttons,
-.ls-def-group[data-def-group="7"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(2,63px);grid-template-rows:minmax(0,1fr)}
-.ls-def-group[data-def-group="6"] .ls-def-group-buttons{display:grid;grid-template-columns:repeat(3,61px);grid-template-rows:minmax(0,1fr)}
-.ls-def-group[data-def-group="1"] .ls-def-command,
-.ls-def-group[data-def-group="2"] .ls-def-command{max-width:none;min-width:0;gap:1px;padding:2px}
-.ls-def-group[data-def-group="1"] .ls-def-command-icon,
-.ls-def-group[data-def-group="2"] .ls-def-command-icon{width:19px;height:19px}
-.ls-def-group[data-def-group="1"] .ls-def-command-icon .ls-icon,
-.ls-def-group[data-def-group="2"] .ls-def-command-icon .ls-icon{width:18px;height:18px}
-.ls-def-group[data-def-group="1"] .ls-def-command-name,
-.ls-def-group[data-def-group="2"] .ls-def-command-name{font-size:9px;line-height:1.1}
-@media(max-width:835px){.ls-def-group[data-def-group="1"] .ls-def-group-buttons{grid-template-columns:repeat(2,57px)}
-.ls-def-group[data-def-group="2"] .ls-def-group-buttons{grid-template-columns:repeat(5,52px)}}
+/* Home / Definitions ribbon: reference order, three-row stacks and group captions. */
+body.ls-comsol-shell.ls-screenshot-ribbon{--ls-ribbon-height:132px}
+body.ls-comsol-shell.ls-screenshot-ribbon .ls-ribbon-body{height:98px;padding:0 4px;gap:0;background:#f8f9fb}
+.ls-ribbon-is-screenshot .ls-ribbon-note{display:none!important}
+.ls-ribbon-is-screenshot #ls-ribbon-tools{display:flex;flex:1;width:100%;min-width:0;align-items:stretch;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+.ls-screenshot-groups{display:flex;align-items:stretch;flex:1;min-width:max-content;height:96px;padding-top:3px;color:#222}
+.ls-shot-group{display:flex;flex-direction:column;flex:1 0 auto;border-right:1px solid #d5d7db;padding:0 5px;min-width:56px}
+.ls-shot-group:last-child{border-right:0}
+.ls-shot-columns{display:flex;justify-content:center;gap:2px;flex:1;min-height:0}
+.ls-shot-column{display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
+.ls-shot-command{display:flex;flex:1;align-items:center;justify-content:flex-start;flex-direction:column;gap:2px;min-width:49px;max-width:83px;padding:3px 3px 1px;border:1px solid transparent;border-radius:0;background:transparent;color:#222;font:12px "Segoe UI",Arial,sans-serif;line-height:1.1;box-shadow:none}
+.ls-shot-icon{display:grid;place-items:center;flex:none;width:34px;height:32px;color:#609ebd}
+.ls-shot-icon .ls-icon{width:30px;height:30px}
+.ls-shot-name{text-align:center;white-space:normal;line-height:1.1}
+.ls-shot-arrow{font-size:8px;display:block;line-height:8px;color:inherit}
+.ls-shot-stack .ls-shot-command{flex:none;height:23px;max-width:none;min-width:0;flex-direction:row;justify-content:flex-start;gap:3px;padding:0 2px}
+.ls-shot-stack .ls-shot-icon{width:17px;height:19px}
+.ls-shot-stack .ls-icon{width:17px;height:17px}
+.ls-shot-stack .ls-shot-name{white-space:nowrap;text-align:left}
+.ls-shot-stack .ls-shot-arrow{display:inline;margin-left:3px}
+.ls-shot-caption{height:18px;flex:none;text-align:center;color:#8b8e92;font-size:12px;line-height:18px;white-space:nowrap}
+.ls-shot-command:disabled{opacity:1;cursor:default}
+.ls-shot-command.ls-shot-muted:disabled{opacity:.34}
+.ls-shot-command.ls-shot-accent{background:#a9d9f5;border-color:#66add7}
+.ls-shot-command:hover:not(:disabled),.ls-shot-command:focus-visible:not(:disabled){background:#d4eafb;border-color:#77add2;outline:none}
+.ls-ribbon-file{flex:none;width:56px;border:0;background:#378bbe;color:#fff;font-size:12px;opacity:1;cursor:default}
+.ls-home-groups [data-shot-group="5"] .ls-shot-column:first-child .ls-shot-command{max-width:148px;min-width:135px}
+.ls-definitions-groups [data-shot-group="5"] .ls-shot-stack{min-width:164px}
+.ls-definitions-groups [data-shot-group="5"] .ls-shot-column:first-child .ls-shot-command{max-width:77px}
+.ls-ribbon-is-screenshot .ls-ribbon-context{display:none}
+@media(max-width:635px){body.ls-comsol-shell.ls-screenshot-ribbon{--ls-ribbon-height:132px}.ls-ribbon-is-screenshot .ls-ribbon-body{height:98px}.ls-ribbon-is-screenshot .ls-ribbon-tabs{height:34px}}

@@ -116,43 +116,89 @@ function runAction(action){
 }
 function ribbonHtml(){
  return `<div class="ls-ribbon" role="navigation" aria-label="광학 해석 리본 메뉴">
-  <div class="ls-ribbon-tabs">${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<div class="ls-ribbon-quick" role="toolbar" aria-label="Quick Access Toolbar"><button type="button" title="Open Design JSON" aria-label="Open Design JSON" data-action="openDesign">Open</button><button type="button" title="Save Design JSON" aria-label="Save Design JSON" data-action="saveDesign">Save</button><span class="ls-quick-separator" aria-hidden="true"></span><button type="button" title="Undo Geometry (Ctrl+Z)" aria-label="Undo Geometry" data-action="cadUndo" disabled>↶</button><button type="button" title="Redo Geometry (Ctrl+Shift+Z)" aria-label="Redo Geometry" data-action="cadRedo" disabled>↷</button><button type="button" title="Build All Geometry (F8)" aria-label="Build All Geometry" data-action="cadBuildAll">▣</button></div><span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
+  <div class="ls-ribbon-tabs"><button type="button" class="ls-ribbon-file" disabled aria-disabled="true">File</button>${LABELS.map(([key,label])=>`<button type="button" class="ls-ribbon-tab${key==='home'?' active':''}" data-tab="${key}" aria-pressed="${key==='home'}">${label}</button>`).join('')}<div class="ls-ribbon-quick" role="toolbar" aria-label="Quick Access Toolbar"><button type="button" title="Open Design JSON" aria-label="Open Design JSON" data-action="openDesign">Open</button><button type="button" title="Save Design JSON" aria-label="Save Design JSON" data-action="saveDesign">Save</button><span class="ls-quick-separator" aria-hidden="true"></span><button type="button" title="Undo Geometry (Ctrl+Z)" aria-label="Undo Geometry" data-action="cadUndo" disabled>↶</button><button type="button" title="Redo Geometry (Ctrl+Shift+Z)" aria-label="Redo Geometry" data-action="cadRedo" disabled>↷</button><button type="button" title="Build All Geometry (F8)" aria-label="Build All Geometry" data-action="cadBuildAll">▣</button></div><span class="ls-ribbon-context">LS WAVE OPTICS <b>·</b> Wave Physics Workbench</span></div>
   <div class="ls-ribbon-body"><div class="ls-ribbon-tools" id="ls-ribbon-tools"></div><div class="ls-ribbon-note"><span class="ls-ribbon-key">MODEL</span><strong id="ls-ribbon-model">G.654.E · Large Aeff</strong><small>2D mode analysis / linked studies</small></div></div>
  </div>`;
 }
 
-/**
- * Definitions ribbon follows the COMSOL Wave Optics screenshot (v5.6):
- * groups, relative order and labels. Only existing commands are enabled;
- * unsupported COMSOL physics functions are intentionally disabled.
- */
-const DEFINITION_GROUPS=[
- {label:"Variables",items:[["Local Variables","settings","settings","large"]]},
- {label:"Functions",items:[["Analytic","definitionsAnalytic","wave"],["Interpolation","definitionsInterpolation","chart"],["Piecewise","definitionsPiecewise","layers"],["More Functions","definitionsMoreFunctions","plus"]]},
- {label:"Selections",items:[["Explicit","definitionsExplicit","check"],["Complement","definitionsComplement","layers"],["Adjacent","definitionsAdjacent","geometry"],["Ball/Disk","definitionsBallDisk","geometry"],["Box","definitionsBox","geometry"],["Cylinder","definitionsCylinder","geometry"],["Union","definitionsUnion","layers"],["Intersection","definitionsIntersection","layers"],["Difference","definitionsDifference","layers"],["Colors","definitionsColors","material"]]},
- {label:"Probes",items:[["Update Probes","definitionsUpdateProbes","refresh"],["Probes","definitionsProbes","physics"]]},
- {label:"Coupling",items:[["Nonlocal Couplings","definitionsNonlocal","wave"],["Pairs","definitionsPairs","layers"]]},
- {label:"Coordinate Systems",items:[["Coordinate Systems","definitionsCoordinates","geometry","large"]]},
- {label:"Coordinate Systems",items:[["Perfectly Matched Layer","definitionsPML","wave"],["Infinite Element Domain","definitionsInfinite","layers"],["Absorbing Layer","definitionsAbsorbing","layers"]]},
- {label:"Deformed Mesh",items:[["Moving Mesh","definitionsMoving","mesh"],["Deformed Geometry","definitionsDeformed","geometry"]]},
- {label:"Optimization",items:[["Optimization","definitionsOptimization","settings","large"]]},
- {label:"View",items:[["View","geometry","eye","large"]]}
+/** Screenshot ribbon commands use existing actions only. A null action is visual-only. */
+const HOME_GROUPS=[
+ {label:'Application',columns:[[['Application Builder',null,'application']]]},
+ {label:'Model',columns:[[['Component 1','component1','component',true]],[['Add Component',null,'diamond',true]]]},
+ {label:'Definitions',columns:[[['Parameters','settings','parameters',true]],[['Variables',null,'variables',true],['Functions',null,'function',true],['Parameter Case',null,'parameters',false,true]]]},
+ {label:'Geometry',columns:[[['Build All','cadBuildAll','build']],[['Import',null,'import'],['LiveLink',null,'link',true,true]]]},
+ {label:'Materials',columns:[[['Add Material','waveMaterials','addMaterial',false,false,true]]]},
+ {label:'Physics',columns:[[['Electromagnetic Waves, Frequency Domain','wavePhysics','physics',true]],[['Add Physics',null,'addPhysics',false,false,true]]]},
+ {label:'Mesh',columns:[[['Build Mesh','waveMesh','buildMesh']],[['Mesh 1','waveSize','mesh',true]]]},
+ {label:'Study',columns:[[['Compute','compute','compute']],[['Study 1','waveStudy','study',true]],[['Add Study','addStudy','addStudy',false,false,true]]]},
+ {label:'Results',columns:[[['Select Plot Group',null,'selectPlot',true,true]],[['Add Plot Group','waveResults','plot',true]]]},
+ {label:'Layout',columns:[[['Windows',null,'windows',true]],[['Reset Desktop','resetDesktop','reset',true]]]}
 ];
-const DEFINITION_SUPPORTED=new Set(["geometry"]); // View opens the existing Geometry viewer; other screenshot commands remain unavailable.
-function definitionsToolHtml(){
- return '<div class="ls-definitions-groups" role="group" aria-label="Definitions toolbar">'+
- DEFINITION_GROUPS.map((group,i)=>'<section class="ls-def-group" data-def-group="'+i+'" aria-label="'+group.label+'">'+
-  '<div class="ls-def-group-buttons">'+group.items.map(([label,action,shape,size])=>{
-    const supported=DEFINITION_SUPPORTED.has(action);
-    const upcoming=supported?"":" (UI preview — not implemented)";
-    return '<button type="button" class="ls-def-command'+(size==="large"?" ls-def-command-large":"")+
-     '" data-action="'+action+'"'+(supported?"":' disabled aria-disabled="true"')+
-     ' title="'+label+upcoming+'" aria-label="'+label+upcoming+'">'+
-     '<span class="ls-def-command-icon">'+icon(shape)+'</span><span class="ls-def-command-name">'+label+'</span></button>';
-  }).join('')+'</div><div class="ls-def-group-caption">'+group.label+'</div></section>').join('')+
- '</div>';
+const DEFINITION_GROUPS=[
+ {label:'Variables',columns:[[['Local Variables',null,'variables']]]},
+ {label:'Functions',columns:[[['Analytic',null,'analytic'],['Interpolation',null,'interpolation'],['Piecewise',null,'piecewise']],[['More Functions',null,'function',true]]]},
+ {label:'Selections',columns:[[['Explicit',null,'explicit'],['Complement',null,'complement'],['Adjacent',null,'adjacent']],[['Ball/Disk',null,'disk'],['Box',null,'box'],['Cylinder',null,'cylinder',false,true]],[['Union',null,'union'],['Intersection',null,'intersection'],['Difference',null,'difference']],[['Colors',null,'palette',true]]]},
+ {label:'Probes',columns:[[['Update Probes',null,'updateProbe']],[['Probes',null,'probe',true]]]},
+ {label:'Coupling',columns:[[['Nonlocal Couplings',null,'link',true]],[['Pairs',null,'pairs',true]]]},
+ {label:'Coordinate Systems',columns:[[['Coordinate Systems',null,'coordinates',true]],[['Perfectly Matched Layer',null,'pml'],['Infinite Element Domain',null,'infinite',false,true],['Absorbing Layer',null,'absorbing',false,true]]]},
+ {label:'Deformed Mesh',columns:[[['Moving Mesh',null,'movingMesh',true]],[['Deformed Geometry',null,'deformed',true]]]},
+ {label:'Optimization',columns:[[['Optimization',null,'optimization',true]]]},
+ {label:'View',columns:[[['View',null,'view']]]}
+];
+const RIBBON_GLYPHS={
+ application:'<text x="6" y="22" font-size="27" fill="#49a6a0" stroke="none">A</text>',
+ parameters:'<text x="5" y="22" font-size="24" fill="#559ec2" stroke="none">Pᵢ</text>',
+ variables:'<text x="2" y="21" font-size="23" fill="#559ec2" stroke="none">a=</text>',
+ function:'<text x="1" y="21" font-size="21" fill="#559ec2" stroke="none">f(x)</text>',
+ component:'<ellipse cx="16" cy="13" rx="13" ry="10" fill="#579cc4"/><path d="m13 22 7 5-1-7" fill="#579cc4"/><text x="11" y="17" fill="white" stroke="none" font-size="14">Ω</text>',
+ diamond:'<path d="m3 13 7-9h13l7 9-14 14zM3 13h27M10 4l6 23 7-23M10 4l-1 9 7 14 8-14-1-9"/>',
+ build:'<path d="M6 5h20v23H6zM6 12h20M13 5v23M20 5v23" fill="#e8a482" stroke="#c37e58"/>',
+ addMaterial:'<path d="M5 5h8v8H5zM17 5h8v8h-8zM5 17h8v8H5z" fill="#eeb961" stroke="#b18b52"/><path d="M23 16v13M17 23h13"/>',
+ addPhysics:'<circle cx="16" cy="15" r="8"/><path d="M16 1v5M16 24v6M2 15h5M25 15h6M5 4l5 5M23 22l5 5M5 26l5-5M23 8l5-5M16 9v12M10 15h12"/>',
+ buildMesh:'<path d="M6 5h20v23H6zM6 12h20M13 5v23M20 5v23" fill="#b1b4b7" stroke="#787e83"/>',
+ compute:'<path d="M6 12h20M6 18h20" stroke="#2399aa" stroke-width="4"/>',
+ study:'<path d="M2 15c5-17 12 17 17 0s12 17 12 0"/>',
+ addStudy:'<path d="M2 8c4-14 8 14 12 0s8 14 12 0M20 15v15M13 23h16"/>',
+ selectPlot:'<path d="M5 6h18v20H5zM9 3h18v20M13 1h18v20" fill="#dfa4c6" stroke="#bd8caa"/>',
+ plot:'<path d="M4 5h21v19H4zM8 2h21v19H8z" fill="#c4b2c4" stroke="#7b7681"/><path d="M11 11h20v17H11z" fill="#7d647b"/>',
+ windows:'<path d="M3 3h21v18H3zM9 9h21v18H9zM9 14h21" fill="#f1f8fc"/>',
+ reset:'<path d="M3 5h26v23H3zM3 10h26M23 16a7 7 0 1 0 0 7M23 16v5h-5"/>',
+ coordinates:'<path d="M5 3v24h24M5 27l15-16M1 8l4-5 4 5M24 23l5 4-5 4"/><text x="12" y="8" font-size="10" stroke="none" fill="#559ec2">z y</text>',
+ view:'<path d="M5 3v24h24" stroke="#be5e9b"/><path d="m1 8 4-5 4 5M24 23l5 4-5 4"/><text x="10" y="12" font-size="12" stroke="none" fill="#6ba06b">xy</text>',
+ mesh:'<path d="m2 28 14-25 14 25zM7 20h18M11 12h10M16 3v25M7 20l9 8 9-8M11 12l14 16M21 12 7 28" stroke="#888f94"/>',
+ palette:'<path d="M27 19c-5 14-25 8-24-5S26-3 28 10c1 5-7 2-6 6z" fill="#ece9e2"/><circle cx="9" cy="11" r="2" fill="#66aac9"/><circle cx="17" cy="7" r="2" fill="#edbd50"/><circle cx="10" cy="20" r="2" fill="#ca74a3"/><circle cx="20" cy="21" r="2" fill="#81ac8c"/>',
+ pairs:'<path d="M3 5h10v23H3zM20 5h10v23H20z" fill="#c2d7e2"/><path d="M13 10c10-8-3 20 7 12"/>',
+ link:'<path d="m13 9 6-6c7-4 12 2 7 8l-7 7M18 23l-6 6c-7 4-12-2-7-8l7-7M10 23 23 9"/>',
+ optimization:'<path d="m8 3-6 12 6 12h16l6-12-6-12z" fill="#e8f2f9"/><text x="11" y="23" font-size="25" stroke="none" fill="#559ec2">?</text>',
+ pml:'<path d="M3 3h24v25H3zM7 3v25M11 3v25M15 3v25M19 3v25M23 3v25"/>',
+ explicit:'<path d="M5 5h15v15H5zM12 12h15v15H12z" fill="#a5cde3"/>',
+ disk:'<circle cx="16" cy="16" r="12" fill="#d4e8f1"/><ellipse cx="16" cy="16" rx="5" ry="12"/>',
+ box:'<path d="m3 10 13-7 13 7v15l-13 5-13-5zM3 10l13 6 13-6M16 16v14" fill="#c5dfed"/>',
+ analytic:'<path d="M2 27V4M2 27h28M4 24c10 0 7-20 16-20s4 22 10 22"/>',
+ interpolation:'<path d="M2 27V4M2 27h28M4 24l7-15 9 9 9-14"/><path d="M4 22v4M9 7v4M18 16v4M27 2v4" stroke-width="4"/>',
+ piecewise:'<path d="M2 27V4M2 27h28M3 22h9V10h9V4h8"/>',
+ probe:'<path d="m7 3 19 4-5 20H3zM7 3l14 24M3 27 26 7M6 14h18"/><path d="M28 1 9 22" stroke-width="3"/>',
+ deformed:'<path d="M3 4h26v23H3zM16 4v23" fill="#ccdee9"/>',
+ movingMesh:'<path d="M4 4h23l-5 24H1zM2 16h23M10 4 6 28M19 4l-5 24"/><path d="m20 1 5 4-5 4M6 28l-5-4 5-4"/>',
+};
+function ribbonIcon(shape){
+ const fallback={import:'folder',complement:'layers',adjacent:'layers',cylinder:'geometry',union:'layers',intersection:'layers',difference:'layers',updateProbe:'refresh',infinite:'layers',absorbing:'layers'};
+ const drawing=RIBBON_GLYPHS[shape];
+ return drawing?`<svg class="ls-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${drawing}</svg>`:icon(fallback[shape]||shape);
 }
-function toolHtml(tab){if(tab==="definitions")return definitionsToolHtml();return (ACTIONS[tab]||ACTIONS.home).map(([action,label,shape],i)=>`<button class="ls-ribbon-command" data-action="${action}" type="button" title="${label}"><span class="ls-command-icon ${i===0?'ls-icon-primary':''}">${icon(shape)}</span><span class="ls-command-label">${label}</span></button>`).join('<span class="ls-ribbon-separator" aria-hidden="true"></span>');}
+function screenshotToolHtml(groups,tab){
+ return `<div class="ls-screenshot-groups ls-${tab}-groups" role="toolbar" aria-label="${tab==='home'?'Home':'Definitions'} toolbar">`+
+ groups.map((group,i)=>`<section class="ls-shot-group" data-shot-group="${i}" aria-label="${group.label}"><div class="ls-shot-columns">`+
+ group.columns.map(column=>`<div class="ls-shot-column${column.length>1?' ls-shot-stack':''}">`+column.map(([label,action,shape,dropdown,muted,accent])=>{
+  const enabled=!!action;
+  return `<button type="button" class="ls-shot-command${muted?' ls-shot-muted':''}${accent?' ls-shot-accent':''}"${enabled?` data-action="${action}"`:' disabled aria-disabled="true"'} title="${label}${enabled?'':' — 모양만 표시'}" aria-label="${label}"><span class="ls-shot-icon">${ribbonIcon(shape)}</span><span class="ls-shot-name">${label}${dropdown?'<span class="ls-shot-arrow" aria-hidden="true">▾</span>':''}</span></button>`;
+ }).join('')+'</div>').join('')+`</div><div class="ls-shot-caption">${group.label}</div></section>`).join('')+'</div>';
+}
+function toolHtml(tab){
+ if(tab==='home')return screenshotToolHtml(HOME_GROUPS,tab);
+ if(tab==='definitions')return screenshotToolHtml(DEFINITION_GROUPS,tab);
+ return (ACTIONS[tab]||ACTIONS.home).map(([action,label,shape],i)=>`<button class="ls-ribbon-command" data-action="${action}" type="button" title="${label}"><span class="ls-command-icon ${i===0?'ls-icon-primary':''}">${icon(shape)}</span><span class="ls-command-label">${label}</span></button>`).join('<span class="ls-ribbon-separator" aria-hidden="true"></span>');
+}
 function modelTreeHtml(){
  const options=PRESETS.map(([value,label])=>`<button class="ls-tree-leaf" data-select-preset="${value}" type="button"><span class="ls-tree-marker ls-dot-blue">◇</span><span>${label}</span></button>`).join('');
  return `<aside class="ls-model-tree" aria-label="Model Builder">
@@ -222,8 +268,11 @@ function init(){
  function renderTab(tab){
   tools.innerHTML=toolHtml(tab);
   ribbon.classList.toggle("ls-ribbon-is-definitions",tab==="definitions");
+  const screenshotTab=tab==="home"||tab==="definitions";
+  ribbon.classList.toggle("ls-ribbon-is-screenshot",screenshotTab);
+  document.body.classList.toggle("ls-screenshot-ribbon",screenshotTab);
   document.body.classList.toggle("ls-definitions-ribbon",tab==="definitions");
-  const note=findTarget(".ls-ribbon-note");if(note)note.hidden=tab==="definitions";
+  const note=findTarget(".ls-ribbon-note");if(note)note.hidden=screenshotTab;
   for(const button of ribbon.querySelectorAll('.ls-ribbon-tab')){
    const selected=button.dataset.tab===tab;
    button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));
@@ -238,7 +287,7 @@ function init(){
   });
  ribbon.addEventListener('click',event=>{
   const tab=event.target.closest('[data-tab]');if(tab){renderTab(tab.dataset.tab);return;}
-  const item=event.target.closest('[data-action]');if(item)runAction(item.dataset.action);
+  const item=event.target.closest('[data-action]');if(item&&!item.disabled&&item.getAttribute("aria-disabled")!=="true")runAction(item.dataset.action);
  });
  layout.addEventListener('click',event=>{
   const cadNode=event.target.closest('[data-cad-node]');
@@ -296,3 +345,4 @@ function init(){
  updateSelection();writeConsole();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+

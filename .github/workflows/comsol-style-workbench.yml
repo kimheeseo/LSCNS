@@ -24,6 +24,7 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs'
       - '.github/workflows/comsol-style-workbench.yml'
 permissions:
   contents: read
@@ -54,6 +55,7 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -73,6 +75,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_ewfd_model_wizard.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_geometry_layers_hover.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -93,4 +96,7 @@ jobs:
             /tmp/comsol_circle_multi_layer.png
             /tmp/comsol_circle_duplicate_delete.png
             /tmp/comsol_reference_two_circles_axes.png
+            /tmp/comsol_rotate_initial_settings.png
+            /tmp/comsol_rotate_range_dialog.png
+            /tmp/comsol_rotate_c2_active_selected.png
           if-no-files-found: ignore

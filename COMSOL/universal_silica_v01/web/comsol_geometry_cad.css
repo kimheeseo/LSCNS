@@ -109,3 +109,39 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 #ls-cad-view .ls-cad-rendered-shape.is-hovered .ls-cad-layer-region{fill:#f0b6b0;fill-opacity:.92}
 #ls-cad-legend{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 #ls-cad-status{white-space:normal;overflow-wrap:anywhere}
+
+
+/* COMSOL-inspired Rotate: angle Range popup and Graphics input selection */
+.ls-cad-angle-entry{display:flex;gap:5px;align-items:center;min-width:0}
+.ls-cad-angle-entry input{flex:1;min-width:0}
+.ls-cad-angle-entry>span{font-size:11px;white-space:nowrap;color:#647d95}
+#ls-cad-range-open{flex:0 0 30px;height:28px;border:1px solid #b8c9da;background:#f1f6fa;color:#3d79b0;border-radius:2px;font-size:18px;line-height:1;cursor:pointer}
+#ls-cad-range-open:hover,#ls-cad-range-open:focus-visible{background:#d8edfc;border-color:#438cc7}
+.ls-cad-selection-row{display:flex;align-items:stretch;gap:4px;margin:2px 10px 2px}
+.ls-cad-selection-row .ls-cad-inputs{flex:1;min-width:0;margin:0;min-height:86px;background:#fff}
+#ls-cad-activate-selection{flex:0 0 33px;height:34px;border:1px solid #9aafc4;border-radius:3px;color:#3377a5;background:#f6f8fb;cursor:pointer;font-size:17px;align-self:flex-start}
+#ls-cad-activate-selection:hover,#ls-cad-activate-selection.active{background:#d6e8fd;border:2px solid #287ebc;color:#135d94}
+#ls-cad-activate-selection.active{box-shadow:0 0 0 2px #dce8ff}
+.ls-cad-selection-hint{padding:2px 11px 5px;font-size:10px;color:#667d94;margin:0;line-height:1.4}
+.ls-cad-selection-row .ls-cad-inputs label:has(input:checked){background:#eaf3ff;color:#1b5988}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected:hover .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected.is-hovered .ls-cad-rendered-surface{
+ fill:#c2c5f3!important;fill-opacity:.95!important;stroke:#4b46ca!important;stroke-width:2.3!important;filter:drop-shadow(0 0 2px #635deb99)
+}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-layer-region{fill:#e5e5fe!important}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected .ls-cad-layer-boundary{stroke:#5b54c4!important}
+#ls-cad-range-dialog{width:min(295px,calc(100vw - 28px));padding:0;margin:auto;background:#f8f9fb;border:1px solid #9faebb;border-radius:3px;box-shadow:0 7px 26px #263c536b;z-index:1000001;color:#2c3b49;font:12px "Segoe UI","Malgun Gothic",sans-serif}
+#ls-cad-range-dialog::backdrop{background:rgba(25,39,54,.2)}
+.ls-cad-range-titlebar{height:31px;display:flex;justify-content:space-between;align-items:center;padding:0 10px;background:#f2f4f7;border-bottom:1px solid #c5d0db}
+.ls-cad-range-titlebar strong{font-size:13px;font-weight:550}
+#ls-cad-range-close{border:0;background:transparent;color:#354a61;font-size:19px;min-width:25px;height:26px;cursor:pointer}
+.ls-cad-range-body{display:flex;flex-direction:column;gap:4px;padding:10px 14px 8px}
+.ls-cad-range-body label{margin:4px 0 1px;color:#334b62}
+.ls-cad-range-body input,.ls-cad-range-body select{height:28px;border:1px solid #bbcbd9;border-radius:2px;background:#fff;color:#293d50;padding:4px 6px;width:100%;font-size:12px}
+.ls-cad-range-body input:focus-visible{outline:2px solid #83b6e7;border-color:#288aca}
+#ls-cad-range-error{background:#fff2ef;color:#a3332d;padding:6px;margin:6px 0 0;border:1px solid #e3aaa5;border-radius:2px}
+#ls-cad-range-error[hidden]{display:none!important}
+.ls-cad-range-actions{display:flex;justify-content:space-between;gap:7px;padding:9px 14px 12px}
+.ls-cad-range-actions button{flex:1;padding:5px 8px;border:1px solid #aebfcf;border-radius:2px;background:#ebf4fa;color:#315c7c;cursor:pointer;font-size:12px}
+.ls-cad-range-actions button:hover{background:#d8e9fa;border-color:#4a91ca}

@@ -26,6 +26,7 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.css'
       - '.github/workflows/comsol-style-workbench.yml'
@@ -61,6 +62,7 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -82,6 +84,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_radial_layer_axes.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_rotate_range_selection.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_mirror_cumulative_materials.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -108,4 +111,6 @@ jobs:
             /tmp/comsol_six_rotated_circles.png
             /tmp/comsol_selected_two_mirrors.png
             /tmp/comsol_blank_material_domains.png
+            /tmp/comsol_definitions_tab_desktop.png
+            /tmp/comsol_definitions_tab_mobile.png
           if-no-files-found: ignore

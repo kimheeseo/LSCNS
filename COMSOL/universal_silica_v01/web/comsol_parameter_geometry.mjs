@@ -353,6 +353,12 @@
  get("preset")?.addEventListener("change",()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});
  get("resetBtn")?.addEventListener("click",()=>{queueMicrotask(()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});});
  document.addEventListener("ls-open-wave-optics",()=>{if(view)close();},true);
+ document.addEventListener("ls-wizard-finished",e=>{
+  if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
+  params=[];circles=baseCircle();
+  if(view==="parameters")renderParameters();
+  status("New 2D model created. Use Load from File to import parameters, or Add parameter to define them.");
+ });
  document.addEventListener("ls-open-settings",e=>open(e.detail?.kind==="geometry"?"geometry":"parameters",e.detail?.circle));
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&view)close();});
 })();

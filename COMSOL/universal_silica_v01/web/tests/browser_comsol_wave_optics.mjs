@@ -8,6 +8,7 @@ try{
  const page=await browser.newPage({viewport:{width:1440,height:860}});
  const errors=[];page.on("pageerror",e=>errors.push(e.message));
  await page.goto(base,{waitUntil:"load",timeout:90000});
+ await page.locator('[data-wizard="cancel"]').click(); // Open legacy workbench for existing solver regression.
  await page.waitForSelector("#ls-wave-settings",{state:"visible"});
  assert.equal(await page.locator(".ls-model-tree [data-action='wavePhysics']").count(),1);
  assert.equal(await page.locator(".ls-model-tree [data-action='waveEquation']").count(),1);

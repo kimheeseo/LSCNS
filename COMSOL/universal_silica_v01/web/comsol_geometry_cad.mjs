@@ -10,6 +10,7 @@
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
+ let adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -164,6 +165,7 @@
   // Live named Geometry selections, including the features that contribute
   // their resulting entities. Materials may reference these by stable ID.
   domains:()=>materialDomains().map(d=>({...d,holeCircles:d.holeCircles.map(h=>({...h}))})),
+  adjacentEntities:(level="Boundary")=>adjacentEntities(level).map(d=>({...d})),
   cumulativeSelections:()=>cumulativeSelections.map(row=>({
    id:row.id,label:row.label,featureIds:[...row.featureIds]
   }))
@@ -443,6 +445,43 @@
   }
   return domains;
  }
+
+ // Stable, individually selectable boundaries from current preview geometry.
+ // These are rendered SVG geometrical edges; no FEM/Boolean topology claimed.
+ function adjacentEntities(level="Boundary"){
+  if(level==="Domain")return materialDomains().map(d=>({
+   id:d.id,key:d.key,entityKey:d.entityKey,owner:d.owner,kind:"domain",
+   label:d.label,cx:d.cx,cy:d.cy,outerR:d.outerR,innerR:d.innerR,
+   startAngle:d.startAngle,endAngle:d.endAngle,holeCircles:d.holeCircles
+  }));
+  const shapes=compute(),items=[];
+  const add=(shape,part,kind,r,x1=null,y1=null,x2=null,y2=null)=>{
+   const key=shape.entityKey+"/"+part;
+   items.push({id:items.length+1,key,entityKey:shape.entityKey,owner:shape.owner,
+    label:shape.entityKey+" · "+part,kind,cx:shape.x,cy:shape.y,r,
+    x1,y1,x2,y2});
+  };
+  for(const shape of shapes){
+   if(level==="Point"){add(shape,"center","point",0);continue;}
+   add(shape,"outer-boundary","circle",shape.r);
+   if(shape.sector<359.999)continue;
+   let radius=shape.r;
+   for(const [i,t] of (shape.layers||[]).entries()){
+    if(!(t>0))continue;
+    const inner=radius-t;
+    if(inner<=0)break;
+    add(shape,"layer-"+(i+1)+"-inner","circle",inner);
+    for(let k=0;k<4;k++){
+     const theta=k*Math.PI/2;
+     add(shape,"layer-"+(i+1)+"-radial-"+k,"line",0,
+      shape.x+inner*Math.cos(theta),shape.y+inner*Math.sin(theta),
+      shape.x+radius*Math.cos(theta),shape.y+radius*Math.sin(theta));
+    }
+    radius=inner;
+   }
+  }
+  return items;
+ }
  function availableInputs(n){
   const idx=index(n?.id);
   return idx<0?[]:compute(idx-1);
@@ -493,6 +532,32 @@
    return `<path class="ls-cad-material-region${chosen?" is-selected":""}" data-cad-domain-id="${domain.id}" data-cad-domain-key="${esc(domain.key)}" data-domain-owner="${esc(domain.owner)}" aria-label="${esc(name)}" d="${d}" fill-rule="evenodd" fill="${chosen?"#9b94e7":"transparent"}" fill-opacity="${chosen?".63":"0"}" stroke="${chosen?"#5149cb":"none"}" stroke-width="${chosen?"1.35":"0"}" pointer-events="${picking?"visiblePainted":"none"}"><title>${esc(name)}</title></path>`;
   }).join("");
   return `<g class="ls-cad-material-domain-overlay" data-domain-picker="${picking?"active":"inactive"}">${items}</g>`;
+ }
+
+ function adjacentEntitiesSVG(ox,oy,scale,mini){
+  if(mini||!adjacentPickMode)return "";
+  const entities=adjacentEntities(adjacentLevel);
+  return `<g class="ls-cad-adjacent-overlay" data-adjacent-level="${adjacentLevel}">${entities.map(entity=>{
+   const chosen=adjacentSelectedKeys.has(entity.key);
+   const name=esc("Boundary "+entity.id+": "+entity.label);
+   let geometry;
+   if(entity.kind==="domain"){
+    geometry=`<path d="${materialDomainPath(entity,ox,oy,scale)}" fill="${chosen?"#7899ed":"transparent"}" fill-opacity="${chosen?".24":"0"}" stroke="${chosen?"#245dda":"transparent"}" stroke-width="${chosen?2:0}"/>`;
+   }else if(entity.kind==="point"){
+    const x=ox+entity.cx*scale,y=oy-entity.cy*scale;
+    geometry=`<circle cx="${x}" cy="${y}" r="5" fill="${chosen?"#2e61e3":"transparent"}" stroke="${chosen?"#234cda":"#a7b2bc"}" stroke-width="2"/>`;
+   }else if(entity.kind==="line"){
+    geometry=`<line x1="${ox+entity.x1*scale}" y1="${oy-entity.y1*scale}" x2="${ox+entity.x2*scale}" y2="${oy-entity.y2*scale}" stroke="${chosen?"#195cf4":"#626f78"}" stroke-opacity="${chosen?"1":".16"}" stroke-width="${chosen?"4":"2"}"/>`;
+   }else{
+    geometry=`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="${entity.r*scale}" fill="none" stroke="${chosen?"#195cf4":"transparent"}" stroke-width="${chosen?"4":"2"}"/>`;
+   }
+   const hit=entity.kind==="point"
+    ?`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="10" fill="transparent" pointer-events="all"/>`
+    :entity.kind==="domain" ? `<path d="${materialDomainPath(entity,ox,oy,scale)}" fill="transparent" fill-rule="evenodd" pointer-events="all"/>`
+    :entity.kind==="line"?`<line x1="${ox+entity.x1*scale}" y1="${oy-entity.y1*scale}" x2="${ox+entity.x2*scale}" y2="${oy-entity.y2*scale}" stroke="transparent" stroke-width="12" pointer-events="stroke"/>`
+    :`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="${entity.r*scale}" fill="none" stroke="transparent" stroke-width="12" pointer-events="stroke"/>`;
+   return `<g class="ls-cad-adjacent-entity${chosen?" is-adjacent-selected":""}" data-adjacent-key="${esc(entity.key)}" data-adjacent-entity-id="${entity.id}" aria-label="${name}"><title>${name}</title>${geometry}${hit}</g>`;
+  }).join("")}</g>`;
  }
  function niceTick(value){
   if(!(value>0&&Number.isFinite(value)))return 1;
@@ -572,8 +637,9 @@
    return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
+  const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);
   const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}${materialRegions}</g>${labels}`;
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}${materialRegions}${adjacentRegions}</g>${labels}`;
  }
  function draw(){
   try{
@@ -753,6 +819,22 @@
   if(!pane.hidden||!graphics.hidden)draw();
  });
 
+ document.addEventListener("ls-adjacent-picker",e=>{
+  adjacentPickMode=!!e.detail?.enabled;
+  adjacentLevel=e.detail?.level||"Boundary";
+  adjacentSelectedKeys=new Set(e.detail?.selectedKeys||[]);
+  if(adjacentPickMode){
+   materialPickMode=false;selectingRotateInputs=false;
+   graphics.hidden=false;
+  }else if(document.body.classList.contains("ls-adjacent-active")) graphics.hidden=false;
+  draw();
+ });
+ document.addEventListener("ls-open-adjacent-editor",()=>{
+  if(!pane.hidden)close();
+  graphics.hidden=false;
+  materialPickMode=false;materialHighlightKeys.clear();materialHighlightDomainIds.clear();
+  draw();
+ });
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
@@ -917,6 +999,13 @@
  $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
+  if(adjacentPickMode){
+   const boundary=e.target.closest("[data-adjacent-key]");
+   if(boundary)document.dispatchEvent(new CustomEvent("ls-adjacent-geometry-click",{detail:{
+    key:boundary.dataset.adjacentKey,id:Number(boundary.dataset.adjacentEntityId),level:adjacentLevel
+   }}));
+   return;
+  }
   if(materialPickMode&&materialEntityLevel==="Domain"){
    const region=e.target.closest("[data-cad-domain-id]");
    if(region){

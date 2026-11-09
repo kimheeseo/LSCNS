@@ -75,7 +75,7 @@ try{
  assert.ok(await page.locator("#ls-cad-menu").isVisible());
  await page.locator('#ls-cad-menu > ul > li > [data-cmd="circle"]').click();
  assert.ok(await page.locator('#ls-geometry-node-list [data-cad-node="c1"]').isVisible());
- assert.equal(await page.locator("#ls-cad-radius").inputValue(),"1[m]");
+ assert.equal(await page.locator("#ls-cad-radius").inputValue(),"rb+wlr");
  await page.locator("#ls-cad-radius").fill("40[um]");
  assert.ok((await page.locator("#ls-cad-legend").textContent()).includes("1 object"));
  assert.deepEqual(errors,[],"No browser JavaScript errors");

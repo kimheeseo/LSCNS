@@ -66,3 +66,19 @@
 .lsw-summary{border:1px solid #d1d9e4;background:white;padding:15px 18px;max-width:550px;margin-top:22px;font-size:12px;line-height:1.8}
 .lsw-summary strong{font-weight:600}
 @media(max-width:700px){.lsw-physics-panel{flex:0 0 100%;min-height:calc(100vh - 120px);border-right:none}.lsw-physics-preview{display:none}.lsw-main{padding:20px 17px}.lsw-dimension{min-width:86px}.lsw-bottom{padding:8px 10px}.lsw-main h1,.lsw-left h1{font-size:24px}.lsw-titlebar{min-width:0}}
+
+
+/* Study browser and selection widgets */
+.lsw-added-item{border:0;background:transparent;text-align:left;width:100%;display:block;color:#263b4a;padding:5px 8px;font-size:12px;line-height:1.4}
+.lsw-added-item:hover{background:#eaf4ff}
+.lsw-added-item[aria-selected="true"]{background:#cfe6fb;outline:1px solid #80b9eb}
+.lsw-added-small{min-height:43px}
+.lsw-added-large{min-height:145px}
+.lsw-study-tree{max-height:260px;min-height:205px;flex:0 1 260px}
+.lsw-study-category{padding:3px 0}
+.lsw-study-category>span{display:block;font-weight:600;font-size:12px;margin:4px 3px;color:#39434e}
+.lsw-study-leaf{display:flex;gap:6px;align-items:center;width:100%;text-align:left;padding:4px 6px 4px 26px;background:transparent;border:0;color:#242e3a;font-size:12px}
+.lsw-study-leaf>span{color:#1583bd}
+.lsw-study-leaf:hover:not(:disabled),.lsw-study-leaf[aria-selected="true"]{background:#d5e9fa}
+.lsw-study-leaf:disabled{opacity:.52}
+.lsw-study-leaf small{color:#768594;font-size:10px}

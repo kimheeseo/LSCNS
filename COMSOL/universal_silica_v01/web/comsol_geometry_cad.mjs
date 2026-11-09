@@ -308,7 +308,7 @@
     const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false};
     shapes.push(s);original.set(n.id,s);
    }else{
-    if(!n.inputIds.length)throw Error(n.label+": select input circles");
+    if(!n.inputIds.length)continue; // Empty Rotate inputs are allowed while choosing objects in Graphics.
     const input=n.inputIds.map(id=>original.get(id));
     if(input.some(x=>!x))throw Error(n.label+": input must be a preceding enabled Circle");
     const cx=evalNumber(n.cx),cy=evalNumber(n.cy),angles=angleList(n.angle);

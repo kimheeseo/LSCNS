@@ -6,17 +6,17 @@
  const unit=n=>Number(n.toPrecision(10)).toString();
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
- let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0;
+ let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false;
  const undoStack=[],redoStack=[];
- function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn};}
+ function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
   if($("ls-cad-redo"))$("ls-cad-redo").disabled=!redoStack.length;
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -132,8 +132,31 @@
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
  window.LSWaveCADService=Object.freeze({status,apply:()=>apply()});
  const evalNumber=s=>svc.calculate(s);
+ function evalLength(expr){
+  const value=evalNumber(expr);
+  const bare=/^[+-]?(?:(?:\d+(?:\.\d*)?)|(?:\.\d+))(?:[eE][+-]?\d+)?$/.test(String(expr).trim());
+  return bare?value*({m:1,mm:1e-3,um:1e-6,nm:1e-9}[lengthUnit]||1):value;
+ }
+ function formatLength(m){
+  const abs=Math.abs(m);
+  if(abs>=1e-3)return unit(m*1e3)+" mm";
+  if(abs>=1e-6)return unit(m*1e6)+" µm";
+  if(abs>=1e-9)return unit(m*1e9)+" nm";
+  return m.toExponential(4)+" m";
+ }
+ function visibleExtent(){
+  const shapes=compute();
+  return Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+ }
+ function lockViewIfNeeded(){if(viewExtent===null){viewExtent=visibleExtent();panX=0;panY=0;zoom=1;}}
+ function shapeSummary(shape){
+  let consumed=0;const layerInfo=(shape.layers||[]).filter(x=>x>0).map((t,i)=>{
+   consumed+=t;return "L"+(i+1)+" "+formatLength(t)+" → inner "+formatLength(shape.r-consumed);
+  });
+  return shape.owner+" R="+formatLength(shape.r)+(layerInfo.length?" | "+layerInfo.join(" | "):"");
+ }
  function getLayers(n){
-  const all=[n.layer??"0[um]",...(n.layerExtra||[])].map(x=>evalNumber(x||"0[um]"));
+  const all=[n.layer??"0[um]",...(n.layerExtra||[])].map(x=>evalLength(x||"0[um]"));
   if(all.some(v=>!Number.isFinite(v)||v<0))throw Error(n.label+": layer thickness must be finite and nonnegative.");
   return all;
  }
@@ -215,7 +238,7 @@
   for(let i=0;i<=max;i++){
    const n=nodes[i];if(!n.enabled)continue;
    if(n.kind==="circle"){
-    const r=evalNumber(n.radius),x=evalNumber(n.x),y=evalNumber(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),layers=getLayers(n);
+    const r=evalLength(n.radius),x=evalLength(n.x),y=evalLength(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation),layers=getLayers(n);
     if(!(r>0&&r<=10000)||!(sector>0&&sector<=360))throw Error(n.label+": invalid radius or sector");
     if(layers.reduce((a,b)=>a+b,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
     const s={id:n.id,source:n.id,owner:n.id,r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false};
@@ -242,13 +265,10 @@
  }
  function svg(w,h,mini=false){
   const shapes=compute();
-  const actualExtent=Math.max(1e-6,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
-  // Stable visual scale against global rb makes a changed radius visibly change the circle.
-  let referenceExtent=actualExtent;
-  try{
-   const rb=evalNumber("rb");
-   if(rb>0&&actualExtent<rb*6&&actualExtent>rb*.005)referenceExtent=Math.max(1e-6,rb*1.6);
-  }catch(_){}
+  const actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+  // Do not normalize each edited radius back to the same size.
+  // Before first Build: auto-fit. After Build: lock the viewport physical scale.
+  const referenceExtent=viewExtent??actualExtent;
   const scale=Math.min(w,h)*(mini?.42:.41)*zoom/referenceExtent;
   const axisExtent=Math.min(w,h)/(2*scale);
   let grid="";
@@ -316,9 +336,9 @@
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
    case "circle":case "rotate":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":checkpoint();limit=null;draw();say("Built all Geometry features in the 2D Graphics preview.");return;
-   case "build-selected":if(!n)return;checkpoint();limit=idx;draw();say("Build Selected finished (preview).");return;
-   case "build-preceding":if(!n)return;checkpoint();limit=idx-1;draw();say("Preceding Geometry features built (preview).");return;
+   case "build-all":checkpoint();limit=null;try{lockViewIfNeeded();draw();say("Build All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-selected":if(!n)return;checkpoint();limit=idx;try{lockViewIfNeeded();draw();say("Build Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Build Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
    case "delete":{
@@ -432,7 +452,7 @@
  $("ls-cad-build-leave").addEventListener("change",e=>{buildOnLeave=e.target.checked;});
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
-  checkpoint();nodes=[];selected="root";limit=null;zoom=1;panX=0;panY=0;rootLabel="Geometry 1";lengthUnit="m";
+  checkpoint();nodes=[];selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="m";
   const label=$("ls-cad-root-name");if(label)label.textContent=rootLabel;
   drawTree();draw();say("New 2D geometry created. Right-click Geometry 1 → Circle to add your first feature.");
  });
@@ -443,7 +463,7 @@
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
- $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;loadFields();say("Geometry restored to original Circle 1 and 2.");});
+ $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;viewExtent=null;loadFields();say("Geometry restored to original Circle 1 and 2.");});
  $("ls-cad-apply").addEventListener("click",apply);
  $("ls-cad-export").addEventListener("click",()=>{
   const doc={format:"LS Optical Geometry CAD v2",parameters:svc.rows(),geometry:nodes};
@@ -480,7 +500,7 @@
  $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
- $("ls-cad-fit").addEventListener("click",()=>{zoom=1;panX=0;panY=0;draw();});
+ $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{const s=e.target.closest("[data-cad-shape]");if(s){selected=s.dataset.cadShape;loadFields();}});
  $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
@@ -521,7 +541,7 @@
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"toggle",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();modify(actions[e.key]);}
  });
- $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
- $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
+ $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
+ $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
  drawTree();updateHistoryButtons();
 })();

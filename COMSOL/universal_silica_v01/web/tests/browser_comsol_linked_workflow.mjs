@@ -8,6 +8,7 @@ try{
  const errors=[];page.on("pageerror",e=>errors.push(e.message));
  const url=process.env.TEST_BASE_URL||"http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/";
  await page.goto(url,{waitUntil:"load",timeout:90000});
+ await page.locator('[data-wizard="cancel"]').click(); // Open legacy workbench for existing solver regression.
  await page.waitForSelector("#ls-linked-workflow",{state:"visible"});
  assert.equal(await page.locator("#ls-wf-geometry-state").textContent(),"Ready");
  assert.equal(await page.locator("#ls-wf-geometry-state").getAttribute("data-state"),"ready");

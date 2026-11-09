@@ -392,7 +392,11 @@
     if(layers.some(t=>t>1e-12))throw Error("Extra layers are not supported by two-circle Radial FEM.");
     return radius*1e6;
    }
-   const outer=r(c1),inner=r(c2),wl=evalNumber("wl")*1e9,dn=evalNumber("dn_core");
+   const outer=r(c1),inner=r(c2),wl=evalNumber("wl")*1e9;
+   // Nine-row COMSOL reference defaults do not contain dn_core.
+   // Preserve the established radial FEM material input, but honor an explicitly
+   // added/edited dn_core parameter when present.
+   const dn=svc.rows().some(p=>p.name==="dn_core")?evalNumber("dn_core"):Number($("delta_n_core")?.value);
    if(!(outer>=15&&outer<=150&&inner>=.5&&inner<=60&&outer>inner&&wl>=250&&wl<=3600&&dn>0&&dn<.1))throw Error("Solver limits: outer 15–150 µm; core 0.5–60 µm; wl 250–3600 nm; 0<dn<0.1.");
    const bg=evalNumber("nbg");
    if($("ls-cad-fix-nbg").checked&&!(bg>=1&&bg<2))throw Error("nbg must be between 1 and 2.");

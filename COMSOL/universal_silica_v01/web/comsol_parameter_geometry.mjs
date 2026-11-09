@@ -27,7 +27,26 @@
    {name:"wlr",expression:"wl/sqrt(nbg^2-neffMax^2)",description:"Wavelength in the radial direction"}
   ];
  }
- params=defaults();
+ // Preserve established solver presets on Cancel / legacy model switch.
+ // A newly completed ewfd wizard (or Restore defaults) uses the nine-row
+ // screenshot-based default Parameters 1 table above.
+ function legacyDefaults(){
+  const wl=fromInput("wavelength_nm",1550),rc=fromInput("core_radius_um",8),rb=fromInput("outer_radius_um",40);
+  const dn=Number(get("delta_n_core")?.value)||0.005;
+  return [
+   {name:"d",expression:`${precision(2*rc)}[um]`,description:"Core diameter / Circle 2"},
+   {name:"Delta",expression:"6.75[um]",description:"Hole separation in reference screenshot (not linked to radial solver)"},
+   {name:"dn_core",expression:precision(dn),description:"Core-cladding index difference for radial FEM"},
+   {name:"rb",expression:`${precision(rb)}[um]`,description:"Computation boundary / Circle 1"},
+   {name:"nbg",expression:get("clad_material")?.value==="fixed"?String(get("clad_index_override").value):"1.45",description:"Background index (reference; optional fixed nclad)"},
+   {name:"nair",expression:"1",description:"Air refractive index (reference)"},
+   {name:"wl",expression:`${precision(wl)}[nm]`,description:"Mode-analysis wavelength"},
+   {name:"neffMax",expression:"nbg-0.0046",description:"Illustrative index upper bound (not a solver constraint)"},
+   {name:"neffMin",expression:"nbg-0.021",description:"Illustrative index lower bound (not a solver constraint)"},
+   {name:"wlr",expression:"wl/sqrt(nbg^2-neffMax^2)",description:"Derived radial wavelength (reference only)"}
+  ];
+ }
+ params=legacyDefaults();
  // Public read-only parameter service for the independent geometry editor.
  window.LSWaveParameterService={
   evaluate:()=>evaluateAll(),
@@ -350,8 +369,8 @@
  get("ls-geo-selected").addEventListener("click",()=>{drawGeometry();status(`Built ${circles[selected].label} in 2D preview only; compute uses Apply.`);});
  get("ls-geo-all").addEventListener("click",()=>{drawGeometry();status("Both circles refreshed in 2D preview. Radial FEM changes only after Apply.");});
  get("ls-geo-apply").addEventListener("click",apply);
- get("preset")?.addEventListener("change",()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});
- get("resetBtn")?.addEventListener("click",()=>{queueMicrotask(()=>{params=defaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});});
+ get("preset")?.addEventListener("change",()=>{params=legacyDefaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});
+ get("resetBtn")?.addEventListener("click",()=>{queueMicrotask(()=>{params=legacyDefaults();circles=baseCircle();if(view==="parameters")renderParameters();else if(view==="geometry")renderCircle();});});
  document.addEventListener("ls-open-wave-optics",()=>{if(view)close();},true);
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;

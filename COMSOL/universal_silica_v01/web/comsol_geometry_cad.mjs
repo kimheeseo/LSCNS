@@ -243,17 +243,53 @@
   $("ls-cad-selection").checked=n.selection;$("ls-cad-physics").disabled=!n.selection;$("ls-cad-color").value=n.color;
   drawTree();draw();
  }
- function angleList(s){
-  const text=String(s).trim();
-  if(!/^range\s*\(/i.test(text))return [evalNumber(text)];
-  const match=/^range\s*\((.*)\)$/i.exec(text);
-  if(!match)throw Error("Use range(start,step,end)");
-  const p=match[1].split(",").map(v=>v.trim());if(p.length!==3)throw Error("range requires start, step, end");
-  const [a,b,c]=p.map(evalNumber);
-  if(!b||(c-a)*b<0)throw Error("Invalid Rotate range direction or step");
-  const length=Math.floor((c-a)/b+1e-10)+1;
-  if(length<1||length>72)throw Error("Rotate range must have 1–72 angles");
-  return Array.from({length},(_,i)=>a+i*b);
+
+ function splitAngleExpressions(source){
+  const out=[];let depth=0,start=0;
+  const text=String(source||"").trim();
+  for(let i=0;i<text.length;i++){
+   if(text[i]==="(")depth++;
+   else if(text[i]===")"){depth--;if(depth<0)throw Error("Unexpected ) in Rotate angle");}
+   else if(text[i]===","&&depth===0){out.push(text.slice(start,i).trim());start=i+1;}
+  }
+  if(depth!==0)throw Error("Unbalanced Rotate angle parentheses");
+  out.push(text.slice(start).trim());
+  if(out.some(x=>!x))throw Error("Enter an angle or range(start,step,stop)");
+  return out;
+ }
+ function angleList(source){
+  const parts=splitAngleExpressions(source),angles=[];
+  for(const part of parts){
+   const match=/^range\s*\((.*)\)$/i.exec(part);
+   if(!match){
+    const angle=evalNumber(part);
+    if(!Number.isFinite(angle))throw Error("Rotation angle must be finite");
+    angles.push(angle);
+   }else{
+    const terms=match[1].split(",").map(x=>x.trim());
+    if(terms.length!==3||terms.some(x=>!x))throw Error("range requires start, step, stop");
+    const [start,step,stop]=terms.map(evalNumber);
+    if(![start,step,stop].every(Number.isFinite)||step===0||(stop-start)*step<0)throw Error("Invalid Rotate range direction or zero step");
+    const count=Math.floor((stop-start)/step+1e-10)+1;
+    if(count<1||count>72)throw Error("Rotate range must have 1–72 angles");
+    for(let i=0;i<count;i++)angles.push(start+i*step);
+   }
+   if(angles.length>72)throw Error("Rotate study supports at most 72 angles");
+  }
+  return angles;
+ }
+ function showRangeDialog(){
+  if(cur()?.kind!=="rotate")return;
+  const raw=cur().angle.trim();
+  const match=/^range\s*\(\s*([^,]+)\s*,\s*([^,]+)\s*,\s*([^,)]+)\s*\)$/i.exec(raw);
+  $("ls-cad-range-start").value=match?match[1].trim():"0";
+  $("ls-cad-range-step").value=match?match[2].trim():"60";
+  $("ls-cad-range-stop").value=match?match[3].trim():"300";
+  $("ls-cad-range-function").value="none";
+  $("ls-cad-range-error").textContent="";
+  $("ls-cad-range-error").hidden=true;
+  rangeDialog.showModal();
+  $("ls-cad-range-start").focus();
  }
  function compute(){
   const p=svc.evaluate();if(p.errors.size)throw Error([...p.errors.values()][0]);

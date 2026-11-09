@@ -14,7 +14,7 @@ try{
  assert.equal(await page.locator("#ls-parameters-view").isVisible(),true);
  assert.equal(await page.locator("#ls-parameter-rows tr").count(),10);
  await page.locator('#ls-parameter-rows [data-field="expression"]').first().fill("12[um]");
- assert.ok((await page.locator('[data-param-value="0"]').textContent()).includes("12 µm"));
+ assert.equal((await page.locator('[data-param-value="0"]').textContent()).trim(),"1.2E-5 m");
  await page.locator('.ls-model-tree [data-cad-node="c2"]').click();
  assert.equal(await page.locator("#ls-cad-pane").isVisible(),true);
  assert.equal(await page.locator("#ls-cad-graphics").isVisible(),true);

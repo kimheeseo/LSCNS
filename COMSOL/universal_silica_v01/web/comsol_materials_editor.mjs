@@ -33,7 +33,7 @@
    const entities=geometry()?.entities()||[],output=[];
    for(const shape of entities){
     const positive=(shape.layers||[]).filter(t=>t>0).length;
-    const count=level==="Domain"?positive+1:level==="Boundary"?positive+2:1;
+    const count=level==="Point"?1:positive+1; // Outer circle plus one interface per inward layer; no fictitious inner ring.
     for(let i=0;i<count;i++){
      const id=output.length+1;
      const label=level==="Domain"

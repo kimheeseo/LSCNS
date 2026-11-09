@@ -9,7 +9,7 @@
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
- let materialHighlightKeys=new Set();
+ let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set();
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -163,6 +163,7 @@
   entities:()=>compute().map(({entityKey,owner,source,r,x,y,layers,derived})=>({entityKey,owner,source,r,x,y,layers:[...layers],derived})),
   // Live named Geometry selections, including the features that contribute
   // their resulting entities. Materials may reference these by stable ID.
+  domains:()=>materialDomains().map(d=>({...d,holeCircles:d.holeCircles.map(h=>({...h}))})),
   cumulativeSelections:()=>cumulativeSelections.map(row=>({
    id:row.id,label:row.label,featureIds:[...row.featureIds]
   }))
@@ -397,6 +398,50 @@
    if(shapes.length>450)throw Error("Too many objects for preview (max 450)");
   }
   return shapes;
+ }
+
+ /**
+  * 2D preview-domain partition. A Circle with inward layers is split into
+  * radial shells (four quadrant regions per shell, matching the four geometry
+  * partition lines) plus a center disk. Smaller circular features then form
+  * individually addressable regions. This is geometry selection, not a
+  * COMSOL Boolean Union or FEM domain/mesh.
+  */
+ function materialDomains(){
+  const shapes=compute(),domains=[];
+  const add=(shape,part,label,outerR,innerR,startAngle=null,endAngle=null)=>{
+   const key=shape.entityKey+"/"+part;
+   const d={id:domains.length+1,key,entityKey:shape.entityKey,owner:shape.owner,
+     source:shape.source,label,part,cx:shape.x,cy:shape.y,outerR,innerR,
+     startAngle,endAngle,holeCircles:[]};
+   domains.push(d);return d;
+  };
+  for(const shape of shapes){
+   if(shape.sector<359.999||!shape.solid){
+    add(shape,"disk",""+shape.entityKey+" · object",shape.r,0);
+    continue;
+   }
+   let r=shape.r,active=0;
+   for(const [idx,t] of (shape.layers||[]).entries()){
+    if(t<=0)continue;
+    const next=r-t;
+    if(next<=0)break;
+    for(let quadrant=0;quadrant<4;quadrant++)
+     add(shape,"layer"+idx+"-q"+quadrant,shape.entityKey+" · layer "+(idx+1)+" sector "+(quadrant+1),r,next,quadrant*90,(quadrant+1)*90);
+    r=next;active++;
+   }
+   add(shape,active?"core":"disk",shape.entityKey+(active?" · inner domain":" · disk"),r,0);
+  }
+  // Carve the smaller circular features out of a surrounding core region in
+  // the SVG preview, so the user can select either the core or an air hole.
+  for(const domain of domains){
+   if(domain.innerR>0||domain.startAngle!==null)continue;
+   const contained=domains.filter(other=>other!==domain&&other.innerR===0&&other.startAngle===null&&
+    other.outerR<domain.outerR-1e-12&&
+    Math.hypot(other.cx-domain.cx,other.cy-domain.cy)+other.outerR<=domain.outerR+1e-12);
+   domain.holeCircles=contained.map(d=>({cx:d.cx,cy:d.cy,r:d.outerR,key:d.key}));
+  }
+  return domains;
  }
  function availableInputs(n){
   const idx=index(n?.id);

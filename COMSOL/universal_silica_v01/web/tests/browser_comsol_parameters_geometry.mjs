@@ -8,6 +8,7 @@ try{
  const page=await browser.newPage({viewport:{width:1440,height:850}});
  const errors=[];page.on("pageerror",err=>errors.push(err.message));
  await page.goto(base,{waitUntil:"load",timeout:90000});
+ await page.locator('[data-wizard="cancel"]').click(); // Open legacy workbench for existing solver regression.
  await page.waitForSelector("#ls-cad-pane",{state:"attached"});
  await page.locator('.ls-model-tree [data-action="settings"]').click();
  assert.equal(await page.locator("#ls-parameters-view").isVisible(),true);

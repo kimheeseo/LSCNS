@@ -374,7 +374,10 @@
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const items=shapes.map(shape=>{
+  const isSelectedInput=shape=>selectingRotateInputs&&cur()?.kind==="rotate"&&cur().inputIds.includes(shape.source)&&!shape.derived;
+   // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
+   const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
+   const items=orderedShapes.map(shape=>{
    const x=ox+shape.x*scale,y=oy-shape.y*scale,r=shape.r*scale;
    const stroke=shape.derived?"#7a8793":"#41484f";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
@@ -400,7 +403,7 @@
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape" data-cad-shape="${esc(shape.owner)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
   return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}</g>${labels}`;
@@ -617,7 +620,22 @@
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
  $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
- $("ls-cad-view").addEventListener("click",e=>{const s=e.target.closest("[data-cad-shape]");if(s){selected=s.dataset.cadShape;loadFields();}});
+ $("ls-cad-view").addEventListener("click",e=>{
+  const shape=e.target.closest("[data-cad-shape]");
+  if(!shape)return;
+  const node=cur();
+  if(selectingRotateInputs&&node?.kind==="rotate"){
+   const id=shape.dataset.cadSource;
+   const valid=nodes.slice(0,index(node.id)).some(item=>item.kind==="circle"&&item.enabled&&item.id===id);
+   if(!valid){say("Select an enabled Circle preceding Rotate 1.",true);return;}
+   checkpoint();
+   node.inputIds=node.inputIds.includes(id)?node.inputIds.filter(item=>item!==id):[...node.inputIds,id];
+   loadFields();
+   say(id+" "+(node.inputIds.includes(id)?"added to":"removed from")+" Rotate input objects.");
+   return;
+  }
+  selected=shape.dataset.cadShape;loadFields();
+ });
  $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
  const viewport=$("ls-cad-view");let gesture=null,hovered=null;
  viewport.addEventListener("pointermove",e=>{
@@ -629,7 +647,7 @@
  });
  viewport.addEventListener("pointerleave",()=>{hovered?.classList.remove("is-hovered");hovered=null;});
  viewport.addEventListener("pointerdown",e=>{
-  if(e.button!==0||e.target.closest("[data-cad-shape]"))return;
+  if(e.button!==0||selectingRotateInputs||e.target.closest("[data-cad-shape]"))return;
   gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};
   viewport.setPointerCapture(e.pointerId);viewport.classList.add("is-panning");
  });

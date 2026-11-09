@@ -608,6 +608,44 @@
   if(!pane.hidden)draw();
   else emitCadState();
  });
+ 
+ $("ls-cad-activate-selection").addEventListener("click",()=>{
+  if(cur()?.kind!=="rotate")return;
+  selectingRotateInputs=!selectingRotateInputs;
+  loadFields();
+  say(selectingRotateInputs?"Activate Selection: input circles are highlighted in blue. Click a shape to add/remove its input.":"Graphics input selection deactivated.");
+ });
+ $("ls-cad-range-open").addEventListener("click",showRangeDialog);
+ $("ls-cad-range-cancel").addEventListener("click",()=>rangeDialog.close("cancel"));
+ $("ls-cad-range-close").addEventListener("click",()=>rangeDialog.close("cancel"));
+ $("ls-cad-range-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const error=$("ls-cad-range-error");error.hidden=true;error.textContent="";
+  try{
+   const node=cur();
+   if(node?.kind!=="rotate")throw Error("Select a Rotate feature first.");
+   if($("ls-cad-range-method").value!=="Step")throw Error("Only Step ranges are implemented.");
+   const fields=["start","step","stop"].map(key=>$("ls-cad-range-"+key).value.trim());
+   if(fields.some(x=>!x))throw Error("Start, Step and Stop are required.");
+   const base="range("+fields.join(",")+")";
+   const points=angleList(base);
+   const nextRange=$("ls-cad-range-function").value==="negate"?points.map(x=>String(-x)).join(","):base;
+   const mode=e.submitter?.value==="add"?"add":"replace";
+   const next=mode==="add"&&node.angle.trim()?node.angle.trim()+","+nextRange:nextRange;
+   const values=angleList(next);
+   if(values.length>72)throw Error("At most 72 angles are supported.");
+   checkpoint();
+   node.angle=next;
+   $("ls-cad-angle").value=next;
+   draw();
+   rangeDialog.close(mode);
+   say("Rotate angle "+(mode==="add"?"added":"replaced")+": "+values.length+" position(s) • "+next);
+  }catch(ex){
+   error.textContent=ex.message;error.hidden=false;
+   $("ls-cad-range-start").focus();
+  }
+ });
+
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
   const b=e.target.closest("[data-cad-input]");if(!b)return;
@@ -664,7 +702,8 @@
  viewport.addEventListener("wheel",e=>{e.preventDefault();zoom=Math.max(.25,Math.min(8,zoom*(e.deltaY<0?1.15:1/1.15)));draw();},{passive:false});
  $("ls-cad-view").addEventListener("contextmenu",e=>{const s=e.target.closest("[data-cad-shape]");if(s)showMenu(e,"node",s.dataset.cadShape);});
  document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){if(!context.hidden){context.hidden=true;e.stopImmediatePropagation();}else if(!pane.hidden)close();}
+  if(rangeDialog.open)return;
+   if(e.key==="Escape"){if(!context.hidden){context.hidden=true;e.stopImmediatePropagation();}else if(!pane.hidden)close();}
   if(pane.hidden||["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName))return;
    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();modify(e.shiftKey?"redo":"undo");return;}
    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="y"){e.preventDefault();modify("redo");return;}

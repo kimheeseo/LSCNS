@@ -1,0 +1,68 @@
+
+/* Startup Model Wizard — UI only; existing analysis workbench remains intact. */
+#ls-startup-wizard[hidden]{display:none!important}
+#ls-startup-wizard{position:fixed;inset:0;z-index:99999;background:#f7f8fa;color:#20262d;font-family:"Segoe UI","Malgun Gothic",Arial,sans-serif;font-size:13px;overflow:auto}
+#ls-startup-wizard *{box-sizing:border-box}
+#ls-startup-wizard button,#ls-startup-wizard input{font:inherit}
+#ls-startup-wizard button{cursor:pointer}
+.lsw-window{min-height:100vh;display:flex;flex-direction:column;border:1px solid #aeb7c1;background:#fafbfc}
+.lsw-titlebar{height:30px;display:flex;justify-content:space-between;align-items:center;padding:0 13px;border-bottom:1px solid #cbd3df;background:#f8fafc;gap:10px}
+.lsw-titlebar strong{font-weight:550;font-size:12px;letter-spacing:.1px;color:#2e3338}
+.lsw-appmark{display:inline-flex;align-items:center;justify-content:center;background:#0b84ca;color:white;border-radius:3px;font-size:12px;font-weight:bold;width:18px;height:18px}
+.lsw-quickicons{display:flex;gap:7px;align-items:center;color:#8a9aaa;font-size:14px}
+.lsw-top-tabs{height:36px;display:flex;align-items:stretch;gap:0;background:#eff1f5;border-bottom:1px solid #cdd5df;overflow-x:auto}
+.lsw-top-tab{display:flex;align-items:center;padding:0 16px;white-space:nowrap;color:#313843;font-size:12px}
+.lsw-top-tab:first-child{background:#137ac4;color:white;font-weight:600}
+.lsw-page{flex:1;display:flex;flex-direction:column;background:#fafbfd;min-height:calc(100vh - 68px)}
+.lsw-body{flex:1;display:flex;min-height:0}
+.lsw-main{padding:24px 32px;flex:1;min-width:0}
+.lsw-main h1,.lsw-left h1{font-size:28px;line-height:1.25;font-weight:350;margin:0 0 26px;color:#232a32}
+.lsw-dimension-tiles{display:flex;flex-wrap:wrap;gap:7px;align-items:stretch}
+.lsw-dimension{border:1px solid #cdd3dc;background:linear-gradient(#fff,#f4f5f8);border-radius:3px;min-height:90px;min-width:96px;max-width:124px;padding:9px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#222;box-shadow:inset 0 1px #fff}
+.lsw-dimension:hover{border-color:#459bd7;background:#ecf6ff}
+.lsw-dimension[aria-pressed="true"]{border:2px solid #1686d7;background:#dceeff;padding:8px 7px}
+.lsw-dimension-icon{font-size:25px;line-height:29px;color:#1686ca;font-weight:700}
+.lsw-dimension-label{font-size:12px;text-align:center;line-height:1.2}
+.lsw-muted{color:#6d7681;font-size:12px;line-height:1.6}
+.lsw-main .lsw-muted{margin-top:20px}
+.lsw-bottom{border-top:1px solid #d8dde5;min-height:52px;padding:8px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f8f9fb}
+.lsw-buttons{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.lsw-btn{border:1px solid #ccd2dc;border-radius:3px;background:linear-gradient(#fff,#f0f2f5);padding:7px 12px;color:#293039;min-height:30px}
+.lsw-btn:hover:not(:disabled){border-color:#1686d7;background:#e6f3ff}
+.lsw-btn:focus-visible,.lsw-leaf:focus-visible,.lsw-cat:focus-visible{outline:2px solid #1685d2;outline-offset:2px}
+.lsw-btn:disabled{opacity:.42;cursor:not-allowed}
+.lsw-btn-primary{background:#dceeff;border-color:#71afe2}
+.lsw-btn-icon{color:#137dc2;font-weight:700;margin-right:4px}
+.lsw-physics-panel{flex:0 0 clamp(365px,34vw,455px);min-height:calc(100vh - 120px);padding:17px 20px 16px;border-right:1px solid #d9dee7;display:flex;flex-direction:column;gap:0}
+.lsw-physics-panel h1{margin-bottom:22px}
+.lsw-search{display:flex;gap:5px;margin-bottom:8px}
+.lsw-search input{min-width:0;flex:1;height:29px;border:1px solid #cdd3dd;background:#fff;color:#293039;padding:4px 8px;outline-color:#1686d7}
+.lsw-search .lsw-btn{min-height:29px;padding:4px 10px}
+.lsw-tree{flex:1;min-height:260px;max-height:45vh;overflow:auto;border:1px solid #cdd4de;background:white;padding:5px}
+.lsw-cat{border:0;background:transparent;width:100%;text-align:left;padding:5px 7px;display:flex;gap:7px;align-items:center;color:#262e38}
+.lsw-cat:hover,.lsw-leaf:hover{background:#e9f2fc}
+.lsw-cat-icon{color:#157dbe}
+.lsw-branch{padding-left:21px}
+.lsw-leaf{background:transparent;border:0;width:100%;padding:5px 6px;display:flex;align-items:flex-start;gap:7px;color:#27323c;text-align:left;font-size:12px;line-height:1.35}
+.lsw-leaf[aria-selected="true"]{background:#d5e9fa}
+.lsw-leaf:disabled{color:#7a8794;opacity:.75}
+.lsw-leaf small{font-size:10px;color:#788490}
+.lsw-tree-future{font-size:11px;color:#788490;margin:0 5px 5px 26px;line-height:1.5}
+.lsw-list-actions{display:flex;justify-content:end;margin:7px 0 10px}
+.lsw-label{font-size:12px;color:#2d3540;margin:3px 0 7px}
+.lsw-added{border:1px solid #cdd4de;background:#fff;min-height:82px;padding:8px;color:#25313d;font-size:12px}
+.lsw-added:empty::after{content:"아직 추가된 Physics interface가 없습니다.";color:#8793a1}
+.lsw-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #d9dee7;padding-top:13px;margin-top:auto}
+.lsw-nav .lsw-btn{border:0;background:transparent;padding:5px 0;color:#1768a5}
+.lsw-physics-preview{flex:1;padding:29px 35px;min-width:0;background:linear-gradient(120deg,#fafbfd,#f6f8fb)}
+.lsw-physics-preview h2{font-weight:500;font-size:17px;margin:0 0 14px;color:#273548}
+.lsw-physics-preview p{font-size:12px;max-width:530px;color:#687785;line-height:1.8}
+.lsw-inline-status{font-size:11px;color:#a54c13;min-height:17px;margin:8px 0 0}
+.lsw-study-options{display:flex;flex-direction:column;gap:12px;max-width:500px}
+.lsw-study-option{display:flex;gap:12px;padding:13px;border:1px solid #d2d8e2;border-radius:4px;background:white;align-items:flex-start}
+.lsw-study-option input{accent-color:#1686d7;margin-top:3px}
+.lsw-study-option b{display:block;margin-bottom:6px;font-weight:550}
+.lsw-study-option small{color:#657282}
+.lsw-summary{border:1px solid #d1d9e4;background:white;padding:15px 18px;max-width:550px;margin-top:22px;font-size:12px;line-height:1.8}
+.lsw-summary strong{font-weight:600}
+@media(max-width:700px){.lsw-physics-panel{flex:0 0 100%;min-height:calc(100vh - 120px);border-right:none}.lsw-physics-preview{display:none}.lsw-main{padding:20px 17px}.lsw-dimension{min-width:86px}.lsw-bottom{padding:8px 10px}.lsw-main h1,.lsw-left h1{font-size:24px}.lsw-titlebar{min-width:0}}

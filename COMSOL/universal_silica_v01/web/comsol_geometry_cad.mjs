@@ -289,7 +289,8 @@
      covered+=thickness;const inner=shape.r-covered;
      if(inner<=0)break;
      const innerPx=inner*scale;
-     layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#555b60" stroke-width="${mini?1:1.4}" pointer-events="none"/>`;
+     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${Math.round(covered*1e9)%2?"#d2dbe2":"#e4e7ea"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
+      layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#555b60" stroke-width="${mini?1:1.4}" pointer-events="none"/>`;
      for(const deg of [0,90,180,270]){
       const angle=deg*Math.PI/180,cs=Math.cos(angle),sn=Math.sin(angle);
       layersMarkup+=`<line class="ls-cad-layer-boundary" x1="${x+innerPx*cs}" y1="${y+innerPx*sn}" x2="${x+outer*scale*cs}" y2="${y+outer*scale*sn}" stroke="#555b60" stroke-width="${mini?.85:1.25}" pointer-events="none"/>`;
@@ -303,7 +304,7 @@
   const ox=w/2+(mini?0:panX),oy=h/2+(mini?0:panY);
   const axisUnit=axisExtent<.001?"µm":axisExtent<1?"mm":"m";
   const axisValue=axisExtent*(axisUnit==="µm"?1e6:axisUnit==="mm"?1e3:1);
-  const axisText=mini?"":`<text x="12" y="${h-16}" font-size="11" fill="#607c92">±${axisValue.toPrecision(3)} ${axisUnit} · zoom ${Math.round(zoom*100)}%</text>`;
+  const axisText=mini?"":`<text x="12" y="${h-16}" font-size="11" fill="#607c92">±${axisValue.toPrecision(3)} ${axisUnit} · zoom ${Math.round(zoom*100)}% · ${viewExtent===null?"Auto-fit":"Fixed scale"}</text>`;
   return `<rect width="${w}" height="${h}" fill="#fcfdfe"/>${grid}<path d="M0 ${oy} H${w} M${ox} 0 V${h}" stroke="#83939f" stroke-width="1.2"/>${items}<text x="12" y="21" font-size="11" fill="#5d7f94">${esc(rootLabel)} · 2D</text>${axisText}`;
  }
  function draw(){
@@ -313,8 +314,16 @@
     const pick=$("ls-cad-object-select");
     if(pick){pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");pick.value=nodes.some(n=>n.id===selected)?selected:"root";}
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
-   $("ls-cad-legend").textContent=`${compute().length} object(s) in preview · Zoom ${Math.round(zoom*100)}% · ${lengthUnit==="um"?"µm":lengthUnit} · Not FEM field data`;emitCadState();
-  }catch(e){$("ls-cad-view").innerHTML="";$("ls-cad-mini-svg").innerHTML="";$("ls-cad-legend").textContent=e.message;if(!pane.hidden)say("Preview: "+e.message,true);}
+   const shapes=compute();
+   const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
+   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
+   if($("ls-cad-status").textContent.startsWith("Preview error:"))say("Graphics updated.");
+   emitCadState();
+  }catch(e){
+   // Preserve the last valid view while a user is typing a partial expression.
+   $("ls-cad-legend").textContent="Geometry expression error: "+e.message;
+   if(!pane.hidden)say("Preview error: "+e.message,true);
+  }
  }
  function open(id){
   if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;

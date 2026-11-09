@@ -227,3 +227,8 @@ body.ls-comsol-shell.ls-screenshot-ribbon .ls-ribbon-body{height:98px;padding:0 
 .ls-definitions-groups [data-shot-group="5"] .ls-shot-column:first-child .ls-shot-command{max-width:77px}
 .ls-ribbon-is-screenshot .ls-ribbon-context{display:none}
 @media(max-width:635px){body.ls-comsol-shell.ls-screenshot-ribbon{--ls-ribbon-height:132px}.ls-ribbon-is-screenshot .ls-ribbon-body{height:98px}.ls-ribbon-is-screenshot .ls-ribbon-tabs{height:34px}}
+
+/* Keep every reference group visible at a 1440px desktop width. */
+.ls-screenshot-groups .ls-shot-command{font-size:11px}
+.ls-screenshot-groups .ls-shot-group{padding-left:4px;padding-right:4px}
+.ls-ribbon .ls-ribbon-quick button{width:auto;min-width:29px;font-size:11px}

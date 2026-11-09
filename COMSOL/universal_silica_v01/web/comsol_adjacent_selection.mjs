@@ -92,7 +92,7 @@
   if(!row)return;
   // All other editors clean up their own state. This tool then claims the
   // sidebar and graphics so the order of event listeners cannot hide it.
-  document.dispatchEvent(new CustomEvent("ls-open-adjacent-editor",{detail:{id:row.id,create}}));
+  document.dispatchEvent(new CustomEvent("ls-adjacent-editor-activated",{detail:{id:row.id}}));
   activeId=row.id;enabled=true;
   $("ls-materials-editor")&&( $("ls-materials-editor").hidden=true);
   $("ls-cad-pane")&&($("ls-cad-pane").hidden=true);
@@ -161,7 +161,7 @@
  });
  document.addEventListener("ls-open-adjacent-editor",e=>{
   if(e.detail?.create)newAdjacent();
-  else if(e.detail?.id){const row=rows.find(r=>r.id===e.detail.id);if(row&&row.id!==activeId)open(row);}
+  else if(e.detail?.id){const row=rows.find(r=>r.id===e.detail.id);if(row)open(row);}
  });
  document.addEventListener("ls-adjacent-geometry-click",e=>{
   const row=current();

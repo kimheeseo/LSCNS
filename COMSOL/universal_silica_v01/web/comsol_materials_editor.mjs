@@ -21,26 +21,58 @@
  document.body.append(menu);
  const showMessage=t=>{warning=t;if($("ls-material-note"))$("ls-material-note").textContent=t;};
  const geometry=()=>window.LSWaveCADService;
- function getDomains(){
+ function cumulativeSelections(){
+  const selections=geometry()?.cumulativeSelections?.();
+  return Array.isArray(selections)?selections:[];
+ }
+ const LEVELS=["Domain","Boundary","Point"];
+ function entityLevel(material){return LEVELS.includes(material?.level)?material.level:"Domain";}
+ function getEntities(level="Domain"){
+  if(!LEVELS.includes(level))return [];
   try{
-   const entities=geometry()?.entities()||[];
-   const output=[];
+   const entities=geometry()?.entities()||[],output=[];
    for(const shape of entities){
-    const num=(shape.layers||[]).filter(t=>t>0).length+1;
-    for(let layer=0;layer<num;layer++){
+    const positive=(shape.layers||[]).filter(t=>t>0).length;
+    const count=level==="Domain"?positive+1:level==="Boundary"?positive+2:1;
+    for(let i=0;i<count;i++){
      const id=output.length+1;
-     output.push({id,entityKey:shape.entityKey,owner:shape.owner,source:shape.source,label:(shape.entityKey)+(num>1?(layer===num-1?" · inner domain":" · layer "+(layer+1)):" · disk"),layer});
+     const label=level==="Domain"
+      ?positive?(i===positive?" · inner domain":" · layer "+(i+1)):" · disk"
+      :level==="Boundary"?(i===0?" · outer boundary":" · inner boundary "+i)
+      :" · center point";
+     output.push({id,entityKey:shape.entityKey,owner:shape.owner,source:shape.source,
+       label:shape.entityKey+label,layer:i,level});
     }
    }
    return output;
   }catch(error){warning="Geometry unavailable: "+error.message;return [];}
  }
+ function getDomains(){return getEntities("Domain");}
+ function explicitIds(material,level){
+  return level==="Domain"?material.domainIds||[]:material.selectedIdsByLevel?.[level]||[];
+ }
+ function assignedEntities(material,entities){
+  if(material.mode==="all")return entities;
+  if(material.mode==="cumulative"){
+   const cumulative=cumulativeSelections().find(row=>row.id===material.cumulativeId);
+   const owners=new Set(cumulative?.featureIds||[]);
+   return entities.filter(entity=>owners.has(entity.owner));
+  }
+  const ids=new Set(explicitIds(material,entityLevel(material)));
+  return entities.filter(entity=>ids.has(entity.id));
+ }
  function assignedDomains(material,domains){
-  if(material.mode==="all")return domains;
-  return domains.filter(d=>material.domainIds.includes(d.id));
+  // Boundary/Point selections do not count as assigned material domains.
+  if(entityLevel(material)!=="Domain")return [];
+  return assignedEntities(material,domains);
+ }
+ function selectionTitle(material){
+  if(material.mode==="all")return "All "+entityLevel(material).toLowerCase()+"s";
+  if(material.mode==="cumulative")return cumulativeSelections().find(v=>v.id===material.cumulativeId)?.label||"Missing cumulative selection";
+  return explicitIds(material,entityLevel(material)).join(", ")||"None";
  }
  function overviewBody(domains){
-  const all=materials.map(m=>'<tr><td>◈ '+safe(m.label)+'</td><td>'+safe(m.mode==="all"?"All domains":m.domainIds.join(", ")||"None")+'</td></tr>').join("");
+  const all=materials.map(m=>'<tr><td>◈ '+safe(m.label)+'</td><td>'+safe(selectionTitle(m))+'</td></tr>').join("");
   const covered=new Set(materials.flatMap(m=>assignedDomains(m,domains).map(d=>d.id)));
   const missing=domains.filter(d=>!covered.has(d.id)).map(d=>d.id);
   const missingText=missing.length?("Domains "+missing.join(", ")):"None";
@@ -51,18 +83,40 @@
    '<button class="ls-material-primary" type="button" data-material-command="blank">＋ Blank Material</button></div></details>';
  }
  function detailsBody(material,domains){
-  const selection=assignedDomains(material,domains);
-  const items=domains.map(d=>{
-   const checked=material.mode==="all"||material.domainIds.includes(d.id);
-   return '<label class="ls-material-domain-option"><input type="checkbox" data-material-domain="'+d.id+'" '+(checked?"checked":"")+' '+(material.mode==="all"?"disabled":"")+'/>'+
-    '<span><b>'+d.id+'</b> '+safe(d.label)+'</span></label>';
+  const level=entityLevel(material),entities=getEntities(level);
+  const selection=assignedEntities(material,entities);
+  const checkedIds=new Set(selection.map(e=>e.id));
+  const allowManual=material.mode==="manual";
+  const name=level.toLowerCase()+"s";
+  const cumul=cumulativeSelections();
+  const optGroups=cumul.length
+   ?'<optgroup label="Cumulative Selections">'+cumul.map(row=>
+     '<option data-cumulative-selection="'+safe(row.id)+'" value="cumulative:'+safe(row.id)+'" '+
+      (material.mode==="cumulative"&&material.cumulativeId===row.id?"selected":"")+'>'+
+      safe(row.label)+'</option>').join("")+'</optgroup>'
+   :"";
+  const items=entities.map(entity=>{
+   return '<label class="ls-material-domain-option"><input type="checkbox" data-material-domain="'+entity.id+'" '+
+    (checkedIds.has(entity.id)?"checked":"")+' '+(allowManual?"":"disabled")+'/>'+
+    '<span><b>'+entity.id+'</b> '+safe(entity.label)+'</span></label>';
   }).join("");
+  const nameOptions=LEVELS.map(option=>'<option value="'+option+'" '+(level===option?"selected":"")+'>'+option+'</option>').join("");
+  const selectedMode=material.mode==="cumulative"?"cumulative:"+material.cumulativeId:material.mode;
   return '<div class="ls-setting-line"><label for="ls-material-label">Label</label><input id="ls-material-label" value="'+safe(material.label)+'"/></div>'+
    '<details class="ls-material-section" open><summary>Geometric Entity Selection</summary><div class="ls-material-section-inner">'+
-   '<label class="ls-material-field"><span>Geometric entity level:</span><select id="ls-material-entity-level"><option>Domain</option></select></label>'+
-   '<label class="ls-material-field"><span>Selection:</span><select id="ls-material-select-mode"><option value="all" '+(material.mode==="all"?"selected":"")+'>All domains</option><option value="manual" '+(material.mode==="manual"?"selected":"")+'>Manual selection</option></select></label>'+
-   '<div class="ls-material-selection-row"><button type="button" id="ls-material-pick" aria-pressed="'+manualPick+'" title="Activate Selection in Graphics">▣</button><div id="ls-material-domain-list">'+(items||"<p>No geometry domains defined</p>")+'</div></div>'+
-   '<p class="ls-material-help">Selected '+selection.length+' of '+domains.length+' preview region(s). '+(manualPick?"Graphics selection is active: click a circle to toggle its associated region(s).":"Switch to Manual selection to choose individual regions.")+'</p>'+
+   '<label class="ls-material-field"><span>Geometric entity level:</span><select id="ls-material-entity-level">'+nameOptions+'</select></label>'+
+   '<label class="ls-material-field"><span>Selection:</span><select id="ls-material-select-mode">'+
+   '<option value="all" '+(selectedMode==="all"?"selected":"")+'>All '+name+'</option>'+
+   '<option value="manual" '+(selectedMode==="manual"?"selected":"")+'>Manual selection</option>'+
+   optGroups+'</select></label>'+
+   '<div class="ls-material-selection-row"><button type="button" id="ls-material-pick" aria-pressed="'+(manualPick&&material.mode!=="cumulative")+'" '+
+   (material.mode==="cumulative"?"disabled ":"")+'title="Activate Selection in Graphics">▣</button>'+
+   '<div id="ls-material-domain-list">'+(items||"<p>No "+name+" in current geometry</p>")+'</div></div>'+
+   '<p class="ls-material-help">Selected '+selection.length+' of '+entities.length+' '+name+' in the Geometry preview. '+
+    (material.mode==="cumulative"?"Using named selection: "+safe(selectionTitle(material))+". Changes to its contributing Geometry features update this list.":
+    manualPick?"Graphics selection is active: click a circle to toggle associated region(s).":
+    "Choose Manual selection to edit individual "+name+".")+'</p>'+
+   (level!=="Domain"?'<p class="ls-material-help">Boundary and Point are selectable geometric entities only; they are not material-filled FEM domains.</p>':"")+
    '</div></details>'+
    '<details class="ls-material-section"><summary>Override</summary><p class="ls-material-help">Not linked to the FEM material model.</p></details>'+
    '<details class="ls-material-section"><summary>Material Properties</summary><p class="ls-material-help">Isotropic refractive index. Enter a real value (e.g. 1.45) and imaginary value (e.g. 0) for material preview.</p></details>'+
@@ -95,7 +149,7 @@
  function selectedKeys(){
   const m=materials.find(x=>x.id===activeId);
   if(!m)return [];
-  return [...new Set(assignedDomains(m,getDomains()).map(x=>x.entityKey))];
+  return [...new Set(assignedEntities(m,getEntities(entityLevel(m))).map(x=>x.entityKey))];
  }
  function highlight(){
   if(pane.hidden)return;
@@ -132,7 +186,7 @@
  }
  function blank(){
   let i=1;while(materials.some(m=>m.id==="mat"+i))i++;
-  const material={id:"mat"+i,label:"Material "+i,mode:"all",domainIds:[],real:"",imag:"0"};
+  const material={id:"mat"+i,label:"Material "+i,mode:"all",level:"Domain",cumulativeId:null,domainIds:[],selectedIdsByLevel:{Boundary:[],Point:[]},real:"",imag:"0"};
   materials.push(material);
   warning="Blank Material created. Assign a domain and refractive index values to configure this preview.";
   open(material.id);

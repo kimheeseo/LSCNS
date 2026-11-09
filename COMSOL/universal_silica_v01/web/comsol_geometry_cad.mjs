@@ -158,7 +158,15 @@
   }catch(e){base.reason=String(e.message||e);return base;}
  }
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
- window.LSWaveCADService=Object.freeze({status,apply:()=>apply(),entities:()=>compute().map(({entityKey,owner,source,r,x,y,layers,derived})=>({entityKey,owner,source,r,x,y,layers,derived}))});
+ window.LSWaveCADService=Object.freeze({
+  status,apply:()=>apply(),
+  entities:()=>compute().map(({entityKey,owner,source,r,x,y,layers,derived})=>({entityKey,owner,source,r,x,y,layers:[...layers],derived})),
+  // Live named Geometry selections, including the features that contribute
+  // their resulting entities. Materials may reference these by stable ID.
+  cumulativeSelections:()=>cumulativeSelections.map(row=>({
+   id:row.id,label:row.label,featureIds:[...row.featureIds]
+  }))
+ });
  const evalNumber=s=>svc.calculate(s);
  function evalLength(expr){
   const value=evalNumber(expr);
@@ -770,6 +778,7 @@
   }
   loadFields();
   say(n.cumulativeId?"Contribute to "+cumulativeSelections.find(v=>v.id===n.cumulativeId)?.label:"Cumulative contribution removed.");
+  document.dispatchEvent(new CustomEvent("ls-cad-cumulative-changed",{detail:{selections:window.LSWaveCADService.cumulativeSelections()}}));
  });
  $("ls-cad-cumulative-new").addEventListener("click",()=>{
   if(!cur())return;
@@ -794,6 +803,7 @@
   loadFields();
   say("Created "+value+" under Geometry 1 → Cumulative Selections.");
   document.dispatchEvent(new CustomEvent("ls-cad-cumulative-created",{detail:{id:newId,label:value,featureId:node.id}}));
+  document.dispatchEvent(new CustomEvent("ls-cad-cumulative-changed",{detail:{selections:window.LSWaveCADService.cumulativeSelections()}}));
  });
  cumulativeDialog.querySelector("form").addEventListener("submit",e=>{
   const name=$("ls-cad-cumulative-name").value.trim();

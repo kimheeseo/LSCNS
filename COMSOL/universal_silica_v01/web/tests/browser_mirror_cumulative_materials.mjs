@@ -26,7 +26,17 @@ try{
  await page.locator("#ls-cad-cumulative-name").fill("Hole rotation outputs");
  await page.locator("#ls-cad-cumulative-ok").click();
  const cumulative=page.locator('#ls-cad-cumulative-list [data-cad-cumulative-id="csel1"]');
- assert.ok(await cumulative.isVisible());
+ await cumulative.waitFor({state:"visible",timeout:5000}).catch(async error=>{
+  console.error("Cumulative create diagnostics",await page.evaluate(()=>({
+   dialogReturn:document.querySelector("#ls-cad-cumulative-dialog")?.returnValue,
+   dialogOpen:document.querySelector("#ls-cad-cumulative-dialog")?.open,
+   groupHidden:document.querySelector("#ls-cad-cumulative-group")?.hidden,
+   groupHTML:document.querySelector("#ls-cad-cumulative-group")?.outerHTML?.slice(0,900),
+   status:document.querySelector("#ls-cad-status")?.textContent,
+   contribution:document.querySelector("#ls-cad-contribute")?.value
+  })));
+  throw error;
+ });
  assert.equal(await page.locator("#ls-cad-contribute").inputValue(),"csel1");
  await cumulative.click();
  assert.equal(await page.locator("#ls-cad-subtitle").textContent(),"Cumulative Selection");

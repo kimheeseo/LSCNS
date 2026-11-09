@@ -35,6 +35,7 @@ try{
  const surface=shape.locator(".ls-cad-rendered-surface");
  const before=await surface.evaluate(el=>getComputedStyle(el).fill);
  await shape.locator("circle").first().hover({force:true});
+ await page.waitForFunction(()=>{const el=document.querySelector('#ls-cad-view [data-cad-shape="c1"] .ls-cad-rendered-surface');return el&&getComputedStyle(el).fill==="rgb(238, 167, 163)";},{timeout:5000});
  const hover=await surface.evaluate(el=>getComputedStyle(el).fill);
  assert.notEqual(hover,before,"Hover should change Circle from gray to red");
  await page.screenshot({path:"/tmp/comsol_circle_hover_red.png"});

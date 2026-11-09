@@ -829,7 +829,7 @@
   }else if(document.body.classList.contains("ls-adjacent-active")) graphics.hidden=false;
   draw();
  });
- document.addEventListener("ls-open-adjacent-editor",()=>{
+ document.addEventListener("ls-adjacent-editor-activated",()=>{
   if(!pane.hidden)close();
   graphics.hidden=false;
   materialPickMode=false;materialHighlightKeys.clear();materialHighlightDomainIds.clear();

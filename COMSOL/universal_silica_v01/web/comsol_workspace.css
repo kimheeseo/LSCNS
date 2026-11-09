@@ -194,3 +194,52 @@ body.ls-comsol-shell main.workspace .charts-grid .chart-card canvas{filter:inver
 .ls-ribbon-quick button:hover:not(:disabled){background:#e1edfa;border-color:#9dc2e9}
 .ls-ribbon-quick button:disabled{opacity:.42;cursor:not-allowed}
 .ls-ribbon-quick .ls-quick-separator{height:18px;border-left:1px solid #d3dbe5;margin:0 2px}
+
+
+/* Screenshot-matched Definitions tab. This is a navigation/layout update:
+ * unsupported Definitions physics features are clearly disabled. */
+body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:151px}
+body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{
+ height:117px;padding:0 4px 0 6px;gap:0;background:linear-gradient(#fff,#f3f6f9)
+}
+body.ls-comsol-shell.ls-definitions-ribbon #ls-ribbon-tools{
+ flex:1;width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;
+ scroll-behavior:smooth;scrollbar-width:thin;align-items:stretch
+}
+body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-note{display:none!important}
+.ls-definitions-groups{display:flex;align-items:stretch;gap:0;height:100%;width:max-content;min-width:100%;padding-top:3px}
+.ls-def-group{display:flex;flex-direction:column;flex:0 0 auto;align-items:stretch;
+ border-right:1px solid #d2dbe5;padding:1px 6px 0;min-width:68px}
+.ls-def-group-buttons{display:flex;align-items:stretch;justify-content:center;gap:2px;flex:1;min-height:0}
+.ls-def-command{display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center;
+ background:transparent;border:1px solid transparent;border-radius:2px;
+ padding:4px 5px;min-width:60px;max-width:103px;
+ color:#2e4f6b;cursor:pointer;font:11px "Segoe UI","Malgun Gothic",sans-serif}
+.ls-def-command-icon{display:grid;place-items:center;width:29px;height:29px;color:#438ebd}
+.ls-def-command-icon .ls-icon{width:24px;height:24px}
+.ls-def-command-name{text-align:center;white-space:normal;line-height:1.15;font-size:10.5px}
+.ls-def-command-large{min-width:78px;max-width:115px;justify-content:center}
+.ls-def-command-large .ls-def-command-icon{width:36px;height:36px}
+.ls-def-command-large .ls-def-command-icon .ls-icon{width:31px;height:31px}
+.ls-def-command:hover:not(:disabled),.ls-def-command:focus-visible:not(:disabled){
+ background:#e4f0fb;border-color:#accce8;color:#1766a2
+}
+.ls-def-command:disabled{opacity:.48;cursor:not-allowed}
+.ls-def-command:disabled .ls-def-command-name{color:#6c7f8c}
+.ls-def-group-caption{text-align:center;border-top:1px solid #e6e9ef;height:21px;min-height:21px;
+ display:grid;place-items:center;font-size:10px;color:#7d8b98;letter-spacing:.05px}
+.ls-ribbon-tabs [data-tab="definitions"].active{background:#f7fbff;border-bottom-color:#2f87c4;color:#1c78b8;font-weight:700}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:131px}
+ body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{height:97px}
+ .ls-def-command{min-width:53px;padding:3px;max-width:91px}
+ .ls-def-command-name{font-size:9.5px}
+ .ls-def-group-caption{font-size:9px}
+}
+@media(max-width:635px){
+ body.ls-comsol-shell.ls-definitions-ribbon{--ls-ribbon-height:125px}
+ body.ls-comsol-shell.ls-definitions-ribbon .ls-ribbon-body{height:91px}
+ .ls-def-group{padding:0 3px}
+ .ls-def-command-icon{width:23px;height:23px}
+ .ls-def-command-icon .ls-icon{width:19px;height:19px}
+}

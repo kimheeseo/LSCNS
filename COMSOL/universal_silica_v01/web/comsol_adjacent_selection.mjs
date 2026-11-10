@@ -80,7 +80,8 @@
    '</div></details>'+
    '<details class="ls-adjacent-section" open><summary>Output Entities</summary><div class="ls-adjacent-section-content">'+
    '<label class="ls-adjacent-field" for="ls-adjacent-output">Geometric entity level:</label>'+
-   '<select id="ls-adjacent-output"><option value="Adjacent boundaries" selected>Adjacent boundaries</option></select>'+
+   '<select id="ls-adjacent-output">'+["Adjacent domains","Adjacent boundaries","Adjacent points"].map(label=>
+   '<option value="'+label+'" '+(row.output===label?"selected":"")+'>'+label+'</option>').join("")+'</select>'+
    '<label class="ls-adjacent-check"><input type="checkbox" id="ls-adjacent-exterior" '+(row.exterior?"checked":"")+'/> Exterior boundaries</label>'+
    '<label class="ls-adjacent-check"><input type="checkbox" id="ls-adjacent-interior" '+(row.interior?"checked":"")+'/> Interior boundaries</label>'+
    '<p class="ls-adjacent-note">This is a Geometry labeling/selection preview. Blue outlines are the selected input entities; COMSOL-style topological adjacency output is not yet calculated.</p>'+
@@ -119,7 +120,7 @@
  }
  function newAdjacent(){
   let i=1;while(rows.some(row=>row.id==="adj"+i))i++;
-  const row={id:"adj"+i,label:"Adjacent "+i,level:"Domain",
+  const row={id:"adj"+i,label:"Adjacent "+i,level:"Domain",output:"Adjacent boundaries",
    selectedByLevel:{Domain:[],Boundary:[],Point:[]},
    exterior:true,interior:false};
   rows.push(row);
@@ -147,6 +148,7 @@
    notice="Choose "+row.level.toLowerCase()+" entities directly in Graphics.";
    render();transmit();return;
   }
+  if(e.target.id==="ls-adjacent-output"){row.output=e.target.value;notice="Output entity level: "+row.output+" (preview; topology computation not implemented).";render();transmit();return;}
   if(e.target.id==="ls-adjacent-exterior"){row.exterior=e.target.checked;return;}
   if(e.target.id==="ls-adjacent-interior"){row.interior=e.target.checked;return;}
   if(e.target.matches("[data-adjacent-list-key]")){

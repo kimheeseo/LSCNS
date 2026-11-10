@@ -95,7 +95,7 @@ try{
  assert.equal(await page.locator('#ls-cad-view .ls-cad-material-region.is-selected').count(),1);
  // Screenshot example: individually selected 1,2,4,5,6,7 (not all regions).
  for(const id of [2,4,5,6,7]){
-  await page.locator('#ls-cad-view [data-cad-domain-id="'+id+'"]').dispatchEvent("click");
+  await page.locator('#ls-material-domain-list [data-material-domain="'+id+'"]').check();
  }
  assert.deepEqual(await selected(page),[1,2,4,5,6,7]);
  assert.equal(await page.locator('#ls-cad-view .ls-cad-material-region.is-selected').count(),6);

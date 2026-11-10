@@ -29,6 +29,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_material_properties_resizers.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_panel_resizers.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_panel_resizers.css'
       - 'COMSOL/universal_silica_v01/web/comsol_adjacent_selection.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_adjacent_selection.css'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs'
@@ -70,6 +73,8 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_adjacent_selection.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
+          node --check COMSOL/universal_silica_v01/web/comsol_panel_resizers.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_material_properties_resizers.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --prefix /tmp/comsol-workspace-playwright playwright@1.56.1
@@ -94,6 +99,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_material_properties_resizers.mjs
       - name: Upload rendered UI screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -131,4 +137,7 @@ jobs:
             /tmp/comsol_adjacent_domain_selected.png
             /tmp/comsol_adjacent_created.png
             /tmp/comsol_adjacent_two_boundaries_selected.png
+            /tmp/comsol_adjacent_output_levels.png
+            /tmp/comsol_material_properties_resolved.png
+            /tmp/comsol_resized_material_settings.png
           if-no-files-found: ignore

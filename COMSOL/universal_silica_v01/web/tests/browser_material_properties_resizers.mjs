@@ -37,7 +37,7 @@ try{
  await page.locator('summary[data-action="waveMaterials"]').click({button:"right"});
  await page.locator('#ls-materials-context [data-material-command="blank"]').click();
  assert.equal((await page.evaluate(()=>window.LSWaveMaterialsEditor.list())).length,1);
- await page.locator('[data-material-command="blank"]').click();
+ await page.locator('#ls-materials-editor [data-material-command="blank"]').click();
  assert.equal((await page.evaluate(()=>window.LSWaveMaterialsEditor.list())).length,2);
  assert.ok(await page.locator('[data-ls-blank-material="mat2"]').isVisible());
  await page.locator('[data-material-command="duplicate"]').click();

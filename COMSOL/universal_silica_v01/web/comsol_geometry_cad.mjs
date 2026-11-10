@@ -11,6 +11,7 @@
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
  let adjacentView=false,adjacentGridOn=false,adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
+ let pmlView=false,pmlPickMode=false,pmlDomainKeys=new Set();
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -565,6 +566,22 @@
   return `<g class="ls-cad-material-domain-overlay" data-domain-picker="${picking?"active":"inactive"}">${items}</g>`;
  }
 
+
+ // PML Geometry domain selection overlay. Does not alter FEM mesh or solver.
+ function pmlDomainsSVG(ox,oy,scale,mini){
+  if(mini||!pmlView)return "";
+  const items=materialDomains().map(d=>{
+   const selected=pmlDomainKeys.has(d.key),path=materialDomainPath(d,ox,oy,scale);
+   const title="PML Domain "+d.id+" — "+d.label;
+   return `<path class="ls-cad-pml-region${selected?" is-pml-selected":""}"
+    data-cad-pml-key="${esc(d.key)}" data-cad-pml-id="${d.id}" d="${path}"
+    fill-rule="evenodd" fill="${selected?"#759be4":"transparent"}"
+    fill-opacity="${selected?".52":"0"}" stroke="${selected?"#2456bd":"none"}"
+    stroke-width="${selected?1.8:0}" pointer-events="${pmlPickMode?"all":"none"}"
+    aria-label="${esc(title)}"><title>${esc(title)}</title></path>`;
+  }).join("");
+  return `<g class="ls-cad-pml-overlay" data-pml-picker="${pmlPickMode?"active":"inactive"}">${items}</g>`;
+ }
  function adjacentEntitiesSVG(ox,oy,scale,mini){
   if(mini||!adjacentView)return "";
   const entities=adjacentEntities(adjacentLevel);
@@ -708,8 +725,9 @@
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);
+  const pmlRegions=pmlDomainsSVG(ox,oy,scale,mini);
   const labels=mini?"":`<g class="ls-cad-axis-labels">${xTicks}${yTicks}<text data-axis-units="true" x="${plot.left+5}" y="${plot.top+15}" font-size="12" fill="#2d455b">×10${units.power==="0"?"⁰":units.power==="−6"?"⁻⁶":"⁻³"} m</text><text x="${plot.right-6}" y="${h-7}" text-anchor="end" font-size="12" fill="#2d455b">x (${units.symbol})</text><text x="9" y="${plot.top+9}" font-size="12" fill="#2d455b">y</text></g>`;
-  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}${materialRegions}${adjacentRegions}</g>${labels}`;
+  return `<rect width="${w}" height="${h}" fill="#fcfdfe"/><defs><clipPath id="${clipId}"><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${plot.left}" y="${plot.top}" width="${pw}" height="${ph}" fill="#fff" stroke="#8495a4" stroke-width="1.2"/><g clip-path="url(#${clipId})">${grid}${items}${materialRegions}${adjacentRegions}${pmlRegions}</g>${labels}`;
  }
  function draw(){
   try{
@@ -720,11 +738,13 @@
      pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");
      pick.value=nodes.some(n=>n.id===selected)?selected:"root";
      const materialMode=document.body.classList.contains("ls-material-active");
-     pick.disabled=materialMode||adjacentView;
+     pick.disabled=materialMode||adjacentView||pmlView;
      const graphicsLabel=graphics.querySelector('label[for="ls-cad-object-select"]');
-     if(graphicsLabel)graphicsLabel.textContent=adjacentView?"Adjacent · "+adjacentLevel:materialMode?"Material Domain selection":"Graphics selection";
+     if(graphicsLabel)graphicsLabel.textContent=pmlView?"PML · Domain selection":adjacentView?"Adjacent · "+adjacentLevel:materialMode?"Material Domain selection":"Graphics selection";
      const graphicsHint=graphics.querySelector(".ls-cad-graphics-select span");
-     if(graphicsHint)graphicsHint.textContent=adjacentView
+     if(graphicsHint)graphicsHint.textContent=pmlView
+      ?pmlPickMode?"PML: click Geometry domains to select/deselect.":"PML picking paused."
+      :adjacentView
       ?adjacentPickMode?"영역 위에 마우스: 빨간 경계 · 클릭: 파란 선택 · 다시 클릭: 해제":"선택 일시 정지"
       :materialMode&&materialEntityLevel==="Domain"
       ?materialPickMode?"Manual selection active · click each filled area to select or deselect.":"Domain picking paused."
@@ -919,6 +939,21 @@
   materialPickMode=false;materialHighlightKeys.clear();materialHighlightDomainIds.clear();
   draw();
  });
+ document.addEventListener("ls-pml-editor-activated",()=>{
+  if(!pane.hidden)close();
+  graphics.hidden=false;materialPickMode=false;
+  materialHighlightKeys.clear();materialHighlightDomainIds.clear();
+  adjacentView=false;adjacentPickMode=false;draw();
+ });
+ document.addEventListener("ls-pml-picker",e=>{
+  pmlView=!!e.detail?.visible;pmlPickMode=!!e.detail?.enabled;
+  pmlDomainKeys=new Set(e.detail?.selectedDomainKeys||[]);
+  if(pmlView){
+   materialPickMode=false;adjacentView=false;adjacentPickMode=false;
+   selectingRotateInputs=false;graphics.hidden=false;
+  }
+  draw();
+ });
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
  document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
@@ -1083,6 +1118,13 @@
  $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{if(adjacentView)adjacentGridOn=!adjacentGridOn;else gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
+  if(pmlView){
+   if(pmlPickMode){
+    const domain=materialDomainAtScreen(e);
+    if(domain)document.dispatchEvent(new CustomEvent("ls-pml-geometry-click",{detail:{key:domain.key,id:domain.id}}));
+   }
+   return;
+  }
   if(adjacentPickMode){
    const target=e.target.closest("[data-adjacent-key]");
    // Prefer the nearest actual ring/line to avoid a coincident SVG hit target
@@ -1142,7 +1184,7 @@
  });
  viewport.addEventListener("pointerleave",()=>{hovered?.classList.remove("is-hovered");hovered=null;});
  viewport.addEventListener("pointerdown",e=>{
-  if(e.button!==0||selectingRotateInputs||materialPickMode||e.target.closest("[data-cad-shape]"))return;
+  if(e.button!==0||selectingRotateInputs||materialPickMode||pmlPickMode||e.target.closest("[data-cad-shape]"))return;
   if(adjacentView&&adjacentPickMode&&(adjacentLevel==="Domain"?materialDomainAtScreen(e):nearestAdjacentAtScreen(e)))return;
   gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};
   viewport.setPointerCapture(e.pointerId);viewport.classList.add("is-panning");

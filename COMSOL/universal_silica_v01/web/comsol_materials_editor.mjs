@@ -105,16 +105,27 @@
  // A refractive-index property is a value-bearing Geometry material property.
  // It is evaluated with the SAME Parameters 1 expression evaluator as the
  // Circle radius / Layer expressions; not just a text label.
- function resolvedIndex(material){
-  const svc=window.LSWaveParameterService;
-  const real=String(material?.real??"").trim(),imag=String(material?.imag??"").trim();
-  if(!real)return {valid:false,error:"Refractive index real part is required."};
-  if(!imag)return {valid:false,error:"Refractive index imaginary part is required."};
+ function evaluateIndexPart(expression,kind){
+  const value=String(expression??"").trim();
+  if(!value)return {valid:false,error:(kind==="real"?"Refractive index real part":"Refractive index imaginary part")+" is required."};
   try{
-   const n=svc?.calculate?.(real),k=svc?.calculate?.(imag);
-   if(!Number.isFinite(n)||!(n>0)||!Number.isFinite(k)||k<0)throw Error("Expected real n > 0 and imaginary k ≥ 0.");
-   return {valid:true,real:n,imag:k,expressionReal:real,expressionImag:imag};
-  }catch(e){return {valid:false,error:e.message};}
+   const result=window.LSWaveParameterService?.calculate?.(value);
+   if(!Number.isFinite(result))throw Error("Expression is not a finite number.");
+   if(kind==="real"&&result<=0)throw Error("Real refractive index n must be greater than zero.");
+   if(kind==="imag"&&result<0)throw Error("Imaginary refractive index ki must be zero or positive.");
+   return {valid:true,value:result};
+  }catch(error){return {valid:false,error:error.message};}
+ }
+ function resolvedIndex(material){
+  const real=String(material?.real??"").trim(),imag=String(material?.imag??"").trim();
+  const n=evaluateIndexPart(real,"real"),k=evaluateIndexPart(imag,"imag");
+  if(!n.valid||!k.valid)return {
+   valid:false,realValid:n.valid,imagValid:k.valid,
+   error:[n.valid?null:n.error,k.valid?null:k.error].filter(Boolean).join(" "),
+   expressionReal:real,expressionImag:imag
+  };
+  return {valid:true,realValid:true,imagValid:true,real:n.value,imag:k.value,
+   expressionReal:real,expressionImag:imag};
  }
  function previewAssignments(){
   const domains=getDomains(),out=[];
@@ -168,12 +179,15 @@
   const added=material.properties?.includes("refractive-index");
   if(!added)return '<p class="ls-material-help">No material properties added. Right-click Refractive index under Material Properties → Add to Material.</p>';
   const state=resolvedIndex(material);
-  const icon=state.valid?'<span class="ls-material-valid" title="Expression evaluated">✓</span>':'<span class="ls-material-invalid" title="Expression invalid or missing">!</span>';
+  const statusIcon=valid=>valid
+   ?'<span class="ls-material-valid" role="img" aria-label="Valid property" title="Valid expression">✓</span>'
+   :'<span class="ls-material-invalid" role="img" aria-label="Invalid property" title="Invalid or missing expression">!</span>';
+  const realIcon=statusIcon(state.realValid),imagIcon=statusIcon(state.imagValid);
   const num=value=>Number.isFinite(value)?Number(value.toPrecision(9)).toString():"—";
   return '<table class="ls-material-values"><thead><tr><th>Status</th><th>Property</th><th>Variable</th><th>Value / Expression</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
-   '<tr data-ls-material-index-row="real" class="'+(activeRefractiveRow==="real"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="real")+'"><td data-ls-real-state>'+icon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="real">Refractive index, real part</button></td><td>n_iso</td>'+
+   '<tr data-ls-material-index-row="real" class="'+(activeRefractiveRow==="real"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="real")+'"><td data-ls-real-state>'+realIcon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="real">Refractive index, real part</button></td><td>n_iso</td>'+
    '<td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. nbg or 1.45" /></td><td>1</td><td>Refractive index</td></tr>'+
-   '<tr data-ls-material-index-row="imag" class="'+(activeRefractiveRow==="imag"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="imag")+'"><td data-ls-imag-state>'+icon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="imag">Refractive index, imaginary part</button></td><td>ki_iso</td>'+
+   '<tr data-ls-material-index-row="imag" class="'+(activeRefractiveRow==="imag"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="imag")+'"><td data-ls-imag-state>'+imagIcon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="imag">Refractive index, imaginary part</button></td><td>ki_iso</td>'+
    '<td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'" placeholder="0" /></td><td>1</td><td>Refractive index</td></tr>'+
    '</tbody></table>'+
    '<div id="ls-material-evaluated" class="ls-material-evaluated '+(state.valid?"is-valid":"is-invalid")+'" aria-live="polite">'+
@@ -204,12 +218,19 @@
     "Applied to assigned Geometry domains: n_iso = "+Number(resolved.real.toPrecision(9))+", ki_iso = "+Number(resolved.imag.toPrecision(9)):
     "Not applied: "+resolved.error;
   }
-  for(const id of ["ls-material-real","ls-material-imag"]){
-   const el=$(id);if(el){el.setAttribute("aria-invalid",resolved.valid?"false":"true");}
-  }
-  const stateText=resolved.valid?"✓":"!";
-  for(const sel of ["[data-ls-real-state]","[data-ls-imag-state]"]){
-   const cell=pane.querySelector(sel);if(cell)cell.textContent=stateText;
+  for(const [kind,id,selector] of [
+   ["real","ls-material-real","[data-ls-real-state]"],
+   ["imag","ls-material-imag","[data-ls-imag-state]"]
+  ]){
+   const valid=kind==="real"?resolved.realValid:resolved.imagValid;
+   const input=$(id);
+   if(input)input.setAttribute("aria-invalid",valid?"false":"true");
+   const cell=pane.querySelector(selector);
+   if(cell){
+    cell.innerHTML=valid
+     ?'<span class="ls-material-valid" role="img" aria-label="Valid property" title="Valid expression">✓</span>'
+     :'<span class="ls-material-invalid" role="img" aria-label="Invalid property" title="Invalid or missing expression">!</span>';
+   }
   }
   document.dispatchEvent(new CustomEvent("ls-material-property-changed",{detail:{
    materialId:material.id,evaluated:resolved,assignedDomains:assignedDomains(material,getDomains()).map(d=>d.id)

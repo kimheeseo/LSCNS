@@ -68,7 +68,7 @@
    '<div class="ls-pml-domain-select"><button type="button" id="ls-pml-activate" aria-pressed="'+picking+'" '+
    (row.selection==="manual"?"":"disabled")+' title="Activate domain selection in Graphics">▣</button>'+
    '<div id="ls-pml-domain-list" aria-label="PML domain selection">'+listHtml+'</div></div>'+
-   '<div class="ls-pml-actions"><button type="button" id="ls-pml-clear" '+(row.selection==="manual"?"":"disabled")+
+   '<div class="ls-pml-actions"><button type="button" id="ls-pml-all" '+(row.selection==="manual"?"":"disabled")+'>All</button><button type="button" id="ls-pml-clear" '+(row.selection==="manual"?"":"disabled")+
    '>Clear</button><span id="ls-pml-count">'+selected.size+' of '+all.length+' Geometry domains selected</span></div>'+
    '</div></details>'+
    '<details class="ls-pml-section"><summary>Override</summary><p class="ls-pml-note">No numerical solver override is connected.</p></details>'+
@@ -169,6 +169,19 @@
   if(e.target.closest("#ls-pml-clear")&&row.selection==="manual"){
    row.domainKeys=[];notice="Cleared PML domain selection.";render();broadcast();
   }
+  if(e.target.closest("#ls-pml-all")&&row.selection==="manual"){
+   row.domainKeys=domains().map(d=>d.key);notice="Selected all PML input domains.";render();broadcast();
+  }
+ });
+ document.addEventListener("ls-selection-command",e=>{
+  const row=current();
+  if(pane.hidden||!row||row.selection!=="manual"||e.detail?.owner!=="pml")return;
+  const command=e.detail.command;
+  if(command==="all")row.domainKeys=domains().map(d=>d.key);
+  else if(command==="clear")row.domainKeys=[];
+  else if(command==="remove")row.domainKeys=row.domainKeys.filter(key=>key!==e.detail.key);
+  else return;
+  notice="Updated PML domain selection.";render();broadcast();
  });
  document.addEventListener("ls-open-pml-editor",e=>{
   if(e.detail?.create)add();

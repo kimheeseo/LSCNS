@@ -266,6 +266,7 @@
    '<div class="ls-material-selection-row"><button type="button" id="ls-material-pick" aria-pressed="'+(manualPick&&material.mode!=="cumulative")+'" '+
    (material.mode!=="manual"?"disabled ":"")+'title="Activate Selection in Graphics">▣</button>'+
    '<div id="ls-material-domain-list">'+(items||"<p>No "+name+" in current geometry</p>")+'</div></div>'+
+   '<div class="ls-material-selection-actions"><button type="button" id="ls-material-select-all" '+(allowManual?"":"disabled")+' title="Select all (Ctrl+A in Graphics)">All</button><button type="button" id="ls-material-select-clear" '+(allowManual?"":"disabled")+' title="Clear selection (Ctrl+D in Graphics)">Clear</button></div>'+
    '<p class="ls-material-help">Selected '+selection.length+' of '+entities.length+' '+name+' in the Geometry preview. '+
     (material.mode==="cumulative"?"Using named selection: "+safe(selectionTitle(material))+". Changes to its contributing Geometry features update this list.":
     manualPick?"Manual picking active: click one domain to select or deselect it.":
@@ -458,6 +459,23 @@
    return;
   }
   if(e.target.closest("#ls-material-pick")){pickChanged(!manualPick);render();return;}
+  if(e.target.closest("#ls-material-select-all, #ls-material-select-clear")){
+   document.dispatchEvent(new CustomEvent("ls-selection-command",{detail:{owner:"material",command:e.target.closest("#ls-material-select-all")?"all":"clear"}}));
+  }
+ });
+ document.addEventListener("ls-selection-command",e=>{
+  if(pane.hidden||e.detail?.owner!=="material")return;
+  const material=materials.find(m=>m.id===activeId);
+  if(!material||material.mode!=="manual")return;
+  const level=entityLevel(material),command=e.detail.command;
+  let ids=explicitIds(material,level);
+  if(command==="all")ids=getEntities(level).map(d=>d.id);
+  else if(command==="clear")ids=[];
+  else if(command==="remove")ids=ids.filter(id=>id!==Number(e.detail.key));
+  else return;
+  if(level==="Domain")material.domainIds=ids;
+  else{material.selectedIdsByLevel??={Boundary:[],Point:[]};material.selectedIdsByLevel[level]=ids;}
+  warning="Updated "+level.toLowerCase()+" selection.";render();pickChanged(manualPick);
  });
  pane.addEventListener("toggle",e=>{
   if(e.target.matches?.(".ls-material-refractive-node")){

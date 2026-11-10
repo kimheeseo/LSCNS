@@ -49,7 +49,7 @@ const ACTIONS={
  mesh:[['waveMesh','Mesh 1','mesh'],['waveSize','Size settings','settings'],['mesh','Mesh convergence','refresh'],['comsol','Benchmark mesh','chart']],
  study:[['waveMode','Mode Analysis Settings','physics'],['compute','Compute','play'],['sweep','Wavelength Sweep','chart'],['vector','Full-vector / Colab','wave'],['hcfFem','HCF FEM / Colab','layers']],
  results:[['waveResults','Results Settings','chart'],['waveField','Mode profile','wave'],['waveIndex','Index profile','chart'],['waveDerived','Derived Values','settings'],['export','Export JSON','save']],
- developer:[['source','Source code','code'],['colab','Vector Colab','wave'],['help','Help / README','book']]
+ developer:[['source','Source code','code'],['colab','Vector Colab','wave'],['help','Context Help · F1','book']]
 };
 const LABELS=[['home','Home'],['definitions','Definitions'],['geometry','Geometry'],['sketch','Sketch'],['materials','Materials'],['physics','Physics'],['mesh','Mesh'],['study','Study'],['results','Results'],['developer','Developer']];
 
@@ -112,7 +112,7 @@ function runAction(action){
  case 'fiber3d':jump('#fiber-3d');return;
  case 'source':window.open('https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/web/','_blank','noopener');return;
  case 'colab':window.open(COMSOL_NOTEBOOK,'_blank','noopener');return;
- case 'help':window.open('https://github.com/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/web/README.md','_blank','noopener');return;
+ case 'help':document.dispatchEvent(new CustomEvent('ls-show-context-help'));return;
  default:if(PRESETS.some(p=>p[0]===action))choosePreset(action);
  }
 }

@@ -42,6 +42,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/comsol_adjacent_selection.css'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_materials_editor.css'
+      - 'COMSOL/universal_silica_v01/web/comsol_guidebook_interactions.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_guidebook_interactions.css'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_guidebook_interactions.mjs'
       - '.github/workflows/comsol-style-workbench.yml'
 permissions:
   contents: read
@@ -57,6 +60,8 @@ jobs:
       - name: Syntax check (UI skin and original solver)
         run: |
           node --check COMSOL/universal_silica_v01/web/comsol_workspace.mjs
+          node --check COMSOL/universal_silica_v01/web/comsol_guidebook_interactions.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_guidebook_interactions.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_wave_optics_settings.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_geometry_cad.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_comsol_wave_optics.mjs
@@ -96,6 +101,7 @@ jobs:
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/comsol-workspace-http.log 2>&1 &
           server=$!
           trap 'kill "$server" 2>/dev/null || true' EXIT
+          node COMSOL/universal_silica_v01/web/tests/browser_guidebook_interactions.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_parameters_geometry.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_wave_optics.mjs
@@ -153,6 +159,8 @@ jobs:
             /tmp/comsol_material_properties_resolved.png
             /tmp/comsol_material_valid_status_checks.png
             /tmp/comsol_definitions_rightclick_menu.png
+            /tmp/comsol_guidebook_material_help.png
+            /tmp/comsol_guidebook_pml_help.png
             /tmp/comsol_pml_definitions_context.png
             /tmp/comsol_pml_three_domains_settings.png
             /tmp/comsol_pml_custom_settings.png

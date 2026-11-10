@@ -809,7 +809,12 @@
     else if(window.confirm("Delete "+n.label+"?")){confirmDialog.returnValue="yes";confirmDialog.dispatchEvent(new Event("close"));}
     return;
    }
-   case "toggle":{if(!n)return;checkpoint();n.enabled=!n.enabled;limit=null;loadFields();say(`${n.label} ${n.enabled?"enabled":"disabled"}.`);return;}
+   case "enable":case "disable":case "toggle":{
+    if(!n)return;
+    const enabled=cmd==="toggle"?!n.enabled:cmd==="enable";
+    if(n.enabled===enabled)return;
+    checkpoint();n.enabled=enabled;limit=null;loadFields();say(`${n.label} ${n.enabled?"enabled":"disabled"}.`);return;
+   }
    case "rename":if(!n)return;open();$("ls-cad-label").focus();$("ls-cad-label").select();return;
    case "settings":open();return;
    case "copy":if(!n)return;clipboard=structuredClone(n);say(n.label+" copied in Geometry editor.");return;
@@ -874,7 +879,7 @@
    menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
    menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
-   menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:"F3"}),menuAction("Rename","rename",{shortcut:"F2"}),
+   menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:cur()?.enabled?"F3":"F4"}),menuAction("Rename","rename",{shortcut:"F2"}),
    {sep:true},menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
  }
@@ -1210,8 +1215,9 @@
    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==="d"){e.preventDefault();modify("duplicate");return;}
    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="c"){e.preventDefault();modify("copy");return;}
    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="v"){e.preventDefault();modify("paste");return;}
-  const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"toggle",Delete:"delete"};
-  if(actions[e.key]){e.preventDefault();modify(actions[e.key]);}
+  if((e.ctrlKey||e.metaKey)&&["ArrowUp","ArrowDown"].includes(e.key)){e.preventDefault();const id=document.activeElement?.dataset.cadNode;modify(e.key==="ArrowUp"?"up":"down");if(id)document.querySelector('[data-cad-node="'+CSS.escape(id)+'"]')?.focus({preventScroll:true});return;}
+  const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"disable",F4:"enable",Delete:"delete"};
+  if(actions[e.key]){e.preventDefault();const id=document.activeElement?.dataset.cadNode;modify(actions[e.key]);if(id&&["F3","F4"].includes(e.key))document.querySelector('[data-cad-node="'+CSS.escape(id)+'"]')?.focus({preventScroll:true});}
  });
  $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
  $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));

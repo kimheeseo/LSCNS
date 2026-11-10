@@ -76,7 +76,8 @@
    '<label class="ls-adjacent-field">Input selections:</label>'+
    '<div id="ls-adjacent-list" aria-label="Selected input entities">'+selectedMarkup+'</div>'+
    '<div class="ls-adjacent-actions"><button type="button" id="ls-adjacent-activate" aria-pressed="'+enabled+'">'+(enabled?"<span>▣</span> Activate Selection · On":"<span>□</span> Activate Selection")+'</button>'+
-   '<button type="button" id="ls-adjacent-clear">Clear</button><span>'+entries.length+' of '+candidates.length+' selected</span></div>'+
+   '<button type="button" id="ls-adjacent-all" title="Select all input entities (Ctrl+A in Graphics)">All</button>'+
+   '<button type="button" id="ls-adjacent-clear" title="Clear selection (Ctrl+D in Graphics)">Clear</button><span>'+entries.length+' of '+candidates.length+' selected</span></div>'+
    '</div></details>'+
    '<details class="ls-adjacent-section" open><summary>Output Entities</summary><div class="ls-adjacent-section-content">'+
    '<label class="ls-adjacent-field" for="ls-adjacent-output">Geometric entity level:</label>'+
@@ -161,6 +162,16 @@
   const row=current();if(!row)return;
   if(e.target.closest("#ls-adjacent-activate")){enabled=!enabled;notice=enabled?"Click Graphics "+row.level.toLowerCase()+" entities to toggle inputs.":"Graphics selection paused.";render();transmit();}
   if(e.target.closest("#ls-adjacent-clear")){row.selectedByLevel[row.level]=[];notice="Cleared selected "+row.level.toLowerCase()+" inputs.";render();transmit();}
+  if(e.target.closest("#ls-adjacent-all")){row.selectedByLevel[row.level]=allFor(row.level).map(ent=>ent.key);notice="Selected all "+row.level.toLowerCase()+" inputs.";render();transmit();}
+ });
+ document.addEventListener("ls-selection-command",e=>{
+  if(pane.hidden||!current()||e.detail?.owner!=="adjacent")return;
+  const row=current(),command=e.detail.command;
+  if(command==="all")row.selectedByLevel[row.level]=allFor(row.level).map(ent=>ent.key);
+  else if(command==="clear")row.selectedByLevel[row.level]=[];
+  else if(command==="remove")row.selectedByLevel[row.level]=row.selectedByLevel[row.level].filter(key=>key!==e.detail.key);
+  else return;
+  notice="Updated "+row.level.toLowerCase()+" input selection.";render();transmit();
  });
  document.addEventListener("ls-open-adjacent-editor",e=>{
   if(e.detail?.create)newAdjacent();

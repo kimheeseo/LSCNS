@@ -1,0 +1,15 @@
+#ls-guide-help[hidden]{display:none!important}
+#ls-guide-help{position:fixed;right:18px;top:190px;bottom:30px;width:min(380px,calc(100vw - 28px));z-index:4000;background:#fff;border:1px solid #a8bdcf;border-radius:4px;box-shadow:0 8px 28px #213c5d35;color:#31475c;font:13px/1.65 "Segoe UI","Malgun Gothic",sans-serif;display:flex;flex-direction:column}
+#ls-guide-help header{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#edf4fb;border-bottom:1px solid #c8d8e7}
+#ls-guide-help-close{border:0;background:transparent;color:#3c647f;font-size:23px;cursor:pointer}
+#ls-guide-help-content{padding:8px 17px 18px;overflow:auto;min-height:0}
+#ls-guide-help-content h3{font-size:16px;color:#226ca4;margin:9px 0}
+#ls-guide-help-content ul{padding-left:19px}
+#ls-guide-help-content li{margin:10px 0}
+#ls-guide-help-content small,.ls-guide-help-source{font-size:11px;color:#6b8295}
+.ls-material-selection-actions{display:flex;gap:6px;margin:6px 0}
+.ls-material-selection-actions button{background:#edf5fc;color:#226a99;border:1px solid #b5cbdb;border-radius:2px;padding:5px 10px;font-size:11px;cursor:pointer}
+.ls-material-selection-actions button:disabled{opacity:.45;cursor:default}
+.ls-model-tree .ls-tree-scroll :is(summary,button):focus-visible{outline:2px solid #287ebd;outline-offset:-2px}
+#ls-cad-view:focus-visible{outline:2px solid #3d89ba;outline-offset:-2px}
+@media(max-width:650px){#ls-guide-help{top:100px;bottom:12px;right:12px}}

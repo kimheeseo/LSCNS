@@ -18,7 +18,8 @@
  const getScreenLayout=()=>({
   compact:window.innerWidth<835,
   active:document.body.classList.contains("ls-material-active")||
-         document.body.classList.contains("ls-adjacent-active"),
+         document.body.classList.contains("ls-adjacent-active")||
+         document.body.classList.contains("ls-pml-active"),
   noStudy:getComputedStyle(layout.querySelector(".ls-study-pane")||layout).display==="none"
  });
  const getElement=name=>layout.querySelector(config[name].from);

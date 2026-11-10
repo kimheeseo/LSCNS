@@ -1,7 +1,8 @@
 /* Adjustable desktop COMSOL Model Builder / Settings / Graphics widths. */
 body.ls-comsol-shell .layout{position:relative;grid-template-columns:var(--ls-model-width,228px) minmax(260px,var(--ls-settings-width,330px)) minmax(0,1fr) var(--ls-study-width,194px)}
 body.ls-comsol-shell.ls-material-active .layout,
-body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:var(--ls-model-width,228px) minmax(305px,var(--ls-settings-width,510px)) minmax(0,1fr)!important}
+body.ls-comsol-shell.ls-adjacent-active .layout,
+body.ls-comsol-shell.ls-pml-active .layout{grid-template-columns:var(--ls-model-width,228px) minmax(305px,var(--ls-settings-width,510px)) minmax(0,1fr)!important}
 body.ls-comsol-shell .ls-panel-splitter{position:absolute;z-index:80;top:0;bottom:0;transform:translateX(-50%);width:12px;background:transparent;cursor:col-resize;touch-action:none;user-select:none;display:flex;justify-content:center;align-items:center}
 body.ls-comsol-shell .ls-panel-splitter::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:transparent;transition:background .12s}
 body.ls-comsol-shell .ls-panel-splitter:hover::before,

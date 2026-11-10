@@ -20,6 +20,9 @@ try{
  "Show More Options...","Node Group","Group by Type","Update Probes","Help"]){
   assert.ok((await menu.textContent()).includes(label),"Missing "+label);
  }
+ const pml=menu.locator('[data-definitions-command="pml"]');
+ assert.equal(await pml.count(),1,"PML entry must appear in Definitions context menu");
+ assert.equal(await pml.isDisabled(),false,"PML entry opens Artificial Domains editor");
  const selections=menu.locator('[data-def-context-parent="Selections"]');
  await selections.locator(":scope > button").hover();
  assert.ok(await selections.locator(".ls-def-context-nested").isVisible());

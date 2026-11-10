@@ -11,7 +11,7 @@
  if(!sidebar||!tree||$("ls-materials-editor"))return;
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const materials=[];
- let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="";
+ let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="";
  const pane=document.createElement("section");
  pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
  sidebar.append(pane);
@@ -19,6 +19,24 @@
  menu.id="ls-materials-context";menu.hidden=true;menu.setAttribute("role","menu");
  menu.innerHTML='<button type="button" data-material-command="library">Add Material from Library <small>planned</small></button><button type="button" data-material-command="browse">Browse Materials <small>planned</small></button><button type="button" data-material-command="blank">Blank Material</button><button type="button" data-material-command="layers">Layers <small>planned</small></button><button type="button" data-material-command="more">More Materials <small>planned</small></button><button type="button" data-material-command="help">Help</button>';
  document.body.append(menu);
+ const propertyMenu=document.createElement("div");
+ propertyMenu.id="ls-material-property-context";propertyMenu.hidden=true;propertyMenu.setAttribute("role","menu");
+ propertyMenu.innerHTML='<button type="button" id="ls-material-property-add">＋ Add to Material</button>';
+ document.body.append(propertyMenu);
+ const deleteDialog=document.createElement("dialog");
+ deleteDialog.id="ls-material-delete-dialog";
+ deleteDialog.innerHTML='<form method="dialog"><h3>Confirm Delete</h3><p>Delete the selected material and its Geometry domain assignments?</p><div class="ls-material-dialog-actions"><button type="submit" value="yes">Yes</button><button type="submit" value="no">No</button></div></form>';
+ document.body.append(deleteDialog);
+ deleteDialog.addEventListener("close",()=>{
+  if(deleteDialog.returnValue!=="yes")return;
+  const id=contextMaterialId||activeId,at=materials.findIndex(x=>x.id===id);
+  if(at<0)return;
+  const label=materials[at].label;
+  materials.splice(at,1);contextMaterialId=null;
+  warning=label+" deleted. The former domain assignments are no longer present.";
+  activeId=null;manualPick=false;render();pickChanged(false);
+ });
+
  const showMessage=t=>{warning=t;if($("ls-material-note"))$("ls-material-note").textContent=t;};
  const geometry=()=>window.LSWaveCADService;
  function cumulativeSelections(){
@@ -283,7 +301,7 @@
  function close(){
   if(pane.hidden)return;
   pickChanged(false);
-  pane.hidden=true;menu.hidden=true;activeId=null;
+  pane.hidden=true;menu.hidden=true;propertyMenu.hidden=true;activeId=null;contextMaterialId=null;
   document.body.classList.remove("ls-material-active","ls-configuration-open");
   sidebar.classList.remove("ls-config-active");
   const cadGraphics=$("ls-cad-graphics");if(cadGraphics)cadGraphics.hidden=true;
@@ -296,8 +314,40 @@
   warning="Blank Material created. Assign a domain and refractive index values to configure this preview.";
   open(material.id);
  }
+
+ function duplicate(){
+  const original=materials.find(m=>m.id===(contextMaterialId||activeId));
+  if(!original){blank();return;}
+  let i=1;while(materials.some(m=>m.id==="mat"+i))i++;
+  const copy={...original,id:"mat"+i,label:"Material "+i,
+   domainIds:[...original.domainIds],
+   selectedIdsByLevel:{Boundary:[...(original.selectedIdsByLevel?.Boundary||[])],Point:[...(original.selectedIdsByLevel?.Point||[])]},
+   properties:[...(original.properties||["refractive-index"])]};
+  materials.push(copy);warning="Duplicated "+original.label+" as "+copy.label+". Select its domain assignment independently.";
+  contextMaterialId=null;open(copy.id);
+ }
+ function showDelete(){
+  const id=contextMaterialId||activeId;
+  if(!materials.some(m=>m.id===id))return;
+  deleteDialog.returnValue="no";deleteDialog.showModal();
+ }
+ function addRefractiveIndex(){
+  const material=materials.find(m=>m.id===activeId);
+  if(!material)return;
+  material.properties??=[];
+  if(!material.properties.includes("refractive-index"))material.properties.push("refractive-index");
+  if(material.real===undefined)material.real="";
+  if(material.imag===undefined)material.imag="0";
+  warning="Refractive index added to "+material.label+". Set n_iso (e.g. nbg) and ki_iso (0).";
+  propertyMenu.hidden=true;render();
+ }
  function context(e){
   e.preventDefault();e.stopPropagation();
+  contextMaterialId=e.target.closest("[data-ls-blank-material]")?.dataset.lsBlankMaterial||null;
+  menu.querySelectorAll('[data-material-command="delete"],[data-material-command="duplicate"]').forEach(b=>b.remove());
+  if(contextMaterialId){
+   menu.insertAdjacentHTML("beforeend",'<button type="button" data-material-command="duplicate">Duplicate</button><button type="button" data-material-command="delete">Delete</button>');
+  }
   menu.hidden=false;
   menu.style.left=Math.max(8,Math.min(e.clientX,innerWidth-260))+"px";
   menu.style.top=Math.max(8,Math.min(e.clientY,innerHeight-225))+"px";
@@ -317,15 +367,35 @@
   const cmd=e.target.closest("[data-material-command]")?.dataset.materialCommand;
   if(!cmd)return;
   menu.hidden=true;
-  if(cmd==="blank"){blank();return;}
+  if(cmd==="blank"){contextMaterialId=null;blank();return;}
+  if(cmd==="duplicate"){duplicate();return;}
+  if(cmd==="delete"){showDelete();return;}
   if(cmd==="help"){window.open("https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/web/","_blank","noopener");return;}
   warning="This library action is not implemented yet. Use Blank Material for Geometry preview.";
   open();
  });
- document.addEventListener("pointerdown",e=>{if(!menu.hidden&&!menu.contains(e.target))menu.hidden=true;});
+ document.addEventListener("pointerdown",e=>{
+  if(!menu.hidden&&!menu.contains(e.target))menu.hidden=true;
+  if(!propertyMenu.hidden&&!propertyMenu.contains(e.target))propertyMenu.hidden=true;
+ });
+ pane.addEventListener("contextmenu",e=>{
+  const property=e.target.closest('[data-ls-property="Refractive index"]');
+  if(!property)return;
+  e.preventDefault();e.stopPropagation();
+  propertyContextName=property.dataset.lsProperty;
+  propertyMenu.style.left=Math.max(6,Math.min(e.clientX,window.innerWidth-200))+"px";
+  propertyMenu.style.top=Math.max(6,Math.min(e.clientY,window.innerHeight-65))+"px";
+  propertyMenu.hidden=false;
+ });
+ propertyMenu.addEventListener("click",e=>{
+  if(e.target.closest("#ls-material-property-add")&&propertyContextName==="Refractive index")addRefractiveIndex();
+ });
  pane.addEventListener("click",e=>{
   if(e.target.closest("#ls-material-close")){close();return;}
-  if(e.target.closest('[data-material-command="blank"]')){blank();return;}
+  if(e.target.closest('[data-material-command="blank"]')){contextMaterialId=null;blank();return;}
+  if(e.target.closest('[data-material-command="duplicate"]')){contextMaterialId=activeId;duplicate();return;}
+  if(e.target.closest('[data-material-command="delete"]')){contextMaterialId=activeId;showDelete();return;}
+  if(e.target.closest('[data-ls-property="Refractive index"]')){addRefractiveIndex();return;}
   if(e.target.closest("#ls-material-pick")){pickChanged(!manualPick);render();return;}
  });
  pane.addEventListener("input",e=>{
@@ -413,7 +483,7 @@
   lastDomainSignature=signature;
   render();
  });
- document.addEventListener("ls-wizard-finished",()=>{materials.length=0;activeId=null;treeRender();});
+ document.addEventListener("ls-wizard-finished",()=>{materials.length=0;activeId=null;contextMaterialId=null;treeRender();});
  document.addEventListener("ls-adjacent-editor-activated",close);
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-open-wave-optics",close);

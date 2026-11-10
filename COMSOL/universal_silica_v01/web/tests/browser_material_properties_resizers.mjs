@@ -58,6 +58,12 @@ try{
  const real=page.locator("#ls-material-real"),imag=page.locator("#ls-material-imag");
  await real.fill("nbg");
  await imag.fill("0");
+ // Each Material Contents Status is independent. Valid n and ki become green
+ // COMSOL-style checked squares as soon as expressions are accepted.
+ assert.equal(await page.locator('[data-ls-real-state] .ls-material-valid').count(),1);
+ assert.equal(await page.locator('[data-ls-imag-state] .ls-material-valid').count(),1);
+ assert.equal(await page.locator('[data-ls-real-state] [aria-label="Valid property"]').count(),1);
+ assert.equal(await page.locator('[data-ls-imag-state] [aria-label="Valid property"]').count(),1);
  const resolved=await page.evaluate(()=>window.LSWaveMaterialsEditor.resolve(window.LSWaveMaterialsEditor.list()[1]));
  assert.equal(resolved.valid,true);
  assert.ok(Math.abs(resolved.real-1.45)<1e-12);
@@ -68,9 +74,16 @@ try{
  assert.ok(assigned.length>0);
  assert.equal(assigned[0].real,1.45);
  await real.fill("not_a_parameter");
+ assert.equal(await page.locator('[data-ls-real-state] .ls-material-invalid').count(),1,
+  "Invalid real value should have a warning status");
+ assert.equal(await page.locator('[data-ls-imag-state] .ls-material-valid').count(),1,
+  "Valid imaginary value keeps its check even when real value is invalid");
  assert.ok(await page.locator("#ls-material-evaluated").evaluate(el=>el.classList.contains("is-invalid")));
  assert.equal((await page.evaluate(()=>window.LSWaveMaterialsEditor.resolve(window.LSWaveMaterialsEditor.list()[1]))).valid,false);
  await real.fill("nbg");
+ assert.equal(await page.locator('[data-ls-real-state] .ls-material-valid').count(),1,
+  "Correcting the real value restores its green check");
+ await page.screenshot({path:"/tmp/comsol_material_valid_status_checks.png"});
  // Domain-specific values: one material for the core, one for cladding, no cross-over.
  await page.locator("#ls-material-select-mode").selectOption("manual");
  await page.locator('#ls-material-domain-list [data-material-domain="1"]').check();

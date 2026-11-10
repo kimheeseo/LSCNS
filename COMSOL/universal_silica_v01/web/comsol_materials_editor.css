@@ -119,3 +119,27 @@ body.ls-comsol-shell .ls-materials-editor[hidden],#ls-materials-context[hidden]{
 }
 #ls-material-properties-tree .ls-material-refractive-children button:hover,
 #ls-material-properties-tree .ls-material-refractive-children button:focus-visible{background:#dbeeff;border-color:#9cc3e6;outline:0}
+
+
+/* COMSOL-like Material Contents: selected row text is clearly active/black. */
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row] .ls-material-index-label{
+ display:block;width:100%;padding:3px 2px;text-align:left;background:transparent;
+ border:0;color:#738394;font:inherit;cursor:pointer;white-space:normal;
+ text-decoration:none;opacity:1;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row] .ls-material-index-label:hover{
+ color:#172333;background:#eaf2fb;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row].is-active{
+ background:#e9f1ff;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row].is-active .ls-material-index-label,
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row].is-active td:not(:first-child){
+ color:#111827!important;opacity:1!important;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row].is-active .ls-material-index-label{
+ font-weight:600;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-index-row] .ls-material-index-label:focus-visible{
+ outline:2px solid #4d90d3;outline-offset:-1px;
+}

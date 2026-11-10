@@ -31,6 +31,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/browser_definitions_right_click.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_definitions_context.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_definitions_context.css'
+      - 'COMSOL/universal_silica_v01/web/comsol_pml_editor.mjs'
+      - 'COMSOL/universal_silica_v01/web/comsol_pml_editor.css'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_pml_artificial_domains.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_material_properties_resizers.mjs'
       - 'COMSOL/universal_silica_v01/web/comsol_panel_resizers.mjs'
@@ -75,6 +78,8 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_definitions_context.mjs
+          node --check COMSOL/universal_silica_v01/web/comsol_pml_editor.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_pml_artificial_domains.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_definitions_right_click.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_adjacent_selection.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
@@ -104,6 +109,7 @@ jobs:
           node COMSOL/universal_silica_v01/web/tests/browser_material_individual_domains.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_definitions_ribbon.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_definitions_right_click.mjs
+          node COMSOL/universal_silica_v01/web/tests/browser_pml_artificial_domains.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_adjacent_boundary_labels.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_material_properties_resizers.mjs
       - name: Upload rendered UI screenshots
@@ -147,6 +153,9 @@ jobs:
             /tmp/comsol_material_properties_resolved.png
             /tmp/comsol_material_valid_status_checks.png
             /tmp/comsol_definitions_rightclick_menu.png
+            /tmp/comsol_pml_definitions_context.png
+            /tmp/comsol_pml_three_domains_settings.png
+            /tmp/comsol_pml_custom_settings.png
             /tmp/comsol_material_index_black_active.png
             /tmp/comsol_resized_material_settings.png
           if-no-files-found: ignore

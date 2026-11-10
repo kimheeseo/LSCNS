@@ -83,6 +83,100 @@
    '<p class="ls-material-explainer">Geometry preview: '+domains.length+' selectable region(s). Overlapping circles are not Boolean-unioned and the displayed IDs are not validated COMSOL FEM domains.</p>'+
    '<button class="ls-material-primary" type="button" data-material-command="blank">＋ Blank Material</button></div></details>';
  }
+
+ // A refractive-index property is a value-bearing Geometry material property.
+ // It is evaluated with the SAME Parameters 1 expression evaluator as the
+ // Circle radius / Layer expressions; not just a text label.
+ function resolvedIndex(material){
+  const svc=window.LSWaveParameterService;
+  const real=String(material?.real??"").trim(),imag=String(material?.imag??"").trim();
+  if(!real)return {valid:false,error:"Refractive index real part is required."};
+  if(!imag)return {valid:false,error:"Refractive index imaginary part is required."};
+  try{
+   const n=svc?.calculate?.(real),k=svc?.calculate?.(imag);
+   if(!Number.isFinite(n)||!(n>0)||!Number.isFinite(k)||k<0)throw Error("Expected real n > 0 and imaginary k ≥ 0.");
+   return {valid:true,real:n,imag:k,expressionReal:real,expressionImag:imag};
+  }catch(e){return {valid:false,error:e.message};}
+ }
+ function previewAssignments(){
+  const domains=getDomains(),out=[];
+  for(const domain of domains){
+   const assigned=materials.filter(m=>assignedDomains(m,domains).some(e=>e.id===domain.id));
+   const material=assigned.at(-1);
+   if(!material){out.push({domainId:domain.id,materialId:null,status:"unassigned"});continue;}
+   const n=resolvedIndex(material);
+   out.push({domainId:domain.id,domainKey:domain.domainKey,materialId:material.id,materialLabel:material.label,
+    real:n.valid?n.real:null,imag:n.valid?n.imag:null,status:assigned.length>1?"overlap":n.valid?"valid":"invalid"});
+  }
+  return out;
+ }
+ const MATERIAL_PROPERTY_GROUPS=[
+  {name:"Basic Properties",items:["Density","Heat capacity at constant pressure","Thermal conductivity"]},
+  {name:"Acoustics",items:[]},
+  {name:"Electrochemistry",items:[]},
+  {name:"Electromagnetic Models",items:[
+   "B-H curve","B-S curve","Coercive magnetic field","Dielectric losses","E-J characteristic",
+   "Effective B-H curve","H-B curve","Jiles-Atherton model parameters",
+   "Linearized resistivity","Loss tangent, dissipation factor","Loss tangent, loss angle",
+   "Magnetic losses","Permanent magnet shifted B-H curve","Permanent magnet shifted H-B curve",
+   "Refractive index","Remanent flux density"
+  ]},
+  {name:"External Material Parameters",items:[]},
+  {name:"Fluid Flow",items:[]},
+  {name:"Gas Models",items:[]},
+  {name:"Geometric Properties",items:[]},
+  {name:"Magnetostrictive Models",items:[]},
+  {name:"Piezoelectric Models",items:[]},
+  {name:"Optical Dispersion Models",items:[]},
+  {name:"Thermo-Optic Dispersion Models",items:[]}
+ ];
+ function propertiesBrowser(){
+  return '<div id="ls-material-properties-tree" role="tree" aria-label="Material Properties">'+
+   MATERIAL_PROPERTY_GROUPS.map(g=>'<details class="ls-material-property-group" '+(g.name==="Electromagnetic Models"?"open":"")+'><summary>'+safe(g.name)+'</summary>'+
+    '<div class="ls-material-property-children">'+(g.items.length?g.items.map(name=>{
+      const supported=name==="Refractive index";
+      return '<button type="button" role="treeitem" class="ls-material-property-entry" data-ls-property="'+safe(name)+'"'+
+       (supported?' title="Right click for Add to Material"':' disabled title="Property editor not implemented yet"')+'>'+
+       (supported?'◈ ':'◇ ')+safe(name)+'</button>';
+    }).join(""):'<span class="ls-material-empty-property">No editable properties in this prototype.</span>')+'</div></details>').join("")+
+   '</div><p class="ls-material-help">Right-click <b>Refractive index</b> and select Add to Material. Other property categories are reference UI only.</p>';
+ }
+ function materialContents(material){
+  const added=material.properties?.includes("refractive-index");
+  if(!added)return '<p class="ls-material-help">No material properties added. Right-click Refractive index under Material Properties → Add to Material.</p>';
+  const state=resolvedIndex(material);
+  const icon=state.valid?'<span class="ls-material-valid" title="Expression evaluated">✓</span>':'<span class="ls-material-invalid" title="Expression invalid or missing">!</span>';
+  const num=value=>Number.isFinite(value)?Number(value.toPrecision(9)).toString():"—";
+  return '<table class="ls-material-values"><thead><tr><th>Status</th><th>Property</th><th>Variable</th><th>Value / Expression</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
+   '<tr><td data-ls-real-state>'+icon+'</td><td>Refractive index, real part</td><td>n_iso</td>'+
+   '<td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. nbg or 1.45" /></td><td>1</td><td>Refractive index</td></tr>'+
+   '<tr><td data-ls-imag-state>'+icon+'</td><td>Refractive index, imaginary part</td><td>ki_iso</td>'+
+   '<td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'" placeholder="0" /></td><td>1</td><td>Refractive index</td></tr>'+
+   '</tbody></table>'+
+   '<div id="ls-material-evaluated" class="ls-material-evaluated '+(state.valid?"is-valid":"is-invalid")+'" aria-live="polite">'+
+    (state.valid?'Applied to assigned Geometry domains: <b>n_iso = '+num(state.real)+'</b>, <b>ki_iso = '+num(state.imag)+'</b>.':
+     'Not applied: '+safe(state.error))+'</div>'+
+   '<p class="ls-material-help">Parameters 1 expressions (e.g. nbg, nair, nbg+0.005) are evaluated numerically. The evaluated index is attached to the Geometry preview domains, but is not passed to the current radial FEM or a full-vector EWFD solver.</p>';
+ }
+ function updateMaterialEvaluation(material){
+  const resolved=resolvedIndex(material),box=$("ls-material-evaluated");
+  if(box){
+   box.classList.toggle("is-valid",resolved.valid);box.classList.toggle("is-invalid",!resolved.valid);
+   box.textContent=resolved.valid?
+    "Applied to assigned Geometry domains: n_iso = "+Number(resolved.real.toPrecision(9))+", ki_iso = "+Number(resolved.imag.toPrecision(9)):
+    "Not applied: "+resolved.error;
+  }
+  for(const id of ["ls-material-real","ls-material-imag"]){
+   const el=$(id);if(el){el.setAttribute("aria-invalid",resolved.valid?"false":"true");}
+  }
+  const stateText=resolved.valid?"✓":"!";
+  for(const sel of ["[data-ls-real-state]","[data-ls-imag-state]"]){
+   const cell=pane.querySelector(sel);if(cell)cell.textContent=stateText;
+  }
+  document.dispatchEvent(new CustomEvent("ls-material-property-changed",{detail:{
+   materialId:material.id,evaluated:resolved,assignedDomains:assignedDomains(material,getDomains()).map(d=>d.id)
+  }}));
+ }
  function detailsBody(material,domains){
   const level=entityLevel(material),entities=getEntities(level);
   const selection=assignedEntities(material,entities);
@@ -120,12 +214,11 @@
    (level!=="Domain"?'<p class="ls-material-help">Boundary and Point are selectable geometric entities only; they are not material-filled FEM domains.</p>':"")+
    '</div></details>'+
    '<details class="ls-material-section"><summary>Override</summary><p class="ls-material-help">Not linked to the FEM material model.</p></details>'+
-   '<details class="ls-material-section"><summary>Material Properties</summary><p class="ls-material-help">Isotropic refractive index. Enter a real value (e.g. 1.45) and imaginary value (e.g. 0) for material preview.</p></details>'+
-   '<details class="ls-material-section" open><summary>Material Contents</summary><div class="ls-material-section-inner">'+
-   '<table class="ls-material-values"><thead><tr><th>Property</th><th>Variable</th><th>Value</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
-   '<tr><td>Refractive index, real part</td><td>n_iso</td><td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. 1.45"/></td><td>1</td><td>Refractive index</td></tr>'+
-   '<tr><td>Refractive index, imaginary part</td><td>ki_iso</td><td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'"/></td><td>1</td><td>Refractive index</td></tr>'+
-   '</tbody></table><p class="ls-material-help">This Blank Material is a Geometry-domain annotation. It does not change the current radial FEM n(r) or compute a full-vector EWFD solution.</p></div></details>';
+   '<div class="ls-material-controls"><button type="button" data-material-command="blank">＋ Add Material</button>'+
+   '<button type="button" data-material-command="duplicate">Duplicate</button>'+
+   '<button type="button" data-material-command="delete">Delete Material</button></div>'+
+   '<details class="ls-material-section" open><summary>Material Properties</summary><div class="ls-material-section-inner">'+propertiesBrowser()+'</div></details>'+
+   '<details class="ls-material-section" open><summary>Material Contents</summary><div class="ls-material-section-inner">'+materialContents(material)+'</div></details>';
  }
  function treeRender(){
   const host=$("ls-cad-material-list");if(!host)return;
@@ -146,6 +239,7 @@
    '<p class="ls-config-status" id="ls-material-note" role="status">'+safe(warning||"Material assignment is a Geometry preview until a full-vector domain mesh and material solver are implemented.")+'</p></div>';
   treeRender();
   highlight();
+  if(material)updateMaterialEvaluation(material);
  }
  function selectedKeys(){
   const m=materials.find(x=>x.id===activeId);
@@ -197,7 +291,7 @@
  }
  function blank(){
   let i=1;while(materials.some(m=>m.id==="mat"+i))i++;
-  const material={id:"mat"+i,label:"Material "+i,mode:"all",level:"Domain",cumulativeId:null,domainIds:[],selectedIdsByLevel:{Boundary:[],Point:[]},real:"",imag:"0"};
+  const material={id:"mat"+i,label:"Material "+i,mode:"all",level:"Domain",cumulativeId:null,domainIds:[],selectedIdsByLevel:{Boundary:[],Point:[]},properties:["refractive-index"],real:"",imag:"0"};
   materials.push(material);
   warning="Blank Material created. Assign a domain and refractive index values to configure this preview.";
   open(material.id);
@@ -237,8 +331,8 @@
  pane.addEventListener("input",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
   if(e.target.id==="ls-material-label"){material.label=e.target.value;treeRender();}
-  if(e.target.id==="ls-material-real")material.real=e.target.value;
-  if(e.target.id==="ls-material-imag")material.imag=e.target.value;
+  if(e.target.id==="ls-material-real"){material.real=e.target.value;updateMaterialEvaluation(material);}
+  if(e.target.id==="ls-material-imag"){material.imag=e.target.value;updateMaterialEvaluation(material);}
  });
  pane.addEventListener("change",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
@@ -324,6 +418,6 @@
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-open-wave-optics",close);
  document.addEventListener("ls-open-settings",close);
- window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel}})),domains:getDomains,entities:getEntities});
+ window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel}})),domains:getDomains,entities:getEntities,resolve:resolvedIndex,assignments:previewAssignments});
  treeRender();
 })();

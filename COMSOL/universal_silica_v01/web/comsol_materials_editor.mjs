@@ -11,7 +11,7 @@
  if(!sidebar||!tree||$("ls-materials-editor"))return;
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const materials=[];
- let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="";
+ let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="",refractiveDetailsExpanded=false;
  const pane=document.createElement("section");
  pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
  sidebar.append(pane);
@@ -152,12 +152,17 @@
   return '<div id="ls-material-properties-tree" role="tree" aria-label="Material Properties">'+
    MATERIAL_PROPERTY_GROUPS.map(g=>'<details class="ls-material-property-group" '+(g.name==="Electromagnetic Models"?"open":"")+'><summary>'+safe(g.name)+'</summary>'+
     '<div class="ls-material-property-children">'+(g.items.length?g.items.map(name=>{
-      const supported=name==="Refractive index";
-      return '<button type="button" role="treeitem" class="ls-material-property-entry" data-ls-property="'+safe(name)+'"'+
-       (supported?' title="Right click for Add to Material"':' disabled title="Property editor not implemented yet"')+'>'+
-       (supported?'◈ ':'◇ ')+safe(name)+'</button>';
+     if(name==="Refractive index"){
+      return '<details class="ls-material-refractive-node" '+(refractiveDetailsExpanded?"open":"")+'>'+
+       '<summary data-ls-property="Refractive index" tabindex="0" title="Click to expand; right-click for Add to Material">◈ Refractive index</summary>'+
+       '<div class="ls-material-refractive-children">'+
+       '<button type="button" data-ls-refractive-focus="real">Refractive index, real part (n)</button>'+
+       '<button type="button" data-ls-refractive-focus="imag">Refractive index, imaginary part (ki)</button>'+
+       '</div></details>';
+     }
+     return '<button type="button" role="treeitem" class="ls-material-property-entry" data-ls-property="'+safe(name)+'" disabled title="Property editor not implemented yet">◇ '+safe(name)+'</button>';
     }).join(""):'<span class="ls-material-empty-property">No editable properties in this prototype.</span>')+'</div></details>').join("")+
-   '</div><p class="ls-material-help">Right-click <b>Refractive index</b> and select Add to Material. Other property categories are reference UI only.</p>';
+   '</div><p class="ls-material-help">Click <b>Refractive index</b> to reveal its real part (n) and imaginary part (ki). Click either child to edit its value in Material Contents. Right-click → Add to Material remains available.</p>';
  }
  function materialContents(material){
   const added=material.properties?.includes("refractive-index");
@@ -338,8 +343,14 @@
   if(!material.properties.includes("refractive-index"))material.properties.push("refractive-index");
   if(material.real===undefined)material.real="";
   if(material.imag===undefined)material.imag="0";
-  warning="Refractive index added to "+material.label+". Set n_iso (e.g. nbg) and ki_iso (0).";
-  propertyMenu.hidden=true;render();
+  warning="Refractive index available in "+material.label+". Set n_iso (e.g. nbg) and ki_iso (0).";
+  propertyMenu.hidden=true;
+  refractiveDetailsExpanded=true;
+  render();
+  const section=$("ls-material-properties-section");
+  if(section)section.open=true;
+  const node=pane.querySelector(".ls-material-refractive-node");
+  if(node)node.open=true;
  }
  function context(e){
   e.preventDefault();e.stopPropagation();
@@ -395,9 +406,27 @@
   if(e.target.closest('[data-material-command="blank"]')){contextMaterialId=null;blank();return;}
   if(e.target.closest('[data-material-command="duplicate"]')){contextMaterialId=activeId;duplicate();return;}
   if(e.target.closest('[data-material-command="delete"]')){contextMaterialId=activeId;showDelete();return;}
-  if(e.target.closest('[data-ls-property="Refractive index"]')){addRefractiveIndex();return;}
+  const field=e.target.closest("[data-ls-refractive-focus]");
+  if(field){
+   const material=materials.find(m=>m.id===activeId);
+   if(material&&!material.properties?.includes("refractive-index"))addRefractiveIndex();
+   const input=$(field.dataset.lsRefractiveFocus==="real"?"ls-material-real":"ls-material-imag");
+   const contents=input?.closest("details");
+   if(contents)contents.open=true;
+   input?.focus();
+   input?.select();
+   return;
+  }
   if(e.target.closest("#ls-material-pick")){pickChanged(!manualPick);render();return;}
  });
+ pane.addEventListener("toggle",e=>{
+  if(e.target.matches?.(".ls-material-refractive-node")){
+   refractiveDetailsExpanded=e.target.open;
+   if(!e.target.open)return;
+   const material=materials.find(m=>m.id===activeId);
+   if(material&&!material.properties?.includes("refractive-index"))addRefractiveIndex();
+  }
+ },true);
  pane.addEventListener("input",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
   if(e.target.id==="ls-material-label"){material.label=e.target.value;treeRender();}

@@ -65,3 +65,40 @@ body.ls-comsol-shell .ls-materials-editor[hidden],#ls-materials-context[hidden]{
 #ls-cad-view .ls-cad-material-domain-overlay .ls-cad-material-region.is-selected:hover{fill-opacity:.8;stroke-width:2}
 #ls-material-domain-list .ls-material-domain-option:has(input:checked){background:#e9e8ff;color:#303e85;border-radius:2px}
 #ls-material-domain-list .ls-material-domain-option:has(input:checked) b{color:#3c3fb1}
+
+
+/* Material Properties library and verified, parameter-aware refractive index. */
+.ls-material-controls{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 12px}
+.ls-material-controls button{border:1px solid #a8c1d3;background:#f0f7fd;color:#2c6893;border-radius:2px;padding:7px 10px;font-size:11px;cursor:pointer}
+.ls-material-controls button:hover{background:#dceeff}
+.ls-material-controls [data-material-command="delete"]{margin-left:auto;color:#a03a3a;border-color:#e4bebe}
+#ls-material-properties-tree{border:1px solid #cbd7e3;max-height:260px;overflow-y:auto;background:#fdfefe;font-size:11px}
+.ls-material-property-group{border-bottom:1px solid #f0f3f7}
+.ls-material-property-group>summary{cursor:pointer;list-style:disclosure-closed;padding:6px 9px;color:#3b5770;font-weight:500}
+.ls-material-property-group[open]>summary{background:#eef5fc;color:#2f729f;list-style:disclosure-open}
+.ls-material-property-children{display:flex;flex-direction:column;padding:3px 0 5px 15px}
+.ls-material-property-entry{display:block;background:transparent;color:#335775;font-size:11px;border:1px solid transparent;text-align:left;padding:4px 8px;cursor:pointer;min-height:23px}
+.ls-material-property-entry:disabled{cursor:default;opacity:.55}
+.ls-material-property-entry:not(:disabled):hover,.ls-material-property-entry:not(:disabled):focus-visible{background:#dce9ff;border-color:#b3c9e4}
+.ls-material-empty-property{color:#95a4b1;font-size:10px;padding:5px}
+#ls-material-property-context{position:fixed;z-index:100010;background:#fff;box-shadow:0 7px 20px #11274455;border:1px solid #9aafc4;min-width:190px;padding:4px}
+#ls-material-property-context[hidden]{display:none!important}
+#ls-material-property-context button{width:100%;text-align:left;background:#fafdff;border:0;padding:7px 10px;font-size:12px;color:#285f8c;cursor:pointer}
+#ls-material-property-context button:hover{background:#dbeaff}
+.ls-material-valid{display:inline-grid;place-items:center;color:#257c38;border:1px solid #82c394;font-weight:700;border-radius:2px;width:17px;height:17px}
+.ls-material-invalid{display:inline-grid;place-items:center;color:#bb4850;border:1px solid #daa6aa;font-weight:700;border-radius:2px;width:17px;height:17px}
+.ls-material-evaluated{padding:9px 11px;margin:8px 0 0;background:#f2f6fa;border:1px solid #d4e0eb;border-radius:2px;line-height:1.5;font-size:11px}
+.ls-material-evaluated.is-valid{border-left:3px solid #2a9b73;color:#2b6550}
+.ls-material-evaluated.is-invalid{border-left:3px solid #d27272;color:#ad5050}
+.ls-material-values{min-width:350px}
+.ls-material-values td:nth-child(1){width:30px;text-align:center}
+.ls-material-values td:nth-child(4){min-width:125px}
+.ls-material-values input{max-width:none;min-width:102px}
+.ls-material-values input[aria-invalid="true"]:focus{outline:1px solid #cc5959}
+#ls-material-delete-dialog{min-width:280px;max-width:calc(100vw - 32px);border:1px solid #a6b9c8;color:#34516a;background:white;box-shadow:0 10px 25px #111d3444}
+#ls-material-delete-dialog::backdrop{background:#162a4350}
+#ls-material-delete-dialog h3{font-size:14px;margin:2px 0 10px}
+#ls-material-delete-dialog p{font-size:12px;line-height:1.4}
+.ls-material-dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:17px}
+.ls-material-dialog-actions button{padding:7px 15px;background:#eef5fa;border:1px solid #b2c6d7;color:#295e8a}
+#ls-material-domain-list{max-height:250px}

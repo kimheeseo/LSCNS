@@ -206,6 +206,7 @@
  // Other panels have already opened by the time these handlers run.
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-adjacent-editor-activated",close);
+ document.addEventListener("ls-pml-editor-activated",close);
  document.addEventListener("ls-open-material-editor",close);
  document.addEventListener("ls-cad-add",close);
  document.addEventListener("ls-open-settings",close);

@@ -35,12 +35,15 @@ try{
  for(const label of ["Analytic","Interpolation","Piecewise","More Functions"]){
   assert.ok(await page.locator('#ls-ribbon-tools .ls-shot-command').filter({hasText:label}).count());
  }
- assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),1,"Only Adjacent is functional; all other Definitions placeholders must remain disabled");
- assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),1);
+ assert.equal(await page.locator('#ls-ribbon-tools [data-action]').count(),2,"Adjacent and Perfectly Matched Layer are functional; other Definitions buttons remain disabled");
+ assert.equal(await page.locator('#ls-ribbon-tools button:not(:disabled)').count(),2);
  assert.equal(await page.locator('#ls-ribbon-tools button').count(),27);
  const adjacent=selections.locator('[data-action="definitionsAdjacent"]');
  assert.equal(await adjacent.count(),1,"Definitions Adjacent button is present");
  assert.equal(await adjacent.isDisabled(),false,"Adjacent label and boundary picking must be enabled");
+ const pml=page.locator('#ls-ribbon-tools [data-action="definitionsPML"]');
+ assert.equal(await pml.count(),1);
+ assert.equal(await pml.isDisabled(),false,"PML ribbon must open the Artificial Domains editor");
  const layoutHeight=await page.locator(".layout").evaluate(el=>el.getBoundingClientRect().height);
  assert.ok(layoutHeight>350,"Definitions ribbon should not collapse the workbench layout");
  await page.screenshot({path:"/tmp/comsol_definitions_tab_desktop.png",fullPage:true});

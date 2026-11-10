@@ -48,6 +48,30 @@ try{
  assert.equal(await page.locator('#ls-material-domain-list input:checked').count(),0);
  assert.equal(await page.locator('#ls-cad-view .ls-cad-material-region.is-selected').count(),0);
  assert.equal(await page.locator("#ls-material-pick").getAttribute("aria-pressed"),"true");
+ // User screenshot: choose the three *right-hand* Rotate holes with real
+ // physical mouse clicks, rather than dispatchEvent on the overlay.
+ const clickHole=async (key)=>{
+  const center=await page.locator('#ls-cad-view [data-cad-entity="'+key+'"] .ls-cad-rendered-surface circle').evaluate(circle=>{
+   const svg=circle.ownerSVGElement,point=svg.createSVGPoint();
+   point.x=Number(circle.getAttribute("cx"));point.y=Number(circle.getAttribute("cy"));
+   const pixel=point.matrixTransform(svg.getScreenCTM());
+   return {x:pixel.x,y:pixel.y};
+  });
+  await page.mouse.click(center.x,center.y);
+ };
+ for(const key of ["rot1/c2/0","rot1/c2/1","rot1/c2/5"])await clickHole(key);
+ assert.deepEqual(await selected(page),[6,7,11],"Each of three physically clicked right-hand holes must have its own domain ID");
+ assert.equal(await page.locator('#ls-cad-view .ls-cad-material-region.is-selected').count(),3);
+ assert.equal(await page.locator('#ls-material-domain-list input:checked').count(),3);
+ assert.equal(await page.locator("#ls-cad-object-select").isDisabled(),true,"Geometry selection dropdown should not interfere with material picking");
+ await page.screenshot({path:"/tmp/comsol_material_three_holes_individual.png"});
+ // Clicking one already-selected hole removes only that one.
+ await clickHole("rot1/c2/1");
+ assert.deepEqual(await selected(page),[6,11],"Single hole toggle must not change the other selected holes");
+ await clickHole("rot1/c2/0");
+ await clickHole("rot1/c2/5");
+ assert.deepEqual(await selected(page),[],"Three individual toggles must clear the material assignment");
+
  const annulus=page.locator('#ls-cad-view [data-cad-shape="c1"] .ls-cad-rendered-surface circle');
  const coords=await annulus.evaluate(c=>{
   const cx=Number(c.getAttribute("cx")),cy=Number(c.getAttribute("cy")),r=Number(c.getAttribute("r"));
@@ -79,5 +103,5 @@ try{
  assert.equal(await page.locator('#ls-cad-view [data-cad-domain-id="3"].is-selected').count(),0);
  await page.screenshot({path:"/tmp/comsol_material_individual_selected_domains.png"});
  assert.deepEqual(errors,[],"No JavaScript errors");
- console.log("PASS: Material 1 Manual selection of 11 partitioned regions; true mouse click picks only one quadrant, blue fill and domain-number checkboxes stay synchronized");
+ console.log("PASS: Material 1 Manual Domain selection: physical mouse clicks independently select right three Rotate holes, toggle each, and synchronize the list and graphics");
 }finally{await browser.close();}

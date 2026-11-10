@@ -76,6 +76,7 @@ try{
  await page.locator('#ls-material-domain-list [data-material-domain="1"]').check();
  assert.ok((await page.evaluate(()=>window.LSWaveMaterialsEditor.assignments())).some(a=>a.domainId===1&&a.real===1.45));
  // 4. Properties categories and Refractive Index context menu.
+ await page.locator("#ls-material-properties-section > summary").click();
  const group=page.locator('.ls-material-property-group').filter({has:page.locator('summary:has-text("Electromagnetic Models")')});
  assert.ok(await group.isVisible());
  assert.ok(await group.locator('[data-ls-property="Refractive index"]').isVisible());

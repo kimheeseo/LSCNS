@@ -11,7 +11,7 @@
  if(!sidebar||!tree||$("ls-materials-editor"))return;
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const materials=[];
- let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="",refractiveDetailsExpanded=false;
+ let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="",refractiveDetailsExpanded=false,activeRefractiveRow=null;
  const pane=document.createElement("section");
  pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
  sidebar.append(pane);
@@ -171,15 +171,30 @@
   const icon=state.valid?'<span class="ls-material-valid" title="Expression evaluated">✓</span>':'<span class="ls-material-invalid" title="Expression invalid or missing">!</span>';
   const num=value=>Number.isFinite(value)?Number(value.toPrecision(9)).toString():"—";
   return '<table class="ls-material-values"><thead><tr><th>Status</th><th>Property</th><th>Variable</th><th>Value / Expression</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
-   '<tr><td data-ls-real-state>'+icon+'</td><td>Refractive index, real part</td><td>n_iso</td>'+
+   '<tr data-ls-material-index-row="real" class="'+(activeRefractiveRow==="real"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="real")+'"><td data-ls-real-state>'+icon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="real">Refractive index, real part</button></td><td>n_iso</td>'+
    '<td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. nbg or 1.45" /></td><td>1</td><td>Refractive index</td></tr>'+
-   '<tr><td data-ls-imag-state>'+icon+'</td><td>Refractive index, imaginary part</td><td>ki_iso</td>'+
+   '<tr data-ls-material-index-row="imag" class="'+(activeRefractiveRow==="imag"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="imag")+'"><td data-ls-imag-state>'+icon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="imag">Refractive index, imaginary part</button></td><td>ki_iso</td>'+
    '<td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'" placeholder="0" /></td><td>1</td><td>Refractive index</td></tr>'+
    '</tbody></table>'+
    '<div id="ls-material-evaluated" class="ls-material-evaluated '+(state.valid?"is-valid":"is-invalid")+'" aria-live="polite">'+
     (state.valid?'Applied to assigned Geometry domains: <b>n_iso = '+num(state.real)+'</b>, <b>ki_iso = '+num(state.imag)+'</b>.':
      'Not applied: '+safe(state.error))+'</div>'+
    '<p class="ls-material-help">Parameters 1 expressions (e.g. nbg, nair, nbg+0.005) are evaluated numerically. The evaluated index is attached to the Geometry preview domains, but is not passed to the current radial FEM or a full-vector EWFD solver.</p>';
+ }
+ function activateRefractiveRow(which,focusInput=false){
+  if(which!=="real"&&which!=="imag")return;
+  activeRefractiveRow=which;
+  for(const row of pane.querySelectorAll("[data-ls-material-index-row]")){
+   const active=row.dataset.lsMaterialIndexRow===which;
+   row.classList.toggle("is-active",active);
+   row.setAttribute("aria-selected",String(active));
+  }
+  if(focusInput){
+   const input=$(which==="real"?"ls-material-real":"ls-material-imag");
+   const panel=input?.closest("details");
+   if(panel)panel.open=true;
+   input?.focus();
+  }
  }
  function updateMaterialEvaluation(material){
   const resolved=resolvedIndex(material),box=$("ls-material-evaluated");
@@ -289,6 +304,7 @@
   if($("ls-material-pick")){$("ls-material-pick").setAttribute("aria-pressed",String(manualPick));$("ls-material-pick").classList.toggle("active",manualPick);}
  }
  function open(id=null){
+  if(activeId!==id)activeRefractiveRow=null;
   activeId=id;
   menu.hidden=true;
   const cad=$("ls-cad-pane"),wave=$("ls-wave-settings"),other=$("ls-config-pane");
@@ -402,6 +418,8 @@
   if(e.target.closest("#ls-material-property-add")&&propertyContextName==="Refractive index")addRefractiveIndex();
  });
  pane.addEventListener("click",e=>{
+  const label=e.target.closest("[data-ls-material-label]");
+  if(label){activateRefractiveRow(label.dataset.lsMaterialLabel,true);return;}
   if(e.target.closest("#ls-material-close")){close();return;}
   if(e.target.closest('[data-material-command="blank"]')){contextMaterialId=null;blank();return;}
   if(e.target.closest('[data-material-command="duplicate"]')){contextMaterialId=activeId;duplicate();return;}
@@ -415,6 +433,7 @@
    if(contents)contents.open=true;
    input?.focus();
    input?.select();
+   activateRefractiveRow(field.dataset.lsRefractiveFocus);
    return;
   }
   if(e.target.closest("#ls-material-pick")){pickChanged(!manualPick);render();return;}
@@ -427,11 +446,15 @@
    if(material&&!material.properties?.includes("refractive-index"))addRefractiveIndex();
   }
  },true);
+ pane.addEventListener("focusin",e=>{
+  if(e.target.id==="ls-material-real")activateRefractiveRow("real");
+  if(e.target.id==="ls-material-imag")activateRefractiveRow("imag");
+ });
  pane.addEventListener("input",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
   if(e.target.id==="ls-material-label"){material.label=e.target.value;treeRender();}
-  if(e.target.id==="ls-material-real"){material.real=e.target.value;updateMaterialEvaluation(material);}
-  if(e.target.id==="ls-material-imag"){material.imag=e.target.value;updateMaterialEvaluation(material);}
+  if(e.target.id==="ls-material-real"){material.real=e.target.value;activateRefractiveRow("real");updateMaterialEvaluation(material);}
+  if(e.target.id==="ls-material-imag"){material.imag=e.target.value;activateRefractiveRow("imag");updateMaterialEvaluation(material);}
  });
  pane.addEventListener("change",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;

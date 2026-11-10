@@ -27,8 +27,8 @@
  deleteDialog.id="ls-material-delete-dialog";
  deleteDialog.innerHTML='<form method="dialog"><h3>Confirm Delete</h3><p>Delete the selected material and its Geometry domain assignments?</p><div class="ls-material-dialog-actions"><button type="submit" value="yes">Yes</button><button type="submit" value="no">No</button></div></form>';
  document.body.append(deleteDialog);
- deleteDialog.addEventListener("close",()=>{
-  if(deleteDialog.returnValue!=="yes")return;
+ deleteDialog.querySelector("form").addEventListener("submit",e=>{
+  if(e.submitter?.value!=="yes")return;
   const id=contextMaterialId||activeId,at=materials.findIndex(x=>x.id===id);
   if(at<0)return;
   const label=materials[at].label;

@@ -1,0 +1,38 @@
+/* COMSOL-like Component 1 > Definitions right-click menu */
+#ls-definitions-context{
+ position:fixed;z-index:100020;box-sizing:border-box;width:270px;
+ padding:4px 0;background:#fafcff;color:#263f57;border:1px solid #a8b7c7;
+ border-radius:2px;box-shadow:0 7px 22px #162b4250;
+ font:12px "Segoe UI","Malgun Gothic",Arial,sans-serif;
+}
+#ls-definitions-context[hidden]{display:none!important}
+#ls-definitions-context .ls-def-context-group{padding:3px 0;border-bottom:1px solid #dbe3ec}
+#ls-definitions-context .ls-def-context-group:last-child{border-bottom:0}
+#ls-definitions-context .ls-def-context-item{position:relative}
+#ls-definitions-context button{
+ box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;
+ height:27px;padding:3px 11px;border:0;background:transparent;color:#243e54;
+ font:inherit;text-align:left;white-space:nowrap;cursor:pointer;
+}
+#ls-definitions-context button:disabled{opacity:.57;cursor:default}
+#ls-definitions-context button:not(:disabled):hover,
+#ls-definitions-context button:not(:disabled):focus-visible,
+#ls-definitions-context .ls-def-context-submenu.is-open > button{
+ background:#dceafa;color:#135e99;outline:none
+}
+#ls-definitions-context .ls-def-context-glyph{display:inline-grid;place-items:center;width:18px;min-width:18px;color:#4491ba;font-size:14px}
+#ls-definitions-context .ls-def-context-arrow{margin-left:auto;color:#566e81;font-size:20px;line-height:1}
+#ls-definitions-context kbd{margin-left:auto;color:#8293a3;font:10px "Segoe UI",sans-serif}
+#ls-definitions-context .ls-def-context-nested{
+ display:none;position:absolute;left:100%;top:-5px;z-index:100021;
+ width:225px;padding:5px 0;border:1px solid #a8b7c7;background:#fff;
+ box-shadow:0 6px 18px #1930464d;
+}
+#ls-definitions-context .ls-def-context-submenu.is-open > .ls-def-context-nested,
+#ls-definitions-context .ls-def-context-submenu:hover > .ls-def-context-nested,
+#ls-definitions-context .ls-def-context-submenu:focus-within > .ls-def-context-nested{display:block}
+#ls-definitions-context.ls-def-context-flip .ls-def-context-nested{left:auto;right:100%}
+#ls-definitions-context .ls-def-context-nested button{
+ min-height:26px;height:26px;padding:4px 10px;gap:8px;
+}
+#ls-definitions-context [data-definitions-command="adjacent"]{color:#214e7b;font-weight:600}

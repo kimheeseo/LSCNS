@@ -111,11 +111,11 @@
    '<option value="manual" '+(selectedMode==="manual"?"selected":"")+'>Manual selection</option>'+
    optGroups+'</select></label>'+
    '<div class="ls-material-selection-row"><button type="button" id="ls-material-pick" aria-pressed="'+(manualPick&&material.mode!=="cumulative")+'" '+
-   (material.mode==="cumulative"?"disabled ":"")+'title="Activate Selection in Graphics">▣</button>'+
+   (material.mode!=="manual"?"disabled ":"")+'title="Activate Selection in Graphics">▣</button>'+
    '<div id="ls-material-domain-list">'+(items||"<p>No "+name+" in current geometry</p>")+'</div></div>'+
    '<p class="ls-material-help">Selected '+selection.length+' of '+entities.length+' '+name+' in the Geometry preview. '+
     (material.mode==="cumulative"?"Using named selection: "+safe(selectionTitle(material))+". Changes to its contributing Geometry features update this list.":
-    manualPick?"Graphics selection is active: click a circle to toggle associated region(s).":
+    manualPick?"Manual picking active: click one domain to select or deselect it.":
     "Choose Manual selection to edit individual "+name+".")+'</p>'+
    (level!=="Domain"?'<p class="ls-material-help">Boundary and Point are selectable geometric entities only; they are not material-filled FEM domains.</p>':"")+
    '</div></details>'+
@@ -163,7 +163,7 @@
  }
  function pickChanged(enabled){
   const material=materials.find(m=>m.id===activeId);
-  manualPick=!!enabled&&material?.mode!=="cumulative";
+  manualPick=!!enabled&&material?.mode==="manual";
   document.dispatchEvent(new CustomEvent("ls-material-picking",{detail:{
    enabled:manualPick,entityKeys:manualPick?selectedKeys():[],
    domainIds:material&&entityLevel(material)==="Domain"?assignedEntities(material,getDomains()).map(d=>d.id):[],
@@ -184,7 +184,7 @@
   document.body.classList.add("ls-configuration-open","ls-material-active");
   document.dispatchEvent(new CustomEvent("ls-open-material-editor",{detail:{id}}));
   render();
-  pickChanged(!!id);
+  pickChanged(!!id&&materials.find(m=>m.id===activeId)?.mode==="manual");
  }
  function close(){
   if(pane.hidden)return;
@@ -248,7 +248,7 @@
    material.level=newLevel;
    // Keep separately selected IDs per entity level. Switching levels must
    // never reuse Domain IDs as Boundary or Point assignments.
-   render();pickChanged(manualPick&&material.mode!=="cumulative");
+   render();pickChanged(material.mode==="manual");
    return;
   }
   if(e.target.id==="ls-material-select-mode"){
@@ -265,7 +265,7 @@
     // COMSOL-style Manual selection starts empty. User clicks individual
     // Geometry domains to add them. Previous manual selections are preserved
     // when switching away and back; do not auto-select the entire model.
-    render();pickChanged(manualPick);
+    render();pickChanged(value==="manual");
    }
    return;
   }
@@ -290,7 +290,8 @@
   // Domain selection is per physical preview region, NOT per whole circle.
   // Boundary and Point retain feature-based selection for now.
   const targetId=Number(e.detail?.domainId);
-  const matched=level==="Domain"&&Number.isInteger(targetId)&&targetId>0
+  if(level==="Domain"&&(!Number.isInteger(targetId)||targetId<1))return;
+  const matched=level==="Domain"
    ?entities.filter(entity=>entity.id===targetId)
    :entities.filter(entity=>entity.entityKey===e.detail?.entityKey);
   if(!matched.length)return;

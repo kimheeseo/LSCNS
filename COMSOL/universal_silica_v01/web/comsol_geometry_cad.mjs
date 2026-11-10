@@ -523,6 +523,37 @@
   }
   return path;
  }
+
+ // Use physical click coordinates to identify exactly one domain, independent
+ // of SVG fill transparency or overlap among rotated air-hole objects.
+ function materialDomainAtScreen(event){
+  const viewport=$("ls-cad-view"),matrix=viewport?.getScreenCTM();
+  if(!matrix)return null;
+  const point=viewport.createSVGPoint();point.x=event.clientX;point.y=event.clientY;
+  const p=point.matrixTransform(matrix.inverse());
+  const plot={left:55,top:31,right:618,bottom:452};
+  const shapes=compute(),actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+  const referenceExtent=viewExtent??actualExtent;
+  const scale=Math.min(plot.right-plot.left,plot.bottom-plot.top)*.42*zoom/referenceExtent;
+  if(!(scale>0)||p.x<plot.left||p.x>plot.right||p.y<plot.top||p.y>plot.bottom)return null;
+  const ox=(plot.left+plot.right)/2+panX,oy=(plot.top+plot.bottom)/2+panY;
+  const x=(p.x-ox)/scale,y=(oy-p.y)/scale;
+  let best=null,bestArea=Infinity;
+  for(const domain of materialDomains()){
+   const dx=x-domain.cx,dy=y-domain.cy,r=Math.hypot(dx,dy);
+   if(r>domain.outerR||r<domain.innerR)continue;
+   if(domain.startAngle!==null){
+    const angle=(Math.atan2(dy,dx)*180/Math.PI+360)%360;
+    if(angle<domain.startAngle||angle>=domain.endAngle)continue;
+   }
+   if((domain.holeCircles||[]).some(hole=>Math.hypot(x-hole.cx,y-hole.cy)<hole.r))continue;
+   const area=(domain.outerR**2-domain.innerR**2)*(domain.startAngle===null?1:(domain.endAngle-domain.startAngle)/360);
+   // Prefer the smallest visible region. Coincident circles pick the
+   // last-built object; the other remains selectable from the ID list.
+   if(area<=bestArea*(1+1e-9)){best=domain;bestArea=area;}
+  }
+  return best;
+ }
  function materialDomainsSVG(ox,oy,scale,mini){
   if(mini||!document.body.classList.contains("ls-material-active")||materialEntityLevel!=="Domain")return "";
   const picking=materialPickMode;
@@ -684,7 +715,18 @@
    $("ls-cad-view").innerHTML=svg(640,500);
    $("ls-cad-mini-svg").innerHTML=svg(460,230,true);
     const pick=$("ls-cad-object-select");
-    if(pick){pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");pick.value=nodes.some(n=>n.id===selected)?selected:"root";}
+    if(pick){
+     pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");
+     pick.value=nodes.some(n=>n.id===selected)?selected:"root";
+     const materialMode=document.body.classList.contains("ls-material-active");
+     pick.disabled=materialMode;
+     const graphicsLabel=graphics.querySelector('label[for="ls-cad-object-select"]');
+     if(graphicsLabel)graphicsLabel.textContent=materialMode?"Material Domain selection":"Graphics selection";
+     const graphicsHint=graphics.querySelector(".ls-cad-graphics-select span");
+     if(graphicsHint)graphicsHint.textContent=materialMode&&materialEntityLevel==="Domain"
+      ?materialPickMode?"Manual selection active · click each filled area to select or deselect.":"Domain picking paused."
+      :"빈 영역 드래그: 이동 · 휠: 확대/축소";
+    }
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    const shapes=compute();
    const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
@@ -1049,13 +1091,12 @@
    return;
   }
   if(materialPickMode&&materialEntityLevel==="Domain"){
-   const region=e.target.closest("[data-cad-domain-id]");
-   if(region){
-    document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{
-     level:"Domain",domainId:Number(region.dataset.cadDomainId),domainKey:region.dataset.cadDomainKey,owner:region.dataset.domainOwner
-    }}));
-    return;
-   }
+   const domain=materialDomainAtScreen(e);
+   if(domain)document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{
+    level:"Domain",domainId:domain.id,domainKey:domain.key,owner:domain.owner
+   }}));
+   // A Domain click must never toggle an entire Geometry Shape.
+   return;
   }
   const shape=e.target.closest("[data-cad-shape]");
   if(!shape)return;

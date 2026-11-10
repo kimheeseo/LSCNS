@@ -139,5 +139,6 @@ jobs:
             /tmp/comsol_adjacent_two_boundaries_selected.png
             /tmp/comsol_adjacent_output_levels.png
             /tmp/comsol_material_properties_resolved.png
+            /tmp/comsol_material_index_black_active.png
             /tmp/comsol_resized_material_settings.png
           if-no-files-found: ignore

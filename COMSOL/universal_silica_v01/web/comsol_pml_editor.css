@@ -1,0 +1,54 @@
+/* Definitions → Artificial Domains → Perfectly Matched Layer (Geometry-preview editor) */
+body.ls-comsol-shell.ls-pml-active .layout{grid-template-columns:var(--ls-model-width,228px) minmax(335px,var(--ls-settings-width,510px)) minmax(0,1fr)!important}
+body.ls-comsol-shell.ls-pml-active .ls-study-pane{display:none!important}
+body.ls-comsol-shell.ls-pml-active .ls-output-console{grid-column:3/4!important}
+body.ls-comsol-shell.ls-pml-active main.workspace>*:not(.ls-graphics-head):not(#ls-cad-graphics){display:none!important}
+body.ls-comsol-shell.ls-pml-active .sidebar.ls-config-active{padding:0!important}
+body.ls-comsol-shell.ls-pml-active .sidebar.ls-config-active>:not(#ls-pml-editor){display:none!important}
+body.ls-comsol-shell #ls-pml-editor[hidden]{display:none!important}
+body.ls-comsol-shell .ls-pml-editor{display:flex;flex-direction:column;background:#fff;color:#31465a;min-height:100%;font:12px "Segoe UI","Malgun Gothic",sans-serif}
+.ls-pml-editor .ls-config-heading{flex:none;border-bottom:1px solid #d4e0e9}
+.ls-pml-editor .ls-pml-body{padding:9px 10px 25px;overflow-y:auto;min-height:0;flex:1}
+.ls-pml-editor .ls-setting-line{margin:7px 1px 12px;display:grid;grid-template-columns:48px minmax(0,1fr);gap:9px;align-items:center}
+.ls-pml-editor .ls-setting-line label{font-weight:600;font-size:11px}
+.ls-pml-editor .ls-setting-line input{min-width:0;width:100%;border:1px solid #b5c6d5;border-radius:2px;padding:6px 8px;color:#304a61;background:#fff}
+.ls-pml-editor .ls-setting-line input[readonly]{background:#f2f6f9;color:#52697b}
+.ls-pml-section{border:1px solid #d9e2ec;margin:7px 0 13px;background:#fff}
+.ls-pml-section>summary{cursor:pointer;background:#e5edf7;color:#344e68;padding:7px 9px;font-weight:600}
+.ls-pml-section-inner{padding:10px 11px 12px;display:flex;flex-direction:column;gap:8px}
+.ls-pml-section-inner>label:not(.ls-pml-domain-row){font-size:11px;color:#435c73;font-weight:550}
+.ls-pml-section select,.ls-pml-section input:not([type="checkbox"]){width:100%;min-width:0;padding:6px 8px;background:#fff;color:#2e4e67;border:1px solid #b0c4d7;border-radius:2px;font-size:12px}
+.ls-pml-domain-select{display:flex;align-items:flex-start;gap:9px}
+#ls-pml-domain-list{border:1px solid #c5d2df;min-height:152px;max-height:245px;overflow-y:auto;background:#fff;padding:5px;flex:1;min-width:0}
+.ls-pml-domain-row{display:flex;align-items:center;gap:7px;padding:5px 6px;font-size:11px;cursor:pointer;color:#4a6074}
+.ls-pml-domain-row:hover{background:#ecf3fc}
+.ls-pml-domain-row:has(input:checked){background:#e7ecfc;color:#233d72}
+.ls-pml-domain-row input{accent-color:#335dc2;flex:none}
+.ls-pml-domain-row b{font-weight:600;color:#27588a}
+#ls-pml-activate{color:#246699;min-width:35px;min-height:32px;border:1px solid #91bad9;background:#d7eaff;cursor:pointer}
+#ls-pml-activate[aria-pressed="false"]{background:#f5f8fa;color:#7f93a5}
+#ls-pml-activate:disabled{opacity:.48;cursor:default}
+.ls-pml-actions{display:flex;justify-content:space-between;align-items:center;gap:9px}
+.ls-pml-actions button{border:1px solid #bad0e0;background:#eff6fb;color:#366b94;padding:6px 10px;cursor:pointer}
+.ls-pml-actions button:disabled{opacity:.5;cursor:default}
+.ls-pml-actions span{color:#6f869b;font-size:11px}
+.ls-pml-note{line-height:1.5;font-size:11px;color:#7b8c9b;margin:3px 0}
+.ls-pml-disclaimer{line-height:1.55;font-size:11px;color:#786850;background:#f9f6ee;border-left:3px solid #c3a773;padding:10px}
+#ls-pml-status{color:#29638d;line-height:1.5;font-size:11px}
+#ls-definitions-artificial-group[hidden]{display:none!important}
+#ls-definitions-artificial-list .ls-pml-tree-item.active{background:#d7e8fb;color:#1d608d}
+#ls-cad-view .ls-cad-pml-overlay[data-pml-picker="active"] .ls-cad-pml-region{cursor:crosshair}
+#ls-cad-view .ls-cad-pml-overlay[data-pml-picker="active"] .ls-cad-pml-region:hover:not(.is-pml-selected){fill:#81a6f4;fill-opacity:.32;stroke:#447ee2;stroke-width:1}
+#ls-cad-view .ls-cad-pml-overlay .ls-cad-pml-region.is-pml-selected{fill:#7296e1;fill-opacity:.52;stroke:#265cca;stroke-width:1.8}
+@media(max-width:835px){
+ body.ls-comsol-shell.ls-pml-active .layout{grid-template-columns:minmax(300px,48%) minmax(0,1fr)!important}
+ body.ls-comsol-shell.ls-pml-active .sidebar{grid-column:1!important}
+ body.ls-comsol-shell.ls-pml-active main.workspace{grid-column:2!important}
+ body.ls-comsol-shell.ls-pml-active .ls-output-console{grid-column:2!important}
+}
+@media(max-width:630px){
+ body.ls-comsol-shell.ls-pml-active .layout{display:block!important}
+ body.ls-comsol-shell.ls-pml-active .sidebar{max-height:470px;overflow-y:auto}
+ body.ls-comsol-shell.ls-pml-active main.workspace{min-height:330px!important}
+ body.ls-comsol-shell.ls-pml-active #ls-cad-graphics{min-height:330px}
+}

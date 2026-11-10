@@ -235,7 +235,7 @@
    '<div class="ls-material-controls"><button type="button" data-material-command="blank">＋ Add Material</button>'+
    '<button type="button" data-material-command="duplicate">Duplicate</button>'+
    '<button type="button" data-material-command="delete">Delete Material</button></div>'+
-   '<details class="ls-material-section" open><summary>Material Properties</summary><div class="ls-material-section-inner">'+propertiesBrowser()+'</div></details>'+
+   '<details class="ls-material-section" id="ls-material-properties-section"><summary>Material Properties</summary><div class="ls-material-section-inner">'+propertiesBrowser()+'</div></details>'+
    '<details class="ls-material-section" open><summary>Material Contents</summary><div class="ls-material-section-inner">'+materialContents(material)+'</div></details>';
  }
  function treeRender(){

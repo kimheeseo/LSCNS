@@ -30,10 +30,13 @@
  let count=0;
  menu.innerHTML=groups.map(group=>'<div class="ls-def-context-group">'+group.map(item=>{
   const hasChildren=!!item.children,identifier="ls-def-context-"+count++;
-  if(!hasChildren)return '<div class="ls-def-context-item">'+
-   '<button type="button" role="menuitem" disabled aria-disabled="true" title="'+safe(item.label)+' — not implemented">'+
-   '<span class="ls-def-context-glyph">'+safe(item.icon||"▧")+'</span><span>'+safe(item.label)+'</span>'+
-   (item.hint?'<kbd>'+safe(item.hint)+'</kbd>':'')+'</button></div>';
+  if(!hasChildren){
+   const isPML=item.label==="Perfectly Matched Layer";
+   return '<div class="ls-def-context-item">'+
+    '<button type="button" role="menuitem"'+(isPML?' data-definitions-command="pml" title="Add Perfectly Matched Layer"':' disabled aria-disabled="true" title="'+safe(item.label)+' — not implemented"')+'>'+
+    '<span class="ls-def-context-glyph">'+safe(item.icon||"▧")+'</span><span>'+safe(item.label)+'</span>'+
+    (item.hint?'<kbd>'+safe(item.hint)+'</kbd>':'')+'</button></div>';
+  }
   return '<div class="ls-def-context-item ls-def-context-submenu" data-def-context-parent="'+safe(item.label)+'">'+
    '<button type="button" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="'+identifier+'">'+
    '<span class="ls-def-context-glyph">'+(item.label==="Selections"?"◈":"▧")+'</span><span>'+safe(item.label)+'</span><span class="ls-def-context-arrow">›</span></button>'+
@@ -82,9 +85,9 @@
   const button=event.target.closest("button");
   if(!button)return;
   const command=button.dataset.definitionsCommand;
-  if(command==="adjacent"){
+  if(command==="adjacent"||command==="pml"){
    hide();
-   document.dispatchEvent(new CustomEvent("ls-open-adjacent-editor",{detail:{create:true}}));
+   document.dispatchEvent(new CustomEvent(command==="pml"?"ls-open-pml-editor":"ls-open-adjacent-editor",{detail:{create:true}}));
    return;
   }
   if(button.disabled)return;

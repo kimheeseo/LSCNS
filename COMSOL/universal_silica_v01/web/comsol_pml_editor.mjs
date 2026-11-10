@@ -109,8 +109,14 @@
  function close(){
   if(pane.hidden)return;
   picking=false;pane.hidden=true;broadcast();activeId=null;
-  document.body.classList.remove("ls-pml-active","ls-configuration-open");
-  sidebar.classList.remove("ls-config-active");treeRender();
+  document.body.classList.remove("ls-pml-active");
+  const otherMode=["ls-material-active","ls-cad-active","ls-wave-optics-active","ls-adjacent-active"]
+   .some(cls=>document.body.classList.contains(cls));
+  if(!otherMode){
+   document.body.classList.remove("ls-configuration-open");
+   sidebar.classList.remove("ls-config-active");
+  }
+  treeRender();
  }
  function add(){
   let n=1;while(rows.some(row=>row.id==="pml"+n))n++;

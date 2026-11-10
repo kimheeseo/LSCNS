@@ -86,6 +86,34 @@ try{
  assert.equal(await page.locator("#ls-material-property-context").isHidden(),true);
  assert.ok((await page.evaluate(()=>window.LSWaveMaterialsEditor.list()[1].properties)).includes("refractive-index"));
  assert.equal(await page.locator("#ls-material-real").inputValue(),"nbg");
+ // Selecting Refractive index now expands a pair of individually editable
+ // child properties, while preserving the original right-click Add to Material.
+ const propertyNode=page.locator(".ls-material-refractive-node");
+ assert.equal(await propertyNode.isVisible(),true);
+ assert.equal(await propertyNode.evaluate(el=>el.open),true);
+ const realProperty=propertyNode.locator('[data-ls-refractive-focus="real"]');
+ const imaginaryProperty=propertyNode.locator('[data-ls-refractive-focus="imag"]');
+ assert.equal(await realProperty.count(),1);
+ assert.equal(await imaginaryProperty.count(),1);
+ await realProperty.click();
+ assert.equal(await page.evaluate(()=>document.activeElement?.id),"ls-material-real");
+ await page.locator("#ls-material-real").fill("nbg+0.005");
+ assert.ok(Math.abs((await page.evaluate(()=>window.LSWaveMaterialsEditor.resolve(window.LSWaveMaterialsEditor.list()[1]))).real-1.455)<1e-12);
+ await imaginaryProperty.click();
+ assert.equal(await page.evaluate(()=>document.activeElement?.id),"ls-material-imag");
+ await page.locator("#ls-material-imag").fill("0.0001");
+ assert.ok(Math.abs((await page.evaluate(()=>window.LSWaveMaterialsEditor.resolve(window.LSWaveMaterialsEditor.list()[1]))).imag-0.0001)<1e-12);
+ // Clicking the parent summary closes and reopens the same two child items.
+ await propertyNode.locator('summary[data-ls-property="Refractive index"]').click();
+ assert.equal(await propertyNode.evaluate(el=>el.open),false);
+ await propertyNode.locator('summary[data-ls-property="Refractive index"]').click();
+ assert.equal(await propertyNode.evaluate(el=>el.open),true);
+ assert.equal(await realProperty.isVisible(),true);
+ assert.equal(await imaginaryProperty.isVisible(),true);
+ await realProperty.click();
+ await page.locator("#ls-material-real").fill("nbg");
+ await imaginaryProperty.click();
+ await page.locator("#ls-material-imag").fill("0");
  await page.screenshot({path:"/tmp/comsol_material_properties_resolved.png"});
  // 5. Model Builder and Settings separators can be dragged; graphics width
  // adapts without losing the Material editing context.

@@ -127,6 +127,8 @@ jobs:
             /tmp/comsol_definitions_tab_desktop.png
             /tmp/comsol_definitions_tab_mobile.png
             /tmp/comsol_adjacent_material1_before.png
+            /tmp/comsol_adjacent_domain_hover.png
+            /tmp/comsol_adjacent_domain_selected.png
             /tmp/comsol_adjacent_created.png
             /tmp/comsol_adjacent_two_boundaries_selected.png
           if-no-files-found: ignore

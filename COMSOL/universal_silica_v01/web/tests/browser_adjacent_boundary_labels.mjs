@@ -56,6 +56,50 @@ try{
  assert.equal(await page.locator("#ls-adjacent-output").inputValue(),"Adjacent boundaries");
  assert.ok(await page.locator('#ls-definitions-selections-list [data-adjacent-node="adj1"]').isVisible());
  await page.screenshot({path:"/tmp/comsol_adjacent_created.png"});
+ // Screenshot regression: Adjacent must show built geometry with no CAD
+ // labels, dashed Rotate outlines or inherited feature highlights.
+ assert.equal(await page.locator('#ls-cad-view [stroke-dasharray]').count(),0);
+ assert.equal(await page.locator('#ls-cad-view text').filter({hasText:/^(c[0-9]+|rot[0-9]+)\*?$/}).count(),0);
+ assert.equal(await page.locator('#ls-cad-view path[stroke="#deebf3"]').count(),0);
+ assert.equal(await page.locator('#ls-cad-view .is-input-selected, #ls-cad-view .is-material-selected, #ls-cad-view .is-cumulative-selected').count(),0);
+ // A real Domain mouse click must select the one small disk, regardless
+ // of overlapping transparent hit areas from the surrounding core.
+ const disk=page.locator('#ls-cad-view [data-cad-entity="rot1/c2/0"] .ls-cad-rendered-surface circle');
+ const center=await disk.evaluate(el=>{
+  const point=el.ownerSVGElement.createSVGPoint();
+  point.x=Number(el.getAttribute("cx"));point.y=Number(el.getAttribute("cy"));
+  const q=point.matrixTransform(el.ownerSVGElement.getScreenCTM());
+  return {x:q.x,y:q.y};
+ });
+ await page.mouse.move(center.x,center.y);
+ assert.equal(await page.locator('#ls-cad-view .ls-cad-adjacent-entity.is-hovered').count(),1);
+ const hoverColor=await page.locator('#ls-cad-view .ls-cad-adjacent-entity.is-hovered .ls-cad-adjacent-mark').evaluate(el=>getComputedStyle(el).stroke);
+ assert.equal(hoverColor,"rgb(209, 60, 60)");
+ assert.equal(await page.locator('#ls-cad-view .ls-cad-rendered-shape.is-hovered').count(),0);
+ await page.screenshot({path:"/tmp/comsol_adjacent_domain_hover.png"});
+ await page.mouse.click(center.x,center.y);
+ assert.deepEqual(await page.evaluate(()=>window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Domain),["rot1/c2/0/disk"]);
+ assert.equal(await page.locator('#ls-adjacent-list input:checked').count(),1);
+ assert.equal(await page.locator('#ls-cad-view .is-adjacent-selected').count(),1);
+ assert.equal(await page.locator('#ls-cad-view .is-adjacent-selected .ls-cad-adjacent-mark').evaluate(el=>getComputedStyle(el).stroke),"rgb(22, 75, 250)");
+ await page.screenshot({path:"/tmp/comsol_adjacent_domain_selected.png"});
+ // Pausing keeps the blue selection but prevents geometry editing/picking.
+ await page.locator('#ls-adjacent-activate').click();
+ await page.mouse.click(center.x,center.y);
+ assert.ok(await page.locator('#ls-adjacent-editor').isVisible());
+ assert.equal(await page.locator('#ls-cad-view .is-adjacent-selected').count(),1);
+ assert.equal((await page.evaluate(()=>window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Domain)).length,1);
+ await page.locator('#ls-adjacent-activate').click();
+ await page.mouse.click(center.x,center.y);
+ assert.deepEqual(await page.evaluate(()=>window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Domain),[]);
+ // Empty plot margin never toggles any domain.
+ const margin=await page.locator('#ls-cad-view').evaluate(el=>{
+  const p=el.createSVGPoint();p.x=60;p.y=36;
+  const q=p.matrixTransform(el.getScreenCTM());return {x:q.x,y:q.y};
+ });
+ await page.mouse.click(margin.x,margin.y);
+ assert.deepEqual(await page.evaluate(()=>window.LSWaveAdjacentSelection.list()[0].selectedByLevel.Domain),[]);
+
  // Boundary mode: drawn edges are independent hit targets; selecting one
  // is NOT the same as selecting a filled Material domain.
  await page.locator("#ls-adjacent-level").selectOption("Boundary");

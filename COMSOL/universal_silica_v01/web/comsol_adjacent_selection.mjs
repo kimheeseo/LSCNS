@@ -46,6 +46,7 @@
  function transmit(){
   const row=current();
   document.dispatchEvent(new CustomEvent("ls-adjacent-picker",{detail:{
+   visible:!pane.hidden,
    enabled:enabled&&!!row,
    level:row?.level||"Boundary",
    selectedKeys:[...selectedKeys(row)]
@@ -82,9 +83,9 @@
    '<select id="ls-adjacent-output"><option value="Adjacent boundaries" selected>Adjacent boundaries</option></select>'+
    '<label class="ls-adjacent-check"><input type="checkbox" id="ls-adjacent-exterior" '+(row.exterior?"checked":"")+'/> Exterior boundaries</label>'+
    '<label class="ls-adjacent-check"><input type="checkbox" id="ls-adjacent-interior" '+(row.interior?"checked":"")+'/> Interior boundaries</label>'+
-   '<p class="ls-adjacent-note">This is a Geometry labeling/selection preview. Blue edges are the selected input boundaries; COMSOL-style topological adjacency output is not yet calculated.</p>'+
+   '<p class="ls-adjacent-note">This is a Geometry labeling/selection preview. Blue outlines are the selected input entities; COMSOL-style topological adjacency output is not yet calculated.</p>'+
    '</div></details>'+
-   '<p id="ls-adjacent-status" role="status">'+escapeHTML(notice||"Click a circular edge in Graphics to add or remove it from "+row.label+".")+'</p>'+
+   '<p id="ls-adjacent-status" role="status">'+escapeHTML(notice||"Click a "+row.level.toLowerCase()+" in Graphics to add or remove it from "+row.label+".")+'</p>'+
    '</div>';
   renderTree();
  }
@@ -110,8 +111,8 @@
  }
  function close(){
   if(pane.hidden)return;
-  enabled=false;transmit();
-  pane.hidden=true;activeId=null;
+  enabled=false;pane.hidden=true;transmit();
+  activeId=null;
   document.body.classList.remove("ls-adjacent-active","ls-configuration-open");
   sidebar.classList.remove("ls-config-active");
   renderTree();
@@ -156,7 +157,7 @@
  pane.addEventListener("click",e=>{
   if(e.target.closest("#ls-adjacent-close")){close();return;}
   const row=current();if(!row)return;
-  if(e.target.closest("#ls-adjacent-activate")){enabled=!enabled;notice=enabled?"Click Graphics boundaries to toggle inputs.":"Graphics selection paused.";render();transmit();}
+  if(e.target.closest("#ls-adjacent-activate")){enabled=!enabled;notice=enabled?"Click Graphics "+row.level.toLowerCase()+" entities to toggle inputs.":"Graphics selection paused.";render();transmit();}
   if(e.target.closest("#ls-adjacent-clear")){row.selectedByLevel[row.level]=[];notice="Cleared selected "+row.level.toLowerCase()+" inputs.";render();transmit();}
  });
  document.addEventListener("ls-open-adjacent-editor",e=>{

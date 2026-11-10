@@ -34,9 +34,11 @@ body.ls-comsol-shell .ls-adjacent-editor{display:flex;flex-direction:column;back
 #ls-adjacent-status{line-height:1.45;color:#3f6f92;font-size:11px;margin:10px 2px}
 #ls-definitions-selections-group[hidden]{display:none!important}
 #ls-definitions-selections-group .ls-tree-leaf.active{background:#d8eaff;color:#175da1}
-#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity{cursor:crosshair}
-#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity:hover:not(.is-adjacent-selected)>:nth-last-child(1){stroke:#4584f0;stroke-opacity:.25}
-#ls-cad-view .ls-cad-adjacent-overlay .is-adjacent-selected{filter:drop-shadow(0 0 1.2px #3d75c6)}
+/* Adjacent shows neutral built geometry; only its own picker owns emphasis. */
+body.ls-adjacent-active #ls-cad-view .ls-cad-rendered-shape{pointer-events:none}
+#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity{cursor:pointer}
+#ls-cad-view .ls-cad-adjacent-overlay .ls-cad-adjacent-entity.is-hovered:not(.is-adjacent-selected) .ls-cad-adjacent-mark{stroke:#d13c3c;stroke-opacity:1;stroke-width:1.8}
+#ls-cad-view .ls-cad-adjacent-overlay .is-adjacent-selected .ls-cad-adjacent-mark{stroke:#164bfa;stroke-opacity:1;stroke-width:1.8}
 @media(max-width:1080px){
  body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:195px minmax(335px,440px) minmax(0,1fr)!important}
 }

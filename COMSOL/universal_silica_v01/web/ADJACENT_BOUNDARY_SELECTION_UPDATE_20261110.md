@@ -38,3 +38,11 @@ Screenshots uploaded by the workflow:
 - `/tmp/comsol_adjacent_material1_before.png`
 - `/tmp/comsol_adjacent_created.png`
 - `/tmp/comsol_adjacent_two_boundaries_selected.png`
+
+## Graphics correction: reference Domain selection view
+
+- Adjacent opens with uniform gray built domains, thin solid outlines for original and Rotate objects, no Geometry feature-name labels, and the grid off by default. The Grid button toggles an independent Adjacent grid preference.
+- Geometry, cumulative-selection and material highlights do not carry into Adjacent. Returning to Geometry restores its editing display.
+- With Input Entities set to Domain, physical mouse coordinates identify exactly one preview region. Hover outlines that region in red; clicking outlines it in blue and adds it to Input selections. Clicking again removes only that region.
+- Boundary and Point modes retain their individual input selection. Pausing Activate Selection preserves the displayed selection while blocking further picking and accidental Geometry editing.
+- The browser regression now checks real Domain hover/click/toggle, paused selection, empty margin clicks, the neutral Graphics appearance, and the existing Boundary workflow. This remains a preview selection operator; the numerical scope described above is unchanged.

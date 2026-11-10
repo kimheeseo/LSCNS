@@ -10,7 +10,7 @@
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
- let adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
+ let adjacentView=false,adjacentGridOn=false,adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
  function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
@@ -566,28 +566,28 @@
  }
 
  function adjacentEntitiesSVG(ox,oy,scale,mini){
-  if(mini||!adjacentPickMode)return "";
+  if(mini||!adjacentView)return "";
   const entities=adjacentEntities(adjacentLevel);
-  return `<g class="ls-cad-adjacent-overlay" data-adjacent-level="${adjacentLevel}">${entities.map(entity=>{
+  return `<g class="ls-cad-adjacent-overlay" data-adjacent-level="${adjacentLevel}" pointer-events="${adjacentPickMode?"all":"none"}">${entities.map(entity=>{
    const chosen=adjacentSelectedKeys.has(entity.key);
-   const name=esc("Boundary "+entity.id+": "+entity.label);
+   const name=esc(adjacentLevel+" "+entity.id+": "+entity.label);
    let geometry;
    if(entity.kind==="domain"){
-    geometry=`<path d="${materialDomainPath(entity,ox,oy,scale)}" fill="${chosen?"#7899ed":"transparent"}" fill-opacity="${chosen?".24":"0"}" stroke="${chosen?"#245dda":"transparent"}" stroke-width="${chosen?2:0}"/>`;
+    geometry=`<path class="ls-cad-adjacent-mark" d="${materialDomainPath(entity,ox,oy,scale)}" fill="none" fill-rule="evenodd" stroke="${chosen?"#164bfa":"transparent"}" stroke-width="1.8" pointer-events="none"/>`;
    }else if(entity.kind==="point"){
     const x=ox+entity.cx*scale,y=oy-entity.cy*scale;
-    geometry=`<circle cx="${x}" cy="${y}" r="5" fill="${chosen?"#2e61e3":"transparent"}" stroke="${chosen?"#234cda":"#a7b2bc"}" stroke-width="2"/>`;
+    geometry=`<circle class="ls-cad-adjacent-mark" cx="${x}" cy="${y}" r="3" fill="${chosen?"#2e61e3":"transparent"}" stroke="${chosen?"#234cda":"#a7b2bc"}" stroke-width="2"/>`;
    }else if(entity.kind==="line"){
-    geometry=`<line x1="${ox+entity.x1*scale}" y1="${oy-entity.y1*scale}" x2="${ox+entity.x2*scale}" y2="${oy-entity.y2*scale}" stroke="${chosen?"#195cf4":"#626f78"}" stroke-opacity="${chosen?"1":".16"}" stroke-width="${chosen?"4":"2"}"/>`;
+    geometry=`<line class="ls-cad-adjacent-mark" x1="${ox+entity.x1*scale}" y1="${oy-entity.y1*scale}" x2="${ox+entity.x2*scale}" y2="${oy-entity.y2*scale}" stroke="${chosen?"#195cf4":"#626f78"}" stroke-opacity="${chosen?"1":".16"}" stroke-width="1.8"/>`;
    }else{
-    geometry=`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="${entity.r*scale}" fill="none" stroke="${chosen?"#195cf4":"transparent"}" stroke-width="${chosen?"4":"2"}"/>`;
+    geometry=`<circle class="ls-cad-adjacent-mark" cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="${entity.r*scale}" fill="none" stroke="${chosen?"#195cf4":"transparent"}" stroke-width="1.8"/>`;
    }
    const hit=entity.kind==="point"
     ?`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="10" fill="transparent" pointer-events="all"/>`
     :entity.kind==="domain" ? `<path d="${materialDomainPath(entity,ox,oy,scale)}" fill="transparent" fill-rule="evenodd" pointer-events="all"/>`
     :entity.kind==="line"?`<line x1="${ox+entity.x1*scale}" y1="${oy-entity.y1*scale}" x2="${ox+entity.x2*scale}" y2="${oy-entity.y2*scale}" stroke="transparent" stroke-width="12" pointer-events="stroke"/>`
     :`<circle cx="${ox+entity.cx*scale}" cy="${oy-entity.cy*scale}" r="${entity.r*scale}" fill="none" stroke="transparent" stroke-width="12" pointer-events="stroke"/>`;
-   return `<g class="ls-cad-adjacent-entity${chosen?" is-adjacent-selected":""}" data-adjacent-key="${esc(entity.key)}" data-adjacent-entity-id="${entity.id}" aria-label="${name}"><title>${name}</title>${geometry}${hit}</g>`;
+   return `<g class="ls-cad-adjacent-entity${chosen?" is-adjacent-selected":""}" data-adjacent-key="${esc(entity.key)}" data-adjacent-entity-id="${entity.id}" aria-label="${name}"><title>${name}</title>${geometry}${adjacentPickMode?hit:""}</g>`;
   }).join("")}</g>`;
  }
 
@@ -645,6 +645,7 @@
  }
  function svg(w,h,mini=false){
   const shapes=compute();
+  const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
   const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
   const actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
@@ -659,29 +660,29 @@
   const clipId=mini?"ls-cad-plot-clip-small":"ls-cad-plot-clip-main";
   const lowerX=(plot.left-ox)/scale,upperX=(plot.right-ox)/scale;
   const lowerY=(oy-plot.bottom)/scale,upperY=(oy-plot.top)/scale;
-  if(gridOn||!mini){
+  if(showGrid||!mini){
    // Grid and tick positions are computed in meters, not in arbitrary pixel increments.
    const firstX=Math.ceil(lowerX/spacing),lastX=Math.floor(upperX/spacing);
    const firstY=Math.ceil(lowerY/spacing),lastY=Math.floor(upperY/spacing);
    for(let i=firstX;i<=lastX&&i<firstX+70;i++){
     const position=i*spacing,x=ox+position*scale;
-    if(gridOn)grid+=`<path d="M ${x} ${plot.top} V ${plot.bottom}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
+    if(showGrid)grid+=`<path d="M ${x} ${plot.top} V ${plot.bottom}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
     if(!mini)xTicks+=`<path d="M ${x} ${plot.bottom} v 5" stroke="#465361" stroke-width="1"/><text data-axis="x" data-coordinate-m="${position}" x="${x}" y="${plot.bottom+19}" text-anchor="middle" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
    for(let i=firstY;i<=lastY&&i<firstY+70;i++){
     const position=i*spacing,y=oy-position*scale;
-    if(gridOn)grid+=`<path d="M ${plot.left} ${y} H ${plot.right}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
+    if(showGrid)grid+=`<path d="M ${plot.left} ${y} H ${plot.right}" stroke="${i===0?"#b5c4d0":"#deebf3"}" stroke-width="${i===0?1.2:.85}"/>`;
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const isSelectedInput=shape=>selectingRotateInputs&&["rotate","mirror"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
+  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
    const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
    const items=orderedShapes.map(shape=>{
    const x=ox+shape.x*scale,y=oy-shape.y*scale,r=shape.r*scale;
-   const stroke=shape.derived?"#7a8793":"#41484f";
+   const stroke=adjacentScene?"#222":shape.derived?"#7a8793":"#41484f";
    const colors={Blue:"#9cc8ef",Orange:"#efb584",Green:"#a5d7b1"};
-   const fill=shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#ced0d1"):"none";
+   const fill=adjacentScene&&shape.solid?"#ccc":shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#ced0d1"):"none";
    let layersMarkup="",covered=0,outer=shape.r;
    const interior=[];
    if(shape.sector>=359.999){
@@ -691,7 +692,7 @@
      if(inner<=0)break;
      const innerPx=inner*scale;
      interior.push(inner);
-     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${layerIndex%2?"#e4e7e9":"#b9c2c9"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
+     layersMarkup+=`<circle class="ls-cad-layer-region" cx="${x}" cy="${y}" r="${innerPx}" fill="${adjacentScene?"#ccc":layerIndex%2?"#e4e7e9":"#b9c2c9"}" fill-opacity=".98" stroke="none" pointer-events="none"/>`;
      layersMarkup+=`<circle class="ls-cad-layer-boundary" cx="${x}" cy="${y}" r="${innerPx}" fill="none" stroke="#454d53" stroke-width="${mini?1:1.6}" pointer-events="none"/>`;
      // Radial spokes match COMSOL's displayed geometric partition guides.
      for(const deg of [0,90,180,270]){
@@ -702,8 +703,8 @@
     }
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
-   const label=mini?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   const label=mini||adjacentScene?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);
@@ -719,11 +720,13 @@
      pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");
      pick.value=nodes.some(n=>n.id===selected)?selected:"root";
      const materialMode=document.body.classList.contains("ls-material-active");
-     pick.disabled=materialMode;
+     pick.disabled=materialMode||adjacentView;
      const graphicsLabel=graphics.querySelector('label[for="ls-cad-object-select"]');
-     if(graphicsLabel)graphicsLabel.textContent=materialMode?"Material Domain selection":"Graphics selection";
+     if(graphicsLabel)graphicsLabel.textContent=adjacentView?"Adjacent · "+adjacentLevel:materialMode?"Material Domain selection":"Graphics selection";
      const graphicsHint=graphics.querySelector(".ls-cad-graphics-select span");
-     if(graphicsHint)graphicsHint.textContent=materialMode&&materialEntityLevel==="Domain"
+     if(graphicsHint)graphicsHint.textContent=adjacentView
+      ?adjacentPickMode?"영역 위에 마우스: 빨간 경계 · 클릭: 파란 선택 · 다시 클릭: 해제":"선택 일시 정지"
+      :materialMode&&materialEntityLevel==="Domain"
       ?materialPickMode?"Manual selection active · click each filled area to select or deselect.":"Domain picking paused."
       :"빈 영역 드래그: 이동 · 휠: 확대/축소";
     }
@@ -900,6 +903,7 @@
  });
 
  document.addEventListener("ls-adjacent-picker",e=>{
+  adjacentView=!!e.detail?.visible;
   adjacentPickMode=!!e.detail?.enabled;
   adjacentLevel=e.detail?.level||"Boundary";
   adjacentSelectedKeys=new Set(e.detail?.selectedKeys||[]);
@@ -1077,19 +1081,20 @@
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
  $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
- $("ls-cad-grid").addEventListener("click",()=>{gridOn=!gridOn;draw();});
+ $("ls-cad-grid").addEventListener("click",()=>{if(adjacentView)adjacentGridOn=!adjacentGridOn;else gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
   if(adjacentPickMode){
    const target=e.target.closest("[data-adjacent-key]");
    // Prefer the nearest actual ring/line to avoid a coincident SVG hit target
    // or a transparent fill capturing the pointer over a different circle.
-   const picked=nearestAdjacentAtScreen(e);
+   const picked=adjacentLevel==="Domain"?materialDomainAtScreen(e):nearestAdjacentAtScreen(e);
    const key=picked?.key||target?.dataset.adjacentKey;
    if(key)document.dispatchEvent(new CustomEvent("ls-adjacent-geometry-click",{detail:{
     key,id:picked?.id??Number(target?.dataset.adjacentEntityId),level:adjacentLevel
    }}));
    return;
   }
+  if(adjacentView)return;
   if(materialPickMode&&materialEntityLevel==="Domain"){
    const domain=materialDomainAtScreen(e);
    if(domain)document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{
@@ -1123,7 +1128,13 @@
  $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
  const viewport=$("ls-cad-view");let gesture=null,hovered=null;
  viewport.addEventListener("pointermove",e=>{
-  const next=e.target.closest?.('g[data-cad-shape]')||null;
+  let next=null;
+  if(adjacentView){
+   if(adjacentPickMode){
+    const entity=adjacentLevel==="Domain"?materialDomainAtScreen(e):nearestAdjacentAtScreen(e);
+    if(entity)next=[...viewport.querySelectorAll("[data-adjacent-key]")].find(node=>node.dataset.adjacentKey===entity.key)||null;
+   }
+  }else next=e.target.closest?.('g[data-cad-shape]')||null;
   if(next===hovered)return;
   hovered?.classList.remove("is-hovered");
   hovered=next;
@@ -1132,6 +1143,7 @@
  viewport.addEventListener("pointerleave",()=>{hovered?.classList.remove("is-hovered");hovered=null;});
  viewport.addEventListener("pointerdown",e=>{
   if(e.button!==0||selectingRotateInputs||materialPickMode||e.target.closest("[data-cad-shape]"))return;
+  if(adjacentView&&adjacentPickMode&&(adjacentLevel==="Domain"?materialDomainAtScreen(e):nearestAdjacentAtScreen(e)))return;
   gesture={id:e.pointerId,x:e.clientX,y:e.clientY,panX,panY};
   viewport.setPointerCapture(e.pointerId);viewport.classList.add("is-panning");
  });

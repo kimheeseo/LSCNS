@@ -177,7 +177,7 @@
   notice="Selected "+row.level.toLowerCase()+": "+[...keys].length+" item(s) · "+row.label;
   render();transmit();
  });
- for(const eventName of ["ls-open-cad","ls-open-material-editor","ls-open-wave-optics","ls-open-settings"]){
+ for(const eventName of ["ls-open-cad","ls-open-material-editor","ls-open-wave-optics","ls-open-settings","ls-pml-editor-activated"]){
   document.addEventListener(eventName,()=>{if(!pane.hidden)close();},true);
  }
  document.addEventListener("ls-wizard-finished",()=>{

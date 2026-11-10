@@ -114,6 +114,23 @@ try{
  await page.locator("#ls-material-real").fill("nbg");
  await imaginaryProperty.click();
  await page.locator("#ls-material-imag").fill("0");
+ // Material Contents: clicking a property label makes its text black and
+ // activates ONLY that row, while focusing its editable value field.
+ const realLabel=page.locator('[data-ls-material-label="real"]');
+ const imaginaryLabel=page.locator('[data-ls-material-label="imag"]');
+ await realLabel.click();
+ assert.equal(await page.evaluate(()=>document.activeElement?.id),"ls-material-real");
+ assert.equal(await realLabel.evaluate(el=>getComputedStyle(el).color),"rgb(17, 24, 39)");
+ assert.equal(await page.locator('[data-ls-material-index-row="real"]').getAttribute("aria-selected"),"true");
+ assert.equal(await page.locator('[data-ls-material-index-row="imag"]').getAttribute("aria-selected"),"false");
+ await imaginaryLabel.click();
+ assert.equal(await page.evaluate(()=>document.activeElement?.id),"ls-material-imag");
+ assert.equal(await imaginaryLabel.evaluate(el=>getComputedStyle(el).color),"rgb(17, 24, 39)");
+ assert.equal(await page.locator('[data-ls-material-index-row="real"]').getAttribute("aria-selected"),"false");
+ assert.equal(await page.locator('[data-ls-material-index-row="imag"]').getAttribute("aria-selected"),"true");
+ assert.equal(await real.inputValue(),"nbg");
+ assert.equal(await imag.inputValue(),"0");
+ await page.screenshot({path:"/tmp/comsol_material_index_black_active.png"});
  await page.screenshot({path:"/tmp/comsol_material_properties_resolved.png"});
  // 5. Model Builder and Settings separators can be dragged; graphics width
  // adapts without losing the Material editing context.

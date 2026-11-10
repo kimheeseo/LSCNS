@@ -1,0 +1,27 @@
+/* Adjustable desktop COMSOL Model Builder / Settings / Graphics widths. */
+body.ls-comsol-shell .layout{position:relative;grid-template-columns:var(--ls-model-width,228px) minmax(260px,var(--ls-settings-width,330px)) minmax(0,1fr) var(--ls-study-width,194px)}
+body.ls-comsol-shell.ls-material-active .layout,
+body.ls-comsol-shell.ls-adjacent-active .layout{grid-template-columns:var(--ls-model-width,228px) minmax(305px,var(--ls-settings-width,510px)) minmax(0,1fr)!important}
+body.ls-comsol-shell .ls-panel-splitter{position:absolute;z-index:80;top:0;bottom:0;transform:translateX(-50%);width:12px;background:transparent;cursor:col-resize;touch-action:none;user-select:none;display:flex;justify-content:center;align-items:center}
+body.ls-comsol-shell .ls-panel-splitter::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:transparent;transition:background .12s}
+body.ls-comsol-shell .ls-panel-splitter:hover::before,
+body.ls-comsol-shell .ls-panel-splitter:focus-visible::before,
+body.ls-comsol-shell .ls-panel-splitter.is-dragging::before{width:4px;background:#559bcf}
+body.ls-comsol-shell .ls-panel-splitter span{display:grid;place-items:center;background:#edf5fa;border:1px solid #a4c4db;border-radius:5px;color:#4385b1;font:18px monospace;line-height:28px;width:8px;height:35px;opacity:0}
+body.ls-comsol-shell .ls-panel-splitter:hover span,
+body.ls-comsol-shell .ls-panel-splitter:focus-visible span,
+body.ls-comsol-shell .ls-panel-splitter.is-dragging span{opacity:1}
+body.ls-comsol-shell .ls-panel-splitter[hidden]{display:none!important}
+@media(min-width:835px) and (max-width:1090px){
+ body.ls-comsol-shell:not(.ls-material-active):not(.ls-adjacent-active) .layout{grid-template-columns:var(--ls-model-width,204px) minmax(255px,var(--ls-settings-width,300px)) minmax(0,1fr)}
+}
+@media(min-width:1091px) and (max-width:1350px){
+ body.ls-comsol-shell:not(.ls-material-active):not(.ls-adjacent-active) .layout{grid-template-columns:var(--ls-model-width,205px) minmax(265px,var(--ls-settings-width,305px)) minmax(0,1fr) var(--ls-study-width,174px)}
+}
+@media(max-width:834px){
+ body.ls-comsol-shell .ls-panel-splitter{display:none!important}
+ body.ls-comsol-shell:not(.ls-material-active):not(.ls-adjacent-active) .layout{grid-template-columns:minmax(270px,315px) minmax(0,1fr)}
+}
+@media(max-width:635px){
+ body.ls-comsol-shell .layout{display:block!important}
+}

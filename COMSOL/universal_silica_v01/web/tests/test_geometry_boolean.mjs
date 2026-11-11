@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {rectangleCorners,boundsOf,containsPoint,unionContours} from "../geometry_boolean.mjs";
+const rect={kind:"rectangle",x:25e-6,y:0,w:40e-6,h:24e-6,deg:30,solid:true,sector:360};
+const disk={kind:"circle",x:0,y:0,r:25e-6,solid:true,sector:360};
+assert.equal(rectangleCorners(rect).length,4);
+const b=boundsOf(rect);
+assert.ok(b.maxX>b.minX&&b.maxY>b.minY);
+assert.ok(containsPoint(rect,25e-6,0));
+assert.ok(!containsPoint(rect,100e-6,0));
+const result=unionContours([disk,rect],360);
+assert.equal(result.loops.length,1,"Overlapping micron-scale disk and rectangle should produce one silhouette");
+assert.ok(result.loops[0].length>10,"Union should have non-degenerate micron-scale contour");
+const apart=unionContours([disk,{...rect,x:200e-6}],200);
+assert.equal(apart.loops.length,2,"Separated solids remain two regions of one union feature");
+assert.throws(()=>unionContours([{...disk,solid:false},rect]),/solid/);
+console.log("PASS: rectangle corners/bounds, micron-scale union, separated components and solid validation");

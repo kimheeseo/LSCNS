@@ -176,7 +176,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  });
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
  const physSignature=()=>{
-  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:[n.id,n.kind,n.enabled,n.inputIds,n.inputRefs,n.keep,n.angle,n.cx,n.cy,n.arrayType,n.nx,n.ny,n.size,n.dx,n.dy]);
+  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:n.kind==="rectangle"?[n.id,n.kind,n.enabled,n.type,n.width,n.height,n.base,n.x,n.y,n.rotation]:[n.id,n.kind,n.enabled,n.inputIds,n.inputRefs,n.keep,n.angle,n.cx,n.cy,n.arrayType,n.nx,n.ny,n.size,n.dx,n.dy]);
   // Resolve parameter expressions as well as literal expressions. An edit of d/rb
   // changes the geometry even if Circle 1/2 still display the same expressions.
   const evaluated=nodes.filter(n=>n.kind==="circle").map(n=>{
@@ -533,7 +533,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     const refs=new Set(Array.isArray(n.inputRefs)?n.inputRefs:[]);
     const input=shapes.filter(shape=>refs.has(shape.entityKey));
     if(!input.length)continue;
-    if(input.length<2)throw Error(n.label+": select at least two input objects for Union.");
+    if(input.length<2)continue; // Incomplete selection is permitted while picking; Build validates two.
     const union=buildUnionShape(input,n);
     if(!n.keep){
      for(let j=shapes.length-1;j>=0;j--)if(refs.has(shapes[j].entityKey))shapes.splice(j,1);
@@ -589,6 +589,9 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    domains.push(d);return d;
   };
   for(const shape of shapes){
+   // Non-circular shapes are Geometry preview objects, not radial/FEM
+   // material domains; never silently substitute their bounding circles.
+   if(shape.w>0||shape.kind==="union")continue;
    if(shape.sector<359.999||!shape.solid){
     add(shape,"disk",""+shape.entityKey+" · object",shape.r,0);
     continue;
@@ -632,6 +635,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     x1,y1,x2,y2});
   };
   for(const shape of shapes){
+   if(shape.w>0||shape.kind==="union")continue; // exact rectangle/union boundary topology not yet supported
    if(level==="Point"){add(shape,"center","point",0);continue;}
    add(shape,"outer-boundary","circle",shape.r);
    if(shape.sector<359.999)continue;
@@ -922,7 +926,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    const fill=adjacentScene&&shape.solid?"#ccc":shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#ced0d1"):"none";
    let layersMarkup="",covered=0,outer=shape.r;
    const interior=[];
-   if(shape.sector>=359.999){
+   if(shape.sector>=359.999&&!shape.w&&shape.kind!=="union"){
     for(const [layerIndex,thickness] of (shape.layers||[]).entries()){
      if(thickness<=0)continue;
      covered+=thickness;const inner=shape.r-covered;
@@ -1118,7 +1122,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  function apply(){
   try{
-   if(nodes.some(n=>n.enabled&&n.kind==="array"))throw Error("Disable Array operations before applying to Radial FEM.");
+   if(nodes.some(n=>n.enabled&&["array","rectangle","union","deleteEntities"].includes(n.kind)))throw Error("Disable Array, Rectangle, Union and Delete Entities operations before applying to Radial FEM.");
    if(nodes.some(n=>n.enabled&&n.kind==="rotate"))throw Error("Disable Rotate operations before applying to Radial FEM.");
    if(nodes.some(n=>n.enabled&&n.kind==="circle"&&!["c1","c2"].includes(n.id)))throw Error("Extra circles are preview-only. Disable them to run two-circle Radial FEM.");
    const c1=nodes.find(n=>n.id==="c1"),c2=nodes.find(n=>n.id==="c2");
@@ -1245,7 +1249,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   draw();
  });
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
- document.addEventListener("ls-cad-add",e=>add(["rotate","mirror","array"].includes(e.detail?.kind)?e.detail.kind:"circle"));
+ document.addEventListener("ls-cad-add",e=>add(["circle","rectangle","rotate","mirror","array","union","deleteEntities"].includes(e.detail?.kind)?e.detail.kind:"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
  $("ls-cad-form-enable").addEventListener("change",e=>{checkpoint();formUnion.enabled=e.target.checked;draw();});

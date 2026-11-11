@@ -52,12 +52,14 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   <div id="ls-cad-form-settings" hidden>
    <div class="ls-setting-line"><label for="ls-cad-form-label">Label</label><input id="ls-cad-form-label" value="Form Union" readonly/></div>
    <details class="ls-cad-section" id="ls-cad-finalization" open><summary>Form Union/Assembly</summary>
-    <div class="ls-cad-field"><label for="ls-cad-form-action">Action</label><select id="ls-cad-form-action"><option value="union">Form a union</option><option value="assembly">Form an assembly</option></select></div>
-    <div class="ls-cad-field"><label for="ls-cad-form-repair">Repair tolerance</label><select id="ls-cad-form-repair"><option>Automatic</option><option disabled>Relative</option><option disabled>Absolute</option></select></div>
-    <label class="ls-cad-check"><input id="ls-cad-form-interior" type="checkbox" checked/> Keep interior boundaries</label>
+    <div class="ls-cad-field ls-cad-form-field"><label for="ls-cad-form-action">Action:</label><select id="ls-cad-form-action"><option value="union">Form a union</option><option value="assembly">Form an assembly</option></select></div>
+    <div class="ls-cad-field ls-cad-form-field"><label for="ls-cad-form-repair">Repair tolerance:</label><select id="ls-cad-form-repair"><option>Automatic</option><option disabled>Relative</option><option disabled>Absolute</option></select></div>
+    <details class="ls-cad-form-advanced"><summary>Advanced preview options</summary>
+     <label class="ls-cad-check"><input id="ls-cad-form-interior" type="checkbox" checked/> Keep interior boundaries</label>
     <label class="ls-cad-check"><input id="ls-cad-form-enable" type="checkbox"/> Show finalization preview</label>
     <p class="ls-cad-sequence-note">Union combines outer silhouettes; Assembly preserves separate objects. This is a sampled 2D display, not a CAD B-rep or FEM topology operation.</p>
-    <button type="button" id="ls-cad-form-build">Build Finalization</button>
+     <button type="button" id="ls-cad-form-build">Build Finalization</button>
+    </details>
    </details>
   </div>
   <div id="ls-cad-feature-settings">
@@ -378,6 +380,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
   $("ls-cad-cumulative-settings").hidden=!cumulative;
   $("ls-cad-form-settings").hidden=selected!=="fin";
+  $("ls-cad-build-all").textContent=selected==="fin"?"▦ Build All":"▦ Build All Objects";
   if(cumulative){
    $("ls-cad-root-settings").hidden=true;$("ls-cad-feature-settings").hidden=true;$("ls-cad-build-selected").disabled=true;
    $("ls-cad-subtitle").textContent="Cumulative Selection";
@@ -1211,6 +1214,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   switch(cmd){
    case "circle":case "ellipse":case "rectangle":case "rotate":case "mirror":case "array":case "union":case "difference":case "deleteEntities":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
    case "build-all":
+    if(selected==="fin"){$("ls-cad-form-build").click();return;}
     try{
      assertArrayInputsThrough(nodes.length-1);
      compute(nodes.length-1); // Validate before committing a Build state.
@@ -1411,13 +1415,18 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  $("ls-cad-form-interior").addEventListener("change",e=>{checkpoint();formUnion.keepInterior=e.target.checked;draw();});
  $("ls-cad-form-repair").addEventListener("change",e=>{checkpoint();formUnion.repair=e.target.value;draw();});
  $("ls-cad-form-build").addEventListener("click",()=>{
-  try{const shapes=compute();if(!shapes.length)throw Error("Create a Circle or Rectangle first.");
+  try{
+   assertArrayInputsThrough(nodes.length-1);
+   const shapes=compute(nodes.length-1);
+   if(!shapes.length)throw Error("Create and build a Geometry object first.");
    const isUnion=(formUnion.mode||"union")==="union";
    if(isUnion&&!shapes.every(v=>v.solid&&(v.sector??360)>=359.999))throw Error("Preview Form Union requires complete solid objects.");
    if(isUnion&&shapes.length>200)throw Error("Viewport union supports at most 200 objects.");
    if(isUnion&&shapes.length>1)buildUnionShape(shapes,{id:"root",keepInterior:formUnion.keepInterior,selection:false,color:"None"});
-   checkpoint();formUnion.enabled=true;$("ls-cad-form-enable").checked=true;
-   draw();say((isUnion?"Form Union":"Form Assembly")+" preview built from "+shapes.length+" Geometry object(s).");
+   checkpoint();limit=null;selectingRotateInputs=false;differencePickGroup=null;
+   formUnion.enabled=true;$("ls-cad-form-enable").checked=true;
+   zoomExtents();draw();
+   say((isUnion?"Form Union":"Form Assembly")+" preview built from "+shapes.length+" Geometry object(s).");
   }catch(err){say("Form Union failed: "+err.message,true);}
  });
  $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});

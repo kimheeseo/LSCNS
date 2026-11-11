@@ -1,3 +1,4 @@
+import {fitGeometryView,geometryView} from "./geometry_view.mjs?v=20261111-zoom-extents-v1";
 import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
 (function geometryCad(){
  "use strict";
@@ -7,20 +8,20 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  const unit=n=>Number(n.toPrecision(10)).toString();
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
- let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
+ let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null,viewCenterX=0,viewCenterY=0;
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
  let adjacentView=false,adjacentGridOn=false,adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
  let pmlView=false,pmlPickMode=false,pmlDomainKeys=new Set();
- function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
+ function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent,viewCenterX,viewCenterY};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
   if($("ls-cad-redo"))$("ls-cad-redo").disabled=!redoStack.length;
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent,viewCenterX,viewCenterY}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -100,7 +101,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  side.append(pane);
  const graphics=document.createElement("section");
  graphics.id="ls-cad-graphics";graphics.hidden=true;
- graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
+ graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Zoom Extents" aria-label="Zoom Extents"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4M7 7l-4-4m10 4l4-4M7 13l-4 4m10-4l4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
  main.prepend(graphics);
  const context=document.createElement("div");
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
@@ -195,17 +196,20 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   if(abs>=1e-9)return unit(m*1e9)+" nm";
   return m.toExponential(4)+" m";
  }
- function visibleExtent(){
-  const shapes=compute();
-  return Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+ function graphicsShapes(){return selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();}
+ function viewTransform(shapes,w=640,h=500,mini=false){
+  const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
+  return geometryView(shapes,plot,mini?{}:{extent:viewExtent,centerX:viewCenterX,centerY:viewCenterY,zoom,panX,panY});
+ }
+ function fittedView(shapes=compute()){
+  return fitGeometryView(shapes,{left:55,top:31,right:618,bottom:452});
+ }
+ function applyViewFit(fit){
+  viewExtent=fit.extent;viewCenterX=fit.centerX;viewCenterY=fit.centerY;panX=0;panY=0;zoom=1;
  }
  function lockViewIfNeeded(){
-  const extent=visibleExtent();
-  if(viewExtent===null||extent/viewExtent<0.12||extent/viewExtent>8){
-   // Recover automatically from legacy 1 m → micrometer expression changes.
-   // Keep a stable scale for normal radius and layer edits.
-   viewExtent=extent;panX=0;panY=0;zoom=1;
-  }
+  const fit=fittedView();
+  if(viewExtent===null||fit.extent/viewExtent<.12||fit.extent/viewExtent>8)applyViewFit(fit);
  }
  function shapeSummary(shape){
   let consumed=0;const layerInfo=(shape.layers||[]).filter(x=>x>0).map((t,i)=>{
@@ -573,12 +577,8 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   if(!matrix)return null;
   const point=viewport.createSVGPoint();point.x=event.clientX;point.y=event.clientY;
   const p=point.matrixTransform(matrix.inverse());
-  const plot={left:55,top:31,right:618,bottom:452};
-  const shapes=compute(),actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
-  const referenceExtent=viewExtent??actualExtent;
-  const scale=Math.min(plot.right-plot.left,plot.bottom-plot.top)*.42*zoom/referenceExtent;
+  const {plot,scale,ox,oy}=viewTransform(compute());
   if(!(scale>0)||p.x<plot.left||p.x>plot.right||p.y<plot.top||p.y>plot.bottom)return null;
-  const ox=(plot.left+plot.right)/2+panX,oy=(plot.top+plot.bottom)/2+panY;
   const x=(p.x-ox)/scale,y=(oy-p.y)/scale;
   let best=null,bestArea=Infinity;
   for(const domain of materialDomains()){
@@ -659,12 +659,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   const mouse=svgNode.createSVGPoint();
   mouse.x=event.clientX;mouse.y=event.clientY;
   const p=mouse.matrixTransform(svgNode.getScreenCTM().inverse());
-  const plot={left:55,top:31,right:640-22,bottom:500-48};
-  const shapes=compute();
-  const actual=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
-  const reference=viewExtent??actual;
-  const scale=Math.min(plot.right-plot.left,plot.bottom-plot.top)*.42*zoom/reference;
-  const ox=(plot.left+plot.right)/2+panX,oy=(plot.top+plot.bottom)/2+panY;
+  const {scale,ox,oy}=viewTransform(compute());
   const pointLine=(x,y,a,b,c,d)=>{
    const vx=c-a,vy=d-b,len=vx*vx+vy*vy;
    const t=len>0?Math.max(0,Math.min(1,((x-a)*vx+(y-b)*vy)/len)):0;
@@ -702,16 +697,12 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   return chosen;
  }
  function svg(w,h,mini=false){
-  const shapes=!mini&&selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();
+  const shapes=mini?compute():graphicsShapes();
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
-  const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
+  const {plot,scale,ox,oy}=viewTransform(shapes,w,h,mini);
   const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
-  const actualExtent=Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
-  const referenceExtent=viewExtent??actualExtent;
-  const scale=Math.min(pw,ph)*(mini?.40:.42)*zoom/referenceExtent;
-  const ox=(plot.left+plot.right)/2+(mini?0:panX),oy=(plot.top+plot.bottom)/2+(mini?0:panY);
   const radiusDisplay=Math.min(pw,ph)/(scale*2);
-  const units=radiusDisplay<1e-3?{mult:1e6,symbol:"µm",power:"−6"}:radiusDisplay<1?{mult:1e3,symbol:"mm",power:"−3"}:{mult:1,symbol:"m",power:"0"};
+  const units=lengthUnit==="um"||radiusDisplay<1e-3?{mult:1e6,symbol:"µm",power:"−6"}:radiusDisplay<1?{mult:1e3,symbol:"mm",power:"−3"}:{mult:1,symbol:"m",power:"0"};
   const spacing=niceTick(ph/scale/10);
   const decimal=value=>{const n=Number(value.toPrecision(6));return Object.is(n,-0)?"0":String(n);};
   let grid="",xTicks="",yTicks="";
@@ -794,7 +785,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    const shapes=compute();
    const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
-   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
+   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Zoom Extents to reframe)"} · Geometry preview only`;
    if($("ls-cad-status").textContent.startsWith("Preview error:"))say("Graphics updated.");
    emitCadState();
   }catch(e){
@@ -834,8 +825,8 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  function finishArrayBuild(){
   if(cur()?.kind!=="array")return;
   // Validate before changing the picker or viewport. Counts include position 0.
-  const extent=visibleExtent();
-  selectingRotateInputs=false;viewExtent=extent;zoom=1;panX=0;panY=0;
+  const fit=fittedView();
+  selectingRotateInputs=false;applyViewFit(fit);
   $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
   $("ls-cad-activate-selection").classList.remove("active");
   $("ls-cad-selection-hint").textContent="Activate Selection to edit the input objects.";
@@ -923,7 +914,8 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
    {sep:true},menuAction("Booleans and Partitions","submenu",{children:["Union","Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
    menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
-   ...["Conversions","Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
+   menuAction("Conversions","submenu",{children:["Convert to Solid","Convert to Curve","Convert to Point","Split"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
+   ...["Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
@@ -1025,7 +1017,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-build-leave").addEventListener("change",e=>{buildOnLeave=e.target.checked;});
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
-  checkpoint();nodes=[];cumulativeSelections.length=0;activeCumulativeId=null;selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="m";
+  checkpoint();nodes=[];cumulativeSelections.length=0;activeCumulativeId=null;selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;viewCenterX=0;viewCenterY=0;rootLabel="Geometry 1";lengthUnit="m";
   const label=$("ls-cad-root-name");if(label)label.textContent=rootLabel;
   drawTree();draw();say("New 2D geometry created. Right-click Geometry 1 → Circle to add your first feature.");
  });
@@ -1038,7 +1030,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-add-array").addEventListener("click",()=>add("array"));
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
  $("ls-cad-add-mirror").addEventListener("click",()=>add("mirror"));
- $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;viewExtent=null;loadFields();say("Geometry restored to original Circle 1 and 2.");});
+ $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;viewCenterX=0;viewCenterY=0;loadFields();say("Geometry restored to original Circle 1 and 2.");});
  $("ls-cad-apply").addEventListener("click",apply);
  $("ls-cad-export").addEventListener("click",()=>{
   const doc={format:"LS Optical Geometry CAD v2",parameters:svc.rows(),geometry:nodes};
@@ -1183,7 +1175,10 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
- $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
+ $("ls-cad-fit").addEventListener("click",()=>{
+  try{applyViewFit(fittedView(graphicsShapes()));draw();say("Zoom Extents: all visible objects fitted and centered.");}
+  catch(e){say("Zoom Extents failed: "+e.message,true);}
+ });
  $("ls-cad-grid").addEventListener("click",()=>{if(adjacentView)adjacentGridOn=!adjacentGridOn;else gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
   if(pmlView){
@@ -1282,7 +1277,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"disable",F4:"enable",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();const id=document.activeElement?.dataset.cadNode;modify(actions[e.key]);if(id&&["F3","F4"].includes(e.key))document.querySelector('[data-cad-node="'+CSS.escape(id)+'"]')?.focus({preventScroll:true});}
  });
- $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
- $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
+ $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;viewCenterX=0;viewCenterY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
+ $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;viewCenterX=0;viewCenterY=0;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
  drawTree();updateHistoryButtons();
 })();

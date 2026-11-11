@@ -48,6 +48,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/geometry_array.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/test_geometry_array.mjs'
       - 'COMSOL/universal_silica_v01/web/tests/browser_geometry_array.mjs'
+      - 'COMSOL/universal_silica_v01/web/geometry_view.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/test_geometry_view.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/browser_zoom_extents_conversions.mjs'
       - '.github/workflows/comsol-style-workbench.yml'
 permissions:
   contents: read
@@ -67,6 +70,9 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/tests/browser_guidebook_interactions.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_wave_optics_settings.mjs
           node --check COMSOL/universal_silica_v01/web/comsol_geometry_cad.mjs
+          node --check COMSOL/universal_silica_v01/web/geometry_view.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_zoom_extents_conversions.mjs
+          node COMSOL/universal_silica_v01/web/tests/test_geometry_view.mjs
           node --check COMSOL/universal_silica_v01/web/geometry_array.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_geometry_array.mjs
           node COMSOL/universal_silica_v01/web/tests/test_geometry_array.mjs
@@ -107,6 +113,7 @@ jobs:
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/comsol-workspace-http.log 2>&1 &
           server=$!
           trap 'kill "$server" 2>/dev/null || true' EXIT
+          node COMSOL/universal_silica_v01/web/tests/browser_zoom_extents_conversions.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_geometry_array.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_guidebook_interactions.mjs
           node COMSOL/universal_silica_v01/web/tests/browser_comsol_workspace.mjs
@@ -166,6 +173,10 @@ jobs:
             /tmp/comsol_material_properties_resolved.png
             /tmp/comsol_material_valid_status_checks.png
             /tmp/comsol_definitions_rightclick_menu.png
+            /tmp/comsol_conversions_submenu.png
+            /tmp/comsol_zoom_extents_before.png
+            /tmp/comsol_zoom_extents_six_circles.png
+            /tmp/comsol_zoom_extents_pml_pick.png
             /tmp/comsol_geometry_boolean_partition_menu.png
             /tmp/comsol_geometry_transforms_array_menu.png
             /tmp/comsol_array_rectangular_settings.png

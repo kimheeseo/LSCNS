@@ -14,7 +14,7 @@ function buildMaterial(prefix,defaultD){
  return '<fieldset class="m2-material"><legend>'+prefix.toUpperCase()+' material</legend>'+
  '<label>Index model<select id="m2-'+prefix+'-mode">'+opts.map(([key,name])=>'<option value="'+key+'">'+esc(name)+'</option>').join("")+'</select></label>'+
  '<div class="m2-material-fields"><label>Δn offset<input id="m2-'+prefix+'-delta" type="number" value="'+defaultD+'" step=".001"/></label>'+
- '<label>Dopant concentration (mol%)<input id="m2-'+prefix+'-percent" type="number" value="1" min="0" step=".1"/></label>'+
+ '<label>Dopant (Ge/P: mol%; F: wt%)<input id="m2-'+prefix+'-percent" type="number" value="1" min="0" step=".1"/></label>'+
  '<label>Imaginary index κ (absorption only)<input id="m2-'+prefix+'-kappa" type="number" value="0" min="0" max=".02" step=".000001"/></label></div>'+
  '<details><summary>Custom wavelength, n, κ table (CSV/TSV)</summary><p>Sorted: wavelength_nm,n_real[,kappa]. At least 2 rows. No extrapolation.</p>'+
  '<textarea id="m2-'+prefix+'-table" spellcheck="false" rows="4" placeholder="1500,1.45,0&#10;1550,1.449,0&#10;1600,1.448,0"></textarea></details></fieldset>';
@@ -42,7 +42,7 @@ function init(){
  '<div class="m2-material-grid">'+buildMaterial("core",.005)+buildMaterial("clad",0)+'</div>'+
  '<div class="m2-actions"><button id="m2-run">▶ n(λ) 및 Scalar FEM 비교 계산</button><button id="m2-json" disabled>재료 구성 JSON 저장</button><label class="m2-file">재료 JSON 불러오기<input type="file" id="m2-import" accept=".json" hidden/></label></div>'+
  '<div id="m2-message" role="status">실행 전 · 기본값은 Pure silica + Δn offset 입니다.</div><div id="m2-results"></div>'+
- '<p class="eng-note">GeO₂ 계수는 fused GeO₂ 기준 농도 보간(0–30 mol%), F는 1%/2% 실측계수 보간(0–2%), P₂O₅는 9.1% 참고 조성 보간(0–9.1%)입니다. 혼합 조성의 실제 도핑·제조공정·흡수 데이터 검증값이 아닙니다. 현재 400–1700 nm 범위로 제한합니다.</p>'+
+ '<p class="eng-note">GeO₂ 계수는 fused GeO₂ 기준 농도 보간(0–30 mol%), F는 1/2 wt% 실측계수 보간(0–2 wt%), P₂O₅는 9.1% 참고 조성 보간(0–9.1%)입니다. 혼합 조성의 실제 도핑·제조공정·흡수 데이터 검증값이 아닙니다. 현재 400–1700 nm 범위로 제한합니다.</p>'+
  '<button type="button" id="m2-hide">접기</button>';
  nav.after(section);
  const show=()=>{section.hidden=false;section.scrollIntoView({block:"start",behavior:"smooth"});};

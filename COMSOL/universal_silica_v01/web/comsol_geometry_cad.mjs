@@ -355,6 +355,9 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     $("ls-cad-build-new").checked=buildOnNew;
     $("ls-cad-build-leave").checked=buildOnLeave;
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
+   $("ls-cad-form-enable").checked=!!formUnion.enabled;
+   $("ls-cad-form-interior").checked=!!formUnion.keepInterior;
+   $("ls-cad-form-repair").value=formUnion.repair||"Automatic";
     drawTree();draw();return;
    }
   if(!["rotate","mirror","array","union","deleteEntities"].includes(n.kind))selectingRotateInputs=false;
@@ -876,6 +879,8 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  function svg(w,h,mini=false){
   const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities"].includes(cur()?.kind)?availableInputs(cur()):compute();
+  const finalMerge=formUnion.enabled&&!selectingRotateInputs&&shapes.length>=2&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
+  const displayShapes=finalMerge?[buildUnionShape(shapes,{id:"root",selection:false,color:"None",keepInterior:formUnion.keepInterior})]:shapes;
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
   const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
@@ -908,7 +913,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   }
   const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
-   const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
+   const orderedShapes=selectingRotateInputs?[...displayShapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):displayShapes;
    const items=orderedShapes.map(shape=>{
    const x=ox+shape.x*scale,y=oy-shape.y*scale,r=shape.r*scale;
    const stroke=adjacentScene?"#222":shape.derived?"#7a8793":"#41484f";
@@ -933,7 +938,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
      outer=inner;
     }
    }
-   const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
+   const details=`${shape.owner} • ${shape.w?"Width "+formatLength(shape.w)+" × Height "+formatLength(shape.h):"Radius (outer) "+unit(shape.r*1e6)+" µm"}${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini||adjacentScene?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
    return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg,shape,scale)}</g>${layersMarkup}</g>${label}`;
   }).join("");

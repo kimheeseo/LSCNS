@@ -11,6 +11,7 @@
 - `tests/browser_m1_validation.mjs`: optional Playwright UI smoke including non-mutation of active preset, original neff cards and the existing controls.
 - `tests/m1_lp01_scipy_reference.py`: optional independent Python/SciPy root reference cross-check.
 - `M1_VALIDATION.md`: benchmark provenance, method, assumptions, tolerances and commands.
+- `M1_FULL_SOURCE.md`: copy-ready full source listing for all eight new modules, assets and regression scripts.
 
 ### Changed (minimum connection)
 - `solver.mjs`: **only** `VERSION` metadata `0.2.2 → 0.3.0`; solver assembly, convergence, material index, dispersion and result shape are unchanged.

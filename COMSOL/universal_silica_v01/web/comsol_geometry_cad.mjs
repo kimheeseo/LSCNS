@@ -405,7 +405,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    if(!options.length){
     const hint=document.createElement("p");
     hint.className="ls-cad-input-empty";
-    hint.textContent="No preceding Geometry input. Add a Circle before this Array, or move an existing Circle before it.";
+    hint.textContent=n.kind==="array"?"No preceding input. Add a Circle before this Array or move a source before it.":"No preceding input objects. Add a Circle or Rectangle before this feature.";
     list.append(hint);
     if(n.kind==="array"){
      const create=document.createElement("button");

@@ -192,24 +192,39 @@
    '</div><p class="ls-material-help">Right-click <b>Relative permeability</b>, <b>Relative permittivity</b>, or <b>Refractive index</b> → Add to Material. Enter values or Parameters expressions in Material Contents to receive valid Status checks.</p>';
  }
  function materialContents(material){
-  const added=material.properties?.includes("refractive-index");
-  if(!added)return '<p class="ls-material-help">No material properties added. Right-click Refractive index under Material Properties → Add to Material.</p>';
-  const state=resolvedIndex(material);
+  const indexAdded=material.properties?.includes("refractive-index");
+  const basicAdded=BASIC_EM_PROPERTIES.filter(property=>material.properties?.includes(property.id));
+  if(!indexAdded&&!basicAdded.length)
+   return '<p class="ls-material-help">No material properties added. Right-click a Basic Properties item or Refractive index → Add to Material.</p>';
+  const state=indexAdded?resolvedIndex(material):null;
   const statusIcon=valid=>valid
    ?'<span class="ls-material-valid" role="img" aria-label="Valid property" title="Valid expression">✓</span>'
    :'<span class="ls-material-invalid" role="img" aria-label="Invalid property" title="Invalid or missing expression">!</span>';
-  const realIcon=statusIcon(state.realValid),imagIcon=statusIcon(state.imagValid);
   const num=value=>Number.isFinite(value)?Number(value.toPrecision(9)).toString():"—";
-  return '<table class="ls-material-values"><thead><tr><th>Status</th><th>Property</th><th>Variable</th><th>Value / Expression</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+
-   '<tr data-ls-material-index-row="real" class="'+(activeRefractiveRow==="real"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="real")+'"><td data-ls-real-state>'+realIcon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="real">Refractive index, real part</button></td><td>n_iso</td>'+
-   '<td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real)+'" placeholder="e.g. nbg or 1.45" /></td><td>1</td><td>Refractive index</td></tr>'+
-   '<tr data-ls-material-index-row="imag" class="'+(activeRefractiveRow==="imag"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="imag")+'"><td data-ls-imag-state>'+imagIcon+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="imag">Refractive index, imaginary part</button></td><td>ki_iso</td>'+
-   '<td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag)+'" placeholder="0" /></td><td>1</td><td>Refractive index</td></tr>'+
-   '</tbody></table>'+
-   '<div id="ls-material-evaluated" class="ls-material-evaluated '+(state.valid?"is-valid":"is-invalid")+'" aria-live="polite">'+
+  let rows="";
+  if(indexAdded){
+   rows+='<tr data-ls-material-index-row="real" class="'+(activeRefractiveRow==="real"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="real")+'"><td data-ls-real-state>'+statusIcon(state.realValid)+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="real">Refractive index, real part</button></td><td>n_iso</td>'+
+    '<td><input id="ls-material-real" aria-label="Refractive index real part" value="'+safe(material.real??"")+'" placeholder="e.g. nbg or 1.45" /></td><td>1</td><td>Refractive index</td></tr>';
+   rows+='<tr data-ls-material-index-row="imag" class="'+(activeRefractiveRow==="imag"?"is-active":"")+'" aria-selected="'+(activeRefractiveRow==="imag")+'"><td data-ls-imag-state>'+statusIcon(state.imagValid)+'</td><td><button type="button" class="ls-material-index-label" data-ls-material-label="imag">Refractive index, imaginary part</button></td><td>ki_iso</td>'+
+    '<td><input id="ls-material-imag" aria-label="Refractive index imaginary part" value="'+safe(material.imag??"")+'" placeholder="0" /></td><td>1</td><td>Refractive index</td></tr>';
+  }
+  for(const property of basicAdded){
+   const result=basicEMState(material,property),id=property.id;
+   rows+='<tr data-ls-material-basic-row="'+safe(id)+'"><td data-ls-basic-state="'+safe(id)+'">'+statusIcon(result.valid)+'</td>'+
+    '<td><button type="button" class="ls-material-index-label" data-ls-basic-label="'+safe(id)+'">'+safe(property.name)+'</button></td>'+
+    '<td>'+safe(property.variable)+'</td>'+
+    '<td><input type="text" data-ls-basic-value="'+safe(id)+'" aria-label="'+safe(property.name)+' value" value="'+safe(result.expression)+'" aria-invalid="'+(!result.valid)+'" placeholder="Enter expression" /></td>'+
+    '<td>1</td><td>Basic Properties</td></tr>';
+  }
+  let html='<table class="ls-material-values"><thead><tr><th>Status</th><th>Property</th><th>Variable</th><th>Value / Expression</th><th>Unit</th><th>Property group</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  if(indexAdded){
+   html+='<div id="ls-material-evaluated" class="ls-material-evaluated '+(state.valid?"is-valid":"is-invalid")+'" aria-live="polite">'+
     (state.valid?'Applied to assigned Geometry domains: <b>n_iso = '+num(state.real)+'</b>, <b>ki_iso = '+num(state.imag)+'</b>.':
-     'Not applied: '+safe(state.error))+'</div>'+
-   '<p class="ls-material-help">Parameters 1 expressions (e.g. nbg, nair, nbg+0.005) are evaluated numerically. The evaluated index is attached to the Geometry preview domains, but is not passed to the current radial FEM or a full-vector EWFD solver.</p>';
+     'Not applied: '+safe(state.error))+'</div>';
+  }
+  if(basicAdded.length)html+='<p class="ls-material-help">Relative permeability (mur_iso) and relative permittivity (epsilonr_iso) are dimensionless. Status updates when each scalar expression is valid. Values are saved in the material preview but are not yet passed to the FEM solver.</p>';
+  if(indexAdded)html+='<p class="ls-material-help">Parameters 1 expressions (e.g. nbg, nair, nbg+0.005) are evaluated numerically for the Geometry preview domains, not for the current radial FEM or full-vector EWFD solver.</p>';
+  return html;
  }
  function activateRefractiveRow(which,focusInput=false){
   if(which!=="real"&&which!=="imag")return;

@@ -1,5 +1,5 @@
 import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
-import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=20261111-cad-booleans-v1";
+import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=20261111-cad-booleans-v2";
 (function geometryCad(){
  "use strict";
  const $=id=>document.getElementById(id),side=document.querySelector(".layout > .sidebar"),main=document.querySelector("main.workspace"),svc=window.LSWaveParameterService;
@@ -208,7 +208,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
  window.LSWaveCADService=Object.freeze({
   status,apply:()=>apply(),
-  entities:()=>compute().map(({entityKey,owner,source,r,x,y,layers,derived})=>({entityKey,owner,source,r,x,y,layers:[...layers],derived})),
+  entities:()=>compute().map(({entityKey,owner,source,kind,r,w,h,x,y,layers,derived,contours})=>({entityKey,owner,source,kind,r,w,h,x,y,layers:[...(layers||[])],derived,contourCount:contours?.length||0})),
   // Live named Geometry selections, including the features that contribute
   // their resulting entities. Materials may reference these by stable ID.
   domains:()=>materialDomains().map(d=>({...d,holeCircles:d.holeCircles.map(h=>({...h}))})),
@@ -884,7 +884,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  function svg(w,h,mini=false){
   const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities"].includes(cur()?.kind)?availableInputs(cur()):compute();
-  const finalMerge=formUnion.enabled&&!selectingRotateInputs&&shapes.length>=2&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
+  const finalMerge=formUnion.enabled&&!selectingRotateInputs&&shapes.length>=2&&shapes.length<=200&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
   const displayShapes=finalMerge?[buildUnionShape(shapes,{id:"root",selection:false,color:"None",keepInterior:formUnion.keepInterior})]:shapes;
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
@@ -1259,6 +1259,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   try{const shapes=compute();if(!shapes.length)throw Error("Create a Circle or Rectangle first.");
    if(!shapes.every(v=>v.solid&&(v.sector??360)>=359.999))throw Error("Preview Form Union requires complete solid objects.");
    checkpoint();formUnion.enabled=true;$("ls-cad-form-enable").checked=true;
+   if(shapes.length>200)throw Error("Viewport union supports at most 200 objects.");
    if(shapes.length>1)buildUnionShape(shapes,{id:"root",keepInterior:formUnion.keepInterior,selection:false,color:"None"});
    draw();say("Form Union preview built from "+shapes.length+" solid Geometry object(s).");
   }catch(err){say("Form Union failed: "+err.message,true);}

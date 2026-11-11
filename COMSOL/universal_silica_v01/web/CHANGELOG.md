@@ -1,5 +1,34 @@
 # CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
 
+## v0.5.1 — 2026-11-12 — M1 Quantitative Verification only
+
+### Added (independent, feature-flagged)
+- `m1q_cases.mjs`: four fixed step-index LP01 fixtures (actual official COMSOL App 145: a=8 µm; separate user-requested a=4.1 µm/Δn=0.005; V<2.405; λ=1310 nm) and exact v0.5.0 pre-update five-preset numeric snapshots.
+- `m1q_engine.mjs`: existing scalar Radial FEM compared read-only to independent `validation_lp01.mjs` Bessel oracle with independently computed SciPy reference numbers; before/after neff/MFD/Aeff/D regression for five original presets.
+- `m1q_export.mjs`: separate schemaVersion:1 M1 verification JSON and UTF-8 CSV; existing design/result JSON/CSV/PNG unchanged.
+- `m1q_ui.mjs` / `m1q_ui.css`: optional `06 · NUMERICAL VERIFICATION(해석해 대비)` section, four-case absolute/relative error table, PASS/FAIL, old/new comparison table and Export buttons. Disable by setting `window.LSWaveFeatures.m1Quantitative=false` before module load.
+- `tests/test_m1_quantitative.mjs`, `tests/m1q_reference_scipy.py`, `tests/browser_m1_quantitative.mjs`: fixed-case, SciPy Bessel/Brent, previous-output preservation, export and optional Playwright browser tests.
+- `M1Q_VALIDATION.md` and `M1Q_FULL_SOURCE.md`: complete source code, minimal diffs, benchmark provenance, error tolerances and verification caveats.
+
+### Minimal existing file patches
+- `solver.mjs`: **VERSION only** 0.5.0 → 0.5.1 (no changes to FEM assembly/dispersion).
+- `app.mjs`: original `solver.mjs` import cache URL only updated to `?v=v0.5.1`.
+- `index.html`: header `v0.5 → v0.5.1`, app and existing legacy M1 static asset URLs `?v=v0.5.1`, plus the new M1 CSS/JS import. Static `06 · SOLVER DIAGNOSTICS` display number updated to 07 to avoid collision; existing diagnostics ID/logic unchanged.
+- No modifications to M2/M3, HCF, MCF, PMD, Full-vector, Geometry, PML, saved design schema, original controls or user data.
+- **Version alignment**: page banner `v0.5.1` = public URL `?v=v0.5.1` = M1 asset cache `?v=v0.5.1` = CHANGELOG `v0.5.1`. Older module-specific asset tags retain their original historical versions because their code was not changed.
+
+### Benchmarks and validation — JS source executed
+- Official COMSOL App 145 source parameters: 1550 nm, a=8 µm, ncore=1.4457, nclad=1.4378; public rounded vector HE11 neff≈1.4444. Independent scalar LP01 analytic neff=1.4444018444092133; existing P1 FEM=1.444401819379318; |Δ|=2.50299e-8.
+- **User-requested separate** a=4.1 µm, Δn=0.005, fixed nclad=1.4440 at 1550 nm: LP01=1.446081132401304; FEM=1.4460810799949255; |Δ|=5.24064e-8. This is **not a published COMSOL reference value**.
+- Low V case (V≈1.598623, Δn=0.0032): LP01=1.444863128995567; FEM=1.4448631048897878; |Δ|=2.41058e-8.
+- 1310 nm, a=4.1 µm, Δn=0.005, fixed nclad=1.4440: LP01=1.446608620045317; FEM=1.4466085591149294; |Δ|=6.09304e-8. Actual material dispersion is **unverified**.
+- **4/4** scalar FEM–LP01 cases PASS with |Δneff|≤1e-6; independent SciPy reference comparison tolerance ≤1e-10 and FEM eigen-residual ≤1e-7.
+- Five v0.5.0 presets have **identical current neff, MFD(PII), Aeff and D** (20/20 before/after metrics within numerical tolerance). The previous M1 28-check numerical regression remains available.
+- Numerical engine and CSV/JSON serialization were executed as source in the JS evaluation environment; independent SciPy Bessel roots were evaluated. The checked-in optional Node/Playwright tests and deployed-browser click operations have **not** yet been executed against the public site.
+
+### Explicit exclusions
+Not validated: user's 4.1 µm model against actual COMSOL output, full-vector/HE11 precision outside published four-digit result, n(λ) dispersion at fixed nclad, M2 material physical accuracy, M3 vector convergence, PML, HCF, MCF, bend/confinement losses, manufacturer/fiber measurements. No M2–M6 work performed in this patch.
+
 ## v0.5.0 — 2026-11-12 — M3 Browser full-vector FDFD
 
 ### Added

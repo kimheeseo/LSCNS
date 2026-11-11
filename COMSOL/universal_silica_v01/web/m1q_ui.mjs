@@ -25,7 +25,8 @@ function caseRows(report){
    " µm; Δn="+x.delta_n_core+"; n_clad="+x.n_clad+
    "; R="+x.outer_radius_um+" µm; N="+x.elements;
   return '<tr data-m1q-case="'+esc(c.id)+'" class="'+(c.passed?"is-pass":"is-fail")+'">'+
-   '<td><b>'+esc(c.name)+'</b><small>'+esc(c.sourceType)+'</small></td>'+
+   '<td><b>'+esc(c.name)+'</b><small>'+esc(c.sourceType)+'</small>'+
+   '<small>COMSOL 직접 비교: '+esc(c.comsolStatus)+'</small></td>'+
    '<td>'+esc(params)+'<small>V='+fmt(c.V)+'</small></td>'+
    '<td>'+fmt(c.analyticNeff)+'</td><td>'+fmt(c.femNeff)+'</td>'+
    '<td>'+sci(c.absError)+'</td><td>'+sci(c.relativePercent)+'%</td>'+

@@ -203,3 +203,26 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 #ls-cad-rectangle .ls-cad-field{grid-template-columns:120px minmax(0,1fr) 34px}
 #ls-cad-rectangle input,#ls-cad-rectangle select{min-width:0}
 #ls-cad-form-repair{min-width:0}
+
+/* COMSOL screenshot parity: Ellipse, Difference, and object picking. */
+#ls-cad-ellipse .ls-cad-field{grid-template-columns:120px minmax(0,1fr) 35px}
+#ls-cad-ellipse input,#ls-cad-ellipse select{min-width:0}
+#ls-cad-difference-controls .ls-cad-section{margin:4px 0 12px}
+#ls-cad-difference-controls .ls-cad-block-label{padding:10px 10px 4px;font-weight:550}
+#ls-cad-difference-controls .ls-cad-selection-row{margin:2px 10px 8px}
+#ls-cad-difference-controls .ls-cad-inputs{min-height:94px;max-height:165px;background:white}
+#ls-cad-difference-controls .ls-cad-selection-row button[id^="ls-cad-diff-pick"]{
+ flex:0 0 38px;align-self:flex-start;height:30px;
+ border:1px solid #99adbf;border-radius:3px;background:#f3f7fa;
+ color:#657888;font-size:11px;font-weight:650;cursor:pointer
+}
+#ls-cad-difference-controls .ls-cad-selection-row button[id^="ls-cad-diff-pick"].active{
+ color:#175994;background:#dcefff;border:2px solid #347fb7
+}
+#ls-cad-diff-sub-inputs label:has(input:checked){background:#ffede1;color:#925132}
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected.is-subtract-input .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected.is-subtract-input:hover .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-input-selected.is-subtract-input.is-hovered .ls-cad-rendered-surface{
+ fill:#f0bf9d!important;fill-opacity:.93!important;stroke:#ba6330!important;stroke-width:2.3!important;
+ filter:drop-shadow(0 0 2px #e2a57499)
+}

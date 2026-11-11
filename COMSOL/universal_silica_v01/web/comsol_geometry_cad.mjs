@@ -277,7 +277,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  // arrays. Changing the camera must not change shape geometry.
  function zoomExtents(){
   // Input-selection mode renders the preceding source objects instead.
-  const shapes=selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();
+  const shapes=selectingRotateInputs&&["array","union","deleteEntities","difference"].includes(cur()?.kind)?availableInputs(cur()):compute();
   if(!shapes.length)throw Error("No visible Geometry objects to fit.");
   let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
   for(const shape of shapes){
@@ -1007,7 +1007,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   return chosen;
  }
  function svg(w,h,mini=false){
-  const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities"].includes(cur()?.kind)?availableInputs(cur()):compute();
+  const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities","difference"].includes(cur()?.kind)?availableInputs(cur()):compute();
   const finalMerge=formUnion.enabled&&(formUnion.mode||"union")==="union"&&!selectingRotateInputs&&shapes.length>=2&&shapes.length<=200&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
   const displayShapes=finalMerge?[buildUnionShape(shapes,{id:"root",selection:false,color:"None",keepInterior:formUnion.keepInterior})]:shapes;
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
@@ -1040,7 +1040,12 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
+  const isSelectedInput=shape=>{
+   if(adjacentScene||!selectingRotateInputs)return false;
+   if(cur()?.kind==="difference")return (cur().addRefs||[]).includes(shape.entityKey)||(cur().subtractRefs||[]).includes(shape.entityKey);
+   return ["rotate","mirror","array","union","deleteEntities"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
+  };
+  const isSubtractInput=shape=>!adjacentScene&&selectingRotateInputs&&cur()?.kind==="difference"&&(cur().subtractRefs||[]).includes(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
    const orderedShapes=selectingRotateInputs?[...displayShapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):displayShapes;
    const items=orderedShapes.map(shape=>{
@@ -1050,7 +1055,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    const fill=adjacentScene&&shape.solid?"#ccc":shape.solid?(shape.selection&&colors[shape.color]?colors[shape.color]:"#ced0d1"):"none";
    let layersMarkup="",covered=0,outer=shape.r;
    const interior=[];
-   if(shape.sector>=359.999&&!shape.w&&shape.kind!=="union"){
+   if(shape.sector>=359.999&&!shape.w&&!shape.a&&!["union","difference"].includes(shape.kind)){
     for(const [layerIndex,thickness] of (shape.layers||[]).entries()){
      if(thickness<=0)continue;
      covered+=thickness;const inner=shape.r-covered;
@@ -1067,9 +1072,9 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
      outer=inner;
     }
    }
-   const details=`${shape.owner} • ${shape.w?"Width "+formatLength(shape.w)+" × Height "+formatLength(shape.h):"Radius (outer) "+unit(shape.r*1e6)+" µm"}${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
+   const details=`${shape.owner} • ${shape.w?"Width "+formatLength(shape.w)+" × Height "+formatLength(shape.h):shape.a?"a "+formatLength(shape.a)+" × b "+formatLength(shape.b):["union","difference"].includes(shape.kind)?"Boolean result":"Radius (outer) "+unit(shape.r*1e6)+" µm"}${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini||adjacentScene?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg,shape,scale)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${isSubtractInput(shape)?" is-subtract-input":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg,shape,scale)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);
@@ -1117,7 +1122,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  }
  function open(id){
   activeCumulativeId=null;
-  if(id&&id!==selected){selectingRotateInputs=false;selectedEntityKeys.clear();}
+  if(id&&id!==selected){selectingRotateInputs=false;differencePickGroup=null;selectedEntityKeys.clear();}
   if(id==="root"||id==="fin")selected=id;else if(id&&nodes.some(n=>n.id===id))selected=id;
   if(selected!=="root"&&selected!=="fin"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
@@ -1140,7 +1145,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
  function add(kind,pos=nodes.length){
-  selectingRotateInputs=["array","union","deleteEntities"].includes(kind);
+  selectingRotateInputs=["array","union","deleteEntities"].includes(kind);differencePickGroup=null;
   checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;
   // Auto-pick only when exactly one preceding object exists.
   if(kind==="array"){
@@ -1161,7 +1166,15 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   // A failed build never changes the Geometry viewport or undo history.
   for(let i=0;i<=Math.min(end,nodes.length-1);i++){
    const node=nodes[i];
-   if(!node?.enabled||!["array","union","deleteEntities"].includes(node.kind))continue;
+   if(!node?.enabled||!["array","union","deleteEntities","difference"].includes(node.kind))continue;
+    if(node.kind==="difference"){
+     const sources=availableInputs(node),ids=new Set(sources.map(x=>x.entityKey));
+     const adds=(node.addRefs||[]).filter(key=>ids.has(key));
+     const subs=(node.subtractRefs||[]).filter(key=>ids.has(key));
+     if(!adds.length||!subs.length)throw Error(node.label+": select at least one Object to add and one Object to subtract.");
+     if(adds.some(id=>subs.includes(id)))throw Error(node.label+": an input cannot be in both Difference groups.");
+     continue;
+    }
    const available=availableInputs(node);
    const selectedRefs=selectedInputKeys(node,available);
    const count=available.filter(shape=>selectedRefs.has(shape.entityKey)).length;
@@ -1171,9 +1184,9 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   }
  }
  function finishArrayBuild(){
-  if(!["array","union","deleteEntities"].includes(cur()?.kind))return;
+  if(!["array","union","deleteEntities","difference"].includes(cur()?.kind))return;
   // Fit generated Geometry outputs instead of its source-object picking view.
-  selectingRotateInputs=false;
+  selectingRotateInputs=false;differencePickGroup=null;
   if(compute().length)zoomExtents();
   $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
   $("ls-cad-activate-selection").classList.remove("active");
@@ -1183,13 +1196,13 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   const idx=index(selected),n=cur();
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
-   case "circle":case "rectangle":case "rotate":case "mirror":case "array":case "union":case "deleteEntities":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
+   case "circle":case "ellipse":case "rectangle":case "rotate":case "mirror":case "array":case "union":case "difference":case "deleteEntities":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
    case "build-all":
     try{
      assertArrayInputsThrough(nodes.length-1);
      compute(nodes.length-1); // Validate before committing a Build state.
      checkpoint();limit=null;finishArrayBuild();
-     if(!["array","union","deleteEntities"].includes(n?.kind))lockViewIfNeeded();
+     if(!["array","union","deleteEntities","difference"].includes(n?.kind))lockViewIfNeeded();
      draw();say("Built All: "+compute().map(shapeSummary).join("; "));
     }catch(e){say("Build failed: "+e.message,true);}
     return;
@@ -1200,12 +1213,13 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
      assertArrayInputsThrough(idx);
      compute(idx); // Keep prior Build limit on failure.
      checkpoint();limit=idx;finishArrayBuild();
-     if(!["array","union","deleteEntities"].includes(n.kind))lockViewIfNeeded();
+     if(!["array","union","deleteEntities","difference"].includes(n.kind))lockViewIfNeeded();
      draw();
      const outputs=compute().filter(shape=>shape.owner===n.id);
      if(n.kind==="array"&&outputs.length===1)
       say("Built 1 circle only: Linear Size = 1. Set Size to 6 and displacement x, then Build Selected.");
-     else if(n.kind==="deleteEntities")say("Delete Entities: selected Domain object(s) removed from downstream Graphics preview.");
+     else if(n.kind==="deleteEntities")say("Delete Entities: selected Object(s) removed from downstream Graphics preview.");
+     else if(n.kind==="difference")say("Difference: "+outputs.length+" result object(s) built (sampled 2D preview).");
      else if(n.kind==="union")say("Union: "+outputs.length+" merged outline object built (sampled 2D preview).");
      else say("Built Selected: "+outputs.length+" object(s) from "+n.label+".");
     }catch(e){say("Build failed: "+e.message,true);}
@@ -1283,16 +1297,16 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  function menuItems(scope){
   if(scope==="root")return [
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
-   menuAction("Circle","circle"),menuAction("Ellipse","disabled",{disabled:true}),menuAction("Rectangle","rectangle"),...["Square","Bézier Polygon","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon"].map(t=>menuAction(t,"disabled",{disabled:true})),
-   {sep:true},menuAction("Booleans and Partitions","submenu",{children:[menuAction("Union","union"),...["Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))]}),
+   menuAction("Circle","circle"),menuAction("Ellipse","ellipse"),menuAction("Rectangle","rectangle"),...["Square","Bézier Polygon","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon"].map(t=>menuAction(t,"disabled",{disabled:true})),
+   {sep:true},menuAction("Booleans and Partitions","submenu",{children:[menuAction("Union","union"),menuAction("Intersection","disabled",{disabled:true}),menuAction("Difference","difference"),...["Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))]}),
    menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
    menuAction("Conversions","submenu",{children:["Convert to Solid","Convert to Curve","Convert to Point","Split"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
     menuAction("Chamfer","disabled",{disabled:true}),menuAction("Fillet","disabled",{disabled:true}),menuAction("Tangent","disabled",{disabled:true}),menuAction("Delete Entities","deleteEntities"),menuAction("Edit Object","disabled",{disabled:true}),...["Parts","Programming","Selections","Measure","Insert Sequence","Export","Delete Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
-   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rectangle","rectangle",{pos:"before"}),menuAction("Union","union",{pos:"before"}),menuAction("Delete Entities","deleteEntities",{pos:"before"}),menuAction("Array","array",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
-   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rectangle","rectangle",{pos:"after"}),menuAction("Union","union",{pos:"after"}),menuAction("Delete Entities","deleteEntities",{pos:"after"}),menuAction("Array","array",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
+   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Ellipse","ellipse",{pos:"before"}),menuAction("Rectangle","rectangle",{pos:"before"}),menuAction("Union","union",{pos:"before"}),menuAction("Difference","difference",{pos:"before"}),menuAction("Delete Entities","deleteEntities",{pos:"before"}),menuAction("Array","array",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
+   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Ellipse","ellipse",{pos:"after"}),menuAction("Rectangle","rectangle",{pos:"after"}),menuAction("Union","union",{pos:"after"}),menuAction("Difference","difference",{pos:"after"}),menuAction("Delete Entities","deleteEntities",{pos:"after"}),menuAction("Array","array",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
    menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
    menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:cur()?.enabled?"F3":"F4"}),menuAction("Rename","rename",{shortcut:"F2"}),
@@ -1638,7 +1652,22 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape,level:materialEntityLevel}}));
    return;
   }
-  if(selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(node?.kind)){
+  if(selectingRotateInputs&&node?.kind==="difference"&&differencePickGroup){
+    const candidates=availableInputs(node);
+    const key=shape.dataset.cadEntity;
+    if(!candidates.some(item=>item.entityKey===key)){say("Pick a preceding Geometry object.",true);return;}
+    checkpoint();
+    const primary=differencePickGroup==="add"?"addRefs":"subtractRefs";
+    const secondary=differencePickGroup==="add"?"subtractRefs":"addRefs";
+    const refs=new Set(node[primary]||[]);
+    if(refs.has(key))refs.delete(key);else refs.add(key);
+    node[primary]=[...refs];
+    if(refs.has(key))node[secondary]=(node[secondary]||[]).filter(v=>v!==key);
+    loadFields();
+    say(entityLabel(candidates.find(item=>item.entityKey===key))+" "+(refs.has(key)?"added to ":"removed from ")+differencePickGroup+" inputs.");
+    return;
+   }
+   if(selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(node?.kind)){
    const key=shape.dataset.cadEntity;
    const available=availableInputs(node);
    if(!available.some(s=>s.entityKey===key)){say("Select an individual preceding Geometry object (c2/rot1 output).",true);return;}

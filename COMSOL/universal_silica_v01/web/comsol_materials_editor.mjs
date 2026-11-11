@@ -492,8 +492,9 @@
   if(!propertyMenu.hidden&&!propertyMenu.contains(e.target))propertyMenu.hidden=true;
  });
  pane.addEventListener("contextmenu",e=>{
-  const property=e.target.closest('[data-ls-property="Refractive index"]');
-  if(!property)return;
+  const property=e.target.closest("[data-ls-property]");
+  if(!property||property.matches(":disabled"))return;
+  if(property.dataset.lsProperty!=="Refractive index"&&!BASIC_EM_PROPERTIES.some(p=>p.name===property.dataset.lsProperty))return;
   e.preventDefault();e.stopPropagation();
   propertyContextName=property.dataset.lsProperty;
   propertyMenu.style.left=Math.max(6,Math.min(e.clientX,window.innerWidth-200))+"px";
@@ -501,11 +502,21 @@
   propertyMenu.hidden=false;
  });
  propertyMenu.addEventListener("click",e=>{
-  if(e.target.closest("#ls-material-property-add")&&propertyContextName==="Refractive index")addRefractiveIndex();
+  if(!e.target.closest("#ls-material-property-add"))return;
+  if(propertyContextName==="Refractive index")addRefractiveIndex();
+  else addBasicEMProperty(propertyContextName);
  });
  pane.addEventListener("click",e=>{
   const label=e.target.closest("[data-ls-material-label]");
   if(label){activateRefractiveRow(label.dataset.lsMaterialLabel,true);return;}
+  const basicLabel=e.target.closest("[data-ls-basic-label]");
+  if(basicLabel){
+   const input=pane.querySelector('[data-ls-basic-value="'+basicLabel.dataset.lsBasicLabel+'"]');
+   const section=input?.closest("details");
+   if(section)section.open=true;
+   input?.focus();
+   return;
+  }
   if(e.target.closest("#ls-material-close")){close();return;}
   if(e.target.closest('[data-material-command="blank"]')){contextMaterialId=null;blank();return;}
   if(e.target.closest('[data-material-command="duplicate"]')){contextMaterialId=activeId;duplicate();return;}
@@ -542,6 +553,10 @@
   warning="Updated "+level.toLowerCase()+" selection.";render();pickChanged(manualPick);
  });
  pane.addEventListener("toggle",e=>{
+  if(e.target.matches?.(".ls-material-property-group")){
+   const group=e.target.dataset.lsPropertyGroup;
+   if(group){if(e.target.open)expandedPropertyGroups.add(group);else expandedPropertyGroups.delete(group);}
+  }
   if(e.target.matches?.(".ls-material-refractive-node")){
    refractiveDetailsExpanded=e.target.open;
    if(!e.target.open)return;
@@ -558,6 +573,14 @@
   if(e.target.id==="ls-material-label"){material.label=e.target.value;treeRender();}
   if(e.target.id==="ls-material-real"){material.real=e.target.value;activateRefractiveRow("real");updateMaterialEvaluation(material);}
   if(e.target.id==="ls-material-imag"){material.imag=e.target.value;activateRefractiveRow("imag");updateMaterialEvaluation(material);}
+  const basicInput=e.target.closest("[data-ls-basic-value]");
+  if(basicInput){
+   const property=BASIC_EM_PROPERTIES.find(p=>p.id===basicInput.dataset.lsBasicValue);
+   if(!property||!material.properties?.includes(property.id))return;
+   material.basicPropertyValues??={};
+   material.basicPropertyValues[property.id]=basicInput.value;
+   updateMaterialEvaluation(material);
+  }
  });
  pane.addEventListener("change",e=>{
   const material=materials.find(x=>x.id===activeId);if(!material)return;
@@ -644,6 +667,13 @@
  document.addEventListener("ls-open-cad",close);
  document.addEventListener("ls-open-wave-optics",close);
  document.addEventListener("ls-open-settings",close);
- window.LSWaveMaterialsEditor=Object.freeze({list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel}})),domains:getDomains,entities:getEntities,resolve:resolvedIndex,assignments:previewAssignments});
+ window.LSWaveMaterialsEditor=Object.freeze({
+  list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel},properties:[...(m.properties||[])],basicPropertyValues:{...(m.basicPropertyValues||{})}})),
+  domains:getDomains,entities:getEntities,resolve:resolvedIndex,assignments:previewAssignments,
+  basicProperties:id=>{
+   const material=materials.find(m=>m.id===id);
+   return material?BASIC_EM_PROPERTIES.filter(p=>material.properties?.includes(p.id)).map(p=>({id:p.id,name:p.name,variable:p.variable,...basicEMState(material,p)})):[];
+  }
+ });
  treeRender();
 })();

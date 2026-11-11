@@ -330,6 +330,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   const list=$("ls-geometry-node-list");if(!list)return;
   renderCumulativeTree();
   list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="rectangle"?"▣":n.kind==="array"?"▦":n.kind==="union"?"∪":n.kind==="deleteEntities"?"⌫":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
+  list.insertAdjacentHTML("beforeend",'<button type="button" data-cad-form-union="true" class="ls-tree-leaf ls-cad-node" title="Form Union finalization Settings">∪ Form Union <small>(fin)</small></button>');
  }
  function loadFields(){
   const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
@@ -1247,6 +1248,17 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  document.addEventListener("ls-cad-add",e=>add(["rotate","mirror","array"].includes(e.detail?.kind)?e.detail.kind:"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
+ $("ls-cad-form-enable").addEventListener("change",e=>{checkpoint();formUnion.enabled=e.target.checked;draw();});
+ $("ls-cad-form-interior").addEventListener("change",e=>{checkpoint();formUnion.keepInterior=e.target.checked;draw();});
+ $("ls-cad-form-repair").addEventListener("change",e=>{checkpoint();formUnion.repair=e.target.value;draw();});
+ $("ls-cad-form-build").addEventListener("click",()=>{
+  try{const shapes=compute();if(!shapes.length)throw Error("Create a Circle or Rectangle first.");
+   if(!shapes.every(v=>v.solid&&(v.sector??360)>=359.999))throw Error("Preview Form Union requires complete solid objects.");
+   checkpoint();formUnion.enabled=true;$("ls-cad-form-enable").checked=true;
+   if(shapes.length>1)buildUnionShape(shapes,{id:"root",keepInterior:formUnion.keepInterior,selection:false,color:"None"});
+   draw();say("Form Union preview built from "+shapes.length+" solid Geometry object(s).");
+  }catch(err){say("Form Union failed: "+err.message,true);}
+ });
  $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
  $("ls-cad-root-unit").addEventListener("change",e=>{checkpoint();lengthUnit=e.target.value;draw();});
  $("ls-cad-angle-unit").addEventListener("change",e=>{angleUnit=e.target.value;});
@@ -1321,6 +1333,16 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   });
  }
  $("ls-cad-label").addEventListener("input",e=>{if(!cur())return;checkpoint();cur().label=e.target.value;drawTree();});
+ for(const key of ["type","width","height","base","x","y","rotation"]){
+  const el=$("ls-cad-rect-"+key);
+  el.addEventListener(key==="type"||key==="base"?"change":"input",e=>{
+   const n=cur();if(n?.kind!=="rectangle")return;
+   checkpoint();n[key]=e.target.value;draw();
+  });
+ }
+ $("ls-cad-union-keep").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keep=e.target.checked;draw();});
+ $("ls-cad-union-interior").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keepInterior=e.target.checked;draw();});
+ $("ls-cad-delete-level").addEventListener("change",e=>{const n=cur();if(n?.kind!=="deleteEntities")return;checkpoint();n.deleteLevel=e.target.value;draw();});
 
  $("ls-cad-add-layer").addEventListener("click",()=>{
   const n=cur();if(!n||n.kind!=="circle")return;
@@ -1420,7 +1442,12 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   if(cumulativeSelections.some(v=>v.label.toLowerCase()===name.toLowerCase())){e.preventDefault();$("ls-cad-cumulative-error").hidden=false;$("ls-cad-cumulative-error").textContent="Selection name already exists.";}
  });
  document.querySelector(".ls-model-tree")?.addEventListener("click",e=>{
-  const selection=e.target.closest("[data-cad-cumulative-id]");
+  if(e.target.closest("[data-cad-form-union]")){
+    open("root");$("ls-cad-finalization").open=true;
+    say("Form Union finalization settings. Preview only; not a 2D FEM union.");
+    return;
+   }
+   const selection=e.target.closest("[data-cad-cumulative-id]");
   if(selection)openCumulative(selection.dataset.cadCumulativeId);
  });
 

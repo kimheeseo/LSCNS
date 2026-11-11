@@ -1,4 +1,5 @@
 import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
+import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=20261111-cad-booleans-v1";
 (function geometryCad(){
  "use strict";
  const $=id=>document.getElementById(id),side=document.querySelector(".layout > .sidebar"),main=document.querySelector("main.workspace"),svc=window.LSWaveParameterService;
@@ -9,19 +10,20 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let selectedEntityKeys=new Set(); // Individually picked Array outputs.
+ let formUnion={enabled:false,keepInterior:true,repair:"Automatic"};
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
  let adjacentView=false,adjacentGridOn=false,adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
  let pmlView=false,pmlPickMode=false,pmlDomainKeys=new Set();
- function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent,selectedEntityKeys:[...selectedEntityKeys]};}
+ function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent,formUnion:structuredClone(formUnion),selectedEntityKeys:[...selectedEntityKeys]};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
   if($("ls-cad-redo"))$("ls-cad-redo").disabled=!redoStack.length;
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);formUnion=structuredClone(state.formUnion||{enabled:false,keepInterior:true,repair:"Automatic"});const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -45,7 +47,13 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
     <label class="ls-cad-check"><input id="ls-cad-build-leave" type="checkbox" checked/> Build automatically when leaving geometry</label>
    </details>
    <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select a Geometry feature to edit. Build All regenerates the 2D preview.</p></details>
-   <details class="ls-cad-section" open><summary>Finalization</summary><p class="ls-cad-sequence-note">Form Union (UI reference). General-purpose 2D Boolean domains are not computed by the radial FEM.</p></details>
+   <details class="ls-cad-section" id="ls-cad-finalization" open><summary>Finalization · Form Union</summary>
+    <label class="ls-cad-check"><input id="ls-cad-form-enable" type="checkbox"/> Form Union (Graphics preview)</label>
+    <label class="ls-cad-check"><input id="ls-cad-form-interior" type="checkbox" checked/> Keep interior boundaries</label>
+    <div class="ls-cad-field"><label for="ls-cad-form-repair">Repair tolerance</label><select id="ls-cad-form-repair"><option>Automatic</option><option>Relative</option><option>Absolute</option></select></div>
+    <p class="ls-cad-sequence-note">Use Build Finalization to preview a combined silhouette. No B-rep or 2D FEM mesh is created.</p>
+    <button type="button" id="ls-cad-form-build">Build Finalization</button>
+   </details>
   </div>
   <div id="ls-cad-feature-settings">
   <div class="ls-setting-line"><label for="ls-cad-label">Label</label><input id="ls-cad-label" /></div>
@@ -63,6 +71,30 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
      <div class="ls-cad-layer"><span>Layer name</span><span>Thickness (m)</span><label for="ls-cad-layer">Layer 1</label><input id="ls-cad-layer" spellcheck="false" aria-label="Layer 1 thickness"/><div id="ls-cad-extra-layers"></div></div>
      <div class="ls-cad-layer-tools"><button id="ls-cad-add-layer" type="button">＋ Add Layer</button><button id="ls-cad-remove-layer" type="button">－ Remove Last Layer</button></div>
      <p class="ls-cad-sequence-note">Layer thickness is drawn inward from the circle boundary. Multiple layers create concentric boundaries in the Graphics preview; not linked to the radial FEM.</p>
+   </details>
+  </div>
+  <div id="ls-cad-rectangle" hidden>
+   <details class="ls-cad-section" open><summary>Object Type</summary><div class="ls-cad-field"><label for="ls-cad-rect-type">Type</label><select id="ls-cad-rect-type"><option>Solid</option><option>Curve</option></select></div></details>
+   <details class="ls-cad-section" open><summary>Size and Shape</summary>
+    <div class="ls-cad-field"><label for="ls-cad-rect-width">Width</label><input id="ls-cad-rect-width" value="100[um]"/><span data-cad-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-rect-height">Height</label><input id="ls-cad-rect-height" value="100[um]"/><span data-cad-length-unit>µm</span></div></details>
+   <details class="ls-cad-section" open><summary>Position</summary>
+    <div class="ls-cad-field"><label for="ls-cad-rect-base">Base</label><select id="ls-cad-rect-base"><option>Corner</option><option>Center</option></select></div>
+    <div class="ls-cad-field"><label for="ls-cad-rect-x">x</label><input id="ls-cad-rect-x" value="0[um]"/><span data-cad-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-rect-y">y</label><input id="ls-cad-rect-y" value="0[um]"/><span data-cad-length-unit>µm</span></div></details>
+   <details class="ls-cad-section" open><summary>Rotation Angle</summary><div class="ls-cad-field"><label for="ls-cad-rect-rotation">Rotation</label><input id="ls-cad-rect-rotation" value="0"/><span>deg</span></div></details>
+  </div>
+  <div id="ls-cad-union-controls" hidden>
+   <details class="ls-cad-section" open><summary>Union</summary>
+    <label class="ls-cad-check"><input id="ls-cad-union-keep" type="checkbox"/> Keep input objects</label>
+    <label class="ls-cad-check"><input id="ls-cad-union-interior" type="checkbox"/> Keep interior boundaries</label>
+    <p class="ls-cad-sequence-note">Select at least two preceding solid circles or rectangles. Build generates a sampled outer silhouette for Graphics only.</p>
+   </details>
+  </div>
+  <div id="ls-cad-delete-entities-controls" hidden>
+   <details class="ls-cad-section" open><summary>Delete Entities</summary>
+    <div class="ls-cad-field"><label for="ls-cad-delete-level">Geometric entity level</label><select id="ls-cad-delete-level"><option>Domain</option><option disabled>Boundary</option><option disabled>Point</option></select></div>
+    <p class="ls-cad-sequence-note">Domain preview: selected entire Geometry objects are removed from downstream Graphics. Boundary and Point deletion require a topology engine.</p>
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
@@ -95,7 +127,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
     <div class="ls-setting-line"><label for="ls-cad-cumulative-label">Label</label><input id="ls-cad-cumulative-label" readonly /></div>
     <details class="ls-cad-section" open><summary>Cumulative Selection</summary><div class="ls-cad-block-label" id="ls-cad-cumulative-summary"></div><p class="ls-cad-sequence-note">This named selection references Geometry results for display and organization. It does not create a full-vector FEM material domain.</p></details>
   </div>
-  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-array">▦ Array</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
+  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rectangle">▣ Rectangle</button><button type="button" id="ls-cad-add-union">∪ Union</button><button type="button" id="ls-cad-add-delete-entities">⌫ Delete Entities</button><button type="button" id="ls-cad-add-array">▦ Array</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
   <p class="ls-config-help">Circle, Array, Rotate and Mirror are interactive 2D geometry features. The 1D Radial FEM only accepts the original two concentric 360° Solid circles without extra layers, added circles or transform features. Arbitrary layouts are preview-only.</p>

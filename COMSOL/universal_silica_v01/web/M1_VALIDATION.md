@@ -4,7 +4,7 @@ Version **0.3.0** · 2026-11-12 · Static GitHub Pages · No server or paid APIs
 
 ## 1. Original project structure reviewed
 - `solver.mjs`: **authoritative existing P1 radial FEM** for LP01, 5-point Gauss quadrature, shifted inverse iteration. Existing outputs: `n_eff`, MFD(PII), Aeff, D, mesh, slope diagnostics, field.
-- `app.mjs` and `index.html`: original model, result cards, wavelength sweep, mesh comparison, JSON/CSV/PNG IO. `app.mjs` **not changed**.
+- `app.mjs` and `index.html`: original model, result cards, wavelength sweep, mesh comparison, JSON/CSV/PNG IO. `app.mjs` **only its solver import cache-buster changed; no functions or numerical calculations changed**.
 - `../universal_radial.py`, `../Universal_Silica_Fiber_v0_1.ipynb`: Python verification / legacy notebook; **not changed**.
 - `mcf_xt.mjs`, `hcf_designer*.mjs`, `pmd*.mjs`, `vector_mode_ui.mjs`: **not changed**.
 - `tests/test_solver.mjs`: original 5-preset regression and D/S0/MCF checks; **not changed**.
@@ -32,6 +32,14 @@ Version **0.3.0** · 2026-11-12 · Static GitHub Pages · No server or paid APIs
 +export const VERSION = '0.3.0';
 ```
 
+﻿```diff
+--- a/web/app.mjs
++++ b/web/app.mjs
+@@
+-from './solver.mjs?v=20261104-comsol-step-v2';
++from './solver.mjs?v=20261112-m1-v03';
+```
+
 ```diff
 --- a/web/index.html
 +++ b/web/index.html
@@ -41,7 +49,8 @@ Version **0.3.0** · 2026-11-12 · Static GitHub Pages · No server or paid APIs
 -FIBER DESIGN WORKBENCH · v0.2
 +FIBER DESIGN WORKBENCH · v0.3
 @@ after app module
-   <script type="module" src="./app.mjs?v=20261104-comsol-step-v1"></script>
+-  <script type="module" src="./app.mjs?v=20261104-comsol-step-v1"></script>
++  <script type="module" src="./app.mjs?v=20261112-m1-v03"></script>
 +  <script type="module" src="./validation_ui.mjs?v=20261112-m1-v03"></script>
 ```
 

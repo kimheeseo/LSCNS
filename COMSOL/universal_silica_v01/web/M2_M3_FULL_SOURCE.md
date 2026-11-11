@@ -1,6 +1,6 @@
 # LS Wave Optics M2 + M3 v0.5.0 — Full copy-ready source files
 
-This file contains the **entire committed content** of all newly added M2/M3 JS/CSS/tests. Copy each fenced block into its named path under `web/`. Existing-file minimal diffs are provided in [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md); original numerical solver routines remain unchanged.
+The complete source of all 10 new M2/M3 files from the current committed `main` branch is reproduced here. Copy each block into its named path under `web/`. See [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md) for minimal patches to original files, test commands, assumptions, and limitations.
 
 ## 1. `material_models.mjs`
 
@@ -400,7 +400,7 @@ function eigenMode(op,g,polarization,orthogonal=[],{maxOuter=105,onProgress=()=>
   let res=0;for(let i=0;i<N;i++){const d=Mx[i]-eig*x[i];res+=d*d;}
   residual=Math.sqrt(res)/Math.max(Math.abs(eig),1e-30);
   if(outer%10===0)onProgress({mode:polarization,iteration:outer,residual});
-  if(residual<2.5e-5){converged=true;break;}
+  if(residual<1e-7){converged=true;break;}
  }
  if(!(eig>0))throw Error("FDFD did not obtain positive beta^2.");
  return {field:x,eigenvalue:eig,neff:Math.sqrt(eig)/k0,
@@ -701,8 +701,8 @@ assert.equal(result.modes.length,2);
 const PYTHON_NEFF=1.445711888509771; // Existing Python 2D H-field FDFD result, same grid/window/profile.
 for(const m of result.modes){
  assert.ok(m.neff>ncl&&m.neff<ncl+dn);
- assert.ok(Math.abs(m.neff-PYTHON_NEFF)<2e-6,"FDFD agreement with existing Python same-grid eigs");
- assert.ok(m.residual<2.5e-5,"Eigenpair relative residual");
+ assert.ok(Math.abs(m.neff-PYTHON_NEFF)<1e-8,"FDFD agreement with existing Python same-grid eigs");
+ assert.ok(m.residual<1e-7,"Eigenpair relative residual");
  assert.ok(m.Ez_intensity_fraction>0&&m.Ez_intensity_fraction<.05);
  assert.ok(Math.abs(m.Ex_intensity_fraction+m.Ey_intensity_fraction+m.Ez_intensity_fraction-1)<1e-10);
  assert.ok(m.Aeff_um2>0&&m.MFD_2nd_um>0);
@@ -759,13 +759,13 @@ try{
  const r=await page.evaluate(()=>window.LSWaveVectorM3.latest());
  assert.equal(r.schema,"LSCNS_vector_mode_v1");
  assert.equal(r.modes.length,2);
- assert.ok(r.modes.every(m=>m.residual<2.5e-5));
+ assert.ok(r.modes.every(m=>m.residual<1e-7));
  assert.equal(await page.locator("#m3-numbers tr").count(),3);
  assert.deepEqual(errors,[]);
  console.log("PASS M2/M3 browser optional section: original scalar state unchanged, M2 and worker FDFD output");
 }finally{await browser.close();}
 ```
 
-## Minimal existing code patches
+## Original-file diffs
 
 See [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md#minimal-changes-to-original-files) and [CHANGELOG.md](CHANGELOG.md).

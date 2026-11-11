@@ -1,5 +1,59 @@
 # CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
 
+## v0.7.0 — 2026-11-12 — M3 vector FDFD study controls and comparisons
+
+### Added (new files, optional)
+- `m3_study_metrics_v07.mjs`: bounded odd grid N=29..91; conditional same-grid Colab comparisons; independent M1 LP01 and scalar FEM references, non-monotone mesh-change indicators, relative eigen-residual gates; conservative Float64 allocation model distinctly labeled NOT measured memory.
+- `m3_study_worker_v07.mjs`: isolated module Web Worker, measured wall-clock via `performance.now()`, per-grid/inner-eigenpair progress, two-mode Ex/Ey/Ez maps exported in unchanged `LSCNS_vector_mode_v1` schema; user cancel uses `worker.terminate()`.
+- `m3_study_ui_v07.mjs` and scoped CSS: separate M3 study section inside existing Full-vector tool, five-or-fewer grid convergence table, LP01/scalar/Colab difference, per-grid time/memory status, explicit estimated-time warning, selectable polarizations/maps, matched-grid Colab overlay, cancel, portable vector JSON and separately versioned `LSWaveFullVectorStudy` report.
+- `tests/test_m3_study_v07.mjs`, `tests/benchmark_m3_v07.mjs`, `tests/browser_m2_m3_v07.mjs`: numeric compare, local Node RSS/heap benchmark and optional Playwright UI regression.
+- `M2_M3_V07_VALIDATION.md`, `M2_M3_V07_FULL_SOURCE.md`: complete code, numerical comparisons, regression checks, minimal old-file diff, assumptions.
+
+### Existing-file changes (minimal)
+- `index.html`: M2/M3 CSS+JS module links, displayed header and app import cache key `v0.7.0`.
+- `solver.mjs`: `VERSION` string only `0.5.1 → 0.7.0`. No changes to P1 FEM, n(λ), D, S0, MFD, Aeff.
+- `app.mjs`: only one `solver.mjs` import cache key changed. Original DOM IDs, functions, saved-design JSON and Colab viewer untouched.
+- Old `vector_fdfd_browser.mjs` FDFD eigen operator, `vector_m3_ui.mjs`, `vector_mode_ui.mjs` left unchanged; new M3 layer adds workflow, not a replacement algorithm.
+- Flag: `window.LSWaveFeatures.fullVectorStudyV07=false` before module load hides only the new study.
+
+### Measured and unmeasured
+- Evaluated JS source on a V8 host, same input as stored Python 69×69: Python neff=1.445711888509771 vs JS 1.445711888493530, Δ=1.6241×10⁻¹¹; algebraic eigenpair residual=9.774×10⁻⁸.
+- M1 analytic LP01 neff=1.445718990544404; original scalar FEM=1.4457189679091202. Browser FDFD 69-grid diff from LP01=7.1021×10⁻⁶, from scalar=7.0794×10⁻⁶.
+- Reference V8 wall times (two modes): N 29: 1.276 s; 41: 4.088 s; 51: 6.611 s; 69: 14.816 s; 81: 22.835 s (not measured on the user's browser).
+- Grid neff sequence non-monotone due staircased interface; convergence status is **미수렴** if adjacent |Δneff| exceeds 1×10⁻⁶. No continuum validation claim.
+- **No memory measurement** could be obtained in the current V8 execution environment. Browser Worker attempts performance.memory if available and otherwise prints `실측 미지원`; typed-array size is an explicitly separated allocation model, not RAM. Node benchmark script can measure RSS/heap on the user's own machine.
+- Browser/Playwright click/download/cancel tests were created but NOT executed against public GitHub Pages during this session.
+
+### Explicit M3 acceptance gap
+- Existing solver is coupled transverse-Hx/Hy **collocated** FDFD with matrix-free shifted-inverse BiCGSTAB (inner linear tolerance 2×10⁻⁹, relative eigenpair tolerance 1×10⁻⁷).
+- It is **NOT a Yee-staggered grid and NOT an edge-element vector FEM**. Therefore the exact user request "Yee FDFD or edge/vector FEM" is **not fully satisfied**. The source and UI label this honestly; no unsupported discretization is claimed.
+- PML, complex effective index, confinement/bend losses, HCF and material absorption in eigenproblem remain out of scope (M4).
+
+## v0.6.0 — 2026-11-12 — M2 independent material preview
+
+### Added
+- `m2_preview_engine_v06.mjs`: exact legacy SiO₂+Δn, sourced GeO₂ end-member Sellmeier mix, P₂O₅ 9.1 mol% anchor, explicitly **1/2 wt%** fluorine measured-fit interpolation, user-coefficient-only F mol% (NO ungrounded concentration conversion), CSV n(λ) linear/PCHIP interpolation with no out-of-range extrapolation, n+iκ storage and κ↔α conversion.
+- `m2_preview_ui_v06.mjs`, scoped CSS: separate Core/Cladding material selector and concentration forms, model provenance, dual n/k wavelength charts, reference curves and 1550 nm table, distinct JSON export/import (schemaVersion:2 with cautious migration of old ambiguous F schemaVersion:1).
+- `tests/test_m2_preview_v06.mjs`: coefficient reference values, no-F-mol%-guess guard, interpolation, α↔κ round trip, legacy silica and FEM non-regression.
+- Default scalar Radial FEM **not connected to new material preview**. Original core Δn offset remains default and identical; M2 schema extension does not change saved-design JSON.
+- `material_m2_ui.mjs`: only two labels corrected (previous F % incorrectly called mol%, actual original Fleming/Wood specimens wt%). No numerical changes.
+
+### Verified n(1550 nm), V8 source execution
+- Pure SiO₂: 1.4440236217032607, identical to original `silicaIndex(1550)`.
+- GeO₂ 5 mol% modeled: 1.4515267771427718.
+- F-doped silica 1 **wt%** empirical fit: 1.4393958509698328 (**not 1 mol%**).
+- P₂O₅ 5 mol% interpolated: 1.452224423108019.
+- At λ=1550 nm, α=0.2 dB/km yields κ=5.6802508913155675×10⁻¹²; inverse produces 0.2 dB/km.
+- Dopant concentration mixing is a modeling approximation, NOT empirical index verification at every concentration.
+
+### Sources (coefficients)
+- SiO₂/GeO₂: Fleming, Applied Optics 23, 4486 (1984), Table II, https://doi.org/10.1364/AO.23.004486
+- F doped 1/2 wt%: Fleming & Wood, Applied Optics 22, 3102 (1983), Table II, https://doi.org/10.1364/AO.22.003102
+- P₂O₅ 9.1 mol%: Optical Fiber Communication Systems with MATLAB and Simulink Models, Table 3.4; https://www.routledge.com/rsc/downloads/Pages_from_K22108_Book_rev.pdf
+
+### Preserved
+M1 v0.5.1: 4/4 LP01 cases and 5/5 legacy preset regressions; older M1 28-check method unchanged. No M4, M5, M6 changes.
+
 ## v0.5.1 — 2026-11-12 — M1 Quantitative Verification only
 
 ### Added (independent, feature-flagged)

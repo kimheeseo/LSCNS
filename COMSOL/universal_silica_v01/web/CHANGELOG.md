@@ -17,8 +17,8 @@
 
 ### Numeric checks executed
 - Same physical configuration/discretization as existing `full_vector/results/vector_mode_result.json`: λ=1550 nm, a=5.5 µm, delta_n=0.0034785793846155, silica Sellmeier cladding, 69×69 grid, square window halfwidth=22 µm.
-- Existing Python SciPy FDFD reference: neff=1.445711888509771. JS FDFD two polarizations: 1.445711797885537 and 1.445711797833517; absolute discrepancies ~9.06e-8 and 9.07e-8. This is a same-grid solver cross-check, not COMSOL certified HE11 accuracy.
-- Both eigen residuals <2.5e-5, Ex/Ey/Ez nonnegative intensities with unit total energy fraction, modes have orthogonal dominant polarization. Grid-index convergence is not guaranteed without interface smoothing.
+- Existing Python SciPy FDFD reference: neff=1.445711888509771. JS FDFD two polarizations after tighter inverse iteration: 1.4457118884935314 and 1.4457118884934974; absolute discrepancies ~1.62e-11 and 1.63e-11. This is a same-grid solver cross-check, not COMSOL certified HE11 accuracy.
+- Both eigen residuals <1e-7, Ex/Ey/Ez nonnegative intensities with unit total energy fraction, modes have orthogonal dominant polarization. Grid-index convergence is not guaranteed without interface smoothing.
 - Old M1 baseline `28/28` numerical checks continued to pass.
 - Browser Playwright click test has been written but **not executed against the public GitHub Pages site in this session**.
 

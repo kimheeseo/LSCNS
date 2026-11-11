@@ -292,8 +292,11 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
-  let i=1,pre=kind==="circle"?"c":kind==="array"?"arr":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
+  let i=1,pre=kind==="circle"?"c":kind==="rectangle"?"r":kind==="array"?"arr":kind==="union"?"uni":kind==="deleteEntities"?"del":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
   if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
+  if(kind==="rectangle")return {id:pre+i,kind:"rectangle",label:"Rectangle "+i,enabled:true,type:"Solid",width:"100[um]",height:"100[um]",base:"Corner",x:"0[um]",y:"0[um]",rotation:"0",selection:false,color:"None"};
+  if(kind==="union")return {id:pre+i,kind:"union",label:"Union "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,keepInterior:false,selection:false,color:"None"};
+  if(kind==="deleteEntities")return {id:pre+i,kind:"deleteEntities",label:"Delete Entities "+i,enabled:true,inputIds:[],inputRefs:[],deleteLevel:"Domain",selection:false,color:"None"};
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   if(kind==="array")return {id:pre+i,kind:"array",label:"Array "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,arrayType:"Rectangular",nx:"1",ny:"1",size:"1",dx:"0",dy:"0",selection:false,color:"None"};
   if(kind==="mirror")return {id:pre+i,kind:"mirror",label:"Mirror "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,cx:"0[um]",cy:"0[um]",nx:"1",ny:"0",selection:false,color:"None"};
@@ -326,7 +329,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function drawTree(){
   const list=$("ls-geometry-node-list");if(!list)return;
   renderCumulativeTree();
-  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="array"?"▦":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
+  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="rectangle"?"▣":n.kind==="array"?"▦":n.kind==="union"?"∪":n.kind==="deleteEntities"?"⌫":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
  }
  function loadFields(){
   const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
@@ -354,12 +357,19 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
     drawTree();draw();return;
    }
-  if(!["rotate","mirror","array"].includes(n.kind))selectingRotateInputs=false;
-   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="array"?"Array":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
-  $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=!["rotate","mirror","array"].includes(n.kind);
+  if(!["rotate","mirror","array","union","deleteEntities"].includes(n.kind))selectingRotateInputs=false;
+   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="rectangle"?"Rectangle":n.kind==="array"?"Array":n.kind==="union"?"Union":n.kind==="deleteEntities"?"Delete Entities":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
+  $("ls-cad-circle").hidden=n.kind!=="circle";
+  $("ls-cad-rectangle").hidden=n.kind!=="rectangle";
+  $("ls-cad-rotate").hidden=!["rotate","mirror","array","union","deleteEntities"].includes(n.kind);
+  $("ls-cad-union-controls").hidden=n.kind!=="union";
+  $("ls-cad-delete-entities-controls").hidden=n.kind!=="deleteEntities";
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
    renderExtraLayers(n);
+  }else if(n.kind==="rectangle"){
+   for(const key of ["type","width","height","base","x","y","rotation"])$("ls-cad-rect-"+key).value=n[key];
+   for(const el of pane.querySelectorAll("[data-cad-length-unit]"))el.textContent=lengthUnit==="um"?"µm":lengthUnit;
   }else{
    $("ls-cad-angle").value=n.angle??"";$("ls-cad-cx").value=n.cx??"0";$("ls-cad-cy").value=n.cy??"0";$("ls-cad-keep").checked=n.keep;
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
@@ -370,7 +380,12 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    $("ls-cad-mirror-point-section").hidden=n.kind!=="mirror";
    $("ls-cad-mirror-normal-section").hidden=n.kind!=="mirror";
    if(n.kind==="mirror"){for(const k of ["cx","cy","nx","ny"])$("ls-cad-mirror-"+k).value=n[k];}
-   $("ls-cad-keep-row").hidden=n.kind==="array";
+   $("ls-cad-keep-row").hidden=["array","union","deleteEntities"].includes(n.kind);
+   if(n.kind==="union"){
+    $("ls-cad-union-keep").checked=!!n.keep;
+    $("ls-cad-union-interior").checked=!!n.keepInterior;
+   }
+   if(n.kind==="deleteEntities")$("ls-cad-delete-level").value=n.deleteLevel||"Domain";
    $("ls-cad-array-size-section").hidden=n.kind!=="array";
    $("ls-cad-array-displacement-section").hidden=n.kind!=="array";
    if(n.kind==="array"){
@@ -815,7 +830,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   return chosen;
  }
  function svg(w,h,mini=false){
-  const shapes=!mini&&selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();
+  const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities"].includes(cur()?.kind)?availableInputs(cur()):compute();
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
   const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
@@ -846,7 +861,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror","array"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
+  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
    const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
    const items=orderedShapes.map(shape=>{

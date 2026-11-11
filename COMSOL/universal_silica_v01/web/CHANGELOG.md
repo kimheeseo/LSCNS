@@ -15,7 +15,8 @@
 
 ### Changed (minimum connection)
 - `solver.mjs`: **only** `VERSION` metadata `0.2.2 → 0.3.0`; solver assembly, convergence, material index, dispersion and result shape are unchanged.
-- `index.html`: added **two** asset references (M1 JS/CSS) and updated visible UI version text `v0.2 → v0.3`.
+- `index.html`: added **two** asset references (M1 JS/CSS), updated visible UI version text `v0.2 → v0.3`, and bumped the app script cache key.
+- `app.mjs`: changed **only** the `solver.mjs` import cache key; no numerical functions or behavior changed.
 - No existing DOM ID/function/JSON design object was renamed or removed. Design JSON continues to use `{version,model}`. The new *validation report* has `schemaVersion:1`, separate from saved design JSON. No migration is required for existing designs.
 
 ### Validation status

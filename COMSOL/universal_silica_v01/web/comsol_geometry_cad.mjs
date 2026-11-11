@@ -1,3 +1,4 @@
+import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
 (function geometryCad(){
  "use strict";
  const $=id=>document.getElementById(id),side=document.querySelector(".layout > .sidebar"),main=document.querySelector("main.workspace"),svc=window.LSWaveParameterService;
@@ -42,7 +43,7 @@
     <label class="ls-cad-check"><input id="ls-cad-build-new" type="checkbox" checked/> Build new operations automatically</label>
     <label class="ls-cad-check"><input id="ls-cad-build-leave" type="checkbox" checked/> Build automatically when leaving geometry</label>
    </details>
-   <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select Circle/Rotate to edit. Build All regenerates the 2D preview.</p></details>
+   <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select a Geometry feature to edit. Build All regenerates the 2D preview.</p></details>
    <details class="ls-cad-section" open><summary>Finalization</summary><p class="ls-cad-sequence-note">Form Union (UI reference). General-purpose 2D Boolean domains are not computed by the radial FEM.</p></details>
   </div>
   <div id="ls-cad-feature-settings">
@@ -64,27 +65,37 @@
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
-   <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
+   <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label id="ls-cad-keep-row" class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
+   <details class="ls-cad-section" id="ls-cad-array-size-section" hidden open><summary>Size</summary>
+    <div class="ls-cad-field"><label for="ls-cad-array-type">Array type:</label><select id="ls-cad-array-type"><option>Rectangular</option><option>Linear</option></select><span></span></div>
+    <div class="ls-cad-field" id="ls-cad-array-nx-row"><label for="ls-cad-array-nx">x size:</label><input id="ls-cad-array-nx" value="1"/><span></span></div>
+    <div class="ls-cad-field" id="ls-cad-array-ny-row"><label for="ls-cad-array-ny">y size:</label><input id="ls-cad-array-ny" value="1"/><span></span></div>
+    <div class="ls-cad-field" id="ls-cad-array-size-row" hidden><label for="ls-cad-array-size">Size:</label><input id="ls-cad-array-size" value="1"/><span></span></div>
+   </details>
+   <details class="ls-cad-section" id="ls-cad-array-displacement-section" hidden open><summary>Displacement</summary>
+    <div class="ls-cad-field"><label for="ls-cad-array-dx">x:</label><input id="ls-cad-array-dx" value="0"/><span data-array-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-array-dy">y:</label><input id="ls-cad-array-dy" value="0"/><span data-array-length-unit>µm</span></div>
+   </details>
    <details class="ls-cad-section" open id="ls-cad-rotate-angle-section"><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><div class="ls-cad-angle-entry"><input id="ls-cad-angle" spellcheck="false"/><span>deg</span><button type="button" id="ls-cad-range-open" title="Range — Start, Step, Stop" aria-label="Range">▥</button></div><span></span></div><small>Use an angle, range(start,step,stop), or comma-separated ranges. Click Range to open the step dialog.</small></details>
    <details class="ls-cad-section" open id="ls-cad-rotate-center-section"><summary>Center of Rotation</summary><div class="ls-cad-field"><label for="ls-cad-cx">x</label><input id="ls-cad-cx"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-cy">y</label><input id="ls-cad-cy"/><span>m</span></div></details>
    <details class="ls-cad-section" id="ls-cad-mirror-point-section" hidden open><summary>Point on Line of Reflection</summary><div class="ls-cad-field"><label for="ls-cad-mirror-cx">x</label><input id="ls-cad-mirror-cx" value="0[um]"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-mirror-cy">y</label><input id="ls-cad-mirror-cy" value="0[um]"/><span>m</span></div></details>
    <details class="ls-cad-section" id="ls-cad-mirror-normal-section" hidden open><summary>Normal Vector to Line of Reflection</summary><div class="ls-cad-field"><label for="ls-cad-mirror-nx">x</label><input id="ls-cad-mirror-nx" value="1"/><span></span></div><div class="ls-cad-field"><label for="ls-cad-mirror-ny">y</label><input id="ls-cad-mirror-ny" value="0"/><span></span></div><p class="ls-cad-sequence-note">Mirror reflects selected circles across this line. Geometry preview only.</p></details>
   </div>
-  <details class="ls-cad-section" open><summary>Selections of Resulting Entities</summary>
+  <details class="ls-cad-section" id="ls-cad-resulting-section" open><summary>Selections of Resulting Entities</summary>
    <label class="ls-cad-check"><input id="ls-cad-selection" type="checkbox"/> Resulting objects selection</label>
    <div class="ls-cad-field"><label for="ls-cad-physics">Show in physics</label><select id="ls-cad-physics" disabled><option>Domain selection</option><option>Boundary selection</option></select><span></span></div>
    <div class="ls-cad-field"><label for="ls-cad-color">Color</label><select id="ls-cad-color"><option>None</option><option>Blue</option><option>Orange</option><option>Green</option></select><span></span></div>
-   <div class="ls-cad-subsection">Cumulative selection</div><div class="ls-cad-field ls-cad-cumulative-row"><label for="ls-cad-contribute">Contribute to</label><select id="ls-cad-contribute"><option value="">None</option></select><button id="ls-cad-cumulative-new" type="button" title="New cumulative selection">New</button></div></details>
+   <div class="ls-cad-subsection" id="ls-cad-cumulative-heading">Cumulative selection</div><div class="ls-cad-field ls-cad-cumulative-row"><label for="ls-cad-contribute">Contribute to</label><select id="ls-cad-contribute"><option value="">None</option></select><button id="ls-cad-cumulative-new" type="button" title="New cumulative selection">New</button></div></details>
   <div class="ls-cad-mini"><svg id="ls-cad-mini-svg" viewBox="0 0 460 230" role="img" aria-label="Small geometry preview"></svg></div>
   </div>
   <div id="ls-cad-cumulative-settings" hidden>
     <div class="ls-setting-line"><label for="ls-cad-cumulative-label">Label</label><input id="ls-cad-cumulative-label" readonly /></div>
     <details class="ls-cad-section" open><summary>Cumulative Selection</summary><div class="ls-cad-block-label" id="ls-cad-cumulative-summary"></div><p class="ls-cad-sequence-note">This named selection references Geometry results for display and organization. It does not create a full-vector FEM material domain.</p></details>
   </div>
-  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
+  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-array">▦ Array</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
-  <p class="ls-config-help">Circle and Rotate are interactive 2D geometry features. The 1D Radial FEM only accepts the original two concentric 360° Solid circles without extra layers, added circles or Rotate features. Arbitrary layouts are preview-only.</p>
+  <p class="ls-config-help">Circle, Array, Rotate and Mirror are interactive 2D geometry features. The 1D Radial FEM only accepts the original two concentric 360° Solid circles without extra layers, added circles or transform features. Arbitrary layouts are preview-only.</p>
  </div><p class="ls-config-status" id="ls-cad-status" role="status"></p>`;
  side.append(pane);
  const graphics=document.createElement("section");
@@ -130,7 +141,7 @@
  });
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
  const physSignature=()=>{
-  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:[n.id,n.kind,n.enabled,n.inputIds,n.keep,n.angle,n.cx,n.cy]);
+  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:[n.id,n.kind,n.enabled,n.inputIds,n.inputRefs,n.keep,n.angle,n.cx,n.cy,n.arrayType,n.nx,n.ny,n.size,n.dx,n.dy]);
   // Resolve parameter expressions as well as literal expressions. An edit of d/rb
   // changes the geometry even if Circle 1/2 still display the same expressions.
   const evaluated=nodes.filter(n=>n.kind==="circle").map(n=>{
@@ -221,9 +232,10 @@
  }
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
-  let i=1,pre=kind==="circle"?"c":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
+  let i=1,pre=kind==="circle"?"c":kind==="array"?"arr":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
   if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
+  if(kind==="array")return {id:pre+i,kind:"array",label:"Array "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,arrayType:"Rectangular",nx:"1",ny:"1",size:"1",dx:"0",dy:"0",selection:false,color:"None"};
   if(kind==="mirror")return {id:pre+i,kind:"mirror",label:"Mirror "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,cx:"0[um]",cy:"0[um]",nx:"1",ny:"0",selection:false,color:"None"};
   return {id:pre+i,kind:"rotate",label:"Rotate "+i,enabled:true,inputIds:preceding.length?[preceding.at(-1).id]:[],inputRefs:null,keep:true,angle:"range(0,60,300)",cx:"0[um]",cy:"0[um]",selection:false,color:"None"};
  }
@@ -254,7 +266,7 @@
  function drawTree(){
   const list=$("ls-geometry-node-list");if(!list)return;
   renderCumulativeTree();
-  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
+  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="array"?"▦":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
  }
  function loadFields(){
   const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
@@ -282,25 +294,36 @@
     $("ls-cad-root-sequence").textContent=nodes.map((x,i)=>`${i+1}. ${x.label} (${x.id}) · ${x.enabled?"enabled":"disabled"}`).join("\n");
     drawTree();draw();return;
    }
-  if(!["rotate","mirror"].includes(n.kind))selectingRotateInputs=false;
-   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
-  $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=!["rotate","mirror"].includes(n.kind);
+  if(!["rotate","mirror","array"].includes(n.kind))selectingRotateInputs=false;
+   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="array"?"Array":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
+  $("ls-cad-circle").hidden=n.kind!=="circle";$("ls-cad-rotate").hidden=!["rotate","mirror","array"].includes(n.kind);
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
    renderExtraLayers(n);
   }else{
-   $("ls-cad-angle").value=n.angle;$("ls-cad-cx").value=n.cx;$("ls-cad-cy").value=n.cy;$("ls-cad-keep").checked=n.keep;
+   $("ls-cad-angle").value=n.angle??"";$("ls-cad-cx").value=n.cx??"0";$("ls-cad-cy").value=n.cy??"0";$("ls-cad-keep").checked=n.keep;
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
     $("ls-cad-activate-selection").classList.toggle("active",selectingRotateInputs);
-    $("ls-cad-selection-hint").textContent=selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
+    $("ls-cad-selection-hint").textContent=n.kind==="array"?(selectingRotateInputs?"Active · click source objects in Graphics. Build Selected to display the array.":"Activate Selection to edit the input objects."):selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
    $("ls-cad-rotate-angle-section").hidden=n.kind!=="rotate";
    $("ls-cad-rotate-center-section").hidden=n.kind!=="rotate";
    $("ls-cad-mirror-point-section").hidden=n.kind!=="mirror";
    $("ls-cad-mirror-normal-section").hidden=n.kind!=="mirror";
    if(n.kind==="mirror"){for(const k of ["cx","cy","nx","ny"])$("ls-cad-mirror-"+k).value=n[k];}
+   $("ls-cad-keep-row").hidden=n.kind==="array";
+   $("ls-cad-array-size-section").hidden=n.kind!=="array";
+   $("ls-cad-array-displacement-section").hidden=n.kind!=="array";
+   if(n.kind==="array"){
+    $("ls-cad-array-type").value=n.arrayType;
+    for(const key of ["nx","ny","size","dx","dy"])$("ls-cad-array-"+key).value=n[key];
+    $("ls-cad-array-size-row").hidden=n.arrayType!=="Linear";
+    $("ls-cad-array-nx-row").hidden=n.arrayType==="Linear";
+    $("ls-cad-array-ny-row").hidden=n.arrayType==="Linear";
+    for(const label of pane.querySelectorAll("[data-array-length-unit]"))label.textContent=lengthUnit==="um"?"µm":lengthUnit;
+   }
    const list=$("ls-cad-inputs");list.replaceChildren();
    const options=availableInputs(n);
-   if(!options.length)list.textContent="Create a preceding Circle or Rotate output, then activate selection.";
+   if(!options.length)list.textContent="Create a preceding Geometry object, then activate selection.";
    const checked=selectedInputKeys(n,options);
    for(const shape of options){
     const label=document.createElement("label"),cb=document.createElement("input");
@@ -309,6 +332,10 @@
     label.append(cb,document.createTextNode(" "+entityLabel(shape)));list.append(label);
    }
   }
+  const cumulativeRow=pane.querySelector(".ls-cad-cumulative-row"),resulting=$("ls-cad-resulting-section");
+  $("ls-cad-cumulative-heading").hidden=n.kind==="array";
+  if(n.kind==="array")resulting.insertBefore(cumulativeRow,resulting.children[1]);
+  else resulting.append(cumulativeRow);
   $("ls-cad-selection").checked=n.selection;$("ls-cad-physics").disabled=!n.selection;$("ls-cad-color").value=n.color;
    updateCumulativeOptions(n);
   drawTree();draw();
@@ -374,6 +401,20 @@
     if(!(r>0&&r<=10000)||!(sector>0&&sector<=360))throw Error(n.label+": invalid radius or sector");
     if(layers.reduce((sum,t)=>sum+t,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
     shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"circle",r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false});
+   }else if(n.kind==="array"){
+    const input=Array.isArray(n.inputRefs)?shapes.filter(shape=>n.inputRefs.includes(shape.entityKey)):shapes.filter(shape=>(n.inputIds||[]).includes(shape.owner));
+    if(!input.length)continue;
+    const linear=n.arrayType==="Linear";
+    const offsets=arrayOffsets({type:n.arrayType,nx:linear?1:evalNumber(n.nx),ny:linear?1:evalNumber(n.ny),size:linear?evalNumber(n.size):1,dx:evalLength(n.dx),dy:evalLength(n.dy)});
+    const keys=new Set(input.map(shape=>shape.entityKey));
+    const remaining=shapes.length-input.length;
+    if(remaining+input.length*offsets.length>450)throw Error(n.label+": too many objects for preview (max 450).");
+    for(let j=shapes.length-1;j>=0;j--)if(keys.has(shapes[j].entityKey))shapes.splice(j,1);
+    for(const shape of input)for(const offset of offsets){
+     const x=shape.x+offset.x,y=shape.y+offset.y;
+     if(!Number.isFinite(x)||!Number.isFinite(y))throw Error(n.label+": array coordinates must be finite.");
+     shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+offset.ix+"/"+offset.iy,owner:n.id,kind:"array",x,y,selection:n.selection,color:n.color,derived:true});
+    }
    }else if(n.kind==="rotate"||n.kind==="mirror"){
     const available=[...shapes];
     const input=Array.isArray(n.inputRefs)?available.filter(shape=>n.inputRefs.includes(shape.entityKey)):available.filter(shape=>n.inputIds.includes(shape.owner));
@@ -661,7 +702,7 @@
   return chosen;
  }
  function svg(w,h,mini=false){
-  const shapes=compute();
+  const shapes=!mini&&selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
   const pw=plot.right-plot.left,ph=plot.bottom-plot.top;
@@ -692,7 +733,7 @@
     if(!mini)yTicks+=`<path d="M ${plot.left-5} ${y} h 5" stroke="#465361" stroke-width="1"/><text data-axis="y" data-coordinate-m="${position}" x="${plot.left-8}" y="${y+4}" text-anchor="end" font-size="12" fill="#354a5a">${decimal(position*units.mult)}</text>`;
    }
   }
-  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
+  const isSelectedInput=shape=>!adjacentScene&&selectingRotateInputs&&["rotate","mirror","array"].includes(cur()?.kind)&&selectedInputKeys(cur()).has(shape.entityKey);
    // Draw the highlighted source object last so zero-degree rotated copies do not hide it.
    const orderedShapes=selectingRotateInputs?[...shapes].sort((a,b)=>Number(isSelectedInput(a))-Number(isSelectedInput(b))):shapes;
    const items=orderedShapes.map(shape=>{
@@ -787,16 +828,25 @@
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
  function add(kind,pos=nodes.length){
-  selectingRotateInputs=false;
+  selectingRotateInputs=kind==="array";
   checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;open();say(`${n.label} added. Configure and Build All.`);
+ }
+ function finishArrayBuild(){
+  if(cur()?.kind!=="array")return;
+  // Validate before changing the picker or viewport. Counts include position 0.
+  const extent=visibleExtent();
+  selectingRotateInputs=false;viewExtent=extent;zoom=1;panX=0;panY=0;
+  $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
+  $("ls-cad-activate-selection").classList.remove("active");
+  $("ls-cad-selection-hint").textContent="Activate Selection to edit the input objects.";
  }
  function modify(cmd,arg){
   const idx=index(selected),n=cur();
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
-   case "circle":case "rotate":case "mirror":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":checkpoint();limit=null;try{lockViewIfNeeded();draw();say("Built All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
-   case "build-selected":if(!n)return;checkpoint();limit=idx;try{lockViewIfNeeded();draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "circle":case "rotate":case "mirror":case "array":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
+   case "build-all":checkpoint();limit=null;try{finishArrayBuild();lockViewIfNeeded();draw();say("Built All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-selected":if(!n)return;checkpoint();limit=idx;try{finishArrayBuild();lockViewIfNeeded();draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Built Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
@@ -836,6 +886,7 @@
  }
  function apply(){
   try{
+   if(nodes.some(n=>n.enabled&&n.kind==="array"))throw Error("Disable Array operations before applying to Radial FEM.");
    if(nodes.some(n=>n.enabled&&n.kind==="rotate"))throw Error("Disable Rotate operations before applying to Radial FEM.");
    if(nodes.some(n=>n.enabled&&n.kind==="circle"&&!["c1","c2"].includes(n.id)))throw Error("Extra circles are preview-only. Disable them to run two-circle Radial FEM.");
    const c1=nodes.find(n=>n.id==="c1"),c2=nodes.find(n=>n.id==="c2");
@@ -870,13 +921,14 @@
   if(scope==="root")return [
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
    menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
-   {sep:true},menuAction("Transforms","submenu",{children:[menuAction("Rotate","rotate"),menuAction("Move","disabled",{disabled:true}),menuAction("Mirror","mirror")]}),
-   ...["Parts","Programming","Booleans and Partitions","Conversions","Chamfer","Fillet","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
+   {sep:true},menuAction("Booleans and Partitions","submenu",{children:["Union","Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
+   menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
+   ...["Conversions","Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
-   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
-   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
+   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Array","array",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
+   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Array","array",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
    menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
    menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:cur()?.enabled?"F3":"F4"}),menuAction("Rename","rename",{shortcut:"F2"}),
@@ -960,7 +1012,7 @@
   draw();
  });
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
- document.addEventListener("ls-cad-add",e=>add(e.detail?.kind==="rotate"?"rotate":"circle"));
+ document.addEventListener("ls-cad-add",e=>add(["rotate","mirror","array"].includes(e.detail?.kind)?e.detail.kind:"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
  $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
@@ -983,6 +1035,7 @@
  $("ls-cad-build-selected").addEventListener("click",()=>modify("build-selected"));
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
+ $("ls-cad-add-array").addEventListener("click",()=>add("array"));
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
  $("ls-cad-add-mirror").addEventListener("click",()=>add("mirror"));
  $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;viewExtent=null;loadFields();say("Geometry restored to original Circle 1 and 2.");});
@@ -998,6 +1051,16 @@
  for(const key of ["cx","cy","nx","ny"]){
   $("ls-cad-mirror-"+key).addEventListener("input",e=>{
    const n=cur();if(n?.kind!=="mirror")return;
+   checkpoint();n[key]=e.target.value;draw();
+  });
+ }
+ $("ls-cad-array-type").addEventListener("change",e=>{
+  const n=cur();if(n?.kind!=="array")return;
+  checkpoint();n.arrayType=e.target.value;loadFields();
+ });
+ for(const key of ["nx","ny","size","dx","dy"]){
+  $("ls-cad-array-"+key).addEventListener("input",e=>{
+   const n=cur();if(n?.kind!=="array")return;
    checkpoint();n[key]=e.target.value;draw();
   });
  }
@@ -1020,7 +1083,7 @@
  });
  
  $("ls-cad-activate-selection").addEventListener("click",()=>{
-  if(!["rotate","mirror"].includes(cur()?.kind))return;
+  if(!["rotate","mirror","array"].includes(cur()?.kind))return;
   selectingRotateInputs=!selectingRotateInputs;
   loadFields();
   say(selectingRotateInputs?"Activate Selection: input circles are highlighted in blue. Click a shape to add/remove its input.":"Graphics input selection deactivated.");
@@ -1108,7 +1171,7 @@
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
   const box=e.target.closest("[data-cad-input-ref]"),node=cur();
-  if(!box||!node||!["rotate","mirror"].includes(node.kind))return;
+  if(!box||!node||!["rotate","mirror","array"].includes(node.kind))return;
   checkpoint();
   const ids=selectedInputKeys(node);
   if(box.checked)ids.add(box.dataset.cadInputRef);else ids.delete(box.dataset.cadInputRef);
@@ -1157,7 +1220,7 @@
    document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape,level:materialEntityLevel}}));
    return;
   }
-  if(selectingRotateInputs&&["rotate","mirror"].includes(node?.kind)){
+  if(selectingRotateInputs&&["rotate","mirror","array"].includes(node?.kind)){
    const key=shape.dataset.cadEntity;
    const available=availableInputs(node);
    if(!available.some(s=>s.entityKey===key)){say("Select an individual preceding Geometry object (c2/rot1 output).",true);return;}

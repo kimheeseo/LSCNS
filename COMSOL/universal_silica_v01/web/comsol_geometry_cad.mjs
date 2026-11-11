@@ -1181,11 +1181,11 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function menuItems(scope){
   if(scope==="root")return [
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
-   menuAction("Circle","circle"),menuAction("Rectangle","rectangle"),menuAction("Delete Entities","deleteEntities"),...["Ellipse","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
+   menuAction("Circle","circle"),menuAction("Ellipse","disabled",{disabled:true}),menuAction("Rectangle","rectangle"),...["Square","Bézier Polygon","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon"].map(t=>menuAction(t,"disabled",{disabled:true})),
    {sep:true},menuAction("Booleans and Partitions","submenu",{children:[menuAction("Union","union"),...["Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))]}),
    menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
    menuAction("Conversions","submenu",{children:["Convert to Solid","Convert to Curve","Convert to Point","Split"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
-    ...["Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
+    menuAction("Chamfer","disabled",{disabled:true}),menuAction("Fillet","disabled",{disabled:true}),menuAction("Tangent","disabled",{disabled:true}),menuAction("Delete Entities","deleteEntities"),menuAction("Edit Object","disabled",{disabled:true}),...["Parts","Programming","Selections","Measure","Insert Sequence","Export","Delete Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),

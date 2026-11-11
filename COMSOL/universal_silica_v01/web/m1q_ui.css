@@ -1,0 +1,31 @@
+/* M1 v0.5.1 independent verification section; do not override legacy UI. */
+#ls-m1q-section[hidden]{display:none!important}
+#ls-m1q-section{scroll-margin-top:85px;margin:16px 0 23px;padding:19px;
+ color:#d8edfa;background:#0e2339;border:1px solid #3e667c;border-radius:12px}
+#ls-m1q-section .ls-m1q-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#ls-m1q-section .ls-m1q-head small{color:#7ad7d8;font-size:10px;letter-spacing:.07em}
+#ls-m1q-section h2{margin:6px 0 12px;font-size:19px;color:#f0f9ff}
+#ls-m1q-section .ls-m1q-head span{color:#9fcbd8;font-size:11px;border:1px solid #476d80;border-radius:18px;padding:7px}
+#ls-m1q-section .ls-m1q-intro,#ls-m1q-section .ls-m1q-notes p{font-size:12px;line-height:1.75;color:#c1d2e0}
+#ls-m1q-section .ls-m1q-buttons{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+#ls-m1q-section .ls-m1q-buttons button{padding:9px 13px;font-size:12px;font-weight:600;cursor:pointer;
+ color:#eaf8fc;background:#1a4763;border:1px solid #4a869f;border-radius:8px}
+#ls-m1q-section .ls-m1q-buttons button:hover:not(:disabled){background:#296381}
+#ls-m1q-section .ls-m1q-buttons button:disabled{opacity:.44;cursor:default}
+#ls-m1q-status{color:#91dcd0;font-size:12px;min-height:22px;margin:10px 0}
+#ls-m1q-summary{font-size:12px;color:#b7f0d9;font-weight:650;margin:10px 0}
+#ls-m1q-section .ls-m1q-scroll{max-width:100%;max-height:440px;overflow:auto;border:1px solid #30526a;border-radius:7px}
+#ls-m1q-section .ls-m1q-table{min-width:930px;width:100%;border-collapse:collapse;line-height:1.5;font-size:11px}
+#ls-m1q-section .ls-m1q-table th{color:#b6dbe8;background:#18344d;position:sticky;top:0;z-index:1}
+#ls-m1q-section .ls-m1q-table td,#ls-m1q-section .ls-m1q-table th{
+ padding:10px 9px;text-align:left;border-bottom:1px solid #345168;vertical-align:top}
+#ls-m1q-section .ls-m1q-table td{color:#d8eaf4;font-variant-numeric:tabular-nums;white-space:nowrap}
+#ls-m1q-section .ls-m1q-table td small{display:block;font-size:10px;color:#97b9cc;white-space:normal;max-width:230px;margin-top:5px}
+#ls-m1q-section .ls-m1q-table .is-pass td:last-child{font-weight:750;color:#7ce5b7}
+#ls-m1q-section .ls-m1q-table .is-fail td:last-child{font-weight:750;color:#f8a6a6}
+#ls-m1q-section .ls-m1q-regression{margin:16px 0}
+#ls-m1q-section .ls-m1q-regression summary{cursor:pointer;color:#b6e9f0;margin:10px 0;font-size:12px}
+#ls-m1q-section .ls-m1q-notes{border-top:1px solid #3c6073;margin-top:14px;padding-top:10px}
+#ls-m1q-section .ls-m1q-notes h3{font-size:13px;color:#bce4ef}
+#ls-m1q-section .ls-m1q-notes a{color:#7ed9e7}
+@media(max-width:800px){#ls-m1q-section{padding:12px}#ls-m1q-section h2{font-size:16px}}

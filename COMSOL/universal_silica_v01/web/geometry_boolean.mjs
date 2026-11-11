@@ -42,7 +42,7 @@ function cleanLoop(vertices){
  for(let i=0;i<vertices.length;i++){
   const p=vertices[i],prev=vertices[(i+vertices.length-1)%vertices.length],next=vertices[(i+1)%vertices.length];
   const dx1=p.x-prev.x,dy1=p.y-prev.y,dx2=next.x-p.x,dy2=next.y-p.y;
-  if(Math.abs(dx1*dy2-dy1*dx2)<1e-12&&dx1*dx2+dy1*dy2>=0)continue;
+  if(Math.abs(dx1*dy2-dy1*dx2)<=1e-8*Math.hypot(dx1,dy1)*Math.hypot(dx2,dy2)&&dx1*dx2+dy1*dy2>=0)continue;
   pts.push(p);
  }
  return pts;

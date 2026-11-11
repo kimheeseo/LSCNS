@@ -5,7 +5,7 @@
  * Units: transverse micrometres, wavelength nanometres, n2 m²/W.
  * No COMSOL code, server, static lookup, or manufacturer-profile claim.
  */
-export const VERSION = '0.5.0';
+export const VERSION = '0.5.1';
 export const C0 = 299792458;
 const B=[0.6961663,0.4079426,0.8974794];
 const C=[0.0684043**2,0.1162414**2,9.896161**2];

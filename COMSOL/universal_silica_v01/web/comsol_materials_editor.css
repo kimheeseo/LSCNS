@@ -143,3 +143,27 @@ body.ls-comsol-shell .ls-material-values [data-ls-material-index-row].is-active 
 body.ls-comsol-shell .ls-material-values [data-ls-material-index-row] .ls-material-index-label:focus-visible{
  outline:2px solid #4d90d3;outline-offset:-1px;
 }
+
+/* 2026-11-12: COMSOL Basic Properties — Relative permeability/permittivity. */
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row] .ls-material-index-label{
+ display:block;width:100%;padding:3px 2px;text-align:left;background:transparent;
+ border:0;color:#435c72;font:inherit;cursor:pointer;white-space:normal;text-decoration:none;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row] .ls-material-index-label:hover{
+ background:#eaf2fb;color:#182535;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row]:focus-within{
+ background:#e9f1ff;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row]:focus-within .ls-material-index-label{
+ color:#111827;font-weight:600;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row] input[aria-invalid="true"]{
+ border-color:#d8a6a6;
+}
+body.ls-comsol-shell .ls-material-values [data-ls-material-basic-row] input[aria-invalid="false"]{
+ border-color:#8fc7a2;
+}
+#ls-material-properties-tree .ls-material-property-group[data-ls-property-group="Basic Properties"] .ls-material-property-entry:not(:disabled){
+ color:#245f89;font-weight:500;
+}

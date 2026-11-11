@@ -1,0 +1,28 @@
+/* M1 optional validation section. Existing workbench styles are untouched. */
+#ls-m1-validation[hidden]{display:none!important}
+.ls-m1-validation{scroll-margin-top:74px;margin:16px 0 21px;padding:20px;
+ border:1px solid #386b83;border-radius:13px;background:#10243a;color:#e8f6fd;
+ font:12px "Noto Sans KR","Malgun Gothic",sans-serif}
+.ls-m1-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.ls-m1-head small{color:#77cdd6;letter-spacing:.07em;font-size:10px}
+.ls-m1-head h2{font-size:18px;margin:6px 0 10px;color:#f0f8ff}
+.ls-m1-badge{font-size:11px;color:#a2d5d8;border:1px solid #3c6e78;border-radius:8px;padding:7px 10px}
+.ls-m1-description,.ls-m1-limits p{color:#b7ccdd;line-height:1.7;margin:10px 0}
+.ls-m1-controls{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.ls-m1-controls button{cursor:pointer;border:1px solid #3f7c9c;border-radius:8px;padding:9px 12px;
+ background:#194467;color:#eef9ff;font-size:12px;font-weight:650}
+.ls-m1-controls button:hover:not(:disabled){background:#276489}
+.ls-m1-controls button:disabled{cursor:default;opacity:.48}
+#ls-m1-status{min-height:20px;font-size:12px;color:#c1d4e2;margin:10px 0}
+.ls-m1-summary{padding:10px 12px;border:1px solid #39726f;border-radius:7px;color:#b8f0df;font-size:12px;margin:9px 0}
+.ls-m1-table-scroll{overflow:auto;max-height:500px;border:1px solid #31556e;border-radius:7px}
+.ls-m1-validation table{width:100%;border-collapse:collapse;min-width:850px;text-align:left;font-size:11px}
+.ls-m1-validation th,.ls-m1-validation td{padding:9px 8px;border-bottom:1px solid #2e5065;white-space:nowrap}
+.ls-m1-validation th{position:sticky;top:0;z-index:1;background:#193952;color:#c7e5f2}
+.ls-m1-validation td{color:#d5e9f2;font-variant-numeric:tabular-nums}
+.ls-m1-validation .is-pass td:last-child{color:#8ee1bd;font-weight:750}
+.ls-m1-validation .is-fail td:last-child{color:#ffafa9;font-weight:750}
+.ls-m1-limits{margin:14px 0 0;padding:8px 11px;border-top:1px solid #34576e}
+.ls-m1-limits summary{cursor:pointer;color:#9cdbed;font-size:12px}
+.ls-m1-limits a{color:#7adadd}
+@media(max-width:750px){.ls-m1-validation{padding:13px}.ls-m1-head h2{font-size:16px}}

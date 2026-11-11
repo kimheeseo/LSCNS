@@ -111,9 +111,9 @@ Stored original Python vector FDFD `full_vector/results/vector_mode_result.json`
 - neff (two vector modes) = **1.445711888509771**.
 
 Browser JS FDFD source evaluated on those exact inputs:
-- mode 1: **1.4457117978855367**, discrepancy **9.06e-8**;
-- mode 2: **1.4457117978335170**, discrepancy **9.07e-8**;
-- both residuals ≈**1.88e-5**, below the **2.5e-5** FDFD residual gate;
+- mode 1: **1.4457118884935314**, discrepancy **1.62e-11**;
+- mode 2: **1.4457118884934974**, discrepancy **1.63e-11**;
+- both eigenpair residuals ≈**9.77e-8**, below the **1e-7** FDFD residual gate;
 - Ex/Ey/Ez fractions sum to 1; two dominant polarizations differ.
 - These tests check *same-grid algorithmic consistency* and **do not** prove mesh convergence to a continuum Maxwell/COMSOL solution.
 

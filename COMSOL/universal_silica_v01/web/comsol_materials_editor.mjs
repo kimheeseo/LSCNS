@@ -263,8 +263,22 @@
      :'<span class="ls-material-invalid" role="img" aria-label="Invalid property" title="Invalid or missing expression">!</span>';
    }
   }
+  const basicProperties={};
+  for(const property of BASIC_EM_PROPERTIES){
+   if(!material.properties?.includes(property.id))continue;
+   const state=basicEMState(material,property);
+   basicProperties[property.id]={...state,variable:property.variable};
+   const input=pane.querySelector('[data-ls-basic-value="'+property.id+'"]');
+   const cell=pane.querySelector('[data-ls-basic-state="'+property.id+'"]');
+   if(input)input.setAttribute("aria-invalid",state.valid?"false":"true");
+   if(cell){
+    cell.innerHTML=state.valid
+     ?'<span class="ls-material-valid" role="img" aria-label="Valid property" title="Valid expression">✓</span>'
+     :'<span class="ls-material-invalid" role="img" aria-label="Invalid property" title="'+safe(state.error)+'">!</span>';
+   }
+  }
   document.dispatchEvent(new CustomEvent("ls-material-property-changed",{detail:{
-   materialId:material.id,evaluated:resolved,assignedDomains:assignedDomains(material,getDomains()).map(d=>d.id)
+   materialId:material.id,evaluated:resolved,basicProperties,assignedDomains:assignedDomains(material,getDomains()).map(d=>d.id)
   }}));
  }
  function detailsBody(material,domains){
@@ -383,7 +397,7 @@
  }
  function blank(){
   let i=1;while(materials.some(m=>m.id==="mat"+i))i++;
-  const material={id:"mat"+i,label:"Material "+i,mode:"all",level:"Domain",cumulativeId:null,domainIds:[],selectedIdsByLevel:{Boundary:[],Point:[]},properties:["refractive-index"],real:"",imag:"0"};
+  const material={id:"mat"+i,label:"Material "+i,mode:"all",level:"Domain",cumulativeId:null,domainIds:[],selectedIdsByLevel:{Boundary:[],Point:[]},properties:["refractive-index"],basicPropertyValues:{},real:"",imag:"0"};
   materials.push(material);
   warning="Blank Material created. Assign a domain and refractive index values to configure this preview.";
   open(material.id);
@@ -396,7 +410,8 @@
   const copy={...original,id:"mat"+i,label:"Material "+i,
    domainIds:[...original.domainIds],
    selectedIdsByLevel:{Boundary:[...(original.selectedIdsByLevel?.Boundary||[])],Point:[...(original.selectedIdsByLevel?.Point||[])]},
-   properties:[...(original.properties||["refractive-index"])]};
+   properties:[...(original.properties||["refractive-index"])],
+   basicPropertyValues:{...(original.basicPropertyValues||{})}};
   materials.push(copy);warning="Duplicated "+original.label+" as "+copy.label+". Select its domain assignment independently.";
   contextMaterialId=null;open(copy.id);
  }
@@ -404,6 +419,24 @@
   const id=contextMaterialId||activeId;
   if(!materials.some(m=>m.id===id))return;
   deleteDialog.returnValue="no";deleteDialog.showModal();
+ }
+ function addBasicEMProperty(name){
+  const material=materials.find(m=>m.id===activeId);
+  const property=BASIC_EM_PROPERTIES.find(p=>p.name===name);
+  if(!material||!property)return;
+  material.properties??=[];
+  material.basicPropertyValues??={};
+  const alreadyAdded=material.properties.includes(property.id);
+  if(!alreadyAdded)material.properties.push(property.id);
+  if(!(property.id in material.basicPropertyValues))material.basicPropertyValues[property.id]="";
+  warning=alreadyAdded?property.name+" already exists in "+material.label+".":property.name+" added to "+material.label+". Enter "+property.variable+" to validate Status.";
+  expandedPropertyGroups.add("Basic Properties");
+  propertyMenu.hidden=true;propertyContextName="";
+  render();
+  const section=$("ls-material-properties-section");
+  if(section)section.open=true;
+  const contents=pane.querySelector('.ls-material-values [data-ls-basic-value="'+property.id+'"]')?.closest(".ls-material-section");
+  if(contents)contents.open=true;
  }
  function addRefractiveIndex(){
   const material=materials.find(m=>m.id===activeId);

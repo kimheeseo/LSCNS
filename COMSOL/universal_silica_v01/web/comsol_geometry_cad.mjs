@@ -826,7 +826,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    const selectedObjects=shapes.filter(shape=>selectedEntityKeys.has(shape.entityKey));
    $("ls-cad-selected-entities").textContent=selectedObjects.length?"Selected: "+selectedObjects.map(entityLabel).slice(0,5).join(", ")+(selectedObjects.length>5?" +"+(selectedObjects.length-5)+" more":""):"Selected objects: none";
    const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
-   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
+   $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (click Zoom Extents ⛶ to fit all objects)"} · Geometry preview only`;
    if($("ls-cad-status").textContent.startsWith("Preview error:"))say("Graphics updated.");
    emitCadState();
   }catch(e){

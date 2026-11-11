@@ -482,6 +482,15 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   $("ls-cad-range-start").focus();
  }
 
+ function buildUnionShape(input,node){
+  const result=unionContours(input,340),bounds=result.bounds;
+  const x=(bounds.minX+bounds.maxX)/2,y=(bounds.minY+bounds.maxY)/2;
+  const w=bounds.maxX-bounds.minX,h=bounds.maxY-bounds.minY;
+  return {id:node.id,entityKey:node.id,source:node.id,owner:node.id,kind:"union",
+   x,y,r:Math.hypot(w,h)/2,sector:360,deg:0,solid:true,layers:[],
+   contours:result.loops,members:input,keepInterior:!!node.keepInterior,
+   selection:node.selection,color:node.color,derived:true};
+ }
  function compute(upTo=null){
   const parameters=svc.evaluate();
   if(parameters.errors.size)throw Error([...parameters.errors.values()][0]);
@@ -494,6 +503,13 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     if(!(r>0&&r<=10000)||!(sector>0&&sector<=360))throw Error(n.label+": invalid radius or sector");
     if(layers.reduce((sum,t)=>sum+t,0)>=r-1e-15)throw Error(n.label+": total layer thickness must be smaller than radius");
     shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"circle",r,x,y,sector,deg,solid:n.type==="Solid",layers,selection:n.selection,color:n.color,derived:false});
+   }else if(n.kind==="rectangle"){
+    const w=evalLength(n.width),h=evalLength(n.height),deg=evalNumber(n.rotation);
+    if(!(w>0&&h>0&&Number.isFinite(deg)))throw Error(n.label+": Width and Height must be positive and Rotation finite.");
+    const px=evalLength(n.x),py=evalLength(n.y);
+    const x=px+(n.base==="Corner"?w/2:0),y=py+(n.base==="Corner"?h/2:0);
+    shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"rectangle",
+     w,h,r:Math.hypot(w,h)/2,x,y,sector:360,deg,solid:n.type==="Solid",layers:[],selection:n.selection,color:n.color,derived:false});
    }else if(n.kind==="array"){
     const input=Array.isArray(n.inputRefs)?shapes.filter(shape=>n.inputRefs.includes(shape.entityKey)):shapes.filter(shape=>(n.inputIds||[]).includes(shape.owner));
     if(!input.length)continue;
@@ -509,6 +525,20 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
      if(!Number.isFinite(x)||!Number.isFinite(y))throw Error(n.label+": array coordinates must be finite.");
      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+offset.ix+"/"+offset.iy,owner:n.id,kind:"array",outputLabel:n.id+"("+(++outputIndex)+")",x,y,selection:n.selection,color:n.color,derived:true});
     }
+   }else if(n.kind==="union"){
+    const refs=new Set(Array.isArray(n.inputRefs)?n.inputRefs:[]);
+    const input=shapes.filter(shape=>refs.has(shape.entityKey));
+    if(!input.length)continue;
+    if(input.length<2)throw Error(n.label+": select at least two input objects for Union.");
+    const union=buildUnionShape(input,n);
+    if(!n.keep){
+     for(let j=shapes.length-1;j>=0;j--)if(refs.has(shapes[j].entityKey))shapes.splice(j,1);
+    }
+    shapes.push(union);
+   }else if(n.kind==="deleteEntities"){
+    if(n.deleteLevel!=="Domain")throw Error("Delete Entities supports Domain objects only in 2D preview.");
+    const refs=new Set(n.inputRefs||[]);
+    for(let j=shapes.length-1;j>=0;j--)if(refs.has(shapes[j].entityKey))shapes.splice(j,1);
    }else if(n.kind==="rotate"||n.kind==="mirror"){
     const available=[...shapes];
     const input=Array.isArray(n.inputRefs)?available.filter(shape=>n.inputRefs.includes(shape.entityKey)):available.filter(shape=>n.inputIds.includes(shape.owner));
@@ -664,7 +694,22 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   const degrees=((shape.deg%360)+360)%360;
   return shape.entityKey+" ("+unit(degrees)+"°)";
  }
- function drawShape(x,y,r,sector,deg){
+ function drawShape(x,y,r,sector,deg,shape,scale){
+  if(shape?.kind==="union"&&shape.contours?.length){
+   const path=shape.contours.map(loop=>"M"+loop.map(p=>(x+(p.x-shape.x)*scale)+" "+(y-(p.y-shape.y)*scale)).join(" L")+" Z").join(" ");
+   const interior=shape.keepInterior?shape.members.map(m=>{
+    if(m.w>0){
+     const corners=rectangleCorners(m).map(p=>(x+(p.x-shape.x)*scale)+","+(y-(p.y-shape.y)*scale)).join(" ");
+     return '<polygon points="'+corners+'" fill="none" stroke="#7b858d" stroke-width="0.9" pointer-events="none"/>';
+    }
+    return '<circle cx="'+(x+(m.x-shape.x)*scale)+'" cy="'+(y-(m.y-shape.y)*scale)+'" r="'+m.r*scale+'" fill="none" stroke="#7b858d" stroke-width="0.9" pointer-events="none"/>';
+   }).join(""):"";
+   return '<path fill-rule="evenodd" d="'+path+'"/>'+interior;
+  }
+  if(shape?.w>0&&shape?.h>0){
+   const pts=rectangleCorners(shape).map(p=>(x+(p.x-shape.x)*scale)+","+(y-(p.y-shape.y)*scale)).join(" ");
+   return '<polygon points="'+pts+'"/>';
+  }
   if(sector>=359.999)return `<circle cx="${x}" cy="${y}" r="${r}"/>`;
   const a=(deg-90)*Math.PI/180,b=a+sector*Math.PI/180,x1=x+r*Math.cos(a),y1=y+r*Math.sin(a),x2=x+r*Math.cos(b),y2=y+r*Math.sin(b);
   return `<path d="M${x} ${y} L${x1} ${y1} A${r} ${r} 0 ${sector>180?1:0} 1 ${x2} ${y2} Z"/>`;
@@ -890,7 +935,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini||adjacentScene?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg,shape,scale)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);

@@ -649,14 +649,14 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
      const angles=angleList(n.angle);
      for(const shape of input)for(const [angleIndex,deg] of angles.entries()){
       const theta=deg*Math.PI/180,dx=shape.x-px,dy=shape.y-py;
-      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+angleIndex,owner:n.id,kind:"rotate",x:px+dx*Math.cos(theta)-dy*Math.sin(theta),y:py+dx*Math.sin(theta)+dy*Math.cos(theta),deg:shape.deg+deg,selection:n.selection,color:n.color,derived:true});
+      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+angleIndex,owner:n.id,kind:"rotate",outputLabel:n.id+"("+(angleIndex+1)+")",x:px+dx*Math.cos(theta)-dy*Math.sin(theta),y:py+dx*Math.sin(theta)+dy*Math.cos(theta),deg:shape.deg+deg,selection:n.selection,color:n.color,derived:true});
      }
     }else{
      const nx=evalNumber(n.nx),ny=evalNumber(n.ny),norm=nx*nx+ny*ny;
      if(!Number.isFinite(norm)||norm<=1e-18)throw Error(n.label+": the reflection normal vector must not be zero");
      for(const [entityIndex,shape] of input.entries()){
       const projection=((shape.x-px)*nx+(shape.y-py)*ny)/norm;
-      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+entityIndex,owner:n.id,kind:"mirror",x:shape.x-2*projection*nx,y:shape.y-2*projection*ny,deg:-shape.deg,selection:n.selection,color:n.color,derived:true});
+      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+entityIndex,owner:n.id,kind:"mirror",outputLabel:n.id+"("+(entityIndex+1)+")",x:shape.x-2*projection*nx,y:shape.y-2*projection*ny,deg:-shape.deg,selection:n.selection,color:n.color,derived:true});
      }
     }
    }
@@ -818,11 +818,16 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  function drawShape(x,y,r,sector,deg,shape,scale){
   if(["union","difference"].includes(shape?.kind)&&shape.contours?.length){
    const path=shape.contours.map(loop=>"M"+loop.map(p=>(x+(p.x-shape.x)*scale)+" "+(y-(p.y-shape.y)*scale)).join(" L")+" Z").join(" ");
-   const interior=shape.keepInterior?shape.members.map(m=>{
+   const interior=shape.keepInterior?(shape.members||[]).map(m=>{
     if(m.w>0){
      const corners=rectangleCorners(m).map(p=>(x+(p.x-shape.x)*scale)+","+(y-(p.y-shape.y)*scale)).join(" ");
      return '<polygon points="'+corners+'" fill="none" stroke="#7b858d" stroke-width="0.9" pointer-events="none"/>';
     }
+    if(m.a>0&&m.b>0){
+     const cx=x+(m.x-shape.x)*scale,cy=y-(m.y-shape.y)*scale;
+     return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+m.a*scale+'" ry="'+m.b*scale+'" transform="rotate('+(-m.deg)+' '+cx+' '+cy+')" fill="none" stroke="#7b858d" stroke-width="0.9" pointer-events="none"/>';
+    }
+    if(["union","difference"].includes(m.kind))return "";
     return '<circle cx="'+(x+(m.x-shape.x)*scale)+'" cy="'+(y-(m.y-shape.y)*scale)+'" r="'+m.r*scale+'" fill="none" stroke="#7b858d" stroke-width="0.9" pointer-events="none"/>';
    }).join(""):"";
    return '<path fill-rule="evenodd" d="'+path+'"/>'+interior;
@@ -1140,7 +1145,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  }
  function hideContext(){context.hidden=true;}
  function close(){
-  selectingRotateInputs=false;activeCumulativeId=null;
+  selectingRotateInputs=false;differencePickGroup=null;activeCumulativeId=null;
   if(rangeDialog.open)rangeDialog.close("cancel");
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
@@ -1390,7 +1395,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   draw();
  });
  document.addEventListener("ls-open-cad",e=>open(e.detail?.id));
- document.addEventListener("ls-cad-add",e=>add(["circle","rectangle","rotate","mirror","array","union","deleteEntities"].includes(e.detail?.kind)?e.detail.kind:"circle"));
+ document.addEventListener("ls-cad-add",e=>add(["circle","ellipse","rectangle","rotate","mirror","array","union","difference","deleteEntities"].includes(e.detail?.kind)?e.detail.kind:"circle"));
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
  $("ls-cad-form-enable").addEventListener("change",e=>{checkpoint();formUnion.enabled=e.target.checked;draw();});
@@ -1428,7 +1433,9 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-rectangle").addEventListener("click",()=>add("rectangle"));
+ $("ls-cad-add-ellipse").addEventListener("click",()=>add("ellipse"));
  $("ls-cad-add-union").addEventListener("click",()=>add("union"));
+ $("ls-cad-add-difference").addEventListener("click",()=>add("difference"));
  $("ls-cad-add-delete-entities").addEventListener("click",()=>add("deleteEntities"));
  $("ls-cad-add-array").addEventListener("click",()=>add("array"));
  $("ls-cad-array-use-um").addEventListener("click",()=>{
@@ -1481,6 +1488,13 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   });
  }
  $("ls-cad-label").addEventListener("input",e=>{if(!cur())return;checkpoint();cur().label=e.target.value;drawTree();});
+ for(const key of ["type","a","b","sector","base","x","y","rotation"]){
+  const el=$("ls-cad-ellipse-"+key);
+  el.addEventListener(key==="type"||key==="base"?"change":"input",e=>{
+   const node=cur();if(node?.kind!=="ellipse")return;
+   checkpoint();node[key]=e.target.value;draw();
+  });
+ }
  for(const key of ["type","width","height","base","x","y","rotation"]){
   const el=$("ls-cad-rect-"+key);
   el.addEventListener(key==="type"||key==="base"?"change":"input",e=>{
@@ -1488,6 +1502,36 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    checkpoint();n[key]=e.target.value;draw();
   });
  }
+ for(const key of ["keep","interior","repair"]){
+  const element=$("ls-cad-diff-"+key);
+  element.addEventListener("change",e=>{
+   const node=cur();if(node?.kind!=="difference")return;
+   checkpoint();node[key==="interior"?"keepInterior":key]=key==="repair"?e.target.value:e.target.checked;
+   draw();
+  });
+ }
+ for(const group of ["add","subtract"]){
+  $("ls-cad-diff-pick-"+group).addEventListener("click",()=>{
+   if(cur()?.kind!=="difference")return;
+   differencePickGroup=differencePickGroup===group?null:group;
+   selectingRotateInputs=!!differencePickGroup;
+   loadFields();
+   say(differencePickGroup?"Difference: click preceding Geometry objects to "+differencePickGroup+".":"Difference: Graphics input picking stopped.");
+  });
+ }
+ $("ls-cad-difference-controls").addEventListener("change",e=>{
+  const box=e.target.closest("[data-cad-diff-ref]"),node=cur();
+  if(!box||node?.kind!=="difference")return;
+  const key=box.dataset.cadDiffRef,group=box.dataset.cadDiffGroup;
+  const main=group==="add"?"addRefs":"subtractRefs",other=group==="add"?"subtractRefs":"addRefs";
+  checkpoint();
+  const refs=new Set(node[main]||[]);
+  if(box.checked)refs.add(key);else refs.delete(key);
+  node[main]=[...refs];
+  if(box.checked)node[other]=(node[other]||[]).filter(ref=>ref!==key);
+  renderDifferenceInputs(node);
+  draw();
+ });
  $("ls-cad-union-keep").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keep=e.target.checked;draw();});
  $("ls-cad-union-interior").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keepInterior=e.target.checked;draw();});
  $("ls-cad-union-repair").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.repair=e.target.value;draw();});

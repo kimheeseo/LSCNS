@@ -76,6 +76,8 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    <details class="ls-cad-section" id="ls-cad-array-displacement-section" hidden open><summary>Displacement</summary>
     <div class="ls-cad-field"><label for="ls-cad-array-dx">x:</label><input id="ls-cad-array-dx" value="0"/><span data-array-length-unit>µm</span></div>
     <div class="ls-cad-field"><label for="ls-cad-array-dy">y:</label><input id="ls-cad-array-dy" value="0"/><span data-array-length-unit>µm</span></div>
+    <p id="ls-cad-array-feedback" class="ls-cad-array-feedback" role="status" aria-live="polite"></p>
+    <button id="ls-cad-array-use-um" type="button" hidden>Set Geometry length unit to µm</button>
    </details>
    <details class="ls-cad-section" open id="ls-cad-rotate-angle-section"><summary>Rotation</summary><div class="ls-cad-field"><label for="ls-cad-angle">Angle</label><div class="ls-cad-angle-entry"><input id="ls-cad-angle" spellcheck="false"/><span>deg</span><button type="button" id="ls-cad-range-open" title="Range — Start, Step, Stop" aria-label="Range">▥</button></div><span></span></div><small>Use an angle, range(start,step,stop), or comma-separated ranges. Click Range to open the step dialog.</small></details>
    <details class="ls-cad-section" open id="ls-cad-rotate-center-section"><summary>Center of Rotation</summary><div class="ls-cad-field"><label for="ls-cad-cx">x</label><input id="ls-cad-cx"/><span>m</span></div><div class="ls-cad-field"><label for="ls-cad-cy">y</label><input id="ls-cad-cy"/><span>m</span></div></details>
@@ -576,6 +578,39 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  function selectedInputKeys(n,candidates=availableInputs(n)){
   return Array.isArray(n.inputRefs)?new Set(n.inputRefs):new Set(candidates.filter(x=>n.inputIds.includes(x.owner)).map(x=>x.entityKey));
  }
+ function updateArrayFeedback(){
+  const feedback=$("ls-cad-array-feedback"),unitButton=$("ls-cad-array-use-um"),node=cur();
+  if(!feedback||!unitButton||node?.kind!=="array")return;
+  unitButton.hidden=lengthUnit==="um";
+  let message="",level="info";
+  try{
+   const inputs=availableInputs(node),refs=selectedInputKeys(node,inputs);
+   const sources=inputs.filter(shape=>refs.has(shape.entityKey));
+   const linear=node.arrayType==="Linear";
+   const count=linear?evalNumber(node.size):evalNumber(node.nx)*evalNumber(node.ny);
+   if(!Number.isInteger(count)||count<1||count>450)throw Error("Array size must be a positive integer (max 450 positions).");
+   if(!sources.length){
+    level="warning";message="Input objects is empty. Select or create a source Circle.";
+   }else if(count===1){
+    level="warning";message="Size = 1 generates ONE circle only. To see six circles, enter Size = 6 and set x displacement.";
+   }else{
+    const dx=evalLength(node.dx),dy=evalLength(node.dy);
+    const radius=Math.max(...sources.map(shape=>shape.r));
+    const distance=Math.hypot(dx,dy);
+    message=sources.length+" input(s) × "+count+" positions = "+(sources.length*count)+" circles. Step x = "+formatLength(dx)+", y = "+formatLength(dy)+".";
+    if(distance>Math.max(radius,1e-15)*1000){
+     level="warning";message+=" The spacing is more than 1000× the circle radius ("+formatLength(radius)+"). After Zoom Extents the circles may look invisible. Use an explicit value such as 125[um].";
+    }else if(distance===0){
+     level="warning";message+=" Copies overlap at zero displacement.";
+    }else level="ok";
+   }
+  }catch(e){level="warning";message="Check Array settings: "+e.message;}
+  if(lengthUnit==="m"){
+   message+=" Geometry unit is currently m, so x = 2 means 2 meters, not 2 µm. Choose 'Set Geometry length unit to µm' or type explicit units (e.g. 125[um]).";
+   level="warning";
+  }
+  feedback.textContent=message;feedback.dataset.level=level;
+ }
  function entityLabel(shape){
   if(shape.kind==="array"&&shape.outputLabel)return shape.outputLabel;
   if(!shape.derived)return shape.source+" · "+(nodes.find(n=>n.id===shape.source)?.label||"Circle");
@@ -839,6 +874,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
     }
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    const shapes=compute();
+   if(cur()?.kind==="array")updateArrayFeedback();
    const liveKeys=new Set(shapes.map(shape=>shape.entityKey));
    for(const key of selectedEntityKeys)if(!liveKeys.has(key))selectedEntityKeys.delete(key);
    const selectedObjects=shapes.filter(shape=>selectedEntityKeys.has(shape.entityKey));
@@ -937,7 +973,11 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
      compute(idx); // Keep prior Build limit on failure.
      checkpoint();limit=idx;finishArrayBuild();
      if(n.kind!=="array")lockViewIfNeeded();
-     draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));
+     draw();
+     const outputs=compute().filter(shape=>shape.owner===n.id);
+     if(n.kind==="array"&&outputs.length===1)
+      say("Built 1 circle only: Linear Size = 1. Set Size to 6 and displacement x, then Build Selected.");
+     else say("Built Selected: "+outputs.length+" object(s) from "+n.label+".");
     }catch(e){say("Build failed: "+e.message,true);}
     return;
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Built Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
@@ -1119,7 +1159,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-build-leave").addEventListener("change",e=>{buildOnLeave=e.target.checked;});
  document.addEventListener("ls-wizard-finished",e=>{
   if(e.detail?.physics!=="ewfd"||e.detail?.study!=="mode")return;
-  checkpoint();nodes=[];cumulativeSelections.length=0;activeCumulativeId=null;selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="m";
+  checkpoint();nodes=[];cumulativeSelections.length=0;activeCumulativeId=null;selected="root";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;rootLabel="Geometry 1";lengthUnit="um";
   const label=$("ls-cad-root-name");if(label)label.textContent=rootLabel;
   drawTree();draw();say("New 2D geometry created. Right-click Geometry 1 → Circle to add your first feature.");
  });
@@ -1130,6 +1170,12 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-array").addEventListener("click",()=>add("array"));
+ $("ls-cad-array-use-um").addEventListener("click",()=>{
+  if(cur()?.kind!=="array")return;
+  checkpoint();lengthUnit="um";
+  // Bare numeric values now mean micrometers; explicit units are left intact.
+  loadFields();say("Geometry length unit set to µm. Bare Array displacement values now use µm.");
+ });
  $("ls-cad-inputs").addEventListener("click",event=>{
   if(!event.target.closest("#ls-cad-create-array-input"))return;
   const array=cur();

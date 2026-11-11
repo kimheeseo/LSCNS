@@ -32,12 +32,12 @@ Version **0.3.0** · 2026-11-12 · Static GitHub Pages · No server or paid APIs
 +export const VERSION = '0.3.0';
 ```
 
-﻿```diff
+```diff
 --- a/web/app.mjs
 +++ b/web/app.mjs
 @@
--from './solver.mjs?v=20261104-comsol-step-v2';
-+from './solver.mjs?v=20261112-m1-v03';
+-import {VERSION,PRESETS,claddingIndex,validate,deltaIndex,solve,dispersion,dispersionDiagnostics,spectrum,meshStudy,outputSummary} from './solver.mjs?v=20261104-comsol-step-v2';
++import {VERSION,PRESETS,claddingIndex,validate,deltaIndex,solve,dispersion,dispersionDiagnostics,spectrum,meshStudy,outputSummary} from './solver.mjs?v=20261112-m1-v03';
 ```
 
 ```diff

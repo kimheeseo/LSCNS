@@ -135,7 +135,7 @@ function eigenMode(op,g,polarization,orthogonal=[],{maxOuter=105,onProgress=()=>
   let res=0;for(let i=0;i<N;i++){const d=Mx[i]-eig*x[i];res+=d*d;}
   residual=Math.sqrt(res)/Math.max(Math.abs(eig),1e-30);
   if(outer%10===0)onProgress({mode:polarization,iteration:outer,residual});
-  if(residual<2.5e-5){converged=true;break;}
+  if(residual<1e-7){converged=true;break;}
  }
  if(!(eig>0))throw Error("FDFD did not obtain positive beta^2.");
  return {field:x,eigenvalue:eig,neff:Math.sqrt(eig)/k0,

@@ -2,10 +2,10 @@
 
 ## User-requested flows
 
-1. **Geometry 1 → Rectangle** or **+ Rectangle** creates an independent feature with Object Type, Width, Height, Base (Corner/Center), Position (x/y), Rotation, and Selections of Resulting Entities. The rectangle is drawn in the 2D Graphics pane, including rotation.
+1. **Geometry 1 → Rectangle** or **+ Rectangle** creates an independent feature with Object Type, Width, Height, Base (Corner/Center), Position (x/y), Rotation, a collapsed Layers reference section, and Selections of Resulting Entities. Corner-positioned rectangles rotate about the anchor corner. The rectangle is drawn in the 2D Graphics pane, including rotation.
 2. **Geometry 1 → Booleans and Partitions → Union** or **+ Union** creates an editable Union feature. In Input objects select at least two preceding solid circles/rectangles or individual Array copies. **Build Selected** generates an outer joined silhouette, hides the consumed inputs by default, and supports Keep input objects and Keep interior boundaries. The union is a sampled preview contour, not a B-rep or FEM-domain Boolean.
-3. **Geometry 1 → Delete Entities** or **+ Delete Entities** creates a feature with Geometric entity level = Domain and input object selection. Build Selected filters chosen full 2D preview objects from downstream output; later Geometry features see the reduced set. Boundary/Point topology deletion remains disabled.
-4. **Form Union (fin)** appears in the Geometry tree. It exposes Form Union enabled, Keep interior boundaries, Repair tolerance (display setting), and Build Finalization. It can preview a combined silhouette for supported solid circles and rectangles. This does not modify the 1D radial FEM solver or produce a 2D FEM mesh.
+3. **Geometry 1 → Delete Entities** or **+ Delete Entities** creates a feature with Geometric entity level = Object (Domain preview selection is also supported) and input object selection. Build Selected filters chosen full 2D preview objects from downstream output; later Geometry features see the reduced set. Boundary/Point topology deletion remains disabled.
+4. **Form Union (fin)** appears in the Geometry tree. It opens an independent **Form Union/Assembly** Settings panel with **Action: Form a union / Form an assembly**, **Repair tolerance: Automatic**, Keep interior boundaries, and Build Finalization. The Settings pane's **Build Selected** also triggers the finalization build. It can preview a combined silhouette for supported solid circles and rectangles. This does not modify the 1D radial FEM solver or produce a 2D FEM mesh.
 
 ## Important behavior / limitations
 
@@ -14,7 +14,7 @@
 - Delete Entities removes **whole preview objects/domains**, not a subset of a boundary, edge, or point.
 - Rectangle and Union are omitted from the existing circular/radial Materials and Adjacent Domain model rather than falsely displaying a bounding circle as an exact rectangle domain.
 - Existing Circle, Array, Rotate, Mirror, input checkbox selection, Build Selected / Build All, Zoom Extents, undo/redo, and JSON export remain in the same editor.
-- The module is loaded from `geometry_boolean.mjs` in the same directory.
+- The module is loaded from `geometry_boolean.mjs` in the same directory. Rectangle Layers, non-Automatic tolerance control, precision Boolean boundary topology and 2D FEM conversion are not implemented; their controls are explicitly limited or informational.
 
 ## Checks included
 
@@ -22,3 +22,12 @@
 - `tests/browser_geometry_rectangle_union_delete.mjs`: UI workflow smoke test for Rectangle → Union → Delete Entities → Form Union.
 - Updated `tests/browser_geometry_array.mjs` menu expectation: Union is now enabled; other currently unsupported Boolean entries remain disabled.
 - These browser scripts were committed but not executed against the deployed GitHub Pages site in this session.
+
+## Screenshot alignment update — 2026-11-12
+
+- Model Builder `Form Union (fin)` is independently selectable. The Geometry pane no longer substitutes root Settings for its finalization Settings.
+- `Delete Entities` starts in **Object** mode and removes individually selected whole preview objects.
+- `Union` offers the reference Repair tolerance selector with unsupported precision modes disabled.
+- Geometry right-click entries were reordered to align with Circle / Ellipse / Rectangle / Booleans and Partitions / Transforms / Conversions / Delete Entities.
+- Rectangle Corner rotation was corrected to rotate the local (width/2, height/2) offset around the corner anchor.
+- Browser regression `tests/browser_geometry_rectangle_union_delete.mjs` was expanded for Corner rotation, Object deletion and Form Union/Assembly. Browser execution against the published site remains unverified.

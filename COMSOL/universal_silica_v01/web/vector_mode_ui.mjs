@@ -46,7 +46,7 @@ function mount(){
  <div class="fv-map"><h4>|Ez|²</h4><canvas id="fv-map-ez" width="360" height="360"></canvas></div>
  </div>
  <p id="fv-details" class="fv-help">각 성분 그림은 패턴 확인을 위해 개별 최대값으로 정규화됩니다. 성분의 상대 에너지 비율은 결과 메타데이터를 확인하십시오.</p>
- <p class="fv-help fv-alert">주의: GitHub Pages는 Full-vector 고유값을 계산하지 않습니다. 이 화면은 Colab 계산 결과를 <b>불러와 표시</b>합니다. Scalar 측면 입력값을 바꾸더라도 가져온 결과는 자동 재계산되지 않습니다. 이 FDFD는 FEM이 아니며 Full-vector 손실/PML/HCF 복소 모드 해석도 아닙니다.</p>`;
+ <p class="fv-help fv-alert">주의: 위의 기존 Colab 결과 뷰어는 계산하지 않고 <b>JSON을 불러와 표시</b>합니다. 아래 M3 섹션에서 별도 브라우저 벡터 FDFD를 실행할 수 있습니다. Scalar 측면 입력값을 바꾸더라도 가져온 결과는 자동 재계산되지 않습니다. 이 FDFD는 FEM이 아니며 Full-vector 손실/PML/HCF 복소 모드 해석도 아닙니다.</p>`;
  const anchor=$('pmd-tool');if(anchor)anchor.before(sec);else main.appendChild(sec);
  $('fv-example').addEventListener('click',async()=>{
    $('fv-status').textContent='기본 벡터 해석 결과를 불러오는 중…';

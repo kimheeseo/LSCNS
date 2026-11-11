@@ -13,7 +13,8 @@
  */
 import {PRESETS,solve,dispersion} from "./solver.mjs";
 import {lp01Characteristic} from "./validation_lp01.mjs";
-import {M1Q_VERSION,M1Q_SCHEMA,M1Q_CASES,M1Q_PREUPDATE,M1Q_TOLERANCES as T,M1Q_COMSOL_URL} from "./m1q_cases.mjs";
+import {M1Q_VERSION,M1Q_SCHEMA,M1Q_CASES,M1Q_PREUPDATE,M1Q_TOLERANCES,M1Q_COMSOL_URL} from "./m1q_cases.mjs";
+const T=M1Q_TOLERANCES;
 function finite(n){return typeof n==="number"&&Number.isFinite(n);}
 export function m1qFixtureModel(c){
  return {...PRESETS.comsol_step,profile:"step",wavelength_nm:c.wavelength_nm,

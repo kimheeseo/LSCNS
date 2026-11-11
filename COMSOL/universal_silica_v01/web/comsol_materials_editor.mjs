@@ -12,6 +12,7 @@
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
  const materials=[];
  let activeId=null,manualPick=false,warning="",menuOpen=false,lastDomainSignature="",contextMaterialId=null,propertyContextName="",refractiveDetailsExpanded=false,activeRefractiveRow=null;
+ const expandedPropertyGroups=new Set(["Basic Properties","Electromagnetic Models"]);
  const pane=document.createElement("section");
  pane.id="ls-materials-editor";pane.className="ls-config-pane ls-materials-editor";pane.hidden=true;
  sidebar.append(pane);
@@ -139,8 +140,21 @@
   }
   return out;
  }
+ const BASIC_EM_PROPERTIES=[
+  {id:"relative-permeability",name:"Relative permeability",variable:"mur_iso"},
+  {id:"relative-permittivity",name:"Relative permittivity",variable:"epsilonr_iso"}
+ ];
+ function basicEMState(material,property){
+  const expression=String(material?.basicPropertyValues?.[property.id]??"").trim();
+  if(!expression)return {valid:false,error:property.name+" value is required.",expression};
+  try{
+   const value=window.LSWaveParameterService?.calculate?.(expression);
+   if(!Number.isFinite(value))throw Error("Expression must evaluate to a finite real scalar.");
+   return {valid:true,value,expression};
+  }catch(error){return {valid:false,error:error.message,expression};}
+ }
  const MATERIAL_PROPERTY_GROUPS=[
-  {name:"Basic Properties",items:["Density","Heat capacity at constant pressure","Thermal conductivity"]},
+  {name:"Basic Properties",items:["Density","Heat capacity at constant pressure","Thermal conductivity","Relative permeability","Relative permittivity"]},
   {name:"Acoustics",items:[]},
   {name:"Electrochemistry",items:[]},
   {name:"Electromagnetic Models",items:[
@@ -161,7 +175,7 @@
  ];
  function propertiesBrowser(){
   return '<div id="ls-material-properties-tree" role="tree" aria-label="Material Properties">'+
-   MATERIAL_PROPERTY_GROUPS.map(g=>'<details class="ls-material-property-group" '+(g.name==="Electromagnetic Models"?"open":"")+'><summary>'+safe(g.name)+'</summary>'+
+   MATERIAL_PROPERTY_GROUPS.map(g=>'<details class="ls-material-property-group" data-ls-property-group="'+safe(g.name)+'" '+(expandedPropertyGroups.has(g.name)?"open":"")+'><summary>'+safe(g.name)+'</summary>'+
     '<div class="ls-material-property-children">'+(g.items.length?g.items.map(name=>{
      if(name==="Refractive index"){
       return '<details class="ls-material-refractive-node" '+(refractiveDetailsExpanded?"open":"")+'>'+
@@ -171,9 +185,11 @@
        '<button type="button" data-ls-refractive-focus="imag">Refractive index, imaginary part (ki)</button>'+
        '</div></details>';
      }
+     if(BASIC_EM_PROPERTIES.some(property=>property.name===name))
+      return '<button type="button" role="treeitem" class="ls-material-property-entry" data-ls-property="'+safe(name)+'" title="Right-click → Add to Material">◇ '+safe(name)+'</button>';
      return '<button type="button" role="treeitem" class="ls-material-property-entry" data-ls-property="'+safe(name)+'" disabled title="Property editor not implemented yet">◇ '+safe(name)+'</button>';
     }).join(""):'<span class="ls-material-empty-property">No editable properties in this prototype.</span>')+'</div></details>').join("")+
-   '</div><p class="ls-material-help">Click <b>Refractive index</b> to reveal its real part (n) and imaginary part (ki). Click either child to edit its value in Material Contents. Right-click → Add to Material remains available.</p>';
+   '</div><p class="ls-material-help">Right-click <b>Relative permeability</b>, <b>Relative permittivity</b>, or <b>Refractive index</b> → Add to Material. Enter values or Parameters expressions in Material Contents to receive valid Status checks.</p>';
  }
  function materialContents(material){
   const added=material.properties?.includes("refractive-index");

@@ -80,6 +80,7 @@ try{
  await page.locator('#ls-cad-inputs [data-cad-input-ref="c1"]').uncheck();await page.locator('#ls-cad-build-selected').click();assert.equal((await output('arr1')).length,6);
  // Existing named cumulative selection and Materials can reference the Array feature.
  await page.locator('#ls-cad-cumulative-new').click();await page.locator('#ls-cad-cumulative-name').fill('Array outputs');await page.locator('#ls-cad-cumulative-ok').click();
+ await page.locator('#ls-cad-cumulative-list [data-cad-cumulative-id="csel1"]').waitFor({state:'visible'});
  assert.deepEqual(await page.evaluate(()=>window.LSWaveCADService.cumulativeSelections()[0].featureIds),['arr1']);
  await page.locator('summary[data-action="waveMaterials"]').click({button:'right'});await page.locator('[data-material-command="blank"]').click();
  await page.locator('#ls-material-select-mode').selectOption('cumulative:csel1');

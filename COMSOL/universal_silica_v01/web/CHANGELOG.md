@@ -3,7 +3,7 @@
 ## v0.5.0 — 2026-11-12 — M3 Browser full-vector FDFD
 
 ### Added
-- `vector_fdfd_browser.mjs`: real 2D coupled transverse-H Maxwell FDFD eigensolver (Hx, Hy), matrix-free shifted-inverse BiCGSTAB, reconstructed Ex/Ey/Ez and modal metrics (neff, MFD, Aeff, polarization).
+- `vector_fdfd_browser.mjs`: real 2D coupled transverse-H Maxwell FDFD eigensolver (Hx, Hy), matrix-free shifted-inverse BiCGSTAB, reconstructed Ex/Ey/Ez and modal metrics (neff, MFD, Aeff, polarization). Raw Ex/Ey real and Ez imaginary amplitudes are also exported; legacy intensity-map fields remain intact.
 - `vector_fdfd_worker.mjs`: runs full-vector calculations off the UI thread using a module Web Worker. Static GitHub Pages compatible; no API, account, paid compute or server.
 - `vector_m3_ui.mjs` / `vector_m3_ui.css`: separate controls and vector-field maps **inside the existing Full-vector study**. The existing Colab JSON reference viewer is retained unchanged in functionality.
 - `tests/test_vector_m3.mjs` / `tests/browser_m2_m3_ui.mjs`: same-grid Python numeric reference comparison and optional browser UI check. JSON exported in the pre-existing `LSCNS_vector_mode_v1` format.

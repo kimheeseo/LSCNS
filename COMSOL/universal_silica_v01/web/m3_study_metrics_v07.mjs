@@ -13,7 +13,7 @@ export const M3_PYTHON_REF=Object.freeze({
  path:"../full_vector/results/vector_mode_result.json",
  neff:1.445711888509771,
  wavelength_nm:1550,core_radius_um:5.5,delta_n:0.0034785793846155,
- window_halfwidth_um:22,grid_n:69
+ window_halfwidth_um:22,grid_n:69,n_clad:1.444023621703261
 });
 export function validateM3Study(config,grids){
  if(!config||!Array.isArray(grids)||!grids.length||grids.length>M3_STUDY_MAX_MESHES)
@@ -46,7 +46,8 @@ export function referenceRunMatch(config,gridN,refInput){
  return gridN===b.grid_n&&tol(config.wavelength_nm,b.wavelength_nm)&&
   tol(config.core_radius_um,b.core_radius_um)&&
   tol(config.window_halfwidth_um,b.window_halfwidth_um)&&
-  tol(config.n_core-config.n_clad,b.delta_n);
+  tol(config.n_core-config.n_clad,b.delta_n)&&
+  (!Number.isFinite(b.n_clad)||tol(config.n_clad,b.n_clad));
 }
 export function normalizeColabJSON(raw){
  if(!raw||raw.schema!=="LSCNS_vector_mode_v1"||!Array.isArray(raw.modes)||!raw.modes.length)
@@ -67,8 +68,8 @@ export function meshComparisonRows(runs,scalarNeff,analyticNeff,colab=null){
    grid_n:r.grid_n,neff:n,residual:r.modes[0].residual,wallMs:r.wallMs,
    workerHeapUsedBytes:r.workerHeapUsedBytes??null,
    estimatedTypedArrayMiB:estimatedTypedArrayMiB(r.grid_n),
-   diffToLP01:Math.abs(n-analyticNeff),
-   diffToScalar:Math.abs(n-scalarNeff),
+   diffToLP01:Number.isFinite(analyticNeff)?Math.abs(n-analyticNeff):null,
+   diffToScalar:Number.isFinite(scalarNeff)?Math.abs(n-scalarNeff):null,
    diffToPreviousGrid:deltaPrevious,
    colabNeff,deltaToColab:matched?Math.abs(n-colabNeff):null,
    colabComparisonStatus:matched?"동일 격자·입력":"미검증 (입력/격자 상이)",

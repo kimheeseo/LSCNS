@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {rectangleCorners,boundsOf,containsPoint,unionContours} from "../geometry_boolean.mjs";
+import {rectangleCorners,boundsOf,containsPoint,unionContours,differenceContours} from "../geometry_boolean.mjs";
 const rect={kind:"rectangle",x:25e-6,y:0,w:40e-6,h:24e-6,deg:30,solid:true,sector:360};
 const disk={kind:"circle",x:0,y:0,r:25e-6,solid:true,sector:360};
 assert.equal(rectangleCorners(rect).length,4);
@@ -13,4 +13,20 @@ assert.ok(result.loops[0].length>10,"Union should have non-degenerate micron-sca
 const apart=unionContours([disk,{...rect,x:200e-6}],200);
 assert.equal(apart.loops.length,2,"Separated solids remain two regions of one union feature");
 assert.throws(()=>unionContours([{...disk,solid:false},rect]),/solid/);
-console.log("PASS: rectangle corners/bounds, micron-scale union, separated components and solid validation");
+const ellipse={kind:"ellipse",x:0,y:0,a:20e-6,b:12e-6,deg:45,solid:true,sector:360};
+assert.ok(containsPoint(ellipse,0,0),"Rotated ellipse contains its center");
+assert.ok(!containsPoint(ellipse,100e-6,0),"Ellipse must not contain distant points");
+const eBound=boundsOf(ellipse);
+assert.ok(eBound.maxX>0&&eBound.maxY>0&&eBound.maxX-eBound.minX<40e-6);
+const withEllipse=unionContours([ellipse,disk],300);
+assert.equal(withEllipse.loops.length,1,"Nested ellipse belongs to the disk Union");
+const hole=differenceContours([disk],[ellipse],340);
+assert.equal(hole.loops.length,2,"Subtract an internal ellipse to form a hole");
+const difference={kind:"difference",adds:[disk],subtracts:[ellipse]};
+assert.equal(containsPoint(difference,0,0),false,"Difference removes the inner ellipse");
+assert.equal(containsPoint(difference,24e-6,0),true,"Difference preserves outer material");
+assert.throws(()=>differenceContours([disk],[]),/subtract/);
+assert.throws(()=>differenceContours([], [ellipse]),/add/);
+const subtractOutside=differenceContours([disk],[{...ellipse,x:100e-6}],200);
+assert.equal(subtractOutside.loops.length,1,"Outside subtraction leaves the source intact");
+console.log("PASS: rectangle corners/bounds, micron-scale union, separated components and solid validation, Ellipse and Difference holes");

@@ -8,19 +8,20 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  const circle=(id,label,radius)=>({id,kind:"circle",label,enabled:true,type:"Solid",radius,sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",layer:"0[um]",layerExtra:[],selection:false,color:"None"});
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
+ let selectedEntityKeys=new Set(); // Individually picked Array outputs.
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
  let adjacentView=false,adjacentGridOn=false,adjacentPickMode=false,adjacentLevel="Boundary",adjacentSelectedKeys=new Set();
  let pmlView=false,pmlPickMode=false,pmlDomainKeys=new Set();
- function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent};}
+ function snap(){return {nodes:structuredClone(nodes),selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent,selectedEntityKeys:[...selectedEntityKeys]};}
  function updateHistoryButtons(){
   if($("ls-cad-undo"))$("ls-cad-undo").disabled=!undoStack.length;
   if($("ls-cad-redo"))$("ls-cad-redo").disabled=!redoStack.length;
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -100,7 +101,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  side.append(pane);
  const graphics=document.createElement("section");
  graphics.id="ls-cad-graphics";graphics.hidden=true;
- graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
+ graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span><span id="ls-cad-selected-entities" role="status" aria-live="polite">Selected objects: none</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
  main.prepend(graphics);
  const context=document.createElement("div");
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
@@ -410,10 +411,11 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
     const remaining=shapes.length-input.length;
     if(remaining+input.length*offsets.length>450)throw Error(n.label+": too many objects for preview (max 450).");
     for(let j=shapes.length-1;j>=0;j--)if(keys.has(shapes[j].entityKey))shapes.splice(j,1);
-    for(const shape of input)for(const offset of offsets){
+    let outputIndex=0;
+     for(const shape of input)for(const offset of offsets){
      const x=shape.x+offset.x,y=shape.y+offset.y;
      if(!Number.isFinite(x)||!Number.isFinite(y))throw Error(n.label+": array coordinates must be finite.");
-     shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+offset.ix+"/"+offset.iy,owner:n.id,kind:"array",x,y,selection:n.selection,color:n.color,derived:true});
+     shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+offset.ix+"/"+offset.iy,owner:n.id,kind:"array",outputLabel:n.id+"("+(++outputIndex)+")",x,y,selection:n.selection,color:n.color,derived:true});
     }
    }else if(n.kind==="rotate"||n.kind==="mirror"){
     const available=[...shapes];
@@ -532,6 +534,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   return Array.isArray(n.inputRefs)?new Set(n.inputRefs):new Set(candidates.filter(x=>n.inputIds.includes(x.owner)).map(x=>x.entityKey));
  }
  function entityLabel(shape){
+  if(shape.kind==="array"&&shape.outputLabel)return shape.outputLabel;
   if(!shape.derived)return shape.source+" · "+(nodes.find(n=>n.id===shape.source)?.label||"Circle");
   const degrees=((shape.deg%360)+360)%360;
   return shape.entityKey+" ("+unit(degrees)+"°)";
@@ -762,7 +765,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    }
    const details=`${shape.owner} • Radius (outer) ${unit(shape.r*1e6)} µm${interior.length?" • Radius (inner) "+unit(interior.at(-1)*1e6)+" µm":""}`;
    const label=mini||adjacentScene?"":`<text x="${x}" y="${y-r-9}" font-size="11" text-anchor="middle" fill="#536d80">${esc(shape.owner)}${shape.derived?"*":""}</text>`;
-   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
+   return `<g class="ls-cad-rendered-shape${isSelectedInput(shape)?" is-input-selected":""}${!mini&&!selectingRotateInputs&&selectedEntityKeys.has(shape.entityKey)?" is-entity-selected":""}${!adjacentScene&&materialEntityLevel!=="Domain"&&materialHighlightKeys.has(shape.entityKey)?" is-material-selected":""}${!adjacentScene&&cumulativeHighlight(shape)?" is-cumulative-selected":""}" data-cad-shape="${esc(shape.owner)}" data-cad-entity="${esc(shape.entityKey)}" data-cad-entity-label="${esc(entityLabel(shape))}" data-cad-source="${esc(shape.source)}" data-outer-radius-m="${shape.r}" data-inner-radius-m="${interior.length?interior.at(-1):shape.r}" data-layer-count="${interior.length}" stroke="${stroke}" stroke-width="${mini?1.2:1.65}" ${shape.derived&&!adjacentScene?'stroke-dasharray="5 3"':""}><title>${esc(details)}</title><g class="ls-cad-rendered-surface" fill="${fill}" fill-opacity="${adjacentScene?"1":shape.derived?".55":".95"}">${drawShape(x,y,r,shape.sector,shape.deg)}</g>${layersMarkup}</g>${label}`;
   }).join("");
   const materialRegions=materialDomainsSVG(ox,oy,scale,mini);
   const adjacentRegions=adjacentEntitiesSVG(ox,oy,scale,mini);
@@ -793,6 +796,10 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
     }
    $("ls-cad-build-label").textContent=limit===null?"Build All":limit<0?"Build preceding (empty)":"Build through "+nodes[limit]?.label;
    const shapes=compute();
+   const liveKeys=new Set(shapes.map(shape=>shape.entityKey));
+   for(const key of selectedEntityKeys)if(!liveKeys.has(key))selectedEntityKeys.delete(key);
+   const selectedObjects=shapes.filter(shape=>selectedEntityKeys.has(shape.entityKey));
+   $("ls-cad-selected-entities").textContent=selectedObjects.length?"Selected: "+selectedObjects.map(entityLabel).slice(0,5).join(", ")+(selectedObjects.length>5?" +"+(selectedObjects.length-5)+" more":""):"Selected objects: none";
    const selectedShape=shapes.find(shape=>shape.owner===selected)||shapes.at(-1);
    $("ls-cad-legend").textContent=`${shapes.length} object(s) · ${selectedShape?shapeSummary(selectedShape):"No geometry"} · Zoom ${Math.round(zoom*100)}% · units ${lengthUnit==="um"?"µm":lengthUnit} · ${viewExtent===null?"Auto-fit (first Build locks scale)":"Fixed scale (use Fit ⌖ to reframe)"} · Geometry preview only`;
    if($("ls-cad-status").textContent.startsWith("Preview error:"))say("Graphics updated.");
@@ -805,7 +812,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  }
  function open(id){
   activeCumulativeId=null;
-  if(id&&id!==selected)selectingRotateInputs=false;
+  if(id&&id!==selected){selectingRotateInputs=false;selectedEntityKeys.clear();}
   if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;
   if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
@@ -923,7 +930,8 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
    {sep:true},menuAction("Booleans and Partitions","submenu",{children:["Union","Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
    menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
-   ...["Conversions","Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
+   menuAction("Conversions","submenu",{children:["Convert to Solid","Convert to Curve","Convert to Point","Split"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
+    ...["Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
@@ -1233,7 +1241,18 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    say(key+(selectedRefs.has(key)?" selected as ":" removed from ")+node.label+" input objects.");
    return;
   }
-  selected=shape.dataset.cadShape;loadFields();
+  const owner=nodes.find(n=>n.id===shape.dataset.cadShape);
+   if(owner?.kind==="array"){
+    const key=shape.dataset.cadEntity;
+    // Click picks one output; Ctrl/Shift+click toggles multiple outputs.
+    if(e.ctrlKey||e.metaKey||e.shiftKey){
+     if(selectedEntityKeys.has(key))selectedEntityKeys.delete(key);else selectedEntityKeys.add(key);
+    }else selectedEntityKeys=new Set([key]);
+    selected=owner.id;loadFields();
+    say(selectedEntityKeys.size?selectedEntityKeys.size+" individual Array object(s) selected. Ctrl/Shift+click to toggle.":"Array object selection cleared.");
+    return;
+   }
+   selectedEntityKeys.clear();selected=shape.dataset.cadShape;loadFields();
  });
  $("ls-cad-object-select").addEventListener("change",e=>open(e.target.value));
  const viewport=$("ls-cad-view");let gesture=null,hovered=null;
@@ -1282,7 +1301,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
   const actions={F6:"build-preceding",F7:"build-selected",F8:"build-all",F2:"rename",F3:"disable",F4:"enable",Delete:"delete"};
   if(actions[e.key]){e.preventDefault();const id=document.activeElement?.dataset.cadNode;modify(actions[e.key]);if(id&&["F3","F4"].includes(e.key))document.querySelector('[data-cad-node="'+CSS.escape(id)+'"]')?.focus({preventScroll:true});}
  });
- $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
- $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
+ $("preset")?.addEventListener("change",()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;selectedEntityKeys.clear();undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();});
+ $("resetBtn")?.addEventListener("click",()=>queueMicrotask(()=>{nodes=defaults();selected="c2";limit=null;zoom=1;panX=0;panY=0;viewExtent=null;selectedEntityKeys.clear();undoStack.length=0;redoStack.length=0;lastAppliedSignature=physSignature();updateHistoryButtons();drawTree();emitCadState();if(!pane.hidden)close();}));
  drawTree();updateHistoryButtons();
 })();

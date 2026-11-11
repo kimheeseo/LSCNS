@@ -30,7 +30,7 @@ try{
  const r=await page.evaluate(()=>window.LSWaveVectorM3.latest());
  assert.equal(r.schema,"LSCNS_vector_mode_v1");
  assert.equal(r.modes.length,2);
- assert.ok(r.modes.every(m=>m.residual<2.5e-5));
+ assert.ok(r.modes.every(m=>m.residual<1e-7));
  assert.equal(await page.locator("#m3-numbers tr").count(),3);
  assert.deepEqual(errors,[]);
  console.log("PASS M2/M3 browser optional section: original scalar state unchanged, M2 and worker FDFD output");

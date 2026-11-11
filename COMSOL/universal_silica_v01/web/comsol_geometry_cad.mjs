@@ -215,7 +215,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  });
  const cur=()=>nodes.find(n=>n.id===selected),index=id=>nodes.findIndex(n=>n.id===id);
  const physSignature=()=>{
-  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:n.kind==="rectangle"?[n.id,n.kind,n.enabled,n.type,n.width,n.height,n.base,n.x,n.y,n.rotation]:[n.id,n.kind,n.enabled,n.inputIds,n.inputRefs,n.keep,n.angle,n.cx,n.cy,n.arrayType,n.nx,n.ny,n.size,n.dx,n.dy]);
+  const structural=nodes.map(n=>n.kind==="circle"?[n.id,n.kind,n.enabled,n.type,n.radius,n.sector,n.x,n.y,n.layer,n.layerExtra||[]]:n.kind==="rectangle"?[n.id,n.kind,n.enabled,n.type,n.width,n.height,n.base,n.x,n.y,n.rotation]:n.kind==="ellipse"?[n.id,n.kind,n.enabled,n.type,n.a,n.b,n.sector,n.x,n.y,n.rotation]:[n.id,n.kind,n.enabled,n.inputIds,n.inputRefs,n.keep,n.angle,n.cx,n.cy,n.arrayType,n.nx,n.ny,n.size,n.dx,n.dy]);
   // Resolve parameter expressions as well as literal expressions. An edit of d/rb
   // changes the geometry even if Circle 1/2 still display the same expressions.
   const evaluated=nodes.filter(n=>n.kind==="circle").map(n=>{
@@ -560,6 +560,15 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    contours:result.loops,members:input,keepInterior:!!node.keepInterior,
    selection:node.selection,color:node.color,derived:true};
  }
+ function buildDifferenceShape(adds,subtracts,node){
+  const result=differenceContours(adds,subtracts,340),bounds=result.bounds;
+  const x=(bounds.minX+bounds.maxX)/2,y=(bounds.minY+bounds.maxY)/2;
+  const w=bounds.maxX-bounds.minX,h=bounds.maxY-bounds.minY;
+  return {id:node.id,entityKey:node.id,source:node.id,owner:node.id,kind:"difference",
+   x,y,r:Math.hypot(w,h)/2,sector:360,deg:0,solid:true,layers:[],
+   contours:result.loops,adds,subtracts,members:[...adds,...subtracts],
+   keepInterior:!!node.keepInterior,selection:node.selection,color:node.color,derived:true};
+ }
  function compute(upTo=null){
   const parameters=svc.evaluate();
   if(parameters.errors.size)throw Error([...parameters.errors.values()][0]);
@@ -580,6 +589,12 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
     const x=px+(n.base==="Corner"?(w*ca-h*sa)/2:0),y=py+(n.base==="Corner"?(w*sa+h*ca)/2:0);
     shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"rectangle",
      w,h,r:Math.hypot(w,h)/2,x,y,sector:360,deg,solid:n.type==="Solid",layers:[],selection:n.selection,color:n.color,derived:false});
+   }else if(n.kind==="ellipse"){
+    const a=evalLength(n.a),b=evalLength(n.b),x=evalLength(n.x),y=evalLength(n.y),sector=evalNumber(n.sector),deg=evalNumber(n.rotation);
+    if(!(a>0&&b>0&&Number.isFinite(x)&&Number.isFinite(y)&&Number.isFinite(deg)&&sector>0&&sector<=360))
+     throw Error(n.label+": positive semiaxes and sector angle 0–360 are required.");
+    shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"ellipse",a,b,r:Math.max(a,b),
+     x,y,sector,deg,solid:n.type==="Solid",layers:[],selection:n.selection,color:n.color,derived:false});
    }else if(n.kind==="array"){
     const input=Array.isArray(n.inputRefs)?shapes.filter(shape=>n.inputRefs.includes(shape.entityKey)):shapes.filter(shape=>(n.inputIds||[]).includes(shape.owner));
     if(!input.length)continue;
@@ -605,6 +620,18 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
      for(let j=shapes.length-1;j>=0;j--)if(refs.has(shapes[j].entityKey))shapes.splice(j,1);
     }
     shapes.push(union);
+   }else if(n.kind==="difference"){
+    const addKeys=new Set(n.addRefs||[]),subKeys=new Set(n.subtractRefs||[]);
+    const adds=shapes.filter(shape=>addKeys.has(shape.entityKey));
+    const subtracts=shapes.filter(shape=>subKeys.has(shape.entityKey));
+    if(!adds.length||!subtracts.length)continue; // Incomplete selection during picking.
+    if(adds.some(shape=>subKeys.has(shape.entityKey)))throw Error(n.label+": input groups must be disjoint.");
+    const result=buildDifferenceShape(adds,subtracts,n);
+    if(!n.keep){
+     for(let j=shapes.length-1;j>=0;j--)
+      if(addKeys.has(shapes[j].entityKey)||subKeys.has(shapes[j].entityKey))shapes.splice(j,1);
+    }
+    shapes.push(result);
    }else if(n.kind==="deleteEntities"){
     if(!["Object","Domain"].includes(n.deleteLevel||"Object"))throw Error("Delete Entities supports whole Object/Domain selection only in 2D preview.");
     const refs=new Set(n.inputRefs||[]);
@@ -657,7 +684,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   for(const shape of shapes){
    // Non-circular shapes are Geometry preview objects, not radial/FEM
    // material domains; never silently substitute their bounding circles.
-   if(shape.w>0||shape.kind==="union")continue;
+   if(shape.w>0||shape.a>0||["union","difference"].includes(shape.kind))continue;
    if(shape.sector<359.999||!shape.solid){
     add(shape,"disk",""+shape.entityKey+" · object",shape.r,0);
     continue;
@@ -701,7 +728,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
     x1,y1,x2,y2});
   };
   for(const shape of shapes){
-   if(shape.w>0||shape.kind==="union")continue; // exact rectangle/union boundary topology not yet supported
+   if(shape.w>0||shape.a>0||["union","difference"].includes(shape.kind))continue; // exact rectangle/union boundary topology not yet supported
    if(level==="Point"){add(shape,"center","point",0);continue;}
    add(shape,"outer-boundary","circle",shape.r);
    if(shape.sector<359.999)continue;
@@ -727,7 +754,27 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   return idx<0?[]:compute(idx-1);
  }
  function selectedInputKeys(n,candidates=availableInputs(n)){
-  return Array.isArray(n.inputRefs)?new Set(n.inputRefs):new Set(candidates.filter(x=>n.inputIds.includes(x.owner)).map(x=>x.entityKey));
+  return Array.isArray(n.inputRefs)?new Set(n.inputRefs):new Set(candidates.filter(x=>(n.inputIds||[]).includes(x.owner)).map(x=>x.entityKey));
+ }
+ function renderDifferenceInputs(node){
+  const available=availableInputs(node);
+  for(const group of ["add","subtract"]){
+   const key=group==="add"?"addRefs":"subtractRefs";
+   const target=$("ls-cad-diff-"+(group==="add"?"add":"sub")+"-inputs");
+   target.replaceChildren();
+   if(!available.length)target.textContent="Create preceding Geometry objects first.";
+   for(const shape of available){
+    const label=document.createElement("label"),cb=document.createElement("input");
+    cb.type="checkbox";cb.dataset.cadDiffGroup=group;cb.dataset.cadDiffRef=shape.entityKey;
+    cb.checked=(node[key]||[]).includes(shape.entityKey);
+    label.append(cb,document.createTextNode(" "+entityLabel(shape)));
+    target.append(label);
+   }
+   const button=$("ls-cad-diff-pick-"+group),active=selectingRotateInputs&&differencePickGroup===group;
+   button.textContent=active?"ON":"OFF";
+   button.setAttribute("aria-pressed",String(active));
+   button.classList.toggle("active",active);
+  }
  }
  function updateArrayFeedback(){
   const feedback=$("ls-cad-array-feedback"),unitButton=$("ls-cad-array-use-um"),node=cur();
@@ -763,13 +810,13 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   feedback.textContent=message;feedback.dataset.level=level;
  }
  function entityLabel(shape){
-  if(shape.kind==="array"&&shape.outputLabel)return shape.outputLabel;
+  if(shape.outputLabel)return shape.outputLabel;
   if(!shape.derived)return shape.source+" · "+(nodes.find(n=>n.id===shape.source)?.label||"Circle");
   const degrees=((shape.deg%360)+360)%360;
   return shape.entityKey+" ("+unit(degrees)+"°)";
  }
  function drawShape(x,y,r,sector,deg,shape,scale){
-  if(shape?.kind==="union"&&shape.contours?.length){
+  if(["union","difference"].includes(shape?.kind)&&shape.contours?.length){
    const path=shape.contours.map(loop=>"M"+loop.map(p=>(x+(p.x-shape.x)*scale)+" "+(y-(p.y-shape.y)*scale)).join(" L")+" Z").join(" ");
    const interior=shape.keepInterior?shape.members.map(m=>{
     if(m.w>0){
@@ -783,6 +830,17 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   if(shape?.w>0&&shape?.h>0){
    const pts=rectangleCorners(shape).map(p=>(x+(p.x-shape.x)*scale)+","+(y-(p.y-shape.y)*scale)).join(" ");
    return '<polygon points="'+pts+'"/>';
+  }
+  if(shape?.a>0&&shape?.b>0){
+   const rx=shape.a*scale,ry=shape.b*scale;
+   if(sector>=359.999)return '<ellipse cx="'+x+'" cy="'+y+'" rx="'+rx+'" ry="'+ry+'" transform="rotate('+(-deg)+' '+x+' '+y+')"/>';
+   const count=Math.max(16,Math.ceil(96*sector/360)),t=deg*Math.PI/180,c=Math.cos(t),si=Math.sin(t);
+   const coords=[];
+   for(let i=0;i<=count;i++){
+    const theta=sector*Math.PI/180*i/count,dx=shape.a*Math.cos(theta),dy=shape.b*Math.sin(theta);
+    coords.push([x+(dx*c-dy*si)*scale,y-(dx*si+dy*c)*scale]);
+   }
+   return '<path d="M'+x+' '+y+' L'+coords.map(p=>p.join(' ')).join(' L')+' Z"/>';
   }
   if(sector>=359.999)return `<circle cx="${x}" cy="${y}" r="${r}"/>`;
   const a=(deg-90)*Math.PI/180,b=a+sector*Math.PI/180,x1=x+r*Math.cos(a),y1=y+r*Math.sin(a),x2=x+r*Math.cos(b),y2=y+r*Math.sin(b);

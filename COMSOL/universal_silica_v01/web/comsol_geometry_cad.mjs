@@ -374,7 +374,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    $("ls-cad-angle").value=n.angle??"";$("ls-cad-cx").value=n.cx??"0";$("ls-cad-cy").value=n.cy??"0";$("ls-cad-keep").checked=n.keep;
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
     $("ls-cad-activate-selection").classList.toggle("active",selectingRotateInputs);
-    $("ls-cad-selection-hint").textContent=n.kind==="array"?(selectingRotateInputs?"Active · click source objects in Graphics. Build Selected to display the array.":"Activate Selection to edit the input objects."):selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
+    $("ls-cad-selection-hint").textContent=["array","union","deleteEntities"].includes(n.kind)?(selectingRotateInputs?"Active · click input objects in Graphics. Build Selected to show the result.":"Activate Selection to edit input objects."):selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
    $("ls-cad-rotate-angle-section").hidden=n.kind!=="rotate";
    $("ls-cad-rotate-center-section").hidden=n.kind!=="rotate";
    $("ls-cad-mirror-point-section").hidden=n.kind!=="mirror";
@@ -1006,7 +1006,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   pane.hidden=true;graphics.hidden=true;side.classList.remove("ls-config-active");document.body.classList.remove("ls-configuration-open","ls-cad-active");hideContext();
  }
  function add(kind,pos=nodes.length){
-  selectingRotateInputs=kind==="array";
+  selectingRotateInputs=["array","union","deleteEntities"].includes(kind);
   checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;
   // Auto-pick only when exactly one preceding object exists.
   if(kind==="array"){
@@ -1027,19 +1027,20 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   // A failed build never changes the Geometry viewport or undo history.
   for(let i=0;i<=Math.min(end,nodes.length-1);i++){
    const node=nodes[i];
-   if(!node?.enabled||node.kind!=="array")continue;
+   if(!node?.enabled||!["array","union","deleteEntities"].includes(node.kind))continue;
    const available=availableInputs(node);
    const selectedRefs=selectedInputKeys(node,available);
-   if(!available.some(shape=>selectedRefs.has(shape.entityKey))){
-    throw Error(node.label+": Input objects is empty. Create a Circle before Array, then select it in Input objects.");
+   const count=available.filter(shape=>selectedRefs.has(shape.entityKey)).length;
+   if(!count||(node.kind==="union"&&count<2)){
+    throw Error(node.label+": "+(node.kind==="union"?"select at least two preceding solid objects.":"Input objects is empty. Select a preceding object."));
    }
   }
  }
  function finishArrayBuild(){
-  if(cur()?.kind!=="array")return;
-  // Fit generated Array outputs instead of its source-object picking view.
+  if(!["array","union","deleteEntities"].includes(cur()?.kind))return;
+  // Fit generated Geometry outputs instead of its source-object picking view.
   selectingRotateInputs=false;
-  zoomExtents();
+  if(compute().length)zoomExtents();
   $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
   $("ls-cad-activate-selection").classList.remove("active");
   $("ls-cad-selection-hint").textContent="Activate Selection to edit the input objects.";
@@ -1048,13 +1049,13 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   const idx=index(selected),n=cur();
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
-   case "circle":case "rotate":case "mirror":case "array":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
+   case "circle":case "rectangle":case "rotate":case "mirror":case "array":case "union":case "deleteEntities":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
    case "build-all":
     try{
      assertArrayInputsThrough(nodes.length-1);
      compute(nodes.length-1); // Validate before committing a Build state.
      checkpoint();limit=null;finishArrayBuild();
-     if(n?.kind!=="array")lockViewIfNeeded();
+     if(!["array","union","deleteEntities"].includes(n?.kind))lockViewIfNeeded();
      draw();say("Built All: "+compute().map(shapeSummary).join("; "));
     }catch(e){say("Build failed: "+e.message,true);}
     return;
@@ -1064,7 +1065,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
      assertArrayInputsThrough(idx);
      compute(idx); // Keep prior Build limit on failure.
      checkpoint();limit=idx;finishArrayBuild();
-     if(n.kind!=="array")lockViewIfNeeded();
+     if(!["array","union","deleteEntities"].includes(n.kind))lockViewIfNeeded();
      draw();
      const outputs=compute().filter(shape=>shape.owner===n.id);
      if(n.kind==="array"&&outputs.length===1)
@@ -1145,16 +1146,16 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function menuItems(scope){
   if(scope==="root")return [
    menuAction("Build All","build-all",{shortcut:"F8"}),menuAction("Import","disabled",{disabled:true}),{sep:true},
-   menuAction("Circle","circle"),...["Ellipse","Rectangle","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
-   {sep:true},menuAction("Booleans and Partitions","submenu",{children:["Union","Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
+   menuAction("Circle","circle"),menuAction("Rectangle","rectangle"),menuAction("Delete Entities","deleteEntities"),...["Ellipse","Square","Circular Arc","Cubic Bézier","Interpolation Curve","Line Segment","Parametric Curve","Point","Polygon","Quadratic Bézier"].map(t=>menuAction(t,"disabled",{disabled:true})),
+   {sep:true},menuAction("Booleans and Partitions","submenu",{children:[menuAction("Union","union"),...["Intersection","Difference","Compose","Partition Objects","Partition Domains","Partition Edges"].map(label=>menuAction(label,"disabled",{disabled:true}))]}),
    menuAction("Transforms","submenu",{children:[menuAction("Array","array"),menuAction("Copy","disabled",{disabled:true}),menuAction("Mirror","mirror"),menuAction("Move","disabled",{disabled:true}),menuAction("Rotate","rotate"),menuAction("Scale","disabled",{disabled:true})]}),
    menuAction("Conversions","submenu",{children:["Convert to Solid","Convert to Curve","Convert to Point","Split"].map(label=>menuAction(label,"disabled",{disabled:true}))}),
     ...["Chamfer","Fillet","Parts","Programming","Measure","Insert Sequence"].map(t=>menuAction(t,"disabled",{disabled:true})),{sep:true},menuAction("Copy as Code to Clipboard","copy-code",{disabled:true}),menuAction("Rename","rename",{disabled:true}),menuAction("Settings","settings"),menuAction("Properties","properties"),menuAction("Help","help")
   ];
   return [
    menuAction("Build Selected","build-selected",{shortcut:"F7"}),menuAction("Build Preceding","build-preceding",{shortcut:"F6"}),
-   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Array","array",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
-   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Array","array",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
+   menuAction("Add Before","submenu",{children:[menuAction("Circle","circle",{pos:"before"}),menuAction("Rectangle","rectangle",{pos:"before"}),menuAction("Union","union",{pos:"before"}),menuAction("Delete Entities","deleteEntities",{pos:"before"}),menuAction("Array","array",{pos:"before"}),menuAction("Rotate","rotate",{pos:"before"}),menuAction("Mirror","mirror",{pos:"before"})]}),
+   menuAction("Add After","submenu",{children:[menuAction("Circle","circle",{pos:"after"}),menuAction("Rectangle","rectangle",{pos:"after"}),menuAction("Union","union",{pos:"after"}),menuAction("Delete Entities","deleteEntities",{pos:"after"}),menuAction("Array","array",{pos:"after"}),menuAction("Rotate","rotate",{pos:"after"}),menuAction("Mirror","mirror",{pos:"after"})]}),
    menuAction("Copy as Code to Clipboard","copy-code"),{sep:true},
    menuAction("Move Up","up",{shortcut:"Ctrl+Up"}),menuAction("Move Down","down",{shortcut:"Ctrl+Down"}),menuAction("Copy","copy"),menuAction("Paste","paste",{disabled:!clipboard,shortcut:"Ctrl+V"}),menuAction("Duplicate","duplicate",{shortcut:"Ctrl+Shift+D"}),
    menuAction("Delete","delete",{shortcut:"Del"}),menuAction(cur()?.enabled?"Disable":"Enable","toggle",{shortcut:cur()?.enabled?"F3":"F4"}),menuAction("Rename","rename",{shortcut:"F2"}),
@@ -1261,6 +1262,9 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  $("ls-cad-build-selected").addEventListener("click",()=>modify("build-selected"));
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
+ $("ls-cad-add-rectangle").addEventListener("click",()=>add("rectangle"));
+ $("ls-cad-add-union").addEventListener("click",()=>add("union"));
+ $("ls-cad-add-delete-entities").addEventListener("click",()=>add("deleteEntities"));
  $("ls-cad-add-array").addEventListener("click",()=>add("array"));
  $("ls-cad-array-use-um").addEventListener("click",()=>{
   if(cur()?.kind!=="array")return;
@@ -1330,7 +1334,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  });
  
  $("ls-cad-activate-selection").addEventListener("click",()=>{
-  if(!["rotate","mirror","array"].includes(cur()?.kind))return;
+  if(!["rotate","mirror","array","union","deleteEntities"].includes(cur()?.kind))return;
   selectingRotateInputs=!selectingRotateInputs;
   loadFields();
   say(selectingRotateInputs?"Activate Selection: input circles are highlighted in blue. Click a shape to add/remove its input.":"Graphics input selection deactivated.");
@@ -1418,7 +1422,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  $("ls-cad-keep").addEventListener("change",e=>{checkpoint();cur().keep=e.target.checked;draw();});
  $("ls-cad-inputs").addEventListener("change",e=>{
   const box=e.target.closest("[data-cad-input-ref]"),node=cur();
-  if(!box||!node||!["rotate","mirror","array"].includes(node.kind))return;
+  if(!box||!node||!["rotate","mirror","array","union","deleteEntities"].includes(node.kind))return;
   checkpoint();
   const ids=selectedInputKeys(node);
   if(box.checked)ids.add(box.dataset.cadInputRef);else ids.delete(box.dataset.cadInputRef);
@@ -1467,7 +1471,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    document.dispatchEvent(new CustomEvent("ls-material-geometry-click",{detail:{entityKey:shape.dataset.cadEntity,owner:shape.dataset.cadShape,level:materialEntityLevel}}));
    return;
   }
-  if(selectingRotateInputs&&["rotate","mirror","array"].includes(node?.kind)){
+  if(selectingRotateInputs&&["rotate","mirror","array","union","deleteEntities"].includes(node?.kind)){
    const key=shape.dataset.cadEntity;
    const available=availableInputs(node);
    if(!available.some(s=>s.entityKey===key)){say("Select an individual preceding Geometry object (c2/rot1 output).",true);return;}

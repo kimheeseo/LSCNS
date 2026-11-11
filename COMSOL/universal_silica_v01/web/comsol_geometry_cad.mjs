@@ -349,7 +349,25 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    }
    const list=$("ls-cad-inputs");list.replaceChildren();
    const options=availableInputs(n);
-   if(!options.length)list.textContent="Create a preceding Geometry object, then activate selection.";
+   if(!options.length){
+    const hint=document.createElement("p");
+    hint.className="ls-cad-input-empty";
+    hint.textContent="No preceding Geometry input. Add a Circle before this Array, or move an existing Circle before it.";
+    list.append(hint);
+    if(n.kind==="array"){
+     const create=document.createElement("button");
+     create.type="button";
+     create.id="ls-cad-create-array-input";
+     create.textContent="＋ Add Circle before Array";
+     create.title="Create one editable Circle before this Array and select it as input";
+     list.append(create);
+    }
+   }else if(n.kind==="array"&&!selectedInputKeys(n,options).size){
+    const hint=document.createElement("p");
+    hint.className="ls-cad-input-empty";
+    hint.textContent="Select one or more input objects below or click Activate Selection.";
+    list.append(hint);
+   }
    const checked=selectedInputKeys(n,options);
    for(const shape of options){
     const label=document.createElement("label"),cb=document.createElement("input");
@@ -861,13 +879,39 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  }
  function add(kind,pos=nodes.length){
   selectingRotateInputs=kind==="array";
-  checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;open();say(`${n.label} added. Configure and Build All.`);
+  checkpoint();const n=fresh(kind,pos);nodes.splice(pos,0,n);selected=n.id;limit=null;
+  // Auto-pick only when exactly one preceding object exists.
+  if(kind==="array"){
+   const candidates=availableInputs(n);
+   if(candidates.length===1){
+    n.inputRefs=[candidates[0].entityKey];
+    n.inputIds=candidates[0].derived?[]:[candidates[0].source];
+    selectingRotateInputs=false;
+   }
+  }
+  open();
+  if(kind==="array"&&!availableInputs(n).length){
+   say("Array needs a preceding Circle. Use '+ Add Circle before Array' in Input objects, then Build Selected.",true);
+  }else say(`${n.label} added. Configure input objects, then Build Selected or Build All.`);
+ }
+ function assertArrayInputsThrough(end){
+  // Validate from the full Geometry sequence, ignoring the previous Build limit.
+  // A failed build never changes the Geometry viewport or undo history.
+  for(let i=0;i<=Math.min(end,nodes.length-1);i++){
+   const node=nodes[i];
+   if(!node?.enabled||node.kind!=="array")continue;
+   const available=availableInputs(node);
+   const selectedRefs=selectedInputKeys(node,available);
+   if(!available.some(shape=>selectedRefs.has(shape.entityKey))){
+    throw Error(node.label+": Input objects is empty. Create a Circle before Array, then select it in Input objects.");
+   }
+  }
  }
  function finishArrayBuild(){
   if(cur()?.kind!=="array")return;
-  // Validate before changing the picker or viewport. Counts include position 0.
-  const extent=visibleExtent();
-  selectingRotateInputs=false;viewExtent=extent;zoom=1;panX=0;panY=0;
+  // Fit generated Array outputs instead of its source-object picking view.
+  selectingRotateInputs=false;
+  zoomExtents();
   $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
   $("ls-cad-activate-selection").classList.remove("active");
   $("ls-cad-selection-hint").textContent="Activate Selection to edit the input objects.";
@@ -877,8 +921,25 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
    if(cmd==="undo"||cmd==="redo"){historyMove(cmd==="undo");return;}
   switch(cmd){
    case "circle":case "rotate":case "mirror":case "array":add(cmd,arg==="before"?Math.max(idx,0):arg==="after"?idx+1:nodes.length);return;
-   case "build-all":checkpoint();limit=null;try{finishArrayBuild();lockViewIfNeeded();draw();say("Built All: "+compute().map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
-   case "build-selected":if(!n)return;checkpoint();limit=idx;try{finishArrayBuild();lockViewIfNeeded();draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));}catch(e){draw();say("Build failed: "+e.message,true);}return;
+   case "build-all":
+    try{
+     assertArrayInputsThrough(nodes.length-1);
+     compute(nodes.length-1); // Validate before committing a Build state.
+     checkpoint();limit=null;finishArrayBuild();
+     if(n?.kind!=="array")lockViewIfNeeded();
+     draw();say("Built All: "+compute().map(shapeSummary).join("; "));
+    }catch(e){say("Build failed: "+e.message,true);}
+    return;
+   case "build-selected":
+    if(!n)return;
+    try{
+     assertArrayInputsThrough(idx);
+     compute(idx); // Keep prior Build limit on failure.
+     checkpoint();limit=idx;finishArrayBuild();
+     if(n.kind!=="array")lockViewIfNeeded();
+     draw();say("Built Selected: "+compute().filter(shape=>shape.owner===n.id).map(shapeSummary).join("; "));
+    }catch(e){say("Build failed: "+e.message,true);}
+    return;
    case "build-preceding":if(!n)return;checkpoint();limit=idx-1;try{lockViewIfNeeded();draw();say("Built Preceding complete.");}catch(e){draw();say("Build failed: "+e.message,true);}return;
    case "up":case "down":{const i=idx+(cmd==="up"?-1:1);if(i<0||i>=nodes.length)return;checkpoint();[nodes[idx],nodes[i]]=[nodes[i],nodes[idx]];limit=null;loadFields();say("Geometry order updated.");return;}
    case "duplicate":{if(!n)return;checkpoint();const copy=structuredClone(n),newid=fresh(n.kind,idx+1);copy.id=newid.id;copy.label=newid.label;nodes.splice(idx+1,0,copy);selected=copy.id;limit=null;loadFields();say(`Duplicated as ${copy.label}.`);return;}
@@ -1069,6 +1130,21 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-build-all").addEventListener("click",()=>modify("build-all"));
  $("ls-cad-add-circle").addEventListener("click",()=>add("circle"));
  $("ls-cad-add-array").addEventListener("click",()=>add("array"));
+ $("ls-cad-inputs").addEventListener("click",event=>{
+  if(!event.target.closest("#ls-cad-create-array-input"))return;
+  const array=cur();
+  if(array?.kind!=="array")return;
+  const arrayIndex=index(array.id);
+  checkpoint();
+  // Place the newly created Circle immediately before the Array feature.
+  const source=fresh("circle",arrayIndex);
+  nodes.splice(arrayIndex,0,source);
+  array.inputRefs=[source.id];
+  array.inputIds=[source.id];
+  selected=array.id;limit=null;selectingRotateInputs=false;
+  loadFields();
+  say(source.label+" created before "+array.label+" and assigned as its input. Click Build Selected.");
+ });
  $("ls-cad-add-rotate").addEventListener("click",()=>add("rotate"));
  $("ls-cad-add-mirror").addEventListener("click",()=>add("mirror"));
  $("ls-cad-reset").addEventListener("click",()=>{checkpoint();nodes=defaults();selected="c2";limit=null;zoom=1;viewExtent=null;loadFields();say("Geometry restored to original Circle 1 and 2.");});

@@ -14,10 +14,11 @@ try{
  assert.ok(await menu.isVisible(),"Definitions right-click must open context menu");
  const sections=await menu.locator(":scope > .ls-def-context-group").count();
  assert.equal(sections,5);
- for(const label of ["Variables","Functions","Selections","Probes","Nonlocal Couplings",
- "Pairs","Coordinate Systems","Moving Mesh","Deformed Geometry","Topology Optimization",
- "Shape Optimization","Perfectly Matched Layer","Shared Properties","View",
- "Show More Options...","Node Group","Group by Type","Update Probes","Help"]){
+ for(const label of ["Variables","Variable Utilities","View","Functions","Probes","Component Couplings",
+ "Selections","Nonlocal Couplings","Pairs","Coordinate Systems","Moving Mesh","Deformed Geometry",
+ "Topology Optimization","Shape Optimization","Absorbing Layer","Infinite Element Domain",
+ "Perfectly Matched Layer","Shared Properties","Show More Options...","Node Group",
+ "Group by Type","Update Probes","Help"]){
   assert.ok((await menu.textContent()).includes(label),"Missing "+label);
  }
  const pml=menu.locator('[data-definitions-command="pml"]');

@@ -1017,7 +1017,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   activeCumulativeId=null;
   if(id&&id!==selected){selectingRotateInputs=false;selectedEntityKeys.clear();}
   if(id==="root"||id==="fin")selected=id;else if(id&&nodes.some(n=>n.id===id))selected=id;
-  if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
+  if(selected!=="root"&&selected!=="fin"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
   pane.hidden=false;graphics.hidden=false;
   side.classList.add("ls-config-active");document.body.classList.add("ls-configuration-open","ls-cad-active");

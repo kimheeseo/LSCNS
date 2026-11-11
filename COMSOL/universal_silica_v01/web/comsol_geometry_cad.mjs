@@ -101,7 +101,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  side.append(pane);
  const graphics=document.createElement("section");
  graphics.id="ls-cad-graphics";graphics.hidden=true;
- graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Fit drawing">⌖</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span><span id="ls-cad-selected-entities" role="status" aria-live="polite">Selected objects: none</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
+ graphics.innerHTML=`<div class="ls-cad-graphics-bar"><b>Graphics · Geometry 1</b><span id="ls-cad-build-label">Build All</span><div><button id="ls-cad-plus" type="button" title="Zoom in">＋</button><button id="ls-cad-minus" type="button" title="Zoom out">－</button><button id="ls-cad-fit" type="button" title="Zoom Extents — fit all visible Geometry objects" aria-label="Zoom Extents">⛶</button><button id="ls-cad-grid" type="button" title="Toggle grid">▦</button></div></div><div class="ls-cad-graphics-select"><label for="ls-cad-object-select">Graphics selection</label><select id="ls-cad-object-select" aria-label="Select Geometry feature in Graphics"></select><span>빈 영역 드래그: 이동 · 휠: 확대/축소</span><span id="ls-cad-selected-entities" role="status" aria-live="polite">Selected objects: none</span></div><svg id="ls-cad-view" viewBox="0 0 640 500" aria-label="Geometry 2D graphics"></svg><p id="ls-cad-legend">2D Geometry preview · not a FEM field plot</p>`;
  main.prepend(graphics);
  const context=document.createElement("div");
  context.id="ls-cad-menu";context.className="ls-cad-menu";context.hidden=true;context.setAttribute("role","menu");
@@ -199,6 +199,31 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  function visibleExtent(){
   const shapes=compute();
   return Math.max(1e-12,...shapes.map(shape=>shape.r+Math.hypot(shape.x,shape.y)));
+ }
+ // COMSOL-like Zoom Extents: fit actual object bounds, including translated
+ // arrays. Changing the camera must not change shape geometry.
+ function zoomExtents(){
+  // Input-selection mode renders the preceding source objects instead.
+  const shapes=selectingRotateInputs&&cur()?.kind==="array"?availableInputs(cur()):compute();
+  if(!shapes.length)throw Error("No visible Geometry objects to fit.");
+  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+  for(const shape of shapes){
+   if(![shape.x,shape.y,shape.r].every(Number.isFinite)||shape.r<=0)continue;
+   minX=Math.min(minX,shape.x-shape.r);
+   maxX=Math.max(maxX,shape.x+shape.r);
+   minY=Math.min(minY,shape.y-shape.r);
+   maxY=Math.max(maxY,shape.y+shape.r);
+  }
+  if(!Number.isFinite(minX)||!(maxX>minX)||!(maxY>minY))throw Error("No valid Geometry extents available.");
+  // These dimensions match svg(640,500)'s main Graphics plot (55,31,618,452).
+  const pw=640-22-55,ph=500-48-31,margin=.90;
+  const scale=margin*Math.min(pw/(maxX-minX),ph/(maxY-minY));
+  if(!(scale>0&&Number.isFinite(scale)))throw Error("Cannot determine Zoom Extents scale.");
+  viewExtent=Math.min(pw,ph)*.42/scale;
+  zoom=1;
+  panX=-(minX+maxX)/2*scale;
+  panY=(minY+maxY)/2*scale;
+  return {count:shapes.length,minX,maxX,minY,maxY};
  }
  function lockViewIfNeeded(){
   const extent=visibleExtent();
@@ -1191,7 +1216,7 @@ import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
  $("ls-cad-color").addEventListener("change",e=>{checkpoint();cur().color=e.target.value;draw();});
  $("ls-cad-plus").addEventListener("click",()=>{zoom=Math.min(zoom*1.25,8);draw();});
  $("ls-cad-minus").addEventListener("click",()=>{zoom=Math.max(zoom/1.25,.25);draw();});
- $("ls-cad-fit").addEventListener("click",()=>{try{viewExtent=visibleExtent();zoom=1;panX=0;panY=0;draw();say("Fit view: physical scale updated.");}catch(e){say("Fit failed: "+e.message,true);}});
+ $("ls-cad-fit").addEventListener("click",()=>{try{const result=zoomExtents();draw();say("Zoom Extents: "+result.count+" Geometry object(s) fitted and centered.");}catch(e){say("Zoom Extents failed: "+e.message,true);}});
  $("ls-cad-grid").addEventListener("click",()=>{if(adjacentView)adjacentGridOn=!adjacentGridOn;else gridOn=!gridOn;draw();});
  $("ls-cad-view").addEventListener("click",e=>{
   if(pmlView){

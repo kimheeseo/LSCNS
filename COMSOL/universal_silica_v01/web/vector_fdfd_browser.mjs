@@ -192,7 +192,7 @@ function reconstruct(eigen,g,op){
   Ex_intensity_fraction:sumx/total,Ey_intensity_fraction:sumy/total,Ez_intensity_fraction:sumz/total,
   core_power_fraction:core/total,edge_power_fraction:edge/total,
   polarization:String(sumx>sumy?"Ex dominant":"Ey dominant"),
-  field_maps:map};
+  field_maps:map,field_components:{Ex_real:ex,Ey_real:ey,Ez_imag:ez}};
 }
 export function solveVectorFDFD(input,{modes=2,onProgress=()=>{}}={}){
  const g=makeVectorGrid(input),op=operator(g),vectors=[],results=[];
@@ -215,7 +215,7 @@ export function vectorResultJSON(result,{stride=1}={}){
  const normalized=arr=>{const max=Math.max(1e-30,...arr);return mapToGrid(Float64Array.from(arr,v=>v/max));};
  return {schema:"LSCNS_vector_mode_v1",schemaVersion:1,
   method:result.method,input:{...c,grid_n:n},modes:result.modes.map((m,idx)=>{
-   const {field_maps,...meta}=m;
+   const {field_maps,field_components,...meta}=m;
    if(idx!==0)return meta;
    const {Itotal,Ex,Ey,Ez}=field_maps,max=Math.max(1e-30,...Itotal);
    return {...meta,field_map:{grid_size:points.length,
@@ -225,7 +225,10 @@ export function vectorResultJSON(result,{stride=1}={}){
      Ex:mapToGrid(Float64Array.from(Ex,v=>v/max)),
      Ey:mapToGrid(Float64Array.from(Ey,v=>v/max)),
      Ez:mapToGrid(Float64Array.from(Ez,v=>v/max))
-    },index_map:mapToGrid(result.index_map)}};
+    },index_map:mapToGrid(result.index_map),
+    field_component_phase_convention:"Ex and Ey are real; Ez = i*Ez_imag; arbitrary global eigenmode phase",
+    field_components:{Ex_real:mapToGrid(field_components.Ex_real),
+      Ey_real:mapToGrid(field_components.Ey_real),Ez_imag:mapToGrid(field_components.Ez_imag)}}};
   }),validation:{domain:"finite square, Dirichlet at outer edge; NO PML",
    scope:"2D full-vector coupled Hx Hy FDFD, Ex Ey Ez derived from Maxwell; M3 numerical prototype",
    limitation:"Finite difference staircase index and finite window; loss and complex neff not computed"}};

@@ -54,7 +54,7 @@ function init(){
     n_core:Number($("m3-core-n").value),n_clad:Number($("m3-clad-n").value)
    };
    if(!globalThis.Worker)throw Error("Module Web Worker unavailable in this browser.");
-   worker?.terminate();worker=new Worker(new URL("./vector_fdfd_worker.mjs",import.meta.url),{type:"module"});
+   worker?.terminate();worker=new Worker(new URL("./vector_fdfd_worker.mjs?v=20261112-m3-residual1e7-v2",import.meta.url),{type:"module"});
    const id=++sequence;busy=true;latest=null;run.disabled=true;save.disabled=true;
    state.textContent="2D Maxwell FDFD 고유값 계산 중…";
    worker.onmessage=event=>{

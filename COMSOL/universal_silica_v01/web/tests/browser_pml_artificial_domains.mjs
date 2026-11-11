@@ -35,8 +35,14 @@ try{
  assert.equal(await page.locator("#ls-pml-name").inputValue(),"pml1");
  assert.equal(await page.locator("#ls-pml-selection").inputValue(),"manual");
  assert.equal(await page.locator("#ls-pml-type").inputValue(),"Cartesian");
+ assert.deepEqual(await page.locator("#ls-pml-type option").allTextContents(),["Cartesian","Cylindrical","User defined"]);
+ assert.equal(await page.locator("#ls-pml-center-x").count(),0,"Cylindrical center coordinates should be hidden for Cartesian");
  assert.equal(await page.locator("#ls-pml-stretch").inputValue(),"Polynomial");
  assert.equal(await page.locator("#ls-pml-wavelength-source").inputValue(),"Physics interface");
+ assert.equal(await page.locator("#ls-pml-physics").inputValue(),"ewfd");
+ assert.ok((await page.locator("#ls-pml-physics").textContent()).includes("Electromagnetic Waves, Frequency Domain"));
+ assert.equal(await page.locator("#ls-pml-factor").inputValue(),"1");
+ assert.equal(await page.locator("#ls-pml-curvature").inputValue(),"1");
  assert.ok(await page.locator("#ls-definitions-artificial-group").isVisible());
  assert.ok(await page.locator('#ls-definitions-artificial-list [data-pml-node="pml1"]').isVisible());
  const total=await page.locator('#ls-pml-domain-list input[data-pml-domain-key]').count();
@@ -79,9 +85,20 @@ try{
  const feature=page.locator('#ls-definitions-artificial-list [data-pml-node="pml1"]');
  assert.ok((await feature.textContent()).includes("Outer Cladding PML"));
  await page.locator("#ls-pml-type").selectOption("Cylindrical");
+ assert.equal(await page.locator("#ls-pml-center-x").inputValue(),"0");
+ assert.equal(await page.locator("#ls-pml-center-y").inputValue(),"0");
+ await page.locator("#ls-pml-center-x").fill("3e-6");
+ await page.locator("#ls-pml-center-y").fill("-2e-6");
+ await page.locator("#ls-pml-type").selectOption("User defined");
+ assert.equal(await page.locator("#ls-pml-center-x").count(),0);
+ await page.locator("#ls-pml-type").selectOption("Cylindrical");
+ assert.equal(await page.locator("#ls-pml-center-x").inputValue(),"3e-6","Cylindrical center should survive mode switching");
+ assert.equal(await page.locator("#ls-pml-center-y").inputValue(),"-2e-6");
  await page.locator("#ls-pml-stretch").selectOption("Rational");
  await page.locator("#ls-pml-wavelength-source").selectOption("User defined");
  await page.locator("#ls-pml-wavelength").fill("wl");
+ await page.locator("#ls-pml-factor").fill("1.5");
+ await page.locator("#ls-pml-curvature").fill("2");
  await page.screenshot({path:"/tmp/comsol_pml_custom_settings.png"});
  // Switch editors then return to PML; Geometry selection and settings persist.
  await page.locator('[data-cad-node="c1"]').click();
@@ -94,6 +111,16 @@ try{
  assert.equal(await page.locator("#ls-pml-stretch").inputValue(),"Rational");
  assert.equal(await page.locator("#ls-pml-wavelength-source").inputValue(),"User defined");
  assert.equal(await page.locator("#ls-pml-wavelength").inputValue(),"wl");
+ assert.equal(await page.locator("#ls-pml-center-x").inputValue(),"3e-6");
+ assert.equal(await page.locator("#ls-pml-center-y").inputValue(),"-2e-6");
+ assert.equal(await page.locator("#ls-pml-factor").inputValue(),"1.5");
+ assert.equal(await page.locator("#ls-pml-curvature").inputValue(),"2");
+ assert.equal(await page.locator("#ls-pml-physics").inputValue(),"ewfd");
+ const saved=await page.evaluate(()=>window.LSWavePMLService.list()[0]);
+ assert.equal(saved.scalingFactor,"1.5");
+ assert.equal(saved.curvatureParameter,"2");
+ assert.equal(saved.centerX,"3e-6");
+ assert.equal(saved.centerY,"-2e-6");
  assert.deepEqual((await page.evaluate(()=>window.LSWavePMLService.selected().map(d=>d.id))).sort((a,b)=>a-b),[1,3,4]);
  // The alternate Definitions ribbon entry is connected to the same editor.
  await page.locator('[data-tab="definitions"]').click();
@@ -102,6 +129,9 @@ try{
  await ribbonPML.click();
  assert.ok(await page.locator('#ls-definitions-artificial-list [data-pml-node="pml2"]').isVisible());
  assert.equal(await page.locator("#ls-pml-name").inputValue(),"pml2");
+ assert.equal(await page.locator("#ls-pml-type").inputValue(),"Cartesian");
+ assert.equal(await page.locator("#ls-pml-factor").inputValue(),"1");
+ assert.equal(await page.locator("#ls-pml-curvature").inputValue(),"1");
  assert.equal((await page.evaluate(()=>window.LSWavePMLService.list())).length,2);
  // Existing Material editor still opens normally after PML activation.
  await page.locator('summary[data-action="waveMaterials"]').click({button:"right"});

@@ -15,7 +15,7 @@ assert.equal(result.modes.length,2);
 const PYTHON_NEFF=1.445711888509771; // Existing Python 2D H-field FDFD result, same grid/window/profile.
 for(const m of result.modes){
  assert.ok(m.neff>ncl&&m.neff<ncl+dn);
- assert.ok(Math.abs(m.neff-PYTHON_NEFF)<2e-6,"FDFD agreement with existing Python same-grid eigs");
+ assert.ok(Math.abs(m.neff-PYTHON_NEFF)<1e-8,"FDFD agreement with existing Python same-grid eigs");
  assert.ok(m.residual<2.5e-5,"Eigenpair relative residual");
  assert.ok(m.Ez_intensity_fraction>0&&m.Ez_intensity_fraction<.05);
  assert.ok(Math.abs(m.Ex_intensity_fraction+m.Ey_intensity_fraction+m.Ez_intensity_fraction-1)<1e-10);

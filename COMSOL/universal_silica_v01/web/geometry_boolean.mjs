@@ -12,6 +12,12 @@ export function rectangleCorners(shape){
   .map(([u,v])=>({x:x+u*c-v*s,y:y+u*s+v*c}));
 }
 export function boundsOf(shape){
+ if(shape?.kind==="difference"&&shape.adds?.length){
+  return shape.adds.map(boundsOf).reduce((b,r)=>({
+   minX:Math.min(b.minX,r.minX),minY:Math.min(b.minY,r.minY),
+   maxX:Math.max(b.maxX,r.maxX),maxY:Math.max(b.maxY,r.maxY)
+  }),{minX:Infinity,minY:Infinity,maxX:-Infinity,maxY:-Infinity});
+ }
  if(shape?.kind==="union"&&shape.members?.length){
   return shape.members.map(boundsOf).reduce((b,r)=>({
    minX:Math.min(b.minX,r.minX),minY:Math.min(b.minY,r.minY),
@@ -23,11 +29,22 @@ export function boundsOf(shape){
   return {minX:Math.min(...corners.map(p=>p.x)),minY:Math.min(...corners.map(p=>p.y)),
    maxX:Math.max(...corners.map(p=>p.x)),maxY:Math.max(...corners.map(p=>p.y))};
  }
+ if(shape?.a>0&&shape?.b>0){
+  const t=(shape.deg||0)*Math.PI/180;
+  const hx=Math.hypot(shape.a*Math.cos(t),shape.b*Math.sin(t));
+  const hy=Math.hypot(shape.a*Math.sin(t),shape.b*Math.cos(t));
+  return {minX:shape.x-hx,minY:shape.y-hy,maxX:shape.x+hx,maxY:shape.y+hy};
+ }
  const {x=0,y=0,r=0}=shape||{};
  return {minX:x-r,minY:y-r,maxX:x+r,maxY:y+r};
 }
 export function containsPoint(shape,x,y){
  if(shape?.kind==="union")return (shape.members||[]).some(m=>containsPoint(m,x,y));
+ if(shape?.kind==="difference")return (shape.adds||[]).some(m=>containsPoint(m,x,y))&&!(shape.subtracts||[]).some(m=>containsPoint(m,x,y));
+ if(shape?.a>0&&shape?.b>0){
+  const t=(shape.deg||0)*Math.PI/180,c=Math.cos(t),s=Math.sin(t),u=x-shape.x,v=y-shape.y;
+  return Math.pow((u*c+v*s)/shape.a,2)+Math.pow((-u*s+v*c)/shape.b,2)<=1;
+ }
  if(shape?.w>0&&shape?.h>0){
   const a=(shape.deg||0)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
   const u=x-shape.x,v=y-shape.y;
@@ -48,12 +65,20 @@ function cleanLoop(vertices){
  return pts;
 }
 export function unionContours(shapes,resolution=340){
- if(!Array.isArray(shapes)||!shapes.length)throw Error("Union requires input shapes.");
- if(shapes.length>200)throw Error("Union preview supports up to 200 input objects.");
+ return booleanContours(shapes,[],resolution);
+}
+export function differenceContours(adds,subtracts,resolution=340){
+ if(!Array.isArray(subtracts)||!subtracts.length)throw Error("Difference requires Objects to subtract.");
+ return booleanContours(adds,subtracts,resolution);
+}
+function booleanContours(adds,subtracts,resolution){
+ if(!Array.isArray(adds)||!adds.length)throw Error("Boolean operation requires Objects to add.");
+ const shapes=[...adds,...subtracts];
+ if(shapes.length>200)throw Error("Boolean preview supports at most 200 input objects.");
  if(shapes.some(s=>!s?.solid||((s?.sector??360)<359.999&&!s?.w))){
-  throw Error("Union supports solid full circles and solid rectangles only.");
+  throw Error("Boolean preview supports solid full circles, full ellipses, and rectangles only.");
  }
- const bound=shapes.map(boundsOf).reduce((b,r)=>({
+ const bound=adds.map(boundsOf).reduce((b,r)=>({
   minX:Math.min(b.minX,r.minX),minY:Math.min(b.minY,r.minY),
   maxX:Math.max(b.maxX,r.maxX),maxY:Math.max(b.maxY,r.maxY)
  }),{minX:Infinity,minY:Infinity,maxX:-Infinity,maxY:-Infinity});
@@ -66,7 +91,7 @@ export function unionContours(shapes,resolution=340){
  const grid=new Uint8Array(nx*ny);
  for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){
   const x=x0+(i+.5)*cell,y=y0+(j+.5)*cell;
-  if(shapes.some(s=>containsPoint(s,x,y)))grid[j*nx+i]=1;
+  if(adds.some(s=>containsPoint(s,x,y))&&!subtracts.some(s=>containsPoint(s,x,y)))grid[j*nx+i]=1;
  }
  const occupied=(i,j)=>i>=0&&i<nx&&j>=0&&j<ny&&grid[j*nx+i]===1;
  const edges=[],starts=new Map();
@@ -105,6 +130,6 @@ export function unionContours(shapes,resolution=340){
    if(loop.length>=3)loops.push(loop);
   }
  }
- if(!loops.length)throw Error("Union could not construct an outer contour.");
+ if(!loops.length)throw Error("Boolean operation has no visible output; subtract shapes may cover all added objects.");
  return {loops,bounds:bound,cell};
 }

@@ -195,3 +195,11 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 #ls-cad-array-use-um{margin:0 10px 11px;padding:7px 9px;font-size:11px;color:#215e95;border:1px solid #94bad9;border-radius:3px;background:#edf7ff;cursor:pointer}
 #ls-cad-array-use-um:hover{background:#d9efff}
 #ls-cad-array-use-um[hidden]{display:none!important}
+
+/* COMSOL Geometry additions (2026-11-11): Rectangle, Union, Delete Entities. */
+#ls-cad-form-build{margin:9px 11px 12px;padding:7px 13px;background:#e6f2fb;color:#276a9d;border:1px solid #9cbfda;border-radius:3px;cursor:pointer}
+#ls-cad-form-build:hover{background:#d4eafe}
+#ls-cad-union-controls .ls-cad-section,#ls-cad-delete-entities-controls .ls-cad-section{margin:4px 0 12px}
+#ls-cad-rectangle .ls-cad-field{grid-template-columns:120px minmax(0,1fr) 34px}
+#ls-cad-rectangle input,#ls-cad-rectangle select{min-width:0}
+#ls-cad-form-repair{min-width:0}

@@ -7,6 +7,7 @@
 - `vector_fdfd_worker.mjs`: runs full-vector calculations off the UI thread using a module Web Worker. Static GitHub Pages compatible; no API, account, paid compute or server.
 - `vector_m3_ui.mjs` / `vector_m3_ui.css`: separate controls and vector-field maps **inside the existing Full-vector study**. The existing Colab JSON reference viewer is retained unchanged in functionality.
 - `tests/test_vector_m3.mjs` / `tests/browser_m2_m3_ui.mjs`: same-grid Python numeric reference comparison and optional browser UI check. JSON exported in the pre-existing `LSCNS_vector_mode_v1` format.
+- `M2_M3_VALIDATION.md` and `M2_M3_FULL_SOURCE.md`: full source listing for 10 new files, minimal existing-file diffs, independent references, executable tests, and explicit limitations.
 
 ### Minimal existing-file changes
 - `index.html`: new M2/M3 CSS and JS imports, visible version to v0.5, cache-bust original `app.mjs`.

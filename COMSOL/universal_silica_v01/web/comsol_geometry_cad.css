@@ -145,3 +145,16 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 .ls-cad-range-actions{display:flex;justify-content:space-between;gap:7px;padding:9px 14px 12px}
 .ls-cad-range-actions button{flex:1;padding:5px 8px;border:1px solid #aebfcf;border-radius:2px;background:#ebf4fa;color:#315c7c;cursor:pointer;font-size:12px}
 .ls-cad-range-actions button:hover{background:#d8e9fa;border-color:#4a91ca}
+
+/* 2026-11-11: each Array output can be picked without selecting its siblings. */
+#ls-cad-view .ls-cad-rendered-shape.is-entity-selected .ls-cad-rendered-surface,
+#ls-cad-view .ls-cad-rendered-shape.is-entity-selected:hover .ls-cad-rendered-surface{
+ fill:#f4b3b9!important;
+ fill-opacity:.92!important;
+ stroke:#bb3d53!important;
+ stroke-width:2.3!important;
+ filter:drop-shadow(0 0 3px #ce516677);
+}
+#ls-cad-view .ls-cad-rendered-shape.is-entity-selected .ls-cad-layer-region{fill:#f6c9cc!important}
+#ls-cad-view .ls-cad-rendered-shape.is-entity-selected .ls-cad-layer-boundary{stroke:#a3344e!important}
+#ls-cad-selected-entities{display:inline-flex;align-items:center;max-width:100%;font-size:11px;color:#7a3149;background:#fff1f3;border:1px solid #e5b2be;border-radius:3px;padding:3px 7px;overflow-wrap:anywhere}

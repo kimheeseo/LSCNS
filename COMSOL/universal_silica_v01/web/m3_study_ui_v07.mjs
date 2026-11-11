@@ -118,6 +118,9 @@ async function loadDefault(){
  const response=await fetch(url,{cache:"no-store"});
  if(!response.ok)throw Error("HTTP "+response.status);
  colab=normalizeColabJSON(await response.json());
+ // The checked-in Python fixture uses pure-silica Sellmeier cladding.
+ // Stored JSON predates explicit n_clad metadata; annotate only this known fixture.
+ colab.input={...colab.input,n_clad:M3_PYTHON_REF.n_clad};
  colabSource="저장된 Python 69×69";$("m3v7-refstate").textContent="Colab 기준 로드됨: "+num(colab.modes[0].neff,13);
 }
 function init(){

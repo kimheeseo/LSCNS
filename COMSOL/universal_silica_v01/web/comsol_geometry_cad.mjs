@@ -1080,6 +1080,8 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
      const outputs=compute().filter(shape=>shape.owner===n.id);
      if(n.kind==="array"&&outputs.length===1)
       say("Built 1 circle only: Linear Size = 1. Set Size to 6 and displacement x, then Build Selected.");
+     else if(n.kind==="deleteEntities")say("Delete Entities: selected Domain object(s) removed from downstream Graphics preview.");
+     else if(n.kind==="union")say("Union: "+outputs.length+" merged outline object built (sampled 2D preview).");
      else say("Built Selected: "+outputs.length+" object(s) from "+n.label+".");
     }catch(e){say("Build failed: "+e.message,true);}
     return;

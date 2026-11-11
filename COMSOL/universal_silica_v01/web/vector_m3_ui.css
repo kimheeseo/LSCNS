@@ -1,0 +1,21 @@
+/* M3 extra section nested within existing Colab Full-vector viewer */
+#ls-m3{margin:18px 0;padding:17px;background:#0d2336;border:1px solid #335f7e;border-radius:11px}
+#ls-m3 h3{color:#dcf7ff;font-size:17px;margin:3px 0 10px}
+#ls-m3 p{color:#b3d0e1;font-size:12px;line-height:1.65}
+#ls-m3 .ls-m3-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:15px 0}
+#ls-m3 label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:#bad7e6}
+#ls-m3 input,#ls-m3 select{width:100%;min-width:0;padding:9px;background:#162e48;color:#ebfaff;border:1px solid #416980;border-radius:6px}
+#ls-m3 .ls-m3-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+#ls-m3 button{background:#215a76;border:1px solid #4599aa;color:#f0fdff;border-radius:8px;padding:9px 13px;font-size:12px;cursor:pointer}
+#ls-m3 button:disabled{opacity:.5;cursor:not-allowed}
+#ls-m3 #m3-state{min-height:24px;font-size:12px;color:#97decf}
+#ls-m3 #m3-numbers{overflow:auto;margin:12px 0}
+#ls-m3 #m3-numbers table{min-width:780px;width:100%;border-collapse:collapse;font-size:11px;color:#d0ebf7}
+#ls-m3 #m3-numbers td,#ls-m3 #m3-numbers th{padding:9px;border:1px solid #2b526c}
+#ls-m3 .ls-m3-plots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#ls-m3 .ls-m3-plots article{min-width:0;background:#071b2b;padding:8px;border:1px solid #294a62;border-radius:8px}
+#ls-m3 .ls-m3-plots h4{font-size:11px;color:#cee9f5;margin:4px 0}
+#ls-m3 .ls-m3-plots canvas{width:100%;max-width:240px;height:auto;display:block;image-rendering:auto}
+#ls-m3 .ls-m3-warning{color:#f1c391}
+@media(max-width:900px){#ls-m3 .ls-m3-plots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){#ls-m3 .ls-m3-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}

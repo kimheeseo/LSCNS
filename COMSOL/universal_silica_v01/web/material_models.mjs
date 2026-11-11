@@ -7,8 +7,8 @@ export const MATERIAL_SCHEMA_VERSION=1;
 export const SELLMEIER=Object.freeze({
  silica:{B:[.69616630,.40794260,.89747940],L:[.0684043,.1162414,9.896161],maxPercent:0,source:"ITU-T G Suppl.47 (2025), Table I.1"},
  geO2:{B:[.80686642,.71815848,.85416831],L:[.068972606,.15396605,11.841931],maxPercent:100,source:"Fleming (1984), Applied Optics 23, 4486"},
- f1:{B:[.69325,.39720,.86008],L:[.06724,.11714,9.7761],percent:1,source:"Fluorine doped silica, Applied Optics 22, 3102 (1983), 1%"},
- f2:{B:[.67744,.40101,.87193],L:[.06135,.12030,9.8563],percent:2,source:"Fluorine doped silica, Applied Optics 22, 3102 (1983), 2%"},
+ f1:{B:[.69325,.39720,.86008],L:[.06724,.11714,9.7761],percent:1,source:"Fluorine doped silica, Applied Optics 22, 3102 (1983), 1 wt%"},
+ f2:{B:[.67744,.40101,.87193],L:[.06135,.12030,9.8563],percent:2,source:"Fluorine doped silica, Applied Optics 22, 3102 (1983), 2 wt%"},
  p9:{B:[.695790,.452497,.712513],L:[.061568,.119921,8.656641],percent:9.1,source:"Optical Fibers: Signal Attenuation and Dispersion, 9.1 P2O5:90.0 SiO2 fit"}
 });
 export const MATERIAL_MODES=Object.freeze(["offset","geO2","f","p2o5","table"]);
@@ -26,7 +26,7 @@ function mixCoeff(left,right,f){
 }
 /**
  * GeO2: interpolate between pure SiO2 and pure GeO2 coefficients 0–30 mol%.
- * F: interpolate SiO2 -> measured 1% -> measured 2% compositions.
+ * F: interpolate SiO2 -> measured 1 wt% -> measured 2 wt% compositions (NOT mol%).
  * P2O5: SiO2 -> measured 9.1% composition; no extrapolation.
  */
 export function compositionIndex(material,wavelengthNm){
@@ -40,7 +40,7 @@ export function compositionIndex(material,wavelengthNm){
   return sellmeierIndex(mixCoeff(SELLMEIER.silica,SELLMEIER.geO2,percent/100),wavelengthNm);
  }
  if(mode==="f"){
-  if(percent>2)throw Error("F interpolation uses only measured 0–2% composition.");
+  if(percent>2)throw Error("F interpolation uses only measured 0–2 wt% composition.");
   const coeff=percent<=1?mixCoeff(SELLMEIER.silica,SELLMEIER.f1,percent):
    mixCoeff(SELLMEIER.f1,SELLMEIER.f2,percent-1);
   return sellmeierIndex(coeff,wavelengthNm);

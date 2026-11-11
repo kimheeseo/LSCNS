@@ -67,11 +67,17 @@ try{
  assert.equal(await page.locator('#ls-cad-form-action').inputValue(),'union');
  assert.equal(await page.locator('#ls-cad-object-select').inputValue(),'fin');
  assert.equal(await page.locator('#ls-cad-form-repair').inputValue(),'Automatic');
+ assert.equal(await page.locator('#ls-cad-form-label').inputValue(),'Form Union');
+ assert.equal(await page.locator('#ls-cad-build-all').textContent(),'▦ Build All');
+ assert.equal(await page.locator('#ls-cad-form-action').isVisible(),true);
+ assert.equal(await page.locator('#ls-cad-form-repair').isVisible(),true);
+ assert.equal(await page.locator('.ls-cad-form-advanced').getAttribute('open'),null,'Advanced controls start collapsed');
+ await page.locator('.ls-cad-form-advanced > summary').click();
  await page.locator('#ls-cad-form-interior').uncheck();
  await page.locator('#ls-cad-build-selected').click();
  assert.equal(await page.locator('#ls-cad-view [data-cad-shape="root"] path').count()>0,true);
  await page.locator('#ls-cad-form-action').selectOption('assembly');
- await page.locator('#ls-cad-build-selected').click();
+ await page.locator('#ls-cad-build-all').click();
  assert.equal(await page.locator('#ls-cad-view [data-cad-shape="root"]').count(),0,'Assembly keeps inputs separate');
  assert.ok((await page.locator('#ls-cad-view [data-cad-shape="r2"]').count())>0);
  assert.deepEqual(errors,[]);

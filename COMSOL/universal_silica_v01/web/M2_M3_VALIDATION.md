@@ -68,7 +68,7 @@ Updated 2026-11-12. Static GitHub Pages only; no server, login, paid API, extern
 +주의: 위의 기존 Colab 결과 뷰어는 계산하지 않고 <b>JSON을 불러와 표시</b>합니다. 아래 M3 섹션에서 별도 브라우저 벡터 FDFD를 실행할 수 있습니다.
 ```
 
-No original function name/DOM ID/object schema was removed. M2 uses its own `schemaVersion:1` material JSON while old design JSON remains `{version,model}`. M3 exports existing `LSCNS_vector_mode_v1` field-map format plus additional metadata. Feature flags set before module loading:
+No original function name/DOM ID/object schema was removed. M2 uses its own `schemaVersion:1` material JSON while old design JSON remains `{version,model}`. M3 exports existing `LSCNS_vector_mode_v1` field-map format plus additional metadata. The first mode additionally includes `field_map.field_components.{Ex_real,Ey_real,Ez_imag}` with explicit field-phase convention; the old viewer ignores these optional fields. Feature flags set before module loading:
 ```js
 window.LSWaveFeatures={materialM2:false,fullVectorWeb:false};
 // Default: both optional features are on.

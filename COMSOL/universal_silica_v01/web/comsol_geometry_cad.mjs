@@ -47,11 +47,15 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     <label class="ls-cad-check"><input id="ls-cad-build-leave" type="checkbox" checked/> Build automatically when leaving geometry</label>
    </details>
    <details class="ls-cad-section" open><summary>Geometry Sequence</summary><div id="ls-cad-root-sequence" class="ls-cad-sequence"></div><p class="ls-cad-sequence-note">Select a Geometry feature to edit. Build All regenerates the 2D preview.</p></details>
-   <details class="ls-cad-section" id="ls-cad-finalization" open><summary>Finalization · Form Union</summary>
-    <label class="ls-cad-check"><input id="ls-cad-form-enable" type="checkbox"/> Form Union (Graphics preview)</label>
+  </div>
+  <div id="ls-cad-form-settings" hidden>
+   <div class="ls-setting-line"><label for="ls-cad-form-label">Label</label><input id="ls-cad-form-label" value="Form Union" readonly/></div>
+   <details class="ls-cad-section" id="ls-cad-finalization" open><summary>Form Union/Assembly</summary>
+    <div class="ls-cad-field"><label for="ls-cad-form-action">Action</label><select id="ls-cad-form-action"><option value="union">Form a union</option><option value="assembly">Form an assembly</option></select></div>
+    <div class="ls-cad-field"><label for="ls-cad-form-repair">Repair tolerance</label><select id="ls-cad-form-repair"><option>Automatic</option><option disabled>Relative</option><option disabled>Absolute</option></select></div>
     <label class="ls-cad-check"><input id="ls-cad-form-interior" type="checkbox" checked/> Keep interior boundaries</label>
-    <div class="ls-cad-field"><label for="ls-cad-form-repair">Repair tolerance</label><select id="ls-cad-form-repair"><option>Automatic</option><option>Relative</option><option>Absolute</option></select></div>
-    <p class="ls-cad-sequence-note">Use Build Finalization to preview a combined silhouette. No B-rep or 2D FEM mesh is created.</p>
+    <label class="ls-cad-check"><input id="ls-cad-form-enable" type="checkbox"/> Show finalization preview</label>
+    <p class="ls-cad-sequence-note">Union combines outer silhouettes; Assembly preserves separate objects. This is a sampled 2D display, not a CAD B-rep or FEM topology operation.</p>
     <button type="button" id="ls-cad-form-build">Build Finalization</button>
    </details>
   </div>
@@ -333,16 +337,29 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   const list=$("ls-geometry-node-list");if(!list)return;
   renderCumulativeTree();
   list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="rectangle"?"▣":n.kind==="array"?"▦":n.kind==="union"?"∪":n.kind==="deleteEntities"?"⌫":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
-  list.insertAdjacentHTML("beforeend",'<button type="button" data-cad-form-union="true" class="ls-tree-leaf ls-cad-node" title="Form Union finalization Settings">∪ Form Union <small>(fin)</small></button>');
+  list.insertAdjacentHTML("beforeend",'<button type="button" data-cad-form-union="true" class="ls-tree-leaf ls-cad-node '+(selected==="fin"?"active":"")+'" title="Form Union/Assembly finalization Settings">∪ Form Union <small>(fin)</small></button>');
  }
  function loadFields(){
   const cumulative=activeCumulativeId?cumulativeSelections.find(v=>v.id===activeCumulativeId):null;
   $("ls-cad-cumulative-settings").hidden=!cumulative;
+  $("ls-cad-form-settings").hidden=selected!=="fin";
   if(cumulative){
    $("ls-cad-root-settings").hidden=true;$("ls-cad-feature-settings").hidden=true;$("ls-cad-build-selected").disabled=true;
    $("ls-cad-subtitle").textContent="Cumulative Selection";
    $("ls-cad-cumulative-label").value=cumulative.label;
    $("ls-cad-cumulative-summary").textContent="Contributing Geometry features: "+(cumulative.featureIds.map(id=>nodes.find(n=>n.id===id)?.label||id).join(", ")||"None");
+   drawTree();draw();return;
+  }
+  if(selected==="fin"){
+   $("ls-cad-root-settings").hidden=true;
+   $("ls-cad-feature-settings").hidden=true;
+   $("ls-cad-build-selected").disabled=false;
+   $("ls-cad-subtitle").textContent="Form Union/Assembly";
+   $("ls-cad-form-label").value="Form Union";
+   $("ls-cad-form-action").value=formUnion.mode||"union";
+   $("ls-cad-form-enable").checked=!!formUnion.enabled;
+   $("ls-cad-form-interior").checked=!!formUnion.keepInterior;
+   $("ls-cad-form-repair").value=formUnion.repair||"Automatic";
    drawTree();draw();return;
   }
   const n=cur();
@@ -889,7 +906,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  function svg(w,h,mini=false){
   const shapes=!mini&&selectingRotateInputs&&["array","union","deleteEntities"].includes(cur()?.kind)?availableInputs(cur()):compute();
-  const finalMerge=formUnion.enabled&&!selectingRotateInputs&&shapes.length>=2&&shapes.length<=200&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
+  const finalMerge=formUnion.enabled&&(formUnion.mode||"union")==="union"&&!selectingRotateInputs&&shapes.length>=2&&shapes.length<=200&&shapes.every(sh=>sh.solid&&(sh.sector??360)>=359.999);
   const displayShapes=finalMerge?[buildUnionShape(shapes,{id:"root",selection:false,color:"None",keepInterior:formUnion.keepInterior})]:shapes;
   const adjacentScene=adjacentView&&!mini,showGrid=adjacentScene?adjacentGridOn:gridOn;
   const plot=mini?{left:26,top:22,right:w-13,bottom:h-23}:{left:55,top:31,right:w-22,bottom:h-48};
@@ -964,8 +981,8 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    $("ls-cad-mini-svg").innerHTML=svg(460,230,true);
     const pick=$("ls-cad-object-select");
     if(pick){
-     pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("");
-     pick.value=nodes.some(n=>n.id===selected)?selected:"root";
+     pick.innerHTML='<option value="root">Geometry 1 · All</option>'+nodes.map(n=>`<option value="${esc(n.id)}">${esc(n.label)} (${esc(n.id)})</option>`).join("")+'<option value="fin">Form Union (fin)</option>';
+     pick.value=selected==="fin"||nodes.some(n=>n.id===selected)?selected:"root";
      const materialMode=document.body.classList.contains("ls-material-active");
      pick.disabled=materialMode||adjacentView||pmlView;
      const graphicsLabel=graphics.querySelector('label[for="ls-cad-object-select"]');
@@ -999,7 +1016,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function open(id){
   activeCumulativeId=null;
   if(id&&id!==selected){selectingRotateInputs=false;selectedEntityKeys.clear();}
-  if(id==="root")selected="root";else if(id&&nodes.some(n=>n.id===id))selected=id;
+  if(id==="root"||id==="fin")selected=id;else if(id&&nodes.some(n=>n.id===id))selected=id;
   if(selected!=="root"&&!cur())selected=nodes.at(-1)?.id;
   $("ls-config-pane").hidden=true;
   pane.hidden=false;graphics.hidden=false;
@@ -1075,6 +1092,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     }catch(e){say("Build failed: "+e.message,true);}
     return;
    case "build-selected":
+    if(selected==="fin"){$("ls-cad-form-build").click();return;}
     if(!n)return;
     try{
      assertArrayInputsThrough(idx);
@@ -1260,15 +1278,17 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  document.addEventListener("ls-open-settings",e=>{if(e.detail?.kind==="parameters"&&!pane.hidden)close();},true);
  $("ls-cad-close").addEventListener("click",close);
  $("ls-cad-form-enable").addEventListener("change",e=>{checkpoint();formUnion.enabled=e.target.checked;draw();});
+ $("ls-cad-form-action").addEventListener("change",e=>{checkpoint();formUnion.mode=e.target.value;draw();});
  $("ls-cad-form-interior").addEventListener("change",e=>{checkpoint();formUnion.keepInterior=e.target.checked;draw();});
  $("ls-cad-form-repair").addEventListener("change",e=>{checkpoint();formUnion.repair=e.target.value;draw();});
  $("ls-cad-form-build").addEventListener("click",()=>{
   try{const shapes=compute();if(!shapes.length)throw Error("Create a Circle or Rectangle first.");
-   if(!shapes.every(v=>v.solid&&(v.sector??360)>=359.999))throw Error("Preview Form Union requires complete solid objects.");
+   const isUnion=(formUnion.mode||"union")==="union";
+   if(isUnion&&!shapes.every(v=>v.solid&&(v.sector??360)>=359.999))throw Error("Preview Form Union requires complete solid objects.");
+   if(isUnion&&shapes.length>200)throw Error("Viewport union supports at most 200 objects.");
+   if(isUnion&&shapes.length>1)buildUnionShape(shapes,{id:"root",keepInterior:formUnion.keepInterior,selection:false,color:"None"});
    checkpoint();formUnion.enabled=true;$("ls-cad-form-enable").checked=true;
-   if(shapes.length>200)throw Error("Viewport union supports at most 200 objects.");
-   if(shapes.length>1)buildUnionShape(shapes,{id:"root",keepInterior:formUnion.keepInterior,selection:false,color:"None"});
-   draw();say("Form Union preview built from "+shapes.length+" solid Geometry object(s).");
+   draw();say((isUnion?"Form Union":"Form Assembly")+" preview built from "+shapes.length+" Geometry object(s).");
   }catch(err){say("Form Union failed: "+err.message,true);}
  });
  $("ls-cad-root-label").addEventListener("input",e=>{checkpoint();rootLabel=e.target.value;const tag=$("ls-cad-root-name");if(tag)tag.textContent=rootLabel;draw();});
@@ -1456,7 +1476,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  });
  document.querySelector(".ls-model-tree")?.addEventListener("click",e=>{
   if(e.target.closest("[data-cad-form-union]")){
-    open("root");$("ls-cad-finalization").open=true;
+    open("fin");$("ls-cad-finalization").open=true;
     say("Form Union finalization settings. Preview only; not a 2D FEM union.");
     return;
    }

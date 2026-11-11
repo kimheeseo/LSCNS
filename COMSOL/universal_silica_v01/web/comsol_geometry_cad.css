@@ -186,3 +186,12 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
  background:#d7ecff;
  border-color:#438dbd;
 }
+
+/* Array build diagnostics: show object counts and unit mismatches next to inputs. */
+#ls-cad-array-feedback{margin:7px 10px 9px;padding:9px 10px;border-radius:3px;font-size:11px;line-height:1.55;overflow-wrap:anywhere}
+#ls-cad-array-feedback[data-level="warning"]{color:#7f4b1e;border:1px solid #efd8b3;background:#fff8e8}
+#ls-cad-array-feedback[data-level="ok"]{color:#266352;border:1px solid #b8dcd1;background:#f2fbf7}
+#ls-cad-array-feedback[data-level="info"]{color:#315b79;border:1px solid #c4dae8;background:#f4f9fc}
+#ls-cad-array-use-um{margin:0 10px 11px;padding:7px 9px;font-size:11px;color:#215e95;border:1px solid #94bad9;border-radius:3px;background:#edf7ff;cursor:pointer}
+#ls-cad-array-use-um:hover{background:#d9efff}
+#ls-cad-array-use-um[hidden]{display:none!important}

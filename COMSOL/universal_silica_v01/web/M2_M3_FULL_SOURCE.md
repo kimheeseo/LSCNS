@@ -1,6 +1,6 @@
 # LS Wave Optics M2 + M3 v0.5.0 — Full copy-ready source files
 
-The complete source of all 10 new M2/M3 files from the current committed `main` branch is reproduced here. Copy each block into its named path under `web/`. See [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md) for minimal patches to original files, test commands, assumptions, and limitations.
+All new source files below are complete. Copy each code block into its corresponding file in `web/`. See [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md) for the minimal diffs to the original files and the numeric reference/validation limits.
 
 ## 1. `material_models.mjs`
 
@@ -504,7 +504,7 @@ export function vectorResultJSON(result,{stride=1}={}){
 
 ```javascript
 /** M3 worker: keep expensive FDFD eigen-iteration off the UI thread. */
-import {solveVectorFDFD,vectorResultJSON} from "./vector_fdfd_browser.mjs";
+import {solveVectorFDFD,vectorResultJSON} from "./vector_fdfd_browser.mjs?v=20261112-m3-residual1e7-v2";
 self.onmessage=event=>{
  const {id,input,modes=2}=event.data||{};
  try{
@@ -574,7 +574,7 @@ function init(){
     n_core:Number($("m3-core-n").value),n_clad:Number($("m3-clad-n").value)
    };
    if(!globalThis.Worker)throw Error("Module Web Worker unavailable in this browser.");
-   worker?.terminate();worker=new Worker(new URL("./vector_fdfd_worker.mjs",import.meta.url),{type:"module"});
+   worker?.terminate();worker=new Worker(new URL("./vector_fdfd_worker.mjs?v=20261112-m3-residual1e7-v2",import.meta.url),{type:"module"});
    const id=++sequence;busy=true;latest=null;run.disabled=true;save.disabled=true;
    state.textContent="2D Maxwell FDFD 고유값 계산 중…";
    worker.onmessage=event=>{
@@ -766,6 +766,6 @@ try{
 }finally{await browser.close();}
 ```
 
-## Original-file diffs
+## Existing-file minimal changes
 
 See [M2_M3_VALIDATION.md](M2_M3_VALIDATION.md#minimal-changes-to-original-files) and [CHANGELOG.md](CHANGELOG.md).

@@ -74,8 +74,13 @@
    '<details class="ls-pml-section"><summary>Override</summary><p class="ls-pml-note">No numerical solver override is connected.</p></details>'+
    '<details class="ls-pml-section" open><summary>Geometry</summary><div class="ls-pml-section-inner">'+
    '<label for="ls-pml-type">Type:</label><select id="ls-pml-type">'+
-    ["Cartesian","Cylindrical","Spherical"].map(v=>'<option '+(row.geometryType===v?"selected":"")+'>'+v+'</option>').join("")+'</select>'+
-   '<p class="ls-pml-note">Geometry type is saved for the PML definition. Coordinate transforms are not yet applied to the FEM mesh.</p>'+
+    ["Cartesian","Cylindrical","User defined"].map(v=>'<option '+(row.geometryType===v?"selected":"")+'>'+v+'</option>').join("")+'</select>'+
+   (row.geometryType==="Cylindrical"
+    ?'<fieldset class="ls-pml-center-coordinates"><legend>Center coordinate</legend>'+
+      '<div class="ls-pml-coordinate-grid"><span>Xm (m)</span><span>Ym (m)</span>'+
+      '<input id="ls-pml-center-x" aria-label="Xm (m)" value="'+safe(row.centerX??"0")+'" />'+
+      '<input id="ls-pml-center-y" aria-label="Ym (m)" value="'+safe(row.centerY??"0")+'" /></div></fieldset>':"")+
+   (row.geometryType==="User defined"?'<p class="ls-pml-note">User defined PML geometry is a stored UI choice. Custom coordinate-stretching functions are not connected to a solver.</p>':"")+
    '</div></details>'+
    '<details class="ls-pml-section" open><summary>Scaling</summary><div class="ls-pml-section-inner">'+
    '<label for="ls-pml-stretch">Coordinate stretching type:</label>'+
@@ -84,6 +89,13 @@
    '<select id="ls-pml-wavelength-source">'+["Physics interface","User defined"].map(v=>'<option '+(row.wavelengthSource===v?"selected":"")+'>'+v+'</option>').join("")+'</select>'+
    (row.wavelengthSource==="User defined"?'<label for="ls-pml-wavelength">Typical wavelength:</label>'+
     '<input id="ls-pml-wavelength" value="'+safe(row.wavelength)+'" placeholder="e.g. wl"/>':'')+
+   '<label for="ls-pml-physics">Physics:</label><select id="ls-pml-physics">'+
+    '<option value="ewfd" '+((row.physicsInterface??"ewfd")==="ewfd"?"selected":"")+'>Electromagnetic Waves, Frequency Domain (ewfd)</option>'+
+    '</select>'+
+   '<label for="ls-pml-factor">PML scaling factor:</label>'+
+   '<input id="ls-pml-factor" value="'+safe(row.scalingFactor??"1")+'" inputmode="decimal" />'+
+   '<label for="ls-pml-curvature">PML scaling curvature parameter:</label>'+
+   '<input id="ls-pml-curvature" value="'+safe(row.curvatureParameter??"1")+'" inputmode="decimal" />'+
    '</div></details>'+
    '<p class="ls-pml-disclaimer">PML definition and colored domains are UI/Geometry preview only. They are not applied to the existing radial FEM or full-vector EWFD solver.</p>'+
    '<p id="ls-pml-status" role="status">'+safe(notice||"Click a domain in Graphics to assign or unassign it from "+row.label+".")+'</p>'+
@@ -121,7 +133,8 @@
  function add(){
   let n=1;while(rows.some(row=>row.id==="pml"+n))n++;
   const row={id:"pml"+n,label:"Perfectly Matched Layer "+n,selection:"manual",domainKeys:[],
-   geometryType:"Cartesian",stretch:"Polynomial",wavelengthSource:"Physics interface",wavelength:"wl"};
+   geometryType:"Cartesian",centerX:"0",centerY:"0",stretch:"Polynomial",wavelengthSource:"Physics interface",
+   wavelength:"wl",physicsInterface:"ewfd",scalingFactor:"1",curvatureParameter:"1"};
   rows.push(row);open(row,true);
  }
  tree.addEventListener("click",e=>{
@@ -138,6 +151,10 @@
    treeRender();notice="PML label updated in Model Builder.";
   }
   if(e.target.id==="ls-pml-wavelength")row.wavelength=e.target.value;
+  if(e.target.id==="ls-pml-center-x")row.centerX=e.target.value;
+  if(e.target.id==="ls-pml-center-y")row.centerY=e.target.value;
+  if(e.target.id==="ls-pml-factor")row.scalingFactor=e.target.value;
+  if(e.target.id==="ls-pml-curvature")row.curvatureParameter=e.target.value;
  });
  pane.addEventListener("change",e=>{
   const row=current();if(!row)return;
@@ -145,8 +162,9 @@
    row.selection=e.target.value;picking=row.selection==="manual";
    render();broadcast();return;
   }
-  if(e.target.id==="ls-pml-type"){row.geometryType=e.target.value;return;}
+  if(e.target.id==="ls-pml-type"){row.geometryType=e.target.value;render();broadcast();return;}
   if(e.target.id==="ls-pml-stretch"){row.stretch=e.target.value;return;}
+  if(e.target.id==="ls-pml-physics"){row.physicsInterface=e.target.value;return;}
   if(e.target.id==="ls-pml-wavelength-source"){
    row.wavelengthSource=e.target.value;render();broadcast();return;
   }

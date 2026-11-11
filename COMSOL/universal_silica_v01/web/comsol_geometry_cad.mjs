@@ -1,5 +1,5 @@
 import {arrayOffsets} from "./geometry_array.mjs?v=20261111-array-v1";
-import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=20261111-cad-booleans-v2";
+import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geometry_boolean.mjs?v=20261112-ellipse-difference-v3";
 (function geometryCad(){
  "use strict";
  const $=id=>document.getElementById(id),side=document.querySelector(".layout > .sidebar"),main=document.querySelector("main.workspace"),svc=window.LSWaveParameterService;
@@ -10,6 +10,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let selectedEntityKeys=new Set(); // Individually picked Array outputs.
+ let differencePickGroup=null; // null | "add" | "subtract" while selecting Difference inputs in Graphics.
  let formUnion={enabled:false,mode:"union",keepInterior:true,repair:"Automatic"};
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
@@ -77,6 +78,25 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
      <p class="ls-cad-sequence-note">Layer thickness is drawn inward from the circle boundary. Multiple layers create concentric boundaries in the Graphics preview; not linked to the radial FEM.</p>
    </details>
   </div>
+  <div id="ls-cad-ellipse" hidden>
+   <details class="ls-cad-section" open><summary>Object Type</summary>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-type">Type</label><select id="ls-cad-ellipse-type"><option>Solid</option><option>Curve</option></select></div>
+   </details>
+   <details class="ls-cad-section" open><summary>Size and Shape</summary>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-a">a-semiaxis</label><input id="ls-cad-ellipse-a" value="20[um]"/><span data-cad-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-b">b-semiaxis</label><input id="ls-cad-ellipse-b" value="10[um]"/><span data-cad-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-sector">Sector angle</label><input id="ls-cad-ellipse-sector" value="360"/><span>deg</span></div>
+   </details>
+   <details class="ls-cad-section" open><summary>Position</summary>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-base">Base</label><select id="ls-cad-ellipse-base"><option>Center</option></select></div>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-x">x</label><input id="ls-cad-ellipse-x" value="0[um]"/><span data-cad-length-unit>µm</span></div>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-y">y</label><input id="ls-cad-ellipse-y" value="0[um]"/><span data-cad-length-unit>µm</span></div>
+   </details>
+   <details class="ls-cad-section" open><summary>Rotation Angle</summary>
+    <div class="ls-cad-field"><label for="ls-cad-ellipse-rotation">Rotation</label><input id="ls-cad-ellipse-rotation" value="0"/><span>deg</span></div>
+   </details>
+   <details class="ls-cad-section"><summary>Layers</summary><p class="ls-cad-sequence-note">Ellipse Layers are not yet generated in the 2D preview.</p></details>
+  </div>
   <div id="ls-cad-rectangle" hidden>
    <details class="ls-cad-section" open><summary>Object Type</summary><div class="ls-cad-field"><label for="ls-cad-rect-type">Type</label><select id="ls-cad-rect-type"><option>Solid</option><option>Curve</option></select></div></details>
    <details class="ls-cad-section" open><summary>Size and Shape</summary>
@@ -98,10 +118,22 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     <p class="ls-cad-sequence-note">Select at least two preceding solid circles or rectangles. Build generates a sampled outer silhouette for Graphics only.</p>
    </details>
   </div>
+  <div id="ls-cad-difference-controls" hidden>
+   <details class="ls-cad-section" open><summary>Difference</summary>
+    <label class="ls-cad-block-label">Objects to add:</label>
+    <div class="ls-cad-selection-row"><button id="ls-cad-diff-pick-add" type="button" aria-pressed="false" title="Pick objects to add in Graphics">OFF</button><div id="ls-cad-diff-add-inputs" class="ls-cad-inputs"></div></div>
+    <label class="ls-cad-block-label">Objects to subtract:</label>
+    <div class="ls-cad-selection-row"><button id="ls-cad-diff-pick-subtract" type="button" aria-pressed="false" title="Pick objects to subtract in Graphics">OFF</button><div id="ls-cad-diff-sub-inputs" class="ls-cad-inputs"></div></div>
+    <label class="ls-cad-check"><input id="ls-cad-diff-keep" type="checkbox"/> Keep input objects</label>
+    <label class="ls-cad-check"><input id="ls-cad-diff-interior" type="checkbox" checked/> Keep interior boundaries</label>
+    <div class="ls-cad-field"><label for="ls-cad-diff-repair">Repair tolerance</label><select id="ls-cad-diff-repair"><option>Automatic</option><option disabled>Relative</option><option disabled>Absolute</option></select></div>
+    <p class="ls-cad-sequence-note">Difference = union of Objects to add minus Objects to subtract. Solid full circles, ellipses and rectangles are supported in this sampled 2D preview.</p>
+   </details>
+  </div>
   <div id="ls-cad-delete-entities-controls" hidden>
-   <details class="ls-cad-section" open><summary>Delete Entities</summary>
+   <details class="ls-cad-section" open><summary>Entities or Objects to Delete</summary>
     <div class="ls-cad-field"><label for="ls-cad-delete-level">Geometric entity level</label><select id="ls-cad-delete-level"><option>Object</option><option>Domain</option><option disabled>Boundary</option><option disabled>Point</option></select></div>
-    <p class="ls-cad-sequence-note">Object/Domain preview removes selected whole objects downstream. Boundary/Point deletion requires a topology kernel.</p>
+    <p class="ls-cad-sequence-note">Selection is shown in the Input panel below. Choose individual outputs such as rot1(3). Whole Object deletion only; Boundary/Point topology needs a CAD kernel.</p>
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
@@ -134,7 +166,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     <div class="ls-setting-line"><label for="ls-cad-cumulative-label">Label</label><input id="ls-cad-cumulative-label" readonly /></div>
     <details class="ls-cad-section" open><summary>Cumulative Selection</summary><div class="ls-cad-block-label" id="ls-cad-cumulative-summary"></div><p class="ls-cad-sequence-note">This named selection references Geometry results for display and organization. It does not create a full-vector FEM material domain.</p></details>
   </div>
-  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-rectangle">▣ Rectangle</button><button type="button" id="ls-cad-add-union">∪ Union</button><button type="button" id="ls-cad-add-delete-entities">⌫ Delete Entities</button><button type="button" id="ls-cad-add-array">▦ Array</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
+  <div class="ls-config-actions"><button type="button" id="ls-cad-add-circle">＋ Circle</button><button type="button" id="ls-cad-add-ellipse">⬭ Ellipse</button><button type="button" id="ls-cad-add-rectangle">▣ Rectangle</button><button type="button" id="ls-cad-add-union">∪ Union</button><button type="button" id="ls-cad-add-difference">− Difference</button><button type="button" id="ls-cad-add-delete-entities">⌫ Delete Entities</button><button type="button" id="ls-cad-add-array">▦ Array</button><button type="button" id="ls-cad-add-rotate">↻ Rotate</button><button type="button" id="ls-cad-add-mirror">⇋ Mirror</button><button type="button" id="ls-cad-reset">Reset</button><button type="button" id="ls-cad-export">Export JSON</button></div>
   <label class="ls-cad-check"><input id="ls-cad-fix-nbg" type="checkbox"/> Use nbg as fixed cladding index</label>
   <button class="ls-config-primary" type="button" id="ls-cad-apply">Apply supported geometry to Radial FEM</button>
   <p class="ls-config-help">Circle, Array, Rotate and Mirror are interactive 2D geometry features. The 1D Radial FEM only accepts the original two concentric 360° Solid circles without extra layers, added circles or transform features. Arbitrary layouts are preview-only.</p>
@@ -299,10 +331,12 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  const say=(msg,error=false)=>{const e=$("ls-cad-status");e.textContent=msg;e.classList.toggle("error",error);};
  function fresh(kind,at){
-  let i=1,pre=kind==="circle"?"c":kind==="rectangle"?"r":kind==="array"?"arr":kind==="union"?"uni":kind==="deleteEntities"?"del":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
+  let i=1,pre=kind==="circle"?"c":kind==="rectangle"?"r":kind==="ellipse"?"ell":kind==="array"?"arr":kind==="union"?"uni":kind==="difference"?"dif":kind==="deleteEntities"?"del":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
   if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
   if(kind==="rectangle")return {id:pre+i,kind:"rectangle",label:"Rectangle "+i,enabled:true,type:"Solid",width:"100[um]",height:"100[um]",base:"Corner",x:"0[um]",y:"0[um]",rotation:"0",selection:false,color:"None"};
+  if(kind==="ellipse")return {id:pre+i,kind:"ellipse",label:"Ellipse "+i,enabled:true,type:"Solid",a:"20[um]",b:"10[um]",sector:"360",base:"Center",x:"0[um]",y:"0[um]",rotation:"0",selection:false,color:"None"};
   if(kind==="union")return {id:pre+i,kind:"union",label:"Union "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,keepInterior:false,repair:"Automatic",selection:false,color:"None"};
+  if(kind==="difference")return {id:pre+i,kind:"difference",label:"Difference "+i,enabled:true,addRefs:[],subtractRefs:[],keep:false,keepInterior:true,repair:"Automatic",selection:false,color:"None"};
   if(kind==="deleteEntities")return {id:pre+i,kind:"deleteEntities",label:"Delete Entities "+i,enabled:true,inputIds:[],inputRefs:[],deleteLevel:"Object",selection:false,color:"None"};
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   if(kind==="array")return {id:pre+i,kind:"array",label:"Array "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,arrayType:"Rectangular",nx:"1",ny:"1",size:"1",dx:"0",dy:"0",selection:false,color:"None"};
@@ -336,7 +370,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  function drawTree(){
   const list=$("ls-geometry-node-list");if(!list)return;
   renderCumulativeTree();
-  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="rectangle"?"▣":n.kind==="array"?"▦":n.kind==="union"?"∪":n.kind==="deleteEntities"?"⌫":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
+  list.innerHTML=nodes.map(n=>`<button type="button" data-cad-node="${esc(n.id)}" class="ls-tree-leaf ls-cad-node ${n.id===selected?"active":""} ${n.enabled?"":"ls-cad-node-disabled"}" title="Click: settings · right-click: context menu"><span class="ls-cad-symbol">${n.kind==="circle"?"◉":n.kind==="rectangle"?"▣":n.kind==="ellipse"?"⬭":n.kind==="array"?"▦":n.kind==="union"?"∪":n.kind==="difference"?"−":n.kind==="deleteEntities"?"⌫":n.kind==="mirror"?"⇋":"↻"}</span><span>${esc(n.label)} <small>(${esc(n.id)})</small></span></button>`).join("");
   list.insertAdjacentHTML("beforeend",'<button type="button" data-cad-form-union="true" class="ls-tree-leaf ls-cad-node '+(selected==="fin"?"active":"")+'" title="Form Union/Assembly finalization Settings">∪ Form Union <small>(fin)</small></button>');
  }
  function loadFields(){
@@ -381,12 +415,14 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    $("ls-cad-form-repair").value=formUnion.repair||"Automatic";
     drawTree();draw();return;
    }
-  if(!["rotate","mirror","array","union","deleteEntities"].includes(n.kind))selectingRotateInputs=false;
-   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="rectangle"?"Rectangle":n.kind==="array"?"Array":n.kind==="union"?"Union":n.kind==="deleteEntities"?"Delete Entities":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
+  if(!["rotate","mirror","array","union","deleteEntities","difference"].includes(n.kind)){selectingRotateInputs=false;differencePickGroup=null;}
+   $("ls-cad-subtitle").textContent=n.kind==="circle"?"Circle":n.kind==="rectangle"?"Rectangle":n.kind==="ellipse"?"Ellipse":n.kind==="array"?"Array":n.kind==="union"?"Union":n.kind==="difference"?"Difference":n.kind==="deleteEntities"?"Delete Entities":n.kind==="mirror"?"Mirror":"Rotate";$("ls-cad-label").value=n.label;
   $("ls-cad-circle").hidden=n.kind!=="circle";
   $("ls-cad-rectangle").hidden=n.kind!=="rectangle";
+  $("ls-cad-ellipse").hidden=n.kind!=="ellipse";
   $("ls-cad-rotate").hidden=!["rotate","mirror","array","union","deleteEntities"].includes(n.kind);
   $("ls-cad-union-controls").hidden=n.kind!=="union";
+  $("ls-cad-difference-controls").hidden=n.kind!=="difference";
   $("ls-cad-delete-entities-controls").hidden=n.kind!=="deleteEntities";
   if(n.kind==="circle"){
    for(const k of ["type","radius","sector","base","x","y","rotation","layer"])$("ls-cad-"+k).value=n[k];
@@ -394,6 +430,14 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   }else if(n.kind==="rectangle"){
    for(const key of ["type","width","height","base","x","y","rotation"])$("ls-cad-rect-"+key).value=n[key];
    for(const el of pane.querySelectorAll("[data-cad-length-unit]"))el.textContent=lengthUnit==="um"?"µm":lengthUnit;
+  }else if(n.kind==="ellipse"){
+   for(const key of ["type","a","b","sector","base","x","y","rotation"])$("ls-cad-ellipse-"+key).value=n[key];
+   for(const el of pane.querySelectorAll("[data-cad-length-unit]"))el.textContent=lengthUnit==="um"?"µm":lengthUnit;
+  }else if(n.kind==="difference"){
+   $("ls-cad-diff-keep").checked=!!n.keep;
+   $("ls-cad-diff-interior").checked=!!n.keepInterior;
+   $("ls-cad-diff-repair").value=n.repair||"Automatic";
+   renderDifferenceInputs(n);
   }else{
    $("ls-cad-angle").value=n.angle??"";$("ls-cad-cx").value=n.cx??"0";$("ls-cad-cy").value=n.cy??"0";$("ls-cad-keep").checked=n.keep;
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));

@@ -16,7 +16,8 @@ try{
  await openMenu();
  const booleans=group('Booleans and Partitions');await booleans.locator(':scope > button').hover();
  assert.deepEqual(await booleans.locator(':scope > ul > li > button').allTextContents(),['Union','Intersection','Difference','Compose','Partition Objects','Partition Domains','Partition Edges']);
- assert.equal(await booleans.locator(':scope > ul button:disabled').count(),7,'Unspecified operations must not become inert enabled commands.');
+ assert.equal(await booleans.locator(':scope > ul button:disabled').count(),6,'Only Union is implemented for the 2D geometry preview.');
+  assert.equal(await booleans.locator('[data-cmd="union"]').isDisabled(),false);
  assert.ok(await booleans.evaluate(el=>[...el.parentElement.children].indexOf(el)<[...el.parentElement.children].findIndex(x=>x.querySelector(':scope > button')?.textContent==='Transforms▸')));
  await page.screenshot({path:'/tmp/comsol_geometry_boolean_partition_menu.png'});
  const transforms=group('Transforms');await transforms.locator(':scope > button').hover();

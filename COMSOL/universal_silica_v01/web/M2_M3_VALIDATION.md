@@ -57,7 +57,7 @@ Updated 2026-11-12. Static GitHub Pages only; no server, login, paid API, extern
 -  <script type="module" src="./app.mjs?v=20261112-m1-v03"></script>
 +  <script type="module" src="./app.mjs?v=20261112-m3-v05"></script>
 +  <script type="module" src="./material_m2_ui.mjs?v=20261112-m2-v04"></script>
-+  <script type="module" src="./vector_m3_ui.mjs?v=20261112-m3-v05"></script>
++  <script type="module" src="./vector_m3_ui.mjs?v=20261112-m3-v05b"></script>
 ```
 
 ```diff

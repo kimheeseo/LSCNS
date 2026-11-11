@@ -21,7 +21,7 @@ try{
  await tab.click();
  assert.ok(await page.locator("#ls-m1-validation").isVisible());
  await page.locator("#ls-m1-run").click();
- await page.waitForFunction(()=>window.LSWaveM1Validation?.latest()?.totalCount===28,{timeout:90000});
+ await page.waitForFunction(()=>window.LSWaveM1Validation?.latest()?.totalCount===28,undefined,{timeout:90000});
  assert.equal(await page.locator("#ls-m1-results tr").count(),28);
  const report=await page.evaluate(()=>window.LSWaveM1Validation.latest());
  assert.equal(report.passed,true);

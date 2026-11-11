@@ -3,7 +3,7 @@
  * Feature flag: window.LSWaveFeatures.vectorM3=false before module import.
  * Worker is static-GitHub-Pages-compatible; no server/API/WASM dependency.
  */
-const ENABLED=globalThis.LSWaveFeatures?.vectorM3!==false;
+const ENABLED=globalThis.LSWaveFeatures?.vectorM3!==false && globalThis.LSWaveFeatures?.fullVectorWeb!==false;
 let worker=null,latest=null,busy=false,sequence=0;
 const $=id=>document.getElementById(id);
 const fmt=(n,d=8)=>Number.isFinite(n)?n.toFixed(d):"—";

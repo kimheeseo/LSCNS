@@ -52,3 +52,14 @@ body.ls-comsol-shell .ls-pml-editor{display:flex;flex-direction:column;backgroun
  body.ls-comsol-shell.ls-pml-active main.workspace{min-height:330px!important}
  body.ls-comsol-shell.ls-pml-active #ls-cad-graphics{min-height:330px}
 }
+
+/* Screenshot alignment: Cylindrical PML center-coordinate grid and scaling fields. */
+.ls-pml-center-coordinates{border:0;border-top:1px solid #d6e0e9;margin:7px 0 2px;padding:8px 0 0;min-width:0}
+.ls-pml-center-coordinates legend{font-size:11px;font-weight:500;color:#344d62;padding:0 6px}
+.ls-pml-coordinate-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid #bfcbd5;min-width:0}
+.ls-pml-coordinate-grid>span{background:#eff4f8;color:#465c70;font-size:11px;padding:6px 9px;border-bottom:1px solid #bfcbd5}
+.ls-pml-coordinate-grid>span:first-child,.ls-pml-coordinate-grid>input:nth-of-type(1){border-right:1px solid #bfcbd5}
+.ls-pml-coordinate-grid>input{border:0!important;border-radius:0!important;width:100%;min-width:0;background:#fff;padding:6px 9px}
+.ls-pml-coordinate-grid>input:focus-visible{outline:2px solid #7eaee2;outline-offset:-2px;z-index:1}
+#ls-pml-factor,#ls-pml-curvature{background:#fff}
+.ls-pml-section-inner>label[for="ls-pml-factor"],.ls-pml-section-inner>label[for="ls-pml-curvature"]{margin-top:3px}

@@ -10,7 +10,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  const defaults=()=>[circle("c1","Circle 1","rb"),circle("c2","Circle 2","d/2")];
  let nodes=defaults(),selected="c2",limit=null,zoom=1,gridOn=true,clipboard=null,rootLabel="Geometry 1",lengthUnit="um",panX=0,panY=0,viewExtent=null;
  let selectedEntityKeys=new Set(); // Individually picked Array outputs.
- let formUnion={enabled:false,keepInterior:true,repair:"Automatic"};
+ let formUnion={enabled:false,mode:"union",keepInterior:true,repair:"Automatic"};
  let angleUnit="Degrees",constraintMode="Off",repairTolerance="Automatic",buildOnNew=true,buildOnLeave=true,scaleWhenUnitsChange=false,selectingRotateInputs=false,activeCumulativeId=null,materialPickMode=false;
  const undoStack=[],redoStack=[],cumulativeSelections=[];
  let materialHighlightKeys=new Set(),materialHighlightDomainIds=new Set(),materialEntityLevel="Domain";
@@ -23,7 +23,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);formUnion=structuredClone(state.formUnion||{enabled:false,keepInterior:true,repair:"Automatic"});const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);formUnion=structuredClone(state.formUnion||{enabled:false,mode:"union",keepInterior:true,repair:"Automatic"});const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -83,18 +83,21 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     <div class="ls-cad-field"><label for="ls-cad-rect-x">x</label><input id="ls-cad-rect-x" value="0[um]"/><span data-cad-length-unit>µm</span></div>
     <div class="ls-cad-field"><label for="ls-cad-rect-y">y</label><input id="ls-cad-rect-y" value="0[um]"/><span data-cad-length-unit>µm</span></div></details>
    <details class="ls-cad-section" open><summary>Rotation Angle</summary><div class="ls-cad-field"><label for="ls-cad-rect-rotation">Rotation</label><input id="ls-cad-rect-rotation" value="0"/><span>deg</span></div></details>
+   <details class="ls-cad-section" id="ls-cad-rect-layers"><summary>Layers</summary><p class="ls-cad-sequence-note">Rectangle Layers are not yet calculated in this 2D geometry preview.</p></details>
   </div>
   <div id="ls-cad-union-controls" hidden>
    <details class="ls-cad-section" open><summary>Union</summary>
     <label class="ls-cad-check"><input id="ls-cad-union-keep" type="checkbox"/> Keep input objects</label>
     <label class="ls-cad-check"><input id="ls-cad-union-interior" type="checkbox"/> Keep interior boundaries</label>
+    <div class="ls-cad-field"><label for="ls-cad-union-repair">Repair tolerance</label><select id="ls-cad-union-repair"><option>Automatic</option><option disabled>Relative</option><option disabled>Absolute</option></select></div>
+    <p class="ls-cad-sequence-note">Automatic preview tolerance only; a CAD topology kernel is required for topology repair.</p>
     <p class="ls-cad-sequence-note">Select at least two preceding solid circles or rectangles. Build generates a sampled outer silhouette for Graphics only.</p>
    </details>
   </div>
   <div id="ls-cad-delete-entities-controls" hidden>
    <details class="ls-cad-section" open><summary>Delete Entities</summary>
-    <div class="ls-cad-field"><label for="ls-cad-delete-level">Geometric entity level</label><select id="ls-cad-delete-level"><option>Domain</option><option disabled>Boundary</option><option disabled>Point</option></select></div>
-    <p class="ls-cad-sequence-note">Domain preview: selected entire Geometry objects are removed from downstream Graphics. Boundary and Point deletion require a topology engine.</p>
+    <div class="ls-cad-field"><label for="ls-cad-delete-level">Geometric entity level</label><select id="ls-cad-delete-level"><option>Object</option><option>Domain</option><option disabled>Boundary</option><option disabled>Point</option></select></div>
+    <p class="ls-cad-sequence-note">Object/Domain preview removes selected whole objects downstream. Boundary/Point deletion requires a topology kernel.</p>
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
@@ -295,8 +298,8 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
   let i=1,pre=kind==="circle"?"c":kind==="rectangle"?"r":kind==="array"?"arr":kind==="union"?"uni":kind==="deleteEntities"?"del":kind==="mirror"?"mir":"rot";while(nodes.some(n=>n.id===pre+i))i++;
   if(kind==="circle")return circle(pre+i,"Circle "+i,nodes.length===0?"rb+wlr":"2.5[um]");
   if(kind==="rectangle")return {id:pre+i,kind:"rectangle",label:"Rectangle "+i,enabled:true,type:"Solid",width:"100[um]",height:"100[um]",base:"Corner",x:"0[um]",y:"0[um]",rotation:"0",selection:false,color:"None"};
-  if(kind==="union")return {id:pre+i,kind:"union",label:"Union "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,keepInterior:false,selection:false,color:"None"};
-  if(kind==="deleteEntities")return {id:pre+i,kind:"deleteEntities",label:"Delete Entities "+i,enabled:true,inputIds:[],inputRefs:[],deleteLevel:"Domain",selection:false,color:"None"};
+  if(kind==="union")return {id:pre+i,kind:"union",label:"Union "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,keepInterior:false,repair:"Automatic",selection:false,color:"None"};
+  if(kind==="deleteEntities")return {id:pre+i,kind:"deleteEntities",label:"Delete Entities "+i,enabled:true,inputIds:[],inputRefs:[],deleteLevel:"Object",selection:false,color:"None"};
   const preceding=nodes.slice(0,at).filter(x=>x.kind==="circle"&&x.enabled);
   if(kind==="array")return {id:pre+i,kind:"array",label:"Array "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,arrayType:"Rectangular",nx:"1",ny:"1",size:"1",dx:"0",dy:"0",selection:false,color:"None"};
   if(kind==="mirror")return {id:pre+i,kind:"mirror",label:"Mirror "+i,enabled:true,inputIds:[],inputRefs:[],keep:false,cx:"0[um]",cy:"0[um]",nx:"1",ny:"0",selection:false,color:"None"};
@@ -388,8 +391,9 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
    if(n.kind==="union"){
     $("ls-cad-union-keep").checked=!!n.keep;
     $("ls-cad-union-interior").checked=!!n.keepInterior;
+    $("ls-cad-union-repair").value=n.repair||"Automatic";
    }
-   if(n.kind==="deleteEntities")$("ls-cad-delete-level").value=n.deleteLevel||"Domain";
+   if(n.kind==="deleteEntities")$("ls-cad-delete-level").value=n.deleteLevel||"Object";
    $("ls-cad-array-size-section").hidden=n.kind!=="array";
    $("ls-cad-array-displacement-section").hidden=n.kind!=="array";
    if(n.kind==="array"){
@@ -511,7 +515,8 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     const w=evalLength(n.width),h=evalLength(n.height),deg=evalNumber(n.rotation);
     if(!(w>0&&h>0&&Number.isFinite(deg)))throw Error(n.label+": Width and Height must be positive and Rotation finite.");
     const px=evalLength(n.x),py=evalLength(n.y);
-    const x=px+(n.base==="Corner"?w/2:0),y=py+(n.base==="Corner"?h/2:0);
+    const theta=deg*Math.PI/180,ca=Math.cos(theta),sa=Math.sin(theta);
+    const x=px+(n.base==="Corner"?(w*ca-h*sa)/2:0),y=py+(n.base==="Corner"?(w*sa+h*ca)/2:0);
     shapes.push({id:n.id,entityKey:n.id,source:n.id,owner:n.id,kind:"rectangle",
      w,h,r:Math.hypot(w,h)/2,x,y,sector:360,deg,solid:n.type==="Solid",layers:[],selection:n.selection,color:n.color,derived:false});
    }else if(n.kind==="array"){
@@ -540,7 +545,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
     }
     shapes.push(union);
    }else if(n.kind==="deleteEntities"){
-    if(n.deleteLevel!=="Domain")throw Error("Delete Entities supports Domain objects only in 2D preview.");
+    if(!["Object","Domain"].includes(n.deleteLevel||"Object"))throw Error("Delete Entities supports whole Object/Domain selection only in 2D preview.");
     const refs=new Set(n.inputRefs||[]);
     for(let j=shapes.length-1;j>=0;j--)if(refs.has(shapes[j].entityKey))shapes.splice(j,1);
    }else if(n.kind==="rotate"||n.kind==="mirror"){
@@ -1349,6 +1354,7 @@ import {rectangleCorners,boundsOf,unionContours} from "./geometry_boolean.mjs?v=
  }
  $("ls-cad-union-keep").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keep=e.target.checked;draw();});
  $("ls-cad-union-interior").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.keepInterior=e.target.checked;draw();});
+ $("ls-cad-union-repair").addEventListener("change",e=>{const n=cur();if(n?.kind!=="union")return;checkpoint();n.repair=e.target.value;draw();});
  $("ls-cad-delete-level").addEventListener("change",e=>{const n=cur();if(n?.kind!=="deleteEntities")return;checkpoint();n.deleteLevel=e.target.value;draw();});
 
  $("ls-cad-add-layer").addEventListener("click",()=>{

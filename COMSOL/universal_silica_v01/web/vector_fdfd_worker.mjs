@@ -1,5 +1,5 @@
 /** M3 worker: keep expensive FDFD eigen-iteration off the UI thread. */
-import {solveVectorFDFD,vectorResultJSON} from "./vector_fdfd_browser.mjs";
+import {solveVectorFDFD,vectorResultJSON} from "./vector_fdfd_browser.mjs?v=20261112-m3-residual1e7-v2";
 self.onmessage=event=>{
  const {id,input,modes=2}=event.data||{};
  try{

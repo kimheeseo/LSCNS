@@ -158,3 +158,31 @@ body.ls-comsol-shell .ls-cad-pane .ls-config-heading{position:relative}
 #ls-cad-view .ls-cad-rendered-shape.is-entity-selected .ls-cad-layer-region{fill:#f6c9cc!important}
 #ls-cad-view .ls-cad-rendered-shape.is-entity-selected .ls-cad-layer-boundary{stroke:#a3344e!important}
 #ls-cad-selected-entities{display:inline-flex;align-items:center;max-width:100%;font-size:11px;color:#7a3149;background:#fff1f3;border:1px solid #e5b2be;border-radius:3px;padding:3px 7px;overflow-wrap:anywhere}
+
+/* Array Input validation and creation helper (2026-11-11). */
+#ls-cad-inputs .ls-cad-input-empty{
+ margin:5px 4px 7px;
+ padding:6px 7px;
+ line-height:1.45;
+ color:#865339;
+ background:#fff9ee;
+ border:1px solid #f0dfbd;
+ border-radius:3px;
+ font-size:11px;
+}
+#ls-cad-create-array-input{
+ display:block;
+ margin:4px;
+ padding:6px 9px;
+ border:1px solid #97b5d1;
+ border-radius:3px;
+ background:#edf7ff;
+ color:#22618e;
+ cursor:pointer;
+ font-size:11px;
+ text-align:left;
+}
+#ls-cad-create-array-input:hover,#ls-cad-create-array-input:focus-visible{
+ background:#d7ecff;
+ border-color:#438dbd;
+}

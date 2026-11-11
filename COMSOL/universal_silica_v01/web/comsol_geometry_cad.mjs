@@ -24,7 +24,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   document.dispatchEvent(new CustomEvent("ls-cad-history",{detail:{canUndo:!!undoStack.length,canRedo:!!redoStack.length}}));
  }
  function checkpoint(){undoStack.push(snap());if(undoStack.length>60)undoStack.shift();redoStack.length=0;updateHistoryButtons();}
- function restore(state){({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);formUnion=structuredClone(state.formUnion||{enabled:false,mode:"union",keepInterior:true,repair:"Automatic"});const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
+ function restore(state){differencePickGroup=null;selectingRotateInputs=false;({nodes,selected,limit,zoom,panX,panY,rootLabel,lengthUnit,gridOn,viewExtent}=structuredClone(state));selectedEntityKeys=new Set(state.selectedEntityKeys||[]);formUnion=structuredClone(state.formUnion||{enabled:false,mode:"union",keepInterior:true,repair:"Automatic"});const node=$("ls-cad-root-name");if(node)node.textContent=rootLabel;loadFields();updateHistoryButtons();}
  function historyMove(back){const from=back?undoStack:redoStack,to=back?redoStack:undoStack;if(!from.length)return;to.push(snap());restore(from.pop());say(back?"Undo geometry edit.":"Redo geometry edit.");}
  const pane=document.createElement("section");pane.id="ls-cad-pane";pane.className="ls-config-pane ls-cad-pane";pane.hidden=true;
  pane.innerHTML=`
@@ -137,7 +137,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    </details>
   </div>
   <div id="ls-cad-rotate" hidden>
-   <details class="ls-cad-section" open><summary>Input</summary><label class="ls-cad-block-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label id="ls-cad-keep-row" class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
+   <details class="ls-cad-section" open><summary id="ls-cad-input-summary">Input</summary><label class="ls-cad-block-label" id="ls-cad-input-list-label">Input objects:</label><div class="ls-cad-selection-row"><button type="button" id="ls-cad-activate-selection" aria-label="Activate Selection" aria-pressed="false" title="Activate Selection in Graphics">▣</button><div id="ls-cad-inputs" class="ls-cad-inputs"></div></div><p id="ls-cad-selection-hint" class="ls-cad-selection-hint">Activate Selection to highlight/select c2 in Graphics.</p><label id="ls-cad-keep-row" class="ls-cad-check"><input id="ls-cad-keep" type="checkbox" checked/> Keep input objects</label></details>
    <details class="ls-cad-section" id="ls-cad-array-size-section" hidden open><summary>Size</summary>
     <div class="ls-cad-field"><label for="ls-cad-array-type">Array type:</label><select id="ls-cad-array-type"><option>Rectangular</option><option>Linear</option></select><span></span></div>
     <div class="ls-cad-field" id="ls-cad-array-nx-row"><label for="ls-cad-array-nx">x size:</label><input id="ls-cad-array-nx" value="1"/><span></span></div>
@@ -281,11 +281,12 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   if(!shapes.length)throw Error("No visible Geometry objects to fit.");
   let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
   for(const shape of shapes){
-   if(![shape.x,shape.y,shape.r].every(Number.isFinite)||shape.r<=0)continue;
-   minX=Math.min(minX,shape.x-shape.r);
-   maxX=Math.max(maxX,shape.x+shape.r);
-   minY=Math.min(minY,shape.y-shape.r);
-   maxY=Math.max(maxY,shape.y+shape.r);
+   const bounds=boundsOf(shape);
+   if(!Object.values(bounds).every(Number.isFinite))continue;
+   minX=Math.min(minX,bounds.minX);
+   maxX=Math.max(maxX,bounds.maxX);
+   minY=Math.min(minY,bounds.minY);
+   maxY=Math.max(maxY,bounds.maxY);
   }
   if(!Number.isFinite(minX)||!(maxX>minX)||!(maxY>minY))throw Error("No valid Geometry extents available.");
   // These dimensions match svg(640,500)'s main Graphics plot (55,31,618,452).
@@ -421,6 +422,8 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   $("ls-cad-rectangle").hidden=n.kind!=="rectangle";
   $("ls-cad-ellipse").hidden=n.kind!=="ellipse";
   $("ls-cad-rotate").hidden=!["rotate","mirror","array","union","deleteEntities"].includes(n.kind);
+  $("ls-cad-input-summary").textContent=n.kind==="deleteEntities"?"Selection":"Input";
+  $("ls-cad-input-list-label").textContent=n.kind==="deleteEntities"?"Selection:":"Input objects:";
   $("ls-cad-union-controls").hidden=n.kind!=="union";
   $("ls-cad-difference-controls").hidden=n.kind!=="difference";
   $("ls-cad-delete-entities-controls").hidden=n.kind!=="deleteEntities";
@@ -442,7 +445,10 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
    $("ls-cad-angle").value=n.angle??"";$("ls-cad-cx").value=n.cx??"0";$("ls-cad-cy").value=n.cy??"0";$("ls-cad-keep").checked=n.keep;
     $("ls-cad-activate-selection").setAttribute("aria-pressed",String(selectingRotateInputs));
     $("ls-cad-activate-selection").classList.toggle("active",selectingRotateInputs);
-    $("ls-cad-selection-hint").textContent=["array","union","deleteEntities"].includes(n.kind)?(selectingRotateInputs?"Active · click input objects in Graphics. Build Selected to show the result.":"Activate Selection to edit input objects."):selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
+    $("ls-cad-selection-hint").textContent=n.kind==="deleteEntities"
+     ?(selectingRotateInputs?"Select individual Geometry outputs (e.g. rot1(3)) in Graphics.":"Activate Selection to choose objects to delete.")
+     :["array","union"].includes(n.kind)?(selectingRotateInputs?"Active · click input objects in Graphics. Build Selected to show the result.":"Activate Selection to edit input objects.")
+     :selectingRotateInputs?"Graphics selection active. Click an existing circle to add or remove it.":"Activate Selection to highlight/select c2 in Graphics.";
    $("ls-cad-rotate-angle-section").hidden=n.kind!=="rotate";
    $("ls-cad-rotate-center-section").hidden=n.kind!=="rotate";
    $("ls-cad-mirror-point-section").hidden=n.kind!=="mirror";
@@ -647,9 +653,10 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
     }
     if(n.kind==="rotate"){
      const angles=angleList(n.angle);
+     let outputNumber=0;
      for(const shape of input)for(const [angleIndex,deg] of angles.entries()){
       const theta=deg*Math.PI/180,dx=shape.x-px,dy=shape.y-py;
-      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+angleIndex,owner:n.id,kind:"rotate",outputLabel:n.id+"("+(angleIndex+1)+")",x:px+dx*Math.cos(theta)-dy*Math.sin(theta),y:py+dx*Math.sin(theta)+dy*Math.cos(theta),deg:shape.deg+deg,selection:n.selection,color:n.color,derived:true});
+      shapes.push({...shape,id:n.id,entityKey:n.id+"/"+shape.entityKey+"/"+angleIndex,owner:n.id,kind:"rotate",outputLabel:n.id+"("+(++outputNumber)+")",x:px+dx*Math.cos(theta)-dy*Math.sin(theta),y:py+dx*Math.sin(theta)+dy*Math.cos(theta),deg:shape.deg+deg,selection:n.selection,color:n.color,derived:true});
      }
     }else{
      const nx=evalNumber(n.nx),ny=evalNumber(n.ny),norm=nx*nx+ny*ny;
@@ -1192,6 +1199,7 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
   if(!["array","union","deleteEntities","difference"].includes(cur()?.kind))return;
   // Fit generated Geometry outputs instead of its source-object picking view.
   selectingRotateInputs=false;differencePickGroup=null;
+  if(cur()?.kind==="difference")renderDifferenceInputs(cur());
   if(compute().length)zoomExtents();
   $("ls-cad-activate-selection").setAttribute("aria-pressed","false");
   $("ls-cad-activate-selection").classList.remove("active");

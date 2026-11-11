@@ -9,16 +9,19 @@
  const tree=document.querySelector(".ls-model-tree");
  if(!tree)return;
  const groups=[
-  [{label:"Variables",icon:"a≔"},{label:"Functions",children:["Analytic","Interpolation","Piecewise","More Functions"]},
-   {label:"Selections",children:["Explicit","Complement","Adjacent","Ball/Disk","Box","Cylinder","Union","Intersection","Difference","Colors"]},
+  [{label:"Variables",icon:"a≔"},{label:"Variable Utilities",children:["Clear Variables","Other Utilities"]},
+   {label:"View",icon:"▧"},{label:"Functions",children:["Analytic","Interpolation","Piecewise","More Functions"]},
    {label:"Probes",children:["Domain Probe","Boundary Probe","Point Probe"]},
-   {label:"Nonlocal Couplings",children:["Integration","Average","Maximum","Minimum"]},
+   {label:"Component Couplings",children:["Integration","Average","Maximum","Minimum"]},
+   {label:"Selections",children:["Explicit","Complement","Adjacent","Ball/Disk","Box","Cylinder","Union","Intersection","Difference","Colors"]},
    {label:"Pairs",children:["Identity Pair","Contact Pair"]},
-   {label:"Coordinate Systems",children:["Boundary System","Cylindrical System"]}],
+   {label:"Coordinate Systems",children:["Boundary System","Cylindrical System"]},
+   {label:"Nonlocal Couplings",children:["Integration","Average","Maximum","Minimum"]}],
   [{label:"Moving Mesh",children:["Moving Mesh"]},{label:"Deformed Geometry",children:["Deformed Geometry"]},
    {label:"Topology Optimization",children:["Topology Optimization"]},{label:"Shape Optimization",children:["Shape Optimization"]}],
-  [{label:"Perfectly Matched Layer",icon:"▥"},{label:"Shared Properties",children:["View","Selections"]},
-   {label:"View",icon:"▧"}],
+  [{label:"Absorbing Layer",icon:"▥"},{label:"Infinite Element Domain",icon:"▥"},
+   {label:"Perfectly Matched Layer",icon:"▥"},
+   {label:"Shared Properties",children:["View","Selections"]}],
   [{label:"Show More Options..."},{label:"Node Group"},{label:"Group by Type",children:["Default","Name","Physics"]},
    {label:"Update Probes"}],
   [{label:"Help",hint:"F1"}]

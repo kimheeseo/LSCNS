@@ -1,3 +1,31 @@
+# CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
+
+## v0.7.1 — 2026-11-12 — M2 source audit + M3 true Yee entry (only)
+
+### New files
+- `m3_yee_quickstart_v071.mjs`: optional, independently flagged shortcut to the existing **staggered Yee** 2D Maxwell mode solver (`yee_solver.mjs`), plus explicit 1550-nm step-index M3-only preset. The preset disables PML, HCF, bend and absorption and does **not** start a calculation without a second user click.
+- `tests/test_m2_m3_acceptance_v071.mjs`: repeatable Node M2 Sellmeier, α↔κ, CSV interpolation, M1 regression and real Yee N24 test with measured process time/RSS.
+- `M2_M3_V071_ACCEPTANCE.md` / `M2_M3_V071_FULL_SOURCE.md`: verified inputs, references, comparison/mesh data, minimal diffs, full new code and open acceptance gaps.
+
+### Minimal old-file changes
+- `m2_preview_engine_v06.mjs`: corrected pure fused-silica primary citation to I.H. Malitson (1965), JOSA 55, 1205, DOI 10.1364/JOSA.55.001205; **zero coefficient/value changes**.
+- `m2_preview_ui_v06.mjs`: separate Malitson SiO₂ vs Fleming GeO₂ literature links and refresh module cache key; no change to n(λ), κ(λ), tables, interpolation or save schema.
+- `solver.mjs`: VERSION `0.7.0 → 0.7.1` only (no changes to FEM numerical logic).
+- `app.mjs`: only the solver import URL cache key changed to `?v=v0.7.1`.
+- `index.html`: header version to `v0.7.1`, app/M2 cache keys to `v0.7.1`, one additional M3 shortcut module script reference. Public URL `?v=v0.7.1`.
+- Existing collocated M3 v0.7 study, true Yee Maxwell solver, original Colab JSON viewer, old scalar solver, M1, M2 value model, M4–M6 code, DOM IDs and saved-design JSON are **unchanged**.
+
+### What is validated
+- Current scalar M1: 4/4 analytic cases and 5/5 old presets passed without changing their numeric values; original 28-item M1 suite remains in place.
+- M2 at 1550 nm: pure silica = 1.4440236217032607 (exact original Sellmeier), GeO₂ 5 mol% modeled = 1.4515267771427718, F 1 **wt%** fit = 1.4393958509698328, P₂O₅ 5 mol% modeled = 1.452224423108019. F mol% still **requires user-sourced coefficients**.
+- M2 index table supports linear/PCHIP with no extrapolation, complex `n+iκ` and α[dB/km]↔κ conversions. M2 values and references were re-evaluated from checked-in source in this session.
+- Strict M3 engine: existing `yee_solver.mjs` evaluated directly on a 24×24 Yee grid, two polarizations, neff≈1.4460854785569 / 1.4460854785554, eigenpair residuals 4.73×10⁻⁹ / 4.82×10⁻⁹, portable schema `LSCNS_vector_mode_v1`. This is a coarse-grid numerical test, **not** a claim of mesh convergence.
+- See `M3_M6_YEE_VALIDATION_20261112.md` for existing source-backed N24/48/72/96 neff, M1/scalar/Colab differences and measured Node process RSS/time. Last-grid convergence criterion is **NOT met**, and that remains explicitly unresolved.
+- Public browser click-through of the new shortcut, published-site Worker and user-machine memory measurement **not executed** in this session. The Node test is checked in, but has not been executed in a cloned checkout.
+
+### Strict scope / limits
+No M4 PML, HCF, bending loss, M5 geometry, M6 workflows, or underlying Yee Maxwell operator was changed. The new quickstart is UI navigation, not a new physics algorithm.
+
 ## 2026-11-12 · M3–M6 experimental Yee workbench
 
 - Added a separate browser Yee full-vector solver with complex ILU(0)-GMRES, block shift-invert/Ritz, Worker progress/cancellation, complex fields, polarization, MFD/Aeff, and Colab-compatible vector JSON.
@@ -6,7 +34,6 @@
 - Added workflow links to existing panels, 1–2 parameter sweeps, CSV, saved overlays and project schema3 adapters for existing Parameters/CAD/Materials/PML/M2/scalar state.
 - Acceptance is incomplete: mesh/PML loss convergence and quantitative HCF loss remain unverified. Browser acceptance passed: project-file roundtrip with scalar/CAD/parameter restoration, 2-axis sweep CSV, cancellation, circle geometry, legacy import and layout switching. See M3_M6_YEE_VALIDATION_20261112.md for measured tables and limits.
 
-# CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
 
 ## v0.7.0 — 2026-11-12 — M3 vector FDFD study controls and comparisons
 

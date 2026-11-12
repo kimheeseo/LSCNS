@@ -58,7 +58,7 @@ function init(){
   ' 스칼라 LP₀₁, 기존 FEM, Colab 비교표와 Ex/Ey/Ez, MFD, Aeff는 결과 탭에서 확인할 수 있습니다.</p>',
   '<button id="vb-m3-preset" type="button" style="padding:8px 12px;cursor:pointer">M3 단독 step-index 조건 설정</button>',
   '<p id="vb-m3-quickstart-state" role="status" style="color:#8de2da;font-size:11px">',
-  '설정 버튼은 사용자 입력을 변경하지만 실행하지 않습니다. PML/HCF/굴힘·복소 κ는 이 M3 기준 실험에서 사용하지 않습니다.</p>'
+  '설정 버튼은 사용자 입력을 변경하지만 실행하지 않습니다. PML/HCF/굽힘·복소 κ는 이 M3 기준 실험에서 사용하지 않습니다.</p>'
  ].join("");
  m3Pane.querySelector(".vb-grid")?.before(article);
  const nav=document.querySelector("nav.eng-shortcuts");

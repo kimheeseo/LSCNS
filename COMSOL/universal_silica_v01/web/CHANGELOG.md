@@ -1,3 +1,11 @@
+## 2026-11-12 · M3–M6 experimental Yee workbench
+
+- Added a separate browser Yee full-vector solver with complex ILU(0)-GMRES, block shift-invert/Ritz, Worker progress/cancellation, complex fields, polarization, MFD/Aeff, and Colab-compatible vector JSON.
+- Added complex-coordinate PML, optional M2 absorption, conformal equivalent-index bends, HCF geometry sampling, candidate-mode filters and explicit loss-convergence status.
+- Added polygon/SVG/image-mask input, material assignments, subpixel sampling and direct N-core supermodes with reduced coherent coupling indicators; retained existing interpolation and scalar solvers.
+- Added workflow links to existing panels, 1–2 parameter sweeps, CSV, saved overlays and project schema3 adapters for existing Parameters/CAD/Materials/PML/M2/scalar state.
+- Acceptance is incomplete: mesh/PML loss convergence and quantitative HCF loss remain unverified. Browser solver/export passed; file-picker roundtrip was blocked by the browser automation tool. See M3_M6_YEE_VALIDATION_20261112.md for measured tables and limits.
+
 # CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
 
 ## v0.7.0 — 2026-11-12 — M3 vector FDFD study controls and comparisons

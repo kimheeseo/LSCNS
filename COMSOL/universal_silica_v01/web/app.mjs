@@ -258,3 +258,24 @@ $('preset').addEventListener('change',e=>{applyPreset(e.target.value);if(e.targe
  el.addEventListener('input',()=>{if(el.id==='clad_material')changeProfile();$('meshLabel').textContent=$('elements').value;invalidate();});
 }$('calculateBtn').addEventListener('click',()=>calc());$('resetBtn').addEventListener('click',()=>{applyPreset('g654');$('preset').value='g654';calc({autoSweep:true});});$('sweepBtn').addEventListener('click',doSweep);$('meshBtn').addEventListener('click',doMesh);$('jsonBtn').addEventListener('click',exportJSON);$('csvBtn').addEventListener('click',exportCSV);$('pngBtn').addEventListener('click',exportPNG);$('designBtn').addEventListener('click',()=>{try{exportDesign();}catch(e){errorText(e.message,'error');}});$('importDesign').addEventListener('change',e=>{importDesignFile(e.target.files?.[0]);e.target.value='';});
 applyPreset('g654');calc({autoSweep:true});
+
+/** M6 state adapter: existing scalar arithmetic and compute handlers are unchanged. */
+globalThis.LSWaveScalarProject=Object.freeze({
+ snapshot:()=>({model:readModel(),preset:$('preset').value,last:structuredClone(last),lastModel:structuredClone(lastModel),sweepRows:structuredClone(sweepRows),meshRows:structuredClone(meshRows),slopeResult:structuredClone(slopeResult),D:Number($('disp').textContent),
+  texts:Object.fromEntries(['notice','neffSub','calcTime','slope1550','lambdaZero','slopeZero','slopeStatus'].map(id=>[id,$(id).textContent]))}),
+ loadProject:state=>{
+  const m=state.model;if(!m||typeof m!=='object')throw Error('Scalar model required');
+  if(m.profile!=='mcf')validate(m);else calculateMCF(m.pitch_um,m.length_mm);
+  if(state.preset&&Object.hasOwn(PRESETS,state.preset))applyPreset(state.preset);
+  $('profile').value=m.profile;$('clad_material').value=m.clad_index_override==null?'silica':'fixed';$('clad_index_override').value=m.clad_index_override??1.4378;
+  for(const k of keys)if(m[k]!=null)$(k).value=k==='n2_m2_per_W'?m[k]/1e-20:m[k];
+  if(m.shells)$('shells').value=m.shells.map(r=>r.join(',')).join('\n');
+  if(m.profile==='mcf'){$('pitch_um').value=m.pitch_um;$('length_mm').value=m.length_mm;}
+  changeProfile();
+  if(!state.last){invalidate();return;}
+  if(state.last.isMCF)renderMCF(structuredClone(state.last),state.lastModel);
+  else{if(!Number.isFinite(state.last.n_eff)||!Array.isArray(state.last.field))throw Error('Invalid saved scalar result');updateBase(state.lastModel,structuredClone(state.last),state.D,0);}
+  sweepRows=structuredClone(state.sweepRows||[]);meshRows=structuredClone(state.meshRows||[]);slopeResult=structuredClone(state.slopeResult);
+  drawSpectrum();drawMeshes();for(const [id,t]of Object.entries(state.texts||{}))if(['notice','neffSub','calcTime','slope1550','lambdaZero','slopeZero','slopeStatus'].includes(id))$(id).textContent=t;
+ }
+});

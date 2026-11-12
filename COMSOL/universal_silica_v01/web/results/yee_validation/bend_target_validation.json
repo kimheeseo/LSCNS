@@ -1,0 +1,184 @@
+{
+  "grid_n": 32,
+  "autoTarget": "M1 LP01 straight-fiber neff",
+  "rows": [
+    {
+      "R": 4000,
+      "wallMs": 2526.1313090000003,
+      "modes": [
+        {
+          "neff": 1.4464450553991632,
+          "neff_imag": 0.00011479722189674998,
+          "neff_complex": {
+            "real": 1.4464450553991632,
+            "imag": 0.00011479722189674998
+          },
+          "residual": 1.8708521044539163e-12,
+          "loss_dB_km": 4041977.162391238,
+          "loss_residual_scale_dB_km": 0.04764023358638786,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 101.58596607476825,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.0507311881846615,
+          "physical_power_fraction": 0.9492688118153377,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 14.125697522021078,
+          "Aeff_um2": 113.2011246092902,
+          "Ex_intensity_fraction": 7.107582890036343e-7,
+          "Ey_intensity_fraction": 0.999084483473668,
+          "Ez_intensity_fraction": 0.0009148057680431819,
+          "polarization": "Ey dominant",
+          "mode_index": 1
+        },
+        {
+          "neff": 1.44645360319822,
+          "neff_imag": 0.00011310825213847224,
+          "neff_complex": {
+            "real": 1.44645360319822,
+            "imag": 0.00011310825213847224
+          },
+          "residual": 8.183061172141513e-11,
+          "loss_dB_km": 3982509.023022254,
+          "loss_residual_scale_dB_km": 2.0837844342595697,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 100.09136871665423,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.0466380650228511,
+          "physical_power_fraction": 0.9533619349771485,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 14.141957664233983,
+          "Aeff_um2": 113.95481748588344,
+          "Ex_intensity_fraction": 0.9988140847286807,
+          "Ey_intensity_fraction": 6.049978133997493e-7,
+          "Ez_intensity_fraction": 0.0011853102735047594,
+          "polarization": "Ex dominant",
+          "mode_index": 2
+        }
+      ]
+    },
+    {
+      "R": 2000,
+      "wallMs": 5693.000685,
+      "modes": [
+        {
+          "neff": 1.4469909721273186,
+          "neff_imag": 0.0005159563616764554,
+          "neff_complex": {
+            "real": 1.4469909721273186,
+            "imag": 0.0005159563616764554
+          },
+          "residual": 1.739437582035535e-11,
+          "loss_dB_km": 18166675.083499983,
+          "loss_residual_scale_dB_km": 0.44310556803864176,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 228.28917192990517,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.12613110811728537,
+          "physical_power_fraction": 0.8738688918827157,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 15.577937770950774,
+          "Aeff_um2": 152.98096043745127,
+          "Ex_intensity_fraction": 0.0000010354564920875453,
+          "Ey_intensity_fraction": 0.9991622282616927,
+          "Ez_intensity_fraction": 0.0008367362818162249,
+          "polarization": "Ey dominant",
+          "mode_index": 1
+        },
+        {
+          "neff": 1.447008813972888,
+          "neff_imag": 0.0005202015329281625,
+          "neff_complex": {
+            "real": 1.447008813972888,
+            "imag": 0.0005202015329281625
+          },
+          "residual": 1.2743709866517815e-11,
+          "loss_dB_km": 18316146.342179682,
+          "loss_residual_scale_dB_km": 0.3246381759474476,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 230.16748316266901,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.11458602471955216,
+          "physical_power_fraction": 0.8854139752804474,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 15.476715118760678,
+          "Aeff_um2": 150.88903591418344,
+          "Ex_intensity_fraction": 0.9961623966832759,
+          "Ey_intensity_fraction": 0.000001491034398915579,
+          "Ez_intensity_fraction": 0.003836112282325319,
+          "polarization": "Ex dominant",
+          "mode_index": 2
+        }
+      ]
+    },
+    {
+      "R": 1000,
+      "error": "Eigenproblem did not converge all requested modes; best residuals: 1.81e-11, 1.89e-10"
+    },
+    {
+      "R": 8000,
+      "wallMs": 1565.3196970000001,
+      "modes": [
+        {
+          "neff": 1.4462158873503883,
+          "neff_imag": 0.00000796071101872386,
+          "neff_complex": {
+            "real": 1.4462158873503883,
+            "imag": 0.00000796071101872386
+          },
+          "residual": 1.1137123220126936e-12,
+          "loss_dB_km": 280294.3451281297,
+          "loss_residual_scale_dB_km": 0.02835558648551904,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 14.08913048795671,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.0078088986938216415,
+          "physical_power_fraction": 0.9921911013061792,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 11.658647206534162,
+          "Aeff_um2": 87.17032936066653,
+          "Ex_intensity_fraction": 6.60768850249114e-7,
+          "Ey_intensity_fraction": 0.9989280673987412,
+          "Ez_intensity_fraction": 0.0010712718324098387,
+          "polarization": "Ey dominant",
+          "mode_index": 1
+        },
+        {
+          "neff": 1.4462156076213761,
+          "neff_imag": 0.000012918272465459642,
+          "neff_complex": {
+            "real": 1.4462156076213761,
+            "imag": 0.000012918272465459642
+          },
+          "residual": 1.851170847944462e-11,
+          "loss_dB_km": 454848.6576608845,
+          "loss_residual_scale_dB_km": 0.47131583166118585,
+          "loss_below_residual_scale": false,
+          "loss_dB_turn": 22.863187222441816,
+          "loss_status": "미검증: mesh/PML convergence required",
+          "pml_power_fraction": 0.016019836297178704,
+          "physical_power_fraction": 0.9839801637028218,
+          "edge_power_fraction": 0,
+          "accepted": true,
+          "rejection": null,
+          "MFD_2nd_um": 11.741785114203411,
+          "Aeff_um2": 87.41358116892093,
+          "Ex_intensity_fraction": 0.9989820655773312,
+          "Ey_intensity_fraction": 6.0771807221134e-7,
+          "Ez_intensity_fraction": 0.0010173267045977413,
+          "polarization": "Ex dominant",
+          "mode_index": 2
+        }
+      ]
+    }
+  ]
+}

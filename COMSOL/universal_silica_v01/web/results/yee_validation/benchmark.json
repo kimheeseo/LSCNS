@@ -1,0 +1,5114 @@
+{
+  "generatedAt": "2026-11-12T01:12:48.541Z",
+  "runtime": {
+    "node": "v24.22.1",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "platform": "linux",
+    "cores": 9
+  },
+  "cases": [
+    {
+      "name": "step-grid-24",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 24,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 363.624669,
+      "processWallMs": 376.794123,
+      "memoryBefore": {
+        "rss": 40554496,
+        "heapTotal": 12374016,
+        "heapUsed": 8757400,
+        "external": 4049068,
+        "arrayBuffers": 212151
+      },
+      "memoryAfter": {
+        "rss": 64057344,
+        "heapTotal": 19189760,
+        "heapUsed": 11285272,
+        "external": 5702136,
+        "arrayBuffers": 1865179
+      },
+      "processHighWaterRSSBytes": 64057344,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 24,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 24,
+        "h_um": 1.5,
+        "modes": [
+          {
+            "neff": 1.4460854785569142,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460854785569142,
+              "imag": 0
+            },
+            "residual": 4.728891351252143e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 120.38871598390462,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 0.00014842852458550078,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.685118773812773,
+            "Aeff_um2": 80.04764223918713,
+            "Ex_intensity_fraction": 0.5697683151800027,
+            "Ey_intensity_fraction": 0.429092731663055,
+            "Ez_intensity_fraction": 0.0011389531569424099,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4460854785554096,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460854785554096,
+              "imag": 0
+            },
+            "residual": 4.8214362748969915e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 122.74473639128354,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 0.0001484286280544651,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.685118962505031,
+            "Aeff_um2": 80.04764399860798,
+            "Ex_intensity_fraction": 0.4290927239639405,
+            "Ey_intensity_fraction": 0.5697683102611737,
+            "Ez_intensity_fraction": 0.0011389657748851264,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 1970,
+        "wallMs": 363.624669,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 1493188,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "step-grid-48",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 2817.283409,
+      "processWallMs": 2827.683922,
+      "memoryBefore": {
+        "rss": 64450560,
+        "heapTotal": 19189760,
+        "heapUsed": 11371912,
+        "external": 5702136,
+        "arrayBuffers": 1865179
+      },
+      "memoryAfter": {
+        "rss": 91570176,
+        "heapTotal": 28102656,
+        "heapUsed": 10790688,
+        "external": 17118060,
+        "arrayBuffers": 13281103
+      },
+      "processHighWaterRSSBytes": 92995584,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486735373,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486735373,
+              "imag": 0
+            },
+            "residual": 3.583794994288896e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.23793606011525,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.484002427013047e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.62448595394215,
+            "Aeff_um2": 79.69804110810907,
+            "Ex_intensity_fraction": 0.48706230767147607,
+            "Ey_intensity_fraction": 0.5118087442182776,
+            "Ez_intensity_fraction": 0.0011289481102476355,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049486720328,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486720328,
+              "imag": 0
+            },
+            "residual": 3.6072675566568168e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.83551157644969,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.483933918356208e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.624485542387854,
+            "Aeff_um2": 79.69804038029608,
+            "Ex_intensity_fraction": 0.5118087372040361,
+            "Ey_intensity_fraction": 0.4870623012172139,
+            "Ez_intensity_fraction": 0.001128961578751533,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3385,
+        "wallMs": 2817.283409,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "step-grid-72",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 72,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 11526.686452999998,
+      "processWallMs": 11551.158715,
+      "memoryBefore": {
+        "rss": 91570176,
+        "heapTotal": 28102656,
+        "heapUsed": 10866776,
+        "external": 17118060,
+        "arrayBuffers": 13281103
+      },
+      "memoryAfter": {
+        "rss": 129773568,
+        "heapTotal": 43569152,
+        "heapUsed": 21844840,
+        "external": 30752332,
+        "arrayBuffers": 26915375
+      },
+      "processHighWaterRSSBytes": 129773568,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 72,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 72,
+        "h_um": 0.5,
+        "modes": [
+          {
+            "neff": 1.4460993505135091,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460993505135091,
+              "imag": 0
+            },
+            "residual": 3.6699315956153907e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 93.43048042054497,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.769183283384819e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.617557449583945,
+            "Aeff_um2": 79.58720963194226,
+            "Ex_intensity_fraction": 0.3956339268453488,
+            "Ey_intensity_fraction": 0.6032378282850772,
+            "Ez_intensity_fraction": 0.0011282448695760974,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4460993505119768,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460993505119768,
+              "imag": 0
+            },
+            "residual": 3.80941042454643e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 96.98138420597634,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.7691198103460156e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.617556862375805,
+            "Aeff_um2": 79.58720827297894,
+            "Ex_intensity_fraction": 0.6032378197949414,
+            "Ey_intensity_fraction": 0.39563392136382036,
+            "Ez_intensity_fraction": 0.0011282588412363465,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 5472,
+        "wallMs": 11526.686452999998,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 13435780,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "step-grid-96",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 96,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 20954.853124,
+      "processWallMs": 20973.026098000002,
+      "memoryBefore": {
+        "rss": 129904640,
+        "heapTotal": 43569152,
+        "heapUsed": 21947272,
+        "external": 30752332,
+        "arrayBuffers": 26915375
+      },
+      "memoryAfter": {
+        "rss": 176312320,
+        "heapTotal": 43569152,
+        "heapUsed": 21936760,
+        "external": 45871372,
+        "arrayBuffers": 42038567
+      },
+      "processHighWaterRSSBytes": 176312320,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 96,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 96,
+        "h_um": 0.375,
+        "modes": [
+          {
+            "neff": 1.4461048995271615,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461048995271615,
+              "imag": 0
+            },
+            "residual": 3.60832821863145e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.8625112852461,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.002274558728604e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.61427882159291,
+            "Aeff_um2": 79.62424415084978,
+            "Ex_intensity_fraction": 0.38795090016899936,
+            "Ey_intensity_fraction": 0.6109222523897083,
+            "Ez_intensity_fraction": 0.001126847441291049,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461048995256294,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461048995256294,
+              "imag": 0
+            },
+            "residual": 3.7287152339251254e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 94.92738035495722,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.0022284642061368e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.614278284249693,
+            "Aeff_um2": 79.62424300050866,
+            "Ex_intensity_fraction": 0.6109222437556108,
+            "Ey_intensity_fraction": 0.3879508947619664,
+            "Ez_intensity_fraction": 0.0011268614824203162,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 5472,
+        "wallMs": 20954.853124,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 23888644,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "Colab-physical-input-grid-48",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 22,
+        "core_radius_um": 5.5,
+        "n_core": 1.4475022010878764,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 2641.5739250000042,
+      "processWallMs": 2652.5296330000056,
+      "memoryBefore": {
+        "rss": 176443392,
+        "heapTotal": 43708416,
+        "heapUsed": 22228392,
+        "external": 46010243,
+        "arrayBuffers": 42177438
+      },
+      "memoryAfter": {
+        "rss": 140849152,
+        "heapTotal": 45481984,
+        "heapUsed": 14347728,
+        "external": 11433540,
+        "arrayBuffers": 7600735
+      },
+      "processHighWaterRSSBytes": 176443392,
+      "reference": {
+        "analytic": 1.4457189905444043,
+        "scalarFEM": 1.4457189778450936,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 22,
+          "core_radius_um": 5.5,
+          "n_core": 1.4475022010878764,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.9166666666666666,
+        "modes": [
+          {
+            "neff": 1.4457134494959285,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4457134494959285,
+              "imag": 0
+            },
+            "residual": 1.5102092943151292e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 38.43720867476454,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.0492699152905675e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.839769125580366,
+            "Aeff_um2": 122.01943782161439,
+            "Ex_intensity_fraction": 0.9611963093862427,
+            "Ey_intensity_fraction": 0.0380519861562255,
+            "Ez_intensity_fraction": 0.0007517044575329405,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4457134494959183,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4457134494959183,
+              "imag": 0
+            },
+            "residual": 3.4540618541566204e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 87.91132246604873,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.0494245824085362e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.839771031813875,
+            "Aeff_um2": 122.01944823205811,
+            "Ex_intensity_fraction": 0.03805198616170481,
+            "Ey_intensity_fraction": 0.9611963106015452,
+            "Ez_intensity_fraction": 0.0007517032367494897,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 16,
+        "linearIterations": 3376,
+        "wallMs": 2641.5739250000042,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971780,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "comparison": {
+        "status": "\ub3d9\uc77c \ubb3c\ub9ac \uc785\ub825; grid/algorithm may differ",
+        "rows": [
+          {
+            "mode": 1,
+            "neff": 1.4457134494959285,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 1.5609861574450434e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          },
+          {
+            "mode": 2,
+            "neff": 1.4457134494959183,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 1.5609861472309916e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Colab-physical-input-grid-68",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 68,
+        "window_halfwidth_um": 22,
+        "core_radius_um": 5.5,
+        "n_core": 1.4475022010878764,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 8295.191274000004,
+      "processWallMs": 8309.523191,
+      "memoryBefore": {
+        "rss": 140849152,
+        "heapTotal": 45481984,
+        "heapUsed": 14464984,
+        "external": 11433540,
+        "arrayBuffers": 7600735
+      },
+      "memoryAfter": {
+        "rss": 182910976,
+        "heapTotal": 77385728,
+        "heapUsed": 25191552,
+        "external": 27452108,
+        "arrayBuffers": 23619303
+      },
+      "processHighWaterRSSBytes": 188403712,
+      "reference": {
+        "analytic": 1.4457189905444043,
+        "scalarFEM": 1.4457189778450936,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 68,
+          "window_halfwidth_um": 22,
+          "core_radius_um": 5.5,
+          "n_core": 1.4475022010878764,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 68,
+        "h_um": 0.6470588235294118,
+        "modes": [
+          {
+            "neff": 1.445718828774456,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.445718828774456,
+              "imag": 0
+            },
+            "residual": 2.369581372928799e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 60.30980801207135,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.2976829653915934e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.840967564190542,
+            "Aeff_um2": 122.24823033782502,
+            "Ex_intensity_fraction": 0.037101218249880136,
+            "Ey_intensity_fraction": 0.9621506187984006,
+            "Ez_intensity_fraction": 0.0007481629517197484,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4457188287744378,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4457188287744378,
+              "imag": 0
+            },
+            "residual": 1.364739819679663e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 34.73491033126108,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.2976082987108395e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.84096630919023,
+            "Aeff_um2": 122.24822365120441,
+            "Ex_intensity_fraction": 0.9621506176357867,
+            "Ey_intensity_fraction": 0.03710121821868165,
+            "Ez_intensity_fraction": 0.0007481641455325239,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 16,
+        "linearIterations": 4403,
+        "wallMs": 8295.191274000004,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 11986436,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "comparison": {
+        "status": "\ub3d9\uc77c \ubb3c\ub9ac \uc785\ub825; grid/algorithm may differ",
+        "rows": [
+          {
+            "mode": 1,
+            "neff": 1.445718828774456,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 6.940264684951458e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          },
+          {
+            "mode": 2,
+            "neff": 1.4457188287744378,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 6.940264666743801e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Colab-physical-input-grid-96",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 96,
+        "window_halfwidth_um": 22,
+        "core_radius_um": 5.5,
+        "n_core": 1.4475022010878764,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 17164.145014999995,
+      "processWallMs": 17179.401117,
+      "memoryBefore": {
+        "rss": 182910976,
+        "heapTotal": 77385728,
+        "heapUsed": 25312288,
+        "external": 27452108,
+        "arrayBuffers": 23619303
+      },
+      "memoryAfter": {
+        "rss": 201023488,
+        "heapTotal": 77647872,
+        "heapUsed": 23484688,
+        "external": 39719500,
+        "arrayBuffers": 35886695
+      },
+      "processHighWaterRSSBytes": 209281024,
+      "reference": {
+        "analytic": 1.4457189905444043,
+        "scalarFEM": 1.4457189778450936,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 96,
+          "window_halfwidth_um": 22,
+          "core_radius_um": 5.5,
+          "n_core": 1.4475022010878764,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 96,
+        "h_um": 0.4583333333333333,
+        "modes": [
+          {
+            "neff": 1.4457157350500278,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4457157350500278,
+              "imag": 0
+            },
+            "residual": 1.7671879557738451e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 44.977792061248685,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 8.857261478300055e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.834197453784052,
+            "Aeff_um2": 122.09829048321804,
+            "Ex_intensity_fraction": 0.036187598877427334,
+            "Ey_intensity_fraction": 0.9630640444933634,
+            "Ez_intensity_fraction": 0.0007483566292123436,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4457157350499739,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4457157350499739,
+              "imag": 0
+            },
+            "residual": 1.3539165177758898e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 34.4593654601643,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 8.85686995842161e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 12.83419655965258,
+            "Aeff_um2": 122.09828584091613,
+            "Ex_intensity_fraction": 0.963064043327189,
+            "Ey_intensity_fraction": 0.03618759883996896,
+            "Ez_intensity_fraction": 0.0007483578328423645,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 16,
+        "linearIterations": 4608,
+        "wallMs": 17164.145014999995,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 23890372,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "comparison": {
+        "status": "\ub3d9\uc77c \ubb3c\ub9ac \uc785\ub825; grid/algorithm may differ",
+        "rows": [
+          {
+            "mode": 1,
+            "neff": 1.4457157350500278,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 3.846540256757791e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          },
+          {
+            "mode": 2,
+            "neff": 1.4457157350499739,
+            "referenceNeff": 1.445711888509771,
+            "deltaNeff": 3.846540202800952e-06,
+            "deltaImag": null,
+            "status": "index pairing; check polarization/field overlap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "circle-region",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "regions",
+          "regions": [
+            {
+              "kind": "circle",
+              "x": 0,
+              "y": 0,
+              "radius": 4.1,
+              "material": "core"
+            }
+          ]
+        },
+        "materials": null
+      },
+      "wallMs": 2636.0644530000063,
+      "processWallMs": 2639.030212000005,
+      "memoryBefore": {
+        "rss": 201154560,
+        "heapTotal": 77647872,
+        "heapUsed": 23627712,
+        "external": 39719500,
+        "arrayBuffers": 35886695
+      },
+      "memoryAfter": {
+        "rss": 190246912,
+        "heapTotal": 80793600,
+        "heapUsed": 17469352,
+        "external": 12323596,
+        "arrayBuffers": 8490791
+      },
+      "processHighWaterRSSBytes": 209281024,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "regions",
+            "regions": [
+              {
+                "kind": "circle",
+                "x": 0,
+                "y": 0,
+                "radius": 4.1,
+                "material": "core"
+              }
+            ]
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486735373,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486735373,
+              "imag": 0
+            },
+            "residual": 3.583794994288896e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.23793606011525,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.484002427013047e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.62448595394215,
+            "Aeff_um2": 79.69804110810907,
+            "Ex_intensity_fraction": 0.48706230767147607,
+            "Ey_intensity_fraction": 0.5118087442182776,
+            "Ez_intensity_fraction": 0.0011289481102476355,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049486720328,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486720328,
+              "imag": 0
+            },
+            "residual": 3.6072675566568168e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.83551157644969,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.483933918356208e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.624485542387854,
+            "Aeff_um2": 79.69804038029608,
+            "Ex_intensity_fraction": 0.5118087372040361,
+            "Ey_intensity_fraction": 0.4870623012172139,
+            "Ez_intensity_fraction": 0.001128961578751533,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3385,
+        "wallMs": 2636.0644530000063,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "circle-mask-128",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mask",
+          "width": 128,
+          "height": 128,
+          "palette": {
+            "0": "clad",
+            "1": "core"
+          },
+          "halfwidth_um": 18,
+          "labelCount": 16384,
+          "labelsSHA256": "8b29e461c8c0950616cf180af477c365dd4f5c13bd135dce860c5c0d9b17c7e9",
+          "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+        },
+        "materials": null
+      },
+      "wallMs": 2603.3480259999924,
+      "processWallMs": 2606.5860450000037,
+      "memoryBefore": {
+        "rss": 190377984,
+        "heapTotal": 80928768,
+        "heapUsed": 18756008,
+        "external": 12323596,
+        "arrayBuffers": 8490791
+      },
+      "memoryAfter": {
+        "rss": 191819776,
+        "heapTotal": 82317312,
+        "heapUsed": 18101888,
+        "external": 16103984,
+        "arrayBuffers": 12271179
+      },
+      "processHighWaterRSSBytes": 209281024,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mask",
+            "width": 128,
+            "height": 128,
+            "palette": {
+              "0": "clad",
+              "1": "core"
+            },
+            "halfwidth_um": 18,
+            "labelCount": 16384,
+            "labelsSHA256": "8b29e461c8c0950616cf180af477c365dd4f5c13bd135dce860c5c0d9b17c7e9",
+            "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461238717668912,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461238717668912,
+              "imag": 0
+            },
+            "residual": 3.0684318973905654e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 78.1186025161605,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.384932959118251e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.631046107101682,
+            "Aeff_um2": 80.02746284464808,
+            "Ex_intensity_fraction": 0.30710882803540246,
+            "Ey_intensity_fraction": 0.691767197583183,
+            "Ez_intensity_fraction": 0.001123974381413929,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446123848799957,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446123848799957,
+              "imag": 0
+            },
+            "residual": 3.236248626747631e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 82.39101422335153,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.3102352608328286e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.630795933168377,
+            "Aeff_um2": 80.02742946246828,
+            "Ex_intensity_fraction": 0.6917665273779445,
+            "Ey_intensity_fraction": 0.307107270853443,
+            "Ez_intensity_fraction": 0.0011262017686116453,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3441,
+        "wallMs": 2603.3480259999924,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5973796,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "circle-mask-256",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mask",
+          "width": 256,
+          "height": 256,
+          "palette": {
+            "0": "clad",
+            "1": "core"
+          },
+          "halfwidth_um": 18,
+          "labelCount": 65536,
+          "labelsSHA256": "7d125729259df4a780ac0c65b48b772a49a20884de38c45c5edbe7b785ce8ffa",
+          "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+        },
+        "materials": null
+      },
+      "wallMs": 2560.9572000000044,
+      "processWallMs": 2563.7690060000023,
+      "memoryBefore": {
+        "rss": 193523712,
+        "heapTotal": 83988480,
+        "heapUsed": 24061632,
+        "external": 16103984,
+        "arrayBuffers": 12271179
+      },
+      "memoryAfter": {
+        "rss": 188252160,
+        "heapTotal": 80670720,
+        "heapUsed": 26190208,
+        "external": 18321772,
+        "arrayBuffers": 14488967
+      },
+      "processHighWaterRSSBytes": 209281024,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mask",
+            "width": 256,
+            "height": 256,
+            "palette": {
+              "0": "clad",
+              "1": "core"
+            },
+            "halfwidth_um": 18,
+            "labelCount": 65536,
+            "labelsSHA256": "7d125729259df4a780ac0c65b48b772a49a20884de38c45c5edbe7b785ce8ffa",
+            "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461111514894196,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461111514894196,
+              "imag": 0
+            },
+            "residual": 3.376247127856107e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 85.95445368868297,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.441587665675033e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.624682569584033,
+            "Aeff_um2": 79.77626781106625,
+            "Ex_intensity_fraction": 0.40325350951440037,
+            "Ey_intensity_fraction": 0.5956196760376732,
+            "Ez_intensity_fraction": 0.0011268144479289596,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446111134630948,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446111134630948,
+              "imag": 0
+            },
+            "residual": 3.4961722991016035e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 89.00757707813423,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.427849326107157e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.624670103128102,
+            "Aeff_um2": 79.77714571763879,
+            "Ex_intensity_fraction": 0.5956173589835881,
+            "Ey_intensity_fraction": 0.4032538253734696,
+            "Ez_intensity_fraction": 0.0011288156429435435,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3458,
+        "wallMs": 2560.9572000000044,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "circle-mask-512",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mask",
+          "width": 512,
+          "height": 512,
+          "palette": {
+            "0": "clad",
+            "1": "core"
+          },
+          "halfwidth_um": 18,
+          "labelCount": 262144,
+          "labelsSHA256": "f962d956ee0ba4fa8ce95263b1b05df1b6a0e36e92aea74a0490bf734ff700e2",
+          "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+        },
+        "materials": null
+      },
+      "wallMs": 2808.0428190000093,
+      "processWallMs": 2811.3467069999897,
+      "memoryBefore": {
+        "rss": 195592192,
+        "heapTotal": 88117248,
+        "heapUsed": 48151568,
+        "external": 18321772,
+        "arrayBuffers": 14488967
+      },
+      "memoryAfter": {
+        "rss": 269455360,
+        "heapTotal": 149880832,
+        "heapUsed": 68859736,
+        "external": 52889308,
+        "arrayBuffers": 49056503
+      },
+      "processHighWaterRSSBytes": 269455360,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mask",
+            "width": 512,
+            "height": 512,
+            "palette": {
+              "0": "clad",
+              "1": "core"
+            },
+            "halfwidth_um": 18,
+            "labelCount": 262144,
+            "labelsSHA256": "f962d956ee0ba4fa8ce95263b1b05df1b6a0e36e92aea74a0490bf734ff700e2",
+            "generation": "See benchmark_yee.mjs: synthetic circle a=4.1um, window halfwidth18um, center pixel samples."
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461039148887271,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461039148887271,
+              "imag": 0
+            },
+            "residual": 3.2624537086779125e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 83.0570193206678,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.5158868680730284e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.626265206933958,
+            "Aeff_um2": 79.71031822186379,
+            "Ex_intensity_fraction": 0.008831919306717107,
+            "Ey_intensity_fraction": 0.9900396853968457,
+            "Ez_intensity_fraction": 0.0011283952964376014,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461039128967252,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461039128967252,
+              "imag": 0
+            },
+            "residual": 3.909957982955501e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 99.54147530804228,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.4732438689300304e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.62610162744079,
+            "Aeff_um2": 79.70975693278183,
+            "Ex_intensity_fraction": 0.9900414895744855,
+            "Ey_intensity_fraction": 0.008830106479082386,
+            "Ez_intensity_fraction": 0.0011284039464298545,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3385,
+        "wallMs": 2808.0428190000093,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971780,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "subpixel-false",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": false,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 2722.9285059999966,
+      "processWallMs": 2729.281799000004,
+      "memoryBefore": {
+        "rss": 291659776,
+        "heapTotal": 172011520,
+        "heapUsed": 91031976,
+        "external": 52889308,
+        "arrayBuffers": 49056503
+      },
+      "memoryAfter": {
+        "rss": 272510976,
+        "heapTotal": 150777856,
+        "heapUsed": 47643272,
+        "external": 36957576,
+        "arrayBuffers": 33124771
+      },
+      "processHighWaterRSSBytes": 313704448,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": false,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461163391001624,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461163391001624,
+              "imag": 0
+            },
+            "residual": 3.350817284747756e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 85.30735204357664,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.351645021209696e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.605580545317578,
+            "Aeff_um2": 79.53574974870202,
+            "Ex_intensity_fraction": 0.5071898200968348,
+            "Ey_intensity_fraction": 0.49169359495474557,
+            "Ez_intensity_fraction": 0.0011165849484210764,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461163390983514,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461163390983514,
+              "imag": 0
+            },
+            "residual": 3.3476858668034623e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 85.22763030686988,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.351567015722658e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.605580113661981,
+            "Aeff_um2": 79.53574913542244,
+            "Ex_intensity_fraction": 0.4916935884232231,
+            "Ey_intensity_fraction": 0.5071898136049988,
+            "Ez_intensity_fraction": 0.001116597971779218,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3498,
+        "wallMs": 2722.9285059999966,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5962564,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "subpixel-true",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 2662.0356049999973,
+      "processWallMs": 2668.508698000005,
+      "memoryBefore": {
+        "rss": 319356928,
+        "heapTotal": 172920832,
+        "heapUsed": 69795144,
+        "external": 36957576,
+        "arrayBuffers": 33124771
+      },
+      "memoryAfter": {
+        "rss": 297213952,
+        "heapTotal": 150777856,
+        "heapUsed": 78663632,
+        "external": 66052332,
+        "arrayBuffers": 62219527
+      },
+      "processHighWaterRSSBytes": 341454848,
+      "reference": {
+        "analytic": 1.446104780581421,
+        "scalarFEM": 1.4461047511812195,
+        "status": "M1 weak-guidance LP01 characteristic; legacy radial scalar FEM (different discretization/finite domain)"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486735373,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486735373,
+              "imag": 0
+            },
+            "residual": 3.583794994288896e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.23793606011525,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.484002427013047e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.62448595394215,
+            "Aeff_um2": 79.69804110810907,
+            "Ex_intensity_fraction": 0.48706230767147607,
+            "Ey_intensity_fraction": 0.5118087442182776,
+            "Ez_intensity_fraction": 0.0011289481102476355,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049486720328,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461049486720328,
+              "imag": 0
+            },
+            "residual": 3.6072675566568168e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 91.83551157644969,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 4.483933918356208e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.624485542387854,
+            "Aeff_um2": 79.69804038029608,
+            "Ex_intensity_fraction": 0.5118087372040361,
+            "Ey_intensity_fraction": 0.4870623012172139,
+            "Ez_intensity_fraction": 0.001128961578751533,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3385,
+        "wallMs": 2662.0356049999973,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t3-s1",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 3,
+          "strength": 1,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 6153.60693400001,
+      "processWallMs": 6156.505361000003,
+      "memoryBefore": {
+        "rss": 325550080,
+        "heapTotal": 172929024,
+        "heapUsed": 100824480,
+        "external": 66052332,
+        "arrayBuffers": 62219527
+      },
+      "memoryAfter": {
+        "rss": 304021504,
+        "heapTotal": 151400448,
+        "heapUsed": 63163624,
+        "external": 38160552,
+        "arrayBuffers": 34327747
+      },
+      "processHighWaterRSSBytes": 347676672,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 3,
+            "strength": 1,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486547566,
+            "neff_imag": -2.7614860543254896e-11,
+            "neff_complex": {
+              "real": 1.4461049486547566,
+              "imag": -2.7614860543254896e-11
+            },
+            "residual": 2.0698018166594266e-11,
+            "loss_dB_km": -0.9723112965124395,
+            "loss_residual_scale_dB_km": 0.5269398671072743,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00014046170541891632,
+            "physical_power_fraction": 0.9998595382945819,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.609989795397434,
+            "Aeff_um2": 79.67535691717646,
+            "Ex_intensity_fraction": 0.683895774573419,
+            "Ey_intensity_fraction": 0.3149752368860465,
+            "Ez_intensity_fraction": 0.0011289885405343088,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049486538848,
+            "neff_imag": -2.6614258362393372e-11,
+            "neff_complex": {
+              "real": 1.4461049486538848,
+              "imag": -2.6614258362393372e-11
+            },
+            "residual": 1.7428460452977058e-11,
+            "loss_dB_km": -0.9370803815403094,
+            "loss_residual_scale_dB_km": 0.44370193131788677,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00014046086068546958,
+            "physical_power_fraction": 0.9998595391393145,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.609989699039962,
+            "Aeff_um2": 79.67535673211087,
+            "Ex_intensity_fraction": 0.3149752341450501,
+            "Ey_intensity_fraction": 0.6838957685287493,
+            "Ez_intensity_fraction": 0.0011289973261983258,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 7152,
+        "wallMs": 6153.60693400001,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t3-s3",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 3,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7692.2732340000075,
+      "processWallMs": 7695.620616,
+      "memoryBefore": {
+        "rss": 326180864,
+        "heapTotal": 173559808,
+        "heapUsed": 85340664,
+        "external": 38160552,
+        "arrayBuffers": 34327747
+      },
+      "memoryAfter": {
+        "rss": 304295936,
+        "heapTotal": 151674880,
+        "heapUsed": 63670936,
+        "external": 45385340,
+        "arrayBuffers": 41552535
+      },
+      "processHighWaterRSSBytes": 348323840,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 3,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049485112198,
+            "neff_imag": 4.8937578057981056e-11,
+            "neff_complex": {
+              "real": 1.4461049485112198,
+              "imag": 4.8937578057981056e-11
+            },
+            "residual": 2.1949560360871023e-11,
+            "loss_dB_km": 1.7230780468799658,
+            "loss_residual_scale_dB_km": 0.5588022160082772,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00013989703365664303,
+            "physical_power_fraction": 0.999860102966343,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.609954129007933,
+            "Aeff_um2": 79.67554771043572,
+            "Ex_intensity_fraction": 0.5348148824425825,
+            "Ey_intensity_fraction": 0.4640560079157995,
+            "Ez_intensity_fraction": 0.0011291096416185494,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049485101252,
+            "neff_imag": 4.822636975726637e-11,
+            "neff_complex": {
+              "real": 1.4461049485101252,
+              "imag": 4.822636975726637e-11
+            },
+            "residual": 2.1430566163808927e-11,
+            "loss_dB_km": 1.6980366071857425,
+            "loss_residual_scale_dB_km": 0.545589417999812,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00013989692419101422,
+            "physical_power_fraction": 0.9998601030758085,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.609954018096659,
+            "Aeff_um2": 79.67554745170213,
+            "Ex_intensity_fraction": 0.46405600552862086,
+            "Ey_intensity_fraction": 0.5348148797071797,
+            "Ez_intensity_fraction": 0.001129114764197794,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7692.2732340000075,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t3-s5",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 3,
+          "strength": 5,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7158.687546000001,
+      "processWallMs": 7162.300651000012,
+      "memoryBefore": {
+        "rss": 326467584,
+        "heapTotal": 173846528,
+        "heapUsed": 85920040,
+        "external": 45385340,
+        "arrayBuffers": 41552535
+      },
+      "memoryAfter": {
+        "rss": 304570368,
+        "heapTotal": 151949312,
+        "heapUsed": 64056240,
+        "external": 51872640,
+        "arrayBuffers": 48039835
+      },
+      "processHighWaterRSSBytes": 348598272,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 3,
+            "strength": 5,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.446104948725918,
+            "neff_imag": 4.2495577037267446e-10,
+            "neff_complex": {
+              "real": 1.446104948725918,
+              "imag": 4.2495577037267446e-10
+            },
+            "residual": 2.820768456608563e-11,
+            "loss_dB_km": 14.96257043935794,
+            "loss_residual_scale_dB_km": 0.718124481182357,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00013887882853535154,
+            "physical_power_fraction": 0.9998611211714646,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.60999327199075,
+            "Aeff_um2": 79.67578209011029,
+            "Ex_intensity_fraction": 0.4847479746032461,
+            "Ey_intensity_fraction": 0.5141231870932735,
+            "Ez_intensity_fraction": 0.0011288383034798808,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049487255866,
+            "neff_imag": 4.257045496400993e-10,
+            "neff_complex": {
+              "real": 1.4461049487255866,
+              "imag": 4.257045496400993e-10
+            },
+            "residual": 2.8277562935858884e-11,
+            "loss_dB_km": 14.988934741983009,
+            "loss_residual_scale_dB_km": 0.7199034775376612,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00013887884488068006,
+            "physical_power_fraction": 0.9998611211551194,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.609993242800158,
+            "Aeff_um2": 79.67578201399104,
+            "Ex_intensity_fraction": 0.5141231863599742,
+            "Ey_intensity_fraction": 0.48474797390542484,
+            "Ez_intensity_fraction": 0.001128839734600138,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7158.687546000001,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t4-s1",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 1,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 6464.5519249999925,
+      "processWallMs": 6467.761100999996,
+      "memoryBefore": {
+        "rss": 326750208,
+        "heapTotal": 174129152,
+        "heapUsed": 86247640,
+        "external": 51872640,
+        "arrayBuffers": 48039835
+      },
+      "memoryAfter": {
+        "rss": 304844800,
+        "heapTotal": 152223744,
+        "heapUsed": 51067344,
+        "external": 51605684,
+        "arrayBuffers": 47772879
+      },
+      "processHighWaterRSSBytes": 348872704,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 1,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486508124,
+            "neff_imag": -1.620498333457366e-11,
+            "neff_complex": {
+              "real": 1.4461049486508124,
+              "imag": -1.620498333457366e-11
+            },
+            "residual": 1.9804047812682578e-11,
+            "loss_dB_km": -0.5705728019637007,
+            "loss_residual_scale_dB_km": 0.5041807499915684,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023440458161476597,
+            "physical_power_fraction": 0.999765595418385,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602083114035043,
+            "Aeff_um2": 79.66068182075676,
+            "Ex_intensity_fraction": 0.5575313810808379,
+            "Ey_intensity_fraction": 0.44133962903957324,
+            "Ez_intensity_fraction": 0.0011289898795883086,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446104948650193,
+            "neff_imag": -1.504157917247e-11,
+            "neff_complex": {
+              "real": 1.446104948650193,
+              "imag": -1.504157917247e-11
+            },
+            "residual": 1.8808368595923915e-11,
+            "loss_dB_km": -0.5296096760608514,
+            "loss_residual_scale_dB_km": 0.47883228088016894,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023440371377184363,
+            "physical_power_fraction": 0.9997655962862266,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602083058472882,
+            "Aeff_um2": 79.66068170344629,
+            "Ex_intensity_fraction": 0.441339625923952,
+            "Ey_intensity_fraction": 0.5575313771229153,
+            "Ez_intensity_fraction": 0.0011289969531341247,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 7198,
+        "wallMs": 6464.5519249999925,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t4-s3",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7226.208818999992,
+      "processWallMs": 7230.736742999987,
+      "memoryBefore": {
+        "rss": 327032832,
+        "heapTotal": 174411776,
+        "heapUsed": 73266320,
+        "external": 51605684,
+        "arrayBuffers": 47772879
+      },
+      "memoryAfter": {
+        "rss": 302501888,
+        "heapTotal": 149880832,
+        "heapUsed": 48253496,
+        "external": 26108492,
+        "arrayBuffers": 22275687
+      },
+      "processHighWaterRSSBytes": 349147136,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.446104948583179,
+            "neff_imag": 1.4695949652794885e-10,
+            "neff_complex": {
+              "real": 1.446104948583179,
+              "imag": 1.4695949652794885e-10
+            },
+            "residual": 2.2790682862530498e-11,
+            "loss_dB_km": 5.174401600909303,
+            "loss_residual_scale_dB_km": 0.5802159077072401,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023348390912421887,
+            "physical_power_fraction": 0.9997665160908765,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602070198827473,
+            "Aeff_um2": 79.66047812602217,
+            "Ex_intensity_fraction": 0.36301699644108953,
+            "Ey_intensity_fraction": 0.6358539943025325,
+            "Ez_intensity_fraction": 0.001129009256379741,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049485818844,
+            "neff_imag": 1.471096861432135e-10,
+            "neff_complex": {
+              "real": 1.4461049485818844,
+              "imag": 1.471096861432135e-10
+            },
+            "residual": 2.4481443484167875e-11,
+            "loss_dB_km": 5.179689734061813,
+            "loss_residual_scale_dB_km": 0.6232600856594116,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023348351299879754,
+            "physical_power_fraction": 0.9997665164870024,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602070085227568,
+            "Aeff_um2": 79.66047784011444,
+            "Ex_intensity_fraction": 0.6358539901425667,
+            "Ey_intensity_fraction": 0.3630169940251509,
+            "Ez_intensity_fraction": 0.0011290158322839311,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7226.208818999992,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t4-s5",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 5,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 8676.149456999992,
+      "processWallMs": 8678.878710000005,
+      "memoryBefore": {
+        "rss": 324702208,
+        "heapTotal": 172081152,
+        "heapUsed": 70466200,
+        "external": 26108492,
+        "arrayBuffers": 22275687
+      },
+      "memoryAfter": {
+        "rss": 303386624,
+        "heapTotal": 150777856,
+        "heapUsed": 67350488,
+        "external": 41363136,
+        "arrayBuffers": 37530331
+      },
+      "processHighWaterRSSBytes": 349147136,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 5,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049490621787,
+            "neff_imag": 1.6486732421876392e-10,
+            "neff_complex": {
+              "real": 1.4461049490621787,
+              "imag": 1.6486732421876392e-10
+            },
+            "residual": 3.5383451427038764e-11,
+            "loss_dB_km": 5.804931062845361,
+            "loss_residual_scale_dB_km": 0.9008085241757908,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023225611290074964,
+            "physical_power_fraction": 0.999767743887099,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602139874200432,
+            "Aeff_um2": 79.66095548462938,
+            "Ex_intensity_fraction": 0.5617153137298886,
+            "Ey_intensity_fraction": 0.4371560945955633,
+            "Ez_intensity_fraction": 0.0011285916745473498,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446104949061564,
+            "neff_imag": 1.6419251352747733e-10,
+            "neff_complex": {
+              "real": 1.446104949061564,
+              "imag": 1.6419251352747733e-10
+            },
+            "residual": 3.5223978632521315e-11,
+            "loss_dB_km": 5.781171172509591,
+            "loss_residual_scale_dB_km": 0.8967485908766,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0002322556574203251,
+            "physical_power_fraction": 0.9997677443425796,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602139818751464,
+            "Aeff_um2": 79.66095535628581,
+            "Ex_intensity_fraction": 0.43715609258290583,
+            "Ey_intensity_fraction": 0.5617153111571958,
+            "Ez_intensity_fraction": 0.001128596259898093,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 8676.149456999992,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t5-s1",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 5,
+          "strength": 1,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 5229.952453000005,
+      "processWallMs": 5234.092420999994,
+      "memoryBefore": {
+        "rss": 325607424,
+        "heapTotal": 172986368,
+        "heapUsed": 89589344,
+        "external": 41363136,
+        "arrayBuffers": 37530331
+      },
+      "memoryAfter": {
+        "rss": 304283648,
+        "heapTotal": 151674880,
+        "heapUsed": 19708160,
+        "external": 23418132,
+        "arrayBuffers": 19585327
+      },
+      "processHighWaterRSSBytes": 349147136,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 5,
+            "strength": 1,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.446104948648959,
+            "neff_imag": -5.084957249202093e-12,
+            "neff_complex": {
+              "real": 1.446104948648959,
+              "imag": -5.084957249202093e-12
+            },
+            "residual": 2.0952831898326445e-11,
+            "loss_dB_km": -0.17903988209310936,
+            "loss_residual_scale_dB_km": 0.5334270347583546,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006371468762514344,
+            "physical_power_fraction": 0.9993628531237468,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.573639188438927,
+            "Aeff_um2": 79.59629569616027,
+            "Ex_intensity_fraction": 0.6675169782634339,
+            "Ey_intensity_fraction": 0.33135403266027824,
+            "Ez_intensity_fraction": 0.00112898907628456,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446104948648655,
+            "neff_imag": -3.964352826141827e-12,
+            "neff_complex": {
+              "real": 1.446104948648655,
+              "imag": -3.964352826141827e-12
+            },
+            "residual": 1.802025037385475e-11,
+            "loss_dB_km": -0.13958372269094152,
+            "loss_residual_scale_dB_km": 0.4587679970502803,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006371461382916588,
+            "physical_power_fraction": 0.9993628538617089,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.57363917460748,
+            "Aeff_um2": 79.59629567025817,
+            "Ex_intensity_fraction": 0.3313540311510394,
+            "Ey_intensity_fraction": 0.6675169751389922,
+            "Ez_intensity_fraction": 0.0011289937099691074,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 5818,
+        "wallMs": 5229.952453000005,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t5-s3",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 5,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7540.106102000005,
+      "processWallMs": 7543.56590500001,
+      "memoryBefore": {
+        "rss": 327417856,
+        "heapTotal": 173891584,
+        "heapUsed": 41975024,
+        "external": 23418132,
+        "arrayBuffers": 19585327
+      },
+      "memoryAfter": {
+        "rss": 305692672,
+        "heapTotal": 152154112,
+        "heapUsed": 18786704,
+        "external": 60082232,
+        "arrayBuffers": 25906739
+      },
+      "processHighWaterRSSBytes": 349634560,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 5,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4461049486920785,
+            "neff_imag": 1.8256580221460828e-10,
+            "neff_complex": {
+              "real": 1.4461049486920785,
+              "imag": 1.8256580221460828e-10
+            },
+            "residual": 2.596936086189514e-11,
+            "loss_dB_km": 6.42808938223943,
+            "loss_residual_scale_dB_km": 0.6611401850959298,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006359629773931345,
+            "physical_power_fraction": 0.9993640370226052,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.573646660308649,
+            "Aeff_um2": 79.59655968623065,
+            "Ex_intensity_fraction": 0.4431490188835821,
+            "Ey_intensity_fraction": 0.555722084770269,
+            "Ez_intensity_fraction": 0.0011288963461473151,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049486912103,
+            "neff_imag": 1.8345813461448774e-10,
+            "neff_complex": {
+              "real": 1.4461049486912103,
+              "imag": 1.8345813461448774e-10
+            },
+            "residual": 2.6558951232698177e-11,
+            "loss_dB_km": 6.459508149366203,
+            "loss_residual_scale_dB_km": 0.6761502536511753,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006359624609430277,
+            "physical_power_fraction": 0.9993640375390583,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.573646607248618,
+            "Aeff_um2": 79.5965595308518,
+            "Ex_intensity_fraction": 0.5557220824114802,
+            "Ey_intensity_fraction": 0.44314901699173515,
+            "Ez_intensity_fraction": 0.0011289005967870427,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7540.106102000005,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "PML-t5-s5",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 5,
+          "strength": 5,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7228.332866000012,
+      "processWallMs": 7231.596632999979,
+      "memoryBefore": {
+        "rss": 327921664,
+        "heapTotal": 174383104,
+        "heapUsed": 41023160,
+        "external": 60082232,
+        "arrayBuffers": 25906739
+      },
+      "memoryAfter": {
+        "rss": 306171904,
+        "heapTotal": 152633344,
+        "heapUsed": 17922072,
+        "external": 66569532,
+        "arrayBuffers": 49206407
+      },
+      "processHighWaterRSSBytes": 350126080,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 5,
+            "strength": 5,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.446104948993247,
+            "neff_imag": -2.1991053857821598e-10,
+            "neff_complex": {
+              "real": 1.446104948993247,
+              "imag": -2.1991053857821598e-10
+            },
+            "residual": 4.4905563798371884e-11,
+            "loss_dB_km": -7.742986807657853,
+            "loss_residual_scale_dB_km": 1.1432269329060862,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006343853761700244,
+            "physical_power_fraction": 0.999365614623829,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.573681066823612,
+            "Aeff_um2": 79.59670572032161,
+            "Ex_intensity_fraction": 0.4277318521911584,
+            "Ey_intensity_fraction": 0.5711395794560616,
+            "Ez_intensity_fraction": 0.0011285683527806935,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049489922462,
+            "neff_imag": -2.195663144431071e-10,
+            "neff_complex": {
+              "real": 1.4461049489922462,
+              "imag": -2.195663144431071e-10
+            },
+            "residual": 4.5018049147879894e-11,
+            "loss_dB_km": -7.7308667748742605,
+            "loss_residual_scale_dB_km": 1.1460906377613842,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.0006343843922806296,
+            "physical_power_fraction": 0.9993656156077191,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.573681012542071,
+            "Aeff_um2": 79.5967055738108,
+            "Ex_intensity_fraction": 0.5711395752826035,
+            "Ey_intensity_fraction": 0.4277318490229619,
+            "Ez_intensity_fraction": 0.0011285756944342561,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7228.332866000012,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "bend-R-0",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 7261.651901999983,
+      "processWallMs": 7264.617631000001,
+      "memoryBefore": {
+        "rss": 328409088,
+        "heapTotal": 174870528,
+        "heapUsed": 40168616,
+        "external": 66569532,
+        "arrayBuffers": 32320311
+      },
+      "memoryAfter": {
+        "rss": 306651136,
+        "heapTotal": 153112576,
+        "heapUsed": 83740480,
+        "external": 70306416,
+        "arrayBuffers": 66473611
+      },
+      "processHighWaterRSSBytes": 350605312,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.446104948583179,
+            "neff_imag": 1.4695949652794885e-10,
+            "neff_complex": {
+              "real": 1.446104948583179,
+              "imag": 1.4695949652794885e-10
+            },
+            "residual": 2.2790682862530498e-11,
+            "loss_dB_km": 5.174401600909303,
+            "loss_residual_scale_dB_km": 0.5802159077072401,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023348390912421887,
+            "physical_power_fraction": 0.9997665160908765,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602070198827473,
+            "Aeff_um2": 79.66047812602217,
+            "Ex_intensity_fraction": 0.36301699644108953,
+            "Ey_intensity_fraction": 0.6358539943025325,
+            "Ez_intensity_fraction": 0.001129009256379741,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461049485818844,
+            "neff_imag": 1.471096861432135e-10,
+            "neff_complex": {
+              "real": 1.4461049485818844,
+              "imag": 1.471096861432135e-10
+            },
+            "residual": 2.4481443484167875e-11,
+            "loss_dB_km": 5.179689734061813,
+            "loss_residual_scale_dB_km": 0.6232600856594116,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.00023348351299879754,
+            "physical_power_fraction": 0.9997665164870024,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.602070085227568,
+            "Aeff_um2": 79.66047784011444,
+            "Ex_intensity_fraction": 0.6358539901425667,
+            "Ey_intensity_fraction": 0.3630169940251509,
+            "Ez_intensity_fraction": 0.0011290158322839311,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 28,
+        "linearIterations": 8064,
+        "wallMs": 7261.651901999983,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 5971204,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "bend-R-4000",
+      "config": {
+        "grid_n": 48,
+        "bend_radius_um": 4000,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        }
+      },
+      "error": "All eigenmodes rejected by PML/physical-domain filter",
+      "wallMs": 15673.923643999995
+    },
+    {
+      "name": "bend-R-2000",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 2000,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 50636.22380499999,
+      "processWallMs": 50639.16362400001,
+      "memoryBefore": {
+        "rss": 327675904,
+        "heapTotal": 172126208,
+        "heapUsed": 56897256,
+        "external": 33224992,
+        "arrayBuffers": 29392187
+      },
+      "memoryAfter": {
+        "rss": 305577984,
+        "heapTotal": 149880832,
+        "heapUsed": 31817432,
+        "external": 27613568,
+        "arrayBuffers": 23780763
+      },
+      "processHighWaterRSSBytes": 353050624,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 2000,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4469750853503258,
+            "neff_imag": 0.0005192722059154371,
+            "neff_complex": {
+              "real": 1.4469750853503258,
+              "imag": 0.0005192722059154371
+            },
+            "residual": 6.21222909526839e-11,
+            "loss_dB_km": 18283425.005375836,
+            "loss_residual_scale_dB_km": 1.5824902904786988,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": 229.7562947173946,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.08721561689245108,
+            "physical_power_fraction": 0.9127843831075497,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 16.15379729587358,
+            "Aeff_um2": 159.24677312173438,
+            "Ex_intensity_fraction": 0.9962985937487017,
+            "Ey_intensity_fraction": 1.5117692049984616e-06,
+            "Ez_intensity_fraction": 0.003699894482094411,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4469604464956018,
+            "neff_imag": 0.0005267478627021943,
+            "neff_complex": {
+              "real": 1.4469604464956018,
+              "imag": 0.0005267478627021943
+            },
+            "residual": 1.4761893561847301e-12,
+            "loss_dB_km": 18546640.730518773,
+            "loss_residual_scale_dB_km": 0.037603759655597514,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": 233.06396107106806,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.09396035516986766,
+            "physical_power_fraction": 0.906039644830132,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 16.26780342289945,
+            "Aeff_um2": 162.09052720455736,
+            "Ex_intensity_fraction": 1.072496870446588e-06,
+            "Ey_intensity_fraction": 0.9991673742222538,
+            "Ez_intensity_fraction": 0.0008315532808757486,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 82,
+        "linearIterations": 52056,
+        "wallMs": 50636.22380499999,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 6290344,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "bend-R-1000",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 1000,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null
+      },
+      "wallMs": 19319.45551500001,
+      "processWallMs": 19322.18863399999,
+      "memoryBefore": {
+        "rss": 327835648,
+        "heapTotal": 172138496,
+        "heapUsed": 54087984,
+        "external": 27613568,
+        "arrayBuffers": 23780763
+      },
+      "memoryAfter": {
+        "rss": 305782784,
+        "heapTotal": 150077440,
+        "heapUsed": 48191992,
+        "external": 45325464,
+        "arrayBuffers": 41492659
+      },
+      "processHighWaterRSSBytes": 353050624,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 1000,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 0.75,
+        "modes": [
+          {
+            "neff": 1.4482593600638127,
+            "neff_imag": 0.0015965726484738945,
+            "neff_complex": {
+              "real": 1.4482593600638127,
+              "imag": 0.0015965726484738945
+            },
+            "residual": 2.4225323933691353e-11,
+            "loss_dB_km": 56214863.71015286,
+            "loss_residual_scale_dB_km": 0.6176592451146665,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": 353.20840570873537,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.1554407027318328,
+            "physical_power_fraction": 0.8445592972681681,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 16.040904934972165,
+            "Aeff_um2": 183.2509484476468,
+            "Ex_intensity_fraction": 0.9869812558334125,
+            "Ey_intensity_fraction": 6.6693344169538685e-06,
+            "Ez_intensity_fraction": 0.013012074832170772,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4482381510723719,
+            "neff_imag": 0.0016016026441783447,
+            "neff_complex": {
+              "real": 1.4482381510723719,
+              "imag": 0.0016016026441783447
+            },
+            "residual": 2.3129427087536987e-11,
+            "loss_dB_km": 56391968.412064545,
+            "loss_residual_scale_dB_km": 0.5897091577214921,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": 354.32118736961934,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 0.16983986569730802,
+            "physical_power_fraction": 0.8301601343026916,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 16.104848482483114,
+            "Aeff_um2": 185.10023632489506,
+            "Ex_intensity_fraction": 1.9695174037853216e-06,
+            "Ey_intensity_fraction": 0.9990272080596403,
+            "Ez_intensity_fraction": 0.0009708224229557334,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 19512,
+        "wallMs": 19319.45551500001,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 6290344,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "uniform-material-absorption",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 32,
+        "window_halfwidth_um": 18,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "radial"
+        },
+        "materials": null,
+        "k_core": 1e-08,
+        "k_clad": 1e-08
+      },
+      "wallMs": 1274.2306970000209,
+      "processWallMs": 1275.9271829999925,
+      "memoryBefore": {
+        "rss": 328065024,
+        "heapTotal": 172343296,
+        "heapUsed": 70467568,
+        "external": 45325464,
+        "arrayBuffers": 41492659
+      },
+      "memoryAfter": {
+        "rss": 305799168,
+        "heapTotal": 150339584,
+        "heapUsed": 53480688,
+        "external": 48616732,
+        "arrayBuffers": 44783927
+      },
+      "processHighWaterRSSBytes": 353050624,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 32,
+          "window_halfwidth_um": 18,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "radial"
+          },
+          "materials": null,
+          "k_core": 1e-08,
+          "k_clad": 1e-08
+        },
+        "grid_n": 32,
+        "h_um": 1.125,
+        "modes": [
+          {
+            "neff": 1.4461273074465983,
+            "neff_imag": 1.0011198779200907e-08,
+            "neff_complex": {
+              "real": 1.4461273074465983,
+              "imag": 1.0011198779200907e-08
+            },
+            "residual": 9.198438257430535e-11,
+            "loss_dB_km": 352.4914293665038,
+            "loss_residual_scale_dB_km": 2.341817818341292,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "Material absorption; no radiation boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 7.919110325560767e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.639345110196153,
+            "Aeff_um2": 80.04762330115564,
+            "Ex_intensity_fraction": 0.4509751679816014,
+            "Ey_intensity_fraction": 0.5478908388449322,
+            "Ez_intensity_fraction": 0.0011339931734676877,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461273074452599,
+            "neff_imag": 1.0011198779316183e-08,
+            "neff_complex": {
+              "real": 1.4461273074452599,
+              "imag": 1.0011198779316183e-08
+            },
+            "residual": 9.533136978176304e-11,
+            "loss_dB_km": 352.4914293705627,
+            "loss_residual_scale_dB_km": 2.427028307998561,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "Material absorption; no radiation boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 7.919031159725385e-05,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 10.6393447819603,
+            "Aeff_um2": 80.04762278041433,
+            "Ex_intensity_fraction": 0.5478908322800122,
+            "Ey_intensity_fraction": 0.4509751626178896,
+            "Ez_intensity_fraction": 0.0011340051020973232,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 25,
+        "linearIterations": 3997,
+        "wallMs": 1274.2306970000209,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 2654660,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "MCF-two-core-grid-48",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 30,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 4,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mcf",
+          "count": 2,
+          "pitch_um": 16
+        },
+        "materials": null
+      },
+      "wallMs": 1983.6149830000068,
+      "processWallMs": 1989.602224000002,
+      "memoryBefore": {
+        "rss": 328073216,
+        "heapTotal": 172613632,
+        "heapUsed": 75766792,
+        "external": 48616732,
+        "arrayBuffers": 44783927
+      },
+      "memoryAfter": {
+        "rss": 305786880,
+        "heapTotal": 150929408,
+        "heapUsed": 73217456,
+        "external": 44206444,
+        "arrayBuffers": 40373639
+      },
+      "processHighWaterRSSBytes": 353050624,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 30,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 4,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mcf",
+            "count": 2,
+            "pitch_um": 16
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 1.25,
+        "modes": [
+          {
+            "neff": 1.4461374120926946,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461374120926946,
+              "imag": 0
+            },
+            "residual": 5.499936748589916e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 140.0231160288984,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.5200367746915129e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.733340378533704,
+            "Aeff_um2": 165.01944451330337,
+            "Ex_intensity_fraction": 0.9989845571387544,
+            "Ey_intensity_fraction": 6.000302394729377e-07,
+            "Ez_intensity_fraction": 0.0010148428310045663,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461160921351341,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461160921351341,
+              "imag": 0
+            },
+            "residual": 8.035791079979095e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 204.58051970134625,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.94331405919485e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.759394278292813,
+            "Aeff_um2": 165.90543101085828,
+            "Ex_intensity_fraction": 5.660049405181788e-07,
+            "Ey_intensity_fraction": 0.9988818631454913,
+            "Ez_intensity_fraction": 0.0011175708495659692,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          },
+          {
+            "neff": 1.4460647838309058,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460647838309058,
+              "imag": 0
+            },
+            "residual": 6.343955637125833e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 161.5029162014452,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.990082605651861e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.43391449971915,
+            "Aeff_um2": 152.48655507831333,
+            "Ex_intensity_fraction": 0.9987123608417974,
+            "Ey_intensity_fraction": 6.698709396130207e-07,
+            "Ez_intensity_fraction": 0.0012869692872637306,
+            "polarization": "Ex dominant",
+            "mode_index": 3
+          },
+          {
+            "neff": 1.4460423646974354,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460423646974354,
+              "imag": 0
+            },
+            "residual": 5.1451452283265915e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 130.98185476377708,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.5627368350188524e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.446155258256567,
+            "Aeff_um2": 153.50271463032277,
+            "Ex_intensity_fraction": 6.710643809338945e-07,
+            "Ey_intensity_fraction": 0.998847756219009,
+            "Ez_intensity_fraction": 0.0011515727166067522,
+            "polarization": "Ey dominant",
+            "mode_index": 4
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 3008,
+        "wallMs": 1983.6149830000068,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 6785668,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "mcf": {
+        "status": "Direct vector supermode splitting; coherent identical-core model, no stochastic cable XT",
+        "delta_neff": 7.262826178888737e-05,
+        "kappa_per_m": 147.2054281799773,
+        "coupling_length_mm": 10.670777200378772,
+        "length_mm": 1,
+        "p2": 0.021513368101809528,
+        "xt_db": -16.578464884689176,
+        "legacyDelta": 7.427797622971967e-05,
+        "deltaToLegacy": -1.6497144408322975e-06,
+        "legacyStatus": "same \u03bb/a/\u0394n; old scalar reference interpolation"
+      }
+    },
+    {
+      "name": "MCF-two-core-grid-72",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 72,
+        "window_halfwidth_um": 30,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 4,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mcf",
+          "count": 2,
+          "pitch_um": 16
+        },
+        "materials": null
+      },
+      "wallMs": 9752.191712,
+      "processWallMs": 9765.277990000002,
+      "memoryBefore": {
+        "rss": 332206080,
+        "heapTotal": 173219840,
+        "heapUsed": 95548112,
+        "external": 44206444,
+        "arrayBuffers": 40373639
+      },
+      "memoryAfter": {
+        "rss": 310857728,
+        "heapTotal": 150929408,
+        "heapUsed": 41291928,
+        "external": 20944780,
+        "arrayBuffers": 17111975
+      },
+      "processHighWaterRSSBytes": 354414592,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 72,
+          "window_halfwidth_um": 30,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 4,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mcf",
+            "count": 2,
+            "pitch_um": 16
+          },
+          "materials": null
+        },
+        "grid_n": 72,
+        "h_um": 0.8333333333333334,
+        "modes": [
+          {
+            "neff": 1.4461392688454664,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461392688454664,
+              "imag": 0
+            },
+            "residual": 5.41475474485788e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 137.85464088704583,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 7.821968814957598e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.714380033894816,
+            "Aeff_um2": 165.175252649387,
+            "Ex_intensity_fraction": 0.9989960838838906,
+            "Ey_intensity_fraction": 6.469414188215647e-07,
+            "Ez_intensity_fraction": 0.0010032691746898331,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461369586553479,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461369586553479,
+              "imag": 0
+            },
+            "residual": 6.200935799809079e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 157.86983022287043,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 9.37927512393066e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.700553969385563,
+            "Aeff_um2": 165.0355666968472,
+            "Ex_intensity_fraction": 6.220537654888397e-07,
+            "Ey_intensity_fraction": 0.9988845115267079,
+            "Ez_intensity_fraction": 0.0011148664195280225,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          },
+          {
+            "neff": 1.4460665271551092,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460665271551092,
+              "imag": 0
+            },
+            "residual": 4.354926776032266e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 110.86682541892526,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.03298086885318e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.402430686105806,
+            "Aeff_um2": 152.84234152251736,
+            "Ex_intensity_fraction": 0.9987270613003122,
+            "Ey_intensity_fraction": 7.163554215063814e-07,
+            "Ez_intensity_fraction": 0.0012722223442652497,
+            "polarization": "Ex dominant",
+            "mode_index": 3
+          },
+          {
+            "neff": 1.446064062571425,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446064062571425,
+              "imag": 0
+            },
+            "residual": 3.4660614024284397e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 88.23812413604233,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.2409814285877219e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.375958781169995,
+            "Aeff_um2": 152.90176425122522,
+            "Ex_intensity_fraction": 7.249854826269363e-07,
+            "Ey_intensity_fraction": 0.9988506909706845,
+            "Ez_intensity_fraction": 0.0011485840438292994,
+            "polarization": "Ey dominant",
+            "mode_index": 4
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 5701,
+        "wallMs": 9752.191712,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 15265156,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "mcf": {
+        "status": "Direct vector supermode splitting; coherent identical-core model, no stochastic cable XT",
+        "delta_neff": 7.274169035720313e-05,
+        "kappa_per_m": 147.4353290554147,
+        "coupling_length_mm": 10.654137898010188,
+        "length_mm": 1,
+        "p2": 0.02158013042047272,
+        "xt_db": -16.56471198661404,
+        "legacyDelta": 7.427797622971967e-05,
+        "deltaToLegacy": -1.5362858725165431e-06,
+        "legacyStatus": "same \u03bb/a/\u0394n; old scalar reference interpolation"
+      }
+    },
+    {
+      "name": "MCF-two-core-grid-96",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 96,
+        "window_halfwidth_um": 30,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 4,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mcf",
+          "count": 2,
+          "pitch_um": 16
+        },
+        "materials": null
+      },
+      "wallMs": 18934.045094,
+      "processWallMs": 18958.11557699996,
+      "memoryBefore": {
+        "rss": 337555456,
+        "heapTotal": 173232128,
+        "heapUsed": 63629088,
+        "external": 20944780,
+        "arrayBuffers": 17111975
+      },
+      "memoryAfter": {
+        "rss": 318898176,
+        "heapTotal": 153026560,
+        "heapUsed": 54226800,
+        "external": 33143500,
+        "arrayBuffers": 29310695
+      },
+      "processHighWaterRSSBytes": 359747584,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 96,
+          "window_halfwidth_um": 30,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 4,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mcf",
+            "count": 2,
+            "pitch_um": 16
+          },
+          "materials": null
+        },
+        "grid_n": 96,
+        "h_um": 0.625,
+        "modes": [
+          {
+            "neff": 1.4461325391153157,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461325391153157,
+              "imag": 0
+            },
+            "residual": 6.013343250275967e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 153.0934374111683,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 6.383680089212579e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.68818370624886,
+            "Aeff_um2": 164.7653547335294,
+            "Ex_intensity_fraction": 6.65437674752178e-07,
+            "Ey_intensity_fraction": 0.9988852168280454,
+            "Ez_intensity_fraction": 0.001114117734280289,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.4461290238296456,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461290238296456,
+              "imag": 0
+            },
+            "residual": 5.7413279616319455e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 146.1678570102335,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 5.532913687987745e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 24.676789313348493,
+            "Aeff_um2": 164.90799267671377,
+            "Ex_intensity_fraction": 0.9989993621356633,
+            "Ey_intensity_fraction": 6.684748367179543e-07,
+            "Ez_intensity_fraction": 0.0009999693895058404,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          },
+          {
+            "neff": 1.446059497361653,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446059497361653,
+              "imag": 0
+            },
+            "residual": 3.076074477932233e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 78.30968734508625,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 8.477310443853601e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.365771572329994,
+            "Aeff_um2": 152.600716109194,
+            "Ex_intensity_fraction": 7.676779655518566e-07,
+            "Ey_intensity_fraction": 0.9988514823230998,
+            "Ez_intensity_fraction": 0.0011477499989338258,
+            "polarization": "Ey dominant",
+            "mode_index": 3
+          },
+          {
+            "neff": 1.4460555954333338,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460555954333338,
+              "imag": 0
+            },
+            "residual": 3.688827392493658e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 93.90869511870766,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 7.354311470039363e-07,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.36546726800062,
+            "Aeff_um2": 152.6118831674111,
+            "Ex_intensity_fraction": 0.9987295002648587,
+            "Ey_intensity_fraction": 7.367180392416314e-07,
+            "Ez_intensity_fraction": 0.001269763017100911,
+            "polarization": "Ex dominant",
+            "mode_index": 4
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 19,
+        "linearIterations": 5363,
+        "wallMs": 18934.045094,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 27136708,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      },
+      "mcf": {
+        "status": "Direct vector supermode splitting; coherent identical-core model, no stochastic cable XT",
+        "delta_neff": 7.342839631174769e-05,
+        "kappa_per_m": 148.82716801152668,
+        "coupling_length_mm": 10.554499879170168,
+        "length_mm": 1,
+        "p2": 0.02198647430147431,
+        "xt_db": -16.481892685025244,
+        "legacyDelta": 7.427797622971967e-05,
+        "deltaToLegacy": -8.49579917971979e-07,
+        "legacyStatus": "same \u03bb/a/\u0394n; old scalar reference interpolation"
+      }
+    },
+    {
+      "name": "MCF-three-core",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 34,
+        "core_radius_um": 4.1,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 6,
+        "target_neff": null,
+        "pml": {
+          "enabled": false,
+          "thickness_um": 4,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "mcf",
+          "count": 3,
+          "pitch_um": 16
+        },
+        "materials": null
+      },
+      "wallMs": 2115.024369999999,
+      "processWallMs": 2123.1599270000006,
+      "memoryBefore": {
+        "rss": 348774400,
+        "heapTotal": 175345664,
+        "heapUsed": 76578336,
+        "external": 33143500,
+        "arrayBuffers": 29310695
+      },
+      "memoryAfter": {
+        "rss": 331055104,
+        "heapTotal": 157483008,
+        "heapUsed": 42119144,
+        "external": 17437324,
+        "arrayBuffers": 13604519
+      },
+      "processHighWaterRSSBytes": 371064832,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 34,
+          "core_radius_um": 4.1,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 6,
+          "target_neff": null,
+          "pml": {
+            "enabled": false,
+            "thickness_um": 4,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "mcf",
+            "count": 3,
+            "pitch_um": 16
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 1.4166666666666667,
+        "modes": [
+          {
+            "neff": 1.4461686115733259,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4461686115733259,
+              "imag": 0
+            },
+            "residual": 7.514021665570336e-10,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 19.13039139880846,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 9.581319886069954e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 27.70426053181321,
+            "Aeff_um2": 256.57899246714675,
+            "Ex_intensity_fraction": 0.9989994676497818,
+            "Ey_intensity_fraction": 8.699712551047632e-07,
+            "Ez_intensity_fraction": 0.0009996623789649596,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 1.446165758539071,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446165758539071,
+              "imag": 0
+            },
+            "residual": 5.36084079067714e-10,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 13.648454155976998,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.447711466843648e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 27.673786689087127,
+            "Aeff_um2": 255.83450265683646,
+            "Ex_intensity_fraction": 8.990677935105919e-07,
+            "Ey_intensity_fraction": 0.9989961823975205,
+            "Ez_intensity_fraction": 0.0010029185346863295,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          },
+          {
+            "neff": 1.4460630608409137,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460630608409137,
+              "imag": 0
+            },
+            "residual": 1.9032915123718323e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 48.45348564199609,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 6.985010424988207e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.42220575469062,
+            "Aeff_um2": 154.04114312718082,
+            "Ex_intensity_fraction": 0.9988382076503769,
+            "Ey_intensity_fraction": 1.644568213002205e-06,
+            "Ez_intensity_fraction": 0.001160147781410187,
+            "polarization": "Ex dominant",
+            "mode_index": 3
+          },
+          {
+            "neff": 1.4460617730689012,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460617730689012,
+              "imag": 0
+            },
+            "residual": 1.8629701178686367e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 47.426952142875635,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 1.8378751637023856e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.789964693484382,
+            "Aeff_um2": 158.9881622382337,
+            "Ex_intensity_fraction": 1.9332395659904875e-06,
+            "Ey_intensity_fraction": 0.9987097826080371,
+            "Ez_intensity_fraction": 0.0012882841523969549,
+            "polarization": "Ey dominant",
+            "mode_index": 4
+          },
+          {
+            "neff": 1.446061222549922,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.446061222549922,
+              "imag": 0
+            },
+            "residual": 1.6824933914953563e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 42.83241175768647,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 9.730261841433105e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.461583772477894,
+            "Aeff_um2": 152.9748255753694,
+            "Ex_intensity_fraction": 0.9987124627727372,
+            "Ey_intensity_fraction": 2.4339687049254228e-06,
+            "Ez_intensity_fraction": 0.001285103258556423,
+            "polarization": "Ex dominant",
+            "mode_index": 5
+          },
+          {
+            "neff": 1.4460559510106115,
+            "neff_imag": 0,
+            "neff_complex": {
+              "real": 1.4460559510106115,
+              "imag": 0
+            },
+            "residual": 1.2573114053104785e-09,
+            "loss_dB_km": 0,
+            "loss_residual_scale_dB_km": 32.00813968802783,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "Lossless closed boundary",
+            "pml_power_fraction": 0,
+            "physical_power_fraction": 1,
+            "edge_power_fraction": 2.8522417154644415e-06,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 25.326526235109792,
+            "Aeff_um2": 152.98634462000925,
+            "Ex_intensity_fraction": 1.8185081980247826e-06,
+            "Ey_intensity_fraction": 0.998836814575692,
+            "Ez_intensity_fraction": 0.0011613669161105028,
+            "polarization": "Ey dominant",
+            "mode_index": 6
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 22,
+        "linearIterations": 3220,
+        "wallMs": 2115.024369999999,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 7601284,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [],
+        "convergence": {
+          "eigenTolerance": 1e-08,
+          "linearTolerance": 2e-10,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "HCF-underresolved-grid-48",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 48,
+        "window_halfwidth_um": 54,
+        "core_radius_um": 16,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 8,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "hcf"
+        },
+        "materials": null
+      },
+      "wallMs": 18131.350452999992,
+      "processWallMs": 18134.497774999996,
+      "memoryBefore": {
+        "rss": 353390592,
+        "heapTotal": 179818496,
+        "heapUsed": 64478232,
+        "external": 17437324,
+        "arrayBuffers": 13604519
+      },
+      "memoryAfter": {
+        "rss": 331939840,
+        "heapTotal": 158380032,
+        "heapUsed": 39984824,
+        "external": 29187568,
+        "arrayBuffers": 25354763
+      },
+      "processHighWaterRSSBytes": 375619584,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 48,
+          "window_halfwidth_um": 54,
+          "core_radius_um": 16,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 8,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "hcf"
+          },
+          "materials": null
+        },
+        "grid_n": 48,
+        "h_um": 2.25,
+        "modes": [
+          {
+            "neff": 0.9996463246907633,
+            "neff_imag": 7.713856190587117e-16,
+            "neff_complex": {
+              "real": 0.9996463246907633,
+              "imag": 7.713856190587117e-16
+            },
+            "residual": 9.107995977459024e-14,
+            "loss_dB_km": 2.716026576354468e-05,
+            "loss_residual_scale_dB_km": 0.0016028824920542321,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 2.1494916900013297e-12,
+            "physical_power_fraction": 0.999999999997851,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 22.31111952875229,
+            "Aeff_um2": 424.1717433225864,
+            "Ex_intensity_fraction": 7.1962514866619525e-06,
+            "Ey_intensity_fraction": 0.9992857825912749,
+            "Ez_intensity_fraction": 0.0007070211572358514,
+            "polarization": "Ey dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 0.999687969710141,
+            "neff_imag": 7.017714667291287e-14,
+            "neff_complex": {
+              "real": 0.999687969710141,
+              "imag": 7.017714667291287e-14
+            },
+            "residual": 2.423533303101937e-11,
+            "loss_dB_km": 0.0024709171484029145,
+            "loss_residual_scale_dB_km": 0.426526421747854,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 1.7748031555551997e-10,
+            "physical_power_fraction": 0.9999999998225194,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 23.21703346565953,
+            "Aeff_um2": 457.3615052341935,
+            "Ex_intensity_fraction": 0.9993758276737197,
+            "Ey_intensity_fraction": 5.8462818531226635e-06,
+            "Ez_intensity_fraction": 0.0006183260444250402,
+            "polarization": "Ex dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 13,
+        "linearIterations": 19296,
+        "wallMs": 18131.350452999992,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 6065092,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [
+          "\ubbf8\uac80\uc99d: HCF wall has fewer than 3 cells. Refine mesh; subpixel cannot establish loss accuracy."
+        ],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    },
+    {
+      "name": "HCF-underresolved-grid-72",
+      "config": {
+        "wavelength_nm": 1550,
+        "grid_n": 72,
+        "window_halfwidth_um": 54,
+        "core_radius_um": 16,
+        "n_core": 1.449023621703261,
+        "n_clad": 1.444023621703261,
+        "profile": "step",
+        "subpixel": true,
+        "modes": 2,
+        "target_neff": null,
+        "pml": {
+          "enabled": true,
+          "thickness_um": 8,
+          "strength": 3,
+          "order": 3
+        },
+        "bend_radius_um": 0,
+        "geometry": {
+          "kind": "hcf"
+        },
+        "materials": null
+      },
+      "wallMs": 156532.475636,
+      "processWallMs": 156541.346816,
+      "memoryBefore": {
+        "rss": 354304000,
+        "heapTotal": 180727808,
+        "heapUsed": 62340584,
+        "external": 29187568,
+        "arrayBuffers": 25354763
+      },
+      "memoryAfter": {
+        "rss": 331104256,
+        "heapTotal": 156172288,
+        "heapUsed": 21879720,
+        "external": 72898604,
+        "arrayBuffers": 41189639
+      },
+      "processHighWaterRSSBytes": 376635392,
+      "reference": {
+        "status": "\ubbf8\uac80\uc99d: lossless straight radial step-index only"
+      },
+      "result": {
+        "config": {
+          "wavelength_nm": 1550,
+          "grid_n": 72,
+          "window_halfwidth_um": 54,
+          "core_radius_um": 16,
+          "n_core": 1.449023621703261,
+          "n_clad": 1.444023621703261,
+          "profile": "step",
+          "subpixel": true,
+          "modes": 2,
+          "target_neff": null,
+          "pml": {
+            "enabled": true,
+            "thickness_um": 8,
+            "strength": 3,
+            "order": 3
+          },
+          "bend_radius_um": 0,
+          "geometry": {
+            "kind": "hcf"
+          },
+          "materials": null
+        },
+        "grid_n": 72,
+        "h_um": 1.5,
+        "modes": [
+          {
+            "neff": 0.9996683802209082,
+            "neff_imag": 2.3147157144072765e-12,
+            "neff_complex": {
+              "real": 0.9996683802209082,
+              "imag": 2.3147157144072765e-12
+            },
+            "residual": 2.0159292897133494e-12,
+            "loss_dB_km": 0.08150047449299128,
+            "loss_residual_scale_dB_km": 0.035478375977524616,
+            "loss_below_residual_scale": false,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 4.252070564006739e-09,
+            "physical_power_fraction": 0.9999999957479287,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 22.81377398067898,
+            "Aeff_um2": 442.7468876826631,
+            "Ex_intensity_fraction": 0.9992340195666977,
+            "Ey_intensity_fraction": 7.176489202086017e-06,
+            "Ez_intensity_fraction": 0.0007588039440971413,
+            "polarization": "Ex dominant",
+            "mode_index": 1
+          },
+          {
+            "neff": 0.9996808576861962,
+            "neff_imag": 2.1377443838063882e-13,
+            "neff_complex": {
+              "real": 0.9996808576861962,
+              "imag": 2.1377443838063882e-13
+            },
+            "residual": 9.568087120132647e-12,
+            "loss_dB_km": 0.007526936484706149,
+            "loss_residual_scale_dB_km": 0.16839103979182077,
+            "loss_below_residual_scale": true,
+            "loss_dB_turn": null,
+            "loss_status": "\ubbf8\uac80\uc99d: mesh/PML convergence required",
+            "pml_power_fraction": 4.774675442287045e-10,
+            "physical_power_fraction": 0.9999999995225329,
+            "edge_power_fraction": 0,
+            "accepted": true,
+            "rejection": null,
+            "MFD_2nd_um": 22.979539340743596,
+            "Aeff_um2": 450.20986187600954,
+            "Ex_intensity_fraction": 4.057394551844491e-05,
+            "Ey_intensity_fraction": 0.9993580905683416,
+            "Ez_intensity_fraction": 0.000601335486139222,
+            "polarization": "Ey dominant",
+            "mode_index": 2
+          }
+        ],
+        "rejected": [],
+        "method": "Yee-FDFD 1.0 experimental",
+        "iterations": 16,
+        "linearIterations": 65556,
+        "wallMs": 156532.475636,
+        "memory": {
+          "typedArrayWorkspaceModelBytes": 13602532,
+          "kind": "estimated live workspace; not measured heap",
+          "heapUsedBytes": null
+        },
+        "warnings": [
+          "\ubbf8\uac80\uc99d: HCF wall has fewer than 3 cells. Refine mesh; subpixel cannot establish loss accuracy."
+        ],
+        "convergence": {
+          "eigenTolerance": 1e-10,
+          "linearTolerance": 2e-12,
+          "discretization": "Yee staggered transverse E; \u03b2\u00b2/k0\u00b2=P Q",
+          "algorithm": "block shift-invert subspace iteration; complex ILU(0)-GMRES; Rayleigh\u2013Ritz"
+        }
+      }
+    }
+  ],
+  "checks": "geometry identity, absorption sign/scale, limits, migration, sweep cap, CSV quoting passed"
+}

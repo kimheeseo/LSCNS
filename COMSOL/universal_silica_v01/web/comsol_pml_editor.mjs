@@ -231,6 +231,8 @@
   }
  });
  window.LSWavePMLService=Object.freeze({
+  snapshot:()=>({rows:structuredClone(rows),activeId}),
+  loadProject:state=>{if(!Array.isArray(state?.rows)||state.rows.length>64)throw Error("Invalid PML project state");rows.splice(0,rows.length,...structuredClone(state.rows));activeId=state.activeId;treeRender();render();broadcast();},
   list:()=>rows.map(row=>({...row,domainKeys:[...row.domainKeys]})),
   domains:()=>domains().map(d=>({...d})),
   selected:()=>selectedDomains().map(d=>({...d}))

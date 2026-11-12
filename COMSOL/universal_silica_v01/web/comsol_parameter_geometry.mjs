@@ -49,6 +49,8 @@
  params=legacyDefaults();
  // Public read-only parameter service for the independent geometry editor.
  window.LSWaveParameterService={
+  snapshot:()=>({params:structuredClone(params),circles:structuredClone(circles),selected}),
+  loadProject:state=>{if(!Array.isArray(state?.params)||state.params.length>256)throw Error("Invalid Parameters project state");params=structuredClone(state.params);circles=structuredClone(state.circles||baseCircle());selected=state.selected??1;renderParameters();},
   evaluate:()=>evaluateAll(),
   rows:()=>params.map(p=>({...p})),
   calculate:(value)=>{const state=evaluateAll();if(state.errors.size)throw Error([...state.errors.values()][0]);return expression(value,name=>{if(!state.values.has(name))throw Error(`Unknown parameter ${name}`);return state.values.get(name);});}

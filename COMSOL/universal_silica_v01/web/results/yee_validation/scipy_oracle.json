@@ -1,0 +1,154 @@
+[
+  {
+    "config": {
+      "wavelength_nm": 1550,
+      "grid_n": 24,
+      "window_halfwidth_um": 18,
+      "core_radius_um": 4.1,
+      "n_core": 1.449023621703261,
+      "n_clad": 1.444023621703261,
+      "profile": "step",
+      "subpixel": true,
+      "modes": 2,
+      "target_neff": null,
+      "pml": {
+        "enabled": false,
+        "thickness_um": 4,
+        "strength": 3,
+        "order": 3
+      },
+      "bend_radius_um": 0,
+      "geometry": {
+        "kind": "radial"
+      },
+      "materials": null
+    },
+    "shape": 1152,
+    "independent_scipy_neff": [
+      {
+        "real": 1.4460854785559623,
+        "imag": 6.680855629068985e-20
+      },
+      {
+        "real": 1.4460854785544668,
+        "imag": 2.2441594286088424e-20
+      },
+      {
+        "real": 1.4438904112172883,
+        "imag": -5.635662318047661e-20
+      },
+      {
+        "real": 1.4438905616209625,
+        "imag": 2.0781433826082937e-19
+      }
+    ]
+  },
+  {
+    "config": {
+      "wavelength_nm": 1550,
+      "grid_n": 32,
+      "window_halfwidth_um": 18,
+      "core_radius_um": 4.1,
+      "n_core": 1.449023621703261,
+      "n_clad": 1.444023621703261,
+      "profile": "step",
+      "subpixel": true,
+      "modes": 2,
+      "target_neff": null,
+      "pml": {
+        "enabled": true,
+        "thickness_um": 4,
+        "strength": 3,
+        "order": 3
+      },
+      "bend_radius_um": 2000,
+      "geometry": {
+        "kind": "radial"
+      },
+      "materials": null
+    },
+    "shape": 2048,
+    "independent_scipy_neff": [
+      {
+        "real": 1.446990972126499,
+        "imag": 0.000515956357280005
+      },
+      {
+        "real": 1.4470088139719246,
+        "imag": 0.0005202015312282154
+      },
+      {
+        "real": 1.4500009381070624,
+        "imag": 0.002418992298920604
+      },
+      {
+        "real": 1.4497324080499585,
+        "imag": 0.002542152213072066
+      }
+    ]
+  },
+  {
+    "config": {
+      "wavelength_nm": 1550,
+      "grid_n": 24,
+      "window_halfwidth_um": 18,
+      "core_radius_um": 4.1,
+      "n_core": 1.449023621703261,
+      "n_clad": 1.444023621703261,
+      "profile": "step",
+      "subpixel": true,
+      "modes": 2,
+      "target_neff": null,
+      "pml": {
+        "enabled": false,
+        "thickness_um": 4,
+        "strength": 3,
+        "order": 3
+      },
+      "bend_radius_um": 0,
+      "geometry": {
+        "kind": "regions",
+        "regions": [
+          {
+            "kind": "polygon",
+            "points": [
+              [
+                -3,
+                -3
+              ],
+              [
+                5,
+                -3
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "material": "core"
+          }
+        ]
+      },
+      "materials": null
+    },
+    "shape": 1152,
+    "independent_scipy_neff": [
+      {
+        "real": 1.4449286284777771,
+        "imag": -1.9667542922430761e-19
+      },
+      {
+        "real": 1.4449972839509373,
+        "imag": -1.3351833133339636e-20
+      },
+      {
+        "real": 1.4438801943452668,
+        "imag": -4.0825863857246025e-20
+      },
+      {
+        "real": 1.443837767968343,
+        "imag": 4.2590288080179905e-20
+      }
+    ]
+  }
+]

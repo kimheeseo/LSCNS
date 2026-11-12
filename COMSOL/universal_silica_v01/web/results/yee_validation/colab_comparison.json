@@ -1,0 +1,21 @@
+{
+  "status": "동일 물리 입력; grid/algorithm may differ",
+  "rows": [
+    {
+      "mode": 1,
+      "neff": 1.4457157350500278,
+      "referenceNeff": 1.445711888509771,
+      "deltaNeff": 0.000003846540256757791,
+      "deltaImag": null,
+      "status": "index pairing; check polarization/field overlap"
+    },
+    {
+      "mode": 2,
+      "neff": 1.4457157350499739,
+      "referenceNeff": 1.445711888509771,
+      "deltaNeff": 0.000003846540202800952,
+      "deltaImag": null,
+      "status": "index pairing; check polarization/field overlap"
+    }
+  ]
+}

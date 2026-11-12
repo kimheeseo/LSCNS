@@ -108,14 +108,14 @@ export function evaluateM2Material(material,lambdaNm){
  else if(kind==="silica")n=silicaIndex(lambda); // exact legacy solver implementation
  else if(kind==="geO2"){
   const p=range(finite(cfg.molPercent??0,"GeO₂ mol%"),0,30,"GeO₂ mol%");
-  n=sellmeierIndex(mixCoefficients(SELLMEIER.silica,SELLMEIER.geO2,p/100),lambda);
+  n=p===0?silicaIndex(lambda):sellmeierIndex(mixCoefficients(SELLMEIER.silica,SELLMEIER.geO2,p/100),lambda);
  }else if(kind==="p2o5"){
   const p=range(finite(cfg.molPercent??0,"P₂O₅ mol%"),0,9.1,"P₂O₅ mol%");
-  n=sellmeierIndex(mixCoefficients(SELLMEIER.silica,SELLMEIER.p9,p/9.1),lambda);
+  n=p===0?silicaIndex(lambda):sellmeierIndex(mixCoefficients(SELLMEIER.silica,SELLMEIER.p9,p/9.1),lambda);
  }else if(kind==="f_wt"){
   const p=range(finite(cfg.weightPercent??0,"F wt%"),0,2,"F wt%");
   const ab=p<=1?[SELLMEIER.silica,SELLMEIER.f1,p]:[SELLMEIER.f1,SELLMEIER.f2,p-1];
-  n=sellmeierIndex(mixCoefficients(...ab),lambda);
+  n=p===0?silicaIndex(lambda):sellmeierIndex(mixCoefficients(...ab),lambda);
  }else if(kind==="f_mol"){
   const p=range(finite(cfg.molPercent??0,"F mol%"),0,100,"F mol%");
   if(p===0)n=silicaIndex(lambda);

@@ -249,6 +249,14 @@ import {rectangleCorners,boundsOf,unionContours,differenceContours} from "./geom
  function emitCadState(){document.dispatchEvent(new CustomEvent("ls-cad-state",{detail:status()}));}
  window.LSWaveCADService=Object.freeze({
   status,apply:()=>apply(),
+  snapshot:()=>({...snap(),cumulativeSelections:structuredClone(cumulativeSelections),angleUnit,constraintMode,repairTolerance,buildOnNew,buildOnLeave,scaleWhenUnitsChange}),
+  loadProject:state=>{
+   if(!Array.isArray(state?.nodes)||state.nodes.length>256)throw Error("Invalid Geometry project state");
+   cumulativeSelections.splice(0,cumulativeSelections.length,...structuredClone(state.cumulativeSelections||[]));
+   angleUnit=state.angleUnit||"Degrees";constraintMode=state.constraintMode||"Off";repairTolerance=state.repairTolerance||"Automatic";
+   buildOnNew=state.buildOnNew??true;buildOnLeave=state.buildOnLeave??true;scaleWhenUnitsChange=!!state.scaleWhenUnitsChange;
+   activeCumulativeId=null;restore(state);emitCadState();
+  },
   entities:()=>compute().map(({entityKey,owner,source,kind,r,w,h,x,y,layers,derived,contours})=>({entityKey,owner,source,kind,r,w,h,x,y,layers:[...(layers||[])],derived,contourCount:contours?.length||0})),
   // Live named Geometry selections, including the features that contribute
   // their resulting entities. Materials may reference these by stable ID.

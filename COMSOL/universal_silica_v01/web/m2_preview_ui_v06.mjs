@@ -4,7 +4,8 @@
  * Feature flag: window.LSWaveFeatures.materialPreviewV06=false.
  */
 import {M2_VERSION,M2_SOURCES,M2_CATALOG,evaluateM2Material,sampleM2Material,
- parseIndexTable,migrateM2Preview,makeM2PreviewDocument} from "./m2_preview_engine_v06.mjs";
+ migrateM2Preview,makeM2PreviewDocument} from "./m2_preview_engine_v06.mjs?v=20261112-m3m6-v1";
+import {parseIndexTable} from "./material_models.mjs";
 const ENABLED=globalThis.LSWaveFeatures?.materialPreviewV06!==false;
 const $=id=>document.getElementById(id);
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -226,7 +227,7 @@ function mount(){
   }catch(error){$("m2v6-status").textContent="재료 불러오기 실패: "+error.message;}
   e.target.value="";
  });
- globalThis.LSWaveM2Preview=Object.freeze({enabled:true,run:output,latest:()=>latest,show});
+ globalThis.LSWaveM2Preview=Object.freeze({enabled:true,run:output,latest:()=>latest,show,snapshot:()=>Object.fromEntries(["core","clad"].map(r=>[r,readMaterial(r)])),loadProject:doc=>{for(const r of ["core","clad"])writeMaterial(r,doc[r]);}});
  for(const role of ["core","clad"])provenance(role);
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount,{once:true});

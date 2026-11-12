@@ -668,6 +668,8 @@
  document.addEventListener("ls-open-wave-optics",close);
  document.addEventListener("ls-open-settings",close);
  window.LSWaveMaterialsEditor=Object.freeze({
+  snapshot:()=>({materials:structuredClone(materials),activeId}),
+  loadProject:state=>{if(!Array.isArray(state?.materials)||state.materials.length>128)throw Error("Invalid Materials project state");materials.splice(0,materials.length,...structuredClone(state.materials));activeId=state.activeId;render();treeRender();},
   list:()=>materials.map(m=>({...m,domainIds:[...m.domainIds],selectedIdsByLevel:{...m.selectedIdsByLevel},properties:[...(m.properties||[])],basicPropertyValues:{...(m.basicPropertyValues||{})}})),
   domains:getDomains,entities:getEntities,resolve:resolvedIndex,assignments:previewAssignments,
   basicProperties:id=>{

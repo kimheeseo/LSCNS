@@ -1,4 +1,4 @@
-import {VERSION,PRESETS,claddingIndex,validate,deltaIndex,solve,dispersion,dispersionDiagnostics,spectrum,meshStudy,outputSummary} from './solver.mjs?v=v0.7.0';
+import {VERSION,PRESETS,claddingIndex,validate,deltaIndex,solve,dispersion,dispersionDiagnostics,spectrum,meshStudy,outputSummary} from './solver.mjs?v=v0.7.1';
 import {calculateMCF,mcfLengthSeries,MCF_REFERENCE,MCF_ASSUMPTIONS} from './mcf_xt.mjs';
 
 const $=id=>document.getElementById(id);

@@ -90,7 +90,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
 <body>
   <div id="ls-startup-wizard" role="dialog" aria-modal="true" aria-label="Optical Fiber Model Wizard">모델 설정 화면을 불러오는 중…</div>
   <header class="topbar">
-    <div class="brand"><span class="brand-icon">◈</span><span>LS <strong>WAVE OPTICS</strong><small>FIBER DESIGN WORKBENCH · v0.7.0</small></span></div>
+    <div class="brand"><span class="brand-icon">◈</span><span>LS <strong>WAVE OPTICS</strong><small>FIBER DESIGN WORKBENCH · v0.7.1</small></span></div>
     <div class="top-right"><span id="engineState" class="engine"><span class="status-dot"></span> 브라우저 FEM 엔진 준비</span><a class="top-link" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb" target="_blank" rel="noopener">Colab 소스</a><a class="top-link" href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01" target="_blank" rel="noopener">GitHub ↗</a></div>
   </header>
   <div class="layout">
@@ -232,11 +232,11 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
       <div class="disclaimer"><strong>기존 스칼라 경로의 모델 범위</strong> · 단일코어: 원형/동심원 · 약유도 스칼라 Radial FEM(P1) · LP01 모드. MCF 선택 시: 별도 저장된 2코어 M8 FEM 참조점의 로그 보간 + 이상적 무손실 결합 방정식만 사용하며 <strong>새 FEM/실측 XT/랜덤 누화를 계산하지 않습니다.</strong> 코어 도핑·응력·복굴절·PML·누설/굽힘/재료 감쇠·HCF는 별도 Nested Tube 설계기에서 단면·ARROW 공진식·이상적 모세관 근사만 지원하며, 2D Full-vector FEM과 누설손실 dB/km 직접 예측은 미지원. 입력이 바뀌면 기존 결과는 자동으로 무효화됩니다. 로컬 GitHub Pages는 로그인·서버 없이 동작하며 다운로드 파일은 사용자의 기기에만 저장됩니다.</div>
     </main>
   </div>
-  <script type="module" src="./app.mjs?v=20261112-project-v3"></script>
+  <script type="module" src="./app.mjs?v=v0.7.1"></script>
   <script type="module" src="./validation_ui.mjs?v=v0.5.1"></script>
   <script type="module" src="./m1q_ui.mjs?v=v0.5.1"></script>
   <script type="module" src="./material_m2_ui.mjs?v=v0.7.0"></script>
-   <script type="module" src="./m2_preview_ui_v06.mjs?v=20261112-project-v3"></script>
+   <script type="module" src="./m2_preview_ui_v06.mjs?v=v0.7.1"></script>
 
   <script type="module" src="./pmd_ui.mjs?v=20261103-phase3"></script>
 
@@ -259,6 +259,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
   <script type="module" src="./comsol_startup_wizard.mjs?v=20261109-ewfd-workflow-v2"></script>
   <script type="module" src="./comsol_guidebook_interactions.mjs?v=20261111-array-help-v2"></script>
   <script type="module" src="./vector_workbench.mjs?v=20261112-m3m6-v2"></script>
+  <script type="module" src="./m3_yee_quickstart_v071.mjs?v=v0.7.1"></script>
 </body>
 </html>
 

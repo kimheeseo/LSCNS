@@ -4,7 +4,7 @@
  * Feature flag: window.LSWaveFeatures.materialPreviewV06=false.
  */
 import {M2_VERSION,M2_SOURCES,M2_CATALOG,evaluateM2Material,sampleM2Material,
- migrateM2Preview,makeM2PreviewDocument} from "./m2_preview_engine_v06.mjs?v=20261112-m3m6-v1";
+ migrateM2Preview,makeM2PreviewDocument} from "./m2_preview_engine_v06.mjs?v=v0.7.1";
 import {parseIndexTable} from "./material_models.mjs";
 const ENABLED=globalThis.LSWaveFeatures?.materialPreviewV06!==false;
 const $=id=>document.getElementById(id);

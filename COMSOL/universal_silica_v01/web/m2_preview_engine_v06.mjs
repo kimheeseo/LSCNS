@@ -3,6 +3,7 @@
  * All coefficients below have a public reference; uncertain F mol%-specific
  * coefficients are deliberately NOT invented.
  *
+ * Pure SiO2: I. H. Malitson, JOSA 55, 1205 (1965), Eq. 1; DOI:10.1364/JOSA.55.001205
  * SiO2 + GeO2: Fleming (1984) Applied Optics 23, 4486, Table II
  *   https://doi.org/10.1364/AO.23.004486
  * Fluorine 1 and 2 WEIGHT percent (wt%, NOT mol%): Fleming & Wood (1983),
@@ -21,7 +22,7 @@ import {SELLMEIER,sellmeierIndex,parseIndexTable,interpolateTable} from "./mater
 export const M2_VERSION="0.6.0";
 export const M2_SCHEMA=2;
 export const M2_SOURCES=Object.freeze({
- silica:{label:"Malitson pure fused silica; Fleming 1984 Table II",url:"https://doi.org/10.1364/AO.23.004486"},
+ silica:{label:"I. H. Malitson, JOSA 55 (1965), pure fused SiO₂ Sellmeier Eq. 1; 20 °C",url:"https://doi.org/10.1364/JOSA.55.001205"},
  geO2:{label:"Fleming 1984 Table II: pure GeO₂ & pure SiO₂; interpolated mixture",url:"https://doi.org/10.1364/AO.23.004486"},
  fwt:{label:"Fleming & Wood 1983 Table II: 1 and 2 wt% F (NOT mol%)",url:"https://doi.org/10.1364/AO.22.003102"},
  p2o5:{label:"Optical Fiber Communication Systems, Table 3.4: 9.1 mol% P₂O₅ mixture",url:"https://www.routledge.com/rsc/downloads/Pages_from_K22108_Book_rev.pdf"},

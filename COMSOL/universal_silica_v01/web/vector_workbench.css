@@ -11,3 +11,8 @@ body.vb-single-page .ls-ribbon,body.vb-single-page .ls-model-pane,body.vb-single
 body.hcf-selection #vwb:not([hidden]),body.vector-selection #vwb:not([hidden]){display:block!important}
 body.vb-single-page .ls-model-tree,body.vb-single-page .ls-output-console,body.vb-single-page .ls-graphics-heading,body.vb-single-page #ls-cad-graphics{display:none!important}
 #vb-open{background:#e8f5f3;border:1px solid #9bbdbf;border-radius:4px;padding:6px 8px;color:#176778;cursor:pointer;font-size:11px}
+/* Existing CAD/material views hide other workspace children. Explicitly opened
+   vector studies must remain visible after project adapters restore those views. */
+body.ls-comsol-shell.ls-cad-active main.workspace > #vwb:not([hidden]),
+body.ls-comsol-shell.ls-material-active main.workspace > #vwb:not([hidden]),
+body.ls-comsol-shell main.workspace > #vwb:not([hidden]){display:block!important}

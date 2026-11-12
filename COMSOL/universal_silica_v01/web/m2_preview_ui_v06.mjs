@@ -206,7 +206,8 @@ function mount(){
  '<th>재료 / 구성</th><th>n_real @1550</th><th>κ @1550</th><th>α (dB/km)</th><th>구분</th>'+
  '</tr></thead><tbody id="m2v6-rows"><tr><td colspan="5">계산 전</td></tr></tbody></table></div>'+
  '<details class="m2v6-provenance" open><summary>근거·단위·기능 한계</summary>'+
- '<p>SiO₂ 및 GeO₂: <a href="'+M2_SOURCES.geO2.url+'" target="_blank">Fleming, Applied Optics 23 (1984), Table II</a>; Ge 도핑은 단순 계수 보간 모델입니다.</p>'+
+ '<p>순수 SiO₂: <a href="'+M2_SOURCES.silica.url+'" target="_blank" rel="noopener noreferrer">Malitson, JOSA 55 (1965), Eq. 1 (20°C)</a>. 기존 스칼라 굴절률 계산 계수와 동일합니다.</p>'+
+ '<p>GeO₂: <a href="'+M2_SOURCES.geO2.url+'" target="_blank" rel="noopener noreferrer">Fleming, Applied Optics 23 (1984), Table II</a>; 중간 농도는 단순 계수 보간으로 실측값이 아닙니다.</p>'+
  '<p>F: <a href="'+M2_SOURCES.fwt.url+'" target="_blank">Fleming & Wood, Applied Optics 22 (1983), Table II</a>의 1/2 <b>wt%</b> 실험. 몰농도 대응 계수는 확인되지 않아 사용자 mol% 선택 시 B/L 6개와 출처를 필수 입력합니다.</p>'+
  '<p>P₂O₅: <a href="'+M2_SOURCES.p2o5.url+'" target="_blank">광섬유 교재 Table 3.4</a>의 9.1 mol% 참고 피팅. 중간 농도는 보간 추정이며 실측 검증 아님.</p>'+
  '<p>복소 굴절률은 ñ=n+iκ, exp(iβz−iωt) 사용. α(dB/km)=4πκ×(1000/λ[m])×10/ln(10). 흡수/전파 손실은 <b>미리보기만</b> 수행하며 고유모드 감쇠 계산 아님.</p>'+

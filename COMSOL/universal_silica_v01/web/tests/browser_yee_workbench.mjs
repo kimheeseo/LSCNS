@@ -29,6 +29,7 @@ try{
  assert.equal(await page.locator('#neff').textContent(),scalarBefore,'saved scalar display restored');
  assert.deepEqual(restored.services.cad.nodes,saved.services.cad.nodes);
  assert.deepEqual(restored.services.parameters.params,saved.services.parameters.params);
+ await page.locator('#vb-tab-m6').click();
  await page.locator('#vb-start1').fill('4.1');await page.locator('#vb-end1').fill('4.2');await page.locator('#vb-count1').fill('2');
  await page.locator('#vb-axis2').check();await page.locator('#vb-param2').selectOption('lambda');await page.locator('#vb-start2').fill('1540');await page.locator('#vb-end2').fill('1560');await page.locator('#vb-count2').fill('2');
  await page.locator('#vb-sweep-run').click();await page.waitForFunction(()=>window.LSWaveVectorWorkbench?.latest()?.rows.length===4&&document.querySelector('#vb-progress').value===100);

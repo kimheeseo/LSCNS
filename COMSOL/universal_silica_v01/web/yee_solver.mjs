@@ -217,7 +217,8 @@ export function solveYee(input,{onProgress=()=>{}}={}){
   block=Math.min(20,Math.max(2,count+2)),Q=[];
  for(let j=0;j<block;j++)Q.push(orth(seed(g,j%2,Math.floor(j/2)),Q));
  let eigen=[],iterations=0,linearIterations=0;
- const tolerance=input.eigen_tolerance??(g.config.pml.enabled||g.config.k_core||g.config.k_clad?1e-10:1e-8),maxOuter=input.max_outer??120;
+ const hasAbsorption=g.epsZ.some((v,i)=>i%2===1&&v!==0);
+ const tolerance=input.eigen_tolerance??(g.config.pml.enabled||hasAbsorption?1e-10:1e-8),maxOuter=input.max_outer??120;
  for(iterations=0;iterations<maxOuter;iterations++){
   const next=[];
   for(let j=0;j<block;j++){

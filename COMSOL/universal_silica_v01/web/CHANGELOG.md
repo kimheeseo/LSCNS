@@ -5,6 +5,7 @@
 ### New files
 - `m3_yee_quickstart_v071.mjs`: optional, independently flagged shortcut to the existing **staggered Yee** 2D Maxwell mode solver (`yee_solver.mjs`), plus explicit 1550-nm step-index M3-only preset. The preset disables PML, HCF, bend and absorption and does **not** start a calculation without a second user click.
 - `tests/test_m2_m3_acceptance_v071.mjs`: repeatable Node M2 Sellmeier, α↔κ, CSV interpolation, M1 regression and real Yee N24 test with measured process time/RSS.
+- `tests/browser_m2_m3_v071.mjs`: optional Playwright smoke for strict Yee shortcut, no-PML baseline and preserved Colab JSON input (written, not run in this session).
 - `M2_M3_V071_ACCEPTANCE.md` / `M2_M3_V071_FULL_SOURCE.md`: verified inputs, references, comparison/mesh data, minimal diffs, full new code and open acceptance gaps.
 
 ### Minimal old-file changes

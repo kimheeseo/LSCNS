@@ -1,0 +1,51 @@
+/** Browser acceptance for the new workflow; no scientific loss accuracy claim. */
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {createRequire} from 'node:module';
+const {chromium}=createRequire(import.meta.url)('playwright');
+const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+try{
+ const page=await browser.newPage({viewport:{width:1500,height:1050},acceptDownloads:true});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(process.env.TEST_BASE_URL??'http://127.0.0.1:8765/COMSOL/universal_silica_v01/web/#vwb');
+ await page.locator('[data-wizard="cancel"]').click();
+ await page.locator('#vb-open').click();await page.locator('#vb-grid').fill('24');
+ const scalarBefore=await page.locator('#neff').textContent();
+ await page.locator('#vb-run').click();
+ await page.waitForFunction(()=>window.LSWaveVectorWorkbench?.latest()?.result?.modes.length===2);
+ const first=await page.evaluate(()=>window.LSWaveVectorWorkbench.snapshot());
+ assert.ok(Math.abs(first.vector.latest.result.modes[0].neff-1.4460854785569)<1e-10);
+ assert.equal(await page.locator('#neff').textContent(),scalarBefore,'Yee must not modify scalar result');
+ await page.locator('#vb-tab-m6').click();
+ const projectDownload=page.waitForEvent('download');await page.locator('#vb-project-save').click();
+ const project=await projectDownload,projectPath=await project.path(),saved=JSON.parse(await fs.readFile(projectPath,'utf8'));
+ assert.ok(saved.services.scalar.last.n_eff>1,'scalar results included in project');
+ await page.locator('#vb-tab-m3').click();await page.locator('#vb-radius').fill('6');
+ await page.locator('#vb-tab-m6').click();await page.locator('#vb-project-open').setInputFiles(projectPath);
+ await page.waitForFunction(()=>document.querySelector('#vb-project-state').textContent.includes('프로젝트 불러오기 완료'));
+ const restored=await page.evaluate(()=>window.LSWaveVectorWorkbench.snapshot());
+ assert.equal(restored.vector.config.core_radius_um,4.1);
+ assert.equal(restored.vector.latest.result.modes[0].neff,saved.vector.latest.result.modes[0].neff);
+ assert.equal(await page.locator('#neff').textContent(),scalarBefore,'saved scalar display restored');
+ assert.deepEqual(restored.services.cad.nodes,saved.services.cad.nodes);
+ assert.deepEqual(restored.services.parameters.params,saved.services.parameters.params);
+ await page.locator('#vb-start1').fill('4.1');await page.locator('#vb-end1').fill('4.2');await page.locator('#vb-count1').fill('2');
+ await page.locator('#vb-axis2').check();await page.locator('#vb-param2').selectOption('lambda');await page.locator('#vb-start2').fill('1540');await page.locator('#vb-end2').fill('1560');await page.locator('#vb-count2').fill('2');
+ await page.locator('#vb-sweep-run').click();await page.waitForFunction(()=>window.LSWaveVectorWorkbench?.latest()?.rows.length===4&&document.querySelector('#vb-progress').value===100);
+ assert.equal(await page.locator('#vb-study-table tbody tr').count(),4);
+ const download=page.waitForEvent('download');await page.locator('#vb-csv').click();const csv=await download;
+ const csvText=await fs.readFile(await csv.path(),'utf8');assert.ok(csvText.includes('"lambda"')&&csvText.includes('"a"'));assert.equal(csvText.trim().split('\n').length,5);
+ await page.locator('#vb-tab-m3').click();await page.locator('#vb-grid').fill('96');await page.locator('#vb-run').click();await page.locator('#vb-cancel').click();assert.match(await page.locator('#vb-status').textContent(),/사용자 취소/);
+ await page.locator('#vb-grid').fill('24');await page.locator('#vb-tab-m5').click();await page.locator('#vb-circle-region').click();await page.locator('#vb-run').click();
+ await page.waitForFunction(()=>window.LSWaveVectorWorkbench?.latest()?.input.geometry.kind==='regions'&&document.querySelector('#vb-progress').value===100);
+ const circle=await page.evaluate(()=>window.LSWaveVectorWorkbench.latest().result.modes[0].neff);assert.ok(Math.abs(circle-first.vector.latest.result.modes[0].neff)<1e-10);
+ // Legacy design migration through the actual input handler.
+ const legacy={version:'0.1',model:first.services.scalar.model};
+ await page.locator('#vb-tab-m6').click();await page.locator('#vb-project-open').setInputFiles({name:'legacy.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(legacy))});
+ await page.waitForFunction(()=>document.querySelector('#vb-project-state').textContent.includes('구버전'));
+ await page.locator('#vb-toggle').click();assert.ok(await page.locator('body').evaluate(e=>e.classList.contains('vb-single-page')));
+ await page.locator('#vb-open').click();assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('vb-single-page')),false);
+ await page.screenshot({path:'yee-workbench-ui.png',fullPage:false});
+ assert.deepEqual(errors,[]);
+ console.log('PASS browser: Worker, complex maps, project file roundtrip incl scalar/CAD/parameters, 2-axis sweep CSV, cancellation, circle geometry, legacy import and layout switch');
+}finally{await browser.close();}

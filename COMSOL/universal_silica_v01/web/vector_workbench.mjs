@@ -1,5 +1,5 @@
-import {BASE,config,buildYeeGrid,sampler} from './vector_geometry.mjs';
-import {normalizeReference,compareReference,twoCoreMetrics,nCoreMetrics,jobsFor,rowsCSV,migrateProject,SCHEMA} from './vector_study.mjs';
+import {BASE,config,buildYeeGrid,sampler} from './vector_geometry.mjs?v=20261112-m3m6-v2';
+import {normalizeReference,compareReference,twoCoreMetrics,nCoreMetrics,jobsFor,rowsCSV,migrateProject,SCHEMA} from './vector_study.mjs?v=20261112-m3m6-v2';
 import {DEFAULT as HCF_DEFAULT} from './hcf_designer.mjs';
 import {silicaIndex} from './solver.mjs';
 import {evaluateM2Material} from './m2_preview_engine_v06.mjs?v=20261112-m3m6-v1';
@@ -114,7 +114,7 @@ function run(axes=[],explicitJobs=null){
  const id=++request;setBusy(true);$('vb-progress').value=0;$('vb-percent').textContent='0%';$('vb-status').textContent=`Worker 시작 · ${jobs.length}점 · 시간 표시는 계산 후 실측합니다.`;
  currentSignature=JSON.stringify(readConfig());
  try{
-  worker=new Worker(new URL('./vector_study_worker.mjs?v=20261112-yee-v1',import.meta.url),{type:'module'});
+  worker=new Worker(new URL('./vector_study_worker.mjs?v=20261112-m3m6-v2',import.meta.url),{type:'module'});
   worker.onmessage=e=>{
    const p=e.data;if(p.id!==id||id!==request)return;
    if(p.type==='progress'){

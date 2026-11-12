@@ -4,7 +4,7 @@
 - Added complex-coordinate PML, optional M2 absorption, conformal equivalent-index bends, HCF geometry sampling, candidate-mode filters and explicit loss-convergence status.
 - Added polygon/SVG/image-mask input, material assignments, subpixel sampling and direct N-core supermodes with reduced coherent coupling indicators; retained existing interpolation and scalar solvers.
 - Added workflow links to existing panels, 1–2 parameter sweeps, CSV, saved overlays and project schema3 adapters for existing Parameters/CAD/Materials/PML/M2/scalar state.
-- Acceptance is incomplete: mesh/PML loss convergence and quantitative HCF loss remain unverified. Browser solver/export passed; file-picker roundtrip was blocked by the browser automation tool. See M3_M6_YEE_VALIDATION_20261112.md for measured tables and limits.
+- Acceptance is incomplete: mesh/PML loss convergence and quantitative HCF loss remain unverified. Browser acceptance passed: project-file roundtrip with scalar/CAD/parameter restoration, 2-axis sweep CSV, cancellation, circle geometry, legacy import and layout switching. See M3_M6_YEE_VALIDATION_20261112.md for measured tables and limits.
 
 # CHANGELOG — LS Wave Optics (Universal Silica Fiber Workbench)
 

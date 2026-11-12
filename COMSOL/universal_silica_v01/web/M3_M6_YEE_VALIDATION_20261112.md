@@ -9,7 +9,7 @@
 | M3 | Yee 벡터 FDFD, Worker, 취소, 복수 모드, 복소 Ex/Ey/Ez, 편광/MFD/Aeff, JSON | 구현. M1·scalar·기존 Python 차이 표 제공. 마지막 격자 간 neff 수렴 기준은 미통과 |
 | M4 | 복소 stretching PML, M2 κ/α, 등가 굽힘, NANF 재사용, 모드 후보 제외 | 구현. PML 손실 수렴 미통과. HCF 손실은 벽 해상도 부족으로 미검증 |
 | M5 | 폴리곤/영역 재료, SVG 래스터화, 이미지 색상 마스크, subpixel, 직접 N코어 | 구현. 원형 격자 경로 동일. 마스크/MCF 오차 표 제공 |
-| M6 | 기존 패널 연결 tree, 1–2축 sweep, 이력/overlay, 프로젝트 schema3, 구버전 이관, UI 복귀 | 구현. codec/이관/CSV 검사 통과. 파일 선택 도구 중단으로 브라우저 파일 재업로드 왕복은 미검증 |
+| M6 | 기존 패널 연결 tree, 1–2축 sweep, 이력/overlay, 프로젝트 schema3, 구버전 이관, UI 복귀 | 구현. 브라우저 프로젝트 파일 왕복·scalar/CAD/Parameters 복원·2축 스윕 CSV·취소·구버전 이관·UI 복귀 검사 통과 |
 
 ## 수치 방법과 물리 범위
 
@@ -142,7 +142,7 @@ N코어는 중심+육각 배치로 직접 생성합니다. 완전한 한 편광�
 - 구버전 {version,model}을 이관하며 존재하지 않는 CAD/M2/PML/이력은 경고합니다. 미래 schema는 거부합니다.
 - 기본 scalar solver의 수식은 변경하지 않았습니다. M20% 도핑의1ulp 차이는 순수 실리카 함수를 재사용하도록 정리했고, 기존 M2 UI의 parseIndexTable import 오류를 수정했습니다.
 - 브라우저에서 N24 Worker 계산, 결과 표/필드 생성, 프로젝트 JSON·CSV 다운로드를 확인했습니다. export된 JSON에서 Parameters/CAD/Materials/PML/M2 상태와 neff를 확인했습니다.
-- 프로젝트 왕복 codec·구버전 이관·CSV escaping·2축 작업 확장은 자동 테스트 통과입니다. 브라우저 파일 선택 도구가 응답하지 않아 파일 재업로드를 통한 전체 UI 왕복은 미검증입니다. JSON 붙여넣기 불러오기 경로도 제공하나 그 최종 브라우저 상호작용 검증은 제한됐습니다.
+- 프로젝트 왕복 codec·구버전 이관·CSV escaping·2축 작업 확장은 자동 테스트 통과입니다. 별도 Chromium 검사에서 실제 프로젝트 JSON 다운로드→재업로드 후 vector 필드/neff, scalar 결과, CAD/Parameters 복원을 확인했습니다. 2축4점 스윕 CSV, 취소, 원형 영역 동일성, 구버전 JSON, UI 복귀도 통과했습니다. [브라우저 수용 검사 실행 기록](https://github.com/kimheeseo/LSCNS/actions/runs/43149295306). JSON 붙여넣기는 별도 보조 경로입니다.
 - URL ?workflow=legacy 또는 상단 기존 단일 페이지 버튼, window.LSWaveFeatures.vectorWorkbench=false 기능 플래그를 제공합니다. UI 복귀 전후 scalar 입력 수식은 같습니다.
 
 ## 재현
@@ -164,3 +164,7 @@ benchmark_yee.mjs는33개 계산을 재실행하며 브라우저보다 Node에�
 - [COMSOL PML implementation: complex stretching](https://doc.comsol.com/6.3/doc/com.comsol.help.comsol/comsol_ref_definitions.21.132.html)
 
 이 구현은 위 라이브러리 코드를 복사한 포트가 아니라 명시한 이산 Maxwell curl로 구현한 별도 연구 프로토타입입니다.
+
+## 검증된 UI 화면
+
+![M3–M6 workbench](results/yee_validation/workbench_ui.png)

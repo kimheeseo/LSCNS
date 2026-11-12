@@ -2,8 +2,8 @@
  * eps E / H curls are staggered, complex stretching replaces each derivative.
  * Matrix-free β²/k0² eigenproblem PQ E = neff² E. All lengths µm internally.
  */
-import {sparseYee} from './yee_sparse.mjs';
-import {buildYeeGrid,lossDbKm} from './vector_geometry.mjs';
+import {sparseYee} from './yee_sparse.mjs?v=20261112-m3m6-v2';
+import {buildYeeGrid,lossDbKm} from './vector_geometry.mjs?v=20261112-m3m6-v2';
 export const ENGINE='Yee-FDFD 1.0 experimental';
 const cmul=(a,b)=>[a[0]*b[0]-a[1]*b[1],a[0]*b[1]+a[1]*b[0]];
 const cdiv=(a,b)=>{const d=b[0]*b[0]+b[1]*b[1];return [(a[0]*b[0]+a[1]*b[1])/d,(a[1]*b[0]-a[0]*b[1])/d];};

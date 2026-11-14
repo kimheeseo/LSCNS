@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1050" viewBox="0 0 1200 1050" role="img" aria-labelledby="title desc">
+<title id="title">SJTU EDFA 이득 예측 모델 흐름도</title><desc id="desc">입력 특성, FourierKAN, 은닉축 FFT, 잔차 및 기준선 합산의 관계</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#58718b"/></marker></defs>
+<rect width="1200" height="1050" fill="#f5f8fc"/><g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="60" y="65" font-size="34" font-weight="bold" fill="#162a43">EDFA 이득 곡선 예측: 모델과 학습 흐름</text><text x="60" y="98" font-size="18" fill="#52677d">공개 network.py 및 config.py 기준 · 이해를 위한 개념도</text>
+<rect x="60" y="130" width="1080" height="100" rx="16" fill="#e3edff" stroke="#84a9dd"/><text x="90" y="168" font-size="23" font-weight="bold" fill="#214b81">① 입력 · EDFA 운전 조건</text><text x="90" y="204" font-size="19" fill="#304d6c">목표 Gain / Tilt · 입력 파워 스펙트럼 95채널 · WSS 활성 마스크 · 장치 정보</text>
+<path d="M350 230V267" stroke="#58718b" stroke-width="3" marker-end="url(#a)"/><path d="M850 230V267" stroke="#58718b" stroke-width="3" marker-end="url(#a)"/>
+<rect x="60" y="270" width="540" height="365" rx="16" fill="#ffffff" stroke="#9db3ca" stroke-width="2"/><text x="85" y="306" font-size="23" font-weight="bold" fill="#214b81">② AI 모델: 잔차 예측</text>
+<rect x="85" y="324" width="490" height="60" rx="10" fill="#e9f7f3"/><text x="105" y="362" font-size="20" fill="#165d57">입력 전처리 및 특성 결합</text>
+<path d="M330 384V401" stroke="#58718b" stroke-width="3" marker-end="url(#a)"/>
+<rect x="85" y="405" width="490" height="80" rx="10" fill="#e7edff"/><text x="105" y="437" font-size="20" fill="#354e91">FourierKAN 블록 5개</text><text x="105" y="467" font-size="16" fill="#52677d">선형 투영 → sin/cos 조합 → 정규화·활성화·잔차</text>
+<path d="M330 485V502" stroke="#58718b" stroke-width="3" marker-end="url(#a)"/>
+<rect x="85" y="506" width="490" height="88" rx="10" fill="#edf6ff"/><text x="105" y="539" font-size="20" fill="#245e88">블록 사이 FFT 혼합 4개</text><text x="105" y="568" font-size="16" fill="#52677d">은닉 특성 → rFFT → 복소 가중치 → irFFT</text><text x="105" y="615" font-size="16" fill="#52677d">마지막 선형층 → 95개 채널의 잔차 Δg</text>
+<rect x="640" y="270" width="500" height="210" rx="16" fill="#fff7e9" stroke="#e0b678" stroke-width="2"/><text x="665" y="309" font-size="23" font-weight="bold" fill="#805617">③ 기준선 만들기</text><text x="665" y="346" font-size="19" fill="#644d2c">목표 Gain과 Tilt로 기울어진 직선 생성</text><text x="665" y="390" font-size="19" fill="#644d2c">g₀(i) = Gain + Tilt × (47 − i) / 94</text><text x="665" y="429" font-size="16" fill="#7d694d">채널 순서 및 Tilt 부호는 데이터 정의 확인</text>
+<path d="M330 635V700H575" stroke="#58718b" fill="none" stroke-width="3" marker-end="url(#a)"/><path d="M890 480V700H627" stroke="#58718b" fill="none" stroke-width="3" marker-end="url(#a)"/><circle cx="600" cy="700" r="25" fill="#244f83"/><text x="600" y="708" text-anchor="middle" fill="white" font-size="27">+</text>
+<path d="M600 725V750" stroke="#58718b" stroke-width="3" marker-end="url(#a)"/>
+<rect x="200" y="755" width="800" height="87" rx="16" fill="#ddf5ec" stroke="#62b296"/><text x="600" y="792" text-anchor="middle" font-size="24" font-weight="bold" fill="#176d57">④ 예측 Gain = 기준선 + AI 잔차</text><text x="600" y="823" text-anchor="middle" font-size="17" fill="#346d5e">활성 마스크를 반영해 95채널 이득 곡선을 출력</text>
+<rect x="60" y="875" width="1080" height="110" rx="16" fill="#ffffff" stroke="#c6d4e2"/><text x="85" y="910" font-size="20" font-weight="bold" fill="#263f5e">학습: COSMOS 사전학습 → 대회 데이터 미세조정</text><text x="85" y="942" font-size="17" fill="#52677d">WSS 활성 채널을 기준으로 손실 계산 · 공개 설정의 기본 손실은 Masked MSE</text><text x="85" y="970" font-size="16" fill="#52677d">FFT는 파장축이 아닌 은닉 특성 축에 적용되며, 그림은 실제 물리 신호 흐름이 아닙니다.</text>
+</g></svg>

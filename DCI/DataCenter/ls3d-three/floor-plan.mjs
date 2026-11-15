@@ -68,6 +68,6 @@ export function createFloorPlan(T){
  const currentSelected=assets.find(a=>a.id===T.selected?.id);const id=currentSelected?.id||'';if(id!==selection){selection=id;for(const g of svg.querySelectorAll('[data-asset]')){const on=g.getAttribute('data-asset')===id;g.setAttribute('aria-pressed',String(on));g.querySelector('rect').setAttribute('stroke',on?'#007d87':'#647c90');g.querySelector('rect').setAttribute('stroke-width',on?'.45':'.16');}selected.textContent=currentSelected?currentSelected.name+' · '+currentSelected.type:'설비를 선택하면 이름과 유형이 표시됩니다.';open.disabled=!currentSelected;}
  }
  document.addEventListener('keydown',e=>{if(e.key==='Escape')viewport.classList.remove('ls-plan-expanded');});
- tour.setAttribute('aria-selected','true');plan.setAttribute('aria-selected','false');plan.tabIndex=-1;if(new URLSearchParams(location.search).get('view')==='2d')setActive(true);return {update,setActive};
+ tour.setAttribute('aria-selected','true');plan.setAttribute('aria-selected','false');plan.tabIndex=-1;return {update,setActive};
 }
 

@@ -82,3 +82,38 @@ export function drawRoomEquipment(g,el,a,index){
  const short=a.name.split(' · ')[0].replace('Network Rack ','NET ').replace('Storage Rack ','STG ').replace('GPU Rack ','GPU ');
  add('text',{x,y:top+d+.7,'text-anchor':'middle','font-size':.48,fill:'#222',stroke:'none'},short.length>24?short.slice(0,23)+'…':short);
 }
+
+function illustratedColors(a){const t=a.type||'';if(/UPS|PDU|battery|busway|transformer|switchgear|generator|ATS/i.test(t))return ['#e9ae4d','#fff0cf','#80520d'];if(/CDU|cool|chill|pump|air handling/i.test(t))return ['#52b49b','#d9f5ed','#1d6556'];if(/storage/i.test(t))return ['#a790d0','#ede6fa','#574079'];return ['#4e96be','#dbeefa','#1e506c'];}
+export function drawIllustratedBase(svg,el,zone,assets,mode){
+ const s=roomSheet(zone,assets,mode),{x,y,w,d,cx,cz,sheet}=s;
+ const add=(tag,attrs,text)=>{const n=el(tag,attrs,text);svg.append(n);return n;};
+ add('rect',{x:sheet.x,y:sheet.y,width:sheet.w,height:sheet.h,rx:.8,fill:'#f5f9fc',stroke:'#c5d6e0','stroke-width':.12});
+ add('text',{x,y:y-5.5,'font-size':1.5,'font-weight':700,fill:'#183f55'},(zone.ko||zone.n)+' · 그림형 배치도');
+ add('text',{x,y:y-3.6,'font-size':.65,fill:'#547383'},'설비 모양·색상으로 구분하는 공간 안내 · 번호는 오른쪽 설비 목록과 대응');
+ add('rect',{x:x+.45,y:y+.5,width:w,height:d,fill:'#c6d6df',rx:.25});
+ add('rect',{x,y,width:w,height:d,fill:'#edf4f7',stroke:'#7795a7','stroke-width':.35,rx:.15});
+ for(let xx=x+3.2;xx<x+w;xx+=3.2)add('line',{x1:xx,y1:y,x2:xx,y2:y+d,stroke:'#d7e4eb','stroke-width':.05});
+ for(let yy=y+3.2;yy<y+d;yy+=3.2)add('line',{x1:x,y1:yy,x2:x+w,y2:yy,stroke:'#d7e4eb','stroke-width':.05});
+ add('rect',{x:cx-1.65,y:y+d-.3,width:3.3,height:.6,fill:'#edf4f7'});
+ add('path',{d:`M ${cx-1.65} ${y+d} L ${cx-1.65} ${y+d+1.65} M ${cx+1.65} ${y+d} L ${cx+1.65} ${y+d+1.65}`,fill:'none',stroke:'#36748a','stroke-width':.12});
+ add('text',{x:cx,y:y+d+3,'text-anchor':'middle','font-size':.85,fill:'#325c72'},'출입구');
+ const lx=x+w+3,ly=y-1;
+ add('text',{x:lx,y:ly-1,'font-size':1,'font-weight':700,fill:'#234e66'},'공간 안의 설비');
+ assets.forEach((a,i)=>{const yy=ly+1.5+i*1.7,[c,bg,ink]=illustratedColors(a);add('rect',{x:lx,y:yy-.8,width:2.3,height:1.05,rx:.2,fill:bg,stroke:c,'stroke-width':.07});add('text',{x:lx+1.15,y:yy-.08,'font-size':.58,'text-anchor':'middle',fill:ink,'font-weight':700},drawingCode(a,i));add('text',{x:lx+2.8,y:yy-.1,'font-size':.57,fill:'#24485f'},a.name.length>27?a.name.slice(0,26)+'…':a.name);add('text',{x:lx+2.8,y:yy+.57,'font-size':.45,fill:'#66808f'},a.type);});
+ const by=sheet.y+sheet.h-5;
+ add('line',{x1:sheet.x+1,y1:by,x2:sheet.x+sheet.w-1,y2:by,stroke:'#c1d4df','stroke-width':.08});
+ add('text',{x:sheet.x+1.5,y:by+1.7,'font-size':.72,fill:'#315d74'},'파랑: 랙·네트워크 / 보라: 스토리지 / 노랑: 전력 / 초록: 냉각');
+ add('text',{x:sheet.x+1.5,y:by+3.25,'font-size':.62,fill:'#607f91'},'배치·외곽 크기는 3D 모델 기준 · 설비 내부 그림은 기능을 설명하는 개념 표현');
+ return s.view;
+}
+export function drawIllustratedEquipment(g,el,a,index){
+ const {x,z,w,d}=a,l=x-w/2,t=z-d/2,[c,bg,ink]=illustratedColors(a),type=a.type||'';
+ const add=(tag,attrs={},text)=>{const n=el(tag,{fill:'none',stroke:ink,'stroke-width':.065,...attrs},text);g.append(n);return n;};
+ add('rect',{x:l,y:t,width:w,height:d,rx:.2,fill:bg,stroke:c,'stroke-width':.15});
+ add('path',{d:`M ${l+.15} ${t+d-.35} H ${l+w-.15} V ${t+d-.1} H ${l+.15} Z`,fill:c,stroke:'none'});
+ if(/battery/i.test(type)){for(let i=0;i<4;i++){const xx=l+.3+i*(w-.5)/4,cw=(w-.8)/4;add('rect',{x:xx,y:t+.6,width:cw-.1,height:Math.max(.4,d-1.3),rx:.08,fill:'#fff9e8'});add('rect',{x:xx+cw*.3,y:t+.4,width:cw*.35,height:.2,fill:ink,stroke:'none'});add('text',{x:xx+cw*.4,y:z+.15,'text-anchor':'middle','font-size':.65,fill:ink,stroke:'none'},'+');}}
+ else if(/CDU|cool|chill|pump|air handling/i.test(type)){add('circle',{cx:x,cy:z,r:Math.min(w,d)*.29,fill:'#f6fffc'});for(let i=0;i<6;i++){const q=i*Math.PI/3,r=Math.min(w,d)*.26;add('path',{d:`M ${x} ${z} Q ${x+Math.cos(q+.4)*r} ${z+Math.sin(q+.4)*r} ${x+Math.cos(q)*r} ${z+Math.sin(q)*r}`,stroke:c,'stroke-width':.17});}add('circle',{cx:x,cy:z,r:.2,fill:c});}
+ else if(/rack|ODF|MMR|spine|leaf|core|carrier|optical/i.test(type)){for(let yy=t+.4;yy<t+d-.5;yy+=.42){add('rect',{x:l+.3,y:yy,width:w-.6,height:.28,rx:.04,fill:'#f8fcff',stroke:c,'stroke-width':.04});for(let xx=l+.5;xx<l+w-.4;xx+=.4)add('circle',{cx:xx,cy:yy+.14,r:.045,fill:c,stroke:'none'});}add('rect',{x:l+.18,y:t+.2,width:.12,height:d-.5,fill:c,stroke:'none'});}
+ else{const n=Math.max(2,Math.round(w/1.6));for(let i=0;i<n;i++){const xx=l+.2+i*(w-.4)/n,cw=(w-.4)/n;add('rect',{x:xx,y:t+.25,width:cw-.12,height:d-.7,rx:.05,fill:'#fffbf2',stroke:c,'stroke-width':.05});add('rect',{x:xx+.18,y:t+.5,width:Math.max(.2,cw-.5),height:.5,fill:ink,stroke:'none'});add('path',{d:`M ${xx+cw*.5} ${t+d*.4} l -.22 .55 h .35 l -.22 .55`,stroke:c,'stroke-width':.13});}}
+ add('rect',{x:x-1.15,y:t-.95,width:2.3,height:.9,rx:.2,fill:bg,stroke:c,'stroke-width':.06});add('text',{x,y:t-.28,'text-anchor':'middle','font-size':.58,'font-weight':700,fill:ink,stroke:'none'},drawingCode(a,index));
+}

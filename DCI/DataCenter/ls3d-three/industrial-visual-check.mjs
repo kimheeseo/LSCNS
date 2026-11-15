@@ -12,11 +12,34 @@ try{
   const name=route.request().url().includes('three.core.js')?'three.core.js':'three.module.js';
   await route.fulfill({status:200,contentType:'text/javascript',headers:{'access-control-allow-origin':'*'},body:await readFile(new URL(name,build))});
  });
- await page.goto('http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html?engine=three',{waitUntil:'load',timeout:90000});
+ await page.goto('http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html?engine=three&view=2d',{waitUntil:'load',timeout:90000});
  await page.waitForFunction(()=>window.LS3D_THREE?.status==='ready',null,{timeout:60000});
  if(await page.locator('#displayModeChoice').isVisible())await page.locator('[data-display-choice="pc"]').click();
  await page.evaluate(()=>document.getElementById('guide').classList.remove('open'));
  await page.waitForFunction(()=>window.LS3D_THREE.renders>5);
+ // Regression: an old ?view=2d link must not activate the portable fallback or halt the real GPU renderer.
+ assert.equal(await page.evaluate(()=>window.LS3D_FALLBACK.active),false);
+ await page.evaluate(()=>window.LS3D_FALLBACK.activate('manual'));
+ assert.equal(await page.locator('#ls3dPortable2D').isVisible(),true);
+ const stopped=await page.evaluate(()=>window.LS3D_THREE.renders);
+ await page.getByRole('tab',{name:'3D 투어',exact:true}).click();
+ await page.waitForFunction(n=>!window.LS3D_FALLBACK.active&&window.LS3D_THREE.renders>n+3,stopped);
+ assert.equal(await page.locator('#ls3dPortable2D').isHidden(),true);
+ assert.equal(await page.locator('#sceneThree').isVisible(),true);
+ await page.getByRole('tab',{name:'2D 도면',exact:true}).click();
+ await page.getByLabel('2D 도면 구역',{exact:true}).selectOption('gray');
+ await page.waitForFunction(()=>document.querySelector('.ls-plan-tools strong')?.textContent.includes('상세 평면도'));
+ assert.ok(await page.locator('#ls-floor-plan svg').textContent().then(t=>t.includes('설비 일람표')&&t.includes('35.0 u')));
+ await page.locator('#viewport').screenshot({path:out+'/00-gray-drawing.png'});
+ await page.getByLabel('2D 도면 표시 방식',{exact:true}).selectOption('illustrated');
+ await page.waitForFunction(()=>document.querySelector('.ls-plan-tools strong')?.textContent.includes('그림형 배치도'));
+ assert.ok(await page.locator('#ls-floor-plan svg').textContent().then(t=>t.includes('공간 안의 설비')));
+ await page.locator('#viewport').screenshot({path:out+'/00-gray-illustrated.png'});
+ await page.getByLabel('2D 도면 구역',{exact:true}).selectOption('network');
+ assert.ok(await page.locator('#ls-floor-plan [data-asset="odf"]').count());
+ await page.getByRole('tab',{name:'3D 투어',exact:true}).click();
+ await page.evaluate(()=>window.__LS3D_TEST__.setZone('campus'));
+
  await page.locator('#viewport').screenshot({path:out+'/01-campus.png'});
  await page.evaluate(()=>window.__LS3D_TEST__.setZone('hall'));
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.assets>0);
@@ -152,5 +175,5 @@ try{
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.hardwareDetail===null);
  assert.deepEqual(errors,[]);
  await writeFile(out+'/results.json',JSON.stringify({results,errors},null,2));
- console.log('PASS: neutral campus, four rack types, open tray, explode/reassemble, server trays and selected storage shelves/drives extract/reinsert physically with collapsed controls; original assemblies preserved and restored, cleanup, mobile, no runtime errors');
+ console.log('PASS: old 2D URL preserves real GPU rendering, manual fallback resumes through 3D tab, drawing/illustrated rooms switch correctly; neutral campus, four rack types, open tray, explode/reassemble, server trays and selected storage shelves/drives extract/reinsert physically with collapsed controls; original assemblies preserved and restored, cleanup, mobile, no runtime errors');
 }finally{await browser.close();}

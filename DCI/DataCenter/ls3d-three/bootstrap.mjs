@@ -1,4 +1,4 @@
-import {createWorkspace} from './workspace.mjs?v=20261116-3d-default-v4';
+import {createWorkspace} from './workspace.mjs?v=20261116-dual-2d-v5';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);
@@ -135,6 +135,7 @@ if (requested && T) {
       status.adapter=adapter;
       status.status='ready';
       status.mode='three';
+      if(window.LS3D_FALLBACK?.reason==='webgl-unavailable')window.LS3D_FALLBACK.deactivate();
       canvas.style.display='block';
       canvas.style.pointerEvents='auto';
       oldCanvas.style.visibility='hidden';

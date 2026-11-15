@@ -239,7 +239,9 @@ function activate(why='manual'){
  sync(true);
 }
 function deactivate(){
- if(unsupported||!T.gl)return false;
+ const available=!!T.gl||window.LS3D_THREE?.status==='ready';
+ if(!available||reason==='webglcontextlost')return false;
+ unsupported=false;reason='';
  active=false;layer.hidden=true;document.body.classList.remove('ls3d-2d-active');
  return true;
 }
@@ -258,8 +260,8 @@ mobileDefaults();
 window.addEventListener('resize',()=>{mobileDefaults();if(active)sync(true)});
 window.addEventListener('ls3d-display-mode-changed',()=>{mobileDefaults();if(active)sync(true)});
 window.addEventListener('ls3d-tick',()=>sync());
-if(!T.gl)activate('webgl-unavailable');
-else if(new URLSearchParams(window.location.search).get('view')==='2d')activate('manual');
+if(!T.gl&&window.LS3D_THREE?.status!=='ready')activate('webgl-unavailable');
+// Detailed 2D is owned by the workspace tab. Old ?view=2d links must not pause GPU rendering.
 // On phones, do not force an onboarding modal over the scene. Re-open with '? 안내'.
 document.addEventListener('DOMContentLoaded',()=>{if(portable())$('guide')?.classList.remove('open')});
 })();

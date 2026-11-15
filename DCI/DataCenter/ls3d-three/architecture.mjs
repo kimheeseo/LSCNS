@@ -93,6 +93,24 @@ export function createArchitectureKit(THREE, { cube }) {
       part(ground,'detail','service-parking-line-'+x,x,-.034,44,.07,.018,7,'#d5d8cf',.04,.89);
     }
   }
+  function aisleStencil(parent,x,z,cold) {
+    if(typeof document==='undefined')return;
+    const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=320;
+    const ctx=canvas.getContext('2d');if(!ctx)return;
+    ctx.fillStyle=cold?'#164d88':'#922e32';ctx.fillRect(0,0,1024,320);
+    ctx.strokeStyle='#ffffff';ctx.lineWidth=10;ctx.strokeRect(12,12,1000,296);
+    ctx.fillStyle='#ffffff';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='800 112px sans-serif';ctx.fillText(cold?'COLD AISLE':'HOT AISLE',512,120,940);
+    ctx.font='700 62px "Pretendard Variable","Malgun Gothic",sans-serif';
+    ctx.fillText(cold?'냉기 통로 · 랙 흡입':'열기 통로 · 랙 배기',512,240,930);
+    const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;
+    const material=new THREE.MeshBasicMaterial({map,side:THREE.DoubleSide,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(5.6,1.85),material);
+    mesh.name='arch:detail:'+(cold?'cold':'hot')+'-aisle-floor-label:'+x+':'+z;
+    mesh.rotation.set(-Math.PI/2,0,Math.PI/2);mesh.position.set(x,.093,z);
+    mesh.userData.noPick=true;mesh.userData.archKind='detail';mesh.userData.aisleType=cold?'cold':'hot';
+    mesh.renderOrder=3;parent.add(mesh);counts.detail=(counts.detail||0)+1;
+  }
   function floorAndAisles(g,z,w,d,mode) {
     const color=z.id==='hall'?'#4f6e7d':z.id==='gray'?'#526578':'#5e7a85';
     part(g,'floor','slab',0,-.24,0,w,.20,d,'#344d60',.23,.82);
@@ -106,7 +124,8 @@ export function createArchitectureKit(THREE, { cube }) {
     if(z.id==='hall'){
       for(let lane=-1;lane<=1;lane++){
         const xx=lane* Math.min(w*.22,9.8);
-        part(g,'path','cold-hot-aisle-'+lane,xx,.04,0,2.1,.024,d*.78,lane===0?'#398da4':'#b07545',.07,.91);
+        for(const zz of [-d*.25,0,d*.25])aisleStencil(g,xx,zz,lane===0);
+        part(g,'path','cold-hot-aisle-'+lane,xx,.04,0,2.1,.024,d*.78,lane===0?'#347ac2':'#b9484c',.07,.91);
         for(let zz=-d*.35;zz<=d*.35;zz+=4.5)
           part(g,'detail','aisle-stripe-'+lane+'-'+zz,xx,.068,zz,1.8,.015,.095,'#c7d9d9',.1,.83);
       }

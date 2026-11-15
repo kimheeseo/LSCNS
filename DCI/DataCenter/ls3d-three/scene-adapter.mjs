@@ -4,7 +4,7 @@ import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261115-free-camera-v7';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261115-server-storage-v6';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-aisle-labels-v8';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-server-storage-v6';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';

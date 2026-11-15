@@ -1,15 +1,15 @@
-import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-industrial-v2';
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-rack-restore-v3';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261115-industrial-v2';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-industrial-v2';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-rack-restore-v3';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-rack-restore-v3';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261115-industrial-v2';
+import { createRackComponentKit } from './rack-components.mjs?v=20261115-rack-restore-v3';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -149,6 +149,7 @@ export function createSceneAdapter(T, canvas) {
   // STEP 10: replace the undifferentiated rack visual with separately tagged parts.
   // The original front-door/server-slide/fiber-cassette motion contract is preserved.
   const hardwareDetail=createRackHardwareDetail(THREE,{cube,material});
+  let hardwareModeRack=null; // Detailed PCB view is opt-in, never a side effect of opening a door.
   const rackKit=createRackComponentKit(THREE,{cube});
   const rackDoors=createRackDoorControls();
   const rackRails=createRackServerRails(THREE,{cube});
@@ -269,7 +270,9 @@ export function createSceneAdapter(T, canvas) {
   }
   function toggleRackFrontDoor(assetId) {
     const a=T.assetMap.get(assetId);
-    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'door'));
+    if(!a||!T.isMechanicalRack(a))return false;
+    restoreRackOverview(assetId,{openDoor:false});
+    return !!T.setMechanical?.(a,'door');
   }
   function focusRackOpticalAssembly(assetId,action){
     const asset=T.assetMap.get(assetId),item=registry.get(assetId);
@@ -353,14 +356,14 @@ export function createSceneAdapter(T, canvas) {
       const grid=document.createElement('div');
       grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:5px;';
       const actions=[
-        ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
+        ['rack-overview','기존 랙 전체 구성 복원'],['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
         ['hardware-detail','서버 내부 확대'],['hardware-explode','내부 부품 펼치기/조립'],
         ['previous-server','이전 모듈'],['next-server','다음 모듈'],
         ['server-slide','선택 모듈 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],
         ['next-drive','다음 드라이브 선택'],['drive-toggle','선택 드라이브 인출/장착'],['cassette-slide','광 카세트 인출/복귀'],
         ['patch-select','광 패치패널 선택'],['switch-select','네트워크 스위치 선택'],
-        ['cassette-select','MPO/MTP 카세트 선택'],['gpu-select','GPU 모듈 선택'],
+        ['cassette-select','MPO/MTP 카세트 선택'],['housing-select','광 하우징 선택'],['manager-select','Cable management 선택'],['gpu-select','GPU 모듈 선택'],
         ['cable-patch','케이블 · 패치패널 연결/분리'],
         ['optical-detail','광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
@@ -376,7 +379,14 @@ export function createSceneAdapter(T, canvas) {
         const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
-        if(action==='hardware-detail'||action==='hardware-explode')focusRackHardware(asset,action==='hardware-explode');
+        if(action==='rack-overview')restoreRackOverview(asset.id);
+        else if(action==='housing-select'||action==='manager-select'){
+          restoreRackOverview(asset.id);
+          const kind=action==='housing-select'?'optical-housing':'cable-manager';
+          const part=registry.get(asset.id)?.rackParts.find(p=>p.kind===kind);
+          if(part)selectRackPart(asset.id,part.id);
+        }
+        else if(action==='hardware-detail'||action==='hardware-explode')focusRackHardware(asset,action==='hardware-explode');
         else if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
         else if(action==='switch-select'){
           const switchPart=registry.get(asset.id)?.rackParts.find(p=>p.kind==='tor');
@@ -433,8 +443,8 @@ export function createSceneAdapter(T, canvas) {
           focusRackSide(asset.id,'rear');
           if(!rackDoors.state(asset.id)?.targetRear)toggleRearRackDoor(asset.id);
         }
-        else if(action==='front-camera')focusRackSide(asset.id,'front');
-        else if(action==='rear-camera')focusRackSide(asset.id,'rear');
+        else if(action==='front-camera')restoreRackOverview(asset.id);
+        else if(action==='rear-camera'){restoreRackOverview(asset.id);focusRackSide(asset.id,'rear');}
 
         else if(action==='front-door')toggleRackFrontDoor(asset.id);
         else if(action==='rear-door')toggleRearRackDoor(asset.id);
@@ -601,10 +611,31 @@ export function createSceneAdapter(T, canvas) {
     rackPanelDisclosure?.setCollapsed(false);
     return !!rackControls&&!rackControls.hidden;
   }
+  function restoreRackOverview(assetId,{openDoor=true}={}){
+    const asset=T.assetMap.get(assetId),item=registry.get(assetId);
+    if(!asset||!item||!T.isMechanicalRack(asset))return false;
+    hardwareModeRack=null;
+    hardwareDetail.clear();
+    showRackPart(null); // Restores snapshots used by all optical component inspectors.
+    rackOptics.isolate(assetId,false);
+    rackLcDesign.isolate(assetId,false);
+    odfBox.isolate(assetId,false);
+    rackPatchDesign.isolate(assetId,false);
+    rackPatchDesign.select(assetId,false);
+    const motion=T.mechanical(asset);
+    motion.targetSlide=0;motion.targetCassette=0;
+    if(openDoor)motion.targetDoor=1;
+    focusRackSide(assetId,'front');
+    rackPanelDisclosure?.setCollapsed(false);
+    return true;
+  }
   function focusRackHardware(asset,explode=false){
     const item=registry.get(asset.id),session=item?.serverSession;
     const selected=rackRails.state(asset.id)?.selected,module=session?.groups?.get(selected);
     if(!module)return false;
+    // Leave any optical-only inspection before showing the optional server internals.
+    if(hardwareModeRack!==asset.id)showRackPart(null);
+    hardwareModeRack=asset.id;
     focusRackSide(asset.id,'front');
     const m=T.mechanical(asset);
     if(!m.targetDoor)T.setMechanical(asset,'door');
@@ -628,7 +659,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(hardware-detail|hardware-explode|front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
+    const allowed=/^(rack-overview|housing-select|manager-select|hardware-detail|hardware-explode|front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;
@@ -698,6 +729,9 @@ export function createSceneAdapter(T, canvas) {
     return true;
   }
   function showRackPart(info) {
+    if(!info||!/^(server|storage|network-switch)-\d+$/.test(info.kind||'')){
+      hardwareModeRack=null;hardwareDetail.clear();
+    }
     clearSceneInspection();
     clearRackPartEmphasis();
     if(selectedRackPart){
@@ -1085,8 +1119,9 @@ export function createSceneAdapter(T, canvas) {
     const activeAsset=currentRackAsset(),activeItem=activeAsset&&registry.get(activeAsset.id);
     const selectedServer=activeAsset&&rackRails.state(activeAsset.id)?.selected;
     const hardwareModule=activeItem?.serverSession?.groups?.get(selectedServer);
-    hardwareDetail.update(activeAsset,hardwareModule,!!(activeAsset&&T.rackIsolateActive&&(T.mechanical(activeAsset).targetDoor||T.mechanical(activeAsset).door>.2)),dt,activeItem?.rackUnits);
+    hardwareDetail.update(activeAsset,hardwareModule,!!(activeAsset&&hardwareModeRack===activeAsset.id&&T.rackIsolateActive&&(T.mechanical(activeAsset).targetDoor||T.mechanical(activeAsset).door>.2)),dt,activeItem?.rackUnits);
     diagnostic.hardwareDetail=hardwareDetail.state();
+    diagnostic.rackViewMode=hardwareModeRack?'server-detail':'rack-overview';
     showControls();
     diagnostic.assets=registry.size;
     diagnostic.rackNetwork={
@@ -1183,7 +1218,8 @@ export function createSceneAdapter(T, canvas) {
     const inspectedId=T.rackIsolateActive&&T.selected&&T.isMechanicalRack(T.selected)?T.selected.id:null;
     if(inspectedId!==rackAutoFocused){
       rackAutoFocused=inspectedId;
-      if(inspectedId)focusRackSide(inspectedId,'front');
+      if(inspectedId)restoreRackOverview(inspectedId,{openDoor:false});
+      else {hardwareModeRack=null;hardwareDetail.clear();}
     }
     // STEP 18: sustained slow frames reduce MEDIUM DPR only; explicit low/high stays fixed.
     viewportPolicy.sample(dt);
@@ -1353,7 +1389,7 @@ export function createSceneAdapter(T, canvas) {
     get viewportPerformance(){return viewportPolicy.summary();},
     get cameraOcclusion(){return cameraOcclusion.summary();},
     rackCabling:rackNetwork,mmrController:zoneExtras.mmr,colocationController:zoneExtras.colocation,
-     selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,clearRackFocus(){focusedRack=null;},setRackServerSelection,cycleRackServer,
+     restoreRackOverview,selectRackPart,selectInspectionPart,clearInspectionSelection,focusRackSide,clearRackFocus(){focusedRack=null;},setRackServerSelection,cycleRackServer,
     toggleRearRackDoor,toggleRackFrontDoor,toggleRackServerSlide,toggleRackCassette,cycleRackGpu,toggleRackGpu,expandRackControls,runRackAction,
     get rackPanel(){return rackPanelDisclosure?.summary()||null;},
     get rackInteraction(){return diagnostic.rackInteraction;},

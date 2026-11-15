@@ -22,6 +22,43 @@ try{
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.assets>0);
  await page.locator('#viewport').screenshot({path:out+'/02-data-hall.png'});
  const results=[];
+ async function assertMechanicalMotion(id){
+  await page.locator('#ls3dRackPanelToggle').click();
+  const door=page.locator('[data-rack-mechanical="front-door"]');
+  const cassette=page.locator('[data-rack-mechanical="cassette-slide"]');
+  assert.ok(await door.isVisible());assert.ok(await cassette.isVisible());
+  assert.equal(await page.locator('#ls3dRackMotionBody').isHidden(),true);
+  await door.click();
+  await page.waitForFunction(id=>{
+   const root=window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id);
+   return Math.abs(root.getObjectByName('front-door-hinge').rotation.y)>1.5;
+  },id);
+  assert.equal(await door.textContent(),'랙 문 닫기');
+  await cassette.click();
+  await page.waitForFunction(id=>{
+   const root=window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id);
+   return root.getObjectByName('fiber-cassette').position.z < -1;
+  },id);
+  assert.equal(await cassette.textContent(),'카세트 넣기');
+  assert.equal(await page.evaluate(()=>window.LS3D_THREE.adapter.rackPanel.collapsed),true);
+  if(id==='tor-a')await page.locator('#viewport').screenshot({path:out+'/mechanical-door-open-cassette-out.png'});
+  await cassette.click();
+  await page.waitForFunction(id=>Math.abs(window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id).getObjectByName('fiber-cassette').position.z)<.02,id);
+  assert.equal(await cassette.textContent(),'카세트 빼기');
+  await door.click();
+  await page.waitForFunction(id=>Math.abs(window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id).getObjectByName('front-door-hinge').rotation.y)<.02,id);
+  assert.equal(await door.textContent(),'랙 문 열기');
+  // Closing the door retracts an extended cassette using the original motion controller.
+  await cassette.click();
+  await page.waitForFunction(()=>window.__LS3D_TEST__.mechanical(window.__LS3D_TEST__.selected).cassette>.95);
+  await door.click();
+  await page.waitForFunction(()=>{
+   const m=window.__LS3D_TEST__.mechanical(window.__LS3D_TEST__.selected);return m.door<.01&&m.cassette<.01;
+  });
+  if(id==='tor-a')await page.locator('#viewport').screenshot({path:out+'/mechanical-door-closed-cassette-in.png'});
+  await page.locator('#ls3dRackPanelToggle').click();
+ }
+
  async function assertRackInventory(id){
   const inventory=await page.evaluate(id=>{
    const root=window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id),ids=new Set();
@@ -44,6 +81,7 @@ try{
   await page.evaluate(id=>{const T=window.__LS3D_TEST__;T.closeRackScene();T.setZone('hall');T.pickAsset(T.assetMap.get(id));},id);
   await page.locator('#detailBtn').click();
   await page.waitForFunction(()=>window.__LS3D_TEST__.rackIsolateActive);
+  await assertMechanicalMotion(id);
   await page.locator('[data-rack-action="front-door"]').click();
   await page.waitForFunction(()=>window.__LS3D_TEST__.mechanical(window.__LS3D_TEST__.selected).door>.95);
   assert.equal(await page.evaluate(()=>window.LS3D_THREE.adapter.diagnostic.hardwareDetail),null,'Door opening must retain the original rack view');
@@ -88,8 +126,15 @@ try{
  await page.setViewportSize({width:390,height:844});
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.frames>10);
  assert.equal(await page.locator('#sceneThree').isVisible(),true);
+ await page.evaluate(()=>{const T=window.__LS3D_TEST__;T.setZone('hall');T.pickAsset(T.assetMap.get('tor-a'));});
+ await page.getByRole('button',{name:/설비 검사·상세 펼치기/}).click().catch(()=>{});
+ await page.locator('#inspectorRackOpen').click();
+ await page.waitForFunction(()=>window.__LS3D_TEST__.rackIsolateActive);
+ await page.locator('#ls3dRackPanelToggle').click();
+ assert.ok(await page.locator('[data-rack-mechanical="front-door"]').isVisible());
+ assert.ok(await page.locator('[data-rack-mechanical="cassette-slide"]').isVisible());
  await page.screenshot({path:out+'/05-mobile.png'});
  assert.deepEqual(errors,[]);
  await writeFile(out+'/results.json',JSON.stringify({results,errors},null,2));
- console.log('PASS: neutral campus, four rack types, open tray, explode/reassemble, original switch/housing/four modules/cable management preserved and restored, cleanup, mobile, no runtime errors');
+ console.log('PASS: neutral campus, four rack types, open tray, explode/reassemble, door open/close and cassette out/in transforms verified with collapsed controls; original assemblies preserved and restored, cleanup, mobile, no runtime errors');
 }finally{await browser.close();}

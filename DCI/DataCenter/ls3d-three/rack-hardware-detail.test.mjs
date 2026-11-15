@@ -2,7 +2,16 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import * as THREE from '../vendor/three.module.js';
 import {createRackHardwareDetail} from './rack-hardware-detail.mjs';
 import {industrialColor} from './industrial-palette.mjs';
+import {createRackPanelDisclosure} from './rack-panel-disclosure.mjs';
 const geometry=new THREE.BoxGeometry(1,1,1),cache=new Map();
+test('Door/cassette controls remain outside the collapsed details panel',()=>{
+ const panel={style:{},dataset:{}},body={hidden:false,id:'details'},pinned={hidden:false};
+ const attrs={},button={setAttribute(k,v){attrs[k]=v;}};
+ const control=createRackPanelDisclosure({panel,body,button,pinned,collapsed:true});
+ assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);assert.equal(panel.style.maxHeight,'132px');
+ assert.equal(attrs['aria-expanded'],'false');control.toggle();assert.equal(body.hidden,false);assert.equal(pinned.hidden,false);
+ control.toggle();assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);
+});
 function material(c){if(!cache.has(c))cache.set(c,new THREE.MeshStandardMaterial({color:c}));return cache.get(c);}
 function cube(g,x,y,z,w,h,d,c){const m=new THREE.Mesh(geometry,material(c));m.position.set(x,y+h/2,z);m.scale.set(w,h,d);g.add(m);return m;}
 test('Neutral finishes preserve cable and operational signal colors',()=>{

@@ -1,15 +1,15 @@
-import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-rack-restore-v3';
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-mechanical-v4';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261115-rack-restore-v3';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-rack-restore-v3';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-mechanical-v4';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-mechanical-v4';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261115-rack-restore-v3';
+import { createRackComponentKit } from './rack-components.mjs?v=20261115-mechanical-v4';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -21,7 +21,7 @@ import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
-import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261015-rack-collapse';
+import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-mechanical-v4';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -266,12 +266,17 @@ export function createSceneAdapter(T, canvas) {
   }
   function toggleRackCassette(assetId) {
     const a=T.assetMap.get(assetId);
-    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'cassette'));
+    if(!a||!T.isMechanicalRack(a))return false;
+    // Return from an optical-only view without resetting the current drawer target.
+    showRackPart(null);
+    focusRackSide(assetId,'front');
+    return !!T.setMechanical?.(a,'cassette');
   }
   function toggleRackFrontDoor(assetId) {
     const a=T.assetMap.get(assetId);
     if(!a||!T.isMechanicalRack(a))return false;
-    restoreRackOverview(assetId,{openDoor:false});
+    showRackPart(null);
+    focusRackSide(assetId,'front');
     return !!T.setMechanical?.(a,'door');
   }
   function focusRackOpticalAssembly(assetId,action){
@@ -344,6 +349,30 @@ export function createSceneAdapter(T, canvas) {
       disclosureButton.type='button';
       disclosureButton.style.cssText='flex:none;padding:6px 10px;border:1px solid #74b4c6;border-radius:7px;background:#22516a;color:#effcff;font:600 12px system-ui;cursor:pointer;touch-action:manipulation;';
       bar.appendChild(disclosureButton);rackControls.appendChild(bar);
+      // Basic mechanical controls stay outside the foldable details body.
+      const mechanicalBar=document.createElement('div');
+      mechanicalBar.id='ls3dRackMechanicalControls';
+      mechanicalBar.setAttribute('role','group');
+      mechanicalBar.setAttribute('aria-label','랙 문과 카세트 조작');
+      mechanicalBar.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;padding-top:7px;';
+      for(const [code,label] of [['front-door','랙 문 열기'],['cassette-slide','카세트 빼기']]){
+        const button=document.createElement('button');
+        button.type='button';button.dataset.rackMechanical=code;button.textContent=label;
+        button.style.cssText='min-height:39px;padding:8px 5px;border:1px solid #7be0d1;border-radius:7px;background:#215e65;color:#fff;font:700 12px system-ui;cursor:pointer;touch-action:manipulation;';
+        mechanicalBar.appendChild(button);
+      }
+      const mechanicalStatus=document.createElement('div');
+      mechanicalStatus.id='ls3dRackMechanicalStatus';
+      mechanicalStatus.style.cssText='grid-column:1/-1;font-size:10px;color:#c5dfdf;min-height:15px;line-height:1.5;';
+      mechanicalBar.appendChild(mechanicalStatus);rackControls.appendChild(mechanicalBar);
+      mechanicalBar.addEventListener('click',event=>{
+        const code=event.target.closest('[data-rack-mechanical]')?.dataset.rackMechanical;
+        const asset=currentRackAsset();if(!code||!asset)return;
+        event.preventDefault();event.stopPropagation();
+        if(code==='front-door')toggleRackFrontDoor(asset.id);
+        else if(code==='cassette-slide')toggleRackCassette(asset.id);
+        showControls();
+      });
       const controlsBody=document.createElement('div');
       controlsBody.id='ls3dRackMotionBody';
       controlsBody.style.cssText='padding-top:5px;';
@@ -531,7 +560,7 @@ export function createSceneAdapter(T, canvas) {
       details.appendChild(cablesGrid);controlsBody.appendChild(details);
       rackPanelDisclosure=createRackPanelDisclosure({
         panel:rackControls,body:controlsBody,button:disclosureButton,
-        title:rackPanelHeading,
+        title:rackPanelHeading,pinned:mechanicalBar,
         collapsed:canvas.getBoundingClientRect().width<=640
       });
       disclosureButton.addEventListener('click',e=>{
@@ -585,6 +614,17 @@ export function createSceneAdapter(T, canvas) {
     const odfCover=rackControls.querySelector('[data-rack-action="odf-cover"]');
     if(odfCover)odfCover.textContent=odfBox.state(a.id)?.target?'커버 닫기':'커버 열기';
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
+    const mechanical=T.mechanical(a);
+    for(const [code,label,pressed] of [
+      ['front-door',mechanical.targetDoor?'랙 문 닫기':'랙 문 열기',!!mechanical.targetDoor],
+      ['cassette-slide',mechanical.targetCassette?'카세트 넣기':'카세트 빼기',!!mechanical.targetCassette]
+    ])for(const button of rackControls.querySelectorAll('[data-rack-mechanical="'+code+'"], [data-rack-action="'+code+'"]')){
+      if(button.textContent!==label)button.textContent=label;
+      button.setAttribute('aria-pressed',String(pressed));
+    }
+    const mechanicalText='문: '+(mechanical.targetDoor?'열림':'닫힘')+' · 카세트: '+(mechanical.targetCassette?'인출':'장착');
+    const mechanicalStatus=rackControls.querySelector('#ls3dRackMechanicalStatus');
+    if(mechanicalStatus&&mechanicalStatus.textContent!==mechanicalText)mechanicalStatus.textContent=mechanicalText;
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
     const gpuStatus=gpuRack&&server?.gpuCount?' · GPU '+server.gpuSlot+'/'+server.gpuCount+(server.gpuTarget?' 인출':' 장착'):'';
     const gpuButton=rackControls.querySelector('[data-rack-action="gpu-toggle"]');

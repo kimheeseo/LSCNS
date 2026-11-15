@@ -5,6 +5,7 @@ for(const [width,height] of [[1400,333],[1000,650],[390,320],[390,700]])for(cons
  test(`rack fits ${width}x${height} ${side}`,()=>{
   const v=rackCameraView(a,{width,height,side});
   assert.ok(v.target.every(Number.isFinite)&&Number.isFinite(v.distance));
+  assert.equal(v.pitch,0,'camera is level with the rack front');
   assert.equal(v.yaw,side==='front'?Math.PI:0);
   const tan=Math.tan(Math.PI/8),aspect=width/height,narrow=width<=640;
   const usableW=width-(narrow?0:Math.min(322,width*.34))-32;
@@ -15,7 +16,7 @@ for(const [width,height] of [[1400,333],[1000,650],[390,320],[390,700]])for(cons
  });
 }
 test('front camera exits microscope, snaps live camera, isolates campus and restores on navigation',()=>{
- const T={selected:a,currentZone:'campus',facilityMode:'aidc',cameraDesired:{target:[0,0,0],distance:.1},camera:{target:[0,0,0],distance:.1},closeDetail(){this.closed=true}};
+ const T={selected:a,currentZone:'campus',facilityMode:'aidc',cameraDesired:{target:[100,90,-70],distance:.1,yaw:1.2,pitch:1.1},camera:{target:[0,0,0],distance:.1},closeDetail(){this.closed=true}};
  const f=applyRackCamera(T,a,{width:1400,height:333,side:'front'});
  assert.ok(T.closed);assert.deepEqual(T.camera,T.cameraDesired);assert.notEqual(T.camera.target,T.cameraDesired.target);
  assert.ok(rackFocusActive(f,T));T.currentZone='hall';assert.equal(rackFocusActive(f,T),false);

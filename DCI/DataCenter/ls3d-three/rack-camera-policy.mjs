@@ -12,7 +12,7 @@ export function rackCameraView(a,{width=1000,height=600,side='front',fov=Math.PI
  const offsetY=bottomPanel/safeHeight*distance*tan;
  // Frame the rack a little above center so its feet and the floor below
  // have breathing room in rack-only view, without changing camera distance.
- return {target:[a.x+Math.cos(yaw)*offsetX,(a.h||6)*.46-offsetY,a.z],distance,pitch:.12,yaw};
+ return {target:[a.x+Math.cos(yaw)*offsetX,(a.h||6)*.46-offsetY,a.z],distance,pitch:0,yaw};
 }
 export function applyRackCamera(T,a,options={}){
  if(!a||!T.cameraDesired||T.workerViewId||T.walkActive)return null;

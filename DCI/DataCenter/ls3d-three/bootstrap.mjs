@@ -1,4 +1,4 @@
-import {createWorkspace} from './workspace.mjs?v=20261109-zone-labels-v1';
+import {createWorkspace} from './workspace.mjs?v=20261115-free-camera-v7';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);
@@ -130,7 +130,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261115-server-storage-v6');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261115-free-camera-v7');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

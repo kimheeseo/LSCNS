@@ -24,7 +24,7 @@ export function createWorkspace(T, status) {
   const path=document.createElement('div');path.className='workspace-path';path.setAttribute('aria-label','현재 탐색 경로');$('viewport').append(path);
   const tools=document.createElement('nav');tools.className='workspace-tools';tools.setAttribute('aria-label','3D 화면 조작');
   const reset=()=>{if(T.rackIsolateActive&&T.selected)status.adapter?.focusRackSide(T.selected.id,'front');else T.setZone(T.currentZone);};
-  tools.append(button('회전 ↶',()=>T.dragCamera(45,0,{button:0})),button('이동 ←',()=>T.panCamera(35,0)),button('이동 →',()=>T.panCamera(-35,0)),button('확대 +',()=>T.zoomCamera(-.18)),button('축소 −',()=>T.zoomCamera(.18)),button('시점 초기화',reset),button('전체화면',()=>$('btnFull').click()));
+  tools.append(button('이동 모드',()=>T.setDragMode('pan')),button('회전 모드',()=>T.setDragMode('rotate')),button('회전 ↶',()=>T.dragCamera(45,0,{button:0,cameraMode:'rotate'})),button('이동 ←',()=>T.panCamera(35,0)),button('이동 →',()=>T.panCamera(-35,0)),button('이동 ↑',()=>T.panCamera(0,-35)),button('이동 ↓',()=>T.panCamera(0,35)),button('확대 +',()=>T.zoomCamera(-.18)),button('축소 −',()=>T.zoomCamera(.18)),button('시점 초기화',reset),button('전체화면',()=>$('btnFull').click()));
   const xray=button('투시 꺼짐',()=>{const enabled=status.adapter?.setRackXray(!status.adapter.rackXray);xray.setAttribute('aria-pressed',String(!!enabled));xray.textContent=enabled?'투시 켜짐':'투시 꺼짐';});xray.setAttribute('aria-pressed','false');tools.append(xray);
   $('viewport').append(tools);
   // Rack roles follow the host model; labels stay anchored to rack coordinates.

@@ -2,7 +2,7 @@ import {mechanicalButtons} from './rack-mechanical-policy.mjs?v=20261115-server-
 import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-server-storage-v6';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
-import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
+import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261115-free-camera-v7';
 import * as THREE from 'three';
 import { createArchitectureKit } from './architecture.mjs?v=20261115-server-storage-v6';
 import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-server-storage-v6';

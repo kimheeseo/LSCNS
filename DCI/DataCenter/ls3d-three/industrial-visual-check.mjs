@@ -25,7 +25,13 @@ try{
  async function assertRackInventory(id){
   const inventory=await page.evaluate(id=>{
    const root=window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id),ids=new Set();
-   root.traverseVisible(o=>{if(o.isMesh&&o.userData.partId)ids.add(o.userData.partId);});
+   root.traverseVisible(o=>{
+    if(!o.isMesh)return;
+    if(o.userData.partId)ids.add(o.userData.partId);
+    // Detailed optical meshes use subpart IDs; include their visible parent assembly.
+    for(let parent=o.parent;parent&&parent!==root;parent=parent.parent)
+     if(parent.userData.rackPart?.id)ids.add(parent.userData.rackPart.id);
+   });
    return [...ids];
   },id);
   for(const key of [':tor:',':patch-panel:',':optical-housing',':cassette-module-0',':cassette-module-1',':cassette-module-2',':cassette-module-3',':cable-manager:',':pdu-a:',':pdu-b:'])

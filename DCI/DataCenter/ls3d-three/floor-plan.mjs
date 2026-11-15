@@ -1,4 +1,4 @@
-import {drawRoomBase,drawRoomEquipment} from './room-drawing.mjs?v=20261116-room-plan-v2';
+import {drawRoomBase,drawRoomEquipment} from './room-drawing.mjs?v=20261116-room-plan-v3';
 // The plan uses the same host assets and zones as the 3D tour, never a separate inventory.
 export function planBounds(zones,assets){
  const boxes=[...zones.map(z=>[z.pos[0]-z.size[0]/2,z.pos[1]-z.size[1]/2,z.size[0],z.size[1]]),...assets.map(a=>[a.x-a.w/2,a.z-a.d/2,a.w,a.d])].filter(b=>b.every(Number.isFinite));
@@ -19,7 +19,7 @@ export function createFloorPlan(T){
  const tools=document.createElement('div');tools.className='ls-plan-tools';
  const heading=document.createElement('strong');heading.textContent='2D 설비 배치도';
  const zone=document.createElement('select');zone.setAttribute('aria-label','2D 도면 구역');zone.onchange=()=>{T.closeRackScene();T.setZone(zone.value);update();};
- tools.append(heading,zone,button('확대 +',()=>zoom(.8)),button('축소 −',()=>zoom(1.25)),button('전체 맞춤',()=>{view=fit.slice();applyView();}),button('도면 전체화면',()=>{if(document.fullscreenElement)document.exitFullscreen?.();else viewport.requestFullscreen?.();}));
+ tools.append(heading,zone,button('확대 +',()=>zoom(.8)),button('축소 −',()=>zoom(1.25)),button('전체 맞춤',()=>{view=fit.slice();applyView();}),button('도면 크게 / 닫기',()=>{viewport.classList.toggle('ls-plan-expanded');}));
  const svg=el('svg',{role:'group','aria-label':'데이터센터 구역과 설비의 2D 평면 배치도',preserveAspectRatio:'xMidYMid meet',tabindex:0});
  const foot=document.createElement('div');foot.className='ls-plan-footer';
  const selected=document.createElement('span');selected.textContent='설비를 선택하면 이름과 유형이 표시됩니다.';
@@ -33,13 +33,16 @@ export function createFloorPlan(T){
  .ls-floor-plan{position:absolute;inset:58px 12px 12px;z-index:40;background:#f7fafc;border:1px solid #bacbd6;border-radius:12px;display:flex;flex-direction:column;color:#203849;overflow:hidden}.ls-floor-plan[hidden]{display:none!important}
  .ls-plan-tools{display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding:10px;border-bottom:1px solid #d2dde5}.ls-plan-tools strong{margin-right:auto}.ls-floor-plan svg{width:100%;flex:1;min-height:140px;touch-action:none;background:#f7fafc;cursor:grab}.ls-floor-plan svg:active{cursor:grabbing}.ls-floor-plan svg [data-room]{cursor:pointer}.ls-floor-plan svg text{user-select:none}.ls-plan-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px;border-top:1px solid #d2dde5;font-size:12px}.ls-plan-footer small{flex-basis:100%;font-size:11px;color:#516678}.ls-plan-footer span{flex:1}.ls-floor-plan [data-asset]{cursor:pointer}.ls-floor-plan [data-asset]:focus rect{stroke:#0b6980;stroke-width:.4}
  #viewport.ls-floor-plan-active > :not(.ls-plan-tabs):not(.ls-floor-plan){visibility:hidden}#viewport.ls-floor-plan-active .ls-plan-tabs{top:8px}
+ #viewport.ls-plan-expanded::after{content:'';position:fixed;inset:0;z-index:10000;background:#102333}
+ #viewport.ls-plan-expanded .ls-floor-plan{position:fixed;inset:62px 12px 12px;z-index:10001}
+ #viewport.ls-plan-expanded .ls-plan-tabs{position:fixed;top:10px;left:12px;z-index:10002}
  @media(max-width:790px){.ls-plan-tabs{top:106px;left:8px}.ls-floor-plan{left:6px;right:6px;bottom:6px}.ls-plan-tools{padding:7px}.ls-plan-tools strong{flex-basis:100%}.ls-plan-footer{padding:7px}}
  `;document.head.append(style);
  let active=false,signature='',selection='',view=[-10,-10,20,20],fit=view.slice(),drag=null;
  const pointers=new Map();let gesture=null;
  function applyView(){svg.setAttribute('viewBox',view.join(' '));}
  function zoom(factor){const w=Math.max(fit[2]/30,Math.min(fit[2]*4,view[2]*factor)),f=w/view[2];view=[view[0]+view[2]*(1-f)/2,view[1]+view[3]*(1-f)/2,w,view[3]*f];applyView();}
- function setActive(on){active=on;panel.hidden=!on;viewport.classList.toggle('ls-floor-plan-active',on);tour.setAttribute('aria-selected',String(!on));plan.setAttribute('aria-selected',String(on));tour.tabIndex=on?-1:0;plan.tabIndex=on?0:-1;if(on){signature='';update();svg.focus();}else tour.focus();}
+ function setActive(on){active=on;if(!on)viewport.classList.remove('ls-plan-expanded');panel.hidden=!on;viewport.classList.toggle('ls-floor-plan-active',on);tour.setAttribute('aria-selected',String(!on));plan.setAttribute('aria-selected',String(on));tour.tabIndex=on?-1:0;plan.tabIndex=on?0:-1;if(on){signature='';update();svg.focus();}else tour.focus();}
  tabs.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();setActive(e.key==='Home'?false:e.key==='End'?true:!active);(active?plan:tour).focus();}});
  function choose(a){T.pickAsset(a,false);selection='';update();}
  svg.addEventListener('pointerdown',e=>{e.preventDefault();svg.focus();pointers.set(e.pointerId,[e.clientX,e.clientY]);svg.setPointerCapture(e.pointerId);if(pointers.size===1)drag={x:e.clientX,y:e.clientY,view:view.slice(),moved:false,target:e.target};if(pointers.size===2){const [a,b]=[...pointers.values()];gesture={distance:Math.hypot(a[0]-b[0],a[1]-b[1]),view:view.slice()};if(drag)drag.moved=true;}});
@@ -50,7 +53,7 @@ export function createFloorPlan(T){
  svg.addEventListener('keydown',e=>{if(['+','=','-'].includes(e.key)){e.preventDefault();zoom(e.key==='-'?1.2:1/1.2);}else{const d={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(d){e.preventDefault();view[0]+=d[0]*view[2]*.06;view[1]+=d[1]*view[3]*.06;applyView();}}});
  function update(){if(!active)return;
  const allAssets=T.visibleAssets().filter(a=>[a.x,a.z,a.w,a.d].every(Number.isFinite));
- const assets=allAssets.filter(a=>T.currentZone==='campus'||a.zone===T.currentZone);
+ const assets=allAssets.filter(a=>T.currentZone==='campus'||(a.zone===T.currentZone&&a.type!=='Visitor tour'));
  const zoneIds=new Set(allAssets.map(a=>a.zone));const zones=T.Z.filter(z=>z.id!=='campus'&&(T.currentZone==='campus'?zoneIds.has(z.id):z.id===T.currentZone));
  const sig=T.facilityMode+'|'+T.currentZone+'|'+JSON.stringify(assets.map(a=>[a.id,a.name,a.x,a.z,a.w,a.d]));
  if(sig!==signature){signature=sig;svg.replaceChildren();
@@ -64,6 +67,7 @@ export function createFloorPlan(T){
  selection=null;}
  const currentSelected=assets.find(a=>a.id===T.selected?.id);const id=currentSelected?.id||'';if(id!==selection){selection=id;for(const g of svg.querySelectorAll('[data-asset]')){const on=g.getAttribute('data-asset')===id;g.setAttribute('aria-pressed',String(on));g.querySelector('rect').setAttribute('stroke',on?'#007d87':'#647c90');g.querySelector('rect').setAttribute('stroke-width',on?'.45':'.16');}selected.textContent=currentSelected?currentSelected.name+' · '+currentSelected.type:'설비를 선택하면 이름과 유형이 표시됩니다.';open.disabled=!currentSelected;}
  }
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')viewport.classList.remove('ls-plan-expanded');});
  tour.setAttribute('aria-selected','true');plan.setAttribute('aria-selected','false');plan.tabIndex=-1;if(new URLSearchParams(location.search).get('view')==='2d')setActive(true);return {update,setActive};
 }
 

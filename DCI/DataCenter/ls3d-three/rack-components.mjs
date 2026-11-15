@@ -1,4 +1,4 @@
-import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v1';
+import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v2';
 // STEP 10 — independent, selectable rack frame and assemblies, 42/48U conceptual layout.
 // This is a physical hierarchy for teaching. Not a manufacturer-certified U allocation/BOM.
 // Allocate only unused front U positions. Passive panels are illustrative and

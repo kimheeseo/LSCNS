@@ -2,7 +2,8 @@
 export function industrialColor(name,color,context='equipment'){
  const n=String(name).toLowerCase();
  if(context==='architecture'){
-  if(/asphalt|parking|grass|garden|road|marking|line|car-/.test(n))return color;
+  if(/grass|garden|marking|line|car-/.test(n))return color;
+  if(/asphalt|road|pavement/.test(n))return '#62696d';
   if(/floor|foundation|slab|tile/.test(n))return '#a8adb0';
   if(/wall|facade|ceiling|roof/.test(n))return '#d9dddf';
   if(/beam|column|gantry/.test(n))return '#656b70';

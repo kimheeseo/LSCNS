@@ -20,7 +20,7 @@ for(const [type,kind,units] of [['GPU server rack','gpu',48],['Compute rack','co
   assert.equal(kit.state().kind,kind);assert.equal(sled.visible,false);assert.equal(neighbor.children.length,0);
   assert.ok(m.getObjectByName('hardware:green-mainboard'));assert.ok(m.getObjectByName('hardware:fan-grille'));
   assert.equal(kit.explode(),true);for(let i=0;i<20;i++)kit.update(asset,m,true,.1,units);
-  assert.ok(kit.state().progress>.99);assert.ok(m.getObjectByName('hardware-layer:cover').visible);
+  assert.ok(kit.state().progress>.99);assert.ok(m.getObjectByName('hardware-layer:cover').position.x < -1.5);assert.ok(m.getObjectByName('hardware-layer:cover').visible);
   assert.equal(kit.explode(),false);for(let i=0;i<20;i++)kit.update(asset,m,true,.1,units);
   assert.ok(kit.state().progress<.01);kit.update(null,null,false,.1);assert.equal(kit.state(),null);assert.equal(sled.visible,true);assert.equal(m.children.length,1);
  });

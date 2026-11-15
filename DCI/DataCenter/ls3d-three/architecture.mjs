@@ -1,4 +1,4 @@
-import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v1';
+import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v2';
 // LS3D STEP 04 — industrial architecture geometry for the real Three.js renderer.
 // Builds spatial geometry: slabs, façades, doors, glass, ceiling structure and suspended trays.
 // Illustrative coordinates (legacy scene units), NOT CAD/BIM or construction clearances.

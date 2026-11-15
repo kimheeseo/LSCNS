@@ -88,6 +88,9 @@ export function createRackHardwareDetail(THREE,{cube,material}){
   active.progress+=(Number(requested)-active.progress)*Math.min(1,dt*7);
   for(const g of active.layers)g.position.y=g.userData.lift*active.progress;
   active.cover.visible=active.progress>.015;
+  // Slide the lid aside as it lifts so the CPU, memory and cooling layers remain visible.
+  active.cover.position.x=-asset.w*.58*active.progress;
+  active.cover.position.z=asset.d*.20*active.progress;
   for(const [g,y] of active.external)g.position.y=y+asset.d*.22*active.progress;
  }
  function explode(){requested=!requested;return requested;}

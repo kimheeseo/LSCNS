@@ -1,4 +1,4 @@
-import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v1';
+import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v2';
 import {buildStagingRoom} from './staging-room.mjs?v=20261031-staging-front-v2';
 // STEP 05 / 20 — distinguishing 3D equipment + geometry LOD and real GPU instancing.
 // Original asset ids/types, positions, dimensions and BOM values remain authoritative.

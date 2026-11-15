@@ -1,4 +1,4 @@
-import {createWorkspace} from './workspace.mjs?v=20261115-free-camera-v7';
+import {createWorkspace} from './workspace.mjs?v=20261116-plan-v1';
 // STEP 03 opt-in bootstrap; legacy remains the default renderer.
 // Query: ?engine=three or ?engine=legacy. No extra requestAnimationFrame is created.
 const params = new URLSearchParams(window.location.search);

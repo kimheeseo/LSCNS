@@ -1,3 +1,4 @@
+import {createFloorPlan} from './floor-plan.mjs?v=20261116-plan-v1';
 // UI integrates with the host and its render loop; it never owns equipment data.
 export function createWorkspace(T, status) {
   const $=id=>document.getElementById(id), shell=$('shell');
@@ -108,8 +109,10 @@ export function createWorkspace(T, status) {
     }
   }
   const stats=document.createElement('output');stats.className='workspace-stats';stats.setAttribute('aria-label','현재 렌더링 성능');$('viewport').append(stats);
+  const floorPlan=createFloorPlan(T);
   let signature='',selection='',lastStats=0,rows=new Map();
   function update(now=performance.now()) {
+    floorPlan.update();
     syncArchitecture();
     const adapter=status.adapter,assets=T.visibleAssets().filter(a=>T.currentZone==='campus'||a.zone===T.currentZone);
     const sig=T.facilityMode+'|'+T.currentZone+'|'+assets.map(a=>a.id).join(',');

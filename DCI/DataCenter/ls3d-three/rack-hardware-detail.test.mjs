@@ -3,12 +3,14 @@ import * as THREE from '../vendor/three.module.js';
 import {createRackHardwareDetail} from './rack-hardware-detail.mjs';
 import {industrialColor} from './industrial-palette.mjs';
 import {createRackPanelDisclosure} from './rack-panel-disclosure.mjs';
+import {layoutSceneOverlays} from './scene-viewport-policy.mjs';
 const geometry=new THREE.BoxGeometry(1,1,1),cache=new Map();
 test('Door/cassette controls remain outside the collapsed details panel',()=>{
  const panel={style:{},dataset:{}},body={hidden:false,id:'details'},pinned={hidden:false};
  const attrs={},button={setAttribute(k,v){attrs[k]=v;}};
  const control=createRackPanelDisclosure({panel,body,button,pinned,collapsed:true});
  assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);assert.equal(panel.style.maxHeight,'132px');
+ for(const width of [390,1200]){layoutSceneOverlays({width,height:700,rack:panel});assert.equal(panel.style.maxHeight,'132px');}
  assert.equal(attrs['aria-expanded'],'false');control.toggle();assert.equal(body.hidden,false);assert.equal(pinned.hidden,false);
  control.toggle();assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);
 });

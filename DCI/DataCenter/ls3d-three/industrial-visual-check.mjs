@@ -28,6 +28,7 @@ try{
   const cassette=page.locator('[data-rack-mechanical="cassette-slide"]');
   assert.ok(await door.isVisible());assert.ok(await cassette.isVisible());
   assert.equal(await page.locator('#ls3dRackMotionBody').isHidden(),true);
+  await page.waitForFunction(()=>{const p=document.getElementById('ls3dRackMotionControls').getBoundingClientRect();return [...document.querySelectorAll('[data-rack-mechanical]')].every(b=>b.getBoundingClientRect().bottom<=p.bottom&&b.getBoundingClientRect().top>=p.top);});
   await door.click();
   await page.waitForFunction(id=>{
    const root=window.LS3D_THREE.adapter.scene.getObjectByName('equipment:'+id);

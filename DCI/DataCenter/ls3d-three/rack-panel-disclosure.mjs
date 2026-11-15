@@ -7,6 +7,7 @@ export function createRackPanelDisclosure({panel,body,button,title,pinned=null,c
   function paint(){
     body.hidden=isCollapsed;
     panel.dataset.rackCollapsed=String(isCollapsed);
+    panel.dataset.rackPinnedMechanical=String(!!pinned);
     panel.style.width=isCollapsed?(pinned?'min(270px,calc(100% - 16px))':'min(224px,calc(100% - 16px))'):'min(302px,calc(100% - 20px))';
     panel.style.padding=isCollapsed?'7px 9px':'10px';
     panel.style.maxHeight=isCollapsed?(pinned?'132px':'62px'):'min(76vh,550px)';

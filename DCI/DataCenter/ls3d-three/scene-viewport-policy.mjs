@@ -93,6 +93,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
   const zone=mmr&&!mmr.hidden?mmr:colo&&!colo.hidden?colo:null;
   const rackVisible=!!rack&&!rack.hidden;
   const rackCollapsed=rackVisible&&rack.dataset?.rackCollapsed==='true';
+  const pinnedMechanical=rackVisible&&rack.dataset?.rackPinnedMechanical==='true';
   if(zone){
     zone.style.maxWidth=narrow?'calc(100% - 16px)':'min(330px,calc(100% - 24px))';
     zone.style.left=narrow?'8px':'12px';
@@ -106,7 +107,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
     mep.style.right=narrow?'8px':'12px';
     mep.style.maxWidth=narrow?'calc(100% - 16px)':'min(322px,calc(100% - 24px))';
     mep.style.top=narrow&&zone?'auto':narrow?'54px':'83px';
-    mep.style.bottom=narrow&&zone?(rackVisible?(rackCollapsed?'80px':'calc(32% + 16px)'):'12px'):'auto';
+    mep.style.bottom=narrow&&zone?(rackVisible?(rackCollapsed?(pinnedMechanical?'150px':'80px'):'calc(32% + 16px)'):'12px'):'auto';
     // Keep the collapsed MEP control reachable while the zone panel is open.
     const details=mep.querySelector?.('details');
     if(details){
@@ -123,7 +124,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
     rack.style.right=narrow?'8px':'10px';
     rack.style.bottom=narrow?'8px':'10px';
     if(rackCollapsed){
-      rack.style.maxHeight='62px';
+      rack.style.maxHeight=pinnedMechanical?'132px':'62px';
       rack.style.overflowY='hidden';
     }else if(narrow){
       rack.style.maxHeight='min(31%,260px)';

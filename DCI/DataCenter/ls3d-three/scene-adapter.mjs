@@ -1,15 +1,15 @@
-import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-mechanical-v4';
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-mechanical-v5';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261115-mechanical-v4';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-mechanical-v4';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-mechanical-v5';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-mechanical-v5';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261115-mechanical-v4';
+import { createRackComponentKit } from './rack-components.mjs?v=20261115-mechanical-v5';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -20,8 +20,8 @@ import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=202611
 import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v4';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
-import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261015-rack-collapse';
-import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-mechanical-v4';
+import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261115-mechanical-v5';
+import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-mechanical-v5';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.

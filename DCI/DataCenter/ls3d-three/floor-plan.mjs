@@ -1,4 +1,4 @@
-import {drawRoomBase,drawRoomEquipment,drawIllustratedBase,drawIllustratedEquipment} from './room-drawing.mjs?v=20261116-dual-2d-v5';
+import {drawRoomBase,drawRoomEquipment,drawIllustratedBase,drawIllustratedEquipment} from './room-drawing.mjs?v=20261116-dual-2d-v6';
 // The plan uses the same host assets and zones as the 3D tour, never a separate inventory.
 export function planBounds(zones,assets){
  const boxes=[...zones.map(z=>[z.pos[0]-z.size[0]/2,z.pos[1]-z.size[1]/2,z.size[0],z.size[1]]),...assets.map(a=>[a.x-a.w/2,a.z-a.d/2,a.w,a.d])].filter(b=>b.every(Number.isFinite));
@@ -37,6 +37,7 @@ export function createFloorPlan(T){
  #viewport.ls-plan-expanded::after{content:'';position:fixed;inset:0;z-index:10000;background:#102333}
  #viewport.ls-plan-expanded .ls-floor-plan{position:fixed;inset:62px 12px 12px;z-index:10001}
  #viewport.ls-plan-expanded .ls-plan-tabs{position:fixed;top:10px;left:12px;z-index:10002}
+ body.rack-inspecting #viewport:not(.ls-floor-plan-active) .ls-plan-tabs{top:auto;bottom:76px}
  @media(max-width:790px){.ls-plan-tabs{top:106px;left:8px}.ls-floor-plan{left:6px;right:6px;bottom:6px}.ls-plan-tools{padding:7px}.ls-plan-tools strong{flex-basis:100%}.ls-plan-footer{padding:7px}}
  `;document.head.append(style);
  let active=false,signature='',selection='',view=[-10,-10,20,20],fit=view.slice(),drag=null;

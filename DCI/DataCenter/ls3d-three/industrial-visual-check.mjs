@@ -40,6 +40,7 @@ try{
  await page.getByRole('tab',{name:'3D 투어',exact:true}).click();
  await page.evaluate(()=>window.__LS3D_TEST__.setZone('campus'));
 
+ console.log('PASS: old view=2d URL leaves GPU active, manual fallback exits through 3D tab with render counts increasing, both 2D room styles render');
  await page.locator('#viewport').screenshot({path:out+'/01-campus.png'});
  await page.evaluate(()=>window.__LS3D_TEST__.setZone('hall'));
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.assets>0);

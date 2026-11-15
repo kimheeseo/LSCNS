@@ -1,4 +1,4 @@
-import {createFloorPlan} from './floor-plan.mjs?v=20261116-plan-v1';
+import {createFloorPlan} from './floor-plan.mjs?v=20261116-room-plan-v2';
 // UI integrates with the host and its render loop; it never owns equipment data.
 export function createWorkspace(T, status) {
   const $=id=>document.getElementById(id), shell=$('shell');

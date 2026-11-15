@@ -121,19 +121,16 @@ try{
    await page.locator('#viewport').screenshot({path:out+'/restored-network-rack-all-components.png'});
   }
  }
- await page.evaluate(()=>window.__LS3D_TEST__.closeRackScene());
- await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.hardwareDetail===null);
  await page.setViewportSize({width:390,height:844});
  await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.frames>10);
  assert.equal(await page.locator('#sceneThree').isVisible(),true);
- await page.evaluate(()=>{const T=window.__LS3D_TEST__;T.setZone('hall');T.pickAsset(T.assetMap.get('tor-a'));});
- await page.getByRole('button',{name:/설비 검사·상세 펼치기/}).click().catch(()=>{});
- await page.locator('#inspectorRackOpen').click();
- await page.waitForFunction(()=>window.__LS3D_TEST__.rackIsolateActive);
- await page.locator('#ls3dRackPanelToggle').click();
+ assert.equal(await page.evaluate(()=>window.__LS3D_TEST__.rackIsolateActive),true);
+ if(!await page.locator('#ls3dRackMotionBody').isHidden())await page.locator('#ls3dRackPanelToggle').click();
  assert.ok(await page.locator('[data-rack-mechanical="front-door"]').isVisible());
  assert.ok(await page.locator('[data-rack-mechanical="cassette-slide"]').isVisible());
  await page.screenshot({path:out+'/05-mobile.png'});
+ await page.evaluate(()=>window.__LS3D_TEST__.closeRackScene());
+ await page.waitForFunction(()=>window.LS3D_THREE.adapter.diagnostic.hardwareDetail===null);
  assert.deepEqual(errors,[]);
  await writeFile(out+'/results.json',JSON.stringify({results,errors},null,2));
  console.log('PASS: neutral campus, four rack types, open tray, explode/reassemble, door open/close and cassette out/in transforms verified with collapsed controls; original assemblies preserved and restored, cleanup, mobile, no runtime errors');

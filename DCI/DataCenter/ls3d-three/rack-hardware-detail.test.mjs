@@ -3,6 +3,7 @@ import * as THREE from '../vendor/three.module.js';
 import {createRackHardwareDetail} from './rack-hardware-detail.mjs';
 import {industrialColor} from './industrial-palette.mjs';
 import {createRackPanelDisclosure} from './rack-panel-disclosure.mjs';
+import {mechanicalButtons} from './rack-mechanical-policy.mjs';
 import {layoutSceneOverlays} from './scene-viewport-policy.mjs';
 const geometry=new THREE.BoxGeometry(1,1,1),cache=new Map();
 test('Door/cassette controls remain outside the collapsed details panel',()=>{
@@ -11,6 +12,8 @@ test('Door/cassette controls remain outside the collapsed details panel',()=>{
  const control=createRackPanelDisclosure({panel,body,button,pinned,collapsed:true});
  assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);assert.equal(panel.style.maxHeight,'132px');
  for(const width of [390,1200]){layoutSceneOverlays({width,height:700,rack:panel});assert.equal(panel.style.maxHeight,'132px');}
+ panel.dataset.rackMechanicalRows='2';
+ for(const width of [390,1200]){layoutSceneOverlays({width,height:700,rack:panel});assert.equal(panel.style.maxHeight,'184px');}
  assert.equal(attrs['aria-expanded'],'false');control.toggle();assert.equal(body.hidden,false);assert.equal(pinned.hidden,false);
  control.toggle();assert.equal(body.hidden,true);assert.equal(pinned.hidden,false);
 });
@@ -36,3 +39,15 @@ for(const [type,kind,units] of [['GPU server rack','gpu',48],['Compute rack','co
   assert.ok(kit.state().progress<.01);kit.update(null,null,false,.1);assert.equal(kit.state(),null);assert.equal(sled.visible,true);assert.equal(m.children.length,1);
  });
 }
+
+test('Storage rack controls its shelf and drive; server racks control server trays',()=>{
+ for(const type of ['GPU server rack','Compute rack','Co-location rack']){
+  const actions=mechanicalButtons(type,{targetSlide:1});
+  assert.equal(actions[1].code,'server-slide');assert.equal(actions[1].label,'서버 트레이 넣기');
+  assert.ok(!actions.some(a=>a.code==='cassette-slide'));
+ }
+ const storage=mechanicalButtons('Storage rack',{targetSlide:1},{driveTarget:1});
+ assert.deepEqual(storage.map(a=>a.code),['front-door','server-slide','drive-toggle','next-drive']);
+ assert.equal(storage[1].label,'스토리지 쉘프 넣기');assert.equal(storage[2].label,'드라이브 넣기');
+ assert.equal(mechanicalButtons('Top-of-Rack switch')[1].code,'cassette-slide');
+});

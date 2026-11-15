@@ -1,3 +1,4 @@
+import {pinnedMechanicalHeight} from './rack-mechanical-policy.mjs?v=20261115-server-storage-v6';
 // LS Datacenter 3D — responsive rack controls disclosure.
 // The panel, body and button are provided by scene-adapter; this module does
 // not modify any rack/server state or spawn a second rendering loop.
@@ -10,7 +11,7 @@ export function createRackPanelDisclosure({panel,body,button,title,pinned=null,c
     panel.dataset.rackPinnedMechanical=String(!!pinned);
     panel.style.width=isCollapsed?(pinned?'min(270px,calc(100% - 16px))':'min(224px,calc(100% - 16px))'):'min(302px,calc(100% - 20px))';
     panel.style.padding=isCollapsed?'7px 9px':'10px';
-    panel.style.maxHeight=isCollapsed?(pinned?'132px':'62px'):'min(76vh,550px)';
+    panel.style.maxHeight=isCollapsed?(pinned?pinnedMechanicalHeight(panel.dataset.rackMechanicalRows):'62px'):'min(76vh,550px)';
     if(pinned)pinned.hidden=false;
     panel.style.overflowY=isCollapsed?'hidden':'auto';
     button.textContent=isCollapsed?'펼치기 ▾':'접기 ▴';

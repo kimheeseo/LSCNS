@@ -1,15 +1,16 @@
-import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-mechanical-v5';
+import {mechanicalButtons} from './rack-mechanical-policy.mjs?v=20261115-server-storage-v6';
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-server-storage-v6';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261115-mechanical-v5';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-mechanical-v5';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-server-storage-v6';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-server-storage-v6';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261115-mechanical-v5';
+import { createRackComponentKit } from './rack-components.mjs?v=20261115-server-storage-v6';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -20,8 +21,8 @@ import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=202611
 import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v4';
 import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026-black-mesh-cage-v2';
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
-import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261115-mechanical-v5';
-import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-mechanical-v5';
+import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261115-server-storage-v6';
+import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-server-storage-v6';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -253,6 +254,7 @@ export function createSceneAdapter(T, canvas) {
   function toggleRackDrive(assetId){
     const a=T.assetMap.get(assetId);
     if(!a||a.type!=='Storage rack')return null;
+    showRackPart(null);focusRackSide(assetId,'front');
     const motion=T.mechanical(a);
     if(!motion.targetDoor)T.setMechanical(a,'door');
     const drive=rackRails.toggleDrive(assetId);
@@ -262,7 +264,9 @@ export function createSceneAdapter(T, canvas) {
   function toggleRearRackDoor(assetId){return rackDoors.toggleRear(assetId);}
   function toggleRackServerSlide(assetId) {
     const a=T.assetMap.get(assetId);
-    return !!(a&&T.isMechanicalRack(a)&&T.setMechanical?.(a,'slide'));
+    if(!a||!T.isMechanicalRack(a))return false;
+    showRackPart(null);focusRackSide(assetId,'front');
+    return !!T.setMechanical?.(a,'slide');
   }
   function toggleRackCassette(assetId) {
     const a=T.assetMap.get(assetId);
@@ -353,9 +357,9 @@ export function createSceneAdapter(T, canvas) {
       const mechanicalBar=document.createElement('div');
       mechanicalBar.id='ls3dRackMechanicalControls';
       mechanicalBar.setAttribute('role','group');
-      mechanicalBar.setAttribute('aria-label','랙 문과 카세트 조작');
+      mechanicalBar.setAttribute('aria-label','선택 랙의 문과 서버·스토리지 조작');
       mechanicalBar.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;padding-top:7px;';
-      for(const [code,label] of [['front-door','랙 문 열기'],['cassette-slide','카세트 빼기']]){
+      for(const [code,label] of [['front-door','랙 문 열기'],['cassette-slide','광 카세트 빼기'],['server-slide','서버 트레이 빼기'],['previous-server','이전 서버 선택'],['next-server','다음 서버 선택'],['drive-toggle','드라이브 빼기'],['next-drive','다음 드라이브 선택']]){
         const button=document.createElement('button');
         button.type='button';button.dataset.rackMechanical=code;button.textContent=label;
         button.style.cssText='min-height:39px;padding:8px 5px;border:1px solid #7be0d1;border-radius:7px;background:#215e65;color:#fff;font:700 12px system-ui;cursor:pointer;touch-action:manipulation;';
@@ -363,7 +367,7 @@ export function createSceneAdapter(T, canvas) {
       }
       const mechanicalStatus=document.createElement('div');
       mechanicalStatus.id='ls3dRackMechanicalStatus';
-      mechanicalStatus.style.cssText='grid-column:1/-1;font-size:10px;color:#c5dfdf;min-height:15px;line-height:1.5;';
+      mechanicalStatus.style.cssText='grid-column:1/-1;font-size:10px;color:#c5dfdf;min-height:15px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;';
       mechanicalBar.appendChild(mechanicalStatus);rackControls.appendChild(mechanicalBar);
       mechanicalBar.addEventListener('click',event=>{
         const code=event.target.closest('[data-rack-mechanical]')?.dataset.rackMechanical;
@@ -371,6 +375,11 @@ export function createSceneAdapter(T, canvas) {
         event.preventDefault();event.stopPropagation();
         if(code==='front-door')toggleRackFrontDoor(asset.id);
         else if(code==='cassette-slide')toggleRackCassette(asset.id);
+        else if(code==='server-slide')toggleRackServerSlide(asset.id);
+        else if(code==='drive-toggle')toggleRackDrive(asset.id);
+        else if(code==='next-drive')cycleRackDrive(asset.id);
+        else if(code==='previous-server')cycleRackServer(asset.id,-1);
+        else if(code==='next-server')cycleRackServer(asset.id,1);
         showControls();
       });
       const controlsBody=document.createElement('div');
@@ -615,14 +624,21 @@ export function createSceneAdapter(T, canvas) {
     if(odfCover)odfCover.textContent=odfBox.state(a.id)?.target?'커버 닫기':'커버 열기';
     const server=rackRails.state(a.id),door=rackDoors.state(a.id),fiber=rackOptics.state(a.id);
     const mechanical=T.mechanical(a);
-    for(const [code,label,pressed] of [
-      ['front-door',mechanical.targetDoor?'랙 문 닫기':'랙 문 열기',!!mechanical.targetDoor],
-      ['cassette-slide',mechanical.targetCassette?'카세트 넣기':'카세트 빼기',!!mechanical.targetCassette]
-    ])for(const button of rackControls.querySelectorAll('[data-rack-mechanical="'+code+'"], [data-rack-action="'+code+'"]')){
-      if(button.textContent!==label)button.textContent=label;
-      button.setAttribute('aria-pressed',String(pressed));
+    const mechanicalActions=mechanicalButtons(a.type,mechanical,server||{});
+    rackControls.dataset.rackMechanicalRows=String(Math.ceil(mechanicalActions.length/2));
+    for(const button of rackControls.querySelectorAll('[data-rack-mechanical]')){
+      const action=mechanicalActions.find(action=>action.code===button.dataset.rackMechanical);
+      button.hidden=!action;
+      if(action){
+        if(button.textContent!==action.label)button.textContent=action.label;
+        if(action.pressed===undefined)button.removeAttribute('aria-pressed');
+        else button.setAttribute('aria-pressed',String(action.pressed));
+      }
     }
-    const mechanicalText='문: '+(mechanical.targetDoor?'열림':'닫힘')+' · 카세트: '+(mechanical.targetCassette?'인출':'장착');
+    const device=storageRack?'스토리지 쉘프':gpuRack||/compute|server|co-location/i.test(a.type)?'서버 트레이':'광 카세트';
+    const out=device==='광 카세트'?mechanical.targetCassette:mechanical.targetSlide;
+    const mechanicalText='문: '+(mechanical.targetDoor?'열림':'닫힘')+' · '+device+': '+(out?'인출':'장착')+
+      (storageRack?' · 드라이브 '+(server?.driveSlot||1)+'/'+(server?.driveCount||0):'');
     const mechanicalStatus=rackControls.querySelector('#ls3dRackMechanicalStatus');
     if(mechanicalStatus&&mechanicalStatus.textContent!==mechanicalText)mechanicalStatus.textContent=mechanicalText;
     const serverLabel=registry.get(a.id)?.partMap?.get(server?.selected)?.label||'—';
@@ -837,6 +853,7 @@ export function createSceneAdapter(T, canvas) {
   function selectRackPart(assetId,partId) {
     const record=registry.get(assetId);
     const part=record?.partMap?.get(partId)||null;
+    if(record?.serverSession?.groups?.has(partId))rackRails.select(assetId,partId);
     const selected=showRackPart(part);
     if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);

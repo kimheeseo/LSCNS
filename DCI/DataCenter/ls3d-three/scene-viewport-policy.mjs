@@ -1,3 +1,4 @@
+import {pinnedMechanicalHeight} from './rack-mechanical-policy.mjs?v=20261115-server-storage-v6';
 // STEP 18 — Three.js camera, responsive HUD, and sustained-frame render policy.
 // No timers, new requestAnimationFrame, browser globals, or host data changes.
 export function createViewportPolicy({mobileBreakpoint=640}={}){
@@ -124,7 +125,7 @@ export function layoutSceneOverlays({width,height,mmr,colo,mep,rack}){
     rack.style.right=narrow?'8px':'10px';
     rack.style.bottom=narrow?'8px':'10px';
     if(rackCollapsed){
-      rack.style.maxHeight=pinnedMechanical?'132px':'62px';
+      rack.style.maxHeight=pinnedMechanical?pinnedMechanicalHeight(rack.dataset.rackMechanicalRows):'62px';
       rack.style.overflowY='hidden';
     }else if(narrow){
       rack.style.maxHeight='min(31%,260px)';

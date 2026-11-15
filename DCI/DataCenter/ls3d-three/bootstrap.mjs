@@ -130,7 +130,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261107-workspace');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261115-industrial-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';
@@ -146,6 +146,7 @@ if (requested && T) {
   status.status='failed';status.error='LS3D host API unavailable';
   console.warn(status.error);
 }
+
 
 
 

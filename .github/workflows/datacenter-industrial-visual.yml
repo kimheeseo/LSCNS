@@ -1,0 +1,35 @@
+name: Datacenter industrial palette and rack internals
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'DCI/DataCenter/ls3d-three/**'
+      - 'DCI/DataCenter/LS_Datacenter_3D.html'
+      - '.github/workflows/datacenter-industrial-visual.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser dependencies
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1 three@0.186.1
+          npx playwright install --with-deps chromium
+      - name: Verify parts and render the checked-out tour
+        run: |
+          node --test DCI/DataCenter/ls3d-three/rack-hardware-detail.test.mjs
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/dc-industrial-server.log 2>&1 &
+          for n in {1..20}; do curl -sf http://127.0.0.1:8765/DCI/DataCenter/LS_Datacenter_3D.html -o /dev/null && break; sleep 1; done
+          node DCI/DataCenter/ls3d-three/industrial-visual-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: datacenter-industrial-visuals
+          path: /tmp/datacenter-industrial-qa/

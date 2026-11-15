@@ -1,3 +1,4 @@
+import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v1';
 // STEP 10 — independent, selectable rack frame and assemblies, 42/48U conceptual layout.
 // This is a physical hierarchy for teaching. Not a manufacturer-certified U allocation/BOM.
 // Allocate only unused front U positions. Passive panels are illustrative and
@@ -32,7 +33,7 @@ export function planRackFrontFill(rackUnits,occupied,network=false){
 export function createRackComponentKit(THREE,{cube}){
  const stats={built:0,parts:0,units42:0,units48:0,byType:{}};
  function box(parent,label,x,y,z,w,h,d,color,metal=.55,rough=.39){
-  const m=cube(parent,x,y,z,w,h,d,color,metal,rough);
+  const m=cube(parent,x,y,z,w,h,d,industrialColor(label,color,'rack'),metal,rough);
   m.name='rack-shape:'+label;return m;
  }
  function group(parent,assetId,kind,label,uStart,uHeight){
@@ -296,6 +297,12 @@ export function createRackComponentKit(THREE,{cube}){
         box(partGroup,'drive-release-tab-'+bay,-w*.17+bay*w*.105,y+unit*.65,-d*.54,w*.046,.022,.015,'#b4c1c7');
       }
     }
+    // Silver server fascia and inset ventilation, visible as soon as the door opens.
+    const vents=[];
+    for(let c=0;c<20;c++)for(let r=0;r<3;r++)
+      vents.push([-w*.30+c*w*.0315,y+unit*.24+r*unit*.62,-d*.553]);
+    if(!storage)batch(partGroup,'server-ventilation-slots',vents,w*.016,unit*.20,.012,'#111b22');
+    for(const side of [-1,1])box(partGroup,'silver-bezel-edge',side*w*.345,y+.015,-d*.558,w*.022,units*unit-.045,.025,'#c1c6ca');
     retain(partGroup);
     for(const gpu of gpuGroups.filter(g=>g.parent===partGroup))retain(gpu);
     for(const drive of storageDrives.filter(g=>g.parent===partGroup))retain(drive);
@@ -418,4 +425,5 @@ export function createRackComponentKit(THREE,{cube}){
  }
  return {build,stats};
 }
+
 

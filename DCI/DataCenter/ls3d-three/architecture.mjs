@@ -1,3 +1,4 @@
+import {industrialColor} from './industrial-palette.mjs?v=20261115-industrial-v1';
 // LS3D STEP 04 — industrial architecture geometry for the real Three.js renderer.
 // Builds spatial geometry: slabs, façades, doors, glass, ceiling structure and suspended trays.
 // Illustrative coordinates (legacy scene units), NOT CAD/BIM or construction clearances.
@@ -17,7 +18,7 @@ export function createArchitectureKit(THREE, { cube }) {
   const names = ['floor','wall','glass','door','beam','ceiling','roof','tray','frame','path','fence','detail'];
   function reset() { counts = Object.fromEntries(names.map(n => [n, 0])); doors.length = 0; }
   function part(parent, kind, name, x, y, z, w, h, d, color, metal = .33, rough = .48, transparent = false) {
-    const mesh = cube(parent, x, y, z, w, h, d, color, metal, rough, transparent);
+    const mesh = cube(parent, x, y, z, w, h, d, industrialColor(kind+'-'+name,color,'architecture'), metal, rough, transparent);
     mesh.name = 'arch:' + kind + ':' + name;
     mesh.userData.archKind = kind;
     mesh.userData.noPick = true;

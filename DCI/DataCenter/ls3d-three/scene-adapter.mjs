@@ -1,14 +1,15 @@
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-industrial-v1';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261101-rack-bottom-space-v1';
 import * as THREE from 'three';
-import { createArchitectureKit } from './architecture.mjs?v=20261029-tour-gate-v1';
-import { createEquipmentFactory } from './equipment-factory.mjs?v=20261031-loading-crew-v1';
+import { createArchitectureKit } from './architecture.mjs?v=20261115-industrial-v1';
+import { createEquipmentFactory } from './equipment-factory.mjs?v=20261115-industrial-v1';
 import { createNpcCharacterFactory } from './npc-characters.mjs?v=20261025-visitor-motion';
 import { createVisitorSecurity } from './visitor-security.mjs?v=20261025-visitor-checkin';
 import { createNpcNavigation } from './npc-navigation.mjs?v=20261015-step07';
 import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
-import { createRackComponentKit } from './rack-components.mjs?v=20261102-rack-opaque-door-v2';
+import { createRackComponentKit } from './rack-components.mjs?v=20261115-industrial-v1';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261102-rack-part-name-role-v1';
@@ -34,15 +35,15 @@ export function createSceneAdapter(T, canvas) {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#183247');
-  scene.fog = new THREE.Fog('#183247', 115, 310);
+  scene.background = new THREE.Color('#d6d9db');
+  scene.fog = new THREE.Fog('#d6d9db', 150, 400);
   const camera = new THREE.PerspectiveCamera(45, 1, 0.08, 1200);
   camera.up.set(0, 1, 0);
   const world = new THREE.Group(); scene.add(world);
   const zoneRoot = new THREE.Group(), assetRoot = new THREE.Group(), routeRoot = new THREE.Group(), peopleRoot = new THREE.Group();
   world.add(zoneRoot, assetRoot, routeRoot, peopleRoot);
-  const hemi = new THREE.HemisphereLight(0xddf3ff, 0x34485b, 2.7); scene.add(hemi);
-  const sun = new THREE.DirectionalLight(0xfff0df, 2.6);
+  const hemi = new THREE.HemisphereLight(0xf4f6f7, 0x777f85, 2.2); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xffffff, 2.4);
   sun.position.set(-75, 130, 64);
   sun.castShadow = true;
   sun.shadow.mapSize.set(1024, 1024);
@@ -51,7 +52,7 @@ export function createSceneAdapter(T, canvas) {
   sun.shadow.camera.near = 1; sun.shadow.camera.far = 340;
   sun.shadow.bias = -0.00025;
   scene.add(sun, sun.target);
-  const cool = new THREE.DirectionalLight(0x80b9dc, 1.6); cool.position.set(55, 35, -45); scene.add(cool);
+  const cool = new THREE.DirectionalLight(0xdfe9f0, 1.2); cool.position.set(55, 35, -45); scene.add(cool);
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 1, 18);
   const materialCache = new Map();
@@ -132,6 +133,7 @@ export function createSceneAdapter(T, canvas) {
     if(xray.active===item.g.userData.assetId){clearRackPartEmphasis();xray.clear();}
     assetRoot.remove(item.g);
     const id=item.g.userData.assetId;
+    if(hardwareDetail.state()?.assetId===id)hardwareDetail.clear();
     rackDoors.drop(id);rackRails.drop(id);rackOptics.drop(id);rackNetwork.drop(id);rackPatch.drop(id);rackPatchDesign.drop(id);rackLcDesign.drop(id);odfBox.drop(id);
     item.g.traverse(obj=>{
       if(obj.isInstancedMesh)obj.dispose?.(); // Release per-instance GPU buffers on rack removal.
@@ -146,6 +148,7 @@ export function createSceneAdapter(T, canvas) {
   }
   // STEP 10: replace the undifferentiated rack visual with separately tagged parts.
   // The original front-door/server-slide/fiber-cassette motion contract is preserved.
+  const hardwareDetail=createRackHardwareDetail(THREE,{cube,material});
   const rackKit=createRackComponentKit(THREE,{cube});
   const rackDoors=createRackDoorControls();
   const rackRails=createRackServerRails(THREE,{cube});
@@ -352,6 +355,7 @@ export function createSceneAdapter(T, canvas) {
       const actions=[
         ['front-camera','전면 카메라'],['rear-camera','후면 카메라'],
         ['front-door','전면 문 열기/닫기'],['rear-door','후면 문 열기/닫기'],
+        ['hardware-detail','서버 내부 확대'],['hardware-explode','내부 부품 펼치기/조립'],
         ['previous-server','이전 모듈'],['next-server','다음 모듈'],
         ['server-slide','선택 모듈 인출/복귀'],['next-gpu','다음 GPU 슬롯 선택'],['gpu-toggle','GPU 모듈 인출/장착'],
         ['next-drive','다음 드라이브 선택'],['drive-toggle','선택 드라이브 인출/장착'],['cassette-slide','광 카세트 인출/복귀'],
@@ -372,7 +376,8 @@ export function createSceneAdapter(T, canvas) {
         const action=e.target.closest?.('button[data-rack-action]')?.dataset.rackAction;
         const asset=currentRackAsset();if(!asset||!action)return;
         e.preventDefault();e.stopPropagation();
-        if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
+        if(action==='hardware-detail'||action==='hardware-explode')focusRackHardware(asset,action==='hardware-explode');
+        else if(action==='patch-select')focusRackOpticalAssembly(asset.id,'optical-patch');
         else if(action==='switch-select'){
           const switchPart=registry.get(asset.id)?.rackParts.find(p=>p.kind==='tor');
           if(switchPart)selectRackPart(asset.id,switchPart.id);
@@ -552,6 +557,15 @@ export function createSceneAdapter(T, canvas) {
       const noun=networkRack?'스위치':storageRack?'스토리지 쉘프':'서버';
       button.textContent=code==='server-slide'?'선택 '+noun+' 인출/복귀':(code==='previous-server'?'이전 ':'다음 ')+noun;
     }
+    for(const code of ['hardware-detail','hardware-explode']){
+      const button=rackControls.querySelector('[data-rack-action="'+code+'"]');
+      if(button){button.hidden=!registry.get(a.id)?.serverSession?.groups?.size;
+        if(code==='hardware-explode')button.setAttribute('aria-pressed',String(!!hardwareDetail.state()?.exploded));}
+    }
+    let hardwareNote=rackControls.querySelector('#ls3dHardwareLegend');
+    if(!hardwareNote){hardwareNote=document.createElement('p');hardwareNote.id='ls3dHardwareLegend';hardwareNote.style.cssText='font-size:11px;line-height:1.7;color:#b8d8d0;padding:8px;border:1px solid #40675f;border-radius:6px;';rackControls.querySelector('#ls3dRackActionStatus').after(hardwareNote);}
+    hardwareNote.hidden=!hardwareDetail.state();
+    hardwareNote.textContent='내부 구조 · 초록: PCB/메모리 · 은색: 냉각판/방열판 · 검정: 팬/칩 · 후면: PSU/네트워크 포트. 펼치기는 구조 설명용 개념 배치입니다.';
     const patchStatus=rackPatch.state(a.id);
     const patchAction=rackControls.querySelector('[data-rack-action="cable-patch"]');
     if(patchAction)patchAction.textContent=patchStatus?.connected?'케이블 분리 · 패치패널에서 빼기':'케이블 연결 · 패치패널에 꽂기';
@@ -587,6 +601,26 @@ export function createSceneAdapter(T, canvas) {
     rackPanelDisclosure?.setCollapsed(false);
     return !!rackControls&&!rackControls.hidden;
   }
+  function focusRackHardware(asset,explode=false){
+    const item=registry.get(asset.id),session=item?.serverSession;
+    const selected=rackRails.state(asset.id)?.selected,module=session?.groups?.get(selected);
+    if(!module)return false;
+    focusRackSide(asset.id,'front');
+    const m=T.mechanical(asset);
+    if(!m.targetDoor)T.setMechanical(asset,'door');
+    if(!m.targetSlide)T.setMechanical(asset,'slide');
+    hardwareDetail.update(asset,module,true,0,item.rackUnits);
+    if(explode)hardwareDetail.explode();
+    const info=module.userData.rackPart;
+    const y=.23+(info.uStart-1)*(asset.h-.46)/item.rackUnits;
+    item.g.updateMatrixWorld(true);
+    const target=item.g.localToWorld(new THREE.Vector3(-asset.w*.25,y+asset.d*.28,-asset.d*.83));
+    const desired=T.cameraDesired;
+    desired.target=[target.x,target.y,target.z];desired.distance=asset.w*2.15;
+    desired.yaw=Math.PI+.40+item.g.rotation.y;desired.pitch=.85;
+    if(T.camera)Object.assign(T.camera,desired,{target:desired.target.slice()});
+    return true;
+  }
   function runRackAction(action){
     // Single action implementation: sidebar shortcuts reuse the same
     // proven 3D rack buttons; avoid divergent state between two panels.
@@ -594,7 +628,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
+    const allowed=/^(hardware-detail|hardware-explode|front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;
@@ -852,8 +886,8 @@ export function createSceneAdapter(T, canvas) {
       moving=built.moving;rackParts=built.parts;partMap=built.partMap;
       rackUnits=built.rackUnits;
       const low=new THREE.Group();low.name='rack-low';g.add(low);
-      cube(low,0,.06,0,w*.92,h*.94,d*.90,'#53728b',.52,.44);
-      cube(low,0,h*.72,-d*.48,w*.75,.26,.08,'#56a7b7',.32,.34);
+      cube(low,0,.06,0,w*.92,h*.94,d*.90,'#dce0e1',.52,.44);
+      cube(low,0,h*.72,-d*.48,w*.75,.26,.08,'#4c5358',.32,.34);
       rackLOD={high,low};
     } else if(a.id==='colo'&&a.type==='Customer cage'){
       // STEP 16 draws the real three-tenant fence in a separate world layer.
@@ -864,7 +898,7 @@ export function createSceneAdapter(T, canvas) {
       const result=equipmentFactory.build(a);
       kind=result.kind;equipmentLOD=result.lod;g.add(equipmentLOD);
     }
-    cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#355269',.12,.88);
+    cube(g,0,-.09,0,w*1.08,.11,d*1.08,'#8a9297',.12,.88);
     const caption=visitorCaption(a);if(caption)g.add(caption);
     // Loading Bay is approached from its cargo/carton side (+Z); unlike the
     // other Gray Zone rooms it must face the default visitor camera directly.
@@ -1048,6 +1082,11 @@ export function createSceneAdapter(T, canvas) {
     for(const [id,item] of registry)if(!present.has(id)){disposeAsset(item);registry.delete(id);}
     if(selectedRackPart&&!registry.has(selectedRackPart.assetId))showRackPart(null);
     if(focusedRack&&!registry.has(focusedRack.id))focusedRack=null;
+    const activeAsset=currentRackAsset(),activeItem=activeAsset&&registry.get(activeAsset.id);
+    const selectedServer=activeAsset&&rackRails.state(activeAsset.id)?.selected;
+    const hardwareModule=activeItem?.serverSession?.groups?.get(selectedServer);
+    hardwareDetail.update(activeAsset,hardwareModule,!!(activeAsset&&T.rackIsolateActive&&(T.mechanical(activeAsset).targetDoor||T.mechanical(activeAsset).door>.2)),dt,activeItem?.rackUnits);
+    diagnostic.hardwareDetail=hardwareDetail.state();
     showControls();
     diagnostic.assets=registry.size;
     diagnostic.rackNetwork={
@@ -1284,6 +1323,7 @@ export function createSceneAdapter(T, canvas) {
   }
   function dispose() {
     if(disposed)return;disposed=true;
+    hardwareDetail.clear();
     clearRackPartEmphasis();xray.clear();
     clearSceneInspection();
     navigation.reset();inspection.reset();
@@ -1320,5 +1360,6 @@ export function createSceneAdapter(T, canvas) {
     inspection,securityController:security,navigation,
     get disposed(){return disposed;} };
 }
+
 
 

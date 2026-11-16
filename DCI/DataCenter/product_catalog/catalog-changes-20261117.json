@@ -1,0 +1,3051 @@
+{
+  "date": "2026-11-17",
+  "counts": {
+    "added": 14,
+    "updated": 21882,
+    "deleted": 0,
+    "RFQ": 21844,
+    "active": 17,
+    "EOL": 31,
+    "announced": 4,
+    "deprecated": 33
+  },
+  "files": [
+    {
+      "path": "Amkor/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "3M/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "A*STAR Institute of Microelectronics (IME)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Ajinomoto Fine-Techno/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Advantest/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "AIM Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Advanced Micro Foundry (AMF)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "AMD/CPU Portfolio/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "AMD/GPU Accelerators/catalog.json",
+      "added": 1,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "ADS Tech/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "AGC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Active Electrical Cables/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "AMD/CPU/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/High-Speed Board Connectors/catalog.json",
+      "added": 0,
+      "updated": 57,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Ethernet USB and External I-O/catalog.json",
+      "added": 0,
+      "updated": 56,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Memory and Card Edge Connectors/catalog.json",
+      "added": 0,
+      "updated": 24,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Backplane and Orthogonal Connectors/catalog.json",
+      "added": 0,
+      "updated": 49,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Optical Transceivers and AOC/catalog.json",
+      "added": 0,
+      "updated": 59,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Fiber Optic Connectivity/catalog.json",
+      "added": 0,
+      "updated": 19,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Copper DAC/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/High-Speed Cable Assemblies/catalog.json",
+      "added": 0,
+      "updated": 51,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/RF and Coaxial Connectivity/catalog.json",
+      "added": 0,
+      "updated": 45,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Rugged Circular and D-Sub/catalog.json",
+      "added": 0,
+      "updated": 47,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Power Distribution Panels/catalog.json",
+      "added": 0,
+      "updated": 22,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/All IT Datacom Products/catalog.json",
+      "added": 0,
+      "updated": 665,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Storage and PCIe-SAS Interconnects/catalog.json",
+      "added": 0,
+      "updated": 30,
+      "deleted": 0
+    },
+    {
+      "path": "Anritsu/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "AOI/Optical Transceivers/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Power Connectors and Busbar/catalog.json",
+      "added": 0,
+      "updated": 65,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Wire-to-Board and FFC-FPC/catalog.json",
+      "added": 0,
+      "updated": 26,
+      "deleted": 0
+    },
+    {
+      "path": "ASE/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Asia Vital Components (AVC)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Astera Labs/AI Rack Interconnect/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Arista/Data Center Switches/catalog.json",
+      "added": 4,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Auras Technology/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "AttoTude/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Apheros/Data Center Cooling/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Avicena/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Ayar Labs/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Terminal Blocks and General Interconnect/catalog.json",
+      "added": 0,
+      "updated": 93,
+      "deleted": 0
+    },
+    {
+      "path": "BOE Technology/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Black Semiconductor/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Boyd/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Broadcom/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Broadcom/Data Center Switching/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Casela Technologies/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Broadcom/Optical PHYs and DSPs/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "CEA-Leti/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Celestial AI/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Celestica/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Ciena/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "CIG/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Cisco/Data Center Switches/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Coherent/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Caterpillar/Generators/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Cisco/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Amphenol/Sensors Materials and Other/catalog.json",
+      "added": 0,
+      "updated": 22,
+      "deleted": 0
+    },
+    {
+      "path": "Coherent/Optical Transceivers/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Building Entrance Solutions/Part 03/catalog.json",
+      "added": 0,
+      "updated": 102,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Cable Management/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Building Entrance Solutions/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Copper Panels Modules Cassettes/Part 02/catalog.json",
+      "added": 0,
+      "updated": 14,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Copper Module Cable Assemblies/Part 01/catalog.json",
+      "added": 0,
+      "updated": 22,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Coaxial Cables/Part 01/catalog.json",
+      "added": 0,
+      "updated": 136,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Arrays and Fanouts/Part 03/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Building Entrance Solutions/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Cable Management/Part 02/catalog.json",
+      "added": 0,
+      "updated": 47,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Arrays and Fanouts/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Patch Cords/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Pigtails/Part 01/catalog.json",
+      "added": 0,
+      "updated": 116,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Patch Cords/Part 03/catalog.json",
+      "added": 0,
+      "updated": 153,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Arrays and Fanouts/Part 04/catalog.json",
+      "added": 0,
+      "updated": 206,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Copper Panels Modules Cassettes/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Arrays and Fanouts/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 03/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 05/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Patch Cords/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 04/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cable Assemblies/Trunk Assemblies/Part 06/catalog.json",
+      "added": 0,
+      "updated": 87,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 04/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 03/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 09/catalog.json",
+      "added": 0,
+      "updated": 180,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 08/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 07/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 05/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 03/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Cables/Part 06/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 05/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 07/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 06/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 04/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 08/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/FiberGuide/catalog.json",
+      "added": 0,
+      "updated": 797,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 09/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/ODF/catalog.json",
+      "added": 0,
+      "updated": 697,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 10/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Fiber Panels Modules Cassettes/Part 11/catalog.json",
+      "added": 0,
+      "updated": 278,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Propel Panels/catalog.json",
+      "added": 0,
+      "updated": 22,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cable Assemblies/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cable Assemblies/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cable Assemblies/Part 03/catalog.json",
+      "added": 0,
+      "updated": 178,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cables/Part 01/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cables/Part 02/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cables/Part 03/catalog.json",
+      "added": 0,
+      "updated": 400,
+      "deleted": 0
+    },
+    {
+      "path": "Commscope/Twisted Pair Cables/Part 04/catalog.json",
+      "added": 0,
+      "updated": 60,
+      "deleted": 0
+    },
+    {
+      "path": "Cooler Master/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "CoolIT/Liquid Cooling/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Accessories/EDGE™ Port Replication Housing Accessory/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Accessories/EDGE™ Solutions_Rack Accessory/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Accessories/MTP PRO Accessories/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Accessories/Reverse Polarity LC UniBoot, Duplex Clip/catalog.json",
+      "added": 0,
+      "updated": 10,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Bracket/EDGE™ Strain-Relief Bracket/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® Figure-8 Loose Tube, Gel-Free Cable/catalog.json",
+      "added": 0,
+      "updated": 62,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® HD Gel-Free, All-Dielectric Cable with Binderless FastAccess® Technology/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cable/catalog.json",
+      "added": 0,
+      "updated": 112,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® Lite Loose Tube, Gel-Free, Single-Jacket, Single-Armored Cables with FastAccess® Technology/catalog.json",
+      "added": 0,
+      "updated": 10,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® HD Lite, Gel-Free, Single-Jacket, Single-Armored Cable with FastAccess® Technology/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® Loose Tube, Gel-Free, All-Dielectric Cable with FastAccess® Technology/catalog.json",
+      "added": 0,
+      "updated": 60,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/ALTOS® Loose Tube, Gel-Free, All-Dielectric Cables with Binderless FastAccess® Technology/catalog.json",
+      "added": 0,
+      "updated": 12,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/SOLO® ADSS Medium-Span, Loose Tube, Gel-Filled Cable/catalog.json",
+      "added": 0,
+      "updated": 44,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Loose Tube/SOLO® ADSS Short-Span, Loose Tube, Gel-Filled Cable/catalog.json",
+      "added": 0,
+      "updated": 42,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Cable/Outdoor Duct Cables/ALTOS® Loose Tube, Gel-Free Cable/catalog.json",
+      "added": 0,
+      "updated": 149,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Connector/MMC/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/CPO/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Harness/EDGE™ Conversion Harness/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Harness/EDGE™ Non-Staggered MTP to LC Harness/catalog.json",
+      "added": 0,
+      "updated": 44,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Harness/EDGE™ Solutions 24 F Y Harness/catalog.json",
+      "added": 0,
+      "updated": 11,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Harness/EDGE™ Solutions 2x3 Conversion Harness/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Harness/EDGE™ Staggered Harness/catalog.json",
+      "added": 0,
+      "updated": 29,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Housing/EDGE™ Housing, FX/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Housing/Pretium® Connector Housing (PCH)/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Jumper/12-Fiber MTP® PRO Jumper/catalog.json",
+      "added": 0,
+      "updated": 18,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Jumper/EDGE™ Solutions Jumper, 2 F, LC Uniboot to SC Duplex/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ 4x4 Mesh Module/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Bidi Tap Module/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Conversion Modules/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Module, Ultra Low Loss/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Base-8 Module/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Module/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/EDGE™ Tap Module/catalog.json",
+      "added": 0,
+      "updated": 22,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Module/Fiber to the Desk Module/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/ODF/EDGE™ Solutions_ODF/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, LC/catalog.json",
+      "added": 0,
+      "updated": 12,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/Adapter Panels/EDGE8® Adapter Panels, MTP®/catalog.json",
+      "added": 0,
+      "updated": 52,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/Adapter Panels/EDGE™ Adapter Panel, MTP®/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/CCH Panel/CCH Panel, FC Adapters/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/CCH Panel/CCH Panel, LC Adapters/catalog.json",
+      "added": 0,
+      "updated": 29,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/CCH Panel/CCH Panel, MTP Adapters/catalog.json",
+      "added": 0,
+      "updated": 20,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/CCH Panel/CCH Panel, SC Adapters/catalog.json",
+      "added": 0,
+      "updated": 30,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Panel/EDGE™ Panels/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Trunk/EDGE™ Armored Trunk/catalog.json",
+      "added": 0,
+      "updated": 17,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Trunk/EDGE™ Hybrid Trunk/catalog.json",
+      "added": 0,
+      "updated": 21,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Trunk/EDGE™ Indoor Ribbon Trunk/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Trunk/EDGE™ MTP® Extender Trunk/catalog.json",
+      "added": 0,
+      "updated": 30,
+      "deleted": 0
+    },
+    {
+      "path": "Credo/Active Electrical Cables/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Corning/Trunk/EDGE™ MTP® Trunk/catalog.json",
+      "added": 0,
+      "updated": 105,
+      "deleted": 0
+    },
+    {
+      "path": "Credo/Optical DSPs/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Credo/Silicon Photonics PICs/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Cummins/Generators/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "CXMT/Server Memory/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Daikin/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Dell/GPU Servers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Dell/Rack Infrastructure/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Dell/Rack Servers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "DELO/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Delta/Data Center Cooling/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Delta/Data Center Power/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "DenseLight Semiconductors/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Delta/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Dow/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Draka (Prysmian Group)/Data Center Cabling/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "DSIT Solutions/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "DuPont/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Dymax/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Eaton/Cable Tray/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Eaton/UPS/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Enlightra/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Enlitech/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Ennostar/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Fabrinet/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ficonTEC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "FIT Hon Teng/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Flex/Data Center Power/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "FOSTEC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Foxconn Industrial Internet/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Foxconn/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "FS (FiberStore)/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "FormFactor/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/Fiber Optic Cables/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/Fusion Splicers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/Optical Connectivity and Rack Enclosures/catalog.json",
+      "added": 0,
+      "updated": 21,
+      "deleted": 0
+    },
+    {
+      "path": "Fujikura/Optical Fibers/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Fujitsu/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Fusion Splicers/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Network/FITELnet FX2/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Network/FITELnet FX201/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Network/FITELnet vFX/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Optical Cable/High Density Optical Fiber Cable/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Optical Components/IMDD CW-DFB Laser Chip/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Optical Connectivity/Patch Panel & ODF/catalog.json",
+      "added": 0,
+      "updated": 20,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/PDF Sources/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Power Cable/600V EM-FCC(T)/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "Furukawa Electric/Power Cable/EM-LMFC/catalog.json",
+      "added": 0,
+      "updated": 32,
+      "deleted": 0
+    },
+    {
+      "path": "Gaon Cable/Data Center Power/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "GlobalFoundries/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Google/Cloud TPU/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Green Power Technology/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Hangzhou Zsine/MPO Cable/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Hanwha Solutions/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Hengtong/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Henkel/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Hitachi Energy/Transformers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "HPE/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "HPE/GPU Servers/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "HPE/Rack Infrastructure/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "HPE/Rack Servers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Huawei/AI Accelerators/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "HYC/Breakout Harness/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "HYC/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "HyperLight/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Hyperlume/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "IBM/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ICON Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "IH Optics/MPO MTP Wiring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "imec/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "IMECAS/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Indium Corporation/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Innolume/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "InnoMetry/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Intel/AI Accelerators/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Intel/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Intel/CPU/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Intel/Data Center GPUs/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "iPronics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ITRI/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Jabil/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "JCET Group/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Juniper/Data Center Switches/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Keysight/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Kyocera/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "KIOXIA/Enterprise SSD/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Legrand/Cable Tray/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Lessengers/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LaserCell/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lightium/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LightLinkTech (光联芯科)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LightEpoch (光纪元)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lightmatter/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LightSpeed Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lightwave Logic/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LightXcelerate/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lingxi Photonics (灵熙光子)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LioniX International/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "LS CNS/Data Center Power/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "LS CNS/통합배선/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "LS CNS/통합배선/Copper Cat6/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "LS CNS/광통신/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "LS ELECTRIC/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lumentum/CPO Light Sources/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Lumentum/CPO/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Lumentum/Datacom Transceivers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Lumentum/Optical Chips and Lasers/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Lumileds/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Luminar/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "M2 Optics/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "MACOM/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "MACOM/Optical TIAs and Drivers/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Marvell/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Marvell/Data Center Switching/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Marvell/Optical DSPs/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Marvell/SSD Controllers/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "MediaTek/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Mellanox/Ethernet Platforms/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Micas Networks/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Micron/Data Center SSD/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Micron/Server Memory/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Mitsubishi Electric/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Molex/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Moog/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Motivair/Liquid Cooling/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "MPOWERSYS/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/AOC DAC ACC AEC/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/High Fiber Count MPO Trunks/catalog.json",
+      "added": 0,
+      "updated": 10,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/InfiniBand XDR NDR HDR/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/MTP MPO Harnesses/catalog.json",
+      "added": 0,
+      "updated": 12,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/MTP MPO Jumpers/catalog.json",
+      "added": 0,
+      "updated": 10,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/Optical Transceivers/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/Rack Mount/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NADDOD/Switches NICs/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "Nagase/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NAMICS/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Nanosys/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NcodiN/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NewPhotonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Nexans/Data Center Cabling/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Nexilumen (光擎源)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Nippon Electric Glass (NEG)/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NLM Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Norland Products/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NRC-CNRC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NSTIC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NTest/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NTT Innovative Devices/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NTT/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Nubis Communications/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Adapter/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/AI Factory Platforms/Blackwell and Hopper Platforms/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/AI Factory Platforms/Vera Rubin Platform/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Cable/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/CPO/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/CPU and Superchips/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Data Center GPUs/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/InfiniBand Platform/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/InfiniBand Switch Models/catalog.json",
+      "added": 0,
+      "updated": 7,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/LinkX Interconnect/Current Products/catalog.json",
+      "added": 0,
+      "updated": 41,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/LinkX Interconnect/Discontinued Products/catalog.json",
+      "added": 0,
+      "updated": 31,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Networking Software/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Networking/catalog.json",
+      "added": 0,
+      "updated": 23,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Networking/gateway/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Networking/Switch/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Networking/Technical Resources/catalog.json",
+      "added": 0,
+      "updated": 10,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/Professional GPUs Reference/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "OpenLight/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "OptoNest/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Panasonic Industry/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Panduit/Cable Management/catalog.json",
+      "added": 0,
+      "updated": 7,
+      "deleted": 0
+    },
+    {
+      "path": "Panduit/Copper Data Cables/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "PETRA/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Phasic Energy/Data Center Cooling/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Phison/Enterprise SSD & Controllers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Photonect/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Pilot Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "POET Technologies/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Polaris Electro-Optics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "QD Laser/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Qualcomm/AI Accelerators/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Qualcomm/Connectivity DSPs/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Qualcomm/CPU/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Rain Tree Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "RANOVUS/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Resonac/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Quintessent/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Samsung/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Samsung/Server Memory/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Samsung/Enterprise SSD/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Schneider Electric/Racks/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Schneider Electric/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SCHOTT/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Scintil Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SEKISUI Chemical/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/AI Data Center Connectors/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/Field Connectors/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/Legacy Connectors/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/MPO-MT Connectors/catalog.json",
+      "added": 0,
+      "updated": 24,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/SC-LC Connectors/catalog.json",
+      "added": 0,
+      "updated": 32,
+      "deleted": 0
+    },
+    {
+      "path": "SENKO/VSFF Connectors/catalog.json",
+      "added": 0,
+      "updated": 45,
+      "deleted": 0
+    },
+    {
+      "path": "SHIJIA Photons/High Density Fiber Assemblies/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Shin-Etsu Chemical/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ShunSin Technology/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sicoya/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Silicon Motion/Enterprise SSD Controllers/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Silorix/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SilTerra/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sivers Semiconductors/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SK hynix/Enterprise SSD/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "SK hynix/Server Memory/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "SkyWater Technology/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SMIC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Soitec/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Solinide Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "SPIL/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "STATS ChipPAC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "STMicroelectronics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Bakelite/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Cable Assemblies/Cable Assemblies/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Cable Assemblies/Flexible Reel Jumper/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Cassettes & Interconnect Panels/Interconnect Panels/catalog.json",
+      "added": 0,
+      "updated": 24,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex FOX Splice Cassettes/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Cassettes & Interconnect Panels/PrecisionFlex LGX MPO Cassettes/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Entrance Frames/3K Vertical Hyperscale eXchange (3K-V-HSX) Cabinet/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Entrance Frames/Hyperscale eXchange (HSX)/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Entrance Frames/Ultra Hyperscale eXchange (U-HSX)/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Entrance Frames/Vertical Hyperscale eXchange (V-HSX) Cabinet/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/1RU LGX Compact Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/2RU Flush Mount Panels/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/2RU High Density Panels and Interconnect Panels/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03-K672SS/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/3RU Rack-Mounted Splice Enclosure FSPRM-03/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/Flex Patch Panels/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Empty Patch Panels/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex High Density MPO-LC Cassettes/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Stubbed Patch Panels/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Pre-Terminated Patch Panels/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fiber Panels & Shelves/PrecisionFlex Splice Tray & Holders/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fusion Splicer Solutions/Fiber Protection Sleeves/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fusion Splicer Solutions/JR-7 Thermal Jacket Remover/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fusion Splicer Solutions/JR-7S Thermal Jacket Remover/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Fusion Splicer Solutions/Splice Tray Holder Kit/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Other Enclosures/6912 Fiber Transition Module/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Other Enclosures/FTC-GP4-PR432/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Other Enclosures/FTC-GP8-PR864/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Other Enclosures/TN Fiber Optic Splice Closures/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/12-Fiber Ribbon Pigtail Fanout Kits/catalog.json",
+      "added": 0,
+      "updated": 7,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Breakout Kits for High Fiber Count Ribbon Cables/catalog.json",
+      "added": 0,
+      "updated": 11,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Ribbon Breakout & Fanout Kits/Cable Breakout Kits for Ribbons/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Splice Trays/Splice Trays/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/SWK™ Series/SWK Cable Assemblies/catalog.json",
+      "added": 0,
+      "updated": 19,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/SWK™ Series/SWK Connector/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/SWK™ Series/SWK Fiber Adapter Panels/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/SWK™ Series/SWK Fiber Patch Panels/catalog.json",
+      "added": 0,
+      "updated": 23,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FSPWM-12T Wall Mount Enclosures/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FTWM-01L Wall Mount Enclosure/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FTWM-02L-2D Wall Mount Enclosure/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L Wall Mount Enclosure/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FTWM-04L-2D Wall Mount Enclosure/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/FTWM-08L Wall Mount Enclosure/catalog.json",
+      "added": 0,
+      "updated": 5,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/NEMA 4X-IP66 Splice Transit Enclosure/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Sumitomo Electric/Wall Mount Enclosures/Pre-Terminated LC-APC Patching Transit Enclosure/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Supermicro/GPU Servers/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Supermicro/Rack Infrastructure/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Supermicro/Rack Servers/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Suruga Seiki/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Taihan Cable & Solution/Data Center Power/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Teradyne/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "TFC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Tower Semiconductor/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "TSMC/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "UMC/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "UMEC/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/Fiber Optic Cleaners/catalog.json",
+      "added": 0,
+      "updated": 41,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MMC Connectors/catalog.json",
+      "added": 0,
+      "updated": 23,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MDC Connectors/catalog.json",
+      "added": 0,
+      "updated": 11,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MT Ferrules/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/Adapters/catalog.json",
+      "added": 0,
+      "updated": 21,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/catalog.json",
+      "added": 0,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/Fast-Track & Pin Clamp/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/MTP 900µ & Fanout/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/MTP PRO X/catalog.json",
+      "added": 0,
+      "updated": 33,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/MTP PRO/catalog.json",
+      "added": 0,
+      "updated": 30,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/MTP Universal/catalog.json",
+      "added": 0,
+      "updated": 44,
+      "deleted": 0
+    },
+    {
+      "path": "USConnec/MTP Connectors/MTP-16/catalog.json",
+      "added": 0,
+      "updated": 20,
+      "deleted": 0
+    },
+    {
+      "path": "VeEX/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "Vertiv/Liquid Cooling/catalog.json",
+      "added": 1,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Vertiv/UPS/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "VIAVI/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 3,
+      "deleted": 0
+    },
+    {
+      "path": "Winstek/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "XEONICS/UPS/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "Xscape Photonics/CPO/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/CPO/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Module/Adapter Panel (UDF)/catalog.json",
+      "added": 0,
+      "updated": 26,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Module/MTP-LC Conversion Module (UDF)/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Module/SDF Optical Fibre Module Cassette/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Module/UDF Pro Optical Fibre Module Cassette/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/G4 Fixed Type Fibre Optic Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 33,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/G4 MPO-MTP Modules and Panels/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/G4 Telescopic Type Fibre Optic Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/SDF Adapter Panel/catalog.json",
+      "added": 0,
+      "updated": 34,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/SDF Fibre Optic Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/UDF High-density Fibre Optic Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Panel/UDF Pro Ultra-high Density Fibre Optic Patch Panel/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Patch Cord/MPO-MTP Branching Patch Cord/catalog.json",
+      "added": 0,
+      "updated": 32,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Patch Cord/MPO-MTP Pre-terminated Patch Cord/catalog.json",
+      "added": 0,
+      "updated": 32,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/1.25G/catalog.json",
+      "added": 0,
+      "updated": 15,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/100G/catalog.json",
+      "added": 0,
+      "updated": 8,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/10G SFP+/catalog.json",
+      "added": 0,
+      "updated": 15,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/10G XFP/catalog.json",
+      "added": 0,
+      "updated": 15,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/2.5G/catalog.json",
+      "added": 0,
+      "updated": 13,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/200G/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/400G/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/25G/catalog.json",
+      "added": 0,
+      "updated": 14,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/40G/catalog.json",
+      "added": 0,
+      "updated": 7,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/50G/catalog.json",
+      "added": 0,
+      "updated": 4,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/AOC/catalog.json",
+      "added": 0,
+      "updated": 6,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Transceiver/PON Series/catalog.json",
+      "added": 0,
+      "updated": 11,
+      "deleted": 0
+    },
+    {
+      "path": "YOFC/Trunk/MPO-MTP Pre-terminated Trunk Cable/catalog.json",
+      "added": 0,
+      "updated": 18,
+      "deleted": 0
+    },
+    {
+      "path": "Yokogawa/Fiber Test and Monitoring/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/All-in-One Cabinet/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/Array Cabinet/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/Containerized Data Center/catalog.json",
+      "added": 0,
+      "updated": 2,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/Containment Aisle/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/High-density ODF/catalog.json",
+      "added": 0,
+      "updated": 9,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/In-row Air Conditioner/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/IT Cabinet/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/Micro Modular Data Center/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Data Center Infrastructure/Smart Busbar/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "ZTT/Optical Connectivity/MPO-MTP Patch Cord/catalog.json",
+      "added": 0,
+      "updated": 1,
+      "deleted": 0
+    },
+    {
+      "path": "NVIDIA/GPU Servers/catalog.json",
+      "added": 2,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "Schneider Electric/Data Center Power/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "NetApp/Storage/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "Fortinet/Firewalls/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "Cisco/Routers/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "F5/Load Balancers/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    },
+    {
+      "path": "Raritan/KVM/catalog.json",
+      "added": 1,
+      "updated": 0,
+      "deleted": 0
+    }
+  ]
+}

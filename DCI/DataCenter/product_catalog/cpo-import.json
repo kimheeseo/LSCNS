@@ -4,7 +4,7 @@
   "sourceVersion": "2.13.0",
   "checked": "2026-10-11",
   "supplierCount": 149,
-  "productCount": 162,
+  "productCount": 165,
   "selection": "Suppliers mapped to CPO core/enabling layers (ELS, PMF, optical engines, packaging, FAU, connectors, foundry, test, assembly, thermal/materials, emerging photonics), plus explicitly CPO-labeled portfolios. Generic host NIC/cable and long-haul fiber records excluded.",
   "suppliers": [
     {
@@ -179,7 +179,7 @@
       "supplierId": "corning",
       "company": "Corning",
       "path": "Corning/CPO/catalog.json",
-      "products": 3
+      "products": 4
     },
     {
       "supplierId": "daikin",
@@ -497,7 +497,7 @@
       "supplierId": "lumentum",
       "company": "Lumentum",
       "path": "Lumentum/CPO/catalog.json",
-      "products": 2
+      "products": 3
     },
     {
       "supplierId": "lumileds",
@@ -635,7 +635,7 @@
       "supplierId": "nvidia",
       "company": "NVIDIA",
       "path": "NVIDIA/CPO/catalog.json",
-      "products": 2
+      "products": 3
     },
     {
       "supplierId": "openlight",

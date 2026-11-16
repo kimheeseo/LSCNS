@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DC BOM catalog provenance extension",
+  "type": "object",
+  "required": [
+    "products"
+  ],
+  "properties": {
+    "products": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "source_url",
+          "verified_date",
+          "spec_basis",
+          "status",
+          "deprecated"
+        ],
+        "properties": {
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "verified_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "spec_basis": {
+            "enum": [
+              "공식 datasheet",
+              "추정",
+              null
+            ]
+          },
+          "status": {
+            "enum": [
+              "active",
+              "EOL",
+              "announced",
+              "RFQ"
+            ]
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "legacy_specs": {
+            "type": "object"
+          },
+          "spec_sources": {
+            "type": "object"
+          },
+          "specs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null",
+                "array",
+                "object"
+              ]
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

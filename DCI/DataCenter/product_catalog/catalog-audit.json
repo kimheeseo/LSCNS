@@ -1,17 +1,126 @@
 {
-  "checked": "2026-10-13",
-  "pdfCount": 1233,
-  "catalogCount": 487,
-  "uncatalogedPdfCount": 0,
-  "pdfByVendor": {
-    "Commscope": 18,
-    "Corning": 1057,
-    "Furukawa Electric": 3,
-    "LS CNS": 13,
-    "Mellanox": 1,
-    "NVIDIA": 13,
-    "Sumitomo Electric": 44,
-    "USConnec": 84
+  "date": "2026-11-17",
+  "counts": {
+    "added": 14,
+    "updated": 21882,
+    "deleted": 0,
+    "RFQ": 21844,
+    "active": 17,
+    "EOL": 31,
+    "announced": 4,
+    "deprecated": 33
   },
-  "uncatalogedPdfPaths": []
+  "engineSmoke": {
+    "gpu": 1024,
+    "systems": 128,
+    "bomLines": 32,
+    "requirementRows": 32,
+    "rowsWithCandidates": 26,
+    "verifiedCandidateRows": 12,
+    "errors": [],
+    "sample": [
+      {
+        "item": "B200 8-GPU planning node",
+        "n": 12,
+        "first": "NVIDIA DGX B200",
+        "status": "active"
+      },
+      {
+        "item": "Compute NIC logical endpoints",
+        "n": 9,
+        "first": "NVIDIA BlueField-3 SuperNIC Family",
+        "status": "RFQ"
+      },
+      {
+        "item": "Leaf 400G planning switch",
+        "n": 41,
+        "first": "NVIDIA Quantum-2 QM9700",
+        "status": "active"
+      },
+      {
+        "item": "Spine 400G planning switch",
+        "n": 41,
+        "first": "NVIDIA Quantum-2 QM9700",
+        "status": "active"
+      },
+      {
+        "item": "server 400G-SR4 transceiver",
+        "n": 216,
+        "first": "NVIDIA MMA4Z00-NS400 transceiver",
+        "status": "active"
+      },
+      {
+        "item": "server 12F trunk 50 m",
+        "n": 2292,
+        "first": "Fiber Optic Data Center Trunk Cable",
+        "status": "RFQ"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "catalog records preserve old IDs, explicit nulls and field evidence",
+      "pass": true
+    },
+    {
+      "name": "RFQ never recovers numeric specifications from model names or archived data",
+      "pass": true
+    },
+    {
+      "name": "EOL and announced products are not BOM purchasing candidates",
+      "pass": true
+    },
+    {
+      "name": "default B200 1024 GPU receipt has unchanged quantities and real verified candidates",
+      "pass": true
+    },
+    {
+      "name": "known protocol, connector and reach conflicts stay excluded",
+      "pass": true
+    }
+  ],
+  "legacyChecks": [
+    {
+      "name": "CPO reference catalogs stay in their group and never replace purchase BOM rows",
+      "pass": true
+    },
+    {
+      "name": "Coherent Korean fields are read; 400G FR4 is not a DR4 candidate; unknown IB is not qualified",
+      "pass": true
+    },
+    {
+      "name": "AEC exact length and PCIe protocol exclude incompatible copper cables and optical modules",
+      "pass": true
+    },
+    {
+      "name": "UPS and rack reference rows link registered products without treating racks as servers",
+      "pass": true
+    },
+    {
+      "name": "full catalog loader discovers new paths at each revision, reports errors and retries",
+      "pass": true
+    },
+    {
+      "name": "product-name data rate excludes mismatched AOCs and battery racks are not IT racks",
+      "pass": true
+    },
+    {
+      "name": "optical requirements exclude electrical connectors and power panels; named SR8 conflicts with FR4",
+      "pass": true
+    },
+    {
+      "name": "mixed Products category does not become duct; transceiver clips and CFP are excluded",
+      "pass": true
+    },
+    {
+      "name": "Fiber monitoring instruments never substitute for cables, modules or network hardware",
+      "pass": true
+    },
+    {
+      "name": "Unverified DSIT vendor reference is browsable but excluded from structured product selection",
+      "pass": true
+    }
+  ],
+  "browserVerified": false,
+  "nodeCliRun": false
 }

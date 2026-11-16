@@ -16,7 +16,15 @@ test('CPO reference catalogs stay in their group and never replace purchase BOM 
  assert.equal(count,imported.productCount);
  assert.equal(imported.suppliers.length,imported.supplierCount);
 });
-const read=folder=>M.normalize(JSON.parse(fs.readFileSync(path.join(__dirname,'../product_catalog',folder,'catalog.json'),'utf8')),folder+'/catalog.json');
+// Historical schema compatibility fixtures: do not treat archived specs as live verified data.
+const read=folder=>{
+ const c=JSON.parse(fs.readFileSync(path.join(__dirname,'../product_catalog',folder,'catalog.json'),'utf8'));
+ c.defaultSpecs=c.legacy_defaultSpecs||c.defaultSpecs;
+ for(const p of Object.values(c.products||{})){
+  if(p.legacy_specs){p.specs=p.legacy_specs;delete p.spec_basis;delete p.status;}
+ }
+ return M.normalize(c,folder+'/catalog.json');
+};
 const optical=read('Coherent/Optical Transceivers'),aec=read('Amphenol/Active Electrical Cables'),dac=read('Amphenol/Copper DAC');
 test('Coherent Korean fields are read; 400G FR4 is not a DR4 candidate; unknown IB is not qualified',()=>{
  const r={item:'플러그형 트랜시버',transceiver:true,requirement:{speed:400,lengthM:100,standard:'DR4',connector:'MPO-12/APC',package:'QSFP-DD',protocol:'Ethernet'}};

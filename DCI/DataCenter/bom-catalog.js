@@ -7,6 +7,14 @@
   function kind(x) {
     if (x.category === 'CPO' || text(x.path).split('/')[1] === 'CPO') return 'cpo';
     const t = clean([x.category, x.path, x.item, x.name].join(' '));
+    if (/GPU SERVER|DGX B[23]00|B[23]00 8-GPU PLANNING NODE|H200 8-GPU PLANNING NODE/.test(t)) return 'server';
+    if (/FIREWALL|FORTIGATE|방화벽/.test(t)) return 'firewall';
+    if (/ROUTER|라우터/.test(t)) return 'router';
+    if (/LOAD BALANC|로드밸런|\bADC\b/.test(t)) return 'loadbalancer';
+    if (/\bKVM\b/.test(t)) return 'kvm';
+    if (/\bNAS\b/.test(t)) return 'nas';
+    if (/LIQUID COOLING|\bCDU\b|냉각/.test(t)) return 'cooling';
+    if (/STORAGE ARRAY|NETAPP AFF|ENTERPRISE SSD|DATA CENTER SSD|스토리지/.test(t)) return 'storage';
 
     if (/FIBER TEST AND MONITORING|\bOTDR\b|FIBERWATCH|ONMSI|FTH-5000|928-OMS|RTU-4000|RTU-4100/.test(t)) return 'monitoring';
 
@@ -49,8 +57,12 @@
   }
   function normalize(catalog, path) {
     return Object.entries(catalog.products || {}).filter(([, meta]) => !meta.vendorReferenceOnly).map(([id, meta]) => {
+      const audited = Object.prototype.hasOwnProperty.call(meta, 'spec_basis');
       const s = {...catalog.defaultSpecs, ...meta.specs};
-      const p = {id, path, vendor: catalog.company || path.split('/')[0], category: catalog.category || '', name: meta.name || id, description: meta.description || '', specs: s, source: meta.businessUrl || meta.officialUrl || meta.url || catalog.officialUrl || '', checked: meta.checked || catalog.checked || '', referenceOnly: !!meta.referenceOnly};
+      const p = {id, path, vendor: catalog.company || path.split('/')[0], category: catalog.category || '', name: meta.name || id, description: meta.description || '', specs: s, source: meta.businessUrl || meta.officialUrl || meta.url || catalog.officialUrl || '', checked: meta.checked || catalog.checked || '', referenceOnly: !!meta.referenceOnly,
+        source_url:meta.source_url ?? null, verified_date:meta.verified_date ?? null,
+        spec_basis:meta.spec_basis ?? null, catalog_status:meta.status || '',
+        deprecated:!!meta.deprecated, generation:meta.generation ?? null};
       // A mixed folder must be classified by the actual product, not by its parent label.
       p.kind = p.category === 'CPO' ? 'cpo' : /Fiber Test and Monitoring/i.test(p.category) ? 'monitoring' : kind({...p, category: '', path: ''});
       if (p.kind === 'other' && !/Optical Connectivity and Rack Enclosures/i.test(p.category)) p.kind = kind(p);
@@ -67,8 +79,16 @@
       if(!p.protocol){const protocol=p.name.match(/InfiniBand|Ethernet|PCIe(?:\s+Gen\d)?|(?:Mini-)?SAS|NVLink/i);if(protocol)p.protocol=/SAS/i.test(protocol[0])?'SAS':protocol[0];}
       p.polarity = field(s, ['Polarity', '극성']); p.gender = field(s, ['Gender']);
       p.jacket = field(s, ['Jacket', '난연 등급', 'Flame Rating']);
-      p.status = field(s, ['Status', 'Lifecycle', 'Product Status']);
+      p.status = meta.status || field(s, ['Status', 'Lifecycle', 'Product Status']);
       p.discontinued = /DISCONTINUED|OBSOLETE|END OF LIFE|\bEOL\b/i.test(text(p.status));
+      if(audited){
+        // Audited records must never infer unverified engineering values from a model name.
+        p.speed=field(s,['Data Rate','총 속도','속도','Speed','Bandwidth']);
+        p.length=field(s,['길이','Reach','거리','Length','Cable Length']);
+        p.connector=field(s,['Connector','커넥터','Optical Interface','Interface']);
+        p.package=field(s,['Package','폼팩터','Form Factor','포트']);
+        p.standard=field(s,['광 규격','Standard']);p.protocol=field(s,['Protocol','프로토콜']);
+      }
       p.optical=/FIBER|FIBRE|OPTIC|MPO|MTP|MDC|MMC|SENKO|CORNING|US.?CONEC|\bLC\b|\bSC\b/i.test([p.name,p.category,p.path,p.fiber,p.connector].join(' '));
       return p;
     }).filter(p => /^https?:\/\//i.test(p.source));
@@ -89,13 +109,15 @@
     if (/integrated|未|미확정/i.test(required.package)) required.package='';
     const comparable = (a, b) => clean(a).replace(/BASE-/g, '').replace(/[\s_]/g, '') === clean(b).replace(/BASE-/g, '').replace(/[\s_]/g, '');
     return products.flatMap(p => {
-      if (p.discontinued) return [];
+      if (p.discontinued || p.catalog_status === 'announced') return [];
       if (p.kind === 'monitoring' || p.kind === 'cpo') return []; // Reference catalogs never replace purchasing BOM lines.
       const compatibleKinds = type === 'fiber' ? ['fiber','trunk','patch'] : type === 'patch' ? ['patch'] : [type];
       if (!compatibleKinds.includes(p.kind) || type === 'other' || type === 'component') return [];
       const opticalItem=/SMF|MMF/.test(media)||/MPO|MTP|LC|MDC|MMC/.test(clean(required.connector))||!!required.fiber||type==='module';
       if(opticalItem&&['fiber','patch','trunk','connector','adapter','panel','module'].includes(type)&&!p.optical)return [];
       const confirmed = [], missing = []; let conflict = false;
+      const rfq=p.catalog_status==='RFQ';
+      if(rfq) missing.push('공식 사양 미검증 · RFQ');
       const check = (name, need, have, predicate) => {if (!need || /^(REVIEW|PROJECT|N\/A|未)/.test(clean(need))) return; if (!have || /검증 필요|미공개|미정|RFQ|확인 필요/.test(text(have))) missing.push(name); else if (predicate(need, have)) confirmed.push(name); else conflict = true;};
       if (['transceiver','dac','aec','aoc'].includes(type)) {
         check('속도', required.speed, rates(p.speed).length ? p.speed : '', (a,b) => rates(b).includes(a));
@@ -126,8 +148,8 @@
       if (['ups','generator','transformer','rack','server','switch','nic','management','panel'].includes(type)) missing.push('용량/구성·현장 적합성');
       if (['patch','fiber','trunk','connector','adapter','module','copper'].includes(type)) missing.push(type === 'module' ? 'housing slot·극성·loss budget 최종 확인' : '길이·극성·핀·현장 구성 최종 확인');
       if (p.referenceOnly) missing.push('제품군/SKU 확인');
-      const status = missing.length ? '관련 제품 · 검증 필요' : '규격 후보 · 장비 호환 검증 필요';
-      return [{...p, evidence: confirmed.length ? '일치: ' + confirmed.join('·') : '품목 분류 일치', matchBasis: (confirmed.length ? '일치: ' + confirmed.join('·') + '; ' : '') + (missing.length ? '미확정: ' + [...new Set(missing)].join('·') : 'host/FEC/광손실·극성 확인 필요'), status, score: confirmed.length * 10 - missing.length}];
+      const status = rfq ? 'RFQ · 공식 사양 미확인' : missing.length ? '관련 제품 · 검증 필요' : '규격 후보 · 장비 호환 검증 필요';
+      return [{...p, evidence: confirmed.length ? '일치: ' + confirmed.join('·') : '품목 분류 일치', matchBasis: (confirmed.length ? '일치: ' + confirmed.join('·') + '; ' : '') + (missing.length ? '미확정: ' + [...new Set(missing)].join('·') : 'host/FEC/광손실·극성 확인 필요'), status, score: confirmed.length * 10 - missing.length - (rfq ? 100 : 0)}];
     }).sort((a,b) => b.score - a.score || a.vendor.localeCompare(b.vendor) || a.name.localeCompare(b.name));
   }
   let cached, pending, epoch = 0;

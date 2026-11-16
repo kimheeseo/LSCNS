@@ -91,7 +91,7 @@
   function shell() {
     return '<section class="panel catalogPanel">' +
       '<div class="catalog-head"><div><h2>업체별 부품 리스트</h2><p>GitHub의 <code>product_catalog</code> 폴더를 기준으로 업체 → 부품군 → 하위 제품군 → 제품 자료를 탐색합니다. 하위 폴더가 여러 단계여도 PDF를 자동 탐색하며, 각 폴더의 <code>catalog.json</code>에 등록된 핵심 사양은 제품 카드에 함께 표시됩니다.</p></div>' +
-      '<div class="catalog-head-actions"><button type="button" id="catalogKoreaBtn" class="catalog-refresh" aria-expanded="false">한국 업체·대리점 조회</button><button type="button" id="catalogRefresh" class="catalog-refresh">카탈로그 새로고침</button></div></div>' +
+      '<p class="catalog-basis-date">카탈로그 기준일: 2026-11-17 · 개별 사양 확인일 별도 · 미확인 항목 RFQ</p><div class="catalog-head-actions"><button type="button" id="catalogKoreaBtn" class="catalog-refresh" aria-expanded="false">한국 업체·대리점 조회</button><button type="button" id="catalogRefresh" class="catalog-refresh">카탈로그 새로고침</button></div></div>' +
       '<div class="catalog-steps"><span class="active">1 업체</span><span>2 부품군</span><span>3 제품·스펙</span></div>' +
       '<div id="catalogNotice" class="catalog-notice">카탈로그를 불러오는 중입니다.</div>' +
       '<section class="catalog-db-map" aria-labelledby="catalogDbMapTitle"><div class="catalog-db-map-head"><div><h3 id="catalogDbMapTitle">제품 DB 맵</h3><p>부품군별 등록 제품 수를 한눈에 보고, 원하는 DB를 눌러 업체·세부 부품으로 이동합니다.</p></div><span id="catalogDbMapStatus">DB 집계 중…</span></div><div id="catalogDbMap" class="catalog-db-map-body"><div class="catalog-db-loading">구조화 제품 DB를 집계하고 있습니다.</div></div><div id="catalogDbDetail" class="catalog-db-detail" hidden></div></section>' +
@@ -158,7 +158,7 @@
     aoc:'AOC', dac:'DAC', aec:'AEC', copper:'Copper / Cat6',
     connector:'Connector', adapter:'Adapter', module:'Module / Cassette', panel:'Panel / Housing',
     transceiver:'Transceiver', component:'Optical / Electronic Component',
-    switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU', storage:'Storage / SSD',
+    firewall:'Firewall', router:'Router', loadbalancer:'Load Balancer', kvm:'KVM', nas:'NAS', switch:'Switch', nic:'NIC / Network Adapter', server:'Server', cpu:'CPU', storage:'Storage / SSD',
     gpu:'GPU / AI Accelerator',
     ups:'UPS', generator:'Generator', transformer:'Transformer', battery:'Battery', power:'Power Distribution',
     rack:'Rack', management:'Cable Management', cabletray:'Cable Tray', raceway:'Fiber Raceway', cooling:'Cooling', facility:'Data Center Infrastructure',
@@ -170,7 +170,7 @@
     {id:'cable', label:'Cable / Interconnect DB', kinds:['fiber','trunk','patch','aoc','dac','aec','copper']},
     {id:'connectivity', label:'Connector / Panel / Adapter DB', kinds:['connector','adapter','module','panel']},
     {id:'optics', label:'Optics / Component DB', kinds:['transceiver','component']},
-    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu','storage']},
+    {id:'network', label:'Network / Server DB', kinds:['switch','nic','server','cpu','storage','firewall','router','loadbalancer','kvm','nas']},
     {id:'accelerator', label:'Accelerator DB', kinds:['gpu']},
     {id:'power', label:'Power DB', kinds:['ups','generator','transformer','battery','power']},
     {id:'infra', label:'Rack / Infrastructure DB', kinds:['rack','management','cabletray','raceway','cooling','facility']},
@@ -682,6 +682,12 @@
     };
     add(manifest && manifest.defaultSpecs);
     add(meta && meta.specs);
+    merged['검증 상태'] = meta.status || 'RFQ';
+    merged['구형/단종 표시'] = meta.deprecated ? 'deprecated' : '—';
+    merged['사양 근거'] = meta.spec_basis || '— (미확인)';
+    merged['공식 출처'] = meta.source_url || '— (개별 사양 미확인)';
+    merged['사양 확인일'] = meta.verified_date || '— (미확인)';
+    merged['검증 메모'] = meta.verification_note || '';
     return merged;
   }
 
@@ -707,9 +713,9 @@
     const specs = specObject(manifest, meta);
     const fullTitle = meta.name || model;
     const title = /COMMSCOPE/i.test(String(state.company||manifest?.company||'')) ? shortCommScopeTitle(meta, model, specs) : fullTitle;
-    const description = meta.description || (manifest && manifest.productDescription) || '';
+    const description = meta.status === 'RFQ' ? (meta.verification_note || '공식 사양 미확인 · RFQ') : meta.description || (manifest && manifest.productDescription) || '';
     const officialUrl = meta.officialUrl || (manifest && manifest.officialUrl) || '';
-    const checked = meta.checked || (manifest && manifest.checked) || '';
+    const checked = Object.prototype.hasOwnProperty.call(meta,'verified_date') ? meta.verified_date || '' : meta.checked || (manifest && manifest.checked) || '';
     const localPdfUrl = meta.datasheetPath ? staticUrl(meta.datasheetPath) : '';
     const datasheetUrl = meta.datasheetUrl || localPdfUrl;
     const officialPdfUrl = meta.officialPdfUrl || '';

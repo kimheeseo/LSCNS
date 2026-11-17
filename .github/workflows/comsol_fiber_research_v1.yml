@@ -4,6 +4,7 @@ on:
     paths:
       - 'COMSOL/universal_silica_v01/fiber_research_v1/**'
       - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step4_v080.mjs'
       - '.github/workflows/comsol_fiber_research_v1.yml'
   workflow_dispatch:
 jobs:
@@ -16,6 +17,7 @@ jobs:
           sparse-checkout: |
             COMSOL/universal_silica_v01/fiber_research_v1
             COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+            COMSOL/universal_silica_v01/web/research_step4_v080.mjs
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -30,7 +32,9 @@ jobs:
           python -m compileall -q .
           python -m unittest discover -s tests -v
       - name: Static web module syntax
-        run: node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+        run: |
+          node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+          node --check COMSOL/universal_silica_v01/web/research_step4_v080.mjs
       - name: JSON-schema check for each design preset
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |

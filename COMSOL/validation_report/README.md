@@ -1,5 +1,13 @@
 # COMSOL validation report index
 
+## 2026-11-18 — STEP 6b PM 열응력·광탄성 v0.8.2 (단일 단계)
+
+- [설계·구현 및 58개 스모크/단위 테스트 검증표](./STEP6B_V082_DESIGN_VERIFICATION_20261118.md) — generalized plane strain, user-sourced E/ν/α/p11/p12, photoelastic Q tensor, Panda 별도 stress_rod, 임시 벡터 모드 B.
+- [별도 STEP 6b 한계 보고](./STEP6B_V082_LIMITATIONS_20261118.md) — 실제 도핑/냉각/광탄성 자료 TODO, COMSOL/neff PML 정밀도 미확인.
+- [Python stress_optic.py/pm_cli.py](../universal_silica_v01/fiber_research_v1/) · [웹 STEP6b 결과 뷰어](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step6b-v082).
+- [58개 Python 테스트/새 웹 모듈 syntax 통과 CI](https://github.com/kimheeseo/LSCNS/actions/runs/44185058249).
+- **중요:** 재료 평균 B는 optical modal B가 아님. COMSOL 비교/V4·V5 정밀도 검증 미통과. STEP6c~6f 및 STEP7/8 전체는 승인 전 착수 금지.
+
 ## 2026-11-18 — STEP 6a 굽힘 해석 v0.8.1 (단일 단계)
 
 - **[STEP6a 설계·구현·42개 CI 테스트 검증표](./STEP6A_V081_DESIGN_VERIFICATION_20261118.md)** — 2D 등가 굴절률, 반경/방향, optional sourced R_eff, 동일 메시 overlap 추적.

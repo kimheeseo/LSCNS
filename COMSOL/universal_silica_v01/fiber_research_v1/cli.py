@@ -92,6 +92,9 @@ def main(argv=None):
         if name!="mesh":
             u.add_argument("--modes",type=int,default=2 if name=="solve" else 1)
             u.add_argument("--target-neff",type=float,default=None)
+    # STEP4: retain full physical FEM quadrature only when explicitly requested.
+    # This may create very large results, but is required for quantitative overlap matching.
+    sub.choices["solve"].add_argument("--export-full-quadrature", action="store_true")
     a=parser.parse_args(argv)
     if a.command=="presets":
         out=Path(a.out)
@@ -117,7 +120,7 @@ def main(argv=None):
             from geometry import build_mesh
             from vector_fem import solve
         m=build_mesh(design,out)
-        s=solve(design,m,n_modes=a.modes,target_neff=a.target_neff)
+        s=solve(design,m,n_modes=a.modes,target_neff=a.target_neff,export_full_quadrature=a.export_full_quadrature)
         dump(s,out/"mode_result.json")
         print("EXPERIMENTAL (not loss-validated):",[(x["neff_real"],x["neff_imag"],x["residual_relative"]) for x in s["modes"]])
         return

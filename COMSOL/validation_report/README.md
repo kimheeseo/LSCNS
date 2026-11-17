@@ -1,5 +1,13 @@
 # COMSOL validation report index
 
+## 2026-11-18 — STEP 6a 굽힘 해석 v0.8.1 (단일 단계)
+
+- **[STEP6a 설계·구현·42개 CI 테스트 검증표](./STEP6A_V081_DESIGN_VERIFICATION_20261118.md)** — 2D 등가 굴절률, 반경/방향, optional sourced R_eff, 동일 메시 overlap 추적.
+- **[STEP6a 한계 보고서](./STEP6A_V081_LIMITATIONS_20261118.md)** — V3 COMSOL axisymmetric와 차이, PML/mesh 수렴 미완, 응력광학 계수 근거 TODO.
+- [Python 굽힘 계산/CLI](../universal_silica_v01/fiber_research_v1/) · [웹 결과 뷰어](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step6a-v081).
+- [CI 42개 테스트 및 JavaScript 점검 성공](https://github.com/kimheeseo/LSCNS/actions/runs/44181794294).
+- **V3 = EVIDENCE_REQUIRED, V4/V5 = NOT PASS.** STEP6b~6f 및 STEP7/8 전체 구현은 승인 전 보류.
+
 ## 2026-11-18 — STEP 4 계산 물리량 v0.8.0 (한 단계만)
 
 - **[설계 / 구현 / 29개 테스트 검증표](./STEP4_V080_DESIGN_VERIFICATION_20261118.md)** — signed α[dB/m], Et-only Aeff/MFD, overlap-gated D/S/λ0, γ, HCF HOMER·ARROW 등.

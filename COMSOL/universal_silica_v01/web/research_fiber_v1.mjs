@@ -25,8 +25,45 @@ function validate(d){
   return d;
 }
 function status(t){$('rf-status').textContent=t;}
+
+/* Literature-only ESM indicator for conventional triangular hole PCF.
+   The d/Lambda=0.406 cutoff is an approximate ideal-lattice guide, NOT a mode calculation.
+   Reference: Birks et al., Opt. Lett. 22, 961 (1997), doi:10.1364/OL.22.000961;
+   review: https://journal.hep.com.cn/foe/EN/10.1007/s12200-012-0301-y */
+function drawESM(design){
+  const root=$('rf-esm-panel'),canvas=$('rf-esm-canvas'),explanation=$('rf-esm-interpretation');
+  if(!root||!canvas)return;
+  const eligible=design?.family==='solid_pcf'&&['hex','lma','high_nonlinearity'].includes(design.variant);
+  root.hidden=!eligible;
+  if(!eligible)return;
+  const pitch=Number(design.parameters?.pitch_um),ratio=Number(design.parameters?.d_over_pitch);
+  const lw=Number(design.wavelength_nm)/1000/pitch;
+  const ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle='#091728';ctx.fillRect(0,0,w,h);
+  const box={x:53,y:20,w:w-76,h:h-58};
+  const xs=q=>box.x+q/.9*box.w;
+  const ys=q=>box.y+(1.8-q)/1.7*box.h;
+  ctx.fillStyle='#143d43';ctx.fillRect(box.x,box.y,xs(.406)-box.x,box.h);
+  ctx.fillStyle='#423029';ctx.fillRect(xs(.406),box.y,xs(.9)-xs(.406),box.h);
+  ctx.strokeStyle='#9edce4';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(box.x,box.y);ctx.lineTo(box.x,box.y+box.h);ctx.lineTo(box.x+box.w,box.y+box.h);ctx.stroke();
+  ctx.strokeStyle='#e0c487';ctx.setLineDash([4,5]);ctx.beginPath();ctx.moveTo(xs(.406),box.y);ctx.lineTo(xs(.406),box.y+box.h);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#e9f6ff';ctx.font='12px Arial';
+  for(const x of [.2,.4,.6,.8])ctx.fillText(x.toFixed(1),xs(x)-8,box.y+box.h+17);
+  for(const y of [.2,.6,1,1.4,1.8])ctx.fillText(y.toFixed(1),8,ys(y)+4);
+  ctx.fillText('d / Λ',box.x+box.w/2,box.y+box.h+38);
+  ctx.save();ctx.translate(12,box.y+box.h/2);ctx.rotate(-Math.PI/2);ctx.fillText('λ / Λ',-20,0);ctx.restore();
+  ctx.font='11px Arial';ctx.fillStyle='#d2ede2';ctx.fillText('ESM 근사',box.x+7,box.y+20);
+  ctx.fillStyle='#f8dec8';ctx.fillText('추가 모드 가능',xs(.406)+9,box.y+20);
+  ctx.fillStyle='#fff';ctx.fillText('0.406',xs(.406)+3,box.y+box.h-8);
+  const px=Math.min(.9,Math.max(0,ratio)),py=Math.min(1.8,Math.max(.1,lw));
+  ctx.beginPath();ctx.arc(xs(px),ys(py),6,0,2*Math.PI);ctx.fillStyle='#6ce3fb';ctx.fill();ctx.strokeStyle='#061723';ctx.stroke();
+  explanation.textContent='입력 d/Λ='+ratio.toFixed(3)+', λ/Λ='+lw.toFixed(3)+'. '+(ratio<=.406?'일반적인 육각 단일 결함 PCF의 ESM 근사 구역입니다.':'기준 초과: 고차모드 가능성을 분석해야 합니다.')+' 이 도표는 FEM/고유모드/컷오프 검증 결과가 아닙니다.';
+}
+
 function updateConfig(d){
-  current=structuredClone(validate(d));$('rf-json').value=JSON.stringify(current,null,2);
+  current=structuredClone(validate(d));$('rf-json').value=JSON.stringify(current,null,2);drawESM(current);
   status('JSON 프리셋 로드 완료. 이는 형상 설정이며 모드 계산값이 아닙니다. Python에서 실행해야 합니다.');
 }
 function summaryMode(mode){
@@ -94,6 +131,9 @@ function mount(){
     '<p>8개 계열 · 25개 버전형 JSON 프리셋을 저장/불러옵니다. 지오메트리·복소 풀벡터 FEM은 로컬 또는 Colab Python에서 실행합니다. 웹은 결과 JSON만 시각화합니다.</p>'+
     '<p class="rf-muted">주의: Kagome/negative-curvature/PM 응력과 PBGF 밴드갭은 일부 형상 근사 또는 미구현입니다. 계산된 손실은 메시·PML 독립 검증 전까지 미검증 수치입니다.</p>'+
     '<div class="rf-line"><label>설계 프리셋 <select id="rf-preset"><option>프리셋 불러오는 중…</option></select></label><button id="rf-use">프리셋 적용</button><button id="rf-check">설계 점검</button><button id="rf-save">JSON 저장</button><label for="rf-open" class="rf-file">JSON 열기</label><input type="file" accept=".json" id="rf-open" hidden></div>'+
+    '<div id="rf-esm-panel" hidden style="margin:12px 0;border:1px solid #3b6878;padding:14px;border-radius:10px">'+
+    '<h3 style="margin:0">PCF Endlessly Single-Mode · 문헌 근사 구역</h3><canvas id="rf-esm-canvas" width="620" height="285" style="width:100%;max-width:620px;height:auto;display:block"></canvas>'+
+    '<p id="rf-esm-interpretation"></p><p class="rf-muted">일반적인 triangular-lattice 단일 결함 PCF에서의 참고 기준 d/Λ ≲ 0.406. 유한 링, 다중 결함, 타원 구멍, 고비선형 구조에는 직접 적용되지 않습니다. <a href="https://opg.optica.org/ol/abstract.cfm?uri=ol-22-13-961" target="_blank" rel="noopener">Birks et al. (1997)</a></p></div>'+
     '<textarea id="rf-json" spellcheck="false" aria-label="설계 JSON 수정"></textarea>'+
     '<p id="rf-status" role="status" aria-live="polite">프리셋 로드 대기</p>'+
     '<p><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/fiber_research_v1" target="_blank" rel="noopener">Python 설치/실행 가이드 및 코드</a> · <a href="'+ROOT+'fiber_design.schema.json" target="_blank" rel="noopener">JSON Schema</a></p>'+

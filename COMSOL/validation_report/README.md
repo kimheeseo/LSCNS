@@ -1,5 +1,13 @@
 # COMSOL validation report index
 
+## 2026-11-18 — STEP 4 계산 물리량 v0.8.0 (한 단계만)
+
+- **[설계 / 구현 / 29개 테스트 검증표](./STEP4_V080_DESIGN_VERIFICATION_20261118.md)** — signed α[dB/m], Et-only Aeff/MFD, overlap-gated D/S/λ0, γ, HCF HOMER·ARROW 등.
+- **[별도 한계 보고서](./STEP4_V080_LIMITATIONS_20261118.md)** — 물성 TODO, FEM/PML·surface-mode·stress 등 미검증 상세.
+- [Python STEP4 수식·CLI](../universal_silica_v01/fiber_research_v1/) · [기존 웹 STEP4 뷰어](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step4-v080).
+- [통과한 CI 실행 (29 테스트 + 정적 JS 검사)](https://github.com/kimheeseo/LSCNS/actions/runs/44138275833).
+- **수용 게이트:** STEP3 V1/V4/V5 물리 수렴 증거 미제출. **STEP5 미착수·승인 전 진행 금지.**
+
 ## 2026-11-18 — STEP 0 감사 승인 및 STEP 1–3 연구용 광섬유 설계/솔버 확장
 
 - **[STEP 0 승인·STEP 1–3 검증 수용 기준](./STEP0_APPROVAL_STEP1_3_ACCEPTANCE_20261118.md)** — 기존 감사 결과 보존과 향후 정확도 기준.

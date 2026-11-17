@@ -145,7 +145,7 @@ function mount(){
     '<p class="rf-muted">필드 샘플은 희소 삼각형 중심점의 복소값입니다. 그림은 산점 시각화이며 실제 FEM 재계산, 정량 손실 인증 또는 밴드갭 지도는 아닙니다.</p>';
   main.appendChild(section);
   $('rf-use').addEventListener('click',()=>{try{updateConfig(presets[$('rf-preset').value]);}catch(e){status('로드 실패: '+e.message);}});
-  $('rf-check').addEventListener('click',()=>{try{validate(JSON.parse($('rf-json').value));status('브라우저 기본 검사 통과. Python schema.py 상세 검증이 별도로 필요합니다.');}catch(e){status('검사 실패: '+e.message);}});
+  $('rf-check').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));drawESM(d);status('브라우저 기본 검사 통과. Python schema.py 상세 검증이 별도로 필요합니다.');}catch(e){status('검사 실패: '+e.message);}});
   $('rf-save').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));save(JSON.stringify(d,null,2)+'\n',jsonName(d.name)+'.json');status('설계 JSON 다운로드 요청');}catch(e){status('저장 실패: '+e.message);}});
   $('rf-open').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>300000)throw Error('300 KB 제한');updateConfig(JSON.parse(await f.text()));}catch(err){status('파일 읽기 실패: '+err.message);}});
   $('rf-result-open').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>15000000)throw Error('15 MB 제한');displayResult(JSON.parse(await f.text()));}catch(err){status('결과 읽기 실패: '+err.message);}});

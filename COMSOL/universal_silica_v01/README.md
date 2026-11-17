@@ -1,3 +1,5 @@
+> **2026-11-18 · STEP 0 감사 승인 / STEP 1–3 연구용 광섬유 확장:** [검증·승인 보고서](../validation_report/STEP1_3_IMPLEMENTATION_STATUS_20261118.md) · [A–H / 25개 JSON 프리셋과 Python Gmsh/Nédélec FEM](./fiber_research_v1/) · [기존 웹에서 JSON 편집 및 Python 결과 보기](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-fiber-v1). CI 기본 스모크 통과와 FEM 물리 검증(HE11/PML 누설손실/밴드갭·PM)은 별개이며 미검증 범위를 명시합니다.
+
 ## HCF Complex Scalar FEM + PML (2026-11-04)
 
 [기존 웹의 HCF FEM 결과 뷰어](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#hcf-fem) · [Colab 복소 FEM 실행](https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/hcf_complex_fem/HCF_Complex_FEM_Research.ipynb) · [소스·검증 결과](hcf_complex_fem/) · [수렴 검증 보고서](hcf_complex_fem/VALIDATION_REPORT.md). 중첩 튜브 HCF의 실제 2D **Scalar FEM + complex PML** 고유값 및 파장별 국소 공진/반공진 후보 계산. **Full-vector Maxwell FEM 미구현, PML/메시 수렴 실패, 손실 dB/km 미검증**. 웹은 Colab 결과 Import/시각화만 수행하며 입력 변경 때 FEM 자동 재계산하지 않음.

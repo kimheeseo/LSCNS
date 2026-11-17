@@ -39,12 +39,20 @@ class NumericalSmoke(unittest.TestCase):
         d["mesh"]["bulk_max_um"]=1.0
         d["mesh"]["elements_per_wavelength"]=4
         m=build_mesh(d)
-        s=solve(d,m,n_modes=1,target_neff=1.446,max_sample_points=10)
+        s=solve(d,m,n_modes=1,target_neff=1.446,max_sample_points=10,export_full_quadrature=True)
         self.assertEqual(s["schema"],"LSCNS_fiber_research_vector_v1")
         self.assertTrue(s["modes"])
         self.assertEqual(sorted(s["modes"][0]["field_samples"]["components"]),
                          sorted(("Ex","Ey","Ez","Hx","Hy","Hz")))
         self.assertFalse(s["validation"]["loss_dB_km_certified"])
+        self.assertEqual(s["engine_version"],"0.8.0")
+        self.assertIn("Et=Ex,Ey",s["modes"][0]["classification"]["Aeff_basis"])
+        self.assertAlmostEqual(s["modes"][0]["alpha_total_dB_km"],1000*s["modes"][0]["alpha_total_dB_m"])
+        q=s["modes"][0]["field_quadrature"]
+        self.assertEqual(len(q["points_um"]),len(q["weights_um2"]))
+        self.assertEqual(len(q["Ex"]),len(q["Ey"]))
+        self.assertGreater(len(q["points_um"]),10)
+
         # The complex first-order QEP couplings MUST not disappear via implicit float casting.
         from vector_fem import _assemble
         a=_assemble(d,m)

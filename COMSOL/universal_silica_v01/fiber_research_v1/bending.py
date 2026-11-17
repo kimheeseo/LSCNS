@@ -179,9 +179,17 @@ def bend_radius_direction_sweep(design,radii_mm,directions_deg,
     if not straight.get("modes"):
         raise RuntimeError("straight fiber has no candidate reference modes")
     straight_fm=straight["modes"][0]
+    settings={"radii_mm_descending":radii,"directions_deg":dirs,
+              "reff_multiplier":reff_multiplier,
+              "stress_source_url":stress_source_url,"stress_source_note":stress_source_note,
+              "minimum_overlap":threshold,"n_modes":n_modes,"target_neff":target_neff}
+    provenance_json=json.dumps({"design":design,"settings":settings},
+                                sort_keys=True,separators=(",",":"),ensure_ascii=False,allow_nan=False)
     root={"schema":"LSCNS_step6a_bend_sweep_v081","engine_version":ENGINE_VERSION,
           "created_utc":datetime.now(timezone.utc).isoformat(),
-          "input_sha256":_normalized_design_hash(design),
+          "input_sha256":hashlib.sha256(provenance_json.encode("utf-8")).hexdigest(),
+          "source_design_sha256":_normalized_design_hash(design),
+          "settings":settings,
           "source_design":design,
           "physical_model":{"conformal":"n_eq=n(x,y)*(1+x_out/R_eff)", "R_eff":"f_source*R or R",
                             "direction":"x_out=x*cos(theta)+y*sin(theta)",

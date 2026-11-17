@@ -159,8 +159,8 @@ def build_mesh(design, output_dir=None):
             add(disk(0,0,a,a*p.get("ellipse_ratio",1) if kind=="elliptic_core" else a),"core")
             if kind!="elliptic_core":
                 for x in (-p["rod_offset_um"],p["rod_offset_um"]):
-                    add(disk(x,0,p["rod_radius_um"],p["rod_radius_um"]*.6 if kind=="bow_tie" else None),"silica")
-            notes.append("Stress rods are geometry only: stress-optic anisotropy and birefringence NOT solved")
+                    add(disk(x,0,p["rod_radius_um"],p["rod_radius_um"]*.6 if kind=="bow_tie" else None),"stress_rod")
+            notes.append("STEP6b: stress_rod is a distinct mechanical domain; isotropic photoelasticity requires sourced E, nu, alpha, p11, p12 inputs. Rod shapes remain simplified; core-area B is NOT modal neff splitting.")
         occ.synchronize()
         input_shapes=[x[0] for x in objects]
         _,mapping=occ.fragment([input_shapes[0]],input_shapes[1:],removeObject=True,removeTool=True)

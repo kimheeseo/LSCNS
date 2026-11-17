@@ -1,3 +1,11 @@
+## STEP 5 v0.8.3 — Photonic Crystal Bloch-Floquet
+
+- [STEP5 설계·검증표](STEP5_V083_DESIGN_VERIFICATION_20261118.md)
+- [STEP5 별도 한계 보고서](STEP5_V083_LIMITATIONS_20261118.md)
+- [STEP5 동일 웹 설계 UI](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step5-v083)
+- Python Floquet 스칼라 예제의 표본 gap 후보 0개. V2/V4/V5/V6 정량 검증은 아직 미통과.
+
+
 # COMSOL validation report index
 
 ## 2026-11-18 — STEP 6b PM 열응력·광탄성 v0.8.2 (단일 단계)

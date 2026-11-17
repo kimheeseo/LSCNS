@@ -159,8 +159,53 @@ def main(argv=None):
     s=sub.add_parser("sweep",help="overlap-track actual FEM full-quadrature wavelength runs")
     s.add_argument("input");s.add_argument("--out",default="step4_dispersion.json")
     s.add_argument("--min-overlap",type=float,default=.75)
+    g=sub.add_parser("solve-sweep",help="run an actual fixed-geometry, common-mesh FEM wavelength sweep then track modes")
+    g.add_argument("input",help="v1 fiber design JSON")
+    g.add_argument("--out",default="step4_sweep")
+    g.add_argument("--start-nm",type=float,required=True)
+    g.add_argument("--stop-nm",type=float,required=True)
+    g.add_argument("--points",type=int,default=7)
+    g.add_argument("--modes",type=int,default=2)
+    g.add_argument("--min-overlap",type=float,default=.75)
+    g.add_argument("--target-neff",type=float,default=None)
     a=p.parse_args(argv)
     d=json.loads(Path(a.input).read_text(encoding="utf-8"))
+    if a.command=="solve-sweep":
+        import copy
+        try:
+            from .schema import validate_design
+            from .geometry import build_mesh
+            from .vector_fem import solve
+        except ImportError:
+            from schema import validate_design
+            from geometry import build_mesh
+            from vector_fem import solve
+        if not (5<=a.points<=101 and 250<=a.start_nm<a.stop_nm<=3500):
+            raise ValueError("5..101 points, 250<=start_nm<stop_nm<=3500 required")
+        if not 1<=a.modes<=8:raise ValueError("modes 1..8")
+        path=Path(a.out);path.mkdir(parents=True,exist_ok=True)
+        case=copy.deepcopy(d)
+        case["wavelength_nm"]=a.start_nm
+        validate_design(case)
+        # Build once at shortest lambda: fixed coordinates guarantee strict overlap quadrature.
+        # Reuse with every wavelength to ensure consistent mode integrals and resolve shortest lambda.
+        mesh=build_mesh(case,path/"common_mesh")
+        runs=[]
+        for i,lam in enumerate(np.linspace(a.start_nm,a.stop_nm,a.points)):
+            case=copy.deepcopy(d);case["wavelength_nm"]=float(lam)
+            validate_design(case)
+            result=solve(case,mesh,n_modes=a.modes,target_neff=a.target_neff,
+                         max_sample_points=200,export_full_quadrature=True)
+            runs.append(result)
+            _write({"schema":"LSCNS_step4_raw_sweep_v1","runs":runs},path/"partial_raw_sweep.json")
+            print("computed",i+1,"of",a.points,"wavelength_nm",lam)
+        raw={"schema":"LSCNS_step4_raw_sweep_v1","runs":runs}
+        _write(raw,path/"raw_sweep.json")
+        tracked=track_wavelength_sweep(raw,a.min_overlap)
+        _write(tracked,path/"tracked_dispersion.json")
+        print("STEP4 v0.8.0 complete, tracked:",path/"tracked_dispersion.json",
+              "HE11/PML physical validation STILL required")
+        return
     result=postprocess_result(d,a.n2_m2_W) if a.command=="result" else track_wavelength_sweep(d,a.min_overlap)
     _write(result,a.out)
     print(f"STEP4 v{ENGINE_VERSION}: {a.out}; FEM physics remains unverified.")

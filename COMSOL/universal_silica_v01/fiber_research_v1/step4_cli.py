@@ -53,8 +53,8 @@ def postprocess_result(data,n2_m2_W=None):
             "HOMER_ratio":None,
             "HOMER_needed":"verified FM/HOM identities and independently PML-converged losses",
             "surface_anticrossing":"TODO: overlap-tracked multi-mode wavelength sweep + glass localization"}
-        if n2_m2_W is not None and fm["Aeff_Et_um2"] is not None and
-           d["family"] not in ("anti_resonant","pbgf","kagome"):
+        if (n2_m2_W is not None and fm["Aeff_Et_um2"] is not None and
+                d["family"] not in ("anti_resonant","pbgf","kagome")):
             fm["gamma_W_inv_m_inv"]=nonlinear_gamma(n2_m2_W,lam,fm["Aeff_Et_um2"])["gamma_W_inv_m_inv"]
             fm["gamma_needed"]=None
         modes.append(fm)

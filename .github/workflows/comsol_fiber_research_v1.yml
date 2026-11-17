@@ -1,0 +1,34 @@
+name: COMSOL fiber research v1
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/fiber_research_v1/**'
+      - '.github/workflows/comsol_fiber_research_v1.yml'
+  workflow_dispatch:
+jobs:
+  python-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            COMSOL/universal_silica_v01/fiber_research_v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Gmsh OpenGL shared libraries
+        run: sudo apt-get update && sudo apt-get install -y libglu1-mesa
+      - name: Install Python dependencies
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python -m pip install -r requirements.txt
+      - name: Syntax compilation and tests
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: |
+          python -m compileall -q .
+          python -m unittest discover -s tests -v
+      - name: CLI JSON roundtrip
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: |
+          python cli.py presets --out /tmp/ls-fiber-presets
+          python cli.py validate /tmp/ls-fiber-presets/index_guiding__step.json

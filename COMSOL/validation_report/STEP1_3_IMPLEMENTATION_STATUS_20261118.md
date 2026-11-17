@@ -18,7 +18,7 @@ STEP 0 원문: [LS_Wave_Optics_STEP0_Audit_20261118.md](./LS_Wave_Optics_STEP0_A
 기존 브라우저 Yee 실험의 neff 수렴 실패 및 HCF loss 미검증은 이 새 코드가 존재한다고 자동으로 해결되지 않는다. 제품 스펙 인증이나 COMSOL 등가 구현으로 간주하지 않는다.
 
 ## GitHub Actions 독립 실행 기록
-- [COMSOL fiber research v1 — 성공한 CI 실행 #44133166704](https://github.com/kimheeseo/LSCNS/actions/runs/44133166704) (2026-11-18 KST). Python 3.11, gmsh 4.15.2, scikit-fem 12.0.2, SciPy 1.17.1.
+- [COMSOL fiber research v1 — 성공한 CI 실행 #44134039197](https://github.com/kimheeseo/LSCNS/actions/runs/44134039197) (2026-11-18 KST). Python 3.11, gmsh 4.15.2, scikit-fem 12.0.2, SciPy 1.17.1. 추가로 웹 .mjs 정적 구문 검사 및 전체 25개 프리셋의 JSON Schema 표준 검사가 통과했다.
 - `python -m compileall`, `unittest` 총 **9/9 성공**: A–H의 25프리셋 범위 검사 및 JSON 왕복, 작은 원형 Step-index gmsh 메시 생성, mixed vector 고유모드 후보 1건, E/H 6성분·잔차 JSON 구조, 복소 QEP 결합의 허수부 보존.
 - 최초 실행에서 scikit-fem의 `BilinearForm` 기본 실수 배열이 복소 계수를 버리는 경고를 확인하였고 **`dtype=np.complex128`을 지정하여 수정**. 수정 후 CI는 성공했다.
 - 이것은 **스모크 테스트 성공**이며 공인 광학 정합성 시험 통과가 아니다. HE11 독립 수치 오차, 모드 중복/스퓨리어스 제거, 메쉬/PML 손실 수렴, 모든 A–H CAD 특성 검증, C6v/SBC 엄밀도는 아직 PASS 아님.

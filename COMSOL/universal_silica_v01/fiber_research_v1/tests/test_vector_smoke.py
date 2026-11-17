@@ -45,5 +45,11 @@ class NumericalSmoke(unittest.TestCase):
         self.assertEqual(sorted(s["modes"][0]["field_samples"]["components"]),
                          sorted(("Ex","Ey","Ez","Hx","Hy","Hz")))
         self.assertFalse(s["validation"]["loss_dB_km_certified"])
+        # The complex first-order QEP couplings MUST not disappear via implicit float casting.
+        from vector_fem import _assemble
+        a=_assemble(d,m)
+        self.assertGreater(a["K1"].nnz,0)
+        self.assertGreater(float(abs(a["K1"].data.imag).max()),0.0)
+
 
 if __name__=="__main__": unittest.main()

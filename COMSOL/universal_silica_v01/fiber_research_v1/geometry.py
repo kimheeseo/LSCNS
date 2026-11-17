@@ -42,7 +42,7 @@ def mesh_quality(points, tris):
     ab = np.linalg.norm(xy[:,1]-xy[:,0],axis=1)
     bc = np.linalg.norm(xy[:,2]-xy[:,1],axis=1)
     ca = np.linalg.norm(xy[:,0]-xy[:,2],axis=1)
-    area = 0.5*np.abs(np.cross(xy[:,1]-xy[:,0],xy[:,2]-xy[:,0]))
+    area = 0.5*np.abs((xy[:,1,0]-xy[:,0,0])*(xy[:,2,1]-xy[:,0,1])-(xy[:,1,1]-xy[:,0,1])*(xy[:,2,0]-xy[:,0,0]))
     if len(area)==0 or not np.all(np.isfinite(area)) or np.min(area)<=0:
         raise RuntimeError("invalid mesh: nonpositive/NaN triangular area")
     edges=np.column_stack((ab,bc,ca))

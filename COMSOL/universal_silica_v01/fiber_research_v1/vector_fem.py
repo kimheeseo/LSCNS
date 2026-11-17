@@ -27,7 +27,7 @@ except ImportError:
 
 Z0 = 376.730313668
 
-def _tensor(x, eps, design):
+def _tensor(x, eps, design, photoelastic_delta=None):
     """Radial complex coordinate stretch, tensor ε=detJ J^-1 ε J^-T, μ^-1=J J^T/detJ."""
     xx, yy = x[0], x[1]
     bend=design.get("_bend")
@@ -64,7 +64,23 @@ def _tensor(x, eps, design):
     exx=et+(er-et)*ux*ux
     eyy=et+(er-et)*uy*uy
     exy=(er-et)*ux*uy
-    return exx,exy,eyy,eps*sr*st,myy,-mxy,mxx,1/(sr*st)
+    ezz=eps*sr*st
+    if photoelastic_delta is not None:
+        # STEP6b: material-averaged real strain-optic epsilon offsets relative to n0^2.
+        # PML radial coordinate stretch maps tensor from r/theta to global xy:
+        # eps'_rr = eps_rr*st/sr, eps'_tt = eps_tt*sr/st, eps'_rt = eps_rt,
+        # eps'_zz = eps_zz*sr*st. No invented xz/yz polarization components.
+        pxx,pxy,pyy,pzz=photoelastic_delta
+        drr=pxx*ux*ux+2*pxy*ux*uy+pyy*uy*uy
+        dtt=pxx*uy*uy-2*pxy*ux*uy+pyy*ux*ux
+        drt=(pyy-pxx)*ux*uy+pxy*(ux*ux-uy*uy)
+        dr=drr*(st/sr)
+        dt=dtt*(sr/st)
+        exx=exx+dr*ux*ux+dt*uy*uy-2*drt*ux*uy
+        eyy=eyy+dr*uy*uy+dt*ux*ux+2*drt*ux*uy
+        exy=exy+(dr-dt)*ux*uy+drt*(ux*ux-uy*uy)
+        ezz=ezz+pzz*sr*st
+    return exx,exy,eyy,ezz,myy,-mxy,mxx,1/(sr*st)
 
 
 def _assemble(design, raw):
@@ -88,10 +104,21 @@ def _assemble(design, raw):
                           design["wavelength_nm"])**2
                     for name in element_material],dtype=complex)
     epsfield=b0.interpolate(eps)
+    pm_fields={}
+    if "pm_eps_delta" in raw:
+        delta=np.asarray(raw["pm_eps_delta"],dtype=float)
+        if delta.shape!=(len(triangles),4) or not np.isfinite(delta).all():
+            raise ValueError("STEP6b optical epsilon tensor delta must be finite [Ntri,4]")
+        pm_fields={k:b0.interpolate(delta[:,j]) for j,k in
+                   enumerate(("pmxx","pmxy","pmyy","pmzz"))}
     k0=2*math.pi/(design["wavelength_nm"]*.001)
 
     def coefficients(w):
-        return _tensor(w.x,w.eps,design)
+        return _tensor(
+            w.x,w.eps,design,
+            tuple(w[k] for k in ("pmxx","pmxy","pmyy","pmzz"))
+            if pm_fields else None)
+    assembly_kwargs={"eps":epsfield,**pm_fields}
 
     @BilinearForm(dtype=np.complex128)
     def ktt(u,v,w):
@@ -133,13 +160,13 @@ def _assemble(design, raw):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         return ez*u*v
 
-    Kee=asm(ktt,be,eps=epsfield).astype(complex)
-    Kzz=asm(kzz,bz,eps=epsfield).astype(complex)
-    Kez=asm(kez,bz,be,eps=epsfield).astype(complex) # edge row, axial col
-    Kze=asm(kze,be,bz,eps=epsfield).astype(complex) # axial row, edge col
-    Mee=asm(mass_tt,be,eps=epsfield).astype(complex)
-    Ge=asm(gauss_e,be,bz,eps=epsfield).astype(complex)
-    Gz=asm(gauss_z,bz,eps=epsfield).astype(complex)
+    Kee=asm(ktt,be,**assembly_kwargs).astype(complex)
+    Kzz=asm(kzz,bz,**assembly_kwargs).astype(complex)
+    Kez=asm(kez,bz,be,**assembly_kwargs).astype(complex) # edge row, axial col
+    Kze=asm(kze,be,bz,**assembly_kwargs).astype(complex) # axial row, edge col
+    Mee=asm(mass_tt,be,**assembly_kwargs).astype(complex)
+    Ge=asm(gauss_e,be,bz,**assembly_kwargs).astype(complex)
+    Gz=asm(gauss_z,bz,**assembly_kwargs).astype(complex)
 
     if design["boundary"]["type"]=="sbc":
         # Only a first-order fixed-target radiation approximation; not a DtN boundary.
@@ -177,6 +204,7 @@ def _assemble(design, raw):
     return {"K0":K0[keep,:][:,keep],"K1":K1[keep,:][:,keep],
             "K2":K2[keep,:][:,keep],"keep":keep,"full_size":ne+nz,
             "ne":ne,"mesh":mesh,"be":be,"bz":bz,"eps":eps,
+            "pm_anisotropic_optics":bool(pm_fields),
             "Ge":Ge,"Gz":Gz,"k0":k0}
 
 
@@ -303,7 +331,8 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800,expo
             continue
         unique.append(mode)
         if len(unique)>=n_modes: break
-    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0","engine_version":"0.8.1" if design.get("_bend") is not None else "0.8.0",
+    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0","engine_version":"0.8.2" if s["pm_anisotropic_optics"] else
+            ("0.8.1" if design.get("_bend") is not None else "0.8.0"),
             "method":"2D HCurl(Nedelec1)+H1(P1) transverse/longitudinal E mixed quadratic beta FEM, scipy sparse shift-invert",
             "convention":"exp(i beta z - i omega t); Im(neff)>0 is passive loss",
             "validation":{"level":"EXPERIMENTAL_NOT_BENCHMARKED",
@@ -317,4 +346,9 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800,expo
                                        "R_eff stress multiplier must be user-supplied with applicable citation; bent loss and turn loss NOT certified"]
                                       if design.get("_bend") is not None else [])},
             "input":design,"mesh_quality":mesh["quality"],"modes":unique,
+            "photoelastic_coupling":{"enabled":s["pm_anisotropic_optics"],
+                                    "status":"EXPERIMENTAL_ANISOTROPIC_MAXWELL_NOT_BENCHMARKED"
+                                    if s["pm_anisotropic_optics"] else "disabled",
+                                    "source_sha256":mesh.get("pm_source_sha256"),
+                                    "basis":"physical epsilon tensor from thermomechanical strain-optic, per-element, PML tensor transformed"},
             "materials_provenance":{key:provenance(mat) for key,mat in design["materials"].items()}}

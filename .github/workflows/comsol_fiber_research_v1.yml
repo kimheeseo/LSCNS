@@ -37,6 +37,18 @@ jobs:
         run: |
           python -m compileall -q .
           python -m unittest discover -s tests -v
+      - name: Compute genuine scalar STEP5 example bands
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: |
+          python step5_cli.py example --out /tmp/step5_design.json
+          python step5_cli.py analyze /tmp/step5_design.json --out /tmp/step5_result.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          raw = json.loads(Path("/tmp/step5_result.json").read_text())
+          print("STEP5_SAMPLE_JSON="+json.dumps(raw,separators=(",",":"),ensure_ascii=False))
+          print("STEP5_CANDIDATES=",len(raw["gap_map"]["candidates"]))
+          PY
       - name: Static web module syntax
         run: |
           node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs

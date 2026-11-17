@@ -1,0 +1,55 @@
+<div class="eyebrow">PHOTONIC CRYSTAL / STEP 5 / v0.8.3</div>
+<h2>광자결정 클래딩 · Bloch–Floquet 설계</h2>
+<p class="pc5-note">단위셀 → 고정 β에서 ω–k 고유밴드 → 표본 밴드갭 후보 → 코어 결함 설계 JSON → 기존 전체 단면 모드 솔버로 연결</p>
+<p class="pc5-warning">정량 인증 아님: 실수 굴절률을 사용한 2D 스칼라 유한차분(FDFD) 모델. 고유주파수 계산은 Python/Colab에서 수행하며 GitHub Pages에서는 실행하지 않습니다. 표본 k점의 간극은 완전한 밴드갭이 아닙니다.</p>
+<div class="pc5-toolbar" role="tablist" aria-label="STEP5 설계 화면">
+  <button type="button" id="pc5-tab-design" aria-pressed="true">① 단위셀 설계</button>
+  <button type="button" id="pc5-tab-bands" aria-pressed="false">② 밴드 구조·갭 지도</button>
+  <button type="button" id="pc5-tab-defect" aria-pressed="false">③ 코어 결함·Full FEM</button>
+</div>
+<div id="pc5-pane-design" class="pc5-pane">
+  <div class="pc5-inputs">
+    <label>격자 형태<select id="pc5-lattice"><option value="triangular">삼각 (triangular)</option><option value="hexagonal">육각 벌집 (honeycomb)</option><option value="square">사각 (square)</option><option value="kagome">Kagome (idealized)</option></select></label>
+    <label>피치 Λ (µm)<input type="number" id="pc5-pitch" value="3" step=".1" min=".1" max="1000"></label>
+    <label>구멍 d/Λ<input type="number" id="pc5-hole" value=".42" step=".01" min=".01" max=".95"></label>
+    <label>Host 굴절률 (고정)<input type="number" id="pc5-host" value="1.45" step=".0001"></label>
+    <label>공기 구멍 굴절률 (고정)<input type="number" id="pc5-air" value="1.0" step=".0001"></label>
+    <label>격자 N×N<input type="number" id="pc5-grid" value="20" step="2" min="10" max="96"></label>
+    <label>계산 밴드 수<input type="number" id="pc5-bands" value="5" min="2" max="16"></label>
+    <label>경로 세분 수<input type="number" id="pc5-path" value="4" min="2" max="30"></label>
+    <label>Reciprocal k-mesh 한 변<input type="number" id="pc5-kmesh" value="3" min="2" max="12"></label>
+    <label class="pc5-double">고정 βΛ/(2π) 값 (쉼표 구분)<input type="text" id="pc5-betas" value="0.2, 0.4, 0.6"></label>
+  </div>
+  <div class="pc5-grid" style="margin-top:14px">
+    <div><h3>주기 단위셀</h3><canvas id="pc5-preview" width="760" height="390"></canvas><p id="pc5-unit-description" class="pc5-note"></p></div>
+    <div><h3>실행 절차</h3>
+      <p class="pc5-note">1. 아래 설계 입력 JSON 다운로드<br>2. Python의 <code>step5_cli.py analyze</code> 실행<br>3. 생성된 <code>step5_bloch_result.json</code> 업로드<br>4. 밴드 후보를 확인하고 코어 결함 설계 및 전체 단면 FEM으로 전달</p>
+      <p class="pc5-cmd">python step5_cli.py analyze step5_design.json --out out_step5/step5_bloch_result.json</p>
+      <p><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/fiber_research_v1" target="_blank" rel="noopener">STEP5 Python 소스 및 사용 안내</a></p>
+      <button type="button" id="pc5-export-input">설계 입력 JSON 다운로드</button>
+    </div>
+  </div>
+</div>
+<div id="pc5-pane-bands" class="pc5-pane" hidden>
+  <div class="pc5-toolbar"><label class="pc5-file">Python 해석 결과 JSON 업로드<input id="pc5-import-result" type="file" accept=".json,application/json" hidden></label></div>
+  <div class="pc5-grid">
+    <figure><canvas id="pc5-bands-canvas" width="860" height="390"></canvas><figcaption id="pc5-band-note" class="pc5-note">실제 계산 결과를 불러오세요.</figcaption></figure>
+    <figure><canvas id="pc5-map-canvas" width="860" height="390"></canvas><figcaption id="pc5-gap-count" class="pc5-note">밴드갭 후보 없음 (미계산)</figcaption></figure>
+  </div>
+  <p class="pc5-note">Light line: 공기 β/k₀=n_air 및 호스트 β/k₀=n_host. 색 선분은 표본 k-mesh 간극에서 얻은 후보입니다. k-mesh·N 수렴 검증 전 갭 존재를 확정할 수 없습니다.</p>
+</div>
+<div id="pc5-pane-defect" class="pc5-pane" hidden>
+  <h3>후보 갭 → 코어 결함 → 전체 단면 모드 해석</h3>
+  <p class="pc5-warning">현재 Full-section FEM 연결은 기존 7-cell / 19-cell PBGF용 <strong>삼각 격자 원형 공기 구멍</strong>만 지원합니다. 육각 벌집·사각·Kagome는 CAD 호환이 확보되지 않아 내보내기를 차단합니다.</p>
+  <div class="pc5-inputs">
+    <label class="pc5-double">선택한 계산 후보<select id="pc5-candidate"><option value="">결과 없음</option></select></label>
+    <label>코어 결함 크기<select id="pc5-defect-size"><option value="7">7-cell</option><option value="19">19-cell</option></select></label>
+    <label>클래딩 링 수<input type="number" id="pc5-rings" value="4" min="2" max="12"></label>
+    <label>Core surround 두께 (µm)<input type="number" id="pc5-surround" value=".15" min="0" step=".01"></label>
+  </div>
+  <p class="pc5-note" id="pc5-gap-detail">실제 밴드갭 해석 결과를 먼저 불러오세요.</p>
+  <div class="pc5-toolbar"><button type="button" id="pc5-export-defect">기존 Full-vector FEM용 결함 설계 JSON 내보내기</button>
+    <a href="#research-fiber-v1">기존 Full-vector 결과 뷰어로 이동</a></div>
+  <p id="pc5-handoff-note" class="pc5-note">모드 n_eff / Im(n_eff) 계산은 기존 Python <code>cli.py solve</code>에서 수행합니다. 밴드갭 JSON 자체는 mode_result.json이 아닙니다.</p>
+</div>
+<p id="pc5-status" role="status" class="pc5-note">현재 입력 설계만 표시 중입니다. Python Bloch 계산 결과 JSON을 가져와야 수치 그래프가 나타납니다.</p>

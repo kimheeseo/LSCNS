@@ -1336,6 +1336,10 @@
       },
       "low": {
         "model": "pure_silica"
+      },
+      "stress_rod": {
+        "model": "pure_silica",
+        "source_note": "Optical index only: pure SiO2 Malitson placeholder for unknown stress-rod composition; NOT a verified B2O3-doped rod model. Mechanical + photoelastic rod coefficients MUST be supplied in separate STEP6b material config."
       }
     },
     "mesh": {
@@ -1352,8 +1356,9 @@
       "order": 3
     },
     "metadata": {
-      "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "status": "illustrative_geometry_STRESS_ROD_OPTICAL_SURROGATE_NOT_VERIFIED",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec."
     }
   },
   "polarization_maintaining__bow_tie": {
@@ -1395,6 +1400,10 @@
       },
       "low": {
         "model": "pure_silica"
+      },
+      "stress_rod": {
+        "model": "pure_silica",
+        "source_note": "Optical index only: pure SiO2 Malitson placeholder for unknown stress-rod composition; NOT a verified B2O3-doped rod model. Mechanical + photoelastic rod coefficients MUST be supplied in separate STEP6b material config."
       }
     },
     "mesh": {
@@ -1411,8 +1420,9 @@
       "order": 3
     },
     "metadata": {
-      "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "status": "illustrative_geometry_STRESS_ROD_OPTICAL_SURROGATE_NOT_VERIFIED",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec."
     }
   },
   "polarization_maintaining__elliptic_core": {

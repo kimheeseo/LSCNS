@@ -1,3 +1,20 @@
+## v0.8.1 — STEP 6a 굽힘 해석 추가 (2026-11-18)
+
+**현재 구현은 STEP6a만:** 공간적 등각 굴절률 n_eq=n(1+x_out/R_eff), 굽힘 방향별 반경-총손실 후보 곡선, PML 요구/동일 메시 복소장 overlap 추적, 선택적 문헌 근거 R_eff. HCF/PCF/MCF 굽힘 수치 정밀도 및 COMSOL V3 비교는 미인증입니다.
+
+- [STEP6a 설계·검증표](../../validation_report/STEP6A_V081_DESIGN_VERIFICATION_20261118.md)
+- [STEP6a 한계 보고서](../../validation_report/STEP6A_V081_LIMITATIONS_20261118.md)
+- [v0.8.1 변경 이력](CHANGELOG.md)
+- [웹 STEP6a 결과 탭](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step6a-v081)
+
+명령 예시(모든 기하/메시/PML 파라미터는 테스트 전용, 정량 인증 아님):
+
+    python cli.py bend benchmarks/step6a_step_index_smoke_input.json --radii-mm 50 20 10 --directions-deg 0 90 --modes 2 --out out_bend
+
+출력 out_bend/bend_sweep_result.json을 웹 STEP6a 패널에서 읽습니다. 기본 PEC 프리셋으로 손실을 계산할 수 없으며 반드시 독립 검증된 PML을 설정하세요. 응력 보정은 --reff-multiplier, --reff-source-url, --reff-source-note 세 옵션을 모두 지정할 때만 적용합니다. 원본 design JSON 변경 시 웹 결과가 무효화됩니다.
+
+V3 공식 COMSOL Step-Index Fiber Bend는 axisymmetric와 cylindrical PML을 사용하므로 이 코드의 2D conformal 근사와 수치 동치가 확인되지 않았습니다. **STEP6b~6f, STEP7, STEP8 전체는 추가 승인 전 미착수입니다.**
+
 ## v0.8.0 — STEP 4 ONLY (2026-11-18)
 
 **현재 구현 범위:** signed dB/m 및 dB/km, Et-only Aeff/second-moment MFD, axisymmetric Petermann-II, overlap-gated D/S/λ0, 입력된 n₂ 기반 γ, HCF glass power/n₂ 가중 함수, HOMER, B/LB, ARROW 공진선, anticrossing 후보. 모든 공식·단위는 [physical_metrics.py](physical_metrics.py) 최상단에 고정했습니다.

@@ -1,0 +1,21 @@
+#research-step5-v083{scroll-margin-top:88px;background:#11233a;border:1px solid #427189;border-radius:14px;margin:24px 0;padding:20px;color:#deedf8;font:12px/1.65 system-ui,sans-serif}
+#research-step5-v083 h2{font-size:20px;margin:3px 0 5px;color:#f1fbff}
+#research-step5-v083 h3{font-size:15px;margin:10px 0;color:#d3edfa}
+#research-step5-v083 a{color:#86e4e1}
+#research-step5-v083 .pc5-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+#research-step5-v083 button,#research-step5-v083 label.pc5-file{background:#24445e;border:1px solid #4a7b96;color:#edf9ff;padding:10px 13px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:650}
+#research-step5-v083 button[aria-pressed=true]{background:#087f8f;border-color:#56dcd6}
+#research-step5-v083 button:hover,#research-step5-v083 label.pc5-file:hover{background:#316382}
+#research-step5-v083 .pc5-inputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#research-step5-v083 .pc5-inputs label{display:flex;flex-direction:column;gap:6px;color:#bfd6e6;min-width:0}
+#research-step5-v083 .pc5-double{grid-column:span 2}
+#research-step5-v083 input,#research-step5-v083 select{background:#0f2a42;color:#e6f9ff;border:1px solid #456a86;padding:9px 10px;border-radius:7px;width:100%;font-size:12px}
+#research-step5-v083 .pc5-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#research-step5-v083 .pc5-grid figure{margin:0;min-width:0}
+#research-step5-v083 canvas{background:#0c1a30;border:1px solid #32516c;max-width:100%;height:auto;width:100%;border-radius:9px}
+#research-step5-v083 .pc5-note{color:#b7ccd9;line-height:1.75}
+#research-step5-v083 .pc5-warning{border-left:3px solid #d6a65e;padding:9px 12px;background:#2a2b35;color:#e5cfad}
+#research-step5-v083 .pc5-pane[hidden]{display:none!important}
+#research-step5-v083 .pc5-cmd{word-break:break-word;padding:10px;background:#0b2035;border:1px solid #34536b;color:#b6e4f1}
+@media(max-width:900px){#research-step5-v083 .pc5-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:670px){#research-step5-v083 .pc5-grid,#research-step5-v083 .pc5-inputs{grid-template-columns:1fr}#research-step5-v083 .pc5-double{grid-column:span 1}#research-step5-v083{padding:14px}}

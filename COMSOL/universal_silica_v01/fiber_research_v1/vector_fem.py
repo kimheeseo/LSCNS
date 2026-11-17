@@ -79,42 +79,42 @@ def _assemble(design, raw):
     def coefficients(w):
         return _tensor(w.x,w.eps,design)
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def ktt(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         return mz*curl(u)*curl(v)-k0*k0*(ex*u[0]*v[0]+exy*(u[0]*v[1]+u[1]*v[0])+ey*u[1]*v[1])
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def kzz(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         du,dv=grad(u),grad(v)
         return (gx*du[0]*dv[0]+gxy*(du[0]*dv[1]+du[1]*dv[0])+gy*du[1]*dv[1]
                 -k0*k0*ez*u*v)
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def kez(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         du=grad(u)
         return 1j*(gx*du[0]*v[0]+gxy*(du[0]*v[1]+du[1]*v[0])+gy*du[1]*v[1])
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def kze(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         dv=grad(v)
         return -1j*(gx*u[0]*dv[0]+gxy*(u[0]*dv[1]+u[1]*dv[0])+gy*u[1]*dv[1])
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def mass_tt(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         return gx*u[0]*v[0]+gxy*(u[0]*v[1]+u[1]*v[0])+gy*u[1]*v[1]
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def gauss_e(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         dv=grad(v)
         return -(ex*u[0]*dv[0]+exy*(u[0]*dv[1]+u[1]*dv[0])+ey*u[1]*dv[1])
 
-    @BilinearForm
+    @BilinearForm(dtype=np.complex128)
     def gauss_z(u,v,w):
         ex,exy,ey,ez,gx,gxy,gy,mz=coefficients(w)
         return ez*u*v
@@ -132,12 +132,12 @@ def _assemble(design, raw):
         target=complex(design.get("target_neff",index(materials["background"],design["wavelength_nm"]).real))
         clad=index(materials["background"],design["wavelength_nm"])
         kt=k0*cmath.sqrt(clad*clad-target*target+0j)
-        @BilinearForm
+        @BilinearForm(dtype=np.complex128)
         def robin_e(u,v,w):
             ut=-w.n[1]*u[0]+w.n[0]*u[1]
             vt=-w.n[1]*v[0]+w.n[0]*v[1]
             return -1j*kt*ut*vt
-        @BilinearForm
+        @BilinearForm(dtype=np.complex128)
         def robin_z(u,v,w):
             return -1j*kt*u*v
         Kee+=asm(robin_e,FacetBasis(mesh,ebe))
@@ -182,7 +182,7 @@ def _field_samples(system,vector,beta,design,max_points):
     tris=system["mesh"].t.T
     centroids=points[tris].mean(axis=1)
     a,b,c=points[tris[:,0]],points[tris[:,1]],points[tris[:,2]]
-    area=np.abs(np.cross(b-a,c-a))*.5
+    area=np.abs((b[:,0]-a[:,0])*(c[:,1]-a[:,1])-(b[:,1]-a[:,1])*(c[:,0]-a[:,0]))*.5
     intensity=np.abs(fields["Ex"])**2+np.abs(fields["Ey"])**2+np.abs(fields["Ez"])**2
     total=float(np.sum(intensity*area))
     if not math.isfinite(total) or total<=0: raise RuntimeError("nonfinite/zero optical field")

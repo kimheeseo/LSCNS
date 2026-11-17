@@ -277,12 +277,21 @@ def solve_thermal_stress(design,mesh,config,max_samples=1200):
                "beat_length_proxy_m":design["wavelength_nm"]*1e-9/bv if bv>0 else None,
                "Q_core_area_weighted":Qbar.tolist(),
                "note":"n tensor core-area average, NOT full-vector modal neff_x/neff_y; geometric birefringence not included"}
-    settings={"design":design,"materials":config}
+    # Result identity includes actual triangulation as well as design, material
+    # coefficients and engine revision. Same design + a different mesh invalidates it.
+    mesh_hash=hashlib.sha256()
+    mesh_hash.update(np.asarray(pts_um,dtype="<f8").tobytes())
+    mesh_hash.update(np.asarray(tri_all,dtype="<i8").tobytes())
+    mesh_hash.update("\\x00".join(labels.tolist()).encode("utf-8"))
+    mesh_sha256=mesh_hash.hexdigest()
+    settings={"design":design,"materials":config,
+              "mesh_sha256":mesh_sha256,"engine_version":ENGINE_VERSION}
     canon=json.dumps(settings,ensure_ascii=False,sort_keys=True,separators=(",",":"),allow_nan=False)
     fingerprint=hashlib.sha256(canon.encode("utf-8")).hexdigest()
     stride=np.linspace(0,len(samples)-1,min(max_samples,len(samples)),dtype=int)
     result={"schema":"LSCNS_step6b_stress_result_v082","engine_version":ENGINE_VERSION,
             "timestamp_utc":datetime.now(timezone.utc).isoformat(),"input_sha256":fingerprint,
+            "mesh_sha256":mesh_sha256,
             "source_design":design,"material_config":config,
             "method":MODEL,
             "mechanics":{"delta_T_K":dT,"axial_strain_uniform":epszz,

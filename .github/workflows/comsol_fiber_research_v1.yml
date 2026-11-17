@@ -7,6 +7,7 @@ on:
       - 'COMSOL/universal_silica_v01/web/research_step4_v080.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step6a_v081.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step6b_v082.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step5_v083*'
       - '.github/workflows/comsol_fiber_research_v1.yml'
   workflow_dispatch:
 jobs:
@@ -22,6 +23,7 @@ jobs:
             COMSOL/universal_silica_v01/web/research_step4_v080.mjs
             COMSOL/universal_silica_v01/web/research_step6a_v081.mjs
             COMSOL/universal_silica_v01/web/research_step6b_v082.mjs
+            COMSOL/universal_silica_v01/web/research_step5_v083.mjs
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -41,6 +43,7 @@ jobs:
           node --check COMSOL/universal_silica_v01/web/research_step4_v080.mjs
           node --check COMSOL/universal_silica_v01/web/research_step6a_v081.mjs
           node --check COMSOL/universal_silica_v01/web/research_step6b_v082.mjs
+          node --check COMSOL/universal_silica_v01/web/research_step5_v083.mjs
       - name: JSON-schema check for each design preset
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |

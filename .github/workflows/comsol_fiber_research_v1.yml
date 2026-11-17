@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'COMSOL/universal_silica_v01/fiber_research_v1/**'
+      - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
       - '.github/workflows/comsol_fiber_research_v1.yml'
   workflow_dispatch:
 jobs:
@@ -14,6 +15,7 @@ jobs:
         with:
           sparse-checkout: |
             COMSOL/universal_silica_v01/fiber_research_v1
+            COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -27,6 +29,23 @@ jobs:
         run: |
           python -m compileall -q .
           python -m unittest discover -s tests -v
+      - name: Static web module syntax
+        run: node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+      - name: JSON-schema check for each design preset
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+          schema=json.loads(Path("fiber_design.schema.json").read_text())
+          Draft202012Validator.check_schema(schema)
+          validate=Draft202012Validator(schema).validate
+          presets=json.loads(Path("presets.json").read_text())
+          for title,design in presets.items():
+              validate(design)
+          print("JSON schema checked:",len(presets),"A-H presets")
+          PY
       - name: CLI JSON roundtrip
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |

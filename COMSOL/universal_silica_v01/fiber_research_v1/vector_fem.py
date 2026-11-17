@@ -18,10 +18,12 @@ try:
     from .schema import validate_design
     from .geometry import build_mesh
     from .materials import index, provenance
+    from .physical_metrics import confinement_loss
 except ImportError:
     from schema import validate_design
     from geometry import build_mesh
     from materials import index, provenance
+    from physical_metrics import confinement_loss
 
 Z0 = 376.730313668
 
@@ -166,7 +168,7 @@ def _assemble(design, raw):
             "Ge":Ge,"Gz":Gz,"k0":k0}
 
 
-def _field_samples(system,vector,beta,design,max_points):
+def _field_samples(system,vector,beta,design,max_points,export_full_quadrature=False):
     be,bz=system["be"],system["bz"]
     ne=system["ne"]
     e=vector[:ne];z=vector[ne:]
@@ -191,7 +193,9 @@ def _field_samples(system,vector,beta,design,max_points):
     in_pml=(r>float(design["domain_radius_um"]))
     pml_fraction=float(np.sum(intensity[in_pml]*area[in_pml])/total)
     physical=~in_pml
-    ip=intensity[physical];ap=area[physical]
+    # STEP 4 v0.8.0: output Aeff/MFD from transverse Et ONLY, not Ez or total E.
+    transverse=np.abs(fields["Ex"])**2+np.abs(fields["Ey"])**2
+    ip=transverse[physical];ap=area[physical]
     power=float(np.sum(ip*ap));a2=float(np.sum(ip*ip*ap))
     aeff=power*power/a2 if a2>0 else float("nan")
     pts=centroids[physical]
@@ -204,14 +208,27 @@ def _field_samples(system,vector,beta,design,max_points):
              "sampling":"triangle centroid, mean of finite-element quadrature values",
              "components":{name:[[round(float(v.real),10),round(float(v.imag),10)]
                          for v in data[chosen]] for name,data in fields.items()}}
-    return samples,{"Aeff_um2":aeff,"MFD_2nd_um":mfd,"polarization_fractions":frac,
+    quadrature=None
+    if export_full_quadrature:
+        # This can be a very large JSON: use only on Colab/local for mode-following.
+        def serial(values):
+            return [[float(z.real),float(z.imag)] for z in values[physical]]
+        quadrature={"points_um":centroids[physical].tolist(),
+                    "weights_um2":area[physical].tolist(),
+                    "Ex":serial(fields["Ex"]),"Ey":serial(fields["Ey"]),
+                    "scope":"full physical-region triangle centroids, approximate FE quadrature",
+                    "warning":"test field overlap + h refinement; no automatic remeshing interpolation"}
+    return samples,{"Aeff_um2":aeff,"MFD_2nd_um":mfd,
+                    "Aeff_basis":"Et=Ex,Ey only; FEM triangle-centroid quadrature; PML excluded",
+                    "MFD_PetermannII_status":"TODO: full radial field or verified far-field transform required",
+                    "polarization_fractions":frac,
                     "PML_intensity_fraction":pml_fraction,
                     "polarization_class":"quasi_x" if frac["Ex"]>.85 else
                       "quasi_y" if frac["Ey"]>.85 else "mixed",
-                    "symmetry_class":"unclassified (requires field overlap / group action)"},fields
+                    "symmetry_class":"unclassified (requires field overlap / group action)"},fields,quadrature
 
 
-def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800):
+def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800,export_full_quadrature=False):
     validate_design(design)
     if mesh is None: mesh=build_mesh(design)
     s=_assemble(design,mesh)
@@ -251,16 +268,20 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800):
         g_e=s["Ge"]@e
         g_z=1j*beta*(s["Gz"]@z)
         div_res=float(np.linalg.norm(g_e+g_z)/(np.linalg.norm(g_e)+np.linalg.norm(g_z)+1e-30))
-        try: samples,info,fields=_field_samples(s,full,beta,design,max_sample_points)
+        try: samples,info,fields,quadrature=_field_samples(s,full,beta,design,max_sample_points,export_full_quadrature=export_full_quadrature)
         except RuntimeError: continue
         status="candidate_unverified"
         if neff.imag < -1e-9 or info["PML_intensity_fraction"]>.4 or div_res>5e-2:
             status="spurious_or_unstable_candidate"
-        loss=(20/math.log(10))*(2*math.pi/(design["wavelength_nm"]*1e-9))*neff.imag*1000
-        found.append(dict(neff_real=float(neff.real),neff_imag=float(neff.imag),
-                          alpha_total_dB_km=float(loss),residual_relative=residual,
-                          weak_gauss_relative=div_res,classification=info,
-                          field_samples=samples,status=status))
+        signed_loss=confinement_loss(float(neff.imag),design["wavelength_nm"])
+        record=dict(neff_real=float(neff.real),neff_imag=float(neff.imag),
+                    alpha_total_dB_m=signed_loss["alpha_total_dB_m"],
+                    alpha_total_dB_km=signed_loss["alpha_total_dB_km"],
+                    alpha_basis="total Im(neff): radiative + material; PML/convergence unverified",
+                    residual_relative=residual,weak_gauss_relative=div_res,
+                    classification=info,field_samples=samples,status=status)
+        if quadrature is not None: record["field_quadrature"]=quadrature
+        found.append(record)
     if not found: raise RuntimeError("no converged finite candidate modes; inspect mesh/PML, target, divergence")
     found.sort(key=lambda m:(m["status"]!="candidate_unverified",
                               abs(m["neff_real"]-float(target)),m["residual_relative"]))
@@ -270,7 +291,7 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800):
             continue
         unique.append(mode)
         if len(unique)>=n_modes: break
-    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0",
+    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0","engine_version":"0.8.0",
             "method":"2D HCurl(Nedelec1)+H1(P1) transverse/longitudinal E mixed quadratic beta FEM, scipy sparse shift-invert",
             "convention":"exp(i beta z - i omega t); Im(neff)>0 is passive loss",
             "validation":{"level":"EXPERIMENTAL_NOT_BENCHMARKED",

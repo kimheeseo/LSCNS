@@ -88,14 +88,10 @@
   $('entry-review-body').innerHTML='<p>랙 공간은 장비 RU + 예약 RU를 비교합니다. NVL72 Compute 랙은 OEM 전체 랙 RU를 비교합니다. 냉각 부하는 IT 전력이 모두 열로 전환된다는 계획 가정입니다.</p><ul>'+all.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
   if(!c.valid){$('entry-formulas').textContent='유효한 결과가 없어 계산식에 값을 대입할 수 없습니다.';return;}
   if(r.version!=='8.2.0-engineering'){$('entry-formulas').textContent='이 결과는 별도 용량 계획 API에서 계산되었습니다. 근거 탭에서 해당 시나리오의 산정 기준을 확인하세요.';return;}
-  const i=r.input,s=r.summary,p=r.systemProfile,f=r.facility,k=r.cooling,down=i.switchRadix/2,up=Math.max(1,Math.ceil(down/i.oversub));
-  $('entry-formulas').innerHTML=
-   formula('IT 전력 합계',`PIT = Σ(랙별 장비 수 × 장비 kW) = ${num(s.totalItPowerKw)} kW`,`Compute ${num(s.systemUnits)} × ${num(p.power)} = ${num(s.computePowerKw)} kW. 네트워크·스토리지·보조장비 부하를 합산합니다. 설치 수량 기준이며 예비 구매품은 제외합니다.`)+
-   formula('시설전력 · PUE',`${num(s.totalItPowerKw)} kW × PUE ${num(i.pue)} = ${num(f.facilityPowerKw)} kW`,`추가 시설 부하 = ${num(f.facilityPowerKw-s.totalItPowerKw)} kW. PUE는 실측값이 아닌 입력 시나리오이며 냉각 전력과 시설 손실을 포괄합니다.`)+
-   formula('랙 수 · 수용 한도',p.rackScale?`OEM 랙 수 = ${num(s.computeRacks)}`:`서버/랙 = max(1, min(RU ${s.rackLimits.RU}, 전력 ${s.rackLimits.power}, 냉각 ${s.rackLimits.cooling}${s.rackLimits.NIC!==undefined?', NIC '+s.rackLimits.NIC:''})) = ${num(s.systemsPerRack)}`,`RU 한도 = floor((${num(i.rackRU)} − ${num(i.reservedRU)}) / ${num(p.ru)}). 전력·냉각 한도 = floor(정격 × (1 − ${num(i.rackHeadroomPct)}%) / ${num(p.power)}). NVL72는 OEM 랙 단위입니다. 하나도 들어가지 않으면 검토용 1개를 표시하며 초과 경고를 냅니다.`)+
-   formula('냉각 열부하 · 유량',`액냉 ${num(k.liquidKw)} + 공랭 ${num(k.airKw)} = IT ${num(s.totalItPowerKw)} kW`,`액냉 = Compute × 액냉 분담률(공랭 0%, 침지 100%, DLC/Rear-door ${num(i.liquidPct)}%). 유량 = ${num(k.liquidKw)} × 1000 × 60000 / (${num(i.waterDensity)} × ${num(i.waterCp)} × ${num(i.deltaTK)}) = ${num(k.flowLMin)} L/min. 냉각 전력 소비량과 열제거 용량은 다릅니다.`)+
-   formula('Fabric · Oversubscription',`목표 ${num(i.oversub)}:1 → Leaf down ${num(down)} / up ${num(up)} = ${num(down/up)}:1`,`동일 링크 속도 기준 포트 비율. Up = ceil(Down / 목표 비율). 정수 포트로 올림하며 부분 점유 랙의 실효 비율·워크로드 처리량은 다를 수 있습니다. ${num(i.fabricTier)}-tier 요청, 실제 도메인 구성은 네트워크 탭에서 확인합니다.`)+
-   formula('UPS · 시설 용량 가정',`UPS = PIT / PF / η × (1 + 시설 여유율) = ${num(f.upsDesignKva)} kVA`,`PF ${num(i.powerFactor)}, UPS 효율 ${num(i.upsEfficiency)}, 시설 여유 ${num(i.facilityHeadroomPct)}%. 현재 모델의 보수적 용량 근사입니다. 출력 정격·배터리 잔여시간 계산과 구분하며 실제 선정은 공급사 부하 조건을 확인해야 합니다. Facility BOM ${i.facilityEnabled?'포함':'미포함'}; 값은 용량 참고용입니다.`);
+  // The executable registry and its trace own all calculation formulas.
+  const title=window.DCAuditI18n?.translate(document.documentElement.lang,'open')||'View calculation basis';
+  $('entry-formulas').innerHTML='<button type="button" data-audit-ref="power.IT" data-audit-text="open">'+esc(title)+'</button>';
+
  }
  document.addEventListener('dc:inputs-ready',mount,{once:true});
  document.addEventListener('dc:calculating',()=>setPending('계산 중… 이전 결과는 새 계산이 끝나면 갱신됩니다.'));

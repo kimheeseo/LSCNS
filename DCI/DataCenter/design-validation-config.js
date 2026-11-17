@@ -1,0 +1,2 @@
+/* Project-editable planning thresholds; these are not equipment acceptance limits. */
+(function(root){const config={version:1,tolerance:1e-6,airLimitKw:30,rearDoorLimitKw:50,minimumSparePct:5,oversubscriptionWarnRatio:2,minimumOpticalMarginDb:.2,minimumRadix:4,standardLengthsM:[1,2,3,5,10,20,30,50,100],customLengthIncrementM:10,source:'design-validation-config.js (planning assumptions)'};if(typeof module==='object'&&module.exports)module.exports=config;root.DCValidationConfig=config;})(typeof window!=='undefined'?window:globalThis);

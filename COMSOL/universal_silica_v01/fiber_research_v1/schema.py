@@ -56,6 +56,9 @@ def validate_design(d):
     mats=d.get("materials")
     if not isinstance(mats,dict) or "background" not in mats:
         raise ValueError("materials.background required")
+    # STEP6b: Panda/Bow-tie rods are separate mechanical physical groups, never merged with silica cladding.
+    if f=="polarization_maintaining" and v in ("panda","bow_tie") and "stress_rod" not in mats:
+        raise ValueError("stress_rod optical material required for separate mechanical domain; cannot guess its composition")
     for mid,m in mats.items():
         if not isinstance(m,dict):
             raise ValueError(f"{mid}: material object required")

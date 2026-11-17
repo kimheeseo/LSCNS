@@ -610,7 +610,7 @@
     },
     "materials": {
       "background": {
-        "model": "air"
+        "model": "pure_silica"
       },
       "core": {
         "model": "constant",
@@ -668,7 +668,7 @@
     },
     "materials": {
       "background": {
-        "model": "air"
+        "model": "pure_silica"
       },
       "core": {
         "model": "constant",

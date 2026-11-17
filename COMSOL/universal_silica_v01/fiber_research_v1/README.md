@@ -1,3 +1,22 @@
+## v0.8.0 — STEP 4 ONLY (2026-11-18)
+
+**현재 구현 범위:** signed dB/m 및 dB/km, Et-only Aeff/second-moment MFD, axisymmetric Petermann-II, overlap-gated D/S/λ0, 입력된 n₂ 기반 γ, HCF glass power/n₂ 가중 함수, HOMER, B/LB, ARROW 공진선, anticrossing 후보. 모든 공식·단위는 [physical_metrics.py](physical_metrics.py) 최상단에 고정했습니다.
+
+- [STEP4 설계·검증표](../../validation_report/STEP4_V080_DESIGN_VERIFICATION_20261118.md)
+- [STEP4 별도 한계 보고서](../../validation_report/STEP4_V080_LIMITATIONS_20261118.md)
+- [버전별 변경 이력](CHANGELOG.md)
+- [정적 웹 결과 확인](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step4-v080)
+
+STEP4 후처리 사용법:
+
+    python cli.py solve presets/index_guiding__step.json --out out_step --modes 2
+    python step4_cli.py result out_step/mode_result.json --out step4_metrics.json
+    python step4_cli.py solve-sweep presets/index_guiding__step.json --start-nm 1500 --stop-nm 1600 --points 7 --out out_sweep --modes 2
+
+두 번째 명령의 n₂는 **공식 자료/측정값을 명시적으로 제공하는 경우에만** --n2-m2-W로 지정하세요. 가스/유리 n₂가 없는 HCF γ는 TODO입니다. 모든 D/S/λ0 스윕은 동일 메시 복소장 overlap 검사를 거치며 인접 ID가 불명확하면 계산을 중단합니다.
+
+**실제 물리적 정밀도는 아직 미검증:** GitHub Actions 수식/스모크 테스트 통과와 HE11·PML/mesh 수렴·HCF confinement loss 인증은 다릅니다. STEP5 및 다른 단계는 승인이 있기 전까지 착수하지 않았습니다.
+
 # LSCNS Fiber Research v1 — STEP 1–3
 
 **Prototype source code; not numerically certified.** The existing web scalar radial FEM, browser Yee-FDFD, web geometry and project schema 3 remain unchanged. New Python solver and design JSON are intentionally separate.

@@ -1,5 +1,18 @@
 # Fiber Research Engine CHANGELOG
 
+## v0.8.2 — 2026-11-18 — STEP 6b ONLY
+
+- generalized-plane-strain thermoelastic FEM with user-cited E,ν,α,ΔT; free axial resultant; no guessed Panda rod constants.
+- isotropic strain-optic p11/p12 tensor (Q=ε_r^-1), spatial principal indices, core-area material B/beat-length proxy distinguished from modal B.
+- Panda/Bow-tie stress_rod as separate physical domain; rod refractive index in presets explicitly a pure-silica surrogate, NOT commercial B2O3-doped rod data.
+- anisotropic εxx/εxy/εyy/εzz triangle tensor mapped into existing HCurl/H1 vector FEM + radial PML; provisional x/y mode B only when clearly identified.
+- pm_cli.py: design+material JSON -> Gmsh -> stress+photoelastic -> vector QEP -> source-hashed outputs; UTC timestamp, mesh SHA and engine v0.8.2.
+- research_step6b_v082.mjs: source-controlled material editor, stress/principal-B map, material-vs-modal B separation, formula input and references, change invalidation.
+- CI: 58 Python tests and JS syntax passed, including real small Panda Gmsh + stress + anisotropic vector eigen candidate. These are analytic/smoke tests, NOT high-precision PM benchmark.
+- **Not completed:** COMSOL optical benchmark, realistic stress rod n(λ) and all composition-dependent elastic/p coefficients, mesh/PML convergence. STEP6c~6f + STEP7/8 entire work **not started** without approval.
+
+[STEP6b implementation/verification](../../validation_report/STEP6B_V082_DESIGN_VERIFICATION_20261118.md) · [separate limits report](../../validation_report/STEP6B_V082_LIMITATIONS_20261118.md)
+
 ## v0.8.1 — 2026-11-18 — STEP 6a ONLY
 
 - 굽힘 등가 굴절률: n_eq=n(x,y)[1+(x cosθ+y sinθ)/R_eff], x/y[µm], R[mm]. 사용자 문헌 URL/조건을 명시한 경우만 stress-optic R_eff 배율 선택.

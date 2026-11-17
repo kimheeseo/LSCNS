@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LSCNS fiber research design v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "name",
+    "family",
+    "variant",
+    "wavelength_nm",
+    "domain_radius_um",
+    "parameters",
+    "materials",
+    "mesh",
+    "boundary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "family": {
+      "enum": [
+        "index_guiding",
+        "solid_pcf",
+        "pbgf",
+        "kagome",
+        "anti_resonant",
+        "bragg",
+        "mcf",
+        "polarization_maintaining"
+      ]
+    },
+    "variant": {
+      "type": "string"
+    },
+    "wavelength_nm": {
+      "type": "number",
+      "minimum": 250,
+      "maximum": 3500
+    },
+    "domain_radius_um": {
+      "type": "number",
+      "exclusiveMinimum": 1,
+      "maximum": 1000
+    },
+    "parameters": {
+      "type": "object",
+      "maxProperties": 50
+    },
+    "materials": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "mesh": {
+      "type": "object"
+    },
+    "boundary": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "index_guiding"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "step",
+              "graded",
+              "trench_assisted",
+              "w_profile",
+              "multilayer"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "solid_pcf"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "hex",
+              "square",
+              "lma",
+              "high_nonlinearity",
+              "elliptic_birefringent"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "pbgf"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "7_cell",
+              "19_cell"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "kagome"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "hypocycloid"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "anti_resonant"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "single_ring",
+              "nanf",
+              "dnanf",
+              "conjoined_tube",
+              "negative_curvature"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "bragg"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "concentric"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "mcf"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "hex",
+              "ring",
+              "trench_assisted"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "polarization_maintaining"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "variant": {
+            "enum": [
+              "panda",
+              "bow_tie",
+              "elliptic_core"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

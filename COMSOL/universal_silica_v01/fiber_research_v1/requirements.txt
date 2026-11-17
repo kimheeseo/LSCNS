@@ -1,0 +1,5 @@
+numpy>=1.26,<3
+scipy>=1.12,<2
+scikit-fem>=11,<13
+gmsh>=4.12,<5
+jsonschema>=4.20,<5

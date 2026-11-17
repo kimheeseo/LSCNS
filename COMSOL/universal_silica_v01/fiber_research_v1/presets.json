@@ -1,0 +1,1477 @@
+{
+  "index_guiding__step": {
+    "schema_version": "1.0.0",
+    "name": "index_guiding / step",
+    "family": "index_guiding",
+    "variant": "step",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 4.1,
+      "delta_n": 0.005,
+      "graded_exponent": 2,
+      "trench_inner_um": 5.5,
+      "trench_outer_um": 7,
+      "trench_delta_n": -0.003,
+      "layer_count": 4,
+      "layer_pitch_um": 1.2
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pec",
+      "thickness_um": 0,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "index_guiding__graded": {
+    "schema_version": "1.0.0",
+    "name": "index_guiding / graded",
+    "family": "index_guiding",
+    "variant": "graded",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 4.1,
+      "delta_n": 0.005,
+      "graded_exponent": 2,
+      "trench_inner_um": 5.5,
+      "trench_outer_um": 7,
+      "trench_delta_n": -0.003,
+      "layer_count": 4,
+      "layer_pitch_um": 1.2
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "index_guiding__trench_assisted": {
+    "schema_version": "1.0.0",
+    "name": "index_guiding / trench_assisted",
+    "family": "index_guiding",
+    "variant": "trench_assisted",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 4.1,
+      "delta_n": 0.005,
+      "graded_exponent": 2,
+      "trench_inner_um": 5.5,
+      "trench_outer_um": 7,
+      "trench_delta_n": -0.003,
+      "layer_count": 4,
+      "layer_pitch_um": 1.2
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "index_guiding__w_profile": {
+    "schema_version": "1.0.0",
+    "name": "index_guiding / w_profile",
+    "family": "index_guiding",
+    "variant": "w_profile",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 4.1,
+      "delta_n": 0.005,
+      "graded_exponent": 2,
+      "trench_inner_um": 5.5,
+      "trench_outer_um": 7,
+      "trench_delta_n": -0.003,
+      "layer_count": 4,
+      "layer_pitch_um": 1.2
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "index_guiding__multilayer": {
+    "schema_version": "1.0.0",
+    "name": "index_guiding / multilayer",
+    "family": "index_guiding",
+    "variant": "multilayer",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 4.1,
+      "delta_n": 0.005,
+      "graded_exponent": 2,
+      "trench_inner_um": 5.5,
+      "trench_outer_um": 7,
+      "trench_delta_n": -0.003,
+      "layer_count": 4,
+      "layer_pitch_um": 1.2
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "solid_pcf__hex": {
+    "schema_version": "1.0.0",
+    "name": "solid_pcf / hex",
+    "family": "solid_pcf",
+    "variant": "hex",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 36,
+    "parameters": {
+      "pitch_um": 3,
+      "d_over_pitch": 0.42,
+      "rings": 3,
+      "defect_cells": 1,
+      "ellipse_ratio": 1
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "solid_pcf__square": {
+    "schema_version": "1.0.0",
+    "name": "solid_pcf / square",
+    "family": "solid_pcf",
+    "variant": "square",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 36,
+    "parameters": {
+      "pitch_um": 3,
+      "d_over_pitch": 0.42,
+      "rings": 3,
+      "defect_cells": 1,
+      "ellipse_ratio": 1
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "solid_pcf__lma": {
+    "schema_version": "1.0.0",
+    "name": "solid_pcf / lma",
+    "family": "solid_pcf",
+    "variant": "lma",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 36,
+    "parameters": {
+      "pitch_um": 6,
+      "d_over_pitch": 0.35,
+      "rings": 5,
+      "defect_cells": 1,
+      "ellipse_ratio": 1
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "solid_pcf__high_nonlinearity": {
+    "schema_version": "1.0.0",
+    "name": "solid_pcf / high_nonlinearity",
+    "family": "solid_pcf",
+    "variant": "high_nonlinearity",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 36,
+    "parameters": {
+      "pitch_um": 2,
+      "d_over_pitch": 0.68,
+      "rings": 4,
+      "defect_cells": 1,
+      "ellipse_ratio": 1
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "solid_pcf__elliptic_birefringent": {
+    "schema_version": "1.0.0",
+    "name": "solid_pcf / elliptic_birefringent",
+    "family": "solid_pcf",
+    "variant": "elliptic_birefringent",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 36,
+    "parameters": {
+      "pitch_um": 3,
+      "d_over_pitch": 0.42,
+      "rings": 3,
+      "defect_cells": 1,
+      "ellipse_ratio": 1.35
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "pbgf__7_cell": {
+    "schema_version": "1.0.0",
+    "name": "pbgf / 7_cell",
+    "family": "pbgf",
+    "variant": "7_cell",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 46,
+    "parameters": {
+      "pitch_um": 3.4,
+      "d_over_pitch": 0.86,
+      "rings": 4,
+      "defect_cells": 7,
+      "core_surround_um": 0.6
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "pbgf__19_cell": {
+    "schema_version": "1.0.0",
+    "name": "pbgf / 19_cell",
+    "family": "pbgf",
+    "variant": "19_cell",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 46,
+    "parameters": {
+      "pitch_um": 3.4,
+      "d_over_pitch": 0.86,
+      "rings": 4,
+      "defect_cells": 19,
+      "core_surround_um": 0.6
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "kagome__hypocycloid": {
+    "schema_version": "1.0.0",
+    "name": "kagome / hypocycloid",
+    "family": "kagome",
+    "variant": "hypocycloid",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 44,
+    "parameters": {
+      "pitch_um": 3.2,
+      "rings": 3,
+      "core_radius_um": 9,
+      "wall_thickness_um": 0.38,
+      "curvature": 0.35
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "anti_resonant__single_ring": {
+    "schema_version": "1.0.0",
+    "name": "anti_resonant / single_ring",
+    "family": "anti_resonant",
+    "variant": "single_ring",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 39,
+    "parameters": {
+      "core_radius_um": 15,
+      "tube_count": 6,
+      "tube_radius_um": 7.2,
+      "wall_thickness_um": 0.45,
+      "nested_radius_ratio": 0.5,
+      "gap_um": 0.8
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "anti_resonant__nanf": {
+    "schema_version": "1.0.0",
+    "name": "anti_resonant / nanf",
+    "family": "anti_resonant",
+    "variant": "nanf",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 39,
+    "parameters": {
+      "core_radius_um": 15,
+      "tube_count": 6,
+      "tube_radius_um": 7.2,
+      "wall_thickness_um": 0.45,
+      "nested_radius_ratio": 0.5,
+      "gap_um": 0.8
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "anti_resonant__dnanf": {
+    "schema_version": "1.0.0",
+    "name": "anti_resonant / dnanf",
+    "family": "anti_resonant",
+    "variant": "dnanf",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 39,
+    "parameters": {
+      "core_radius_um": 15,
+      "tube_count": 6,
+      "tube_radius_um": 7.2,
+      "wall_thickness_um": 0.45,
+      "nested_radius_ratio": 0.43,
+      "gap_um": 0.8
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "anti_resonant__conjoined_tube": {
+    "schema_version": "1.0.0",
+    "name": "anti_resonant / conjoined_tube",
+    "family": "anti_resonant",
+    "variant": "conjoined_tube",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 39,
+    "parameters": {
+      "core_radius_um": 15,
+      "tube_count": 6,
+      "tube_radius_um": 7.2,
+      "wall_thickness_um": 0.45,
+      "nested_radius_ratio": 0.5,
+      "gap_um": 0.8
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "anti_resonant__negative_curvature": {
+    "schema_version": "1.0.0",
+    "name": "anti_resonant / negative_curvature",
+    "family": "anti_resonant",
+    "variant": "negative_curvature",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 39,
+    "parameters": {
+      "core_radius_um": 15,
+      "tube_count": 6,
+      "tube_radius_um": 7.2,
+      "wall_thickness_um": 0.45,
+      "nested_radius_ratio": 0.5,
+      "gap_um": 0.8
+    },
+    "materials": {
+      "background": {
+        "model": "air"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "bragg__concentric": {
+    "schema_version": "1.0.0",
+    "name": "bragg / concentric",
+    "family": "bragg",
+    "variant": "concentric",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 24,
+    "parameters": {
+      "core_radius_um": 7,
+      "layer_count": 8,
+      "layer_pitch_um": 0.6,
+      "delta_n": 0.02
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "mcf__hex": {
+    "schema_version": "1.0.0",
+    "name": "mcf / hex",
+    "family": "mcf",
+    "variant": "hex",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 60,
+    "parameters": {
+      "core_radius_um": 3.5,
+      "core_count": 7,
+      "pitch_um": 18,
+      "trench_width_um": 1.5,
+      "trench_delta_n": -0.003,
+      "delta_n": 0.0045
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "mcf__ring": {
+    "schema_version": "1.0.0",
+    "name": "mcf / ring",
+    "family": "mcf",
+    "variant": "ring",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 60,
+    "parameters": {
+      "core_radius_um": 3.5,
+      "core_count": 6,
+      "pitch_um": 18,
+      "trench_width_um": 1.5,
+      "trench_delta_n": -0.003,
+      "delta_n": 0.0045
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "mcf__trench_assisted": {
+    "schema_version": "1.0.0",
+    "name": "mcf / trench_assisted",
+    "family": "mcf",
+    "variant": "trench_assisted",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 60,
+    "parameters": {
+      "core_radius_um": 3.5,
+      "core_count": 7,
+      "pitch_um": 18,
+      "trench_width_um": 1.5,
+      "trench_delta_n": -0.003,
+      "delta_n": 0.0045
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "polarization_maintaining__panda": {
+    "schema_version": "1.0.0",
+    "name": "polarization_maintaining / panda",
+    "family": "polarization_maintaining",
+    "variant": "panda",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 32,
+    "parameters": {
+      "core_radius_um": 3.8,
+      "delta_n": 0.006,
+      "rod_radius_um": 6,
+      "rod_offset_um": 14,
+      "stress_delta_n": 0,
+      "ellipse_ratio": 1.5
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "polarization_maintaining__bow_tie": {
+    "schema_version": "1.0.0",
+    "name": "polarization_maintaining / bow_tie",
+    "family": "polarization_maintaining",
+    "variant": "bow_tie",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 32,
+    "parameters": {
+      "core_radius_um": 3.8,
+      "delta_n": 0.006,
+      "rod_radius_um": 6,
+      "rod_offset_um": 14,
+      "stress_delta_n": 0,
+      "ellipse_ratio": 1.5
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  },
+  "polarization_maintaining__elliptic_core": {
+    "schema_version": "1.0.0",
+    "name": "polarization_maintaining / elliptic_core",
+    "family": "polarization_maintaining",
+    "variant": "elliptic_core",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 32,
+    "parameters": {
+      "core_radius_um": 3.8,
+      "delta_n": 0.006,
+      "rod_radius_um": 6,
+      "rod_offset_um": 14,
+      "stress_delta_n": 0,
+      "ellipse_ratio": 1.7
+    },
+    "materials": {
+      "background": {
+        "model": "pure_silica"
+      },
+      "core": {
+        "model": "constant",
+        "n": 1.45
+      },
+      "air": {
+        "model": "air"
+      },
+      "silica": {
+        "model": "pure_silica"
+      },
+      "trench": {
+        "model": "constant",
+        "n": 1.44
+      },
+      "high": {
+        "model": "constant",
+        "n": 1.46
+      },
+      "low": {
+        "model": "pure_silica"
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 1,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 8,
+      "curvature_segments": 48,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 6,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "geometry_preset_only",
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+    }
+  }
+}

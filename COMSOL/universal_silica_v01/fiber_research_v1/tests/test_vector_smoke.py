@@ -60,4 +60,26 @@ class NumericalSmoke(unittest.TestCase):
         self.assertGreater(float(abs(a["K1"].data.imag).max()),0.0)
 
 
+    def test_step6a_bent_vector_candidate_smoke_only(self):
+        """Actual gmsh + skfem path, NEVER a COMSOL V3 or leakage loss PASS."""
+        from geometry import build_mesh
+        from vector_fem import solve
+        from bending import configure_bend
+        d=copy.deepcopy(load_presets()["index_guiding__step"])
+        d["domain_radius_um"]=9
+        d["parameters"]["core_radius_um"]=2.2
+        d["mesh"]["bulk_max_um"]=1.0
+        d["mesh"]["elements_per_wavelength"]=4
+        d["boundary"]["type"]="pml"
+        d["boundary"]["thickness_um"]=2.0
+        curved=configure_bend(d,50.0,45.0)
+        mesh=build_mesh(d)
+        out=solve(curved,mesh,n_modes=1,target_neff=1.446,max_sample_points=10)
+        self.assertEqual(out["engine_version"],"0.8.1")
+        self.assertFalse(out["validation"]["loss_dB_km_certified"])
+        self.assertEqual(out["input"]["_bend"]["direction_deg"],45.0)
+        self.assertTrue(out["modes"])
+        self.assertIn("alpha_total_dB_m",out["modes"][0])
+
+
 if __name__=="__main__": unittest.main()

@@ -14,7 +14,11 @@ from vector_fem import _tensor
 SOURCE="https://optiwave.wiki/kb/optical_fiber_bending_loss_with_stress_effect/"
 
 def design():
-    return copy.deepcopy(load_presets()["index_guiding__step"])
+    d=copy.deepcopy(load_presets()["index_guiding__step"])
+    # Synthetic radiation boundary settings for test fixture, NOT physical certification.
+    d["boundary"]["type"]="pml"
+    d["boundary"]["thickness_um"]=3.0
+    return d
 
 
 def mock_mode(neff,alpha,which):
@@ -53,11 +57,11 @@ class TestBendFormula(unittest.TestCase):
 
     def test_conformal_tensor_epsilon_square(self):
         d=configure_bend(design(),50.,0)
-        x=np.array([[100.,-100.],[0.,0.]])
+        x=np.array([[10.,-10.],[0.,0.]])
         e=np.ones((2,2),dtype=complex)*2.25
         ex,*_= _tensor(x,e,d)
-        self.assertAlmostEqual(ex[0,0].real,2.25*(1+100./50000)**2,places=10)
-        self.assertAlmostEqual(ex[0,1].real,2.25*(1-100./50000)**2,places=10)
+        self.assertAlmostEqual(ex[0,0].real,2.25*(1+10./50000)**2,places=10)
+        self.assertAlmostEqual(ex[0,1].real,2.25*(1-10./50000)**2,places=10)
         straight=copy.deepcopy(d)
         del straight["_bend"]
         ex0,*_=_tensor(x,e,straight)

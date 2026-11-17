@@ -179,6 +179,8 @@ def bend_radius_direction_sweep(design,radii_mm,directions_deg,
     if not straight.get("modes"):
         raise RuntimeError("straight fiber has no candidate reference modes")
     straight_fm=straight["modes"][0]
+    if straight_fm.get("status")!="candidate_unverified":
+        raise RuntimeError("straight reference mode is unstable/spurious; bend comparison BLOCKED")
     settings={"radii_mm_descending":radii,"directions_deg":dirs,
               "reff_multiplier":reff_multiplier,
               "stress_source_url":stress_source_url,"stress_source_note":stress_source_note,

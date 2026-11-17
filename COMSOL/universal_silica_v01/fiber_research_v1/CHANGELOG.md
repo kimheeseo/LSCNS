@@ -1,5 +1,17 @@
 # Fiber Research Engine CHANGELOG
 
+## v0.8.3 — 2026-11-18 — STEP 5 scalar Bloch prototype
+
+- Independent 2D fixed-beta Bloch-Floquet scalar FDFD generalized Hermitian eigenproblem, including cross derivatives on 60° primitive cells.
+- Triangular 1-hole, hexagonal honeycomb 2-site, square 1-hole and idealized Kagome 3-site circular-hole unit cells; strict non-overlap checks.
+- Γ/M/K and Γ/X/M band structures, sampled reciprocal k-mesh gap candidates, normalized β/k0–Λ/λ map, air/host light line. No complete gap certification.
+- Triangular PBGF 7/19-cell finite-section design JSON handoff, with existing vector FEM separately run. Other lattices blocked until CAD integration.
+- Same GitHub Pages workbench 3 design tabs, input JSON export, Python results import, modal handoff export, source-mismatch invalidation. Real computed Python sample published; **default sample has 0 sampled gap candidates**, not fabricated.
+- CI: all 67 Python tests PASS at initial integration and JS syntax check. Physical COMSOL V2/V4/V5/V6 and full-vector Floquet **NOT PASS**.
+- Reports: STEP5_V083_DESIGN_VERIFICATION_20261118.md / STEP5_V083_LIMITATIONS_20261118.md.
+
+
+
 ## v0.8.2 — 2026-11-18 — STEP 6b ONLY
 
 - generalized-plane-strain thermoelastic FEM with user-cited E,ν,α,ΔT; free axial resultant; no guessed Panda rod constants.

@@ -249,7 +249,10 @@ def defect_handoff(result, candidate_index, rings=4, defect_cells=7, core_surrou
         raise ValueError("invalid core_surround_um")
     # Existing finite-section pbgf geometry is triangular hole lattice with missing 7/19 cells.
     # Import as normal design JSON, but modal confinement still needs independent V2/V4/V5.
-    from schema import load_presets, validate_design
+    try:
+        from .schema import load_presets, validate_design
+    except ImportError:
+        from schema import load_presets, validate_design
     gap=gaps[candidate_index]
     fmid=(gap["f_low"]+gap["f_high"])/2
     wavelength_nm=1000*inp["pitch_um"]/fmid

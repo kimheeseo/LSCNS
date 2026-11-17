@@ -64,6 +64,8 @@ function drawESM(design){
 
 function updateConfig(d){
   current=structuredClone(validate(d));$('rf-json').value=JSON.stringify(current,null,2);drawESM(current);
+  // Inform optional result panels: replacing a preset must invalidate stale calculations.
+  $('rf-json').dispatchEvent(new Event('input',{bubbles:true}));
   status('JSON 프리셋 로드 완료. 이는 형상 설정이며 모드 계산값이 아닙니다. Python에서 실행해야 합니다.');
 }
 function summaryMode(mode){

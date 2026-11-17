@@ -1,0 +1,37 @@
+{
+  "schema": "LSCNS_step6b_materials_v1",
+  "delta_T_K": null,
+  "temperature_note": "TODO: T_operating - T_stress_free Kelvin; negative is cooling, state stress-free anneal assumption and provenance.",
+  "materials": {
+    "background": {
+      "E_Pa": null,
+      "poisson_ratio": null,
+      "alpha_1_per_K": null,
+      "mechanical_source_url": "",
+      "p11": null,
+      "p12": null,
+      "photoelastic_source_url": "",
+      "notes": "TODO: real composition-specific constants at temperature/wavelength; values must have corresponding reliable source. p11,p12 are STRAIN-optic dimensionless, not STRESS-optic m2/N."
+    },
+    "core": {
+      "E_Pa": null,
+      "poisson_ratio": null,
+      "alpha_1_per_K": null,
+      "mechanical_source_url": "",
+      "p11": null,
+      "p12": null,
+      "photoelastic_source_url": "",
+      "notes": "TODO: real composition-specific constants at temperature/wavelength; values must have corresponding reliable source. p11,p12 are STRAIN-optic dimensionless, not STRESS-optic m2/N."
+    },
+    "stress_rod": {
+      "E_Pa": null,
+      "poisson_ratio": null,
+      "alpha_1_per_K": null,
+      "mechanical_source_url": "",
+      "p11": null,
+      "p12": null,
+      "photoelastic_source_url": "",
+      "notes": "TODO: real composition-specific constants at temperature/wavelength; values must have corresponding reliable source. p11,p12 are STRAIN-optic dimensionless, not STRESS-optic m2/N."
+    }
+  }
+}

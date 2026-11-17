@@ -193,6 +193,16 @@ function applyFile5(d){
   drawPreview5();result5=d;drawBands5(d);drawMap5(d);switch5('bands');
   status5('해석 결과 불러오기 성공: 설계값을 JSON 기준으로 동기화했습니다. 본 결과는 스칼라/표본 근사입니다.');
 }
+async function loadExample5(auto=false){
+  const resp=await fetch('./research_step5_example_v083.json?v=20261118-v083');
+  if(!resp.ok)throw Error('GitHub Pages 예시 데이터 읽기 실패 '+resp.status);
+  const demo=await resp.json();
+  applyFile5(demo);
+  status5('실제 Python 수치해석 예시(참조값 아님) · 입력 N='+demo.input.grid_n+
+    ', 밴드 '+demo.input.bands+'개, 표본 갭 후보 '+demo.gap_map.candidates.length+
+    '개. V2/V4/V5/V6 검증은 별도입니다.');
+  if(auto)switch5('design');
+}
 async function exportDefect5(){
   if(!result5||!same5(result5.input,read5()))throw Error('현재 설계와 일치하는 해석 결과가 필요합니다.');
   if(result5.input.lattice!=='triangular')throw Error('기존 Full-section FEM과 연동 가능한 격자는 삼각 격자뿐입니다.');
@@ -252,12 +262,16 @@ async function init5(){
     try{const file=e.target.files[0];if(file)applyFile5(JSON.parse(await file.text()));}
     catch(err){status5('해석 JSON 읽기 실패: '+err.message,true);}
   });
+  id5('pc5-load-example').addEventListener('click',()=>{
+    loadExample5().catch(err=>status5('예시 로드 실패: '+err.message,true));
+  });
   id5('pc5-candidate').addEventListener('change',showGap5);
   id5('pc5-export-defect').addEventListener('click',async()=>{
     try{await exportDefect5();status5('결함 설계 JSON 내보내기 성공 · 수치/물리 미검증');}
     catch(err){status5(err.message,true);id5('pc5-handoff-note').textContent=err.message;}
   });
   drawPreview5();placeholder5('pc5-bands-canvas','해석 결과 JSON 없음');placeholder5('pc5-map-canvas','밴드갭 결과 JSON 없음');
+  loadExample5(true).catch(err=>status5('예시 로드 실패(직접 JSON 업로드 가능): '+err.message,true));
   if(location.hash==='#research-step5-v083')sec.scrollIntoView();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{init5().catch(err=>console.error(err));});

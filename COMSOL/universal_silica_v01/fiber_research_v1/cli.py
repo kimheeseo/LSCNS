@@ -85,13 +85,21 @@ def main(argv=None):
     q.add_argument("--out",default="presets")
     v=sub.add_parser("validate")
     v.add_argument("design")
-    for name in ("mesh","solve","study"):
+    for name in ("mesh","solve","study","bend"):
         u=sub.add_parser(name)
         u.add_argument("design")
         u.add_argument("--out",default="output")
         if name!="mesh":
-            u.add_argument("--modes",type=int,default=2 if name=="solve" else 1)
+            u.add_argument("--modes",type=int,default=2 if name in ("solve","bend") else 1)
             u.add_argument("--target-neff",type=float,default=None)
+    # STEP6a: no radius values are assumed; require explicit engineering inputs.
+    bend=sub.choices["bend"]
+    bend.add_argument("--radii-mm",type=float,nargs="+",required=True)
+    bend.add_argument("--directions-deg",type=float,nargs="+",default=[0.0])
+    bend.add_argument("--reff-multiplier",type=float,default=None)
+    bend.add_argument("--reff-source-url",default=None)
+    bend.add_argument("--reff-source-note",default=None)
+    bend.add_argument("--min-overlap",type=float,default=.75)
     # STEP4: retain full physical FEM quadrature only when explicitly requested.
     # This may create very large results, but is required for quantitative overlap matching.
     sub.choices["solve"].add_argument("--export-full-quadrature", action="store_true")
@@ -123,6 +131,21 @@ def main(argv=None):
         s=solve(design,m,n_modes=a.modes,target_neff=a.target_neff,export_full_quadrature=a.export_full_quadrature)
         dump(s,out/"mode_result.json")
         print("EXPERIMENTAL (not loss-validated):",[(x["neff_real"],x["neff_imag"],x["residual_relative"]) for x in s["modes"]])
+        return
+    if a.command=="bend":
+        try: from .bending import bend_radius_direction_sweep
+        except ImportError: from bending import bend_radius_direction_sweep
+        report=bend_radius_direction_sweep(
+            design,a.radii_mm,a.directions_deg,
+            reff_multiplier=a.reff_multiplier,
+            stress_source_url=a.reff_source_url,
+            stress_source_note=a.reff_source_note,
+            n_modes=a.modes,target_neff=a.target_neff,
+            minimum_overlap=a.min_overlap,output_dir=out)
+        dump(report,out/"bend_sweep_result.json")
+        print("STEP6a v0.8.1 experimental (NOT V3 validated):",
+              sum(x["status"]=="COMPUTED_UNVERIFIED" for x in report["cases"]),
+              "candidate curves",out/"bend_sweep_result.json")
         return
     report=run_study(design,out,a.modes,a.target_neff)
     dump(report,out/"study_report.json")

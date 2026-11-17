@@ -1,3 +1,22 @@
+## v0.8.2 — STEP 6b PM 열응력·광탄성 (2026-11-18)
+
+**이번 단일 단계:** Panda/Bow-tie stress_rod 물리영역 분리, generalized plane strain 냉각 열응력, 사용자가 출처를 명시한 무차원 strain-optic p11/p12로 광학 굴절률 텐서 생성, anisotropic Maxwell mode candidate 연결. **PM 제품 수치 인증 아님.**
+
+- [STEP6b 설계 및 검증표](../../validation_report/STEP6B_V082_DESIGN_VERIFICATION_20261118.md)
+- [STEP6b 별도 한계 보고서](../../validation_report/STEP6B_V082_LIMITATIONS_20261118.md)
+- [모든 변경 이력](CHANGELOG.md)
+- [GitHub Pages STEP6b 열응력/복굴절 결과](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step6b-v082)
+
+재료값은 임의로 채우지 않습니다. benchmarks/step6b_panda_materials_TEMPLATE.json의 null 필드를 실제 PANDA/Bow-tie 제품의 조성/실측·문헌 근거 있는 값으로 채워 pm_materials.json을 만드세요. E[Pa],ν,α[1/K],p11,p12(무차원 strain-optic),source_url,ΔT[K] 입력이 필요합니다. Default stress_rod optical index는 **순수 SiO2 설명용 surrogate이며 미검증 실제 rod 조성**입니다.
+
+    python cli.py presets --out presets
+    python pm_cli.py solve presets/polarization_maintaining__panda.json pm_materials.json --out out_pm --modes 4
+    python pm_cli.py solve presets/polarization_maintaining__panda.json pm_materials.json --out out_mechanics --mechanics-only
+
+출력 파일: pm_stress_result.json, pm_tensor.npz, pm_mode_result.json(광탄성 모두 입력된 경우), pm_summary.json. 웹 결과 뷰어에서 PM 재료 JSON·요약·응력 지도 결과를 가져올 수 있습니다. Web은 Python FEM을 실행하지 않습니다.
+
+기계 학술 공식과 synthetic small mesh smoke 58개 테스트 PASS, **제품 PM modal B의 독립 COMSOL/PML/mesh 수렴 미검증**. STEP6c~6f, STEP7/STEP8 전체 구현은 사용자 별도 승인 전 진행하지 않습니다.
+
 ## v0.8.1 — STEP 6a 굽힘 해석 추가 (2026-11-18)
 
 **현재 구현은 STEP6a만:** 공간적 등각 굴절률 n_eq=n(1+x_out/R_eff), 굽힘 방향별 반경-총손실 후보 곡선, PML 요구/동일 메시 복소장 overlap 추적, 선택적 문헌 근거 R_eff. HCF/PCF/MCF 굽힘 수치 정밀도 및 COMSOL V3 비교는 미인증입니다.
@@ -13,7 +32,7 @@
 
 출력 out_bend/bend_sweep_result.json을 웹 STEP6a 패널에서 읽습니다. 기본 PEC 프리셋으로 손실을 계산할 수 없으며 반드시 독립 검증된 PML을 설정하세요. 응력 보정은 --reff-multiplier, --reff-source-url, --reff-source-note 세 옵션을 모두 지정할 때만 적용합니다. 원본 design JSON 변경 시 웹 결과가 무효화됩니다.
 
-V3 공식 COMSOL Step-Index Fiber Bend는 axisymmetric와 cylindrical PML을 사용하므로 이 코드의 2D conformal 근사와 수치 동치가 확인되지 않았습니다. **STEP6b~6f, STEP7, STEP8 전체는 추가 승인 전 미착수입니다.**
+V3 공식 COMSOL Step-Index Fiber Bend는 axisymmetric와 cylindrical PML을 사용하므로 이 코드의 2D conformal 근사와 수치 동치가 확인되지 않았습니다. **STEP6b는 v0.8.2에서 별도 수행되었으며 STEP6c~6f, STEP7, STEP8 전체는 추가 승인 전 미착수입니다.**
 
 ## v0.8.0 — STEP 4 ONLY (2026-11-18)
 

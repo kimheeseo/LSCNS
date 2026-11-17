@@ -1,3 +1,5 @@
+> **2026-11-18 · STEP 0 감사 승인 / STEP 1–3 연구용 광섬유 확장:** [검증·승인 보고서](validation_report/STEP1_3_IMPLEMENTATION_STATUS_20261118.md) · [A–H / 25개 JSON 프리셋과 Python Gmsh/Nédélec FEM](./universal_silica_v01/fiber_research_v1/) · [기존 웹에서 JSON 편집 및 Python 결과 보기](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-fiber-v1). CI 기본 스모크 통과와 FEM 물리 검증(HE11/PML 누설손실/밴드갭·PM)은 별개이며 미검증 범위를 명시합니다.
+
 > **2026-11-04 · COMSOL GUI형 화면 업그레이드:** [웹 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-comsol-style-ui-v1) · [구현 설명](universal_silica_v01/web/COMSOL_STYLE_README.md) · 기능 보존: G.654.E/COMSOL Step-index 검증, HCF, MCF, Full-vector Colab, PMD, 3D BPM. 실제 솔버 코드는 수정하지 않고 리본, Model Builder, Settings, Graphics, Add Study, Messages 패널과 밝은 테마/모바일 반응형 추가.
 
 > **2026-11-04 COMSOL 공개 Step-index 검증:** [웹에서 직접 실행](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261104-comsol-step-v2) · 기존 Scalar P1 FEM으로 n_eff 1.444401819, 공식 공개값 1.4444 대비 상대오차 0.000126%로 5% 미만. [검증 보고서](validation_report/comsol_step_index_benchmark/WEB_PRESET_VALIDATION.md). 공식 COMSOL 값은 4자리 공개치이며 제품 G.654.E 검증을 뜻하지 않음.

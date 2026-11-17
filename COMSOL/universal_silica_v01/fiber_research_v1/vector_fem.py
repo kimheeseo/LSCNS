@@ -30,6 +30,18 @@ Z0 = 376.730313668
 def _tensor(x, eps, design):
     """Radial complex coordinate stretch, tensor ε=detJ J^-1 ε J^-T, μ^-1=J J^T/detJ."""
     xx, yy = x[0], x[1]
+    bend=design.get("_bend")
+    if bend is not None:
+        # STEP6a: equivalent straight waveguide. Apply n_eq^2 BEFORE PML.
+        # x,y in um; R_eff in mm. PML keeps this varying background index.
+        try:
+            from .bending import conformal_factor
+        except ImportError:
+            from bending import conformal_factor
+        if bend.get("model")!="2d_conformal":
+            raise ValueError("only sourced 2d_conformal bending is implemented")
+        f=conformal_factor(xx,yy,bend["R_eff_mm"],bend["direction_deg"])
+        eps=eps*f*f
     r=np.maximum(np.sqrt(xx*xx+yy*yy),1e-12)
     radius=float(design["domain_radius_um"])
     bc=design["boundary"]
@@ -291,7 +303,7 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800,expo
             continue
         unique.append(mode)
         if len(unique)>=n_modes: break
-    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0","engine_version":"0.8.0",
+    return {"schema":"LSCNS_fiber_research_vector_v1","schema_version":"1.0.0","engine_version":"0.8.1" if design.get("_bend") is not None else "0.8.0",
             "method":"2D HCurl(Nedelec1)+H1(P1) transverse/longitudinal E mixed quadratic beta FEM, scipy sparse shift-invert",
             "convention":"exp(i beta z - i omega t); Im(neff)>0 is passive loss",
             "validation":{"level":"EXPERIMENTAL_NOT_BENCHMARKED",
@@ -300,6 +312,9 @@ def solve(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=800,expo
                           "warnings":["SBC uses approximate fixed-target Robin impedance" if design["boundary"]["type"]=="sbc" else
                                       "PML loss requires thickness, strength, mesh and physical domain convergence",
                                       "Spurious vector modes require independent HE11 and divergence/overlap benchmarks",
-                                      "No computed Bloch bandgap or stress-optic birefringence"]},
+                                      "No computed Bloch bandgap or stress-optic birefringence"] +
+                                     (["2D conformal macro-bend is weak-curvature approximation, NOT COMSOL axisymmetric bend V3",
+                                       "R_eff stress multiplier must be user-supplied with applicable citation; bent loss and turn loss NOT certified"]
+                                      if design.get("_bend") is not None else [])},
             "input":design,"mesh_quality":mesh["quality"],"modes":unique,
             "materials_provenance":{key:provenance(mat) for key,mat in design["materials"].items()}}

@@ -1,3 +1,19 @@
+## v0.8.3 — STEP 5 광자결정 클래딩 Bloch-Floquet (2026-11-18)
+
+4종 단위셀의 **실제 2D 스칼라 Bloch 고유해석**과 밴드/표본 갭 후보·light line을 구현. 브라우저는 계산하지 않고 Python JSON 시각화만 수행한다. 기본 예시 JSON은 CI Python이 실제 계산했고 **갭 후보가 0개**로 나왔으며, 결과를 임의로 채우지 않는다.
+
+- 설계·검증표: [STEP5](../../validation_report/STEP5_V083_DESIGN_VERIFICATION_20261118.md)
+- 한계 보고서: [STEP5 LIMITATIONS](../../validation_report/STEP5_V083_LIMITATIONS_20261118.md)
+- [GitHub Pages 광자결정 STEP5 설계 탭](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step5-v083)
+- [Python 실계산 예시 JSON](../web/research_step5_example_v083.json)
+
+    python step5_cli.py example --out step5_design.json
+    python step5_cli.py analyze step5_design.json --out out_step5/step5_bloch_result.json
+    python step5_cli.py handoff out_step5/step5_bloch_result.json --candidate-index 0 --defect-cells 7 --out step5_finite_pbgf_design.json
+
+handoff에는 계산된 진짜 sampled gap **후보**가 있어야 하며 없으면 생성할 수 없다. 삼각 격자만 기존 finite PBGF solver로 연결. full-vector periodic Maxwell, COMSOL V2/V4/V5/V6는 **미인증**. STEP6a, STEP6b 기존 구현은 변경하지 않았다.
+
+
 ## v0.8.2 — STEP 6b PM 열응력·광탄성 (2026-11-18)
 
 **이번 단일 단계:** Panda/Bow-tie stress_rod 물리영역 분리, generalized plane strain 냉각 열응력, 사용자가 출처를 명시한 무차원 strain-optic p11/p12로 광학 굴절률 텐서 생성, anisotropic Maxwell mode candidate 연결. **PM 제품 수치 인증 아님.**

@@ -3,7 +3,7 @@
  * Distinguishes spatial material tensor birefringence from actual modal birefringence.
  */
 const $=id=>document.getElementById(id);
-const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;':'&quot;',"'":'&#39;'}[c]));
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(v,d=5)=>typeof v==='number'&&Number.isFinite(v)?v.toPrecision(d):'근거 필요';
 const sorted=o=>Array.isArray(o)?o.map(sorted):o&&typeof o==='object'?
   Object.fromEntries(Object.keys(o).sort().map(k=>[k,sorted(o[k])])):o;

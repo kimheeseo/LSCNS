@@ -96,35 +96,45 @@ export function createRackOpticalCassette(THREE,{cube}) {
    const curve=new THREE.CatmullRomCurve3(points.map(v=>new THREE.Vector3(...v)));
    const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,24,r,4,false),new THREE.MeshStandardMaterial({color,roughness:.58,metalness:.02}));
    mesh.name='rack-optical:'+name;mesh.userData.assetId=s.id;mesh.userData.partId=p.id;
-   // Individually raycastable cable geometry; partId opens the cable-only 3D view.
+   // All 12 color-coded fan-out strands share ONE cable partId (one click target).
    mesh.userData.cassetteCable=!!p.cableCoreCount;mesh.userData.cableCoreCount=p.cableCoreCount||0;
-   parent.add(mesh);return mesh;
+   parent.add(mesh);
+   if(p.cableCoreCount){
+    // Enlarged transparent hit area makes the full cable easy to click at normal zoom.
+    const pickMesh=new THREE.Mesh(new THREE.TubeGeometry(curve,20,Math.max(.019,r*1.8),5,false),
+      new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0,depthWrite:false,colorWrite:false}));
+    pickMesh.name='rack-optical:cable-hit:'+name;
+    pickMesh.userData.assetId=s.id;pickMesh.userData.partId=p.id;pickMesh.userData.cablePickProxy=true;
+    parent.add(pickMesh);
+   }
+   return mesh;
   }
   const colors=['#54b8ee','#f6a34b','#65b98b','#b9926b','#d2dbe2','#f0f1dd','#e16b65','#383f52','#eedb57','#b68bd9','#ee98bb','#5bd3d2'];
   for(let m=0;m<4;m++){
    const {group,x,mw,p,mpo}=s.modules[m],zmid=(front+back)/2;
    const detail=new THREE.Group();detail.name='rack-optical:fanout-detail-'+m;group.add(detail);
-   const spool=info('fiber-manager-'+m,'fiber-management','카세트 '+(m+1)+' · 여장 및 굴곡 관리','광섬유 팬아웃과 여장을 가이드 안에 정리합니다. 이 화면의 곡률과 치수는 실제 최소 굴곡반경 검증값이 아닙니다.',{moduleIndex:m});
    for(const side of [-1,1]){
-    box(detail,spool,'fiber-guide',x+side*mw*.28,base+ht*.22,zmid,mw*.10,ht*.29,d*.14,'#d9cdb2');
-    box(detail,spool,'retention-finger',x+side*mw*.28,base+ht*.52,zmid,mw*.19,.014,d*.14,'#e1d8c4');
+    // Both independent long white guides in the reference view can be clicked separately.
+    const guide=info('fiber-guide-'+m+'-'+(side===-1?'left':'right'),'fiber-management',
+      '카세트 '+(m+1)+' · '+(side===-1?'왼쪽':'오른쪽')+' 광섬유 가이드',
+      '카세트 내부의 광섬유 여장과 팬아웃 굴곡 경로를 관리하는 독립 가이드입니다. 실제 제품의 곡률·치수는 별도 확인이 필요합니다.',
+      {moduleIndex:m});
+    box(detail,guide,'fiber-guide-'+(side===-1?'L':'R'),x+side*mw*.28,base+ht*.22,zmid,mw*.10,ht*.29,d*.14,'#d9cdb2');
+    box(detail,guide,'retention-finger',x+side*mw*.28,base+ht*.52,zmid,mw*.19,.014,d*.14,'#e1d8c4');
    }
+   // One MPO 12F cable links the rear connector and the 12 visible fan-out strands.
+   const trunk=info('cassette-trunk-'+m,'cassette-cable',
+     '카세트 '+(m+1)+' · MPO/MTP 12심 케이블 전체',
+     '후면 MPO/MTP 트렁크와 12개의 팬아웃 광섬유는 동일한 12심 케이블 1개로 선택됩니다. 어느 색상 광섬유를 클릭해도 케이블 전체를 표시하며 개별 심을 선택하지 않습니다.',
+     {moduleIndex:m,cableCoreCount:12,cableClass:'mpo-trunk',
+      cableFrom:'MMR / ODF · MPO/MTP 12F 트렁크 (예시)',cableTo:'카세트 '+(m+1)+' · 후면 MPO → 전면 LC duplex 6포트'});
    // A preterminated fan-out is shown, with no unnecessary splice holder.
    for(let f=0;f<12;f++){
     const px=x+(Math.floor(f/2)-2.5)*mw*.151+(f%2?1:-1)*mw*.030;
     const yy=base+ht*.34+(f%3)*.004;
-    const strand=info('cassette-fanout-'+m+'-'+f,'cassette-cable',
-      '카세트 '+(m+1)+' · 팬아웃 광섬유 '+(f+1)+' / 12 · 1심',
-      '후면 MPO/MTP 12F 입력에서 분기되어 전면 LC duplex '+(Math.floor(f/2)+1)+'번으로 연결되는 1심 광섬유 개념 경로입니다.',
-      {moduleIndex:m,cableCoreCount:1,cableClass:'fanout',fiberIndex:f,
-       cableFrom:'카세트 '+(m+1)+' · 후면 MPO/MTP 12F',cableTo:'전면 LC duplex '+(Math.floor(f/2)+1)+' · '+(f%2?'B':'A')+' 섬유'});
-    tube(detail,strand,'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);stats.fibers++;
+    // A click on ANY of the 12 colored fibers resolves to this module's full MPO cable.
+    tube(detail,trunk,'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);stats.fibers++;
    }
-   const trunk=info('cassette-trunk-'+m,'cassette-cable',
-     '카세트 '+(m+1)+' · MPO/MTP 트렁크 · 12심',
-     '카세트 후면 MPO/MTP 12F에 들어오는 다심 광트렁크입니다. 화면에 표현한 트렁크 1개당 12심이며 실제 케이블 사양·극성·사용심수는 제품 BOM으로 확인해야 합니다.',
-     {moduleIndex:m,cableCoreCount:12,cableClass:'mpo-trunk',
-      cableFrom:'MMR / ODF · MPO/MTP 광트렁크(예시)',cableTo:'카세트 '+(m+1)+' · 후면 MPO/MTP 12F'});
    tube(detail,trunk,'mpo-trunk-'+m,[[x,base+ht*.40,back+.08],[x,base+ht*.48,back+d*.12],[x+w*.10,base+ht*.62,back+d*.21]],.019,'#ebd45e');
    box(detail,mpo,'trunk-strain-relief',x,base+ht*.20,back+.10,mw*.42,ht*.45,.030,'#161f2d');
    // Two illustrative patched duplex outputs per module; remaining ports remain accessible.

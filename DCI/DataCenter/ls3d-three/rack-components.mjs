@@ -340,7 +340,25 @@ export function createRackComponentKit(THREE,{cube}){
   occupied.push({kind:'optical-drawer',uStart:cassetteU,uHeight:2});
   const frontFill=planRackFrontFill(count,occupied,network);
   function batch(g,name,points,ww,hh,dd,color){
-    // Instanced sockets/fingers keep repeated passive patch panels inexpensive.
+    // An LC duplex adapter (including its two sockets) is a replaceable unit:
+    // keep each of the 12 adapters individually clickable instead of an
+    // InstancedMesh where every click would select the entire row.
+    if(name==='lc-duplex-adapter'||name==='lc-duplex-socket'){
+      if(!g.userData.lcSelectableAdapters)g.userData.lcSelectableAdapters=[];
+      points.forEach(([x,y,z],i)=>{
+        const slot=name==='lc-duplex-adapter'?i:Math.floor(i/2);
+        let unit=g.userData.lcSelectableAdapters[slot];
+        if(!unit){
+          unit=new THREE.Group();unit.name='rack-part:lc-duplex-'+(slot+1);
+          unit.userData.rackSelectableGroup=true;
+          unit.userData.rackSelectableLabel='LC duplex 어댑터 '+(slot+1)+'번 · 2심 포트';
+          g.add(unit);g.userData.lcSelectableAdapters[slot]=unit;
+        }
+        box(unit,name+'-'+i,x,y,z,ww,hh,dd,color);
+      });
+      return;
+    }
+    // Instancing is retained for non-serviceable decorative repeats.
     if(THREE.InstancedMesh&&THREE.Matrix4&&THREE.Vector3&&THREE.Quaternion){
       const sample=box(g,name+'-sample',0,0,0,ww,hh,dd,color);
       g.remove(sample);

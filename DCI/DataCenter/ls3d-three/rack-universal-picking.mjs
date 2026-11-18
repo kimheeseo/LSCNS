@@ -1,7 +1,7 @@
 // Universal per-component picking for the educational data-center rack model.
 // Only modeled meshes can be selected. Does not invent physical parts or specifications.
 const supported=/^(rack-shape:|rack-server:|rack-link:|rack-optical:|rack-optical-patch:|rack-lc:|odf-small:|hardware:)/;
-const preserve=new Set(['cassette-cable','fiber-port','mpo-input','patch-internal','lc-adapter-port','odf-small-port']);
+const preserve=new Set(['cassette-cable','fiber-port','mpo-input','patch-internal','lc-adapter-port','odf-small-port','fiber-patch-cable','dac-cable','power-cable','patch-cord','optical-connector','tor-port']);
 const aliases=[
  [/^fan-(cartridge|grille|blade|hub)/,'냉각 팬 부품'],
  [/^(green-mainboard|gpu-carrier-board|nic-board|drive-controller-pcb)/,'PCB 회로기판'],

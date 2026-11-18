@@ -66,6 +66,11 @@ rackOps.innerHTML='<h3>랙 내부 부품 열기 · 넣기</h3>'+
  '<button type="button" data-rack-quick="patch-select">광 패치패널 선택</button>'+
  '<button type="button" data-rack-quick="switch-select">네트워크 스위치 선택</button>'+
  '<button type="button" data-rack-quick="cassette-select">MPO/MTP 카세트 선택</button>'+
+ '<button type="button" data-rack-quick="cassette-cable-0">카세트 1 · MPO 12심만 보기</button>'+
+ '<button type="button" data-rack-quick="cassette-cable-1">카세트 2 · MPO 12심만 보기</button>'+
+ '<button type="button" data-rack-quick="cassette-cable-2">카세트 3 · MPO 12심만 보기</button>'+
+ '<button type="button" data-rack-quick="cassette-cable-3">카세트 4 · MPO 12심만 보기</button>'+
+ '<button type="button" data-rack-quick="rack-overview">모든 랙 부품 다시 보기</button>'+
  '<button type="button" data-rack-quick="gpu-select" data-rack-quick-kind="gpu">GPU 모듈 선택</button>'+
  '<button type="button" data-rack-quick="cable-patch">케이블 연결 · 분리</button>'+
  '<button type="button" data-rack-quick="optical-lc" data-rack-quick-kind="lc">LC 어댑터 패널 선택</button>'+
@@ -82,9 +87,9 @@ rackOps.addEventListener('click',event=>{
  const adapter=window.LS3D_THREE?.adapter;
  const successful=!!adapter?.runRackAction?.(code);
  if(successful){
-  if(!/^(patch-select|cassette-select|optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
+  if(!/^(cassette-cable-|patch-select|cassette-select|optical-lc|lc-|odf-)/.test(code))adapter.expandRackControls?.();
   $('inspectorRackOpStatus').textContent=
-    event.target.textContent+' · 3D 랙 조작을 실행했습니다. 같은 버튼을 다시 누르면 복귀합니다.';
+    event.target.textContent+(code.startsWith('cassette-cable-')?' · 선택한 케이블 외 다른 3D 부품을 숨기고 광섬유 심수를 표시했습니다.':' · 3D 랙 조작을 실행했습니다.');
  }else{
   $('inspectorRackOpStatus').textContent=
     '선택한 랙의 3D 엔진 또는 부품을 확인해 주세요. 단독 보기에서 사용 가능합니다.';

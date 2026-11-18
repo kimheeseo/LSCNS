@@ -103,6 +103,7 @@ if (requested && T) {
   });
   canvas.addEventListener('contextmenu',e=>e.preventDefault());
   // Chrome/Edge may launch auto-scroll on a middle click; keep the gesture for camera panning.
+  canvas.addEventListener('mousedown',e=>{if(e.button===1)e.preventDefault();});
   canvas.addEventListener('auxclick',e=>{if(e.button===1)e.preventDefault();});
   canvas.addEventListener('wheel',e=>{
     e.preventDefault();

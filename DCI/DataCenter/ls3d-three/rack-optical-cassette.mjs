@@ -95,7 +95,10 @@ export function createRackOpticalCassette(THREE,{cube}) {
   function tube(parent,p,name,points,r,color){
    const curve=new THREE.CatmullRomCurve3(points.map(v=>new THREE.Vector3(...v)));
    const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,24,r,4,false),new THREE.MeshStandardMaterial({color,roughness:.58,metalness:.02}));
-   mesh.name='rack-optical:'+name;mesh.userData.assetId=s.id;mesh.userData.partId=p.id;parent.add(mesh);return mesh;
+   mesh.name='rack-optical:'+name;mesh.userData.assetId=s.id;mesh.userData.partId=p.id;
+   // Individually raycastable cable geometry; partId opens the cable-only 3D view.
+   mesh.userData.cassetteCable=!!p.cableCoreCount;mesh.userData.cableCoreCount=p.cableCoreCount||0;
+   parent.add(mesh);return mesh;
   }
   const colors=['#54b8ee','#f6a34b','#65b98b','#b9926b','#d2dbe2','#f0f1dd','#e16b65','#383f52','#eedb57','#b68bd9','#ee98bb','#5bd3d2'];
   for(let m=0;m<4;m++){
@@ -110,15 +113,30 @@ export function createRackOpticalCassette(THREE,{cube}) {
    for(let f=0;f<12;f++){
     const px=x+(Math.floor(f/2)-2.5)*mw*.151+(f%2?1:-1)*mw*.030;
     const yy=base+ht*.34+(f%3)*.004;
-    tube(detail,s.portDefs[m*6+Math.floor(f/2)],'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);stats.fibers++;
+    const strand=info('cassette-fanout-'+m+'-'+f,'cassette-cable',
+      '카세트 '+(m+1)+' · 팬아웃 광섬유 '+(f+1)+' / 12 · 1심',
+      '후면 MPO/MTP 12F 입력에서 분기되어 전면 LC duplex '+(Math.floor(f/2)+1)+'번으로 연결되는 1심 광섬유 개념 경로입니다.',
+      {moduleIndex:m,cableCoreCount:1,cableClass:'fanout',fiberIndex:f,
+       cableFrom:'카세트 '+(m+1)+' · 후면 MPO/MTP 12F',cableTo:'전면 LC duplex '+(Math.floor(f/2)+1)+' · '+(f%2?'B':'A')+' 섬유'});
+    tube(detail,strand,'fanout-fiber-'+m+'-'+f,[[x+(f-5.5)*mw*.008,yy,back-.09],[x+mw*.31,yy,zmid+d*.065],[x+mw*.28,yy,zmid-d*.075],[px,yy,front+.065]],.0035,colors[f]);stats.fibers++;
    }
-   tube(detail,mpo,'mpo-trunk-'+m,[[x,base+ht*.40,back+.08],[x,base+ht*.48,back+d*.12],[x+w*.10,base+ht*.62,back+d*.21]],.019,'#ebd45e');
+   const trunk=info('cassette-trunk-'+m,'cassette-cable',
+     '카세트 '+(m+1)+' · MPO/MTP 트렁크 · 12심',
+     '카세트 후면 MPO/MTP 12F에 들어오는 다심 광트렁크입니다. 화면에 표현한 트렁크 1개당 12심이며 실제 케이블 사양·극성·사용심수는 제품 BOM으로 확인해야 합니다.',
+     {moduleIndex:m,cableCoreCount:12,cableClass:'mpo-trunk',
+      cableFrom:'MMR / ODF · MPO/MTP 광트렁크(예시)',cableTo:'카세트 '+(m+1)+' · 후면 MPO/MTP 12F'});
+   tube(detail,trunk,'mpo-trunk-'+m,[[x,base+ht*.40,back+.08],[x,base+ht*.48,back+d*.12],[x+w*.10,base+ht*.62,back+d*.21]],.019,'#ebd45e');
    box(detail,mpo,'trunk-strain-relief',x,base+ht*.20,back+.10,mw*.42,ht*.45,.030,'#161f2d');
    // Two illustrative patched duplex outputs per module; remaining ports remain accessible.
    for(let j=0;j<2;j++){
     const port=s.portDefs[m*6+j],px=x+(j-2.5)*mw*.151;
     box(detail,port,'connector-boot-'+port.portIndex,px,base+ht*.27,front-.070,mw*.11,ht*.32,.065,'#228fb7');
-    tube(detail,port,'lc-patch-'+port.portIndex,[[px,base+ht*.40,front-.11],[px,base-ht*.45,front-.18],[x-mw*.48,base-ht*.56,front-.14],[x-mw*.48,base+ht*1.5,front-.10]],.008,'#f5d65e');
+    const patch=info('cassette-patch-'+m+'-'+j,'cassette-cable',
+      '카세트 '+(m+1)+' · LC duplex 패치 연결 '+(j+1)+' · 2심',
+      '하나의 LC duplex 포트에 대응하는 2심 패치 연결의 교육용 개념 경로입니다. 실제 현장 케이블은 2개의 simplex 패치코드로 구성될 수도 있습니다.',
+      {moduleIndex:m,cableCoreCount:2,cableClass:'lc-duplex',
+       cableFrom:'카세트 '+(m+1)+' · 전면 LC duplex '+(j+1),cableTo:'ToR / 광모듈(예시)'});
+    tube(detail,patch,'lc-patch-'+port.portIndex,[[px,base+ht*.40,front-.11],[px,base-ht*.45,front-.18],[x-mw*.48,base-ht*.56,front-.14],[x-mw*.48,base+ht*1.5,front-.10]],.008,'#f5d65e');
    }
   }
  }

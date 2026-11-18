@@ -140,6 +140,12 @@ export function createRackNetworkCabling(THREE,{cube}) {
           [sx*w*.22,yy,d*.33],[sx*w*.29,yy+.09,d*.40],
           [px,yy+.12,d*.445],[px,yy+.02,d*.50]
         ],colors[side],.026);
+        const powerId=id+':power-link:'+index+':'+side;
+        const powerPart={id:powerId,assetId:id,kind:'power-cable',label:'서버 '+(index+1)+' · PDU '+side+' 전원 케이블 전체',
+          description:'서버 전원과 후면 PDU '+side+'를 연결하는 교육용 전력 케이블 한 가닥입니다. 전기 도체 수와 케이블 규격은 지정되지 않았습니다.',
+          uStart:info.uStart,uHeight:info.uHeight};
+        built.parts.push(powerPart);built.partMap.set(powerId,powerPart);
+        cord.traverse(o=>{if(o.isMesh){o.userData.noPick=false;o.userData.assetId=id;o.userData.partId=powerId;}});
         cord.userData.cableSystem='power-'+side;
         cord.userData.from=info.id;
         cord.userData.to=(built.parts.find(p=>p.kind==='pdu-'+side.toLowerCase()))?.id;

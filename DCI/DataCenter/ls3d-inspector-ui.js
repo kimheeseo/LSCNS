@@ -36,7 +36,7 @@ function moveTools(){
 }
 moveTools();window.addEventListener('resize',moveTools);
 const selector=document.createElement('section');selector.className='inspector-selectors';
-selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><button id="inspectorRackOpen" class="inspector-rack-open" type="button" hidden>선택 랙 단독 보기 · 문 열기/닫기</button><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
+selector.innerHTML='<label for="inspectorAssetSelect">설비 선택<select id="inspectorAssetSelect" aria-label="설비 선택"><option value="">설비를 선택하세요</option></select></label><button id="inspectorRackOpen" class="inspector-rack-open" type="button" hidden>선택 랙 단독 보기 · 문 열기/닫기</button><label for="inspectorPartSearch">랙 부품 검색<input id="inspectorPartSearch" type="search" autocomplete="off" placeholder="팬, PCB, GPU, 카세트, 케이블, 포트…" aria-label="랙 내부 제품 및 부품 검색"></label><label for="inspectorPartSelect">제품 · 부품 · 구조물 선택<select id="inspectorPartSelect" aria-label="부품 · 구조물 선택"><option value="">3D 화면에서 부품을 클릭하세요</option></select></label>';
 document.querySelector('.right-head').insertAdjacentElement('afterend',selector);
 const card=document.createElement('section');card.id='inspectorPartDetails';card.className='inspector-part';card.hidden=true;card.setAttribute('aria-live','polite');
 card.innerHTML='<small id="inspectorPartContext"></small><strong id="inspectorPartName"></strong><p id="inspectorPartRole" class="inspector-part-role" hidden></p><p id="inspectorPartDescription"></p><button type="button" id="inspectorPartClear">부품 선택 해제</button>';
@@ -96,7 +96,7 @@ rackOps.addEventListener('click',event=>{
  }
 });
 let part=null,parts=[],assetSignature='',partSignature='',contextAsset=null;
-const assetSelect=$('inspectorAssetSelect'),partSelect=$('inspectorPartSelect');
+const assetSelect=$('inspectorAssetSelect'),partSelect=$('inspectorPartSelect'),partSearch=$('inspectorPartSearch');
 const zoneName=id=>T.Z.find(z=>z.id===id)?.n||id||'데이터센터';
 function option(value,label){const o=document.createElement('option');o.value=value;o.textContent=label;return o;}
 function renderPart(){
@@ -111,12 +111,29 @@ function renderPart(){
  partSelect.value=part?.id||'';
 }
 function setSelection(info){part=info?{...info}:null;contextAsset=info?.assetId||T.selected?.id||null;renderPart();}
-function setParts(next){
- parts=next||[];const sig=parts.map(p=>p.id+'|'+p.label).join('\n');if(sig===partSignature)return;partSignature=sig;
- partSelect.replaceChildren(option('',parts.length?'부품 또는 구조물을 선택하세요':'현재 선택 가능한 부품이 없습니다'));
- const groups=new Map();for(const p of parts){const label=p.kind==='equipment'?'선택 설비 설명':p.assetId?'선택 설비 내부 부품':'주변 트레이 · 구조물';if(!groups.has(label)){const group=document.createElement('optgroup');group.label=label;partSelect.appendChild(group);groups.set(label,group);}groups.get(label).appendChild(option(p.id,p.label+(p.assetId?'':' · '+zoneName(p.zoneId))));}
- if(part&&!parts.some(p=>p.id===part.id)&&part.kind!=='mep-route')setSelection(null);renderPart();
+function renderPartOptions(){
+ const query=partSearch.value.trim().toLocaleLowerCase();
+ const filtered=query?parts.filter(p=>([p.label,p.kind,p.description,p.parentAssembly,p.component].join(' ')).toLocaleLowerCase().includes(query)):parts;
+ // Keep the dropdown responsive in large 48U racks. Search still covers every entry.
+ const candidates=filtered.slice(0,400);
+ partSelect.replaceChildren(option('',!parts.length?'현재 선택 가능한 부품이 없습니다':filtered.length+'개 부품 · 직접 클릭 또는 목록 선택'));
+ const groups=new Map();
+ for(const p of candidates){
+  const groupName=p.kind==='rack-component'?'랙 개별 구성품':p.kind==='cassette-cable'||p.kind==='power-cable'||p.kind==='patch-cord'?'케이블 전체':p.kind==='equipment'?'설비 전체':p.assetId?'랙 제품 · 주요 부품':'주변 구조물';
+  if(!groups.has(groupName)){const group=document.createElement('optgroup');group.label=groupName;partSelect.appendChild(group);groups.set(groupName,group);}
+  groups.get(groupName).appendChild(option(p.id,p.label+(p.assetId?'':' · '+zoneName(p.zoneId))));
+ }
+ if(part&&!candidates.some(p=>p.id===part.id))partSelect.appendChild(option(part.id,'현재 선택: '+(part.label||part.id)));
+ partSelect.value=part?.id||'';
 }
+function setParts(next){
+ parts=next||[];const sig=parts.map(p=>p.id+'|'+p.label).join('\n');
+ if(sig===partSignature)return;
+ partSignature=sig;
+ if(part&&!parts.some(p=>p.id===part.id)&&part.kind!=='mep-route')setSelection(null);
+ renderPartOptions();renderPart();
+}
+partSearch.addEventListener('input',renderPartOptions);
 function sync(){
  const assets=T.visibleAssets().filter(a=>T.currentZone==='campus'||a.zone===T.currentZone);
  const sig=assets.map(a=>a.id).join('|');if(sig!==assetSignature){assetSignature=sig;assetSelect.replaceChildren(option('','설비를 선택하세요'));for(const a of assets)assetSelect.appendChild(option(a.id,a.name));}

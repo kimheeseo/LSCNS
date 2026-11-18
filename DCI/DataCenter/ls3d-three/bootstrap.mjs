@@ -133,7 +133,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261118-cassette-cable-inspection-v1');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261118-whole-cable-picking-v2');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

@@ -1,5 +1,6 @@
 import {mechanicalButtons} from './rack-mechanical-policy.mjs?v=20261115-server-storage-v6';
-import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261115-server-storage-v6';
+import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261118-all-rack-components-v1';
+import {registerRackSurfaceParts} from './rack-universal-picking.mjs?v=20261118-all-rack-components-v1';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261115-free-camera-v7';
@@ -14,8 +15,8 @@ import { createRackComponentKit } from './rack-components.mjs?v=20261115-server-
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
 import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261118-whole-cable-picking-v2';
-import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
-import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
+import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261118-all-rack-components-v1';
+import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261118-all-rack-components-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261102-patch-component-guide-v1';
 import { createRackLcAdapterDesign } from './rack-lc-adapter-design.mjs?v=20261101-lc-odf-design-v1';
 import { createOdfSmallFiberBox } from './odf-small-fiber-box.mjs?v=20261101-odf-small-design-v4';
@@ -1188,6 +1189,9 @@ export function createSceneAdapter(T, canvas) {
         const model = assetMesh(a);
         item = { ...model, sig }; registry.set(a.id, item); assetRoot.add(item.g);
       }
+      // Bind a unique selectable part to every represented rack surface.
+      // Only the inspected rack is indexed to avoid catalog/scene overhead.
+      if(T.rackIsolateActive&&T.selected?.id===a.id)registerRackSurfaceParts(a,item);
       const opticalIsolated=selectedRackPart?.assetId===a.id&&
         (rackOptics.owns(selectedRackPart)||rackPatchDesign.owns(selectedRackPart)||rackLcDesign.owns(selectedRackPart)||odfBox.owns(selectedRackPart));
       item.selection.visible=T.selected?.id===a.id&&!opticalIsolated&&cableInspection?.assetId!==a.id;
@@ -1277,6 +1281,12 @@ export function createSceneAdapter(T, canvas) {
     const selectedServer=activeAsset&&rackRails.state(activeAsset.id)?.selected;
     const hardwareModule=activeItem?.serverSession?.groups?.get(selectedServer);
     hardwareDetail.update(activeAsset,hardwareModule,!!(activeAsset&&hardwareModeRack===activeAsset.id&&T.rackIsolateActive&&(T.mechanical(activeAsset).targetDoor||T.mechanical(activeAsset).door>.2)),dt,activeItem?.rackUnits);
+    // High-detail PCB, chips, four fan assemblies, memory, power and connectors
+    // are created lazily; register them immediately after the detail geometry exists.
+    if(activeAsset&&activeItem&&T.rackIsolateActive){
+      registerRackSurfaceParts(activeAsset,activeItem);
+      if(selectedRackPart?.universal&&!activeItem.partMap.has(selectedRackPart.id))showRackPart(null);
+    }
     diagnostic.hardwareDetail=hardwareDetail.state();
     diagnostic.rackViewMode=hardwareModeRack?'server-detail':'rack-overview';
     showControls();
@@ -1542,6 +1552,7 @@ export function createSceneAdapter(T, canvas) {
     get inspections(){return diagnostic.inspections;},get security(){return diagnostic.security;},
     get rackComponents(){return diagnostic.rackComponents;},get selectedPart(){return selectedRackPart;},
     get rackNetwork(){return diagnostic.rackNetwork;},
+    get rackSelectableParts(){const a=currentRackAsset(),record=a&&registry.get(a.id);return record?{total:record.rackParts.length,individual:record.universalParts?.size||0,parts:record.rackParts.map(p=>({id:p.id,label:p.label,kind:p.kind}))}:null;},
     get rackPatch(){return currentRackAsset()?rackPatch.state(currentRackAsset().id):null;},
     get mmr(){return diagnostic.mmr;},get colocation(){return diagnostic.colocation;},
     get mep(){return diagnostic.mep;},mepController:mepRoutes,

@@ -11,10 +11,11 @@ function harness(){
  const document=Object.assign(make(),{activeElement:{tagName:'BODY'},hidden:false,querySelectorAll:()=>[]});
  const ctx=vm.createContext({document,window:make(),canvas,$:id=>id==='cameraDragMode'?mode:id==='cameraHint'?hint:null,
   cameraDesired:{yaw:0,pitch:.7,distance:40,target:[0,0,0]},pressedKeys:new Set(),walk:false,workerViewId:null,
-  walkPos:[0,1.7,0],walkPitch:0,workerViewYaw:0,workerViewPitch:0,clamp:(x,a,b)=>Math.min(b,Math.max(a,x)),
+  walkPos:[0,1.7,0],walkPitch:0,workerViewYaw:0,workerViewPitch:0,rackIsolateActive:false,renderH:600,clamp:(x,a,b)=>Math.min(b,Math.max(a,x)),
   phase1Inspecting:()=>false,LS3D_ZOOM_MIN:1e-10,collide:()=>false,toggleWalk(){},pickAt(){},
  });
  vm.runInContext(shared+'\n'+controls+'\ninitControls();',ctx);
+ ctx.mode=mode;
  return ctx;
 }
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`);
@@ -23,7 +24,7 @@ test('all classic inline scripts parse and removed modules cannot create MEP/FPS
  assert.doesNotMatch(html,/<script[^>]+src="[^\"]*Phase45/);
  const optical=fs.readFileSync(new URL('../LS_Datacenter_3D_Phase2A.js',import.meta.url),'utf8');
  new vm.Script(optical);assert.doesNotMatch(optical,/phase2-mep|LS3D_PHASE2_A/);assert.match(optical,/id="phase2-opt-open"/);
- assert.match(html,/__LS3D_TEST__=\{panCamera,zoomCamera,dragCamera,/);
+ assert.match(html,/__LS3D_TEST__=\{setDragMode\(mode\)/);
 });
 test('arrows pan without walking and prevent browser scrolling',()=>{
  const c=harness(),e={key:'ArrowRight'};c.document.emit('keydown',e);c.updateWalk(.05);
@@ -57,16 +58,19 @@ test('right drag pans on the camera screen plane at rotated viewpoints',()=>{
  const c=harness();c.cameraDesired.yaw=Math.PI/2;c.dragCamera(10,0,{button:2});near(c.cameraDesired.target[0],0);assert.ok(c.cameraDesired.target[2]>0);
  const before=c.cameraDesired.target.slice();c.dragCamera(0,10,{button:2});assert.ok(c.cameraDesired.target[0]<before[0]);assert.ok(c.cameraDesired.target[1]>before[1]);
 });
-test('middle/Ctrl drag and zoom mode zoom both ways with distance limits',()=>{
- const c=harness();c.dragCamera(0,-20,{button:1});assert.ok(c.cameraDesired.distance<40);
- const before=c.cameraDesired.distance;c.dragCamera(0,20,{button:0,ctrlKey:true});assert.ok(c.cameraDesired.distance>before);
+test('middle drag pans horizontally and vertically without zoom; Ctrl and zoom mode change distance',()=>{
+ const c=harness();assert.equal(c.mode.value,'rotate');
+ c.dragCamera(20,0,{button:1});assert.ok(c.cameraDesired.target[0]<0);near(c.cameraDesired.distance,40);near(c.cameraDesired.yaw,0);
+ const old=c.cameraDesired.target.slice();c.dragCamera(0,20,{button:1});assert.ok(c.cameraDesired.target[1]>old[1]);assert.ok(c.cameraDesired.target[2]<old[2]);near(c.cameraDesired.distance,40);
+ c.dragCamera(0,20,{button:0,ctrlKey:true});assert.ok(c.cameraDesired.distance>40);
  vm.runInContext("cameraDragMode='zoom'",c);c.dragCamera(0,-20,{button:0});assert.ok(c.cameraDesired.distance<40);
  for(let i=0;i<100;i++)c.zoomCamera(1);near(c.cameraDesired.distance,260);
  for(let i=0;i<100;i++)c.zoomCamera(-1);near(c.cameraDesired.distance,.12);
 });
-test('left drag pan mode, rotation and walking look remain usable',()=>{
- const c=harness();vm.runInContext("cameraDragMode='pan'",c);c.dragCamera(10,0,{button:0});assert.ok(c.cameraDesired.target[0]<0);near(c.cameraDesired.yaw,0);
- vm.runInContext("cameraDragMode='rotate'",c);c.dragCamera(10,0,{button:0});assert.ok(c.cameraDesired.yaw<0);
+test('default left drag rotates in both axes; Shift-left and explicit move mode pan',()=>{
+ const c=harness();c.dragCamera(10,10,{button:0});assert.ok(c.cameraDesired.yaw<0);assert.ok(c.cameraDesired.pitch>.7);near(c.cameraDesired.target[0],0);
+ const oldYaw=c.cameraDesired.yaw;c.dragCamera(10,0,{button:0,shiftKey:true});near(c.cameraDesired.yaw,oldYaw);assert.notEqual(c.cameraDesired.target[0],0);
+ vm.runInContext("cameraDragMode='pan'",c);const old=c.cameraDesired.target.slice();c.dragCamera(10,0,{button:0});assert.notEqual(c.cameraDesired.target[0],old[0]);
  c.walk=true;const before=c.cameraDesired.distance;c.dragCamera(0,-20,{button:1});near(c.cameraDesired.distance,before);assert.ok(c.walkPitch<0);
 });
 test('Three.js pointer events delegate to shared controls; pinch does not select',async()=>{

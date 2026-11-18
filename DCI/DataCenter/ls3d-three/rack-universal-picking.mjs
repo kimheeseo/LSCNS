@@ -1,7 +1,7 @@
 // Universal per-component picking for the educational data-center rack model.
 // Only modeled meshes can be selected. Does not invent physical parts or specifications.
-const supported=/^(rack-shape:|rack-server:|rack-link:|rack-optical:|hardware:)/;
-const preserve=new Set(['cassette-cable','fiber-port','mpo-input','patch-internal','lc-adapter-port','odf-small-port','optical-module']);
+const supported=/^(rack-shape:|rack-server:|rack-link:|rack-optical:|rack-optical-patch:|rack-lc:|odf-small:|hardware:)/;
+const preserve=new Set(['cassette-cable','fiber-port','mpo-input','patch-internal','lc-adapter-port','odf-small-port']);
 const aliases=[
  [/^fan-(cartridge|grille|blade|hub)/,'냉각 팬 부품'],
  [/^(green-mainboard|gpu-carrier-board|nic-board|drive-controller-pcb)/,'PCB 회로기판'],
@@ -15,7 +15,7 @@ const aliases=[
  [/^(front-door|rear-door|rack-ear|upright)/,'랙 기구부품'],
  [/^(rail-|sled-rail|fixed-guide|cassette-pull)/,'슬라이딩 레일']
 ];
-const readable=raw=>String(raw||'부품').replace(/^(rack-shape:|rack-server:|rack-link:|rack-optical:|hardware:)/,'').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim();
+const readable=raw=>String(raw||'부품').replace(/^(rack-shape:|rack-server:|rack-link:|rack-optical:|rack-optical-patch:|rack-lc:|odf-small:|hardware:)/,'').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim();
 const labelFor=(name,parent)=>{
  const raw=name.split(':').slice(1).join(':')||name;
  const match=aliases.find(([rx])=>rx.test(raw));

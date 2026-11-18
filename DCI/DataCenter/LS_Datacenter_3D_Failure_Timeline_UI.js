@@ -56,7 +56,7 @@
  const allowed=new Set(['power','ups-battery','cooling','dlc-leak','fire','gpu-surge']);
  const fmtSec=t=>t==null?'도달하지 않음':t>=60?(t/60).toFixed(1)+'분':Math.round(t)+'초';
  const fmt=(v,d=1)=>Number(v).toFixed(d);
- const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;':'&quot;'}[c]));
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  function chartSpec(scenario,sum){
   const p=model.parameters(window.LS3D_CONFIG||{}),maxRacks=p.rackCount;
   const pct=row=>row.serviceFraction*100;

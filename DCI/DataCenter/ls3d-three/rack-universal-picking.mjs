@@ -50,6 +50,7 @@ export function registerRackSurfaceParts(asset,record){
     role:'랙 내부 구성 부품의 위치와 주변 연결 관계를 확인합니다.',
     component:group?.userData?.rackSelectableLabel||readable(object.name),
     parentAssembly:parent?.label||'랙 내부',
+    insideHardwareDetail:String(object.name||'').startsWith('hardware:'),
     uStart:parent?.uStart,uHeight:parent?.uHeight,
     universal:true
    };

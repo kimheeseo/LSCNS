@@ -127,9 +127,13 @@
   const now=Math.max(0,window.__LS3D_TEST__?.scenarioElapsed?.()||0);
   const cfg=window.LS3D_CONFIG||{};
   const key=JSON.stringify([selected,mode,...cfgKeys.map(k=>cfg[k])]);
-  if(force||key!==cachedKey){
+  const changed=key!==cachedKey;
+  if(force||changed){
    cachedKey=key;
    cached=model.summarize(selected,mode,cfg);
+   // A changed power/thermal/BOM assumption also invalidates the comparison.
+   if(changed&&$('comparisonResults')?.classList.contains('show'))
+    window.__LS3D_TEST__?.refreshTimeAxisCompare?.();
    const body=$('tlineAssumptionRows');
    body.replaceChildren(...model.scenarioAssumptions(selected,cfg).map(([k,v])=>{
     const tr=document.createElement('tr'),th=document.createElement('td'),td=document.createElement('td');
@@ -160,6 +164,23 @@
  }
  const events=['change','input'];
  for(const id of ['scenarioSelect','redundancySelect'])for(const event of events)$(id)?.addEventListener(event,()=>redraw(true));
+ // Existing Settings controls mutate LS3D_CONFIG on input. Keep charts, labels,
+ // and N/N+1/2N table in sync even when simulation playback is paused.
+ let settingsUpdate=0;
+ const settingsChanged=e=>{
+  if(!e.target?.closest?.('#cfgFields'))return;
+  clearTimeout(settingsUpdate);
+  settingsUpdate=setTimeout(()=>{
+   redraw(true);
+   window.__LS3D_TEST__?.refreshTimeAxisCompare?.();
+  },60);
+ };
+ document.addEventListener('input',settingsChanged);
+ document.addEventListener('change',settingsChanged);
+ document.addEventListener('click',e=>{
+  if(!e.target?.closest?.('[data-p],#reset'))return;
+  setTimeout(()=>{redraw(true);window.__LS3D_TEST__?.refreshTimeAxisCompare?.()},0);
+ });
  window.addEventListener('ls3d-tick',()=>{
   const t=performance.now();if(t-lastDraw<450)return;lastDraw=t;redraw(false);
  });

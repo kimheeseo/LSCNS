@@ -11,14 +11,19 @@ export function createRackHardwareDetail(THREE,{cube,material}){
   points.forEach(([x,y,z],i)=>{matrix.makeScale(...size);matrix.setPosition(x,y+size[1]/2,z);mesh.setMatrixAt(i,matrix);});
   mesh.name='hardware:'+name;mesh.instanceMatrix.needsUpdate=true;g.add(mesh);
  }
- function fan(g,x,y,z,r){
-  box(g,'fan-cartridge',x,y,z,r*2.25,.13,r*2.25,'#242b30');
+ function fan(g,x,y,z,r,fanIndex){
+  // Fan case, blades, hub and grille are one replaceable component for picking.
+  const unit=new THREE.Group();unit.name='hardware:cooling-fan-'+(fanIndex+1);
+  unit.userData.rackSelectableGroup=true;
+  unit.userData.rackSelectableLabel='냉각팬 '+(fanIndex+1)+' · 케이스/블레이드/허브';
+  g.add(unit);
+  box(unit,'fan-cartridge',x,y,z,r*2.25,.13,r*2.25,'#242b30');
   const ring=new THREE.Mesh(new THREE.TorusGeometry(r,.012,5,20),material('#aeb6ba',.6,.4));
-  ring.name='hardware:fan-grille';ring.rotation.x=Math.PI/2;ring.position.set(x,y+.14,z);g.add(ring);
+  ring.name='hardware:fan-grille';ring.rotation.x=Math.PI/2;ring.position.set(x,y+.14,z);unit.add(ring);
   for(let b=0;b<5;b++){
-   const blade=box(g,'fan-blade',x+Math.cos(b*1.257)*r*.42,y+.12,z+Math.sin(b*1.257)*r*.42,r*.8,.025,r*.28,'#555e63');blade.rotation.y=-b*1.257;
+   const blade=box(unit,'fan-blade',x+Math.cos(b*1.257)*r*.42,y+.12,z+Math.sin(b*1.257)*r*.42,r*.8,.025,r*.28,'#555e63');blade.rotation.y=-b*1.257;
   }
-  const hub=new THREE.Mesh(new THREE.CylinderGeometry(r*.24,r*.24,.04,12),material('#939da2',.7,.4));hub.position.set(x,y+.155,z);g.add(hub);
+  const hub=new THREE.Mesh(new THREE.CylinderGeometry(r*.24,r*.24,.04,12),material('#939da2',.7,.4));hub.name='hardware:fan-hub';hub.position.set(x,y+.155,z);unit.add(hub);
  }
  function clear(){
   if(!active)return;
@@ -62,7 +67,7 @@ export function createRackHardwareDetail(THREE,{cube,material}){
     batch(chips,'dimm-chips',Array.from({length:5},(_,i)=>[x-.012,y+.15,-d*.14+i*d*.043]),[.026,.045,.05],'#1e2528');
    }
   }
-  for(let i=0;i<4;i++)fan(thermal,-w*.24+i*w*.16,y+.10,-d*.345,w*.060);
+  for(let i=0;i<4;i++)fan(thermal,-w*.24+i*w*.16,y+.10,-d*.345,w*.060,i);
   for(const side of [-1,1]){
    box(chips,'redundant-psu',side*w*.25,y+.10,d*.045,w*.13,.14,d*.12,'#aeb7bd');
    box(chips,'psu-receptacle',side*w*.25,y+.13,d*.113,w*.065,.07,.025,'#222a30');

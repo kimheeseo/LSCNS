@@ -164,6 +164,74 @@ export function createSceneAdapter(T, canvas) {
   const mepRoutes=createCampusMEPRoutes(THREE,T,{cube,root:routeRoot,canvas});
   let selectedRackPart=null, rackHud=null, rackControls=null, rackControlsLabel=null, rackPanelDisclosure=null, rackPanelHeading=null, rackControlsActiveRack=null;
   let opticalScaleAutoCollapsed=false;
+  // Cable-only inspection preserves and restores every touched visibility flag.
+  let cableInspection=null,cableInfoPanel=null;
+  function clearCableInspection(){
+    if(cableInspection){
+      for(const [object,visible] of cableInspection.visibility)object.visible=visible;
+      cableInspection=null;
+    }
+    if(cableInfoPanel)cableInfoPanel.hidden=true;
+  }
+  function ensureCableInfoPanel(){
+    if(cableInfoPanel||typeof document==='undefined')return cableInfoPanel;
+    cableInfoPanel=document.createElement('section');
+    cableInfoPanel.id='ls3dCassetteCableInfo';
+    cableInfoPanel.setAttribute('aria-label','선택한 광카세트 케이블 심수');
+    cableInfoPanel.style.cssText='position:absolute;bottom:58px;right:12px;z-index:35;width:min(320px,calc(100% - 24px));padding:13px 14px;border:1px solid #4bd8bb;border-radius:12px;background:#071e2cf2;color:#eafcff;box-shadow:0 12px 32px #000a;font:12px/1.55 "Pretendard Variable",sans-serif;pointer-events:auto;';
+    cableInfoPanel.innerHTML='<div style="font-size:10px;color:#85d5d5;font-weight:850;letter-spacing:.06em">OPTICAL CABLE · CABLE ONLY VIEW</div><strong data-cable-title style="display:block;margin:5px 0 6px;font-size:13px"></strong><div style="display:flex;align-items:center;gap:10px"><b data-cable-count style="font-size:25px;color:#72f5d3"></b><span style="font-size:10px;color:#c4dce6">해당 경로에 모델링된 광섬유 심수</span></div><div data-cable-cores style="display:flex;flex-wrap:wrap;gap:4px;margin:8px 0"></div><p data-cable-route style="margin:6px 0;color:#c4e7ec;font-size:11px"></p><p style="margin:7px 0;color:#9ab1bd;font-size:10px">교육용 배선 구성 예시입니다. 실제 MPO 핀 배열·사용심수·광케이블 규격은 선정 제품의 데이터시트 및 BOM 확인이 필요합니다.</p><button data-cable-back type="button" style="padding:8px 12px;background:#17475a;color:#ecffff;border:1px solid #4f99a0;border-radius:8px;cursor:pointer">전체 랙 다시 보기</button>';
+    cableInfoPanel.querySelector('[data-cable-back]').addEventListener('click',()=>{showRackPart(null);showControls();});
+    canvas.parentElement?.appendChild(cableInfoPanel);
+    cableInfoPanel.hidden=true;
+    return cableInfoPanel;
+  }
+  function activateCableInspection(info){
+    const item=registry.get(info.assetId);
+    if(!item||!T.rackIsolateActive||!info.cableCoreCount)return false;
+    const cableMeshes=[];
+    item.g.traverse(object=>{if(object.isMesh&&object.userData?.partId===info.id&&object.userData?.cassetteCable)cableMeshes.push(object);});
+    if(!cableMeshes.length)return false;
+    // Show only the selected cable, not a translucent rack or unrelated services.
+    const visibility=[],cableSet=new Set(cableMeshes);
+    item.g.traverse(object=>{
+      if(object.isMesh){visibility.push([object,object.visible]);object.visible=cableSet.has(object);}
+    });
+    // Original optical-panel isolation or rack LOD may hide a parent of the cable.
+    for(const mesh of cableMeshes){
+      for(let node=mesh.parent;node&&node!==item.g;node=node.parent){
+        if(!node.visible){visibility.push([node,node.visible]);node.visible=true;}
+      }
+    }
+    cableInspection={assetId:info.assetId,partId:info.id,visibility};
+    if(item.selection)item.selection.visible=false;
+    const panel=ensureCableInfoPanel();
+    if(panel){
+      panel.hidden=false;
+      panel.querySelector('[data-cable-title]').textContent=info.label;
+      panel.querySelector('[data-cable-count]').textContent=info.cableCoreCount+'심';
+      panel.querySelector('[data-cable-route]').textContent=(info.cableFrom||'미지정')+' → '+(info.cableTo||'미지정');
+      const colors=['#54b8ee','#f6a34b','#65b98b','#b9926b','#d2dbe2','#f0f1dd','#e16b65','#8191b3','#eedb57','#b68bd9','#ee98bb','#5bd3d2'];
+      const cores=panel.querySelector('[data-cable-cores]');
+      cores.replaceChildren(...Array.from({length:Math.min(48,info.cableCoreCount)},(_,i)=>{
+        const dot=document.createElement('span');dot.title='Fiber '+(i+1);
+        dot.style.cssText='display:inline-block;width:15px;height:15px;border:1px solid #d6eaf5;border-radius:50%;background:'+colors[i%colors.length];
+        return dot;
+      }));
+    }
+    const desired=T.cameraDesired;
+    if(desired&&!T.workerViewId&&!T.walkActive){
+      item.g.updateMatrixWorld(true);
+      const bounds=new THREE.Box3();
+      for(const mesh of cableMeshes)bounds.expandByObject(mesh);
+      if(!bounds.isEmpty()){
+        const center=bounds.getCenter(new THREE.Vector3()),length=bounds.getSize(new THREE.Vector3()).length();
+        desired.target=[center.x,center.y,center.z];
+        desired.distance=Math.max(1.8,Math.min(4.6,length*2.2));
+        desired.pitch=.24;
+      }
+    }
+    return true;
+  }
   let focusedRack=null;
   let inspectedScenePart=null,sceneInspectionContext='',scenePartMaterials=[];
   function clearSceneInspection(){
@@ -403,6 +471,10 @@ export function createSceneAdapter(T, canvas) {
         ['patch-select','광 패치패널 선택'],['switch-select','네트워크 스위치 선택'],
         ['cassette-select','MPO/MTP 카세트 선택'],['housing-select','광 하우징 선택'],['manager-select','Cable management 선택'],['gpu-select','GPU 모듈 선택'],
         ['cable-patch','케이블 · 패치패널 연결/분리'],
+        ['cassette-cable-0','카세트 1 · MPO 12심 케이블만'],
+        ['cassette-cable-1','카세트 2 · MPO 12심 케이블만'],
+        ['cassette-cable-2','카세트 3 · MPO 12심 케이블만'],
+        ['cassette-cable-3','카세트 4 · MPO 12심 케이블만'],
         ['optical-detail','광패널 상세'],['optical-explode','모듈 분해 보기'],['next-fiber','광 커넥터 선택·확대'],['clear-selection','부품 선택 해제']
       ];
       for(const [code,label] of actions){
@@ -431,6 +503,19 @@ export function createSceneAdapter(T, canvas) {
           if(switchPart)selectRackPart(asset.id,switchPart.id);
         }
         else if(action==='cassette-select')focusRackOpticalAssembly(asset.id,'optical-mtp');
+        else if(action.startsWith('cassette-cable-')){
+          // The drawer is animated; create its optical cable parts synchronously
+          // so the shortcut works even before the first animation tick.
+          const index=Number(action.slice('cassette-cable-'.length));
+          if(Number.isInteger(index)&&index>=0&&index<4){
+            showRackPart(null);
+            const motion=T.mechanical(asset),item=registry.get(asset.id);
+            if(!motion.targetDoor)T.setMechanical(asset,'door');
+            if(!motion.targetCassette)T.setMechanical(asset,'cassette');
+            rackOptics.update(asset.id,item?.moving,{cassette:Math.max(.035,motion.cassette||0)});
+            selectRackPart(asset.id,asset.id+':cassette-trunk-'+index);
+          }
+        }
         else if(action==='gpu-select')cycleRackGpu(asset.id,0);
         else if(action==='cable-patch'){
           if(focusRackOpticalAssembly(asset.id,'optical-patch')){
@@ -715,7 +800,7 @@ export function createSceneAdapter(T, canvas) {
     showControls();
     // A sidebar shortcut must work even if the floating controls were folded manually.
     rackPanelDisclosure?.setCollapsed(false);
-    const allowed=/^(rack-overview|housing-select|manager-select|hardware-detail|hardware-explode|front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
+    const allowed=/^(cassette-cable-[0-3]|rack-overview|housing-select|manager-select|hardware-detail|hardware-explode|front-camera|rear-camera|front-door|rear-door|previous-server|next-server|server-slide|cassette-slide|next-gpu|gpu-toggle|next-drive|drive-toggle|storage-shelf-pull|storage-drive-pull|optical-detail|optical-explode|patch-select|switch-select|cassette-select|gpu-select|cable-patch|optical-lc|lc-rear|lc-next-port|odf-select|odf-cover|odf-next-port)$/;
     if(!allowed.test(action))return false;
     const button=[...(rackControls?.querySelectorAll('[data-rack-action]')||[])].find(x=>x.dataset.rackAction===action);
     if(!button||button.hidden||button.closest('[hidden]'))return false;
@@ -785,6 +870,8 @@ export function createSceneAdapter(T, canvas) {
     return true;
   }
   function showRackPart(info) {
+    // Undo the previous cable's visibility mask before selection snapshots change.
+    if(cableInspection)clearCableInspection();
     if(!info||!/^(server|storage|network-switch)-\d+$/.test(info.kind||'')){
       hardwareModeRack=null;hardwareDetail.clear();
     }
@@ -835,6 +922,7 @@ export function createSceneAdapter(T, canvas) {
       opticalScaleAutoCollapsed=false;
     }
     window.LS3D_INSPECTOR?.setSelection(selectedRackPart);
+    if(selectedRackPart?.kind==='cassette-cable')activateCableInspection(selectedRackPart);
     if(typeof document==='undefined'||!canvas.parentElement)return selectedRackPart;
     if(!rackHud) {
       rackHud=document.createElement('div');
@@ -855,7 +943,10 @@ export function createSceneAdapter(T, canvas) {
     const part=record?.partMap?.get(partId)||null;
     if(record?.serverSession?.groups?.has(partId))rackRails.select(assetId,partId);
     const selected=showRackPart(part);
-    if(part?.kind==='fiber-port'){
+    if(part?.kind==='cassette-cable'){
+      // Tube geometry itself is the clickable part: cable-only mask + core count.
+      emphasizeRackPart(assetId,partId,{ring:false,intensity:.52,colorMix:.16});
+    }else if(part?.kind==='fiber-port'){
       const anchor=emphasizeRackPart(assetId,partId);
       focusOpticalPort(assetId,anchor);
     }else if(part?.kind==='optical-module'||part?.kind==='mpo-input'){
@@ -1090,7 +1181,7 @@ export function createSceneAdapter(T, canvas) {
       }
       const opticalIsolated=selectedRackPart?.assetId===a.id&&
         (rackOptics.owns(selectedRackPart)||rackPatchDesign.owns(selectedRackPart)||rackLcDesign.owns(selectedRackPart)||odfBox.owns(selectedRackPart));
-      item.selection.visible=T.selected?.id===a.id&&!opticalIsolated;
+      item.selection.visible=T.selected?.id===a.id&&!opticalIsolated&&cableInspection?.assetId!==a.id;
       if(selectedRackPart && selectedRackPart.assetId===a.id && !item.partMap?.has(selectedRackPart.id))
         showRackPart(null);
       if(item.rackLOD) {
@@ -1267,6 +1358,7 @@ export function createSceneAdapter(T, canvas) {
   let qualityApplied=null,fpsStart=performance.now(),fpsFrames=0;
   function render(dt, view) {
     if (disposed) throw new Error('Three.js adapter was disposed');
+    if(cableInspection&&(!T.rackIsolateActive||T.selected?.id!==cableInspection.assetId))clearCableInspection();
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 1 || rect.height < 1) return;
     // Frame only once on entering an isolated rack or switching rack.
@@ -1418,6 +1510,7 @@ export function createSceneAdapter(T, canvas) {
     if(disposed)return;disposed=true;
     hardwareDetail.clear();
     clearRackPartEmphasis();xray.clear();
+    clearCableInspection();cableInfoPanel?.remove();cableInfoPanel=null;
     clearSceneInspection();
     navigation.reset();inspection.reset();
     cameraOcclusion.dispose();

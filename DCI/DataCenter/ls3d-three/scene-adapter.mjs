@@ -882,7 +882,10 @@ export function createSceneAdapter(T, canvas) {
   function showRackPart(info) {
     // Undo the previous cable's visibility mask before selection snapshots change.
     if(cableInspection)clearCableInspection();
-    if(!info||!/^(server|storage|network-switch)-\d+$/.test(info.kind||'')){
+    // Selecting a fan, PCB, DIMM, cooler or port inside the open server
+    // must NOT destroy that very detail geometry before it can be highlighted.
+    const keepHardware=!!(info?.insideHardwareDetail&&hardwareDetail.state()?.assetId===info.assetId);
+    if(!keepHardware&&(!info||!/^(server|storage|network-switch)-\d+$/.test(info.kind||''))){
       hardwareModeRack=null;hardwareDetail.clear();
     }
     clearSceneInspection();

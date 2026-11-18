@@ -979,7 +979,7 @@ function compare(){
     return '<tr class="'+(mode===redundancy?'is-active':'')+'"><th>'+mode+'</th><td>'+v.state+
      '</td><td>'+sec(v.downtimeSec)+'</td><td>'+v.temp.toFixed(1)+' °C</td><td>'+
      v.affectedRacks+'대</td><td>'+sec(v.firstOutageSec)+'</td><td>'+
-     (v.recovery==null?'모델 기간 내 미복구':v.recovery.toFixed(1)+'분')+'</td></tr>';
+     (v.state==='정상 유지'?'중단·저하 없음':v.recovery==null?'모델 기간 내 미복구':v.recovery.toFixed(1)+'분')+'</td></tr>';
    }).join('')+'</tbody></table></div>';
   return;
  }

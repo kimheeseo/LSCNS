@@ -1,6 +1,6 @@
 import {mechanicalButtons} from './rack-mechanical-policy.mjs?v=20261115-server-storage-v6';
 import {createRackHardwareDetail} from './rack-hardware-detail.mjs?v=20261118-all-rack-components-v1';
-import {registerRackSurfaceParts} from './rack-universal-picking.mjs?v=20261118-all-rack-components-v1';
+import {registerRackSurfaceParts} from './rack-universal-picking.mjs?v=20261118-all-rack-components-v2';
 import {createRackXray} from './rack-xray.mjs?v=20261107-workspace';
 import {isVisiblePickObject,describeEquipment} from './scene-inspection.mjs?v=20261024-product-click';
 import { applyRackCamera, rackFocusActive } from './rack-camera-policy.mjs?v=20261115-free-camera-v7';

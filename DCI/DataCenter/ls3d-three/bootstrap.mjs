@@ -17,7 +17,7 @@ if (requested && T) {
   const canvas = document.createElement('canvas');
   canvas.id = 'sceneThree';
   canvas.tabIndex=0;
-  canvas.setAttribute('aria-label','Three.js 3D 데이터센터: 왼쪽 드래그 회전 또는 선택한 동작, 오른쪽 드래그 이동, 가운데 드래그 확대, 방향키 이동');
+  canvas.setAttribute('aria-label','Three.js 3D 데이터센터: 왼쪽 드래그 회전 또는 선택한 동작, 오른쪽 드래그 이동, 휠 버튼 드래그 상하좌우 이동, 휠 스크롤 확대·축소, 방향키 이동');
   canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;display:none;z-index:1;touch-action:none;cursor:grab;';
   oldCanvas.insertAdjacentElement('afterend',canvas);
   const label = document.createElement('span');
@@ -102,6 +102,8 @@ if (requested && T) {
     setPointers();
   });
   canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  // Chrome/Edge may launch auto-scroll on a middle click; keep the gesture for camera panning.
+  canvas.addEventListener('auxclick',e=>{if(e.button===1)e.preventDefault();});
   canvas.addEventListener('wheel',e=>{
     e.preventDefault();
     if(status.status!=='ready')return;

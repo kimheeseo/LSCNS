@@ -51,7 +51,7 @@
   'gpu-surge':[
    ['학습 잡 부하','GPU 부분의 IT 부하가 기준 대비 최대 +55%로 180초에 선형 상승, 600초까지 유지, 720초에 복귀'],
    ['N/N+1/2N IT 여유율','1.35 / 1.48 / 1.65 × 기준 IT 부하. 다른 설비 사양과 무관한 교육용 가정'],
-   ['온도와 부하 제어','용량을 넘으면 부하 제한, 공급 냉각용량을 넘으면 온도 추가 상승. 중단은 심각한 초과가 지속될 때만']
+   ['온도와 부하 제어','부하 초과분을 제한. N/N+1/2N 추가 냉각 여유 가정은 1.00/1.12/1.35배, 온도상승 계수는 1.00/0.62/0.35배']
   ]
  };
  const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
@@ -100,8 +100,8 @@
   }else if(scenario==='cooling'){
    const slope={N:.055,'N+1':.021,'2N':.006}[r];
    const heat=sec<600?slope*sec:
-     sec<780?slope*600:
-     slope*600*Math.exp(-(sec-780)/65);
+     sec<780?slope*600*(1-.15*smooth(600,780,sec)):
+     slope*600*.85*Math.exp(-(sec-780)/65);
    o.temperature=p.tempBaseline+heat;
    o.event=sec<600?'냉각 공급 부족':sec<780?'예비 냉각 공급': '냉각 회복 중';
    const dt=o.temperature;
@@ -135,11 +135,13 @@
    const ramp=sec<180?smooth(0,180,sec):sec<600?1:1-smooth(600,720,sec);
    const requested=p.itBaseKw*(1+.55*p.gpuRatio*ramp);
    const available=p.itBaseKw*{N:1.35,'N+1':1.48,'2N':1.65}[r];
-   const overload=Math.max(0,requested-available),coolingOver=Math.max(0,requested-p.coolingKw);
+   const coolingCapacity=p.coolingKw*{N:1,'N+1':1.12,'2N':1.35}[r];
+   const thermalFactor={N:1,'N+1':.62,'2N':.35}[r];
+   const overload=Math.max(0,requested-available),coolingOver=Math.max(0,requested-coolingCapacity);
    o.requestedKw=requested;o.itLoad=Math.min(requested,available);
    o.serviceFraction=clamp(1-overload/Math.max(1,requested),0,1);
-   o.availableCapacity=available;o.temperature=p.tempBaseline+5*ramp
-     +clamp(coolingOver/Math.max(1,p.coolingKw),0,1)*8;
+   o.availableCapacity=available;o.temperature=p.tempBaseline+5*ramp*thermalFactor
+     +clamp(coolingOver/Math.max(1,coolingCapacity),0,1)*8;
    o.event=sec<180?'GPU 학습 잡 증가':sec<600?'GPU 고부하 유지':'학습 잡 종료';
    o.hint='IT 요구 '+requested.toFixed(0)+' kW · 공급 여유 '+available.toFixed(0)+' kW';
   }

@@ -13,7 +13,7 @@ import { createInspectionFSM } from './inspection-fsm.mjs?v=20261015-step08c';
 import { createRackComponentKit } from './rack-components.mjs?v=20261115-server-storage-v6';
 import { createRackDoorControls } from './rack-door-controls.mjs?v=20261015-step11';
 import { createRackServerRails } from './rack-server-rails.mjs?v=20261027-rack-roles-v1';
-import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261118-cassette-cable-inspection-v1';
+import { createRackOpticalCassette } from './rack-optical-cassette.mjs?v=20261118-whole-cable-picking-v2';
 import { createRackNetworkCabling } from './rack-network-cabling.mjs?v=20261026-leaf-spine-racks-v1';
 import { createRackPatchCord } from './rack-patch-cord.mjs?v=20261031-cable-connect-v1';
 import { createRackOpticalPatchDesign } from './rack-optical-patch-design.mjs?v=20261102-patch-component-guide-v1';
@@ -179,7 +179,7 @@ export function createSceneAdapter(T, canvas) {
     cableInfoPanel.id='ls3dCassetteCableInfo';
     cableInfoPanel.setAttribute('aria-label','선택한 광카세트 케이블 심수');
     cableInfoPanel.style.cssText='position:absolute;bottom:58px;right:12px;z-index:35;width:min(320px,calc(100% - 24px));padding:13px 14px;border:1px solid #4bd8bb;border-radius:12px;background:#071e2cf2;color:#eafcff;box-shadow:0 12px 32px #000a;font:12px/1.55 "Pretendard Variable",sans-serif;pointer-events:auto;';
-    cableInfoPanel.innerHTML='<div style="font-size:10px;color:#85d5d5;font-weight:850;letter-spacing:.06em">OPTICAL CABLE · CABLE ONLY VIEW</div><strong data-cable-title style="display:block;margin:5px 0 6px;font-size:13px"></strong><div style="display:flex;align-items:center;gap:10px"><b data-cable-count style="font-size:25px;color:#72f5d3"></b><span style="font-size:10px;color:#c4dce6">해당 경로에 모델링된 광섬유 심수</span></div><div data-cable-cores style="display:flex;flex-wrap:wrap;gap:4px;margin:8px 0"></div><p data-cable-route style="margin:6px 0;color:#c4e7ec;font-size:11px"></p><p style="margin:7px 0;color:#9ab1bd;font-size:10px">교육용 배선 구성 예시입니다. 실제 MPO 핀 배열·사용심수·광케이블 규격은 선정 제품의 데이터시트 및 BOM 확인이 필요합니다.</p><button data-cable-back type="button" style="padding:8px 12px;background:#17475a;color:#ecffff;border:1px solid #4f99a0;border-radius:8px;cursor:pointer">전체 랙 다시 보기</button>';
+    cableInfoPanel.innerHTML='<div style="font-size:10px;color:#85d5d5;font-weight:850;letter-spacing:.06em">OPTICAL CABLE · CABLE ONLY VIEW</div><strong data-cable-title style="display:block;margin:5px 0 6px;font-size:13px"></strong><div style="display:flex;align-items:center;gap:10px"><b data-cable-count style="font-size:25px;color:#72f5d3"></b><span style="font-size:10px;color:#c4dce6">해당 경로에 모델링된 광섬유 심수</span></div><div style="font-size:11px;color:#a8e8df;margin-top:8px;font-weight:750">케이블 광섬유 단면도 (심수·색상 개념 표시)</div><div data-cable-cores role="img" aria-label="선택 케이블의 광섬유 단면도" style="position:relative;margin:10px auto;width:166px;height:166px;border:9px solid #586b7e;box-shadow:0 0 0 3px #cbd4de,inset 0 0 16px #071524;background:radial-gradient(circle at 45% 35%,#253f55,#0b1f2e);border-radius:50%"></div><p data-cable-route style="margin:6px 0;color:#c4e7ec;font-size:11px"></p><p style="margin:7px 0;color:#9ab1bd;font-size:10px">교육용 배선 구성 예시입니다. 실제 MPO 핀 배열·사용심수·광케이블 규격은 선정 제품의 데이터시트 및 BOM 확인이 필요합니다.</p><button data-cable-back type="button" style="padding:8px 12px;background:#17475a;color:#ecffff;border:1px solid #4f99a0;border-radius:8px;cursor:pointer">전체 랙 다시 보기</button>';
     cableInfoPanel.querySelector('[data-cable-back]').addEventListener('click',()=>{showRackPart(null);showControls();});
     canvas.parentElement?.appendChild(cableInfoPanel);
     cableInfoPanel.hidden=true;
@@ -212,9 +212,18 @@ export function createSceneAdapter(T, canvas) {
       panel.querySelector('[data-cable-route]').textContent=(info.cableFrom||'미지정')+' → '+(info.cableTo||'미지정');
       const colors=['#54b8ee','#f6a34b','#65b98b','#b9926b','#d2dbe2','#f0f1dd','#e16b65','#8191b3','#eedb57','#b68bd9','#ee98bb','#5bd3d2'];
       const cores=panel.querySelector('[data-cable-cores]');
-      cores.replaceChildren(...Array.from({length:Math.min(48,info.cableCoreCount)},(_,i)=>{
-        const dot=document.createElement('span');dot.title='Fiber '+(i+1);
-        dot.style.cssText='display:inline-block;width:15px;height:15px;border:1px solid #d6eaf5;border-radius:50%;background:'+colors[i%colors.length];
+      // One round cable jacket containing all numbered fiber cross-sections.
+      // Geometry is illustrative: this is not a vendor-certified cable cross-section.
+      const count=Math.min(48,Math.max(1,info.cableCoreCount));
+      cores.setAttribute('aria-label',info.label+' · '+count+'심 광섬유 단면 (교육용 배치)');
+      cores.replaceChildren(...Array.from({length:count},(_,i)=>{
+        const dot=document.createElement('span');
+        const angle=(i%12)*Math.PI/6-Math.PI/2;
+        const ring=count===1?0:count===2?18:count<=12?(i%2?51:29):16+(Math.floor(i/12)%3)*19;
+        const x=Math.cos(angle)*ring,y=Math.sin(angle)*ring;
+        dot.title='광섬유 '+(i+1)+'심';
+        dot.textContent=String(i+1);
+        dot.style.cssText='position:absolute;left:calc(50% + '+x.toFixed(2)+'px);top:calc(50% + '+y.toFixed(2)+'px);transform:translate(-50%,-50%);display:grid;place-items:center;width:24px;height:24px;border:2px solid #d8edf6;border-radius:50%;background:'+colors[i%colors.length]+';color:#081722;text-shadow:0 1px #ffffff55;font:800 10px system-ui;box-shadow:0 1px 4px #0007;pointer-events:none;';
         return dot;
       }));
     }
@@ -829,7 +838,7 @@ export function createSceneAdapter(T, canvas) {
     let anchor=null;
     item.g.updateMatrixWorld(true);
     item.g.traverse(object=>{
-      if(!object.isMesh||object.userData?.partId!==partId||!object.material)return;
+      if(!object.isMesh||object.userData?.partId!==partId||object.userData?.cablePickProxy||!object.material)return;
       if(rearMpo&&!object.name.includes('mpo-keyed-receptacle-'))return;
       const original=object.material;
       const highlighted=Array.isArray(original)?original.map(m=>m.clone()):original.clone();

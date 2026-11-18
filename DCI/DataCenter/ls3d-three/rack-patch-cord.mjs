@@ -10,7 +10,7 @@ export function createRackPatchCord(THREE){
    const mesh=new THREE.Mesh(new THREE.TubeGeometry(
      new THREE.CatmullRomCurve3([new THREE.Vector3(0,0,0),new THREE.Vector3(0,.04,.1)]),
      16,.018,6,false),material);
-   mesh.name=name;mesh.userData.noPick=true;
+   mesh.name=name;mesh.userData.noPick=false;
    return mesh;
  }
  function replaceCurve(mesh,points){
@@ -22,7 +22,7 @@ export function createRackPatchCord(THREE){
  function addShape(parent,name,x,y,z,w,h,d,color){
    const obj=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),
      new THREE.MeshStandardMaterial({color,metalness:.25,roughness:.43}));
-   obj.name=name;obj.position.set(x,y,z);obj.userData.noPick=true;
+   obj.name=name;obj.position.set(x,y,z);obj.userData.noPick=false;
    parent.add(obj);return obj;
  }
  function decorate(asset,built,root){
@@ -43,11 +43,24 @@ export function createRackPatchCord(THREE){
      const x=-w*.27+slot*w*.049;
      const guideX=index===0?-w*.35:w*.35;
      const plug=new THREE.Group();plug.name='lc-connector-moving-'+index;
-     plug.userData.noPick=true;group.add(plug);
-     addShape(plug,'LC housing',0,0,-.045,.086,.054,.14,index===0?0x5fe5cf:0xe5d279);
-     addShape(plug,'LC latch',0,.035,-.027,.048,.013,.085,0xf1f7fb);
-     addShape(plug,'LC ferrule',0,0,.034,.033,.025,.036,0xd8e4ed);
+     plug.userData.noPick=false;group.add(plug);
+     const cordId=asset.id+':lc-cord-'+index;
+     const connectorId=asset.id+':lc-plug-'+index;
+     const cordInfo={id:cordId,assetId:asset.id,kind:'patch-cord',
+       label:'LC 광 패치코드 '+(index+1)+' · 케이블 전체',
+       description:'랙 광패치패널로 연결되는 광 패치코드 한 가닥의 교육용 형상입니다. 케이블 외피를 클릭하면 전체 케이블을 선택합니다.',
+       cableCoreCount:1,cableFrom:'랙 광케이블 매니저',cableTo:'패치패널 LC '+(slot+1)+'번'};
+     const plugInfo={id:connectorId,assetId:asset.id,kind:'optical-connector',
+       label:'LC 커넥터 '+(index+1),description:'패치코드 끝단의 광 커넥터 몸체·래치·페룰을 하나의 구성품으로 선택합니다.'};
+     built.parts.push(cordInfo,plugInfo);
+     built.partMap.set(cordId,cordInfo);built.partMap.set(connectorId,plugInfo);
+     const shapes=[
+       addShape(plug,'LC housing',0,0,-.045,.086,.054,.14,index===0?0x5fe5cf:0xe5d279),
+       addShape(plug,'LC latch',0,.035,-.027,.048,.013,.085,0xf1f7fb),
+       addShape(plug,'LC ferrule',0,0,.034,.033,.025,.036,0xd8e4ed)];
+     for(const piece of shapes){piece.userData.assetId=asset.id;piece.userData.partId=connectorId;}
      const jacket=cableMesh('optical-patch-cord-'+index,colors[index]);group.add(jacket);
+     jacket.userData.assetId=asset.id;jacket.userData.partId=cordId;
      lines.push({x,y,guideX,index,plug,jacket,lastStep:-1});
    }
    const record={assetId:asset.id,group,lines,faceZ,d,target:0,progress:0,plugged:false,panelId:panel.id};

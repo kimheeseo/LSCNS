@@ -130,7 +130,7 @@ function mount(){
   '@media(max-width:700px){#research-fiber-v1 .rf-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#research-fiber-v1 .rf-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}';
   document.head.appendChild(style);
   const section=document.createElement('section');section.id='research-fiber-v1';section.className='engineering-panel';
-  section.innerHTML='<h2>STEP 1–3 · 광섬유 설계 프리셋 / Python FEM</h2>'+
+  section.innerHTML='<h2>광섬유 연구 · 설계/메시 v0.8.4</h2><p>앱 v0.8.4 · 기본 scalar 엔진 v0.7.1 유지 · Python 벡터 FEM 별도 실행</p>'+
     '<p>8개 계열 · 25개 버전형 JSON 프리셋을 저장/불러옵니다. 지오메트리·복소 풀벡터 FEM은 로컬 또는 Colab Python에서 실행합니다. 웹은 결과 JSON만 시각화합니다.</p>'+
     '<p class="rf-muted">주의: Kagome/negative-curvature/PM 응력과 PBGF 밴드갭은 일부 형상 근사 또는 미구현입니다. 계산된 손실은 메시·PML 독립 검증 전까지 미검증 수치입니다.</p>'+
     '<div class="rf-line"><label>설계 프리셋 <select id="rf-preset"><option>프리셋 불러오는 중…</option></select></label><button id="rf-use">프리셋 적용</button><button id="rf-check">설계 점검</button><button id="rf-save">JSON 저장</button><label for="rf-open" class="rf-file">JSON 열기</label><input type="file" accept=".json" id="rf-open" hidden></div>'+
@@ -147,6 +147,12 @@ function mount(){
     '<div class="rf-fields">'+['Ex','Ey','Ez','Hx','Hy','Hz'].map(k=>'<figure><figcaption>|'+k+'|² · 개별 정규화</figcaption><canvas id="rf-map-'+k+'" width="260" height="260"></canvas></figure>').join('')+'</div>'+
     '<p class="rf-muted">필드 샘플은 희소 삼각형 중심점의 복소값입니다. 그림은 산점 시각화이며 실제 FEM 재계산, 정량 손실 인증 또는 밴드갭 지도는 아닙니다.</p>';
   main.appendChild(section);
+  const revealResearch=()=>{
+    const active=location.hash==='#research-fiber-v1'||location.hash==='#rf-design-mesh-v084';
+    document.body.classList.toggle('ls-research-view',active);
+    if(active)requestAnimationFrame(()=>section.scrollIntoView({block:'start'}));
+  };
+  window.addEventListener('hashchange',revealResearch);revealResearch();
   mountDesignMesh(section);
   $('rf-use').addEventListener('click',()=>{try{updateConfig(presets[$('rf-preset').value]);}catch(e){status('로드 실패: '+e.message);}});
   $('rf-check').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));drawESM(d);status('브라우저 기본 검사 통과. Python schema.py 상세 검증이 별도로 필요합니다.');}catch(e){status('검사 실패: '+e.message);}});

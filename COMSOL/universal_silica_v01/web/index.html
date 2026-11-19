@@ -51,6 +51,7 @@
 .special-panel-title span{display:block;color:#a4bbd1;font-weight:500;margin-top:4px;font-size:11px}
 body.hcf-selection main.workspace > :not(.page-intro):not(#hcf-designer):not(#hcf-fem):not(#research-step5-v083):not(.eng-shortcuts){display:none!important}
 body.vector-selection main.workspace > :not(.page-intro):not(#full-vector-tool):not(#research-step5-v083):not(.eng-shortcuts){display:none!important}
+body.ls-research-view main.workspace > #research-fiber-v1{display:block!important}
 body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selection #full-vector-tool{display:block!important}
 
 /* Transparent same-input COMSOL reference verification (never substitute the benchmark value into the solver). */
@@ -90,7 +91,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
 <body>
   <div id="ls-startup-wizard" role="dialog" aria-modal="true" aria-label="Optical Fiber Model Wizard">모델 설정 화면을 불러오는 중…</div>
   <header class="topbar">
-    <div class="brand"><span class="brand-icon">◈</span><span>LS <strong>WAVE OPTICS</strong><small>FIBER DESIGN WORKBENCH · v0.7.1</small></span></div>
+    <div class="brand"><span class="brand-icon">◈</span><span>LS <strong>WAVE OPTICS</strong><small>FIBER DESIGN WORKBENCH · v0.8.4</small></span></div>
     <div class="top-right"><span id="engineState" class="engine"><span class="status-dot"></span> 브라우저 FEM 엔진 준비</span><a class="top-link" href="https://colab.research.google.com/github/kimheeseo/LSCNS/blob/main/COMSOL/universal_silica_v01/Universal_Silica_Fiber_v0_1.ipynb" target="_blank" rel="noopener">Colab 소스</a><a class="top-link" href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01" target="_blank" rel="noopener">GitHub ↗</a></div>
   </header>
   <div class="layout">
@@ -158,6 +159,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
  
  
  
+ <a href="#research-fiber-v1" id="ls-research-entry">STEP 1·2 설계·메시 · v0.8.4</a>
  <a href="#research-step5-v083">광자결정 · STEP 5 설계</a>
  <a href="#hcf-designer">HCF / Nested Tube</a>
  <a href="#pmd-tool">PMD / DGD 통계</a>
@@ -261,7 +263,7 @@ body.hcf-selection #hcf-designer,body.hcf-selection #hcf-fem,body.vector-selecti
   <script type="module" src="./comsol_guidebook_interactions.mjs?v=20261111-array-help-v2"></script>
   <script type="module" src="./vector_workbench.mjs?v=20261112-m3m6-v2"></script>
   <script type="module" src="./m3_yee_quickstart_v071.mjs?v=v0.7.1"></script>
-  <script type="module" src="./research_fiber_v1.mjs?v=20261119-v084"></script>
+  <script type="module" src="./research_fiber_v1.mjs?v=20261119-v084-applied"></script>
   <script type="module" src="./research_step4_v080.mjs?v=20261118-v080"></script>
   <script type="module" src="./research_step6a_v081.mjs?v=20261118-v081"></script>
   <script type="module" src="./research_step6b_v082.mjs?v=20261118-v082"></script>

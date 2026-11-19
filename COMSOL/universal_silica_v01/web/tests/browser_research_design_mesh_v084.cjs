@@ -7,8 +7,10 @@ const fs=require('node:fs/promises');
  try{
   const page=await browser.newPage({viewport:{width:1180,height:1000}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(process.env.BASE_URL||'http://127.0.0.1:8769/');
-  await page.setContent('<html><head><style>*{box-sizing:border-box}body{margin:0}</style></head><body><main class="workspace"></main></body></html>');
+  const base=process.env.BASE_URL||'http://127.0.0.1:8769/';
+  await page.route('**/__step12_isolated_harness__',route=>route.fulfill({status:200,contentType:'text/html',
+    body:'<html><head><base href="/COMSOL/universal_silica_v01/web/"><style>*{box-sizing:border-box}body{margin:0}</style></head><body><main class="workspace"></main></body></html>'}));
+  await page.goto(new URL('/__step12_isolated_harness__',base).href);
   await page.evaluate(()=>import('/COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'));
   await page.waitForFunction(()=>document.querySelectorAll('#rf-preset option').length===25);
   const preview=JSON.parse(await fs.readFile(fixture,'utf8'));

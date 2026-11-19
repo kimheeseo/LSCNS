@@ -1,0 +1,16 @@
+{
+  "scope": "actual workbench STEP6 v088",
+  "bend_actual_FEM": true,
+  "actual_PM_MCF_splice_grid_rows": {
+    "pm": 1,
+    "mcf": 6,
+    "splice": 1,
+    "sweep": 4
+  },
+  "stale_inputs_cleared": true,
+  "hcf_vector_navigation": true,
+  "versioned_execution_config": true,
+  "PMD_demonstration_visible": true,
+  "mobile_overflow": false,
+  "page_errors": []
+}

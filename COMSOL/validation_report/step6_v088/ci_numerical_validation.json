@@ -1,0 +1,74 @@
+{
+  "tested_commit": "a3e08e9b7dbb98f6d64e97ab95c4d764daf872b1",
+  "workflow_url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612576",
+  "report": {
+    "schema": "LSCNS_step6_validation_v088",
+    "engine_version": "0.8.8",
+    "external_physical_validation": {
+      "V2": "BLOCKED_REFERENCE_GEOMETRY_PARAMETERS",
+      "V6": "REFERENCE_INPUTS_VERIFIED_FEM_CUTOFF_NOT_VALIDATED",
+      "COMSOL_BEND_PM_MCF_SPLICE": "NOT_VALIDATED"
+    },
+    "checks": {
+      "bend": {
+        "cases": 4,
+        "tracked": 4,
+        "reference_rank": 2
+      },
+      "pm": {
+        "pair": {
+          "status": "SPATIALLY_MATCHED_POLARIZATION_PAIR_CANDIDATE",
+          "indices": [
+            0,
+            1
+          ],
+          "spatial_intensity_overlap": 0.9972005838877895,
+          "signed_nx_minus_ny": 0.0000267249986682927,
+          "B": 0.0000267249986682927,
+          "L_B_m": 0.05799813198265803,
+          "certified": false,
+          "limitation": "spatial/polarization screening is not independent modal identification or mesh/PML convergence"
+        },
+        "max_abs_stress_Pa": 94510146.27198604,
+        "basis": "synthetic mechanical/photoelastic constants, not measured silica/boron rods"
+      },
+      "mcf": {
+        "modes": 6,
+        "coupling_pairs": [
+          {
+            "polarization": "matched_Jones_axis",
+            "polarization_axis_overlap": 0.9873506371417907,
+            "even_index": 2,
+            "odd_index": 0,
+            "kappa_real_per_m": 204.89306331324488,
+            "kappa_imag_per_m": 0.012466404034710265,
+            "Lc_candidate_m": 0.007666420235971726,
+            "basis": "center-sampled envelope parity and unique principal-Jones overlap candidate; identical symmetric 2-core, lossless coupling-length approximation; near-degenerate polarization axes need convergence"
+          }
+        ]
+      },
+      "three_core": {
+        "modes": 6,
+        "core_count": 3
+      },
+      "grid": {
+        "cases": 4,
+        "computed": 4,
+        "pareto": [
+          0
+        ]
+      },
+      "SMF_HCF_Et_overlap": {
+        "eta": 0.0000011040946647443394,
+        "loss_dB": 59.56993688732213,
+        "source_grid_edge_fractions": [
+          0.000007340489601684213,
+          0.36739345845267973
+        ]
+      },
+      "zero_cooldown_max_stress_Pa": 0
+    },
+    "certified": false,
+    "elapsed_seconds": 216.87143197199998
+  }
+}

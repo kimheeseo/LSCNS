@@ -1,0 +1,80 @@
+{
+  "app_version": "0.8.8",
+  "verified_date": "2026-11-20",
+  "tested_commit": "a3e08e9b7dbb98f6d64e97ab95c4d764daf872b1",
+  "workflows": [
+    {
+      "name": "COMSOL STEP3 browser regression",
+      "id": 44602612616,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612616",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL HCF and Full-vector Preset UI",
+      "id": 44602612565,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612565",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL fiber research v1",
+      "id": 44602612576,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612576",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP6 browser",
+      "id": 44602612615,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612615",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP4 and STEP5 browser",
+      "id": 44602612541,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612541",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL-style Workbench UI Regression",
+      "id": 44602612517,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612517",
+      "conclusion": "success"
+    },
+    {
+      "name": "pages build and deployment",
+      "id": 44602611350,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602611350",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL WaveOptics Web Smoke",
+      "id": 44602612546,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44602612546",
+      "conclusion": "success"
+    }
+  ],
+  "python_tests": 124,
+  "node_tests": 8,
+  "browser_report": {
+    "scope": "actual workbench STEP6 v088",
+    "bend_actual_FEM": true,
+    "actual_PM_MCF_splice_grid_rows": {
+      "pm": 1,
+      "mcf": 6,
+      "splice": 1,
+      "sweep": 4
+    },
+    "stale_inputs_cleared": true,
+    "hcf_vector_navigation": true,
+    "versioned_execution_config": true,
+    "PMD_demonstration_visible": true,
+    "mobile_overflow": false,
+    "page_errors": []
+  },
+  "limits": [
+    "PCF V2 blocked: exact COMSOL parameters.txt required",
+    "PCF V6 FEM cutoff not validated",
+    "PM constants in example are synthetic",
+    "HCF splice candidate fails aperture/mode-localization screen; not a physical-loss prediction",
+    "optional twist and Bayesian/genetic optimization not implemented"
+  ]
+}

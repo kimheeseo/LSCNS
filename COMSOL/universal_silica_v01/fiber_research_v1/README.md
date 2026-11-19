@@ -1,3 +1,7 @@
+## v0.8.9 — STEP7 검증 스위트 (2026-11-20)
+
+[실행·CSV·판정 정책](STEP7_V089.md) · [검증표](../../validation_report/STEP7_V089_VERIFICATION_20261120.md). V1–V9 전체 PASS 전 완료로 표시하지 않습니다. b–V/ppm, 분리된 PML·메시 수렴, 실제 FSM/ARF 후보 스펙트럼, COMSOL CSV 오차표를 추가했습니다. V2/V3/V6 근거 필요와 V7 실패/미검증은 CI 성공으로 덮지 않습니다. STEP8 구조 이관은 시작하지 않았습니다.
+
 ## v0.8.8 — STEP6 확장 해석 (2026-11-20)
 
 [STEP6 실행·공식·출처·한계](STEP6_V088.md) · [검증표](../../validation_report/STEP6_V088_VERIFICATION_20261120.md). 실제 굽힘/PM/MCF FEM, 접속 Et overlap·갭, 다차원 그리드·Pareto를 추가했습니다. 웹 상단 STEP6에서 실행 입력을 저장하고 계산 JSON을 가져옵니다. PM 합성 예시와 미검증 수치를 실제 섬유 성능으로 사용하지 않습니다. 기존 PMD 통계는 시연용으로 유지하고 signed 복굴절→uniform DGD 경로를 구별합니다. PCF V2/V6 외부 검증은 자료/계산 미완료를 명시합니다.

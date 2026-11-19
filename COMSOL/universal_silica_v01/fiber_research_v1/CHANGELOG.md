@@ -1,3 +1,11 @@
+## v0.8.9 — 2026-11-20 — STEP7 evidence-gated validation suite
+
+- Add V1 actual exact-HE11 b–V/ppm, remap fresh evidence to requested V4 PML and V5 measured mesh convergence; preserve legacy STEP3 report definitions.
+- Add verified 10-mode COMSOL V2 table with missing original geometry explicit, V3 axisymmetric normalization/reference blockers, actual fixed-wavelength vector FSM roots and finite-PCF candidates.
+- Add actual single-ring ARF wavelength scan with physical-mode screening and ARROW overlay. Failed/missing physical evidence never becomes PASS.
+- Add strict COMSOL CSV/actual-vector JSON conversion and numeric error tables in Python/web: explicit convention/units/mode mapping, zero-Im tolerance, stale guards and automatic table after upload.
+- Add validation tab with V1–V9 badges/tolerances/provenance, plots, JSON export and all-required-PASS gate. Overall STEP7 remains incomplete while physical items fail/need evidence. STEP8 structural migration not started.
+
 ## v0.8.8 — 2026-11-20 — STEP6 extended analyses
 
 - Add actual FEM bend radius/direction sweeps with fixed FE probe/subspace tracking; preserve v0.8.1 bending and sourced optional R_eff/R interface.

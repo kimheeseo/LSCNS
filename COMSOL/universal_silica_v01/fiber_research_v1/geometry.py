@@ -10,8 +10,12 @@ import numpy as np
 
 try:
     from .schema import validate_design
+    from .design_checks import design_diagnostics
+    from .mesh_checks import material_size_targets, measured_resolution, measure_walls
 except ImportError:
     from schema import validate_design
+    from design_checks import design_diagnostics
+    from mesh_checks import material_size_targets, measured_resolution, measure_walls
 
 
 def hex_centers(rings, pitch, omit=0):
@@ -72,12 +76,16 @@ def build_mesh(design, output_dir=None):
         objects=[]
         notes=[]
         walls=[]
-        fine_curves=[]
+        wall_shapes=[]
         def disk(x,y,rx,ry=None):
             ry=rx if ry is None else ry
             if math.hypot(x,y)+max(rx,ry)>=R*.99:
                 raise ValueError("geometry inclusion outside physical domain")
-            return occ.addDisk(x,y,0,float(rx),float(ry))
+            # OCC requires the first radius to be the major axis. Preserve requested
+            # x/y semiaxes by rotating a swapped ellipse instead of changing shape.
+            surface=occ.addDisk(x,y,0,float(max(rx,ry)),float(min(rx,ry)))
+            if ry>rx: occ.rotate([(2,surface)],x,y,0,0,0,1,math.pi/2)
+            return surface
         def ring(x,y,r,t):
             if t<=0 or t>=r: raise ValueError("invalid ring thickness")
             outer=disk(x,y,r)
@@ -85,9 +93,13 @@ def build_mesh(design, output_dir=None):
             cut,_=occ.cut([(2,outer)],[(2,inner)],removeObject=True,removeTool=True)
             if len(cut)!=1: raise RuntimeError("ring OCC cut did not yield one surface")
             walls.append(float(t))
+            wall_shapes.append({"centre_um":[float(x),float(y)],"outer_radius_um":float(r),
+                                "thickness_um":float(t),"material":None,"surface":cut[0][1]})
             return cut[0][1]
         def add(surface,material):
             objects.append(((2,surface),material))
+            for wall in wall_shapes:
+                if wall["surface"]==surface: wall["material"]=material
         base=occ.addDisk(0,0,0,R,R)
         add(base,"background")
         if b["type"]=="pml":
@@ -116,8 +128,7 @@ def build_mesh(design, output_dir=None):
                 (i*pitch,j*pitch) for i in range(-int(p["rings"]),int(p["rings"])+1)
                 for j in range(-int(p["rings"]),int(p["rings"])+1) if (i or j)]:
                 rr=pitch*ratio/2
-                if math.hypot(x,y)+rr<R*.94:
-                    add(disk(x,y,rr,rr*p.get("ellipse_ratio",1)),"air")
+                add(disk(x,y,rr,rr*p.get("ellipse_ratio",1)),"air")
             if fam=="pbgf":
                 defect=(1 if omit==1 else 2)*pitch*.87
                 add(disk(0,0,defect),"air")
@@ -182,16 +193,32 @@ def build_mesh(design, output_dir=None):
         if external:
             idx=gmsh.model.addPhysicalGroup(1,sorted({tag for dim,tag in external if dim==1}),20)
             gmsh.model.setPhysicalName(1,idx,"OUTER_"+b["type"].upper())
+        boundary_groups={}
+        if external:
+            boundary_groups["OUTER_"+b["type"].upper()]={"tag":20,"curves":sorted({tag for dim,tag in external if dim==1})}
+        curve_groups={}
+        for _,tag in gmsh.model.getEntities(1):
+            adjacent,_=gmsh.model.getAdjacencies(1,tag)
+            pair=sorted({labels[int(t)] for t in adjacent if int(t) in labels})
+            if len(pair)>1:
+                name="PML_INTERFACE" if "pml" in pair else "INTERFACE_"+"__".join(pair)
+                curve_groups.setdefault(name,[]).append(tag)
+        for j,(name,curves) in enumerate(sorted(curve_groups.items())):
+            gid=gmsh.model.addPhysicalGroup(1,curves,30+j)
+            gmsh.model.setPhysicalName(1,gid,name)
+            boundary_groups[name]={"tag":gid,"curves":curves}
+        targets=material_size_targets(d,materials)
+        h_active=min(x["requested_edge_um"] for x in targets.values())
+        policy=d["mesh"].get("resolution_policy","boundary_refined")
+        wall_size=min(walls)/(d["mesh"]["through_wall_elements"]+1) if walls else h_active
+        h_fine=min(h_active,wall_size)
+        h_bulk=min(d["mesh"]["bulk_max_um"],.8*h_active) if policy=="wavelength" else float(d["mesh"]["bulk_max_um"])
         gmsh.option.setNumber("Mesh.ElementOrder",1)
-        gmsh.option.setNumber("Mesh.MeshSizeFromCurvature",0)
+        gmsh.option.setNumber("Mesh.MeshSizeFromCurvature",int(d["mesh"]["curvature_segments"]))
+        gmsh.option.setNumber("Mesh.MinimumCircleNodes",int(d["mesh"]["curvature_segments"]))
         gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary",0)
         gmsh.option.setNumber("Mesh.MeshSizeFromPoints",0)
-        nmax=max(1.00027,1.45)
-        h_active=min(d["mesh"]["bulk_max_um"],lam_um/(nmax*d["mesh"]["elements_per_wavelength"]))
-        wall_size=min(walls)/d["mesh"]["through_wall_elements"] if walls else h_active
-        h_fine=min(h_active,wall_size)
-        h_bulk=float(d["mesh"]["bulk_max_um"])
-        gmsh.option.setNumber("Mesh.MeshSizeMin",max(h_fine*.75,.001))
+        gmsh.option.setNumber("Mesh.MeshSizeMin",0)
         gmsh.option.setNumber("Mesh.MeshSizeMax",h_bulk)
         # Use localized boundary refinement; do not force sub-micrometre global mesh.
         boundary_curves=sorted({tag for dim,tag in gmsh.model.getBoundary(gmsh.model.getEntities(2),combined=False,oriented=False) if dim==1})
@@ -221,19 +248,60 @@ def build_mesh(design, output_dir=None):
         tri=np.asarray(triangles,dtype=np.int32)
         if len(set(map(tuple,sorted(map(tuple,np.sort(tri,axis=1)))))) != len(tri):
             raise RuntimeError("duplicate mesh elements")
+        material_ids=np.asarray(ids,dtype="U40")
+        boundary_edges={}
+        for name,group in boundary_groups.items():
+            edges=[]
+            for curve in group["curves"]:
+                types,_,nodes=gmsh.model.mesh.getElements(1,curve)
+                for etype,nn in zip(types,nodes):
+                    if int(etype)!=1: raise RuntimeError("only linear boundary edges supported")
+                    edges.extend([[node_to_idx[int(t)] for t in row] for row in np.asarray(nn).reshape(-1,2)])
+            boundary_edges[name]=np.asarray(edges,dtype=np.int32)
+        descriptors=[{k:v for k,v in w.items() if k!="surface"} for w in wall_shapes]
+        wall_report=measure_walls(xy,tri,material_ids,descriptors,d["mesh"]["through_wall_elements"],
+                                  int(d["mesh"].get("wall_probe_angles",24)))
+        resolution=measured_resolution(xy,tri,material_ids,targets)
+        e1,e2=xy[tri[:,1]]-xy[tri[:,0]],xy[tri[:,2]]-xy[tri[:,0]]
+        areas=.5*np.abs(e1[:,0]*e2[:,1]-e1[:,1]*e2[:,0])
+        material_areas={mat:float(areas[material_ids==mat].sum()) for mat in materials}
+        cad_areas={mat:sum(gmsh.model.occ.getMass(2,tag) for tag,label in labels.items() if label==mat) for mat in materials}
         properties=mesh_quality(xy,tri)
-        properties.update({"materials":{m:int(np.count_nonzero(np.array(ids)==m)) for m in materials},
+        notes.extend(design_diagnostics(d)["approximations"])
+        if policy=="boundary_refined": notes.append("Compatibility policy: bulk wavelength resolution is measured, NOT enforced; select wavelength for whole-domain limit")
+        if wall_report["status"]=="FAIL_SAMPLED": notes.append("FAIL: sampled circular wall resolution; refine mesh before optics")
+        properties.update({"engine_version":"0.8.4","resolution_policy":policy,
+                           "materials":{m:int(np.count_nonzero(material_ids==m)) for m in materials},
+                           "material_area_um2":material_areas,"cad_material_area_um2":cad_areas,
                            "domain_labels":{str(k):v for k,v in labels.items()},
-                           "physical_groups":groups,"boundary_type":b["type"],
+                           "physical_groups":groups,"boundary_groups":boundary_groups,"boundary_type":b["type"],
                            "wall_min_um":min(walls) if walls else None,
                            "target_elements_per_wall":d["mesh"]["through_wall_elements"],
                            "target_fine_edge_um":h_fine,"target_bulk_edge_um":h_bulk,
-                           "notes":notes,"validation_status":"mesh metrics only; convergence not established"})
+                           "wavelength_size_safety_factor":.8 if policy=="wavelength" else None,
+                           "curvature_elements_per_2pi":int(d["mesh"]["curvature_segments"]),
+                           "wall_resolution":wall_report,"wavelength_resolution":resolution,
+                           "design_diagnostics":design_diagnostics(d),
+                           "notes":notes,"validation_status":"geometry/mesh diagnostics only; optical convergence not established"})
         if output_dir:
             dst=Path(output_dir);dst.mkdir(parents=True,exist_ok=True)
-            np.savez_compressed(dst/"mesh.npz",points_um=xy,triangles=tri,material_ids=np.asarray(ids,dtype="U40"))
+            np.savez_compressed(dst/"mesh.npz",points_um=xy,triangles=tri,material_ids=material_ids,
+                                **{"boundary_"+k:v for k,v in boundary_edges.items()})
             (dst/"mesh_report.json").write_text(json.dumps(properties,indent=2,ensure_ascii=False,allow_nan=False),encoding="utf-8")
             gmsh.write(str(dst/"geometry.msh"))
-        return {"points_um":xy,"triangles":tri,"material_ids":np.asarray(ids,dtype="U40"),"quality":properties}
+            selected=np.linspace(0,len(tri)-1,min(6000,len(tri)),dtype=int)
+            preview={"schema":"LSCNS_mesh_preview_v084","engine_version":"0.8.4","input":d,
+                     "quality":properties,"triangles":[{"vertices_um":xy[tri[i]].tolist(),"material":str(material_ids[i])}
+                                                        for i in selected],
+                     "boundary_edges":{k:xy[v].tolist() for k,v in boundary_edges.items()},
+                     "sampling":{"shown_triangles":len(selected),"total_triangles":len(tri),
+                                 "basis":"deterministic triangle subset; all labelled boundary edges exported"}}
+            (dst/"mesh_preview.json").write_text(json.dumps(preview,separators=(",",":"),allow_nan=False)+"\n")
+        strict=d["mesh"].get("strict_checks",policy=="wavelength")
+        if strict and (wall_report["status"]=="FAIL_SAMPLED" or resolution["status"]=="FAIL_POLICY"):
+            raise RuntimeError("mesh resolution checks failed; inspect mesh_report.json and refine")
+        return {"points_um":xy,"triangles":tri,"material_ids":material_ids,
+                "boundary_edges":boundary_edges,"quality":properties}
     finally:
         gmsh.finalize()
+

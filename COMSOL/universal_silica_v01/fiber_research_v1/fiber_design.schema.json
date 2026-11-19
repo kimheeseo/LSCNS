@@ -46,25 +46,302 @@
     },
     "domain_radius_um": {
       "type": "number",
-      "exclusiveMinimum": 1,
-      "maximum": 1000
+      "maximum": 1000,
+      "minimum": 1.01
     },
     "parameters": {
       "type": "object",
-      "maxProperties": 50
+      "maxProperties": 50,
+      "properties": {
+        "core_radius_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "delta_n": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "graded_exponent": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "trench_inner_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "trench_outer_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "trench_delta_n": {
+          "type": "number",
+          "minimum": -1000000.0,
+          "maximum": 1000000.0
+        },
+        "layer_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "layer_pitch_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "pitch_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "d_over_pitch": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 0.95
+        },
+        "rings": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "defect_cells": {
+          "enum": [
+            1,
+            7,
+            19
+          ]
+        },
+        "ellipse_ratio": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "core_surround_um": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000.0
+        },
+        "wall_thickness_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "curvature": {
+          "type": "number",
+          "minimum": -1000000.0,
+          "maximum": 1000000.0
+        },
+        "tube_count": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 12
+        },
+        "tube_radius_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "nested_radius_ratio": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "gap_um": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000.0
+        },
+        "core_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 19
+        },
+        "trench_width_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "rod_radius_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "rod_offset_um": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000.0
+        },
+        "stress_delta_n": {
+          "type": "number",
+          "minimum": -1000000.0,
+          "maximum": 1000000.0
+        }
+      },
+      "additionalProperties": false
     },
     "materials": {
       "type": "object",
-      "minProperties": 1
+      "required": [
+        "background"
+      ],
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "model"
+        ],
+        "properties": {
+          "model": {
+            "enum": [
+              "pure_silica",
+              "air",
+              "constant"
+            ]
+          },
+          "n": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 3.5
+          },
+          "kappa": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.099999
+          },
+          "source_url": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "model": {
+                  "const": "constant"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "n"
+              ]
+            }
+          }
+        ]
+      }
     },
     "mesh": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bulk_max_um",
+        "through_wall_elements",
+        "elements_per_wavelength",
+        "curvature_segments",
+        "symmetry"
+      ],
+      "properties": {
+        "bulk_max_um": {
+          "type": "number",
+          "minimum": 0.001,
+          "maximum": 20
+        },
+        "through_wall_elements": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 30
+        },
+        "elements_per_wavelength": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 50
+        },
+        "curvature_segments": {
+          "type": "integer",
+          "minimum": 24,
+          "maximum": 256
+        },
+        "symmetry": {
+          "const": "full"
+        },
+        "resolution_policy": {
+          "enum": [
+            "boundary_refined",
+            "wavelength"
+          ]
+        },
+        "wall_probe_angles": {
+          "type": "integer",
+          "minimum": 8,
+          "maximum": 128
+        },
+        "strict_checks": {
+          "type": "boolean"
+        }
+      }
     },
     "boundary": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "thickness_um",
+        "strength",
+        "order"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "pec",
+            "sbc",
+            "pml"
+          ]
+        },
+        "thickness_um": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "strength": {
+          "type": "number",
+          "minimum": 1e-05,
+          "maximum": 30
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "pml"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "thickness_um": {
+                "exclusiveMinimum": 0
+              }
+            }
+          }
+        }
+      ]
     },
     "metadata": {
       "type": "object"
+    },
+    "target_neff": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 3.5
     }
   },
   "allOf": [
@@ -85,6 +362,12 @@
               "trench_assisted",
               "w_profile",
               "multilayer"
+            ]
+          },
+          "parameters": {
+            "required": [
+              "core_radius_um",
+              "delta_n"
             ]
           }
         }
@@ -108,6 +391,14 @@
               "high_nonlinearity",
               "elliptic_birefringent"
             ]
+          },
+          "parameters": {
+            "required": [
+              "pitch_um",
+              "d_over_pitch",
+              "rings",
+              "defect_cells"
+            ]
           }
         }
       }
@@ -127,8 +418,59 @@
               "7_cell",
               "19_cell"
             ]
+          },
+          "parameters": {
+            "required": [
+              "pitch_um",
+              "d_over_pitch",
+              "rings",
+              "defect_cells",
+              "core_surround_um"
+            ]
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "variant": {
+                  "const": "7_cell"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "parameters": {
+                  "properties": {
+                    "defect_cells": {
+                      "const": 7
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "variant": {
+                  "const": "19_cell"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "parameters": {
+                  "properties": {
+                    "defect_cells": {
+                      "const": 19
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     },
     {
@@ -144,6 +486,14 @@
           "variant": {
             "enum": [
               "hypocycloid"
+            ]
+          },
+          "parameters": {
+            "required": [
+              "pitch_um",
+              "rings",
+              "core_radius_um",
+              "wall_thickness_um"
             ]
           }
         }
@@ -167,6 +517,14 @@
               "conjoined_tube",
               "negative_curvature"
             ]
+          },
+          "parameters": {
+            "required": [
+              "core_radius_um",
+              "tube_count",
+              "tube_radius_um",
+              "wall_thickness_um"
+            ]
           }
         }
       }
@@ -184,6 +542,13 @@
           "variant": {
             "enum": [
               "concentric"
+            ]
+          },
+          "parameters": {
+            "required": [
+              "core_radius_um",
+              "layer_count",
+              "layer_pitch_um"
             ]
           }
         }
@@ -205,6 +570,13 @@
               "ring",
               "trench_assisted"
             ]
+          },
+          "parameters": {
+            "required": [
+              "core_radius_um",
+              "core_count",
+              "pitch_um"
+            ]
           }
         }
       }
@@ -225,9 +597,18 @@
               "bow_tie",
               "elliptic_core"
             ]
+          },
+          "parameters": {
+            "required": [
+              "core_radius_um",
+              "delta_n",
+              "rod_radius_um",
+              "rod_offset_um"
+            ]
           }
         }
       }
     }
-  ]
+  ],
+  "description": "v0.8.4 validation contract; legacy schema_version=1.0.0 preserved. Python additionally checks cross-field geometry."
 }

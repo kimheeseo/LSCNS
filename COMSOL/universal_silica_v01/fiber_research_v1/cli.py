@@ -85,13 +85,15 @@ def main(argv=None):
     q.add_argument("--out",default="presets")
     v=sub.add_parser("validate")
     v.add_argument("design")
-    for name in ("mesh","solve","study","bend"):
+    for name in ("mesh","solve","study","bend","inspect","mesh-study"):
         u=sub.add_parser(name)
         u.add_argument("design")
         u.add_argument("--out",default="output")
-        if name!="mesh":
+        if name in ("solve","study","bend"):
             u.add_argument("--modes",type=int,default=2 if name in ("solve","bend") else 1)
             u.add_argument("--target-neff",type=float,default=None)
+    for name in ("mesh","mesh-study"):
+        sub.choices[name].add_argument("--resolution-policy",choices=("boundary_refined","wavelength"),default=None)
     # STEP6a: no radius values are assumed; require explicit engineering inputs.
     bend=sub.choices["bend"]
     bend.add_argument("--radii-mm",type=float,nargs="+",required=True)
@@ -113,8 +115,20 @@ def main(argv=None):
     design=load_design(a.design)
     if a.command=="validate":
         print("VALID",design["schema_version"],design["family"],design["variant"]);return
+    if getattr(a,"resolution_policy",None) is not None:
+        design["mesh"]["resolution_policy"]=a.resolution_policy
     out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
     save_design(design,out/"input.json")
+    if a.command=="inspect":
+        try: from .design_checks import design_diagnostics
+        except ImportError: from design_checks import design_diagnostics
+        report=design_diagnostics(design);dump(report,out/"design_diagnostics.json")
+        print(json.dumps(report,ensure_ascii=False,indent=2));return
+    if a.command=="mesh-study":
+        try: from .mesh_study import run_mesh_study
+        except ImportError: from mesh_study import run_mesh_study
+        report=run_mesh_study(design,out)
+        print(report["status"]);return
     if a.command=="mesh":
         try: from .geometry import build_mesh
         except ImportError: from geometry import build_mesh
@@ -154,3 +168,4 @@ def main(argv=None):
 
 if __name__=="__main__":
     main()
+

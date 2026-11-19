@@ -1,3 +1,5 @@
+> **2026-11-19 · STEP 1·2 v0.8.4:** [설계·메시 보완](./fiber_research_v1/) · [실행 검증표](../validation_report/STEP1_2_V084_VERIFICATION_20261119.md) · [한계 보고서](../validation_report/STEP1_2_V084_LIMITATIONS_20261119.md). 기존 웹 scalar v0.7.1과 벡터 솔버는 유지하며, 25개 기본 메시의 벌크 파장 기준 미달을 명시하고 엄격 메시 옵션을 추가했습니다.
+
 > **2026-11-18 · STEP 0 감사 승인 / STEP 1–3 연구용 광섬유 확장:** [검증·승인 보고서](../validation_report/STEP1_3_IMPLEMENTATION_STATUS_20261118.md) · [A–H / 25개 JSON 프리셋과 Python Gmsh/Nédélec FEM](./fiber_research_v1/) · [기존 웹에서 JSON 편집 및 Python 결과 보기](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-fiber-v1). CI 기본 스모크 통과와 FEM 물리 검증(HE11/PML 누설손실/밴드갭·PM)은 별개이며 미검증 범위를 명시합니다.
 
 ## HCF Complex Scalar FEM + PML (2026-11-04)
@@ -72,3 +74,4 @@
 - v0.5: NANF/ARF HCF, PCF, PMF, 제조사 독립 기준과 비교하는 벤치마크.
 
 **최종 목표가 모든 실리카 기반 구조를 다루는 것이지, v0.1에서 이미 모두 지원한다는 의미는 아닙니다.**
+

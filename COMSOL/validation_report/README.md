@@ -1,3 +1,11 @@
+## 2026-11-19 · STEP 0 재감사 및 STEP 1·2 v0.8.4
+
+- [STEP 0 공식 문서·코드 감사](LS_Wave_Optics_STEP0_Audit_20261119.md)
+- [STEP 1·2 설계](STEP1_2_V084_DESIGN_20261119.md)
+- [STEP 1·2 실행 검증표](STEP1_2_V084_VERIFICATION_20261119.md)
+- [STEP 1·2 한계 보고서](STEP1_2_V084_LIMITATIONS_20261119.md)
+- [25개 실제 메시 요약 JSON](step12_v084/validation_summary.json) · [3단계 refinement](step12_v084/refinement_summary.json) · [Python 83개 테스트 로그](step12_v084/python_tests.txt)
+
 ## STEP 5 v0.8.3 — Photonic Crystal Bloch-Floquet
 
 - [STEP5 설계·검증표](STEP5_V083_DESIGN_VERIFICATION_20261118.md)
@@ -55,3 +63,4 @@
 **현재 YOFC 가상 Step-index 모델 결과:** MFD 11.8340 µm, Aeff 110.3678 µm², D@1550 20.1031 ps/(nm·km), S₁₅₅₀ 0.059089 ps/(nm²·km), λ₀ 1275.457 nm, S₀ 0.093979 ps/(nm²·km). **S₀에는 YOFC 1550 nm 상한 0.070을 적용하지 않습니다.**
 
 **검증 범위:** 굴절률의 실제 측정 프로파일이 아닌 대표 MFD/Aeff를 맞춘 근사 Step-index 모델입니다. **실제 YOFC 제품 인증이나 COMSOL Wave Optics 실행 결과가 아닙니다.**
+

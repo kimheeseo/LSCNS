@@ -4,6 +4,8 @@ on:
     paths:
       - 'COMSOL/universal_silica_v01/fiber_research_v1/**'
       - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_design_mesh_v084.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*research_design_mesh_v084*'
       - 'COMSOL/universal_silica_v01/web/research_step4_v080.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step6a_v081.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step6b_v082.mjs'
@@ -20,6 +22,9 @@ jobs:
           sparse-checkout: |
             COMSOL/universal_silica_v01/fiber_research_v1
             COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+            COMSOL/universal_silica_v01/web/research_design_mesh_v084.mjs
+            COMSOL/universal_silica_v01/web/tests/test_research_design_mesh_v084.mjs
+            COMSOL/universal_silica_v01/web/tests/browser_research_design_mesh_v084.cjs
             COMSOL/universal_silica_v01/web/research_step4_v080.mjs
             COMSOL/universal_silica_v01/web/research_step6a_v081.mjs
             COMSOL/universal_silica_v01/web/research_step6b_v082.mjs
@@ -52,6 +57,8 @@ jobs:
       - name: Static web module syntax
         run: |
           node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
+          node --check COMSOL/universal_silica_v01/web/research_design_mesh_v084.mjs
+          node --test COMSOL/universal_silica_v01/web/tests/test_research_design_mesh_v084.mjs
           node --check COMSOL/universal_silica_v01/web/research_step4_v080.mjs
           node --check COMSOL/universal_silica_v01/web/research_step6a_v081.mjs
           node --check COMSOL/universal_silica_v01/web/research_step6b_v082.mjs
@@ -76,3 +83,27 @@ jobs:
         run: |
           python cli.py presets --out /tmp/ls-fiber-presets
           python cli.py validate /tmp/ls-fiber-presets/index_guiding__step.json
+
+      - name: Generate all 25 default geometries and measure walls
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python validate_step12.py --out /tmp/step12_validation_summary.json
+      - name: Generate actual browser mesh fixture
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python cli.py mesh benchmarks/step12_bragg_mesh_input.json --out /tmp/ls-step12-mesh
+      - name: Install isolated browser test runtime
+        run: |
+          npm install --prefix /tmp/ls-step12-browser playwright
+          /tmp/ls-step12-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verify mesh import, stale-result handling and mobile panel
+        run: |
+          python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step12-http.log 2>&1 &
+          ls_mesh_http_pid=$!
+          trap 'kill "$ls_mesh_http_pid"' EXIT
+          NODE_PATH=/tmp/ls-step12-browser/node_modules RESULT_PATH=/tmp/step12_browser_check.json node COMSOL/universal_silica_v01/web/tests/browser_research_design_mesh_v084.cjs /tmp/ls-step12-mesh/mesh_preview.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step12-v084-validation
+          path: |
+            /tmp/step12_validation_summary.json
+            /tmp/step12_browser_check.json

@@ -1,0 +1,47 @@
+{
+  "schema": "LSCNS_mesh_study_v084",
+  "status": "MESH_REFINEMENT_COMPUTED",
+  "distinct_meshes": true,
+  "optical_convergence": false,
+  "cases": [
+    {
+      "factor": 1.0,
+      "triangles": 15047,
+      "wavelength_resolution": "PASS_POLICY",
+      "wall_resolution": "PASS_SAMPLED",
+      "area_relative_errors": {
+        "air": 0.0016569575993942197,
+        "background": 3.583749587322253e-06,
+        "high": 8.274768094403313e-06,
+        "low": 1.935257432083328e-05,
+        "pml": 4.603704198471652e-06
+      }
+    },
+    {
+      "factor": 1.3,
+      "triangles": 24794,
+      "wavelength_resolution": "PASS_POLICY",
+      "wall_resolution": "PASS_SAMPLED",
+      "area_relative_errors": {
+        "air": 0.0010539425610417382,
+        "background": 8.395484616332839e-07,
+        "high": 1.2179273176122299e-05,
+        "low": 6.633057001306638e-06,
+        "pml": 3.3009747249563314e-07
+      }
+    },
+    {
+      "factor": 1.6,
+      "triangles": 35709,
+      "wavelength_resolution": "PASS_POLICY",
+      "wall_resolution": "PASS_SAMPLED",
+      "area_relative_errors": {
+        "air": 0.0007288972096530793,
+        "background": 2.4384496420353333e-07,
+        "high": 1.1628907123738499e-05,
+        "low": 1.9158814079281886e-06,
+        "pml": 9.484586705344248e-08
+      }
+    }
+  ]
+}

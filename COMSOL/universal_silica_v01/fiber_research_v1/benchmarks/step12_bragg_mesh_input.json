@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "name": "bragg / concentric",
+  "family": "bragg",
+  "variant": "concentric",
+  "wavelength_nm": 3500,
+  "domain_radius_um": 4,
+  "parameters": {
+    "core_radius_um": 1,
+    "layer_count": 2,
+    "layer_pitch_um": 0.4,
+    "delta_n": 0.02
+  },
+  "materials": {
+    "background": {
+      "model": "pure_silica"
+    },
+    "core": {
+      "model": "constant",
+      "n": 1.45
+    },
+    "air": {
+      "model": "air"
+    },
+    "silica": {
+      "model": "pure_silica"
+    },
+    "trench": {
+      "model": "constant",
+      "n": 1.44
+    },
+    "high": {
+      "model": "constant",
+      "n": 1.46
+    },
+    "low": {
+      "model": "pure_silica"
+    }
+  },
+  "mesh": {
+    "bulk_max_um": 1,
+    "through_wall_elements": 3,
+    "elements_per_wavelength": 4,
+    "curvature_segments": 48,
+    "symmetry": "full",
+    "wall_probe_angles": 8,
+    "resolution_policy": "wavelength"
+  },
+  "boundary": {
+    "type": "pml",
+    "thickness_um": 1,
+    "strength": 2,
+    "order": 3
+  },
+  "metadata": {
+    "status": "geometry_preset_only",
+    "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+    "design_engine_version": "0.8.4",
+    "capabilities": {
+      "engine_version": "0.8.4",
+      "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+      "geometry_fidelity": "parametric",
+      "approximations": [],
+      "parameters_not_used_as_material_coefficients_or_exact_shape": [
+        "delta_n"
+      ],
+      "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+      "assumptions": [
+        "air model uses constant n=1.00027; not pressure/temperature calibrated",
+        "no implicit Ge/F Sellmeier or stress-rod composition"
+      ],
+      "mesh_resolution_policy": "boundary_refined",
+      "optical_certification": false
+    },
+    "fixture_note": "Small geometric regression fixture; no product/optical loss claim"
+  }
+}

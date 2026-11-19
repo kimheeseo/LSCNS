@@ -1,0 +1,803 @@
+{
+  "schema": "LSCNS_step12_validation_v084",
+  "timestamp_utc": "2026-11-19T02:56:37.242891+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "gmsh": "4.15.2",
+    "scikit-fem": "12.0.2",
+    "jsonschema": "4.26.0"
+  },
+  "cases": [
+    {
+      "preset": "index_guiding__step",
+      "status": "GENERATED",
+      "triangles": 12034,
+      "materials": {
+        "background": 10459,
+        "core": 1575
+      },
+      "area_relative_errors": {
+        "background": 3.393969531071111e-05,
+        "core": 0.00021102785390899977
+      },
+      "max_area_relative_error": 0.00021102785390899977,
+      "edge_min_um": 0.08637181625680625,
+      "edge_max_um": 1.3018287912082005,
+      "aspect_ratio_max": 3.107075836611888,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "OUTER_PEC"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "index_guiding__graded",
+      "status": "GENERATED",
+      "triangles": 28770,
+      "materials": {
+        "background": 10459,
+        "core": 3612,
+        "pml": 11716,
+        "silica": 2983
+      },
+      "area_relative_errors": {
+        "background": 3.393969531071111e-05,
+        "core": 0.0001010902373488275,
+        "pml": 2.7859170646671895e-05,
+        "silica": 0.0003417644790090554
+      },
+      "max_area_relative_error": 0.0003417644790090554,
+      "edge_min_um": 0.08567550093486638,
+      "edge_max_um": 1.3018287912082005,
+      "aspect_ratio_max": 3.107075836611888,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_core__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "index_guiding__trench_assisted",
+      "status": "GENERATED",
+      "triangles": 66165,
+      "materials": {
+        "background": 28079,
+        "core": 3277,
+        "pml": 27049,
+        "trench": 7760
+      },
+      "area_relative_errors": {
+        "background": 1.3615830644553683e-05,
+        "core": 0.00017663259681953994,
+        "pml": 2.155733547695224e-05,
+        "trench": 8.069164737194788e-07
+      },
+      "max_area_relative_error": 0.00017663259681953994,
+      "edge_min_um": 0.081519923646359,
+      "edge_max_um": 1.3325087824919861,
+      "aspect_ratio_max": 3.2836861124218455,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_background__trench",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 1,
+      "wall_min_crossed_triangles": 24,
+      "wall_min_coverage": 0.9997879971666291,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "index_guiding__w_profile",
+      "status": "GENERATED",
+      "triangles": 66165,
+      "materials": {
+        "background": 28079,
+        "core": 3277,
+        "pml": 27049,
+        "trench": 7760
+      },
+      "area_relative_errors": {
+        "background": 1.3615830644553683e-05,
+        "core": 0.00017663259681953994,
+        "pml": 2.155733547695224e-05,
+        "trench": 8.069164737194788e-07
+      },
+      "max_area_relative_error": 0.00017663259681953994,
+      "edge_min_um": 0.081519923646359,
+      "edge_max_um": 1.3325087824919861,
+      "aspect_ratio_max": 3.2836861124218455,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_background__trench",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 1,
+      "wall_min_crossed_triangles": 24,
+      "wall_min_coverage": 0.9997879971666291,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "index_guiding__multilayer",
+      "status": "GENERATED",
+      "triangles": 27130,
+      "materials": {
+        "background": 10459,
+        "core": 2931,
+        "pml": 11716,
+        "silica": 2024
+      },
+      "area_relative_errors": {
+        "background": 3.393969531071111e-05,
+        "core": 4.614696454612945e-05,
+        "pml": 2.7859170646671895e-05,
+        "silica": 0.0004208762585537229
+      },
+      "max_area_relative_error": 0.0004208762585537229,
+      "edge_min_um": 0.08637181625680625,
+      "edge_max_um": 1.3018287912082005,
+      "aspect_ratio_max": 3.107075836611888,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_core__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "solid_pcf__hex",
+      "status": "GENERATED",
+      "triangles": 49857,
+      "materials": {
+        "air": 7058,
+        "background": 29515,
+        "pml": 13284
+      },
+      "area_relative_errors": {
+        "air": 0.0028533426503632438,
+        "background": 8.22462241317263e-07,
+        "pml": 2.441208577607579e-05
+      },
+      "max_area_relative_error": 0.0028533426503632438,
+      "edge_min_um": 0.05812587624883066,
+      "edge_max_um": 1.3347594599718908,
+      "aspect_ratio_max": 3.156577843020479,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "solid_pcf__square",
+      "status": "GENERATED",
+      "triangles": 57615,
+      "materials": {
+        "air": 9386,
+        "background": 34945,
+        "pml": 13284
+      },
+      "area_relative_errors": {
+        "air": 0.0028533426503637173,
+        "background": 9.816948791515366e-06,
+        "pml": 2.441208577607579e-05
+      },
+      "max_area_relative_error": 0.0028533426503637173,
+      "edge_min_um": 0.05813442202246113,
+      "edge_max_um": 1.34485975966402,
+      "aspect_ratio_max": 3.156577843020479,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "solid_pcf__lma",
+      "status": "GENERATED",
+      "triangles": 110405,
+      "materials": {
+        "air": 26882,
+        "background": 70239,
+        "pml": 13284
+      },
+      "area_relative_errors": {
+        "air": 0.002629817255419607,
+        "background": 0.00018309185657801666,
+        "pml": 2.441208577607579e-05
+      },
+      "max_area_relative_error": 0.002629817255419607,
+      "edge_min_um": 0.08443329886014253,
+      "edge_max_um": 1.3347594599718908,
+      "aspect_ratio_max": 3.2711506083764674,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "solid_pcf__high_nonlinearity",
+      "status": "GENERATED",
+      "triangles": 57709,
+      "materials": {
+        "air": 11986,
+        "background": 32439,
+        "pml": 13284
+      },
+      "area_relative_errors": {
+        "air": 0.002853342650362902,
+        "background": 2.9441436090586512e-05,
+        "pml": 2.441208577607579e-05
+      },
+      "max_area_relative_error": 0.002853342650362902,
+      "edge_min_um": 0.06329843122803167,
+      "edge_max_um": 1.3347594599718908,
+      "aspect_ratio_max": 3.156577843020479,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "solid_pcf__elliptic_birefringent",
+      "status": "GENERATED",
+      "triangles": 50587,
+      "materials": {
+        "air": 7538,
+        "background": 29765,
+        "pml": 13284
+      },
+      "area_relative_errors": {
+        "air": 0.0030336553232381395,
+        "background": 1.3075279291944357e-05,
+        "pml": 2.441208577607579e-05
+      },
+      "max_area_relative_error": 0.0030336553232381395,
+      "edge_min_um": 0.0337711134990881,
+      "edge_max_um": 1.3347594599718908,
+      "aspect_ratio_max": 4.059559500523677,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "pbgf__7_cell",
+      "status": "GENERATED",
+      "triangles": 154005,
+      "materials": {
+        "air": 54846,
+        "background": 74304,
+        "pml": 21934,
+        "silica": 2921
+      },
+      "area_relative_errors": {
+        "air": 0.0007358399137714696,
+        "background": 1.771738625911064e-05,
+        "pml": 2.137682323831667e-05,
+        "silica": 4.0242038316173765e-06
+      },
+      "max_area_relative_error": 0.0007358399137714696,
+      "edge_min_um": 0.0600573145904943,
+      "edge_max_um": 1.2892306243970444,
+      "aspect_ratio_max": 3.3191321376346976,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "INTERFACE_air__silica",
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 1,
+      "wall_min_crossed_triangles": 13,
+      "wall_min_coverage": 0.9994153709461181,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "pbgf__19_cell",
+      "status": "GENERATED",
+      "triangles": 140393,
+      "materials": {
+        "air": 45561,
+        "background": 67945,
+        "pml": 21934,
+        "silica": 4953
+      },
+      "area_relative_errors": {
+        "air": 0.000573976578176862,
+        "background": 7.859986893193115e-06,
+        "pml": 2.137682323843976e-05,
+        "silica": 1.9022966205181437e-05
+      },
+      "max_area_relative_error": 0.000573976578176862,
+      "edge_min_um": 0.0600573145904943,
+      "edge_max_um": 1.2792904977239907,
+      "aspect_ratio_max": 3.5161227884806436,
+      "boundary_labels": [
+        "INTERFACE_air__background",
+        "INTERFACE_air__silica",
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 1,
+      "wall_min_crossed_triangles": 12,
+      "wall_min_coverage": 0.9994899600045457,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "kagome__hypocycloid",
+      "status": "GENERATED",
+      "triangles": 187968,
+      "materials": {
+        "background": 115672,
+        "pml": 25368,
+        "silica": 46928
+      },
+      "area_relative_errors": {
+        "background": 2.6668985754288105e-05,
+        "pml": 2.3342514968703833e-05,
+        "silica": 2.3658853018403003e-05
+      },
+      "max_area_relative_error": 2.6668985754288105e-05,
+      "edge_min_um": 0.03808704528467795,
+      "edge_max_um": 1.3705806431121004,
+      "aspect_ratio_max": 3.306037321666997,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 8,
+      "wall_min_crossed_triangles": 8,
+      "wall_min_coverage": 0.9992383106473374,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "anti_resonant__single_ring",
+      "status": "GENERATED",
+      "triangles": 154881,
+      "materials": {
+        "background": 95281,
+        "pml": 23500,
+        "silica": 36100
+      },
+      "area_relative_errors": {
+        "background": 2.710943332373742e-05,
+        "pml": 2.485294153927503e-05,
+        "silica": 2.6082910274916033e-05
+      },
+      "max_area_relative_error": 2.710943332373742e-05,
+      "edge_min_um": 0.04328765824143887,
+      "edge_max_um": 1.3402808748190829,
+      "aspect_ratio_max": 3.1438746829956106,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 6,
+      "wall_min_crossed_triangles": 8,
+      "wall_min_coverage": 0.9991934857602259,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "anti_resonant__nanf",
+      "status": "GENERATED",
+      "triangles": 281482,
+      "materials": {
+        "background": 174076,
+        "pml": 26512,
+        "silica": 80894
+      },
+      "area_relative_errors": {
+        "background": 2.7057520051313013e-05,
+        "pml": 2.4860282497894674e-05,
+        "silica": 2.7018556136954418e-05
+      },
+      "max_area_relative_error": 2.7057520051313013e-05,
+      "edge_min_um": 0.030609542216536865,
+      "edge_max_um": 1.3177586767667748,
+      "aspect_ratio_max": 3.2403036191726153,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 12,
+      "wall_min_crossed_triangles": 9,
+      "wall_min_coverage": 0.9992208404198417,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "anti_resonant__dnanf",
+      "status": "GENERATED",
+      "triangles": 392556,
+      "materials": {
+        "background": 236964,
+        "pml": 29080,
+        "silica": 126512
+      },
+      "area_relative_errors": {
+        "background": 2.705467673578498e-05,
+        "pml": 2.4859437543826437e-05,
+        "silica": 2.5821052135515037e-05
+      },
+      "max_area_relative_error": 2.705467673578498e-05,
+      "edge_min_um": 0.02177581145569544,
+      "edge_max_um": 1.3313279121139714,
+      "aspect_ratio_max": 3.3775187163729607,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 18,
+      "wall_min_crossed_triangles": 8,
+      "wall_min_coverage": 0.9992733538204335,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "anti_resonant__conjoined_tube",
+      "status": "GENERATED",
+      "triangles": 154881,
+      "materials": {
+        "background": 95281,
+        "pml": 23500,
+        "silica": 36100
+      },
+      "area_relative_errors": {
+        "background": 2.710943332373742e-05,
+        "pml": 2.485294153927503e-05,
+        "silica": 2.6082910274916033e-05
+      },
+      "max_area_relative_error": 2.710943332373742e-05,
+      "edge_min_um": 0.04328765824143887,
+      "edge_max_um": 1.3402808748190829,
+      "aspect_ratio_max": 3.1438746829956106,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 6,
+      "wall_min_crossed_triangles": 8,
+      "wall_min_coverage": 0.9991934857602259,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "anti_resonant__negative_curvature",
+      "status": "GENERATED",
+      "triangles": 154881,
+      "materials": {
+        "background": 95281,
+        "pml": 23500,
+        "silica": 36100
+      },
+      "area_relative_errors": {
+        "background": 2.710943332373742e-05,
+        "pml": 2.485294153927503e-05,
+        "silica": 2.6082910274916033e-05
+      },
+      "max_area_relative_error": 2.710943332373742e-05,
+      "edge_min_um": 0.04328765824143887,
+      "edge_max_um": 1.3402808748190829,
+      "aspect_ratio_max": 3.1438746829956106,
+      "boundary_labels": [
+        "INTERFACE_background__silica",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 6,
+      "wall_min_crossed_triangles": 8,
+      "wall_min_coverage": 0.9991934857602259,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "bragg__concentric",
+      "status": "GENERATED",
+      "triangles": 90332,
+      "materials": {
+        "air": 5198,
+        "background": 18247,
+        "high": 23598,
+        "low": 24167,
+        "pml": 19122
+      },
+      "area_relative_errors": {
+        "air": 4.385735629236236e-05,
+        "background": 2.8144152025364706e-05,
+        "high": 2.6562366116126708e-05,
+        "low": 2.5521846333174975e-05,
+        "pml": 2.6917366093785427e-05
+      },
+      "max_area_relative_error": 4.385735629236236e-05,
+      "edge_min_um": 0.06124774579359203,
+      "edge_max_um": 1.3223866416261507,
+      "aspect_ratio_max": 3.1784817344375913,
+      "boundary_labels": [
+        "INTERFACE_air__high",
+        "INTERFACE_background__low",
+        "INTERFACE_high__low",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 8,
+      "wall_min_crossed_triangles": 7,
+      "wall_min_coverage": 0.9990745715950884,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "mcf__hex",
+      "status": "GENERATED",
+      "triangles": 67290,
+      "materials": {
+        "background": 42265,
+        "core": 9395,
+        "pml": 15630
+      },
+      "area_relative_errors": {
+        "background": 1.7871908022527156e-05,
+        "core": 0.000270884473837937,
+        "pml": 9.604798366666778e-06
+      },
+      "max_area_relative_error": 0.000270884473837937,
+      "edge_min_um": 0.08276985431903429,
+      "edge_max_um": 1.3928261002074838,
+      "aspect_ratio_max": 3.3063218971857093,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "mcf__ring",
+      "status": "GENERATED",
+      "triangles": 64378,
+      "materials": {
+        "background": 40648,
+        "core": 8100,
+        "pml": 15630
+      },
+      "area_relative_errors": {
+        "background": 1.8750797553887565e-05,
+        "core": 0.00027088447383781387,
+        "pml": 9.60479836647531e-06
+      },
+      "max_area_relative_error": 0.00027088447383781387,
+      "edge_min_um": 0.08668596411011735,
+      "edge_max_um": 1.3928261002074838,
+      "aspect_ratio_max": 3.3063218971857093,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "mcf__trench_assisted",
+      "status": "GENERATED",
+      "triangles": 160431,
+      "materials": {
+        "background": 72772,
+        "core": 18935,
+        "pml": 31455,
+        "trench": 37269
+      },
+      "area_relative_errors": {
+        "background": 1.4938663669234953e-05,
+        "core": 0.00024166241420690927,
+        "pml": 1.1508214948113437e-05,
+        "trench": 5.532672321535694e-07
+      },
+      "max_area_relative_error": 0.00024166241420690927,
+      "edge_min_um": 0.08044658786273351,
+      "edge_max_um": 1.318751395181313,
+      "aspect_ratio_max": 3.224782897442859,
+      "boundary_labels": [
+        "INTERFACE_background__trench",
+        "INTERFACE_core__trench",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "PASS_SAMPLED",
+      "wall_count": 7,
+      "wall_min_crossed_triangles": 24,
+      "wall_min_coverage": 0.999705067139347,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "polarization_maintaining__panda",
+      "status": "GENERATED",
+      "triangles": 37145,
+      "materials": {
+        "background": 18162,
+        "core": 1449,
+        "pml": 12882,
+        "stress_rod": 4652
+      },
+      "area_relative_errors": {
+        "background": 2.411783574057241e-05,
+        "core": 0.00023516202981144113,
+        "pml": 2.5283202240740852e-05,
+        "stress_rod": 0.0001232223685110331
+      },
+      "max_area_relative_error": 0.00023516202981144113,
+      "edge_min_um": 0.09342603692061988,
+      "edge_max_um": 1.3085341101342138,
+      "aspect_ratio_max": 3.234514097379369,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_background__stress_rod",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    },
+    {
+      "preset": "polarization_maintaining__bow_tie",
+      "status": "GENERATED",
+      "triangles": 35863,
+      "materials": {
+        "background": 17786,
+        "core": 1449,
+        "pml": 12882,
+        "stress_rod": 3746
+      },
+      "area_relative_errors": {
+        "background": 2.4753605298609018e-05,
+        "core": 0.00023516202981144113,
+        "pml": 2.5283202240740852e-05,
+        "stress_rod": 0.00017507024521984605
+      },
+      "max_area_relative_error": 0.00023516202981144113,
+      "edge_min_um": 0.09342603692060918,
+      "edge_max_um": 1.2727529436118374,
+      "aspect_ratio_max": 3.234555606048265,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "INTERFACE_background__stress_rod",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "approximate"
+    },
+    {
+      "preset": "polarization_maintaining__elliptic_core",
+      "status": "GENERATED",
+      "triangles": 29119,
+      "materials": {
+        "background": 14295,
+        "core": 1942,
+        "pml": 12882
+      },
+      "area_relative_errors": {
+        "background": 3.0977808137312025e-05,
+        "core": 0.0001596397271394819,
+        "pml": 2.5283202240740852e-05
+      },
+      "max_area_relative_error": 0.0001596397271394819,
+      "edge_min_um": 0.09156537077688406,
+      "edge_max_um": 1.3003052795785963,
+      "aspect_ratio_max": 3.234515333739419,
+      "boundary_labels": [
+        "INTERFACE_background__core",
+        "OUTER_PML",
+        "PML_INTERFACE"
+      ],
+      "wall_status": "NOT_APPLICABLE",
+      "wall_count": 0,
+      "wall_min_crossed_triangles": null,
+      "wall_min_coverage": null,
+      "wavelength_resolution": "FAIL_POLICY",
+      "geometry_fidelity": "parametric"
+    }
+  ],
+  "generated_count": 25,
+  "expected_count": 25,
+  "linear_triangle_area_error_policy": 0.02,
+  "all_geometry_checks_passed": true,
+  "sampled_walls_all_passed": true,
+  "optical_accuracy_certified": false,
+  "note": "Presets intentionally retain compatibility boundary_refined policy; wavelength FAIL_POLICY is exposed, not hidden. Named approximate CAD remains approximate."
+}

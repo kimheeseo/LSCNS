@@ -1,3 +1,25 @@
+## v0.8.4 — STEP 1·2 보완 (2026-11-19)
+
+기존 A–H **25개 설계 수치·schema_version=1.0.0·벡터 고유계 코드는 유지**하고 입력·기하·메시 검사를 보완했습니다. 기존 웹 scalar 표시는 v0.7.1, 이 독립 설계/메시 모듈은 v0.8.4입니다.
+
+- [설계](../../validation_report/STEP1_2_V084_DESIGN_20261119.md) · [검증표](../../validation_report/STEP1_2_V084_VERIFICATION_20261119.md) · [한계](../../validation_report/STEP1_2_V084_LIMITATIONS_20261119.md)
+- STEP 1: 잘못된 타입/필수 재료/계산창·hole·nested tube·MCF trench·PM 간섭 검사, 근사 형상 메타데이터, JSON Schema 상세 검증.
+- STEP 2: y-major 타원의 OCC 회전 처리, 실제 재료 n(λ) 메시 목표, 곡률, 도메인·PML·경계 라벨, 원형 벽 법선 교차 검사, 3단계 기하 메시 실험.
+- 웹 연구 프리셋 패널의 **STEP 1·2 · 설계·메시 검사 v0.8.4**에서 Python `mesh_preview.json`을 불러옵니다. 표시 요소는 최대 6,000개 표본이며 라벨 경계는 전체 표시합니다. 입력 수정 시 이전 그림을 무효화합니다.
+
+    python cli.py presets --out presets
+    python cli.py inspect presets/anti_resonant__nanf.json --out inspect_nanf
+    python cli.py mesh presets/anti_resonant__nanf.json --out out_mesh
+    python cli.py mesh presets/anti_resonant__nanf.json --resolution-policy wavelength --out out_mesh_strict
+    python cli.py mesh-study benchmarks/step12_bragg_mesh_input.json --out out_mesh_study
+    python validate_step12.py --out validation_step12.json
+
+메시 정책:
+- `boundary_refined`(기존 JSON 기본): 기존 벌크 메시 크기를 유지하며 재료별 파장 기준 미달을 보고합니다. 기본 25개 모두 벌크에서 이 엄격 파장 기준에 미달합니다.
+- `wavelength`(명시적 선택): 실제 사용 재료 n(λ)의 가장 작은 λ/(n·요소수)를 전 도메인에 적용합니다. Gmsh 목표 길이 0.8 안전계수, 실측 최대 변 허용비 1.35, 원형 벽 표본 coverage 0.99는 공개된 수치 검사 정책이며 물리 상수가 아닙니다. 큰 메시를 만들 수 있고 기존 벡터 솔버 DOF 상한을 없애지 않습니다.
+
+검증: Python 전체 83개 통과(기존 67개 포함), 25/25 기본 기하 생성·CAD 대비 면적·75개 원형 벽 표본 검사 통과. 이는 **기하/메시 검사**이며 neff·Im(neff)·손실·완전 밴드갭 인증이 아닙니다. 일부 명칭의 정확한 CAD와 C6v는 TODO입니다. 아래 v0.8.0–0.8.3 설명은 기존 이력으로 보존합니다.
+
 ## v0.8.3 — STEP 5 광자결정 클래딩 Bloch-Floquet (2026-11-18)
 
 4종 단위셀의 **실제 2D 스칼라 Bloch 고유해석**과 밴드/표본 갭 후보·light line을 구현. 브라우저는 계산하지 않고 Python JSON 시각화만 수행한다. 기본 예시 JSON은 CI Python이 실제 계산했고 **갭 후보가 0개**로 나왔으며, 결과를 임의로 채우지 않는다.
@@ -105,3 +127,4 @@ A converged linear algebra residual is necessary, not sufficient. For any publis
 Environment note: gmsh/scikit-fem runtime was not available during source authoring in this conversation. New FEM code is NOT claimed to have executed or passed its physical validation. Run in Colab/local with dependencies and inspect output.
 
 API docs: https://scikit-fem.readthedocs.io/en/stable/api.html and https://gmsh.info/doc/texinfo/gmsh.html
+

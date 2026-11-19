@@ -57,7 +57,26 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "graded_exponent",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "index_guiding__graded": {
@@ -118,7 +137,28 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy alternating constant-index rings; not a continuous graded-index profile or user-specified arbitrary stack"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "graded_exponent",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "index_guiding__trench_assisted": {
@@ -179,7 +219,26 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "graded_exponent",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "index_guiding__w_profile": {
@@ -240,7 +299,26 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "graded_exponent",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "index_guiding__multilayer": {
@@ -301,7 +379,28 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy alternating constant-index rings; not a continuous graded-index profile or user-specified arbitrary stack"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "graded_exponent",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "solid_pcf__hex": {
@@ -359,7 +458,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "solid_pcf__square": {
@@ -417,7 +531,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "solid_pcf__lma": {
@@ -475,7 +604,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "solid_pcf__high_nonlinearity": {
@@ -533,7 +677,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "solid_pcf__elliptic_birefringent": {
@@ -591,7 +750,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "pbgf__7_cell": {
@@ -649,7 +823,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "7/19 missing lattice cells with circular core/surround surrogate; no bandgap certificate"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "pbgf__19_cell": {
@@ -707,7 +898,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "7/19 missing lattice cells with circular core/surround surrogate; no bandgap certificate"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "kagome__hypocycloid": {
@@ -765,7 +973,26 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy circular/elliptical surrogate; exact named CAD topology TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "curvature"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "anti_resonant__single_ring": {
@@ -824,7 +1051,22 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "anti_resonant__nanf": {
@@ -883,7 +1125,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "concentric nested tubes; realistic tangent nested geometry TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "anti_resonant__dnanf": {
@@ -942,7 +1201,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "concentric nested tubes; realistic tangent nested geometry TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "anti_resonant__conjoined_tube": {
@@ -1001,7 +1277,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy circular/elliptical surrogate; exact named CAD topology TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "anti_resonant__negative_curvature": {
@@ -1060,7 +1353,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy circular/elliptical surrogate; exact named CAD topology TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "bragg__concentric": {
@@ -1117,7 +1427,24 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "mcf__hex": {
@@ -1176,7 +1503,25 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "mcf__ring": {
@@ -1235,7 +1580,25 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "mcf__trench_assisted": {
@@ -1294,7 +1657,25 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "trench_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "polarization_maintaining__panda": {
@@ -1358,7 +1739,25 @@
     "metadata": {
       "status": "illustrative_geometry_STRESS_ROD_OPTICAL_SURROGATE_NOT_VERIFIED",
       "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
-      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec."
+      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec.",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "stress_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "polarization_maintaining__bow_tie": {
@@ -1422,7 +1821,27 @@
     "metadata": {
       "status": "illustrative_geometry_STRESS_ROD_OPTICAL_SURROGATE_NOT_VERIFIED",
       "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
-      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec."
+      "step6b_note": "stress_rod split into own gmsh physical domain; refractive index pure SiO2 surrogate. Requires separate sourced E,nu,alpha,p11,p12 to compute PM stress. NOT commercial PANDA/Bowtie spec.",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "approximate",
+        "approximations": [
+          "legacy circular/elliptical surrogate; exact named CAD topology TODO"
+        ],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "stress_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   },
   "polarization_maintaining__elliptic_core": {
@@ -1481,7 +1900,25 @@
     },
     "metadata": {
       "status": "geometry_preset_only",
-      "provenance": "Illustrative geometry; NOT a verified manufacturer product design"
+      "provenance": "Illustrative geometry; NOT a verified manufacturer product design",
+      "design_engine_version": "0.8.4",
+      "capabilities": {
+        "engine_version": "0.8.4",
+        "status": "DESIGN_ONLY_NOT_OPTICALLY_CERTIFIED",
+        "geometry_fidelity": "parametric",
+        "approximations": [],
+        "parameters_not_used_as_material_coefficients_or_exact_shape": [
+          "delta_n",
+          "stress_delta_n"
+        ],
+        "material_basis": "materials.* defines optical index; parameter delta_n does not override it",
+        "assumptions": [
+          "air model uses constant n=1.00027; not pressure/temperature calibrated",
+          "no implicit Ge/F Sellmeier or stress-rod composition"
+        ],
+        "mesh_resolution_policy": "boundary_refined",
+        "optical_certification": false
+      }
     }
   }
 }

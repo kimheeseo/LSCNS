@@ -1,3 +1,4 @@
+import {mountDesignMesh} from './research_design_mesh_v084.mjs?v=20261119-v084';
 /** LSCNS research fiber v1 — JSON preset editor + Python vector FEM result viewer.
  * Static GitHub Pages: no scikit-fem/gmsh eigen solve in browser.
  */
@@ -29,11 +30,11 @@ function status(t){$('rf-status').textContent=t;}
 /* Literature-only ESM indicator for conventional triangular hole PCF.
    The d/Lambda=0.406 cutoff is an approximate ideal-lattice guide, NOT a mode calculation.
    Reference: Birks et al., Opt. Lett. 22, 961 (1997), doi:10.1364/OL.22.000961;
-   review: https://journal.hep.com.cn/foe/EN/10.1007/s12200-012-0301-y */
+   quantitative guide: Folkenberg et al. (2003), https://arxiv.org/abs/physics/0307009 */
 function drawESM(design){
   const root=$('rf-esm-panel'),canvas=$('rf-esm-canvas'),explanation=$('rf-esm-interpretation');
   if(!root||!canvas)return;
-  const eligible=design?.family==='solid_pcf'&&['hex','lma','high_nonlinearity'].includes(design.variant);
+  const eligible=design?.family==='solid_pcf'&&['hex','lma','high_nonlinearity'].includes(design.variant)&&design.parameters?.defect_cells===1&&(design.parameters?.ellipse_ratio??1)===1;
   root.hidden=!eligible;
   if(!eligible)return;
   const pitch=Number(design.parameters?.pitch_um),ratio=Number(design.parameters?.d_over_pitch);
@@ -135,7 +136,7 @@ function mount(){
     '<div class="rf-line"><label>설계 프리셋 <select id="rf-preset"><option>프리셋 불러오는 중…</option></select></label><button id="rf-use">프리셋 적용</button><button id="rf-check">설계 점검</button><button id="rf-save">JSON 저장</button><label for="rf-open" class="rf-file">JSON 열기</label><input type="file" accept=".json" id="rf-open" hidden></div>'+
     '<div id="rf-esm-panel" hidden style="margin:12px 0;border:1px solid #3b6878;padding:14px;border-radius:10px">'+
     '<h3 style="margin:0">PCF Endlessly Single-Mode · 문헌 근사 구역</h3><canvas id="rf-esm-canvas" width="620" height="285" style="width:100%;max-width:620px;height:auto;display:block"></canvas>'+
-    '<p id="rf-esm-interpretation"></p><p class="rf-muted">일반적인 triangular-lattice 단일 결함 PCF에서의 참고 기준 d/Λ ≲ 0.406. 유한 링, 다중 결함, 타원 구멍, 고비선형 구조에는 직접 적용되지 않습니다. <a href="https://opg.optica.org/ol/abstract.cfm?uri=ol-22-13-961" target="_blank" rel="noopener">Birks et al. (1997)</a></p></div>'+
+    '<p id="rf-esm-interpretation"></p><p class="rf-muted">일반적인 triangular-lattice 단일 결함 PCF에서의 참고 기준 d/Λ ≲ 0.406. 유한 링, 다중 결함, 타원 구멍, 고비선형 구조에는 직접 적용되지 않습니다. <a href="https://arxiv.org/abs/physics/0307009" target="_blank" rel="noopener">Folkenberg et al. (2003)</a></p></div>'+
     '<textarea id="rf-json" spellcheck="false" aria-label="설계 JSON 수정"></textarea>'+
     '<p id="rf-status" role="status" aria-live="polite">프리셋 로드 대기</p>'+
     '<p><a href="https://github.com/kimheeseo/LSCNS/tree/main/COMSOL/universal_silica_v01/fiber_research_v1" target="_blank" rel="noopener">Python 설치/실행 가이드 및 코드</a> · <a href="'+ROOT+'fiber_design.schema.json" target="_blank" rel="noopener">JSON Schema</a></p>'+
@@ -146,6 +147,7 @@ function mount(){
     '<div class="rf-fields">'+['Ex','Ey','Ez','Hx','Hy','Hz'].map(k=>'<figure><figcaption>|'+k+'|² · 개별 정규화</figcaption><canvas id="rf-map-'+k+'" width="260" height="260"></canvas></figure>').join('')+'</div>'+
     '<p class="rf-muted">필드 샘플은 희소 삼각형 중심점의 복소값입니다. 그림은 산점 시각화이며 실제 FEM 재계산, 정량 손실 인증 또는 밴드갭 지도는 아닙니다.</p>';
   main.appendChild(section);
+  mountDesignMesh(section);
   $('rf-use').addEventListener('click',()=>{try{updateConfig(presets[$('rf-preset').value]);}catch(e){status('로드 실패: '+e.message);}});
   $('rf-check').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));drawESM(d);status('브라우저 기본 검사 통과. Python schema.py 상세 검증이 별도로 필요합니다.');}catch(e){status('검사 실패: '+e.message);}});
   $('rf-save').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));save(JSON.stringify(d,null,2)+'\n',jsonName(d.name)+'.json');status('설계 JSON 다운로드 요청');}catch(e){status('저장 실패: '+e.message);}});
@@ -157,3 +159,4 @@ function mount(){
     .catch(e=>status('프리셋 다운로드 실패: '+e.message));
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
+

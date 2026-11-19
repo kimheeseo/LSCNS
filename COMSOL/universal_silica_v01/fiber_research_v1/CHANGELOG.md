@@ -1,3 +1,14 @@
+## v0.8.4 — 2026-11-19 — STEP 1·2 design/mesh verification
+
+- Kept 25 preset geometric/optical numbers and design schema_version 1.0.0; added capability metadata and optional mesh policy controls.
+- Added strict numeric/geometric preflight, nested JSON Schema rules, `inspect` and `mesh-study` CLI commands.
+- Fixed y-major OCC ellipses by swapping semiaxes and rotating; no silent PCF hole clipping.
+- Added actual-material wavelength sizing, curvature meshing, physical boundary labels, sampled circular-wall resolution and measured material/area/edge/aspect metrics.
+- Compatibility policy reports bulk wavelength violations; explicit wavelength policy enforces the whole-domain target.
+- Added actual mesh JSON preview, input-match indication and invalidation on edits; Python FEM remains external.
+- Corrected Malitson source DOI only; coefficients and STEP 3 vector_fem.py unchanged.
+- Validation: baseline 67 tests; final 83 tests; 25 default geometry generations, 75 sampled walls; no optical certification. Local browser launch blocked by runtime sockets; GitHub browser integration test added.
+
 # Fiber Research Engine CHANGELOG
 
 ## v0.8.3 — 2026-11-18 — STEP 5 scalar Bloch prototype
@@ -49,3 +60,4 @@
 - 미완료: STEP3 V1/V4/V5 물리 게이트, HCF confinement loss의 PML 독립 수렴, STEP5 Bloch bandgap 등. 승인 없이 다음 단계 실행 금지.
 
 관련 보고서: COMSOL/validation_report/STEP4_V080_DESIGN_VERIFICATION_20261118.md 및 STEP4_V080_LIMITATIONS_20261118.md.
+

@@ -16,7 +16,7 @@ const fs=require('node:fs/promises');
   for(const mode of ['hcf-selection','vector-selection']){
     await page.evaluate(m=>document.body.classList.add(m),mode);
     await page.locator('#ls-step3-entry').click();
-    if(!await page.locator('#research-step3-v085').isVisible())throw Error('STEP3 navigation hidden in '+mode);
+    await page.locator('#research-step3-v085').waitFor({state:'visible'});
     await page.evaluate(m=>document.body.classList.remove(m),mode);
   }
   await page.locator('#rf-step3-guided').click();

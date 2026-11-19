@@ -1,0 +1,40 @@
+name: COMSOL STEP3 browser regression
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step3_v085.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*research_step3_v085*'
+      - 'COMSOL/universal_silica_v01/fiber_research_v1/benchmarks/step3_v085/**'
+      - '.github/workflows/comsol_step3_browser.yml'
+  workflow_dispatch:
+jobs:
+  actual-workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser driver
+        run: |
+          npm install --prefix /tmp/ls-step3-browser playwright
+          ls_step3_browser=$(command -v google-chrome || command -v chromium || true)
+          if [ -n "$ls_step3_browser" ]; then
+            printf 'CHROMIUM_PATH=%s\n' "$ls_step3_browser" >> "$GITHUB_ENV"
+          else
+            /tmp/ls-step3-browser/node_modules/.bin/playwright install --with-deps chromium
+          fi
+      - name: Test actual index navigation, field results and mobile view
+        run: |
+          node --test COMSOL/universal_silica_v01/web/tests/test_research_step3_v085.mjs
+          python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step3-http.log 2>&1 &
+          ls_step3_http_pid=$!
+          trap 'kill "$ls_step3_http_pid"' EXIT
+          NODE_PATH=/tmp/ls-step3-browser/node_modules RESULT_PATH=/tmp/step3_browser_check.json SCREENSHOT_PATH=/tmp/step3_panel.png node COMSOL/universal_silica_v01/web/tests/browser_research_step3_v085.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step3-browser-validation
+          path: |
+            /tmp/step3_browser_check.json
+            /tmp/step3_panel.png

@@ -19,7 +19,7 @@ python step5_v087_cli.py example --out step5_design.json
 python step5_v087_cli.py analyze step5_design.json --out bands.json
 python step5_v087_cli.py converge step5_design.json --out convergence.json
 python step5_v087_cli.py handoff bands.json --candidate-index 0 --rings 4 --out finite_design.json
-python cli.py solve finite_design.json --target-neff <생성된 target_neff> --out out_modes
+python cli.py solve finite_design.json --out out_modes
 ```
 
 `--solve-fem`으로 handoff 뒤 FEM을 실행할 수도 있다. 기본 handoff의 thin-wall 해상도와 큰 설정은 DOF 한도를 넘을 수 있으며 한도를 자동 해제하지 않는다. computational radius는 명시값 또는 (rings+3)*pitch를 사용하며 `--domain-radius-um`/JSON으로 제어한다. 이는 물리 상수가 아닌 공개된 계산창 정책이며 독립 window/PML convergence가 필요하다.

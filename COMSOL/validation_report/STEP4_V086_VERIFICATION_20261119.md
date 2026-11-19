@@ -6,9 +6,9 @@
 | 손실 단위·부호·흡수 구분 | dB/km=1000 dB/m, 복소 neff 부호 보존, 흡수 포함이면 radiation-only null | 통과 |
 | 실제 물리 FE 적분 | PML label 제외, 6성분·가중치·재료 라벨, Poynting partition 합=1 | 실제 방사 원형 모드 2개에서 통과 |
 | 모드 추적 | 순서 permutation 및 퇴화 기저 회전 불변, 개수/격자 변경 차단 | 통과; 퇴화군은 centroid만 보고 |
-| 실제 PEC 원형 TE11 D | 정확한 complex neff(λ), max |ΔD|≤0.1 ps/(nm km) | 0.00642798125 |
-| 실제 PEC 원형 TE11 S | max |ΔS|≤0.01 ps/(nm² km) | 4.31391979e-06 |
-| 파장 간격 10/20nm | max |Dfine−Dcoarse|≤0.1 | 2.66530684e-07 ps/(nm km) |
+| 실제 PEC 원형 TE11 D | 정확한 complex neff(λ), 최대 절대차 ΔD≤0.1 ps/(nm km) | 0.00642798125 |
+| 실제 PEC 원형 TE11 S | 최대 절대차 ΔS≤0.01 ps/(nm² km) | 4.31391979e-06 |
+| 파장 간격 10/20nm | Dfine와 Dcoarse의 최대 절대차≤0.1 | 2.66530684e-07 ps/(nm km) |
 | 인접 부분공간 overlap | ≥0.75 | 최소 0.999999999999998 |
 
 원시 수치: `fiber_research_v1/benchmarks/step4_v086/validation.json`, 실제 PEC FEM `example_metrics.json`/`example_sweep.json`, 실제 방사 해의 유리/공기 partition `radiative_metrics.json`. 실제 섬유 실험 데이터가 아닌 명시적 합성 원형 Maxwell 시험이다.

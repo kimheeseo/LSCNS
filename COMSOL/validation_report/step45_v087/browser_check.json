@@ -1,0 +1,15 @@
+{
+  "scope": "actual workbench STEP4/5",
+  "step4_actual_FEM_metrics_and_dispersion": true,
+  "step4_stale_guard": true,
+  "hcf_vector_navigation": true,
+  "vector_Bloch_example": true,
+  "computed_gap_handoff": true,
+  "actual_finite_FEM_and_metrics_import": true,
+  "target_neff": 0.9595815377584326,
+  "shared_design_applied": true,
+  "legacy_scalar_export": true,
+  "step5_stale_guard": true,
+  "mobile_overflow": false,
+  "page_errors": []
+}

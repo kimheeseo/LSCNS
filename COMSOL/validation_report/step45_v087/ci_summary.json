@@ -1,0 +1,131 @@
+{
+  "schema": "LSCNS_STEP45_CI_V087",
+  "verified_code_sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+  "all_workflows_passed": true,
+  "python_tests": 116,
+  "node_unit_tests": 6,
+  "default_geometry_presets": 25,
+  "step3_scope": {
+    "V1": "PASS_SCOPED",
+    "V4": "PASS_SCOPED",
+    "V5": "PASS_SCOPED"
+  },
+  "step4": {
+    "status": "PASS_SCOPED",
+    "maximum_D_error_ps_nm_km": 0.006428103913414418,
+    "maximum_S_error_ps_nm2_km": 0.000004321255350752534,
+    "coarse_fine_D_change_ps_nm_km": 3.549734017838091e-7,
+    "minimum_overlap": 0.9999999999999987
+  },
+  "step5": {
+    "status": "PASS_SCOPED",
+    "uniform_max_absolute_f_error": 2.220446049250313e-16,
+    "actual_sampled_gap_count": 1,
+    "complete_gap_certified": false,
+    "MPB_external_comparison": "NOT_RUN",
+    "finite_FEM_computed": true,
+    "core_confined_mode_demonstrated": false
+  },
+  "HCF_product_loss_certified": false,
+  "workflows": [
+    {
+      "id": 44525812368,
+      "name": "COMSOL fiber research v1",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812368",
+      "updated_at": "2026-11-19T12:45:32Z"
+    },
+    {
+      "id": 44525812362,
+      "name": "COMSOL STEP4 and STEP5 browser",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812362",
+      "updated_at": "2026-11-19T12:39:12Z"
+    },
+    {
+      "id": 44525812396,
+      "name": "COMSOL HCF and Full-vector Preset UI",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812396",
+      "updated_at": "2026-11-19T12:39:29Z"
+    },
+    {
+      "id": 44525812367,
+      "name": "COMSOL WaveOptics Web Smoke",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812367",
+      "updated_at": "2026-11-19T12:39:50Z"
+    },
+    {
+      "id": 44525812298,
+      "name": "COMSOL-style Workbench UI Regression",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812298",
+      "updated_at": "2026-11-19T12:42:21Z"
+    },
+    {
+      "id": 44525812273,
+      "name": "COMSOL STEP3 browser regression",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525812273",
+      "updated_at": "2026-11-19T12:39:17Z"
+    },
+    {
+      "id": 44525810881,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44525810881",
+      "updated_at": "2026-11-19T12:40:23Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 14532865126,
+      "name": "step12-v084-and-step3-v085-validation",
+      "size_in_bytes": 44549,
+      "url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14532865126",
+      "archive_download_url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14532865126/zip",
+      "expired": false,
+      "created_at": "2026-11-19T12:45:27Z",
+      "expires_at": "2027-02-17T12:38:50Z",
+      "updated_at": "2026-11-19T12:45:27Z",
+      "digest": "sha256:a10a0f62329e1a24b6786f10d5474c96f9ecb36ec65d38bbdf4735f517c5d8ef",
+      "workflow_run": {
+        "id": 44525812368,
+        "repository_id": 1039826641,
+        "head_repository_id": 1039826641,
+        "head_branch": "main",
+        "head_sha": "876cbde3043261e21d4bbdf5d2cf5545518be5d1"
+      }
+    }
+  ],
+  "browser_check": {
+    "scope": "actual workbench STEP4/5",
+    "step4_actual_FEM_metrics_and_dispersion": true,
+    "step4_stale_guard": true,
+    "hcf_vector_navigation": true,
+    "vector_Bloch_example": true,
+    "computed_gap_handoff": true,
+    "actual_finite_FEM_and_metrics_import": true,
+    "target_neff": 0.9595815377584326,
+    "shared_design_applied": true,
+    "legacy_scalar_export": true,
+    "step5_stale_guard": true,
+    "mobile_overflow": false,
+    "page_errors": []
+  }
+}

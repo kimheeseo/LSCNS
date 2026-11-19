@@ -17,6 +17,9 @@ on:
       - 'COMSOL/universal_silica_v01/web/tests/*step6_v088*'
       - 'COMSOL/universal_silica_v01/web/*validation*v089*'
       - 'COMSOL/universal_silica_v01/web/tests/*validation*v089*'
+      - 'COMSOL/universal_silica_v01/web/*architecture*v0810*'
+      - 'COMSOL/universal_silica_v01/web/result_contract_v0810.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*v0810*'
       - '.github/workflows/comsol_fiber_research_v1.yml'
   workflow_dispatch:
 jobs:
@@ -56,6 +59,11 @@ jobs:
       - name: STEP7 evidence gated V1 V9 suite and actual FSM ARF probes
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: python validate_step7_v089.py --step3-report /tmp/step3_validation/step3_validation.json --out /tmp/step7_validation
+      - name: STEP8 stable CLI provenance and actual Gauss basis
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: |
+          python -m lswave.cli solve benchmarks/step3_v085/guided_input.json --target-neff 1.468524 --out /tmp/step8_result.json
+          python -m lswave.cli verify /tmp/step8_result.json
       - name: Compute genuine scalar STEP5 example bands
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |
@@ -70,6 +78,9 @@ jobs:
           PY
       - name: Static web module syntax
         run: |
+          node --test COMSOL/universal_silica_v01/web/tests/test_result_contract_v0810.mjs
+          node --check COMSOL/universal_silica_v01/web/research_architecture_v0810.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_architecture_v0810.cjs
           node --test COMSOL/universal_silica_v01/web/tests/test_validation_csv_v089.mjs
           node --check COMSOL/universal_silica_v01/web/research_validation_v089.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_validation_v089.cjs

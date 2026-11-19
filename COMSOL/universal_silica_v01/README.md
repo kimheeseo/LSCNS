@@ -1,3 +1,5 @@
+> **v0.8.10 · STEP8 (2026-11-20):** [안정 API/실행·공식·한계](./fiber_research_v1/STEP8_V0810.md) · `lswave/` 계층을 추가하고 기존 파일/CLI를 유지했습니다. 실제 FEM 결과에 입력/실행 옵션 hash·솔버 버전·UTC 시각·계산 근거·물질 지도를 담습니다. 웹 STEP8에서 가져오기/무효화/변조 검사를 제공합니다. STEP7의 V2·V3·V6 근거 필요와 V7 FAIL은 유지합니다.
+
 > **2026-11-20 · v0.8.9 STEP7:** [검증 탭](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-validation-v089) · [검증표](../validation_report/STEP7_V089_VERIFICATION_20261120.md) · [실행·CSV](fiber_research_v1/STEP7_V089.md). V1–V9 상태/허용오차, 실제 FSM/ARF 스캔, COMSOL CSV 자동 오차표를 추가했습니다. 전체 검증은 미완료이며 근거 없는 PASS를 만들지 않습니다. STEP8 구조 변경은 보류합니다.
 
 > **2026-11-20 · v0.8.8 STEP6:** [툴](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/#research-step6-v088) · [실행법/출처](./fiber_research_v1/STEP6_V088.md) · [검증표](../validation_report/STEP6_V088_VERIFICATION_20261120.md). 굽힘·PM·MCF 실 FEM, 접속 근사, grid/Pareto와 별도 DGD 경로를 추가했습니다. 정량 물리 인증/PCF V2·V6는 미완료 항목을 구분합니다.

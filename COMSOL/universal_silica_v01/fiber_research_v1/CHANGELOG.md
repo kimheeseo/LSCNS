@@ -1,3 +1,12 @@
+## v0.8.10 — 2026-11-20 — STEP8 stable namespace and result provenance
+
+- Add lswave geometry/mesh/materials/solver/postprocess/benchmarks/reports/web API without moving or shadowing legacy files and Colab paths.
+- Centralize research loss/gamma/Gauss-Aeff operations and formula/unit/source registry; preserve legacy scalar application and numerical solver formulation.
+- Add stable solve/sweep/Bloch/verify CLI, design plus execution-options input manifest, canonical UTF-8 SHA256, solver version and UTC timestamp.
+- Add actual Python Gauss calculation basis and labeled material map, web hash/input verification, calculation-basis panel, stale invalidation and persistent scope notice.
+- Preserve legacy result imports with explicit missing-provenance warning. No physical certification from a matching hash or green software CI.
+- Correct STEP7 literature/synthetic study air inputs to explicit n=1 instead of legacy ambient-air assumption; preserve legacy material default. V2/V3/V6 remain evidence-required and V7 remains FAIL.
+
 ## v0.8.9 — 2026-11-20 — STEP7 evidence-gated validation suite
 
 - Add V1 actual exact-HE11 b–V/ppm, remap fresh evidence to requested V4 PML and V5 measured mesh convergence; preserve legacy STEP3 report definitions.

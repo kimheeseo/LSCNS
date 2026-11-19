@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "convention": "exp(i beta z-i omega t), passive Im(neff)>0",
+  "formulas": {
+    "loss": {
+      "expression": "alpha=(20/ln(10))*(2*pi/(lambda_nm*1e-9))*Im(neff)",
+      "unit": "dB/m",
+      "inputs": {
+        "lambda_nm": "nm",
+        "Im(neff)": "1"
+      },
+      "source": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.woptics.microstructured_optical_fiber/microstructured_optical_fiber.html",
+      "scope": "signed total Im loss; not necessarily confinement-only"
+    },
+    "Aeff": {
+      "expression": "Aeff=P^2/Q; P=sum(|Et|^2*w); Q=sum(|Et|^4*w)",
+      "unit": "um^2",
+      "inputs": {
+        "P": "field^2 um^2",
+        "Q": "field^4 um^2"
+      },
+      "source": "https://doi.org/10.3390/photonics8010016",
+      "scope": "Et-only actual physical-domain FE quadrature; no PML"
+    },
+    "gamma": {
+      "expression": "gamma=2*pi*n2/(lambda_nm*1e-9*Aeff_um2*1e-12)",
+      "unit": "1/(W m)",
+      "inputs": {
+        "n2": "m^2/W",
+        "lambda_nm": "nm",
+        "Aeff_um2": "um^2"
+      },
+      "source": "https://optics.ansys.com/hc/en-us/articles/360036108194-Optical-Fiber-FIBER-INTERCONNECT-Element",
+      "scope": "scalar Kerr approximation; n2 value and applicability source required"
+    },
+    "D": {
+      "expression": "D_SI=-(lambda_m/c)*d^2 Re(neff)/d lambda_m^2; D_ps_nm_km=1e6*D_SI",
+      "unit": "ps/(nm km)",
+      "source": "https://optics.ansys.com/hc/en-us/articles/360036108194-Optical-Fiber-FIBER-INTERCONNECT-Element",
+      "scope": "requires tracked mode and wavelength-step convergence",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    },
+    "B": {
+      "expression": "B=abs(Re(nx)-Re(ny)); L_B=lambda_m/B",
+      "unit": "1; m",
+      "source": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.woptics.stress_optical/stress_optical.html",
+      "scope": "identified orthogonal modes of the same spatial family",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    },
+    "kappa": {
+      "expression": "kappa=(beta_even-beta_odd)/2",
+      "unit": "1/m",
+      "source": "https://doc.comsol.com/6.4/doc/com.comsol.help.models.woptics.directional_coupler/directional_coupler.html",
+      "scope": "identical symmetric two-core same-polarization candidate",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    },
+    "overlap": {
+      "expression": "eta=abs(integral Et1 dot conj(Et2))^2/(integral abs(Et1)^2*integral abs(Et2)^2)",
+      "unit": "1",
+      "source": "https://optics.ansys.com/hc/en-us/articles/360034396834-Understanding-the-mode-overlap-calculation",
+      "scope": "Et approximation, not full E/H interface scattering",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    },
+    "ARROW": {
+      "expression": "lambda_m=2*t*sqrt(ng^2-na^2)/m",
+      "unit": "same length as t",
+      "source": "https://doi.org/10.3390/fib6040089",
+      "scope": "approximate resonance; formula is not FEM verification",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    },
+    "V_PCF": {
+      "expression": "V_PCF=2*pi*Lambda/lambda*sqrt(n_FM^2-n_FSM^2)",
+      "unit": "1",
+      "source": "https://arxiv.org/pdf/physics/0307010",
+      "scope": "finite sampled criterion; not an all-wavelength ESM proof",
+      "inputs": "see original validated postprocess API; no inferred constants"
+    }
+  }
+}

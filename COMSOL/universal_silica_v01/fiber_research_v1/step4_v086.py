@@ -52,7 +52,11 @@ def integrate_mode(mode,design,context=None):
  if min(P,Q)<=0 or not np.isfinite([P,Q]).all():raise ValueError('nonzero finite Et integrals required')
  center=np.sum(p*(w*I)[:,None],axis=0)/P
  var=np.sum((p-center)**2*(w*I)[:,None],axis=0)/P
- ae=P*P/Q
+ try:
+  from .lswave.postprocess.formulas import area as canonical_area
+ except ImportError:
+  from lswave.postprocess.formulas import area as canonical_area
+ ae=canonical_area(P,Q)
  sz=.5*np.real(f['Ex']*np.conj(f['Hy'])-f['Ey']*np.conj(f['Hx']))
  power=float(sz@w*1e-12)
  if not np.isfinite(power) or power<=0:raise ValueError('positive net physical Poynting power required')

@@ -1,0 +1,38 @@
+name: COMSOL STEP8 architecture browser
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/*architecture*v0810*'
+      - 'COMSOL/universal_silica_v01/web/tests/*architecture*v0810*'
+      - 'COMSOL/universal_silica_v01/web/result_contract_v0810.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*v0810*'
+      - '.github/workflows/comsol_step8_browser.yml'
+  workflow_dispatch:
+jobs:
+  actual-workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser driver
+        run: |
+          npm install --prefix /tmp/ls-step8-browser playwright
+          ls_step8_browser=$(command -v google-chrome || command -v chromium || true)
+          if [ -n "$ls_step8_browser" ]; then
+            printf 'CHROMIUM_PATH=%s\n' "$ls_step8_browser" >> "$GITHUB_ENV"
+          else
+            /tmp/ls-step8-browser/node_modules/.bin/playwright install --with-deps chromium
+          fi
+      - name: Verify actual FEM basis material map hash and mobile
+        run: |
+          python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step8-http.log 2>&1 &
+          ls_step8_http_pid=$!
+          trap 'kill "$ls_step8_http_pid"' EXIT
+          NODE_PATH=/tmp/ls-step8-browser/node_modules RESULT_PATH=/tmp/step8_browser_check.json node COMSOL/universal_silica_v01/web/tests/browser_architecture_v0810.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step8-browser-validation
+          path: /tmp/step8_browser_check.json

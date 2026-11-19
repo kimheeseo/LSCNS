@@ -51,7 +51,7 @@ def pcf_fsm_study():
   try:
    cell=[fsm_index(pitch,lam,ratio,c) for c in (2,3,4)];row['FSM_convergence']=cell
    d=copy.deepcopy(load_presets()['solid_pcf__hex']);d.update(name='V6 Mortensen constant-index triangular one-cell defect numerical study',wavelength_nm=lam,domain_radius_um=8.)
-   d['parameters'].update(pitch_um=pitch,d_over_pitch=ratio,rings=3,defect_cells=1);d['materials']['background']={'model':'constant','n':1.444};d['materials']['air']={'model':'air'}
+   d['parameters'].update(pitch_um=pitch,d_over_pitch=ratio,rings=3,defect_cells=1);d['materials']['background']={'model':'constant','n':1.444};d['materials']['air']={'model':'constant','n':1.,'source_url':'https://arxiv.org/pdf/physics/0307010'}
    d['mesh'].update(elements_per_wavelength=4,through_wall_elements=3,bulk_max_um=.8,curvature_segments=64);d['boundary'].update(type='pml',thickness_um=1.5,strength=3.,order=3);d['solver']={'max_dofs':150000,'max_iterations':700,'tolerance':1e-9}
    p,w=disk_probes(.94*d['domain_radius_um'],pitch*.7,radial_order=16)
    result=solve(d,n_modes=6,target_neff=1.425,probe_points=p,probe_weights=w,max_sample_points=8)
@@ -74,7 +74,7 @@ def pcf_fsm_study():
 def arf_resonance_study():
  d=copy.deepcopy(load_presets()['anti_resonant__single_ring']);d.update(name='V7 synthetic single-ring ARF resonance study',domain_radius_um=13.)
  d['parameters'].update(core_radius_um=4.,tube_radius_um=3.5,wall_thickness_um=.55,tube_count=6,gap_um=.4)
- d['materials']['silica']={'model':'constant','n':1.45};d['mesh'].update(elements_per_wavelength=4,through_wall_elements=3,curvature_segments=64,bulk_max_um=.9);d['boundary'].update(thickness_um=1.5,strength=3.,order=3);d['solver']={'max_dofs':150000,'max_iterations':600,'tolerance':1e-9}
+ d['materials']['background']={'model':'constant','n':1.};d['materials']['air']={'model':'constant','n':1.};d['materials']['silica']={'model':'constant','n':1.45};d['mesh'].update(elements_per_wavelength=4,through_wall_elements=3,curvature_segments=64,bulk_max_um=.9);d['boundary'].update(thickness_um=1.5,strength=3.,order=3);d['solver']={'max_dofs':150000,'max_iterations':600,'tolerance':1e-9}
  arrow=2000*.55*np.sqrt(1.45**2-1);rows=[];previous=None;p,w=disk_probes(.93*13,4.,radial_order=16)
  for lam in arrow*np.array([.85,.9,.95,1.,1.05,1.1,1.15]):
   design=copy.deepcopy(d);design['wavelength_nm']=float(lam);target=float(np.sqrt(1-(2.4048255577*(lam*.001)/(2*np.pi*4.4))**2));row={'wavelength_nm':float(lam),'status':'FAILED','alpha_total_dB_m':None,'search_target_neff':target,'target_basis':'empty-capillary J0 scalar root seed only; not a validation value'}

@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {webcrypto,createHash} from 'node:crypto';import {verifyProvenance} from '../result_contract_v0810.mjs';
+if(!globalThis.crypto)globalThis.crypto=webcrypto;
+test('canonical byte hash supports Unicode and different numeric formatting',async()=>{const text='{"name":"광섬유","x":1.0,"small":1e-07}',r={input:{small:1e-7,x:1,name:'광섬유'},input_sha256:createHash('sha256').update(text).digest('hex'),solver_version:'0.8.6',timestamp_utc:'2026-11-20T00:00:00Z',provenance:{canonical_input_json:text}};assert.equal((await verifyProvenance(r)).certified,false);r.input.x=2;await assert.rejects(()=>verifyProvenance(r),/불일치/);});
+test('legacy result warns; wrong hash and absent timestamp reject',async()=>{assert.equal((await verifyProvenance({input:{}})).status,'LEGACY_MISSING_PROVENANCE');await assert.rejects(()=>verifyProvenance({input:{},input_sha256:'bad',provenance:{canonical_input_json:'{}'}}),/hash/);});

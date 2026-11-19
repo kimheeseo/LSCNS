@@ -1,3 +1,4 @@
+import {verifyProvenance} from './result_contract_v0810.mjs?v=20261120-v0810';
 import {mountDesignMesh,inputsMatch} from './research_design_mesh_v084.mjs?v=20261119-v084';
 import {mountStep3,validateModeResult} from './research_step3_v085.mjs?v=20261120-v088';
 /** LSCNS research fiber v1 — JSON preset editor + Python vector FEM result viewer.
@@ -102,6 +103,7 @@ function heat(canvas,coords,fields,part){
 function clearResult(message='입력 변경: 이전 벡터 결과를 무효화했습니다. Python에서 다시 계산하세요.'){
   output=null;$('rf-results').replaceChildren();$('rf-mode-select').replaceChildren();
   $('rf-field-panel').hidden=true;$('rf-verdict').textContent=message;
+  document.dispatchEvent(new CustomEvent('ls-mode-result-invalid'));
 }
 function renderSelectedMode(){
   if(!output)return;
@@ -143,7 +145,7 @@ function mount(){
   '@media(max-width:700px){#research-fiber-v1 .rf-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#research-fiber-v1 .rf-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}';
   document.head.appendChild(style);
   const section=document.createElement('section');section.id='research-fiber-v1';section.className='engineering-panel';
-  section.innerHTML='<h2>광섬유 연구 · 설계/메시/벡터 FEM v0.8.9</h2><p>앱 v0.8.9 · 기본 scalar 엔진 v0.7.1 유지 · Python 벡터 FEM 별도 실행</p>'+
+  section.innerHTML='<h2>광섬유 연구 · 설계/메시/벡터 FEM v0.8.10</h2><p>앱 v0.8.10 · 기본 scalar 엔진 v0.7.1 유지 · Python 벡터 FEM 별도 실행</p>'+
     '<p>8개 계열 · 25개 버전형 JSON 프리셋을 저장/불러옵니다. 지오메트리·복소 풀벡터 FEM은 로컬 또는 Colab Python에서 실행합니다. 웹은 결과 JSON만 시각화합니다.</p>'+
     '<p class="rf-muted">주의: Kagome/negative-curvature/PM 응력과 PBGF 밴드갭은 일부 형상 근사 또는 미구현입니다. 계산된 손실은 메시·PML 독립 검증 전까지 미검증 수치입니다.</p>'+
     '<div class="rf-line"><label>설계 프리셋 <select id="rf-preset"><option>프리셋 불러오는 중…</option></select></label><button id="rf-use">프리셋 적용</button><button id="rf-check">설계 점검</button><button id="rf-save">JSON 저장</button><label for="rf-open" class="rf-file">JSON 열기</label><input type="file" accept=".json" id="rf-open" hidden></div>'+
@@ -162,12 +164,12 @@ function mount(){
     '</div><p class="rf-muted">필드 샘플은 희소 삼각형 중심점의 복소값입니다. 그림은 산점 시각화이며 실제 FEM 재계산, 정량 손실 인증 또는 밴드갭 지도는 아닙니다.</p>';
   main.appendChild(section);
   const revealResearch=()=>{
-    const active=location.hash==='#research-fiber-v1'||location.hash==='#rf-design-mesh-v084'||location.hash==='#research-step3-v085'||location.hash==='#research-step4-v080'||location.hash==='#research-step6-v088'||location.hash==='#research-validation-v089';
+    const active=location.hash==='#research-fiber-v1'||location.hash==='#rf-design-mesh-v084'||location.hash==='#research-step3-v085'||location.hash==='#research-step4-v080'||location.hash==='#research-step6-v088'||location.hash==='#research-validation-v089'||location.hash==='#research-architecture-v0810';
     document.body.classList.toggle('ls-research-view',active);
     if(active)requestAnimationFrame(()=>(document.getElementById(location.hash.slice(1))||section).scrollIntoView({block:'start'}));
   };
   window.addEventListener('hashchange',revealResearch);revealResearch();
-  document.addEventListener('ls-research-result-import',e=>{try{validateModeResult(e.detail);updateConfig(e.detail.input);displayResult(e.detail);}catch(err){clearResult('결과 적용 실패: '+err.message);status('결과 적용 실패: '+err.message);}});
+  document.addEventListener('ls-research-result-import',e=>{const apply=()=>{try{validateModeResult(e.detail);updateConfig(e.detail.input);displayResult(e.detail);}catch(err){clearResult('결과 적용 실패: '+err.message);status('결과 적용 실패: '+err.message);}};if(e.detail?.provenance?.canonical_input_json)verifyProvenance(e.detail).then(apply).catch(err=>{clearResult('입력 근거 거절: '+err.message);status(err.message);});else apply();});
   document.addEventListener('ls-step6-design-import',e=>{try{updateConfig(e.detail);}catch(err){status(err.message);}});
   mountDesignMesh(section);
   mountStep3(section,{updateConfig,displayResult});
@@ -177,7 +179,7 @@ function mount(){
   $('rf-check').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));drawESM(d);status('브라우저 기본 검사 통과. Python schema.py 상세 검증이 별도로 필요합니다.');}catch(e){status('검사 실패: '+e.message);}});
   $('rf-save').addEventListener('click',()=>{try{const d=validate(JSON.parse($('rf-json').value));save(JSON.stringify(d,null,2)+'\n',jsonName(d.name)+'.json');status('설계 JSON 다운로드 요청');}catch(e){status('저장 실패: '+e.message);}});
   $('rf-open').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>300000)throw Error('300 KB 제한');updateConfig(JSON.parse(await f.text()));}catch(err){status('파일 읽기 실패: '+err.message);}});
-  $('rf-result-open').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>15000000)throw Error('15 MB 제한');displayResult(JSON.parse(await f.text()));}catch(err){clearResult('결과를 표시하지 못했습니다: '+err.message);status('결과 읽기 실패: '+err.message);}});
+  $('rf-result-open').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>15000000)throw Error('15 MB 제한');const r=JSON.parse(await f.text());await verifyProvenance(r);displayResult(r);}catch(err){clearResult('결과를 표시하지 못했습니다: '+err.message);status('결과 읽기 실패: '+err.message);}});
   $('rf-example').addEventListener('click',()=>{if(!output){status('먼저 결과 JSON을 불러와야 합니다.');return;}save(JSON.stringify(output,null,2),'fiber_mode_result_copy.json');});
   fetch(ROOT+'presets.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();})
     .then(obj=>{presets=obj;const options=Object.keys(obj).sort();$('rf-preset').innerHTML=options.map(k=>'<option value="'+escapeHTML(k)+'">'+escapeHTML(k.replace('__',' / '))+'</option>').join('');updateConfig(obj[options[0]]);})

@@ -1,6 +1,6 @@
 # STEP7 v0.8.9 검증표 — 2026-11-20
 
-**전체 물리 검증은 미완료다.** `all_required_passed=false`, STEP8 구조 이관은 시작하지 않았다. software tests/CI 성공을 V1–V9 전체 물리 PASS로 표시하지 않는다.
+**전체 물리 검증은 미완료다.** `all_required_passed=false`, STEP8 구조·UI 개선은 명시된 별도 요청으로 진행하며 이 물리 판정은 승격시키지 않는다. software tests/CI 성공을 V1–V9 전체 물리 PASS로 표시하지 않는다.
 
 | 항목 | 판정 | 실제 결과 / 적용 범위 | 허용오차·필요 근거 |
 |---|---|---|---|
@@ -18,6 +18,6 @@
 
 로컬 Python **134 tests PASS**, Node **13 tests PASS**. 신규 suite의 actual 계산과 별도로 기존 scalar/vector/STEP1–6 회귀를 실행했다. 실제 브라우저 및 GitHub CI 결과는 후속 증거로 기록한다.
 
-[원 결과](step7_v089/validation.json) · [설계/판정 정책](STEP7_V089_DESIGN_20261120.md) · [실행·CSV·출처](../universal_silica_v01/fiber_research_v1/STEP7_V089.md) · [한계/STEP8 보류](STEP7_V089_LIMITATIONS_20261120.md) · [Python 로그](step7_v089/python_tests.txt).
+[원 결과](step7_v089/validation.json) · [설계/판정 정책](STEP7_V089_DESIGN_20261120.md) · [실행·CSV·출처](../universal_silica_v01/fiber_research_v1/STEP7_V089.md) · [한계/후속 계획](STEP7_V089_LIMITATIONS_20261120.md) · [Python 로그](step7_v089/python_tests.txt).
 
 V4/V5 원 데이터는 fresh STEP3 실제 재계산에서 가져왔으며 이전 보고서 번호를 통과 배지로 단순 변경하지 않았다. V5 mesh input hash와 실제 재생성 요소 수를 대조했다. V6는 n_glass를 n_FSM으로 치환하지 않으며 V7의 capillary 값은 shift seed일 뿐 기준답이 아니다.

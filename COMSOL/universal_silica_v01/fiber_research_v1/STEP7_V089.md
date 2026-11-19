@@ -1,6 +1,6 @@
 # STEP7 v0.8.9 — V1–V9 검증 스위트
 
-2026-11-20. V1–V9는 **PASS / FAIL / NEEDS_EVIDENCE(근거 필요)** 세 상태다. 전체 항목이 PASS가 아니면 `all_required_passed=false`, `completion_label=NOT_COMPLETE_UNTIL_ALL_V1_V9_PASS`다. CI 성공은 소프트웨어의 실행·판정 동작을 확인하며 물리 검증의 전체 통과를 뜻하지 않는다. STEP8 구조 변경은 시작하지 않는다.
+2026-11-20. V1–V9는 **PASS / FAIL / NEEDS_EVIDENCE(근거 필요)** 세 상태다. 전체 항목이 PASS가 아니면 `all_required_passed=false`, `completion_label=NOT_COMPLETE_UNTIL_ALL_V1_V9_PASS`다. CI 성공은 소프트웨어의 실행·판정 동작을 확인하며 물리 검증의 전체 통과를 뜻하지 않는다. 이번에 함께 요청한 STEP8 구조·UI 작업은 물리 판정을 승격시키지 않는 별도 작업으로 이어간다.
 
 ## 검증 정의와 모듈
 
@@ -18,7 +18,7 @@
 
 10ppm/5%/절대오차 등은 **명시한 공학적 수치 수용 정책**이며 논문/COMSOL이 보증한 불확도가 아니다. V2/V3/V6는 알려지지 않은 문헌 오차나 값을 추정해 채우지 않으며 허용값 미정은 null이다.
 
-`validate_step7_v089.py`: 전 항목 조합/판정·출처 hash·환경·시각·gate. `validation_photonics_v089.py`: actual b–V/FSM/ARF 계산. `validation_reference_v089.py`: 확인한 공개 reference facts와 누락 데이터. `validation_csv_v089.py` / 웹 `validation_csv_v089.mjs`: 각각 Python/브라우저의 엄격한 parser 및 오차 계산. 물리식은 기존 postprocess를 호출하며 표시 모듈 `research_validation_v089.mjs`와 분리한다. STEP8의 전체 디렉터리 이관/공식 registry는 이번 단계에 포함하지 않는다.
+`validate_step7_v089.py`: 전 항목 조합/판정·출처 hash·환경·시각·gate. `validation_photonics_v089.py`: actual b–V/FSM/ARF 계산. `validation_reference_v089.py`: 확인한 공개 reference facts와 누락 데이터. `validation_csv_v089.py` / 웹 `validation_csv_v089.mjs`: 각각 Python/브라우저의 엄격한 parser 및 오차 계산. 물리식은 기존 postprocess를 호출하며 표시 모듈 `research_validation_v089.mjs`와 분리한다. STEP8의 안정 namespace/공식 registry는 별도 STEP8 문서를 따른다.
 
 기존 STEP3 v0.8.5 보고서의 V4는 잔차/장 무결성, V5는 종합 PML/메시 검사였다. 기존 기록은 변경하지 않고, STEP7에서는 **V4=PML 독립성, V5=메시 수렴**으로 사용자 정의에 맞춰 다시 판정한다. 이전 PASS_SCOPED를 항목 이름만 바꿔 복사하지 않는다. fresh STEP3 실제 재실행에서 mode tracking과 sensitivity data를 얻고, 메시를 같은 입력 hash로 재생성해 실제 edge와 요소 수를 대조한다.
 
@@ -71,4 +71,4 @@ python validation_csv_v089.py mode_result.json comsol.csv --calculated-imag-sign
 - Mortensen et al., [Modal cut-off and the V parameter in photonic crystal fibers (2003)](https://arxiv.org/pdf/physics/0307010), Eq4/5 및 n=1.444/1 조건. finite sampled V<π는 모든 λ의 ESM 증명이 아님.
 - Huang et al., [A Method to Process Hollow-Core Anti-Resonant Fibers into Fiber Filters (2018)](https://doi.org/10.3390/fib6040089), ARROW resonance 관계. 단순 식을 자체 계산해 맞았다고 하는 순환 검증은 하지 않음.
 
-실제 합성 HCF의 core intensity/부분공간 후보 식별 실패는 FAIL로 기록하며 제품 공진 불일치나 ARROW 이론의 반증으로 해석하지 않는다. complete ESM, 극소 confinement loss, PM 재료 상수 또는 정량 접속손실은 이번 PASS 항목의 적용 범위가 아니다. 다음 제안은 V2 원 파라미터 확보, V3 정규화된 COMSOL CSV 확보, V6 converged FM/HOM/FSM 및 V7 모드 식별·PML/메시·공진 스캔 개선이다. STEP8 진행 여부는 해당 결과를 검토한 뒤 판단한다.
+실제 합성 HCF의 core intensity/부분공간 후보 식별 실패는 FAIL로 기록하며 제품 공진 불일치나 ARROW 이론의 반증으로 해석하지 않는다. complete ESM, 극소 confinement loss, PM 재료 상수 또는 정량 접속손실은 이번 PASS 항목의 적용 범위가 아니다. 다음 제안은 V2 원 파라미터 확보, V3 정규화된 COMSOL CSV 확보, V6 converged FM/HOM/FSM 및 V7 모드 식별·PML/메시·공진 스캔 개선이다. STEP8 소프트웨어 개선과 별도로 해당 물리 검증 보완을 우선 제안한다.

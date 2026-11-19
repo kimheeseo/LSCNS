@@ -10,4 +10,4 @@
 
 V1은 explicit circular HE11의 선택 V 구간, V4/V5는 strongly leaky circular synthetic reference에 한정한다. 해당 PASS를 HCF 극소손실이나 arbitrary PCF/PM/MCF 품질 인증으로 확대하지 않는다. V8/V9 PASS는 독립 공식/파서 기능 검사다.
 
-요청하신 STEP8은 **보류**한다. 다음 구현 순서는 V2/V3 원본 자료 확보 → V6/V7 물리 모드 식별 및 수렴 개선 → STEP7 gate 재평가 → STEP8 설계 검토다. STEP8 디렉터리 이동은 기존 Python import/Colab/web 경로를 깨지 않도록 facade로 시작하고 `geometry / mesh / materials / solver / postprocess / benchmarks / reports / web`로 점진 분리하는 안을 제안한다. 이 파일은 제안이며 구조 이관을 수행한 기록이 아니다.
+함께 요청하신 STEP8은 STEP7 결과를 먼저 보고한 뒤 별도 소프트웨어 작업으로 진행했다. `lswave/` 아래 안정 facade와 결과 계약을 추가하며 물리 검증 등급은 변경하지 않는다. 다음 물리 작업은 V2/V3 원본 자료 확보 → V6/V7 모드 식별·수렴 개선 → STEP7 gate 재평가 순서다. [STEP8 구조·UI 보고서](STEP8_V0810_VERIFICATION_20261120.md)를 참고한다.

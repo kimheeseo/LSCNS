@@ -52,8 +52,13 @@ def _finite_float(x,name,positive=False,allow_zero=False):
 def confinement_loss(neff_imag:float, wavelength_nm:float):
     """Return signed total loss [dB/m], [dB/km]. Loss IS NOT necessarily radiation-only."""
     imag=_finite_float(neff_imag,"Im(neff)")
-    lam=_finite_float(wavelength_nm,"wavelength_nm",positive=True)*1e-9
-    loss=DECIBEL_PER_NEPER_POWER*(2*math.pi/lam)*imag
+    wavelength_value=_finite_float(wavelength_nm,"wavelength_nm",positive=True)
+    lam=wavelength_value*1e-9
+    try:
+        from .lswave.postprocess.formulas import loss as canonical_loss
+    except ImportError:
+        from lswave.postprocess.formulas import loss as canonical_loss
+    loss=canonical_loss(imag,wavelength_value)
     return {"alpha_total_dB_m":loss,"alpha_total_dB_km":1000*loss,
             "is_passive_sign":imag>=0.0,
             "scope":"TOTAL loss if Im(neff) includes material absorption; NOT certified confinement loss"}
@@ -125,7 +130,8 @@ def petermann_ii_radial(r_um,complex_radial_amplitude):
 def birefringence(neff_x,neff_y,wavelength_nm):
     a=_finite_float(complex(neff_x).real,"neff_x")
     b=_finite_float(complex(neff_y).real,"neff_y")
-    lam=_finite_float(wavelength_nm,"wavelength_nm",positive=True)*1e-9
+    wavelength_value=_finite_float(wavelength_nm,"wavelength_nm",positive=True)
+    lam=wavelength_value*1e-9
     B=abs(a-b)
     return {"B":B,"beat_length_m":(lam/B if B else None),
             "requires":"x/y polarization identity and mode overlap checked independently"}
@@ -140,9 +146,15 @@ def mode_neff_spacing(modes):
 
 def nonlinear_gamma(n2_m2_W,wavelength_nm,Aeff_um2):
     n2=_finite_float(n2_m2_W,"n2[m^2/W]",positive=True,allow_zero=True)
-    lam=_finite_float(wavelength_nm,"wavelength_nm",positive=True)*1e-9
-    area=_finite_float(Aeff_um2,"Aeff[um^2]",positive=True)*1e-12
-    return {"gamma_W_inv_m_inv":(2*math.pi*n2/(lam*area)),
+    wavelength_value=_finite_float(wavelength_nm,"wavelength_nm",positive=True)
+    lam=wavelength_value*1e-9
+    area_value=_finite_float(Aeff_um2,"Aeff[um^2]",positive=True)
+    area=area_value*1e-12
+    try:
+        from .lswave.postprocess.formulas import gamma as canonical_gamma
+    except ImportError:
+        from lswave.postprocess.formulas import gamma as canonical_gamma
+    return {"gamma_W_inv_m_inv":canonical_gamma(n2,wavelength_value,area_value),
             "method":"scalar weak-guidance; n2 explicitly user-supplied; Et-only Aeff"}
 
 
@@ -334,3 +346,4 @@ def surface_anticrossing_candidates(tracked_pair):
                                    "status":"anticrossing_candidate_only",
                                    "note":"finite step resolution; confirm field patterns, refinement and polarization"})
     return {"status":"candidate_screening_only","candidates":candidates}
+

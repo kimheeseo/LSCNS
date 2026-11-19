@@ -76,7 +76,7 @@ class Step6bSmoke(unittest.TestCase):
         self.assertGreater(float(np.max(np.abs(delta))),0)
         with_pm=dict(mesh,pm_eps_delta=delta,pm_source_sha256=stress["input_sha256"])
         out=solve(d,with_pm,n_modes=1,target_neff=1.446,max_sample_points=4)
-        self.assertEqual(out["engine_version"],"0.8.2")
+        self.assertEqual(out["engine_version"],"0.8.5")
         self.assertEqual(out["photoelastic_coupling"]["enabled"],True)
         self.assertFalse(out["validation"]["loss_dB_km_certified"])
         self.assertGreater(len(out["modes"]),0)
@@ -85,3 +85,4 @@ class Step6bSmoke(unittest.TestCase):
         # This smoke does not compare against independently verified COMSOL modes.
 
 if __name__=="__main__":unittest.main()
+

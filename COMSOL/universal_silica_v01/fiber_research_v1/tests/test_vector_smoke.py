@@ -45,7 +45,7 @@ class NumericalSmoke(unittest.TestCase):
         self.assertEqual(sorted(s["modes"][0]["field_samples"]["components"]),
                          sorted(("Ex","Ey","Ez","Hx","Hy","Hz")))
         self.assertFalse(s["validation"]["loss_dB_km_certified"])
-        self.assertEqual(s["engine_version"],"0.8.0")
+        self.assertEqual(s["engine_version"],"0.8.5")
         self.assertIn("Et=Ex,Ey",s["modes"][0]["classification"]["Aeff_basis"])
         self.assertAlmostEqual(s["modes"][0]["alpha_total_dB_km"],1000*s["modes"][0]["alpha_total_dB_m"])
         q=s["modes"][0]["field_quadrature"]
@@ -75,7 +75,7 @@ class NumericalSmoke(unittest.TestCase):
         curved=configure_bend(d,50.0,45.0)
         mesh=build_mesh(d)
         out=solve(curved,mesh,n_modes=1,target_neff=1.446,max_sample_points=10)
-        self.assertEqual(out["engine_version"],"0.8.1")
+        self.assertEqual(out["engine_version"],"0.8.5")
         self.assertFalse(out["validation"]["loss_dB_km_certified"])
         self.assertEqual(out["input"]["_bend"]["direction_deg"],45.0)
         self.assertTrue(out["modes"])
@@ -83,3 +83,4 @@ class NumericalSmoke(unittest.TestCase):
 
 
 if __name__=="__main__": unittest.main()
+

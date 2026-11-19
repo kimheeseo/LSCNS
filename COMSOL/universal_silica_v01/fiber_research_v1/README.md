@@ -1,3 +1,22 @@
+## v0.8.5 — STEP 3 풀벡터 모드 솔버 (2026-11-19)
+
+STEP 1·2를 실제 웹 바로가기에 연결하고 기존 모듈 위에 혼합 벡터 FEM을 보완했습니다. 앱 v0.8.5 / 기본 scalar 엔진 v0.7.1 / 설계 schema_version=1.0.0을 구분합니다. 기존 preset 수치 및 기존 Colab/Yee 자산은 유지합니다.
+
+- [설계](../../validation_report/STEP3_V085_DESIGN_20261119.md) · [알고리즘/출처](../../validation_report/STEP3_V085_ALGORITHM_20261119.md) · [검증표](../../validation_report/STEP3_V085_VERIFICATION_20261119.md) · [한계](../../validation_report/STEP3_V085_LIMITATIONS_20261119.md)
+- Nédélec/H1 1·2차, 복소 β² sparse shift-invert + 기존 companion 교차 검사, PML H 복원, 6성분/잔차/전력, 독립 퇴화 모드 보존, FE 장 부분공간 추적, SBC target/선택적 반복을 추가했습니다.
+- 웹 상단 **STEP 3 벡터 FEM**에서 Python의 실제 HE11/방사 예시를 적용하고 두 모드를 선택합니다. 입력 변경 시 이전 결과를 제거하며 불일치 결과는 거절합니다. 브라우저는 벡터 고유계를 계산하지 않습니다.
+- V1/V4/V5는 **명시된 합성 원형 시험에서 PASS_SCOPED**입니다. PCF/HCF 극소 손실 또는 제품 dB/km 정확도 인증은 아닙니다. Ge/F 계수·C6v·정확한 일부 특수 CAD는 TODO입니다.
+
+```bash
+python -m pip install -r requirements.txt
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python validate_step3.py --out out_step3
+python cli.py solve benchmarks/step3_v085/guided_input.json --modes 2 --target-neff 1.468524 --out out_guided
+python cli.py solve benchmarks/step3_v085/radiative_input.json --modes 2 --target-neff 0.981265 --out out_radiative
+python cli.py study benchmarks/step3_v085/radiative_input.json --modes 2 --target-neff 0.981265 --out out_study
+```
+
+설계 JSON의 선택적 `solver`에는 `element_order: 1|2`, `backend: beta_squared|companion`, `max_dofs`, `tolerance`, `seed`, `sbc_iterations` 등을 지정합니다. 기본 혼합 DOF 한도 80,000(예시는 명시적으로 120,000), 최대 허용 250,000이며 물리 정확도나 메모리 성공을 보장하지 않습니다. Colab에서도 같은 Python 명령을 실행하고 `mode_result.json`을 웹으로 가져옵니다. 전체 설치/시험/한계는 위 문서를 확인하세요.
+
 ## v0.8.4 — STEP 1·2 보완 (2026-11-19)
 
 기존 A–H **25개 설계 수치·schema_version=1.0.0·벡터 고유계 코드는 유지**하고 입력·기하·메시 검사를 보완했습니다. 기존 웹 scalar 표시는 v0.7.1, 이 독립 설계/메시 모듈은 v0.8.4입니다.

@@ -105,6 +105,13 @@ def validate_design(d):
         from .design_checks import check_geometry
     except ImportError:
         from design_checks import check_geometry
+    opt=d.get("solver",{})
+    if not isinstance(opt,dict):raise ValueError("solver must be an object")
+    allowed={"sbc_iterations","element_order","backend","max_dofs","seed","max_iterations","tolerance","residual_tolerance","imaginary_noise_floor","independence_tolerance","degeneracy_tolerance"}
+    if set(opt)-allowed:raise ValueError("unknown solver option")
+    for k,lo,hi,integer in (("sbc_iterations",1,6,True),("element_order",1,2,True),("max_dofs",100,250000,True),("seed",0,2147483647,True),("max_iterations",100,50000,True),("tolerance",1e-14,1e-5,False),("residual_tolerance",1e-12,1e-5,False),("imaginary_noise_floor",0,1e-6,False),("independence_tolerance",1e-10,.001,False),("degeneracy_tolerance",1e-10,.001,False)):
+        if k in opt:number(opt,k,lo,hi,integer)
+    if opt.get("backend","beta_squared") not in ("beta_squared","companion"):raise ValueError("unsupported solver backend")
     check_geometry(d)
     return d
 

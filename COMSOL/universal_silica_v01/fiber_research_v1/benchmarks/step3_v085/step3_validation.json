@@ -1,0 +1,1171 @@
+{
+  "schema": "LSCNS_step3_validation_v085",
+  "engine_version": "0.8.5",
+  "timestamp_utc": "2026-11-19T03:42:15.158568+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-fem": "12.0.2",
+    "gmsh": "4.15.2"
+  },
+  "V1": {
+    "status": "PASS_SCOPED",
+    "reference": {
+      "neff_real": 1.468523976355074,
+      "V": 2.2133026953032617,
+      "u": 1.610837511473293,
+      "characteristic_residual": -3.1086244689504383e-15,
+      "method": "exact vector HE11 J1/K1 tangential-interface characteristic; infinite cladding"
+    },
+    "maximum_absolute_Re_error": 6.296628779267621e-06,
+    "last_mesh_Re_change": 1.2610982500493861e-06,
+    "absolute_Re_tolerance": 1e-05,
+    "cases": [
+      {
+        "name": "guided_mesh_4",
+        "state": "COMPUTED",
+        "input_digest": "99f4bb28395bb516744d1500da304845667733c0040f058bed9716375a2a5b0d",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999997,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999997
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685177887000573,
+          1.4685176797262947
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 1.0025226434825103e-14,
+        "max_pencil_residual": 1.0149623825761672e-14,
+        "max_gauss_residual": 2.0050913572562466e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          0.9999999999999999,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 17097,
+          "pencil_dofs": 17097,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 2484
+      },
+      {
+        "name": "guided_mesh_6",
+        "state": "COMPUTED",
+        "input_digest": "0f99b4eb6aea2034f6edbcc5d0d36eacfd1adcc84d3a5ec9a84dc4b856520b69",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999913484803061,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.999991800990305,
+            0.9999913484803061
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685204570120267,
+          1.4685204463767456
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 1.5934715656554187e-14,
+        "max_pencil_residual": 1.6106508491045688e-14,
+        "max_gauss_residual": 3.7446527012033976e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          1.0000000000000002
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 26128,
+          "pencil_dofs": 26128,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 3795
+      },
+      {
+        "name": "guided_mesh_8",
+        "state": "COMPUTED",
+        "input_digest": "b5bd2e9ff1ec39ad33dae7676ce6a35d2bd9a9f56e3ebcdd6a68f6d1f450cbfe",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999919201468891,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999922831786046,
+            0.9999919201468891
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685217181102768,
+          1.4685216998546207
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 2.1475287533848204e-14,
+        "max_pencil_residual": 2.169837262121348e-14,
+        "max_gauss_residual": 7.116328590679695e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 35985,
+          "pencil_dofs": 35985,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5224
+      },
+      {
+        "name": "guided_window_6.0",
+        "state": "COMPUTED",
+        "input_digest": "2a86c4d012b93f9b5e1200e6a1e849499bd0ab706d503b34c8b70f633d6a079e",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999887600114529,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999905116643694,
+            0.9999887600114529
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685216328785546,
+          1.4685216028332082
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 1.966027780339679e-14,
+        "max_pencil_residual": 1.9858107029558833e-14,
+        "max_gauss_residual": 6.016378515990042e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          1.0000000000000002
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 21081,
+          "pencil_dofs": 21081,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 3080
+      },
+      {
+        "name": "guided_window_7.2",
+        "state": "COMPUTED",
+        "input_digest": "f1ebbdb42be961d8c2478b4178c83a6a0120b094f3b03a7016aad7a5041f0948",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999883132377536,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999887864505969,
+            0.9999883132377536
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685216678318882,
+          1.4685216100727718
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 1.9621159409577963e-14,
+        "max_pencil_residual": 1.9813613686288786e-14,
+        "max_gauss_residual": 6.251110494895087e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000004,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 24161,
+          "pencil_dofs": 24161,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 3520
+      },
+      {
+        "name": "guided_window_8.0",
+        "state": "COMPUTED",
+        "input_digest": "8e05c9221d5c58b81fd4aae89c1d29ec59fcd18948dcb74cb0c6effe73944bfd",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.99998901667005,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999898002249172,
+            0.99998901667005
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          1.4685216739290627,
+          1.4685216112529782
+        ],
+        "neff_imag": [
+          0.0,
+          0.0
+        ],
+        "max_qep_residual": 1.9521074993177894e-14,
+        "max_pencil_residual": 1.97207351199798e-14,
+        "max_gauss_residual": 5.980517560522789e-13,
+        "max_pml_intensity_fraction": 0.0,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          0.9999999999999997
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 25743,
+          "pencil_dofs": 25743,
+          "real_pencil": true,
+          "target_neff": 1.468523976355074,
+          "shift": 35.437120350414446,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 3746
+      }
+    ],
+    "scope": "synthetic circular guided HE11 only"
+  },
+  "V4": {
+    "status": "PASS_SCOPED",
+    "uniform_TE11_reference": {
+      "neff_real": 1.442074147130576,
+      "neff_imag": 0.00010054961479513344,
+      "maximum_complex_error": 1.4144406971194093e-06
+    },
+    "beta_squared_companion_Re_difference": 0.0,
+    "pencil_subspace": {
+      "status": "PASS_TRACKING",
+      "minimum_correlation": 1.0,
+      "indices": [
+        0,
+        1
+      ],
+      "principal_correlations": [
+        1.0,
+        1.0
+      ]
+    },
+    "scope": "finite E/H, forward power, residuals, physical probe rank; not proof against every spurious mode",
+    "radiative_integrity_passed": true
+  },
+  "V5": {
+    "status": "PASS_SCOPED",
+    "reference": {
+      "neff_real": 0.9812647950010756,
+      "neff_imag": 0.004683398855544073,
+      "characteristic_residual": 1.8596365118996589e-16,
+      "method": "exact vector m=1 circular core, regular J1 interior / outgoing Hankel-1 infinite exterior"
+    },
+    "maximum_relative_Im_error": 0.004999251461917901,
+    "relative_Im_spread": 0.007704789886300847,
+    "maximum_absolute_Re_error": 2.436499293201333e-05,
+    "Im_relative_tolerance": 0.05,
+    "Re_absolute_tolerance": 0.0001,
+    "cases": [
+      {
+        "name": "radiative_baseline",
+        "state": "COMPUTED",
+        "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999999,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999999
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812630999066809,
+          0.9812611002914886
+        ],
+        "neff_imag": [
+          0.0046874913565472034,
+          0.004674665627977707
+        ],
+        "max_qep_residual": 7.194115071263374e-15,
+        "max_pencil_residual": 8.789703637524592e-15,
+        "max_gauss_residual": 5.715370058134844e-14,
+        "max_pml_intensity_fraction": 0.029064881037088937,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "radiative_mesh_4",
+        "state": "COMPUTED",
+        "input_digest": "4a6585d59255cff9aeb22d9c9b1b81f1eeb195ec5f78d0ad6c9791c0c04a086c",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9997436465096317,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9997816365462123,
+            0.9997436465096317
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812689909408389,
+          0.981246587849576
+        ],
+        "neff_imag": [
+          0.0046793094899968924,
+          0.00467508734346421
+        ],
+        "max_qep_residual": 5.012747326226525e-15,
+        "max_pencil_residual": 5.910825017600236e-15,
+        "max_gauss_residual": 3.777763274918554e-14,
+        "max_pml_intensity_fraction": 0.028950404204782357,
+        "all_finite": true,
+        "power_W": [
+          0.9999999999999999,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 35526,
+          "pencil_dofs": 35526,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5129
+      },
+      {
+        "name": "radiative_mesh_6",
+        "state": "COMPUTED",
+        "input_digest": "c073ee17c3b7c147f9aa4bd9a0662593fc4ecf2245edffbb1bb8e19abcddc35b",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9998117953471616,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9998433155680949,
+            0.9998117953471616
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812650098421047,
+          0.9812602709442962
+        ],
+        "neff_imag": [
+          0.004682059640387793,
+          0.004684848248561164
+        ],
+        "max_qep_residual": 1.1972736503054168e-14,
+        "max_pencil_residual": 1.429750110477819e-14,
+        "max_gauss_residual": 1.091622274893597e-13,
+        "max_pml_intensity_fraction": 0.029701134930275753,
+        "all_finite": true,
+        "power_W": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 60188,
+          "pencil_dofs": 60188,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 8679
+      },
+      {
+        "name": "radiative_mesh_8",
+        "state": "COMPUTED",
+        "input_digest": "ecaeb763bb557bf73aa13a2b3b9b7694124b691f584e93bda2799dd95cbcd356",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.999827706257968,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9998472581101011,
+            0.999827706257968
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812645518588458,
+          0.9812636020678676
+        ],
+        "neff_imag": [
+          0.004684248570787727,
+          0.004680693011233233
+        ],
+        "max_qep_residual": 1.1698812112640445e-14,
+        "max_pencil_residual": 1.3762946624075725e-14,
+        "max_gauss_residual": 1.3648766928062316e-13,
+        "max_pml_intensity_fraction": 0.029986184306657556,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 85424,
+          "pencil_dofs": 85424,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 12311
+      },
+      {
+        "name": "radiative_window_6.0",
+        "state": "COMPUTED",
+        "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999999,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999999
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812630999066809,
+          0.9812611002914886
+        ],
+        "neff_imag": [
+          0.0046874913565472034,
+          0.004674665627977707
+        ],
+        "max_qep_residual": 7.194115071263374e-15,
+        "max_pencil_residual": 8.789703637524592e-15,
+        "max_gauss_residual": 5.715370058134844e-14,
+        "max_pml_intensity_fraction": 0.029064881037088937,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "radiative_window_6.6",
+        "state": "COMPUTED",
+        "input_digest": "3c26f9895e8416252da549ba0f4face77f4f633a754c122db9f79b73f55e9a9f",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.999682530860616,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9997533252483771,
+            0.999682530860616
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812709968437082,
+          0.9812508540813109
+        ],
+        "neff_imag": [
+          0.004687254598919232,
+          0.004696069971104459
+        ],
+        "max_qep_residual": 6.458665180086549e-15,
+        "max_pencil_residual": 7.678193151226573e-15,
+        "max_gauss_residual": 5.5902480296708524e-14,
+        "max_pml_intensity_fraction": 0.029229793322301266,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000004,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 41182,
+          "pencil_dofs": 41182,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5941
+      },
+      {
+        "name": "radiative_window_7.2",
+        "state": "COMPUTED",
+        "input_digest": "6a7a229dd08e5f1667c55f90cb572fcb2068d65536c961576ea4f2c63065a38e",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9996366326379217,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9996842423232859,
+            0.9996366326379217
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.981262804452211,
+          0.9812404300081435
+        ],
+        "neff_imag": [
+          0.00465998536696875,
+          0.004669922233661208
+        ],
+        "max_qep_residual": 5.796651373306388e-15,
+        "max_pencil_residual": 7.297934912566045e-15,
+        "max_gauss_residual": 4.660416356052469e-14,
+        "max_pml_intensity_fraction": 0.029118531430334053,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000004,
+          1.0000000000000007
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 43702,
+          "pencil_dofs": 43702,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 6305
+      },
+      {
+        "name": "pml_thickness_um_1.5",
+        "state": "COMPUTED",
+        "input_digest": "2911b1b117aac144c7c1ddc52a43e98a70963416bb78f768fc9a13f54c439863",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999988576809427,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999991579492531,
+            0.9999988576809427
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812669291656676,
+          0.9812625689517906
+        ],
+        "neff_imag": [
+          0.004676016603755293,
+          0.004685180565130941
+        ],
+        "max_qep_residual": 9.120714090924907e-15,
+        "max_pencil_residual": 1.0482795330697801e-14,
+        "max_gauss_residual": 6.993763739472402e-14,
+        "max_pml_intensity_fraction": 0.02391464648427184,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 36255,
+          "pencil_dofs": 36255,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5234
+      },
+      {
+        "name": "pml_thickness_um_2.0",
+        "state": "COMPUTED",
+        "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999999,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999999
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812630999066809,
+          0.9812611002914886
+        ],
+        "neff_imag": [
+          0.0046874913565472034,
+          0.004674665627977707
+        ],
+        "max_qep_residual": 7.194115071263374e-15,
+        "max_pencil_residual": 8.789703637524592e-15,
+        "max_gauss_residual": 5.715370058134844e-14,
+        "max_pml_intensity_fraction": 0.029064881037088937,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_thickness_um_2.5",
+        "state": "COMPUTED",
+        "input_digest": "be4eee652bfbbe9831eccf35a751599f91a2e313eb68942ea0bb42dce6216e71",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999975469965784,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999981442816976,
+            0.9999975469965784
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812674024033449,
+          0.9812615032462073
+        ],
+        "neff_imag": [
+          0.004690484607895465,
+          0.0046736890222716905
+        ],
+        "max_qep_residual": 7.839996888632011e-15,
+        "max_pencil_residual": 9.695589868543765e-15,
+        "max_gauss_residual": 5.4209294524336063e-14,
+        "max_pml_intensity_fraction": 0.0337106489757017,
+        "all_finite": true,
+        "power_W": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 41195,
+          "pencil_dofs": 41195,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5942
+      },
+      {
+        "name": "pml_strength_3.0",
+        "state": "COMPUTED",
+        "input_digest": "6dce823e29fa48808f17168fff13d6643605714e05d0ec604f97e8ab02dda7c8",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999255793596,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999999357368725,
+            0.9999999255793596
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812626224808528,
+          0.9812605948692305
+        ],
+        "neff_imag": [
+          0.0046875059209374095,
+          0.0046751928024417995
+        ],
+        "max_qep_residual": 6.447821387328924e-15,
+        "max_pencil_residual": 7.949343747198583e-15,
+        "max_gauss_residual": 5.555985333769165e-14,
+        "max_pml_intensity_fraction": 0.03110844228617514,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_strength_4.0",
+        "state": "COMPUTED",
+        "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999999,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999999
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812630999066809,
+          0.9812611002914886
+        ],
+        "neff_imag": [
+          0.0046874913565472034,
+          0.004674665627977707
+        ],
+        "max_qep_residual": 7.194115071263374e-15,
+        "max_pencil_residual": 8.789703637524592e-15,
+        "max_gauss_residual": 5.715370058134844e-14,
+        "max_pml_intensity_fraction": 0.029064881037088937,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_strength_5.0",
+        "state": "COMPUTED",
+        "input_digest": "90fa04d7af97d3d4f8e2ba56f521b27e1ed521f8b4cfaade44858dc331a4d486",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999273293926,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999999341665798,
+            0.9999999273293926
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812636960117244,
+          0.9812618129572247
+        ],
+        "neff_imag": [
+          0.004687619409561203,
+          0.0046743929785588055
+        ],
+        "max_qep_residual": 6.605413783980028e-15,
+        "max_pencil_residual": 8.000882619926686e-15,
+        "max_gauss_residual": 5.3675341503982745e-14,
+        "max_pml_intensity_fraction": 0.027581892448408918,
+        "all_finite": true,
+        "power_W": [
+          0.9999999999999998,
+          1.0
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_order_2",
+        "state": "COMPUTED",
+        "input_digest": "9a5afcc5c580698b0f0def0736c0fc7bfffd49efd15ac38472a33b7ff747febc",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999989684958991,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.9999991141846654,
+            0.9999989684958991
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812631226095186,
+          0.981262515881509
+        ],
+        "neff_imag": [
+          0.004676001913683428,
+          0.0046888437995329015
+        ],
+        "max_qep_residual": 5.766049749797239e-15,
+        "max_pencil_residual": 6.923260452530231e-15,
+        "max_gauss_residual": 4.7427479730918175e-14,
+        "max_pml_intensity_fraction": 0.020953912057937545,
+        "all_finite": true,
+        "power_W": [
+          1.0,
+          0.9999999999999997
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_order_3",
+        "state": "COMPUTED",
+        "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999999999999999,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            1.0,
+            0.9999999999999999
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812630999066809,
+          0.9812611002914886
+        ],
+        "neff_imag": [
+          0.0046874913565472034,
+          0.004674665627977707
+        ],
+        "max_qep_residual": 7.194115071263374e-15,
+        "max_pencil_residual": 8.789703637524592e-15,
+        "max_gauss_residual": 5.715370058134844e-14,
+        "max_pml_intensity_fraction": 0.029064881037088937,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          0.9999999999999998
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      },
+      {
+        "name": "pml_order_4",
+        "state": "COMPUTED",
+        "input_digest": "655b0ee5dd02c87d1f5ff2c6c123413a9fd02986c3735162162df96408a4686d",
+        "tracking": {
+          "status": "PASS_TRACKING",
+          "minimum_correlation": 0.9999993906238198,
+          "indices": [
+            0,
+            1
+          ],
+          "principal_correlations": [
+            0.999999478539154,
+            0.9999993906238198
+          ],
+          "tracked_dimension": 2
+        },
+        "neff_real": [
+          0.9812616952106545,
+          0.9812594440028128
+        ],
+        "neff_imag": [
+          0.004687512304886521,
+          0.004676533893974343
+        ],
+        "max_qep_residual": 6.350303376888349e-15,
+        "max_pencil_residual": 7.510411722080133e-15,
+        "max_gauss_residual": 4.9957200597996194e-14,
+        "max_pml_intensity_fraction": 0.03513926524158703,
+        "all_finite": true,
+        "power_W": [
+          1.0000000000000002,
+          1.0000000000000002
+        ],
+        "solver": {
+          "backend": "beta_squared",
+          "mixed_dofs": 38775,
+          "pencil_dofs": 38775,
+          "real_pencil": false,
+          "target_neff": 0.9812647950010756,
+          "shift": 15.822269447394484,
+          "tolerance": 1e-11,
+          "seed": 42,
+          "returned_modes": 2,
+          "requested_modes": 2,
+          "duplicate_vectors_removed": 0,
+          "all_returned_fields_finite": true
+        },
+        "triangles": 5594
+      }
+    ],
+    "scope": "synthetic strongly radiating circular air-like core in n=1.45 infinite exterior; NOT tiny-loss HCF certification"
+  },
+  "all_scoped_tests_passed": true,
+  "product_loss_certified": false,
+  "next_step_started": false
+}

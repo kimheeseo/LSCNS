@@ -22,60 +22,14 @@ def run_study(d,out,n_modes=1,target_neff=None):
     except ImportError:
         from geometry import build_mesh
         from vector_fem import solve
-    if d["boundary"]["type"]!="pml":
-        raise ValueError("automatic PML sensitivity study requires boundary.type=pml")
-    base=d
-    candidate=[]
-    def add(name,field,value):
-        case=copy.deepcopy(base)
-        item=case
-        for part in field.split(".")[:-1]: item=item[part]
-        item[field.split(".")[-1]]=value
-        candidate.append((name,case))
-    for scale in (.7,1.0,1.4):
-        add("mesh_density_"+str(scale),"mesh.elements_per_wavelength",
-            max(4,int(round(base["mesh"]["elements_per_wavelength"]*scale))))
-    for fac in (.75,1,1.25):
-        add("pml_thickness_"+str(fac),"boundary.thickness_um",
-            round(base["boundary"]["thickness_um"]*fac,4))
-    for fac in (.75,1,1.25):
-        add("pml_strength_"+str(fac),"boundary.strength",
-            round(base["boundary"]["strength"]*fac,4))
-    for order in (2,3,4):
-        add("pml_order_"+str(order),"boundary.order",order)
-    for scale in (1,1.2):
-        add("physical_domain_"+str(scale),"domain_radius_um",
-            round(base["domain_radius_um"]*scale,4))
-    results=[]
-    for name,case in candidate:
-        try:
-            validate_design(case)
-            mesh=build_mesh(case,out/name)
-            sol=solve(case,mesh,n_modes=n_modes,target_neff=target_neff,max_sample_points=100)
-            mode=sol["modes"][0]
-            results.append({"case":name,"state":"computed_unverified","neff_real":mode["neff_real"],
-                            "neff_imag":mode["neff_imag"],"polarization":mode["classification"]["polarization_class"],
-                            "residual":mode["residual_relative"],"weak_gauss":mode["weak_gauss_relative"],
-                            "mesh_triangles":mesh["quality"]["triangles"]})
-        except Exception as exc:
-            results.append({"case":name,"state":"failed","error":str(exc)})
-        dump({"cases":results,"status":"IN_PROGRESS_NOT_VALIDATED"},out/"study_partial.json")
-    succeeded=[r for r in results if r["state"]=="computed_unverified"]
-    verdict="FAIL_UNVERIFIED"
-    if len(succeeded)==len(results):
-        same_pol=len(set(r["polarization"] for r in succeeded))==1
-        dr=max(r["neff_real"] for r in succeeded)-min(r["neff_real"] for r in succeeded)
-        im=[r["neff_imag"] for r in succeeded]
-        m=max(abs(x) for x in im)
-        # Absolute noise floor and sign stability are independent of fractional spread.
-        im_stable=(min(im)>=0 and m>1e-12 and (max(im)-min(im))/m<.05)
-        if same_pol and dr<1e-6 and im_stable and max(r["weak_gauss"] for r in succeeded)<.05:
-            verdict="NUMERIC_SENSITIVITY_PASS_ONLY_INDEPENDENT_BENCHMARK_REQUIRED"
-    return {"schema":"LSCNS_fiber_research_study_v1","timestamp_utc":datetime.now(timezone.utc).isoformat(),
-            "status":verdict,"note":"Nearest-index pairing only; field-overlap mode tracking and external physical benchmark required",
-            "acceptance":{"max_Re_spread":1e-6,"max_Im_fractional_spread":.05,
-                          "no_negative_Im":True,"weak_gauss_limit":.05},
-            "cases":results}
+    if d["boundary"]["type"]!="pml":raise ValueError("PML sensitivity requires boundary.type=pml")
+    try:from .modal_study import make_sensitivity_cases,run_cases,sensitivity_verdict,input_digest
+    except ImportError:from modal_study import make_sensitivity_cases,run_cases,sensitivity_verdict,input_digest
+    cases=make_sensitivity_cases(d)
+    rows,_=run_cases(d,cases,out,n_modes=max(2,n_modes),target_neff=target_neff)
+    return {"schema":"LSCNS_fiber_research_study_v1","engine_version":"0.8.5","input":d,
+            "input_digest":input_digest(d),"cases":rows,**sensitivity_verdict(rows),
+            "tracking":"fixed physical-domain FE probes; degenerate-subspace principal correlations >=0.98"}
 
 
 def main(argv=None):

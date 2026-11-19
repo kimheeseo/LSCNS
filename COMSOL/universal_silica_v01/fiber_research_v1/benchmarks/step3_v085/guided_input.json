@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "name": "STEP3 synthetic guided independent benchmark",
+  "family": "index_guiding",
+  "variant": "step",
+  "wavelength_nm": 1550,
+  "domain_radius_um": 6.0,
+  "parameters": {
+    "core_radius_um": 1.3,
+    "delta_n": 0.06
+  },
+  "materials": {
+    "core": {
+      "model": "constant",
+      "n": 1.5
+    },
+    "background": {
+      "model": "constant",
+      "n": 1.44
+    }
+  },
+  "mesh": {
+    "bulk_max_um": 0.8,
+    "through_wall_elements": 5,
+    "elements_per_wavelength": 4,
+    "curvature_segments": 144,
+    "symmetry": "full"
+  },
+  "boundary": {
+    "type": "pec",
+    "thickness_um": 0,
+    "strength": 2,
+    "order": 3
+  },
+  "metadata": {
+    "status": "SYNTHETIC_NUMERICAL_BENCHMARK_NOT_A_PRODUCT",
+    "material_basis": "explicit test indices, not inferred silica/air product constants"
+  },
+  "solver": {
+    "element_order": 2,
+    "max_dofs": 120000,
+    "backend": "beta_squared",
+    "tolerance": 1e-11
+  }
+}

@@ -1,3 +1,14 @@
+## v0.8.5 — 2026-11-19 — STEP 3 mixed vector solver and applied tool integration
+
+- Applied STEP1/2 web shortcuts; research panel remains accessible in HCF/vector view modes; app v0.8.5, scalar v0.7.1 unchanged.
+- Retained mixed Maxwell assembly and companion backend; added N2/P2 and equivalent beta-squared sparse shift-invert backend with explicit resource budget.
+- Fixed PML H reconstruction using transformed inverse permeability and requested SBC target; added optional target iteration with first-order boundary limitations.
+- Added physical-domain 1 W normalization, finite six fields, QEP/pencil/dual-norm Gauss diagnostics, Stokes/mirror/longitudinal-content diagnostics.
+- Kept independent degenerate modes; removed only field-rank duplicates; tracked fixed FE probe subspaces across remesh/window/PML changes.
+- Added exact vector guided circular, absorbing PEC TE11 and outgoing-Hankel radiative references; reproducible V1/V4/V5 PASS_SCOPED benchmarks. Does not certify tiny-loss PCF/HCF or COMSOL parity.
+- Added actual Python examples, mode selector and strict input/stale-result guards to web; full-index browser CI coverage.
+- Preserved material provenance, Ge/F TODO blockers, original presets and existing scalar/Yee/Colab assets. Next PCF stage requires approval.
+
 ## v0.8.4 — 2026-11-19 — STEP 1·2 design/mesh verification
 
 - Kept 25 preset geometric/optical numbers and design schema_version 1.0.0; added capability metadata and optional mesh policy controls.

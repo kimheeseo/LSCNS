@@ -1,3 +1,7 @@
+## v0.8.8 — STEP6 확장 해석 (2026-11-20)
+
+[STEP6 실행·공식·출처·한계](STEP6_V088.md) · [검증표](../../validation_report/STEP6_V088_VERIFICATION_20261120.md). 실제 굽힘/PM/MCF FEM, 접속 Et overlap·갭, 다차원 그리드·Pareto를 추가했습니다. 웹 상단 STEP6에서 실행 입력을 저장하고 계산 JSON을 가져옵니다. PM 합성 예시와 미검증 수치를 실제 섬유 성능으로 사용하지 않습니다. 기존 PMD 통계는 시연용으로 유지하고 signed 복굴절→uniform DGD 경로를 구별합니다. PCF V2/V6 외부 검증은 자료/계산 미완료를 명시합니다.
+
 ## v0.8.7 / v0.8.6 — STEP 4·5 보완 (2026-11-19)
 
 - STEP4 v0.8.6: 실제 6성분 물리 FE Gauss 적분(재료 라벨, PML 제외), Et Aeff/MFD2nd, Poynting 유리 비율, 출처 있는 quartic n2/gamma, 명시적 radial PII, D/S/λ0, 편광/HOMER·surface 후보 입력 보호. N2 Et⁴ 적분은 degree-8 quadrature를 사용한다. 불명확한 퇴화 편광을 개별 모드로 강제 연결하지 않고 부분공간 centroid로 추적한다.

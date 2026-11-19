@@ -1,3 +1,13 @@
+## v0.8.8 — 2026-11-20 — STEP6 extended analyses
+
+- Add actual FEM bend radius/direction sweeps with fixed FE probe/subspace tracking; preserve v0.8.1 bending and sourced optional R_eff/R interface.
+- Couple existing thermal mechanics/photoelastic tensor to modal polarization-pair spatial matching; synthetic example constants clearly distinguished from measured PM materials.
+- Add N-core actual supermodes/core powers, screened identical 2-core Jones/envelope kappa, 64 requested-mode capacity subject to resource budgets; legacy solver defaults preserved.
+- Add actual FEM field grids, Et splice overlap/offset/angle/gap and optional user-input Fresnel, Gaussian analytic comparisons, SMF-HCF candidate example.
+- Add deterministic multidimensional actual FEM grid/Pareto/checkpoint and stored objective-optimum designs. Keep random PMD demo and add separate signed birefringence→uniform DGD path.
+- Add versioned execution inputs, STEP6 web result viewer and CI. Record PCF V2 external-input blocker and V6 sourced cutoff inputs without claiming numerical validation.
+- No COMSOL-equivalent loss/PM/splice certification; no implicit boron rod, n2 or R_eff coefficients; optional twist/Bayes/GA remain TODO.
+
 ## v0.8.7 — 2026-11-19 — STEP5 vector Maxwell Bloch PWE
 
 - Added independent transverse-H vector PWE with analytic circular inverse-epsilon Fourier coefficients and real nondispersive materials; retained scalar FDFD backend.

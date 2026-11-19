@@ -1,0 +1,36 @@
+name: COMSOL STEP6 browser
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step6_v088.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*step6_v088*'
+      - '.github/workflows/comsol_step6_browser.yml'
+  workflow_dispatch:
+jobs:
+  actual-workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser driver
+        run: |
+          npm install --prefix /tmp/ls-step6-browser playwright
+          ls_step6_browser=$(command -v google-chrome || command -v chromium || true)
+          if [ -n "$ls_step6_browser" ]; then
+            printf 'CHROMIUM_PATH=%s\n' "$ls_step6_browser" >> "$GITHUB_ENV"
+          else
+            /tmp/ls-step6-browser/node_modules/.bin/playwright install --with-deps chromium
+          fi
+      - name: Test actual STEP6 workbench, examples and mobile
+        run: |
+          python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step6-http.log 2>&1 &
+          ls_step6_http_pid=$!
+          trap 'kill "$ls_step6_http_pid"' EXIT
+          NODE_PATH=/tmp/ls-step6-browser/node_modules RESULT_PATH=/tmp/step6_browser_check.json node COMSOL/universal_silica_v01/web/tests/browser_research_step6_v088.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step6-browser-validation
+          path: /tmp/step6_browser_check.json

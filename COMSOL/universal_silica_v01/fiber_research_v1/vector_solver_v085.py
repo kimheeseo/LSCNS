@@ -37,7 +37,7 @@ def _solve_once(design,mesh=None,n_modes=2,target_neff=None,max_sample_points=80
     validate_design(design)
     if mesh is None:mesh=build_mesh(design)
     options=design.get("solver",{})
-    if not isinstance(n_modes,int) or isinstance(n_modes,bool) or not 1<=n_modes<=8:raise ValueError("n_modes 1..8")
+    if not isinstance(n_modes,int) or isinstance(n_modes,bool) or not 1<=n_modes<=64:raise ValueError("n_modes 1..64 (large spectra remain subject to solver resource limits)")
     target=target_neff if target_neff is not None else design.get("target_neff")
     if target is None:target=index(design["materials"].get("core",design["materials"]["background"]),design["wavelength_nm"]).real-.001
     if not np.isfinite(target) or not 0<float(target)<3.5:raise ValueError("target neff invalid")

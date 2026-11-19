@@ -13,6 +13,8 @@ on:
       - 'COMSOL/universal_silica_v01/web/research_step6a_v081.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step6b_v082.mjs'
       - 'COMSOL/universal_silica_v01/web/research_step5_v083*'
+      - 'COMSOL/universal_silica_v01/web/research_step6_v088.mjs'
+      - 'COMSOL/universal_silica_v01/web/tests/*step6_v088*'
       - '.github/workflows/comsol_fiber_research_v1.yml'
   workflow_dispatch:
 jobs:
@@ -46,6 +48,9 @@ jobs:
       - name: STEP5 vector Maxwell bands and independent TE TM reference
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: python validate_step5_v087.py --out /tmp/step5_validation
+      - name: STEP6 actual bend thermal PM N-core grid and coupling
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python validate_step6_v088.py --out /tmp/step6_validation
       - name: Compute genuine scalar STEP5 example bands
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |
@@ -60,6 +65,8 @@ jobs:
           PY
       - name: Static web module syntax
         run: |
+          node --test COMSOL/universal_silica_v01/web/tests/test_research_step6_v088.mjs
+          node --check COMSOL/universal_silica_v01/web/tests/browser_research_step6_v088.cjs
           node --check COMSOL/universal_silica_v01/web/research_fiber_v1.mjs
           node --test COMSOL/universal_silica_v01/web/tests/test_research_step3_v085.mjs
           node --check COMSOL/universal_silica_v01/web/tests/browser_research_step3_v085.cjs
@@ -135,3 +142,4 @@ jobs:
             /tmp/step4_validation/validation.json
             /tmp/step5_validation/validation.json
             /tmp/step5_validation/convergence.json
+            /tmp/step6_validation/validation.json

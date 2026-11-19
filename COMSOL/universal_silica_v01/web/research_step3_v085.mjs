@@ -1,7 +1,7 @@
 /* Display reproducible Python computations; never run Maxwell FEM in the browser. */
 const ROOT='../fiber_research_v1/benchmarks/step3_v085/';
 export function validateModeResult(d){
-  if(d?.schema!=='LSCNS_fiber_research_vector_v1'||!d.input||!Array.isArray(d.modes)||!d.modes.length||d.modes.length>8)throw Error('지원하는 벡터 결과 JSON과 input이 필요합니다');
+  if(d?.schema!=='LSCNS_fiber_research_vector_v1'||!d.input||!Array.isArray(d.modes)||!d.modes.length||d.modes.length>64)throw Error('지원하는 벡터 결과 JSON과 input이 필요합니다');
   for(const m of d.modes){
     for(const k of ['neff_real','neff_imag','residual_relative','weak_gauss_relative'])if(!Number.isFinite(m[k]))throw Error(k+' 유한성 오류');
     const f=m.field_samples,points=f?.coordinates_um;

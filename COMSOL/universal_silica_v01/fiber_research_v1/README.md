@@ -1,3 +1,21 @@
+## v0.8.7 / v0.8.6 — STEP 4·5 보완 (2026-11-19)
+
+- STEP4 v0.8.6: 실제 6성분 물리 FE Gauss 적분(재료 라벨, PML 제외), Et Aeff/MFD2nd, Poynting 유리 비율, 출처 있는 quartic n2/gamma, 명시적 radial PII, D/S/λ0, 편광/HOMER·surface 후보 입력 보호. N2 Et⁴ 적분은 degree-8 quadrature를 사용한다. 불명확한 퇴화 편광을 개별 모드로 강제 연결하지 않고 부분공간 centroid로 추적한다.
+- STEP5 v0.8.7: fixed-beta 벡터 H Maxwell PWE, triangular/honeycomb/square/ideal Kagome, Bloch 밴드와 light lines/표본 gap, cutoff/k convergence, finite triangular defect FEM handoff. 기존 scalar FDFD를 별도 선택으로 보존한다.
+- [STEP4 검증·한계](../../validation_report/STEP4_V086_VERIFICATION_20261119.md) · [STEP5 검증·한계](../../validation_report/STEP5_V087_VERIFICATION_20261119.md) · [STEP4 설계](../../validation_report/STEP4_V086_DESIGN_20261119.md) · [STEP5 설계](../../validation_report/STEP5_V087_DESIGN_20261119.md)
+
+```bash
+python -m pip install -r requirements.txt
+python step4_v086_cli.py result mode_result.json --context benchmarks/step4_v086/context_template.json --out metrics.json
+python step4_v086_cli.py solve-sweep design.json --start 1510 --stop 1590 --points 9 --out sweep
+python step5_v087_cli.py example --out step5_design.json
+python step5_v087_cli.py analyze step5_design.json --out bands.json
+python step5_v087_cli.py converge step5_design.json --out convergence.json
+python step5_v087_cli.py handoff bands.json --candidate-index 0 --out finite_design.json
+```
+
+STEP4 result는 `python cli.py solve design.json --export-full-quadrature --out out`의 실제 적분 데이터가 필요하다. 희소 `field_samples`를 정밀 적분하지 않는다. 공기/유리 n2 기본값은 없으며 n2와 source가 모두 있어야 gamma가 계산된다. 비축대칭 vector Petermann-II·미확인 FM/HOM/표면 모드·극소 HCF 손실·complete bandgap은 자동 인증하지 않는다. 웹 상단 STEP4/STEP5에서 실제 계산 예시를 불러오며 브라우저 벡터 계산은 하지 않는다.
+
 ## v0.8.5 — STEP 3 풀벡터 모드 솔버 (2026-11-19)
 
 STEP 1·2를 실제 웹 바로가기에 연결하고 기존 모듈 위에 혼합 벡터 FEM을 보완했습니다. 앱 v0.8.5 / 기본 scalar 엔진 v0.7.1 / 설계 schema_version=1.0.0을 구분합니다. 기존 preset 수치 및 기존 Colab/Yee 자산은 유지합니다.

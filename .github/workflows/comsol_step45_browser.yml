@@ -1,0 +1,37 @@
+name: COMSOL STEP4 and STEP5 browser
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/web/index.html'
+      - 'COMSOL/universal_silica_v01/web/research_fiber_v1.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step4_v080.mjs'
+      - 'COMSOL/universal_silica_v01/web/research_step5*'
+      - 'COMSOL/universal_silica_v01/web/tests/*step45_v087*'
+      - '.github/workflows/comsol_step45_browser.yml'
+  workflow_dispatch:
+jobs:
+  actual-workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser driver
+        run: |
+          npm install --prefix /tmp/ls-step45-browser playwright
+          ls_step45_browser=$(command -v google-chrome || command -v chromium || true)
+          if [ -n "$ls_step45_browser" ]; then
+            printf 'CHROMIUM_PATH=%s\n' "$ls_step45_browser" >> "$GITHUB_ENV"
+          else
+            /tmp/ls-step45-browser/node_modules/.bin/playwright install --with-deps chromium
+          fi
+      - name: Test actual physical quantities and Bloch design workflow
+        run: |
+          python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step45-http.log 2>&1 &
+          ls_step45_http_pid=$!
+          trap 'kill "$ls_step45_http_pid"' EXIT
+          NODE_PATH=/tmp/ls-step45-browser/node_modules RESULT_PATH=/tmp/step45_browser_check.json node COMSOL/universal_silica_v01/web/tests/browser_research_step45_v087.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step45-browser-validation
+          path: /tmp/step45_browser_check.json

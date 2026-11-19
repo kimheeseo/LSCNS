@@ -79,7 +79,7 @@ class ActualVectorChecks(unittest.TestCase):
         cls.result=solve(cls.d,cls.mesh,n_modes=2,target_neff=1.46852,max_sample_points=16,probe_points=cls.p,probe_weights=cls.w)
 
     def test_two_guided_modes_neff_gauss_and_6_components(self):
-        r=self.result;self.assertEqual(r['engine_version'],'0.8.5');self.assertEqual(len(r['modes']),2)
+        r=self.result;self.assertEqual(r['engine_version'],'0.8.6');self.assertEqual(len(r['modes']),2)
         reference=he11_exact(1.5,1.44,1.3,1.55)['neff_real']
         for m in r['modes']:
             self.assertLess(abs(m['neff_real']-reference),1e-5)

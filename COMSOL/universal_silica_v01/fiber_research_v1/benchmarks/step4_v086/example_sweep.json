@@ -1,0 +1,224 @@
+{
+  "schema": "LSCNS_step4_tracked_sweep_v086",
+  "engine_version": "0.8.6",
+  "input": {
+    "schema_version": "1.0.0",
+    "name": "STEP3 synthetic uniform_absorbing independent benchmark",
+    "family": "index_guiding",
+    "variant": "step",
+    "wavelength_nm": 1510.0,
+    "domain_radius_um": 3.0,
+    "parameters": {
+      "core_radius_um": 1.0,
+      "delta_n": 0.001
+    },
+    "materials": {
+      "core": {
+        "model": "constant",
+        "n": 1.45,
+        "kappa": 0.0001
+      },
+      "background": {
+        "model": "constant",
+        "n": 1.45,
+        "kappa": 0.0001
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 0.8,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 4,
+      "curvature_segments": 192,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pec",
+      "thickness_um": 0,
+      "strength": 2,
+      "order": 3
+    },
+    "metadata": {
+      "status": "SYNTHETIC_NUMERICAL_BENCHMARK_NOT_A_PRODUCT",
+      "material_basis": "explicit test indices, not inferred silica/air product constants"
+    },
+    "solver": {
+      "element_order": 2,
+      "max_dofs": 120000,
+      "backend": "beta_squared",
+      "tolerance": 1e-11
+    }
+  },
+  "parameter": "wavelength_nm",
+  "parameter_values": [
+    1510.0,
+    1520.0,
+    1530.0,
+    1540.0,
+    1550.0,
+    1560.0,
+    1570.0,
+    1580.0,
+    1590.0
+  ],
+  "minimum_overlap": 0.75,
+  "degeneracy_tolerance": 1e-06,
+  "curves": [
+    {
+      "mode_id": "initial_group_1",
+      "kind": "degenerate_subspace_centroid",
+      "members": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "neff_real": [
+        1.4424776560790349,
+        1.4423774283407924,
+        1.4422765319991082,
+        1.4421749669136534,
+        1.4420727329431289,
+        1.4419698299452655,
+        1.441866257776822,
+        1.441762016293584,
+        1.4416571053503642
+      ],
+      "neff_imag": [
+        0.00010052148772560037,
+        0.00010052847274988081,
+        0.0001005355053507102,
+        0.0001005425855576381,
+        0.0001005497134004261,
+        0.00010055688890904466,
+        0.00010056411211367946,
+        0.00010057138304472725,
+        0.00010057870173279569
+      ],
+      "overlap_power": [
+        1.0,
+        0.9999999999999993,
+        0.9999999999999993,
+        0.9999999999999998,
+        1.0,
+        0.9999999999999996,
+        0.9999999999999996,
+        0.9999999999999989
+      ],
+      "overlap_verified": true,
+      "parameter_values": [
+        1510.0,
+        1520.0,
+        1530.0,
+        1540.0,
+        1550.0,
+        1560.0,
+        1570.0,
+        1580.0,
+        1590.0
+      ],
+      "wavelength_nm": [
+        1510.0,
+        1520.0,
+        1530.0,
+        1540.0,
+        1550.0,
+        1560.0,
+        1570.0,
+        1580.0,
+        1590.0
+      ],
+      "D_ps_nm_km": [
+        33.66931410693869,
+        33.89935541704584,
+        34.12953921853118,
+        34.35986648426384,
+        34.59033814893117,
+        34.82095531479253,
+        35.05171901383292,
+        35.282630201525855,
+        35.51368985243365
+      ],
+      "S_ps_nm2_km": [
+        0.022997038809874876,
+        0.023011239397536982,
+        0.023025537082023255,
+        0.02303993072752743,
+        0.02305442602943986,
+        0.02306902720365396,
+        0.023083728060079436,
+        0.023098525708910255,
+        0.023113420706658623
+      ],
+      "zero_dispersion_lambda_nm": [],
+      "zero_status": "SAMPLED_ZERO_CANDIDATES_REQUIRE_STEP_CONVERGENCE",
+      "D_roundoff_screen_ps_nm_km": 1.6987354171499358e-06,
+      "derivative_method": "local scaled five-point quartic; analytic 2nd/3rd derivatives; no optical-accuracy certification",
+      "alpha_total_dB_m": [
+        3633.0898253195232,
+        3609.438713362401,
+        3586.098463321539,
+        3563.0630204925096,
+        3540.3264864287858,
+        3517.8831139333693,
+        3495.7273022421427,
+        3473.8535923897753,
+        3452.2566627506376
+      ],
+      "P_glass_fraction": [
+        1.0,
+        1.0,
+        1.0000000000000004,
+        1.0,
+        1.0000000000000004,
+        1.0,
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    }
+  ],
+  "arrow_overlay": {
+    "status": "TODO_WALL_GLASS_AIR",
+    "resonance_lines": []
+  },
+  "validation": {
+    "tracking": "PASS_FIELD_OR_SUBSPACE_OVERLAP",
+    "dispersion_accuracy_certified": false,
+    "degenerate_individual_polarization_identity": "NOT_ASSIGNED"
+  },
+  "surface_anticrossing": {
+    "status": "TODO_VERIFIED_GLASS_LOCALIZED_BRANCH_PAIR"
+  }
+}

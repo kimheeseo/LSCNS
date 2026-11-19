@@ -1,3 +1,17 @@
+## v0.8.7 — 2026-11-19 — STEP5 vector Maxwell Bloch PWE
+
+- Added independent transverse-H vector PWE with analytic circular inverse-epsilon Fourier coefficients and real nondispersive materials; retained scalar FDFD backend.
+- Added versioned JSON Schema, 4 lattice motifs, fixed-beta bands, light lines, sampled-gap maps, actual cutoff/k sampling convergence data.
+- Added gap-targeted finite triangular PBGF handoff with explicit computational-window policy and DOF guard. Real low-resolution finite FEM example is labelled unverified.
+- Connected design/band/defect tabs, legacy export, shared design JSON and actual FEM/STEP4 result imports; stale-result invalidation and browser CI.
+
+## v0.8.6 — 2026-11-19 — STEP4 physical integrals and field/subspace tracking
+
+- Added full six-component material-labelled physical Gauss export; excluded PML by actual element label; raised quadratic-field quadrature to degree 8 for Et^4.
+- Added precise quadrature Aeff/MFD2nd, sourced quartic n2/gamma, glass Poynting fraction, explicitly supplied radial PII and mode identities, signed loss/absorption distinction.
+- Added adjacent field/subspace matching, parameter sweep tracking, D/S/ZDW with quartic local derivatives, dispersive ARROW root and conditional HOMER/surface candidates.
+- Retained old v0.8.0 formulas/CLI; missing material/identity/convergence inputs remain TODO/null. No automatic HCF product certification.
+
 ## v0.8.5 — 2026-11-19 — STEP 3 mixed vector solver and applied tool integration
 
 - Applied STEP1/2 web shortcuts; research panel remains accessible in HCF/vector view modes; app v0.8.5, scalar v0.7.1 unchanged.

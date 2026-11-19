@@ -12,7 +12,7 @@ import numpy as np
 from scipy.sparse import bmat, csc_matrix
 from scipy.sparse.linalg import splu
 
-ENGINE_VERSION="0.8.5"
+ENGINE_VERSION="0.8.6"
 
 try:
     from .materials import index
@@ -97,7 +97,7 @@ def _assemble(design, raw, sbc_target_neff=None):
     if order not in (1,2): raise ValueError("solver.element_order must be 1 or 2")
     ebe=ElementTriN1() if order==1 else ElementTriN2()
     eze=ElementTriP1() if order==1 else ElementTriP2()
-    quadrature_order=4 if order==1 else 6
+    quadrature_order=4 if order==1 else 8  # Et^4 requires degree 8 for quadratic edge fields.
     be=Basis(mesh,ebe,intorder=quadrature_order)
     bz=Basis(mesh,eze,intorder=quadrature_order)
     b0=Basis(mesh,ElementTriP0(),intorder=quadrature_order)
@@ -216,7 +216,7 @@ def _assemble(design, raw, sbc_target_neff=None):
         raise RuntimeError("too few interior mixed DOFs")
     return {"K0":K0[keep,:][:,keep],"K1":K1[keep,:][:,keep],
             "K2":K2[keep,:][:,keep],"keep":keep,"full_size":ne+nz,
-            "ne":ne,"mesh":mesh,"be":be,"bz":bz,"eps":eps,
+            "ne":ne,"mesh":mesh,"be":be,"bz":bz,"eps":eps,"element_material":element_material,
             "pm_anisotropic_optics":bool(pm_fields),"element_order":order,
             "gauss_test_rows":scalar_test_rows,"gauss_mass_factor":gauss_mass_factor,
             "Ge":Ge,"Gz":Gz,"k0":k0}
@@ -237,7 +237,7 @@ def _field_samples(system,vector,beta,design,max_points,export_full_quadrature=F
     six={"Ex":et[0],"Ey":et[1],"Ez":ez,"Hx":hx,"Hy":hy,"Hz":hz}
     dx=be.dx
     qpoints=np.moveaxis(np.asarray(be.global_coordinates()),0,-1)
-    qphysical=np.linalg.norm(qpoints,axis=-1)<float(design["domain_radius_um"])
+    qphysical=np.broadcast_to(system["element_material"][:,None]!="pml",dx.shape)
     poynting=.5*np.real(et[0]*np.conj(hy)-et[1]*np.conj(hx))
     input_power=float(np.sum(poynting[qphysical]*dx[qphysical])*1e-12)
     if not np.isfinite(input_power) or input_power<=0:raise RuntimeError("nonfinite/non-forward physical optical power")
@@ -268,7 +268,7 @@ def _field_samples(system,vector,beta,design,max_points,export_full_quadrature=F
     if not math.isfinite(total) or total<=0: raise RuntimeError("nonfinite/zero optical field")
     frac={key:float(np.sum(np.abs(fields[key])**2*area)/total) for key in ("Ex","Ey","Ez")}
     r=np.linalg.norm(centroids,axis=1)
-    in_pml=(r>float(design["domain_radius_um"]))
+    in_pml=(system["element_material"]=="pml")
     pml_fraction=float(np.sum(intensity[in_pml]*area[in_pml])/total)
     physical=~in_pml
     # STEP 4 v0.8.0: output Aeff/MFD from transverse Et ONLY, not Ez or total E.
@@ -293,7 +293,10 @@ def _field_samples(system,vector,beta,design,max_points,export_full_quadrature=F
             return [[float(v.real),float(v.imag)] for v in values[qphysical]]
         quadrature={"points_um":qpoints[qphysical].tolist(),
                     "weights_um2":dx[qphysical].tolist(),
-                    "Ex":serial(six["Ex"]),"Ey":serial(six["Ey"]),
+                    **{key:serial(value) for key,value in six.items()},
+                    "material_labels":np.broadcast_to(system["element_material"][:,None],dx.shape)[qphysical].tolist(),
+                    "sampling":"actual FEM physical-domain Gauss quadrature; six components, material labels",
+                    "quadrature_schema":"LSCNS_FE_PHYSICAL_QUADRATURE_V086",
                     "scope":"all physical-region FE Gauss quadrature points; PML excluded",
                     "warning":"field quadrature is not automatically remeshed; use identical probes for tracking"}
     return samples,{"Aeff_um2":aeff,"MFD_2nd_um":mfd,

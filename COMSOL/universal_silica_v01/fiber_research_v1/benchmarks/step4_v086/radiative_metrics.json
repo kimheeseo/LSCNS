@@ -1,0 +1,159 @@
+{
+  "schema": "LSCNS_step4_metrics_v086",
+  "engine_version": "0.8.6",
+  "input": {
+    "schema_version": "1.0.0",
+    "name": "STEP3 synthetic radiative independent benchmark",
+    "family": "index_guiding",
+    "variant": "step",
+    "wavelength_nm": 1550,
+    "domain_radius_um": 6.0,
+    "parameters": {
+      "core_radius_um": 3.0,
+      "delta_n": 0.45
+    },
+    "materials": {
+      "core": {
+        "model": "constant",
+        "n": 1.0
+      },
+      "background": {
+        "model": "constant",
+        "n": 1.45
+      }
+    },
+    "mesh": {
+      "bulk_max_um": 0.8,
+      "through_wall_elements": 5,
+      "elements_per_wavelength": 4,
+      "curvature_segments": 192,
+      "symmetry": "full"
+    },
+    "boundary": {
+      "type": "pml",
+      "thickness_um": 2.0,
+      "strength": 4.0,
+      "order": 3
+    },
+    "metadata": {
+      "status": "SYNTHETIC_NUMERICAL_BENCHMARK_NOT_A_PRODUCT",
+      "material_basis": "explicit test indices, not inferred silica/air product constants"
+    },
+    "solver": {
+      "element_order": 2,
+      "max_dofs": 120000,
+      "backend": "beta_squared",
+      "tolerance": 1e-11
+    }
+  },
+  "input_digest": "0eeda0f9410b33f9e7523a9afd60cd9cce21a24cb47d048bd921dc1908471870",
+  "context": {
+    "material_roles": {
+      "core": "air",
+      "background": "glass"
+    }
+  },
+  "wavelength_nm": 1550,
+  "modes": [
+    {
+      "mode_index": 0,
+      "neff_real": 0.981263099463383,
+      "neff_imag": 0.004687491326474777,
+      "alpha_total_dB_m": 165045.22128208802,
+      "alpha_total_dB_km": 165045221.282088,
+      "is_passive_sign": true,
+      "scope": "TOTAL loss if Im(neff) includes material absorption; NOT certified confinement loss",
+      "alpha_confinement_candidate_dB_m": 165045.22128208802,
+      "loss_status": "RADIATION_CANDIDATE_REQUIRES_MESH_PML_STUDY",
+      "Aeff_Et_um2": 17.324803665682005,
+      "MFD_second_moment_Et_um": 5.297782100231421,
+      "MFD_x_um": 5.305548398609982,
+      "MFD_y_um": 5.290004400099488,
+      "centroid_um": [
+        -0.0002025436839887898,
+        0.0005221463696884519
+      ],
+      "power_W": 0.9999999999999999,
+      "material_power_fractions": {
+        "background": 0.09867377979391734,
+        "core": 0.9013262202060828
+      },
+      "quartic_material_weights": {
+        "background": 0.0009597666638600334,
+        "core": 0.9990402333361398
+      },
+      "P_glass_fraction": 0.09867377979391734,
+      "material_role_status": "EXPLICIT_OR_MATERIAL_MODEL",
+      "Poynting_fraction_warning": false,
+      "MFD_PetermannII_um": null,
+      "MFD_PetermannII_status": "TODO_AXISYMMETRIC_SCALAR_RADIAL_OR_VERIFIED_FAR_FIELD",
+      "n2_eff_m2_W": null,
+      "gamma_W_inv_m_inv": null,
+      "nonlinearity_status": "TODO_SOURCED_N2_FOR_EVERY_PRESENT_MATERIAL",
+      "basis": "actual physical FE Gauss quadrature, Et-only area/MFD; PML excluded",
+      "confinement_loss_certified": false
+    },
+    {
+      "mode_index": 1,
+      "neff_real": 0.9812610998337707,
+      "neff_imag": 0.0046746655608451825,
+      "alpha_total_dB_m": 164593.629763509,
+      "alpha_total_dB_km": 164593629.763509,
+      "is_passive_sign": true,
+      "scope": "TOTAL loss if Im(neff) includes material absorption; NOT certified confinement loss",
+      "alpha_confinement_candidate_dB_m": 164593.629763509,
+      "loss_status": "RADIATION_CANDIDATE_REQUIRES_MESH_PML_STUDY",
+      "Aeff_Et_um2": 17.310931634335773,
+      "MFD_second_moment_Et_um": 5.294418412487922,
+      "MFD_x_um": 5.2864973254869065,
+      "MFD_y_um": 5.302327666280354,
+      "centroid_um": [
+        -1.3010080358821953e-06,
+        -5.281653411668719e-05
+      ],
+      "power_W": 1.0000000000000002,
+      "material_power_fractions": {
+        "background": 0.09841929741326673,
+        "core": 0.9015807025867332
+      },
+      "quartic_material_weights": {
+        "background": 0.0009538383901718544,
+        "core": 0.9990461616098281
+      },
+      "P_glass_fraction": 0.09841929741326673,
+      "material_role_status": "EXPLICIT_OR_MATERIAL_MODEL",
+      "Poynting_fraction_warning": false,
+      "MFD_PetermannII_um": null,
+      "MFD_PetermannII_status": "TODO_AXISYMMETRIC_SCALAR_RADIAL_OR_VERIFIED_FAR_FIELD",
+      "n2_eff_m2_W": null,
+      "gamma_W_inv_m_inv": null,
+      "nonlinearity_status": "TODO_SOURCED_N2_FOR_EVERY_PRESENT_MATERIAL",
+      "basis": "actual physical FE Gauss quadrature, Et-only area/MFD; PML excluded",
+      "confinement_loss_certified": false
+    }
+  ],
+  "birefringence": {
+    "status": "TODO_VERIFIED_X_Y_PAIR"
+  },
+  "HOMER": {
+    "status": "TODO_FM_HOM_ID_AND_CONVERGED_LOSSES",
+    "HOMER_ratio": null
+  },
+  "mode_neff_spacing": [
+    {
+      "i": 0,
+      "j": 1,
+      "delta_Re_neff": 1.999629612225995e-06,
+      "delta_Im_neff": 1.2825765629594608e-05,
+      "abs_complex_delta_neff": 1.2980708092064217e-05
+    }
+  ],
+  "arrow_overlay": {
+    "status": "TODO_WALL_GLASS_AIR",
+    "resonance_lines": []
+  },
+  "validation": {
+    "physical_loss_certified": false,
+    "scope": "field integration and explicit supplied identity/material context; no product accuracy certification"
+  }
+}

@@ -40,6 +40,12 @@ jobs:
       - name: Independent STEP3 V1 V4 V5 benchmarks
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: python validate_step3.py --out /tmp/step3_validation
+      - name: STEP4 physical integration and tracked dispersion
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python validate_step4_v086.py --out /tmp/step4_validation
+      - name: STEP5 vector Maxwell bands and independent TE TM reference
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python validate_step5_v087.py --out /tmp/step5_validation
       - name: Compute genuine scalar STEP5 example bands
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
         run: |
@@ -77,6 +83,11 @@ jobs:
           for title,design in presets.items():
               validate(design)
           print("JSON schema checked:",len(presets),"A-H presets")
+          from step5_vector_pwe import example_config
+          pwe_schema=json.loads(Path("step5_vector.schema.json").read_text())
+          Draft202012Validator.check_schema(pwe_schema)
+          Draft202012Validator(pwe_schema).validate(example_config())
+          print("STEP5 vector schema checked")
           PY
       - name: CLI JSON roundtrip
         working-directory: COMSOL/universal_silica_v01/fiber_research_v1
@@ -121,3 +132,6 @@ jobs:
             /tmp/step3_validation/step3_validation.json
             /tmp/step3_browser_check.json
             /tmp/step3_panel.png
+            /tmp/step4_validation/validation.json
+            /tmp/step5_validation/validation.json
+            /tmp/step5_validation/convergence.json

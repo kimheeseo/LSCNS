@@ -1,0 +1,102 @@
+{
+  "schema": "LSCNS_step5_validation_v087",
+  "status": "PASS_SCOPED",
+  "uniform_max_absolute_f_error": 2.220446049250313e-16,
+  "max_residual": 9.530776947576538e-19,
+  "max_divergence": 2.048144446917052e-18,
+  "independent_beta0_TE_TM_reference": [
+    {
+      "real_space_N": 32,
+      "reference_f": [
+        0.17702911709555474,
+        0.17917159554553078,
+        0.5695082144071809,
+        0.5784184594780413,
+        0.6404501426717039,
+        0.6477957508247979
+      ],
+      "PWE_f": [
+        0.17707482283191026,
+        0.17914463090455054,
+        0.5702161167785824,
+        0.5789593294587175,
+        0.6414064103973063,
+        0.6484728500187156
+      ],
+      "max_relative_difference": 0.0014931181397091313
+    },
+    {
+      "real_space_N": 64,
+      "reference_f": [
+        0.17665684191959635,
+        0.17872677867184245,
+        0.5689175284815174,
+        0.5774950157340156,
+        0.6396819121491037,
+        0.6466535783668267
+      ],
+      "PWE_f": [
+        0.17707482283191026,
+        0.17914463090455054,
+        0.5702161167785824,
+        0.5789593294587175,
+        0.6414064103973063,
+        0.6484728500187156
+      ],
+      "max_relative_difference": 0.0028133636196425262
+    },
+    {
+      "real_space_N": 96,
+      "reference_f": [
+        0.17676384112620516,
+        0.1788672772759123,
+        0.569278198986822,
+        0.5779839546999505,
+        0.6401612711049214,
+        0.6472898791950853
+      ],
+      "PWE_f": [
+        0.17707482283191026,
+        0.17914463090455054,
+        0.5702161167785824,
+        0.5789593294587175,
+        0.6414064103973063,
+        0.6484728500187156
+      ],
+      "max_relative_difference": 0.0019450400212992953
+    }
+  ],
+  "actual_sampled_gap_count": 1,
+  "convergence_cases": 6,
+  "handoff_proposals": [
+    {
+      "candidate": 0,
+      "wavelength_nm": 1028.1230761697493,
+      "target_neff": 0.9595815377584326
+    }
+  ],
+  "finite_FEM_example": {
+    "status": "COMPUTED_CANDIDATES_NOT_LOSS_CERTIFIED",
+    "returned_modes": 4,
+    "mixed_dofs": 22797,
+    "neff_real": [
+      0.9599556569873094,
+      0.95810126606868,
+      0.9611772216210916,
+      0.9579155125158553
+    ],
+    "residual_max": 4.1398556877948705e-15,
+    "core_disk_Poynting_fractions": [
+      0.04382307335431029,
+      0.07703153493107101,
+      0.017591899360683394,
+      0.05316618706495007
+    ],
+    "rings": 2,
+    "core_surround_um": 0.0,
+    "mesh_elements_per_wavelength": 4
+  },
+  "complete_gap_certified": false,
+  "MPB_external_comparison": "NOT_RUN",
+  "scope": "vector Maxwell mathematics, uniform exact and independent beta0 TE/TM finite-difference cross-check; no experimental PCF/HCF accuracy certification"
+}

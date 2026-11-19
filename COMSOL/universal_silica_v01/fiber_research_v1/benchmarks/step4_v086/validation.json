@@ -1,0 +1,12 @@
+{
+  "schema": "LSCNS_step4_validation_v086",
+  "status": "PASS_SCOPED",
+  "maximum_D_error_ps_nm_km": 0.006427981246780234,
+  "maximum_S_error_ps_nm2_km": 4.313919793046128e-06,
+  "coarse_fine_D_change_ps_nm_km": 2.6653068374571376e-07,
+  "minimum_overlap": 0.9999999999999989,
+  "reference": "exact complex circular PEC TE11 sqrt(n²-(jprime11 lambda/(2 pi R))²), R=3um, n=1.45+i1e-4 synthetic",
+  "scope": "formula/integration/tracking and circular PEC dispersion; HCF loss/HOMER/anticrossing products NOT certified",
+  "HCF_actual_radiative_partition_test": true,
+  "HCF_n2_without_source": "TODO_SOURCED_N2_FOR_EVERY_PRESENT_MATERIAL"
+}

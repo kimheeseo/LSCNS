@@ -1,0 +1,12 @@
+{
+  "material_roles": {
+    "air": "air",
+    "silica": "glass"
+  },
+  "nonlinear_materials": {},
+  "polarization_pair": null,
+  "mode_identities": {},
+  "identities_source": "",
+  "losses_converged": false,
+  "needed": "Supply cited wavelength/pressure/temperature-specific n2 for every present material; independently verify polarization/FM/HOM/surface identities."
+}

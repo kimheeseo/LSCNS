@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "name": "STEP5 proposed 7-cell triangular PBGF",
+  "family": "pbgf",
+  "variant": "7_cell",
+  "wavelength_nm": 1028.1230761697493,
+  "domain_radius_um": 7.5,
+  "parameters": {
+    "pitch_um": 1.5,
+    "d_over_pitch": 0.9,
+    "rings": 2,
+    "defect_cells": 7,
+    "core_surround_um": 0.0
+  },
+  "materials": {
+    "background": {
+      "model": "constant",
+      "n": 1.45
+    },
+    "core": {
+      "model": "constant",
+      "n": 1.45
+    },
+    "air": {
+      "model": "constant",
+      "n": 1.0
+    },
+    "silica": {
+      "model": "constant",
+      "n": 1.45
+    },
+    "trench": {
+      "model": "constant",
+      "n": 1.44
+    },
+    "high": {
+      "model": "constant",
+      "n": 1.46
+    },
+    "low": {
+      "model": "pure_silica"
+    }
+  },
+  "mesh": {
+    "bulk_max_um": 1,
+    "through_wall_elements": 3,
+    "elements_per_wavelength": 4,
+    "curvature_segments": 48,
+    "symmetry": "full"
+  },
+  "boundary": {
+    "type": "pml",
+    "thickness_um": 3.0,
+    "strength": 2.0,
+    "order": 3
+  },
+  "metadata": {
+    "status": "proposal_not_validated",
+    "provenance": "actual vector PWE sampled gap -> triangular finite PBGF proposal",
+    "source_input_sha256": "e05b49bda38d188d9dc501ab06bca1d6626dfed7aa9cea96d1d2209e462fa318",
+    "selected_gap": {
+      "band_below": 4,
+      "band_above": 5,
+      "f_low": 1.4424446679340144,
+      "f_high": 1.4754939228195718,
+      "width": 0.03304925488555743,
+      "relative_width": 0.022652467732038283,
+      "beta_norm": 1.4,
+      "beta_over_k0_at_f_low": 0.970574491432793,
+      "beta_over_k0_at_f_high": 0.9488348127687927,
+      "status": "SAMPLED_GAP_CANDIDATE"
+    },
+    "fixed_beta_um_inverse": 5.8643062867009474,
+    "limitations": "finite k/cutoff candidate; finite core mode, localization and independent PML/mesh loss validation still required",
+    "domain_radius_basis": "explicit numerical window or (rings+3)*pitch; requires independent window/PML convergence",
+    "target_beta_over_k0": 0.9595815377584326,
+    "example_scope": "explicit 2-ring, zero core-surround, low-order numerical illustration; NOT a converged PCF product"
+  },
+  "target_neff": 0.9595815377584326
+}

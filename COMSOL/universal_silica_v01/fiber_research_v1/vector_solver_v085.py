@@ -16,7 +16,7 @@ except ImportError:
     from vector_spectrum import spectrum
     from modal_diagnostics import disk_probes,weighted_columns,independent_indices
 
-ENGINE_VERSION="0.8.5"
+ENGINE_VERSION="0.8.6"
 
 
 def probe_e(system,full,points):

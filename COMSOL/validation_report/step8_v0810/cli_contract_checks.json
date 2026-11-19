@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "operation": "solve",
+      "schema": "LSCNS_fiber_research_vector_v1",
+      "input_sha256": "35d80c07dd37f844d22d07d29b89d5da218ea62b87f8835381a078bff64476fa",
+      "solver_version": "0.8.6",
+      "timestamp_utc": "2026-11-19T23:12:32.900558+00:00",
+      "hash_scope": "input_manifest",
+      "verify_passed": true,
+      "physical_validation_upgraded": false
+    },
+    {
+      "operation": "sweep",
+      "schema": "LSCNS_step4_tracked_sweep_v086",
+      "input_sha256": "5f5742478c8f8c71b05b660860fc9953834106133e03e28526d138ac0da9f2c6",
+      "solver_version": "0.8.6",
+      "timestamp_utc": "2026-11-19T23:22:15.520178+00:00",
+      "hash_scope": "input_manifest",
+      "verify_passed": true,
+      "physical_validation_upgraded": false
+    },
+    {
+      "operation": "bloch",
+      "schema": "LSCNS_STEP5_BLOCH_RESULT_V087",
+      "input_sha256": "d52c0472f2b0b8d24ce7187aad0257117e6d330157a1ba38f6f4bd7c8c7d7da9",
+      "solver_version": "0.8.7",
+      "timestamp_utc": "2026-11-19T23:22:38.682498+00:00",
+      "hash_scope": "input",
+      "verify_passed": true,
+      "physical_validation_upgraded": false
+    }
+  ],
+  "scope": "actual local Python execution, metadata integrity only; synthetic examples not product certification"
+}

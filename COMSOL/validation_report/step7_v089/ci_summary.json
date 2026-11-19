@@ -1,0 +1,82 @@
+{
+  "version": "0.8.9",
+  "tested_commit": "3e2613616f06e51a8c124d64f95094977b77878a",
+  "software_workflows": [
+    {
+      "name": "COMSOL-style Workbench UI Regression",
+      "id": 44632855035,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632855035",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "pages build and deployment",
+      "id": 44632854293,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632854293",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP6 browser",
+      "id": 44632854996,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632854996",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP3 browser regression",
+      "id": 44632854969,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632854969",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP7 validation browser",
+      "id": 44632855252,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632855252",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL STEP4 and STEP5 browser",
+      "id": 44632854968,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632854968",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL WaveOptics Web Smoke",
+      "id": 44632855001,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632855001",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL HCF and Full-vector Preset UI",
+      "id": 44632855425,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632855425",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "COMSOL fiber research v1",
+      "id": 44632855097,
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44632855097",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "physics_all_required_passed": false,
+  "physics_status": {
+    "V1": "PASS",
+    "V2": "NEEDS_EVIDENCE",
+    "V3": "NEEDS_EVIDENCE",
+    "V4": "PASS",
+    "V5": "PASS",
+    "V6": "NEEDS_EVIDENCE",
+    "V7": "FAIL",
+    "V8": "PASS",
+    "V9": "PASS"
+  },
+  "scope": "Software regression success does not complete the physical validation suite."
+}

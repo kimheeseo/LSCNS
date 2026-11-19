@@ -21,3 +21,9 @@
 [원 결과](step7_v089/validation.json) · [설계/판정 정책](STEP7_V089_DESIGN_20261120.md) · [실행·CSV·출처](../universal_silica_v01/fiber_research_v1/STEP7_V089.md) · [한계/후속 계획](STEP7_V089_LIMITATIONS_20261120.md) · [Python 로그](step7_v089/python_tests.txt).
 
 V4/V5 원 데이터는 fresh STEP3 실제 재계산에서 가져왔으며 이전 보고서 번호를 통과 배지로 단순 변경하지 않았다. V5 mesh input hash와 실제 재생성 요소 수를 대조했다. V6는 n_glass를 n_FSM으로 치환하지 않으며 V7의 capillary 값은 shift seed일 뿐 기준답이 아니다.
+
+## 소프트웨어/물리 결과 분리
+
+v0.8.9 검증 커밋 `3e2613616f06e51a8c124d64f95094977b77878a`의 software 9/9 성공 및 v0.8.10 후속 구조/UI 커밋의 software 10/10 성공을 확인했다. [STEP7 CI](step7_v089/ci_summary.json) · [STEP7 browser](step7_v089/browser_check.json) · [후속 STEP8 검증](STEP8_V0810_VERIFICATION_20261120.md). V2/V3/V6 근거 필요와 V7 FAIL은 그대로다.
+
+후속 STEP8 점검에서 문헌/합성 시험의 air 조건을 explicit n=1로 맞춰 FSM/ARF를 다시 계산했다. 기존 air 모델 n=1.00027은 호환성을 위해 유지하며 ambient unspecified로 표기한다. 이 수정으로 물리 gate를 자동 승격시키지 않았다. V7 screening 정책은 최소 부분공간 correlation 0.8, core-disk Et intensity fraction 0.25이며 독립 FM identity·mesh/PML·peak 검증을 대체하지 않는다.

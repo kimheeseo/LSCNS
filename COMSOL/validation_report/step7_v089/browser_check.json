@@ -1,0 +1,16 @@
+{
+  "scope": "actual STEP7 workbench v089",
+  "nine_verdicts_and_tolerances": true,
+  "all_required_gate_preserved": true,
+  "V2_V3_V6_evidence_required": true,
+  "CSV_fixture_PASS_and_uploaded_FAIL": true,
+  "explicit_imag_convention_required": true,
+  "CSV_does_not_certify_physics": true,
+  "actual_vector_result_connected": true,
+  "automatic_table_after_CSV_upload": true,
+  "stale_results_cleared": true,
+  "no_duplicate_IDs": true,
+  "hcf_vector_navigation": true,
+  "mobile_overflow": false,
+  "page_errors": []
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "STEP8 actual workbench v0810",
+  "actual_vector_and_material_map": true,
+  "formula_substitutions_sources": true,
+  "canonical_input_hash_verified": true,
+  "tampered_input_rejected": true,
+  "stale_basis_cleared": true,
+  "version_and_timestamp": true,
+  "hcf_vector_navigation": true,
+  "scope_visible": true,
+  "no_duplicate_IDs": true,
+  "mobile_overflow": false,
+  "page_errors": []
+}

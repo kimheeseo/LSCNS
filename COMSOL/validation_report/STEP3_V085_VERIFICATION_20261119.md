@@ -23,8 +23,8 @@ V번호의 원래 개별 사양이 제공되지 않았으므로 [설계서](STEP
 
 ## 회귀 및 도구 검증
 
-- Python: 기존 STEP 1·2 및 보존된 STEP 4/5/6 자산 테스트에 혼합 FEM/퇴화/복소 pencil/SBC/유한성/독립 기준 검사를 추가했다. 최종 실행 결과는 `step3_v085/python_tests.txt` 및 CI 기록에 남긴다.
-- JS: 6성분 유한성/배열 일치, 모든 모드 검사, 입력 일치 보호, 기존 메시 입력 비교 테스트.
+- Python: **97개 통과**. 기존 STEP 1·2 및 보존된 STEP 4/5/6 자산 테스트에 혼합 FEM/퇴화/복소 pencil/SBC/유한성/독립 기준 검사를 추가했다. 최종 실행 결과는 `step3_v085/python_tests.txt` 및 CI 기록에 남긴다.
+- JS: **6개 통과**. 6성분 유한성/배열 일치, 모든 모드 검사, 입력 일치 보호, 기존 메시 입력 비교 테스트.
 - 웹 실제 index: STEP 1·2/STEP 3 상단 바로가기, HCF/vector 표시모드에서도 접근, 실제 계산 두 예시, 모드 선택, 불일치 결과 거절, 입력 변경 후 이전 결과 제거, 390 px 화면 검사를 CI에 추가했다. 브라우저 결과는 CI 실행 후 아래 증거에 기록한다.
 - 개별 `solve`는 항상 `DIAGNOSTICS_ONLY_INDEPENDENT_STUDY_REQUIRED`와 인증 false를 반환한다. 동봉 benchmark의 입력/검증 메타데이터를 일반 사용자 설계에 전이하지 않는다.
 
@@ -44,6 +44,23 @@ Colab에서도 같은 Python 명령을 실행할 수 있다. Linux Gmsh에 `libg
 
 ## CI 증거
 
-코드 업로드 후 실제 GitHub Actions 실행 URL·결과를 추가한다. 업로드 전 로컬 결과와 CI 실행 결과를 혼동하지 않는다.
+최종 검증 source commit: `5a72113fa4631f954e4a4f2dfb85805a8af8f7b9`. 구현 commit `dc2719d231fb85c529a5951ce0a9f5fe1e15258d`, 시작 마법사 정상 Cancel 절차 `fe68b5926661b9662a9d3dde498b26e1690c5628`, HCF/vector 연구 패널 CSS 수정 `5a72113fa4631f954e4a4f2dfb85805a8af8f7b9`. 아래 실행은 모두 **success**로 완료됐다. 이후 문서 기록 commit은 수치/화면 코드를 변경하지 않는다.
+
+| 검사 | 실제 실행 / 결과 |
+| --- | --- |
+| Python 97개·V1/V4/V5·25개 프리셋·메시/웹 통합 | [종합 CI 44455761996](https://github.com/kimheeseo/LSCNS/actions/runs/44455761996) — success |
+| 실제 workbench/모드 선택/불일치·stale/모바일 | [브라우저 CI 44455761971](https://github.com/kimheeseo/LSCNS/actions/runs/44455761971) — success, 페이지 오류 0 |
+| 기존 COMSOL-style GUI | [44455762018](https://github.com/kimheeseo/LSCNS/actions/runs/44455762018) — success |
+| 기존 HCF / Full-vector UI | [44455762015](https://github.com/kimheeseo/LSCNS/actions/runs/44455762015) — success |
+| 기존 web smoke | [44455761951](https://github.com/kimheeseo/LSCNS/actions/runs/44455761951) — success |
+| GitHub Pages 배포 | [44455761660](https://github.com/kimheeseo/LSCNS/actions/runs/44455761660) — success |
+
+[종합 수치·메시·화면 JSON 및 PNG artifact](https://github.com/kimheeseo/LSCNS/actions/runs/44455761996/artifacts/14498141016) · [화면 전용 artifact](https://github.com/kimheeseo/LSCNS/actions/runs/44455761971/artifacts/14498500558) · [CI 요약 JSON](step3_v085/ci_summary.json) · [실제 화면 검증 JSON](step3_v085/browser_check.json).
+
+CI는 Python 3.11.18 / NumPy 2.4.6 / SciPy 1.17.1 / scikit-fem 12.0.2 / Gmsh 4.15.2에서 재검증했다. 위 수치 표와 동봉 예시 JSON은 별도로 기록된 로컬 Python 3.12.14 환경의 실제 결과다. CI 원시 수치는 artifact에서 확인한다.
+
+최초 종합 실행은 수치 시험 통과 후 테스트가 기존 시작 마법사를 닫지 않아 화면 클릭에 실패했다. 정상 Cancel 동작을 추가한 다음 실제 index 검사에서 HCF/vector CSS 우선순위 문제를 찾아 수정했다. 최종 전체 실행과 화면 전용 실행이 모두 통과했으며 수용 허용오차는 변경하지 않았다.
+
+사용: [웹 STEP 3 패널](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261119-085#research-step3-v085). 처음 모델 마법사가 보이면 Cancel로 닫고 상단 STEP 3 버튼을 선택한다.
 
 다음 제안: 승인 후 고체 코어 PCF의 독립 벤치마크(V2/V6 정의·문헌 수치 포함). 이번 작업에서 해당 단계를 시작하지 않았다.

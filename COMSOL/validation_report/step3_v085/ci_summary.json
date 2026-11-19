@@ -1,0 +1,134 @@
+{
+  "schema": "LSCNS_step3_ci_v085",
+  "verified_code_sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+  "implementation_sha": "dc2719d231fb85c529a5951ce0a9f5fe1e15258d",
+  "all_workflows_passed": true,
+  "python_tests": 97,
+  "node_tests": 6,
+  "default_geometry_presets": 25,
+  "scoped_benchmarks": {
+    "V1": "PASS_SCOPED",
+    "V4": "PASS_SCOPED",
+    "V5": "PASS_SCOPED"
+  },
+  "product_loss_certified": false,
+  "workflows": [
+    {
+      "id": 44455761660,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455761660",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:06:02Z"
+    },
+    {
+      "id": 44455762018,
+      "name": "COMSOL-style Workbench UI Regression",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455762018",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:06:16Z"
+    },
+    {
+      "id": 44455761951,
+      "name": "COMSOL WaveOptics Web Smoke",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455761951",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:08:12Z"
+    },
+    {
+      "id": 44455761996,
+      "name": "COMSOL fiber research v1",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455761996",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:09:10Z"
+    },
+    {
+      "id": 44455762015,
+      "name": "COMSOL HCF and Full-vector Preset UI",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455762015",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:05:10Z"
+    },
+    {
+      "id": 44455761971,
+      "name": "COMSOL STEP3 browser regression",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kimheeseo/LSCNS/actions/runs/44455761971",
+      "sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9",
+      "updated_at": "2026-11-19T04:04:56Z"
+    }
+  ],
+  "core_artifacts": [
+    {
+      "id": 14498141016,
+      "name": "step12-v084-and-step3-v085-validation",
+      "size_in_bytes": 38818,
+      "url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14498141016",
+      "archive_download_url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14498141016/zip",
+      "expired": false,
+      "created_at": "2026-11-19T04:09:07Z",
+      "expires_at": "2027-02-17T04:04:25Z",
+      "updated_at": "2026-11-19T04:09:07Z",
+      "digest": "sha256:4ca24d1ac3a5d30be75af9c9ba9fc84e5c28e9e119c30dc01605b66002f3c366",
+      "workflow_run": {
+        "id": 44455761996,
+        "repository_id": 1039826641,
+        "head_repository_id": 1039826641,
+        "head_branch": "main",
+        "head_sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9"
+      }
+    }
+  ],
+  "browser_artifacts": [
+    {
+      "id": 14498500558,
+      "name": "step3-browser-validation",
+      "size_in_bytes": 29991,
+      "url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14498500558",
+      "archive_download_url": "https://api.github.com/repos/kimheeseo/LSCNS/actions/artifacts/14498500558/zip",
+      "expired": false,
+      "created_at": "2026-11-19T04:04:54Z",
+      "expires_at": "2027-02-17T04:04:25Z",
+      "updated_at": "2026-11-19T04:04:54Z",
+      "digest": "sha256:261da77cc7948e07adb1ee76ceeb8b829097d7bd182fe44c5819127dd74e9c42",
+      "workflow_run": {
+        "id": 44455761971,
+        "repository_id": 1039826641,
+        "head_repository_id": 1039826641,
+        "head_branch": "main",
+        "head_sha": "5a72113fa4631f954e4a4f2dfb85805a8af8f7b9"
+      }
+    }
+  ],
+  "browser_check": {
+    "scope": "actual workbench index, navigation, CSS and STEP3 panel",
+    "preset_count": 25,
+    "hidden_selector_navigation": true,
+    "actual_python_guided_and_radiative_examples": true,
+    "independent_mode_selector": true,
+    "stale_result_hidden": true,
+    "mismatched_input_rejected": true,
+    "mobile_panel_overflow": false,
+    "page_errors": []
+  },
+  "previous_failures_resolved": [
+    {
+      "run_id": 44453786603,
+      "reason": "browser harness did not dismiss pre-existing startup wizard"
+    },
+    {
+      "run_id": 44454948763,
+      "reason": "actual CSS specificity hid research panel in HCF/vector views; selectors fixed"
+    }
+  ]
+}

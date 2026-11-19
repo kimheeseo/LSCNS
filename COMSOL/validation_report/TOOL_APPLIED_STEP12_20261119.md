@@ -11,3 +11,7 @@
 [도구 진입](https://kimheeseo.github.io/LSCNS/COMSOL/universal_silica_v01/web/?v=20261119-v084-applied#research-fiber-v1)
 
 이후 STEP 3는 별도 v0.8.5 작업으로 진행한다. 이 문서는 모드/손실 정확도 인증을 뜻하지 않는다.
+
+## 후속 실제 화면 확인 — STEP 3 v0.8.5
+
+실제 전체 index 회귀에서 기존 HCF/vector `:not(...)` 숨김 규칙의 높은 CSS 우선순위를 확인했고 commit `5a72113fa4631f954e4a4f2dfb85805a8af8f7b9`에서 연구 패널을 해당 규칙에서 제외했다. 연구 링크 활성 시 표시하고 다른 HCF/vector 화면에서는 기존 전용 레이아웃을 유지한다. [최종 종합 CI](https://github.com/kimheeseo/LSCNS/actions/runs/44455761996)와 [실제 화면 회귀](https://github.com/kimheeseo/LSCNS/actions/runs/44455761971)가 모두 success다. 기존 모델 마법사는 정상 Cancel 버튼으로 닫아 검사한다. STEP 3의 코드·검증표·한계는 [검증 보고서](STEP3_V085_VERIFICATION_20261119.md)에 정리했다.

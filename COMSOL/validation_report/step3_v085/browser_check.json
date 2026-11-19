@@ -1,0 +1,11 @@
+{
+  "scope": "actual workbench index, navigation, CSS and STEP3 panel",
+  "preset_count": 25,
+  "hidden_selector_navigation": true,
+  "actual_python_guided_and_radiative_examples": true,
+  "independent_mode_selector": true,
+  "stale_result_hidden": true,
+  "mismatched_input_rejected": true,
+  "mobile_panel_overflow": false,
+  "page_errors": []
+}

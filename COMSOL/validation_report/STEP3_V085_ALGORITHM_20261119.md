@@ -47,6 +47,8 @@ SBC는 target neff를 반영한 1차 Robin 근사다. 선택적 `sbc_iterations`
 
 고유값이 가깝다는 이유로 두 편광을 하나로 삭제하지 않는다. 물리영역 고정 polar Gauss probe에서 3성분 E를 FE 보간하고 가중 Gram rank로 동일 위상/배수 장만 제거한다. 재메시·계산창 변경에서도 같은 점/가중치를 유지한다. 퇴화된 쌍은 기저 회전에 불변인 부분공간 principal correlations를 사용하며 최솟값 0.98 이상이 이번 추적 정책이다. 일반 study는 target 근방 첫 두 모드 부분공간을 추적한다(임의 다중 분기 전체 모드 추적은 TODO).
 
+후보 탐색은 0<Re(neff)<3.5 및 |Im(neff)|≤0.5로 제한한다. PML 강도분율>0.4, Gauss 진단>1e-5, noise floor보다 큰 음의 Im은 불안정 후보로 표시한다. 이는 공개된 탐색/분류 정책이며 보편적인 모드 존재 조건이나 에너지 확률이 아니다.
+
 각 모드 QEP 및 pencil 상대잔차, interior H1 test 공간의 약형 Gauss dual norm, 6성분 유한성, 전력, PML 강도분율, x/y mirror 상관, 적분 Stokes, 종방향 장 분율을 기록한다. TE-like/TM-like의 1e-6 분율 기준은 수치 휴리스틱이고 C6v 기약표현 또는 자동 HE/LP 이름 판정이 아니다.
 
 study는 각 개별 모드 Im 부호를 보존한다. 1e-10 기본 imaginary noise floor는 **사용자 조절 수치 정책이며 측정된 불확도가 아니다**. 근제로인 손실을 PASS나 0 dB/km로 인증하지 않는다. 안정성만으로 loss_certified=true를 만들지 않는다.

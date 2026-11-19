@@ -1,0 +1,26 @@
+{
+  "checked_commit": "d7847d56cf379c308d4cc8f3dedaa6ef329773be",
+  "run_id": 44448892983,
+  "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/44448892983",
+  "conclusion": "success",
+  "python_tests": 83,
+  "json_presets": 25,
+  "browser_check": {
+    "scope": "isolated research panel, not whole-app browser regression",
+    "preset_count": 25,
+    "actual_python_mesh_import": "현재 입력과 일치. 삼각형 6000/15047개 표시. 경계는 전체 표시. 모드·손실 수렴 인증이 아닙니다.",
+    "stale_result_hidden": true,
+    "new_panel_mobile_overflow": false,
+    "page_errors": []
+  },
+  "whole_app_gui_regression": {
+    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/44448484518",
+    "conclusion": "success"
+  },
+  "hcf_fullvector_presets": {
+    "run_url": "https://github.com/kimheeseo/LSCNS/actions/runs/44448484505",
+    "conclusion": "success"
+  },
+  "whole_app_web_smoke": "still_running_at_report_update",
+  "optical_accuracy_certified": false
+}

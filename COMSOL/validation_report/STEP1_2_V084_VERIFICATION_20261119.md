@@ -22,7 +22,7 @@ Python 3.12.14, numpy 2.3.5, scipy 1.17.0, gmsh 4.15.2, scikit-fem 12.0.2, jsons
 | 전기/광학 물성 추정 금지 | 유지 | Ge/F 조성 계수 TODO, 기존 상수·예시값에 출처/한계 표시 |
 | 새 웹 JSON import 검사 | Node 2/2 PASS, syntax PASS | 비유한 좌표/경계 누락·입력 비교 |
 | 로컬 브라우저 화면 통합 | 미완료 | Chromium 실행이 socket 권한 제한으로 중단됨. 실행 성공으로 표기하지 않음 |
-| GitHub 브라우저 통합 | 별도 CI에서 실행 | 실제 Python mesh_preview import·입력 변경 무효화·390px 패널 검사 스크립트 포함 |
+| GitHub 브라우저 통합 | **PASS (CI 실제 실행)** | 실제 Python mesh_preview import·입력 변경 무효화·390px 패널 검사 스크립트 포함 |
 | 광학 모드/손실 수렴 | **미검증** | 본 단계는 기하/메시. neff/Im(neff) 인증 안 함 |
 
 ## 실제 3단계 기하 refinement
@@ -44,3 +44,9 @@ Python 3.12.14, numpy 2.3.5, scipy 1.17.0, gmsh 4.15.2, scikit-fem 12.0.2, jsons
     python cli.py mesh-study benchmarks/step12_bragg_mesh_input.json --out out_mesh_study
 
 웹 패널 검사 명령과 fixture 요구사항은 web/tests/browser_research_design_mesh_v084.cjs를 참고한다. 이번 보고서에 없는 COMSOL 오차·HCF dB/km·Panda modal B의 PASS는 주장하지 않는다.
+
+## GitHub CI 최종 확인
+
+[검증 실행 #57 이후 수정본](https://github.com/kimheeseo/LSCNS/actions/runs/44448892983): **전체 성공**. Python 3.11 환경의 83개 테스트·25개 JSON·25개 실제 메시 생성·실제 Python 메시 가져오기·입력 변경 무효화·390px 신규 패널 검사를 통과했다. 브라우저 페이지 오류 0개, 신규 패널 가로 넘침 없음. [기존 COMSOL형 GUI 회귀](https://github.com/kimheeseo/LSCNS/actions/runs/44448484518)와 [HCF/Full-vector 프리셋 UI](https://github.com/kimheeseo/LSCNS/actions/runs/44448484505)도 통과했다. 범용 Web Smoke의 별도 실행은 보고서 갱신 시점에 진행 중이었다.
+
+로컬 Chromium의 socket 제한은 GitHub 브라우저 실행으로 보완했다. 이 성공은 광학 손실·COMSOL 수치 정확도 인증과는 별개다. [기계 판독 요약](step12_v084/ci_summary.json).

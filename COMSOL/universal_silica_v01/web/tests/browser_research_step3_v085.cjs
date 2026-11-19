@@ -10,6 +10,8 @@ const fs=require('node:fs/promises');
   // Actual index and CSS: HCF/vector selector modes previously hid the research panel.
   await page.goto(new URL('COMSOL/universal_silica_v01/web/#research-step3-v085',base).href);
   await page.waitForFunction(()=>document.querySelectorAll('#rf-preset option').length===25);
+  const wizard=page.locator('#ls-startup-wizard');
+  if(await wizard.isVisible()){await wizard.locator('[data-wizard="cancel"]').click();await wizard.waitFor({state:'hidden'});}
   await page.waitForFunction(()=>document.querySelectorAll('#rf-step3-table tr').length===3);
   for(const mode of ['hcf-selection','vector-selection']){
     await page.evaluate(m=>document.body.classList.add(m),mode);

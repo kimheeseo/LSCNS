@@ -93,7 +93,12 @@ jobs:
       - name: Install isolated browser test runtime
         run: |
           npm install --prefix /tmp/ls-step12-browser playwright
-          /tmp/ls-step12-browser/node_modules/.bin/playwright install --with-deps chromium
+          ls_research_browser=$(command -v google-chrome || command -v chromium || true)
+          if [ -n "$ls_research_browser" ]; then
+            printf 'CHROMIUM_PATH=%s\n' "$ls_research_browser" >> "$GITHUB_ENV"
+          else
+            /tmp/ls-step12-browser/node_modules/.bin/playwright install --with-deps chromium
+          fi
       - name: Verify mesh import, stale-result handling and mobile panel
         run: |
           python3 -m http.server 8769 --bind 127.0.0.1 >/tmp/ls-step12-http.log 2>&1 &

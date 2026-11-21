@@ -24,3 +24,10 @@ STEP8은 소프트웨어 구조·실행·UI 개선이다. **STEP7 전체 물리 
 [CI 결과·실행 링크](step8_v0810/ci_summary.json) · [실제 브라우저](step8_v0810/browser_check.json) · [모드/스윕/Bloch 계약 확인](step8_v0810/cli_contract_checks.json) · [Python 로그](step8_v0810/python_tests.txt).
 
 STEP7 물리 판정은 V1/V4/V5/V8/V9 PASS, V2/V3/V6 근거 필요, V7 FAIL, all_required_passed=false로 유지한다. 소프트웨어 작업 결과를 전체 물리 검증 완료로 표시하지 않는다.
+
+
+## 2026-11-21 후속 물리 검증
+
+[1단계 원자료·정규화](PHYSICS_STAGE1_20261121.md) · [2단계 V7 후보·branch](PHYSICS_STAGE2_20261121.md) · [3단계 V6 식별·수렴](PHYSICS_STAGE3_20261121.md) · [4단계 gate 재평가](PHYSICS_STAGE4_20261121.md) · [최신 기계 판정](PHYSICS_GATE_20261121.json).
+
+후속 계산에서도 V2/V3/V6=NEEDS_EVIDENCE, V7=FAIL, all_required_passed=false이다. 1800 nm PCF FM 후보 회복과 추가 수렴 자료를 보존했지만 물리 PASS로 승격하지 않았다. 이 문서의 2026-11-20 테스트/CI 수치는 역사적 기록이며 최신 실행 검증은 4단계 보고서를 참조한다.

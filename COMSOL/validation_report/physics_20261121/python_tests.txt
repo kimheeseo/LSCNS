@@ -1,0 +1,190 @@
+test_baseline_hash_and_missing_items_fail_closed (test_physics_gate.PhysicsGate.test_baseline_hash_and_missing_items_fail_closed) ... ok
+test_bend_package_requires_consistent_raw_normalization (test_physics_gate.PhysicsGate.test_bend_package_requires_consistent_raw_normalization) ... ok
+test_bent_raw_radius_contract (test_physics_gate.PhysicsGate.test_bent_raw_radius_contract) ... ok
+test_complete_synthetic_package_evaluates_and_missing_artifact_blocks (test_physics_gate.PhysicsGate.test_complete_synthetic_package_evaluates_and_missing_artifact_blocks) ... ok
+test_convergence_cannot_hide_coupled_input_changes (test_physics_gate.PhysicsGate.test_convergence_cannot_hide_coupled_input_changes) ... ok
+test_declared_identity_cannot_override_wrong_actual_field (test_physics_gate.PhysicsGate.test_declared_identity_cannot_override_wrong_actual_field) ... ok
+test_null_tolerance_sign_or_field_mapping_never_passes (test_physics_gate.PhysicsGate.test_null_tolerance_sign_or_field_mapping_never_passes) ... ok
+test_residual_or_single_level_not_convergence (test_physics_gate.PhysicsGate.test_residual_or_single_level_not_convergence) ... ok
+test_sha_tampering_rejected (test_physics_gate.PhysicsGate.test_sha_tampering_rejected) ... ok
+test_v6_computes_reference_error_instead_of_trusting_declared_zero (test_physics_gate.PhysicsGate.test_v6_computes_reference_error_instead_of_trusting_declared_zero) ... ok
+test_v7_raw_refinement_and_branch_gap_gate (test_physics_gate.PhysicsGate.test_v7_raw_refinement_and_branch_gap_gate) ... ok
+test_cached_actual_inputs_and_probes_are_required (test_physics_modal.ModalEvidence.test_cached_actual_inputs_and_probes_are_required) ... new target 0.99 COMPUTED core candidates 2
+ok
+test_endpoint_or_invalid_spectrum_never_passes (test_physics_modal.ModalEvidence.test_endpoint_or_invalid_spectrum_never_passes) ... ok
+test_field_bundle_is_lossless_and_hash_checked (test_physics_modal.ModalEvidence.test_field_bundle_is_lossless_and_hash_checked) ... ok
+test_missing_branch_never_interpolated_to_peak (test_physics_modal.ModalEvidence.test_missing_branch_never_interpolated_to_peak) ... ok
+test_polarization_rotation_and_order_do_not_break_subspace (test_physics_modal.ModalEvidence.test_polarization_rotation_and_order_do_not_break_subspace) ... ok
+test_same_neff_wrong_spatial_branch_is_rejected (test_physics_modal.ModalEvidence.test_same_neff_wrong_spatial_branch_is_rejected) ... ok
+test_geometry_and_power_radius_are_distinct (test_physics_reference.BendReference.test_geometry_and_power_radius_are_distinct) ... ok
+test_missing_normalization_is_rejected_and_sign_is_preserved (test_physics_reference.BendReference.test_missing_normalization_is_rejected_and_sign_is_preserved) ... ok
+test_raw_eigenvalue_conversion (test_physics_reference.BendReference.test_raw_eigenvalue_conversion) ... ok
+test_field_family_projection_does_not_certify_hom (test_physics_v6.ConvergenceEvidence.test_field_family_projection_does_not_certify_hom) ... ok
+test_small_residual_is_not_convergence (test_physics_v6.ConvergenceEvidence.test_small_residual_is_not_convergence) ... ok
+test_two_final_changes_and_finite_data_required (test_physics_v6.ConvergenceEvidence.test_two_final_changes_and_finite_data_required) ... ok
+test_all_25_presets (test_schema.DesignTests.test_all_25_presets) ... ok
+test_bad_version_and_nonfinite (test_schema.DesignTests.test_bad_version_and_nonfinite) ... ok
+test_pml_and_mcf_overlap (test_schema.DesignTests.test_pml_and_mcf_overlap) ... ok
+test_ring_layout (test_schema.DesignTests.test_ring_layout) ... ok
+test_round_trip (test_schema.DesignTests.test_round_trip) ... ok
+test_silica_ref (test_schema.DesignTests.test_silica_ref) ... ok
+test_unknown_sellmeier_guard (test_schema.DesignTests.test_unknown_sellmeier_guard) ... ok
+test_bragg_actual_through_wall_resolution_and_analytic_area (test_step12_design_mesh.ActualMesh.test_bragg_actual_through_wall_resolution_and_analytic_area) ... ok
+test_ellipse_y_major_axis_and_area (test_step12_design_mesh.ActualMesh.test_ellipse_y_major_axis_and_area) ... ok
+test_pml_area_labels_and_whole_domain_resolution (test_step12_design_mesh.ActualMesh.test_pml_area_labels_and_whole_domain_resolution) ... ok
+test_three_actual_distinct_meshes_without_optical_claim (test_step12_design_mesh.ActualMesh.test_three_actual_distinct_meshes_without_optical_claim) ... ok
+test_all_families_roundtrip_and_json_schema (test_step12_design_mesh.DesignContract.test_all_families_roundtrip_and_json_schema) ... ok
+test_approximations_are_not_certificates (test_step12_design_mesh.DesignContract.test_approximations_are_not_certificates) ... ok
+test_cannot_clip_cladding_holes (test_step12_design_mesh.DesignContract.test_cannot_clip_cladding_holes) ... ok
+test_defect_and_ellipse_constraints (test_step12_design_mesh.DesignContract.test_defect_and_ellipse_constraints) ... ok
+test_nested_tube_and_missing_material (test_step12_design_mesh.DesignContract.test_nested_tube_and_missing_material) ... ok
+test_rejects_string_boolean_and_bad_optional_numbers (test_step12_design_mesh.DesignContract.test_rejects_string_boolean_and_bad_optional_numbers) ... ok
+test_ring_mcf_uses_adjacent_chord_not_ring_radius (test_step12_design_mesh.DesignContract.test_ring_mcf_uses_adjacent_chord_not_ring_radius) ... ok
+test_schema_rejects_incomplete_nested_objects (test_step12_design_mesh.DesignContract.test_schema_rejects_incomplete_nested_objects) ... ok
+test_trench_overlap_and_pm_outer_extent (test_step12_design_mesh.DesignContract.test_trench_overlap_and_pm_outer_extent) ... ok
+test_high_index_target_comes_from_material (test_step12_design_mesh.GeometricMeasurements.test_high_index_target_comes_from_material) ... ok
+test_segment_clipping_independent_square (test_step12_design_mesh.GeometricMeasurements.test_segment_clipping_independent_square) ... ok
+test_wall_measurement_detects_coarse_annulus (test_step12_design_mesh.GeometricMeasurements.test_wall_measurement_detects_coarse_annulus) ... ok
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+test_budget_and_nonfinite_mesh_are_rejected (test_step3_vector.ActualVectorChecks.test_budget_and_nonfinite_mesh_are_rejected) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_companion_and_beta_squared_are_equivalent_on_identical_mesh (test_step3_vector.ActualVectorChecks.test_companion_and_beta_squared_are_equivalent_on_identical_mesh) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_nonzero_tiny_absorption_is_not_rounded_to_a_real_pencil (test_step3_vector.ActualVectorChecks.test_nonzero_tiny_absorption_is_not_rounded_to_a_real_pencil) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_pml_h_field_uses_transformed_inverse_mu (test_step3_vector.ActualVectorChecks.test_pml_h_field_uses_transformed_inverse_mu) ... ok
+test_sbc_uses_requested_target_and_can_iterate (test_step3_vector.ActualVectorChecks.test_sbc_uses_requested_target_and_can_iterate) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_two_guided_modes_neff_gauss_and_6_components (test_step3_vector.ActualVectorChecks.test_two_guided_modes_neff_gauss_and_6_components) ... ok
+test_degenerate_independent_modes_are_kept_and_phase_duplicate_removed (test_step3_vector.AlgebraAndContract.test_degenerate_independent_modes_are_kept_and_phase_duplicate_removed) ... ok
+test_disk_probe_area_and_core_radial_break (test_step3_vector.AlgebraAndContract.test_disk_probe_area_and_core_radial_break) ... ok
+test_exact_references_have_small_characteristic_residuals (test_step3_vector.AlgebraAndContract.test_exact_references_have_small_characteristic_residuals) ... ok
+test_no_loss_certification_from_zero_or_sign_unstable_imaginary_part (test_step3_vector.AlgebraAndContract.test_no_loss_certification_from_zero_or_sign_unstable_imaginary_part) ... ok
+test_opposite_imaginary_parts_cannot_cancel_in_a_pair_average (test_step3_vector.AlgebraAndContract.test_opposite_imaginary_parts_cannot_cancel_in_a_pair_average) ... ok
+test_rotated_complex_degenerate_basis_tracks_as_subspace (test_step3_vector.AlgebraAndContract.test_rotated_complex_degenerate_basis_tracks_as_subspace) ... ok
+test_solver_options_reject_unsupported_and_nonfinite (test_step3_vector.AlgebraAndContract.test_solver_options_reject_unsupported_and_nonfinite) ... ok
+test_trace_digest_changes_with_physical_and_numerical_inputs (test_step3_vector.AlgebraAndContract.test_trace_digest_changes_with_physical_and_numerical_inputs) ... ok
+test_no_glass_n2_without_values (test_step4_cli.CliTests.test_no_glass_n2_without_values) ... ok
+test_reject_inconsistent_geometry_or_missing_full_field (test_step4_cli.CliTests.test_reject_inconsistent_geometry_or_missing_full_field) ... ok
+test_result_physics_status_and_optional_n2 (test_step4_cli.CliTests.test_result_physics_status_and_optional_n2) ... ok
+test_sweep_tracks_permuted_order (test_step4_cli.CliTests.test_sweep_tracks_permuted_order) ... ok
+test_aeff_and_mfd_gaussian (test_step4_physical_metrics.Step4FormulaTests.test_aeff_and_mfd_gaussian) ... ok
+test_anticrossing_candidate_requires_physics (test_step4_physical_metrics.Step4FormulaTests.test_anticrossing_candidate_requires_physics) ... ok
+test_arrow_units_and_overlay_no_synthetic_fem (test_step4_physical_metrics.Step4FormulaTests.test_arrow_units_and_overlay_no_synthetic_fem) ... ok
+test_birefringence_beats_and_spacing (test_step4_physical_metrics.Step4FormulaTests.test_birefringence_beats_and_spacing) ... ok
+test_dB_m_km_and_negative_sign (test_step4_physical_metrics.Step4FormulaTests.test_dB_m_km_and_negative_sign) ... ok
+test_dispersion_quadratic_units_slope (test_step4_physical_metrics.Step4FormulaTests.test_dispersion_quadratic_units_slope) ... ok
+test_gamma_units_and_missing_n2 (test_step4_physical_metrics.Step4FormulaTests.test_gamma_units_and_missing_n2) ... ok
+test_glass_n2_quartic_proxy_with_user_values (test_step4_physical_metrics.Step4FormulaTests.test_glass_n2_quartic_proxy_with_user_values) ... ok
+test_homer_verified_and_unverified (test_step4_physical_metrics.Step4FormulaTests.test_homer_verified_and_unverified) ... ok
+test_mask_does_not_count_pml (test_step4_physical_metrics.Step4FormulaTests.test_mask_does_not_count_pml) ... ok
+test_overlap_swapped_modes_and_orthogonality (test_step4_physical_metrics.Step4FormulaTests.test_overlap_swapped_modes_and_orthogonality) ... ok
+test_petermann_radial (test_step4_physical_metrics.Step4FormulaTests.test_petermann_radial) ... ok
+test_poynting_fraction (test_step4_physical_metrics.Step4FormulaTests.test_poynting_fraction) ... ok
+test_reject_nan_and_bad_field (test_step4_physical_metrics.Step4FormulaTests.test_reject_nan_and_bad_field) ... ok
+test_version (test_step4_physical_metrics.Step4FormulaTests.test_version) ... ok
+test_zero_dispersion_in_sweep (test_step4_physical_metrics.Step4FormulaTests.test_zero_dispersion_in_sweep) ... ok
+test_arrow_implicit_missing_materials (test_step4_v086.Step4V086.test_arrow_implicit_missing_materials) ... ok
+test_display_samples_pml_rejected (test_step4_v086.Step4V086.test_display_samples_pml_rejected) ... ok
+test_exact_dispersion_slope_zero_and_flat (test_step4_v086.Step4V086.test_exact_dispersion_slope_zero_and_flat) ... ok
+test_explicit_polarization_and_homer_context (test_step4_v086.Step4V086.test_explicit_polarization_and_homer_context) ... ok
+test_gaussian_area_moments_and_si_power (test_step4_v086.Step4V086.test_gaussian_area_moments_and_si_power) ... ok
+test_loss_units_signed_absorption (test_step4_v086.Step4V086.test_loss_units_signed_absorption) ... ok
+test_missing_nonlinear_source_is_not_silently_filled (test_step4_v086.Step4V086.test_missing_nonlinear_source_is_not_silently_filled) ... ok
+test_parameter_sweep_no_fake_dispersion (test_step4_v086.Step4V086.test_parameter_sweep_no_fake_dispersion) ... ok
+test_permutations_and_rotated_degenerate_subspaces (test_step4_v086.Step4V086.test_permutations_and_rotated_degenerate_subspaces) ... ok
+test_quartic_n2_and_radial_pii (test_step4_v086.Step4V086.test_quartic_n2_and_radial_pii) ... ok
+test_surface_avoided_crossing_requires_field_exchange (test_step4_v086.Step4V086.test_surface_avoided_crossing_requires_field_exchange) ... ok
+test_topology_and_mesh_change_blocked (test_step4_v086.Step4V086.test_topology_and_mesh_change_blocked) ... ok
+test_beta_normalization_and_light_lines (test_step5_bloch.Step5BlochTests.test_beta_normalization_and_light_lines) ... ok
+test_handoff_requires_computed_candidate_and_triangular (test_step5_bloch.Step5BlochTests.test_handoff_requires_computed_candidate_and_triangular) ... ok
+test_hermitian_periodic_oblique (test_step5_bloch.Step5BlochTests.test_hermitian_periodic_oblique) ... ok
+test_homogeneous_bloch_phase_analytic (test_step5_bloch.Step5BlochTests.test_homogeneous_bloch_phase_analytic) ... ok
+test_homogeneous_gamma_analytic (test_step5_bloch.Step5BlochTests.test_homogeneous_gamma_analytic) ... ok
+test_mask_4_lattices (test_step5_bloch.Step5BlochTests.test_mask_4_lattices) ... ok
+test_motif_separation (test_step5_bloch.Step5BlochTests.test_motif_separation) ... ok
+test_overlapping_honeycomb_rejected (test_step5_bloch.Step5BlochTests.test_overlapping_honeycomb_rejected) ... ok
+test_unit_cell_primitive_area (test_step5_bloch.Step5BlochTests.test_unit_cell_primitive_area) ... ok
+test_bloch_boundary_phase_and_hermiticity (test_step5_vector_pwe.VectorPWE.test_bloch_boundary_phase_and_hermiticity) ... ok
+test_independent_real_space_te_tm_reference (test_step5_vector_pwe.VectorPWE.test_independent_real_space_te_tm_reference) ... ok
+test_inverse_epsilon_fourier_against_independent_area_sum (test_step5_vector_pwe.VectorPWE.test_inverse_epsilon_fourier_against_independent_area_sum) ... ok
+test_nested_variational_cutoff (test_step5_vector_pwe.VectorPWE.test_nested_variational_cutoff) ... ok
+test_nonoverlap_and_resource_validation (test_step5_vector_pwe.VectorPWE.test_nonoverlap_and_resource_validation) ... ok
+test_real_result_schema_gap_and_handoff_target (test_step5_vector_pwe.VectorPWE.test_real_result_schema_gap_and_handoff_target) ... ok
+test_uniform_folded_double_polarization_all_lattices (test_step5_vector_pwe.VectorPWE.test_uniform_folded_double_polarization_all_lattices) ... ok
+test_gaussian_angle_and_gap (test_step6_v088.Step6.test_gaussian_angle_and_gap) ... ok
+test_gaussian_size_offset_polarization_fresnel (test_step6_v088.Step6.test_gaussian_size_offset_polarization_fresnel) ... ok
+test_pareto_failures_constraints_resume_saved_design (test_step6_v088.Step6.test_pareto_failures_constraints_resume_saved_design) ... ok
+test_pcf_no_fake_fem_pass (test_step6_v088.Step6.test_pcf_no_fake_fem_pass) ... ok
+test_rotated_degenerate_subspace_and_wrong_pm_pair (test_step6_v088.Step6.test_rotated_degenerate_subspace_and_wrong_pm_pair) ... ok
+test_shifted_aperture_not_renormalized (test_step6_v088.Step6.test_shifted_aperture_not_renormalized) ... ok
+test_signed_birefringence_dgd_identity (test_step6_v088.Step6.test_signed_birefringence_dgd_identity) ... ok
+test_splice_rejects_invalid_inputs (test_step6_v088.Step6.test_splice_rejects_invalid_inputs) ... ok
+test_conformal_tensor_epsilon_square (test_step6a_bending.TestBendFormula.test_conformal_tensor_epsilon_square) ... ok
+test_conformal_units_zero_and_direction (test_step6a_bending.TestBendFormula.test_conformal_units_zero_and_direction) ... ok
+test_input_hash_detects_radius_angle_source_changes (test_step6a_bending.TestBendFormula.test_input_hash_detects_radius_angle_source_changes) ... ok
+test_no_fabricated_loss_after_overlap_mismatch (test_step6a_bending.TestBendFormula.test_no_fabricated_loss_after_overlap_mismatch) ... ok
+test_per_turn_physical_R_and_signed (test_step6a_bending.TestBendFormula.test_per_turn_physical_R_and_signed) ... ok
+test_radius_edge_and_invalid (test_step6a_bending.TestBendFormula.test_radius_edge_and_invalid) ... ok
+test_reference_is_not_unjustified_comsol_numeric (test_step6a_bending.TestBendFormula.test_reference_is_not_unjustified_comsol_numeric) ... ok
+test_requires_pml_and_no_duplicate_radius (test_step6a_bending.TestBendFormula.test_requires_pml_and_no_duplicate_radius) ... ok
+test_roundtrip_direction_and_ratio (test_step6a_bending.TestBendFormula.test_roundtrip_direction_and_ratio) ... ok
+test_stress_literature_is_explicit (test_step6a_bending.TestBendFormula.test_stress_literature_is_explicit) ... ok
+test_sweep_mode_swap_and_direction (test_step6a_bending.TestBendFormula.test_sweep_mode_swap_and_direction) ... ok
+test_version (test_step6a_bending.TestBendFormula.test_version) ... ok
+test_engine (test_step6b_stress_optic.TestStep6b.test_engine) ... ok
+test_homogeneous_free_generalized_plane_strain_zero_stress (test_step6b_stress_optic.TestStep6b.test_homogeneous_free_generalized_plane_strain_zero_stress) ... ok
+test_input_change_hash_invalidation (test_step6b_stress_optic.TestStep6b.test_input_change_hash_invalidation) ... ok
+test_isotropic_strain_optic_sign_and_shear (test_step6b_stress_optic.TestStep6b.test_isotropic_strain_optic_sign_and_shear) ... ok
+test_material_mismatch_changes_mechanics (test_step6b_stress_optic.TestStep6b.test_material_mismatch_changes_mechanics) ... ok
+test_missing_mechanical_value_rejected (test_step6b_stress_optic.TestStep6b.test_missing_mechanical_value_rejected) ... ok
+test_missing_mechanics_source_rejected (test_step6b_stress_optic.TestStep6b.test_missing_mechanics_source_rejected) ... ok
+test_missing_photo_source_rejected (test_step6b_stress_optic.TestStep6b.test_missing_photo_source_rejected) ... ok
+test_missing_photoelastic_coeffs_gives_todo (test_step6b_stress_optic.TestStep6b.test_missing_photoelastic_coeffs_gives_todo) ... ok
+test_no_unsupported_panda_without_rod_label (test_step6b_stress_optic.TestStep6b.test_no_unsupported_panda_without_rod_label) ... ok
+test_pml_excluded (test_step6b_stress_optic.TestStep6b.test_pml_excluded) ... ok
+test_schema_requires_separate_rod_material (test_step6b_stress_optic.TestStep6b.test_schema_requires_separate_rod_material) ... ok
+test_zero_temperature (test_step6b_stress_optic.TestStep6b.test_zero_temperature) ... ok
+test_actual_panda_stress_rod_and_vector_eigen_candidate (test_step6b_vector_smoke.Step6bSmoke.test_actual_panda_stress_rod_and_vector_eigen_candidate) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_analytic_anisotropic_epsilon_addition_and_straight_unaffected (test_step6b_vector_smoke.Step6bSmoke.test_analytic_anisotropic_epsilon_addition_and_straight_unaffected) ... ok
+test_pair_labeled_todo_on_missing_both_polarizations (test_step6b_vector_smoke.Step6bSmoke.test_pair_labeled_todo_on_missing_both_polarizations) ... ok
+test_actual_vector_JSON_conversion_keeps_mode_order_explicit (test_step7_v089.Validation7.test_actual_vector_JSON_conversion_keeps_mode_order_explicit) ... ok
+test_analytic_reference_not_substituted_for_missing_geometry (test_step7_v089.Validation7.test_analytic_reference_not_substituted_for_missing_geometry) ... ok
+test_complex_exponents_pure_imaginary_and_parentheses (test_step7_v089.Validation7.test_complex_exponents_pure_imaginary_and_parentheses) ... ok
+test_comsol_comments_D_exponents_um_and_sign (test_step7_v089.Validation7.test_comsol_comments_D_exponents_um_and_sign) ... ok
+test_duplicate_and_invalid_values_rejected (test_step7_v089.Validation7.test_duplicate_and_invalid_values_rejected) ... ok
+test_missing_and_ambiguous_rows_never_pass (test_step7_v089.Validation7.test_missing_and_ambiguous_rows_never_pass) ... ok
+test_missing_sign_unit_identity_and_imag_cannot_be_guessed (test_step7_v089.Validation7.test_missing_sign_unit_identity_and_imag_cannot_be_guessed) ... ok
+test_single_column_row_mapping_requires_confirmation (test_step7_v089.Validation7.test_single_column_row_mapping_requires_confirmation) ... ok
+test_units_independent_identities (test_step7_v089.Validation7.test_units_independent_identities) ... ok
+test_zero_reference_imag_uses_absolute_tolerance (test_step7_v089.Validation7.test_zero_reference_imag_uses_absolute_tolerance) ... ok
+test_actual_computed_example_contract_and_integration_scope (test_step8_v0810.Structure8.test_actual_computed_example_contract_and_integration_scope) ... ok
+test_legacy_formula_wrappers_preserve_units_and_sign (test_step8_v0810.Structure8.test_legacy_formula_wrappers_preserve_units_and_sign) ... ok
+test_material_facade_keeps_explicit_legacy_air_assumption (test_step8_v0810.Structure8.test_material_facade_keeps_explicit_legacy_air_assumption) ... ok
+test_missing_and_modified_hash_never_pass (test_step8_v0810.Structure8.test_missing_and_modified_hash_never_pass) ... ok
+test_run_options_are_part_of_manifest_hash (test_step8_v0810.Structure8.test_run_options_are_part_of_manifest_hash) ... ok
+test_unicode_numeric_serialization_provenance_and_tamper (test_step8_v0810.Structure8.test_unicode_numeric_serialization_provenance_and_tamper) ... ok
+test_small_step_mesh (test_vector_smoke.NumericalSmoke.test_small_step_mesh) ... ok
+test_small_step_vector_candidate (test_vector_smoke.NumericalSmoke.test_small_step_vector_candidate) ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+test_step6a_bent_vector_candidate_smoke_only (test_vector_smoke.NumericalSmoke.test_step6a_bent_vector_candidate_smoke_only)
+Actual gmsh + skfem path, NEVER a COMSOL V3 or leakage loss PASS. ... Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+ok
+
+----------------------------------------------------------------------
+Ran 163 tests in 31.993s
+
+OK

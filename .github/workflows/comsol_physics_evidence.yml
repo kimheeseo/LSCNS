@@ -1,0 +1,52 @@
+name: COMSOL physical evidence gate
+on:
+  push:
+    paths:
+      - 'COMSOL/universal_silica_v01/fiber_research_v1/**'
+      - 'COMSOL/validation_report/physics_20261121/**'
+      - '.github/workflows/comsol_physics_evidence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y libglu1-mesa
+      - run: python -m pip install -r COMSOL/universal_silica_v01/fiber_research_v1/requirements.txt
+      - name: Evidence logic regression (synthetic fixtures, not physics PASS)
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: python -m unittest discover -s tests -p 'test_physics*.py' -v
+  physical-acceptance:
+    needs: evidence-integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r COMSOL/universal_silica_v01/fiber_research_v1/requirements.txt
+      - name: Strict physical gate (expected to remain red while evidence is missing)
+        working-directory: COMSOL/universal_silica_v01/fiber_research_v1
+        run: >-
+          python physics_gate.py
+          --evidence-root ../../validation_report/physics_20261121
+          --baseline ../../validation_report/step7_v089/validation.json
+          --out /tmp/comsol-physical-gate.json --require-all
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: physical-gate-result
+          path: /tmp/comsol-physical-gate.json

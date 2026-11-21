@@ -1,0 +1,12 @@
+test_cached_actual_inputs_and_probes_are_required (test_physics_modal.ModalEvidence.test_cached_actual_inputs_and_probes_are_required) ... new target 0.99 COMPUTED core candidates 2
+ok
+test_endpoint_or_invalid_spectrum_never_passes (test_physics_modal.ModalEvidence.test_endpoint_or_invalid_spectrum_never_passes) ... ok
+test_field_bundle_is_lossless_and_hash_checked (test_physics_modal.ModalEvidence.test_field_bundle_is_lossless_and_hash_checked) ... ok
+test_missing_branch_never_interpolated_to_peak (test_physics_modal.ModalEvidence.test_missing_branch_never_interpolated_to_peak) ... ok
+test_polarization_rotation_and_order_do_not_break_subspace (test_physics_modal.ModalEvidence.test_polarization_rotation_and_order_do_not_break_subspace) ... ok
+test_same_neff_wrong_spatial_branch_is_rejected (test_physics_modal.ModalEvidence.test_same_neff_wrong_spatial_branch_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
+
+OK

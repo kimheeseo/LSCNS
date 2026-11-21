@@ -27,3 +27,10 @@ V4/V5 원 데이터는 fresh STEP3 실제 재계산에서 가져왔으며 이전
 v0.8.9 검증 커밋 `3e2613616f06e51a8c124d64f95094977b77878a`의 software 9/9 성공 및 v0.8.10 후속 구조/UI 커밋의 software 10/10 성공을 확인했다. [STEP7 CI](step7_v089/ci_summary.json) · [STEP7 browser](step7_v089/browser_check.json) · [후속 STEP8 검증](STEP8_V0810_VERIFICATION_20261120.md). V2/V3/V6 근거 필요와 V7 FAIL은 그대로다.
 
 후속 STEP8 점검에서 문헌/합성 시험의 air 조건을 explicit n=1로 맞춰 FSM/ARF를 다시 계산했다. 기존 air 모델 n=1.00027은 호환성을 위해 유지하며 ambient unspecified로 표기한다. 이 수정으로 물리 gate를 자동 승격시키지 않았다. V7 screening 정책은 최소 부분공간 correlation 0.8, core-disk Et intensity fraction 0.25이며 독립 FM identity·mesh/PML·peak 검증을 대체하지 않는다.
+
+
+## 2026-11-21 후속 물리 검증
+
+[1단계 원자료·정규화](PHYSICS_STAGE1_20261121.md) · [2단계 V7 후보·branch](PHYSICS_STAGE2_20261121.md) · [3단계 V6 식별·수렴](PHYSICS_STAGE3_20261121.md) · [4단계 gate 재평가](PHYSICS_STAGE4_20261121.md) · [최신 기계 판정](PHYSICS_GATE_20261121.json).
+
+후속 계산에서도 V2/V3/V6=NEEDS_EVIDENCE, V7=FAIL, all_required_passed=false이다. 1800 nm PCF FM 후보 회복과 추가 수렴 자료를 보존했지만 물리 PASS로 승격하지 않았다. 이 문서의 2026-11-20 테스트/CI 수치는 역사적 기록이며 최신 실행 검증은 4단계 보고서를 참조한다.

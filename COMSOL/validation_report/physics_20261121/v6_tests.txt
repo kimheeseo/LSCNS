@@ -1,0 +1,8 @@
+test_field_family_projection_does_not_certify_hom (test_physics_v6.ConvergenceEvidence.test_field_family_projection_does_not_certify_hom) ... ok
+test_small_residual_is_not_convergence (test_physics_v6.ConvergenceEvidence.test_small_residual_is_not_convergence) ... ok
+test_two_final_changes_and_finite_data_required (test_physics_v6.ConvergenceEvidence.test_two_final_changes_and_finite_data_required) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

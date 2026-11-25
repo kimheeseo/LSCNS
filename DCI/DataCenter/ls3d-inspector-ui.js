@@ -110,7 +110,7 @@ function renderPart(){
  }
  partSelect.value=part?.id||'';
 }
-function setSelection(info){part=info?{...info}:null;contextAsset=info?.assetId||T.selected?.id||null;if(part&&![...partSelect.options].some(o=>o.value===part.id))renderPartOptions();renderPart();}
+function setSelection(info){part=info?{...info}:null;contextAsset=info?.assetId||T.selected?.id||null;if(part&&![...partSelect.options].some(o=>o.value===part.id))renderPartOptions();renderPart();window.DCVisualHQ?.selectPart(info);}
 function renderPartOptions(){
  const query=partSearch.value.trim().toLocaleLowerCase();
  const filtered=query?parts.filter(p=>([p.label,p.kind,p.description,p.parentAssembly,p.component].join(' ')).toLocaleLowerCase().includes(query)):parts;

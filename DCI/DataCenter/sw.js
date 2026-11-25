@@ -1,4 +1,4 @@
-const CACHE='dc-bom-pwa-20261118-evidence-v3';
+const CACHE='dc-bom-pwa-20261126-visual-hq-v1';
 const CORE=['./','./index.html','./manifest.webmanifest','./style.css','./app-install.js','./icons/dc-192.png','./icons/dc-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
@@ -11,6 +11,13 @@ self.addEventListener('fetch',event=>{
   if(req.method!=='GET') return;
   const url=new URL(req.url);
   if(url.origin!==self.location.origin) return;
+  if(url.pathname.includes('/assets/visual-hq/')&&url.pathname.endsWith('/manifest.json')){
+    event.respondWith(fetch(req,{cache:'no-cache'}).then(res=>{
+      if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}
+      return res;
+    }).catch(()=>caches.match(req)));
+    return;
+  }
   if(url.pathname.includes('/product_catalog/')){
     event.respondWith(fetch(req,{cache:'no-store'}).catch(()=>caches.match(req)));
     return;

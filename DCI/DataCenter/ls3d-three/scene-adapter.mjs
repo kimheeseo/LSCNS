@@ -24,6 +24,7 @@ import { createZoneSpecializations } from './zone-specializations.mjs?v=20261026
 import { createCampusMEPRoutes } from './campus-mep-routes.mjs?v=20261015-step17';
 import { createViewportPolicy, createCameraOcclusion, layoutSceneOverlays } from './scene-viewport-policy.mjs?v=20261115-server-storage-v6';
 import { createRackPanelDisclosure } from './rack-panel-disclosure.mjs?v=20261115-server-storage-v6';
+import { createVisualFinish } from './visual-finish.mjs?v=20261126-visual-hq-v1';
 
 // STEP 03: real Three.js scene graph, not 2D image planes.
 // All world coordinates, equipment identity and simulation states are owned by the v4.7 host.
@@ -33,19 +34,20 @@ export function createSceneAdapter(T, canvas) {
   renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.10;
+  renderer.toneMappingExposure = 1.06;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#d6d9db');
-  scene.fog = new THREE.Fog('#d6d9db', 150, 400);
+  scene.background = new THREE.Color('#081524');
+  scene.fog = new THREE.Fog('#081524', 150, 400);
+  const visualFinish=createVisualFinish(THREE,renderer,scene);
   const camera = new THREE.PerspectiveCamera(45, 1, 0.08, 1200);
   camera.up.set(0, 1, 0);
   const world = new THREE.Group(); scene.add(world);
   const zoneRoot = new THREE.Group(), assetRoot = new THREE.Group(), routeRoot = new THREE.Group(), peopleRoot = new THREE.Group();
   world.add(zoneRoot, assetRoot, routeRoot, peopleRoot);
-  const hemi = new THREE.HemisphereLight(0xf4f6f7, 0x777f85, 2.2); scene.add(hemi);
-  const sun = new THREE.DirectionalLight(0xffffff, 2.4);
+  const hemi = new THREE.HemisphereLight(0xdce5ee, 0x33465a, 1.8); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xfff4e8, 2.4);
   sun.position.set(-75, 130, 64);
   sun.castShadow = true;
   sun.shadow.mapSize.set(1024, 1024);
@@ -54,7 +56,8 @@ export function createSceneAdapter(T, canvas) {
   sun.shadow.camera.near = 1; sun.shadow.camera.far = 340;
   sun.shadow.bias = -0.00025;
   scene.add(sun, sun.target);
-  const cool = new THREE.DirectionalLight(0xdfe9f0, 1.2); cool.position.set(55, 35, -45); scene.add(cool);
+  const cool = new THREE.DirectionalLight(0xe1e9f2, .95); cool.position.set(55, 35, -45); scene.add(cool);
+  const warm = new THREE.DirectionalLight(0xffd6ac, .22); warm.position.set(-35, 18, 45); scene.add(warm);
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
   const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 1, 18);
   const materialCache = new Map();
@@ -80,7 +83,7 @@ export function createSceneAdapter(T, canvas) {
   function material(color, metal = 0.28, rough = 0.48, transparent = false) {
     const key = String(color) + '|' + metal + '|' + rough + '|' + transparent;
     if (!materialCache.has(key)) materialCache.set(key, new THREE.MeshStandardMaterial({
-      color, metalness: metal, roughness: rough, transparent, opacity: transparent ? 0.38 : 1,
+      color, ...visualFinish.materialOptions(metal,rough,transparent), transparent, opacity: transparent ? 0.38 : 1,
       side: transparent ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !transparent
     }));
     return materialCache.get(key);
@@ -1549,6 +1552,7 @@ export function createSceneAdapter(T, canvas) {
     registry.clear();
     for(const m of materialCache.values())m.dispose();
     materialCache.clear();boxGeometry.dispose();cylinderGeometry.dispose();
+    visualFinish.dispose();
     renderer.dispose();
   }
   return { render, pick, dispose, diagnostic, renderer, scene, camera, THREE, setRackXray,get rackXray(){return !!xray.active;}, get architecture(){return architecture.summary;}, get equipment(){return diagnostic.equipment;}, get npcAnimation(){return diagnostic.npcAnimation;},

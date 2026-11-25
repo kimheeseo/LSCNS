@@ -133,7 +133,7 @@ if (requested && T) {
         ]);}catch(_){/* Korean system fonts remain available as fallback. */}
         finally{clearTimeout(fontTimeout);}
       }
-      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261118-all-rack-components-v2');
+      const {createSceneAdapter}=await import('./scene-adapter.mjs?v=20261126-visual-hq-v1');
       const adapter=createSceneAdapter(T,canvas);
       status.adapter=adapter;
       status.status='ready';

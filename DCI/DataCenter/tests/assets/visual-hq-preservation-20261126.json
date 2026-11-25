@@ -1,0 +1,96 @@
+{
+  "baselineCommit": "0b9099d17d7011a97cf689279842d3f39cf7e2ed",
+  "protectedFiles": {
+    "engineering-v82.js": "38a1662936092edc781cb9dfe41d2eb4e1c1483e742d102c18a02c01db0d2dcb",
+    "calculation-definitions.js": "e4ac2fd6ffb9612e3d42285e3dbc4bad47082ce99c4591195637716e9dc57fa1",
+    "capacity-model.js": "2f57c03e59962186b8a622936530636a6681c1afed79d14a47e30b4c5463b199",
+    "fiber-capacity.js": "bd9c9d5141d6a22de3e670cb042effab2818d7cda913666313382b48da1aae3f",
+    "cable-power.js": "7f826c7f35667a9f9990c6cd3a0f639baf63ec6d3dd77bdefd392cc0124fc280",
+    "LS_Datacenter_3D_Failure_Timeline_Model.js": "6d30091eaa083ae3d4d98e2013496c221837af5d6443edb5fe923f7569c97048"
+  },
+  "scenarios": [
+    {
+      "input": {},
+      "sha256": "77096a7353f167658a4712b4158d23f674da1c297ea5007d881ad162d61b5838"
+    },
+    {
+      "input": {
+        "targetGPU": 256,
+        "systemId": "h200",
+        "topology": "dual"
+      },
+      "sha256": "061b29d4e45957d3d096b950533ba8ea618f38216b58e24bd2c5225876f23327"
+    },
+    {
+      "input": {
+        "targetGPU": 288,
+        "systemId": "gb200"
+      },
+      "sha256": "0a2e937bb70742ab8bd3d8580c09155f4f9d4e54a7fb7f890613ef802ab72c02"
+    },
+    {
+      "input": {
+        "targetGPU": 1024,
+        "systemId": "b300",
+        "coolingMode": "dlc"
+      },
+      "sha256": "ce098a2e7f7f98dee31254201efdeab70455eaac64c55bab7dc9e5a2e474e6db"
+    },
+    {
+      "input": {
+        "facilityEnabled": true,
+        "facilityRedundancy": "N"
+      },
+      "sha256": "975801a425aed91f12c4d6cad08145a9aa92c57af121261ef5cb5a1b2e64e57e"
+    },
+    {
+      "input": {
+        "facilityEnabled": true,
+        "facilityRedundancy": "N+1"
+      },
+      "sha256": "8f008314828407cbd3c0e12e7c7a789ca8dc169819dbe4f510996b818a31e9a3"
+    },
+    {
+      "input": {
+        "facilityEnabled": true,
+        "facilityRedundancy": "2N"
+      },
+      "sha256": "34b2bdb3e79f6b8465f588b56d9547c3cba3af3e0319eeb5f72a6ecb34a43eef"
+    },
+    {
+      "input": {
+        "storageEnabled": true,
+        "storageCapacityTb": 2000
+      },
+      "sha256": "44738ce50e5dffcf5e13a29a8787764305b9990f1c8d85929c5780608449839c"
+    },
+    {
+      "input": {
+        "serverDistanceM": 2,
+        "leafSpineDistanceM": 30
+      },
+      "sha256": "6de04c959c1ff010fc205f74aec7d9344498e59dbde488452be9c5a5e359fd7b"
+    },
+    {
+      "input": {
+        "serverDistanceM": 400,
+        "leafSpineDistanceM": 1500
+      },
+      "sha256": "5dbf6233acce9f949a0a64ccf857ebf81b7b772fd1c1f93eec1403c9d1eab011"
+    },
+    {
+      "input": {
+        "sparePct": 25,
+        "trunkFiberCount": 144
+      },
+      "sha256": "25d7a1dffc6e4c77d870f0784476c35479419b9c448f3b5b60fc8c29b849f25b"
+    },
+    {
+      "input": {
+        "scenario": "colo",
+        "tenantRacks": 20
+      },
+      "sha256": "0701db92800fcec66e0eff2c3c56a4a8ba0d6e0db618fa2fc6d6c3b82302d950"
+    }
+  ]
+}

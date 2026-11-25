@@ -10,7 +10,7 @@
   function fmt(v,unit){return Number.isFinite(Number(v))?Number(v).toLocaleString('en-US',{maximumFractionDigits:1})+' '+unit:'—';}
   function block(x,y,w,h,title,sub,side,state){
     var cls='pwrBlock '+(side?'side'+side:'')+' '+(state||'');
-    return '<g class="'+cls+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="12"/><text x="'+(x+w/2)+'" y="'+(y+27)+'" text-anchor="middle" class="pwrTitle">'+esc(title)+'</text><text x="'+(x+w/2)+'" y="'+(y+47)+'" text-anchor="middle" class="pwrSub">'+esc(sub)+'</text></g>';
+    return '<g class="'+cls+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="12"/>'+ (window.DCVisualHQ?.svgSlot('powerArchitectureSvg',title,x+w-15,y+3,10,10)||'') +'<text x="'+(x+w/2)+'" y="'+(y+27)+'" text-anchor="middle" class="pwrTitle">'+esc(title)+'</text><text x="'+(x+w/2)+'" y="'+(y+47)+'" text-anchor="middle" class="pwrSub">'+esc(sub)+'</text></g>';
   }
   function wire(x1,y1,x2,y2,side,active,dash){
     return '<path class="pwrWire side'+side+(active?' active':' muted')+(dash?' dashed':'')+'" d="M'+x1+' '+y1+' H'+((x1+x2)/2)+' V'+y2+' H'+x2+'"/>';

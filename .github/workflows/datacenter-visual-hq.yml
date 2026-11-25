@@ -1,0 +1,28 @@
+name: Datacenter visual HQ compatibility
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'DCI/DataCenter/visual-hq*'
+      - 'DCI/DataCenter/assets/visual-hq/**'
+      - 'DCI/DataCenter/ls3d-three/visual-finish*'
+      - 'DCI/DataCenter/ls3d-three/scene-adapter.mjs'
+      - 'DCI/DataCenter/app-v82.js'
+      - 'DCI/DataCenter/power-architecture.js'
+      - '.github/workflows/datacenter-visual-hq.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preserve-calculations-and-imagery:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate optional image manifest
+        run: node DCI/DataCenter/scripts/verify-visual-hq.cjs
+      - name: Verify calculations, image matching and rack controls
+        run: |
+          node --test DCI/DataCenter/tests/visual-hq-preservation.test.cjs DCI/DataCenter/tests/visual-hq.test.cjs DCI/DataCenter/ls3d-three/visual-finish.test.mjs DCI/DataCenter/ls3d-three/rack-hardware-detail.test.mjs DCI/DataCenter/tests/engineering-v82.test.cjs DCI/DataCenter/tests/calculation-validation.test.cjs DCI/DataCenter/tests/cable_power.test.cjs DCI/DataCenter/tests/fiber_capacity.test.cjs DCI/DataCenter/LS_Datacenter_3D_Failure_Timeline_Model.test.cjs

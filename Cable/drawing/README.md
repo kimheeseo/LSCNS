@@ -2,9 +2,11 @@
 
 2026-11-27 (KST). Three.js r128 기반 단일 HTML 교육 도구입니다.
 
-- [실행](https://kimheeseo.github.io/LSCNS/drawing/)
+- [실행](https://kimheeseo.github.io/LSCNS/Cable/drawing/)
 - [전체 HTML](index.html)
 - [회귀 검사](tests/verify.cjs)
+
+기존 `/LSCNS/drawing/` 주소는 새 `/LSCNS/Cable/drawing/` 주소로 자동 연결됩니다. 쿼리와 해시도 유지합니다.
 
 ## 세 가지 메뉴
 
@@ -85,7 +87,7 @@ OrbitControls는 포인터 이벤트로 직접 구현했습니다. 섬유 경로
 
 ```bash
 curl --fail -L https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js -o /tmp/drawing-three-r128.js
-node drawing/tests/verify.cjs /tmp/drawing-three-r128.js
+node Cable/drawing/tests/verify.cjs /tmp/drawing-three-r128.js
 ```
 
 **35/35 PASS (2026-11-27).** 기존 질량보존 500개 조건·경계·직경 보정·길이 적분·작업자 동작 외에 다음을 확인했습니다.

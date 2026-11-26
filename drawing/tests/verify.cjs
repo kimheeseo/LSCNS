@@ -13,16 +13,16 @@ class Element {
 }
 const elements=new Map(),el=id=>{if(!elements.has(id))elements.set(id,new Element(id));return elements.get(id);};
 for(const id of html.matchAll(/id="([^"]+)"/g))el(id[1]);
-const presets=['all','furnace','coating','capstan','spool'].map(v=>{const e=new Element();e.dataset.view=v;return e;});presets[0].classList.add('active');
+const presets=['crew','all','furnace','coating','capstan','spool'].map(v=>{const e=new Element();e.dataset.view=v;return e;});presets[1].classList.add('active');
 const panels=['controlsPanel','processPanel'].map(v=>{const e=new Element();e.dataset.panel=v;return e;});
-const stepCard=new Element(),document={hidden:false,documentElement:{dataset:{}},getElementById:el,createElement:()=>new Element(),querySelectorAll:s=>s==='.stage'?el('stageList').children:s==='[data-view]'?presets:s==='[data-panel]'?panels:[],querySelector:s=>s==='.step-card'?stepCard:presets[0],addEventListener(){}};
+const stepCard=new Element(),document={hidden:false,documentElement:{dataset:{}},getElementById:el,createElement:()=>new Element(),querySelectorAll:s=>s==='.stage'?el('stageList').children:s==='[data-view]'?presets:s==='[data-panel]'?panels:[],querySelector:s=>s==='.step-card'?stepCard:presets[1],addEventListener(){}};
 THREE.WebGLRenderer=class {constructor(){this.info={memory:{geometries:0},render:{calls:0}};}setPixelRatio(){}setSize(){}render(scene){const ids=new Set();scene.traverse(o=>{if(o.geometry)ids.add(o.geometry.uuid);});this.info.memory.geometries=ids.size;}};
 let frame,now=0;const window={THREE},sandbox={THREE,window,document,devicePixelRatio:1,matchMedia:()=>({matches:false}),ResizeObserver:class{observe(){}},performance:{now:()=>now},requestAnimationFrame:f=>{frame=f;},console};
 vm.runInNewContext(script,sandbox,{timeout:10000});const api=window.DrawingTower;assert.ok(api);let checks=0;
 function check(name,f){f();checks++;console.log('PASS '+name);}
 function input(id,value){el(id).value=String(value);el(id).listeners.input({target:el(id)});}
 function click(id){el(id).onclick();}
-function productionReset(){click('reset');click('skipDemo');}
+function productionReset(){click('reset');click('followCrew');click('skipDemo');}
 function tick(ms){now+=ms;frame(now);}
 check('시작 시 프리폼 대기 / 섬유 경로 없음 / 빈 보빈',()=>{const s=api.snapshot();assert.equal(s.demo,true);assert.equal(s.head,0);assert.equal(s.length,0);assert.equal(s.drawnIndices,0);assert.equal(s.neckVisible,false);assert.equal(s.woundVisible,false);assert.ok(s.feedY>34);});
 check('프리폼 하강 투입과 열연화 순서',()=>{const top=api.snapshot().feedY;tick(6000);assert.ok(api.snapshot().feedY<top-5);assert.equal(api.snapshot().head,0);assert.equal(api.snapshot().length,0);tick(2000);assert.equal(api.snapshot().neckVisible,true);assert.equal(api.snapshot().head,0);});
@@ -31,6 +31,11 @@ check('28초 경계 통과분만 권취 길이에 반영',()=>{tick(10000);const
 check('생산 길이에 따른 권취층 성장과 경로 접점 갱신',()=>{const r=api.snapshot().takeupRadius;tick(10000);assert.ok(api.snapshot().takeupRadius>r);});
 check('클릭 즉시 공정 설명창 / 이전·다음 / 닫기',()=>{el('stageList').children[4].onclick();assert.equal(el('processPopup').hidden,false);assert.match(el('popupTitle').textContent,/1차/);assert.match(el('popupFlow').textContent,/연질 수지/);click('popupNext');assert.match(el('popupTitle').textContent,/2차/);click('popupClose');assert.equal(el('processPopup').hidden,true);});
 check('시연 다시 시작 / 시연 중 일시정지 / 건너뛰기',()=>{click('startDemo');assert.equal(api.snapshot().head,0);assert.equal(api.snapshot().length,0);click('play');const t=api.snapshot().demoTime;tick(3000);assert.equal(api.snapshot().demoTime,t);click('skipDemo');assert.equal(api.snapshot().head,1);assert.equal(api.snapshot().length,0);assert.equal(api.snapshot().playing,false);});
+check('작업자가 프리폼 반입 후 피더 축에 정렬',()=>{click('startDemo');const a=api.snapshot();assert.equal(a.preformX,-3.4);assert.equal(a.crewVisible,true);assert.match(a.crewAction,/호이스트/);assert.ok(a.upperHandGap<.02);tick(3000);assert.ok(api.snapshot().preformX>-3.4);tick(3000);assert.equal(api.snapshot().preformX,0);});
+check('하부 작업자 실걸기 → 보빈 연결 → 조작반 복귀',()=>{tick(10000);assert.match(api.snapshot().crewAction,/실걸기/);tick(9000);assert.match(api.snapshot().crewAction,/보빈에 연결/);const x=api.snapshot().lowerWorkerX;tick(7000);assert.match(api.snapshot().crewAction,/조작반/);assert.ok(api.snapshot().lowerWorkerX<x);});
+check('작업자 표시와 따라보기 전환',()=>{click('showWorkers');assert.equal(api.snapshot().crewVisible,false);assert.equal(api.snapshot().followCrew,false);click('followCrew');assert.equal(api.snapshot().crewVisible,true);assert.equal(api.snapshot().followCrew,true);el('stageList').children[0].onclick();assert.equal(api.snapshot().followCrew,false);});
+check('작업자 라벨 클릭 시 역할 설명',()=>{el('labels').children[10].onclick();assert.match(el('popupDescription').textContent,/호이스트/);el('labels').children[11].onclick();assert.match(el('popupDescription').textContent,/실걸기와 보빈 연결/);});
+check('일시정지 중 작업자 위치 유지',()=>{click('startDemo');tick(2000);click('play');const a=api.snapshot();tick(5000);assert.equal(api.snapshot().upperWorkerX,a.upperWorkerX);assert.equal(api.snapshot().preformX,a.preformX);});
 productionReset();
 check('r128 / 공정 10단계',()=>{assert.equal(api.stages.length,10);assert.equal(el('stageList').children.length,10);assert.equal(el('crossStage').children.length,10);});
 check('기본 125 / 190 / 245 µm',()=>{const p=api.snapshot();assert.equal(p.df,125);assert.equal(p.primary,190);assert.equal(p.coated,245);assert.equal(p.tension,.2);});

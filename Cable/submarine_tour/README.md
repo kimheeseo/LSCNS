@@ -153,3 +153,10 @@ blender -b --python Cable/submarine_tour/tools/build_marine_models.py -- /absolu
 1. 단단 급전, PFE 절체, 케이블 지락 위치에 따른 전압 분포 비교
 2. 실제 승인된 항로·수심 데이터와 케이블 구조별 단면 프리셋
 3. SLTE·EDFA·광신호·OSNR·전력 예산을 연결하는 시스템 설계 학습 모드
+
+
+## v2.8 — shore-end graphics and campus transition (2026-11-27)
+- Monotone cubic camera interpolation across the campus; existing CLS door timing, design parameters and route fractions are retained. Added paved service approach.
+- Both BMHs have rectangular concrete cutaways, open inspection hatch, marine sleeve, joint housing, optical/DC/earth ducts; power and earth branches are hidden in unpowered mode. Illustrative dimensions, not an as-built layout.
+- 18 temporary shore-end floats with surface movement (separate from the operating signal/power route); yellow spiral identification bands on the two armored shore sections. Not a claim that all installed submarine cables use yellow bands.
+- Added structural and camera seam regression assertions; actual GPU/browser rendering needs separate verification.

@@ -166,3 +166,13 @@ blender -b --python Cable/submarine_tour/tools/build_marine_models.py -- /absolu
 - Automatic sequence: Donghae factory reference overview → Korean data center (server, router, passive ODF) → Korean CLS cutaway (SLTE, ODF, PFE in powered mode) → BMH and existing wet route → Japanese CLS cutaway → Japanese data center. Factory is not part of the actual optical circuit.
 - Automatic camera never walks into DC/CLS buildings; optional manual CLS door visit remains independent. Cable progress and power equations unchanged.
 - Revised regression assertions for factory-first order, outdoor camera, closed automatic doors, and independent manual door visit. JavaScript syntax checked; browser/GPU and full regression execution not performed in this session.
+
+
+## v3.0 — 2026-11-27 (partial graphics and performance upgrade)
+- Enhanced existing carousel, striped coils, payout animation and factory campus; no duplicate facility.
+- Closed DC and CLS roofs, translucent front facade, HVAC, rack components, DC component click descriptions, CTE/NMS and separately colored illustrative earth path.
+- Shared primitive geometry, instanced repeated details and coils in WebGL, preserved CPU fallback. Pointer move coalesced into animation frame; paused actor updates skipped. Five quality modes and Auto hysteresis; rolling frame timing/renderer statistics API.
+- Existing power equations, length, repeater logic and dry camera path retained. Existing manual CLS door visit remains available independently.
+- Validation: JavaScript syntax compilation and exact-source checks on four protected functions only. Regression test updated/added but not executed; real browser screenshots, FPS, GPU/CPU/mobile measurements, full feature regression, LOD/texture compression, damping and full tour ship-stop sequencing remain open. No performance target claimed. New assets are procedural Three.js, not Blender exports.
+
+Performance API: `SubmarineTour.performanceStats()`, `SubmarineTour.resetPerformance()`, `SubmarineTour.setQuality('auto')`. Sample a comparable scene and quality for at least 240 frames; values are rolling browser frame intervals, not GPU benchmark results. The CPU preview does not report actual WebGL draw/triangle/FPS metrics. The factory is a photo-inspired educational model.

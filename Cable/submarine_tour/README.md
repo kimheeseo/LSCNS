@@ -176,3 +176,8 @@ blender -b --python Cable/submarine_tour/tools/build_marine_models.py -- /absolu
 - Validation: JavaScript syntax compilation and exact-source checks on four protected functions only. Regression test updated/added but not executed; real browser screenshots, FPS, GPU/CPU/mobile measurements, full feature regression, LOD/texture compression, damping and full tour ship-stop sequencing remain open. No performance target claimed. New assets are procedural Three.js, not Blender exports.
 
 Performance API: `SubmarineTour.performanceStats()`, `SubmarineTour.resetPerformance()`, `SubmarineTour.setQuality('auto')`. Sample a comparable scene and quality for at least 240 frames; values are rolling browser frame intervals, not GPU benchmark results. The CPU preview does not report actual WebGL draw/triangle/FPS metrics. The factory is a photo-inspired educational model.
+
+## v3.0.1 — 2026-11-27
+- Separate automatic ship/carousel surface view and underwater ROV view using continuous camera blends; no route or power equation change.
+- Frame-based pointer damping; distance-based repeated-detail visibility, low-quality water geometry; CTE/NMS/power cabinet descriptions.
+- Corrected stale v2.9 UI-label assertion (baseline 49/50, one pre-existing mismatch). Actual Three.js r128 plus original test harness executed in a JavaScript isolate with Node APIs and renderer substituted: 54/54 checks pass. Baseline unique scene geometry objects 1,732; v3.0 test 553 (not GPU measurements). Browser/GPU, screenshots, real mobile and 60/30 FPS targets remain unverified. Texture atlas/compression and full environment map/postprocessing quality tiers are not implemented.

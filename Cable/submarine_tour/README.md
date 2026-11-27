@@ -160,3 +160,9 @@ blender -b --python Cable/submarine_tour/tools/build_marine_models.py -- /absolu
 - Both BMHs have rectangular concrete cutaways, open inspection hatch, marine sleeve, joint housing, optical/DC/earth ducts; power and earth branches are hidden in unpowered mode. Illustrative dimensions, not an as-built layout.
 - 18 temporary shore-end floats with surface movement (separate from the operating signal/power route); yellow spiral identification bands on the two armored shore sections. Not a claim that all installed submarine cables use yellow bands.
 - Added structural and camera seam regression assertions; actual GPU/browser rendering needs separate verification.
+
+
+## v2.9 — factory-first exterior observation (2026-11-27)
+- Automatic sequence: Donghae factory reference overview → Korean data center (server, router, passive ODF) → Korean CLS cutaway (SLTE, ODF, PFE in powered mode) → BMH and existing wet route → Japanese CLS cutaway → Japanese data center. Factory is not part of the actual optical circuit.
+- Automatic camera never walks into DC/CLS buildings; optional manual CLS door visit remains independent. Cable progress and power equations unchanged.
+- Revised regression assertions for factory-first order, outdoor camera, closed automatic doors, and independent manual door visit. JavaScript syntax checked; browser/GPU and full regression execution not performed in this session.

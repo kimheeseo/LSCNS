@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-28",
+  "version": "3.2.0",
+  "baseline_commit": "98098dba069695cea6b603c7f305e38c8595f5df",
+  "scope": "Actual Three.js r128 frustum/visibility and indexed scene geometry with substituted DOM/renderer; not measured GPU draw calls or FPS. Same medium tier, camera/progress and paused elapsed time.",
+  "quality": "medium",
+  "before": [
+    {
+      "journey": 0,
+      "batches": 842,
+      "triangles": 137248
+    },
+    {
+      "journey": 0.244,
+      "batches": 141,
+      "triangles": 119342
+    },
+    {
+      "journey": 0.4,
+      "batches": 968,
+      "triangles": 189486
+    },
+    {
+      "journey": 0.5,
+      "batches": 890,
+      "triangles": 181651
+    },
+    {
+      "journey": 0.75,
+      "batches": 99,
+      "triangles": 108108
+    },
+    {
+      "journey": 0.9,
+      "batches": 456,
+      "triangles": 95312
+    }
+  ],
+  "after": [
+    {
+      "journey": 0,
+      "batches": 840,
+      "triangles": 129808
+    },
+    {
+      "journey": 0.244,
+      "batches": 96,
+      "triangles": 107818
+    },
+    {
+      "journey": 0.4,
+      "batches": 281,
+      "triangles": 123927
+    },
+    {
+      "journey": 0.5,
+      "batches": 211,
+      "triangles": 121013
+    },
+    {
+      "journey": 0.75,
+      "batches": 56,
+      "triangles": 96192
+    },
+    {
+      "journey": 0.9,
+      "batches": 456,
+      "triangles": 88040
+    }
+  ],
+  "tests": {
+    "baseline": 56,
+    "after": 59,
+    "protected_functions_unchanged": [
+      "normalizeDesign",
+      "calculatePower",
+      "repeaterFractions",
+      "sampleRoute"
+    ],
+    "sleeve_centerline_max_allowed_error_scene_units": 0.003
+  },
+  "browser": {
+    "renderer": "CPU fallback (WebGL unavailable)",
+    "checked": [
+      "Auto default",
+      "start/pause/seek",
+      "BMH interior continuous joint",
+      "shore connection"
+    ],
+    "unverified": [
+      "real GPU FPS",
+      "mobile FPS",
+      "touch gestures on physical device"
+    ]
+  }
+}

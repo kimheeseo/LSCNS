@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.2.0 — 2026-11-28
+- Aligned both BMH marine sleeves and reinforcement rings to the exact shared cable curve; no route/control-point or power-equation changes.
+- Default Auto quality with conservative desktop/touch/CPU starting tiers and a Medium ceiling for automatic upgrades. Medium DPR cap 1, simpler water mesh, no Medium/Low or underwater real-time shadows.
+- Distance culling for reef/fish/details and distant underwater land facilities; idle redraw suppression with correct CPU-throttle retry and completed-render frame timing.
+- 59/59 r128 geometry/function regression checks passed. Both sleeve centerlines remain within 0.003 scene units of the cable route. Browser CPU-fallback inspection confirmed BMH interior/shore connection and controls; GPU/mobile FPS unverified. Scene-budget comparison and scope are in tests/performance-20261128.json.
+
 ## v3.0 — 2026-11-27 (partial graphics and performance upgrade)
 - Enhanced existing carousel, striped coils, payout animation and factory campus; no duplicate facility.
 - Closed DC and CLS roofs, translucent front facade, HVAC, rack components, DC component click descriptions, CTE/NMS and separately colored illustrative earth path.
